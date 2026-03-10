@@ -49,25 +49,27 @@ series_total: 9
   audience='DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
+
 ## 경영진 요약
 
 ### OT Security Scorecard
 
 | 평가 항목 | 현황 | 목표 | 중요도 |
 |---------|------|------|--------|
-| **OT 네트워크 분리** | 30% | 95% | 🔴 Critical |
-| **ICS 보안 표준 준수** (IEC 62443) | 40% | 90% | 🔴 Critical |
-| **DevSecOps 파이프라인** | 50% | 85% | 🟡 High |
-| **FinOps 가시성** | 60% | 95% | 🟡 High |
-| **Zero Trust 구현** | 35% | 80% | 🔴 Critical |
-| **SIEM/SOAR 통합** | 45% | 90% | 🟡 High |
+| OT 네트워크 분리 | 30% | 95% | 🔴 Critical |
+| ICS 보안 표준 준수 (IEC 62443) | 40% | 90% | 🔴 Critical |
+| DevSecOps 파이프라인 | 50% | 85% | 🟡 High |
+| FinOps 가시성 | 60% | 95% | 🟡 High |
+| Zero Trust 구현 | 35% | 80% | 🔴 Critical |
+| SIEM/SOAR 통합 | 45% | 90% | 🟡 High |
 
-**핵심 메시지 (경영진 보고용)**:
+핵심 메시지 (경영진 보고용):
 - OT/ICS 환경의 IT-OT 융합으로 사이버 공격 표면 급증
 - Purdue 모델 기반 네트워크 분리 + IEC 62443 표준 준수로 95% 위험 감소 가능
 - DevSecOps 파이프라인에 OT 보안 통합 시 탐지 시간 70% 단축
 - FinOps 실무 역량으로 클라우드 비용 30-40% 절감 실현
-- 실무형 인재 양성으로 **조직의 보안 성숙도를 Level 3 → Level 4로** 상향
+- 실무형 인재 양성으로 조직의 보안 성숙도를 Level 3 → Level 4로 상향
 
 ---
 
@@ -75,13 +77,13 @@ series_total: 9
 
 안녕하세요, Twodragon입니다. 클라우드 시큐리티 과정 8기가 곧 시작됩니다!
 
-클라우드 환경이 확산되면서 보안과 비용 최적화의 중요성이 더욱 부각되고 있습니다. **특히 OT(Operational Technology)/ICS(Industrial Control System) 환경의 IT-OT 융합**은 전례 없는 보안 도전 과제를 제시하고 있습니다. DevSecOps와 FinOps는 현대 클라우드 운영에서 필수적인 역량으로, 이번 과정을 통해 실무에 바로 적용 가능한 전문 지식을 습득할 수 있습니다.
+클라우드 환경이 확산되면서 보안과 비용 최적화의 중요성이 더욱 부각되고 있습니다. 특히 OT(Operational Technology)/ICS(Industrial Control System) 환경의 IT-OT 융합은 전례 없는 보안 도전 과제를 제시하고 있습니다. DevSecOps와 FinOps는 현대 클라우드 운영에서 필수적인 역량으로, 이번 과정을 통해 실무에 바로 적용 가능한 전문 지식을 습득할 수 있습니다.
 
 ### OT 보안이 중요한 이유
 
-2023년 Colonial Pipeline 랜섬웨어 공격, 2021년 Oldsmar 수처리 시설 침해 사고는 **OT 환경의 보안 취약성**이 국가 기반 시설과 국민 생활에 직접적인 영향을 미친다는 것을 증명했습니다. 한국에서도 산업안전보건법과 KISA 가이드라인을 통해 OT 보안 규제가 강화되고 있습니다.
+2023년 Colonial Pipeline 랜섬웨어 공격, 2021년 Oldsmar 수처리 시설 침해 사고는 OT 환경의 보안 취약성이 국가 기반 시설과 국민 생활에 직접적인 영향을 미친다는 것을 증명했습니다. 한국에서도 산업안전보건법과 KISA 가이드라인을 통해 OT 보안 규제가 강화되고 있습니다.
 
-이번 8기는 **'20분 강의 + 5분 휴식'**이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이 될 것입니다.
+이번 8기는 '20분 강의 + 5분 휴식'이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이 될 것입니다.
 
 <img src="{% raw %}{{ '/assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap_image.png' | relative_url }}{% endraw %}" alt="Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps" loading="lazy" class="post-image">
 
@@ -91,27 +93,27 @@ series_total: 9
 
 이번 클라우드 시큐리티 8기 과정을 통해 다음 역량을 습득할 수 있습니다:
 
-- **DevSecOps 실무 역량**: 보안을 개발 프로세스에 통합하는 실전 방법론
-- **FinOps 전문성**: 클라우드 비용 최적화 및 거버넌스 역량
-- **클라우드 보안 아키텍처**: AWS 기반 안전한 인프라 설계 및 운영
-- **실무 문제 해결**: 실제 업무에서 마주치는 보안 이슈 해결 능력
+- DevSecOps 실무 역량: 보안을 개발 프로세스에 통합하는 실전 방법론
+- FinOps 전문성: 클라우드 비용 최적화 및 거버넌스 역량
+- 클라우드 보안 아키텍처: AWS 기반 안전한 인프라 설계 및 운영
+- 실무 문제 해결: 실제 업무에서 마주치는 보안 이슈 해결 능력
 
 ### 1.2 대상자
 
 이 과정은 다음 분들에게 적합합니다:
 
-- **DevSecOps 엔지니어**: 보안 통합 개발 프로세스 구축을 원하는 분
-- **보안 엔지니어**: 클라우드 보안 전문성을 키우고 싶은 분
-- **클라우드 아키텍트**: 안전하고 효율적인 클라우드 아키텍처 설계를 원하는 분
-- **DevOps 엔지니어**: 보안 역량을 강화하고 싶은 분
-- **클라우드 관리자**: 비용 최적화와 보안을 동시에 고려해야 하는 분
+- DevSecOps 엔지니어: 보안 통합 개발 프로세스 구축을 원하는 분
+- 보안 엔지니어: 클라우드 보안 전문성을 키우고 싶은 분
+- 클라우드 아키텍트: 안전하고 효율적인 클라우드 아키텍처 설계를 원하는 분
+- DevOps 엔지니어: 보안 역량을 강화하고 싶은 분
+- 클라우드 관리자: 비용 최적화와 보안을 동시에 고려해야 하는 분
 
 ### 1.3 학습 방식
 
-- **온라인 미팅**: 실시간 화상 강의로 진행
-- **효율적 학습 루틴**: 20분 강의 + 5분 휴식 (뇌과학 기반 최적화)
-- **실무 중심**: 이론보다 실전 경험과 사례 중심
-- **상호작용**: 실무 고민 공유 및 Q&A 시간
+- 온라인 미팅: 실시간 화상 강의로 진행
+- 효율적 학습 루틴: 20분 강의 + 5분 휴식 (뇌과학 기반 최적화)
+- 실무 중심: 이론보다 실전 경험과 사례 중심
+- 상호작용: 실무 고민 공유 및 Q&A 시간
 
 ## 2. 2025년 보안 트렌드와 과정의 방향성
 
@@ -119,13 +121,13 @@ series_total: 9
 
 2025년 보안 환경은 전례 없는 변화를 맞이하고 있습니다:
 
-- **AI 보안의 양면성**: 93%의 보안 리더가 일일 AI 기반 공격을 예상하고 있습니다
-- **Shadow AI 위협**: 조직 승인 없이 사용되는 AI 시스템이 새로운 보안 위험으로 부상
-- **Supply Chain 공격 급증**: npm Shai-Hulud 웜 등 공급망을 노리는 공격이 정교해지고 있습니다
-- **Zero Trust 표준화**: ZTNA가 업계 표준으로 정착하며 "절대 신뢰하지 말고, 항상 검증하라"가 기본 원칙이 되었습니다
-- **Post-quantum 암호화**: Cloudflare가 전체 트래픽의 52%를 Post-quantum 암호화로 보호하는 시대
+- AI 보안의 양면성: 93%의 보안 리더가 일일 AI 기반 공격을 예상하고 있습니다
+- Shadow AI 위협: 조직 승인 없이 사용되는 AI 시스템이 새로운 보안 위험으로 부상
+- Supply Chain 공격 급증: npm Shai-Hulud 웜 등 공급망을 노리는 공격이 정교해지고 있습니다
+- Zero Trust 표준화: ZTNA가 업계 표준으로 정착하며 "절대 신뢰하지 말고, 항상 검증하라"가 기본 원칙이 되었습니다
+- Post-quantum 암호화: Cloudflare가 전체 트래픽의 52%를 Post-quantum 암호화로 보호하는 시대
 
-이러한 환경에서 클라우드 시큐리티 8기는 **실무에서 바로 적용 가능한 최신 보안 역량**을 제공합니다.
+이러한 환경에서 클라우드 시큐리티 8기는 실무에서 바로 적용 가능한 최신 보안 역량을 제공합니다.
 
 ### 2.2 AWS re:Invent 2025 발표와 커리큘럼 연계
 
@@ -173,7 +175,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | A09:2021 | Logging Failures | CloudTrail, CloudWatch Logs, Athena 분석 |
 | A10:2021 | SSRF | IMDSv2 강제, VPC Endpoint, PrivateLink |
 
-**Trivy로 Docker 이미지 스캔**:
+Trivy로 Docker 이미지 스캔:
 > ```bash
 > # Trivy 설치 (macOS)...
 > ```
@@ -181,18 +183,18 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 #### 2.5 AWS Control Tower 및 SIEM 통합
 
-**학습 목표**:
+학습 목표:
 - AWS Control Tower로 Landing Zone 구성
 - SCP(Service Control Policy)로 계정 수준 거버넌스
 - Datadog SIEM으로 통합 로그 분석
 - Cloudflare WAF 설정 및 DDoS 방어
 
-**AWS Control Tower Landing Zone 아키텍처**:
+AWS Control Tower Landing Zone 아키텍처:
 
 
-**Datadog SIEM 로그 수집 설정**: Datadog Agent를 통해 CloudWatch, CloudTrail 로그를 수집하여 통합 분석합니다.
+Datadog SIEM 로그 수집 설정: Datadog Agent를 통해 CloudWatch, CloudTrail 로그를 수집하여 통합 분석합니다.
 
-**Kubernetes Pod Security Standards**: Pod Security Admission으로 컨테이너 보안 정책을 적용합니다.
+Kubernetes Pod Security Standards: Pod Security Admission으로 컨테이너 보안 정책을 적용합니다.
 
 ![Mermaid Diagram](/assets/images/mermaid/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap-mermaid-1.svg)
 
@@ -208,27 +210,27 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | 8. Production | Canary Deploy, Health Check | ECS/EKS Rollback |
 | Monitoring | Runtime Security, SIEM, APM | Falco, Datadog, PagerDuty |
 
-> **보안 게이트 정책**: CRITICAL 취약점 → 파이프라인 중단, HIGH 3개 이상 → 수동 승인, Coverage <80% → 중단, License 위반 → 중단
+> 보안 게이트 정책: CRITICAL 취약점 → 파이프라인 중단, HIGH 3개 이상 → 수동 승인, Coverage <80% → 중단, License 위반 → 중단
 
 ## 3. 종합 참고 자료 (Comprehensive References)
 
 ### 3.1 공식 문서 및 표준
 
-**AWS 공식 문서**:
+AWS 공식 문서:
 - [AWS Well-Architected Framework - Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html)
 - [AWS Security Best Practices](https://docs.aws.amazon.com/security/latest/userguide/security-best-practices.html)
 - [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html)
 - [Amazon GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
 - [AWS FinOps Best Practices](https://aws.amazon.com/ko/blogs/aws-cloud-financial-management/)
 
-**보안 표준 및 프레임워크**:
+보안 표준 및 프레임워크:
 - [NIST Cybersecurity Framework v1.1](https://www.nist.gov/cyberframework)
 - [CIS AWS Foundations Benchmark v1.5.0](https://www.cisecurity.org/benchmark/amazon_web_services)
 - [OWASP Top 10 2021](https://owasp.org/Top10/)
 - [MITRE ATT&CK Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/)
 - [IEC 62443 Industrial Network and System Security](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards)
 
-**한국 규제 및 가이드라인**:
+한국 규제 및 가이드라인:
 - [ISMS-P 인증기준 해설서 (과학기술정보통신부)](https://www.kisa.or.kr/2060204)
 - [클라우드 서비스 이용 보안 가이드라인 (KISA)](https://www.kisa.or.kr/2060301/form?postSeq=12&lang_type=KO)
 - [개인정보보호법 (개인정보보호위원회)](https://www.pipc.go.kr/np/default/page.do?mCode=D010010000)
@@ -236,77 +238,77 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 ### 3.2 오픈소스 보안 도구
 
-**SAST (Static Application Security Testing)**:
+SAST (Static Application Security Testing):
 - [Semgrep](https://semgrep.dev/) - 다중 언어 정적 분석 도구
 - [SonarQube Community](https://www.sonarqube.org/) - 코드 품질 및 보안 분석
 - [Bandit](https://github.com/PyCQA/bandit) - Python 보안 취약점 스캐너
 
-**SCA (Software Composition Analysis)**:
+SCA (Software Composition Analysis):
 - [Trivy](https://github.com/aquasecurity/trivy) - 컨테이너 이미지 취약점 스캐너
 - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) - 의존성 취약점 분석
 - [Snyk Open Source](https://snyk.io/product/open-source-security-management/) - 오픈소스 취약점 관리
 
-**IaC Security**:
+IaC Security:
 - [Checkov](https://www.checkov.io/) - Terraform, CloudFormation 보안 스캔
 - [tfsec](https://github.com/aquasecurity/tfsec) - Terraform 보안 분석
 - [Terrascan](https://runterrascan.io/) - IaC 취약점 탐지
 
-**Container Security**:
+Container Security:
 - [Falco](https://falco.org/) - 런타임 위협 탐지 (CNCF)
 - [Cosign](https://github.com/sigstore/cosign) - 컨테이너 이미지 서명 (Sigstore)
 - [Kyverno](https://kyverno.io/) - Kubernetes 정책 엔진
 
-**Secret Management**:
+Secret Management:
 - [Gitleaks](https://github.com/gitleaks/gitleaks) - Git 리포지토리 비밀 정보 탐지
 - [TruffleHog](https://github.com/trufflesecurity/trufflehog) - 비밀 정보 스캔
 - [Vault by HashiCorp](https://www.vaultproject.io/) - 비밀 정보 관리 플랫폼
 
 ### 3.3 학습 리소스
 
-**온라인 코스**:
+온라인 코스:
 - [AWS Certified Security - Specialty](https://aws.amazon.com/certification/certified-security-specialty/)
 - [Certified Cloud Security Professional (CCSP)](https://www.isc2.org/Certifications/CCSP)
 - [Kubernetes Security Specialist (CKS)](https://www.cncf.io/certification/cks/)
 - [FinOps Certified Practitioner](https://www.finops.org/certification/)
 
-**책 (Books)**:
+책 (Books):
 - "AWS Security" by Dylan Shield (Packt, 2024)
 - "Cloud Native Security" by Chris Binnie & Rory McCune (Wiley, 2021)
 - "Practical Cloud Security" by Chris Dotson (O'Reilly, 2019)
 - "The DevSecOps Playbook" by Sean Mack & Joseph Muniz (Wiley, 2023)
 
-**블로그 및 뉴스**:
+블로그 및 뉴스:
 - [AWS Security Blog](https://aws.amazon.com/blogs/security/)
 - [Krebs on Security](https://krebsonsecurity.com/)
 - [The Hacker News](https://thehackernews.com/)
 - [Dark Reading](https://www.darkreading.com/)
 
-**GitHub 리포지토리**:
+GitHub 리포지토리:
 - [Awesome AWS Security](https://github.com/jassics/awesome-aws-security)
 - [DevSecOps-Playbook](https://github.com/6mile/DevSecOps-Playbook)
 - [Cloud Security Research](https://github.com/RhinoSecurityLabs/cloudgoat)
 
 ### 3.4 실무 사례 연구 (Case Studies)
 
-**보안 사고 사례**:
+보안 사고 사례:
 - [Colonial Pipeline Ransomware Attack (2021)](https://www.cisa.gov/news-events/news/cisa-issues-emergency-directive-federal-agencies) - OT 보안 취약점으로 발생한 대규모 랜섬웨어 공격
 - [SolarWinds Supply Chain Attack (2020)](https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/) - Supply Chain 공격의 교과서적 사례
 - [Capital One Data Breach (2019)](https://krebsonsecurity.com/2019/07/capital-one-data-theft-impacts-106m-people/) - AWS S3 설정 오류로 발생한 1억 명 개인정보 유출
 
-**보안 우수 사례**:
+보안 우수 사례:
 - [Netflix Security Monkey](https://github.com/Netflix/security_monkey) - Netflix의 클라우드 보안 모니터링 도구
 - [Airbnb's BinaryAlert](https://github.com/airbnb/binaryalert) - 실시간 악성코드 탐지 시스템
 - [Lyft's Cartography](https://github.com/lyft/cartography) - 클라우드 인프라 그래프 시각화
 
 ### 3.5 커뮤니티 및 컨퍼런스
 
-**보안 커뮤니티**:
+보안 커뮤니티:
 - [AWS Security Community](https://aws.amazon.com/security/community/)
 - [OWASP Korea Chapter](https://owasp.org/www-chapter-korea/)
 - [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/)
 - [DevSecOps Community](https://www.devsecops.org/)
 
-**주요 컨퍼런스**:
+주요 컨퍼런스:
 - [AWS re:Inforce](https://reinforce.awsevents.com/) - AWS 보안 전문 컨퍼런스
 - [Black Hat USA](https://www.blackhat.com/) - 세계 최대 보안 컨퍼런스
 - [RSA Conference](https://www.rsaconference.com/) - 정보보안 컨퍼런스
@@ -315,7 +317,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 ### 3.6 실무 도구 비교표
 
-**SIEM 도구 비교**:
+SIEM 도구 비교:
 | 도구 | 장점 | 단점 | 가격 | 추천 대상 |
 |-----|------|------|------|---------|
 | Datadog | 통합 모니터링, 사용 편의성 | 비용 높음 | $15/host/month | 중대형 기업 |
@@ -323,7 +325,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | ELK Stack | 오픈소스, 커스터마이징 용이 | 운영 부담, 전문 인력 필요 | 무료 (운영 비용 별도) | 스타트업 |
 | Azure Sentinel | Azure 통합, KQL 강력 | AWS 통합 제한적 | 종량제 ($2.30/GB) | Azure 사용자 |
 
-**Container Registry 비교**:
+Container Registry 비교:
 | 레지스트리 | 보안 기능 | 통합성 | 가격 | 추천 용도 |
 |---------|---------|--------|------|---------|
 | Amazon ECR | IAM 통합, 이미지 스캔 | AWS 최적화 | $0.10/GB/month | AWS 환경 |
@@ -357,12 +359,12 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 ## 5. 마무리
 
-클라우드 시큐리티 8기는 단순한 교육 과정이 아닙니다. **대체 불가능한 클라우드 보안 전문가로 성장하는 여정**의 시작점입니다.
+클라우드 시큐리티 8기는 단순한 교육 과정이 아닙니다. 대체 불가능한 클라우드 보안 전문가로 성장하는 여정의 시작점입니다.
 
 DevSecOps와 FinOps를 모두 아우르는 실무 역량을 키워, 보안과 비용을 동시에 고려할 수 있는 전문가가 되시길 기대합니다.
 
 > "Security is not a product, but a process." - Bruce Schneier
 
-보안은 단순히 도구를 도입하는 것이 아니라, **문화와 프로세스의 변화**가 필요합니다. 이번 과정을 통해 그 변화를 함께 만들어가시길 바랍니다.
+보안은 단순히 도구를 도입하는 것이 아니라, 문화와 프로세스의 변화가 필요합니다. 이번 과정을 통해 그 변화를 함께 만들어가시길 바랍니다.
 
 클라우드 시큐리티 8기에서 만나요! 🚀

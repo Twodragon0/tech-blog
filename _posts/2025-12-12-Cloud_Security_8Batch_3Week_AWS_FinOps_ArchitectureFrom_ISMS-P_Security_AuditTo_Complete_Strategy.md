@@ -52,54 +52,56 @@ series_total: 9
   audience='FinOps 전문가, 클라우드 관리자, 재무 담당자'
 -%}
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 서론
 
 안녕하세요, Twodragon입니다. 어느덧 클라우드 시큐리티 과정 8기도 중반부를 향해 달려가고 있습니다. 이번 3주차 세션 역시 우리만의 온라인 미팅에서 진행되었으며, '20분 몰입 + 5분 휴식'이라는 효율적인 루틴으로 집중도를 최대로 끌어올렸습니다.
 
-이번 3주차에서는 **AWS FinOps 아키텍처**와 **ISMS-P 보안 감사 대응**을 중심으로 다뤘습니다. 특히 2025년 FinOps 트렌드와 AWS 비용 관리 도구의 최신 기능, 그리고 FinOps와 보안의 통합 접근법을 실무 중심으로 살펴봤습니다.
+이번 3주차에서는 AWS FinOps 아키텍처와 ISMS-P 보안 감사 대응을 중심으로 다뤘습니다. 특히 2025년 FinOps 트렌드와 AWS 비용 관리 도구의 최신 기능, 그리고 FinOps와 보안의 통합 접근법을 실무 중심으로 살펴봤습니다.
 
 본 포스팅에서는 2025년 FinOps 트렌드, AWS 비용 관리 도구, ISMS-P 보안 감사 대응 전략, FinOps 모범 사례를 실무 중심으로 상세히 다룹니다.
 
 <img src="{% raw %}{{ '/assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy_image.png' | relative_url }}{% endraw %}" alt="Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit" loading="lazy" class="post-image">
 
-> **📌 핵심 요약**
-> - **2025년 FinOps 트렌드**: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics
-> - **AWS 비용 관리 도구**: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection
-> - **ISMS-P 보안 감사 대응**: AWS Artifact, Config Rules, Security Hub, CloudTrail을 활용한 컴플라이언스 전략
-> - **FinOps 모범 사례**: 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착
+> 📌 핵심 요약
+> - 2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics
+> - AWS 비용 관리 도구: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection
+> - ISMS-P 보안 감사 대응: AWS Artifact, Config Rules, Security Hub, CloudTrail을 활용한 컴플라이언스 전략
+> - FinOps 모범 사례: 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착
 
 ## 1. 2025년 FinOps 트렌드
 
 ### 1.1 AI/ML 비용 최적화
 
-2025년 가장 주목받는 FinOps 트렌드는 **AI/ML 워크로드 비용 관리**입니다. GenAI 워크로드의 급증으로 인해 AI 인프라 비용 관리가 핵심 과제로 부상했습니다.
+2025년 가장 주목받는 FinOps 트렌드는 AI/ML 워크로드 비용 관리입니다. GenAI 워크로드의 급증으로 인해 AI 인프라 비용 관리가 핵심 과제로 부상했습니다.
 
 #### GPU 인스턴스 최적화 전략
 
 | 최적화 항목 | 설명 | 비용 절감 효과 |
 |------------|------|--------------|
-| **인스턴스 타입 선택** | 워크로드에 맞는 GPU 인스턴스 선택 (p4, p5, g5 등) | 20-30% 절감 |
-| **Spot Instance 활용** | 학습 워크로드의 경우 Spot Instance 활용 | 최대 90% 절감 |
-| **Auto Scaling** | 워크로드에 따른 자동 스케일링 | 30-50% 절감 |
-| **모델 최적화** | 모델 경량화 및 양자화 | 추론 비용 50% 절감 |
+| 인스턴스 타입 선택 | 워크로드에 맞는 GPU 인스턴스 선택 (p4, p5, g5 등) | 20-30% 절감 |
+| Spot Instance 활용 | 학습 워크로드의 경우 Spot Instance 활용 | 최대 90% 절감 |
+| Auto Scaling | 워크로드에 따른 자동 스케일링 | 30-50% 절감 |
+| 모델 최적화 | 모델 경량화 및 양자화 | 추론 비용 50% 절감 |
 
 #### Spot Instance 보안 고려사항
 
-> **⚠️ 보안 주의사항**
+> ⚠️ 보안 주의사항
 > Spot Instance 사용 시 보안 고려사항:
-> - **체크포인트 저장**: 중단 시 데이터 손실 방지를 위한 체크포인트 자동 저장
-> - **데이터 암호화**: 민감한 학습 데이터는 반드시 암호화하여 저장
-> - **접근 제어**: Spot Instance에 대한 접근 제어 정책 수립
-> - **모니터링**: Spot Instance 중단 시 자동 알림 및 대응 프로세스
+> - 체크포인트 저장: 중단 시 데이터 손실 방지를 위한 체크포인트 자동 저장
+> - 데이터 암호화: 민감한 학습 데이터는 반드시 암호화하여 저장
+> - 접근 제어: Spot Instance에 대한 접근 제어 정책 수립
+> - 모니터링: Spot Instance 중단 시 자동 알림 및 대응 프로세스
 
 #### 모델 서빙 최적화
 
 | 최적화 기법 | 설명 | 비용 절감 효과 |
 |------------|------|--------------|
-| **모델 경량화** | 모델 압축 및 양자화 | 추론 비용 40-60% 절감 |
-| **배치 처리** | 여러 요청을 배치로 처리 | 처리량 향상, 비용 절감 |
-| **캐싱** | 자주 사용되는 결과 캐싱 | 반복 추론 비용 제거 |
-| **Edge 배포** | 엣지 디바이스에 모델 배포 | 클라우드 추론 비용 절감 |
+| 모델 경량화 | 모델 압축 및 양자화 | 추론 비용 40-60% 절감 |
+| 배치 처리 | 여러 요청을 배치로 처리 | 처리량 향상, 비용 절감 |
+| 캐싱 | 자주 사용되는 결과 캐싱 | 반복 추론 비용 제거 |
+| Edge 배포 | 엣지 디바이스에 모델 배포 | 클라우드 추론 비용 절감 |
 
 #### AI/ML 비용 최적화 아키텍처 다이어그램
 
@@ -108,26 +110,26 @@ series_total: 9
 
 | Config Rule | ISMS-P 항목 | 설명 |
 |------------|-----------|------|
-| **s3-bucket-public-read-prohibited** | 2.6 접근통제 | S3 버킷 Public 읽기 차단 |
-| **iam-password-policy** | 2.5 인증 및 권한관리 | IAM 비밀번호 정책 준수 |
-| **encrypted-volumes** | 2.11 암호화 | EBS 볼륨 암호화 확인 |
-| **cloud-trail-enabled** | 2.10 시스템 운영관리 | CloudTrail 활성화 확인 |
+| s3-bucket-public-read-prohibited | 2.6 접근통제 | S3 버킷 Public 읽기 차단 |
+| iam-password-policy | 2.5 인증 및 권한관리 | IAM 비밀번호 정책 준수 |
+| encrypted-volumes | 2.11 암호화 | EBS 볼륨 암호화 확인 |
+| cloud-trail-enabled | 2.10 시스템 운영관리 | CloudTrail 활성화 확인 |
 
 #### AWS Security Hub 통합 관리
 
 | 기능 | 설명 | ISMS-P 활용 |
 |------|------|------------|
-| **통합 대시보드** | 모든 보안 서비스의 결과를 한 곳에서 확인 | 보안 상태 일목요연하게 파악 |
-| **자동화된 컴플라이언스 체크** | CIS, PCI-DSS 등 표준 준수 상태 자동 확인 | ISMS-P 준수 상태 확인 |
-| **보안 점수** | 보안 상태를 점수로 시각화 | 보안 개선 우선순위 설정 |
+| 통합 대시보드 | 모든 보안 서비스의 결과를 한 곳에서 확인 | 보안 상태 일목요연하게 파악 |
+| 자동화된 컴플라이언스 체크 | CIS, PCI-DSS 등 표준 준수 상태 자동 확인 | ISMS-P 준수 상태 확인 |
+| 보안 점수 | 보안 상태를 점수로 시각화 | 보안 개선 우선순위 설정 |
 
 #### AWS CloudTrail 감사 로그
 
 | 로그 유형 | 설명 | ISMS-P 활용 |
 |----------|------|------------|
-| **API 호출 로그** | 모든 AWS API 호출 기록 | 접근 통제 감사 증빙 |
-| **이벤트 히스토리** | 보안 관련 이벤트 기록 | 보안 사고 조사 증빙 |
-| **로그 보관** | 장기 보관 및 검색 | 규정 준수 요구사항 충족 |
+| API 호출 로그 | 모든 AWS API 호출 기록 | 접근 통제 감사 증빙 |
+| 이벤트 히스토리 | 보안 관련 이벤트 기록 | 보안 사고 조사 증빙 |
+| 로그 보관 | 장기 보관 및 검색 | 규정 준수 요구사항 충족 |
 
 ### 3.4 MITRE ATT&CK 매핑
 
@@ -135,16 +137,16 @@ series_total: 9
 
 | MITRE ATT&CK 전술 | ISMS-P 통제 항목 | AWS 대응 방안 | 탐지 도구 |
 |------------------|----------------|--------------|---------|
-| **Initial Access (T1078)** | 2.5 인증 및 권한관리 | MFA 강제, IAM Access Analyzer | GuardDuty, CloudTrail |
-| **Persistence (T1098)** | 2.5 인증 및 권한관리 | IAM 정책 정기 검토, AWS Config | Config Rules, Security Hub |
-| **Privilege Escalation (T1068)** | 2.6 접근통제 | 최소 권한 원칙, IAM Policy Simulator | IAM Access Analyzer |
-| **Defense Evasion (T1070)** | 2.10 시스템 운영관리 | CloudTrail 로그 무결성, S3 Object Lock | CloudTrail Insights |
-| **Credential Access (T1552)** | 2.11 암호화 | Secrets Manager, KMS 키 로테이션 | GuardDuty, Macie |
-| **Discovery (T1526)** | 2.6 접근통제 | VPC Flow Logs, API 호출 모니터링 | CloudWatch Logs Insights |
-| **Lateral Movement (T1021)** | 2.6 접근통제 | Security Group 최소 권한, VPC 분리 | VPC Flow Logs, GuardDuty |
-| **Collection (T1530)** | 2.12 개인정보보호 | S3 접근 로그, Macie 데이터 분류 | Macie, CloudTrail |
-| **Exfiltration (T1537)** | 2.10 시스템 운영관리 | VPC 엔드포인트, S3 Block Public Access | GuardDuty, VPC Flow Logs |
-| **Impact (T1485)** | 2.10 시스템 운영관리 | AWS Backup, S3 Versioning | CloudWatch Events, SNS |
+| Initial Access (T1078) | 2.5 인증 및 권한관리 | MFA 강제, IAM Access Analyzer | GuardDuty, CloudTrail |
+| Persistence (T1098) | 2.5 인증 및 권한관리 | IAM 정책 정기 검토, AWS Config | Config Rules, Security Hub |
+| Privilege Escalation (T1068) | 2.6 접근통제 | 최소 권한 원칙, IAM Policy Simulator | IAM Access Analyzer |
+| Defense Evasion (T1070) | 2.10 시스템 운영관리 | CloudTrail 로그 무결성, S3 Object Lock | CloudTrail Insights |
+| Credential Access (T1552) | 2.11 암호화 | Secrets Manager, KMS 키 로테이션 | GuardDuty, Macie |
+| Discovery (T1526) | 2.6 접근통제 | VPC Flow Logs, API 호출 모니터링 | CloudWatch Logs Insights |
+| Lateral Movement (T1021) | 2.6 접근통제 | Security Group 최소 권한, VPC 분리 | VPC Flow Logs, GuardDuty |
+| Collection (T1530) | 2.12 개인정보보호 | S3 접근 로그, Macie 데이터 분류 | Macie, CloudTrail |
+| Exfiltration (T1537) | 2.10 시스템 운영관리 | VPC 엔드포인트, S3 Block Public Access | GuardDuty, VPC Flow Logs |
+| Impact (T1485) | 2.10 시스템 운영관리 | AWS Backup, S3 Versioning | CloudWatch Events, SNS |
 
 ### 3.5 한국 기업 환경 분석 (Korean Impact Analysis)
 
@@ -154,24 +156,24 @@ series_total: 9
 
 | 법률/규제 | 주요 내용 | AWS 대응 방안 | 준수 체크리스트 |
 |---------|---------|--------------|---------------|
-| **개인정보보호법** | 개인정보 국외 이전 제한 | 서울 리전 사용, 데이터 레지던시 | ✅ 서울 리전 배포<br>✅ 데이터 암호화<br>✅ 개인정보 처리방침 수립 |
-| **정보통신망법** | 개인정보 유출 통지 의무 | CloudTrail, GuardDuty 자동 알림 | ✅ 유출 탐지 설정<br>✅ 24시간 이내 통지 프로세스 |
-| **클라우드컴퓨팅법** | 클라우드 서비스 이용 신고 | AWS 계약 문서 보관 | ✅ 클라우드 서비스 이용 계약<br>✅ SLA 문서 확보 |
-| **전자금융거래법** | 금융 데이터 보안 | KMS 암호화, 접근 제어 | ✅ 금융 데이터 암호화<br>✅ 접근 로그 보관 |
+| 개인정보보호법 | 개인정보 국외 이전 제한 | 서울 리전 사용, 데이터 레지던시 | ✅ 서울 리전 배포<br>✅ 데이터 암호화<br>✅ 개인정보 처리방침 수립 |
+| 정보통신망법 | 개인정보 유출 통지 의무 | CloudTrail, GuardDuty 자동 알림 | ✅ 유출 탐지 설정<br>✅ 24시간 이내 통지 프로세스 |
+| 클라우드컴퓨팅법 | 클라우드 서비스 이용 신고 | AWS 계약 문서 보관 | ✅ 클라우드 서비스 이용 계약<br>✅ SLA 문서 확보 |
+| 전자금융거래법 | 금융 데이터 보안 | KMS 암호화, 접근 제어 | ✅ 금융 데이터 암호화<br>✅ 접근 로그 보관 |
 
 #### 국내 기업 특화 보안 요구사항
 
 | 요구사항 | 설명 | 권장 구성 | 구현 난이도 |
 |---------|------|---------|-----------|
-| **Active Directory 통합** | 기존 AD와 AWS IAM 통합 | AWS Directory Service, SSO | 중간 |
-| **VPN 연결** | 사내망과 AWS VPC 연결 | Site-to-Site VPN, Direct Connect | 높음 |
-| **백업 센터** | 재해복구를 위한 백업 센터 | 다중 AZ, 교차 리전 백업 | 중간 |
-| **내부 감사** | 정기적인 내부 감사 수행 | AWS Audit Manager, Config | 낮음 |
-| **한글 로그** | 한글 로그 분석 지원 | CloudWatch Logs Insights, Athena | 낮음 |
+| Active Directory 통합 | 기존 AD와 AWS IAM 통합 | AWS Directory Service, SSO | 중간 |
+| VPN 연결 | 사내망과 AWS VPC 연결 | Site-to-Site VPN, Direct Connect | 높음 |
+| 백업 센터 | 재해복구를 위한 백업 센터 | 다중 AZ, 교차 리전 백업 | 중간 |
+| 내부 감사 | 정기적인 내부 감사 수행 | AWS Audit Manager, Config | 낮음 |
+| 한글 로그 | 한글 로그 분석 지원 | CloudWatch Logs Insights, Athena | 낮음 |
 
 #### 한국 기업 ISMS-P 인증 타임라인
 
-> **참고**: AWS 태깅 모범 사례 관련 내용은 [AWS 태깅 전략 가이드](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)를 참조하세요.
+> 참고: AWS 태깅 모범 사례 관련 내용은 [AWS 태깅 전략 가이드](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)를 참조하세요.
 
 ### 4.2 예산 알림
 
@@ -179,9 +181,9 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 
 | 예산 유형 | 설명 | 알림 임계값 |
 |----------|------|------------|
-| **비용 예산** | 총 비용 예산 설정 | 80%, 100%, 120% |
-| **사용량 예산** | 특정 서비스 사용량 예산 | 80%, 100% |
-| **RI/Savings Plans 예산** | 약정 관련 예산 | 커버리지 80% 미만 시 |
+| 비용 예산 | 총 비용 예산 설정 | 80%, 100%, 120% |
+| 사용량 예산 | 특정 서비스 사용량 예산 | 80%, 100% |
+| RI/Savings Plans 예산 | 약정 관련 예산 | 커버리지 80% 미만 시 |
 
 #### AWS Budgets 알림 체계
 
@@ -189,11 +191,11 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 
 | 탐지 시나리오 | CloudTrail 이벤트 | 위험도 | 대응 조치 |
 |-------------|-----------------|-------|---------|
-| **IAM 정책 변경** | PutUserPolicy, PutRolePolicy | 높음 | 즉시 권한 검토 및 회수 |
-| **새로운 Access Key 생성** | CreateAccessKey | 중간 | 생성 사유 확인 |
-| **Root 계정 로그인** | ConsoleLogin (Root) | 높음 | 즉시 알림, 활동 조사 |
-| **MFA 비활성화** | DeactivateMFADevice | 높음 | 즉시 재활성화 요구 |
-| **Security Group 변경** | AuthorizeSecurityGroupIngress | 중간 | 변경 사유 확인 |
+| IAM 정책 변경 | PutUserPolicy, PutRolePolicy | 높음 | 즉시 권한 검토 및 회수 |
+| 새로운 Access Key 생성 | CreateAccessKey | 중간 | 생성 사유 확인 |
+| Root 계정 로그인 | ConsoleLogin (Root) | 높음 | 즉시 알림, 활동 조사 |
+| MFA 비활성화 | DeactivateMFADevice | 높음 | 즉시 재활성화 요구 |
+| Security Group 변경 | AuthorizeSecurityGroupIngress | 중간 | 변경 사유 확인 |
 
 ## 2. 참고 자료 (Comprehensive References)
 
@@ -201,62 +203,62 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| **AWS FinOps 가이드** | https://aws.amazon.com/aws-cost-management/ | AWS 공식 비용 관리 가이드 |
-| **AWS Cost Optimization Hub** | https://docs.aws.amazon.com/cost-optimization-hub/ | Cost Optimization Hub 공식 문서 |
-| **AWS Compute Optimizer** | https://docs.aws.amazon.com/compute-optimizer/ | Compute Optimizer 공식 문서 |
-| **AWS Security Hub** | https://docs.aws.amazon.com/securityhub/ | Security Hub 공식 문서 |
-| **AWS Config** | https://docs.aws.amazon.com/config/ | AWS Config 공식 문서 |
-| **AWS CloudTrail** | https://docs.aws.amazon.com/cloudtrail/ | CloudTrail 공식 문서 |
-| **ISMS-P 인증 기준** | https://www.kisa.or.kr/isms-p | 한국인터넷진흥원 ISMS-P 가이드 |
+| AWS FinOps 가이드 | https://aws.amazon.com/aws-cost-management/ | AWS 공식 비용 관리 가이드 |
+| AWS Cost Optimization Hub | https://docs.aws.amazon.com/cost-optimization-hub/ | Cost Optimization Hub 공식 문서 |
+| AWS Compute Optimizer | https://docs.aws.amazon.com/compute-optimizer/ | Compute Optimizer 공식 문서 |
+| AWS Security Hub | https://docs.aws.amazon.com/securityhub/ | Security Hub 공식 문서 |
+| AWS Config | https://docs.aws.amazon.com/config/ | AWS Config 공식 문서 |
+| AWS CloudTrail | https://docs.aws.amazon.com/cloudtrail/ | CloudTrail 공식 문서 |
+| ISMS-P 인증 기준 | https://www.kisa.or.kr/isms-p | 한국인터넷진흥원 ISMS-P 가이드 |
 
 ### 2.2 FinOps Foundation 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| **FinOps Framework** | https://www.finops.org/framework/ | FinOps Foundation 프레임워크 |
-| **FinOps Certified Practitioner** | https://www.finops.org/certification/ | FinOps 자격증 정보 |
-| **FinOps Best Practices** | https://www.finops.org/framework/capabilities/ | FinOps 모범 사례 |
-| **Cloud Cost Optimization** | https://www.finops.org/resources/ | 클라우드 비용 최적화 리소스 |
+| FinOps Framework | https://www.finops.org/framework/ | FinOps Foundation 프레임워크 |
+| FinOps Certified Practitioner | https://www.finops.org/certification/ | FinOps 자격증 정보 |
+| FinOps Best Practices | https://www.finops.org/framework/capabilities/ | FinOps 모범 사례 |
+| Cloud Cost Optimization | https://www.finops.org/resources/ | 클라우드 비용 최적화 리소스 |
 
 ### 2.3 보안 및 컴플라이언스 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| **MITRE ATT&CK for Cloud** | https://attack.mitre.org/matrices/enterprise/cloud/ | 클라우드 공격 프레임워크 |
-| **CIS AWS Foundations Benchmark** | https://www.cisecurity.org/benchmark/amazon_web_services | CIS AWS 보안 벤치마크 |
-| **AWS Well-Architected Framework** | https://aws.amazon.com/architecture/well-architected/ | AWS 아키텍처 모범 사례 |
-| **AWS Security Best Practices** | https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html | AWS 보안 모범 사례 |
+| MITRE ATT&CK for Cloud | https://attack.mitre.org/matrices/enterprise/cloud/ | 클라우드 공격 프레임워크 |
+| CIS AWS Foundations Benchmark | https://www.cisecurity.org/benchmark/amazon_web_services | CIS AWS 보안 벤치마크 |
+| AWS Well-Architected Framework | https://aws.amazon.com/architecture/well-architected/ | AWS 아키텍처 모범 사례 |
+| AWS Security Best Practices | https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html | AWS 보안 모범 사례 |
 
 ### 2.4 커뮤니티 및 블로그
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| **AWS Blog - Cost Optimization** | https://aws.amazon.com/blogs/aws-cost-management/ | AWS 공식 비용 관리 블로그 |
-| **FinOps Slack Community** | https://finopsfoundation.slack.com/ | FinOps 커뮤니티 (가입 필요) |
-| **Reddit r/aws** | https://www.reddit.com/r/aws/ | AWS 커뮤니티 |
-| **AWS re:Post** | https://repost.aws/ | AWS Q&A 플랫폼 |
+| AWS Blog - Cost Optimization | https://aws.amazon.com/blogs/aws-cost-management/ | AWS 공식 비용 관리 블로그 |
+| FinOps Slack Community | https://finopsfoundation.slack.com/ | FinOps 커뮤니티 (가입 필요) |
+| Reddit r/aws | https://www.reddit.com/r/aws/ | AWS 커뮤니티 |
+| AWS re:Post | https://repost.aws/ | AWS Q&A 플랫폼 |
 
 ### 2.5 도구 및 오픈소스
 
 | 도구 | URL | 설명 |
 |------|-----|------|
-| **CloudCustodian** | https://cloudcustodian.io/ | 클라우드 정책 관리 및 자동화 도구 |
-| **Steampipe** | https://steampipe.io/ | 클라우드 자산 쿼리 도구 |
-| **Prowler** | https://github.com/prowler-cloud/prowler | AWS 보안 평가 도구 |
-| **ScoutSuite** | https://github.com/nccgroup/ScoutSuite | 멀티 클라우드 보안 감사 도구 |
-| **CloudMapper** | https://github.com/duo-labs/cloudmapper | AWS 네트워크 시각화 도구 |
+| CloudCustodian | https://cloudcustodian.io/ | 클라우드 정책 관리 및 자동화 도구 |
+| Steampipe | https://steampipe.io/ | 클라우드 자산 쿼리 도구 |
+| Prowler | https://github.com/prowler-cloud/prowler | AWS 보안 평가 도구 |
+| ScoutSuite | https://github.com/nccgroup/ScoutSuite | 멀티 클라우드 보안 감사 도구 |
+| CloudMapper | https://github.com/duo-labs/cloudmapper | AWS 네트워크 시각화 도구 |
 
 ## 결론
 
-클라우드 시큐리티 8기 3주차에서는 **AWS FinOps 아키텍처**부터 **ISMS-P 보안 감사**까지 다뤘습니다.
+클라우드 시큐리티 8기 3주차에서는 AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 다뤘습니다.
 
-**2025년 FinOps 트렌드**에서는 AI/ML 비용 최적화, FinOps와 GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics 등 최신 트렌드를 살펴봤습니다. 특히 GenAI 워크로드의 급증으로 인한 AI 인프라 비용 관리가 핵심 과제로 부상했으며, Spot Instance 활용, 모델 최적화 등을 통한 비용 절감 전략을 다뤘습니다.
+2025년 FinOps 트렌드에서는 AI/ML 비용 최적화, FinOps와 GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics 등 최신 트렌드를 살펴봤습니다. 특히 GenAI 워크로드의 급증으로 인한 AI 인프라 비용 관리가 핵심 과제로 부상했으며, Spot Instance 활용, 모델 최적화 등을 통한 비용 절감 전략을 다뤘습니다.
 
-**AWS 비용 관리 도구**에서는 Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection 등 2025년 최신 도구들을 다뤘습니다. 각 도구의 특징과 실무 활용 방법을 중심으로 정리했으며, 통합 대시보드를 통한 비용 관리 전략을 살펴봤습니다.
+AWS 비용 관리 도구에서는 Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection 등 2025년 최신 도구들을 다뤘습니다. 각 도구의 특징과 실무 활용 방법을 중심으로 정리했으며, 통합 대시보드를 통한 비용 관리 전략을 살펴봤습니다.
 
-**ISMS-P 보안 감사 대응**에서는 클라우드 환경에서의 ISMS-P 인증 준비 전략을 다뤘습니다. AWS Artifact, Config Rules, Security Hub, CloudTrail 등을 활용한 컴플라이언스 대응 방법을 살펴봤으며, 자동화된 컴플라이언스 확인을 통한 효율적인 인증 준비 전략을 정리했습니다.
+ISMS-P 보안 감사 대응에서는 클라우드 환경에서의 ISMS-P 인증 준비 전략을 다뤘습니다. AWS Artifact, Config Rules, Security Hub, CloudTrail 등을 활용한 컴플라이언스 대응 방법을 살펴봤으며, 자동화된 컴플라이언스 확인을 통한 효율적인 인증 준비 전략을 정리했습니다.
 
-**FinOps 모범 사례**에서는 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착 등 실무에 바로 적용 가능한 모범 사례를 정리했습니다. 특히 개발팀의 비용 인식 제고를 위한 교육 및 문화 정착 방법을 다뤘습니다.
+FinOps 모범 사례에서는 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착 등 실무에 바로 적용 가능한 모범 사례를 정리했습니다. 특히 개발팀의 비용 인식 제고를 위한 교육 및 문화 정착 방법을 다뤘습니다.
 
 FinOps와 보안은 상호 보완적인 관계입니다. 비용 최적화와 보안을 동시에 고려하는 통합 접근법을 통해 안전하고 효율적인 클라우드 환경을 구축할 수 있습니다. 특히 2025년에는 AI/ML 비용 최적화와 GreenOps 통합이 중요한 트렌드로 부상했으며, 이러한 트렌드를 선제적으로 대응하는 것이 핵심입니다.
 
@@ -295,4 +297,4 @@ FinOps와 보안은 상호 보완적인 관계입니다. 비용 최적화와 보
 
 ---
 
-**원본 포스트**: [클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!](https://twodragon.tistory.com/703)
+원본 포스트: [클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!](https://twodragon.tistory.com/703)

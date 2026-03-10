@@ -29,17 +29,17 @@ toc: true
 
 ## 서론
 
-안녕하세요, **Twodragon**입니다.
+안녕하세요, Twodragon입니다.
 
 2026년 02월 21일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
 
-**수집 통계:**
-- **총 뉴스 수**: 15개
-- **보안 뉴스**: 5개
-- **AI/ML 뉴스**: 0개
-- **클라우드 뉴스**: 0개
-- **DevOps 뉴스**: 0개
-- **블록체인 뉴스**: 5개
+수집 통계:
+- 총 뉴스 수: 15개
+- 보안 뉴스: 5개
+- AI/ML 뉴스: 0개
+- 클라우드 뉴스: 0개
+- DevOps 뉴스: 0개
+- 블록체인 뉴스: 5개
 
 ---
 
@@ -49,10 +49,10 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시 | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가 | 🔴 Critical |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안 | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어 | 🟡 Medium |
+| 🔒 Security | The Hacker News | Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시 | 🟡 Medium |
+| 🔒 Security | The Hacker News | CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가 | 🔴 Critical |
+| 🔒 Security | SK쉴더스 보안 리포트 | HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안 | 🟡 Medium |
+| 🔒 Security | SK쉴더스 보안 리포트 | Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어 | 🟡 Medium |
 
 ---
 
@@ -71,19 +71,19 @@ toc: true
 -%}
 
 
-Anthropic의 **Claude Code Security** 출시는 AI가 단순한 코드 생성을 넘어 보안 감사 및 자동 패치 영역으로 진화했음을 의미합니다. DevSecOps 실무자 관점에서 분석한 결과는 다음과 같습니다.
+Anthropic의 Claude Code Security 출시는 AI가 단순한 코드 생성을 넘어 보안 감사 및 자동 패치 영역으로 진화했음을 의미합니다. DevSecOps 실무자 관점에서 분석한 결과는 다음과 같습니다.
 
 ### 1. 기술적 배경 및 위협 분석
 Anthropic이 공개한 'Claude Code Security'는 LLM의 문맥 이해 능력을 바탕으로 소스 코드 내 보안 취약점을 정밀 스캔하고 실질적인 패치 코드까지 제안하는 기능입니다. 기존 정적 분석(SAST) 도구들이 높은 오탐률(False Positive)과 경직된 규칙 기반 분석으로 인해 실무 적용에 어려움이 있었던 반면, AI 기반 분석은 복잡한 비즈니스 로직 사이의 보안 결함을 보다 정확하게 식별합니다. 특히 최근 급증하는 공급망 공격(Supply Chain Attack)과 지능형 위협에 대응하기 위해 개발 초기 단계부터 보안을 내재화하는 'Shift-Left' 전략의 기술적 완성도를 높여줄 것으로 기대됩니다.
 
 ### 2. 실무 영향 분석
-이 기능은 **GitHub Actions**나 **GitLab CI**와 같은 CI/CD 파이프라인에 직접 통합되어 PR(Pull Request) 단계에서 실시간 보안 리뷰를 자동화할 수 있습니다. **Snyk**, **SonarQube**와 같은 기존 도구와 병행 사용할 경우, 전통적인 도구가 놓치기 쉬운 논리적 취약점이나 제로데이 위협을 보완하는 강력한 2차 방어선 역할을 수행합니다. 보안 운영(SecOps) 측면에서는 취약점 조치 시간(MTTR)을 획기적으로 단축할 수 있으며, 개발자는 보안 지식이 부족하더라도 AI가 제안하는 가이드를 통해 보안 부채를 실시간으로 해소할 수 있습니다.
+이 기능은 GitHub Actions나 GitLab CI와 같은 CI/CD 파이프라인에 직접 통합되어 PR(Pull Request) 단계에서 실시간 보안 리뷰를 자동화할 수 있습니다. Snyk, SonarQube와 같은 기존 도구와 병행 사용할 경우, 전통적인 도구가 놓치기 쉬운 논리적 취약점이나 제로데이 위협을 보완하는 강력한 2차 방어선 역할을 수행합니다. 보안 운영(SecOps) 측면에서는 취약점 조치 시간(MTTR)을 획기적으로 단축할 수 있으며, 개발자는 보안 지식이 부족하더라도 AI가 제안하는 가이드를 통해 보안 부채를 실시간으로 해소할 수 있습니다.
 
 ### 3. 대응 체크리스트
-- [ ] **접근 제어:** Claude Code Security 기능을 활성화할 Enterprise/Team 계정의 권한 및 데이터 공유 범위 설정 확인
-- [ ] **파이프라인 통합:** 기존 CI/CD 워크플로우 내 AI 스캔 단계 추가 및 취약점 발견 시 빌드 중단(Breaking) 정책 수립
-- [ ] **검증 절차:** AI가 제안한 패치 코드가 기존 로직에 미치는 영향을 평가하기 위한 회귀 테스트(Regression Test) 및 수동 리뷰 절차 마련
-- [ ] **보안 규정 준수:** AI 스캔 결과 로그를 사내 보안 대시보드와 연동하여 취약점 관리 이력(Audit Trail) 확보
+- [ ] 접근 제어: Claude Code Security 기능을 활성화할 Enterprise/Team 계정의 권한 및 데이터 공유 범위 설정 확인
+- [ ] 파이프라인 통합: 기존 CI/CD 워크플로우 내 AI 스캔 단계 추가 및 취약점 발견 시 빌드 중단(Breaking) 정책 수립
+- [ ] 검증 절차: AI가 제안한 패치 코드가 기존 로직에 미치는 영향을 평가하기 위한 회귀 테스트(Regression Test) 및 수동 리뷰 절차 마련
+- [ ] 보안 규정 준수: AI 스캔 결과 로그를 사내 보안 대시보드와 연동하여 취약점 관리 이력(Audit Trail) 확보
 
 ### 4. MITRE ATT&CK 매핑
 
@@ -206,12 +206,12 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 9건 | ai |
-| **Authentication** | 2건 | sso, credential |
-| **Cloud Security** | 1건 | aws |
-| **Ransomware** | 1건 | ransomware |
+| AI/ML | 9건 | ai |
+| Authentication | 2건 | sso, credential |
+| Cloud Security | 1건 | aws |
+| Ransomware | 1건 | ransomware |
 
-이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (9건)입니다. 그 다음으로 **Authentication** (2건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
+이번 주기에서 가장 많이 언급된 트렌드는 AI/ML (9건)입니다. 그 다음으로 Authentication (2건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
 
 ---
 
@@ -219,12 +219,12 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 ### P0 (즉시)
 
-- [ ] **CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가** (CVE-2025-49113) 관련 긴급 패치 및 영향도 확인
+- [ ] CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가 (CVE-2025-49113) 관련 긴급 패치 및 영향도 확인
 
 ### P1 (7일 내)
 
-- [ ] **Roundcube 웹메일** 취약점 패치 적용 및 웹 셸 점검
-- [ ] **EC-Council AI 인증** 팀 내 AI 보안 교육 필요성 검토
+- [ ] Roundcube 웹메일 취약점 패치 적용 및 웹 셸 점검
+- [ ] EC-Council AI 인증 팀 내 AI 보안 교육 필요성 검토
 
 ### P2 (30일 내)
 
@@ -243,4 +243,4 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 ---
 
-**작성자**: Twodragon
+작성자: Twodragon

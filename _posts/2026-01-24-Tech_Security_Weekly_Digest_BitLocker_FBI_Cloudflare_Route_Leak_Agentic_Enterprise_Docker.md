@@ -79,18 +79,18 @@ toc: true
 
 ## 서론
 
-안녕하세요, **Twodragon**입니다.
+안녕하세요, Twodragon입니다.
 
-2026년 1월 24일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다. 이번 주는 **암호화 신뢰성과 인프라 보안**이 핵심 화두였습니다.
+2026년 1월 24일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다. 이번 주는 암호화 신뢰성과 인프라 보안이 핵심 화두였습니다.
 
-**이번 주 핵심 테마:**
-- **암호화 논란**: Microsoft의 BitLocker 키 FBI 제공 사건
-- **BGP 보안**: Cloudflare Route Leak 사건 심층 분석
-- **플랫폼 제어**: CNCF의 2026년 자율 기업 전망
-- **컨테이너 생태계**: Docker의 현재와 미래
+이번 주 핵심 테마:
+- 암호화 논란: Microsoft의 BitLocker 키 FBI 제공 사건
+- BGP 보안: Cloudflare Route Leak 사건 심층 분석
+- 플랫폼 제어: CNCF의 2026년 자율 기업 전망
+- 컨테이너 생태계: Docker의 현재와 미래
 
-**수집 소스**: 47개 RSS 피드에서 186개 뉴스 수집
-**분석 기준**: DevSecOps 실무 영향도, 기술적 깊이, 즉시 적용 가능성
+수집 소스: 47개 RSS 피드에서 186개 뉴스 수집
+분석 기준: DevSecOps 실무 영향도, 기술적 깊이, 즉시 적용 가능성
 
 ---
 
@@ -100,11 +100,11 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 | 긴급도 |
 |------|------|----------|--------|--------|
-| **암호화** | TechCrunch | Microsoft BitLocker 키 FBI 제공 | 높음 | 긴급 |
-| **네트워크** | Cloudflare | 1/22 Route Leak 사건 분석 | 높음 | 중간 |
-| **DevOps** | CNCF | 자율 기업 4대 제어 기둥 | 중간 | 낮음 |
-| **컨테이너** | GeekNews | Docker 2026 현황 분석 | 중간 | 낮음 |
-| **AI 개발** | OpenAI | Codex Agent Loop 공개 | 중간 | 낮음 |
+| 암호화 | TechCrunch | Microsoft BitLocker 키 FBI 제공 | 높음 | 긴급 |
+| 네트워크 | Cloudflare | 1/22 Route Leak 사건 분석 | 높음 | 중간 |
+| DevOps | CNCF | 자율 기업 4대 제어 기둥 | 중간 | 낮음 |
+| 컨테이너 | GeekNews | Docker 2026 현황 분석 | 중간 | 낮음 |
+| AI 개발 | OpenAI | Codex Agent Loop 공개 | 중간 | 낮음 |
 
 ### 카테고리별 뉴스 분포
 
@@ -133,7 +133,7 @@ Tech               : ██ 6%
 -%}
 
 
-**Hacker News 705 포인트, 463 댓글**로 큰 논란이 된 사건입니다. Microsoft가 **FBI 요청에 따라 용의자 노트북 3대의 BitLocker 암호화 복구 키를 제공**했습니다.
+Hacker News 705 포인트, 463 댓글로 큰 논란이 된 사건입니다. Microsoft가 FBI 요청에 따라 용의자 노트북 3대의 BitLocker 암호화 복구 키를 제공했습니다.
 
 <div class="post-image-container">
   <img src="/assets/images/2026-01-24-bitlocker-key-flow.svg" alt="BitLocker Recovery Key Storage Paths - Understanding where your encryption keys are stored" class="post-image">
@@ -144,11 +144,11 @@ Tech               : ██ 6%
 
 | 항목 | 내용 |
 |------|------|
-| **대상** | 용의자 노트북 3대 |
-| **암호화** | BitLocker (Windows 기본 전체 디스크 암호화) |
-| **요청 기관** | FBI |
-| **제공 방식** | Microsoft 계정에 백업된 복구 키 제공 |
-| **법적 근거** | 적법한 영장에 의한 요청 |
+| 대상 | 용의자 노트북 3대 |
+| 암호화 | BitLocker (Windows 기본 전체 디스크 암호화) |
+| 요청 기관 | FBI |
+| 제공 방식 | Microsoft 계정에 백업된 복구 키 제공 |
+| 법적 근거 | 적법한 영장에 의한 요청 |
 
 #### 기술적 배경: BitLocker 복구 키의 흐름
 
@@ -173,27 +173,27 @@ BitLocker Recovery Key Storage:
 
 | MITRE ID | 기법 | 관련성 |
 |----------|------|--------|
-| **T1486** | Data Encrypted for Impact | BitLocker를 랜섬웨어처럼 악용 가능 |
-| **T1552.004** | Credentials from Password Stores | 클라우드 백업된 복구 키 탈취 |
-| **T1078.004** | Cloud Accounts | Microsoft 계정 침해 시 키 접근 |
-| **T1213** | Data from Information Repositories | OneDrive/AD에서 복구 키 수집 |
+| T1486 | Data Encrypted for Impact | BitLocker를 랜섬웨어처럼 악용 가능 |
+| T1552.004 | Credentials from Password Stores | 클라우드 백업된 복구 키 탈취 |
+| T1078.004 | Cloud Accounts | Microsoft 계정 침해 시 키 접근 |
+| T1213 | Data from Information Repositories | OneDrive/AD에서 복구 키 수집 |
 
 #### 한국 영향 분석
 
-**국내 조직 영향도: 높음** 🔴
+국내 조직 영향도: 높음 🔴
 
-1. **규제 준수 리스크**
+1. 규제 준수 리스크
    - 개인정보보호법: 암호화 키가 제3자(MS)에 의해 접근 가능 → 기술적 조치 미흡 논란 가능성
    - 정보통신망법: 클라우드 백업 시 국외 이전으로 간주 → 별도 동의 필요 여부 검토
    - 금융보안원 가이드라인: 금융권 암호화 키 관리 정책 위반 가능성
 
-2. **한국 기업 현황**
+2. 한국 기업 현황
    - Microsoft 365 기업 사용률: 약 40% (2025년 기준)
    - Windows 10/11 기업 배포: 약 85%
    - BitLocker 활성화율: 약 60% (대기업 기준)
-   - → **약 20만+ 기업이 잠재적 영향권**
+   - → 약 20만+ 기업이 잠재적 영향권
 
-3. **즉시 조치 사항**
+3. 즉시 조치 사항
    ```powershell
    # 한글 Windows에서 BitLocker 복구 키 위치 확인
    manage-bde -status C:
@@ -213,10 +213,10 @@ BitLocker Recovery Key Storage:
 
 | MITRE ID | 기법 | 관련성 |
 |----------|------|--------|
-| **T1557** | Adversary-in-the-Middle | BGP Hijacking으로 트래픽 중간자 공격 |
-| **T1498.001** | Direct Network Flood | Route Leak으로 대규모 트래픽 우회 |
-| **T1565.002** | Transmitted Data Manipulation | 경로 조작을 통한 데이터 변조 가능 |
-| **T1590.005** | Network Topology | BGP 정보 수집을 통한 네트워크 구조 파악 |
+| T1557 | Adversary-in-the-Middle | BGP Hijacking으로 트래픽 중간자 공격 |
+| T1498.001 | Direct Network Flood | Route Leak으로 대규모 트래픽 우회 |
+| T1565.002 | Transmitted Data Manipulation | 경로 조작을 통한 데이터 변조 가능 |
+| T1590.005 | Network Topology | BGP 정보 수집을 통한 네트워크 구조 파악 |
 
 #### BGP Route Leak 공격 흐름도 (Attack Flow Diagram)
 
@@ -247,7 +247,7 @@ BitLocker Recovery Key Storage:
 -%}
 
 
-GeekNews에서 **컨테이너화의 선구자 Docker의 2026년 현황**을 심층 분석했습니다. Kubernetes와의 경쟁 이후 Docker의 정체성과 방향성 변화를 다룹니다.
+GeekNews에서 컨테이너화의 선구자 Docker의 2026년 현황을 심층 분석했습니다. Kubernetes와의 경쟁 이후 Docker의 정체성과 방향성 변화를 다룹니다.
 
 <div class="post-image-container">
   <img src="/assets/images/2026-01-24-docker-ecosystem-2026.svg" alt="Docker Ecosystem 2026 - Evolution and Alternatives" class="post-image">
@@ -274,15 +274,15 @@ Docker Evolution: 2013 Container Revolution → 2014-17 Rapid Growth (Swarm)
 
 | 제품 | 역할 | 경쟁/대안 |
 |------|------|----------|
-| **Docker Desktop** | 로컬 개발 환경 | Podman Desktop, Rancher Desktop |
-| **Docker Hub** | 이미지 레지스트리 | GitHub Container Registry, ECR, GCR |
-| **Docker Build Cloud** | 원격 빌드 | GitHub Actions, GitLab CI |
-| **Docker Scout** | 이미지 보안 스캔 | Trivy, Snyk, Grype |
-| **Testcontainers** | 테스트 컨테이너 | 독보적 (인수 후 성장) |
+| Docker Desktop | 로컬 개발 환경 | Podman Desktop, Rancher Desktop |
+| Docker Hub | 이미지 레지스트리 | GitHub Container Registry, ECR, GCR |
+| Docker Build Cloud | 원격 빌드 | GitHub Actions, GitLab CI |
+| Docker Scout | 이미지 보안 스캔 | Trivy, Snyk, Grype |
+| Testcontainers | 테스트 컨테이너 | 독보적 (인수 후 성장) |
 
 #### DevSecOps 관점 시사점
 
-**1. Docker 종속성 점검**
+1. Docker 종속성 점검
 
 ```bash
 # 현재 프로젝트의 Docker 종속성 확인
@@ -295,7 +295,7 @@ docker build -t myapp .
 docker run -d myapp
 ```
 
-**2. 멀티 런타임 전략**
+2. 멀티 런타임 전략
 
 | 환경 | 권장 런타임 | 이유 |
 |------|-----------|------|
@@ -323,7 +323,7 @@ docker run -d myapp
 
 ### 3.1 OpenAI Codex Agent Loop 아키텍처 공개
 
-OpenAI가 **Codex의 Agent Loop 내부 아키텍처**를 상세 공개했습니다. 237 포인트, 117 댓글로 개발자들의 큰 관심을 받았습니다.
+OpenAI가 Codex의 Agent Loop 내부 아키텍처를 상세 공개했습니다. 237 포인트, 117 댓글로 개발자들의 큰 관심을 받았습니다.
 
 #### Agent Loop 핵심 구조
 
@@ -351,37 +351,37 @@ User Request → Planning Agent (Task Decomposition)
 
 | 요소 | 설명 | 효과 |
 |------|------|------|
-| **Task Decomposition** | 복잡한 작업을 원자적 단위로 분해 | 병렬 처리 가능 |
-| **Parallel Execution** | 독립적 작업 동시 실행 | 처리 속도 향상 |
-| **Iterative Refinement** | 검증 실패 시 반복 개선 | 품질 향상 |
-| **Context Isolation** | 에이전트 간 컨텍스트 분리 | 충돌 방지 |
+| Task Decomposition | 복잡한 작업을 원자적 단위로 분해 | 병렬 처리 가능 |
+| Parallel Execution | 독립적 작업 동시 실행 | 처리 속도 향상 |
+| Iterative Refinement | 검증 실패 시 반복 개선 | 품질 향상 |
+| Context Isolation | 에이전트 간 컨텍스트 분리 | 충돌 방지 |
 
 #### 개발자 관점 활용 팁
 
-**탐지 시나리오**:
+탐지 시나리오:
 1. 짧은 시간 내 여러 복구 키 조회 (5분 내 3회 이상)
 2. 업무 시간 외 복구 키 접근 (주말, 새벽)
 3. 외부 IP에서 Microsoft 계정 복구 키 페이지 접근
 
 ### 6.2 BGP Anomaly Hunting
 
-**목표**: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
+목표: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
 
 > ```bash
 > # BGPStream CLI를 이용한 히스토리컬 분석...
 > ```
 
 
-**탐지 시나리오**:
+탐지 시나리오:
 1. 우리 AS가 아닌 다른 AS에서 자사 프리픽스 광고
 2. AS_PATH가 평소보다 비정상적으로 길어짐 (hop count > 10)
 3. RPKI 검증 실패 증가 (ROA Invalid 비율 > 5%)
 
 ### 6.3 AI Agent Privilege Escalation Hunting
 
-**목표**: AI 에이전트의 비인가 권한 상승 탐지
+목표: AI 에이전트의 비인가 권한 상승 탐지
 
-**탐지 시나리오**:
+탐지 시나리오:
 1. AI 에이전트 Pod에서 cluster-admin 권한 시도
 2. 허용되지 않은 네임스페이스의 Secret 접근
 3. 외부 네트워크로 대량 데이터 전송 (exfiltration)
@@ -392,45 +392,45 @@ User Request → Planning Agent (Task Decomposition)
 
 ### 긴급 (이번 주 내 조치)
 
-- [ ] **BitLocker 복구 키 저장 위치 점검**: Microsoft 계정 백업 여부 확인
-- [ ] **BGP 모니터링 설정**: Route Leak 탐지 알림 구성
-- [ ] **Docker Desktop 라이선스 확인**: 구독 정책 변경 영향 점검
-- [ ] **Threat Hunting 실행**: BitLocker 복구 키 접근 로그 분석
-- [ ] **RPKI 검증 상태 확인**: 자사 프리픽스 ROA 등록 여부
+- [ ] BitLocker 복구 키 저장 위치 점검: Microsoft 계정 백업 여부 확인
+- [ ] BGP 모니터링 설정: Route Leak 탐지 알림 구성
+- [ ] Docker Desktop 라이선스 확인: 구독 정책 변경 영향 점검
+- [ ] Threat Hunting 실행: BitLocker 복구 키 접근 로그 분석
+- [ ] RPKI 검증 상태 확인: 자사 프리픽스 ROA 등록 여부
 
 ### 중요 (이번 달 내 계획)
 
-- [ ] **RPKI ROA 레코드 등록**: 자사 프리픽스 보호
-- [ ] **멀티 컨테이너 런타임 전략 수립**: Docker 종속성 감소
-- [ ] **AI 코드 생성 정책 수립**: 내부 가이드라인 정의
-- [ ] **BGP 이상 탐지 자동화**: SIEM 통합 및 알림 설정
-- [ ] **암호화 정책 재평가**: 민감 데이터 암호화 방식 검토
+- [ ] RPKI ROA 레코드 등록: 자사 프리픽스 보호
+- [ ] 멀티 컨테이너 런타임 전략 수립: Docker 종속성 감소
+- [ ] AI 코드 생성 정책 수립: 내부 가이드라인 정의
+- [ ] BGP 이상 탐지 자동화: SIEM 통합 및 알림 설정
+- [ ] 암호화 정책 재평가: 민감 데이터 암호화 방식 검토
 
 ### 권장 (분기 내 검토)
 
-- [ ] **Airflow 3.1 업그레이드 검토**: Cloud Composer 사용 시
-- [ ] **ADK + Datadog 파일럿**: AI 에이전트 모니터링 구축
-- [ ] **자율 기업 전환 로드맵**: 4대 제어 기둥 현황 평가
-- [ ] **제로 트러스트 아키텍처 도입**: 네트워크 세그먼트 분리
-- [ ] **NHI 인벤토리 구축**: 비인간 ID 목록화 및 관리 정책
+- [ ] Airflow 3.1 업그레이드 검토: Cloud Composer 사용 시
+- [ ] ADK + Datadog 파일럿: AI 에이전트 모니터링 구축
+- [ ] 자율 기업 전환 로드맵: 4대 제어 기둥 현황 평가
+- [ ] 제로 트러스트 아키텍처 도입: 네트워크 세그먼트 분리
+- [ ] NHI 인벤토리 구축: 비인간 ID 목록화 및 관리 정책
 
 ---
 
 ## 결론
 
-이번 주는 **암호화 신뢰성과 인프라 보안**이 가장 큰 화두였습니다.
+이번 주는 암호화 신뢰성과 인프라 보안이 가장 큰 화두였습니다.
 
-**핵심 메시지:**
+핵심 메시지:
 
-1. **암호화 신뢰 재검토**: Microsoft BitLocker 사건으로 클라우드 키 에스크로 위험 인식 → **로컬 키 관리 또는 대안 암호화 검토**
+1. 암호화 신뢰 재검토: Microsoft BitLocker 사건으로 클라우드 키 에스크로 위험 인식 → 로컬 키 관리 또는 대안 암호화 검토
 
-2. **BGP 보안 강화 필요**: Cloudflare Route Leak 사건 → **RPKI 도입 및 실시간 모니터링 필수**
+2. BGP 보안 강화 필요: Cloudflare Route Leak 사건 → RPKI 도입 및 실시간 모니터링 필수
 
-3. **자율 기업 전환 가속**: CNCF 2026 전망에서 AI 에이전트가 핵심 → **플랫폼 제어 4대 기둥 점검**
+3. 자율 기업 전환 가속: CNCF 2026 전망에서 AI 에이전트가 핵심 → 플랫폼 제어 4대 기둥 점검
 
-4. **Docker 생태계 다변화**: 컨테이너 선구자의 변화 → **OCI 호환 대안 평가 및 멀티 런타임 전략**
+4. Docker 생태계 다변화: 컨테이너 선구자의 변화 → OCI 호환 대안 평가 및 멀티 런타임 전략
 
-5. **AI 도구 정책 명확화**: Ghostty 사례처럼 AI 사용 정책 수립 → **조직 내 가이드라인 마련**
+5. AI 도구 정책 명확화: Ghostty 사례처럼 AI 사용 정책 수립 → 조직 내 가이드라인 마련
 
 다음 주에도 DevSecOps 실무에 도움이 되는 핵심 뉴스를 선별하여 분석해 드리겠습니다.
 
@@ -440,25 +440,25 @@ User Request → Planning Agent (Task Decomposition)
 
 ### 8.1 원문 소스
 
-**보안 (Security)**:
+보안 (Security):
 - [TechCrunch - Microsoft gave FBI a set of BitLocker encryption keys to unlock suspects' laptops](https://techcrunch.com/2026/01/23/microsoft-gave-fbi-a-set-of-bitlocker-encryption-keys-to-unlock-suspects-laptops-reports/) - 2026-01-23
 - [Hacker News Discussion - BitLocker FBI Keys](https://news.ycombinator.com/item?id=42812345) - 705 points, 463 comments
 - [Cloudflare Blog - Route Leak Incident Analysis (January 22, 2026)](https://blog.cloudflare.com/route-leak-incident-january-22-2026/) - 2026-01-23
 
-**플랫폼 & DevOps**:
+플랫폼 & DevOps:
 - [CNCF Blog - The Autonomous Enterprise and the Four Pillars of Platform Control: 2026 Forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/) - 2026-01-23
 - [GeekNews - Docker는 무엇이 되었는가?](https://news.hada.io/topic?id=26085) - 2026-01-23
 
-**AI & 개발 도구**:
+AI & 개발 도구:
 - [OpenAI - Unrolling the Codex Agent Loop](https://openai.com/index/unrolling-the-codex-agent-loop/) - 2026-01-23
 - [Hacker News Discussion - Codex Agent Loop](https://news.ycombinator.com/item?id=42810567) - 237 points, 117 comments
 - [GeekNews - Ghostty의 AI 사용 정책](https://news.hada.io/topic?id=26082) - 2026-01-23
 
-**클라우드 & 인프라**:
+클라우드 & 인프라:
 - [Google Cloud Blog - Datadog integrates Agent Development Kit (ADK)](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/) - 2026-01-23
 - [Comma.ai - Supported Cars](https://comma.ai) - 2026-01-23
 
-**기타**:
+기타:
 - [Chromium - Banned C++ Features](https://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++-features) - 2026-01-23
 
 ---
@@ -470,54 +470,54 @@ User Request → Planning Agent (Task Decomposition)
 
 ### 8.2 기술 문서 및 표준
 
-**암호화 (Encryption)**:
+암호화 (Encryption):
 - [Microsoft Docs - BitLocker Recovery Guide](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan) - Microsoft 공식 문서
 - [NIST SP 800-111 - Guide to Storage Encryption Technologies](https://csrc.nist.gov/publications/detail/sp/800-111/rev-1/final) - NIST 암호화 가이드
 - [VeraCrypt Documentation](https://www.veracrypt.fr/en/Documentation.html) - 오픈소스 암호화 도구
 
-**BGP 보안 (BGP Security)**:
+BGP 보안 (BGP Security):
 - [RPKI.net - Resource Public Key Infrastructure](https://rpki.net/) - RPKI 공식 사이트
 - [MANRS - Mutually Agreed Norms for Routing Security](https://www.manrs.org/) - BGP 보안 표준
 - [RFC 7454 - BGP Operations and Security](https://datatracker.ietf.org/doc/html/rfc7454) - IETF BGP 보안 RFC
 - [RIPE NCC - BGP Best Practices](https://www.ripe.net/manage-ips-and-asns/resource-management/certification/resource-certification-rpki) - 유럽 인터넷 레지스트리 가이드
 
-**플랫폼 엔지니어링 (Platform Engineering)**:
+플랫폼 엔지니어링 (Platform Engineering):
 - [CNCF Landscape - Platform Engineering Tools](https://landscape.cncf.io/) - CNCF 도구 생태계
 - [Platform Engineering Maturity Model](https://platformengineering.org/maturity-model) - 성숙도 모델
 - [OPA Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/) - 정책 제어 도구
 
-**컨테이너 (Containers)**:
+컨테이너 (Containers):
 - [OCI Specifications](https://github.com/opencontainers/runtime-spec) - 오픈 컨테이너 표준
 - [Podman Documentation](https://docs.podman.io/en/latest/) - Docker 대안
 - [Kaniko - Container Image Builder](https://github.com/GoogleContainerTools/kaniko) - 비특권 빌드 도구
 
 ### 8.3 보안 도구 및 리소스
 
-**SIEM & 모니터링**:
+SIEM & 모니터링:
 - [Splunk Security Essentials](https://splunkbase.splunk.com/app/3435/) - Splunk 보안 앱
 - [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel) - KQL 쿼리 저장소
 - [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) - 공격 기법 매핑 도구
 
-**BGP 모니터링**:
+BGP 모니터링:
 - [BGPStream](https://bgpstream.com/) - 실시간 BGP 데이터 스트리밍
 - [RIPE RIS](https://www.ripe.net/analyse/internet-measurements/routing-information-service-ris) - 유럽 BGP 모니터링
 - [Cloudflare Radar](https://radar.cloudflare.com/) - 무료 BGP 이상 탐지 대시보드
 - [BGPalerter](https://github.com/nttgin/BGPalerter) - 오픈소스 자가 호스팅 모니터링
 
-**암호화 검증**:
+암호화 검증:
 - [Cryptsetup (LUKS)](https://gitlab.com/cryptsetup/cryptsetup) - Linux 디스크 암호화
 - [Hashcat](https://hashcat.net/hashcat/) - 암호화 강도 테스트
 - [KeyBase](https://keybase.io/) - 암호화 키 관리 도구
 
 ### 8.4 규제 및 컴플라이언스
 
-**한국 법규**:
+한국 법규:
 - [개인정보보호법 제29조 (안전조치의무)](https://www.law.go.kr/법령/개인정보보호법) - 암호화 요구사항
 - [정보통신망법 제28조 (개인정보의 보호조치)](https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률) - 기술적 조치
 - [전자금융거래법 시행령 별표2](https://www.law.go.kr/법령/전자금융거래법시행령) - 금융 보안 기준
 - [금융보안원 보안 취약점 점검 가이드](https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataList.do) - 금융권 암호화 정책
 
-**국제 표준**:
+국제 표준:
 - [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) - 정보보호 관리체계
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) - 미국 사이버보안 프레임워크
 - [PCI DSS v4.0](https://www.pcisecuritystandards.org/) - 카드 데이터 보호 표준
@@ -525,21 +525,21 @@ User Request → Planning Agent (Task Decomposition)
 
 ### 8.5 학습 리소스
 
-**온라인 코스**:
+온라인 코스:
 - [Coursera - Network Security & BGP](https://www.coursera.org/learn/network-security) - 네트워크 보안 강좌
 - [SANS SEC505 - Securing Windows and PowerShell Automation](https://www.sans.org/cyber-security-courses/securing-windows-powershell-automation/) - BitLocker 포함
 - [Linux Foundation - Kubernetes Security](https://training.linuxfoundation.org/training/kubernetes-security-essentials-lfs260/) - 컨테이너 보안
 
-**무료 실습 환경**:
+무료 실습 환경:
 - [SEED Labs - Cryptography](https://seedsecuritylabs.org/Labs_20.04/Crypto/) - 암호화 실습
 - [Kali Linux](https://www.kali.org/) - 보안 테스트 플랫폼
 - [TryHackMe - Network Security](https://tryhackme.com/room/networksecurity) - BGP 보안 실습
 
-**커뮤니티**:
+커뮤니티:
 - [NANOG Mailing List](https://www.nanog.org/mailinglists/) - 네트워크 운영자 커뮤니티
 - [r/netsec](https://www.reddit.com/r/netsec/) - Reddit 네트워크 보안
 - [CNCF Slack - #platform-engineering](https://cloud-native.slack.com/) - 플랫폼 엔지니어링 논의
 
 ---
 
-**면책 조항**: 이 포스팅은 교육 및 정보 제공 목적으로 작성되었습니다. 실제 운영 환경에 적용 시 조직의 보안 정책과 법적 요구사항을 반드시 확인하시기 바랍니다.
+면책 조항: 이 포스팅은 교육 및 정보 제공 목적으로 작성되었습니다. 실제 운영 환경에 적용 시 조직의 보안 정책과 법적 요구사항을 반드시 확인하시기 바랍니다.

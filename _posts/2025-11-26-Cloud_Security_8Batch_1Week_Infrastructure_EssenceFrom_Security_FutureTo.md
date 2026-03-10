@@ -43,33 +43,35 @@ series_total: 9
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 경영진 요약
 
 ### 리스크 스코어카드
 
 | 리스크 영역 | 현재 위험도 | 잠재적 영향 | 우선순위 | 예상 대응 비용 |
 |-----------|-----------|------------|---------|--------------|
-| **Shadow AI 사용** | 🔴 높음 | 데이터 유출, IP 손실 | 긴급 | 중간 (정책 수립 및 모니터링) |
-| **과도한 IAM 권한** | 🔴 높음 | 내부자 위협, 권한 남용 | 긴급 | 낮음 (정책 재설계) |
-| **암호화 미적용** | 🟡 중간 | 규제 위반, 데이터 유출 | 높음 | 낮음 (기본 암호화 활성화) |
-| **네트워크 노출** | 🔴 높음 | 외부 공격, 데이터 탈취 | 긴급 | 중간 (아키텍처 재설계) |
-| **모니터링 부재** | 🟡 중간 | 침해 탐지 지연 | 높음 | 낮음 (AWS 기본 서비스 활용) |
-| **컴플라이언스 미준수** | 🟡 중간 | 법적 제재, 평판 손실 | 높음 | 높음 (인증 및 감사) |
+| Shadow AI 사용 | 🔴 높음 | 데이터 유출, IP 손실 | 긴급 | 중간 (정책 수립 및 모니터링) |
+| 과도한 IAM 권한 | 🔴 높음 | 내부자 위협, 권한 남용 | 긴급 | 낮음 (정책 재설계) |
+| 암호화 미적용 | 🟡 중간 | 규제 위반, 데이터 유출 | 높음 | 낮음 (기본 암호화 활성화) |
+| 네트워크 노출 | 🔴 높음 | 외부 공격, 데이터 탈취 | 긴급 | 중간 (아키텍처 재설계) |
+| 모니터링 부재 | 🟡 중간 | 침해 탐지 지연 | 높음 | 낮음 (AWS 기본 서비스 활용) |
+| 컴플라이언스 미준수 | 🟡 중간 | 법적 제재, 평판 손실 | 높음 | 높음 (인증 및 감사) |
 
 ### 핵심 권장사항 (Top 3)
 
-1. **즉시 조치**: Shadow AI 사용 정책 수립 및 모니터링 시스템 구축
-2. **3개월 내**: Zero Trust 아키텍처 기반 접근 제어 재설계
-3. **6개월 내**: AI 기반 위협 탐지 시스템 도입 (GuardDuty Extended Threat Detection)
+1. 즉시 조치: Shadow AI 사용 정책 수립 및 모니터링 시스템 구축
+2. 3개월 내: Zero Trust 아키텍처 기반 접근 제어 재설계
+3. 6개월 내: AI 기반 위협 탐지 시스템 도입 (GuardDuty Extended Threat Detection)
 
 ### 비즈니스 영향 분석
 
 | 지표 | 현재 상태 | 목표 상태 | ROI |
 |------|----------|----------|-----|
-| **평균 침해 탐지 시간** | 45일 | 24시간 이내 | 보안 사고 비용 70% 감소 |
-| **컴플라이언스 위반 건수** | 연 8건 | 0건 | 법적 리스크 100% 제거 |
-| **보안 운영 비용** | 월 $50K | 월 $35K | 30% 비용 절감 (자동화) |
-| **사고 대응 시간** | 평균 72시간 | 평균 4시간 | 다운타임 95% 감소 |
+| 평균 침해 탐지 시간 | 45일 | 24시간 이내 | 보안 사고 비용 70% 감소 |
+| 컴플라이언스 위반 건수 | 연 8건 | 0건 | 법적 리스크 100% 제거 |
+| 보안 운영 비용 | 월 $50K | 월 $35K | 30% 비용 절감 (자동화) |
+| 사고 대응 시간 | 평균 72시간 | 평균 4시간 | 다운타임 95% 감소 |
 
 ## 서론
 
@@ -92,24 +94,24 @@ series_total: 9
 클라우드 보안을 이해하기 위해서는 먼저 클라우드 인프라의 본질을 파악해야 합니다. 클라우드 인프라는 크게 세 가지 핵심 요소로 구성됩니다:
 
 #### 네트워크 (Network)
-- **가상 네트워크**: VPC, 서브넷, 라우팅 테이블을 통한 논리적 네트워크 분리
-- **네트워크 보안**: Security Group, NACL, 방화벽을 통한 트래픽 제어
-- **연결성**: 인터넷 게이트웨이, NAT 게이트웨이, VPN, Direct Connect
+- 가상 네트워크: VPC, 서브넷, 라우팅 테이블을 통한 논리적 네트워크 분리
+- 네트워크 보안: Security Group, NACL, 방화벽을 통한 트래픽 제어
+- 연결성: 인터넷 게이트웨이, NAT 게이트웨이, VPN, Direct Connect
 
 #### 컴퓨팅 (Compute)
-- **가상 서버**: EC2, Lambda, 컨테이너 등 다양한 컴퓨팅 옵션
-- **리소스 관리**: 오토스케일링, 로드 밸런싱을 통한 가용성 확보
-- **보안**: IAM 역할, 인스턴스 프로파일을 통한 접근 제어
+- 가상 서버: EC2, Lambda, 컨테이너 등 다양한 컴퓨팅 옵션
+- 리소스 관리: 오토스케일링, 로드 밸런싱을 통한 가용성 확보
+- 보안: IAM 역할, 인스턴스 프로파일을 통한 접근 제어
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요., API 게이트웨이 보안
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요., API 게이트웨이 보안
 - 데이터 계층: 암호화, 접근 제어, 데이터 분류
 
-**최소 권한 원칙 (Principle of Least Privilege)**
+최소 권한 원칙 (Principle of Least Privilege)
 - 사용자 및 서비스에 필요한 최소한의 권한만 부여
 - 정기적인 권한 검토 및 정리
 - IAM 정책을 통한 세밀한 접근 제어
 
-**모니터링 및 감사 (Monitoring & Auditing)**
+모니터링 및 감사 (Monitoring & Auditing)
 - CloudTrail을 통한 API 호출 로깅
 - CloudWatch를 통한 리소스 모니터링
 - GuardDuty를 통한 위협 탐지
@@ -118,13 +120,13 @@ series_total: 9
 
 | 보안 영역 | 주요 이슈 | 위험도 | 대응 방안 |
 |----------|---------|-------|----------|
-| **네트워크 보안** | Public 서브넷에 데이터베이스 배치 | 높음 | Private 서브넷으로 이동, Security Group 최소 권한 원칙 |
+| 네트워크 보안 | Public 서브넷에 데이터베이스 배치 | 높음 | Private 서브넷으로 이동, Security Group 최소 권한 원칙 |
 | | 과도하게 개방된 Security Group 규칙 | 높음 | 필요한 포트만 개방, 정기적 검토 |
 | | 인터넷 게이트웨이를 통한 불필요한 외부 접근 | 중간 | VPC Endpoint 활용, NAT Gateway 최적화 |
-| **접근 제어** | 루트 계정의 일상적 사용 | 높음 | IAM 사용자/역할 사용, 루트 계정 MFA 강제 |
+| 접근 제어 | 루트 계정의 일상적 사용 | 높음 | IAM 사용자/역할 사용, 루트 계정 MFA 강제 |
 | | 과도한 권한을 가진 IAM 사용자/역할 | 높음 | 최소 권한 원칙 적용, IAM Policy Autopilot 활용 |
 | | 하드코딩된 자격 증명 | 높음 | Secrets Manager, 환경 변수 활용 |
-| **데이터 보호** | 암호화되지 않은 민감 데이터 저장 | 높음 | S3, EBS 기본 암호화 활성화 |
+| 데이터 보호 | 암호화되지 않은 민감 데이터 저장 | 높음 | S3, EBS 기본 암호화 활성화 |
 | | Public 버킷에 민감 정보 노출 | 높음 | Public Access Block 활성화, 버킷 정책 검토 |
 | | 백업 및 복구 계획 부재 | 중간 | AWS Backup 자동화, 정기적 복구 테스트 |
 
@@ -138,11 +140,11 @@ series_total: 9
 
 | 계층 | 방어 메커니즘 | 구현 도구 | 목적 |
 |------|-------------|----------|------|
-| **엣지** | DDoS 방어, CDN | CloudFront, Shield, Route53 | 트래픽 분산 및 공격 완화 |
-| **네트워크** | 방화벽, 침입 차단 | WAF, Security Groups, NACL | 악성 트래픽 차단 |
-| **애플리케이션** | 입력 검증, 인증 | API Gateway, Cognito, IAM | 무단 접근 방지 |
-| **데이터** | 암호화, 접근 제어 | KMS, Secrets Manager, S3 Encryption | 데이터 보호 |
-| **감사** | 로깅, 모니터링 | CloudTrail, CloudWatch, GuardDuty | 위협 탐지 및 추적 |
+| 엣지 | DDoS 방어, CDN | CloudFront, Shield, Route53 | 트래픽 분산 및 공격 완화 |
+| 네트워크 | 방화벽, 침입 차단 | WAF, Security Groups, NACL | 악성 트래픽 차단 |
+| 애플리케이션 | 입력 검증, 인증 | API Gateway, Cognito, IAM | 무단 접근 방지 |
+| 데이터 | 암호화, 접근 제어 | KMS, Secrets Manager, S3 Encryption | 데이터 보호 |
+| 감사 | 로깅, 모니터링 | CloudTrail, CloudWatch, GuardDuty | 위협 탐지 및 추적 |
 
 ## 2. 2025년 클라우드 보안의 핵심 트렌드
 
@@ -154,41 +156,41 @@ series_total: 9
 
 | 위협 유형 | 설명 | 위험도 | 대응 방안 |
 |----------|------|-------|----------|
-| **Shadow AI** | 승인되지 않은 AI 도구 사용 | 높음 | AI 사용 정책 수립, 네트워크 트래픽 모니터링, 승인된 AI 도구 화이트리스트 |
-| **Deepfakes** | AI 생성 가짜 콘텐츠를 통한 사기 | 높음 | 다중 인증, 대역 외 확인, 음성/영상 인증 강화 |
-| **AI 기반 공격** | AI를 활용한 자동화된 공격 | 높음 | 행위 기반 탐지, Rate Limiting, 이상 탐지 시스템 |
+| Shadow AI | 승인되지 않은 AI 도구 사용 | 높음 | AI 사용 정책 수립, 네트워크 트래픽 모니터링, 승인된 AI 도구 화이트리스트 |
+| Deepfakes | AI 생성 가짜 콘텐츠를 통한 사기 | 높음 | 다중 인증, 대역 외 확인, 음성/영상 인증 강화 |
+| AI 기반 공격 | AI를 활용한 자동화된 공격 | 높음 | 행위 기반 탐지, Rate Limiting, 이상 탐지 시스템 |
 | | 지능형 자격 증명 스터핑 | 중간 | 다중 인증, CAPTCHA, 로그인 시도 제한 |
 | | 적응형 피싱 | 높음 | AI 탐지 도구, 사용자 교육, 이메일 필터링 강화 |
 | | 자율적 취약점 악용 | 높음 | 취약점 스캔 자동화, 패치 관리, 위협 인텔리전스 |
 
-> **참고**: AI 보안 위협 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [MITRE ATLAS](https://atlas.mitre.org/)를 참조하세요.
+> 참고: AI 보안 위협 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [MITRE ATLAS](https://atlas.mitre.org/)를 참조하세요.
 
 #### AI 기반 보안 방어
 
 | 방어 도구 | 설명 | 활용 시나리오 |
 |----------|------|-------------|
-| **AWS Security Agent (Preview)** | AI 기반 보안 자동화 | 개발 전 과정 보안 자동화 |
-| **Amazon GuardDuty Extended Threat Detection** | 공격 시퀀스 탐지 | 복합 공격 패턴 자동 연결 |
-| **Copilot Autofix** | 코드 취약점 자동 수정 | 개발 단계 취약점 자동 수정 |
-| **IAM Policy Autopilot** | AI 기반 IAM 정책 자동 생성 | 최소 권한 정책 자동 생성 |
+| AWS Security Agent (Preview) | AI 기반 보안 자동화 | 개발 전 과정 보안 자동화 |
+| Amazon GuardDuty Extended Threat Detection | 공격 시퀀스 탐지 | 복합 공격 패턴 자동 연결 |
+| Copilot Autofix | 코드 취약점 자동 수정 | 개발 단계 취약점 자동 수정 |
+| IAM Policy Autopilot | AI 기반 IAM 정책 자동 생성 | 최소 권한 정책 자동 생성 |
 
 #### Shadow AI 탐지 및 대응 전략
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 로그, API Gateway 로그 | 입력 검증, Rate Limiting |
-| **Execution** | T1059: Command and Scripting Interpreter | .009 Cloud API | 악의적 Lambda 함수 실행 | CloudTrail API 호출 로깅 | Lambda 권한 최소화 |
-| **Persistence** | T1136: Create Account | .003 Cloud Account | 무단 IAM 사용자 생성 | CloudTrail `CreateUser` 이벤트 | IAM 생성 권한 제한, SCPs |
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 로그, API Gateway 로그 | 입력 검증, Rate Limiting |
+| Execution | T1059: Command and Scripting Interpreter | .009 Cloud API | 악의적 Lambda 함수 실행 | CloudTrail API 호출 로깅 | Lambda 권한 최소화 |
+| Persistence | T1136: Create Account | .003 Cloud Account | 무단 IAM 사용자 생성 | CloudTrail `CreateUser` 이벤트 | IAM 생성 권한 제한, SCPs |
 | | T1098: Account Manipulation | .001 Additional Cloud Credentials | IAM 키 추가 생성 | CloudTrail `CreateAccessKey` | IAM 키 정기 로테이션 |
-| **Privilege Escalation** | T1548: Abuse Elevation Control Mechanism | .005 Temporary Elevated Cloud Access | AssumeRole 남용 | CloudTrail `AssumeRole` 패턴 분석 | 역할 신뢰 정책 강화 |
-| **Defense Evasion** | T1562: Impair Defenses | .008 Disable Cloud Logs | CloudTrail 비활성화 | CloudWatch 로깅 중단 알람 | CloudTrail 변경 알림 |
+| Privilege Escalation | T1548: Abuse Elevation Control Mechanism | .005 Temporary Elevated Cloud Access | AssumeRole 남용 | CloudTrail `AssumeRole` 패턴 분석 | 역할 신뢰 정책 강화 |
+| Defense Evasion | T1562: Impair Defenses | .008 Disable Cloud Logs | CloudTrail 비활성화 | CloudWatch 로깅 중단 알람 | CloudTrail 변경 알림 |
 | | T1070: Indicator Removal | .001 Clear Logs | S3 로그 버킷 삭제 | S3 버킷 삭제 이벤트 | 로그 버킷 MFA Delete |
-| **Credential Access** | T1110: Brute Force | .001 Password Guessing | IAM 사용자 비밀번호 무차별 대입 | 연속 로그인 실패 탐지 | 계정 잠금 정책, MFA |
+| Credential Access | T1110: Brute Force | .001 Password Guessing | IAM 사용자 비밀번호 무차별 대입 | 연속 로그인 실패 탐지 | 계정 잠금 정책, MFA |
 | | T1555: Credentials from Password Stores | .006 Cloud Secrets Management Stores | Secrets Manager 무단 접근 | Secrets Manager 접근 로그 | 최소 권한, VPC Endpoint |
-| **Discovery** | T1580: Cloud Infrastructure Discovery | - | EC2 인스턴스 메타데이터 서비스 악용 | IMDSv2 미사용 탐지 | IMDSv2 강제 |
+| Discovery | T1580: Cloud Infrastructure Discovery | - | EC2 인스턴스 메타데이터 서비스 악용 | IMDSv2 미사용 탐지 | IMDSv2 강제 |
 | | T1087: Account Discovery | .004 Cloud Account | IAM 사용자/역할 열거 | 대량 IAM API 호출 탐지 | Rate Limiting, 알람 |
-| **Lateral Movement** | T1550: Use Alternate Authentication Material | .001 Application Access Token | 탈취된 STS 토큰 사용 | 비정상 위치/IP에서 토큰 사용 | 토큰 유효 기간 단축 |
-| **Collection** | T1530: Data from Cloud Storage | - | S3 버킷 대량 다운로드 | S3 접근 로그, CloudTrail | 버킷 정책, VPC Endpoint |
-| **Exfiltration** | T1537: Transfer Data to Cloud Account | - | 외부 계정으로 데이터 전송 | 교차 계정 접근 탐지 | SCPs로 외부 전송 차단 |
-| **Impact** | T1485: Data Destruction | - | S3 버킷/EBS 볼륨 삭제 | 리소스 삭제 이벤트 알람 | 백업, MFA Delete |
+| Lateral Movement | T1550: Use Alternate Authentication Material | .001 Application Access Token | 탈취된 STS 토큰 사용 | 비정상 위치/IP에서 토큰 사용 | 토큰 유효 기간 단축 |
+| Collection | T1530: Data from Cloud Storage | - | S3 버킷 대량 다운로드 | S3 접근 로그, CloudTrail | 버킷 정책, VPC Endpoint |
+| Exfiltration | T1537: Transfer Data to Cloud Account | - | 외부 계정으로 데이터 전송 | 교차 계정 접근 탐지 | SCPs로 외부 전송 차단 |
+| Impact | T1485: Data Destruction | - | S3 버킷/EBS 볼륨 삭제 | 리소스 삭제 이벤트 알람 | 백업, MFA Delete |
 | | T1486: Data Encrypted for Impact | - | 랜섬웨어로 EBS 암호화 | 비정상 암호화 활동 탐지 | 백업, 스냅샷 보호 |
 
 ### MITRE ATT&CK 공격 흐름도
@@ -303,14 +305,14 @@ AWSCloudTrail
 
 ### 위협 헌팅 시나리오 1: Shadow Admin 탐지
 
-**목적**: 과도한 권한을 가진 숨겨진 관리자 계정 탐지
+목적: 과도한 권한을 가진 숨겨진 관리자 계정 탐지
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. | API 정책 |
-| **2.6.1 데이터베이스 접근 통제** | DB 접근 로그, 암호화 | RDS 감사 로그, 암호화 | 접근 로그 |
-| **2.7.1 물리적 접근 통제** | 데이터센터 물리 보안 | AWS 인증서 (ISO 27001) | AWS 인증서 사본 |
-| **2.8.1 모바일 기기 보안** | MDM, 데이터 암호화 | WorkSpaces, AppStream | MDM 정책 |
-| **2.9.1 무선 네트워크 보안** | 암호화, 인증 | Client VPN, WPA3 | 무선 정책 |
-| **2.10.1 원격 접근 보안** | VPN, MFA | Client VPN, IAM MFA | VPN 접속 로그 |
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. | API 정책 |
+| 2.6.1 데이터베이스 접근 통제 | DB 접근 로그, 암호화 | RDS 감사 로그, 암호화 | 접근 로그 |
+| 2.7.1 물리적 접근 통제 | 데이터센터 물리 보안 | AWS 인증서 (ISO 27001) | AWS 인증서 사본 |
+| 2.8.1 모바일 기기 보안 | MDM, 데이터 암호화 | WorkSpaces, AppStream | MDM 정책 |
+| 2.9.1 무선 네트워크 보안 | 암호화, 인증 | Client VPN, WPA3 | 무선 정책 |
+| 2.10.1 원격 접근 보안 | VPN, MFA | Client VPN, IAM MFA | VPN 접속 로그 |
 
 ## 클라우드 인프라 보안 점검 체크리스트
 
@@ -350,16 +352,16 @@ AWSCloudTrail
 
 ### 시나리오 1: 대규모 DDoS 공격 대응
 
-**상황**: 웹 애플리케이션에 대한 대규모 DDoS 공격 발생
+상황: 웹 애플리케이션에 대한 대규모 DDoS 공격 발생
 
-**증상**:
+증상:
 - CloudWatch에서 비정상적인 트래픽 증가 감지
 - 애플리케이션 응답 시간 급증
 - 정상 사용자 접속 불가
 
-**대응 절차**:
+대응 절차:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
 | 단계 | 대응 조치 | AWS 명령/도구 |
 |------|----------|--------------|
@@ -368,26 +370,26 @@ AWSCloudTrail
 | 3 | Route53 Health Check 설정 | `aws route53 create-health-check` (HTTPS, /health) |
 | 4 | Shield Response Team 연락 | AWS Support Console 케이스 오픈 |
 
-**예방 조치**:
+예방 조치:
 - CloudFront + Shield Standard (기본 활성화)
 - WAF Rate Limiting 규칙 사전 설정
 - Auto Scaling 그룹 최대 용량 증가
 - Route53 Health Check 및 Failover 라우팅
 
-**참고**: [AWS Shield](https://aws.amazon.com/shield/){:target="_blank"}
+참고: [AWS Shield](https://aws.amazon.com/shield/){:target="_blank"}
 
 ### 시나리오 2: S3 버킷 데이터 유출 사고
 
-**상황**: 실수로 S3 버킷이 퍼블릭으로 노출되어 민감 데이터 유출
+상황: 실수로 S3 버킷이 퍼블릭으로 노출되어 민감 데이터 유출
 
-**증상**:
+증상:
 - GuardDuty에서 "Exfiltration:S3/ObjectRead.Unusual" 알람
 - CloudTrail에서 비정상적인 GetObject 호출 급증
 - 외부 IP에서 대량 다운로드 탐지
 
-**대응 절차**:
+대응 절차:
 
-> **참고**: S3 버킷 보안 설정은 [AWS S3 보안 모범 사례](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html){:target="_blank"}를 참조하세요.
+> 참고: S3 버킷 보안 설정은 [AWS S3 보안 모범 사례](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html){:target="_blank"}를 참조하세요.
 
 | 단계 | 대응 조치 | 설명 |
 |------|----------|------|
@@ -400,56 +402,56 @@ AWSCloudTrail
 
 | 자료 | 링크 | 설명 |
 |------|------|------|
-| **AWS Security Blog** | [https://aws.amazon.com/blogs/security/](https://aws.amazon.com/blogs/security/) | AWS 보안 공식 블로그 |
-| **AWS re:Inforce** | [https://reinforce.awsevents.com/](https://reinforce.awsevents.com/) | AWS 보안 컨퍼런스 |
-| **Kubernetes Security Best Practices** | [https://kubernetes.io/docs/concepts/security/](https://kubernetes.io/docs/concepts/security/) | Kubernetes 보안 |
-| **SANS Cloud Security** | [https://www.sans.org/cloud-security/](https://www.sans.org/cloud-security/) | 클라우드 보안 교육 |
+| AWS Security Blog | [https://aws.amazon.com/blogs/security/](https://aws.amazon.com/blogs/security/) | AWS 보안 공식 블로그 |
+| AWS re:Inforce | [https://reinforce.awsevents.com/](https://reinforce.awsevents.com/) | AWS 보안 컨퍼런스 |
+| Kubernetes Security Best Practices | [https://kubernetes.io/docs/concepts/security/](https://kubernetes.io/docs/concepts/security/) | Kubernetes 보안 |
+| SANS Cloud Security | [https://www.sans.org/cloud-security/](https://www.sans.org/cloud-security/) | 클라우드 보안 교육 |
 
 ### 도구 및 오픈소스
 
 | 도구 | 링크 | 설명 |
 |------|------|------|
-| **Prowler** | [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
-| **ScoutSuite** | [nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
-| **CloudSploit** | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
-| **Falco** | [https://falco.org/](https://falco.org/) | 런타임 보안 모니터링 |
-| **Trivy** | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 스캐너 |
-| **Terraform AWS Modules** | [https://registry.terraform.io/modules/terraform-aws-modules/](https://registry.terraform.io/modules/terraform-aws-modules/) | AWS 인프라 IaC 모듈 |
+| Prowler | [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
+| ScoutSuite | [nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
+| CloudSploit | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
+| Falco | [https://falco.org/](https://falco.org/) | 런타임 보안 모니터링 |
+| Trivy | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 스캐너 |
+| Terraform AWS Modules | [https://registry.terraform.io/modules/terraform-aws-modules/](https://registry.terraform.io/modules/terraform-aws-modules/) | AWS 인프라 IaC 모듈 |
 
 ### 인증 및 교육
 
 | 인증/교육 | 링크 | 설명 |
 |---------|------|------|
-| **AWS Certified Security - Specialty** | [https://aws.amazon.com/certification/certified-security-specialty/](https://aws.amazon.com/certification/certified-security-specialty/) | AWS 보안 전문가 인증 |
-| **CISSP** | [https://www.isc2.org/Certifications/CISSP](https://www.isc2.org/Certifications/CISSP) | 정보보안 전문가 인증 |
-| **CCSP** | [https://www.isc2.org/Certifications/CCSP](https://www.isc2.org/Certifications/CCSP) | 클라우드 보안 전문가 인증 |
-| **AWS Skill Builder** | [https://skillbuilder.aws/](https://skillbuilder.aws/) | AWS 무료 교육 플랫폼 |
+| AWS Certified Security - Specialty | [https://aws.amazon.com/certification/certified-security-specialty/](https://aws.amazon.com/certification/certified-security-specialty/) | AWS 보안 전문가 인증 |
+| CISSP | [https://www.isc2.org/Certifications/CISSP](https://www.isc2.org/Certifications/CISSP) | 정보보안 전문가 인증 |
+| CCSP | [https://www.isc2.org/Certifications/CCSP](https://www.isc2.org/Certifications/CCSP) | 클라우드 보안 전문가 인증 |
+| AWS Skill Builder | [https://skillbuilder.aws/](https://skillbuilder.aws/) | AWS 무료 교육 플랫폼 |
 
 ## 결론
 
-클라우드 시큐리티 8기 1주차에서는 **인프라의 본질부터 보안의 미래까지** 다뤘습니다.
+클라우드 시큐리티 8기 1주차에서는 인프라의 본질부터 보안의 미래까지 다뤘습니다.
 
-**인프라의 본질**에서는 클라우드 인프라의 핵심 구성 요소(네트워크, 컴퓨팅, 스토리지)와 보안 관점에서의 인프라 설계 원칙을 살펴봤습니다. 방어의 깊이, 최소 권한 원칙, 모니터링 및 감사가 클라우드 보안의 기초가 됩니다.
+인프라의 본질에서는 클라우드 인프라의 핵심 구성 요소(네트워크, 컴퓨팅, 스토리지)와 보안 관점에서의 인프라 설계 원칙을 살펴봤습니다. 방어의 깊이, 최소 권한 원칙, 모니터링 및 감사가 클라우드 보안의 기초가 됩니다.
 
-**보안의 미래**에서는 2025년 클라우드 보안의 핵심 트렌드를 다뤘습니다:
+보안의 미래에서는 2025년 클라우드 보안의 핵심 트렌드를 다뤘습니다:
 
 | 트렌드 | 주요 내용 | 실무 적용 포인트 |
 |--------|----------|----------------|
-| **AI 보안** | AI 기반 위협과 방어 도구의 진화 | Shadow AI 모니터링, AI 탐지 도구 도입 |
-| **Zero Trust** | 지속적 검증과 동적 권한 관리 | 위험도 기반 접근 제어, 지속적 모니터링 |
-| **클라우드 네이티브 보안** | 컨테이너와 Kubernetes 보안의 고도화 | 이미지 스캔, 네트워크 정책, 런타임 보호 |
-| **규제 및 컴플라이언스** | AI Act, ISMS-P 등 새로운 규제 대응 | AI 거버넌스 프레임워크, 데이터 지역화 검토 |
-| **FinOps와 보안의 융합** | 비용 효율적인 보안 운영 | 보안 투자 ROI 측정, 비용 인식 보안 |
-| **Post-Quantum 암호화** | 양자 컴퓨팅 위협 대응 | NIST PQC 표준 알고리즘 전환 준비 |
+| AI 보안 | AI 기반 위협과 방어 도구의 진화 | Shadow AI 모니터링, AI 탐지 도구 도입 |
+| Zero Trust | 지속적 검증과 동적 권한 관리 | 위험도 기반 접근 제어, 지속적 모니터링 |
+| 클라우드 네이티브 보안 | 컨테이너와 Kubernetes 보안의 고도화 | 이미지 스캔, 네트워크 정책, 런타임 보호 |
+| 규제 및 컴플라이언스 | AI Act, ISMS-P 등 새로운 규제 대응 | AI 거버넌스 프레임워크, 데이터 지역화 검토 |
+| FinOps와 보안의 융합 | 비용 효율적인 보안 운영 | 보안 투자 ROI 측정, 비용 인식 보안 |
+| Post-Quantum 암호화 | 양자 컴퓨팅 위협 대응 | NIST PQC 표준 알고리즘 전환 준비 |
 
-**실무에서 자주 발생하는 인프라 보안 이슈**에서는 네트워크 보안, 접근 제어, 데이터 보호 영역의 주요 이슈와 대응 방안을 표 형식으로 정리했습니다. 이러한 이슈들을 사전에 인지하고 대응하는 것이 중요합니다.
+실무에서 자주 발생하는 인프라 보안 이슈에서는 네트워크 보안, 접근 제어, 데이터 보호 영역의 주요 이슈와 대응 방안을 표 형식으로 정리했습니다. 이러한 이슈들을 사전에 인지하고 대응하는 것이 중요합니다.
 
-**MITRE ATT&CK 매핑**을 통해 클라우드 환경의 실제 공격 기법과 탐지 방법, 대응 조치를 구체적으로 이해할 수 있었습니다. 공격자의 관점에서 방어 전략을 수립하는 것이 효과적입니다.
+MITRE ATT&CK 매핑을 통해 클라우드 환경의 실제 공격 기법과 탐지 방법, 대응 조치를 구체적으로 이해할 수 있었습니다. 공격자의 관점에서 방어 전략을 수립하는 것이 효과적입니다.
 
-**한국 기업 환경 분석**에서는 국내 특유의 규제 환경(ISMS-P, 금융보안 가이드, 망분리)과 대응 방안을 다뤘습니다. 글로벌 표준과 함께 국내 규제를 준수하는 것이 중요합니다.
+한국 기업 환경 분석에서는 국내 특유의 규제 환경(ISMS-P, 금융보안 가이드, 망분리)과 대응 방안을 다뤘습니다. 글로벌 표준과 함께 국내 규제를 준수하는 것이 중요합니다.
 
 클라우드 보안은 단순한 기술 구현이 아닌, 인프라의 본질을 이해하고 미래 트렌드를 선제적으로 대응하는 전략적 접근이 필요합니다. 올바른 인프라 설계와 지속적인 보안 모니터링을 통해 안전하고 효율적인 클라우드 환경을 구축할 수 있습니다. 특히 2025년에는 AI 보안, Zero Trust 아키텍처, Post-Quantum 암호화가 핵심 트렌드로 부상했으며, 이러한 트렌드를 선제적으로 대응하는 것이 핵심입니다.
 
 ---
 
-**원본 포스트**: [클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지](https://twodragon.tistory.com/701)
+원본 포스트: [클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지](https://twodragon.tistory.com/701)

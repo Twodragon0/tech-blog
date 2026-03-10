@@ -35,17 +35,17 @@ toc: true
 
 ## 서론
 
-안녕하세요, **Twodragon**입니다.
+안녕하세요, Twodragon입니다.
 
 2026년 02월 26일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
 
-**수집 통계:**
-- **총 뉴스 수**: 23개
-- **보안 뉴스**: 5개
-- **AI/ML 뉴스**: 4개
-- **클라우드 뉴스**: 2개
-- **DevOps 뉴스**: 2개
-- **블록체인 뉴스**: 5개
+수집 통계:
+- 총 뉴스 수: 23개
+- 보안 뉴스: 5개
+- AI/ML 뉴스: 4개
+- 클라우드 뉴스: 2개
+- DevOps 뉴스: 2개
+- 블록체인 뉴스: 5개
 
 ---
 
@@ -55,16 +55,16 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Google, 42개국 53개 조직 침해한 UNC2814 사이버 스파이 인프라 차단 | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Claude Code에서 RCE 및 API 키 유출 취약점 다수 발견 | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | SLH 해킹 그룹, IT 헬프데스크 음성 피싱에 여성 모집 (건당 $500-$1,000) | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | 잘못된 취약점 분류(Triage)가 비즈니스 위험 높이는 5가지 방법 | 🟠 High |
-| 🔒 **Security** | The Hacker News | 악성 NuGet 패키지로 ASP.NET 데이터 탈취, npm 패키지에서도 발견 | 🟡 Medium |
-| 🤖 **AI/ML** | Google AI Blog | Circle to Search AI 기반 시각 검색 기능 확장 | 🟡 Medium |
-| 🤖 **AI/ML** | AWS ML Blog | vLLM 기반 다중 LoRA 추론으로 수십 개 파인튜닝 모델 효율적 서빙 | 🟡 Medium |
-| ☁️ **Cloud** | Google Cloud | 프로덕션 AI 에이전트 개발 가이드 공개 | 🟠 High |
-| ⚙️ **DevOps** | Docker Blog | Open WebUI + Docker Model Runner 제로 설정 통합 | 🔴 Critical |
-| 💰 **Blockchain** | Bitcoin Magazine | Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획 발표 | 🟡 Medium |
+| 🔒 Security | The Hacker News | Google, 42개국 53개 조직 침해한 UNC2814 사이버 스파이 인프라 차단 | 🟡 Medium |
+| 🔒 Security | The Hacker News | Claude Code에서 RCE 및 API 키 유출 취약점 다수 발견 | 🟡 Medium |
+| 🔒 Security | The Hacker News | SLH 해킹 그룹, IT 헬프데스크 음성 피싱에 여성 모집 (건당 $500-$1,000) | 🟡 Medium |
+| 🔒 Security | The Hacker News | 잘못된 취약점 분류(Triage)가 비즈니스 위험 높이는 5가지 방법 | 🟠 High |
+| 🔒 Security | The Hacker News | 악성 NuGet 패키지로 ASP.NET 데이터 탈취, npm 패키지에서도 발견 | 🟡 Medium |
+| 🤖 AI/ML | Google AI Blog | Circle to Search AI 기반 시각 검색 기능 확장 | 🟡 Medium |
+| 🤖 AI/ML | AWS ML Blog | vLLM 기반 다중 LoRA 추론으로 수십 개 파인튜닝 모델 효율적 서빙 | 🟡 Medium |
+| ☁️ Cloud | Google Cloud | 프로덕션 AI 에이전트 개발 가이드 공개 | 🟠 High |
+| ⚙️ DevOps | Docker Blog | Open WebUI + Docker Model Runner 제로 설정 통합 | 🔴 Critical |
+| 💰 Blockchain | Bitcoin Magazine | Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획 발표 | 🟡 Medium |
 
 ---
 
@@ -98,9 +98,9 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
 
 | 항목 | 내용 |
 |------|------|
-| **위협 그룹** | UNC2814 (중국 연계 APT) |
-| **심각도** | Medium |
-| **대응 우선순위** | P1 - 7일 이내 검토 권장 |
+| 위협 그룹 | UNC2814 (중국 연계 APT) |
+| 심각도 | Medium |
+| 대응 우선순위 | P1 - 7일 이내 검토 권장 |
 
 #### 권장 조치
 
@@ -449,12 +449,12 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **APT/사이버 스파이** | 2건 | UNC2814 GRIDTIDE 42개국, SLH IT 헬프데스크 음성 피싱 |
-| **개발도구 보안** | 1건 | Claude Code RCE, API 키 유출 취약점 |
-| **AI 에이전트 프로덕션** | 3건 | Google AI 에이전트 가이드, vLLM SageMaker, Docker Model Runner |
-| **암호화폐 시장** | 2건 | Morgan Stanley BTC 사업 확대, 비트코인 $69K 돌파 |
+| APT/사이버 스파이 | 2건 | UNC2814 GRIDTIDE 42개국, SLH IT 헬프데스크 음성 피싱 |
+| 개발도구 보안 | 1건 | Claude Code RCE, API 키 유출 취약점 |
+| AI 에이전트 프로덕션 | 3건 | Google AI 에이전트 가이드, vLLM SageMaker, Docker Model Runner |
+| 암호화폐 시장 | 2건 | Morgan Stanley BTC 사업 확대, 비트코인 $69K 돌파 |
 
-이번 주기의 핵심 트렌드는 **APT 사이버 스파이 캠페인**입니다. UNC2814의 GRIDTIDE 캠페인이 42개국 53개 조직을 침해한 사례와 SLH 그룹의 IT 헬프데스크 대상 음성 피싱 수법이 확인되었습니다. **개발도구 보안** 측면에서는 Claude Code에서 RCE 및 API 키 유출 취약점이 발견되어 개발 환경 보안 점검이 시급합니다.
+이번 주기의 핵심 트렌드는 APT 사이버 스파이 캠페인입니다. UNC2814의 GRIDTIDE 캠페인이 42개국 53개 조직을 침해한 사례와 SLH 그룹의 IT 헬프데스크 대상 음성 피싱 수법이 확인되었습니다. 개발도구 보안 측면에서는 Claude Code에서 RCE 및 API 키 유출 취약점이 발견되어 개발 환경 보안 점검이 시급합니다.
 
 ---
 
@@ -462,16 +462,16 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ### P0 (즉시)
 
-- [ ] **Open WebUI + Docker Model Runner 제로 설정 통합** 관련 보안 영향도 확인 및 접근 제어 설정 점검
+- [ ] Open WebUI + Docker Model Runner 제로 설정 통합 관련 보안 영향도 확인 및 접근 제어 설정 점검
 
 ### P1 (7일 내)
 
-- [ ] **취약점 분류(Triage) 오류로 인한 비즈니스 위험** 관련 보안 프로세스 검토 및 개선
+- [ ] 취약점 분류(Triage) 오류로 인한 비즈니스 위험 관련 보안 프로세스 검토 및 개선
 
 ### P2 (30일 내)
 
-- [ ] **AI 에이전트 프로덕션 배포** Google Cloud 가이드 기반 자사 AI 에이전트 보안 아키텍처 검토
-- [ ] **Claude Code/개발도구 보안** 개발 환경 RCE 취약점 패치 및 API 키 관리 정책 점검
+- [ ] AI 에이전트 프로덕션 배포 Google Cloud 가이드 기반 자사 AI 에이전트 보안 아키텍처 검토
+- [ ] Claude Code/개발도구 보안 개발 환경 RCE 취약점 패치 및 API 키 관리 정책 점검
 
 ---
 
@@ -485,4 +485,4 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ---
 
-**작성자**: Twodragon
+작성자: Twodragon

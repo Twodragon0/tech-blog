@@ -358,4 +358,4 @@ toc: true
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
 
 ---
-**작성자**: Twodragon
+작성자: Twodragon

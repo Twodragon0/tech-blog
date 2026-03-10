@@ -72,13 +72,13 @@ toc: true
 
 ## 서론
 
-안녕하세요, **Twodragon**입니다.
+안녕하세요, Twodragon입니다.
 
-지난 6주차에서는 AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실전을 다루었습니다. 이번 **클라우드 보안 과정 8기 7주차**에서는 **Docker & Kubernetes 보안 실전 가이드**를 통해 컨테이너 보안부터 클러스터 보안까지 실무 중심으로 다루고자 합니다.
+지난 6주차에서는 AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실전을 다루었습니다. 이번 클라우드 보안 과정 8기 7주차에서는 Docker & Kubernetes 보안 실전 가이드를 통해 컨테이너 보안부터 클러스터 보안까지 실무 중심으로 다루고자 합니다.
 
-특히 이번 주에는 **2024-2026년 최신 Kubernetes 보안 기능**과 **실전 보안 사례**를 결합하여, DevSecOps 관점에서 컨테이너 보안을 강화하는 방법을 깊이 있게 다뤄보겠습니다.
+특히 이번 주에는 2024-2026년 최신 Kubernetes 보안 기능과 실전 보안 사례를 결합하여, DevSecOps 관점에서 컨테이너 보안을 강화하는 방법을 깊이 있게 다뤄보겠습니다.
 
-본 과정은 **온라인 미팅**으로 진행되며, **'20분 강의 + 5분 휴식'** 사이클로 멘티분들의 집중력을 최대로 유지하며 진행됩니다.
+본 과정은 온라인 미팅으로 진행되며, '20분 강의 + 5분 휴식' 사이클로 멘티분들의 집중력을 최대로 유지하며 진행됩니다.
 
 ---
 
@@ -88,11 +88,11 @@ toc: true
 
 | 시간 | 주제 | 내용 |
 |------|------|------|
-| **10:00 - 10:20** | **근황 토크 & 과제 피드백** | 한 주간의 보안 이슈 공유 및 Q&A |
-| **10:25 - 10:50** | **Docker/Container/Kubernetes 기본 이해** | Docker 이미지/컨테이너 개념, VM vs Container, Kubernetes 핵심 리소스 |
-| **11:00 - 11:25** | **컨테이너 보안 Best Practices** | Docker 이미지 보안, Secret 관리, 비루트 실행, 이미지 스캔(Trivy, Snyk) |
-| **11:30 - 11:50** | **Kubernetes 보안 아키텍처 & Best Practices** | Pod Security Standards, User Namespaces, Network Policies, RBAC, 보안 모범 사례 |
-| **11:55 - 12:00** | **실습 및 Q&A** | Minikube 보안 환경 구성, 실전 보안 강화 사례 |
+| 10:00 - 10:20 | 근황 토크 & 과제 피드백 | 한 주간의 보안 이슈 공유 및 Q&A |
+| 10:25 - 10:50 | Docker/Container/Kubernetes 기본 이해 | Docker 이미지/컨테이너 개념, VM vs Container, Kubernetes 핵심 리소스 |
+| 11:00 - 11:25 | 컨테이너 보안 Best Practices | Docker 이미지 보안, Secret 관리, 비루트 실행, 이미지 스캔(Trivy, Snyk) |
+| 11:30 - 11:50 | Kubernetes 보안 아키텍처 & Best Practices | Pod Security Standards, User Namespaces, Network Policies, RBAC, 보안 모범 사례 |
+| 11:55 - 12:00 | 실습 및 Q&A | Minikube 보안 환경 구성, 실전 보안 강화 사례 |
 
 ---
 
@@ -106,10 +106,10 @@ toc: true
 
 | 개념 | 설명 | 비유 |
 |------|------|------|
-| **Image** | 컨테이너 실행에 필요한 파일과 설정을 포함한 템플릿 | 빵을 만드는 레시피 |
-| **Container** | 이미지를 기반으로 실행되는 인스턴스 | 레시피로 만든 빵 |
-| **Dockerfile** | 이미지를 빌드하기 위한 명령어 스크립트 | 레시피 작성 방법 |
-| **Registry** | 이미지를 저장하고 공유하는 저장소 (Docker Hub 등) | 빵 레시피 도서관 |
+| Image | 컨테이너 실행에 필요한 파일과 설정을 포함한 템플릿 | 빵을 만드는 레시피 |
+| Container | 이미지를 기반으로 실행되는 인스턴스 | 레시피로 만든 빵 |
+| Dockerfile | 이미지를 빌드하기 위한 명령어 스크립트 | 레시피 작성 방법 |
+| Registry | 이미지를 저장하고 공유하는 저장소 (Docker Hub 등) | 빵 레시피 도서관 |
 
 ##### **Docker 구성 요소 관계도**
 
@@ -117,7 +117,7 @@ toc: true
 
 ##### **기본 Docker 명령어**
 
-> **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://docs.docker.com/compose/)를 참조하세요.
+> 참고: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://docs.docker.com/compose/)를 참조하세요.
 
 ```bash
 # 이미지 다운로드
@@ -156,12 +156,12 @@ docker inspect <container_id> | grep -E "User|ReadonlyRootfs|Privileged"
 
 | 보안 항목 | 취약한 예시 | 보안 강화 예시 | 설명 |
 |----------|-----------|--------------|------|
-| **사용자 권한** | `USER root` | `USER 1000:1000` | 비루트 사용자로 실행 |
-| **파일시스템** | 읽기/쓰기 가능 | `readOnlyRootFilesystem: true` | 읽기 전용 파일시스템 |
-| **Capabilities** | 모든 권한 | `capabilities.drop: ALL` | 불필요한 권한 제거 |
-| **환경 변수** | 평문 Secret | Kubernetes Secrets | Secret 관리 도구 사용 |
+| 사용자 권한 | `USER root` | `USER 1000:1000` | 비루트 사용자로 실행 |
+| 파일시스템 | 읽기/쓰기 가능 | `readOnlyRootFilesystem: true` | 읽기 전용 파일시스템 |
+| Capabilities | 모든 권한 | `capabilities.drop: ALL` | 불필요한 권한 제거 |
+| 환경 변수 | 평문 Secret | Kubernetes Secrets | Secret 관리 도구 사용 |
 
-> **참고**: Docker 보안 모범 사례는 [Docker 보안 문서](https://docs.docker.com/engine/security/) 및 [OWASP Docker 보안 체크리스트](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)를 참조하세요.
+> 참고: Docker 보안 모범 사례는 [Docker 보안 문서](https://docs.docker.com/engine/security/) 및 [OWASP Docker 보안 체크리스트](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)를 참조하세요.
 
 ```dockerfile
 # 보안 강화 Dockerfile 예시
@@ -188,17 +188,17 @@ CMD ["node", "server.js"]
 
 | 방식 | 설명 | 장점 | 단점 |
 |------|------|------|------|
-| **Kubernetes Secrets** | 네이티브 Secret 리소스 | 간단한 설정 | Base64 인코딩(암호화 아님) |
-| **External Secrets Operator** | 외부 Secret Store 통합 | 중앙 관리, 자동 동기화 | 추가 Operator 필요 |
-| **Sealed Secrets** | 암호화된 Secret | Git에 안전하게 저장 가능 | 추가 도구 필요 |
+| Kubernetes Secrets | 네이티브 Secret 리소스 | 간단한 설정 | Base64 인코딩(암호화 아님) |
+| External Secrets Operator | 외부 Secret Store 통합 | 중앙 관리, 자동 동기화 | 추가 Operator 필요 |
+| Sealed Secrets | 암호화된 Secret | Git에 안전하게 저장 가능 | 추가 도구 필요 |
 
 ##### **Secret 관리 방식 비교**
 
 *Secret 관리 방식 비교: Kubernetes Secrets, External Secrets Operator, Sealed Secrets*
 
-> **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.
+> 참고: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오 | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 ### 외부 참고 자료
 

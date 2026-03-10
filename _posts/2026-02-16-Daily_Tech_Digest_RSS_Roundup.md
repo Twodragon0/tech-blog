@@ -62,49 +62,49 @@ toc: true
 
 ### 1) LLM 추론 최적화: 두 가지 속도 트릭
 
-- **핵심 요지**: 추론 지연을 줄이기 위한 서로 다른 두 가지 최적화 접근이 소개되었습니다.
-- **실무 시사점**: 프롬프트/캐시/배치 최적화와 같은 운영 전략의 우선순위를 재정립해야 합니다.
-- **추천 액션**: 모델별 P50/P95 지연 측정과 비용-지연 곡선 재계산.
+- 핵심 요지: 추론 지연을 줄이기 위한 서로 다른 두 가지 최적화 접근이 소개되었습니다.
+- 실무 시사점: 프롬프트/캐시/배치 최적화와 같은 운영 전략의 우선순위를 재정립해야 합니다.
+- 추천 액션: 모델별 P50/P95 지연 측정과 비용-지연 곡선 재계산.
 
 출처: [Two different tricks for fast LLM inference](https://www.seangoedecke.com/fast-llm-inference/)
 
 ### 2) Windows 네이티브 개발 병목 개선 사례
 
-- **핵심 요지**: Windows 환경에서 빌드/디버깅 병목을 개선한 사례가 큰 공감을 얻었습니다.
-- **실무 시사점**: 크로스플랫폼 팀에서 Windows 빌드 시간이 전체 릴리스 리듬을 좌우할 수 있습니다.
-- **추천 액션**: CI에서 Windows 전용 단계의 병목 지점을 분리 측정.
+- 핵심 요지: Windows 환경에서 빌드/디버깅 병목을 개선한 사례가 큰 공감을 얻었습니다.
+- 실무 시사점: 크로스플랫폼 팀에서 Windows 빌드 시간이 전체 릴리스 리듬을 좌우할 수 있습니다.
+- 추천 액션: CI에서 Windows 전용 단계의 병목 지점을 분리 측정.
 
 출처: [I Fixed Windows Native Development](https://marler8997.github.io/blog/fixed-windows/)
 
 ### 3) 초경량 HTML UI 라이브러리 Oat
 
-- **핵심 요지**: 의존성 없이 의미론적 컴포넌트를 제공하는 UI 라이브러리가 소개되었습니다.
-- **실무 시사점**: 성능·접근성 중심 프로젝트에서 번들 크기 절감에 유리합니다.
-- **추천 액션**: 핵심 UI 2~3개만 도입해 번들/CLS 변화 확인.
+- 핵심 요지: 의존성 없이 의미론적 컴포넌트를 제공하는 UI 라이브러리가 소개되었습니다.
+- 실무 시사점: 성능·접근성 중심 프로젝트에서 번들 크기 절감에 유리합니다.
+- 추천 액션: 핵심 UI 2~3개만 도입해 번들/CLS 변화 확인.
 
 출처: [Oat – Ultra-lightweight, semantic, zero-dependency HTML UI component library](https://oat.ink/)
 
 ### 4) 스마트홈 감시 논쟁 확대
 
-- **핵심 요지**: 스마트홈 기기 생태계가 감시 인프라와 맞물리는 문제를 드러냈습니다.
-- **실무 시사점**: 제품 설계 단계에서 데이터 최소 수집·보관 정책이 필수입니다.
-- **추천 액션**: 개인정보 처리방침과 데이터 보관 기간의 정합성 점검.
+- 핵심 요지: 스마트홈 기기 생태계가 감시 인프라와 맞물리는 문제를 드러냈습니다.
+- 실무 시사점: 제품 설계 단계에서 데이터 최소 수집·보관 정책이 필수입니다.
+- 추천 액션: 개인정보 처리방침과 데이터 보관 기간의 정합성 점검.
 
 출처: [Amazon, Google Unwittingly Reveal the Severity of the U.S. Surveillance State](https://greenwald.substack.com/p/amazons-ring-and-googles-nest-unwittingly)
 
 ### 5) AI가 앱 구독 모델에 미치는 충격
 
-- **핵심 요지**: AI가 전통적인 앱 구독 가치 제안을 약화시킨다는 주장과 반론이 확산 중입니다.
-- **실무 시사점**: 기능 단위 과금, 성과 기반 과금 등 가격 체계 재설계 필요.
-- **추천 액션**: AI 기능의 원가/가치 지표(ROI)를 분리 측정.
+- 핵심 요지: AI가 전통적인 앱 구독 가치 제안을 약화시킨다는 주장과 반론이 확산 중입니다.
+- 실무 시사점: 기능 단위 과금, 성과 기반 과금 등 가격 체계 재설계 필요.
+- 추천 액션: AI 기능의 원가/가치 지표(ROI)를 분리 측정.
 
 출처: [AI is going to kill app subscriptions](https://nichehunt.app/blog/ai-going-to-kill-app-subscriptions)
 
 ### 6) 크립토 데일리: WLFI 신호 논쟁 + Korbit 인수
 
-- **핵심 요지**: WLFI가 조기 경보 신호로 작동했다는 주장과 국내 거래소 지분 인수 이슈가 동시 부각.
-- **실무 시사점**: 규제 및 대규모 청산 이벤트 가능성에 대한 모니터링 필요.
-- **추천 액션**: 대형 거래소·기관 투자 관련 뉴스 알림을 강화.
+- 핵심 요지: WLFI가 조기 경보 신호로 작동했다는 주장과 국내 거래소 지분 인수 이슈가 동시 부각.
+- 실무 시사점: 규제 및 대규모 청산 이벤트 가능성에 대한 모니터링 필요.
+- 추천 액션: 대형 거래소·기관 투자 관련 뉴스 알림을 강화.
 
 출처: [Here’s what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),
 [Study suggests WLFI could act as an ‘early warning signal’ in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),

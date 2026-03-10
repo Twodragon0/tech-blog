@@ -48,7 +48,7 @@ toc: true
 
 ## 서론
 
-2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 **OWASP Top 10 2025**는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 **소프트웨어 공급망 공격**과 **AI 보안**에 대한 관심이 크게 증가했습니다.
+2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 OWASP Top 10 2025는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 소프트웨어 공급망 공격과 AI 보안에 대한 관심이 크게 증가했습니다.
 
 이번 포스팅에서는 OWASP 2025년의 주요 업데이트를 실무 중심으로 정리합니다:
 - OWASP Top 10 2025의 변화와 새로운 위협
@@ -66,64 +66,64 @@ toc: true
 
 | 위협 범주 | 심각도 | 발생 가능성 | 비즈니스 영향 | 종합 위험 점수 | 우선순위 |
 |----------|--------|------------|--------------|---------------|---------|
-| **A01: Broken Access Control** | ⚠️ Critical (9/10) | 높음 (8/10) | 높음 (9/10) | **26/30** | 🔴 최우선 |
-| **A02: Security Misconfiguration** | ⚠️ High (8/10) | 매우 높음 (9/10) | 중간 (7/10) | **24/30** | 🔴 최우선 |
-| **A03: Supply Chain Failures** | ⚠️ Critical (10/10) | 중간 (7/10) | 매우 높음 (10/10) | **27/30** | 🔴 최우선 |
-| **A04: Cryptographic Failures** | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (9/10) | **24/30** | 🔴 최우선 |
-| **A05: Injection** | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (8/10) | **23/30** | 🟡 높음 |
-| **A06: Insecure Design** | ⚠️ High (7/10) | 중간 (5/10) | 높음 (8/10) | **20/30** | 🟡 높음 |
-| **A07: Authentication Failures** | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (9/10) | **24/30** | 🔴 최우선 |
-| **A08: Integrity Failures** | ⚠️ High (8/10) | 낮음 (4/10) | 높음 (8/10) | **20/30** | 🟡 높음 |
-| **A09: Logging Failures** | ⚠️ Medium (6/10) | 매우 높음 (9/10) | 중간 (6/10) | **21/30** | 🟡 높음 |
-| **A10: Exception Handling** | ⚠️ Medium (5/10) | 중간 (5/10) | 낮음 (4/10) | **14/30** | 🟢 중간 |
+| A01: Broken Access Control | ⚠️ Critical (9/10) | 높음 (8/10) | 높음 (9/10) | 26/30 | 🔴 최우선 |
+| A02: Security Misconfiguration | ⚠️ High (8/10) | 매우 높음 (9/10) | 중간 (7/10) | 24/30 | 🔴 최우선 |
+| A03: Supply Chain Failures | ⚠️ Critical (10/10) | 중간 (7/10) | 매우 높음 (10/10) | 27/30 | 🔴 최우선 |
+| A04: Cryptographic Failures | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (9/10) | 24/30 | 🔴 최우선 |
+| A05: Injection | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (8/10) | 23/30 | 🟡 높음 |
+| A06: Insecure Design | ⚠️ High (7/10) | 중간 (5/10) | 높음 (8/10) | 20/30 | 🟡 높음 |
+| A07: Authentication Failures | ⚠️ Critical (9/10) | 중간 (6/10) | 높음 (9/10) | 24/30 | 🔴 최우선 |
+| A08: Integrity Failures | ⚠️ High (8/10) | 낮음 (4/10) | 높음 (8/10) | 20/30 | 🟡 높음 |
+| A09: Logging Failures | ⚠️ Medium (6/10) | 매우 높음 (9/10) | 중간 (6/10) | 21/30 | 🟡 높음 |
+| A10: Exception Handling | ⚠️ Medium (5/10) | 중간 (5/10) | 낮음 (4/10) | 14/30 | 🟢 중간 |
 
-**위험 점수 산정 기준**:
-- **심각도 (Severity)**: CVSS 점수 기반 취약점의 기술적 위험도
-- **발생 가능성 (Likelihood)**: 실제 공격 발생 빈도 및 악용 난이도
-- **비즈니스 영향 (Business Impact)**: 데이터 유출, 서비스 중단, 컴플라이언스 위반 시 조직 영향도
-- **종합 위험 점수**: 3개 요소의 합계 (최대 30점)
+위험 점수 산정 기준:
+- 심각도 (Severity): CVSS 점수 기반 취약점의 기술적 위험도
+- 발생 가능성 (Likelihood): 실제 공격 발생 빈도 및 악용 난이도
+- 비즈니스 영향 (Business Impact): 데이터 유출, 서비스 중단, 컴플라이언스 위반 시 조직 영향도
+- 종합 위험 점수: 3개 요소의 합계 (최대 30점)
 
 ### 조직 보안 성숙도 요약
 
 | 보안 영역 | 현재 성숙도 | 목표 성숙도 | GAP | 권장 조치 |
 |----------|------------|------------|-----|----------|
-| **접근 제어 (Access Control)** | 2단계 (정의됨) | 4단계 (관리됨) | -2 | RBAC 강화, 정기적 권한 감사 |
-| **암호화 (Cryptography)** | 2단계 (정의됨) | 5단계 (최적화됨) | -3 | Post-Quantum 전환 로드맵 수립 |
-| **공급망 보안 (Supply Chain)** | 1단계 (초기) | 4단계 (관리됨) | -3 | SBOM 자동화, 의존성 스캔 CI/CD 통합 |
-| **보안 로깅 (Security Logging)** | 2단계 (정의됨) | 4단계 (관리됨) | -2 | 중앙 로그 수집, SIEM 통합 |
-| **AI 보안 거버넌스** | 1단계 (초기) | 3단계 (정의됨) | -2 | AI 사용 정책 수립, 프롬프트 인젝션 방어 |
+| 접근 제어 (Access Control) | 2단계 (정의됨) | 4단계 (관리됨) | -2 | RBAC 강화, 정기적 권한 감사 |
+| 암호화 (Cryptography) | 2단계 (정의됨) | 5단계 (최적화됨) | -3 | Post-Quantum 전환 로드맵 수립 |
+| 공급망 보안 (Supply Chain) | 1단계 (초기) | 4단계 (관리됨) | -3 | SBOM 자동화, 의존성 스캔 CI/CD 통합 |
+| 보안 로깅 (Security Logging) | 2단계 (정의됨) | 4단계 (관리됨) | -2 | 중앙 로그 수집, SIEM 통합 |
+| AI 보안 거버넌스 | 1단계 (초기) | 3단계 (정의됨) | -2 | AI 사용 정책 수립, 프롬프트 인젝션 방어 |
 
-**성숙도 모델 (1-5단계)**:
-1. **초기 (Initial)**: 프로세스 없음, 임시 대응
-2. **정의됨 (Defined)**: 정책 수립, 일부 도구 도입
-3. **반복 가능 (Repeatable)**: 프로세스 자동화, 정기적 실행
-4. **관리됨 (Managed)**: KPI 기반 관리, 지속적 개선
-5. **최적화됨 (Optimized)**: 예측적 보안, 자동 대응
+성숙도 모델 (1-5단계):
+1. 초기 (Initial): 프로세스 없음, 임시 대응
+2. 정의됨 (Defined): 정책 수립, 일부 도구 도입
+3. 반복 가능 (Repeatable): 프로세스 자동화, 정기적 실행
+4. 관리됨 (Managed): KPI 기반 관리, 지속적 개선
+5. 최적화됨 (Optimized): 예측적 보안, 자동 대응
 
 ### 즉시 조치가 필요한 위험 (Top 3)
 
 | 순위 | 위협 | 현재 상태 | 비즈니스 리스크 | 조치 기한 | 투자 규모 |
 |------|------|----------|----------------|----------|----------|
-| 🔴 1 | **A03: Software Supply Chain Failures** | SBOM 미생성, 의존성 스캔 없음 | 공급망 공격 시 전체 시스템 침해 가능 | 1개월 | 중간 |
-| 🔴 2 | **A01: Broken Access Control** | 일부 API 권한 검증 누락 | 민감 데이터 무단 접근 가능 | 2주 | 낮음 |
-| 🔴 3 | **A04: Cryptographic Failures** | 일부 시스템 TLS 1.2 사용, 키 로테이션 없음 | 데이터 유출, 컴플라이언스 위반 | 1개월 | 중간 |
+| 🔴 1 | A03: Software Supply Chain Failures | SBOM 미생성, 의존성 스캔 없음 | 공급망 공격 시 전체 시스템 침해 가능 | 1개월 | 중간 |
+| 🔴 2 | A01: Broken Access Control | 일부 API 권한 검증 누락 | 민감 데이터 무단 접근 가능 | 2주 | 낮음 |
+| 🔴 3 | A04: Cryptographic Failures | 일부 시스템 TLS 1.2 사용, 키 로테이션 없음 | 데이터 유출, 컴플라이언스 위반 | 1개월 | 중간 |
 
 ### 경영진 핵심 메시지
 
-**현재 상태**:
-- 웹 애플리케이션 보안 성숙도는 **2단계 (정의됨)** 수준
-- OWASP Top 10 기준 **5개 최우선 위협** 존재
+현재 상태:
+- 웹 애플리케이션 보안 성숙도는 2단계 (정의됨) 수준
+- OWASP Top 10 기준 5개 최우선 위협 존재
 - 공급망 보안이 가장 취약 (성숙도 1단계)
 
-**비즈니스 영향**:
-- 데이터 유출 발생 시 예상 비용: 평균 **4.45억 원** (IBM 2023 보고서 기준)
+비즈니스 영향:
+- 데이터 유출 발생 시 예상 비용: 평균 4.45억 원 (IBM 2023 보고서 기준)
 - 컴플라이언스 위반 시 벌금: GDPR 기준 연매출의 4% 또는 2,000만 유로
-- 서비스 중단 시 시간당 손실: 평균 **1,500만 원** (업종별 상이)
+- 서비스 중단 시 시간당 손실: 평균 1,500만 원 (업종별 상이)
 
-**권장 투자 우선순위** (3개월 내):
-1. **공급망 보안 자동화** - SBOM 생성, 의존성 스캔 (투자: 중간, ROI: 높음)
-2. **접근 제어 강화** - RBAC, API 권한 검증 (투자: 낮음, ROI: 매우 높음)
-3. **암호화 현대화** - TLS 1.3 전환, 키 관리 자동화 (투자: 중간, ROI: 높음)
+권장 투자 우선순위 (3개월 내):
+1. 공급망 보안 자동화 - SBOM 생성, 의존성 스캔 (투자: 중간, ROI: 높음)
+2. 접근 제어 강화 - RBAC, API 권한 검증 (투자: 낮음, ROI: 매우 높음)
+3. 암호화 현대화 - TLS 1.3 전환, 키 관리 자동화 (투자: 중간, ROI: 높음)
 
 ## 빠른 참조
 
@@ -133,8 +133,8 @@ toc: true
 |------|------|------|------|------|
 | 1 | A01:2025 | Broken Access Control | 기존 | 1위 유지 |
 | 2 | A02:2025 | Security Misconfiguration | 기존 | - |
-| 3 | A03:2025 | Software Supply Chain Failures | **신규** | npm Shai-Hulud 등 |
-| 4 | A04:2025 | Cryptographic Failures | **신규** | 약한 암호화 |
+| 3 | A03:2025 | Software Supply Chain Failures | 신규 | npm Shai-Hulud 등 |
+| 4 | A04:2025 | Cryptographic Failures | 신규 | 약한 암호화 |
 | 5 | A05:2025 | Injection | 기존 | SQL, NoSQL, OS |
 | 6 | A06:2025 | Insecure Design | 기존 | 설계 결함 |
 | 7 | A07:2025 | Authentication Failures | 기존 | 인증 실패 |
@@ -161,21 +161,21 @@ toc: true
 
 | 항목 | 내용 |
 |------|------|
-| **예제 수** | 1,215개 보안 중심 코딩 예제 |
-| **언어 지원** | Python, JavaScript, Java, Go |
-| **기반** | CVE 연계 실제 취약점 |
-| **형식** | 취약/안전 코드 비교 제공 |
-| **용도** | AI 기반 보안 코드 생성 학습 |
+| 예제 수 | 1,215개 보안 중심 코딩 예제 |
+| 언어 지원 | Python, JavaScript, Java, Go |
+| 기반 | CVE 연계 실제 취약점 |
+| 형식 | 취약/안전 코드 비교 제공 |
+| 용도 | AI 기반 보안 코드 생성 학습 |
 
 ### 실무 적용 도구 비교
 
 | 도구 유형 | 도구명 | 용도 | 통합 방법 |
 |----------|--------|------|----------|
-| **의존성 관리** | Dependabot | 자동 업데이트 알림 | GitHub Actions |
-| **SBOM 생성** | CycloneDX | SBOM 자동 생성 | CI/CD 파이프라인 |
-| **취약점 스캔** | npm audit | npm 패키지 스캔 | npm audit --audit-level |
-| **암호화** | TLS 1.3+ | 전송 계층 보안 | 서버 설정 |
-| **Post-Quantum** | ML-KEM, ML-DSA | 양자 내성 암호화 | 라이브러리 통합 |
+| 의존성 관리 | Dependabot | 자동 업데이트 알림 | GitHub Actions |
+| SBOM 생성 | CycloneDX | SBOM 자동 생성 | CI/CD 파이프라인 |
+| 취약점 스캔 | npm audit | npm 패키지 스캔 | npm audit --audit-level |
+| 암호화 | TLS 1.3+ | 전송 계층 보안 | 서버 설정 |
+| Post-Quantum | ML-KEM, ML-DSA | 양자 내성 암호화 | 라이브러리 통합 |
 
 ## 1. MITRE ATT&CK 매핑: OWASP Top 10과 공격 기술 연계
 
@@ -185,31 +185,31 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 
 | OWASP 카테고리 | MITRE ATT&CK 전술 | MITRE ATT&CK 기술 | 기술 ID | 실제 공격 예시 |
 |---------------|------------------|------------------|---------|--------------|
-| **A01: Broken Access Control** | Initial Access, Privilege Escalation | Exploitation of Remote Services | T1210 | API 권한 검증 우회 → 관리자 권한 획득 |
-| **A02: Security Misconfiguration** | Execution, Defense Evasion | Exploitation for Privilege Escalation | T1068 | 기본 관리자 계정 활용 → 시스템 장악 |
-| **A03: Supply Chain Failures** | Initial Access | Supply Chain Compromise | T1195 | npm 악성 패키지 → 빌드 파이프라인 침해 |
-| **A04: Cryptographic Failures** | Collection, Credential Access | Network Sniffing | T1040 | TLS 1.0 중간자 공격 → 세션 토큰 탈취 |
-| **A05: Injection** | Execution | Command and Scripting Interpreter | T1059 | SQL Injection → 데이터베이스 탈취 |
-| **A06: Insecure Design** | Initial Access | Exploit Public-Facing Application | T1190 | 설계 결함 악용 → 인증 우회 |
-| **A07: Authentication Failures** | Credential Access | Brute Force | T1110 | 약한 비밀번호 정책 → 계정 탈취 |
-| **A08: Integrity Failures** | Defense Evasion | Subvert Trust Controls | T1553 | 서명 검증 우회 → 악성 코드 실행 |
-| **A09: Logging Failures** | Defense Evasion | Indicator Removal on Host | T1070 | 로그 삭제 → 공격 흔적 제거 |
-| **A10: Exception Handling** | Initial Access | Exploit Public-Facing Application | T1190 | 스택 트레이스 노출 → 정보 수집 |
+| A01: Broken Access Control | Initial Access, Privilege Escalation | Exploitation of Remote Services | T1210 | API 권한 검증 우회 → 관리자 권한 획득 |
+| A02: Security Misconfiguration | Execution, Defense Evasion | Exploitation for Privilege Escalation | T1068 | 기본 관리자 계정 활용 → 시스템 장악 |
+| A03: Supply Chain Failures | Initial Access | Supply Chain Compromise | T1195 | npm 악성 패키지 → 빌드 파이프라인 침해 |
+| A04: Cryptographic Failures | Collection, Credential Access | Network Sniffing | T1040 | TLS 1.0 중간자 공격 → 세션 토큰 탈취 |
+| A05: Injection | Execution | Command and Scripting Interpreter | T1059 | SQL Injection → 데이터베이스 탈취 |
+| A06: Insecure Design | Initial Access | Exploit Public-Facing Application | T1190 | 설계 결함 악용 → 인증 우회 |
+| A07: Authentication Failures | Credential Access | Brute Force | T1110 | 약한 비밀번호 정책 → 계정 탈취 |
+| A08: Integrity Failures | Defense Evasion | Subvert Trust Controls | T1553 | 서명 검증 우회 → 악성 코드 실행 |
+| A09: Logging Failures | Defense Evasion | Indicator Removal on Host | T1070 | 로그 삭제 → 공격 흔적 제거 |
+| A10: Exception Handling | Initial Access | Exploit Public-Facing Application | T1190 | 스택 트레이스 노출 → 정보 수집 |
 
 ### 1.2 공격 체인 시나리오: A03 Supply Chain → A01 Access Control
 
 실제 공격자는 여러 OWASP 취약점을 연계하여 공격합니다.
 
-1. **악성 패키지 삽입 (A03)**: 공격자가 npm 레지스트리에 타이포스쿼팅 패키지를 업로드
-2. **암호화 우회 (A04)**: 패키지 내 코드가 TLS 1.2 다운그레이드 공격으로 내부 통신을 도청
-3. **접근 제어 우회 (A01)**: 탈취한 서비스 토큰으로 내부 API에 무단 접근
-4. **권한 상승**: 최소 권한 미적용 계정을 통해 관리자 권한 획득
-5. **측면 이동**: 내부 네트워크로 이동하며 추가 시스템 침해
-6. **DB 최소 권한 미적용 악용**: 네트워크 세그멘테이션 부재로 데이터베이스 직접 접근
+1. 악성 패키지 삽입 (A03): 공격자가 npm 레지스트리에 타이포스쿼팅 패키지를 업로드
+2. 암호화 우회 (A04): 패키지 내 코드가 TLS 1.2 다운그레이드 공격으로 내부 통신을 도청
+3. 접근 제어 우회 (A01): 탈취한 서비스 토큰으로 내부 API에 무단 접근
+4. 권한 상승: 최소 권한 미적용 계정을 통해 관리자 권한 획득
+5. 측면 이동: 내부 네트워크로 이동하며 추가 시스템 침해
+6. DB 최소 권한 미적용 악용: 네트워크 세그멘테이션 부재로 데이터베이스 직접 접근
 
 ### 1.3 주요 취약점 대응 코드 예시
 
-**암호화 강화 (A04: Cryptographic Failures)**
+암호화 강화 (A04: Cryptographic Failures)
 
 TLS 1.3 전용 설정 및 키 로테이션 자동화 예시입니다. 참고: [NIST Post-Quantum Cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography), [OWASP Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 
@@ -239,7 +239,7 @@ def rotate_key_if_expired(key_alias: str, max_age_days: int = 90) -> None:
         print(f"[INFO] Key rotation enabled for {key_alias}")
 ```
 
-**접근 제어 검증 (A01: Broken Access Control)**
+접근 제어 검증 (A01: Broken Access Control)
 
 모든 API 엔드포인트에 인가 검증을 적용하는 예시입니다. 참고: [OWASP Access Control Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html), [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
@@ -287,26 +287,26 @@ rules:
 
 | 개선 항목 | 적용 방법 | 예상 효과 | 우선순위 |
 |----------|---------|----------|---------|
-| **의존성 관리 자동화** | Dependabot 또는 유사 도구를 CI/CD에 통합 | 취약점 조기 발견 | 높음 |
+| 의존성 관리 자동화 | Dependabot 또는 유사 도구를 CI/CD에 통합 | 취약점 조기 발견 | 높음 |
 | | SBOM 생성 자동화 (모든 빌드 시점) | 공급망 투명성 확보 | 높음 |
 | | 의존성 취약점 스캔 자동화 및 정기 감사 | 지속적인 보안 모니터링 | 높음 |
-| **보안 로깅 정책 수립** | A09 (Security Logging and Alerting Failures) 대응 | 보안 가시성 향상 | 높음 |
+| 보안 로깅 정책 수립 | A09 (Security Logging and Alerting Failures) 대응 | 보안 가시성 향상 | 높음 |
 | | 중앙화된 보안 로그 수집 시스템 구축 | 통합 보안 관리 | 중간 |
 | | 실시간 위협 탐지 및 알림 체계 구축 | 빠른 대응 가능 | 중간 |
-| **보안 교육** | OWASP Top 10 2025 변경사항에 대한 팀 교육 | 보안 인식 제고 | 중간 |
+| 보안 교육 | OWASP Top 10 2025 변경사항에 대한 팀 교육 | 보안 인식 제고 | 중간 |
 | | 보안 모범 사례 문서화 및 공유 | 지식 공유 및 표준화 | 중간 |
 
 ### 단기 개선 방향 (3-6개월)
 
 | 개선 항목 | 적용 방법 | 예상 효과 | 투자 규모 |
 |----------|---------|----------|----------|
-| **Post-Quantum 암호화 전환 준비** | 현재 사용 중인 암호화 알고리즘 인벤토리 작성 | 양자 컴퓨팅 대비 | 중간 |
+| Post-Quantum 암호화 전환 준비 | 현재 사용 중인 암호화 알고리즘 인벤토리 작성 | 양자 컴퓨팅 대비 | 중간 |
 | | NIST 표준 알고리즘(ML-KEM, ML-DSA) 도입 로드맵 수립 | 표준 준수 | 중간 |
 | | 하이브리드 암호화 방식으로 점진적 전환 계획 수립 | 안전한 전환 | 중간 |
-| **AI 보안 거버넌스 체계 구축** | AI 사용 정책 수립 (프롬프트 인젝션 방어, 출력 검증 등) | AI 보안 강화 | 중간 |
+| AI 보안 거버넌스 체계 구축 | AI 사용 정책 수립 (프롬프트 인젝션 방어, 출력 검증 등) | AI 보안 강화 | 중간 |
 | | AI 모델 보안 평가 프로세스 | 모델 보안 확보 | 중간 |
 | | SecureCode v2.0 기반 코드 검증 도구 도입 | 코드 보안 강화 | 낮음 |
-| **공급망 보안 강화** | 공급업체 SBOM 요구 및 검증 프로세스 수립 | 공급망 투명성 | 중간 |
+| 공급망 보안 강화 | 공급업체 SBOM 요구 및 검증 프로세스 수립 | 공급망 투명성 | 중간 |
 | | SBOM 서명 및 무결성 검증 체계 구축 | 무결성 보장 | 중간 |
 | | 공급망 공격 시뮬레이션 및 테스트 | 대응 능력 향상 | 중간 |
 
@@ -314,13 +314,13 @@ rules:
 
 | 개선 영역 | 개선 항목 | 설명 | 예상 기간 |
 |----------|----------|------|----------|
-| **기술적 개선** | AI 코드 생성 후 자동 보안 검증 파이프라인 | AI 생성 코드 보안 검증 자동화 | 6-12개월 |
+| 기술적 개선 | AI 코드 생성 후 자동 보안 검증 파이프라인 | AI 생성 코드 보안 검증 자동화 | 6-12개월 |
 | | AI 보안 테스트 자동화 도구 개발 | 프롬프트 인젝션, 출력 검증 자동화 | 6-12개월 |
 | | 공급업체 보안 점수 자동 평가 시스템 | 공급업체 보안 수준 자동 평가 | 6-12개월 |
-| **조직 및 프로세스** | DevSecOps 문화 개선 | Shift Left 보안 통합 | 6-12개월 |
+| 조직 및 프로세스 | DevSecOps 문화 개선 | Shift Left 보안 통합 | 6-12개월 |
 | | 보안 메트릭을 개발 팀 KPI에 포함 | 보안 인식 제고 | 6-12개월 |
 | | 보안 거버넌스 체계 완성 | 보안 거버넌스 체계 구축 | 6-12개월 |
-| **양자내성 암호화 전환** | 2026: 하이브리드 암호화 방식 도입 | 전환 준비 | 2026년 |
+| 양자내성 암호화 전환 | 2026: 하이브리드 암호화 방식 도입 | 전환 준비 | 2026년 |
 | | 2027-2028: 핵심 시스템 양자내성 암호화 전환 | 핵심 시스템 전환 | 2027-2028년 |
 | | 2029-2030: 전체 시스템 전환 완료 | 전체 전환 완료 | 2029-2030년 |
 
@@ -328,19 +328,19 @@ rules:
 
 | 연구 영역 | 연구 항목 | 설명 | 예상 시기 |
 |----------|----------|------|----------|
-| **AI 보안 연구** | 에이전틱 AI 간 통신 보안 프로토콜 표준화 | AI 간 안전한 통신 프로토콜 개발 | 2026-2027년 |
+| AI 보안 연구 | 에이전틱 AI 간 통신 보안 프로토콜 표준화 | AI 간 안전한 통신 프로토콜 개발 | 2026-2027년 |
 | | AI 모델 백도어 탐지 기술 | AI 모델 내 백도어 탐지 기술 개발 | 2026-2027년 |
 | | 프롬프트 인젝션 방어 기술 고도화 | 고급 프롬프트 인젝션 방어 기술 | 2026-2027년 |
 | | 멀티 에이전트 시스템 보안 아키텍처 | 여러 AI 에이전트 간 보안 아키텍처 | 2026-2027년 |
-| **공급망 보안 고도화** | AI 기반 공급망 위협 탐지 | AI를 활용한 공급망 위협 탐지 | 2026-2027년 |
+| 공급망 보안 고도화 | AI 기반 공급망 위협 탐지 | AI를 활용한 공급망 위협 탐지 | 2026-2027년 |
 | | 블록체인 기반 SBOM 무결성 검증 | 블록체인을 통한 SBOM 무결성 보장 | 2026-2027년 |
 | | 글로벌 SBOM 표준 통합 및 상호 운용성 | SBOM 표준 통합 및 상호 운용성 향상 | 2026-2027년 |
 
 ---
 
-> **📌 핵심 개선 포인트**
-> 1. **자동화 우선**: 의존성 관리, SBOM 생성, 보안 스캔을 CI/CD에 통합
-> 2. **AI 보안 준비**: 프롬프트 인젝션 방어, 출력 검증 등 AI 특화 보안 대응
-> 3. **양자내성 암호화 전환**: 2026-2030 로드맵 수립 및 하이브리드 방식 점진적 도입
-> 4. **문화 개선**: Shift Left 보안, 개발자 보안 교육, 보안 메트릭 통합
-> 5. **지속적 학습**: OWASP 커뮤니티 참여, 최신 보안 동향 모니터링
+> 📌 핵심 개선 포인트
+> 1. 자동화 우선: 의존성 관리, SBOM 생성, 보안 스캔을 CI/CD에 통합
+> 2. AI 보안 준비: 프롬프트 인젝션 방어, 출력 검증 등 AI 특화 보안 대응
+> 3. 양자내성 암호화 전환: 2026-2030 로드맵 수립 및 하이브리드 방식 점진적 도입
+> 4. 문화 개선: Shift Left 보안, 개발자 보안 교육, 보안 메트릭 통합
+> 5. 지속적 학습: OWASP 커뮤니티 참여, 최신 보안 동향 모니터링

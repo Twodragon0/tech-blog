@@ -45,6 +45,8 @@ toc: true
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 서론
 
 데이터베이스 접근 관리 솔루션을 AWS에 배포하면서 Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처를 구축한 경험을 공유합니다. Terraform으로 완전 자동화하고, 보안과 가용성을 모두 확보했습니다.
@@ -57,24 +59,24 @@ toc: true
 
 많은 기업에서 여러 팀이 수십 개의 데이터베이스를 사용합니다:
 
-- **RDS MySQL/PostgreSQL 클러스터**: 애플리케이션 데이터 저장
-- **ElastiCache Redis**: 캐시 및 세션 저장
-- **DocumentDB**: 문서 기반 데이터 저장
-- **Redshift**: 데이터 웨어하우스
+- RDS MySQL/PostgreSQL 클러스터: 애플리케이션 데이터 저장
+- ElastiCache Redis: 캐시 및 세션 저장
+- DocumentDB: 문서 기반 데이터 저장
+- Redshift: 데이터 웨어하우스
 
 ### 기존 접근 방식의 문제점
 
-1. **직접 접근**: 각 애플리케이션에서 데이터베이스에 직접 연결
+1. 직접 접근: 각 애플리케이션에서 데이터베이스에 직접 연결
    - Security Group 관리가 복잡해짐
    - IP 주소 변경 시 수동 업데이트 필요
    - 네트워크 경로가 분산되어 추적 어려움
 
-2. **VPN 의존**: VPN을 통한 접근
+2. VPN 의존: VPN을 통한 접근
    - VPN 연결이 끊어지면 접근 불가
    - VPN 서버 장애 시 전체 접근 차단
    - 네트워크 성능 저하
 
-3. **보안 취약점**:
+3. 보안 취약점:
    - 공개 IP 노출 위험
    - 접근 로그 부족
    - 중앙화된 모니터링 어려움
@@ -88,17 +90,17 @@ toc: true
 
 ### 핵심 컴포넌트
 
-1. **Network Load Balancer (NLB)**
+1. Network Load Balancer (NLB)
    - 고가용성 및 로드 밸런싱
    - TCP 레벨 로드 밸런싱
    - 정적 IP 주소 제공
 
-2. **Security Group (게이트웨이)**
+2. Security Group (게이트웨이)
    - 인바운드/아웃바운드 트래픽 제어
    - 최소 권한 원칙 적용
    - 중앙화된 접근 제어
 
-3. **Private Subnet**
+3. Private Subnet
    - 데이터베이스는 Private Subnet에 배치
    - 인터넷 직접 접근 차단
 
@@ -106,14 +108,14 @@ toc: true
 
 ### 1.1 NLB의 장점
 
-- **고성능**: Layer 4 로드 밸런싱으로 낮은 지연시간
-- **고가용성**: 다중 AZ 지원으로 장애 복구
-- **정적 IP**: 고정 IP 주소로 Security Group 규칙 관리 용이
-- **비용 효율**: 사용한 만큼만 과금
+- 고성능: Layer 4 로드 밸런싱으로 낮은 지연시간
+- 고가용성: 다중 AZ 지원으로 장애 복구
+- 정적 IP: 고정 IP 주소로 Security Group 규칙 관리 용이
+- 비용 효율: 사용한 만큼만 과금
 
 ### 1.2 NLB 구성 요소
 
-> **참고**: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
+> 참고: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
 > ```hcl
 > resource "aws_lb" "db_gateway" {...
 > ```
@@ -121,7 +123,7 @@ toc: true
 
 ### 1.3 타겟 그룹 설정
 
-> **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
+> 참고: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
 > ```hcl
 > resource "aws_lb_target_group" "rds_mysql" {...
 > ```
@@ -137,7 +139,7 @@ toc: true
 
 NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Security Group을 통해 제어합니다:
 
-> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
+> 참고: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
 > ```hcl
 > resource "aws_security_group" "nlb" {...
 > ```
@@ -145,7 +147,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ### 2.3 데이터베이스 Security Group
 
-> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
+> 참고: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
 > ```hcl
 > resource "aws_security_group" "database" {...
 > ```
@@ -155,15 +157,15 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ### 3.1 Zero Trust 원칙
 
-1. **명시적 검증**: 모든 접근은 검증되어야 함
-2. **최소 권한**: 필요한 최소한의 접근만 허용
-3. **가정 위반**: 네트워크 내부도 신뢰하지 않음
+1. 명시적 검증: 모든 접근은 검증되어야 함
+2. 최소 권한: 필요한 최소한의 접근만 허용
+3. 가정 위반: 네트워크 내부도 신뢰하지 않음
 
 ### 3.2 구현 방법
 
 #### 애플리케이션 레벨 인증
 
-> **참고**: AWS 데이터베이스 접근 보안 관련 내용은 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html) 및 [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)를 참조하세요.
+> 참고: AWS 데이터베이스 접근 보안 관련 내용은 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html) 및 [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)를 참조하세요.
 > ```python
 > # 애플리케이션에서 데이터베이스 접근 시...
 > ```
@@ -175,7 +177,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### 통합 대시보드 구성
 
-> **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudwatch)을 참조하세요.
+> 참고: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudwatch)을 참조하세요.
 
 ### 연결 모니터링 (Connection Monitoring)
 
@@ -187,25 +189,25 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### Lambda Slack 알림
 
-> **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-lambda)을 참조하세요.
+> 참고: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-lambda)을 참조하세요.
 
 ### 커스텀 메트릭 (Custom Metrics)
 
 #### 애플리케이션 메트릭 수집
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 규칙 강화 및 IP 블랙리스트 업데이트
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 규칙 강화 및 IP 블랙리스트 업데이트
 
 #### 권장 사항
 
-1. **단기 (1개월)**:
+1. 단기 (1개월):
    - WAF Rate Limiting 규칙 강화
    - IP 화이트리스트 정기 검토
 
-2. **중기 (3개월)**:
+2. 중기 (3개월):
    - VPC Lattice 마이그레이션 검토
    - Post-Quantum TLS 도입 계획 수립
 
-3. **장기 (6개월)**:
+3. 장기 (6개월):
    - Database Proxy (RDS Proxy) 도입 검토
    - Multi-Region 고가용성 아키텍처 구축
 
@@ -221,7 +223,7 @@ ERROR: Connection timed out after 30 seconds
 
 #### 원인 및 해결 방법
 
-**1. Security Group 규칙 확인**
+1. Security Group 규칙 확인
 
 ```bash
 # Security Group 규칙 확인
@@ -230,11 +232,11 @@ aws ec2 describe-security-groups \
   --query 'SecurityGroups[*].IpPermissions'
 ```
 
-**해결책**:
+해결책:
 - 애플리케이션 Security Group이 NLB Security Group에 접근 허용되어 있는지 확인
 - NLB Security Group이 데이터베이스 Security Group에 접근 허용되어 있는지 확인
 
-**2. Target Health Check 실패**
+2. Target Health Check 실패
 
 ```bash
 # Target Health 확인
@@ -242,12 +244,12 @@ aws elbv2 describe-target-health \
   --target-group-arn arn:aws:elasticloadbalancing:region:account:targetgroup/xxx
 ```
 
-**해결책**:
+해결책:
 - RDS 인스턴스가 실행 중인지 확인
 - Health Check 포트 및 프로토콜이 올바른지 확인
 - Security Group이 NLB에서 Health Check 트래픽을 허용하는지 확인
 
-**3. NLB Subnet 라우팅 문제**
+3. NLB Subnet 라우팅 문제
 
 ```bash
 # Route Table 확인
@@ -255,7 +257,7 @@ aws ec2 describe-route-tables \
   --filters "Name=association.subnet-id,Values=subnet-xxx"
 ```
 
-**해결책**:
+해결책:
 - Private Subnet의 Route Table에 NAT Gateway 또는 VPC Peering 라우팅이 올바른지 확인
 
 ### 높은 지연시간 (High Latency) 문제
@@ -268,7 +270,7 @@ Query execution time: 500ms (expected: <50ms)
 
 #### 원인 및 해결 방법
 
-**1. 가용 영역 간 트래픽 (Cross-AZ 트래픽)**
+1. 가용 영역 간 트래픽 (Cross-AZ 트래픽)
 
 ```bash
 # NLB Cross-AZ Load Balancing 확인
@@ -277,11 +279,11 @@ aws elbv2 describe-load-balancers \
   --query 'LoadBalancers[*].[LoadBalancerArn,CrossZoneLoadBalancingEnabled]'
 ```
 
-**해결책**:
+해결책:
 - Cross-AZ Load Balancing 비활성화 (비용 vs 가용성 트레이드오프)
 - 애플리케이션과 데이터베이스를 동일 AZ에 배치
 
-**2. 연결 풀 고갈**
+2. 연결 풀 고갈
 
 ```python
 # 연결 풀 모니터링
@@ -293,11 +295,11 @@ print(f"Active connections: {pool._used}")
 print(f"Available connections: {pool._pool}")
 ```
 
-**해결책**:
+해결책:
 - RDS Proxy 도입하여 연결 풀링 최적화
 - 애플리케이션 레벨 연결 풀 크기 조정
 
-**3. RDS 성능 병목**
+3. RDS 성능 병목
 
 ```bash
 # RDS Performance Insights 확인
@@ -306,7 +308,7 @@ aws rds describe-db-instances \
   --query 'DBInstances[*].[PerformanceInsightsEnabled,PerformanceInsightsRetentionPeriod]'
 ```
 
-**해결책**:
+해결책:
 - Performance Insights 활성화하여 병목 쿼리 식별
 - Slow Query Log 분석하여 인덱스 최적화
 
@@ -320,7 +322,7 @@ UnHealthyHostCount: 1/2 targets are unhealthy
 
 #### 원인 및 해결 방법
 
-**1. RDS 인스턴스 장애**
+1. RDS 인스턴스 장애
 
 ```bash
 # RDS 이벤트 로그 확인
@@ -330,11 +332,11 @@ aws rds describe-events \
   --duration 60
 ```
 
-**해결책**:
+해결책:
 - RDS 이벤트 로그에서 장애 원인 확인
 - Multi-AZ 배포로 고가용성 확보
 
-**2. 잘못된 Health Check 설정**
+2. 잘못된 Health Check 설정
 
 ```bash
 # Target Group Health Check 설정 확인
@@ -343,11 +345,11 @@ aws elbv2 describe-target-groups \
   --query 'TargetGroups[*].HealthCheckProtocol'
 ```
 
-**해결책**:
+해결책:
 - Health Check Interval 및 Threshold 조정
 - Health Check 프로토콜이 올바른지 확인 (TCP for database)
 
-**3. 네트워크 분리 (Network Partition)**
+3. 네트워크 분리 (Network Partition)
 
 ```bash
 # VPC Flow Logs에서 네트워크 문제 확인
@@ -356,7 +358,7 @@ aws logs filter-log-events \
   --filter-pattern '[version, account, eni, source, destination, srcport, destport="3306", protocol, packets, bytes, windowstart, windowend, action="REJECT", flowlogstatus]'
 ```
 
-**해결책**:
+해결책:
 - VPC Flow Logs에서 REJECT 패킷 원인 분석
 - Security Group 규칙 재검토
 
@@ -370,7 +372,7 @@ SSL handshake failed: certificate verify failed
 
 #### 원인 및 해결 방법
 
-**1. 인증서 만료**
+1. 인증서 만료
 
 ```bash
 # ACM 인증서 유효기간 확인
@@ -379,18 +381,18 @@ aws acm describe-certificate \
   --query 'Certificate.[Status,NotAfter]'
 ```
 
-**해결책**:
+해결책:
 - ACM 인증서는 자동 갱신됨 (도메인 검증 필요)
 - Route53 CNAME 레코드가 삭제되지 않았는지 확인
 
-**2. 잘못된 인증서 체인**
+2. 잘못된 인증서 체인
 
 ```bash
 # 인증서 체인 확인
 openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
 ```
 
-**해결책**:
+해결책:
 - ACM에서 발급한 인증서는 올바른 체인 포함
 - 클라이언트가 AWS Root CA를 신뢰하는지 확인
 
@@ -398,80 +400,80 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
 
 ### AWS 공식 문서
 
-1. **Network Load Balancer**
+1. Network Load Balancer
    - [AWS NLB 사용 설명서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)
    - [NLB 모범 사례](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)
 
-2. **Security Groups**
+2. Security Groups
    - [VPC Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)
    - [Security Group 규칙](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html)
 
-3. **RDS Security**
+3. RDS Security
    - [RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)
    - [RDS IAM 인증](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
 
-4. **VPC PrivateLink**
+4. VPC PrivateLink
    - [AWS PrivateLink 가이드](https://docs.aws.amazon.com/vpc/latest/privatelink/)
    - [VPC Endpoint Services](https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html)
 
-5. **VPC Lattice**
+5. VPC Lattice
    - [AWS VPC Lattice 문서](https://docs.aws.amazon.com/vpc-lattice/)
    - [VPC Lattice Resource Gateway](https://docs.aws.amazon.com/vpc-lattice/latest/ug/resource-gateways.html)
 
-6. **Monitoring & Logging**
+6. Monitoring & Logging
    - [CloudWatch 메트릭](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)
    - [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
    - [CloudTrail 로깅](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)
 
 ### Terraform 리소스
 
-7. **Terraform AWS Provider**
+7. Terraform AWS Provider
    - [Terraform AWS Provider 문서](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
    - [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb)
 
-8. **Terraform 모범 사례**
+8. Terraform 모범 사례
    - [Terraform Best Practices](https://www.terraform-best-practices.com/)
    - [Terraform 모듈 구조](https://developer.hashicorp.com/terraform/language/modules)
 
 ### 보안 및 규정 준수
 
-9. **MITRE ATT&CK**
+9. MITRE ATT&CK
    - [MITRE ATT&CK Framework](https://attack.mitre.org/)
    - [Cloud Attack Techniques](https://attack.mitre.org/matrices/enterprise/cloud/)
 
-10. **NIST Post-Quantum Cryptography**
+10. NIST Post-Quantum Cryptography
     - [NIST PQC Project](https://csrc.nist.gov/projects/post-quantum-cryptography)
     - [ML-KEM Standard](https://csrc.nist.gov/pubs/fips/203/final)
 
-11. **ISMS-P**
+11. ISMS-P
     - [ISMS-P 인증기준](https://www.kisa.or.kr/isms-p)
     - [개인정보보호법](https://www.law.go.kr/법령/개인정보보호법)
 
 ### 데이터베이스 프록시
 
-12. **HAProxy**
+12. HAProxy
     - [HAProxy Documentation](https://www.haproxy.org/documentation.html)
     - [HAProxy MySQL/PostgreSQL Configuration](https://www.haproxy.com/documentation/hapee/latest/traffic-routing/databases/)
 
-13. **PgBouncer**
+13. PgBouncer
     - [PgBouncer Documentation](https://www.pgbouncer.org/)
     - [PgBouncer Configuration](https://www.pgbouncer.org/config.html)
 
-14. **ProxySQL**
+14. ProxySQL
     - [ProxySQL Documentation](https://proxysql.com/documentation/)
     - [ProxySQL Query Rules](https://proxysql.com/documentation/query-rules/)
 
-15. **AWS RDS Proxy**
+15. AWS RDS Proxy
     - [RDS Proxy 문서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html)
     - [RDS Proxy Best Practices](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-best-practices.html)
 
 ### 추가 학습 자료
 
-16. **AWS Well-Architected Framework**
+16. AWS Well-Architected Framework
     - [Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/)
     - [Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/)
 
-17. **커뮤니티 리소스 (Community Resources)**
+17. 커뮤니티 리소스 (Community Resources)
     - [AWS Samples GitHub](https://docs.aws.amazon.com/)
     - [Terraform AWS Modules](https://registry.terraform.io/browse/modules?provider=aws)
 
@@ -479,11 +481,11 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
 
 Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 게이트웨이는 Zero Trust 아키텍처를 구현하는 효과적인 방법입니다. 2025년에는 Post-Quantum TLS 지원과 VPC Lattice의 성숙으로 더욱 다양한 선택지가 생겼습니다. 이 아키텍처를 통해:
 
-- **보안 강화**: 중앙화된 접근 제어 및 최소 권한 원칙 적용 + 양자 내성 암호화
-- **가용성 향상**: 다중 AZ 및 자동 장애 복구
-- **관리 용이성**: Terraform을 통한 인프라 자동화, VPC Lattice로 단순화 가능
-- **비용 효율**: 사용량 기반 과금으로 비용 최적화
-- **미래 대비**: Post-Quantum TLS로 양자 컴퓨터 위협 선제 대응
-- **규정 준수**: ISMS-P, 개인정보보호법 등 한국 규제 요구사항 충족
+- 보안 강화: 중앙화된 접근 제어 및 최소 권한 원칙 적용 + 양자 내성 암호화
+- 가용성 향상: 다중 AZ 및 자동 장애 복구
+- 관리 용이성: Terraform을 통한 인프라 자동화, VPC Lattice로 단순화 가능
+- 비용 효율: 사용량 기반 과금으로 비용 최적화
+- 미래 대비: Post-Quantum TLS로 양자 컴퓨터 위협 선제 대응
+- 규정 준수: ISMS-P, 개인정보보호법 등 한국 규제 요구사항 충족
 
 올바른 구성과 지속적인 모니터링을 통해 안전하고 효율적인 데이터베이스 접근 환경을 구축할 수 있습니다. 이 가이드에서 다룬 고급 아키텍처 패턴, Terraform 자동화, 위협 헌팅 쿼리, 그리고 트러블슈팅 방법을 활용하면 엔터프라이즈급 데이터베이스 게이트웨이를 성공적으로 운영할 수 있을 것입니다.

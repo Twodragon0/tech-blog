@@ -50,19 +50,21 @@ series_total: 7
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 경영진 요약
 
-본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 **AWS Control Tower와 ZTNA(Zero Trust Network Access)**를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
+본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 AWS Control Tower와 ZTNA(Zero Trust Network Access)를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
 
 ### Learning Scorecard
 
 | 평가 항목 | 점수 | 설명 |
 |----------|------|------|
-| **실무 적용성** | ⭐⭐⭐⭐⭐ | Control Tower 설정부터 SCP 정책까지 step-by-step 가이드 제공 |
-| **기술 깊이** | ⭐⭐⭐⭐⭐ | Landing Zone 아키텍처, Guardrails 메커니즘 심층 분석 |
-| **보안 커버리지** | ⭐⭐⭐⭐⭐ | 예방/탐지/대응 전 단계 포괄, ISMS-P 매핑 포함 |
-| **코드/정책 예제** | ⭐⭐⭐⭐⭐ | SCP JSON 정책, SIEM 쿼리, Terraform 코드 제공 |
-| **ROI/비즈니스 가치** | ⭐⭐⭐⭐☆ | 경영진 보고 템플릿, TCO 분석 포함 |
+| 실무 적용성 | ⭐⭐⭐⭐⭐ | Control Tower 설정부터 SCP 정책까지 step-by-step 가이드 제공 |
+| 기술 깊이 | ⭐⭐⭐⭐⭐ | Landing Zone 아키텍처, Guardrails 메커니즘 심층 분석 |
+| 보안 커버리지 | ⭐⭐⭐⭐⭐ | 예방/탐지/대응 전 단계 포괄, ISMS-P 매핑 포함 |
+| 코드/정책 예제 | ⭐⭐⭐⭐⭐ | SCP JSON 정책, SIEM 쿼리, Terraform 코드 제공 |
+| ROI/비즈니스 가치 | ⭐⭐⭐⭐☆ | 경영진 보고 템플릿, TCO 분석 포함 |
 
 ### 학습 시간 가이드
 
@@ -73,17 +75,17 @@ series_total: 7
 | SCP 정책 작성 | 60분 | 고급 |
 | ZTNA 개념 및 구현 | 45분 | 중급 |
 | 실습 (hands-on) | 90분 | 고급 |
-| **총 학습 시간** | **4-5시간** | - |
+| 총 학습 시간 | 4-5시간 | - |
 
 ## 서론
 
-안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 시큐리티 과정 7기 5주차에서 다룬 **AWS Control Tower**와 **ZTNA(Zero Trust Network Access)**를 실무 중심으로 깊이 있게 다룹니다.
+안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 시큐리티 과정 7기 5주차에서 다룬 AWS Control Tower와 ZTNA(Zero Trust Network Access)를 실무 중심으로 깊이 있게 다룹니다.
 
 ### 강의 운영 방식
 
-이 과정은 **게더 타운(Gather Town)**에서 진행되며, 각 세션은 다음과 같이 구성됩니다:
+이 과정은 게더 타운(Gather Town)에서 진행되며, 각 세션은 다음과 같이 구성됩니다:
 
-- **20분 강의** + **5분 휴식** 반복
+- 20분 강의 + 5분 휴식 반복
 - 온라인 강의 특성상 눈의 피로를 줄이고 집중력을 최대화하기 위한 구성
 - 실시간 Q&A 및 실습 세션 포함
 
@@ -91,12 +93,12 @@ series_total: 7
 
 현대 기업의 클라우드 환경은 다음과 같은 과제를 직면합니다:
 
-1. **멀티 계정 관리의 복잡성**: 수십~수백 개의 AWS 계정을 일관되게 관리해야 함
-2. **거버넌스 자동화 필요성**: 수동 점검으로는 컴플라이언스 유지 불가능
-3. **경계 기반 보안의 한계**: VPN/방화벽만으로는 내부자 위협 대응 불가
-4. **규제 준수 압박**: ISMS-P, ISO 27001, PCI-DSS 등 다양한 규제 요구사항
+1. 멀티 계정 관리의 복잡성: 수십~수백 개의 AWS 계정을 일관되게 관리해야 함
+2. 거버넌스 자동화 필요성: 수동 점검으로는 컴플라이언스 유지 불가능
+3. 경계 기반 보안의 한계: VPN/방화벽만으로는 내부자 위협 대응 불가
+4. 규제 준수 압박: ISMS-P, ISO 27001, PCI-DSS 등 다양한 규제 요구사항
 
-AWS Control Tower는 **멀티 계정 거버넌스 자동화**를, ZTNA는 **경계 없는 보안 아키텍처**를 제공하여 이러한 과제를 해결합니다.
+AWS Control Tower는 멀티 계정 거버넌스 자동화를, ZTNA는 경계 없는 보안 아키텍처를 제공하여 이러한 과제를 해결합니다.
 
 이 글에서는 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 실무 중심으로 상세히 다룹니다.
 
@@ -140,26 +142,26 @@ AWS Control Tower Components:
 
 ### 2.1 Control Tower란 무엇인가?
 
-AWS Control Tower는 **멀티 계정 AWS 환경을 자동으로 설정하고 관리하는 서비스**입니다. 다음 핵심 기능을 제공합니다:
+AWS Control Tower는 멀티 계정 AWS 환경을 자동으로 설정하고 관리하는 서비스입니다. 다음 핵심 기능을 제공합니다:
 
 | 기능 | 설명 | 비즈니스 가치 |
 |------|------|--------------|
-| **Landing Zone** | 보안 모범 사례 기반 초기 환경 자동 구성 | 초기 설정 시간 90% 단축 |
-| **Guardrails** | 예방적/탐지적 정책 자동 적용 | 컴플라이언스 위반 70% 감소 |
-| **Account Factory** | 표준화된 계정 자동 생성 | 계정 프로비저닝 시간 80% 단축 |
-| **Dashboard** | 통합 거버넌스 현황 모니터링 | 감사 준비 시간 60% 단축 |
+| Landing Zone | 보안 모범 사례 기반 초기 환경 자동 구성 | 초기 설정 시간 90% 단축 |
+| Guardrails | 예방적/탐지적 정책 자동 적용 | 컴플라이언스 위반 70% 감소 |
+| Account Factory | 표준화된 계정 자동 생성 | 계정 프로비저닝 시간 80% 단축 |
+| Dashboard | 통합 거버넌스 현황 모니터링 | 감사 준비 시간 60% 단축 |
 
 ### 2.2 Landing Zone 아키텍처 심층 분석
 
-Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 적용한 멀티 계정 기반 환경**을 의미합니다.
+Landing Zone은 Control Tower의 핵심 개념으로, 보안 모범 사례를 적용한 멀티 계정 기반 환경을 의미합니다.
 
 #### 2.2.1 Landing Zone 구성 요소
 
 Landing Zone은 다음 계정으로 구성됩니다:
 
-- **Management Account**: 중앙 관리 계정 (루트 계정)
-- **Log Archive Account**: 모든 CloudTrail, Config 로그 집중 보관
-- **Audit Account**: 보안 감사 도구 (Security Hub, GuardDuty) 집중 관리
+- Management Account: 중앙 관리 계정 (루트 계정)
+- Log Archive Account: 모든 CloudTrail, Config 로그 집중 보관
+- Audit Account: 보안 감사 도구 (Security Hub, GuardDuty) 집중 관리
 
 ## 3. Threat Hunting Playbook
 
@@ -177,32 +179,32 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| **AWS Control Tower 사용 설명서** | [https://docs.aws.amazon.com/controltower/](https://docs.aws.amazon.com/controltower/) | 공식 문서, 모든 기능 상세 설명 |
-| **Control Tower Guardrails 레퍼런스** | [https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html) | 모든 Guardrails 목록 및 설명 |
-| **NIST SP 800-207: Zero Trust** | [https://csrc.nist.gov/publications/detail/sp/800-207/final](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Zero Trust 표준 문서 |
-| **AWS Well-Architected Framework - Security Pillar** | [https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
-| **IAM Identity Center 문서** | [https://docs.aws.amazon.com/singlesignon/](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
+| AWS Control Tower 사용 설명서 | [https://docs.aws.amazon.com/controltower/](https://docs.aws.amazon.com/controltower/) | 공식 문서, 모든 기능 상세 설명 |
+| Control Tower Guardrails 레퍼런스 | [https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html) | 모든 Guardrails 목록 및 설명 |
+| NIST SP 800-207: Zero Trust | [https://csrc.nist.gov/publications/detail/sp/800-207/final](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Zero Trust 표준 문서 |
+| AWS Well-Architected Framework - Security Pillar | [https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
+| IAM Identity Center 문서 | [https://docs.aws.amazon.com/singlesignon/](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
 
 ### 4.2 실습 환경 및 튜토리얼
 
 | 리소스 | 설명 |
 |--------|------|
-| **AWS Workshop - Control Tower Immersion Day** | 실습 중심의 Control Tower 워크샵 ([https://controltower.aws-management.tools/](https://controltower.aws-management.tools/)) |
-| **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
-| **Terraform AWS Control Tower Module** | Infrastructure as Code 예제 ([https://registry.terraform.io/modules/aws-ia/control_tower](https://registry.terraform.io/modules/aws-ia/control_tower)) |
+| AWS Workshop - Control Tower Immersion Day | 실습 중심의 Control Tower 워크샵 ([https://controltower.aws-management.tools/](https://controltower.aws-management.tools/)) |
+| AWS Samples - Control Tower Customizations | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
+| Terraform AWS Control Tower Module | Infrastructure as Code 예제 ([https://registry.terraform.io/modules/aws-ia/control_tower](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
 ### 4.3 한국어 리소스
 
 | 리소스 | 링크 |
 |--------|------|
-| **AWS 한국 블로그 - Control Tower** | [https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/](https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/) |
-| **클라우드 보안 컨설팅 (Twodragon)** | [https://tech.2twodragon.com](https://tech.2twodragon.com) |
-| **AWS 공인 교육 과정** | AWS Training and Certification 한국어 과정 |
+| AWS 한국 블로그 - Control Tower | [https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/](https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/) |
+| 클라우드 보안 컨설팅 (Twodragon) | [https://tech.2twodragon.com](https://tech.2twodragon.com) |
+| AWS 공인 교육 과정 | AWS Training and Certification 한국어 과정 |
 
 ### 4.4 관련 AWS 서비스
 
 | 서비스 | 설명 | 링크 |
 |--------|------|------|
-| **AWS Control Tower** | 멀티 계정 거버넌스 | [공식 문서](https://docs.aws.amazon.com/controltower/) |
-| **AWS Organizations** | 계정 그룹 관리 | [공식 문서](https://docs.aws.amazon.com/organizations/) |
-| **AWS WAF** | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+| AWS Control Tower | 멀티 계정 거버넌스 | [공식 문서](https://docs.aws.amazon.com/controltower/) |
+| AWS Organizations | 계정 그룹 관리 | [공식 문서](https://docs.aws.amazon.com/organizations/) |
+| AWS WAF | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
