@@ -543,6 +543,13 @@ python3 scripts/verify_images_unified.py --all
 - Execution-time safety hooks are implemented as plugins in `.opencode/plugins/`.
 - Reusable project skills are in `.opencode/skills/` (security, validation, cost, governance).
 
+### Centralized hourly operations
+
+- Central scheduler and pull runner: `/Users/namyongkim/Desktop/.twodragon0/bin/hourly-opencode-git-pull.sh`
+- Central OpenClaw cron registration: `/Users/namyongkim/Desktop/.twodragon0/bin/setup-openclaw-cron.sh`
+- Central prompt: `/Users/namyongkim/Desktop/.twodragon0/openclaw_ultrawork_prompt.md`
+- Per-repo OpenClaw/OpenCode cron scripts are not used.
+
 ### OpenCode Sisyphus Mode with Ralph Loop
 
 This project uses OpenCode with Sisyphus mode and Ralph Loop for automated content improvement.
