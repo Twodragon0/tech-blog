@@ -339,10 +339,10 @@ Anthropic이 개발자를 위한 무료 온라인 교육 과정 "Anthropic Cours
 
 | 과정명 | 수강 링크 | 대상 | 핵심 내용 | 소요시간(예상) |
 |--------|---------|------|----------|------------|
-| Anthropic API Fundamentals | [Anthropic Courses](https://courses.anthropic.com/anthropic-api-fundamentals) | 입문 개발자 | API 인증, 메시지 API 구조, 토큰 계산, 기본 Prompt Engineering | 2~3시간 |
-| Prompt Engineering Interactive Tutorial | [Anthropic Courses](https://courses.anthropic.com/prompt-engineering-interactive-tutorial) | 개발자·PM | Chain of Thought, Few-shot, Role Prompting, 고급 패턴 | 3~4시간 |
-| Tool Use (Function Calling) | [Anthropic Courses](https://courses.anthropic.com/tool-use) | 중급 개발자 | 함수 호출(Tool Use) 설계, JSON Schema 작성, 에러 핸들링 | 2~3시간 |
-| Building with Claude | [Anthropic Courses](https://courses.anthropic.com/building-with-claude) | 고급 개발자 | 프로덕션 앱 설계, 스트리밍, 비용 최적화, 보안 고려사항 | 4~5시간 |
+| Anthropic API Fundamentals | [API Fundamentals](https://courses.anthropic.com/anthropic-api-fundamentals) | 입문 개발자 | API 인증, 메시지 API 구조, 토큰 계산, 기본 Prompt Engineering | 2~3시간 |
+| Prompt Engineering Interactive Tutorial | [Prompt Engineering](https://courses.anthropic.com/prompt-engineering-interactive-tutorial) | 개발자·PM | Chain of Thought, Few-shot, Role Prompting, 고급 패턴 | 3~4시간 |
+| Tool Use (Function Calling) | [Tool Use](https://courses.anthropic.com/tool-use) | 중급 개발자 | 함수 호출(Tool Use) 설계, JSON Schema 작성, 에러 핸들링 | 2~3시간 |
+| Building with Claude | [Building with Claude](https://courses.anthropic.com/building-with-claude) | 고급 개발자 | 프로덕션 앱 설계, 스트리밍, 비용 최적화, 보안 고려사항 | 4~5시간 |
 | Model Context Protocol (MCP) | [modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction) | 고급 개발자 | MCP 서버 개발, 보안 아키텍처, 커스텀 툴 통합 | 3~4시간 |
 | Claude Code | [docs.anthropic.com/en/docs/claude-code/overview](https://docs.anthropic.com/en/docs/claude-code/overview) | 개발자 | IDE 통합, CLAUDE.md 설정, 멀티 에이전트 오케스트레이션, CI/CD 통합 | 2~3시간 |
 | AI Fluency | [anthropic.com/education](https://www.anthropic.com/education) | 비개발자·관리자 | AI 리터러시, AI 윤리, 효과적 협업 방법론 | 1~2시간 |

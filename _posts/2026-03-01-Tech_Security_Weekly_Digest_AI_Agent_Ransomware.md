@@ -4,7 +4,7 @@ title: "기술·보안 주간 다이제스트: AI 에이전트 보안과 Gentlem
 date: 2026-03-01 23:23:38 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Ransomware]
-excerpt: "NVIDIA Agentic AI 자율 네트워크 블루프린트, SK쉴더스 Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 구현 등 17건 심층 분석"
+excerpt: "NVIDIA Agentic AI 자율 네트워크 블루프린트, SK쉴더스 Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 구현 등 7건 심층 분석"
 description: "NVIDIA Agentic AI 통신 자율 네트워크, SK쉴더스 OT 보안·Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 에이전트 플랫폼, 토큰화 금 시장 등 17건의 DevSecOps 실무 위협 분석."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Ransomware]
 author: Twodragon
