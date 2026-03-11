@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-10T00:42:39.123427+00:00",
+  "updated_at": "2026-03-11T01:23:43.621647+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -930,6 +930,96 @@
       "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: OpenTofu Day",
       "published_date": "2026-03-10",
       "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/92869/",
+      "title": "2026년 2월 국내외 금융권 관련 보안 이슈",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/how-to-stop-ai-data-leaks-webinar-guide.html",
+      "title": "How to Stop AI Data Leaks: A Webinar Guide to Auditing Modern Agentic Workflows",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/fortigate-devices-exploited-to-breach.html",
+      "title": "FortiGate Devices Exploited to Breach Networks and Steal Service Account Credent",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/kadnap-malware-infects-14000-edge.html",
+      "title": "KadNap Malware Infects 14,000+ Edge Devices to Power Stealth Proxy Botnet",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-european-sovereign-cloud-achieves-first-compliance-milestone-soc-2-and-c5-reports-plus-seven-iso-certifications/",
+      "title": "AWS European Sovereign Cloud achieves first compliance milestone: SOC 2 and C5 r",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/jetson-generative-ai-edge-oss/",
+      "title": "As Open Models Spark AI Boom, NVIDIA Jetson Brings It to Life at the Edge",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/gdc-2026-virtual-game-development/",
+      "title": "NVIDIA Virtualizes Game Development With RTX PRO Server",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-flux-ltx-video-comfyui-gdc/",
+      "title": "NVIDIA and ComfyUI Streamline Local AI Video Generation for Game Developers and ",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-thinking-machines-lab/",
+      "title": "NVIDIA and Thinking Machines Lab Announce Long-Term Gigawatt-Scale Strategic Par",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
+      "title": "Gemini in Google Sheets just achieved state-of-the-art performance.",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-new-threat-horizons-report-highlights-current-cloud-threats/",
+      "title": "Cloud CISO Perspectives: New Threat Horizons report highlights current cloud thr",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-for-government-build-custom-ai-agents-for-unclassified-work-on-genaimil/",
+      "title": "Gemini for Government: Build custom AI agents for unclassified work on GenAI.mil",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/whats-holding-back-ai-agents-its-still-security/",
+      "title": "What’s Holding Back AI Agents? It’s Still Security",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/dotnet-11-preview-2/",
+      "title": ".NET 11 Preview 2 is now available!",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-march-2026-servicing-updates/",
+      "title": ".NET and .NET Framework March 2026 servicing releases updates",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-18T01:23:43.621538+00:00"
     }
   ]
 }
