@@ -280,74 +280,74 @@ Code Scanning 설정 단계:
 
 | 카테고리 | 제목 | URL | 설명 |
 |---------|-----|-----|-----|
-| AWS WAF | AWS WAF Developer Guide | [AWS 문서](https://docs.aws.amazon.com/waf/) | AWS WAF 공식 문서 |
-| AWS WAF | AWS WAF Workshop | [링크](https://sessin.github.io/awswafhol/) | 실습 가이드 |
-| Cloudflare | Cloudflare Security Architecture | [링크](https://developers.cloudflare.com/reference-architecture/architectures/security/) | 보안 아키텍처 레퍼런스 |
-| Cloudflare | Cloudflare WAF Documentation | [링크](https://developers.cloudflare.com/waf/) | WAF 설정 가이드 |
-| Cloudflare | Bot Management | [링크](https://developers.cloudflare.com/bots/) | 봇 관리 문서 |
-| GitHub | GitHub Advanced Security | [GitHub](https://docs.github.com/en/code-security) | 코드 보안 문서 |
-| GitHub | Dependabot Documentation | [GitHub](https://docs.github.com/en/code-security) | 의존성 관리 가이드 |
-| GitHub | CodeQL Documentation | [GitHub](https://docs.github.com/en/code-security/codeql) | 코드 분석 언어 문서 |
+| AWS WAF | AWS WAF Developer Guide | [docs.aws.amazon.com/waf](https://docs.aws.amazon.com/waf/) | AWS WAF 공식 문서 |
+| AWS WAF | AWS WAF Workshop | [sessin.github.io/awswafhol](https://sessin.github.io/awswafhol/) | 실습 가이드 |
+| Cloudflare | Cloudflare Security Architecture | [developers.cloudflare.com/.../security](https://developers.cloudflare.com/reference-architecture/architectures/security/) | 보안 아키텍처 레퍼런스 |
+| Cloudflare | Cloudflare WAF Documentation | [developers.cloudflare.com/waf](https://developers.cloudflare.com/waf/) | WAF 설정 가이드 |
+| Cloudflare | Bot Management | [developers.cloudflare.com/bots](https://developers.cloudflare.com/bots/) | 봇 관리 문서 |
+| GitHub | GitHub Advanced Security | [docs.github.com/en/code-security](https://docs.github.com/en/code-security) | 코드 보안 문서 |
+| GitHub | Dependabot Documentation | [docs.github.com/en/code-security](https://docs.github.com/en/code-security) | 의존성 관리 가이드 |
+| GitHub | CodeQL Documentation | [docs.github.com/en/code-security/codeql](https://docs.github.com/en/code-security/codeql) | 코드 분석 언어 문서 |
 
 ### 실습 환경 및 도구
 
 | 도구 | 목적 | URL |
 |-----|-----|-----|
-| DVWA | 취약점 실습 환경 | [GitHub](https://github.com/digininja/DVWA) |
-| OWASP WebGoat | 보안 교육 플랫폼 | [GitHub](https://github.com/WebGoat/WebGoat) |
-| GitHub Actions | CI/CD 워크플로우 | [GitHub](https://docs.github.com/en/actions/using-workflows/workflow-templates) |
-| CodeQL Action | 코드 분석 자동화 | [GitHub](https://docs.github.com/en/code-security/code-scanning) |
+| DVWA | 취약점 실습 환경 | [github.com/digininja/DVWA](https://github.com/digininja/DVWA) |
+| OWASP WebGoat | 보안 교육 플랫폼 | [github.com/WebGoat/WebGoat](https://github.com/WebGoat/WebGoat) |
+| GitHub Actions | CI/CD 워크플로우 | [docs.github.com/en/actions/.../workflow-templates](https://docs.github.com/en/actions/using-workflows/workflow-templates) |
+| CodeQL Action | 코드 분석 자동화 | [docs.github.com/en/code-security/code-scanning](https://docs.github.com/en/code-security/code-scanning) |
 
 ### 보안 표준 및 프레임워크
 
 | 표준/프레임워크 | 설명 | URL |
 |--------------|-----|-----|
-| OWASP Top 10 | 웹 애플리케이션 보안 위험 | [OWASP](https://owasp.org/www-project-top-ten/) |
-| MITRE ATT&CK | 공격 기법 프레임워크 | [MITRE ATT&CK](https://attack.mitre.org/) |
-| CIS Benchmarks | 보안 구성 가이드 | [CIS](https://www.cisecurity.org/cis-benchmarks) |
-| NIST Cybersecurity Framework | 사이버보안 프레임워크 | [NIST](https://www.nist.gov/cyberframework) |
+| OWASP Top 10 | 웹 애플리케이션 보안 위험 | [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/) |
+| MITRE ATT&CK | 공격 기법 프레임워크 | [attack.mitre.org](https://attack.mitre.org/) |
+| CIS Benchmarks | 보안 구성 가이드 | [cisecurity.org/cis-benchmarks](https://www.cisecurity.org/cis-benchmarks) |
+| NIST Cybersecurity Framework | 사이버보안 프레임워크 | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) |
 
 ### 한국 규제 및 인증
 
 | 기관/규정 | 설명 | URL |
 |---------|-----|-----|
-| KISA | 한국인터넷진흥원 | [KISA](https://www.kisa.or.kr/) |
-| KrCERT/CC | 침해사고 대응팀 | [링크](https://www.krcert.or.kr/) |
-| ISMS-P | 정보보호 관리체계 인증 | [KISA](https://isms.kisa.or.kr/) |
-| 개인정보보호법 | 개인정보 보호 규정 | [링크](https://www.privacy.go.kr/) |
+| KISA | 한국인터넷진흥원 | [kisa.or.kr](https://www.kisa.or.kr/) |
+| KrCERT/CC | 침해사고 대응팀 | [krcert.or.kr](https://www.krcert.or.kr/) |
+| ISMS-P | 정보보호 관리체계 인증 | [isms.kisa.or.kr](https://isms.kisa.or.kr/) |
+| 개인정보보호법 | 개인정보 보호 규정 | [privacy.go.kr](https://www.privacy.go.kr/) |
 
 ### 보안 뉴스 및 블로그
 
 | 출처 | 설명 | URL |
 |-----|-----|-----|
-| Cloudflare Blog | 보안 업데이트 및 사례 | [링크](https://blog.cloudflare.com/tag/security/) |
-| AWS Security Blog | AWS 보안 모범 사례 | [AWS 문서](https://aws.amazon.com/blogs/security/) |
-| GitHub Blog | GitHub 보안 기능 소개 | [링크](https://github.blog/category/security/) |
-| SANS Internet Storm Center | 위협 인텔리전스 | [링크](https://isc.sans.edu/) |
+| Cloudflare Blog | 보안 업데이트 및 사례 | [blog.cloudflare.com/tag/security](https://blog.cloudflare.com/tag/security/) |
+| AWS Security Blog | AWS 보안 모범 사례 | [aws.amazon.com/blogs/security](https://aws.amazon.com/blogs/security/) |
+| GitHub Blog | GitHub 보안 기능 소개 | [github.blog/category/security](https://github.blog/category/security/) |
+| SANS Internet Storm Center | 위협 인텔리전스 | [isc.sans.edu](https://isc.sans.edu/) |
 
 ### 커뮤니티 및 포럼
 
 | 플랫폼 | 설명 | URL |
 |-------|-----|-----|
-| Stack Overflow | 기술 Q&A | [링크](https://stackoverflow.com/questions/tagged/aws-waf) |
-| Reddit - NetSec | 보안 커뮤니티 | [링크](https://www.reddit.com/r/netsec/) |
-| GitHub Discussions | 보안 토론 | [GitHub](https://github.com/orgs/community) |
+| Stack Overflow | 기술 Q&A | [stackoverflow.com/.../aws-waf](https://stackoverflow.com/questions/tagged/aws-waf) |
+| Reddit - NetSec | 보안 커뮤니티 | [reddit.com/r/netsec](https://www.reddit.com/r/netsec/) |
+| GitHub Discussions | 보안 토론 | [github.com/orgs/community](https://github.com/orgs/community) |
 
 ### 학습 리소스
 
 | 리소스 | 설명 | 제공자 |
 |-------|-----|-------|
-| AWS Skill Builder | AWS 보안 교육 | [링크](https://skillbuilder.aws/) |
-| Cloudflare Learning Paths | Cloudflare 학습 경로 | [링크](https://developers.cloudflare.com/learning-paths/) |
-| GitHub Skills | GitHub 보안 실습 | [GitHub](https://github.com/skills) |
+| AWS Skill Builder | AWS 보안 교육 | [skillbuilder.aws](https://skillbuilder.aws/) |
+| Cloudflare Learning Paths | Cloudflare 학습 경로 | [developers.cloudflare.com/learning-paths](https://developers.cloudflare.com/learning-paths/) |
+| GitHub Skills | GitHub 보안 실습 | [github.com/skills](https://github.com/skills) |
 
 ### YouTube 강의 및 영상
 
 | 채널/영상 | 내용 | URL |
 |----------|-----|-----|
-| Twodragon Tech | AWS WAF 네트워크 시나리오 | [링크](https://youtu.be/r84IuPv_4TI) |
-| AWS Online Tech Talks | AWS 보안 웨비나 | [링크](https://www.youtube.com/@AWSOnlineTechTalks) |
-| Cloudflare TV | Cloudflare 보안 세션 | [링크](https://cloudflare.tv/) |
+| Twodragon Tech | AWS WAF 네트워크 시나리오 | [youtu.be/r84IuPv_4TI](https://youtu.be/r84IuPv_4TI) |
+| AWS Online Tech Talks | AWS 보안 웨비나 | [youtube.com/@AWSOnlineTechTalks](https://www.youtube.com/@AWSOnlineTechTalks) |
+| Cloudflare TV | Cloudflare 보안 세션 | [cloudflare.tv](https://cloudflare.tv/) |
 
 ### 관련 자료
 
@@ -369,10 +369,10 @@ Code Scanning 설정 단계:
 
 | 도구 | 목적 | GitHub/웹사이트 |
 |-----|-----|---------------|
-| Trivy | 컨테이너 취약점 스캔 | [GitHub](https://github.com/aquasecurity/trivy) |
-| Gitleaks | Git 시크릿 스캔 | [GitHub](https://github.com/gitleaks/gitleaks) |
-| OWASP ZAP | 동적 보안 테스트 | [링크](https://www.zaproxy.org/) |
-| Burp Suite | 웹 보안 테스트 | [링크](https://portswigger.net/burp) |
+| Trivy | 컨테이너 취약점 스캔 | [github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
+| Gitleaks | Git 시크릿 스캔 | [github.com/gitleaks/gitleaks](https://github.com/gitleaks/gitleaks) |
+| OWASP ZAP | 동적 보안 테스트 | [zaproxy.org](https://www.zaproxy.org/) |
+| Burp Suite | 웹 보안 테스트 | [portswigger.net/burp](https://portswigger.net/burp) |
 
 ---
 

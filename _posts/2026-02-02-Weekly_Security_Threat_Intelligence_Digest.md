@@ -538,100 +538,100 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| Notepad++ Hijacked Incident Info Update | [링크](https://notepad-plus-plus.org/news/hijacked-incident-info-update/) | Notepad++ 공식 |
-| MITRE ATT&CK T1195 - Supply Chain Compromise | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1195/) | MITRE Corporation |
-| MITRE ATT&CK T1195.002 - Compromise Software Supply Chain | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1195/002/) | MITRE Corporation |
-| SolarWinds Supply Chain Attack Analysis | [블로그](https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor) | Mandiant |
-| NIST SP 800-161 Rev. 1 - Cyber Supply Chain Risk Management | [NIST](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final) | NIST |
+| Notepad++ Hijacked Incident Info Update | [notepad-plus-plus.org/news/hijacked-incident-info-update](https://notepad-plus-plus.org/news/hijacked-incident-info-update/) | Notepad++ 공식 |
+| MITRE ATT&CK T1195 - Supply Chain Compromise | [attack.mitre.org/techniques/T1195](https://attack.mitre.org/techniques/T1195/) | MITRE Corporation |
+| MITRE ATT&CK T1195.002 - Compromise Software Supply Chain | [attack.mitre.org/techniques/T1195/002](https://attack.mitre.org/techniques/T1195/002/) | MITRE Corporation |
+| SolarWinds Supply Chain Attack Analysis | [mandiant.com/resources/blog/evasive-attacker](https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor) | Mandiant |
+| NIST SP 800-161 Rev. 1 - Cyber Supply Chain Risk Management | [csrc.nist.gov/publications/detail/sp/800-161](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final) | NIST |
 
 ### SK쉴더스 보안 리포트 (2025.11 - 2026.01)
 
 | 리포트 | 발행월 | URL | 주요 내용 |
 |--------|--------|-----|-----------|
-| HeadLine 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf) | Vertical AI 구축 방안 |
-| HeadLine 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | 제조사 OT 보안 동향 |
-| HeadLine 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | 레드팀 사이버 면역 체계 |
-| Keep up with Ransomware 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf) | BlackField 랜섬웨어 코드 재활용 |
-| Keep up with Ransomware 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | Gentlemen 랜섬웨어 |
-| Keep up with Ransomware 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | Sinobi + Lynx 연계 분석 |
-| Special Report 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%28Data%29.pdf&r_fname=20251127174412898.pdf) | 제로트러스트 보안전략 - 데이터 |
-| Special Report 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | 제로트러스트 - 가시성 및 분석 |
-| Research Technique 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | JWT 인증 위협 |
-| EQST Insight 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com) | 분기별 위협 동향 종합 |
-| EQST Insight 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | 2025 Q4 위협 종합, 2026 전망 |
-| EQST Insight 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | 1월 보안 인사이트 |
+| HeadLine 11월호 | 2025.11 | [skshieldus.com/download/HeadLine-11월호](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf) | Vertical AI 구축 방안 |
+| HeadLine 12월호 | 2025.12 | [skshieldus.com](https://www.skshieldus.com) | 제조사 OT 보안 동향 |
+| HeadLine 1월호 | 2026.01 | [skshieldus.com](https://www.skshieldus.com) | 레드팀 사이버 면역 체계 |
+| Keep up with Ransomware 11월호 | 2025.11 | [skshieldus.com/download/Ransomware-11월호-BlackField](https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf) | BlackField 랜섬웨어 코드 재활용 |
+| Keep up with Ransomware 12월호 | 2025.12 | [skshieldus.com](https://www.skshieldus.com) | Gentlemen 랜섬웨어 |
+| Keep up with Ransomware 1월호 | 2026.01 | [skshieldus.com](https://www.skshieldus.com) | Sinobi + Lynx 연계 분석 |
+| Special Report 11월호 | 2025.11 | [skshieldus.com/download/SpecialReport-11월호-ZeroTrust](https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%28Data%29.pdf&r_fname=20251127174412898.pdf) | 제로트러스트 보안전략 - 데이터 |
+| Special Report 12월호 | 2025.12 | [skshieldus.com](https://www.skshieldus.com) | 제로트러스트 - 가시성 및 분석 |
+| Research Technique 1월호 | 2026.01 | [skshieldus.com](https://www.skshieldus.com) | JWT 인증 위협 |
+| EQST Insight 11월호 | 2025.11 | [skshieldus.com](https://www.skshieldus.com) | 분기별 위협 동향 종합 |
+| EQST Insight 12월호 | 2025.12 | [skshieldus.com](https://www.skshieldus.com) | 2025 Q4 위협 종합, 2026 전망 |
+| EQST Insight 1월호 | 2026.01 | [skshieldus.com](https://www.skshieldus.com) | 1월 보안 인사이트 |
 
 ### 랜섬웨어 위협 인텔리전스
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| LockBit 3.0 Builder Leak Analysis | [링크](https://www.bleepingcomputer.com/news/security/lockbit-30-ransomware-builder-leaked-online/) | BleepingComputer |
-| Babuk Ransomware Source Code Leak | [링크](https://www.bleepingcomputer.com/news/security/babuk-ransomwares-full-source-code-leaked-on-hacker-forum/) | BleepingComputer |
-| Conti Ransomware Leak Analysis | [블로그](https://www.intel471.com/blog/conti-ransomware-leadership-exposure) | Intel471 |
-| MITRE ATT&CK T1486 - Data Encrypted for Impact | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1486/) | MITRE Corporation |
-| MITRE ATT&CK T1490 - Inhibit System Recovery | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1490/) | MITRE Corporation |
-| IBM Cost of a Data Breach Report 2025 | [링크](https://www.ibm.com/security/data-breach) | IBM Security |
+| LockBit 3.0 Builder Leak Analysis | [bleepingcomputer.com/news/security/lockbit-30-ransomware-builder-leaked-online](https://www.bleepingcomputer.com/news/security/lockbit-30-ransomware-builder-leaked-online/) | BleepingComputer |
+| Babuk Ransomware Source Code Leak | [bleepingcomputer.com/news/security/babuk-ransomwares-full-source-code-leaked](https://www.bleepingcomputer.com/news/security/babuk-ransomwares-full-source-code-leaked-on-hacker-forum/) | BleepingComputer |
+| Conti Ransomware Leak Analysis | [intel471.com/blog/conti-ransomware-leadership-exposure](https://www.intel471.com/blog/conti-ransomware-leadership-exposure) | Intel471 |
+| MITRE ATT&CK T1486 - Data Encrypted for Impact | [attack.mitre.org/techniques/T1486](https://attack.mitre.org/techniques/T1486/) | MITRE Corporation |
+| MITRE ATT&CK T1490 - Inhibit System Recovery | [attack.mitre.org/techniques/T1490](https://attack.mitre.org/techniques/T1490/) | MITRE Corporation |
+| IBM Cost of a Data Breach Report 2025 | [ibm.com/security/data-breach](https://www.ibm.com/security/data-breach) | IBM Security |
 
 ### 제로트러스트 아키텍처
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| NIST SP 800-207 - Zero Trust Architecture | [NIST](https://csrc.nist.gov/publications/detail/sp/800-207/final) | NIST |
-| CISA Zero Trust Maturity Model | [링크](https://www.cisa.gov/zero-trust-maturity-model) | CISA |
-| 행정안전부 제로트러스트 가이드 | [링크](https://www.mois.go.kr) | 행정안전부 |
-| 금융보안원 제로트러스트 가이드라인 | [금융보안원](https://www.fsec.or.kr) | 금융보안원 |
+| NIST SP 800-207 - Zero Trust Architecture | [csrc.nist.gov/publications/detail/sp/800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final) | NIST |
+| CISA Zero Trust Maturity Model | [cisa.gov/zero-trust-maturity-model](https://www.cisa.gov/zero-trust-maturity-model) | CISA |
+| 행정안전부 제로트러스트 가이드 | [mois.go.kr](https://www.mois.go.kr) | 행정안전부 |
+| 금융보안원 제로트러스트 가이드라인 | [fsec.or.kr](https://www.fsec.or.kr) | 금융보안원 |
 
 ### JWT 보안
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| RFC 7519 - JSON Web Token (JWT) | [링크](https://datatracker.ietf.org/doc/html/rfc7519) | IETF |
-| OWASP JWT Cheat Sheet | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) | OWASP |
-| MITRE ATT&CK T1078 - Valid Accounts | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1078/) | MITRE Corporation |
+| RFC 7519 - JSON Web Token (JWT) | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) | IETF |
+| OWASP JWT Cheat Sheet | [cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) | OWASP |
+| MITRE ATT&CK T1078 - Valid Accounts | [attack.mitre.org/techniques/T1078](https://attack.mitre.org/techniques/T1078/) | MITRE Corporation |
 
 ### DevOps 보안
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| HashiCorp Boundary 0.21 - Passwordless RDP | [블로그](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) | HashiCorp |
-| HashiCorp VSO - K8s Secrets without etcd | [블로그](https://www.hashicorp.com/blog/deliver-secrets-to-kubernetes-pods-without-storing-in-etcd-using-vso) | HashiCorp |
-| Kubernetes Security Best Practices | [K8s 문서](https://kubernetes.io/docs/concepts/security/security-best-practices/) | Kubernetes |
+| HashiCorp Boundary 0.21 - Passwordless RDP | [hashicorp.com/blog/boundary-0-21-improves-remote-access-security](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) | HashiCorp |
+| HashiCorp VSO - K8s Secrets without etcd | [hashicorp.com/blog/deliver-secrets-to-kubernetes-pods](https://www.hashicorp.com/blog/deliver-secrets-to-kubernetes-pods-without-storing-in-etcd-using-vso) | HashiCorp |
+| Kubernetes Security Best Practices | [kubernetes.io/docs/concepts/security/security-best-practices](https://kubernetes.io/docs/concepts/security/security-best-practices/) | Kubernetes |
 
 ### AI 에이전트 보안
 
 | 제목 | URL | 발행처 |
 |------|-----|--------|
-| Amazon Bedrock AgentCore 멀티에이전트 운영 | [AWS 문서](https://aws.amazon.com/ko/blogs/tech/multi-agent-operations-for-airline-agentcore-service/) | AWS Korea |
-| OWASP Agentic AI Top 10 | [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | OWASP |
-| NIST AI Risk Management Framework | [NIST](https://www.nist.gov/itl/ai-risk-management-framework) | NIST |
+| Amazon Bedrock AgentCore 멀티에이전트 운영 | [aws.amazon.com/ko/blogs/tech/multi-agent-operations](https://aws.amazon.com/ko/blogs/tech/multi-agent-operations-for-airline-agentcore-service/) | AWS Korea |
+| OWASP Agentic AI Top 10 | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | OWASP |
+| NIST AI Risk Management Framework | [nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework) | NIST |
 
 ### 보안 프레임워크 및 표준
 
 | 리소스 | URL | 발행처 |
 |--------|-----|--------|
-| MITRE ATT&CK Framework | [MITRE ATT&CK](https://attack.mitre.org/) | MITRE Corporation |
-| MITRE ATT&CK Navigator | [링크](https://mitre-attack.github.io/attack-navigator/) | MITRE Corporation |
-| CISA Known Exploited Vulnerabilities (KEV) | [링크](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | CISA |
-| CIS Controls v8 | [CIS](https://www.cisecurity.org/controls/v8) | Center for Internet Security |
-| NIST Cybersecurity Framework (CSF) 2.0 | [NIST](https://www.nist.gov/cyberframework) | NIST |
+| MITRE ATT&CK Framework | [attack.mitre.org](https://attack.mitre.org/) | MITRE Corporation |
+| MITRE ATT&CK Navigator | [mitre-attack.github.io/attack-navigator](https://mitre-attack.github.io/attack-navigator/) | MITRE Corporation |
+| CISA Known Exploited Vulnerabilities (KEV) | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | CISA |
+| CIS Controls v8 | [cisecurity.org/controls/v8](https://www.cisecurity.org/controls/v8) | Center for Internet Security |
+| NIST Cybersecurity Framework (CSF) 2.0 | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) | NIST |
 
 ### 국내 보안 기관 및 리소스
 
 | 기관 | URL | 역할 |
 |------|-----|------|
-| KISA 한국인터넷진흥원 | [KISA](https://www.kisa.or.kr) | 랜섬웨어 대응센터, 침해사고 지원 |
-| NCSC 국가사이버안보센터 | [링크](https://www.ncsc.go.kr) | 국가 기반시설 보호 |
-| 금융보안원 | [금융보안원](https://www.fsec.or.kr) | 금융권 보안 가이드라인 |
-| 보안뉴스 | [링크](https://www.boannews.com) | 국내 보안 뉴스 |
+| KISA 한국인터넷진흥원 | [kisa.or.kr](https://www.kisa.or.kr) | 랜섬웨어 대응센터, 침해사고 지원 |
+| NCSC 국가사이버안보센터 | [ncsc.go.kr](https://www.ncsc.go.kr) | 국가 기반시설 보호 |
+| 금융보안원 | [fsec.or.kr](https://www.fsec.or.kr) | 금융권 보안 가이드라인 |
+| 보안뉴스 | [boannews.com](https://www.boannews.com) | 국내 보안 뉴스 |
 
 ### 위협 인텔리전스 피드
 
 | 서비스 | URL | 제공 정보 |
 |--------|-----|-----------|
-| MISP Threat Sharing | [링크](https://www.misp-project.org) | 오픈소스 위협 인텔리전스 플랫폼 |
-| AlienVault OTX | [링크](https://otx.alienvault.com) | 커뮤니티 위협 인텔리전스 |
-| VirusTotal | [링크](https://www.virustotal.com) | 파일/URL 위협 분석 |
-| ANY.RUN | [링크](https://any.run) | 인터랙티브 멀웨어 샌드박스 |
+| MISP Threat Sharing | [misp-project.org](https://www.misp-project.org) | 오픈소스 위협 인텔리전스 플랫폼 |
+| AlienVault OTX | [otx.alienvault.com](https://otx.alienvault.com) | 커뮤니티 위협 인텔리전스 |
+| VirusTotal | [virustotal.com](https://www.virustotal.com) | 파일/URL 위협 분석 |
+| ANY.RUN | [any.run](https://any.run) | 인터랙티브 멀웨어 샌드박스 |
 
 ---
 

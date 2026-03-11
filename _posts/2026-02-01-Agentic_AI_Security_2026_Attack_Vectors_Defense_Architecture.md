@@ -335,52 +335,52 @@ SK쉴더스가 공개한 진단 가이드의 핵심 체크리스트:
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| OWASP LLM Top 10 (2025) | [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM 애플리케이션 취약점 Top 10 |
-| OWASP Agentic AI Top 10 | [OWASP](https://genai.owasp.org/) | 에이전틱 AI 전용 보안 위협 분류 |
-| MITRE ATT&CK Framework | [MITRE ATT&CK](https://attack.mitre.org/) | 사이버 공격 전술 및 기법 매트릭스 |
-| MITRE ATLAS (AI 전용) | [링크](https://atlas.mitre.org/) | AI/ML 시스템 공격 기법 데이터베이스 |
-| NIST AI Risk Management Framework | [NIST](https://www.nist.gov/itl/ai-risk-management-framework) | AI 시스템 위험 관리 프레임워크 |
-| ISO/IEC 42001 (AI Management) | [ISO](https://www.iso.org/standard/81230.html) | AI 관리 시스템 국제 표준 |
+| OWASP LLM Top 10 (2025) | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM 애플리케이션 취약점 Top 10 |
+| OWASP Agentic AI Top 10 | [genai.owasp.org](https://genai.owasp.org/) | 에이전틱 AI 전용 보안 위협 분류 |
+| MITRE ATT&CK Framework | [attack.mitre.org](https://attack.mitre.org/) | 사이버 공격 전술 및 기법 매트릭스 |
+| MITRE ATLAS (AI 전용) | [atlas.mitre.org](https://atlas.mitre.org/) | AI/ML 시스템 공격 기법 데이터베이스 |
+| NIST AI Risk Management Framework | [nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework) | AI 시스템 위험 관리 프레임워크 |
+| ISO/IEC 42001 (AI Management) | [iso.org/standard/81230.html](https://www.iso.org/standard/81230.html) | AI 관리 시스템 국제 표준 |
 
 ### CrowdStrike 에이전틱 AI 보안 연구
 
 | 제목 | URL | 발표일 |
 |------|-----|--------|
-| AI Tool Poisoning | [블로그](https://www.crowdstrike.com/en-us/blog/ai-tool-poisoning/) | 2026-01-09 |
-| Agentic Tool Chain Attack | [블로그](https://www.crowdstrike.com/en-us/blog/how-agentic-tool-chain-attacks-threaten-ai-agent-security/) | 2026-01-30 |
-| Architecture of Agentic Defense | [블로그](https://www.crowdstrike.com/en-us/blog/architecture-of-agentic-defense-inside-the-falcon-platform/) | 2026-01-16 |
-| SGNL Acquisition (ID Security) | [블로그](https://www.crowdstrike.com/en-us/blog/crowdstrike-to-acquire-sgnl/) | 2026-01 |
-| LABYRINTH CHOLLIMA Evolution | [블로그](https://www.crowdstrike.com/en-us/blog/labyrinth-chollima-evolves-into-three-adversaries/) | 2026-01-29 |
-| Seraphic Acquisition (Browser) | [블로그](https://www.crowdstrike.com/en-us/blog/crowdstrike-to-acquire-seraphic/) | 2026-01 |
-| USB Drive Security Threats | [블로그](https://www.crowdstrike.com/en-us/blog/usb-drives-threaten-enterprise-security/) | 2026-01 |
-| January 2026 Patch Tuesday | [블로그](https://www.crowdstrike.com/en-us/blog/january-2026-patch-tuesday-114-cves/) | 2026-01-15 |
+| AI Tool Poisoning | [crowdstrike.com/blog/ai-tool-poisoning](https://www.crowdstrike.com/en-us/blog/ai-tool-poisoning/) | 2026-01-09 |
+| Agentic Tool Chain Attack | [crowdstrike.com/blog/how-agentic-tool-chain-attacks-threaten-ai-agent-security](https://www.crowdstrike.com/en-us/blog/how-agentic-tool-chain-attacks-threaten-ai-agent-security/) | 2026-01-30 |
+| Architecture of Agentic Defense | [crowdstrike.com/blog/architecture-of-agentic-defense-inside-the-falcon-platform](https://www.crowdstrike.com/en-us/blog/architecture-of-agentic-defense-inside-the-falcon-platform/) | 2026-01-16 |
+| SGNL Acquisition (ID Security) | [crowdstrike.com/blog/crowdstrike-to-acquire-sgnl](https://www.crowdstrike.com/en-us/blog/crowdstrike-to-acquire-sgnl/) | 2026-01 |
+| LABYRINTH CHOLLIMA Evolution | [crowdstrike.com/blog/labyrinth-chollima-evolves-into-three-adversaries](https://www.crowdstrike.com/en-us/blog/labyrinth-chollima-evolves-into-three-adversaries/) | 2026-01-29 |
+| Seraphic Acquisition (Browser) | [crowdstrike.com/blog/crowdstrike-to-acquire-seraphic](https://www.crowdstrike.com/en-us/blog/crowdstrike-to-acquire-seraphic/) | 2026-01 |
+| USB Drive Security Threats | [crowdstrike.com/blog/usb-drives-threaten-enterprise-security](https://www.crowdstrike.com/en-us/blog/usb-drives-threaten-enterprise-security/) | 2026-01 |
+| January 2026 Patch Tuesday | [crowdstrike.com/blog/january-2026-patch-tuesday-114-cves](https://www.crowdstrike.com/en-us/blog/january-2026-patch-tuesday-114-cves/) | 2026-01-15 |
 
 ### Google 보안 연구
 
 | 제목 | URL | 발표일 |
 |------|-----|--------|
-| Chrome Agentic Security Architecture | [링크](https://security.googleblog.com/2025/12/architecting-security-for-agentic.html) | 2025-12-08 |
-| Mitigating Prompt Injection | [링크](https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html) | 2025-06 |
-| Rust in Android (Memory Safety) | [링크](https://security.googleblog.com/2025/11/rust-in-android-move-fast-fix-things.html) | 2025-11 |
-| GCP Security Bulletins | [GCP 문서](https://cloud.google.com/support/bulletins) | 2026-01 |
+| Chrome Agentic Security Architecture | [security.googleblog.com/2025/12/architecting-security-for-agentic](https://security.googleblog.com/2025/12/architecting-security-for-agentic.html) | 2025-12-08 |
+| Mitigating Prompt Injection | [security.googleblog.com/2025/06/mitigating-prompt-injection-attacks](https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html) | 2025-06 |
+| Rust in Android (Memory Safety) | [security.googleblog.com/2025/11/rust-in-android-move-fast-fix-things](https://security.googleblog.com/2025/11/rust-in-android-move-fast-fix-things.html) | 2025-11 |
+| GCP Security Bulletins | [cloud.google.com/support/bulletins](https://cloud.google.com/support/bulletins) | 2026-01 |
 
 ### HashiCorp 보안 및 인프라
 
 | 제목 | URL | 발표일 |
 |------|-----|--------|
-| 2026 Linux Security Threat Landscape | [블로그](https://www.hashicorp.com/blog/the-linux-security-threat-landscape-and-strategic-defense-pillars) | 2026-01 |
-| Terraform MCP Server 0.4 | [블로그](https://www.hashicorp.com/blog/terraform-mcp-server-updates-stacks-support-new-tools-and-tips) | 2026-01 |
-| Vault (Secrets Management) | [링크](https://www.vaultproject.io/) | - |
+| 2026 Linux Security Threat Landscape | [hashicorp.com/blog/the-linux-security-threat-landscape-and-strategic-defense-pillars](https://www.hashicorp.com/blog/the-linux-security-threat-landscape-and-strategic-defense-pillars) | 2026-01 |
+| Terraform MCP Server 0.4 | [hashicorp.com/blog/terraform-mcp-server-updates-stacks-support-new-tools-and-tips](https://www.hashicorp.com/blog/terraform-mcp-server-updates-stacks-support-new-tools-and-tips) | 2026-01 |
+| Vault (Secrets Management) | [vaultproject.io](https://www.vaultproject.io/) | - |
 
 ### 국내 보안 기관 및 규제
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| 개인정보보호위원회 | [링크](https://www.pipc.go.kr/) | 개인정보보호법 및 AI 가이드라인 |
-| 금융보안원 (FSI) | [금융보안원](https://www.fsec.or.kr/) | 금융권 AI 보안 가이드라인 |
-| 한국인터넷진흥원 (KISA) | [KISA](https://www.kisa.or.kr/) | 사이버 보안 및 개인정보보호 |
-| 국가정보원 국가사이버안전센터 | [링크](https://www.ncsc.go.kr/) | 국가·공공기관 보안 지침 |
-| 과학기술정보통신부 | [링크](https://www.msit.go.kr/) | 정보통신망법, 클라우드 보안 인증 |
+| 개인정보보호위원회 | [pipc.go.kr](https://www.pipc.go.kr/) | 개인정보보호법 및 AI 가이드라인 |
+| 금융보안원 (FSI) | [fsec.or.kr](https://www.fsec.or.kr/) | 금융권 AI 보안 가이드라인 |
+| 한국인터넷진흥원 (KISA) | [kisa.or.kr](https://www.kisa.or.kr/) | 사이버 보안 및 개인정보보호 |
+| 국가정보원 국가사이버안전센터 | [ncsc.go.kr](https://www.ncsc.go.kr/) | 국가·공공기관 보안 지침 |
+| 과학기술정보통신부 | [msit.go.kr](https://www.msit.go.kr/) | 정보통신망법, 클라우드 보안 인증 |
 
 ### SK쉴더스 보안 연구
 
@@ -394,27 +394,27 @@ SK쉴더스가 공개한 진단 가이드의 핵심 체크리스트:
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| CISA KEV (Known Exploited Vulnerabilities) | [링크](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용된 취약점 카탈로그 |
-| CrowdStrike Adversary Intelligence | [링크](https://www.crowdstrike.com/adversaries/) | 위협 그룹 프로필 및 IOC |
-| The Hacker News | [링크](https://thehackernews.com/) | 최신 사이버 보안 뉴스 |
-| MISP (Threat Intelligence Sharing) | [링크](https://www.misp-project.org/) | 위협 인텔리전스 공유 플랫폼 |
+| CISA KEV (Known Exploited Vulnerabilities) | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용된 취약점 카탈로그 |
+| CrowdStrike Adversary Intelligence | [crowdstrike.com/adversaries](https://www.crowdstrike.com/adversaries/) | 위협 그룹 프로필 및 IOC |
+| The Hacker News | [thehackernews.com](https://thehackernews.com/) | 최신 사이버 보안 뉴스 |
+| MISP (Threat Intelligence Sharing) | [misp-project.org](https://www.misp-project.org/) | 위협 인텔리전스 공유 플랫폼 |
 
 ### 관련 기술 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| Model Context Protocol (MCP) | [링크](https://modelcontextprotocol.io/) | AI 에이전트 도구 연결 프로토콜 |
-| LangChain Security Best Practices | [링크](https://python.langchain.com/docs/security) | LangChain 보안 모범 사례 |
-| OpenAI Safety Best Practices | [링크](https://platform.openai.com/docs/guides/safety-best-practices) | OpenAI API 보안 가이드 |
-| Anthropic Claude Safety | [링크](https://www.anthropic.com/safety) | Claude AI 안전성 연구 |
+| Model Context Protocol (MCP) | [modelcontextprotocol.io](https://modelcontextprotocol.io/) | AI 에이전트 도구 연결 프로토콜 |
+| LangChain Security Best Practices | [python.langchain.com/docs/security](https://python.langchain.com/docs/security) | LangChain 보안 모범 사례 |
+| OpenAI Safety Best Practices | [platform.openai.com/docs/guides/safety-best-practices](https://platform.openai.com/docs/guides/safety-best-practices) | OpenAI API 보안 가이드 |
+| Anthropic Claude Safety | [anthropic.com/safety](https://www.anthropic.com/safety) | Claude AI 안전성 연구 |
 
 ### SIEM/보안 도구
 
 | 도구 | URL | 용도 |
 |------|-----|------|
 | Splunk Enterprise Security | [Splunk](https://www.splunk.com/en_us/products/enterprise-security.html) | SIEM 플랫폼 |
-| Microsoft Sentinel | [Azure 문서](https://azure.microsoft.com/en-us/products/microsoft-sentinel) | 클라우드 네이티브 SIEM |
-| Wazuh | [링크](https://wazuh.com/) | 오픈소스 보안 플랫폼 |
+| Microsoft Sentinel | [azure.microsoft.com/en-us/products/microsoft-sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel) | 클라우드 네이티브 SIEM |
+| Wazuh | [wazuh.com](https://wazuh.com/) | 오픈소스 보안 플랫폼 |
 | GitLeaks | [gitleaks](https://github.com/gitleaks/gitleaks) | Git 저장소 비밀정보 스캔 |
 | TruffleHog | [trufflehog](https://github.com/trufflesecurity/trufflehog) | 비밀정보 유출 탐지 |
 

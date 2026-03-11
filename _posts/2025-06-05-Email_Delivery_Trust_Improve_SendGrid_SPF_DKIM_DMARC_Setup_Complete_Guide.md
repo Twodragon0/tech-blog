@@ -584,66 +584,66 @@ OfficeActivity, EmailEvents 테이블 사용
 
 | 문서 | URL | 설명 |
 |------|-----|------|
-| RFC 7208 (SPF) | [링크](https://datatracker.ietf.org/doc/html/rfc7208) | SPF 공식 표준 문서 |
-| RFC 6376 (DKIM) | [링크](https://datatracker.ietf.org/doc/html/rfc6376) | DKIM 공식 표준 문서 |
-| RFC 7489 (DMARC) | [링크](https://datatracker.ietf.org/doc/html/rfc7489) | DMARC 공식 표준 문서 |
-| DMARC.org | [링크](https://dmarc.org/) | DMARC 공식 웹사이트 및 가이드 |
-| SendGrid Documentation | [링크](https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication) | SendGrid 도메인 인증 가이드 |
+| RFC 7208 (SPF) | [datatracker.ietf.org/doc/html/rfc7208](https://datatracker.ietf.org/doc/html/rfc7208) | SPF 공식 표준 문서 |
+| RFC 6376 (DKIM) | [datatracker.ietf.org/doc/html/rfc6376](https://datatracker.ietf.org/doc/html/rfc6376) | DKIM 공식 표준 문서 |
+| RFC 7489 (DMARC) | [datatracker.ietf.org/doc/html/rfc7489](https://datatracker.ietf.org/doc/html/rfc7489) | DMARC 공식 표준 문서 |
+| DMARC.org | [dmarc.org](https://dmarc.org/) | DMARC 공식 웹사이트 및 가이드 |
+| SendGrid Documentation | [docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication](https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication) | SendGrid 도메인 인증 가이드 |
 
 ### 검증 및 분석 도구
 
 | 도구 | URL | 설명 |
 |------|-----|------|
-| MXToolbox SPF | [링크](https://mxtoolbox.com/spf.aspx) | SPF 레코드 검증 및 진단 |
-| MXToolbox DKIM | [링크](https://mxtoolbox.com/dkim.aspx) | DKIM 레코드 검증 |
-| DMARC Analyzer | [링크](https://www.dmarcanalyzer.com/) | DMARC 보고서 분석 플랫폼 |
-| Google Postmaster Tools | [링크](https://postmaster.google.com/) | Gmail 전달률 및 평판 확인 |
-| Mail-Tester | [링크](https://www.mail-tester.com/) | 이메일 스팸 점수 테스트 |
-| Valimail DMARC | [링크](https://www.valimail.com/) | 엔터프라이즈 DMARC 관리 |
+| MXToolbox SPF | [mxtoolbox.com/spf.aspx](https://mxtoolbox.com/spf.aspx) | SPF 레코드 검증 및 진단 |
+| MXToolbox DKIM | [mxtoolbox.com/dkim.aspx](https://mxtoolbox.com/dkim.aspx) | DKIM 레코드 검증 |
+| DMARC Analyzer | [dmarcanalyzer.com](https://www.dmarcanalyzer.com/) | DMARC 보고서 분석 플랫폼 |
+| Google Postmaster Tools | [postmaster.google.com](https://postmaster.google.com/) | Gmail 전달률 및 평판 확인 |
+| Mail-Tester | [mail-tester.com](https://www.mail-tester.com/) | 이메일 스팸 점수 테스트 |
+| Valimail DMARC | [valimail.com](https://www.valimail.com/) | 엔터프라이즈 DMARC 관리 |
 
 ### 보안 프레임워크 및 가이드라인
 
 | 자료 | URL | 설명 |
 |------|-----|------|
-| NIST SP 800-177 | [NIST](https://csrc.nist.gov/publications/detail/sp/800-177/rev-1/final) | NIST 이메일 보안 가이드라인 |
-| CISA Email Security | [링크](https://www.cisa.gov/topics/cyber-threats-and-advisories/securing-email) | 미국 사이버보안 기관 이메일 보안 권고 |
-| M3AAWG Best Practices | [링크](https://www.m3aawg.org/best-practices) | 이메일 서비스 제공자 보안 모범 사례 |
-| OWASP Email Security | [OWASP](https://owasp.org/www-community/controls/Email_Security) | OWASP 이메일 보안 체크리스트 |
+| NIST SP 800-177 | [csrc.nist.gov/publications/detail/sp/800-177](https://csrc.nist.gov/publications/detail/sp/800-177/rev-1/final) | NIST 이메일 보안 가이드라인 |
+| CISA Email Security | [cisa.gov/topics/cyber-threats-and-advisories/securing-email](https://www.cisa.gov/topics/cyber-threats-and-advisories/securing-email) | 미국 사이버보안 기관 이메일 보안 권고 |
+| M3AAWG Best Practices | [m3aawg.org/best-practices](https://www.m3aawg.org/best-practices) | 이메일 서비스 제공자 보안 모범 사례 |
+| OWASP Email Security | [owasp.org/www-community/controls/Email_Security](https://owasp.org/www-community/controls/Email_Security) | OWASP 이메일 보안 체크리스트 |
 
 ### 산업 보고서 및 통계
 
 | 보고서 | URL | 설명 |
 |--------|-----|------|
-| Cloudflare Email Security Report 2025 | [링크](https://www.cloudflare.com/learning/email-security/email-security-report/) | 2025년 이메일 위협 트렌드 |
-| Verizon DBIR | [링크](https://www.verizon.com/business/resources/reports/dbir/) | 데이터 침해 조사 보고서 (이메일 공격 통계 포함) |
-| Proofpoint Email Threat Report | [링크](https://www.proofpoint.com/us/threat-insight) | 분기별 이메일 위협 인텔리전스 |
-| Google Email Sender Guidelines | [링크](https://support.google.com/mail/answer/81126) | Gmail 대량 발송자 가이드라인 |
+| Cloudflare Email Security Report 2025 | [cloudflare.com/learning/email-security/email-security-report](https://www.cloudflare.com/learning/email-security/email-security-report/) | 2025년 이메일 위협 트렌드 |
+| Verizon DBIR | [verizon.com/business/resources/reports/dbir](https://www.verizon.com/business/resources/reports/dbir/) | 데이터 침해 조사 보고서 (이메일 공격 통계 포함) |
+| Proofpoint Email Threat Report | [proofpoint.com/us/threat-insight](https://www.proofpoint.com/us/threat-insight) | 분기별 이메일 위협 인텔리전스 |
+| Google Email Sender Guidelines | [support.google.com/mail/answer/81126](https://support.google.com/mail/answer/81126) | Gmail 대량 발송자 가이드라인 |
 
 ### 한국 관련 자료
 
 | 자료 | URL | 설명 |
 |------|-----|------|
-| KISA 이메일 보안 가이드 | [KISA](https://www.kisa.or.kr/) | 한국인터넷진흥원 이메일 보안 자료 |
-| KISA 보호나라 | [링크](https://www.boho.or.kr/) | 국내 보안 위협 정보 및 대응 가이드 |
-| 개인정보보호위원회 | [링크](https://www.pipc.go.kr/) | 개인정보보호법 관련 이메일 처리 기준 |
-| 방송통신위원회 스팸 정책 | [링크](https://www.kcc.go.kr/) | 정보통신망법 광고성 이메일 규제 |
+| KISA 이메일 보안 가이드 | [kisa.or.kr](https://www.kisa.or.kr/) | 한국인터넷진흥원 이메일 보안 자료 |
+| KISA 보호나라 | [boho.or.kr](https://www.boho.or.kr/) | 국내 보안 위협 정보 및 대응 가이드 |
+| 개인정보보호위원회 | [pipc.go.kr](https://www.pipc.go.kr/) | 개인정보보호법 관련 이메일 처리 기준 |
+| 방송통신위원회 스팸 정책 | [kcc.go.kr](https://www.kcc.go.kr/) | 정보통신망법 광고성 이메일 규제 |
 
 ### 학습 자료 및 커뮤니티
 
 | 자료 | URL | 설명 |
 |------|-----|------|
-| DMARC Guide (Easy DMARC) | [링크](https://easydmarc.com/tools/) | 무료 DMARC 설정 가이드 및 도구 |
-| Postmark DMARC Guides | [링크](https://dmarc.postmarkapp.com/) | DMARC 단계별 튜토리얼 |
-| SendGrid Blog | [블로그](https://sendgrid.com/blog/) | 이메일 발송 모범 사례 블로그 |
-| Email on Acid | [링크](https://www.emailonacid.com/) | 이메일 디자인 및 전달률 최적화 |
+| DMARC Guide (Easy DMARC) | [easydmarc.com/tools](https://easydmarc.com/tools/) | 무료 DMARC 설정 가이드 및 도구 |
+| Postmark DMARC Guides | [dmarc.postmarkapp.com](https://dmarc.postmarkapp.com/) | DMARC 단계별 튜토리얼 |
+| SendGrid Blog | [sendgrid.com/blog](https://sendgrid.com/blog/) | 이메일 발송 모범 사례 블로그 |
+| Email on Acid | [emailonacid.com](https://www.emailonacid.com/) | 이메일 디자인 및 전달률 최적화 |
 
 ### 오픈소스 도구
 
 | 도구 | GitHub | 설명 |
 |------|--------|------|
-| parsedmarc | [GitHub](https://github.com/domainaware/parsedmarc) | DMARC 보고서 파싱 및 분석 도구 (Python) |
-| dmarc-visualizer | [GitHub](https://github.com/techsneeze/dmarcts-report-viewer) | DMARC 보고서 시각화 웹 UI |
-| checkdmarc | [링크](https://domainaware.github.io/checkdmarc/) | SPF/DKIM/DMARC DNS 레코드 검증 CLI |
+| parsedmarc | [github.com/domainaware/parsedmarc](https://github.com/domainaware/parsedmarc) | DMARC 보고서 파싱 및 분석 도구 (Python) |
+| dmarc-visualizer | [github.com/techsneeze/dmarcts-report-viewer](https://github.com/techsneeze/dmarcts-report-viewer) | DMARC 보고서 시각화 웹 UI |
+| checkdmarc | [domainaware.github.io/checkdmarc](https://domainaware.github.io/checkdmarc/) | SPF/DKIM/DMARC DNS 레코드 검증 CLI |
 
 ## 결론
 

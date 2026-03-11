@@ -175,7 +175,7 @@ index=k8s_network OR index=firewall
 
 | 리소스 | 링크 | 설명 |
 |--------|------|------|
-| CNCF 2025 Survey | [공식 발표](https://www.cncf.io/announcements/2026/01/20/kubernetes-established-as-the-de-facto-operating-system-for-ai-as-production-use-hits-82-in-2025-cncf-annual-cloud-native-survey/) | Kubernetes 82% 프로덕션 사용률 원본 데이터 |
+| CNCF 2025 Survey | [cncf.io/announcements/2026/01/20/kubernetes-established](https://www.cncf.io/announcements/2026/01/20/kubernetes-established-as-the-de-facto-operating-system-for-ai-as-production-use-hits-82-in-2025-cncf-annual-cloud-native-survey/) | Kubernetes 82% 프로덕션 사용률 원본 데이터 |
 | VS Code 위협 분석 | [Jamf Threat Labs](https://www.jamf.com/blog/threat-actors-expand-abuse-of-visual-studio-code/) | VS Code 악용 공격 벡터 및 사례 분석 |
 | CRI-O 감사 결과 | [CNCF Blog](https://www.cncf.io/blog/2026/01/16/cri-o-completes-second-ostif-audit/) | OSTIF 두 번째 보안 감사 전문 |
 | Net-NTLMv1 폐기 | [Google Threat Intel](https://cloud.google.com/blog/topics/threat-intelligence/net-ntlmv1-deprecation-rainbow-tables/) | Mandiant 레인보우 테이블 공개 및 기술 분석 |
@@ -185,17 +185,17 @@ index=k8s_network OR index=firewall
 
 | 프레임워크 | 링크 | 적용 분야 |
 |-----------|------|----------|
-| MITRE ATT&CK for Containers | [MITRE ATT&CK](https://attack.mitre.org/matrices/enterprise/containers/) | 컨테이너 환경 위협 모델링 |
-| CIS Kubernetes Benchmark | [CIS](https://www.cisecurity.org/benchmark/kubernetes) | K8s 보안 설정 기준 |
-| Kubernetes Pod Security Standards | [K8s 문서](https://kubernetes.io/docs/concepts/security/pod-security-standards/) | Pod 보안 정책 (Privileged/Baseline/Restricted) |
-| NIST SP 800-190 | [NIST](https://csrc.nist.gov/publications/detail/sp/800-190/final) | 컨테이너 보안 애플리케이션 가이드 |
+| MITRE ATT&CK for Containers | [attack.mitre.org/matrices/enterprise/containers](https://attack.mitre.org/matrices/enterprise/containers/) | 컨테이너 환경 위협 모델링 |
+| CIS Kubernetes Benchmark | [cisecurity.org/benchmark/kubernetes](https://www.cisecurity.org/benchmark/kubernetes) | K8s 보안 설정 기준 |
+| Kubernetes Pod Security Standards | [kubernetes.io/docs/concepts/security/pod-security-standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) | Pod 보안 정책 (Privileged/Baseline/Restricted) |
+| NIST SP 800-190 | [csrc.nist.gov/publications/detail/sp/800-190/final](https://csrc.nist.gov/publications/detail/sp/800-190/final) | 컨테이너 보안 애플리케이션 가이드 |
 
 ### 5.3 한국 규제 및 가이드라인
 
 | 기관/문서 | 링크 | 설명 |
 |----------|------|------|
 | KISA 클라우드 보안 가이드 | [KISA](https://www.kisa.or.kr) | 한국인터넷진흥원 클라우드 보안 권고사항 |
-| CSAP 인증 기준 | [링크](https://www.nipa.kr) | 클라우드보안인증제 (정보통신산업진흥원) |
+| CSAP 인증 기준 | [nipa.kr](https://www.nipa.kr) | 클라우드보안인증제 (정보통신산업진흥원) |
 | 금융보안원 K8s 가이드 | [금융보안원](https://www.fsec.or.kr) | 금융권 Kubernetes 보안 가이드라인 |
 | K-ISMS-P 인증 기준 | [KISA](https://isms.kisa.or.kr) | 정보보호 및 개인정보보호 관리체계 인증 |
 
@@ -203,7 +203,7 @@ index=k8s_network OR index=firewall
 
 | 도구/문서 | 링크 | 용도 |
 |----------|------|------|
-| Falco (Runtime Security) | [링크](https://falco.org) | Kubernetes 런타임 위협 탐지 |
+| Falco (Runtime Security) | [falco.org](https://falco.org) | Kubernetes 런타임 위협 탐지 |
 | Trivy (Container Scanner) | [trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 취약점 스캔 |
 | kube-bench | [kube-bench](https://github.com/aquasecurity/kube-bench) | CIS Kubernetes Benchmark 자동 검증 |
 | NVIDIA DCGM Exporter | [dcgm-exporter](https://github.com/NVIDIA/dcgm-exporter) | GPU 메트릭 수집 (Prometheus) |
@@ -213,26 +213,26 @@ index=k8s_network OR index=firewall
 
 | 리소스 | 링크 | 대상 |
 |--------|------|------|
-| Kubernetes Security Specialist (CKS) | [링크](https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/) | K8s 보안 전문가 인증 |
+| Kubernetes Security Specialist (CKS) | [training.linuxfoundation.org/certification/certified-kubernetes-security-specialist](https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/) | K8s 보안 전문가 인증 |
 | CNCF Security TAG | [tag-security](https://github.com/cncf/tag-security) | 클라우드 네이티브 보안 모범 사례 |
 | Kubernetes Goat | [kubernetes-goat](https://github.com/madhuakula/kubernetes-goat) | K8s 보안 실습 환경 (취약한 클러스터) |
-| Container Security Book (Liz Rice) | [링크](https://www.oreilly.com/library/view/container-security/9781492056690/) | 컨테이너 보안 이론 및 실무 |
+| Container Security Book (Liz Rice) | [oreilly.com/library/view/container-security](https://www.oreilly.com/library/view/container-security/9781492056690/) | 컨테이너 보안 이론 및 실무 |
 
 ### 5.6 커뮤니티 및 뉴스
 
 | 리소스 | 링크 | 설명 |
 |--------|------|------|
-| Cloud Native Security News | [블로그](https://www.cncf.io/blog/category/security/) | CNCF 보안 관련 최신 소식 |
+| Cloud Native Security News | [cncf.io/blog/category/security](https://www.cncf.io/blog/category/security/) | CNCF 보안 관련 최신 소식 |
 | Kubernetes Security Slack | [#kubernetes-security on Slack](https://kubernetes.slack.com) | 글로벌 K8s 보안 커뮤니티 |
-| Korean DevSecOps Community | [링크](https://www.facebook.com/groups/k8skr) | 한국 쿠버네티스 사용자 그룹 |
+| Korean DevSecOps Community | [facebook.com/groups/k8skr](https://www.facebook.com/groups/k8skr) | 한국 쿠버네티스 사용자 그룹 |
 
 ### 5.7 CVE 및 보안 권고
 
 | CVE | 영향 | 링크 |
 |-----|------|------|
-| CVE-2024-21626 | runc 컨테이너 이스케이프 | [NIST](https://nvd.nist.gov/vuln/detail/CVE-2024-21626) |
-| CVE-2022-0492 | cgroups v1 권한 상승 | [NIST](https://nvd.nist.gov/vuln/detail/CVE-2022-0492) |
-| Kubernetes Security Advisories | K8s 공식 보안 권고 | [K8s 문서](https://kubernetes.io/docs/reference/issues-security/security/) |
+| CVE-2024-21626 | runc 컨테이너 이스케이프 | [nvd.nist.gov/vuln/detail/CVE-2024-21626](https://nvd.nist.gov/vuln/detail/CVE-2024-21626) |
+| CVE-2022-0492 | cgroups v1 권한 상승 | [nvd.nist.gov/vuln/detail/CVE-2022-0492](https://nvd.nist.gov/vuln/detail/CVE-2022-0492) |
+| Kubernetes Security Advisories | K8s 공식 보안 권고 | [kubernetes.io/docs/reference/issues-security/security](https://kubernetes.io/docs/reference/issues-security/security/) |
 
 ---
 

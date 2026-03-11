@@ -484,11 +484,11 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 
 | 도구 | 용도 | URL |
 |------|------|-----|
-| ScoutSuite | 멀티 클라우드 보안 감사 | [GitHub](https://github.com/nccgroup/ScoutSuite) |
-| Prowler | AWS 보안 감사 도구 | [GitHub](https://github.com/prowler-cloud/prowler) |
-| CloudMapper | AWS 환경 시각화 | [GitHub](https://github.com/duo-labs/cloudmapper) |
-| Snyk | 의존성 취약점 스캔 (상용) | [링크](https://snyk.io/) |
-| GitGuardian | 시크릿 탐지 (상용) | [링크](https://www.gitguardian.com/) |
+| ScoutSuite | 멀티 클라우드 보안 감사 | [github.com/nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) |
+| Prowler | AWS 보안 감사 도구 | [github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) |
+| CloudMapper | AWS 환경 시각화 | [github.com/duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper) |
+| Snyk | 의존성 취약점 스캔 (상용) | [snyk.io](https://snyk.io/) |
+| GitGuardian | 시크릿 탐지 (상용) | [gitguardian.com](https://www.gitguardian.com/) |
 
 ### 4.13 컨퍼런스 및 이벤트 일정
 

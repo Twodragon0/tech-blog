@@ -227,12 +227,12 @@ aws s3api list-objects-v2 \
 
 | 서비스 | 문서 URL | 설명 |
 |--------|---------|------|
-| VPC | [AWS VPC 공식 문서](https://docs.aws.amazon.com/vpc/) | VPC 네트워크 설계 및 보안 |
-| IAM | [AWS IAM 공식 문서](https://docs.aws.amazon.com/IAM/) | IAM 정책 및 역할 관리 |
-| S3 | [AWS S3 공식 문서](https://docs.aws.amazon.com/s3/) | S3 보안 및 암호화 |
-| GuardDuty | [AWS GuardDuty 공식 문서](https://docs.aws.amazon.com/guardduty/) | GuardDuty 위협 탐지 |
-| Security Hub | [AWS Security Hub 공식 문서](https://docs.aws.amazon.com/securityhub/) | Security Hub 통합 관리 |
-| CloudTrail | [AWS CloudTrail 공식 문서](https://docs.aws.amazon.com/cloudtrail/) | CloudTrail 로그 관리 |
+| VPC | [docs.aws.amazon.com/vpc](https://docs.aws.amazon.com/vpc/) | VPC 네트워크 설계 및 보안 |
+| IAM | [docs.aws.amazon.com/IAM](https://docs.aws.amazon.com/IAM/) | IAM 정책 및 역할 관리 |
+| S3 | [docs.aws.amazon.com/s3](https://docs.aws.amazon.com/s3/) | S3 보안 및 암호화 |
+| GuardDuty | [docs.aws.amazon.com/guardduty](https://docs.aws.amazon.com/guardduty/) | GuardDuty 위협 탐지 |
+| Security Hub | [docs.aws.amazon.com/securityhub](https://docs.aws.amazon.com/securityhub/) | Security Hub 통합 관리 |
+| CloudTrail | [docs.aws.amazon.com/cloudtrail](https://docs.aws.amazon.com/cloudtrail/) | CloudTrail 로그 관리 |
 
 ### 3.2 보안 프레임워크
 
@@ -241,7 +241,7 @@ aws s3api list-objects-v2 \
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 기법 매트릭스 |
 | CIS Benchmarks | [cisecurity.org](https://www.cisecurity.org/cis-benchmarks/) | AWS 보안 기준 |
 | NIST Cybersecurity Framework | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) | 사이버보안 프레임워크 |
-| AWS Well-Architected Framework | [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected/) | AWS 아키텍처 모범 사례 |
+| AWS Well-Architected Framework | [aws.amazon.com/architecture/well-architected](https://aws.amazon.com/architecture/well-architected/) | AWS 아키텍처 모범 사례 |
 
 ### 3.3 한국어 보안 자료
 

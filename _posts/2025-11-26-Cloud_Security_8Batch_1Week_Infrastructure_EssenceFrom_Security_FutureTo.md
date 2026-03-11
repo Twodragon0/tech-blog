@@ -402,10 +402,10 @@ AWSCloudTrail
 
 | 자료 | 링크 | 설명 |
 |------|------|------|
-| AWS Security Blog | [AWS 문서](https://aws.amazon.com/blogs/security/) | AWS 보안 공식 블로그 |
-| AWS re:Inforce | [링크](https://reinforce.awsevents.com/) | AWS 보안 컨퍼런스 |
-| Kubernetes Security Best Practices | [K8s 문서](https://kubernetes.io/docs/concepts/security/) | Kubernetes 보안 |
-| SANS Cloud Security | [SANS](https://www.sans.org/cloud-security/) | 클라우드 보안 교육 |
+| AWS Security Blog | [aws.amazon.com/blogs/security](https://aws.amazon.com/blogs/security/) | AWS 보안 공식 블로그 |
+| AWS re:Inforce | [reinforce.awsevents.com](https://reinforce.awsevents.com/) | AWS 보안 컨퍼런스 |
+| Kubernetes Security Best Practices | [kubernetes.io/docs/concepts/security](https://kubernetes.io/docs/concepts/security/) | Kubernetes 보안 |
+| SANS Cloud Security | [sans.org/cloud-security](https://www.sans.org/cloud-security/) | 클라우드 보안 교육 |
 
 ### 도구 및 오픈소스
 
@@ -414,7 +414,7 @@ AWSCloudTrail
 | Prowler | [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
 | ScoutSuite | [nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
 | CloudSploit | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
-| Falco | [링크](https://falco.org/) | 런타임 보안 모니터링 |
+| Falco | [falco.org](https://falco.org/) | 런타임 보안 모니터링 |
 | Trivy | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 스캐너 |
 | Terraform AWS Modules | [Terraform Registry](https://registry.terraform.io/modules/terraform-aws-modules/) | AWS 인프라 IaC 모듈 |
 
@@ -422,10 +422,10 @@ AWSCloudTrail
 
 | 인증/교육 | 링크 | 설명 |
 |---------|------|------|
-| AWS Certified Security - Specialty | [AWS 문서](https://aws.amazon.com/certification/certified-security-specialty/) | AWS 보안 전문가 인증 |
-| CISSP | [링크](https://www.isc2.org/Certifications/CISSP) | 정보보안 전문가 인증 |
-| CCSP | [링크](https://www.isc2.org/Certifications/CCSP) | 클라우드 보안 전문가 인증 |
-| AWS Skill Builder | [링크](https://skillbuilder.aws/) | AWS 무료 교육 플랫폼 |
+| AWS Certified Security - Specialty | [aws.amazon.com/certification/certified-security-specialty](https://aws.amazon.com/certification/certified-security-specialty/) | AWS 보안 전문가 인증 |
+| CISSP | [isc2.org/Certifications/CISSP](https://www.isc2.org/Certifications/CISSP) | 정보보안 전문가 인증 |
+| CCSP | [isc2.org/Certifications/CCSP](https://www.isc2.org/Certifications/CCSP) | 클라우드 보안 전문가 인증 |
+| AWS Skill Builder | [skillbuilder.aws](https://skillbuilder.aws/) | AWS 무료 교육 플랫폼 |
 
 ## 결론
 

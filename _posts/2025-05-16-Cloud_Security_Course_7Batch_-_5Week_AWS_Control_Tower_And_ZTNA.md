@@ -179,17 +179,17 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| AWS Control Tower 사용 설명서 | [AWS 문서](https://docs.aws.amazon.com/controltower/) | 공식 문서, 모든 기능 상세 설명 |
-| Control Tower Guardrails 레퍼런스 | [AWS 문서](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html) | 모든 Guardrails 목록 및 설명 |
-| NIST SP 800-207: Zero Trust | [NIST](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Zero Trust 표준 문서 |
-| AWS Well-Architected Framework - Security Pillar | [AWS 문서](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
-| IAM Identity Center 문서 | [AWS 문서](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
+| AWS Control Tower 사용 설명서 | [docs.aws.amazon.com/controltower](https://docs.aws.amazon.com/controltower/) | 공식 문서, 모든 기능 상세 설명 |
+| Control Tower Guardrails 레퍼런스 | [docs.aws.amazon.com/controltower/guardrails-reference](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html) | 모든 Guardrails 목록 및 설명 |
+| NIST SP 800-207: Zero Trust | [csrc.nist.gov/sp/800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Zero Trust 표준 문서 |
+| AWS Well-Architected Framework - Security Pillar | [docs.aws.amazon.com/wellarchitected/security-pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
+| IAM Identity Center 문서 | [docs.aws.amazon.com/singlesignon](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
 
 ### 4.2 실습 환경 및 튜토리얼
 
 | 리소스 | 설명 |
 |--------|------|
-| AWS Workshop - Control Tower Immersion Day | 실습 중심의 Control Tower 워크샵 ([링크](https://controltower.aws-management.tools/)) |
+| AWS Workshop - Control Tower Immersion Day | 실습 중심의 Control Tower 워크샵 ([controltower.aws-management.tools](https://controltower.aws-management.tools/)) |
 | AWS Samples - Control Tower Customizations | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
 | Terraform AWS Control Tower Module | Infrastructure as Code 예제 ([Terraform Registry](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
@@ -197,14 +197,14 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 
 | 리소스 | 링크 |
 |--------|------|
-| AWS 한국 블로그 - Control Tower | [AWS 문서](https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/) |
-| 클라우드 보안 컨설팅 (Twodragon) | [링크](https://tech.2twodragon.com) |
+| AWS 한국 블로그 - Control Tower | [aws.amazon.com/ko/blogs/korea/aws-control-tower](https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/) |
+| 클라우드 보안 컨설팅 (Twodragon) | [tech.2twodragon.com](https://tech.2twodragon.com) |
 | AWS 공인 교육 과정 | AWS Training and Certification 한국어 과정 |
 
 ### 4.4 관련 AWS 서비스
 
 | 서비스 | 설명 | 링크 |
 |--------|------|------|
-| AWS Control Tower | 멀티 계정 거버넌스 | [공식 문서](https://docs.aws.amazon.com/controltower/) |
-| AWS Organizations | 계정 그룹 관리 | [공식 문서](https://docs.aws.amazon.com/organizations/) |
-| AWS WAF | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+| AWS Control Tower | 멀티 계정 거버넌스 | [docs.aws.amazon.com/controltower](https://docs.aws.amazon.com/controltower/) |
+| AWS Organizations | 계정 그룹 관리 | [docs.aws.amazon.com/organizations](https://docs.aws.amazon.com/organizations/) |
+| AWS WAF | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [youtu.be/r84IuPv_4TI](https://youtu.be/r84IuPv_4TI) |

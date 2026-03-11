@@ -392,10 +392,10 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 
 | 리소스 | URL | 주요 내용 |
 |--------|-----|----------|
-| Karpenter 공식 문서 | [링크](https://karpenter.sh/docs/) | NodePool 설정, Disruption 정책 |
-| Karpenter GitHub | [GitHub](https://github.com/aws/karpenter) | 소스 코드, 이슈 트래킹 |
-| Kubernetes PDB | [K8s 문서](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) | PodDisruptionBudget 설정 가이드 |
-| AWS EKS Best Practices | [링크](https://aws.github.io/aws-eks-best-practices/) | EKS 운영 모범 사례 |
+| Karpenter 공식 문서 | [karpenter.sh/docs](https://karpenter.sh/docs/) | NodePool 설정, Disruption 정책 |
+| Karpenter GitHub | [github.com/aws/karpenter](https://github.com/aws/karpenter) | 소스 코드, 이슈 트래킹 |
+| Kubernetes PDB | [kubernetes.io/docs/tasks/run-application/configure-pdb](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) | PodDisruptionBudget 설정 가이드 |
+| AWS EKS Best Practices | [aws.github.io/aws-eks-best-practices](https://aws.github.io/aws-eks-best-practices/) | EKS 운영 모범 사례 |
 
 ### 11.2 관련 블로그 포스트 및 Case Study
 
@@ -409,9 +409,9 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 
 | 도구 | 용도 | GitHub |
 |------|------|--------|
-| Goldilocks | PDB 자동 생성 권장 | [GitHub](https://github.com/FairwindsOps/goldilocks) |
-| Kube-no-trouble | 호환성 검사 | [GitHub](https://github.com/doitintl/kube-no-trouble) |
-| Popeye | 클러스터 보안 스캔 | [GitHub](https://github.com/derailed/popeye) |
+| Goldilocks | PDB 자동 생성 권장 | [github.com/FairwindsOps/goldilocks](https://github.com/FairwindsOps/goldilocks) |
+| Kube-no-trouble | 호환성 검사 | [github.com/doitintl/kube-no-trouble](https://github.com/doitintl/kube-no-trouble) |
+| Popeye | 클러스터 보안 스캔 | [github.com/derailed/popeye](https://github.com/derailed/popeye) |
 
 ### 11.4 교육 자료
 

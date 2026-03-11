@@ -179,59 +179,59 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 
 | 분류 | 자료명 | 발행기관 | URL |
 |------|--------|----------|-----|
-| ShinyHunters Vishing | Mandiant Threat Intelligence Report | Google Mandiant | [링크](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html) |
-| UNC3944 연구 | UNC3944 Threat Group Profile | Mandiant | [블로그](https://www.mandiant.com/resources/blog/unc3944-sms-phishing-sim-swapping-ransomware) |
-| Chrome 확장 공격 | Malicious Chrome Extensions Analysis | Security Researchers | [링크](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html) |
-| CERT Polska OT | Coordinated Cyber Attack on Energy Infrastructure | CERT Polska | [링크](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html) |
-| CERT Polska 공식 | Analysis of December 29 Attack | CERT.PL | [링크](https://cert.pl/en/posts/2025/12/energy-sector-attack/) |
+| ShinyHunters Vishing | Mandiant Threat Intelligence Report | Google Mandiant | [thehackernews.com/2026/01/mandiant-finds-shinyhunters-using](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html) |
+| UNC3944 연구 | UNC3944 Threat Group Profile | Mandiant | [mandiant.com/resources/blog/unc3944-sms-phishing-sim-swapping-ransomware](https://www.mandiant.com/resources/blog/unc3944-sms-phishing-sim-swapping-ransomware) |
+| Chrome 확장 공격 | Malicious Chrome Extensions Analysis | Security Researchers | [thehackernews.com/2026/01/researchers-uncover-chrome-extensions](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html) |
+| CERT Polska OT | Coordinated Cyber Attack on Energy Infrastructure | CERT Polska | [thehackernews.com/2026/01/poland-attributes-december-cyber](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html) |
+| CERT Polska 공식 | Analysis of December 29 Attack | CERT.PL | [cert.pl/en/posts/2025/12/energy-sector-attack](https://cert.pl/en/posts/2025/12/energy-sector-attack/) |
 
 ### 8.2 인증 및 MFA 보안
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| FIDO2 Specifications | FIDO Alliance | [링크](https://fidoalliance.org/fido2/) |
-| WebAuthn Level 2 | W3C | [링크](https://www.w3.org/TR/webauthn-2/) |
-| Azure AD FIDO2 Deployment Guide | Microsoft | [MS 문서](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key) |
-| Okta WebAuthn Guide | Okta | [링크](https://developer.okta.com/docs/guides/webauthn/main/) |
-| Phishing-Resistant MFA Best Practices | CISA | [링크](https://www.cisa.gov/mfa) |
+| FIDO2 Specifications | FIDO Alliance | [fidoalliance.org/fido2](https://fidoalliance.org/fido2/) |
+| WebAuthn Level 2 | W3C | [w3.org/TR/webauthn-2](https://www.w3.org/TR/webauthn-2/) |
+| Azure AD FIDO2 Deployment Guide | Microsoft | [learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key) |
+| Okta WebAuthn Guide | Okta | [developer.okta.com/docs/guides/webauthn/main](https://developer.okta.com/docs/guides/webauthn/main/) |
+| Phishing-Resistant MFA Best Practices | CISA | [cisa.gov/mfa](https://www.cisa.gov/mfa) |
 
 ### 8.3 브라우저 확장 보안
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| Chrome Extension Security Best Practices | Google Chrome | [링크](https://developer.chrome.com/docs/extensions/develop/migrate/improve-security) |
-| Chrome Enterprise Policy | Google | [링크](https://chromeenterprise.google/policies/) |
-| Extension Manifest V3 Migration | Chrome Developers | [링크](https://developer.chrome.com/docs/extensions/migrating/) |
-| Browser Extension Threat Model | OWASP | [OWASP](https://owasp.org/www-community/vulnerabilities/Browser_Extension_Vulnerabilities) |
+| Chrome Extension Security Best Practices | Google Chrome | [developer.chrome.com/docs/extensions/develop/migrate/improve-security](https://developer.chrome.com/docs/extensions/develop/migrate/improve-security) |
+| Chrome Enterprise Policy | Google | [chromeenterprise.google/policies](https://chromeenterprise.google/policies/) |
+| Extension Manifest V3 Migration | Chrome Developers | [developer.chrome.com/docs/extensions/migrating](https://developer.chrome.com/docs/extensions/migrating/) |
+| Browser Extension Threat Model | OWASP | [owasp.org/www-community/vulnerabilities/Browser_Extension_Vulnerabilities](https://owasp.org/www-community/vulnerabilities/Browser_Extension_Vulnerabilities) |
 
 ### 8.4 OT/ICS 보안
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| IEC 62443 Standards Series | ISA/IEC | [링크](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) |
-| NIST SP 800-82 Rev.3 | NIST | [NIST](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final) |
-| ICS-CERT Advisories | CISA | [링크](https://www.cisa.gov/uscert/ics/advisories) |
-| MITRE ATT&CK for ICS | MITRE | [MITRE ATT&CK](https://attack.mitre.org/matrices/ics/) |
-| Critical Infrastructure Protection | ENISA | [링크](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services) |
+| IEC 62443 Standards Series | ISA/IEC | [isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) |
+| NIST SP 800-82 Rev.3 | NIST | [csrc.nist.gov/publications/detail/sp/800-82/rev-3/final](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final) |
+| ICS-CERT Advisories | CISA | [cisa.gov/uscert/ics/advisories](https://www.cisa.gov/uscert/ics/advisories) |
+| MITRE ATT&CK for ICS | MITRE | [attack.mitre.org/matrices/ics](https://attack.mitre.org/matrices/ics/) |
+| Critical Infrastructure Protection | ENISA | [enisa.europa.eu/topics/critical-information-infrastructures-and-services](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services) |
 
 ### 8.5 MITRE ATT&CK Framework
 
 | 자료명 | URL |
 |--------|-----|
-| T1566.004 - Phishing: Spearphishing Voice | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1566/004/) |
-| T1539 - Steal Web Session Cookie | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1539/) |
-| T1176 - Browser Extensions | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1176/) |
-| T1528 - Steal Application Access Token | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1528/) |
-| T1195 - Supply Chain Compromise | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1195/) |
-| T0817 - Drive-by Compromise (ICS) | [MITRE ATT&CK](https://attack.mitre.org/techniques/ics/T0817/) |
-| T0826 - Loss of Availability (ICS) | [MITRE ATT&CK](https://attack.mitre.org/techniques/ics/T0826/) |
+| T1566.004 - Phishing: Spearphishing Voice | [attack.mitre.org/techniques/T1566/004](https://attack.mitre.org/techniques/T1566/004/) |
+| T1539 - Steal Web Session Cookie | [attack.mitre.org/techniques/T1539](https://attack.mitre.org/techniques/T1539/) |
+| T1176 - Browser Extensions | [attack.mitre.org/techniques/T1176](https://attack.mitre.org/techniques/T1176/) |
+| T1528 - Steal Application Access Token | [attack.mitre.org/techniques/T1528](https://attack.mitre.org/techniques/T1528/) |
+| T1195 - Supply Chain Compromise | [attack.mitre.org/techniques/T1195](https://attack.mitre.org/techniques/T1195/) |
+| T0817 - Drive-by Compromise (ICS) | [attack.mitre.org/techniques/ics/T0817](https://attack.mitre.org/techniques/ics/T0817/) |
+| T0826 - Loss of Availability (ICS) | [attack.mitre.org/techniques/ics/T0826](https://attack.mitre.org/techniques/ics/T0826/) |
 
 ### 8.6 SIEM 및 탐지 룰
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
 | Sigma Rule Repository | SigmaHQ | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
-| Splunk Security Content | Splunk | [Splunk](https://research.splunk.com/) |
+| Splunk Security Content | Splunk | [research.splunk.com](https://research.splunk.com/) |
 | Azure Sentinel Detection Rules | Microsoft | [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) |
 | Elastic Detection Rules | Elastic | [elastic/detection-rules](https://github.com/elastic/detection-rules) |
 
@@ -239,19 +239,19 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| Cloud CISO Perspectives 2026 | Google Cloud | [GCP 문서](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/) |
-| AWS Directory Service Scaling | AWS | [AWS 문서](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/) |
-| HashiCorp Boundary 0.21 | HashiCorp | [블로그](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) |
-| SaaS Security Posture Management | CISA | [링크](https://www.cisa.gov/saas-security) |
+| Cloud CISO Perspectives 2026 | Google Cloud | [cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/) |
+| AWS Directory Service Scaling | AWS | [aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/) |
+| HashiCorp Boundary 0.21 | HashiCorp | [hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) |
+| SaaS Security Posture Management | CISA | [cisa.gov/saas-security](https://www.cisa.gov/saas-security) |
 
 ### 8.8 위협 인텔리전스
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| CISA Known Exploited Vulnerabilities | CISA | [링크](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| FIRST EPSS | FIRST.org | [링크](https://www.first.org/epss/) |
-| AlienVault OTX | AT&T Cybersecurity | [링크](https://otx.alienvault.com/) |
-| VirusTotal Intelligence | VirusTotal | [링크](https://www.virustotal.com/gui/intelligence-overview) |
+| CISA Known Exploited Vulnerabilities | CISA | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| FIRST EPSS | FIRST.org | [first.org/epss](https://www.first.org/epss/) |
+| AlienVault OTX | AT&T Cybersecurity | [otx.alienvault.com](https://otx.alienvault.com/) |
+| VirusTotal Intelligence | VirusTotal | [virustotal.com/gui/intelligence-overview](https://www.virustotal.com/gui/intelligence-overview) |
 
 ### 8.9 한국 관련 자료
 
@@ -259,8 +259,8 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 |--------|----------|-----|
 | 금융보안원 MFA 가이드 | 금융보안원 | [금융보안원](https://www.fsec.or.kr/) |
 | KISA 주요정보통신기반시설 보호지침 | 한국인터넷진흥원 | [KISA](https://www.kisa.or.kr/) |
-| 산업통상자원부 스마트공장 보안 가이드 | 산업통상자원부 | [링크](https://www.motie.go.kr/) |
-| 한국에너지공단 신재생에너지 보안 | 한국에너지공단 | [링크](https://www.knrec.or.kr/) |
+| 산업통상자원부 스마트공장 보안 가이드 | 산업통상자원부 | [motie.go.kr](https://www.motie.go.kr/) |
+| 한국에너지공단 신재생에너지 보안 | 한국에너지공단 | [knrec.or.kr](https://www.knrec.or.kr/) |
 
 ### 8.10 추가 학습 자료
 
@@ -269,7 +269,7 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 | EvilGinx2 Documentation | Phishing Framework | [kgretzky/evilginx2](https://github.com/kgretzky/evilginx2) |
 | Modlishka Reverse Proxy | Security Tool | [drk1wi/Modlishka](https://github.com/drk1wi/Modlishka) |
 | Chrome Extension Source Viewer | Analysis Tool | [Rob--W/crxviewer](https://github.com/Rob--W/crxviewer) |
-| ICS Security Training | SANS ICS410 | [SANS](https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/) |
+| ICS Security Training | SANS ICS410 | [sans.org/cyber-security-courses/ics-scada-security-essentials](https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/) |
 
 ---
 

@@ -456,44 +456,44 @@ MDM 기반 Zero Trust 구현 시 핵심 점검 항목은 다음과 같습니다:
 
 | 제목 | URL |
 |------|-----|
-| OWASP Agentic AI Top 10 | [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
-| NanoClaw - Minimal AI Agent | [GitHub](https://github.com/anthropics/anthropic-cookbook) |
-| Claude Code Security Model | [Anthropic Docs](https://docs.anthropic.com/en/docs/claude-code/security) |
-| ClawHub 341 Malicious Skills (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html) |
-| Microsoft NTLM Phase-Out Plan (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html) |
-| CVE-2026-25253 1-Click RCE (depthfirst) | [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys) |
-| ClawHavoc: 341 Malicious Skills (Koi Security) | [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting) |
-| AI Skills Weaponized (VirusTotal) | [VirusTotal Blog](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html) |
-| Moltbook Credential Exposure (SiliconANGLE) | [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/) |
-| Moltbot Skills 400+ Malware (SecurityAffairs) | [SecurityAffairs](https://securityaffairs.com/187562/malware/moltbot-skills-exploited-to-distribute-400-malware-packages-in-days.html) |
-| AI Use Cases & Security (AIMultiple) | [AIMultiple](https://research.aimultiple.com/moltbot/) |
+| OWASP Agentic AI Top 10 | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
+| NanoClaw - Minimal AI Agent | [github.com/anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) |
+| Claude Code Security Model | [docs.anthropic.com/en/docs/claude-code/security](https://docs.anthropic.com/en/docs/claude-code/security) |
+| ClawHub 341 Malicious Skills (The Hacker News) | [thehackernews.com/2026/02/researchers-find-341-malicious-clawhub](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html) |
+| Microsoft NTLM Phase-Out Plan (The Hacker News) | [thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html) |
+| CVE-2026-25253 1-Click RCE (depthfirst) | [depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys) |
+| ClawHavoc: 341 Malicious Skills (Koi Security) | [koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting) |
+| AI Skills Weaponized (VirusTotal) | [blog.virustotal.com/2026/02/from-automation-to-infection-how](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html) |
+| Moltbook Credential Exposure (SiliconANGLE) | [siliconangle.com/2026/02/02/ai-agent-social-network-moltbook](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/) |
+| Moltbot Skills 400+ Malware (SecurityAffairs) | [securityaffairs.com/187562/malware/moltbot-skills-exploited](https://securityaffairs.com/187562/malware/moltbot-skills-exploited-to-distribute-400-malware-packages-in-days.html) |
+| AI Use Cases & Security (AIMultiple) | [research.aimultiple.com/moltbot](https://research.aimultiple.com/moltbot/) |
 
 ### AI 및 클라우드
 
 | 제목 | URL |
 |------|-----|
-| Snowflake-OpenAI Partnership ($200M) | [OpenAI Blog](https://openai.com/index/snowflake-partnership) |
-| Google AI: Preserving Endangered Species | [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/) |
-| Clarus Care Amazon Bedrock Clinical AI | [AWS ML Blog](https://aws.amazon.com/blogs/machine-learning/how-clarus-care-uses-amazon-bedrock-to-deliver-conversational-contact-center-interactions/) |
-| Gemini Enterprise Employee Onboarding | [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-onboarding-agents-with-gemini-enterprise/) |
+| Snowflake-OpenAI Partnership ($200M) | [openai.com/index/snowflake-partnership](https://openai.com/index/snowflake-partnership) |
+| Google AI: Preserving Endangered Species | [blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species](https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/) |
+| Clarus Care Amazon Bedrock Clinical AI | [aws.amazon.com/blogs/machine-learning/how-clarus-care-uses-amazon-bedrock](https://aws.amazon.com/blogs/machine-learning/how-clarus-care-uses-amazon-bedrock-to-deliver-conversational-contact-center-interactions/) |
+| Gemini Enterprise Employee Onboarding | [cloud.google.com/blog/topics/developers-practitioners/how-to-build-onboarding-agents-with-gemini-enterprise](https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-onboarding-agents-with-gemini-enterprise/) |
 
 ### MDM 관리
 
 | 제목 | URL |
 |------|-----|
-| Jamf Pro Administrator Guide | [Jamf](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/About_Jamf_Pro.html) |
-| Microsoft Intune App Protection Policies | [Microsoft](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-| Intune Conditional Access | [Microsoft](https://learn.microsoft.com/en-us/mem/intune/protect/conditional-access) |
-| Apple MDM Protocol Reference | [Apple](https://developer.apple.com/documentation/devicemanagement) |
+| Jamf Pro Administrator Guide | [learn.jamf.com/en-US/bundle/jamf-pro-documentation-current](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/About_Jamf_Pro.html) |
+| Microsoft Intune App Protection Policies | [learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
+| Intune Conditional Access | [learn.microsoft.com/en-us/mem/intune/protect/conditional-access](https://learn.microsoft.com/en-us/mem/intune/protect/conditional-access) |
+| Apple MDM Protocol Reference | [developer.apple.com/documentation/devicemanagement](https://developer.apple.com/documentation/devicemanagement) |
 
 ### 보안 프레임워크
 
 | 리소스 | URL |
 |--------|-----|
 | MITRE ATT&CK Framework | [attack.mitre.org](https://attack.mitre.org/) |
-| NIST Zero Trust Architecture (SP 800-207) | [NIST](https://csrc.nist.gov/publications/detail/sp/800-207/final) |
+| NIST Zero Trust Architecture (SP 800-207) | [csrc.nist.gov/publications/detail/sp/800-207/final](https://csrc.nist.gov/publications/detail/sp/800-207/final) |
 | SLSA Framework | [slsa.dev](https://slsa.dev/) |
-| CIS Benchmarks | [CIS](https://www.cisecurity.org/cis-benchmarks) |
+| CIS Benchmarks | [cisecurity.org/cis-benchmarks](https://www.cisecurity.org/cis-benchmarks) |
 
 ### 지난주 다이제스트
 
