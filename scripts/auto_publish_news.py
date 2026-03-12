@@ -269,7 +269,10 @@ def save_published_urls(selected_items: List[Dict], date_str: str) -> None:
     PUBLISHED_URLS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(PUBLISHED_URLS_FILE, "w", encoding="utf-8") as f:
         json.dump(
-            {"updated_at": datetime.now(timezone.utc).isoformat(), "entries": existing_entries},
+            {
+                "updated_at": datetime.now(timezone.utc).isoformat(),
+                "entries": existing_entries,
+            },
             f,
             ensure_ascii=False,
             indent=2,
@@ -289,7 +292,9 @@ def filter_published_urls(items: List[Dict], published_urls: set) -> List[Dict]:
     ]
     removed = before - len(filtered)
     if removed > 0:
-        print(f"  🔄 Cross-day dedup: removed {removed} items already published in recent posts")
+        print(
+            f"  🔄 Cross-day dedup: removed {removed} items already published in recent posts"
+        )
     return filtered
 
 
@@ -346,9 +351,15 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
     BLOCKED_KEYWORDS = ["openclaw"]
     before_block = len(filtered)
     filtered = [
-        item for item in filtered
+        item
+        for item in filtered
         if not any(
-            kw in (item.get("title", "") + item.get("summary", "") + item.get("content", "")).lower()
+            kw
+            in (
+                item.get("title", "")
+                + item.get("summary", "")
+                + item.get("content", "")
+            ).lower()
             for kw in BLOCKED_KEYWORDS
         )
     ]
@@ -449,9 +460,25 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
 
         # Override blockchain category if content is actually about AI/security
         if category == "blockchain":
-            ai_security_keywords = ["anthropic", "openai", "pentagon", "military", "claude ai", "gpt", "llm", "machine learning"]
+            ai_security_keywords = [
+                "anthropic",
+                "openai",
+                "pentagon",
+                "military",
+                "claude ai",
+                "gpt",
+                "llm",
+                "machine learning",
+            ]
             if any(kw in combined for kw in ai_security_keywords):
-                security_keywords = ["pentagon", "military", "supply chain risk", "vulnerability", "exploit", "breach"]
+                security_keywords = [
+                    "pentagon",
+                    "military",
+                    "supply chain risk",
+                    "vulnerability",
+                    "exploit",
+                    "breach",
+                ]
                 if any(kw in combined for kw in security_keywords):
                     category = "security"
                 else:
@@ -461,9 +488,18 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
         # clearly discusses vulnerabilities/exploits, move it to security
         if category not in ("security", "devsecops"):
             security_indicators = [
-                "vulnerability", "exploit", "cve-", "취약점",
-                "malware", "악성코드", "ransomware", "랜섬웨어",
-                "attack", "공격", "breach", "침해",
+                "vulnerability",
+                "exploit",
+                "cve-",
+                "취약점",
+                "malware",
+                "악성코드",
+                "ransomware",
+                "랜섬웨어",
+                "attack",
+                "공격",
+                "breach",
+                "침해",
             ]
             security_score = sum(1 for kw in security_indicators if kw in combined)
             if security_score >= 2:  # At least 2 security keywords
@@ -575,10 +611,12 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
             )
             return text.strip()
         else:
-            logging.warning(f"Gemini API status {response.status_code}: {response.text[:100]}")
+            logging.warning(
+                f"Gemini API status {response.status_code}: {response.text[:100]}"
+            )
     except ImportError:
         logging.debug("requests library not available for Gemini API")
-    except requests.RequestException as e:
+    except Exception as e:
         logging.warning(f"Gemini API error: {e}")
 
     return ""
@@ -598,7 +636,10 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
     if _GEMINI_AVAILABLE is not False:
         try:
             proc = subprocess.run(
-                ["gemini", "-p", prompt], capture_output=True, text=True, timeout=timeout
+                ["gemini", "-p", prompt],
+                capture_output=True,
+                text=True,
+                timeout=timeout,
             )
             if proc.returncode == 0 and len(proc.stdout.strip()) > 20:
                 _GEMINI_CONSECUTIVE_FAILURES = 0
@@ -667,6 +708,7 @@ def enhance_with_gemini(item: Dict, max_retries: int = 2) -> str:
 
         if attempt < max_retries - 1:
             import time
+
             time.sleep(2)  # Brief pause before retry
 
     logging.info(f"Gemini enhancement failed, falling back: {title[:50]}")
@@ -742,7 +784,7 @@ def enhance_with_deepseek(item: Dict) -> str:
 
     except ImportError:
         logging.warning("requests library not available for DeepSeek API")
-    except requests.RequestException as e:
+    except Exception as e:
         logging.warning(f"DeepSeek API error: {e}")
 
     return ""
@@ -968,6 +1010,96 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
     return title_keywords
 
 
+def _generate_executive_and_risk_sections(
+    news_items: List[Dict], mode: str = "security"
+) -> str:
+    critical_count = 0
+    high_count = 0
+    medium_count = 0
+
+    for item in news_items:
+        severity = _determine_severity(item)
+        if severity == "Critical":
+            critical_count += 1
+        elif severity == "High":
+            high_count += 1
+        else:
+            medium_count += 1
+
+    if critical_count > 0 or high_count >= 3:
+        overall = "High"
+    elif high_count > 0 or medium_count >= 5:
+        overall = "Medium"
+    else:
+        overall = "Low"
+
+    if mode == "tech-blog":
+        briefing = (
+            "- 이번 주기는 기술 도입 속도와 운영 안정성 간 균형이 핵심이며, "
+            "AI/클라우드/개발도구 변화에 대한 표준화된 검증 절차가 필요합니다.\n"
+            "- 단기적으로는 배포 전 검증 기준, 권한/비용 통제, 장애 대응 리허설을 "
+            "동일 주기로 관리하는 것이 효과적입니다."
+        )
+        rows = [
+            "| 영역 | 현재 위험도 | 즉시 조치 |",
+            "|------|-------------|-----------|",
+            "| 배포 안정성 | Medium | 릴리즈 체크리스트와 롤백 절차 점검 |",
+            "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |",
+            "| 비용/운영 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |",
+        ]
+    else:
+        briefing = (
+            "- 이번 주기는 취약점 대응과 탐지 체계 운영이 동시에 요구되며, "
+            "노출 자산 우선순위 기반의 실행이 필요합니다.\n"
+            "- 단기적으로는 패치 SLA 준수, 고위험 자산 모니터링, 탐지 룰 최신화가 "
+            "가장 높은 개선 효과를 제공합니다."
+        )
+        rows = [
+            "| 영역 | 현재 위험도 | 즉시 조치 |",
+            "|------|-------------|-----------|",
+            f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
+            "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
+            "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+        ]
+
+    return (
+        "## 경영진 브리핑\n\n"
+        f"{briefing}\n\n"
+        "## 위험 스코어카드\n\n" + "\n".join(rows) + "\n\n"
+    )
+
+
+def _run_post_quality_gate(post_path: Path, target: int = 80) -> None:
+    try:
+        from upgrade_digest_post_quality import process_file as _upgrade_post
+        from validate_post_quality import validate_post as _validate_post
+    except Exception as e:
+        logging.debug(f"quality gate import skipped: {e}")
+        return
+
+    first = _validate_post(post_path)
+    first_score = first.get("total", 0)
+    score_before = first_score if isinstance(first_score, int) else 0
+
+    if score_before >= target:
+        logging.info(f"Post quality score {score_before}/100 (target {target})")
+        return
+
+    upgraded = _upgrade_post(post_path)
+    if not upgraded:
+        logging.warning(
+            f"Post quality score {score_before}/100 below target {target} (no auto-upgrade applied)"
+        )
+        return
+
+    second = _validate_post(post_path)
+    second_score = second.get("total", 0)
+    score_after = second_score if isinstance(second_score, int) else score_before
+    logging.info(
+        f"Post quality auto-upgrade: {score_before}/100 -> {score_after}/100 (target {target})"
+    )
+
+
 def generate_post_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -1040,7 +1172,9 @@ def generate_post_content(
         if topic not in dynamic_tags:
             dynamic_tags.append(topic)
     dynamic_tags.append(str(date.year))
-    tags_html = "\n      ".join(f'<span class="tag">{t}</span>' for t in dynamic_tags[:6])
+    tags_html = "\n      ".join(
+        f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
+    )
 
     content = f'''---
 layout: post
@@ -1130,6 +1264,8 @@ toc: true
         content += f"| {emoji} **{cat_display}** | {source} | {title} | {severity_emoji} {severity} |\n"
 
     content += "\n---\n\n"
+
+    content += _generate_executive_and_risk_sections(news_items, mode="security")
 
     section_num = 1
 
@@ -1380,7 +1516,9 @@ def generate_tech_blog_content(
         if topic not in dynamic_tags:
             dynamic_tags.append(topic)
     dynamic_tags.append(str(date.year))
-    tags_html = "\n      ".join(f'<span class="tag">{t}</span>' for t in dynamic_tags[:6])
+    tags_html = "\n      ".join(
+        f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
+    )
 
     content = f'''---
 layout: post
@@ -1407,6 +1545,9 @@ toc: true
   audience='소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO'
 %}}
 
+---
+
+{_generate_executive_and_risk_sections(news_items, mode="tech-blog")}
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -1509,6 +1650,7 @@ toc: true
 
     # 트렌드 분석
     content += _generate_tech_trend_analysis(news_items, section_num)
+    content += _generate_news_specific_checklist(news_items)
 
     content += """
 ---
@@ -1746,15 +1888,21 @@ def _generate_contextual_action_point(item: Dict) -> str:
         if any(kw in combined for kw in ["malware", "악성코드", "trojan", "backdoor"]):
             return "EDR/SIEM에서 IoC 기반 탐지 룰을 업데이트하세요."
         if re.search(r"cve-\d{4}-\d+", combined):
-            return "해당 CVE의 영향 범위와 CVSS 점수를 확인 후 패치 우선순위를 결정하세요."
+            return (
+                "해당 CVE의 영향 범위와 CVSS 점수를 확인 후 패치 우선순위를 결정하세요."
+            )
         return "보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요."
 
     # AI category
     if category == "ai":
         if any(kw in combined for kw in ["agent", "에이전트"]):
-            return "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
+            return (
+                "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
+            )
         if any(kw in combined for kw in ["model", "llm", "모델"]):
-            return "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
+            return (
+                "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
+            )
         return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
 
     # Cloud / DevOps
@@ -1769,14 +1917,18 @@ def _generate_contextual_action_point(item: Dict) -> str:
 
     # Blockchain
     if category == "blockchain":
-        if any(kw in combined for kw in ["bitcoin", "비트코인", "ethereum", "이더리움"]):
+        if any(
+            kw in combined for kw in ["bitcoin", "비트코인", "ethereum", "이더리움"]
+        ):
             return "가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요."
         return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
 
     return "실무 적용 전에 상세 내용을 확인하세요."
 
 
-def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mode: str = "summary") -> str:
+def _translate_to_korean_deepseek(
+    text: str, context: str = "기술 뉴스", mode: str = "summary"
+) -> str:
     """DeepSeek API를 활용한 한국어 번역 폴백
 
     Args:
@@ -1831,9 +1983,7 @@ def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mod
         if response.status_code == 200:
             result = response.json()
             content = (
-                result.get("choices", [{}])[0]
-                .get("message", {})
-                .get("content", "")
+                result.get("choices", [{}])[0].get("message", {}).get("content", "")
             )
             translated = re.sub(r"\s+", " ", content.strip()).strip("\"'")
             if translated and re.search(r"[가-힣]", translated):
@@ -1843,7 +1993,7 @@ def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mod
             logging.warning(f"DeepSeek translate API status {response.status_code}")
     except ImportError:
         logging.debug("requests library not available for DeepSeek translation")
-    except requests.RequestException as e:
+    except Exception as e:
         logging.warning(f"DeepSeek translate error: {e}")
 
     return ""
@@ -1889,8 +2039,10 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
 
     # DeepSeek도 실패 시: 카테고리 기반 한국어 접두사 + 영어 원문
     if raw_title:
-        display_title = raw_title if len(raw_title) <= max_len else (
-            raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+        display_title = (
+            raw_title
+            if len(raw_title) <= max_len
+            else (raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,."))
         )
         category_prefix = {
             "security": "[보안]",
@@ -1999,7 +2151,11 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         # Build summary from actual content, not generic template
         if len(cleaned) > 50:
             # Use up to 400 chars of actual content
-            content_excerpt = cleaned[:400].rsplit(".", 1)[0] if "." in cleaned[:400] else cleaned[:400]
+            content_excerpt = (
+                cleaned[:400].rsplit(".", 1)[0]
+                if "." in cleaned[:400]
+                else cleaned[:400]
+            )
             content_excerpt = content_excerpt.strip(" .")
             result = f"{content_excerpt}."
         else:
@@ -2025,33 +2181,33 @@ def generate_news_section(
     title = _korean_display_title(item)
     url = item.get("url", "")
     source = item.get("source_name", item.get("source", "Unknown"))
-    summary = item.get("summary", "")
     content_text = item.get("content", "")
     category = item.get("category", "tech")
 
     severity = _determine_severity(item)
     cve_ids = _extract_cve_ids(item)
     image = item.get("image", "")
+    ko_summary = _korean_brief_summary(item)
 
     section = f"### {section_num} {title}\n\n"
 
     # 뉴스 카드 (이미지 + 요약)
-    if image or summary:
+    if image or ko_summary:
         card_parts = [
-            '{%% include news-card.html',
+            "{% include news-card.html",
             '  title="%s"' % title.replace('"', '\\"'),
             '  url="%s"' % url,
         ]
         if image:
             card_parts.append('  image="%s"' % image)
-        if summary:
-            card_summary = summary[:200].replace('"', '\\"')
+        if ko_summary:
+            card_summary = ko_summary[:200].replace('"', '\\"')
             card_parts.append('  summary="%s"' % card_summary)
         card_parts.append('  source="%s"' % source.replace('"', '\\"'))
         if severity in ("Critical", "High"):
             card_parts.append('  severity="%s"' % severity)
-        card_parts.append('%%}')
-        section += '\n'.join(card_parts) + '\n\n'
+        card_parts.append("%}")
+        section += "\n".join(card_parts) + "\n\n"
 
     # 심각도 및 CVE 뱃지
     if cve_ids or severity == "Critical":
@@ -2079,7 +2235,6 @@ def generate_news_section(
 
     # 폴백: 기존 템플릿
     section += "#### 개요\n\n"
-    ko_summary = _korean_brief_summary(item)
     if ko_summary:
         section += f"{ko_summary}\n\n"
     elif content_text:
@@ -2098,10 +2253,14 @@ def generate_news_section(
     if key_points:
         # Check if key points are substantially different from summary
         ko_summary_stripped = (ko_summary or "").replace(" ", "").replace("\n", "")
-        key_points_stripped = key_points.replace("- ", "").replace(" ", "").replace("\n", "")
+        key_points_stripped = (
+            key_points.replace("- ", "").replace(" ", "").replace("\n", "")
+        )
         # Only show if less than 70% overlap
         if ko_summary_stripped and key_points_stripped:
-            overlap = sum(1 for c in key_points_stripped[:100] if c in ko_summary_stripped[:200])
+            overlap = sum(
+                1 for c in key_points_stripped[:100] if c in ko_summary_stripped[:200]
+            )
             similarity = overlap / max(len(key_points_stripped[:100]), 1)
             if similarity < 0.7:
                 section += "#### 핵심 포인트\n\n"
@@ -2378,8 +2537,14 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
                     break  # count each news item once
         if count > 0:
             # Show article-specific keywords instead of generic match keywords
-            display_kws = ", ".join(representative_titles[:3]) if representative_titles else trend_name
-            trend_results.append((trend_name, count, display_kws, representative_titles))
+            display_kws = (
+                ", ".join(representative_titles[:3])
+                if representative_titles
+                else trend_name
+            )
+            trend_results.append(
+                (trend_name, count, display_kws, representative_titles)
+            )
 
     trend_results.sort(key=lambda x: x[1], reverse=True)
 
@@ -2447,14 +2612,19 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
     for item in news_items:
         category = item.get("category", "tech")
         # Only include security-relevant items in the checklist
-        if category not in ("security", "devsecops", "ai", "cloud", "devops", "kubernetes"):
+        if category not in (
+            "security",
+            "devsecops",
+            "ai",
+            "cloud",
+            "devops",
+            "kubernetes",
+        ):
             continue
         severity = _determine_severity(item)
         title = _korean_display_title(item, max_len=50)
         cve_ids = _extract_cve_ids(item)
         cve_str = f" ({', '.join(cve_ids[:2])})" if cve_ids else ""
-        source = item.get("source_name", "")
-
         if severity == "Critical":
             p0_items.append(f"- [ ] **{title}**{cve_str} 관련 긴급 패치 및 영향도 확인")
         elif severity == "High":
@@ -2482,7 +2652,9 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
         if "security" in categories_present:
             content += "- [ ] 보안 뉴스 기반 SIEM/EDR 탐지 룰 업데이트\n"
         if "cloud" in categories_present or "devops" in categories_present:
-            cloud_items = [n for n in news_items if n.get("category") in ("cloud", "devops")]
+            cloud_items = [
+                n for n in news_items if n.get("category") in ("cloud", "devops")
+            ]
             if cloud_items:
                 title = _korean_display_title(cloud_items[0], max_len=40)
                 content += f"- [ ] **{title}** 관련 인프라 설정 점검\n"
@@ -2652,8 +2824,6 @@ def generate_svg_image(
     """고품질 SVG 이미지 생성 - 카드 기반 레이아웃"""
 
     date_display = date.strftime("%B %d, %Y")
-    date_short = date.strftime("%Y.%m.%d")
-
     # 통계 계산
     total = sum(len(items) for items in categorized.values())
     stats = {cat: len(items) for cat, items in categorized.items()}
@@ -3091,6 +3261,7 @@ def main():
 
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
+    _run_post_quality_gate(post_path, target=80)
     print(f"✅ Created post: {post_path}")
 
     # Track published URLs for cross-day dedup
