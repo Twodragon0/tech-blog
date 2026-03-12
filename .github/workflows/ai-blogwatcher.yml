@@ -46,6 +46,7 @@ on:
           - "auto"
           - "claude"
           - "gemini"
+          - "gpt-5.4"
           - "codex-medium"
           - "deepseek"
           - "none"
@@ -82,7 +83,7 @@ jobs:
       MODE: ${{ github.event.inputs.mode || github.event.client_payload.mode || 'security' }}
       DRY_RUN: ${{ github.event.inputs.dry_run || github.event.client_payload.dry_run || 'false' }}
       FORCE_PUBLISH: ${{ github.event.inputs.force_publish || github.event.client_payload.force_publish || 'false' }}
-      USE_AI: ${{ github.event.inputs.use_ai || github.event.client_payload.use_ai || 'gemini' }}
+      USE_AI: ${{ github.event.inputs.use_ai || github.event.client_payload.use_ai || 'auto' }}
       RUN_CHECKS: ${{ github.event.inputs.run_checks || github.event.client_payload.run_checks || 'true' }}
       BLOGWATCHER_NEWS_URL: ${{ github.event.client_payload.collected_news_url || '' }}
       BLOGWATCHER_NEWS_JSON: ${{ github.event.client_payload.collected_news_json || '' }}
@@ -204,7 +205,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gemini') && secrets.GEMINI_API_KEY || '' }}
           CLAUDE_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
-          OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
+          OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gpt-5.4' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
           DEEPSEEK_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
         run: |
           # Validate MODE against whitelist

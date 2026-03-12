@@ -96,20 +96,19 @@ This project aligns OpenCode workflow guardrails with Claude-style best practice
 ## Agents
 
 ### Model Selection Strategy
-**Cost-Optimized Approach**: Use high-quality models (Opus 4.5/4.6) only for complex tasks requiring code generation or high-quality content. Use cost-efficient models (Sonnet 4) for validation, analysis, and read-only tasks.
+**AI Reinforced Mode**: Route orchestration and quality-heavy generation to GPT-5.4 (medium), code implementation/refactoring to GPT-5.3 Codex (medium), use Gemini Flash (medium) for lightweight exploration, and reserve Claude Sonnet 4.5 (thinking low) for strict validation.
 
-**Opus 4.6 최적화**: Opus 4.6는 향상된 맥락 이해와 끈기 있는 작업 능력을 제공합니다. 효과적으로 활용하기 위해:
-- **명확한 지시사항**: 반복 지시 불필요, 의도 설명 포함
-- **맥락 제공**: 복잡한 작업 전에 관련 파일/문서 공유
-- **확인 지점 설정**: 다단계 작업에 단계별 체크포인트
-- **대안 탐색**: "이걸 접근하는 세 가지 방법이 뭐가 있을까?" 같은 질문 활용
-
-자세한 내용은 `CLAUDE.md`의 "Opus 4.6 최대한 활용하기" 섹션을 참조하세요.
+| Agent Path | Model | Intent |
+|------------|-------|--------|
+| lead / primary | openai/gpt-5.4 (medium) | orchestration, planning, high-quality synthesis |
+| code | openai/gpt-5.3-codex (medium) | implementation, refactor, bug fixes |
+| small_model / explore | google/antigravity-gemini-3-flash (medium) | read-heavy discovery, low-cost fast analysis |
+| validate | anthropic/claude-sonnet-4.5 (reasoning low) | quality/security/release gate validation |
 
 ### Primary Agent
 - **Purpose**: Main content improvement and generation (complex tasks)
 - **Mode**: Primary (Sisyphus orchestrator)
-- **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for content/code generation)
+- **Model**: openai/gpt-5.4 (medium) ⭐
 - **Permissions**: Full (write, edit, bash)
 - **Steps**: 50
 - **Temperature**: 0.3 (balanced creativity)
@@ -119,7 +118,7 @@ This project aligns OpenCode workflow guardrails with Claude-style best practice
 ### Explore Agent
 - **Purpose**: Codebase analysis and discovery (read-only, cost-optimized)
 - **Mode**: Subagent (read-only)
-- **Model**: Claude Sonnet 4 💰 (cost-efficient for analysis)
+- **Model**: google/antigravity-gemini-3-flash (medium) 💰
 - **Permissions**: None (read-only)
 - **Steps**: 20
 - **Temperature**: 0.2 (focused analysis)
@@ -128,7 +127,7 @@ This project aligns OpenCode workflow guardrails with Claude-style best practice
 ### Validate Agent
 - **Purpose**: Quality checks and security audits (rule-based, cost-optimized)
 - **Mode**: Subagent (read-only)
-- **Model**: Claude Sonnet 4 💰 (cost-efficient for validation)
+- **Model**: anthropic/claude-sonnet-4.5 (reasoning low) 💰
 - **Permissions**: None (read-only)
 - **Steps**: 20
 - **Temperature**: 0.1 (strict validation)
@@ -137,7 +136,7 @@ This project aligns OpenCode workflow guardrails with Claude-style best practice
 ### Code Agent
 - **Purpose**: Complex coding tasks (high-quality for code work)
 - **Mode**: Subagent
-- **Model**: openai/gpt-5.3-codex ⭐ (high-quality for coding)
+- **Model**: openai/gpt-5.3-codex (medium) ⭐ (high-quality for coding)
 - **Permissions**: Write, edit, bash (all allowed)
 - **Steps**: 35
 - **Temperature**: 0.2 (focused coding)
@@ -295,13 +294,13 @@ Fix bugs and security issues.
 
 | Task Type | Model | Rationale |
 |-----------|-------|-----------|
-| Content/Code Generation | Opus 4.5/4.6 ⭐ | High-quality output required, better context understanding |
-| Code Writing/Refactoring | Opus 4.5/4.6 ⭐ | Complex logic, best practices, persistent problem-solving |
-| Validation/Analysis | Sonnet 4 💰 | Rule-based, cost-efficient |
-| Read-only Exploration | Sonnet 4 💰 | Analysis only, no generation |
-| Security Audits | Sonnet 4 💰 | Pattern matching, cost-efficient |
+| Content/Planning Generation | GPT-5.4 (medium) ⭐ | Strong synthesis, planning, and editorial quality |
+| Code Writing/Refactoring | GPT-5.3 Codex (medium) ⭐ | Complex logic, best practices, persistent problem-solving |
+| Validation/Analysis | Claude Sonnet 4.5 (reasoning low) 💰 | Rule-based, strict validation |
+| Read-only Exploration | Gemini Flash (medium) 💰 | Fast, low-cost discovery |
+| Security Audits | Claude Sonnet 4.5 (reasoning low) 💰 | Pattern matching and compliance checks |
 
-**Opus 4.6 장점**: 향상된 맥락 이해, 더 정확한 지시 따름, 끈기 있는 작업, 적극적 의견 제시
+**AI Reinforced 장점**: 코딩 품질(Codex) + 탐색 비용효율(Gemini) + 검증 엄격성(Claude)을 동시에 확보
 
 ### Pricing Comparison
 - **Claude Opus 4.5**: $5/M input, $25/M output (high-quality)
