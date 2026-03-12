@@ -571,7 +571,8 @@ _AI_MODE: str = os.getenv("AUTO_PUBLISH_USE_AI", "auto").lower()
 _GEMINI_CALL_TIMEOUT: int = max(8, int(os.getenv("AUTO_PUBLISH_GEMINI_TIMEOUT", "15")))
 _GEMINI_MAX_RETRIES: int = max(1, int(os.getenv("AUTO_PUBLISH_GEMINI_RETRIES", "1")))
 _CLAUDE_MODEL: str = os.getenv("AUTO_PUBLISH_CLAUDE_MODEL", "claude-3-5-sonnet-latest")
-_OPENAI_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_MODEL", "gpt-5.3-codex")
+_OPENAI_Codex_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_CODEX_MODEL", "gpt-5.3-codex")
+_OPENAI_GPT54_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_GPT54_MODEL", "gpt-5.4")
 
 
 def _allow_gemini() -> bool:
@@ -906,7 +907,7 @@ def enhance_with_openai_codex_medium(item: Dict) -> str:
                 "Content-Type": "application/json",
             },
             json={
-                "model": _OPENAI_MODEL,
+                "model": _OPENAI_Codex_MODEL,
                 "temperature": 0.4,
                 "messages": [{"role": "user", "content": prompt}],
             },
@@ -930,6 +931,70 @@ def enhance_with_openai_codex_medium(item: Dict) -> str:
         logging.warning("requests library not available for OpenAI API")
     except Exception as e:
         logging.warning(f"OpenAI API error: {e}")
+
+    return ""
+
+
+def enhance_with_openai_gpt54(item: Dict) -> str:
+    api_key = _OPENAI_API_KEY
+    if not api_key:
+        return ""
+
+    title = item.get("title", "")
+    summary = item.get("summary", "")[:500]
+    url = item.get("url", "")
+    if not title:
+        return ""
+
+    prompt = f"""다음 보안/기술 뉴스를 DevSecOps 실무자 관점에서 분석:
+제목: {title}
+요약: {summary}
+출처: {url}
+
+다음 형식으로 한국어로 작성 (500-800자):
+1. 기술적 배경 및 위협 분석
+2. 실무 영향 분석
+3. 대응 체크리스트 (- [ ] 형식, 3-5개)
+4. 우선순위(P0/P1/P2) 제안
+
+마크다운 형식으로 작성."""
+
+    try:
+        import requests
+
+        response = requests.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": _OPENAI_GPT54_MODEL,
+                "temperature": 0.3,
+                "messages": [{"role": "user", "content": prompt}],
+            },
+            timeout=20,
+        )
+
+        if response.status_code == 200:
+            data = response.json()
+            content = (
+                data.get("choices", [{}])[0]
+                .get("message", {})
+                .get("content", "")
+                .strip()
+            )
+            if len(content) > 100:
+                logging.info(f"OpenAI GPT-5.4 enhanced: {title[:50]}...")
+                return content
+        else:
+            logging.warning(
+                f"OpenAI GPT-5.4 API returned status {response.status_code}"
+            )
+    except ImportError:
+        logging.warning("requests library not available for OpenAI API")
+    except Exception as e:
+        logging.warning(f"OpenAI GPT-5.4 API error: {e}")
 
     return ""
 
@@ -958,6 +1023,12 @@ def enhance_content_with_fallback(item: Dict) -> str:
         content = enhance_with_gemini(item)
         if content:
             logging.info(f"✓ Gemini CLI: {title_short}")
+            return content
+
+    if _AI_MODE in {"auto", "gpt-5.4"}:
+        content = enhance_with_openai_gpt54(item)
+        if content:
+            logging.info(f"✓ OpenAI GPT-5.4: {title_short}")
             return content
 
     if _AI_MODE in {"auto", "codex-medium"}:
@@ -3260,7 +3331,15 @@ def main():
     )
     parser.add_argument(
         "--use-ai",
-        choices=["auto", "claude", "gemini", "codex-medium", "deepseek", "none"],
+        choices=[
+            "auto",
+            "claude",
+            "gemini",
+            "gpt-5.4",
+            "codex-medium",
+            "deepseek",
+            "none",
+        ],
         default=os.getenv("AUTO_PUBLISH_USE_AI", "auto"),
         help="AI enrichment mode (default: auto)",
     )

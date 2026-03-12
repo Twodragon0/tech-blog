@@ -190,9 +190,10 @@ RUN_OPS_ROUNDTABLE=false bash scripts/morning_autopost_cron.sh
 USE_AI=none bash scripts/morning_autopost_cron.sh
 
 # Recommended AI-first modes
-USE_AI=auto bash scripts/morning_autopost_cron.sh   # Claude -> Gemini -> Codex/DeepSeek fallback
+USE_AI=auto bash scripts/morning_autopost_cron.sh   # Claude -> Gemini -> GPT-5.4 -> Codex -> DeepSeek fallback
 USE_AI=claude bash scripts/morning_autopost_cron.sh # Claude priority
 USE_AI=gemini bash scripts/morning_autopost_cron.sh # Gemini priority
+USE_AI=gpt-5.4 bash scripts/morning_autopost_cron.sh # OpenAI GPT-5.4 priority
 ```
 
 ### Post Improvement
