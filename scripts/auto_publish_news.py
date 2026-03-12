@@ -2272,24 +2272,54 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
             KOREAN_TITLE_CACHE[cache_key] = deepseek_translated
             return deepseek_translated
 
-    # DeepSeek도 실패 시: 카테고리 기반 한국어 접두사 + 영어 원문
     if raw_title:
-        display_title = (
-            raw_title
-            if len(raw_title) <= max_len
-            else (raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,."))
-        )
-        category_prefix = {
-            "security": "[보안]",
-            "devsecops": "[DevSecOps]",
-            "ai": "[AI]",
-            "cloud": "[클라우드]",
-            "devops": "[DevOps]",
-            "blockchain": "[블록체인]",
-            "kubernetes": "[K8s]",
-        }.get(category, "")
-        if category_prefix and not display_title.startswith("["):
-            display_title = f"{category_prefix} {display_title}"
+        source_name = (
+            item.get("source_name", "") or item.get("source", "해외 기술 매체")
+        ).strip()
+        cve_match = re.search(r"CVE-\d{4}-\d+", raw_title, re.IGNORECASE)
+        category_label = {
+            "security": "보안",
+            "devsecops": "DevSecOps",
+            "ai": "AI",
+            "cloud": "클라우드",
+            "devops": "DevOps",
+            "blockchain": "블록체인",
+            "kubernetes": "쿠버네티스",
+            "tech": "기술",
+        }.get(category, "기술")
+
+        raw_lower = raw_title.lower()
+        topic_phrase = "해외 기술 동향"
+        topic_rules = [
+            (["ransomware"], "랜섬웨어 위협"),
+            (["malware", "trojan", "backdoor"], "악성코드 위협"),
+            (["zero-day", "0-day"], "제로데이 취약점"),
+            (["vulnerability", "exploit"], "취약점 악용 이슈"),
+            (["phishing", "credential"], "피싱 및 계정 탈취 위협"),
+            (["fortigate", "firewall"], "경계 장비 보안 이슈"),
+            (["kubernetes", "container"], "쿠버네티스/컨테이너 보안 이슈"),
+            (["blockchain", "bitcoin", "wallet"], "블록체인 보안 동향"),
+            (["ai", "agent", "llm"], "AI 보안 동향"),
+            (["cloud", "aws", "azure", "gcp"], "클라우드 보안 동향"),
+        ]
+        for keys, phrase in topic_rules:
+            if any(key in raw_lower for key in keys):
+                topic_phrase = phrase
+                break
+
+        if cve_match:
+            display_title = (
+                f"[{category_label}] {cve_match.group(0).upper()} 취약점 보안 업데이트"
+            )
+        else:
+            display_title = f"[{category_label}] {topic_phrase}"
+
+        if source_name:
+            display_title = f"{display_title} ({source_name})"
+
+        if len(display_title) > max_len:
+            display_title = display_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+
         KOREAN_TITLE_CACHE[cache_key] = display_title
         return display_title
     source_name = (
@@ -2374,29 +2404,43 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
                 KOREAN_SUMMARY_CACHE[cache_key] = deepseek_translated
                 return deepseek_translated
 
-        # DeepSeek도 실패 시: 실제 RSS 콘텐츠 기반 한국어 요약 생성
-        cleaned = re.sub(r"\s+", " ", raw_text)
-        cleaned = re.sub(r"https?://\S+", "", cleaned).strip()
-        # Strip common HTML artifacts
-        cleaned = re.sub(r"<[^>]+>", "", cleaned).strip()
-
-        # Use actual article content (truncated) as the summary
         title_ko = _korean_display_title(item)
         source_name = item.get("source_name", item.get("source", ""))
 
-        # Build summary from actual content, not generic template
-        if len(cleaned) > 50:
-            # Use up to 400 chars of actual content
-            content_excerpt = (
-                cleaned[:400].rsplit(".", 1)[0]
-                if "." in cleaned[:400]
-                else cleaned[:400]
-            )
-            content_excerpt = content_excerpt.strip(" .")
-            result = f"{content_excerpt}."
-        else:
-            # Very short content - use title as basis
-            result = f"{title_ko} ({source_name})."
+        category = item.get("category", "tech")
+        category_label = {
+            "security": "보안",
+            "devsecops": "DevSecOps",
+            "ai": "AI",
+            "cloud": "클라우드",
+            "devops": "DevOps",
+            "blockchain": "블록체인",
+            "kubernetes": "쿠버네티스",
+            "tech": "기술",
+        }.get(category, "기술")
+        raw_lower = (title_text + " " + raw_text).lower()
+        summary_topic = "주요 보안/기술 이슈"
+        summary_rules = [
+            (["ransomware"], "랜섬웨어 위협"),
+            (["malware", "trojan", "backdoor"], "악성코드 위협"),
+            (["zero-day", "0-day", "cve-"], "취약점 및 제로데이 이슈"),
+            (["phishing", "credential"], "피싱 및 계정 보안 이슈"),
+            (["kubernetes", "container"], "클라우드 네이티브 보안 이슈"),
+            (["blockchain", "bitcoin", "wallet"], "블록체인 보안 동향"),
+            (["ai", "agent", "llm"], "AI 보안 동향"),
+            (["cloud", "aws", "azure", "gcp"], "클라우드 보안 동향"),
+        ]
+        for keys, phrase in summary_rules:
+            if any(key in raw_lower for key in keys):
+                summary_topic = phrase
+                break
+        action = _generate_contextual_action_point(item)
+        source_suffix = f" ({source_name})" if source_name else ""
+        result = (
+            f"{title_ko}{source_suffix}에서 {summary_topic}이 보고되었습니다. "
+            f"이번 항목은 {category_label} 운영 관점에서 영향도를 검토하고 우선 대응 항목을 점검해야 합니다. "
+            f"{action}"
+        )
 
         KOREAN_SUMMARY_CACHE[cache_key] = result
         return result

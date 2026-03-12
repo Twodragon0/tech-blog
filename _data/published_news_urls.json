@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-12T11:57:46.123231+00:00",
+  "updated_at": "2026-03-12T12:08:57.850114+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1200,6 +1200,162 @@
       "title": "토니 호어 별세",
       "published_date": "2026-03-11",
       "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://www.tenable.com/blog/leakylooker-google-cloud-looker-studio-vulnerabilities",
+      "title": "LeakyLooker: Hacking Google Cloud’s Data via Dangerous Looker Studio Vulnerabili",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://www.sentinelone.com/blog/fortigate-edge-intrusions/",
+      "title": "FortiGate Edge Intrusions | Stolen Service Accounts Lead to Rogue Workstations a",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://blog.cloudflare.com/investigating-multi-vector-attacks-in-log-explorer/",
+      "title": "Investigating multi-vector attacks in Log Explorer",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://blog.cloudflare.com/security-overview-dashboard/",
+      "title": "Building a security overview dashboard for actionable insights",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://unit42.paloaltonetworks.com/fuzzing-ai-judges-security-bypass/",
+      "title": "Auditing the Gatekeepers: Fuzzing \"AI Judges\" to Bypass Security Controls",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kalshi-court-ohio-sports-betting-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kalshi suffers court loss in Ohio over sports betting lawsuit",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ether-funding-rate-flips-negative-are-eth-bears-back-in-control?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ether funding rate flips negative: Are ETH bears back in control?",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitgo-partners-with-stablex-to-support-stablecoin-infrastructure-investments?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BitGo to custody digital assets for StableX’s $100M stablecoin plan",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/sec-chair-oversight-us-financial-agencies?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "SEC chair calls for ‘coordinated oversight‘ between US regulators",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/socgen-forge-deploys-mica-compliant-euro-stablecoin-eurcv-on-stellar-network?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Societe Generale-FORGE launches EURCV stablecoin on Stellar",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27385",
+      "title": "Seedance 2.0을 제공한다고 주장하는 모든 글로벌 서비스들의 실체를 알립니다.",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27384",
+      "title": "Ask HN: 지금 어떤 일을 하고 있나요? (2026년 3월)",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27383",
+      "title": "에이전트 시대에 문학적 프로그래밍을 다시 검토해야 한다",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27380",
+      "title": "Anthropic의 Claude Code 사용자당 5천 달러 비용 주장은 사실이 아님",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27379",
+      "title": "JSLinux가 이제 x86_64를 지원",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:07:04.390662+00:00"
+    },
+    {
+      "url": "https://blog.cloudflare.com/attack-surface-intelligence/",
+      "title": "Translating risk insights into actionable protection: leveling up security postu",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-orderbook-shows-imbalance-will-dollar70k-hold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin orderbook shows imbalance: Will $70K hold?",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/uk-government-fraud-strategy-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "UK government‘s long-term fraud strategy labels crypto as ‘growing risk‘",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/hyperliquid-hype-price-will-hit-150-by-august-predicts-arthur-hayes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Hyperliquid's HYPE price will hit $150 by August, predicts Arthur Hayes",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/canaan-bitcoin-reserves-rise-miners-selling-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Canaan stacks Bitcoin, bucking rival miners' rush to sell",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/republican-opposition-cbdc-housing-affordability-bill?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Republican opposition to CBDC could hold up housing affordability bill",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27376",
+      "title": "OpenAI, Oracle과의 Stargate 데이터센터 확장 계획 철회",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27373",
+      "title": "Bluesky CEO 제이 그래버, CEO 자리에서 물러나 최고혁신책임자(CIO)로 전환",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27370",
+      "title": "Show GN: Obsidian을 쓰며 느낀 아쉬움 때문에, 로컬 퍼스트 노트 앱 Notaly를 만들고 있습니다",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27369",
+      "title": "Show GN: JTC - TypeScript를 사용하는 JSON 타입 검사기",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27367",
+      "title": "AgentHub - AI 에이전트를 위한 경량 협업 플랫폼",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T12:08:57.849971+00:00"
     }
   ]
 }
