@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-11T01:23:43.621647+00:00",
+  "updated_at": "2026-03-12T11:57:46.123231+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1020,6 +1020,186 @@
       "title": ".NET and .NET Framework March 2026 servicing releases updates",
       "published_date": "2026-03-11",
       "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/new-leakylooker-flaws-in-google-looker.html",
+      "title": "New \"LeakyLooker\" Flaws in Google Looker Studio Could Enable Cross-Tenant SQL Qu",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/security-is-a-team-sport-aws-at-rsac-2026-conference/",
+      "title": "Security is a team sport: AWS at RSAC 2026 Conference",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/the-zero-day-scramble-is-avoidable.html",
+      "title": "The Zero-Day Scramble is Avoidable: A Guide to Attack Surface Reduction",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/apt28-uses-beardshell-and-covenant.html",
+      "title": "APT28 Uses BEARDSHELL and COVENANT Malware to Spy on Ukrainian Military",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-security-hub-is-expanding-to-unify-security-operations-across-multicloud-environments/",
+      "title": "AWS Security Hub is expanding to unify security operations across multicloud env",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://openai.com/index/instruction-hierarchy-challenge",
+      "title": "Improving instruction hierarchy in frontier LLMs",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-5-layer-cake/",
+      "title": "AI Is a 5-Layer Cake",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt",
+      "title": "New ways to learn math and science in ChatGPT",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-custom-llm-deployment-fine-tune-with-oumi-and-deploy-to-amazon-bedrock/",
+      "title": "Accelerate custom LLM deployment: Fine-tune with Oumi and deploy to Amazon Bedro",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/nvidia/open-data-for-ai",
+      "title": "How NVIDIA Builds Open Data for AI",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/10/sustaining-open-source-in-the-age-of-generative-ai/",
+      "title": "Sustaining open source in the age of generative AI",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/conference/danielle-moinet-confirmed-as-a-bitcoin-2026-speaker",
+      "title": "Danielle Moinet Confirmed As A Bitcoin 2026 Speaker",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/1-million-bitcoin-isnt-as-far-fetched",
+      "title": "$1 Million Bitcoin Isn’t as Far-Fetched as It Sounds, Analyst Says",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/culture/netflix-bans-bitcoin-sponsors-on-boxer-trunks-during-jake-paul-vs-anthony-joshua-broadcast",
+      "title": "Netflix Censored Bitcoin Sponsors on Boxer Trunks During Jake Paul vs Anthony Jo",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/bhutan-selling-its-bitcoin-by-over-half",
+      "title": "Bhutan Keeps Selling Its Bitcoin, Reserves Sold by Over Half",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:31:09.971809+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/threat-actors-mass-scan-salesforce.html",
+      "title": "Threat Actors Mass-Scan Salesforce Experience Cloud via Modified AuraInspector T",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/cisa-flags-solarwinds-ivanti-and.html",
+      "title": "CISA Flags SolarWinds, Ivanti, and Workspace One Vulnerabilities as Actively Exp",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/92861/",
+      "title": "복호화가 가능한 Green Blood v2.0 랜섬웨어 분석",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/",
+      "title": "Microsoft Patch Tuesday, March 2026 Edition",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://www.tenable.com/blog/microsofts-march-2026-patch-tuesday-addresses-83-cves-cve-2026-21262-cve-2026-26127",
+      "title": "Microsoft’s March 2026 Patch Tuesday Addresses 83 CVEs (CVE-2026-21262, CVE-2026",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/03/10/anthropic-is-suing-the-u-s-government-for-allegedly-blacklisting-its-ai",
+      "title": "Anthropic is suing the U.S. government for allegedly blacklisting its AI",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/blockstream-jade-wallet-lightning-network",
+      "title": "Blockstream’s Jade Hardware Wallet Adds Lightning Network Support, Enabling Inst",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/tornado-cashs-roman-storm-new-trial",
+      "title": "Tornado Cash’s Roman Storm Could Face 40 Years as Government Seeks New Trial",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-jumps-above-70000",
+      "title": "Bitcoin Price Jumps Above $70,000 After Oil Shock, On-Chain Data Points to New S",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/investor-gives-strategy-mstr-and-strive",
+      "title": "Investment Bank Gives Strategy (MSTR) and Strive (ASST) Buy Ratings, Flags Bitco",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ripple-eyes-australian-financial-license-through-acquisition?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ripple targets April for Australian financial license via acquisition",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://techblog.lycorp.co.jp/ko/journey-to-perfect-ai-guardrails-neurips-2025-recap",
+      "title": "완벽한 AI 가드레일을 향한 여정: NeurIPS 2025 최신 안전성 기술 분석",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27388",
+      "title": "독일 부의 엔진이 미래를 가로막고 있다",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27387",
+      "title": "메타에서의 FFmpeg: 대규모 미디어 처리",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27386",
+      "title": "토니 호어 별세",
+      "published_date": "2026-03-11",
+      "expires_at": "2026-03-19T11:57:46.122931+00:00"
     }
   ]
 }
