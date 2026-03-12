@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Secu
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-06-Tech_Security_Weekly_Digest_Security_Threat_AI_AWS.svg
-image_alt: "Tech Security Weekly Digest March 06 2026 Security Threat AI"
+image_alt: "Tech Security Weekly Digest March 06 2026 Security Threat AI AWS"
 toc: true
 ---
 
@@ -58,6 +58,19 @@ toc: true
 </div>
 
 ---
+
+## 경영진 브리핑
+
+- 경계 장비 취약점 악용과 피싱 인프라 고도화가 동시에 진행되어 패치 속도와 탐지 정확도가 핵심 KPI가 되었습니다.
+- 단기 대응은 인터넷 노출 장비 우선 패치, AitM/피싱 탐지 룰 보강, 클라우드 보안 기준 준수 점검입니다.
+
+## 위험 스코어카드
+
+| 영역 | 현재 위험도 | 즉시 조치 |
+|------|-------------|-----------|
+| 경계 장비 취약점 | High | KEV 기반 우선 패치, 외부 노출면 점검 |
+| 피싱/AitM 위협 | High | MFA 우회 탐지 룰 강화, 사용자 경보 체계 점검 |
+| 클라우드 보안 운영 | Medium | Google/AWS 보안 체크리스트 갭 분석 및 보완 |
 
 ## 서론
 
