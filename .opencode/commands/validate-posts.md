@@ -1,6 +1,6 @@
 ---
 description: Validate posts for quality and security compliance
-agent: lead
+agent: validate
 ---
 
 SECURITY AND VALIDATION:

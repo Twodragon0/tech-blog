@@ -20,7 +20,7 @@ This repo now uses a lead-orchestrator pattern:
 - `validate` (subagent): read-only quality/security/release checks
 - `code` (subagent): implementation and refactoring
 
-Commands in `.opencode/commands/` keep using stable names (`primary`, `explore`, `validate`, `code`) while day-to-day interactive work defaults to `lead`.
+Commands in `.opencode/commands/` are primarily lead-orchestrated, with read-heavy/audit commands mapped to least-privilege subagents (`explore`/`validate`) where applicable.
 
 ## Hooks (Plugins)
 
@@ -32,6 +32,9 @@ OpenCode hook behavior is implemented through local plugins under `.opencode/plu
 
 This gives you policy enforcement at execution time, not just prompt-level guidance.
 
+Loading note:
+- Keep hooks registered via repo runtime config, and verify startup/runtime logs show the safety hook plugin is active.
+
 ## Command Template Style
 
 Project commands follow OpenCode native markdown format:
@@ -40,7 +43,6 @@ Project commands follow OpenCode native markdown format:
 ---
 description: Short command purpose
 agent: primary
-model: anthropic/claude-opus-4-5
 ---
 
 Prompt template body...
@@ -69,9 +71,11 @@ opencode sisyphus
 
 # Run Ralph Loop commands
 /improve-posts
+/improve-investing-post
 /collect-news
 /validate-posts
 /generate-images
+/ultrawork-investing-loop
 /ultrawork-loop
 /sisyphus-loop
 /ops-roundtable
@@ -126,16 +130,16 @@ This project aligns OpenCode workflow guardrails with Claude-style best practice
 - **Mode**: Subagent (read-only)
 - **Model**: Claude Sonnet 4 💰 (cost-efficient for validation)
 - **Permissions**: None (read-only)
-- **Steps**: 10
+- **Steps**: 20
 - **Temperature**: 0.1 (strict validation)
 - **Use Cases**: Quality validation, security audits, compliance checks
 
 ### Code Agent
 - **Purpose**: Complex coding tasks (high-quality for code work)
 - **Mode**: Subagent
-- **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for coding)
+- **Model**: openai/gpt-5.3-codex ⭐ (high-quality for coding)
 - **Permissions**: Write, edit, bash (all allowed)
-- **Steps**: 30
+- **Steps**: 35
 - **Temperature**: 0.2 (focused coding)
 - **Use Cases**: Code writing, refactoring, bug fixing
 - **Opus 4.6 활용**: 행동하기 전에 전체 그림 파악, 어려운 작업에서 끈기 있게 작업
@@ -154,6 +158,16 @@ Ralph Loop command for continuous post improvement.
 6. Final validation
 
 **Completion Promise**: `POSTS_IMPROVED`
+
+### `/improve-investing-post`
+Ralph loop for one investing post (quality + image improvement).
+
+**Behavior:**
+- Targets `INVESTING_POST` when set; otherwise auto-selects latest investing-related post
+- Runs focused quality checks and image regeneration only for that target post
+- Iterates until quality threshold and image checks pass
+
+**Completion Promise**: `INVESTING_POSTS_IMPROVED`
 
 ### `/collect-news`
 Cost-optimized news collection from RSS feeds.
@@ -196,6 +210,16 @@ Generate missing post images.
 Continuous ops loop with AI Gateway + Slack integration.
 
 **Completion Promise**: `ULTRAWORK_LOOP_COMPLETE`
+
+### `/ultrawork-investing-loop`
+Continuous ultrawork loop for investing post quality and image reliability.
+
+**Behavior:**
+- Uses `INVESTING_POST` or auto-detects latest investing-related target
+- Repeats target-only quality checks, fixes, and forced image refresh
+- Stops when no P0/P1 issue remains for the target
+
+**Completion Promise**: `ULTRAWORK_INVESTING_LOOP_COMPLETE`
 
 ### `/sisyphus-loop`
 Sisyphus loop that keeps iterating until no P0/P1 items remain.

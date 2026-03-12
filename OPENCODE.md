@@ -1,12 +1,14 @@
 # OpenCode Automation (Centralized)
 
-This repository uses centralized hourly automation under Desktop root.
+This repository uses centralized hourly automation under a configurable Desktop root.
 
 ## Runtime
 
-- Pull runner: `/Users/namyongkim/Desktop/.twodragon0/bin/hourly-opencode-git-pull.sh`
-- Cron installer: `/Users/namyongkim/Desktop/.twodragon0/bin/install-system-cron.sh`
-- Repo inventory: `/Users/namyongkim/Desktop/.twodragon0/repos.list`
+- Pull runner: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/bin/hourly-opencode-git-pull.sh`
+- Cron installer: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/bin/install-system-cron.sh`
+- Repo inventory: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/repos.list`
+
+Set `TWODRAGON0_HOME` per operator machine if the manager root differs from the default.
 
 ## Operational safety
 

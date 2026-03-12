@@ -1,6 +1,6 @@
 ---
 description: Comprehensive security audit for secrets, validation, and exposure
-agent: lead
+agent: validate
 ---
 
 Run a comprehensive security audit:

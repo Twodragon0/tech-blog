@@ -1,6 +1,6 @@
 ---
 description: Collect tech/security RSS news with cache-first cost controls
-agent: lead
+agent: explore
 ---
 
 CRITICAL COST OPTIMIZATION:

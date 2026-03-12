@@ -64,6 +64,10 @@
       "git push --force*": "deny",
       "git push * main --force*": "deny",
       "git push * master --force*": "deny",
+      "git push main*": "deny",
+      "git push master*": "deny",
+      "git push * main": "deny",
+      "git push * master": "deny",
       "git push *": "allow"
     }
   },

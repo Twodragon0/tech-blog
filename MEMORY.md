@@ -2,7 +2,7 @@
 
 ## Baseline
 
-- Central manager under `/Users/namyongkim/Desktop/.twodragon0` controls hourly pull and scheduling.
+- Central manager under `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}` controls hourly pull and scheduling.
 - OpenClaw continuous improvement runs hourly with centralized prompt policy.
 
 ## Priority Order

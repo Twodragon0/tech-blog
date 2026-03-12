@@ -8,7 +8,7 @@ const BLOCKED_BASH_PATTERNS = [
   /\bsudo\b/i
 ]
 
-const BLOCKED_READ_PATTERNS = [/\.env(\.|$)/i, /gcp-oauth\.keys\.json/i]
+const BLOCKED_READ_PATTERNS = [/\.env(?!\.example)(\.|$)/i, /gcp-oauth\.keys\.json/i]
 
 function matchesAny(value, patterns) {
   return patterns.some((pattern) => pattern.test(value))
