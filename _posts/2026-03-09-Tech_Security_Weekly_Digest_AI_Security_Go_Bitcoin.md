@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin.svg
-image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go"
+image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go Bitcoin"
 toc: true
 ---
 
@@ -61,6 +61,19 @@ toc: true
 </div>
 
 ---
+
+## 경영진 브리핑
+
+- AI 에이전트 보안 위협이 본격화되며 도구 호출 권한 통제와 샌드박싱 적용이 실무 표준으로 자리잡고 있습니다.
+- 단기적으로는 에이전트 실행 환경 격리, 정책 기반 접근통제, 고위험 워크플로우 모니터링 강화가 필요합니다.
+
+## 위험 스코어카드
+
+| 영역 | 현재 위험도 | 즉시 조치 |
+|------|-------------|-----------|
+| AI 에이전트 보안 | High | 프롬프트/툴 사용 정책 강화, 샌드박스 적용 |
+| 데이터/접근통제 | High | 민감 데이터 접근 경로 최소화, 감사 로그 점검 |
+| 시장·규제 영향 | Medium | 암호화폐 규제 변화 모니터링, 컴플라이언스 반영 |
 
 ## 서론
 

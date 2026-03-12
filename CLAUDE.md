@@ -2,6 +2,20 @@
 
 Instructions for Claude Code when working on this project.
 
+## Global OpenCode Precedence
+
+- Use the global OpenCode baseline as runtime default (`~/.config/opencode/opencode.json`, `~/.config/opencode/instructions.md`).
+- Local workflow notes here are project guidance and should not override global model/reasoning/default-agent defaults.
+
+## OpenCode Config Precedence (Global vs Repo)
+
+- Global OpenCode config is the baseline for runtime safety and defaults.
+- Repo config under `.opencode/` is authoritative for project workflows (agents, commands, project skills).
+- When settings conflict, follow this rule:
+  - Global wins for safety guardrails and default runtime behavior.
+  - Repo wins for project-scoped workflow behavior.
+- For deterministic automation, load global first and then repo overlay from the repository root.
+
 **Last updated**: 2026-03-09
 
 ## Quick Reference
@@ -530,6 +544,21 @@ python3 scripts/verify_images_unified.py --all
 | **Operational Efficiency** | 8/10 | Automation scripts, CI/CD, monitoring | Enhanced error recovery |
 
 ## OpenCode Integration
+
+### Repository OpenCode Runtime Layout
+
+- Lead agent architecture is defined in `.opencode/agents/` (`lead`, `primary`, `explore`, `validate`, `code`).
+- Runtime config and permissions live in `.opencode/opencode.json` (default agent: `lead`).
+- Execution-time safety hooks are implemented as plugins in `.opencode/plugins/`.
+- Reusable project skills are in `.opencode/skills/` (security, validation, cost, governance).
+
+### Centralized hourly operations
+
+- Central scheduler and pull runner: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/bin/hourly-opencode-git-pull.sh`
+- Central OpenClaw cron registration: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/bin/setup-openclaw-cron.sh`
+- Central prompt: `${TWODRAGON0_HOME:-~/Desktop/.twodragon0}/openclaw_ultrawork_prompt.md`
+- Per-repo OpenClaw/OpenCode cron scripts are not used.
+- Set `TWODRAGON0_HOME` per machine when the manager root is not the default.
 
 ### OpenCode Sisyphus Mode with Ralph Loop
 

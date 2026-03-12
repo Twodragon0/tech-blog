@@ -1,35 +1,118 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  
-  "model": "anthropic/claude-sonnet-4",
+  "model": "openai/gpt-5.3-codex",
+  "small_model": "openai/gpt-5.3-codex",
+  "default_agent": "lead",
   "autoupdate": true,
-  
+  "instructions": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".opencode/README.md"
+  ],
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      ".git/**",
+      "_site/**",
+      ".opencode/node_modules/**",
+      "**/.DS_Store"
+    ]
+  },
+  "permission": {
+    "*": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "todoread": "allow",
+    "todowrite": "allow",
+    "task": "allow",
+    "skill": {
+      "*": "allow",
+      "security-review": "allow",
+      "cost-audit": "allow",
+      "post-validation": "allow",
+      "opencode-governance": "allow"
+    },
+    "edit": "allow",
+    "bash": {
+      "*": "allow",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git pull*": "allow",
+      "python3 scripts/*": "allow",
+      "bundle exec jekyll build*": "allow",
+      "npm test*": "allow",
+      "npm run *": "allow",
+      "ruff *": "allow",
+      "mypy *": "allow",
+      "rm *": "deny",
+      "sudo *": "deny",
+      "git reset --hard*": "deny",
+      "git clean -fd*": "deny",
+      "git push --force*": "deny",
+      "git push * main --force*": "deny",
+      "git push * master --force*": "deny",
+      "git push main*": "deny",
+      "git push master*": "deny",
+      "git push * main": "deny",
+      "git push * master": "deny",
+      "git push *": "allow"
+    }
+  },
   "mcp": {
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"]
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ]
     },
     "filesystem": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."]
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ]
     },
     "git": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-git"]
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-git"
+      ]
     },
     "memory": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
     }
   },
-  
   "agent": {
-    "primary": {
-      "description": "Primary agent for DevSecOps Tech Blog - Sisyphus mode with Ralph Loop support (High-quality for code/content work)",
+    "lead": {
+      "description": "Lead orchestrator for repo-wide tasks; delegates to specialist subagents and enforces verification gates",
       "mode": "primary",
-      "model": "anthropic/claude-opus-4-5",
-      "temperature": 0.3,
-      "maxSteps": 50,
+      "model": "openai/gpt-5.3-codex",
+      "temperature": 0.2,
+      "steps": 50,
       "tools": {
         "write": true,
         "edit": true,
@@ -37,15 +120,29 @@
       },
       "permission": {
         "edit": "allow",
-        "bash": "allow"
+        "bash": "allow",
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "primary": {
+      "description": "Compatibility primary agent for existing project commands",
+      "mode": "primary",
+      "model": "openai/gpt-5.3-codex",
+      "temperature": 0.2,
+      "steps": 40,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
       }
     },
     "explore": {
-      "description": "Exploration agent for codebase analysis and discovery (Cost-optimized, read-only)",
+      "description": "Read-only repo exploration and pattern discovery subagent",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4",
-      "temperature": 0.2,
-      "maxSteps": 20,
+      "temperature": 0.1,
+      "steps": 20,
       "tools": {
         "write": false,
         "edit": false,
@@ -57,11 +154,10 @@
       }
     },
     "validate": {
-      "description": "Validation agent for quality checks and security audits (Cost-optimized, rule-based)",
+      "description": "Read-only quality, security, and compliance validation subagent",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4",
       "temperature": 0.1,
-      "maxSteps": 10,
+      "steps": 20,
       "tools": {
         "write": false,
         "edit": false,
@@ -73,11 +169,11 @@
       }
     },
     "code": {
-      "description": "Code-focused agent for complex coding tasks (High-quality model)",
+      "description": "Implementation subagent for coding, refactor, and bug fixes",
       "mode": "subagent",
-      "model": "anthropic/claude-opus-4-5",
+      "model": "openai/gpt-5.3-codex",
       "temperature": 0.2,
-      "maxSteps": 30,
+      "steps": 35,
       "tools": {
         "write": true,
         "edit": true,
@@ -85,83 +181,8 @@
       },
       "permission": {
         "edit": "allow",
-        "bash": "ask"
+        "bash": "allow"
       }
-    }
-  },
-  
-  "command": {
-    "improve-posts": {
-      "description": "Ralph Loop: Continuously improve blog posts from RSS news (Sisyphus mode) - High-quality model for content generation",
-      "template": "You are improving blog posts using the Ralph Loop pattern. Follow the workflow in .opencode/commands/improve-posts.md. CRITICAL: 1) Check cache first (_data/collected_news.json, 7-day TTL), 2) Use local scripts (python3 scripts/*.py) before any API calls, 3) Prioritize Gemini CLI (free) over paid APIs, 4) Batch operations to reduce API calls, 5) Mask sensitive data in logs. Output <promise>POSTS_IMPROVED</promise> when complete.",
-      "agent": "primary",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "ultrawork-loop": {
-      "description": "Ultrawork Loop: continuous ops checks and prioritization with AI Gateway + Slack",
-      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ops_health_orchestrator.py to generate the priority summary, validate logs, and post to Slack via AI gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
-      "agent": "primary",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "sisyphus-loop": {
-      "description": "Sisyphus Loop: orchestrate continuous improvement cycles using Ultrawork Loop",
-      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Treat this as a Sispyhus loop session and keep iterating on highest priority items until no P0/P1 items remain. Output <promise>SISYPHUS_LOOP_COMPLETE</promise> when complete.",
-      "agent": "primary",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "ops-roundtable": {
-      "description": "Run multi-agent ops/security/uiux roundtable with auto-recovery",
-      "template": "Run python3 scripts/ops_health_orchestrator.py --auto-recover-gha. Treat checks as three reviewers: OpsAgent (lint, Vercel, GitHub Actions), SecurityAgent (Sentry), UiUxAgent (performance). Synthesize decisions as Moderator with prioritized action list and continue until no unresolved P0/P1 items remain. Post summary using AI Gateway Slack gateway if configured. Output <promise>OPS_ROUNDTABLE_COMPLETE</promise> when complete.",
-      "agent": "primary",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "collect-news": {
-      "description": "Collect tech/security news from RSS feeds (Cost-optimized with caching)",
-      "template": "CRITICAL COST OPTIMIZATION: 1) Check _data/collected_news.json cache first (use if < 7 days old), 2) Use python3 scripts/collect_tech_news.py (local script, no API cost), 3) Rate limit: max 15 requests/minute, 4) Batch all feeds in single run, 5) Never use paid APIs for this task. Output <promise>NEWS_COLLECTED</promise> when complete.",
-      "agent": "explore",
-      "model": "anthropic/claude-sonnet-4"
-    },
-    "validate-posts": {
-      "description": "Validate all posts for quality and security compliance (Cost-optimized validation)",
-      "template": "SECURITY & VALIDATION: Run validation scripts in order: 1) python3 scripts/check_posts.py (quality), 2) python3 scripts/fix_links_unified.py --check (links), 3) python3 scripts/verify_images_unified.py --all (images). SECURITY CHECKS: Check for hardcoded secrets, validate file permissions, check for XSS/injection patterns, ensure English-only image filenames. Never expose sensitive information. Output <promise>POSTS_VALIDATED</promise> when complete.",
-      "agent": "validate",
-      "model": "anthropic/claude-sonnet-4"
-    },
-    "generate-images": {
-      "description": "Generate missing post images (English filenames only) - High-quality for image generation",
-      "template": "Generate post images using python3 scripts/generate_post_images.py --all. CRITICAL: 1) All filenames must be English only (no Korean), 2) Format: YYYY-MM-DD-English_Title.svg, 3) SVG content must be English only, 4) Validate before saving, 5) Use local scripts, avoid API calls. Output <promise>IMAGES_GENERATED</promise> when complete.",
-      "agent": "primary",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "security-audit": {
-      "description": "Security audit: check for secrets, validate inputs, review permissions (Cost-optimized)",
-      "template": "COMPREHENSIVE SECURITY AUDIT: 1) Scan for hardcoded secrets (API keys, passwords, tokens), 2) Validate file permissions (check .env, config files), 3) Review API usage patterns (rate limiting, authentication), 4) Check for XSS/injection patterns in code, 5) Validate input sanitization, 6) Check for exposed sensitive data in logs. Use scripts/check_security.py if available. NEVER expose sensitive information in output. Output security report with masked sensitive data. Output <promise>SECURITY_AUDIT_COMPLETE</promise> when done.",
-      "agent": "validate",
-      "model": "anthropic/claude-sonnet-4"
-    },
-    "cost-optimize": {
-      "description": "Optimize API usage and costs - analyze and recommend optimizations",
-      "template": "COST OPTIMIZATION ANALYSIS: Review API usage patterns and recommend optimizations. PRIORITY ORDER: 1) Gemini CLI (OAuth 2.0, free) ⭐ First Choice, 2) Local templates/scripts (no cost), 3) Cursor/Claude Console (free allocation), 4) API calls (minimize, use caching). Check: cache usage (7-day TTL), rate limiting compliance, batch processing opportunities, prompt caching usage. Generate optimization report. Output <promise>COST_OPTIMIZED</promise> when complete.",
-      "agent": "explore",
-      "model": "anthropic/claude-sonnet-4"
-    },
-    "write-code": {
-      "description": "Write or refactor code (High-quality model for complex coding)",
-      "template": "Write high-quality code following best practices. SECURITY: 1) Never hardcode secrets (use env vars), 2) Validate all inputs, 3) Sanitize outputs, 4) Follow principle of least privilege. COST: Use local tools when possible, minimize API calls. QUALITY: Add type hints, docstrings, error handling, tests. Output <promise>CODE_WRITTEN</promise> when complete.",
-      "agent": "code",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "refactor": {
-      "description": "Refactor existing code (High-quality model for code improvement)",
-      "template": "Refactor code for better maintainability, performance, and security. SECURITY: Review for vulnerabilities, validate inputs, check permissions. COST: Optimize API usage, use caching. QUALITY: Improve structure, add tests, update documentation. Output <promise>CODE_REFACTORED</promise> when complete.",
-      "agent": "code",
-      "model": "anthropic/claude-opus-4-5"
-    },
-    "fix-bugs": {
-      "description": "Fix bugs and security issues (High-quality model for debugging)",
-      "template": "Fix bugs and security issues. SECURITY: 1) Check for injection vulnerabilities, 2) Validate inputs, 3) Check error handling, 4) Review permissions. COST: Use local debugging tools first. QUALITY: Add tests, update documentation. Output <promise>BUGS_FIXED</promise> when complete.",
-      "agent": "code",
-      "model": "anthropic/claude-opus-4-5"
     }
   }
 }
