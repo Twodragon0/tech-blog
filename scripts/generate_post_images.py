@@ -1147,13 +1147,13 @@ def main():
 예시:
   # 최근 포스팅 이미지 생성
   python3 scripts/generate_post_images.py --recent 1
-
+  
   # 특정 포스팅 이미지 생성
   python3 scripts/generate_post_images.py _posts/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.md
-
+  
   # 모든 포스팅 이미지 생성
   python3 scripts/generate_post_images.py --all
-
+  
   # 이미지가 있어도 강제로 재생성
   python3 scripts/generate_post_images.py --recent 1 --force
         """,

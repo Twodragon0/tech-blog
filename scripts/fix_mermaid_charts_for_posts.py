@@ -172,7 +172,7 @@ graph LR
     F --> G[Operate<br/>운영]
     G --> H[Monitor<br/>모니터링]
     H --> A
-
+    
     style A fill:#4CAF50,color:#fff
     style B fill:#2196F3,color:#fff
     style C fill:#FF9800,color:#fff
@@ -191,29 +191,29 @@ graph TB
         N2[Security Group]
         N3[NACL]
     end
-
+    
     subgraph Application["애플리케이션 레이어<br/>Application Layer"]
         A1[WAF]
         A2[API Gateway]
         A3[Load Balancer]
     end
-
+    
     subgraph Data["데이터 레이어<br/>Data Layer"]
         D1[암호화<br/>Encryption]
         D2[접근 제어<br/>Access Control]
         D3[백업<br/>Backup]
     end
-
+    
     subgraph Monitoring["모니터링 레이어<br/>Monitoring Layer"]
         M1[CloudTrail]
         M2[CloudWatch]
         M3[GuardDuty]
     end
-
+    
     Network --> Application
     Application --> Data
     Data --> Monitoring
-
+    
     style Network fill:#4CAF50,color:#fff
     style Application fill:#2196F3,color:#fff
     style Data fill:#FF9800,color:#fff
@@ -226,13 +226,13 @@ graph TB
     subgraph Container["컨테이너 내부"]
         C1[Root User<br/>UID 0]
     end
-
+    
     subgraph Host["호스트 시스템"]
         H1[Non-privileged User<br/>UID 1000]
     end
-
+    
     C1 -->|매핑| H1
-
+    
     style Container fill:#F44336,color:#fff
     style Host fill:#4CAF50,color:#fff
 ```"""
@@ -245,22 +245,22 @@ graph TB
         N2[서브넷]
         N3[라우팅]
     end
-
+    
     subgraph Compute["컴퓨팅"]
         C1[EC2]
         C2[Lambda]
         C3[컨테이너]
     end
-
+    
     subgraph Storage["스토리지"]
         S1[S3]
         S2[EBS]
         S3[EFS]
     end
-
+    
     Network --> Compute
     Compute --> Storage
-
+    
     style Network fill:#4CAF50,color:#fff
     style Compute fill:#2196F3,color:#fff
     style Storage fill:#FF9800,color:#fff
@@ -274,22 +274,22 @@ graph TB
         I2[역할]
         I3[정책]
     end
-
+    
     subgraph Network["네트워크 보안"]
         N1[VPC]
         N2[방화벽]
         N3[VPN]
     end
-
+    
     subgraph Data["데이터 보안"]
         D1[암호화]
         D2[접근 제어]
         D3[백업]
     end
-
+    
     IAM --> Network
     Network --> Data
-
+    
     style IAM fill:#4CAF50,color:#fff
     style Network fill:#2196F3,color:#fff
     style Data fill:#FF9800,color:#fff
@@ -302,7 +302,7 @@ graph LR
     B --> C[단계 2]
     C --> D[단계 3]
     D --> E[완료]
-
+    
     style A fill:#4CAF50,color:#fff
     style E fill:#4CAF50,color:#fff
 ```"""

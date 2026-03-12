@@ -6,11 +6,11 @@
 - 중복된 코드 블록 확인
 """
 
+import os
 import re
+from pathlib import Path
 from collections import defaultdict
 from difflib import SequenceMatcher
-from pathlib import Path
-
 
 def extract_images(content):
     """이미지 경로 추출"""
@@ -20,7 +20,7 @@ def extract_images(content):
     html_images = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
     # Jekyll 이미지: {{ '/assets/images/...' | relative_url }}
     jekyll_images = re.findall(r"['\"]([^'\"]*assets/images[^'\"]*)['\"]", content)
-
+    
     all_images = markdown_images + html_images + jekyll_images
     # 상대 경로 정규화
     normalized = []
@@ -63,41 +63,41 @@ def similarity(a, b):
 def check_duplicates(posts_dir):
     """중복 내용 확인"""
     posts = list(posts_dir.glob('*.md'))
-
+    
     # 이미지 경로 중복 확인
     image_usage = defaultdict(list)
     code_block_usage = defaultdict(list)
     text_similarity = []
-
+    
     print("=" * 80)
     print("포스팅 중복 내용 검증 시작")
     print("=" * 80)
-
+    
     for post_file in posts:
         try:
             with open(post_file, 'r', encoding='utf-8') as f:
                 content = f.read()
-
+            
             # 이미지 추출
             images = extract_images(content)
             for img in images:
                 image_usage[img].append(post_file.name)
-
+            
             # 코드 블록 추출
             code_blocks = extract_code_blocks(content)
             for cb in code_blocks:
                 # 코드 블록의 해시 생성 (처음 100자)
                 cb_hash = cb[:100]
                 code_block_usage[cb_hash].append((post_file.name, cb[:150]))
-
+            
             # 텍스트 섹션 추출
             sections = extract_long_text_sections(content)
             for section in sections:
                 text_similarity.append((post_file.name, section))
-
+        
         except Exception as e:
             print(f"⚠️  오류 처리 중 {post_file.name}: {e}")
-
+    
     # 결과 출력
     print("\n" + "=" * 80)
     print("1. 중복된 이미지 경로")
@@ -113,7 +113,7 @@ def check_duplicates(posts_dir):
                 print(f"   ... 외 {len(files) - 5}개 파일")
     else:
         print("✅ 중복된 이미지 경로 없음")
-
+    
     print("\n" + "=" * 80)
     print("2. 중복된 코드 블록 (유사도 높은 것)")
     print("=" * 80)
@@ -127,7 +127,7 @@ def check_duplicates(posts_dir):
                 print(f"     {code_preview[:80]}...")
     else:
         print("✅ 중복된 코드 블록 없음")
-
+    
     print("\n" + "=" * 80)
     print("3. 유사한 텍스트 섹션 (유사도 80% 이상)")
     print("=" * 80)
@@ -138,7 +138,7 @@ def check_duplicates(posts_dir):
                 sim = similarity(text1, text2)
                 if sim > 0.8:
                     similar_texts.append((file1, file2, sim, text1[:100]))
-
+    
     if similar_texts:
         # 유사도 높은 순으로 정렬
         similar_texts.sort(key=lambda x: x[2], reverse=True)
@@ -149,7 +149,7 @@ def check_duplicates(posts_dir):
             print(f"   미리보기: {preview}...")
     else:
         print("✅ 유사한 텍스트 섹션 없음")
-
+    
     # 요약
     print("\n" + "=" * 80)
     print("검증 요약")
@@ -158,7 +158,7 @@ def check_duplicates(posts_dir):
     print(f"중복 이미지 경로: {len(duplicate_images)}개")
     print(f"중복 코드 블록: {len(duplicate_code)}개")
     print(f"유사 텍스트 섹션: {len(similar_texts)}개")
-
+    
     return {
         'duplicate_images': duplicate_images,
         'duplicate_code': duplicate_code,
@@ -168,11 +168,11 @@ def check_duplicates(posts_dir):
 def main():
     """메인 함수"""
     posts_dir = Path(__file__).parent.parent / '_posts'
-
+    
     if not posts_dir.exists():
         print(f"Posts directory not found: {posts_dir}")
         return
-
+    
     check_duplicates(posts_dir)
 
 if __name__ == '__main__':

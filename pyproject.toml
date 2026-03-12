@@ -4,6 +4,8 @@
 # Black-compatible code formatter
 line-length = 88
 indent-width = 4
+
+# Exclude directories from linting/formatting
 exclude = [
     ".bundle",
     ".git",
@@ -13,28 +15,8 @@ exclude = [
     "__pypackages__",
     "_site",
     "api", # JavaScript
-    "scripts/_archive",
-    "scripts/_archive/**",
     "vendor",
-]
-
-[tool.ruff.lint]
-# E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
-select = ["E", "F", "W", "I"]
-ignore = ["E501"]
-
-# Exclude directories from linting
-exclude = [
-    ".bundle",
-    ".git",
-    ".mypy_cache",
-    ".ruff_cache",
-    ".venv",
-    "__pypackages__",
-    "_site",
-    "api", # JavaScript
     "scripts/_archive",
-    "vendor",
 ]
 
 [tool.ruff.lint]
@@ -61,7 +43,6 @@ line-ending = "auto"
 # Exclude files from formatting
 exclude = [
     "scripts/requirements.txt",
-    "scripts/_archive",
 ]
 
 

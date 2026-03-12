@@ -119,7 +119,7 @@ def generate_diagram_prompt(
 Requirements:
 - Style: Clean, minimalist technical architecture diagram
 - Layout: Two columns side by side (VM on left, Container on right)
-- Colors:
+- Colors: 
   - VM side: Use red/orange tones (#FF6B6B, #FFA07A) for hypervisor layer
   - Container side: Use blue/green tones (#4ECDC4, #95E1D3) for container runtime
   - Host OS: Gray (#95A5A6)
@@ -131,7 +131,7 @@ Requirements:
     - Bottom: Hypervisor layer (highlighted in red/orange)
     - Bottom: Host OS
     - Bottom: Hardware
-
+  
   Right (Container Architecture):
     - Top: Multiple applications (App 1, App 2, App 3)
     - Middle: Container Runtime (Docker/containerd) - single layer in blue/green
@@ -408,7 +408,7 @@ def main():
 예시:
   # 특정 포스팅 처리
   python3 scripts/generate_missing_diagrams.py _posts/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.md
-
+  
   # 강제 재생성
   python3 scripts/generate_missing_diagrams.py _posts/2026-01-15-...md --force
         """,

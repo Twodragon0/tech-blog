@@ -19,13 +19,13 @@ def fix_image_tags(content: str) -> str:
     """
     # 패턴: ![alt text]({{ 'path' | relative_url }})
     pattern = r'!\[([^\]]+)\]\(\{\{\s*[\'"]([^\'"]+)[\'"]\s*\|\s*relative_url\s*\}\}\)'
-
+    
     def replace_func(match):
         alt_text = match.group(1)
         image_path = match.group(2)
         # lazy loading과 클래스 추가로 성능 및 스타일 개선
         return '<img src="{{ \'' + image_path + '\' | relative_url }}" alt="' + alt_text + '" loading="lazy" class="post-image">'
-
+    
     return re.sub(pattern, replace_func, content)
 
 def process_post(post_file: Path) -> bool:
@@ -33,13 +33,13 @@ def process_post(post_file: Path) -> bool:
     try:
         with open(post_file, 'r', encoding='utf-8') as f:
             content = f.read()
-
+        
         # 변경 전 내용 저장
         original_content = content
-
+        
         # 이미지 태그 수정
         fixed_content = fix_image_tags(content)
-
+        
         # 변경사항이 있으면 파일 저장
         if fixed_content != original_content:
             with open(post_file, 'w', encoding='utf-8') as f:
@@ -49,7 +49,7 @@ def process_post(post_file: Path) -> bool:
         else:
             print(f"⏭️  No changes: {post_file.name}")
             return False
-
+            
     except Exception as e:
         print(f"❌ Error processing {post_file.name}: {e}")
         return False
@@ -59,15 +59,15 @@ def main():
     if not POSTS_DIR.exists():
         print(f"❌ Posts directory not found: {POSTS_DIR}")
         sys.exit(1)
-
+    
     post_files = list(POSTS_DIR.glob("*.md"))
     print(f"📄 Found {len(post_files)} post files")
-
+    
     fixed_count = 0
     for post_file in sorted(post_files):
         if process_post(post_file):
             fixed_count += 1
-
+    
     print(f"\n✨ Fixed {fixed_count} out of {len(post_files)} files")
 
 if __name__ == "__main__":

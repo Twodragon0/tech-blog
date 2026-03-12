@@ -231,10 +231,10 @@ def main():
 예시:
   # 모든 포스팅 검증
   python3 scripts/check_posts.py
-
+  
   # 상세 리포트만 (요약 제외)
   python3 scripts/check_posts.py --detailed-only
-
+  
   # 특정 파일만 검증
   python3 scripts/check_posts.py _posts/2025-01-01-example.md
         """,

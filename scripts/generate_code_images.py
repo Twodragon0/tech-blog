@@ -912,16 +912,16 @@ def main():
 예시:
   # 최근 3개 포스트의 코드 블록 이미지 생성
   python3 scripts/generate_code_images.py --recent 3
-
+  
   # 특정 포스트 처리
   python3 scripts/generate_code_images.py _posts/2026-01-15-example.md
-
+  
   # 모든 포스트 처리
   python3 scripts/generate_code_images.py --all
-
+  
   # 드라큘라 테마 사용
   python3 scripts/generate_code_images.py --all --theme dracula
-
+  
   # 테마 목록 보기
   python3 scripts/generate_code_images.py --list-themes
         """,

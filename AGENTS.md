@@ -4,11 +4,6 @@
 
 Coding guidelines for AI agents (Claude, Cursor, Copilot, etc.) working on this Jekyll-based DevSecOps technical blog.
 
-## Global OpenCode Precedence
-
-- Use global OpenCode baseline as the default runtime policy (`~/.config/opencode/opencode.json` and `~/.config/opencode/instructions.md`).
-- Repo-local guidance in this document should not override global defaults for model, reasoning level, or default agent.
-
 ## Quick Reference
 
 | Resource | URL |

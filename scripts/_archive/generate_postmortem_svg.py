@@ -4,8 +4,8 @@ Post-Mortem Next.js SSR Error Incident SVG 이미지 생성
 nano banana 스타일의 간단한 SVG 이미지를 생성합니다.
 """
 
-import textwrap
 from pathlib import Path
+import textwrap
 
 # 프로젝트 루트 경로 설정
 SCRIPT_DIR = Path(__file__).parent
@@ -18,22 +18,22 @@ ASSETS_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 def generate_postmortem_svg():
     """Post-Mortem Next.js SSR Error Incident SVG 이미지 생성"""
     print("🎨 Post-Mortem SVG 이미지 생성 중...")
-
+    
     output_path = ASSETS_IMAGES_DIR / "2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg"
-
+    
     # 제목 텍스트
     title = "Post-Mortem: Next.js SSR Error & Cloudflare Blocking ALB 5XX Incident Analysis"
-
+    
     # 제목을 여러 줄로 나누기
     wrapper = textwrap.TextWrapper(width=40)
     title_lines = wrapper.wrap(title)
-
+    
     text_elements = ""
     y_offset = 180
     for i, line in enumerate(title_lines):
         text_elements += f'  <text x="400" y="{y_offset}" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">{line}</text>\n'
         y_offset += 35
-
+    
     # SVG 내용 생성
     svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
   <defs>
@@ -84,11 +84,11 @@ def generate_postmortem_svg():
   <!-- 하단 텍스트 -->
   <text x="780" y="380" text-anchor="end" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.5)">2026-01-16</text>
 </svg>'''
-
+    
     # 파일 저장
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(svg_content)
-
+    
     if output_path.exists():
         print(f"✅ 생성 완료: {output_path}")
         return True
@@ -99,9 +99,9 @@ def generate_postmortem_svg():
 def main():
     """메인 함수"""
     print("🚀 Post-Mortem SVG 이미지 생성 시작\n")
-
+    
     success = generate_postmortem_svg()
-
+    
     print("\n" + "="*60)
     if success:
         print("✅ SVG 이미지 생성 완료!")

@@ -173,7 +173,7 @@ def generate_standard_summary(front_matter: Dict) -> str:
 
 > **태그**: {tags_display}
 
-> **핵심 내용**:
+> **핵심 내용**: 
 {core_content}
 
 > **주요 기술/도구**: {tech_display}

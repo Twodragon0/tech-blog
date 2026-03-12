@@ -414,10 +414,10 @@ def main():
 예시:
   # 링크 확인만 (dry-run)
   python3 scripts/fix_links_unified.py --check
-
+  
   # 링크 수정
   python3 scripts/fix_links_unified.py --fix
-
+  
   # 특정 파일만 수정
   python3 scripts/fix_links_unified.py --fix _posts/2025-01-01-example.md
         """,

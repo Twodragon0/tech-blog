@@ -63,6 +63,8 @@ def mask_sensitive_info(text: str) -> str:
         if val and len(val) > 10:
             masked = masked.replace(val, f"***{env_var}_MASKED***")
     return masked
+
+
 env_path = PROJECT_ROOT / ".env"
 load_env_file(env_path)
 
