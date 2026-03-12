@@ -998,7 +998,7 @@ def fetch_worldmonitor_tech(
     params = parse_qs(parsed.query)
     layers_raw = params.get("layers", [""])[0]
     time_range = params.get("timeRange", ["7d"])[0]
-    layer_names = [str(l) for l in layers_raw.split(",") if l]
+    layer_names = [str(layer) for layer in layers_raw.split(",") if layer]
     layer_label_map = {
         "cloudRegions": "클라우드 리전",
         "datacenters": "데이터센터",

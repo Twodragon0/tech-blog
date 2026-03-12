@@ -96,18 +96,18 @@ def get_security_icons_svg() -> str:
     return """
     <!-- Shield Icon -->
     <g transform="translate(80, 280)">
-      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z"
             fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
       <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-    
+
     <!-- Lock Icon -->
     <g transform="translate(200, 300)">
       <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
       <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
       <circle cx="40" cy="55" r="6" fill="white"/>
     </g>
-    
+
     <!-- Alert Triangle -->
     <g transform="translate(320, 290)">
       <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
@@ -121,10 +121,10 @@ def get_cloud_icons_svg() -> str:
     return """
     <!-- Cloud Icon -->
     <g transform="translate(80, 280)">
-      <path d="M30 80 Q10 80 10 60 Q10 40 30 40 Q30 20 55 20 Q80 20 80 45 Q100 45 100 65 Q100 80 80 80 Z" 
+      <path d="M30 80 Q10 80 10 60 Q10 40 30 40 Q30 20 55 20 Q80 20 80 45 Q100 45 100 65 Q100 80 80 80 Z"
             fill="url(#cloudGradient)" stroke="#0ea5e9" stroke-width="2" opacity="0.9"/>
     </g>
-    
+
     <!-- Server Stack -->
     <g transform="translate(200, 290)">
       <rect x="10" y="10" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
@@ -134,7 +134,7 @@ def get_cloud_icons_svg() -> str:
       <circle cx="55" cy="45" r="4" fill="#22d3ee"/>
       <circle cx="55" cy="70" r="4" fill="#22d3ee"/>
     </g>
-    
+
     <!-- Network Node -->
     <g transform="translate(330, 300)">
       <circle cx="30" cy="30" r="20" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
@@ -151,10 +151,10 @@ def get_devops_icons_svg() -> str:
     return """
     <!-- Infinity/DevOps Loop -->
     <g transform="translate(80, 290)">
-      <path d="M10 40 Q10 10 40 10 Q70 10 70 40 Q70 70 100 70 Q130 70 130 40 Q130 10 100 10 Q70 10 70 40 Q70 70 40 70 Q10 70 10 40" 
+      <path d="M10 40 Q10 10 40 10 Q70 10 70 40 Q70 70 100 70 Q130 70 130 40 Q130 10 100 10 Q70 10 70 40 Q70 70 40 70 Q10 70 10 40"
             fill="none" stroke="url(#devopsGradient)" stroke-width="6" stroke-linecap="round"/>
     </g>
-    
+
     <!-- Gear Icon -->
     <g transform="translate(220, 290)">
       <circle cx="35" cy="35" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
@@ -164,7 +164,7 @@ def get_devops_icons_svg() -> str:
       <rect x="2" y="30" width="15" height="10" rx="2" fill="#f59e0b"/>
       <rect x="53" y="30" width="15" height="10" rx="2" fill="#f59e0b"/>
     </g>
-    
+
     <!-- Code Bracket -->
     <g transform="translate(330, 295)">
       <text x="0" y="45" font-family="monospace" font-size="50" font-weight="bold" fill="#a855f7">&lt;/&gt;</text>
@@ -190,14 +190,14 @@ def get_kubernetes_icons_svg() -> str:
         <line x1="61" y1="39" x2="78" y2="22"/>
       </g>
     </g>
-    
+
     <!-- Container Box -->
     <g transform="translate(230, 300)">
       <rect x="10" y="20" width="60" height="50" rx="5" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
       <rect x="10" y="10" width="60" height="15" rx="3" fill="#60a5fa"/>
       <rect x="20" y="35" width="40" height="25" rx="3" fill="#1e3a8a"/>
     </g>
-    
+
     <!-- Pod Circle -->
     <g transform="translate(340, 310)">
       <circle cx="30" cy="30" r="25" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
@@ -219,7 +219,7 @@ def get_ai_icons_svg() -> str:
       <line x1="50" y1="55" x2="70" y2="40" stroke="white" stroke-width="2" opacity="0.8"/>
       <line x1="30" y1="40" x2="70" y2="40" stroke="white" stroke-width="2" opacity="0.8"/>
     </g>
-    
+
     <!-- Robot Head -->
     <g transform="translate(210, 285)">
       <rect x="10" y="20" width="60" height="50" rx="10" fill="#6366f1" stroke="#4f46e5" stroke-width="2"/>
@@ -228,7 +228,7 @@ def get_ai_icons_svg() -> str:
       <circle cx="50" cy="40" r="8" fill="#22d3ee"/>
       <rect x="25" y="55" width="30" height="8" rx="2" fill="#c7d2fe"/>
     </g>
-    
+
     <!-- Chip/Processor -->
     <g transform="translate(330, 295)">
       <rect x="15" y="15" width="50" height="50" rx="5" fill="#7c3aed" stroke="#6d28d9" stroke-width="2"/>
@@ -248,11 +248,11 @@ def get_devsecops_icons_svg() -> str:
     return """
     <!-- Shield with Code -->
     <g transform="translate(80, 275)">
-      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
+      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z"
             fill="url(#devsecopsGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
       <text x="50" y="75" font-family="monospace" font-size="28" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
     </g>
-    
+
     <!-- Pipeline Arrow -->
     <g transform="translate(200, 300)">
       <rect x="0" y="20" width="30" height="30" rx="5" fill="#3b82f6"/>
@@ -264,7 +264,7 @@ def get_devsecops_icons_svg() -> str:
       <rect x="110" y="20" width="30" height="30" rx="5" fill="#22c55e"/>
       <text x="125" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">O</text>
     </g>
-    
+
     <!-- Security Scanner -->
     <g transform="translate(360, 290)">
       <circle cx="30" cy="35" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
@@ -279,13 +279,13 @@ def get_incident_icons_svg() -> str:
     return """
     <!-- Warning Bell -->
     <g transform="translate(80, 280)">
-      <path d="M50 15 Q30 15 30 40 L30 65 L20 75 L80 75 L70 65 L70 40 Q70 15 50 15" 
+      <path d="M50 15 Q30 15 30 40 L30 65 L20 75 L80 75 L70 65 L70 40 Q70 15 50 15"
             fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
       <circle cx="50" cy="85" r="8" fill="#ef4444"/>
       <line x1="50" y1="5" x2="50" y2="15" stroke="#ef4444" stroke-width="3"/>
       <circle cx="50" cy="3" r="3" fill="#ef4444"/>
     </g>
-    
+
     <!-- Timeline -->
     <g transform="translate(200, 310)">
       <line x1="0" y1="30" x2="140" y2="30" stroke="#64748b" stroke-width="3"/>
@@ -294,10 +294,10 @@ def get_incident_icons_svg() -> str:
       <circle cx="100" cy="30" r="8" fill="#22c55e"/>
       <circle cx="140" cy="30" r="8" fill="#3b82f6"/>
     </g>
-    
+
     <!-- Fire Icon -->
     <g transform="translate(370, 285)">
-      <path d="M30 70 Q10 50 20 30 Q25 40 35 35 Q30 20 40 5 Q50 25 55 20 Q65 35 60 50 Q70 55 65 70 Z" 
+      <path d="M30 70 Q10 50 20 30 Q25 40 35 35 Q30 20 40 5 Q50 25 55 20 Q65 35 60 50 Q70 55 65 70 Z"
             fill="url(#fireGradient)" stroke="#dc2626" stroke-width="2"/>
     </g>
     """
@@ -312,14 +312,14 @@ def get_finops_icons_svg() -> str:
       <polyline points="15,60 30,45 50,55 70,30 85,40" fill="none" stroke="#22d3ee" stroke-width="3"/>
       <text x="50" y="55" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#14b8a6" text-anchor="middle">$</text>
     </g>
-    
+
     <!-- Cloud Cost -->
     <g transform="translate(210, 290)">
-      <path d="M20 50 Q5 50 5 35 Q5 20 20 20 Q20 5 40 5 Q60 5 60 25 Q75 25 75 40 Q75 50 60 50 Z" 
+      <path d="M20 50 Q5 50 5 35 Q5 20 20 20 Q20 5 40 5 Q60 5 60 25 Q75 25 75 40 Q75 50 60 50 Z"
             fill="#14b8a6" stroke="#0d9488" stroke-width="2" opacity="0.8"/>
       <text x="40" y="38" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">$</text>
     </g>
-    
+
     <!-- Savings Piggy -->
     <g transform="translate(330, 295)">
       <ellipse cx="40" cy="40" rx="35" ry="25" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
@@ -467,13 +467,13 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
       <stop offset="70%" style="stop-color:#1a1f3a"/>
       <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    
+
     <!-- Category Gradient -->
     <linearGradient id="{config["gradient_id"]}" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:{config["gradient_start"]}"/>
       <stop offset="100%" style="stop-color:{config["gradient_end"]}"/>
     </linearGradient>
-    
+
     <!-- Accent Gradient -->
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
@@ -481,20 +481,20 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
       <stop offset="66%" style="stop-color:#ec4899"/>
       <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    
+
     <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    
+
     <!-- Fire Gradient for Incident -->
     <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:#dc2626"/>
       <stop offset="50%" style="stop-color:#f59e0b"/>
       <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    
+
     <!-- Glow Effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -503,7 +503,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
       <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
@@ -512,12 +512,12 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <!-- Shadow -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
     </filter>
-    
+
     <!-- Inner Glow -->
     <filter id="innerGlow">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
@@ -530,58 +530,58 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
+
   <!-- Animated Grid Pattern -->
   <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
     <path d="M 60 0 L 0 0 0 60" fill="none" stroke="{config["accent"]}" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  
+
   <!-- Background Decorative Elements -->
   <circle cx="0" cy="0" r="300" fill="{config["bg_accent_1"]}" fill-opacity="0.03"/>
   <circle cx="1200" cy="630" r="350" fill="{config["bg_accent_2"]}" fill-opacity="0.04"/>
   <circle cx="600" cy="315" r="400" fill="{config["gradient_start"]}" fill-opacity="0.02"/>
-  
+
   <!-- Decorative Lines -->
   <line x1="0" y1="200" x2="150" y2="200" stroke="{config["accent"]}" stroke-width="1" opacity="0.3"/>
   <line x1="1050" y1="430" x2="1200" y2="430" stroke="{config["accent"]}" stroke-width="1" opacity="0.3"/>
-  
+
   <!-- Top Header Bar -->
   <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
-  
+
   <!-- Category Badge -->
   <g filter="url(#shadow)">
     <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#{config["gradient_id"]})"/>
     <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{config["label"]}</text>
   </g>
-  
+
   <!-- Date Badge -->
   <g filter="url(#shadow)">
     <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
     <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">{date_str}</text>
   </g>
-  
+
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{display_title}</text>
-  
+
   <!-- Subtitle Line -->
   <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
-  
+
   <!-- Icon Section - Left Side -->
   <g opacity="0.95">
     {icons_svg}
   </g>
-  
+
   <!-- Main Content Card -->
   <g transform="translate(450, 180)" filter="url(#shadow)">
     <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="{config["accent"]}" stroke-width="1" stroke-opacity="0.3"/>
-    
+
     <!-- Card Header Accent -->
     <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#{config["gradient_id"]})"/>
-    
+
     <!-- Card Title -->
     <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="{config["accent"]}">Key Highlights</text>
-    
+
     <!-- Summary Content -->'''
 
         # 요약 내용 추가
@@ -606,7 +606,6 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
 
         # 태그 추가
         svg_content += """
-    
     <!-- Tags Section -->
     <g transform="translate(30, 230)">"""
 
@@ -623,26 +622,26 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
 
         svg_content += f"""
     </g>
-    
+
     <!-- CTA Button -->
     <g transform="translate(540, 280)">
       <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
       <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-  
+
   <!-- Bottom Section -->
   <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
-  
+
   <!-- Blog Branding -->
   <g transform="translate(50, 575)">
     <rect width="45" height="45" rx="10" fill="url(#{config["gradient_id"]})" filter="url(#shadow)"/>
     <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-  
+
   <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
   <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
-  
+
   <!-- Tech Stack -->
   <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
   <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
@@ -710,13 +709,13 @@ def main():
 예시:
   # 최근 포스팅 이미지 생성 (강제 덮어쓰기)
   python3 scripts/generate_high_quality_images.py --recent 5 --force
-  
+
   # 특정 포스팅 이미지 생성
   python3 scripts/generate_high_quality_images.py _posts/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.md --force
-  
+
   # 2026년 포스팅 모두 처리
   python3 scripts/generate_high_quality_images.py --year 2026 --force
-  
+
   # 모든 포스팅 이미지 재생성
   python3 scripts/generate_high_quality_images.py --all --force
         """,

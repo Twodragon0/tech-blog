@@ -18,16 +18,16 @@ graph TB
         CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
         NetworkPolicy["Network Policies<br/>Pod Isolation"]
     end
-    
+
     App["Application Container"]
-    
+
     ImageScan --> SecretMgmt
     SecretMgmt --> NonRoot
     NonRoot --> ReadOnly
     ReadOnly --> CapDrop
     CapDrop --> NetworkPolicy
     NetworkPolicy --> App
-    
+
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
     style NonRoot fill:#e1f5ff
@@ -42,24 +42,24 @@ graph LR
         Code["Code<br/>Secure Dockerfile"]
         Build["Build<br/>Image Scanning"]
     end
-    
+
     subgraph Sec["Sec Phase"]
         Scan["Security Scan<br/>Trivy, Snyk"]
         Policy["Policy Check<br/>K8s YAML Validation"]
     end
-    
+
     subgraph Ops["Ops Phase"]
         Deploy["Deploy<br/>Secure Deployment"]
         Monitor["Monitor<br/>Runtime Security"]
     end
-    
+
     Code --> Build
     Build --> Scan
     Scan --> Policy
     Policy --> Deploy
     Deploy --> Monitor
     Monitor --> Code
-    
+
     style Code fill:#e1f5ff
     style Build fill:#fff4e1
     style Scan fill:#ffebee
@@ -72,10 +72,10 @@ graph LR
     Privileged["Privileged<br/>No restrictions<br/>System Pods"]
     Baseline["Baseline<br/>Minimal security<br/>General Apps"]
     Restricted["Restricted<br/>Strongest policies<br/>Sensitive Workloads"]
-    
+
     Privileged --> Baseline
     Baseline --> Restricted
-    
+
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1
     style Restricted fill:#e8f5e9
@@ -86,16 +86,16 @@ graph TB
         HostRoot["Host Root User<br/>UID 0"]
         HostUser["Host Non-root User<br/>UID 1000"]
     end
-    
+
     subgraph Container["Container"]
         ContainerRoot["Container Root<br/>UID 0"]
         ContainerApp["Container App<br/>UID 1000"]
     end
-    
+
     ContainerRoot -.->|"User Namespace Mapping"| HostUser
     ContainerApp -.->|"Direct Mapping"| HostUser
     HostRoot -.->|"Isolated"| ContainerRoot
-    
+
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9
     style ContainerRoot fill:#fff4e1

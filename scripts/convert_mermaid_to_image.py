@@ -229,8 +229,8 @@ def convert_with_playwright(chart_content: str, output_path: Path) -> bool:
 {chart_content}
     </div>
     <script>
-        mermaid.initialize({{ 
-            startOnLoad: true, 
+        mermaid.initialize({{
+            startOnLoad: true,
             theme: 'default',
             securityLevel: 'loose',
             flowchart: {{
@@ -407,10 +407,10 @@ def main():
 예시:
   # 특정 포스팅 처리
   python3 scripts/convert_mermaid_to_image.py _posts/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.md
-  
+
   # 모든 포스팅 처리
   python3 scripts/convert_mermaid_to_image.py --all
-  
+
   # 강제 재생성
   python3 scripts/convert_mermaid_to_image.py _posts/2026-01-15-...md --force
         """,

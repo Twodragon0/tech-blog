@@ -96,6 +96,7 @@ jobs:
           echo "channel_id=$channel_id" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
+        id: gateway
         if: steps.digest.outputs.has_message == 'true' && steps.ai-config.outputs.can_post == 'true'
         shell: bash
         env:
@@ -105,15 +106,43 @@ jobs:
           AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
         run: |
           set -euo pipefail
+          echo "sent=false" >> "$GITHUB_OUTPUT"
           payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-          HTTP_STATUS=$(curl -sS -o /tmp/digest_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" \
+          HTTP_STATUS=$(curl -sS --retry 3 --retry-all-errors --retry-delay 2 -o /tmp/digest_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" \
             -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
             -H "Content-Type: application/json" \
             -d "$payload")
           echo "Slack response: $HTTP_STATUS"
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
             echo "Slack digest sent successfully"
+            echo "sent=true" >> "$GITHUB_OUTPUT"
           else
             echo "::warning::Slack digest failed (HTTP $HTTP_STATUS)"
             cat /tmp/digest_resp.txt || true
+          fi
+
+      - name: Post to Slack via Webhook (fallback)
+        if: steps.digest.outputs.has_message == 'true' && steps.gateway.outputs.sent != 'true'
+        continue-on-error: true
+        shell: bash
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          MESSAGE: ${{ steps.digest.outputs.message }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_WEBHOOK:-}" ]; then
+            echo "SLACK_WEBHOOK not configured, skipping fallback"
+            exit 0
+          fi
+          payload=$(python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); print(json.dumps({"text": message}, ensure_ascii=False))')
+          HTTP_STATUS=$(curl -sS --retry 3 --retry-all-errors --retry-delay 2 -o /tmp/digest_webhook_resp.txt -w "%{http_code}" \
+            -X POST "${SLACK_WEBHOOK}" \
+            -H "Content-Type: application/json" \
+            -d "$payload")
+          echo "Webhook response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Slack digest webhook fallback sent successfully"
+          else
+            echo "::warning::Slack digest webhook fallback failed (HTTP $HTTP_STATUS)"
+            cat /tmp/digest_webhook_resp.txt || true
           fi

@@ -4,10 +4,9 @@
 빈 이미지 파일을 제거하는 스크립트
 """
 
-import os
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import List
 
 PROJECT_ROOT = Path(__file__).parent.parent
 ASSETS_IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
@@ -124,28 +123,28 @@ KOREAN_TO_ENGLISH = {
 def translate_korean_to_english(text: str) -> str:
     """한글을 영어로 변환"""
     result = text
-    
+
     # 사전 기반 변환 (긴 단어부터)
     for korean, english in sorted(KOREAN_TO_ENGLISH.items(), key=lambda x: -len(x[0])):
         result = result.replace(korean, english)
-    
+
     # 남은 한글 제거
     result = re.sub(r'[가-힣]', '', result)
-    
+
     # 특수 문자를 언더스코어로 변환
     result = re.sub(r'[^\w\-]', '_', result)
     # 여러 언더스코어를 하나로
     result = re.sub(r'_+', '_', result)
     # 시작/끝 언더스코어 제거
     result = result.strip('_')
-    
+
     return result
 
 
 def find_empty_images() -> List[Path]:
     """빈 이미지 파일 찾기 (1KB 미만)"""
     empty_files = []
-    
+
     diagram_patterns = [
         '*_docker_vs_vm.png',
         '*_kubernetes_architecture.png',
@@ -154,7 +153,7 @@ def find_empty_images() -> List[Path]:
         '*_user_namespaces.png',
         '*_devsecops_workflow.png',
     ]
-    
+
     for pattern in diagram_patterns:
         for img_file in ASSETS_IMAGES_DIR.glob(pattern):
             try:
@@ -163,35 +162,35 @@ def find_empty_images() -> List[Path]:
                     empty_files.append(img_file)
             except Exception:
                 pass
-    
+
     return empty_files
 
 
 def fix_post_references(auto_yes: bool = False):
     """포스트의 한글 이미지 파일명 참조를 영어로 변환"""
     updated_posts = []
-    
+
     for post_file in POSTS_DIR.glob('*.md'):
         try:
             with open(post_file, 'r', encoding='utf-8') as f:
                 content = f.read()
-            
+
             original_content = content
             modified = False
-            
+
             # 한글이 포함된 이미지 경로 찾기
             pattern = r'/assets/images/([^)]+\.png)'
             matches = re.findall(pattern, content)
-            
+
             for old_filename in matches:
                 if re.search(r'[가-힣]', old_filename):
                     # 영어 파일명으로 변환
                     english_filename = translate_korean_to_english(old_filename)
-                    
+
                     # 실제 파일 확인
                     old_path = ASSETS_IMAGES_DIR / old_filename
                     new_path = ASSETS_IMAGES_DIR / english_filename
-                    
+
                     # 영어 파일명이 존재하면 참조 업데이트
                     if new_path.exists():
                         old_ref = f"/assets/images/{old_filename}"
@@ -210,37 +209,37 @@ def fix_post_references(auto_yes: bool = False):
                             print(f"  파일명 변경 및 참조 업데이트: {old_filename} -> {english_filename}")
                         except Exception as e:
                             print(f"  오류 ({old_filename}): {e}")
-            
+
             if modified:
                 with open(post_file, 'w', encoding='utf-8') as f:
                     f.write(content)
                 updated_posts.append(post_file.name)
                 print(f"✅ 업데이트 완료: {post_file.name}")
-        
+
         except Exception as e:
             print(f"❌ 오류 ({post_file.name}): {e}")
-    
+
     return updated_posts
 
 
 def remove_empty_images(auto_yes: bool = False):
     """빈 이미지 파일 제거"""
     empty_files = find_empty_images()
-    
+
     if not empty_files:
         print("빈 이미지 파일 없음")
         return []
-    
+
     print(f"\n빈 이미지 파일 {len(empty_files)}개 발견:")
     for f in empty_files:
         print(f"  - {f.name}")
-    
+
     if not auto_yes:
         response = input("\n이 파일들을 삭제하시겠습니까? (y/N): ")
         if response.lower() != 'y':
             print("삭제 취소됨")
             return []
-    
+
     removed = []
     for f in empty_files:
         # 포스트 참조 제거
@@ -248,46 +247,46 @@ def remove_empty_images(auto_yes: bool = False):
             try:
                 with open(post_file, 'r', encoding='utf-8') as f_post:
                     content = f_post.read()
-                
+
                 old_ref = f"/assets/images/{f.name}"
                 if old_ref in content:
                     # 이미지 참조 제거
                     content = re.sub(rf'!\[[^\]]*\]\({re.escape(old_ref)}\)\s*\n\*그림:[^\*]*\*\s*\n', '', content)
                     content = re.sub(rf'!\[[^\]]*\]\({re.escape(old_ref)}\)\s*\n', '', content)
-                    
+
                     with open(post_file, 'w', encoding='utf-8') as f_post:
                         f_post.write(content)
                     print(f"  참조 제거: {post_file.name}")
             except Exception as e:
                 print(f"  오류 ({post_file.name}): {e}")
-        
+
         f.unlink()
         removed.append(f.name)
         print(f"  삭제됨: {f.name}")
-    
+
     print(f"\n총 {len(removed)}개 파일 삭제 완료")
     return removed
 
 
 def main():
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="한글 이미지 파일명 참조 수정 및 빈 이미지 제거")
     parser.add_argument("--yes", "-y", action="store_true", help="자동으로 모든 작업 수행")
     args = parser.parse_args()
-    
+
     print("=" * 60)
     print("한글 이미지 파일명 참조 수정 및 빈 이미지 제거")
     print("=" * 60)
-    
+
     # 1. 빈 이미지 파일 제거
     print("\n1. 빈 이미지 파일 확인 중...")
     remove_empty_images(auto_yes=args.yes)
-    
+
     # 2. 포스트 참조 수정
     print("\n2. 포스트의 한글 이미지 파일명 참조 수정 중...")
     updated = fix_post_references(auto_yes=args.yes)
-    
+
     print(f"\n총 {len(updated)}개 포스트 업데이트 완료")
     print("\n작업 완료!")
 

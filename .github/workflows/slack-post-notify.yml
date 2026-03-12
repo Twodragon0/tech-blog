@@ -43,7 +43,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          BEFORE_SHA="${{ github.event.before }}"
+          AFTER_SHA="${{ github.sha }}"
+          if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE_SHA" "$AFTER_SHA" -- '_posts/*.md' 2>/dev/null || echo "")
+          else
+            NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          fi
           if [ -z "$NEW_POSTS" ]; then
             echo "No new posts detected"
             echo "has_posts=false" >> "$GITHUB_OUTPUT"
@@ -55,6 +61,7 @@ jobs:
           python3 scripts/build_slack_post_message.py "$NEW_POSTS" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
+        id: gateway
         if: steps.posts.outputs.has_posts == 'true'
         env:
           AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
@@ -65,6 +72,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "sent=false" >> "$GITHUB_OUTPUT"
           if [ -z "${AI_GATEWAY_URL:-}" ] || [ -z "${AI_GATEWAY_TOKEN:-}" ]; then
             echo "AI Gateway config not set, skipping"
             exit 0
@@ -80,22 +88,29 @@ jobs:
             echo "No Slack channel ids configured, skipping"
             exit 0
           fi
+          success_count=0
           for target in "${channels[@]}"; do
             payload=$(TARGET="$target" python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); target=os.environ.get("TARGET", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":target,"message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-            HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
+            HTTP_STATUS=$(curl -sS --retry 3 --retry-all-errors --retry-delay 2 -o /tmp/slack_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
             echo "Slack response for ${target}: $HTTP_STATUS"
             if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
               echo "Slack notification sent successfully to ${target}"
+              success_count=$((success_count + 1))
             else
               echo "::warning::Slack notification failed for ${target} (HTTP $HTTP_STATUS)"
               cat /tmp/slack_resp.txt || true
             fi
           done
+          if [ "$success_count" -gt 0 ]; then
+            echo "sent=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Post to Slack via Webhook (fallback)
-        if: steps.posts.outputs.has_posts == 'true'
+        if: steps.posts.outputs.has_posts == 'true' && steps.gateway.outputs.sent != 'true'
         continue-on-error: true
         env:
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           MESSAGE: ${{ steps.posts.outputs.message }}
         run: |
@@ -103,12 +118,8 @@ jobs:
             echo "SLACK_WEBHOOK not configured, skipping fallback"
             exit 0
           fi
-          if [ -n "${AI_GATEWAY_URL:-}" ] && [ -n "${AI_GATEWAY_TOKEN:-}" ]; then
-            echo "AI Gateway is primary; webhook fallback not needed"
-            exit 0
-          fi
           payload=$(python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); print(json.dumps({"text": message}, ensure_ascii=False))')
-          HTTP_STATUS=$(curl -sS -o /tmp/webhook_resp.txt -w "%{http_code}" \
+          HTTP_STATUS=$(curl -sS --retry 3 --retry-all-errors --retry-delay 2 -o /tmp/webhook_resp.txt -w "%{http_code}" \
             -X POST "${SLACK_WEBHOOK}" \
             -H "Content-Type: application/json" \
             -d "$payload")
