@@ -179,6 +179,20 @@ bash scripts/install_morning_cron.sh
 
 # Manual run for same flow
 bash scripts/morning_autopost_cron.sh
+
+# Optional: disable GitHub workflow trigger from cron
+GH_TRIGGER_WORKFLOWS=false bash scripts/morning_autopost_cron.sh
+
+# Optional: skip ops roundtable checks
+RUN_OPS_ROUNDTABLE=false bash scripts/morning_autopost_cron.sh
+
+# Optional: force AI mode for autopost
+USE_AI=none bash scripts/morning_autopost_cron.sh
+
+# Recommended AI-first modes
+USE_AI=auto bash scripts/morning_autopost_cron.sh   # Claude -> Gemini -> Codex/DeepSeek fallback
+USE_AI=claude bash scripts/morning_autopost_cron.sh # Claude priority
+USE_AI=gemini bash scripts/morning_autopost_cron.sh # Gemini priority
 ```
 
 ### Post Improvement

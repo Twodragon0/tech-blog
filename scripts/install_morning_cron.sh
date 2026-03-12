@@ -11,7 +11,7 @@ if [ ! -f "$CRON_SCRIPT" ]; then
   exit 1
 fi
 
-CRON_LINE="0 9 * * * /usr/bin/env bash \"$CRON_SCRIPT\""
+CRON_LINE="0 9 * * * MODE=security USE_AI=auto HOURS=24 MAX_NEWS=15 GH_TRIGGER_WORKFLOWS=true RUN_OPS_ROUNDTABLE=true AUTO_PUBLISH_GEMINI_TIMEOUT=12 AUTO_PUBLISH_GEMINI_RETRIES=1 /usr/bin/env bash \"$CRON_SCRIPT\""
 CRON_TAG="# tech-blog-morning-autopost"
 
 EXISTING="$(crontab -l 2>/dev/null || true)"

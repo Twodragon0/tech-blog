@@ -15,6 +15,9 @@ on:
 
 permissions: {}
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   check-changes:
     runs-on: ubuntu-latest
@@ -125,6 +128,11 @@ jobs:
         run: |
           bundle exec jekyll doctor || true
           echo "✅ Jekyll configuration validation completed"
+
+      - name: Validate Liquid include syntax in posts
+        run: |
+          python3 scripts/fix_malformed_liquid_includes.py --check
+          echo "✅ Liquid include syntax check passed"
 
       - name: Build with build.sh (consistent with Vercel)
         run: |

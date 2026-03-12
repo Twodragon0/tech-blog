@@ -40,10 +40,13 @@ on:
       use_ai:
         description: "AI enrichment"
         required: false
-        default: "gemini"
+        default: "auto"
         type: choice
         options:
+          - "auto"
+          - "claude"
           - "gemini"
+          - "codex-medium"
           - "deepseek"
           - "none"
       run_checks:
@@ -66,7 +69,6 @@ env:
 
 jobs:
   auto-publish:
-    if: github.event_name != 'schedule' || vars.AI_BLOGWATCHER_SCHEDULE == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -86,6 +88,8 @@ jobs:
       BLOGWATCHER_NEWS_JSON: ${{ github.event.client_payload.collected_news_json || '' }}
       BLOGWATCHER_PAYLOAD: ${{ toJson(github.event.client_payload) }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
     steps:
@@ -198,8 +202,10 @@ jobs:
       - name: Auto publish digest
         if: steps.check_news.outputs.has_enough_news == 'true'
         env:
-          GEMINI_API_KEY: ${{ env.USE_AI == 'gemini' && secrets.GEMINI_API_KEY || '' }}
-          DEEPSEEK_API_KEY: ${{ env.USE_AI == 'deepseek' && secrets.DEEPSEEK_API_KEY || '' }}
+          GEMINI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gemini') && secrets.GEMINI_API_KEY || '' }}
+          CLAUDE_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
+          OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
+          DEEPSEEK_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
         run: |
           # Validate MODE against whitelist
           case "${MODE}" in
@@ -207,7 +213,7 @@ jobs:
             *) echo "::error::Invalid mode: ${MODE}"; exit 1 ;;
           esac
 
-          args=(--hours "${HOURS}" --max-news "${MAX_NEWS}" --mode "${MODE}")
+          args=(--hours "${HOURS}" --max-news "${MAX_NEWS}" --mode "${MODE}" --use-ai "${USE_AI}")
 
           if [ "${DRY_RUN}" = "true" ]; then
             args+=(--dry-run)
