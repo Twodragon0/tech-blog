@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-11T01:23:43.621647+00:00",
+  "updated_at": "2026-03-12T01:23:11.004920+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1020,6 +1020,96 @@
       "title": ".NET and .NET Framework March 2026 servicing releases updates",
       "published_date": "2026-03-11",
       "expires_at": "2026-03-18T01:23:43.621538+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/researchers-trick-perplexitys-comet-ai.html",
+      "title": "Researchers Trick Perplexity's Comet AI Browser Into Phishing Scam in Under Four",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/11/contagious-interview-malware-delivered-through-fake-developer-job-interviews/",
+      "title": "Contagious Interview: Malware delivered through fake developer job interviews",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/critical-n8n-flaws-allow-remote-code.html",
+      "title": "Critical n8n Flaws Allow Remote Code Execution and Exposure of Stored Credential",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/meta-disables-150k-accounts-linked-to.html",
+      "title": "Meta Disables 150K Accounts Linked to Southeast Asia Scam Centers in Global Crac",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/dozens-of-vendors-patch-security-flaws.html",
+      "title": "Dozens of Vendors Patch Security Flaws Across Enterprise Software and Network De",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/health/google-ai-heart-health-australia/",
+      "title": "How AI is helping improve heart health in rural Australia",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nemotron-3-super-agentic-ai/",
+      "title": "New NVIDIA Nemotron 3 Super Delivers 5x Higher Throughput for Agentic AI",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/gtc-2026-news/",
+      "title": "NVIDIA GTC 2026: Live Updates on What’s Next in AI",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://openai.com/index/rakuten",
+      "title": "Rakuten fixes issues twice as fast with Codex",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://openai.com/index/designing-agents-to-resist-prompt-injection",
+      "title": "Designing AI agents to resist prompt injection",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/google-completes-acquisition-of-wiz/",
+      "title": "Welcoming Wiz to Google Cloud: Redefining security for the AI era",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/aws-organizations-now-supports-upgrade-rollout-policy-for-amazon-aurora-and-amazon-rds-automatic-minor-version-upgrades/",
+      "title": "AWS Organizations에서 Amazon Aurora 및 Amazon RDS 자동 마이너 버전 업그레이드를 위한 업그레이드 롤아웃 정책 ",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/building-ai-teams-docker-sandboxes-agent/",
+      "title": "Building AI Teams: How Docker Sandboxes and Docker Agent Transform Development",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/announcements/2026/03/10/cncf-unveils-kubecon-cloudnativecon-india-2026-schedule/",
+      "title": "CNCF Unveils KubeCon + CloudNativeCon India 2026 Schedule",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/politics/coinbase-cpo-rejects-claims-of-opposing-bitcoin-tax-relief-as-jack-dorsey-demands-clarity-from-brian-armstrong",
+      "title": "Coinbase CPO Rejects Claims of Opposing Bitcoin Tax Relief as Jack Dorsey Demand",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T01:23:11.004811+00:00"
     }
   ]
 }
