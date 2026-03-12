@@ -173,6 +173,12 @@ python3 scripts/collect_tech_news.py --hours 24
 
 # Generate news draft
 python3 scripts/generate_news_draft.py --use-ai --max-posts 10
+
+# Install local 09:00 cron autopost (always-on server)
+bash scripts/install_morning_cron.sh
+
+# Manual run for same flow
+bash scripts/morning_autopost_cron.sh
 ```
 
 ### Post Improvement

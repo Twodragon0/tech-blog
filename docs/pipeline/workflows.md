@@ -207,14 +207,14 @@ SITE_URL: "https://tech.2twodragon.com"
 | 항목 | 값 |
 |------|-----|
 | **목적** | 기술/보안 뉴스 자동 수집 및 초안 생성 |
-| **트리거** | schedule (daily KST 09:00), workflow_dispatch |
+| **트리거** | workflow_dispatch |
 | **출력** | PR with draft posts |
 
-### 스케줄
-```yaml
-schedule:
-  - cron: '0 0 * * *'  # UTC 00:00 = KST 09:00
-```
+### 스케줄 운영
+
+- 서버 상시 가동 환경에서는 GitHub schedule 대신 로컬 크론을 사용합니다.
+- 로컬 09:00 자동 포스팅/품질 점검 실행: `bash scripts/install_morning_cron.sh`
+- 실행 스크립트: `scripts/morning_autopost_cron.sh`
 
 ### 수동 실행 옵션
 ```yaml

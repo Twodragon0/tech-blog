@@ -3,8 +3,6 @@ name: AI BlogWatcher Auto Publish
 on:
   repository_dispatch:
     types: [ai_blogwatcher]
-  schedule:
-    - cron: "0 0 * * *"  # 09:00 AM KST (UTC+9)
   workflow_dispatch:
     inputs:
       hours:
