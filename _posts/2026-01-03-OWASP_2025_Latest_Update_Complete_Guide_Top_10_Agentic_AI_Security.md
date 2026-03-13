@@ -344,3 +344,8 @@ rules:
 > 3. 양자내성 암호화 전환: 2026-2030 로드맵 수립 및 하이브리드 방식 점진적 도입
 > 4. 문화 개선: Shift Left 보안, 개발자 보안 교육, 보안 메트릭 통합
 > 5. 지속적 학습: OWASP 커뮤니티 참여, 최신 보안 동향 모니터링
+
+## 관련 포스트
+
+- [테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석]({% post_url 2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps %})
+- [DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략]({% post_url 2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide %})

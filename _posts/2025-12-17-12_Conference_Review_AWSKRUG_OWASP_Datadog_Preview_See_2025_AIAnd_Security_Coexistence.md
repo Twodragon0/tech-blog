@@ -508,3 +508,7 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 최종 업데이트: 2025-12-17
 카테고리: 클라우드 보안, DevSecOps, 컨퍼런스 회고
 태그: AWSKRUG, OWASP, Datadog, AI 보안, Zero Trust, Post-quantum, 공급망 보안
+
+## 관련 포스트
+
+- [클라우드 시큐리티 8기 4주차: 통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무]({% post_url 2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response %})

@@ -466,3 +466,15 @@ Google의 IPIDEA 해체는 6.1M IP 규모의 레지덴셜 프록시 네트워크
 
 *이 포스팅은 47개 RSS 피드에서 수집된 224개 뉴스를 분석하여 작성되었습니다.*
 *수집 기간: 2026년 1월 29일 ~ 30일 (48시간)*
+
+## 관련 포스트
+
+- ['기술·보안 주간 다이제스트: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트,]({% post_url 2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e %})
+- [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계]({% post_url 2026-01-28-Claude_MD_Security_Guide %})
+- ['기술·보안 주간 다이제스트: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,]({% post_url 2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE %})
+- ['기술·보안 주간 다이제스트: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes]({% post_url 2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent %})
+- ['기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT]({% post_url 2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack %})
+- [에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드]({% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %})
+- ['기술·보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크,]({% post_url 2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet %})
+- ['주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트]({% post_url 2026-02-02-Weekly_Security_Threat_Intelligence_Digest %})
+- ['주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의]({% post_url 2026-02-02-Weekly_Tech_AI_Blockchain_Digest %})

@@ -613,6 +613,11 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 
 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 DevSecOps 환경을 구축할 수 있습니다.
 
+
+## 관련 포스트
+
+- [클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안]({% post_url 2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security %})
+
 ## 참고 자료
 
 ### 공식 문서

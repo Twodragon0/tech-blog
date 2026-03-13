@@ -396,6 +396,11 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
 - ACM에서 발급한 인증서는 올바른 체인 포함
 - 클라이언트가 AWS Root CA를 신뢰하는지 확인
 
+
+## 관련 포스트
+
+- [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기]({% post_url 2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution %})
+
 ## 참고 자료
 
 ### AWS 공식 문서

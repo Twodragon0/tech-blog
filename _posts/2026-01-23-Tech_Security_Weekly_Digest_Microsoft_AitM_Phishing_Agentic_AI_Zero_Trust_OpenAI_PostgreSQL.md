@@ -339,6 +339,19 @@ Step 4: Vault Audit Log 이상 패턴
 
 ---
 
+
+## 관련 포스트
+
+- ['AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign]({% post_url 2026-01-22-AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud %})
+- ["\U0001F680 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터]({% post_url 2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide %})
+- ['2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사]({% post_url 2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey %})
+- [2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략]({% post_url 2026-01-22-KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST %})
+- [KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법]({% post_url 2026-01-22-KISA_Security_Advisory_Ransomware_Prevention_Linux_Rootkit_Detection_Guide_Analysis %})
+- [보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)]({% post_url 2026-01-22-Security_Vendor_Blog_Weekly_Review %})
+- ['기술·보안 주간 다이제스트: Microsoft BitLocker FBI 키 제공, Cloudflare Route]({% post_url 2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker %})
+- ['기술·보안 주간 다이제스트: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,]({% post_url 2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents %})
+- ['기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 기술지원 사기 방지,]({% post_url 2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks %})
+
 ## 참고 자료
 
 ### 보안 위협 관련

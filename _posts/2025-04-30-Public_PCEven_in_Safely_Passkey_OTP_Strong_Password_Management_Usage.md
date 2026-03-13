@@ -595,3 +595,9 @@ AI 피싱 공격 특징:
 ---
 
 면책 조항: 이 글은 교육 목적으로 작성되었으며, 특정 제품이나 서비스를 홍보하지 않습니다. 보안 설정은 조직의 위험 프로필과 규제 요구사항에 따라 달라질 수 있으므로, 보안 전문가와 상담 후 적용하시기 바랍니다.
+
+## 관련 포스트
+
+- [SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성]({% post_url 2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance %})
+- [클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps]({% post_url 2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops %})
+- [Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드]({% post_url 2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide %})

@@ -533,3 +533,7 @@ cat /var/log/falco/events.txt | \
 - [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
 
 ```
+
+## 관련 포스트
+
+- [Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지]({% post_url 2025-05-30-Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo %})

@@ -165,6 +165,17 @@ pip-audit
 
 ---
 
+
+## 관련 포스트
+
+- ['기술·보안 주간 다이제스트: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,]({% post_url 2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents %})
+- ['기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 기술지원 사기 방지,]({% post_url 2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks %})
+- ['기술·보안 주간 다이제스트: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트,]({% post_url 2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e %})
+- ['기술·보안 주간 다이제스트: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,]({% post_url 2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE %})
+- ['기술·보안 주간 다이제스트: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes]({% post_url 2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent %})
+- ['기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, SolarWinds WHD Critical]({% post_url 2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA %})
+- ['기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT]({% post_url 2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack %})
+
 ## 참고 자료
 
 | 리소스 | 설명 | 링크 |

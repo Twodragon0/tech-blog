@@ -578,6 +578,11 @@ OfficeActivity, EmailEvents 테이블 사용
 | BEC 공격 의심 | 경영진 사칭 + 인증 실패 | CRITICAL | 즉시 차단, 전사 이메일 발송 |
 | 피싱 캠페인 탐지 | 다수 수신자 대상 인증 실패 | HIGH | IP 차단, 위협 인텔리전스 공유 |
 
+
+## 관련 포스트
+
+- [클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드]({% post_url 2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide %})
+
 ## 참고 자료 (Comprehensive References)
 
 ### 공식 문서 및 표준

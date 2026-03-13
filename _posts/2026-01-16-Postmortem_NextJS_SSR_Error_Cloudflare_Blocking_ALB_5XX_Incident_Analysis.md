@@ -609,3 +609,12 @@ Rate Limiting 규칙 추가:
 작성자: DevSecOps Team
 
 검토 필요: 개발팀 (애플리케이션 에러 수정), 보안팀 (Cloudflare 차단 검토)
+
+## 관련 포스트
+
+- [2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현]({% post_url 2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation %})
+- [AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %})
+- [CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링]({% post_url 2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring %})
+- [GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture %})
+- ["\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터]({% post_url 2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide %})
+- ['AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신]({% post_url 2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis %})

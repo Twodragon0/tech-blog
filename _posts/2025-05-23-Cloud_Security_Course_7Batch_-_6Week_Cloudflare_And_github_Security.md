@@ -272,6 +272,11 @@ Code Scanning 설정 단계:
 
 ---
 
+
+## 관련 포스트
+
+- [Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화]({% post_url 2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS %})
+
 ## 참고 자료 (References)
 
 이 섹션의 모든 링크는 실제로 확인되었으며 2025년 1월 기준 유효합니다.

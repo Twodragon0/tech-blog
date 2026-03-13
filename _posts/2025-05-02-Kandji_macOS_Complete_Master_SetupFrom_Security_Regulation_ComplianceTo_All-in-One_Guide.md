@@ -652,3 +652,9 @@ Kandji는 Apple 생태계 전용 통합 엔드포인트 관리 솔루션으로, 
 7. 트러블슈팅: 등록 실패, 복구키 분실, 성능 저하 등 실전 해결법
 
 Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 강화하며, 규정 준수 부담을 줄일 수 있습니다. 올바른 초기 설정과 지속적인 모니터링을 통해 안전하고 효율적인 엔드포인트 환경을 구축하시기 바랍니다.
+
+## 관련 포스트
+
+- [SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성]({% post_url 2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance %})
+- [공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법]({% post_url 2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage %})
+- [클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps]({% post_url 2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops %})
