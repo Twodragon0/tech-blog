@@ -249,6 +249,14 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 20일)]({% post_url 2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes %}) - Gemini, AI, Supply Chain, Kubernetes
+- [기술·보안 주간 다이제스트 (2월 22일)]({% post_url 2026-02-22-Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security %}) - AI 위협, 취약점, 보안
+- [기술·보안 주간 다이제스트 (2월 23일)]({% post_url 2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin %}) - AI, 랜섬웨어, Data, Bitcoin
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |

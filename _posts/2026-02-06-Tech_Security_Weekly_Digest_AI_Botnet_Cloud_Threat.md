@@ -396,6 +396,14 @@ DDoS 이커머스 대응 핵심:
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 5일)]({% post_url 2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go %}) - CVE, AI, Malware, Go
+- [기술·보안 주간 다이제스트 (2월 7일)]({% post_url 2026-02-07-Tech_Security_Weekly_Digest_AI_Malware_Go_Security %}) - AI, Malware, Go 보안
+- [기술·보안 주간 다이제스트 (2월 8일)]({% post_url 2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data %}) - AI, 랜섬웨어, Data
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |

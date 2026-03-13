@@ -10,8 +10,15 @@ from pathlib import Path
 
 
 def validate_front_matter(content: str) -> int:
-    """Front matter 완성도 (15점)"""
+    """Front matter 완성도 (15점)
+
+    Required fields (11점): title, date, categories, tags, excerpt,
+        description, image, toc
+    Bonus fields (4점): keywords, author, comments, image_alt
+    """
+    fm_block = content[:800]
     score: float = 0
+
     required = [
         "title:",
         "date:",
@@ -23,9 +30,15 @@ def validate_front_matter(content: str) -> int:
         "toc:",
     ]
     for field in required:
-        if field in content[:500]:  # Front matter는 처음 500자 이내
-            score += 15 / len(required)
-    return int(score)
+        if field in fm_block:
+            score += 11 / len(required)
+
+    bonus = ["keywords:", "author:", "comments:", "image_alt:"]
+    for field in bonus:
+        if field in fm_block:
+            score += 1
+
+    return min(15, int(score))
 
 
 def validate_ai_summary(content: str) -> int:

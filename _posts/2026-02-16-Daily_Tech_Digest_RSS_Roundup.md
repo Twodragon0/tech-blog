@@ -132,3 +132,12 @@ toc: true
 - [Here’s what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 - [Study suggests WLFI could act as an ‘early warning signal’ in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 - [Mirae Asset agrees to buy 92% stake in Korean exchange Korbit for $93M](https://cointelegraph.com/news/mirae-asset-buy-92-percent-korbit-korea-crypto-exchange?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
+
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 14일)]({% post_url 2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM %}) - Microsoft Zero-Day, Apple, Ivanti
+- [기술·보안 주간 다이제스트 (2월 17일)]({% post_url 2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security %}) - AI Agent, Cloud Security
+- [기술·보안 주간 다이제스트 (2월 17일)]({% post_url 2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk %}) - AI, Cloud Risk
+
+---
+

@@ -350,6 +350,14 @@ toc: true
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 11일)]({% post_url 2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI %}) - 보안, 랜섬웨어, 패치, AI
+- [기술·보안 주간 다이제스트 (2월 13일)]({% post_url 2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent %}) - AI, Go Security Agent
+- [기술·보안 주간 다이제스트 (2월 14일)]({% post_url 2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM %}) - Microsoft Zero-Day, Apple, Ivanti
+
+---
+
 ## 참고 자료
 | 리소스 | 링크 |
 |---|---|

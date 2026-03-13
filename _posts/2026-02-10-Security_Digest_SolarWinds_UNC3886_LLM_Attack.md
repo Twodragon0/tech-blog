@@ -256,6 +256,14 @@ Mandiant(Google Cloud)가 북한 연계 위협 행위자 UNC1069의 암호화폐
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 10일)]({% post_url 2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin %}) - CNCF, Chainalysis, Bitcoin
+- [기술·보안 주간 다이제스트 (2월 11일)]({% post_url 2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI %}) - 보안, 랜섬웨어, 패치, AI
+- [기술·보안 주간 다이제스트 (2월 12일)]({% post_url 2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent %}) - AI, Cloud Security Agent
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 | 용도 |

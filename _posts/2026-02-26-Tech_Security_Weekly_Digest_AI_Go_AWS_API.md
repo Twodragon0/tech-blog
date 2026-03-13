@@ -485,6 +485,14 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 25일)]({% post_url 2026-02-25-Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM %}) - AI, Malware, 랜섬웨어, LLM
+- [기술·보안 주간 다이제스트 (2월 27일)]({% post_url 2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go %}) - AI, Botnet, Blockchain, Go
+- [기술·보안 주간 다이제스트 (2월 28일)]({% post_url 2026-02-28-Tech_Security_Weekly_Digest_Go_AI_Malware %}) - Go, AI, Malware
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |

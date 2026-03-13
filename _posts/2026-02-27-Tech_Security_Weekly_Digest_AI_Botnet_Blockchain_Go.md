@@ -634,6 +634,14 @@ Citi 경영진이 비트코인을 자사 뱅킹 시스템에 통합하고 수탁
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (2월 26일)]({% post_url 2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API %}) - AI, Go, AWS, API
+- [기술·보안 주간 다이제스트 (2월 28일)]({% post_url 2026-02-28-Tech_Security_Weekly_Digest_Go_AI_Malware %}) - Go, AI, Malware
+- [기술·보안 주간 다이제스트 (2월 25일)]({% post_url 2026-02-25-Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM %}) - AI, Malware, 랜섬웨어, LLM
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |
