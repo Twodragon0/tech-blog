@@ -682,14 +682,14 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
   url="https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/"
   source="Spotify Engineering"
   tag="Operator Signal"
-  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+  summary="광고 운영에 멀티에이전트 구조를 적용해 복잡한 의사결정을 자동화하는 사례로, AI 도입이 조직의 승인 흐름과 운영 책임을 어떻게 재편하는지 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="Discord Osprey: Open Sourcing our Rule Engine"
   url="https://discord.com/blog/osprey-open-sourcing-our-rule-engine"
   source="Discord Blog"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="규칙 엔진 오픈소스화는 대규모 플랫폼이 정책 집행 로직을 어떻게 구조화하고 재사용 가능한 형태로 공개하는지 보여주는 사례입니다."
 %}
 {% include news-spotlight-item.html
   title="Chrome CSS Zero-Day CVE-2026-2441"

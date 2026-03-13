@@ -575,21 +575,21 @@ Citi 경영진이 비트코인을 자사 뱅킹 시스템에 통합하고 수탁
   url="https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+  summary="실시간 산업 모니터링 관점에서 AI와 기술 시장 변화를 요약하는 자료로, 개별 제품 뉴스보다 큰 흐름을 읽는 데 초점이 있습니다."
 %}
 {% include news-spotlight-item.html
   title="Rivian has a new performance division but for"
   url="https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="Rivian이 성능 특화 조직을 신설한 배경은 브랜드 차별화와 수익성 높은 라인업 확보 전략으로 읽을 수 있습니다."
 %}
 {% include news-spotlight-item.html
   title="Donut solid-state batteries tested, Tesla"
   url="https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="차세대 배터리와 Tesla 관련 동향을 묶어 보여주며, 실제 상용화 일정과 기대 사이의 간극을 점검하게 합니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

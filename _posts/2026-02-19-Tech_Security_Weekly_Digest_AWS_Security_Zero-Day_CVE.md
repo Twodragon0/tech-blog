@@ -493,14 +493,14 @@ FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트
   url="https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="Amazon과 Rivian의 전기 밴 확대는 물류 운영 최적화와 차량 표준화가 동시에 진행될 때 fleet economics가 어떻게 달라지는지 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="유럽 태양광 지붕 Roofit.Solar 미국 데뷔"
   url="https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="태양광 건축자재의 시장 확장이 에너지 효율만이 아니라 설치 생태계, 유지보수, 규제 적합성까지 함께 검증되어야 함을 시사합니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

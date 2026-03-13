@@ -280,14 +280,14 @@ IT/OT 융합 환경의 주요 리스크:
   url="https://tech.worldmonitor.app/"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="여러 산업의 AI·플랫폼·모빌리티 변화를 한눈에 추적할 수 있는 모니터링 허브 성격의 자료로, 개별 뉴스보다 흐름을 읽는 데 유용합니다."
 %}
 {% include news-spotlight-item.html
   title="미 공군, 세계 최초 이동식 원자력 발전소 배치"
   url="https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="이동형 원자력 전력 인프라 배치는 군사·재난 대응 환경에서 에너지 자립이 전략 자산으로 취급되는 방향을 보여줍니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

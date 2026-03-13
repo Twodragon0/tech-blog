@@ -590,77 +590,77 @@ Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 
   url="https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/"
   source="Google Cloud Blog"
   tag="Cloud / Platform"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="Google Cloud가 제시한 프롬프팅 가이드는 모델 품질이 프롬프트 설계 역량과 운영 표준화에 크게 좌우된다는 점을 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="LeakBase 포럼 압수"
   url="https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html"
   source="The Hacker News"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="불법 데이터 거래 포럼 압수 사례로, 침해 생태계 대응이 기술 차단뿐 아니라 국제 공조와 법 집행 역량에도 달려 있음을 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="Cloudflare Dynamic Path MTU Discovery"
   url="https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/"
   source="Cloudflare Blog"
   tag="Cloud / Platform"
-  summary="인프라 변경이 안정성·비용·보안 통제에 직접 연결되므로 배포 전 검증 체계가 핵심인 소식입니다."
+  summary="네트워크 경로 MTU를 동적으로 최적화하는 접근으로, 성능 개선이 실제 서비스 안정성과 연결되는 대표적인 인프라 엔지니어링 사례입니다."
 %}
 {% include news-spotlight-item.html
   title="Cloudflare QUIC 기반 SASE Proxy Mode"
   url="https://blog.cloudflare.com/faster-sase-proxy-mode-quic/"
   source="Cloudflare Blog"
   tag="Cloud / Platform"
-  summary="인프라 변경이 안정성·비용·보안 통제에 직접 연결되므로 배포 전 검증 체계가 핵심인 소식입니다."
+  summary="QUIC 기반 SASE 프록시 최적화는 보안 트래픽 처리에서도 사용자 체감 성능과 제어 일관성을 동시에 잡으려는 시도를 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="GPT-5.4 공개"
   url="https://news.hada.io/topic?id=27230"
   source="GeekNews"
   tag="Tech Signals"
-  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+  summary="새 모델 공개는 성능 향상 자체보다, 기존 워크플로우와 도입 기준을 다시 정의해야 한다는 점에서 운영팀에 더 큰 의미를 줍니다."
 %}
 {% include news-spotlight-item.html
   title="Grep은 죽었다: Claude Code 메모리 시스템"
   url="https://news.hada.io/topic?id=27239"
   source="GeekNews"
   tag="AI / Product"
-  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+  summary="코드 탐색 방식이 검색 중심에서 기억·문맥 중심으로 옮겨가고 있음을 보여주며, 개발 도구 UX가 근본적으로 변하고 있음을 시사합니다."
 %}
 {% include news-spotlight-item.html
   title="Google Chrome, 2주 출시 주기 전환"
   url="https://news.hada.io/topic?id=27238"
   source="GeekNews"
   tag="Tech Signals"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="브라우저 출시 주기 단축은 보안 패치 적용 속도는 높이지만, 기업 환경에서는 테스트와 배포 자동화 부담도 함께 키웁니다."
 %}
 {% include news-spotlight-item.html
   title="위키백과 관리자 계정 대량 유출"
   url="https://news.hada.io/topic?id=27233"
   source="GeekNews"
   tag="Tech Signals"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="관리자 계정 유출 사례는 대형 협업 플랫폼에서도 권한 계정 보호와 자격 증명 위생이 얼마나 중요한지 다시 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="온디바이스 이미지 모델 (1편)"
   url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1"
   source="LINE Engineering"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="온디바이스 모델 학습의 첫 단계로, 개인정보 보호와 지연 시간 최적화를 동시에 달성하려는 설계 방향을 설명합니다."
 %}
 {% include news-spotlight-item.html
   title="온디바이스 이미지 모델 (2편)"
   url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2"
   source="LINE Engineering"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="온디바이스 이미지 모델 후속편으로, 실제 서비스 적용 단계에서 모델 경량화와 운영 제약을 어떻게 다루는지 이어서 보여줍니다."
 %}
 {% include news-spotlight-item.html
   title="FE News 26년 3월호"
   url="https://d2.naver.com/news/0407747"
   source="네이버 D2"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="프런트엔드 생태계의 월간 변화 요약으로, 사용자 경험과 개발 생산성 모두에 영향을 주는 도구·플랫폼 흐름을 빠르게 파악할 수 있습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

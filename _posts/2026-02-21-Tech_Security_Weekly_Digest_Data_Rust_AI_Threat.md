@@ -201,14 +201,14 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
   url="https://electrek.co/2026/02/20/amazon-grows-van-fleet-solar-powered-semis-and-betterfleet-stops-by/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="전기 물류 차량과 fleet 운영 사례를 묶어 보여주며, 차량 도입보다 충전·정비·가동률 관리가 실제 경쟁력에 더 중요하다는 점을 드러냅니다."
 %}
 {% include news-spotlight-item.html
   title="Kia, 대대적인 실내 개편을 통해 신형 전기 SUV 새롭게 단장"
   url="https://electrek.co/2026/02/20/kia-refreshing-new-ev-suv-major-interior-overhaul/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="EV 제품 경쟁이 단순 주행 성능보다 사용자 경험과 브랜드 차별화로 이동하는 흐름을 보여주는 소식입니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

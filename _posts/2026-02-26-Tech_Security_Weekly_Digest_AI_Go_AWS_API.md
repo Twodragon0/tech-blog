@@ -437,14 +437,14 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
   url="https://tech.worldmonitor.app/"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+  summary="AI와 플랫폼 산업 흐름을 빠르게 훑는 모니터링 자료로, 개별 기능 출시보다 산업 전반의 속도 변화를 읽는 데 적합합니다."
 %}
 {% include news-spotlight-item.html
   title="현대차 첫 중형 픽업 IONIQ T7 개발"
   url="https://electrek.co/2026/02/25/hyundai-new-pickup-potential-4wd-suv-in-the-works/"
   source="Electrek"
   tag="Operator Signal"
-  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+  summary="전동화 전략이 세단·SUV를 넘어 픽업 시장까지 확장되는 흐름을 보여주며, 세그먼트 다변화가 브랜드 운영 전략에 미치는 영향을 확인할 수 있습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html
