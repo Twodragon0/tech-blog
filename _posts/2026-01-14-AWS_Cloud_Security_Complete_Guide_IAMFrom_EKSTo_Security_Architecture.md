@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -12,8 +13,6 @@ description: AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구
 excerpt: "AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처 - AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별"
 image: /assets/images/2026-01-14-AWS_Cloud_Security_Complete_Guide_IAM_to_EKS_Practical_Security_Architecture.svg
 image_alt: 'AWS Cloud Security Complete Guide: IAM to EKS Practical Security Architecture'
-keywords: AWS 보안, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security Hub, GuardDuty,
-  KMS, Defense in Depth, 최소 권한 원칙, AWS-SAA
 layout: post
 tags:
 - AWS
@@ -29,7 +28,6 @@ tags:
 title: 'AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
@@ -52,6 +50,16 @@ toc: true
       <li><strong>모니터링 및 감사</strong>: CloudTrail 설정, CloudWatch 모니터링, Security Hub 통합, GuardDuty 위협 탐지</li>'
   audience='AWS 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가, AWS-SAA 준비자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처 - AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

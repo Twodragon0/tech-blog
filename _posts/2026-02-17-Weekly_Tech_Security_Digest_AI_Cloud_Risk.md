@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "2026년 2월 3주차 기술·보안 주간 다이제스트: AI 에이전트 보안, Patch Tuesday, 클라우드 비용"
 date: 2026-02-17 10:00:00 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops, cloud]
 tags: [Weekly-Digest, Security-Weekly, AI-Security, Threat-Intel, Patch-Tuesday, Cloud, FinOps, DevOps, "2026"]
 excerpt: "AI 에이전트 보안 리스크, Microsoft Patch Tuesday, 공급망/봇넷 위협, 클라우드 비용 최적화와 LLM 운영 이슈를 2월 3주차 관점에서 요약합니다."
 description: "2026년 2월 3주차 기술·보안 다이제스트: AI 에이전트 보안과 가드레일, Patch Tuesday 취약점 대응, Kimwolf 봇넷/공급망 위협, 클라우드 비용 최적화와 LLM 운영 지표까지 실무 관점으로 정리."
-keywords: [Weekly-Digest, AI-Security, Threat-Intel, Patch-Tuesday, Cloud, FinOps, LLM, DevSecOps]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk.svg
 image_alt: "Weekly Tech Security Digest AI Cloud Risk"
 toc: true
 ---
-
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">Cloud</span>
 {% endcapture %}
@@ -42,6 +41,16 @@ toc: true
   period="2026년 2월 10일 ~ 2월 17일"
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드/플랫폼 리더"
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: AI 에이전트 보안 리스크, Microsoft Patch Tuesday, 공급망/봇넷 위협, 클라우드 비용 최적화와 LLM 운영 이슈를 2월 3주차 관점에서 요약합니다.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 ## 이번 주 핵심 지표
 

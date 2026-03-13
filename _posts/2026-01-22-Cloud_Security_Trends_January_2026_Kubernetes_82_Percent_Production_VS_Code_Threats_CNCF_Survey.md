@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -11,15 +12,6 @@ excerpt: "2026년 1월 클라우드 보안 핵심 동향. CNCF 연례 조사 Kub
 image: /assets/images/2026-01-22-Cloud_Security_Trends_January_2026.svg
 image_alt: Cloud Security Trends January 2026 - Kubernetes, VS Code Threats, CNCF
   Survey
-keywords:
-- Kubernetes
-- Cloud Security
-- CNCF
-- VS Code Security
-- Platform Engineering
-- CRI-O
-- Net-NTLMv1
-- DevSecOps
 layout: post
 tags:
 - Kubernetes
@@ -36,7 +28,6 @@ title: '2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도
   분석'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag kubernetes">Kubernetes</span>'
@@ -58,6 +49,16 @@ toc: true
       <li><strong>플랫폼 엔지니어링</strong>: 유지보수 함정과 전략적 대응 방안</li>'
   audience='DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026년 1월 클라우드 보안 핵심 동향. CNCF 연례 조사 Kubernetes 프로덕션 82% 달성, VS Code 터널
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ---
 

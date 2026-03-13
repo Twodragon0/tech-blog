@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -10,19 +11,6 @@ description: '주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, 
 excerpt: "주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI"
 image: /assets/images/2026-01-22-Security_Vendor_Blog_Weekly_Review.svg
 image_alt: Security Vendor Blog Weekly Review January 2026
-keywords:
-- Security-Vendor-News
-- VS-Code-Security
-- ACME-Vulnerability
-- AI-Security
-- Zero-Trust
-- NHI
-- HashiCorp
-- Cloudflare
-- Snyk
-- Jamf
-- DevSecOps
-- Cloud-Security
 layout: post
 tags:
 - Security-Vendor-News
@@ -38,7 +26,6 @@ tags:
 title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -60,6 +47,16 @@ toc: true
   period='2026년 1월 15일 ~ 22일 (7일간)'
   audience='보안 담당자, DevSecOps 엔지니어, 클라우드 아키텍트, CISO'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ## 서론
 

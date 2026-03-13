@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스"
 date: 2026-03-04 14:05:06 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
 excerpt: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석."
 description: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석."
-keywords: [Security-Weekly, DevSecOps, JWT, Authentication, Blockchain, AML, AI-Governance, 2026]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest March 04 2026 JWT Auth Crypto AI Governance"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'

@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -6,26 +7,10 @@ categories:
 - kubernetes
 comments: true
 date: 2026-01-15 18:25:00 +0900
-description: '클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes
-  보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies, RBAC), 최신 K8s
-  1.32-1.35+ 보안 기능까지 실무 가이드'
-excerpt: "\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 - 클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes"
+description: '클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes 보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies, RBAC), 최신 K8s...'
+excerpt: "\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 - 클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행),..."
 image: /assets/images/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.svg
-image_alt: 'Cloud Security Course 8Batch 7Week: Docker and Kubernetes Security Practical
-  Guide'
-keywords:
-- Docker-Security
-- Kubernetes-Security
-- Container-Security
-- Pod-Security-Standards
-- User-Namespaces
-- Network-Policies
-- Trivy
-- Falco
-- Minikube
-- K9s
-- DevSecOps
-- Image-Scanning
+image_alt: 'Cloud Security Course 8Batch 7Week: Docker and Kubernetes Security Practical'
 layout: post
 original_url: https://twodragon.tistory.com/708
 series: "Cloud Security Course 8기"
@@ -46,7 +31,6 @@ title: "\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 
   보안까지"
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag kubernetes">Kubernetes</span>'
@@ -67,6 +51,16 @@ toc: true
       <li><strong>Docker/Container/Kubernetes 기본 이해</strong>: Docker 이미지/컨테이너 개념, VM vs Container 비교, Kubernetes 핵심 리소스(Pod, Deployment, Service, Namespace), 컨테이너 격리 원리</li>'
   audience='보안 엔지니어, 클라우드 보안 전문가, DevOps 엔지니어, 컨테이너 보안 담당자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: \U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 - 클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행),...
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟢 낮음 | 교육 목적 실습 환경 중심 |
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
@@ -222,6 +216,24 @@ CMD ["node", "server.js"]
     <span>클라우드 보안 과정 8기 7주차 강의 자료</span>
   </div>
 </div>
+
+## 보안 실습 체크리스트
+
+### Docker 컨테이너 보안 체크
+
+- [ ] Dockerfile에서 비루트 사용자(`USER 1000:1000`) 설정 확인
+- [ ] `readOnlyRootFilesystem: true` 설정으로 파일시스템 보호
+- [ ] `capabilities.drop: ALL` 로 불필요한 권한 제거
+- [ ] Trivy 또는 Snyk으로 이미지 취약점 스캔 실행
+- [ ] 민감 정보를 환경 변수 대신 Kubernetes Secrets로 관리
+
+### Kubernetes 보안 체크
+
+- [ ] Pod Security Standards 정책 Namespace에 적용
+- [ ] Network Policies로 Pod 간 불필요한 통신 차단
+- [ ] RBAC 최소 권한 원칙 검토 및 적용
+- [ ] Kubernetes Audit 로그 활성화 여부 확인
+- [ ] External Secrets Operator 또는 Sealed Secrets로 Secret 외부 관리
 
 ## 관련 포스트
 

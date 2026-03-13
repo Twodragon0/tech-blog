@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - devsecops
@@ -11,21 +12,6 @@ description: roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST"
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
 image_alt: '2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis'
-keywords:
-- DevSecOps
-- Roadmap
-- roadmap.sh
-- OWASP Top 10 2025
-- NIST CSF 2.0
-- GitHub Advanced Security
-- SAST
-- DAST
-- IAST
-- SBOM
-- Supply Chain Security
-- Security Learning Path
-- CodeQL
-- AI Security
 layout: post
 tags:
 - DevSecOps
@@ -37,7 +23,6 @@ tags:
 title: '2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
 toc: true
 ---
-
 {% capture ai_categories_html %}
 <span class="category-tag devsecops">DevSecOps</span>
 <span class="category-tag security">Security</span>

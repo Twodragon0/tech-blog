@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -10,15 +11,6 @@ description: '2026년 1월 31일 보안 뉴스: Mandiant 발표 ShinyHunters 비
 excerpt: "ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome 확장 프로그램의 ChatGPT 인증 토큰 탈취, CERT Polska 보고 30+ 풍력/태양광 OT 시스템 공격 대응 가이드"
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.svg
 image_alt: Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis
-keywords:
-- ShinyHunters
-- Vishing
-- MFA Bypass
-- Chrome Extension Security
-- ChatGPT Token Theft
-- OT Security
-- ICS Attack
-- CERT Polska
 layout: post
 tags:
 - Security-Weekly
@@ -37,7 +29,6 @@ title: '기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, 
   탈취, 폴란드 에너지 OT 공격'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 31일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'

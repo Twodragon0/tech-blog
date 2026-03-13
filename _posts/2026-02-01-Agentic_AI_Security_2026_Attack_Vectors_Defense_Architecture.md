@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -12,17 +13,6 @@ excerpt: 2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisonin
   Google Chrome·CrowdStrike Falcon의 방어 아키텍처를 심층 분석합니다.
 image: /assets/images/2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture.svg
 image_alt: Agentic AI Security 2026 - Attack Vectors and Defense Architecture Guide
-keywords:
-- Agentic AI Security
-- AI Tool Poisoning
-- Tool Chain Attack
-- Prompt Injection Defense
-- Chrome Agentic Security
-- CrowdStrike Falcon
-- LLM Vulnerability
-- JWT Security
-- LABYRINTH CHOLLIMA
-- Linux Security 2026
 layout: post
 tags:
 - Agentic-AI
@@ -39,7 +29,6 @@ tags:
 title: '에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='에이전틱 AI 보안 2026: 공격 벡터와 방어 아키텍처'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'

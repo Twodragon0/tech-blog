@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -10,16 +11,6 @@ description: '2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro
 excerpt: "주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 - 2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin"
 image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
 image_alt: Weekly Tech AI Blockchain Digest Feb 2 2026
-keywords:
-- Apple MLX Bug
-- Bitcoin Crash 2026
-- AI Creativity Paradox
-- DeFi Security
-- CrossCurve Exploit
-- Claude Code Tips
-- Google AI Agent
-- Ethereum Quantum
-- FOSDEM 2026
 layout: post
 tags:
 - Security-Weekly
@@ -37,7 +28,6 @@ title: '주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitco
   역설, DeFi 보안, FOSDEM 2026'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -55,6 +45,16 @@ toc: true
       <li><strong>AI 창의성의 역설</strong>: 몬트리올대 10만 명 연구에서 GPT-4가 인간 평균 창의성을 초과했으나, 상위 10% 인간은 모든 AI를 크게 앞서는 결과 발표</li>
       <li><strong>CrossCurve DeFi $3M 익스플로잇</strong>: 크로스체인 브릿지 프로토콜 스마트 컨트랙트 침해로 $3M 탈취, Ethereum Foundation 양자 보안 PQ 서명 우선순위 격상</li>'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 - 2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 > 함께 읽기: 같은 날짜의 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안, 레드팀), HashiCorp 보안 자동화를 심층 분석합니다.
 

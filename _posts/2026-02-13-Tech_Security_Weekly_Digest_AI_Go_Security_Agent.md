@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio, FinOps"
 date: 2026-02-13 12:39:45 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]
 excerpt: "Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지, Copilot Studio 에이전트 리스크, FinOps 비용 절감 업데이트 등 2026-02-13 핵심 이슈 요약"
 description: "2026년 02월 13일 보안 뉴스: Gemini AI 악용 정찰, Lazarus 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark, FinOps CUD 업데이트 등 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리했습니다."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Lazarus, Copilot-Studio, Gemini-AI, FinOps]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent.svg
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 13일 AI Go 보안"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio, FinOps'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -22,6 +21,16 @@ toc: true
   period='2026-02-13 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지, Copilot Studio 에이전트 리스크, FinOps 비용 절감 업데이트 등 2026-02-13 핵심 이슈 요약
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

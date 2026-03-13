@@ -1,35 +1,17 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-01-27 22:00:00 +0900
-description: '2026년 1월 27일 주요 기술/보안 뉴스: Microsoft Office CVE-2026-21509 Zero-Day 긴급
-  패치, Kimi K2.5 오픈소스 비주얼 에이전트 AI, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e
-  NVIDIA Blackwell GPU 2.3배 성능, ChatGPT 컨테이너 실행 환경까지 DevSecOps 관점 심층 분석'
+description: '2026년 1월 27일 주요 기술/보안 뉴스: Microsoft Office CVE-2026-21509 Zero-Day 긴급 패치, Kimi K2.5 오픈소스 비주얼 에이전트 AI, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e...'
 excerpt: MS Office Zero-Day 실제 악용, Kimi K2.5 비주얼 에이전트, Kimwolf 200만 IoT 봇넷, AWS Blackwell
   GPU
 image: /assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Kimi_Kimwolf_AWS.svg
 image_alt: Tech and Security Weekly Digest January 27 2026 - MS Office Zero Day, Kimi
   K2.5, Kimwolf Botnet, AWS G7e
-keywords:
-- Microsoft Office
-- Zero-Day
-- CVE-2026-21509
-- Kimi K2.5
-- AI 에이전트
-- Kimwolf 봇넷
-- Badbox 2.0
-- IoT 보안
-- AWS EC2 G7e
-- NVIDIA Blackwell
-- Oracle 패치
-- ChatGPT 컨테이너
-- DevSecOps
-- 보안 패치
-- 긴급 보안
-- 2026
 layout: post
 tags:
 - Security-Weekly
@@ -48,7 +30,6 @@ title: '기술·보안 주간 다이제스트: MS Office Zero-Day 긴급패치, 
   Kimwolf 봇넷 위협'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 27일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -68,6 +49,16 @@ toc: true
   period='2026년 1월 26일 ~ 27일 (48시간)'
   audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: MS Office Zero-Day 실제 악용, Kimi K2.5 비주얼 에이전트, Kimwolf 200만 IoT 봇넷, AWS Blackwell
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ## 경영진 요약
 

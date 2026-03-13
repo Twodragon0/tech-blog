@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: 'Claude Code & OpenCode 실전 가이드: 38가지 베스트 프랙티스'
 date: 2026-02-25 10:00:00 +0900
@@ -8,18 +9,7 @@ comments: true
 description: Claude Code와 OpenCode의 38가지 Best Practice를 정리한 실전 가이드. 환경 설정부터 CLAUDE.md 작성법, 프롬프팅, 에이전트 팀, Hook & Skills, 세션 관리, 자동화까지 공식 문서와 실무 경험을 바탕으로 한 종합 레퍼런스
 excerpt: Claude Code와 OpenCode 38가지 Best Practice 종합 가이드. 컨텍스트 윈도우 관리, CLAUDE.md 작성법, 에이전트 팀 운영, 프롬프팅 전략까지 실전 노하우
 image: /assets/images/2026-02-25-Claude_Code_OpenCode_Best_Practices.svg
-image_alt: Claude Code and OpenCode Best Practices 38 Guide Agent Teams Context Window CLAUDE.md Workflow
-keywords:
-- Claude Code
-- OpenCode
-- Best Practices
-- AI Agent
-- CLAUDE.md
-- Agent Teams
-- MCP Server
-- Opus 4.6
-- Subagents
-- AI Coding
+image_alt: Claude Code and OpenCode Best Practices 38 Guide Agent Teams Context Window
 tags:
 - Claude-Code
 - OpenCode
@@ -33,7 +23,6 @@ tags:
 author: Twodragon
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='Claude Code & OpenCode Best Practices: 38가지 실전 가이드'
   categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag tech">AI Coding</span>'
@@ -42,6 +31,16 @@ toc: true
   period='2026-02-25'
   audience='AI 코딩 도구 사용자, 개발자, DevOps 엔지니어'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: Claude Code와 OpenCode 38가지 Best Practice 종합 가이드. 컨텍스트 윈도우 관리, CLAUDE.md 작성법, 에이전트 팀 운영, 프롬프팅 전략까지 실전 노하우
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 <figure>
   <img src="{{ '/assets/images/2026-02-25-Claude_Code_OpenCode_Best_Practices.svg' | relative_url }}" alt="Claude Code and OpenCode Best Practices 38 Guide" loading="lazy" class="post-image">

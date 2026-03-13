@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: 'Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
 date: 2025-05-30 01:11:00 +0900
@@ -15,22 +16,14 @@ description: Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubern
   Namespaces, Bound Service Account Tokens), 실전 테스트 시나리오까지 실무 중심 정리.
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
 toc: true
-keywords:
-- Kubernetes
-- Minikube
-- K9s
-- K8s
-- Troubleshooting
 author: Yongho Ha
 comments: true
-image_alt: 'Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical
-  Testing'
+image_alt: 'Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical'
 certifications:
 - ckad
 - cka
 original_url: https://twodragon.tistory.com/687
 ---
-
 {%- include ai-summary-card.html
   title='Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
   categories_html='<span class="category-tag devops">Kubernetes</span>'
@@ -45,6 +38,12 @@ original_url: https://twodragon.tistory.com/687
       <li><strong>실전 테스트 시나리오</strong>: Pod/Deployment/Service 배포, ConfigMap/Secret 관리, 문제 해결(로그 분석, 리소스 모니터링, 네트워크 디버깅), HPA 및 Network Policy 적용</li>'
   audience='클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자'
 -%}
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 ![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
 

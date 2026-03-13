@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -7,25 +8,10 @@ certifications:
 - isms-p
 comments: true
 date: 2026-01-14 12:00:00 +0900
-description: 'GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage
-  버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth
-  전략 기반 실무 보안 아키텍처 제공'
+description: 'GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage 버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth 전략...'
 excerpt: "GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage"
 image: /assets/images/2026-01-14-GCP_Cloud_Security_Complete_Guide_IAM_to_GKE_Practical_Security_Architecture.svg
 image_alt: 'GCP Cloud Security Complete Guide: IAM to GKE Practical Security Architecture'
-keywords:
-- GCP-Security
-- IAM
-- Cloud-SQL
-- Cloud-Storage
-- GKE
-- VPC-Security
-- Defense-in-Depth
-- Cloud-Monitoring
-- Cloud-Logging
-- Security-Command-Center
-- ISMS-P
-- KMS
 layout: post
 tags:
 - GCP
@@ -39,7 +25,6 @@ tags:
 title: 'GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
@@ -60,6 +45,10 @@ toc: true
       <li><strong>모니터링 및 감사</strong>: Cloud Monitoring 설정, Cloud Logging 로그 수집 및 분석, Security Command Center 통합</li>'
   audience='GCP 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

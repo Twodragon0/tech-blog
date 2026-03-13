@@ -44,6 +44,12 @@ toc: true
   audience='기업 보안 담당자, 보안 엔지니어, CISO'
 -%}
 
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
+
 ![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 경영진 요약

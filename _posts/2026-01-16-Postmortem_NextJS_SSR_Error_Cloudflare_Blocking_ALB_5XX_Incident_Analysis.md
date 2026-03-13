@@ -1,27 +1,14 @@
 ---
+
 author: Twodragon
 categories:
 - incident
 comments: true
 date: 2026-01-16 12:00:00 +0900
-description: 'Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare
-  WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지
-  실무 중심 정리'
+description: 'Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지 실무...'
 excerpt: "Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare"
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
 image_alt: Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis
-keywords:
-- Post-Mortem
-- Next.js-SSR
-- Location-Error
-- Cloudflare-WAF
-- ALB-5XX
-- Health-Check
-- Kubernetes
-- Incident-Response
-- AWS
-- ReferenceError
-- WAF-Blocking
 layout: post
 tags:
 - Post-Mortem
@@ -35,7 +22,6 @@ tags:
 title: '[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
   categories_html='<span class="category-tag security">Incident</span>'
@@ -56,6 +42,16 @@ toc: true
       <li>재발 방지 대책: 코드 수정, 배포 프로세스 개선, 모니터링 강화</li>'
   audience='SRE, 인시던트 대응 담당자, 프론트엔드 개발자, 운영 엔지니어'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🔴 높음 | 즉시 대응 및 패치 적용 필요 |
 
 ![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
 

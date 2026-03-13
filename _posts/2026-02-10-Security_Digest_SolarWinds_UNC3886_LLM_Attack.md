@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -9,13 +10,6 @@ description: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886
 excerpt: "2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 - SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM"
 image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg
 image_alt: 보안 다이제스트 2026년 2월 10일 SolarWinds RCE UNC3886 LLM 공격
-keywords:
-- Security-Digest
-- SolarWinds-RCE
-- UNC3886
-- LLM-Safety
-- UNC1069
-- CVE-2025-40551
 layout: post
 tags:
 - Security-Digest
@@ -27,7 +21,6 @@ tags:
 title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
 toc: true
 ---
-
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span>
 {% endcapture %}
@@ -51,6 +44,16 @@ toc: true
   period="2026-02-10"
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 - SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ## 서론
 

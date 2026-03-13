@@ -38,3 +38,21 @@ python3 "$VALIDATOR" \
   --fail-below "$FAIL_BELOW" \
   --warn-below "$WARN_BELOW" \
   "${ABSOLUTE_POSTS[@]}"
+
+# Check for missing front matter closing ---
+echo "📏 Checking front matter structure..."
+FM_POSTS=$(git diff --cached --name-only --diff-filter=ACM -- '_posts/*.md' 2>/dev/null || true)
+if [ -n "$FM_POSTS" ]; then
+    FM_SCRIPT="$REPO_ROOT/scripts/fix_missing_front_matter_close.py"
+    if [ -f "$FM_SCRIPT" ]; then
+        FM_RESULT=$(cd "$REPO_ROOT" && python3 "$FM_SCRIPT" --dry-run $FM_POSTS 2>&1 || true)
+        FM_FIXES=$(echo "$FM_RESULT" | grep -c "Would fix" || true)
+        if [ "$FM_FIXES" -gt "0" ]; then
+            echo "⚠️  $FM_FIXES post(s) missing front matter closing ---"
+            echo "   Run: python3 scripts/fix_missing_front_matter_close.py --fix"
+            echo "$FM_RESULT" | grep "Would fix" || true
+            exit 1
+        fi
+    fi
+fi
+echo "✅ Front matter structure OK"

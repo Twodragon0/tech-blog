@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
 date: 2026-02-19 12:36:00 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE]
 excerpt: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석."
 description: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, Dell-RecoverPoint, VS-Code-CVE]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE.svg
 image_alt: "기술 보안 주간 다이제스트 2026년 2월 19일 AWS 보안 Zero-Day"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -22,6 +21,16 @@ toc: true
   period='2026-02-19 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

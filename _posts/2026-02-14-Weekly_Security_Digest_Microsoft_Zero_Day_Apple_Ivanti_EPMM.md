@@ -1,19 +1,18 @@
 ---
+
 layout: post
 title: "2026년 2월 2주차 보안 위협 종합 분석: Microsoft 6건 Zero-Day, Apple 긴급 패치, Ivanti EPMM 대규모 공격"
 date: 2026-02-14 09:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, Zero-Day, Patch-Tuesday, CVE-2026-21510, CVE-2026-20700, Ivanti-EPMM, Ransomware, AI-Security, Supply-Chain, Kubernetes, "2026"]
-excerpt: "Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년 2월 2주차 핵심 보안 위협을 심층 분석합니다."
-description: "2026년 2월 14일 보안 주간 다이제스트: Microsoft 6건 Zero-Day (CVE-2026-21510, CVE-2026-21513), Apple dyld Zero-Day (CVE-2026-20700), Ivanti EPMM RCE (CVE-2026-1281), SAP SQL Injection (CVE-2026-0488, CVSS 9.9), BeyondTrust Pre-Auth RCE, AI 보안 위협, 랜섬웨어 동향, 블록체인 보안 등 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Day, Patch-Tuesday, CVE-2026-21510, CVE-2026-20700, Ivanti-EPMM, Ransomware, AI-Security]
+excerpt: "Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년..."
+description: "2026년 2월 14일 보안 주간 다이제스트: Microsoft 6건 Zero-Day (CVE-2026-21510, CVE-2026-21513), Apple dyld Zero-Day (CVE-2026-20700), Ivanti EPMM RCE (CVE-2026-1281), SAP..."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
 image_alt: "주간 보안 다이제스트 2026년 2월 14일 Microsoft Zero Day Apple Ivanti EPMM"
 toc: true
 ---
-
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
 {% endcapture %}
@@ -45,6 +44,16 @@ toc: true
   period="2026년 2월 8일 ~ 2월 14일"
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년...
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 ## 서론
 

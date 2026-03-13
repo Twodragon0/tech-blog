@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -12,22 +13,7 @@ description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 
   Jekyll 블로그 보안 강화까지 실무 정리.
 excerpt: "클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),"
 image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
-image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture
-  and GitHub DevSecOps Practical'
-keywords:
-- AWS WAF
-- CloudFront
-- OAI
-- OAC
-- GitHub DevSecOps
-- CodeQL
-- Dependabot
-- Secret Scanning
-- SSRF
-- Data Masking
-- Jekyll Security
-- Cloud Security
-- DevSecOps
+image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture'
 layout: post
 original_url: https://twodragon.tistory.com/707
 series: "Cloud Security Course 8기"
@@ -47,7 +33,6 @@ tags:
 title: '클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
   categories_html='<span class="category-tag security">Security</span>'
@@ -66,6 +51,16 @@ toc: true
       <li><strong>Amazon Q Developer 활용</strong>: AI 기반 코드 보안 검토, 취약점 제안 및 수정 가이드, 개발 생산성 향상</li>'
   audience='보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟢 낮음 | 교육 목적 실습 환경 중심 |
 
 <img src="{{ '/assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg' | relative_url }}" alt="Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical" loading="lazy" class="post-image">
 

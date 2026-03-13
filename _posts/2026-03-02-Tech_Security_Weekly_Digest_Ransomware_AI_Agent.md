@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응"
 date: 2026-03-02 12:29:39 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
 excerpt: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석."
 description: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석."
-keywords: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.svg
-image_alt: "Tech Security Weekly Digest March 02 2026 Zero Trust Visibility Crypto Regulation AI Education"
+image_alt: "Tech Security Weekly Digest March 02 2026 Zero Trust Visibility Crypto"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'

@@ -40,6 +40,10 @@ toc: true
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+## Executive Summary
+
+> **경영진 브리핑**: AWS re:Inforce 2025에서 발표된 최신 보안 기능과 Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지
+
 <img src="{% raw %}{{ '/assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future_image.png' | relative_url }}{% endraw %}" alt="AWS re:Inforce 2025: Cloud Security Present and Future" loading="lazy" class="post-image">
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)

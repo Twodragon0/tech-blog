@@ -88,6 +88,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -133,6 +135,52 @@ jobs:
         run: |
           python3 scripts/fix_malformed_liquid_includes.py --check
           echo "✅ Liquid include syntax check passed"
+
+      - name: Validate post quality (PR only)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          echo "📊 Checking post quality for changed files..."
+          CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -z "$CHANGED_POSTS" ]; then
+            echo "✅ No post changes detected"
+            exit 0
+          fi
+          echo "Changed posts:"
+          echo "$CHANGED_POSTS"
+          echo ""
+          # Check front matter size
+          python3 scripts/validate_post_quality.py $CHANGED_POSTS || true
+          echo ""
+          echo "✅ Post quality check completed (warnings only, non-blocking)"
+
+      - name: Check front matter size (PR only)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          echo "📏 Checking front matter size..."
+          CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -z "$CHANGED_POSTS" ]; then
+            echo "✅ No post changes detected"
+            exit 0
+          fi
+          python3 -c "
+          import sys, re
+          warnings = 0
+          for f in sys.argv[1:]:
+              with open(f) as fh:
+                  content = fh.read()
+              match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+              if match:
+                  fm_len = len(match.group(1))
+                  if fm_len > 1000:
+                      print(f'⚠️  {f}: front matter {fm_len} chars (limit: 1000)')
+                      warnings += 1
+          if warnings:
+              print(f'\n⚠️  {warnings} post(s) exceed 1000-char front matter limit')
+          else:
+              print('✅ All front matter within size limit')
+          " $CHANGED_POSTS
 
       - name: Build with build.sh (consistent with Vercel)
         run: |

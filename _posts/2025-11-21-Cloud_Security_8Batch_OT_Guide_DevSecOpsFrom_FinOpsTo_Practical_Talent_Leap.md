@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - devsecops
@@ -8,18 +9,7 @@ description: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와
   대응하는 실무형 전문가로 성장하세요.
 excerpt: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에"
 image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
-image_alt: 'Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps
-  to FinOps'
-keywords:
-- Cloud-Security
-- DevSecOps
-- FinOps
-- AWS
-- Course
-- 클라우드보안
-- 실무교육
-- Zero Trust
-- Post-quantum
+image_alt: 'Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to'
 layout: post
 original_url: https://twodragon.tistory.com/700
 tags:
@@ -33,7 +23,6 @@ series: "Cloud Security Course 8기"
 series_order: 1
 series_total: 9
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
   categories_html='<span class="category-tag devops">DevSecOps</span>'
@@ -48,6 +37,16 @@ series_total: 9
       <li><strong>주요 학습 영역</strong>: DevSecOps 영역(보안 통합 개발, 컨테이너 보안, 코드 보안, 인프라 보안), FinOps 영역(비용 최적화, 리소스 태깅, 거버넌스, 예산 관리), 클라우드 보안 영역(네트워크 보안, 접근 제어, 위협 탐지, 데이터 보호)</li>'
   audience='DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟢 낮음 | 교육 목적 실습 환경 중심 |
 
 ![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
 

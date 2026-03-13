@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - incident
@@ -10,13 +11,6 @@ excerpt: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분
 image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg
 image_alt: Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node
   Integration
-keywords:
-- Karpenter
-- Kubernetes
-- AWS
-- EKS
-- PodDisruptionBudget
-- Post-Mortem
 layout: post
 original_url: https://twodragon.tistory.com/695
 tags:
@@ -29,7 +23,6 @@ tags:
 title: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'
   categories_html='<span class="category-tag security">Incident</span>'
@@ -44,6 +37,16 @@ toc: true
       <li>NodePool 설정 수정 및 PDB 적용을 통한 재발 방지 대책</li>'
   audience='SRE, 인시던트 대응 담당자, 운영 엔지니어'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🔴 높음 | 즉시 대응 및 패치 적용 필요 |
 
 <img src="{% raw %}{{ '/assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution_image.png' | relative_url }}{% endraw %}" alt="Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration" loading="lazy" class="post-image">
 

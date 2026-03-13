@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - devsecops
@@ -10,23 +11,7 @@ description: DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined V
   SAST/DAST/SBOM 도구 스택까지 실무 정리.
 excerpt: "DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협"
 image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg
-image_alt: 'DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era
-  Security Strategy'
-keywords:
-- Automotive Security
-- DevSecOps
-- Connected Car
-- SDV
-- Software Defined Vehicle
-- ISO 21434
-- UN R155
-- SAST
-- DAST
-- SBOM
-- Supply Chain Security
-- V2X Security
-- Secure Boot
-- OTA Security
+image_alt: 'DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era'
 layout: post
 tags:
 - DevSecOps
@@ -39,7 +24,6 @@ tags:
 title: 'DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
   categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">Security</span>'
@@ -57,6 +41,10 @@ toc: true
       <li><strong>실무 보안 도구 스택</strong>: SAST(SonarQube, Semgrep, Clang Static Analyzer), Secret 스캔(Gitleaks, GitGuardian), SCA(Trivy, Snyk, Grype), DAST(OWASP ZAP, Burp Suite), Fuzz(AFL, LibFuzzer), SBOM(Syft, SPDX), 런타임 보안(Falco, Sysdig)</li>'
   audience='자동차 소프트웨어 개발자, DevSecOps 엔지니어, 보안 담당자, 자동차 제조사 보안 팀'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협
 
 <img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
 

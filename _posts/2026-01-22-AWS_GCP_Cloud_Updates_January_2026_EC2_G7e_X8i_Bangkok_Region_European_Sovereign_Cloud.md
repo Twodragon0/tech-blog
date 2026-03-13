@@ -1,31 +1,16 @@
 ---
+
 author: Twodragon
 categories:
 - cloud
 - devops
 comments: true
 date: 2026-01-22 16:00:00 +0900
-description: '2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i
-  SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash
-  모델, BigQuery SQL AI 추론까지 실무 관점 분석'
+description: '2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash 모델,...'
 excerpt: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign - 2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i"
 image: /assets/images/2026-01-22-AWS_GCP_Cloud_Updates_January_2026.svg
 image_alt: AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European
   Sovereign Cloud
-keywords:
-- AWS
-- GCP
-- EC2-G7e
-- NVIDIA-Blackwell
-- EC2-X8i
-- SAP-HANA
-- European-Sovereign-Cloud
-- Bangkok-Region
-- Gemini-3-Flash
-- BigQuery
-- Cloud-Migration
-- FinOps
-- AI-Inference
 layout: post
 tags:
 - AWS
@@ -44,7 +29,6 @@ title: 'AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bang
   Cloud'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud'
   categories_html='<span class="category-tag cloud">Cloud</span> <span class="category-tag devops">DevOps</span>'
@@ -68,6 +52,12 @@ toc: true
       <li><strong>BigQuery 고급 쿼리 엔진</strong>: 100개 이상의 새로운 쿼리 기능, Hugging Face 모델 통합</li>'
   audience='클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자'
 -%}
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

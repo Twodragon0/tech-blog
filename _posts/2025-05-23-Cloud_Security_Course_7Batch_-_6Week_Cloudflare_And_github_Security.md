@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
 date: 2025-05-23 01:07:48 +0900
@@ -8,7 +9,6 @@ excerpt: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare 보안(DDo
 description: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare, GitHub 보안 자동화 실무 정리."
 image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
 toc: true
-keywords: [AWS, WAF, Cloudflare, DDoS, GitHub, CodeQL, Dependabot, SAST]
 author: "Yongho Ha"
 comments: true
 image_alt: "Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security"

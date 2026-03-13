@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: '[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
 date: 2025-12-17 12:26:37 +0900
@@ -15,23 +16,11 @@ description: AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안
   Zero Trust 표준화 등 최신 트렌드를 확인하세요.
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
 toc: true
-keywords:
-- AWSKRUG
-- OWASP
-- Datadog
-- AI
-- Conference
-- AWS보안
-- 컨퍼런스후기
-- AI보안
-- Zero Trust
 author: Twodragon
 comments: true
-image_alt: 'December Conference Review: Previewing 2025 AI and Security Coexistence
-  with AWSKRUG OWASP Datadog'
+image_alt: 'December Conference Review: Previewing 2025 AI and Security Coexistence with'
 original_url: https://twodragon.tistory.com/704
 ---
-
 {%- include ai-summary-card.html
   title='[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
   categories_html='<span class="category-tag cloud">Cloud</span>'

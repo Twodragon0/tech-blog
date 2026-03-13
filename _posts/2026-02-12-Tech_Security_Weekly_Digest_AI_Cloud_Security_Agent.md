@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: 공급망 침해, Windows 보안, APT36"
 date: 2026-02-12 12:41:50 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
 excerpt: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 12일 AI 클라우드 보안"
 toc: true
 ---
-
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span>
 <span class="category-tag devsecops">DevSecOps</span>
@@ -41,6 +40,16 @@ toc: true
   period='2026-02-12 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

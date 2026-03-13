@@ -1,28 +1,15 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-02-06 12:30:12 +0900
-description: '2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf
-  31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석,
-  MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공.'
-excerpt: "2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf"
+description: '2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf 31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석,...'
+excerpt: "2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python..."
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg
 image_alt: Tech Security Weekly Digest February 06 2026 AI Botnet Cloud
-keywords:
-- Security-Weekly
-- DevSecOps
-- Cloud-Security
-- Weekly-Digest
-- 2026
-- CrashFix
-- AISURU
-- Botnet
-- DDoS
-- BYOVD
-- Python-RAT
 layout: post
 tags:
 - Security-Weekly
@@ -37,7 +24,6 @@ tags:
 title: "기술·보안 주간 다이제스트: CrashFix RAT, 초대형 DDoS, Codespaces RCE"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: CrashFix RAT, 초대형 DDoS, Codespaces RCE'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -46,6 +32,16 @@ toc: true
   period='2026-02-06 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python...
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 <figure>
   <img src="{{ '/assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg' | relative_url }}" alt="Tech Security Weekly Digest February 06 2026 AI Botnet Cloud" loading="lazy" class="post-image">

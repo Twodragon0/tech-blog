@@ -1,26 +1,16 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-02-04 12:30:55 +0900
-description: '2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI
-  Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs
-  보안 프레임워크 DevSecOps 실무 대응 가이드'
+description: '2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs 보안...'
 excerpt: "2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격 - 2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI"
 image: /assets/images/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg
 image_alt: Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AWS
   IAM
-keywords:
-- Docker
-- DockerDash
-- CVE-2025-11953
-- Metro4Shell
-- RCE
-- AI Agent Security
-- 3Cs Framework
-- AWS IAM Identity Center
 layout: post
 tags:
 - Security-Weekly
@@ -36,7 +26,6 @@ tags:
 title: '2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='주간 기술 보안 다이제스트 (2026년 02월 04일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -55,6 +44,16 @@ toc: true
   period='2026년 02월 03일 ~ 04일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격 - 2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

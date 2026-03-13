@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향"
 date: 2026-03-08 12:33:37 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
 excerpt: "OpenAI Codex Security가 120만 커밋에서 10,561건 취약점 탐지, Anthropic Claude가 Firefox 22개 취약점 발견. USDC 스테이블코인 전송량 $1.8T 돌파, Go 표준 라이브러리 UUID 패키지 추가 논의."
 description: "2026년 03월 08일 보안 뉴스: The Hacker News, Cointelegraph 등 12건. AI, Security 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-08-Tech_Security_Weekly_Digest_AI_Security.svg
 image_alt: "Tech Security Weekly Digest March 08 2026 AI Security"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'

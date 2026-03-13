@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -11,21 +12,7 @@ description: 2025년 개정된 ISMS-P 인증 기준(101개 항목) 완벽 분석
   NIST CSF 2.0 연계, AI 보안 요구사항, CIS Benchmark 준수까지 단계별 실무 가이드 제공.
 excerpt: "2025년 개정 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경 관리체계 수립, 보호대책 구현, NIST CSF 2.0 연계, AI 보안 요구사항까지 단계별 실무 가이드."
 image: /assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg
-image_alt: '2025 ISMS-P Certification Complete Guide: AWS Environment Management System
-  Establishment and Protection Measures Implementation'
-keywords:
-- ISMS-P
-- AWS
-- 정보보호 관리체계
-- 개인정보보호
-- Compliance
-- NIST CSF 2.0
-- AI Security
-- Cloud Security
-- ISO 27001
-- CIS Benchmark
-- PCI-DSS
-- 보안 컴플라이언스
+image_alt: '2025 ISMS-P Certification Complete Guide: AWS Environment Management System'
 layout: post
 tags:
 - ISMS-P
@@ -38,7 +25,6 @@ tags:
 title: '2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
@@ -57,6 +43,16 @@ toc: true
       <li><strong>실무 적용 사례</strong>: AWS 기반 ISMS-P 인증 사례, 보안 감사 대응 방법, 문제 해결 사례</li>'
   audience='ISMS-P 인증 준비자, 보안 엔지니어, 클라우드 보안 전문가, CISO, 컴플라이언스 담당자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2025년 개정 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경 관리체계 수립, 보호대책 구현, NIST CSF 2.0 연계, AI 보안 요구사항까지 단계별 실무 가이드.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ![ISMS-P Certification Complete Guide](/assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg)
 

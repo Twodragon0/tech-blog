@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - cloud
@@ -10,15 +11,7 @@ description: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust
   구축 가이드. Terraform 자동화 및 보안 설정을 다룹니다.
 excerpt: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이
 image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
-image_alt: 'Building Secure Database Access Gateway on AWS: NLB Security Group Complete
-  Guide'
-keywords:
-- AWS
-- NLB
-- Security-Group
-- Database
-- Terraform
-- Zero-Trust
+image_alt: 'Building Secure Database Access Gateway on AWS: NLB Security Group Complete'
 layout: post
 original_url: https://twodragon.tistory.com/696
 tags:
@@ -30,7 +23,6 @@ tags:
 title: 'AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
   categories_html='<span class="category-tag cloud">Cloud</span>'
@@ -44,6 +36,16 @@ toc: true
       <li>데이터베이스 접근 관리 솔루션 AWS 배포 경험 공유</li>'
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

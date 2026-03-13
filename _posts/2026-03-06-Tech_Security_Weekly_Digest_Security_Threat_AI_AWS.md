@@ -1,19 +1,18 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco 보안, AWS 운영"
 date: 2026-03-06 12:29:02 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
-excerpt: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안 체크리스트 등 22건의 DevSecOps 실무 위협 분석."
-description: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안 체크리스트 등 22건의 DevSecOps 실무 위협 분석."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI]
+excerpt: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google..."
+description: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안..."
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-06-Tech_Security_Weekly_Digest_Security_Threat_AI_AWS.svg
 image_alt: "Tech Security Weekly Digest March 06 2026 Security Threat AI AWS"
 toc: true
 ---
-
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

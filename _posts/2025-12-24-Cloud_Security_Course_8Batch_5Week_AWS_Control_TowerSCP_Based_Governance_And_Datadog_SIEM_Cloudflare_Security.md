@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: '클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare
   보안'
@@ -17,20 +18,9 @@ description: AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고
   보안 모니터링 및 웹 보안을 강화하세요.
 image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
 toc: true
-keywords:
-- AWS
-- Control-Tower
-- SCP
-- Datadog
-- Cloudflare
-- SIEM
-- 멀티계정
-- 거버넌스
-- Landing Zone
 author: Twodragon
 comments: true
-image_alt: 'Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance
-  and Datadog SIEM Cloudflare Security'
+image_alt: 'Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and'
 certifications:
 - aws-saa
 original_url: https://twodragon.tistory.com/706
@@ -38,7 +28,6 @@ series: "Cloud Security Course 8기"
 series_order: 6
 series_total: 9
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안'
   categories_html='<span class="category-tag cloud">Cloud</span>'

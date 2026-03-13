@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략"
 date: 2026-02-23 12:39:51 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
 excerpt: "SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI 보안 구축, BlackField 랜섬웨어 코드 재활용 패턴, 제로트러스트 데이터 보안 전략, OT 보안 동향과 비트코인 급락·러시아 제재 우회 거래소 적발"
 description: "SK쉴더스 11~12월호 보안 리포트 5건 심층 분석(Vertical AI, BlackField 랜섬웨어, 제로트러스트 데이터, EQST insight, OT 보안), 비트코인 $65K 급락, 러시아 제재 우회 거래소 네트워크 적발 등 DevSecOps 실무 위협 분석."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest February 23 2026 AI Ransomware Data"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -22,6 +21,16 @@ toc: true
   period='2026-02-23 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI 보안 구축, BlackField 랜섬웨어 코드 재활용 패턴, 제로트러스트 데이터 보안 전략, OT 보안 동향과 비트코인 급락·러시아 제재 우회 거래소 적발
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

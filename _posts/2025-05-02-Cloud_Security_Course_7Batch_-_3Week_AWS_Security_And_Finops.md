@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
 date: 2025-05-02 00:41:54 +0900
@@ -15,17 +16,6 @@ description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체
   Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
 image: /assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops.svg
 toc: true
-keywords:
-- AWS
-- FinOps
-- GuardDuty
-- Security-Hub
-- IAM
-- CloudTrail
-- Cost-Optimization
-- Well-Architected
-- 비용최적화
-- 클라우드보안
 author: Yongho Ha
 comments: true
 image_alt: 'Cloud Security Course 7Batch 3Week: AWS Security and FinOps'
@@ -36,7 +26,6 @@ series: "Cloud Security Course 7기"
 series_order: 1
 series_total: 7
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
   categories_html='<span class="category-tag cloud">Cloud</span>'

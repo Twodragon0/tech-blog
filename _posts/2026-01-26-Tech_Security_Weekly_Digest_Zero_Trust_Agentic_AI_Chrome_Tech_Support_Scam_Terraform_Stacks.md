@@ -1,35 +1,17 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-01-26 10:00:00 +0900
-description: '2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust
-  전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원,
-  Google Prompt Injection 4계층 방어 전략, 2026년 클라우드 전략 5가지 변화까지 DevSecOps 실무 분석'
+description: '2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust 전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원,...'
 excerpt: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection
   방어
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
 image_alt: Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents,
   Chrome Scam Detection, Terraform Stacks
-keywords:
-- Zero Trust
-- AI 에이전트
-- 비인간 ID
-- NHI
-- HashiCorp
-- Chrome 보안
-- Gemini Nano
-- 기술지원 사기
-- Terraform Stacks
-- 모노레포
-- Prompt Injection
-- Google Security
-- IaC
-- DevSecOps
-- 클라우드 보안
-- 2026
 layout: post
 tags:
 - Security-Weekly
@@ -48,7 +30,6 @@ title: '기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 
   Terraform Stacks 혁신'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 26일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -68,6 +49,16 @@ toc: true
   period='2026년 1월 24일 ~ 26일 (48시간)'
   audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, 플랫폼 엔지니어, CISO'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

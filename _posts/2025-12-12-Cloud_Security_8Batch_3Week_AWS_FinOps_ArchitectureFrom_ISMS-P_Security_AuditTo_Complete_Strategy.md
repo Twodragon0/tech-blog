@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: '클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
 date: 2025-12-12 14:45:05 +0900
@@ -15,19 +16,9 @@ description: 2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISM
   최적화와 보안을 동시에 달성하세요.
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
 toc: true
-keywords:
-- AWS
-- FinOps
-- ISMS-P
-- Audit
-- Cost-Optimization
-- 비용최적화
-- 보안감사
-- Compute Optimizer
 author: Twodragon
 comments: true
-image_alt: 'Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture
-  to ISMS-P Security Audit'
+image_alt: 'Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to'
 certifications:
 - isms-p
 - aws-saa
@@ -36,7 +27,6 @@ series: "Cloud Security Course 8기"
 series_order: 4
 series_total: 9
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
   categories_html='<span class="category-tag cloud">FinOps</span>'

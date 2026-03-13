@@ -40,6 +40,16 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
+## Executive Summary
+
+> **경영진 브리핑**: KrebsOnSecurity RSS 10건 요약 — Kimwolf 봇넷(I2P), 2월 Patch Tuesday, Badbox 2.0 등 핵심 위협과 대응.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 업데이트 및 모니터링 필요 |
+
 ![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 경영진 요약

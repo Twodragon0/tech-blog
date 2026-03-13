@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title: "기술·보안 주간 다이제스트: AI, 봇넷, 블록체인"
 date: 2026-02-27 12:28:30 +0900
@@ -6,14 +7,12 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain, Go]
 excerpt: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.svg
 image_alt: "Tech Security Weekly Digest February 27 2026 AI Botnet Blockchain"
 toc: true
 ---
-
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: AI, 봇넷, 블록체인'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -22,6 +21,16 @@ toc: true
   period='2026-02-27 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ---
 

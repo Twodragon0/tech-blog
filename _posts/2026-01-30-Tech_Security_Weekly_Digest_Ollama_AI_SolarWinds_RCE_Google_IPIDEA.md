@@ -1,30 +1,16 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-01-30 10:00:00 +0900
-description: '2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds
-  Web Help Desk Critical RCE 6건(CVSS 9.8 x4), Google GTIG IPIDEA 6.1M IP 레지덴셜 프록시
-  차단, Microsoft AI 위협 탐지 워크플로우, OT/에너지 시스템 사이버보안 실태'
+description: '2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds Web Help Desk Critical RCE 6건(CVSS 9.8 x4), Google GTIG IPIDEA 6.1M IP 레지덴셜 프록시 차단,...'
 excerpt: "기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, SolarWinds WHD Critical - 2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds"
 image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
 image_alt: Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds
   RCE Google IPIDEA Disruption
-keywords:
-- Ollama
-- LLMjacking
-- SolarWinds WHD
-- CVE-2025-40551
-- IPIDEA
-- Google GTIG
-- Residential Proxy
-- Microsoft AI Threat Detection
-- OT Security
-- ICS
-- Energy Cybersecurity
-- DevSecOps
 layout: post
 tags:
 - Security-Weekly
@@ -44,7 +30,6 @@ title: '기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, Sol
   RCE 6건, Google IPIDEA 프록시 차단'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 30일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -65,6 +50,16 @@ toc: true
   period='2026년 1월 29일 ~ 30일 (48시간)'
   audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, SolarWinds WHD Critical - 2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요 |
 
 ## 서론
 

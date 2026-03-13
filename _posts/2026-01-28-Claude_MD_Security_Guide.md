@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -11,15 +12,6 @@ excerpt: "AI 에이전트(Claude Code, Cursor, Copilot)와 협업하는 프로�
 image: /assets/images/2026-01-28-Claude_MD_Security_Guide.svg
 image_alt: CLAUDE.md Security Guide - AI Agent Security Guidelines Never Hardcode
   Secrets Log Masking Input Validation
-keywords:
-- CLAUDE.md
-- AGENTS.md
-- AI Security
-- Claude Code
-- DevSecOps
-- Security Guidelines
-- AI Agent
-- 보안 가이드라인
 layout: post
 tags:
 - CLAUDE.md
@@ -33,7 +25,6 @@ tags:
 title: 'CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -52,6 +43,16 @@ toc: true
       <li><strong>GitHub Actions</strong>: 자동화된 보안 스캔 워크플로우 (Semgrep, Gitleaks, pip-audit)</li>'
   audience='AI 에이전트 활용 개발자, DevSecOps 엔지니어, 보안 담당자, 플랫폼 엔지니어'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: AI 에이전트(Claude Code, Cursor, Copilot)와 협업하는 프로젝트의 보안 가이드라인. CLAUDE.md
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 

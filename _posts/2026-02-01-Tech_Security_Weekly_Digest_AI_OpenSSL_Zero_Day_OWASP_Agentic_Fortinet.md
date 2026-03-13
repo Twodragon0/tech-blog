@@ -1,25 +1,15 @@
 ---
+
 author: Twodragon
 categories:
 - security
 - devsecops
 comments: true
 date: 2026-02-01 10:00:00 +0900
-description: '2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic
-  AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure
-  Resource Manager CVSS 9.9, Kyverno 인가 우회, eScan 공급망 공격'
+description: '2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure...'
 excerpt: "기술·보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, - 2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic"
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
 image_alt: Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis
-keywords:
-- AISLE AI
-- OpenSSL Zero-Day
-- OWASP Agentic AI
-- Fortinet CVE-2026-24858
-- Azure CVE-2026-24304
-- Kyverno CVE-2026-22039
-- eScan Supply Chain
-- NIST AI RMF
 layout: post
 tags:
 - Security-Weekly
@@ -40,7 +30,6 @@ title: '기술·보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 
   Fortinet SSO 제로데이'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 02월 01일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -58,6 +47,10 @@ toc: true
       <li><strong>CVE-2026-24858 Fortinet 제로데이</strong>: FortiCloud SSO 인증 우회로 FortiGate 방화벽 무단 접근, 실제 공격 확인</li>
       <li><strong>CVE-2026-24304 Azure RM CVSS 9.9</strong>: Azure Resource Manager 권한 상승, 전체 리소스 제어권 탈취 가능</li>'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 기술·보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, - 2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic
 
 ## 경영진 요약
 

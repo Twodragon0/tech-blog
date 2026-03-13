@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -11,17 +12,6 @@ excerpt: "AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Con
 image: /assets/images/2026-02-28-AI_Agent_Security_Architecture_Design_Guide.svg
 image_alt: AI Agent Security Architecture Design Guide - Stateful Runtime and Continuous
   Evaluation
-keywords:
-- AI Agent Security
-- Stateful Runtime
-- Continuous Evaluation
-- OWASP Agentic Top 10
-- Prompt Injection Defense
-- Bedrock AgentCore
-- Zero Trust AI
-- Tool Validation
-- Circuit Breaker
-- OpenTelemetry GenAI
 layout: post
 tags:
 - AI-Agent
@@ -38,7 +28,6 @@ tags:
 title: 'AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation 실무 적용'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
@@ -56,6 +45,16 @@ toc: true
       <li><strong>방어 패턴 코드</strong>: 프롬프트 인젝션 방어, 도구 검증, Circuit Breaker, 감사 로깅 구현</li>'
   audience='보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation 실무 적용 - AI Agent 보안 아키텍처 설계 가이드 - OpenAI Stateful Runtime, Amazon Bedrock AgentCore,
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
 ![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
 

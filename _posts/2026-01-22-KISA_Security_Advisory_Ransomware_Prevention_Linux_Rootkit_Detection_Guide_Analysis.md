@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - security
@@ -11,18 +12,6 @@ excerpt: "KISA 보호나라 최신 보안 공지: 랜섬웨어 3-2-1 백업 전�
 image: /assets/images/2026-01-22-KISA_Security_Advisory_Ransomware_Linux_Rootkit.svg
 image_alt: KISA Security Advisory - Ransomware Prevention and Linux Rootkit Detection
   Guide
-keywords:
-- KISA
-- Ransomware
-- Linux-Rootkit
-- Security-Advisory
-- 3-2-1-Backup
-- chkrootkit
-- rkhunter
-- Phishing
-- E-commerce-Security
-- DevSecOps
-- Incident-Prevention
 layout: post
 tags:
 - KISA
@@ -38,7 +27,6 @@ tags:
 title: 'KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'

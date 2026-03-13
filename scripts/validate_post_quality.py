@@ -19,7 +19,7 @@ def validate_front_matter(content: str) -> tuple[int, str]:
     Returns:
         (score, warning) where warning is an empty string if no issue.
     """
-    fm_block = content[:800]
+    fm_block = content[:1100]
     score: float = 0
 
     required = [
@@ -52,10 +52,10 @@ def validate_front_matter(content: str) -> tuple[int, str]:
                 break
         if end_idx is not None:
             fm_text = "\n".join(lines[1:end_idx])
-            if len(fm_text) > 750:
+            if len(fm_text) > 1000:
                 warning = (
-                    f"Front matter exceeds 750 chars ({len(fm_text)} chars). "
-                    "Fields beyond 800 chars may not be scored."
+                    f"Front matter exceeds 1000 chars ({len(fm_text)} chars). "
+                    "Fields beyond 1100 chars may not be scored."
                 )
 
     return min(15, int(score)), warning

@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - incident
@@ -8,15 +9,7 @@ description: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Mult
   방안을 다룹니다.
 excerpt: "2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현"
 image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
-image_alt: 'Post-Mortem November 18 2025 Cloudflare Global Incident Response Log:
-  What We Learned'
-keywords:
-- Cloudflare
-- Post-Mortem
-- Incident-Response
-- CDN
-- Multi-CDN
-- BGP
+image_alt: 'Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We'
 layout: post
 original_url: https://twodragon.tistory.com/699
 tags:
@@ -29,7 +22,6 @@ tags:
 title: '[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
   categories_html='<span class="category-tag security">Incident</span>'
@@ -45,6 +37,16 @@ toc: true
       <li>2025년 Cloudflare 보안 업데이트: Post-Quantum Encryption, DDoS 위협 동향</li>'
   audience='SRE, 인시던트 대응 담당자, 운영 엔지니어'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🔴 높음 | 즉시 대응 및 패치 적용 필요 |
 
 <img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned_image.png' | relative_url }}" alt="Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We Learned" loading="lazy" class="post-image">
 

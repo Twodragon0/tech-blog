@@ -1,4 +1,5 @@
 ---
+
 author: Twodragon
 categories:
 - incident
@@ -8,15 +9,7 @@ description: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 S
   필수 설정 권장.
 excerpt: "NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA"
 image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
-image_alt: 'NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale
-  Supply Chain Attack with 180+ Compromised Packages'
-keywords:
-- npm
-- Supply-Chain-Attack
-- Worm
-- Shai-Hulud
-- SBOM
-- 2FA
+image_alt: 'NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale'
 layout: post
 original_url: https://twodragon.tistory.com/694
 tags:
@@ -27,7 +20,6 @@ tags:
 title: 'NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석'
 toc: true
 ---
-
 {%- include ai-summary-card.html
   title='NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석'
   categories_html='<span class="category-tag security">Incident</span>'
@@ -40,6 +32,10 @@ toc: true
       <li>개발자 인증 정보 탈취 및 자동 전파 메커니즘 분석</li>'
   audience='SRE, 인시던트 대응 담당자, 운영 엔지니어'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 

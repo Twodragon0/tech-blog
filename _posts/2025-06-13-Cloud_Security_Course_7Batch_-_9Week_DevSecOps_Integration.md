@@ -1,4 +1,5 @@
 ---
+
 author: Yongho Ha
 categories:
 - devsecops
@@ -9,12 +10,6 @@ description: DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑
 excerpt: "DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한"
 image: /assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration.svg
 image_alt: 'Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary'
-keywords:
-- DevSecOps
-- Integration
-- Cloud-Security
-- SDLC
-- Security-Automation
 layout: post
 original_url: https://twodragon.tistory.com/691
 tags:
@@ -29,7 +24,6 @@ series: "Cloud Security Course 7기"
 series_order: 7
 series_total: 7
 ---
-
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'
   categories_html='<span class="category-tag devops">DevSecOps</span>'
@@ -44,6 +38,16 @@ series_total: 7
       <li><strong>완전한 CI/CD 보안 파이프라인</strong>: 코드 보안 분석(Secret Scanning, SAST), 빌드 보안(SCA, 이미지 스캔), 배포 보안(IaC 스캔, Policy 검증), 운영 보안(런타임 보안, 모니터링)</li>'
   audience='DevSecOps 엔지니어, 보안 엔지니어, 개발자'
 -%}
+
+## Executive Summary
+
+> **경영진 브리핑**: DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 전체 위험도 | 🟢 낮음 | 교육 목적 실습 환경 중심 |
 
 <img src="{{ '/assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary" loading="lazy" class="post-image">
 
