@@ -1,15 +1,19 @@
 ---
-author: Yongho Ha
+layout: post
+title: 'SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
+date: 2025-04-29 15:25:12 +0900
 categories:
 - security
-comments: true
-date: 2025-04-29 15:25:12 +0900
+tags:
+- SKT
+- MFA
+- USIM
+- Security-Incident
+excerpt: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성 - SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,"
 description: SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,
   OTP/MFA 중요성, 통신사 보안 강화 조치, 개인/기업 보안 시사점까지 실무 중심 정리.
-excerpt: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성 - SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,"
 image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance.svg
-image_alt: 'SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement
-  and MFA Importance'
+toc: true
 keywords:
 - SKT
 - USIM
@@ -21,15 +25,11 @@ keywords:
 - 보안사고
 - 통신사보안
 - 금융보안
-layout: post
+author: Yongho Ha
+comments: true
+image_alt: 'SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement
+  and MFA Importance'
 original_url: https://twodragon.tistory.com/677
-tags:
-- SKT
-- MFA
-- USIM
-- Security-Incident
-title: 'SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
-toc: true
 ---
 
 {%- include ai-summary-card.html

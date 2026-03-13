@@ -1,18 +1,20 @@
 ---
-author: Twodragon
+layout: post
+title: '클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
+date: 2025-12-12 14:45:05 +0900
 categories:
 - finops
-certifications:
-- isms-p
-- aws-saa
-comments: true
-date: 2025-12-12 14:45:05 +0900
+tags:
+- AWS
+- FinOps
+- ISMS-P
+- Audit
+- Cost-Optimization
+excerpt: "2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용"
 description: 2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용
   최적화와 보안을 동시에 달성하세요.
-excerpt: "2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용"
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
-image_alt: 'Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture
-  to ISMS-P Security Audit'
+toc: true
 keywords:
 - AWS
 - FinOps
@@ -22,16 +24,14 @@ keywords:
 - 비용최적화
 - 보안감사
 - Compute Optimizer
-layout: post
+author: Twodragon
+comments: true
+image_alt: 'Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture
+  to ISMS-P Security Audit'
+certifications:
+- isms-p
+- aws-saa
 original_url: https://twodragon.tistory.com/703
-tags:
-- AWS
-- FinOps
-- ISMS-P
-- Audit
-- Cost-Optimization
-title: '클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
-toc: true
 series: "Cloud Security Course 8기"
 series_order: 4
 series_total: 9

@@ -1,26 +1,9 @@
 ---
-author: Yongho Ha
+layout: post
+title: '클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
+date: 2025-05-30 00:04:58 +0900
 categories:
 - kubernetes
-certifications:
-- ckad
-- cka
-comments: true
-date: 2025-05-30 00:04:58 +0900
-description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
-  Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
-excerpt: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,"
-image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
-image_alt: 'Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding'
-keywords:
-- Docker
-- Kubernetes
-- Container
-- K8s
-- Cloud-Security
-- DevSecOps
-layout: post
-original_url: https://twodragon.tistory.com/686
 tags:
 - Docker
 - Kubernetes
@@ -28,8 +11,25 @@ tags:
 - K8s
 - Cloud-Security
 - DevSecOps
-title: '클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
+excerpt: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,"
+description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
+  Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
+image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
 toc: true
+keywords:
+- Docker
+- Kubernetes
+- Container
+- K8s
+- Cloud-Security
+- DevSecOps
+author: Yongho Ha
+comments: true
+image_alt: 'Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding'
+certifications:
+- ckad
+- cka
+original_url: https://twodragon.tistory.com/686
 series: "Cloud Security Course 7기"
 series_order: 5
 series_total: 7

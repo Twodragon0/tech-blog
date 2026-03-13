@@ -1,34 +1,34 @@
 ---
-author: Yongho Ha
+layout: post
+title: 'Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
+date: 2025-05-30 01:11:00 +0900
 categories:
 - kubernetes
-certifications:
-- ckad
-- cka
-comments: true
-date: 2025-05-30 01:11:00 +0900
-description: Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User
-  Namespaces, Bound Service Account Tokens), 실전 테스트 시나리오까지 실무 중심 정리.
-excerpt: "Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User"
-image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
-image_alt: 'Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical
-  Testing'
-keywords:
-- Kubernetes
-- Minikube
-- K9s
-- K8s
-- Troubleshooting
-layout: post
-original_url: https://twodragon.tistory.com/687
 tags:
 - Kubernetes
 - Minikube
 - K9s
 - K8s
 - Troubleshooting
-title: 'Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
+excerpt: "Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User"
+description: Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User
+  Namespaces, Bound Service Account Tokens), 실전 테스트 시나리오까지 실무 중심 정리.
+image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
 toc: true
+keywords:
+- Kubernetes
+- Minikube
+- K9s
+- K8s
+- Troubleshooting
+author: Yongho Ha
+comments: true
+image_alt: 'Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical
+  Testing'
+certifications:
+- ckad
+- cka
+original_url: https://twodragon.tistory.com/687
 ---
 
 {%- include ai-summary-card.html

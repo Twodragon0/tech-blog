@@ -3,16 +3,16 @@ layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
 date: 2025-05-23 01:07:48 +0900
 categories: [security, devsecops]
-tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애플리케이션-보안, 코드-보안]
-excerpt: "클라우드 시큐리티 7기 6주차. AWS WAF 보안 강화(웹 ACL, Rate Limiting), Cloudflare 종합 보안(DDoS, WAF, SSL/TLS), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning) 실무 정리."
-comments: true
-original_url: https://twodragon.tistory.com/684
+tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
+excerpt: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare 보안(DDoS, SSL/TLS), GitHub 자동화(Dependabot, CodeQL) 실무 정리."
+description: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare, GitHub 보안 자동화 실무 정리."
 image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
-image_alt: "Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security"
 toc: true
-description: 클라우드 시큐리티 7기 6주차. AWS WAF 보안 강화(웹 ACL, Rate Limiting), Cloudflare 종합 보안(DDoS, WAF, SSL/TLS), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning) 실무 정리.
-keywords: [AWS, WAF, Cloudflare, DDoS, CDN, GitHub, CodeQL, Dependabot, SAST, Secret-Scanning, 웹보안, 코드보안]
+keywords: [AWS, WAF, Cloudflare, DDoS, GitHub, CodeQL, Dependabot, SAST]
 author: "Yongho Ha"
+comments: true
+image_alt: "Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security"
+original_url: https://twodragon.tistory.com/684
 series: "Cloud Security Course 7기"
 series_order: 4
 series_total: 7

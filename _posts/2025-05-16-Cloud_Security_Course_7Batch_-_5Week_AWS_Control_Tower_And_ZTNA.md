@@ -1,16 +1,19 @@
 ---
-author: Yongho Ha
+layout: post
+title: 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA
+date: 2025-05-16 00:53:10 +0900
 categories:
 - cloud
-certifications:
-- aws-saa
-comments: true
-date: 2025-05-16 00:53:10 +0900
+tags:
+- AWS
+- Control-Tower
+- ZTNA
+- Zero-Trust
+excerpt: "클라우드 시큐리티 7기 5주차. AWS Control Tower 멀티 계정 관리(Landing Zone, Guardrails,"
 description: 클라우드 시큐리티 7기 5주차. AWS Control Tower 멀티 계정 관리(Landing Zone, Guardrails,
   SCP), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현, 2025년 거버넌스 업데이트 실무 정리.
-excerpt: "클라우드 시큐리티 7기 5주차. AWS Control Tower 멀티 계정 관리(Landing Zone, Guardrails,"
 image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg
-image_alt: 'Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA'
+toc: true
 keywords:
 - AWS
 - Control-Tower
@@ -22,15 +25,12 @@ keywords:
 - 멀티계정
 - Organizations
 - 제로트러스트
-layout: post
+author: Yongho Ha
+comments: true
+image_alt: 'Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA'
+certifications:
+- aws-saa
 original_url: https://twodragon.tistory.com/683
-tags:
-- AWS
-- Control-Tower
-- ZTNA
-- Zero-Trust
-title: 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA
-toc: true
 series: "Cloud Security Course 7기"
 series_order: 3
 series_total: 7

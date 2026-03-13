@@ -1,17 +1,19 @@
 ---
-author: Twodragon
+layout: post
+title: '클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
+date: 2025-12-05 17:07:53 +0900
 categories:
 - cloud
-certifications:
-- aws-saa
-comments: true
-date: 2025-12-05 17:07:53 +0900
+tags:
+- AWS
+- VPC
+- GuardDuty
+- Security-Architecture
+excerpt: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안"
 description: VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안
   서비스를 실무 중심으로 완벽 정복하세요.
-excerpt: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안"
 image: /assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.svg
-image_alt: 'Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture
-  Core from VPC to GuardDuty'
+toc: true
 keywords:
 - AWS
 - VPC
@@ -22,15 +24,13 @@ keywords:
 - AWS보안
 - 보안아키텍처
 - IAM Policy
-layout: post
+author: Twodragon
+comments: true
+image_alt: 'Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture
+  Core from VPC to GuardDuty'
+certifications:
+- aws-saa
 original_url: https://twodragon.tistory.com/702
-tags:
-- AWS
-- VPC
-- GuardDuty
-- Security-Architecture
-title: '클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
-toc: true
 series: "Cloud Security Course 8기"
 series_order: 3
 series_total: 9

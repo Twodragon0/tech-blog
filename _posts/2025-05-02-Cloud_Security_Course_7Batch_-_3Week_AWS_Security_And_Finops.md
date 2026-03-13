@@ -1,16 +1,20 @@
 ---
-author: Yongho Ha
+layout: post
+title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
+date: 2025-05-02 00:41:54 +0900
 categories:
 - cloud
-certifications:
-- aws-saa
-comments: true
-date: 2025-05-02 00:41:54 +0900
+tags:
+- AWS
+- FinOps
+- Cloud-Security
+- Cost-Optimization
+- Well-Architected
+excerpt: "클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,"
 description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,
   Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
-excerpt: "클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,"
 image: /assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops.svg
-image_alt: 'Cloud Security Course 7Batch 3Week: AWS Security and FinOps'
+toc: true
 keywords:
 - AWS
 - FinOps
@@ -22,16 +26,12 @@ keywords:
 - Well-Architected
 - 비용최적화
 - 클라우드보안
-layout: post
+author: Yongho Ha
+comments: true
+image_alt: 'Cloud Security Course 7Batch 3Week: AWS Security and FinOps'
+certifications:
+- aws-saa
 original_url: https://twodragon.tistory.com/679
-tags:
-- AWS
-- FinOps
-- Cloud-Security
-- Cost-Optimization
-- Well-Architected
-title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
-toc: true
 series: "Cloud Security Course 7기"
 series_order: 1
 series_total: 7
