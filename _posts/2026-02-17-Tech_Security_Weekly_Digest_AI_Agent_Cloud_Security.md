@@ -15,20 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='AI Agent Token Theft / Password Manager / Serverless Defense (2026.02.17)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI-Agent-Security</span>
-      <span class="tag">Password-Manager</span>
-      <span class="tag">Serverless</span>
-      <span class="tag">0-Day</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Infostealer 진화</strong>: AI 에이전트 설정 파일과 게이트웨이 토큰이 새로운 공격 대상 - 토큰 하나가 탈취되면 연결된 모든 시스템에 접근 가능</li>
-      <li><strong>패스워드 매니저 25개 공격</strong>: Bitwarden, Dashlane, LastPass 복구 메커니즘에서 조직 전체 볼트 완전 탈취 경로 발견</li>
-      <li><strong>AWS Serverless DiD</strong>: 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth 아키텍처 - GuardDuty, Security Hub 통합</li>
-      <li><strong>주간 요약</strong>: Outlook Add-In 하이재킹, 즉각 조치가 필요한 다수의 0-Day 패치</li>'
-  period='2026.02.17 (24h)'
-  audience='보안 엔지니어, DevSecOps, SRE, 클라우드 아키텍트'
+  title='기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI-Agent</span> <span class="tag">Password-Manager</span> <span class="tag">Serverless</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-17 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

@@ -19,12 +19,9 @@ TITLE_REPLACEMENTS = {
 
 # Special full-title replacements (file -> new title)
 FULL_TITLE_REPLACEMENTS = {
-    "2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.md":
-        "기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어",
-    "2026-02-18-Krebs_Security_Digest_Kimwolf_Patch_Tuesday.md":
-        "KrebsOnSecurity 다이제스트: Kimwolf 봇넷 · 2026년 2월 패치 화요일",
-    "2026-02-25-Claude_Code_OpenCode_Best_Practices.md":
-        "Claude Code & OpenCode 실전 가이드: 38가지 베스트 프랙티스",
+    "2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.md": "기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어",
+    "2026-02-18-Krebs_Security_Digest_Kimwolf_Patch_Tuesday.md": "KrebsOnSecurity 다이제스트: Kimwolf 봇넷 · 2026년 2월 패치 화요일",
+    "2026-02-25-Claude_Code_OpenCode_Best_Practices.md": "Claude Code & OpenCode 실전 가이드: 38가지 베스트 프랙티스",
 }
 
 
@@ -117,7 +114,7 @@ def escape_liquid_quotes(text):
 def clean_whitespace(text):
     """Normalize whitespace in extracted HTML while preserving structure."""
     # Collapse multiple spaces/newlines between tags
-    text = re.sub(r'\n\s*', '\n      ', text)
+    text = re.sub(r"\n\s*", "\n      ", text)
     return text.strip()
 
 
@@ -152,9 +149,7 @@ def convert_title_to_korean(content, filename):
         # Handle multi-line YAML title
         # Match title field - could be single or multi-line
         title_match = re.search(
-            r"^title:\s*['\"]?(.+?)(?:['\"]?\s*$)",
-            content[:3000],
-            re.MULTILINE
+            r"^title:\s*['\"]?(.+?)(?:['\"]?\s*$)", content[:3000], re.MULTILINE
         )
         if title_match:
             old_line = title_match.group(0)

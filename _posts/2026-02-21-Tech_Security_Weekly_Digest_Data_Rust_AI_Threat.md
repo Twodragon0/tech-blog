@@ -18,9 +18,7 @@ toc: true
   title='기술·보안 주간 다이제스트: CVE-2025-49113, Ransomware'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Vulnerability</span> <span class="tag">AI</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>Claude Code Security 출시</strong>: Anthropic이 AI 기반 취약점 스캔 및 자동 패치 제안 기능 공개, CI/CD 파이프라인 통합으로 DevSecOps Shift-Left 실현 가능</li>
-      <li><strong>Roundcube KEV 등재</strong>: CISA가 실제 악용 중인 Roundcube 웹메일 취약점 2건을 KEV 목록에 추가, 원격 코드 실행 가능한 치명적 결함 포함으로 즉각 대응 필요</li>
-      <li><strong>비트코인 대법원 판결 연동</strong>: 미국 대법원이 Trump 관세를 6대 3으로 무효화한 직후 비트코인 급등, 규제 불확실성 해소가 암호화폐 시장에 미치는 영향 확인</li>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
   period='2026-02-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
@@ -197,8 +195,8 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Amazon 배송 밴 함대 확대, 태양광 세미트럭 및 BetterFleet 방문 소식](https://electrek.co/2026/02/20/amazon-grows-van-fleet-solar-powered-semis-and-betterfleet-stops-by/) | Electrek | Amazon이 친환경 물류 차량 확대와 태양광 세미트럭 도입으로 탄소 중립 배송 목표에 근접 중 |
-| [Kia, 대대적인 실내 개편을 통해 신형 전기 SUV 새롭게 단장](https://electrek.co/2026/02/20/kia-refreshing-new-ev-suv-major-interior-overhaul/) | Electrek | Kia가 신형 전기 SUV 실내 UX를 전면 개편하며 경쟁사 대비 사용자 편의성 차별화 시도 |
+| [Amazon 배송 밴 함대 확대, 태양광 세미트럭 및 BetterFleet 방문 소식](https://electrek.co/2026/02/20/amazon-grows-van-fleet-solar-powered-semis-and-betterfleet-stops-by/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [Kia, 대대적인 실내 개편을 통해 신형 전기 SUV 새롭게 단장](https://electrek.co/2026/02/20/kia-refreshing-new-ev-suv-major-interior-overhaul/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
 
 ---
 

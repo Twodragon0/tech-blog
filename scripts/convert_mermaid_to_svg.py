@@ -18,13 +18,15 @@ def extract_mermaid_blocks(filepath):
     pattern = re.compile(r"```mermaid\n(.*?)```", re.DOTALL)
     blocks = []
     for i, match in enumerate(pattern.finditer(content)):
-        blocks.append({
-            "index": i,
-            "full_match": match.group(0),
-            "code": match.group(1).strip(),
-            "start": match.start(),
-            "end": match.end(),
-        })
+        blocks.append(
+            {
+                "index": i,
+                "full_match": match.group(0),
+                "code": match.group(1).strip(),
+                "start": match.start(),
+                "end": match.end(),
+            }
+        )
     return content, blocks
 
 
@@ -37,11 +39,17 @@ def generate_svg(mermaid_code, output_path):
     try:
         result = subprocess.run(
             [
-                "npx", "--yes", "@mermaid-js/mermaid-cli",
-                "-i", tmp_input,
-                "-o", str(output_path),
-                "-t", "default",
-                "-b", "transparent",
+                "npx",
+                "--yes",
+                "@mermaid-js/mermaid-cli",
+                "-i",
+                tmp_input,
+                "-o",
+                str(output_path),
+                "-t",
+                "default",
+                "-b",
+                "transparent",
                 "-q",
             ],
             capture_output=True,
@@ -53,7 +61,7 @@ def generate_svg(mermaid_code, output_path):
             return False
         return output_path.exists()
     except subprocess.TimeoutExpired:
-        print(f"  WARNING: mmdc timed out")
+        print("  WARNING: mmdc timed out")
         return False
     finally:
         os.unlink(tmp_input)
@@ -63,15 +71,15 @@ def clean_svg(svg_path):
     """Remove unnecessary attributes and clean SVG for web use."""
     content = svg_path.read_text(encoding="utf-8")
     # Remove fixed width/height, keep viewBox for responsive sizing
-    content = re.sub(r'\s+style="[^"]*"', '', content, count=1)
+    content = re.sub(r'\s+style="[^"]*"', "", content, count=1)
     # Ensure viewBox exists
-    if 'viewBox' not in content:
+    if "viewBox" not in content:
         # Try to extract from width/height
         w_match = re.search(r'width="([\d.]+)"', content)
         h_match = re.search(r'height="([\d.]+)"', content)
         if w_match and h_match:
             w, h = w_match.group(1), h_match.group(1)
-            content = content.replace('<svg ', f'<svg viewBox="0 0 {w} {h}" ', 1)
+            content = content.replace("<svg ", f'<svg viewBox="0 0 {w} {h}" ', 1)
     svg_path.write_text(content, encoding="utf-8")
 
 
@@ -109,11 +117,11 @@ def main():
             if generate_svg(block["code"], svg_path):
                 clean_svg(svg_path)
                 # Replace mermaid block with image
-                replacement = f'![Mermaid Diagram]({img_ref})'
+                replacement = f"![Mermaid Diagram]({img_ref})"
                 new_content = (
-                    new_content[:block["start"]]
+                    new_content[: block["start"]]
                     + replacement
-                    + new_content[block["end"]:]
+                    + new_content[block["end"] :]
                 )
                 total_converted += 1
                 print("OK")

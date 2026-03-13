@@ -39,12 +39,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='2026-02-06 기술·보안 주간 다이제스트'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Botnet</span> <span class="tag">DDoS</span> <span class="tag">BYOVD</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>CrashFix Python RAT</strong>: ClickFix 변종 소셜 엔지니어링으로 Portable Python + finger.exe 활용 AsyncRAT 배포 - EDR 우회 기법 분석</li> <li><strong>AISURU/Kimwolf DDoS</strong>: 31.4 Tbps 기록 경신 봇넷 공격 - Cloudflare + AWS Shield Advanced 이중 방어 아키텍처 설계 가이드</li> <li><strong>Codespaces RCE + BYOVD</strong>: GitHub Codespaces devcontainer.json 악용 RCE 및 취약 드라이버 서명 악용 커널 권한 상승 복합 위협</li> <li><strong>VEX + Docker 하드닝 이미지</strong>: Wiz 협력 VEX 표준으로 수백 개 CVE 노이즈에서 실제 악용 가능 취약점만 필터링하는 CI/CD 연동 방법</li>'
-  period='2026년 02월 06일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  title='2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Botnet</span> <span class="tag">Cloud</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: Cras</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-06 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 <figure>

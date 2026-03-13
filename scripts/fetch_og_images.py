@@ -11,26 +11,28 @@ Options:
     --file       Process only a specific file (basename, e.g. 2026-03-07-...)
 """
 
+import argparse
+import logging
 import os
 import re
 import ssl
 import sys
 import time
-import argparse
-import logging
-import urllib3
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
-from urllib.parse import urljoin, urlparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
+from urllib.parse import urljoin, urlparse
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-POSTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts")
+POSTS_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts"
+)
 MAX_WORKERS = 3
 REQUEST_TIMEOUT = 10
 RATE_LIMIT_DELAY = 0.5  # seconds between requests to same domain
@@ -133,9 +135,9 @@ def fetch_og_image(url: str) -> str | None:
 # ---------------------------------------------------------------------------
 # Match an entire news-card include block
 NEWS_CARD_RE = re.compile(
-    r'(\{%-?\s*include\s+news-card\.html\s*\n)'  # opening tag
-    r'((?:\s+\w+="[^"]*"\n)*)'                    # parameters (each on own line)
-    r'(\s*-?%\})',                                 # closing tag
+    r"(\{%-?\s*include\s+news-card\.html\s*\n)"  # opening tag
+    r'((?:\s+\w+="[^"]*"\n)*)'  # parameters (each on own line)
+    r"(\s*-?%\})",  # closing tag
     re.MULTILINE,
 )
 
@@ -213,15 +215,20 @@ def process_file(filepath: str, dry_run: bool = False) -> tuple[int, int, int]:
         if url_line_match:
             url_line = url_line_match.group(1)  # e.g. '  url="https://..."'
             # Determine indentation from url line
-            indent_match = re.match(r'^(\s+)', url_line)
+            indent_match = re.match(r"^(\s+)", url_line)
             indent = indent_match.group(1) if indent_match else "  "
             image_line = f'{indent}image="{img_url}"'
             # Insert after url line + newline
             insert_pos = url_line_match.end()  # position after the newline
-            new_params = params_block[:insert_pos] + image_line + "\n" + params_block[insert_pos:]
+            new_params = (
+                params_block[:insert_pos]
+                + image_line
+                + "\n"
+                + params_block[insert_pos:]
+            )
             # Reconstruct the full match
             new_block = m.group(1) + new_params + m.group(3)
-            content = content[:m.start()] + new_block + content[m.end():]
+            content = content[: m.start()] + new_block + content[m.end() :]
             modified = True
 
     if modified and not dry_run:
@@ -238,9 +245,13 @@ def process_file(filepath: str, dry_run: bool = False) -> tuple[int, int, int]:
 # Main
 # ---------------------------------------------------------------------------
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch OG images for news-card includes")
+    parser = argparse.ArgumentParser(
+        description="Fetch OG images for news-card includes"
+    )
     parser.add_argument("--dry-run", action="store_true", help="Don't modify files")
-    parser.add_argument("--file", type=str, help="Process only this file (basename pattern)")
+    parser.add_argument(
+        "--file", type=str, help="Process only this file (basename pattern)"
+    )
     args = parser.parse_args()
 
     if not os.path.isdir(POSTS_DIR):
@@ -249,9 +260,7 @@ def main() -> None:
 
     # Collect markdown files
     md_files = sorted(
-        os.path.join(POSTS_DIR, f)
-        for f in os.listdir(POSTS_DIR)
-        if f.endswith(".md")
+        os.path.join(POSTS_DIR, f) for f in os.listdir(POSTS_DIR) if f.endswith(".md")
     )
 
     if args.file:
@@ -268,8 +277,7 @@ def main() -> None:
     # Process files with thread pool - each file is independent
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         future_to_file = {
-            executor.submit(process_file, fp, args.dry_run): fp
-            for fp in md_files
+            executor.submit(process_file, fp, args.dry_run): fp for fp in md_files
         }
         for future in as_completed(future_to_file):
             fp = future_to_file[future]
@@ -288,7 +296,9 @@ def main() -> None:
     log.info("  Total news-card includes: %d", total_cards)
     log.info("  Images successfully added: %d", total_added)
     log.info("  Errors/skipped:            %d", total_errors)
-    log.info("  Already had images:        %d", total_cards - total_added - total_errors)
+    log.info(
+        "  Already had images:        %d", total_cards - total_added - total_errors
+    )
     log.info("=" * 60)
 
 

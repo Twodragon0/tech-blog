@@ -17,18 +17,8 @@ toc: true
 {% include ai-summary-card.html
   title='2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native'
   categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">Tech-Blog</span>
-      <span class="tag">Weekly-Digest</span>
-      <span class="tag">Developer</span>
-      <span class="tag">2026</span>
-      <span class="tag">AI</span>
-      <span class="tag">Data</span>
-      <span class="tag">Cloud</span>
-      <span class="tag">Go</span>'
-  highlights_html='<li><strong>OpenAI</strong>: AI Alignment 독립 연구 투자 확대 - 외부 연구 기관 지원 강화</li>
-      <li><strong>Google</strong>: AI Impact Summit 2026 개최 및 AI 산업 확산 전략 발표</li>
-      <li><strong>AWS</strong>: EKS + Union.ai Flyte 기반 AI 워크플로우 오케스트레이션 구축 가이드</li>
-      <li><strong>CNCF</strong>: 2026년 Cloud Native 전망 - 플랫폼 엔지니어링과 AI 네이티브 인프라</li>'
+  tags_html='<span class="tag">Tech-Blog</span> <span class="tag">Weekly-Digest</span> <span class="tag">Developer</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Data</span> <span class="tag">Cloud</span> <span class="tag">Go</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
   period='2026-02-20 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

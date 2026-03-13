@@ -15,19 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 08일)'
+  title='기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점 22건 발견'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Security</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AI 보안 스캔 혁신</strong>: OpenAI Codex Security가 120만 커밋에서 10,561건 취약점 탐지 — AI 기반 SAST 도구의 실전 성과</li>
-      <li><strong>Firefox 취약점 발견</strong>: Anthropic Claude Opus 4.6가 Firefox에서 22건 보안 취약점 발견 (14건 High) — AI 보안 연구 역량 입증</li>
-      <li><strong>예측 시장 규제</strong>: Kalshi 하메네이 거래 면제 소송 및 Polymarket 200억 달러 밸류에이션 목표 자금 조달</li>
-      <li><strong>스테이블코인 전송</strong>: USDC가 Tether를 제치고 월간 전송량 1.8조 달러 사상 최고치 — 전체의 70% 차지</li>
-      <li><strong>AI 에이전트 신뢰</strong>: Anthropic의 Claude Code 분석 결과, AI 에이전트 도입 병목은 성능이 아닌 신뢰 구축 시간</li>'
-  period='2026년 03월 08일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: OpenAI Codex Security가 120만 커밋에서 10,561건 취약점 탐지, Anthropic Claude가 Firefox 22개 취약점 발견. USDC 스테이블코인 전송량 $1.8T 돌파, Go 표준 라</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-03-08 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

@@ -28,17 +28,14 @@ GENERIC_PATTERNS = [
 def extract_yaml_field(fm_text, field):
     """Extract a YAML field value, handling multi-line strings."""
     # Try single-line first
-    match = re.search(
-        rf"^{field}:\s*['\"]?(.*?)(?:['\"]?\s*$)",
-        fm_text, re.MULTILINE
-    )
+    match = re.search(rf"^{field}:\s*['\"]?(.*?)(?:['\"]?\s*$)", fm_text, re.MULTILINE)
     if not match:
         return None
 
     value = match.group(1).strip().strip("'\"")
 
     # Check for multi-line continuation (indented lines after)
-    lines_after = fm_text[match.end():]
+    lines_after = fm_text[match.end() :]
     continued = []
     for line in lines_after.split("\n"):
         if line.startswith("  ") and not line.strip().startswith("-"):
@@ -148,15 +145,37 @@ def process_file(filepath, dry_run=False):
     # Replace excerpt in content
     # Find the exact excerpt line(s) in front matter
     # Handle both single-line and multi-line YAML excerpt
-    excerpt_pattern = re.compile(
-        r"^(excerpt:\s*)(.+(?:\n  .+)*)",
-        re.MULTILINE
-    )
+    excerpt_pattern = re.compile(r"^(excerpt:\s*)(.+(?:\n  .+)*)", re.MULTILINE)
 
     def replace_excerpt(m):
         prefix = "excerpt: "
         # Escape for YAML - use double quotes if contains special chars
-        if any(c in new_excerpt for c in [":", "'", '"', "#", "{", "}", "[", "]", ",", "&", "*", "?", "|", "-", "<", ">", "=", "!", "%", "@", "`"]):
+        if any(
+            c in new_excerpt
+            for c in [
+                ":",
+                "'",
+                '"',
+                "#",
+                "{",
+                "}",
+                "[",
+                "]",
+                ",",
+                "&",
+                "*",
+                "?",
+                "|",
+                "-",
+                "<",
+                ">",
+                "=",
+                "!",
+                "%",
+                "@",
+                "`",
+            ]
+        ):
             escaped = new_excerpt.replace('"', '\\"')
             return f'{prefix}"{escaped}"'
         return f"{prefix}{new_excerpt}"

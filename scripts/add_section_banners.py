@@ -7,8 +7,8 @@ GROUP B: Non-digest posts get a single banner before the first ## heading.
 Idempotent: skips if banner already exists.
 """
 
-import re
 import os
+import re
 from pathlib import Path
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
@@ -36,32 +36,106 @@ ALT_TEXT = {
 # Keywords to determine banner type for digest section headings
 SECTION_KEYWORDS = {
     "security": [
-        "보안", "Security", "위협", "Threat", "CVE", "Patch", "취약점",
-        "Vulnerability", "Ransomware", "랜섬웨어", "Malware", "악성",
-        "해킹", "Hacking", "침해", "Breach", "MITRE", "ATT&CK",
-        "피싱", "Phishing", "인증", "Auth", "제로데이", "Zero-Day",
-        "CISO", "SOC", "SIEM", "WAF", "방화벽", "Firewall",
+        "보안",
+        "Security",
+        "위협",
+        "Threat",
+        "CVE",
+        "Patch",
+        "취약점",
+        "Vulnerability",
+        "Ransomware",
+        "랜섬웨어",
+        "Malware",
+        "악성",
+        "해킹",
+        "Hacking",
+        "침해",
+        "Breach",
+        "MITRE",
+        "ATT&CK",
+        "피싱",
+        "Phishing",
+        "인증",
+        "Auth",
+        "제로데이",
+        "Zero-Day",
+        "CISO",
+        "SOC",
+        "SIEM",
+        "WAF",
+        "방화벽",
+        "Firewall",
     ],
     "ai-ml": [
-        "AI", "ML", "LLM", "GPT", "Gemini", "Claude", "인공지능",
-        "머신러닝", "딥러닝", "Deep Learning", "NLP", "Agent",
-        "에이전트", "Tech", "기술",
+        "AI",
+        "ML",
+        "LLM",
+        "GPT",
+        "Gemini",
+        "Claude",
+        "인공지능",
+        "머신러닝",
+        "딥러닝",
+        "Deep Learning",
+        "NLP",
+        "Agent",
+        "에이전트",
+        "Tech",
+        "기술",
     ],
     "cloud": [
-        "클라우드", "Cloud", "AWS", "GCP", "Azure", "인프라",
-        "Infrastructure", "서버리스", "Serverless", "컨테이너",
-        "Container", "Lambda", "S3", "EC2",
+        "클라우드",
+        "Cloud",
+        "AWS",
+        "GCP",
+        "Azure",
+        "인프라",
+        "Infrastructure",
+        "서버리스",
+        "Serverless",
+        "컨테이너",
+        "Container",
+        "Lambda",
+        "S3",
+        "EC2",
     ],
     "devops": [
-        "DevOps", "Docker", "Kubernetes", "CI/CD", "CI", "CD",
-        "배포", "Deploy", "파이프라인", "Pipeline", "Terraform",
-        "Ansible", "개발", "Development", "Go", "Rust", "개발자",
-        "Developer", "플랫폼", "Platform",
+        "DevOps",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "CI",
+        "CD",
+        "배포",
+        "Deploy",
+        "파이프라인",
+        "Pipeline",
+        "Terraform",
+        "Ansible",
+        "개발",
+        "Development",
+        "Go",
+        "Rust",
+        "개발자",
+        "Developer",
+        "플랫폼",
+        "Platform",
     ],
     "blockchain": [
-        "블록체인", "Blockchain", "Bitcoin", "비트코인", "Crypto",
-        "암호화폐", "Web3", "DeFi", "NFT", "이더리움", "Ethereum",
-        "코인", "Coin",
+        "블록체인",
+        "Blockchain",
+        "Bitcoin",
+        "비트코인",
+        "Crypto",
+        "암호화폐",
+        "Web3",
+        "DeFi",
+        "NFT",
+        "이더리움",
+        "Ethereum",
+        "코인",
+        "Coin",
     ],
 }
 
@@ -291,7 +365,9 @@ def main():
             total_banners += count
             files_modified += 1
         else:
-            print(f"  [SKIP] {filepath.name}: already has banners or no numbered sections")
+            print(
+                f"  [SKIP] {filepath.name}: already has banners or no numbered sections"
+            )
 
     # Process GROUP B (non-digest posts)
     print("\n--- GROUP B: Non-Digest Posts (single banner) ---\n")

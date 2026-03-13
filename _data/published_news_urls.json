@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-12T12:08:57.850114+00:00",
+  "updated_at": "2026-03-12T12:46:13.676193+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1356,6 +1356,66 @@
       "title": "AgentHub - AI 에이전트를 위한 경량 협업 플랫폼",
       "published_date": "2026-03-11",
       "expires_at": "2026-03-19T12:08:57.849971+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/jito-foundation-acquires-solanafloor-to-revive-solana-ecosystem-journalism?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Jito Foundation acquires SolanaFloor days after platform shutdown",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trust-wallet-address-poisoning-protection-32-evm-chains?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trust Wallet adds real-time scam address checks for crypto users",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/cftc-chair-backs-blockchain-prediction-markets-truth-machines?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "CFTC chair backs blockchain-based prediction markets as ‘truth machines’",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategy-strc-record-share-sales-atm-rule-change?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy records biggest STRC issuance day with estimated 1,420 BTC buy",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/03/10/defi-lending-platform-aave-sees-a-rare-usd27-million-liquidations-after-a-price-glitch",
+      "title": "DeFi lending platform Aave sees a rare $27 million liquidations after a price gl",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27366",
+      "title": "누가 먹을 것인가? — Vertical AI 시대, 모든 배가 뜨지는 않는 이유",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27365",
+      "title": "AI가 앱 구독 모델을 죽일 것이다",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27364",
+      "title": "플로리다 판사, 적색 신호 위반 카메라 단속은 위헌이라고 판결",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27363",
+      "title": "Show GN: Endigest - 글로벌 테크 블로그를 AI로 자동 수집·요약해주는 서비스",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27362",
+      "title": "Claude Code, 코드 리뷰 기능 공개",
+      "published_date": "2026-03-12",
+      "expires_at": "2026-03-19T12:46:13.676090+00:00"
     }
   ]
 }

@@ -56,6 +56,7 @@ def mask_sensitive_info(text: str) -> str:
     if not text:
         return text
     import re
+
     masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", text)
     masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
     for env_var in ["GEMINI_API_KEY", "DEEPSEEK_API_KEY", "OPENAI_API_KEY"]:

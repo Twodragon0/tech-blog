@@ -69,11 +69,15 @@ def preview_email(post_path: str, output_file: "str | None" = None):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python preview_buttondown_email.py <post_file_path> [output.html]")
+        print(
+            "Usage: python preview_buttondown_email.py <post_file_path> [output.html]"
+        )
         print("")
         print("Examples:")
         print("  python preview_buttondown_email.py _posts/2026-03-09-Example.md")
-        print("  python preview_buttondown_email.py _posts/2026-03-09-Example.md preview.html")
+        print(
+            "  python preview_buttondown_email.py _posts/2026-03-09-Example.md preview.html"
+        )
         sys.exit(1)
 
     post_path = sys.argv[1]

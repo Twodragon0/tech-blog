@@ -584,17 +584,17 @@ Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Nano Banana 프롬프팅 가이드](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/) | Google Cloud Blog | Gemini 3 기반 Nano Banana 이미지 생성 모델의 최적 프롬프팅 전략 가이드 |
-| [LeakBase 포럼 압수](https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html) | The Hacker News | FBI/Europol 공조로 세계 최대 탈취 자격 증명 거래 포럼 LeakBase 압수 |
-| [Cloudflare Dynamic Path MTU Discovery](https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/) | Cloudflare Blog | Cloudflare One Client의 패킷 크기 동적 조정으로 터널 안정성 향상 |
-| [Cloudflare QUIC 기반 SASE Proxy Mode](https://blog.cloudflare.com/faster-sase-proxy-mode-quic/) | Cloudflare Blog | QUIC 스트림으로 전환하여 처리량 2배 향상, 레이턴시 대폭 감소 |
-| [GPT-5.4 공개](https://news.hada.io/topic?id=27230) | GeekNews | OpenAI 최신 프런티어 모델, 에이전트 워크플로우 + 컴퓨터 사용 기능 내장 |
-| [Grep은 죽었다: Claude Code 메모리 시스템](https://news.hada.io/topic?id=27239) | GeekNews | Claude Code 세션 간 컨텍스트 유실 해결을 위한 로컬 검색 엔진 QMD + /recall 시스템 |
-| [Google Chrome, 2주 출시 주기 전환](https://news.hada.io/topic?id=27238) | GeekNews | 2026년 9월부터 Chrome 출시 주기가 4주에서 2주로 단축 |
-| [위키백과 관리자 계정 대량 유출](https://news.hada.io/topic?id=27233) | GeekNews | 관리자 계정 대량 침해로 위키백과 일시적 읽기 전용 모드 전환 |
-| [온디바이스 이미지 모델 (1편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1) | LINE Engineering | 지식 증류로 다국어 이미지 검색을 모바일 온디바이스로 구현 |
-| [온디바이스 이미지 모델 (2편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2) | LINE Engineering | 비자기회귀 방식으로 초저지연 캡션 생성을 모바일에서 실현 |
-| [FE News 26년 3월호](https://d2.naver.com/news/0407747) | 네이버 D2 | React Foundation 설립, 프론트엔드 생태계 주요 소식 종합 |
+| [Nano Banana 프롬프팅 가이드](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/) | Google Cloud Blog | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [LeakBase 포럼 압수](https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html) | The Hacker News | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [Cloudflare Dynamic Path MTU Discovery](https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/) | Cloudflare Blog | 인프라 변경이 안정성·비용·보안 통제에 직접 연결되므로 배포 전 검증 체계가 핵심인 소식입니다. |
+| [Cloudflare QUIC 기반 SASE Proxy Mode](https://blog.cloudflare.com/faster-sase-proxy-mode-quic/) | Cloudflare Blog | 인프라 변경이 안정성·비용·보안 통제에 직접 연결되므로 배포 전 검증 체계가 핵심인 소식입니다. |
+| [GPT-5.4 공개](https://news.hada.io/topic?id=27230) | GeekNews | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
+| [Grep은 죽었다: Claude Code 메모리 시스템](https://news.hada.io/topic?id=27239) | GeekNews | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
+| [Google Chrome, 2주 출시 주기 전환](https://news.hada.io/topic?id=27238) | GeekNews | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [위키백과 관리자 계정 대량 유출](https://news.hada.io/topic?id=27233) | GeekNews | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [온디바이스 이미지 모델 (1편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1) | LINE Engineering | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [온디바이스 이미지 모델 (2편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2) | LINE Engineering | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [FE News 26년 3월호](https://d2.naver.com/news/0407747) | 네이버 D2 | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
 
 ---
 

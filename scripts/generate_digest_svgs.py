@@ -70,12 +70,42 @@ TOPIC_ICONS = {
 
 # Color palettes for different primary themes
 ACCENT_PALETTES = {
-    "security": {"accent1": "#ef4444", "accent1_dark": "#dc2626", "accent2": "#6366f1", "accent2_dark": "#4f46e5"},
-    "ai": {"accent1": "#6366f1", "accent1_dark": "#4f46e5", "accent2": "#10b981", "accent2_dark": "#059669"},
-    "cloud": {"accent1": "#06b6d4", "accent1_dark": "#0891b2", "accent2": "#8b5cf6", "accent2_dark": "#7c3aed"},
-    "blockchain": {"accent1": "#f59e0b", "accent1_dark": "#d97706", "accent2": "#ef4444", "accent2_dark": "#dc2626"},
-    "devops": {"accent1": "#10b981", "accent1_dark": "#059669", "accent2": "#3b82f6", "accent2_dark": "#2563eb"},
-    "default": {"accent1": "#6366f1", "accent1_dark": "#4f46e5", "accent2": "#ef4444", "accent2_dark": "#dc2626"},
+    "security": {
+        "accent1": "#ef4444",
+        "accent1_dark": "#dc2626",
+        "accent2": "#6366f1",
+        "accent2_dark": "#4f46e5",
+    },
+    "ai": {
+        "accent1": "#6366f1",
+        "accent1_dark": "#4f46e5",
+        "accent2": "#10b981",
+        "accent2_dark": "#059669",
+    },
+    "cloud": {
+        "accent1": "#06b6d4",
+        "accent1_dark": "#0891b2",
+        "accent2": "#8b5cf6",
+        "accent2_dark": "#7c3aed",
+    },
+    "blockchain": {
+        "accent1": "#f59e0b",
+        "accent1_dark": "#d97706",
+        "accent2": "#ef4444",
+        "accent2_dark": "#dc2626",
+    },
+    "devops": {
+        "accent1": "#10b981",
+        "accent1_dark": "#059669",
+        "accent2": "#3b82f6",
+        "accent2_dark": "#2563eb",
+    },
+    "default": {
+        "accent1": "#6366f1",
+        "accent1_dark": "#4f46e5",
+        "accent2": "#ef4444",
+        "accent2_dark": "#dc2626",
+    },
 }
 
 # Icon SVG snippets for left-side visualization
@@ -248,8 +278,21 @@ def format_date(date_val):
     date_str = str(date_val)
     match = re.match(r"(\d{4})-(\d{2})-(\d{2})", date_str)
     if match:
-        months = ["", "January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"]
+        months = [
+            "",
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ]
         y, m, d = match.groups()
         return f"{months[int(m)]} {int(d):02d}, {y}"
     return date_str
@@ -293,7 +336,9 @@ def make_network_dots(seed_str):
         y1 = 30 + ((h >> (i * 2 + 1)) % 200)
         x2 = 30 + ((h >> (j * 3)) % 200)
         y2 = 30 + ((h >> (j * 2 + 1)) % 200)
-        lines.append(f'    <line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#475569" stroke-width="1"/>')
+        lines.append(
+            f'    <line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#475569" stroke-width="1"/>'
+        )
 
     return "\n".join(dots + lines)
 
@@ -301,9 +346,9 @@ def make_network_dots(seed_str):
 def english_title_from_filename(filename_stem):
     """Extract English title from filename (SVG must be English only)."""
     # Remove date prefix: 2026-03-06-Rest_Of_Name
-    name = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', filename_stem)
+    name = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", filename_stem)
     # Replace underscores with spaces
-    name = name.replace('_', ' ')
+    name = name.replace("_", " ")
     return name
 
 
@@ -329,18 +374,36 @@ def generate_svg(post_data, filename_stem):
 
     # Light color for icon details
     accent1_light = {
-        "#ef4444": "#fca5a5", "#dc2626": "#fca5a5", "#f87171": "#fecaca",
-        "#6366f1": "#a5b4fc", "#818cf8": "#c7d2fe", "#a78bfa": "#ddd6fe",
-        "#06b6d4": "#67e8f9", "#10b981": "#6ee7b7", "#f59e0b": "#fbbf24",
-        "#326ce5": "#93c5fd", "#2496ed": "#93c5fd", "#f7931a": "#fdba74",
-        "#00add8": "#67e8f9", "#dea584": "#fde68a", "#3b82f6": "#93c5fd",
-        "#8b5cf6": "#c4b5fd", "#0078d4": "#93c5fd", "#4285f4": "#93c5fd",
-        "#ff9900": "#fbbf24", "#607078": "#94a3b8", "#7b42bc": "#c4b5fd",
+        "#ef4444": "#fca5a5",
+        "#dc2626": "#fca5a5",
+        "#f87171": "#fecaca",
+        "#6366f1": "#a5b4fc",
+        "#818cf8": "#c7d2fe",
+        "#a78bfa": "#ddd6fe",
+        "#06b6d4": "#67e8f9",
+        "#10b981": "#6ee7b7",
+        "#f59e0b": "#fbbf24",
+        "#326ce5": "#93c5fd",
+        "#2496ed": "#93c5fd",
+        "#f7931a": "#fdba74",
+        "#00add8": "#67e8f9",
+        "#dea584": "#fde68a",
+        "#3b82f6": "#93c5fd",
+        "#8b5cf6": "#c4b5fd",
+        "#0078d4": "#93c5fd",
+        "#4285f4": "#93c5fd",
+        "#ff9900": "#fbbf24",
+        "#607078": "#94a3b8",
+        "#7b42bc": "#c4b5fd",
         "#e6522c": "#fca5a5",
     }.get(topics[0][1] if topics else "#6366f1", "#a5b4fc")
 
-    icon1_rendered = icon1_svg.replace("{color}", palette["accent1"]).replace("{light}", accent1_light)
-    icon2_rendered = icon2_svg.replace("{color}", palette["accent2"]).replace("{light}", "#94a3b8")
+    icon1_rendered = icon1_svg.replace("{color}", palette["accent1"]).replace(
+        "{light}", accent1_light
+    )
+    icon2_rendered = icon2_svg.replace("{color}", palette["accent2"]).replace(
+        "{light}", "#94a3b8"
+    )
 
     # Title splitting
     line1, line2 = split_title(title)
@@ -358,7 +421,12 @@ def generate_svg(post_data, filename_stem):
 
     # Generate stat cards based on topics
     stat_cards = []
-    stat_topics = topics[:3] if len(topics) >= 3 else topics + [("security", "#ef4444", "Security", "shield")] * (3 - len(topics))
+    stat_topics = (
+        topics[:3]
+        if len(topics) >= 3
+        else topics
+        + [("security", "#ef4444", "Security", "shield")] * (3 - len(topics))
+    )
 
     stat_labels = []
     for i, (kw, color, label, _) in enumerate(stat_topics[:3]):
@@ -402,12 +470,12 @@ def generate_svg(post_data, filename_stem):
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="{palette['accent1']}"/>
-      <stop offset="100%" stop-color="{palette['accent1_dark']}"/>
+      <stop offset="0%" stop-color="{palette["accent1"]}"/>
+      <stop offset="100%" stop-color="{palette["accent1_dark"]}"/>
     </linearGradient>
     <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="{palette['accent2']}"/>
-      <stop offset="100%" stop-color="{palette['accent2_dark']}"/>
+      <stop offset="0%" stop-color="{palette["accent2"]}"/>
+      <stop offset="100%" stop-color="{palette["accent2_dark"]}"/>
     </linearGradient>
   </defs>
 
@@ -482,12 +550,13 @@ def generate_svg(post_data, filename_stem):
 
 def _escape_xml(text):
     """Escape XML special characters."""
-    return (text
-            .replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-            .replace("'", "&apos;"))
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&apos;")
+    )
 
 
 def find_svg_path(post_path):

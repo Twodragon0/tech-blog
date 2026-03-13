@@ -15,23 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 02월 23일)'
+  title='기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 제로트러스트 데이터 전략'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">OT-Security</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Vertical AI 보안 구축</strong>: 사이버보안 특화 AI 모델 구축 방안 — 범용 AI 대비 위협 탐지 정확도 향상 전략</li>
-      <li><strong>BlackField 랜섬웨어</strong>: Conti/LockBit 유출 코드를 재활용한 신종 랜섬웨어 — 코드 재사용으로 개발 사이클 단축</li>
-      <li><strong>제로트러스트 데이터 보안</strong>: 데이터 중심 제로트러스트 전략 — 분류 체계, DLP, 암호화 통합 접근</li>
-      <li><strong>제조 OT 보안</strong>: IT/OT 융합 환경의 스마트 팩토리 위협 동향과 대응 전략</li>
-      <li><strong>러시아 제재 우회 거래소</strong>: 5개 암호화폐 거래소를 통한 $110억 규모 제재 우회 네트워크 적발</li>'
-  period='2026년 02월 23일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Ransomware</span> <span class="tag">Zero-Trust</span>'
+  highlights_html='<li><strong>포인트 1</strong>: SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI 보안 구축, BlackField 랜섬웨어 코드 재활용 패턴, 제로트러스트 데이터 보안 전략, OT 보안 동향과 비트코인 급락·러시아 제재 우회 거래소</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-23 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---
@@ -285,8 +274,8 @@ IT/OT 융합 환경의 주요 리스크:
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/) | Tech World Monitor | 글로벌 기술 기업, 스타트업, 클라우드 인프라, 서비스 장애를 통합 추적하는 실시간 모니터링 대시보드 |
-| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | Valar Atomics 5MW급 이동식 원자로를 C-17으로 공수 후 가동 성공. 일일 120MWh 생산 가능하며 재난 대응 및 원격지 전력 공급에 활용 예정. |
+| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/) | Tech World Monitor | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
 
 ---
 

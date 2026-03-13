@@ -14,84 +14,106 @@ POSTS_DIR = Path(__file__).parent.parent / "_posts"
 # Language detection patterns (order matters - more specific first)
 LANG_PATTERNS = [
     # Shell/Bash
-    (r'^\s*(sudo |apt |yum |brew |npm |pip |gem |bundle |docker |kubectl |helm |terraform |aws |gcloud |az |curl |wget |chmod |chown |mkdir |cp |mv |rm |ls |cd |cat |grep |sed |awk |export |source |echo |git |ssh |scp |systemctl |journalctl |make |go |cargo |rustup)', 'bash'),
-    (r'^\s*\$\s+', 'bash'),
-    (r'^\s*(#!/bin/bash|#!/bin/sh|#!/usr/bin/env bash)', 'bash'),
-    (r'^\s*#.*install|#.*설치|#.*설정|#.*확인|#.*실행|#.*생성|#.*삭제', 'bash'),
-
+    (
+        r"^\s*(sudo |apt |yum |brew |npm |pip |gem |bundle |docker |kubectl |helm |terraform |aws |gcloud |az |curl |wget |chmod |chown |mkdir |cp |mv |rm |ls |cd |cat |grep |sed |awk |export |source |echo |git |ssh |scp |systemctl |journalctl |make |go |cargo |rustup)",
+        "bash",
+    ),
+    (r"^\s*\$\s+", "bash"),
+    (r"^\s*(#!/bin/bash|#!/bin/sh|#!/usr/bin/env bash)", "bash"),
+    (r"^\s*#.*install|#.*설치|#.*설정|#.*확인|#.*실행|#.*생성|#.*삭제", "bash"),
     # YAML
-    (r'^\s*(apiVersion:|kind:|metadata:|spec:|name:|namespace:|labels:|annotations:|replicas:|containers:|image:|ports:|env:|resources:|limits:|requests:|volumes:|volumeMounts:|serviceAccountName:|selector:|template:|data:|stringData:|type:|---\s*$)', 'yaml'),
-    (r'^\s*[a-zA-Z_][a-zA-Z0-9_]*:\s*("|\'|true|false|null|\d+|\[|{|>|>-|\||\|-)', 'yaml'),
-
+    (
+        r"^\s*(apiVersion:|kind:|metadata:|spec:|name:|namespace:|labels:|annotations:|replicas:|containers:|image:|ports:|env:|resources:|limits:|requests:|volumes:|volumeMounts:|serviceAccountName:|selector:|template:|data:|stringData:|type:|---\s*$)",
+        "yaml",
+    ),
+    (
+        r'^\s*[a-zA-Z_][a-zA-Z0-9_]*:\s*("|\'|true|false|null|\d+|\[|{|>|>-|\||\|-)',
+        "yaml",
+    ),
     # JSON
-    (r'^\s*[{\[]', 'json'),
-    (r'^\s*"[^"]+"\s*:', 'json'),
-
+    (r"^\s*[{\[]", "json"),
+    (r'^\s*"[^"]+"\s*:', "json"),
     # Python
-    (r'^\s*(import |from .+ import |def |class |if __name__|print\(|try:|except |raise |with |async def |await |@)', 'python'),
-    (r'^\s*(self\.|__init__|__main__|\.py)', 'python'),
-
+    (
+        r"^\s*(import |from .+ import |def |class |if __name__|print\(|try:|except |raise |with |async def |await |@)",
+        "python",
+    ),
+    (r"^\s*(self\.|__init__|__main__|\.py)", "python"),
     # JavaScript/TypeScript
-    (r'^\s*(const |let |var |function |=>|import .+ from |export |require\(|module\.exports|console\.log|async |await )', 'javascript'),
-    (r'^\s*(interface |type |enum |readonly |namespace )', 'typescript'),
-
+    (
+        r"^\s*(const |let |var |function |=>|import .+ from |export |require\(|module\.exports|console\.log|async |await )",
+        "javascript",
+    ),
+    (r"^\s*(interface |type |enum |readonly |namespace )", "typescript"),
     # Go
-    (r'^\s*(package |func |type .+ struct|import \(|fmt\.|go |defer |chan |select {)', 'go'),
-
+    (
+        r"^\s*(package |func |type .+ struct|import \(|fmt\.|go |defer |chan |select {)",
+        "go",
+    ),
     # Rust
-    (r'^\s*(fn |let mut |impl |pub |use |mod |struct |enum |trait |match |unsafe )', 'rust'),
-
+    (
+        r"^\s*(fn |let mut |impl |pub |use |mod |struct |enum |trait |match |unsafe )",
+        "rust",
+    ),
     # SQL
-    (r'^\s*(SELECT |INSERT |UPDATE |DELETE |CREATE |ALTER |DROP |FROM |WHERE |JOIN |GROUP BY|ORDER BY|GRANT |REVOKE )', 'sql', re.IGNORECASE),
-
+    (
+        r"^\s*(SELECT |INSERT |UPDATE |DELETE |CREATE |ALTER |DROP |FROM |WHERE |JOIN |GROUP BY|ORDER BY|GRANT |REVOKE )",
+        "sql",
+        re.IGNORECASE,
+    ),
     # Dockerfile
-    (r'^\s*(FROM |RUN |CMD |ENTRYPOINT |COPY |ADD |ENV |EXPOSE |WORKDIR |ARG |LABEL |USER |VOLUME )', 'dockerfile'),
-
+    (
+        r"^\s*(FROM |RUN |CMD |ENTRYPOINT |COPY |ADD |ENV |EXPOSE |WORKDIR |ARG |LABEL |USER |VOLUME )",
+        "dockerfile",
+    ),
     # HCL/Terraform
-    (r'^\s*(resource |data |variable |output |provider |module |terraform |locals )\s*"', 'hcl'),
-
+    (
+        r'^\s*(resource |data |variable |output |provider |module |terraform |locals )\s*"',
+        "hcl",
+    ),
     # INI/TOML config
-    (r'^\s*\[.+\]\s*$', 'ini'),
-
+    (r"^\s*\[.+\]\s*$", "ini"),
     # HTML/XML
-    (r'^\s*<(!DOCTYPE|html|head|body|div|span|script|style|link|meta|p|h[1-6]|ul|ol|li|table|tr|td|th|form|input|button|a |img )', 'html'),
-    (r'^\s*<\?xml', 'xml'),
-
+    (
+        r"^\s*<(!DOCTYPE|html|head|body|div|span|script|style|link|meta|p|h[1-6]|ul|ol|li|table|tr|td|th|form|input|button|a |img )",
+        "html",
+    ),
+    (r"^\s*<\?xml", "xml"),
     # CSS
-    (r'^\s*(\.|#|@media|@keyframes|body|html|div|span|:root)\s*{', 'css'),
-
+    (r"^\s*(\.|#|@media|@keyframes|body|html|div|span|:root)\s*{", "css"),
     # Nginx/Apache config
-    (r'^\s*(server\s*{|location\s|upstream\s|proxy_pass|listen\s|server_name)', 'nginx'),
-
+    (
+        r"^\s*(server\s*{|location\s|upstream\s|proxy_pass|listen\s|server_name)",
+        "nginx",
+    ),
     # Log output / plaintext
-    (r'^\s*(ERROR|WARN|INFO|DEBUG|FATAL|WARNING)\s', 'text'),
-    (r'^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}', 'text'),
-
+    (r"^\s*(ERROR|WARN|INFO|DEBUG|FATAL|WARNING)\s", "text"),
+    (r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}", "text"),
     # Markdown (nested)
-    (r'^\s*(#{1,6}\s|>\s|\*\s|-\s|\d+\.\s)', 'markdown'),
+    (r"^\s*(#{1,6}\s|>\s|\*\s|-\s|\d+\.\s)", "markdown"),
 ]
 
 # Patterns that indicate a code block is likely a terminal output/example
 OUTPUT_PATTERNS = [
-    r'^\s*\d+\.\s',  # numbered list in code block
-    r'^\s*[-•]\s',     # bullet list in code block
-    r'^\s*\|.*\|',     # table-like output
-    r'^[A-Z][a-z]+:',  # Key: Value format
-    r'^\s*→',          # arrow indicator
-    r'^\s*✓|✗|✅|❌|⚠️',  # status indicators
+    r"^\s*\d+\.\s",  # numbered list in code block
+    r"^\s*[-•]\s",  # bullet list in code block
+    r"^\s*\|.*\|",  # table-like output
+    r"^[A-Z][a-z]+:",  # Key: Value format
+    r"^\s*→",  # arrow indicator
+    r"^\s*✓|✗|✅|❌|⚠️",  # status indicators
 ]
 
 
 def detect_language(code_content: str) -> str:
     """Detect the most likely language for a code block."""
-    lines = code_content.strip().split('\n')
+    lines = code_content.strip().split("\n")
     if not lines:
-        return 'text'
+        return "text"
 
     # Check first few non-empty lines
     check_lines = [l for l in lines[:10] if l.strip()]
     if not check_lines:
-        return 'text'
+        return "text"
 
     scores = {}
 
@@ -114,7 +136,7 @@ def detect_language(code_content: str) -> str:
                 output_score += 1
 
     if output_score > len(check_lines) * 0.5:
-        return 'text'
+        return "text"
 
     if scores:
         # Return the language with highest score
@@ -125,20 +147,20 @@ def detect_language(code_content: str) -> str:
     first_line = check_lines[0].strip()
 
     # If it looks like a command line
-    if first_line.startswith('$') or first_line.startswith('#'):
-        return 'bash'
+    if first_line.startswith("$") or first_line.startswith("#"):
+        return "bash"
 
     # If it looks like output/text
-    if any(c in first_line for c in [':', '=', '→', '|']):
-        return 'text'
+    if any(c in first_line for c in [":", "=", "→", "|"]):
+        return "text"
 
-    return 'text'
+    return "text"
 
 
 def fix_code_blocks(filepath: Path) -> tuple[int, int, list[str]]:
     """Fix code blocks in a post file. Returns (lang_fixes, unclosed_fixes, changes)."""
-    content = filepath.read_text(encoding='utf-8')
-    lines = content.split('\n')
+    content = filepath.read_text(encoding="utf-8")
+    lines = content.split("\n")
 
     lang_fixes = 0
     unclosed_fixes = 0
@@ -155,7 +177,7 @@ def fix_code_blocks(filepath: Path) -> tuple[int, int, list[str]]:
         line = lines[i]
         stripped = line.strip()
 
-        if stripped.startswith('```') and not in_code_block:
+        if stripped.startswith("```") and not in_code_block:
             # Opening code block
             in_code_block = True
             code_block_start = i
@@ -176,28 +198,30 @@ def fix_code_blocks(filepath: Path) -> tuple[int, int, list[str]]:
             continue
 
         if in_code_block:
-            if stripped == '```' or stripped == '```>':
+            if stripped == "```" or stripped == "```>":
                 # Closing code block
                 in_code_block = False
 
                 if code_block_lang is None:
                     # Detect and fix language
-                    detected = detect_language('\n'.join(code_block_content))
+                    detected = detect_language("\n".join(code_block_content))
                     # Fix the opening line
                     opening_idx = len(new_lines) - len(code_block_content) - 1
                     old_opening = new_lines[opening_idx]
-                    indent = old_opening[:len(old_opening) - len(old_opening.lstrip())]
+                    indent = old_opening[: len(old_opening) - len(old_opening.lstrip())]
                     new_lines[opening_idx] = f"{indent}```{detected}"
                     lang_fixes += 1
-                    changes.append(f"  Line {code_block_start + 1}: Added language tag '{detected}'")
+                    changes.append(
+                        f"  Line {code_block_start + 1}: Added language tag '{detected}'"
+                    )
 
                 # Add collected content
                 for cl in code_block_content:
                     pass  # already added below
 
                 # Fix closing line (remove trailing '>' if present)
-                if stripped == '```>':
-                    new_lines.append('```')
+                if stripped == "```>":
+                    new_lines.append("```")
                 else:
                     new_lines.append(line)
 
@@ -218,23 +242,25 @@ def fix_code_blocks(filepath: Path) -> tuple[int, int, list[str]]:
         unclosed_fixes += 1
 
         if code_block_lang is None:
-            detected = detect_language('\n'.join(code_block_content))
+            detected = detect_language("\n".join(code_block_content))
             opening_idx = len(new_lines) - len(code_block_content) - 1
             if opening_idx >= 0:
                 old_opening = new_lines[opening_idx]
-                indent = old_opening[:len(old_opening) - len(old_opening.lstrip())]
+                indent = old_opening[: len(old_opening) - len(old_opening.lstrip())]
                 new_lines[opening_idx] = f"{indent}```{detected}"
                 lang_fixes += 1
-                changes.append(f"  Line {code_block_start + 1}: Added language tag '{detected}' (was unclosed)")
+                changes.append(
+                    f"  Line {code_block_start + 1}: Added language tag '{detected}' (was unclosed)"
+                )
 
-        new_lines.append('```')
-        new_lines.append('')
+        new_lines.append("```")
+        new_lines.append("")
         changes.append(f"  Line {code_block_start + 1}: Closed unclosed code block")
 
-    new_content = '\n'.join(new_lines)
+    new_content = "\n".join(new_lines)
 
     if new_content != content:
-        filepath.write_text(new_content, encoding='utf-8')
+        filepath.write_text(new_content, encoding="utf-8")
 
     return lang_fixes, unclosed_fixes, changes
 
