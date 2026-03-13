@@ -157,6 +157,53 @@ def make_risk_scorecard(risk_text: str) -> str:
     )
 
 
+def make_checklist(post_type: str) -> str:
+    """포스트 유형별 체크리스트 섹션을 생성합니다."""
+    templates = {
+        "weekly_digest": (
+            "\n### 보안 점검 체크리스트\n\n"
+            "- [ ] 언급된 CVE/취약점에 대한 패치 적용 여부 확인\n"
+            "- [ ] 영향받는 시스템 및 소프트웨어 버전 점검\n"
+            "- [ ] 보안 모니터링 규칙 업데이트\n"
+            "- [ ] 관련 보안 정책 검토 및 갱신\n"
+            "- [ ] 팀 내 보안 공지 공유 완료\n"
+        ),
+        "cloud_course": (
+            "\n### 실습 체크리스트\n\n"
+            "- [ ] 실습 환경 구성 완료\n"
+            "- [ ] 보안 설정 적용 확인\n"
+            "- [ ] 테스트 및 검증 수행\n"
+            "- [ ] 실습 리소스 정리 (비용 방지)\n"
+            "- [ ] 학습 내용 문서화\n"
+        ),
+        "incident": (
+            "\n### 사고 대응 체크리스트\n\n"
+            "- [ ] 영향 범위 및 심각도 평가 완료\n"
+            "- [ ] 긴급 패치 또는 완화 조치 적용\n"
+            "- [ ] 근본 원인 분석 (RCA) 수행\n"
+            "- [ ] 재발 방지 대책 수립\n"
+            "- [ ] 사후 보고서 작성 및 공유\n"
+        ),
+        "security_guide": (
+            "\n### 보안 강화 체크리스트\n\n"
+            "- [ ] 관련 보안 설정 검토 및 적용\n"
+            "- [ ] 취약점 스캔 및 점검 수행\n"
+            "- [ ] 접근 제어 정책 확인\n"
+            "- [ ] 로깅 및 모니터링 설정 점검\n"
+            "- [ ] 보안 문서 업데이트\n"
+        ),
+        "general": (
+            "\n### 보안 강화 체크리스트\n\n"
+            "- [ ] 관련 보안 설정 검토 및 적용\n"
+            "- [ ] 취약점 스캔 및 점검 수행\n"
+            "- [ ] 접근 제어 정책 확인\n"
+            "- [ ] 로깅 및 모니터링 설정 점검\n"
+            "- [ ] 보안 문서 업데이트\n"
+        ),
+    }
+    return templates.get(post_type, templates["general"])
+
+
 # ──────────────────────────────────────────────
 # 품질 점수 조회
 # ──────────────────────────────────────────────
@@ -200,13 +247,20 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     if score < 0:
         return False, f"  점수 파싱 실패"
 
-    if score >= 80:
-        return False, f"  점수 {score}/100 — 수정 불필요"
-
     needs_exec = items.get("executive_summary", 0) == 0
     needs_risk = items.get("risk_scorecard", 0) == 0
+    needs_checklist = items.get("checklists", 0) == 0
 
-    if not needs_exec and not needs_risk:
+    # 80점 이상이더라도 checklists가 0점이면 체크리스트 추가
+    if score >= 80 and not needs_checklist:
+        return False, f"  점수 {score}/100 — 수정 불필요"
+
+    # 80점 이상 포스트는 executive_summary/risk_scorecard는 건드리지 않음
+    if score >= 80:
+        needs_exec = False
+        needs_risk = False
+
+    if not needs_exec and not needs_risk and not needs_checklist:
         return False, f"  점수 {score}/100 — 필요 섹션 이미 존재 (다른 이유로 낮음)"
 
     # front matter 분석
@@ -228,12 +282,14 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     # 삽입 위치 탐색
     insert_pos = find_insert_position(content)
 
-    # 삽입할 텍스트 조합
+    # 삽입할 텍스트 조합 (executive summary → risk scorecard → checklist 순서)
     inject = ""
     if needs_exec:
         inject += make_executive_summary(summary_text)
     if needs_risk:
         inject += make_risk_scorecard(risk_text)
+    if needs_checklist:
+        inject += make_checklist(post_type)
 
     new_content = content[:insert_pos] + inject + content[insert_pos:]
 
@@ -242,6 +298,8 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
         missing.append("executive_summary")
     if needs_risk:
         missing.append("risk_scorecard")
+    if needs_checklist:
+        missing.append("checklists")
 
     if fix:
         filepath.write_text(new_content, encoding="utf-8")
