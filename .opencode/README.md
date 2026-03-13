@@ -81,6 +81,25 @@ opencode sisyphus
 /ops-roundtable
 ```
 
+### Recently Added Project Commands
+
+These repo-local commands are now available for narrower, repeatable workflows:
+
+| Command | Purpose |
+|---------|---------|
+| `/improve-investing-post` | Improve one investing-related post until content quality and image checks pass |
+| `/ultrawork-investing-loop` | Re-run investing post quality and image checks until no P0/P1 issue remains |
+
+### Recently Added Review Skills
+
+These repo-local skills help standardize recurring review tasks:
+
+| Skill | Purpose |
+|-------|---------|
+| `post-validation` | Validate front matter, links, structure, and image compliance for posts |
+| `security-review` | Check changed code/scripts for secrets, unsafe input handling, and risky shell usage |
+| `cost-audit` | Review automation and model usage for cache-first, lower-cost operation |
+
 ## OpenCode Best-Practice Baseline
 
 This project aligns OpenCode workflow guardrails with Claude-style best practices:
