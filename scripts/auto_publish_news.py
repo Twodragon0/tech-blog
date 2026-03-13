@@ -29,7 +29,7 @@ import re
 import subprocess
 import sys
 import unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -1177,68 +1177,140 @@ mitre_attack:
 
 
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
-    """Extract 2-3 meaningful topic keywords from news items for title generation.
-
-    For security mode: extract threat names, tools, companies mentioned.
-    For tech-blog mode: extract tech topics like AI Agent, Claude Code, Open Source etc.
-    Cap at 80 chars.
-    """
     if mode == "tech-blog":
-        tech_patterns = [
-            (r"\b(AI Agent|Claude Code|Cursor|Copilot|ChatGPT|Gemini|LLM)\b", None),
-            (r"\b(Open Source|Open-Source|OSS)\b", "Open Source"),
-            (r"\b(Kubernetes|K8s)\b", "Kubernetes"),
-            (r"\b(Docker|Container)\b", "Docker"),
-            (r"\b(Rust|Golang|Go\s+\d|TypeScript)\b", None),
-            (r"\b(React|Next\.?js|Vue|Svelte)\b", None),
-            (r"\b(AWS|Azure|GCP|Cloud)\b", None),
-            (r"\b(GitHub|GitLab)\b", None),
-            (r"\b(Apple|Google|Microsoft|Meta|Tesla|Spotify)\b", None),
-            (r"\b(WebAssembly|WASM|gRPC|GraphQL)\b", None),
-            (r"\b(DevOps|CI/CD|Platform Engineering)\b", None),
+        category_labels = {
+            "ai": "AI",
+            "cloud": "클라우드",
+            "devops": "DevOps",
+            "tech": "기술 동향",
+            "security": "보안",
+            "blockchain": "블록체인",
+        }
+        category_weights = {
+            "ai": 3,
+            "cloud": 3,
+            "devops": 3,
+            "security": 2,
+            "blockchain": 2,
+            "tech": 1,
+        }
+        source_profiles = [
+            (r"OpenAI|Anthropic|Google AI|DeepMind|Hugging Face|NVIDIA AI", "AI", 3),
+            (r"Docker|Kubernetes|Red Hat|HashiCorp|Vercel", "DevOps", 3),
+            (r"AWS|Google Cloud|Cloudflare|Azure", "클라우드", 3),
+            (r"GitHub|GitLab", "개발 플랫폼", 2),
+            (r"GeekNews|Hacker News", "기술 동향", 1),
         ]
+        topic_patterns = [
+            (r"\b(AI Agent|Agentic AI)\b", "AI 에이전트"),
+            (r"\b(Claude Code|Cursor|Copilot|ChatGPT|Gemini|LLM)\b", "AI 개발도구"),
+            (r"\b(Open Source|Open-Source|OSS)\b", "오픈소스"),
+            (r"\b(Kubernetes|K8s)\b", "쿠버네티스"),
+            (r"\b(Docker|Container)\b", "컨테이너"),
+            (r"\b(Rust|Golang|Go\s+\d|TypeScript)\b", "개발 언어"),
+            (r"\b(React|Next\.?js|Vue|Svelte)\b", "프론트엔드"),
+            (r"\b(AWS|Azure|GCP|Cloud)\b", "클라우드"),
+            (r"\b(GitHub|GitLab)\b", "개발 플랫폼"),
+            (r"\b(Apple|Google|Microsoft|Meta|Tesla|Spotify)\b", "빅테크 전략"),
+            (r"\b(WebAssembly|WASM|gRPC|GraphQL)\b", "플랫폼 기술"),
+            (r"\b(DevOps|CI/CD|Platform Engineering)\b", "플랫폼 엔지니어링"),
+        ]
+        fallback_topics = ["기술 동향", "DevOps"]
     else:
-        tech_patterns = [
-            (r"(CVE-\d{4}-\d+)", None),
-            (r"\b(ransomware|Ransomware|랜섬웨어)\b", "Ransomware"),
-            (r"\b(zero-day|Zero-Day|0-day|제로데이)\b", "Zero-Day"),
-            (r"\b(Fortinet|Cisco|Palo Alto|CrowdStrike|SonicWall|Ivanti)\b", None),
-            (r"\b(Chrome|Firefox|Windows|Linux|macOS|Android|iOS)\b", None),
-            (r"\b(APT\d+|Lazarus|APT28|APT29|Kimsuky)\b", None),
-            (r"\b(phishing|Phishing|피싱)\b", "Phishing"),
-            (r"\b(supply chain|Supply Chain|공급망)\b", "Supply Chain"),
-            (r"\b(botnet|Botnet|봇넷)\b", "Botnet"),
-            (r"\b(malware|Malware|악성코드)\b", "Malware"),
-            (r"\b(authentication|MFA|SSO|인증)\b", "Authentication"),
-            (r"\b(RCE|remote code execution)\b", "RCE"),
-            (r"\b(AWS|Azure|GCP|Cloud)\b", None),
-            (r"\b(Kubernetes|K8s|Docker)\b", None),
+        category_labels = {
+            "security": "보안 위협",
+            "devsecops": "DevSecOps",
+            "ai": "AI",
+            "cloud": "클라우드 보안",
+            "devops": "DevOps",
+            "blockchain": "블록체인",
+            "tech": "기술 동향",
+        }
+        category_weights = {
+            "security": 4,
+            "cloud": 3,
+            "blockchain": 3,
+            "ai": 2,
+            "devsecops": 2,
+            "devops": 2,
+            "tech": 1,
+        }
+        source_profiles = [
+            (
+                r"The Hacker News|BleepingComputer|Dark Reading|Krebs|SANS ISC",
+                "보안 위협",
+                4,
+            ),
+            (
+                r"Cloudflare|AWS|Google Cloud|Microsoft Security|Azure",
+                "클라우드 보안",
+                3,
+            ),
+            (r"Cointelegraph|CoinDesk|Bitcoin Magazine|The Block", "블록체인", 3),
+            (r"OpenAI|Anthropic|NVIDIA AI|Meta Engineering", "AI", 2),
+            (r"GeekNews|Hacker News", "기술 동향", 1),
+        ]
+        topic_patterns = [
+            (r"(CVE-\d{4}-\d+)", "CVE"),
+            (r"\b(ransomware|랜섬웨어)\b", "랜섬웨어"),
+            (r"\b(zero-day|0-day|제로데이)\b", "제로데이"),
+            (
+                r"\b(Fortinet|Cisco|Palo Alto|CrowdStrike|SonicWall|Ivanti)\b",
+                "보안 벤더",
+            ),
+            (r"\b(Chrome|Firefox|Windows|Linux|macOS|Android|iOS)\b", "플랫폼 보안"),
+            (r"\b(APT\d+|Lazarus|APT28|APT29|Kimsuky)\b", "APT"),
+            (r"\b(phishing|피싱)\b", "피싱"),
+            (r"\b(supply chain|공급망)\b", "공급망 보안"),
+            (r"\b(botnet|봇넷)\b", "봇넷"),
+            (r"\b(malware|악성코드)\b", "악성코드"),
+            (r"\b(authentication|MFA|SSO|인증)\b", "계정 보호"),
+            (r"\b(RCE|remote code execution)\b", "원격 코드 실행"),
+            (r"\b(AWS|Azure|GCP|Cloud)\b", "클라우드 보안"),
+            (r"\b(Kubernetes|K8s|Docker)\b", "컨테이너 보안"),
+            (r"\b(Bitcoin|Ethereum|Crypto|Web3|Blockchain|DeFi)\b", "블록체인"),
+            (r"\b(AI Agent|Agentic AI|OpenAI|Gemini|LLM|AI)\b", "AI"),
+        ]
+        fallback_topics = ["주요 보안 이슈", "기술 동향"]
+
+    scores: Counter[str] = Counter()
+    first_seen: Dict[str, int] = {}
+
+    for idx, item in enumerate(news_items):
+        category = str(item.get("category", "tech")).lower()
+        category_label = category_labels.get(category)
+        if category_label:
+            scores[category_label] += category_weights.get(category, 1)
+            first_seen.setdefault(category_label, idx)
+
+        source_name = str(item.get("source_name", item.get("source", "")))
+        for pattern, label, weight in source_profiles:
+            if re.search(pattern, source_name, re.IGNORECASE):
+                scores[label] += weight
+                first_seen.setdefault(label, idx)
+
+        text = f"{item.get('title', '')} {item.get('summary', '')}"
+        for pattern, label in topic_patterns:
+            if re.search(pattern, text, re.IGNORECASE):
+                scores[label] += 2
+                first_seen.setdefault(label, idx)
+
+    ranked_topics = [
+        topic
+        for topic, _ in sorted(
+            scores.items(), key=lambda item: (-item[1], first_seen.get(item[0], 999))
+        )
+    ]
+
+    if not ranked_topics:
+        ranked_topics = fallback_topics
+
+    if len(ranked_topics) >= 3 and ranked_topics[0] != "기술 동향":
+        ranked_topics = [t for t in ranked_topics if t != "기술 동향"] + [
+            t for t in ranked_topics if t == "기술 동향"
         ]
 
-    found_topics = []
-    seen_lower = set()
-
-    for item in news_items:
-        text = f"{item.get('title', '')} {item.get('summary', '')}"
-        for pattern, canonical in tech_patterns:
-            match = re.search(pattern, text, re.IGNORECASE)
-            if match:
-                topic = canonical if canonical else match.group(1)
-                if topic.lower() not in seen_lower:
-                    seen_lower.add(topic.lower())
-                    found_topics.append(topic)
-                    if len(found_topics) >= 4:
-                        break
-        if len(found_topics) >= 4:
-            break
-
-    if not found_topics:
-        if mode == "tech-blog":
-            found_topics = ["Tech", "DevOps"]
-        else:
-            found_topics = ["DevSecOps News"]
-
-    title_keywords = ", ".join(found_topics[:3])
+    title_keywords = ", ".join(ranked_topics[:3])
     if len(title_keywords) > 80:
         title_keywords = title_keywords[:80].rstrip(" ,.")
     return title_keywords
@@ -1427,7 +1499,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 ({date_str})'
+  title='기술·보안 주간 다이제스트: {title_keywords}'
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
@@ -1771,7 +1843,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='기술 블로그 주간 다이제스트 ({date_str})'
+  title='기술 블로그 주간 다이제스트: {title_keywords}'
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
