@@ -37,6 +37,7 @@ done <<< "$STAGED_POSTS"
 python3 "$VALIDATOR" \
   --fail-below "$FAIL_BELOW" \
   --warn-below "$WARN_BELOW" \
+  --quiet \
   "${ABSOLUTE_POSTS[@]}"
 
 # Check for missing front matter closing ---
