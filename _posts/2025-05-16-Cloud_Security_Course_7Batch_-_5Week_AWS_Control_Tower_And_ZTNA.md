@@ -52,9 +52,18 @@ series_total: 7
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
-## 경영진 요약
+## Executive Summary
 
-본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 AWS Control Tower와 ZTNA(Zero Trust Network Access)를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
+본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 AWS Control Tower와 ZTNA(Zero Trust Network Access)를 다룹니다.
+
+### 위험 스코어카드
+
+| 위험 영역 | 위험도 | 완화 전략 |
+|----------|--------|----------|
+| 멀티 계정 권한 분산 | 높음 | SCP 기반 중앙 통제 |
+| 비인가 리전 사용 | 중간 | Guardrails 리전 제한 |
+| 네트워크 경계 침투 | 높음 | ZTNA 제로 트러스트 적용 |
+| 계정 간 데이터 유출 | 높음 | VPC Endpoint + PrivateLink | 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
 
 ### Learning Scorecard
 

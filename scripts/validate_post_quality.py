@@ -9,12 +9,15 @@ import sys
 from pathlib import Path
 
 
-def validate_front_matter(content: str) -> int:
+def validate_front_matter(content: str) -> tuple[int, str]:
     """Front matter 완성도 (15점)
 
     Required fields (11점): title, date, categories, tags, excerpt,
         description, image, toc
     Bonus fields (4점): keywords, author, comments, image_alt
+
+    Returns:
+        (score, warning) where warning is an empty string if no issue.
     """
     fm_block = content[:800]
     score: float = 0
@@ -38,7 +41,24 @@ def validate_front_matter(content: str) -> int:
         if field in fm_block:
             score += 1
 
-    return min(15, int(score))
+    # Check actual front matter block length
+    warning = ""
+    lines = content.splitlines()
+    if len(lines) >= 2 and lines[0].strip() == "---":
+        end_idx = None
+        for i, line in enumerate(lines[1:], start=1):
+            if line.strip() == "---":
+                end_idx = i
+                break
+        if end_idx is not None:
+            fm_text = "\n".join(lines[1:end_idx])
+            if len(fm_text) > 750:
+                warning = (
+                    f"Front matter exceeds 750 chars ({len(fm_text)} chars). "
+                    "Fields beyond 800 chars may not be scored."
+                )
+
+    return min(15, int(score)), warning
 
 
 def validate_ai_summary(content: str) -> int:
@@ -141,8 +161,10 @@ def validate_post(filepath: Path) -> dict[str, object]:
     """포스트 품질 검증"""
     content = filepath.read_text(encoding="utf-8")
 
+    fm_score, fm_warning = validate_front_matter(content)
+
     scores = {
-        "front_matter": validate_front_matter(content),
+        "front_matter": fm_score,
         "ai_summary": validate_ai_summary(content),
         "executive_summary": validate_executive_summary(content),
         "risk_scorecard": validate_risk_scorecard(content),
@@ -161,6 +183,7 @@ def validate_post(filepath: Path) -> dict[str, object]:
         "total": total,
         "scores": scores,
         "lines": len(content.split("\n")),
+        "warnings": [fm_warning] if fm_warning else [],
     }
 
 
@@ -207,6 +230,11 @@ if __name__ == "__main__":
         if isinstance(scores, dict):
             for key, score in scores.items():
                 print(f"  {key}: {score}")
+
+        raw_warnings = result.get("warnings", [])
+        warnings = raw_warnings if isinstance(raw_warnings, list) else []
+        for w in warnings:
+            print(f"\n⚠️  WARNING: {w}")
 
         if total < args.fail_below:
             print(f"\n❌ ERROR: Score below {args.fail_below}")

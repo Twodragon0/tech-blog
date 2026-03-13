@@ -52,7 +52,7 @@ original_url: https://twodragon.tistory.com/680
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 경영진 요약
+## Executive Summary
 
 ### 보안 스코어카드
 
@@ -652,6 +652,14 @@ Kandji는 Apple 생태계 전용 통합 엔드포인트 관리 솔루션으로, 
 7. 트러블슈팅: 등록 실패, 복구키 분실, 성능 저하 등 실전 해결법
 
 Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 강화하며, 규정 준수 부담을 줄일 수 있습니다. 올바른 초기 설정과 지속적인 모니터링을 통해 안전하고 효율적인 엔드포인트 환경을 구축하시기 바랍니다.
+
+## 도입 체크리스트
+
+- [ ] Apple Business Manager 등록 및 Kandji 연동 완료
+- [ ] MDM 프로파일 배포 및 FileVault 2 암호화 필수 설정
+- [ ] Gatekeeper, SIP, TCC 보안 정책 Blueprint 적용
+- [ ] SIEM 연동 (Splunk 또는 Azure Sentinel) 구성 완료
+- [ ] CIS Benchmark 기반 컴플라이언스 자동 점검 활성화
 
 ## 관련 포스트
 

@@ -46,6 +46,10 @@ original_url: https://twodragon.tistory.com/688
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
+## Executive Summary
+
+이메일 발송 신뢰도를 확보하려면 SPF, DKIM, DMARC 세 가지 인증 기술을 올바르게 설정해야 합니다. 본 가이드는 SendGrid를 중심으로 DNS 레코드 설정부터 정책 적용, 모니터링까지 전 과정을 실무 관점에서 다룹니다.
+
 ## 서론
 
 이메일은 비즈니스 커뮤니케이션의 핵심 도구이지만, 스팸 메일함으로 직행하거나 아예 차단되는 경우만큼 답답한 일도 없습니다. 고객에게 중요한 정보가 담긴 메일이 제대로 전달되지 않는다면 비즈니스에 큰 타격을 줄 수 있습니다.
@@ -578,6 +582,14 @@ OfficeActivity, EmailEvents 테이블 사용
 | BEC 공격 의심 | 경영진 사칭 + 인증 실패 | CRITICAL | 즉시 차단, 전사 이메일 발송 |
 | 피싱 캠페인 탐지 | 다수 수신자 대상 인증 실패 | HIGH | IP 차단, 위협 인텔리전스 공유 |
 
+
+## 이메일 인증 설정 체크리스트
+
+- [ ] SendGrid 도메인 인증 (Domain Authentication) 완료
+- [ ] SPF DNS TXT 레코드 등록 및 검증 (dig 명령어로 확인)
+- [ ] DKIM 서명 키 생성 및 DNS CNAME 레코드 등록
+- [ ] DMARC 정책 설정 (p=none으로 시작, 모니터링 후 강화)
+- [ ] DMARC 집계 보고서 수신 이메일 설정 및 주간 분석 체계 구축
 
 ## 관련 포스트
 

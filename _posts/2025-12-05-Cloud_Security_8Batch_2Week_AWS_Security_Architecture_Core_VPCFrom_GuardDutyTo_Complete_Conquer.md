@@ -51,6 +51,10 @@ series_total: 9
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
+## Executive Summary
+
+AWS 보안 아키텍처의 4대 핵심 구성요소(VPC, IAM, S3, GuardDuty)를 실무 중심으로 다루며, 2025년 re:Invent에서 발표된 최신 보안 기능을 포함합니다. 네트워크 격리부터 위협 탐지 자동화까지 Defense in Depth 전략을 구현하는 실전 가이드입니다.
+
 ## 서론
 
 안녕하세요, Twodragon입니다. 클라우드 시큐리티 과정 8기 2주차에서는 AWS 보안 아키텍처의 핵심 구성요소인 VPC, IAM, S3, GuardDuty를 다뤘습니다. 네트워크 격리, 접근 제어, 데이터 보호, 위협 탐지까지 실무에 바로 적용 가능한 내용을 중심으로 진행되었습니다.

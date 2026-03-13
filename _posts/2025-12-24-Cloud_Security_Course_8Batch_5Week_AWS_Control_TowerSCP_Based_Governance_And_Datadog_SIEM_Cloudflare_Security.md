@@ -68,9 +68,18 @@ series_total: 9
 
 <img src="{% raw %}{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}{% endraw %}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
-## 경영진 요약
+## Executive Summary
 
 본 문서는 엔터프라이즈 클라우드 보안 거버넌스 체계를 제시합니다:
+
+### 위험 스코어카드
+
+| 위험 영역 | 위험도 | 현재 대응 | 권장 조치 |
+|----------|--------|----------|----------|
+| 멀티 계정 권한 오남용 | 높음 | SCP 부분 적용 | Control Tower Guardrails 전체 활성화 |
+| 보안 로그 사각지대 | 중간 | 개별 서비스 로그 | Datadog SIEM 통합 모니터링 구축 |
+| DDoS/웹 공격 노출 | 높음 | 기본 AWS Shield | Cloudflare WAF + DDoS 방어 계층 추가 |
+| 컴플라이언스 위반 | 중간 | 수동 감사 | Config Rules 자동화 및 지속 모니터링 |
 
 - 비용 절감: 통합 거버넌스를 통한 불필요한 리소스 생성 차단으로 연간 클라우드 비용 15-30% 절감 달성
 - 보안 사고 대응 시간: Datadog SIEM 통합으로 평균 탐지 시간(MTTD) 73% 단축, 평균 대응 시간(MTTR) 58% 단축

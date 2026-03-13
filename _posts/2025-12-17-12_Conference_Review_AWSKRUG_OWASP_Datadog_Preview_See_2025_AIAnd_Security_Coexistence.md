@@ -49,7 +49,7 @@ original_url: https://twodragon.tistory.com/704
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
-## 1. 경영진 요약: 2025년 클라우드 보안 패러다임의 전환
+## 1. Executive Summary: 2025년 클라우드 보안 패러다임의 전환
 
 ### 1.1 경영진을 위한 핵심 요약
 
@@ -508,6 +508,14 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 최종 업데이트: 2025-12-17
 카테고리: 클라우드 보안, DevSecOps, 컨퍼런스 회고
 태그: AWSKRUG, OWASP, Datadog, AI 보안, Zero Trust, Post-quantum, 공급망 보안
+
+## 2025년 보안 대응 체크리스트
+
+- [ ] AI 보안 거버넌스 정책 수립 (Shadow AI 사용 현황 파악 포함)
+- [ ] Zero Trust 아키텍처 마이그레이션 로드맵 작성
+- [ ] SBOM(Software Bill of Materials) 기반 공급망 보안 체계 구축
+- [ ] Post-quantum 암호화 전환 계획 수립 및 인벤토리 정리
+- [ ] Datadog SIEM 또는 동급 통합 모니터링 도구 도입 검토
 
 ## 관련 포스트
 

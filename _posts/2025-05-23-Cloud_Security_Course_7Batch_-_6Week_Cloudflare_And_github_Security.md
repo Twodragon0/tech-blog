@@ -42,6 +42,10 @@ series_total: 7
 
 ![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
 
+## Executive Summary
+
+클라우드 시큐리티 7기 6주차에서는 AWS WAF, Cloudflare, GitHub 보안 자동화를 다룹니다. 웹 애플리케이션 방화벽부터 DDoS 방어, 코드 보안 스캐닝까지 다층 방어 전략의 실무 적용을 제공합니다.
+
 ## 서론
 
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 Application 보안 및 Cloudflare 및 GitHub 활용을 다루고자 합니다. 이 과정은 게더 타운에서 진행되며, 각 세션은 20분 강의 후 5분 휴식으로 구성되어 있습니다. 이러한 구성은 온라인 강의의 특성 상 눈의 피로를 줄이고, 멘티 분들의 집중력을 최대화하기 위함입니다. 여러분들과 함께 다양한 AWS 보안 모니터링 및 대응 관련 주제를 깊이 있게 다루어 보고자 합니다.
