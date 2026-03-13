@@ -29,6 +29,7 @@ import re
 import subprocess
 import sys
 import unicodedata
+import yaml
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -1406,6 +1407,97 @@ def _run_post_quality_gate(post_path: Path, target: int = 80) -> None:
     )
 
 
+def generate_cross_refs(post_date: str, posts_dir: str = "_posts") -> str:
+    """Generate cross-reference markdown for related digest posts.
+
+    Scans posts within ±3 days for digest posts and the LLM security guide,
+    then returns a formatted '관련 포스트' section to be inserted before '참고 자료'.
+    Returns empty string when no related posts are found.
+    """
+    LLM_GUIDE_STEM = "2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP"
+    DIGEST_PATTERNS = ["*Digest*.md", "*Weekly_Digest*.md"]
+
+    try:
+        current_date = datetime.strptime(post_date, "%Y-%m-%d")
+    except ValueError:
+        logging.warning(f"generate_cross_refs: invalid post_date '{post_date}'")
+        return ""
+
+    posts_path = Path(posts_dir)
+    if not posts_path.exists():
+        return ""
+
+    refs = []
+
+    # Collect adjacent digest posts within ±3 days (excluding current date)
+    for days_offset in range(-3, 4):
+        if days_offset == 0:
+            continue
+        check_date = current_date + timedelta(days=days_offset)
+        date_str = check_date.strftime("%Y-%m-%d")
+        date_display = check_date.strftime("%-m월 %-d일")
+
+        seen_stems = set()
+        for post_file in sorted(posts_path.glob(f"{date_str}-*Digest*.md")):
+            stem = post_file.stem
+            if stem in seen_stems:
+                continue
+            seen_stems.add(stem)
+
+            try:
+                raw = post_file.read_text(encoding="utf-8")
+                if raw.startswith("---"):
+                    fm_end = raw.index("---", 3)
+                    fm = yaml.safe_load(raw[3:fm_end]) or {}
+                    title = str(fm.get("title", stem))
+                else:
+                    title = stem
+            except Exception:
+                title = stem
+
+            short_title = title[:50]
+            refs.append(
+                (
+                    abs(days_offset),
+                    f"- [기술·보안 주간 다이제스트 ({date_display})]"
+                    f"({{% post_url {stem} %}}) - {short_title}",
+                )
+            )
+
+    # Include the LLM security guide post if it exists
+    llm_guide_path = posts_path / f"{LLM_GUIDE_STEM}.md"
+    if llm_guide_path.exists():
+        try:
+            raw = llm_guide_path.read_text(encoding="utf-8")
+            if raw.startswith("---"):
+                fm_end = raw.index("---", 3)
+                fm = yaml.safe_load(raw[3:fm_end]) or {}
+                llm_title = str(fm.get("title", LLM_GUIDE_STEM))
+            else:
+                llm_title = LLM_GUIDE_STEM
+        except Exception:
+            llm_title = "LLM 보안 실전 가이드: 프롬프트 인젝션, RAG, MCP"
+
+        refs.append(
+            (
+                999,  # low priority so it appears last
+                f"- [{llm_title[:50]}]({{% post_url {LLM_GUIDE_STEM} %}})",
+            )
+        )
+
+    if not refs:
+        return ""
+
+    # Sort by closeness (ascending offset), take up to 3
+    refs.sort(key=lambda x: x[0])
+    selected = [line for _, line in refs[:3]]
+
+    section = "\n## 관련 포스트\n\n"
+    section += "\n".join(selected)
+    section += "\n\n---\n"
+    return section
+
+
 def generate_post_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -1668,10 +1760,10 @@ toc: true
     # 뉴스 기반 실무 체크리스트
     content += _generate_news_specific_checklist(news_items)
 
-    content += """
----
+    # 관련 포스트 크로스레퍼런스 (인접 다이제스트 포스트 자동 연결)
+    content += generate_cross_refs(date_file)
 
-## 참고 자료
+    content += """## 참고 자료
 
 | 리소스 | 링크 |
 |--------|------|
@@ -1958,8 +2050,10 @@ toc: true
     content += _generate_tech_trend_analysis(news_items, section_num)
     content += _generate_news_specific_checklist(news_items)
 
-    content += """
----
+    # 관련 포스트 크로스레퍼런스 (인접 다이제스트 포스트 자동 연결)
+    content += generate_cross_refs(date_file)
+
+    content += """---
 
 **작성자**: Twodragon
 """

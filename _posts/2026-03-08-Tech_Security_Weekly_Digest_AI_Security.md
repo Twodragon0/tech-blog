@@ -357,6 +357,14 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 
 ---
 
+## 관련 포스트
+
+- [기술·보안 주간 다이제스트 (3월 7일)]({% post_url 2026-03-07-Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps %}) - Android 제로데이, DevSecOps
+- [기술·보안 주간 다이제스트 (3월 9일)]({% post_url 2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin %}) - AI 보안, Go, Bitcoin
+- [LLM 보안 실무 가이드]({% post_url 2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP %}) - 프롬프트 인젝션, RAG, MCP 보안
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |
