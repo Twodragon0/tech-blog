@@ -208,6 +208,11 @@ def parse_args() -> argparse.Namespace:
         default=80,
         help="이 점수 미만이면 경고 출력 (기본값: 80)",
     )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="통과한 포스트는 출력 생략 (fail/warn만 표시)",
+    )
     return parser.parse_args()
 
 
@@ -224,6 +229,12 @@ if __name__ == "__main__":
         lines = raw_lines if isinstance(raw_lines, int) else 0
         scores = result.get("scores", {})
 
+        is_fail = total < args.fail_below
+        is_warn = total < args.warn_below
+
+        if args.quiet and not is_fail and not is_warn:
+            continue
+
         print(f"\nPost Quality Score: {total}/100")
         print(f"File: {file_name} ({lines} lines)")
         print("\nBreakdown:")
@@ -236,10 +247,10 @@ if __name__ == "__main__":
         for w in warnings:
             print(f"\n⚠️  WARNING: {w}")
 
-        if total < args.fail_below:
+        if is_fail:
             print(f"\n❌ ERROR: Score below {args.fail_below}")
             has_error = True
-        elif total < args.warn_below:
+        elif is_warn:
             print(f"\n⚠️  WARNING: Score below {args.warn_below}")
 
     if has_error:
