@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: 제로트러스트 가시성 전략과 암호화폐 규제 동향"
+title: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응"
 date: 2026-03-02 12:29:39 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: 제로트러스트 가시성 전략과 암호화폐 규제 동향'
+  title='기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Zero-Trust</span> <span class="tag">Crypto-Regulation</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span>'
   highlights_html='<li><strong>포인트 1</strong>: SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'

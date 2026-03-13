@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco, AWS"
+title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco 보안, AWS 운영"
 date: 2026-03-06 12:29:02 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 제로트러스트 데이터 전략"
+title: "기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략"
 date: 2026-02-23 12:39:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 제로트러스트 데이터 전략'
+  title='기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Ransomware</span> <span class="tag">Zero-Trust</span>'
   highlights_html='<li><strong>포인트 1</strong>: SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI 보안 구축, BlackField 랜섬웨어 코드 재활용 패턴, 제로트러스트 데이터 보안 전략, OT 보안 동향과 비트코인 급락·러시아 제재 우회 거래소</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
