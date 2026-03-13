@@ -48,6 +48,14 @@ toc: true
       <li><strong>CVE-2026-24304 Azure RM CVSS 9.9</strong>: Azure Resource Manager 권한 상승, 전체 리소스 제어권 탈취 가능</li>'
 -%}
 
+### 보안 점검 체크리스트
+
+- [ ] 언급된 CVE/취약점에 대한 패치 적용 여부 확인
+- [ ] 영향받는 시스템 및 소프트웨어 버전 점검
+- [ ] 보안 모니터링 규칙 업데이트
+- [ ] 관련 보안 정책 검토 및 갱신
+- [ ] 팀 내 보안 공지 공유 완료
+
 ## Executive Summary
 
 > **경영진 브리핑**: 기술·보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, - 2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic

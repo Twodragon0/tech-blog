@@ -45,6 +45,14 @@ series_total: 9
   audience='클라우드 아키텍트, 보안 엔지니어, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+### 실습 체크리스트
+
+- [ ] 실습 환경 구성 완료
+- [ ] 보안 설정 적용 확인
+- [ ] 테스트 및 검증 수행
+- [ ] 실습 리소스 정리 (비용 방지)
+- [ ] 학습 내용 문서화
+
 <img src="{% raw %}{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg' | relative_url }}{% endraw %}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)

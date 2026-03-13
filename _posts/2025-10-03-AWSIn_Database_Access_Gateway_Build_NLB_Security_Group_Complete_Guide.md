@@ -37,6 +37,14 @@ toc: true
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
+### 보안 강화 체크리스트
+
+- [ ] 관련 보안 설정 검토 및 적용
+- [ ] 취약점 스캔 및 점검 수행
+- [ ] 접근 제어 정책 확인
+- [ ] 로깅 및 모니터링 설정 점검
+- [ ] 보안 문서 업데이트
+
 ## Executive Summary
 
 > **경영진 브리핑**: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이

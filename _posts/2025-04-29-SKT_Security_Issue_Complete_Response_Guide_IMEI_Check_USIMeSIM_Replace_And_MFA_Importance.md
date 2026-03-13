@@ -35,6 +35,14 @@ original_url: https://twodragon.tistory.com/677
   audience='기업 보안 담당자, 보안 엔지니어, CISO'
 -%}
 
+### 보안 강화 체크리스트
+
+- [ ] 관련 보안 설정 검토 및 적용
+- [ ] 취약점 스캔 및 점검 수행
+- [ ] 접근 제어 정책 확인
+- [ ] 로깅 및 모니터링 설정 점검
+- [ ] 보안 문서 업데이트
+
 ## Executive Summary
 
 > **경영진 브리핑**: SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성 - SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,

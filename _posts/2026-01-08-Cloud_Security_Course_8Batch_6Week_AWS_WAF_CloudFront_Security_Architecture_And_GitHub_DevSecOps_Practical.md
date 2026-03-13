@@ -52,6 +52,14 @@ toc: true
   audience='보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자'
 -%}
 
+### 실습 체크리스트
+
+- [ ] 실습 환경 구성 완료
+- [ ] 보안 설정 적용 확인
+- [ ] 테스트 및 검증 수행
+- [ ] 실습 리소스 정리 (비용 방지)
+- [ ] 학습 내용 문서화
+
 ## Executive Summary
 
 > **경영진 브리핑**: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),

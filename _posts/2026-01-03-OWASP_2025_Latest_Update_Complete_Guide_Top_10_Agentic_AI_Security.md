@@ -40,6 +40,14 @@ toc: true
   audience='보안 엔지니어, DevSecOps 엔지니어, 개발자, 보안 아키텍트'
 -%}
 
+### 보안 강화 체크리스트
+
+- [ ] 관련 보안 설정 검토 및 적용
+- [ ] 취약점 스캔 및 점검 수행
+- [ ] 접근 제어 정책 확인
+- [ ] 로깅 및 모니터링 설정 점검
+- [ ] 보안 문서 업데이트
+
 ## Executive Summary
 
 > **경영진 브리핑**: OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures,
