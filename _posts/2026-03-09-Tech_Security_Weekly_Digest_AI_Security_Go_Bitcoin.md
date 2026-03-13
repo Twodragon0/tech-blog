@@ -5,8 +5,8 @@ title: "기술·보안 주간 다이제스트: AI 에이전트 보안 위협, Sa
 date: 2026-03-09 12:37:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
-excerpt: "AI 에이전트의 보안 위협 분석(Krebs on Security), Saylor의 비트코인 추가 매수 신호, 브라질 Pix 결제 아르헨티나 확장, Agent Safehouse macOS 에이전트 샌드박싱, LINE 엔터프라이즈 LLM 에이전트 엔지니어링."
-description: "2026년 03월 09일 보안 뉴스: Krebs on Security, Cointelegraph 등 11건. AI, Security, Go, Bitcoin 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+excerpt: "[High] AI 에이전트 보안 위협 - 프롬프트 인젝션, 과도한 권한, 공급망 공격 새로운 공격 표면. Saylor BTC 추가 매수 신호, Agent Safehouse 샌드박싱, LINE LLM 에이전트 엔지니어링"
+description: "[High] AI 에이전트 보안 위협 - 프롬프트 인젝션·과도한 권한·공급망 공격(Krebs on Security). [High] 민감 데이터 접근 경로 최소화, 감사 로그 점검. 2026년 03월 09일 보안 뉴스 11건. DevSecOps 실무 위협 분석 가이드."
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin.svg
