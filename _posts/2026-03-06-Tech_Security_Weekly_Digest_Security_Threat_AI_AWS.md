@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco, AWS"
+title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco 보안, AWS 운영"
 date: 2026-03-06 12:29:02 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
@@ -582,20 +582,92 @@ Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 
 
 ## 6. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Nano Banana 프롬프팅 가이드](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/) | Google Cloud Blog | Gemini 3 기반 Nano Banana 이미지 생성 모델의 최적 프롬프팅 전략 가이드 |
-| [LeakBase 포럼 압수](https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html) | The Hacker News | FBI/Europol 공조로 세계 최대 탈취 자격 증명 거래 포럼 LeakBase 압수 |
-| [Cloudflare Dynamic Path MTU Discovery](https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/) | Cloudflare Blog | Cloudflare One Client의 패킷 크기 동적 조정으로 터널 안정성 향상 |
-| [Cloudflare QUIC 기반 SASE Proxy Mode](https://blog.cloudflare.com/faster-sase-proxy-mode-quic/) | Cloudflare Blog | QUIC 스트림으로 전환하여 처리량 2배 향상, 레이턴시 대폭 감소 |
-| [GPT-5.4 공개](https://news.hada.io/topic?id=27230) | GeekNews | OpenAI 최신 프런티어 모델, 에이전트 워크플로우 + 컴퓨터 사용 기능 내장 |
-| [Grep은 죽었다: Claude Code 메모리 시스템](https://news.hada.io/topic?id=27239) | GeekNews | Claude Code 세션 간 컨텍스트 유실 해결을 위한 로컬 검색 엔진 QMD + /recall 시스템 |
-| [Google Chrome, 2주 출시 주기 전환](https://news.hada.io/topic?id=27238) | GeekNews | 2026년 9월부터 Chrome 출시 주기가 4주에서 2주로 단축 |
-| [위키백과 관리자 계정 대량 유출](https://news.hada.io/topic?id=27233) | GeekNews | 관리자 계정 대량 침해로 위키백과 일시적 읽기 전용 모드 전환 |
-| [온디바이스 이미지 모델 (1편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1) | LINE Engineering | 지식 증류로 다국어 이미지 검색을 모바일 온디바이스로 구현 |
-| [온디바이스 이미지 모델 (2편)](https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2) | LINE Engineering | 비자기회귀 방식으로 초저지연 캡션 생성을 모바일에서 실현 |
-| [FE News 26년 3월호](https://d2.naver.com/news/0407747) | 네이버 D2 | React Foundation 설립, 프론트엔드 생태계 주요 소식 종합 |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Nano Banana 프롬프팅 가이드"
+  url="https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/"
+  source="Google Cloud Blog"
+  tag="Cloud / Platform"
+  summary="Google Cloud가 제시한 프롬프팅 가이드는 모델 품질이 프롬프트 설계 역량과 운영 표준화에 크게 좌우된다는 점을 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="LeakBase 포럼 압수"
+  url="https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html"
+  source="The Hacker News"
+  tag="Operator Signal"
+  summary="불법 데이터 거래 포럼 압수 사례로, 침해 생태계 대응이 기술 차단뿐 아니라 국제 공조와 법 집행 역량에도 달려 있음을 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="Cloudflare Dynamic Path MTU Discovery"
+  url="https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/"
+  source="Cloudflare Blog"
+  tag="Cloud / Platform"
+  summary="네트워크 경로 MTU를 동적으로 최적화하는 접근으로, 성능 개선이 실제 서비스 안정성과 연결되는 대표적인 인프라 엔지니어링 사례입니다."
+%}
+{% include news-spotlight-item.html
+  title="Cloudflare QUIC 기반 SASE Proxy Mode"
+  url="https://blog.cloudflare.com/faster-sase-proxy-mode-quic/"
+  source="Cloudflare Blog"
+  tag="Cloud / Platform"
+  summary="QUIC 기반 SASE 프록시 최적화는 보안 트래픽 처리에서도 사용자 체감 성능과 제어 일관성을 동시에 잡으려는 시도를 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="GPT-5.4 공개"
+  url="https://news.hada.io/topic?id=27230"
+  source="GeekNews"
+  tag="Tech Signals"
+  summary="새 모델 공개는 성능 향상 자체보다, 기존 워크플로우와 도입 기준을 다시 정의해야 한다는 점에서 운영팀에 더 큰 의미를 줍니다."
+%}
+{% include news-spotlight-item.html
+  title="Grep은 죽었다: Claude Code 메모리 시스템"
+  url="https://news.hada.io/topic?id=27239"
+  source="GeekNews"
+  tag="AI / Product"
+  summary="코드 탐색 방식이 검색 중심에서 기억·문맥 중심으로 옮겨가고 있음을 보여주며, 개발 도구 UX가 근본적으로 변하고 있음을 시사합니다."
+%}
+{% include news-spotlight-item.html
+  title="Google Chrome, 2주 출시 주기 전환"
+  url="https://news.hada.io/topic?id=27238"
+  source="GeekNews"
+  tag="Tech Signals"
+  summary="브라우저 출시 주기 단축은 보안 패치 적용 속도는 높이지만, 기업 환경에서는 테스트와 배포 자동화 부담도 함께 키웁니다."
+%}
+{% include news-spotlight-item.html
+  title="위키백과 관리자 계정 대량 유출"
+  url="https://news.hada.io/topic?id=27233"
+  source="GeekNews"
+  tag="Tech Signals"
+  summary="관리자 계정 유출 사례는 대형 협업 플랫폼에서도 권한 계정 보호와 자격 증명 위생이 얼마나 중요한지 다시 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="온디바이스 이미지 모델 (1편)"
+  url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1"
+  source="LINE Engineering"
+  tag="Operator Signal"
+  summary="온디바이스 모델 학습의 첫 단계로, 개인정보 보호와 지연 시간 최적화를 동시에 달성하려는 설계 방향을 설명합니다."
+%}
+{% include news-spotlight-item.html
+  title="온디바이스 이미지 모델 (2편)"
+  url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2"
+  source="LINE Engineering"
+  tag="Operator Signal"
+  summary="온디바이스 이미지 모델 후속편으로, 실제 서비스 적용 단계에서 모델 경량화와 운영 제약을 어떻게 다루는지 이어서 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="FE News 26년 3월호"
+  url="https://d2.naver.com/news/0407747"
+  source="네이버 D2"
+  tag="Operator Signal"
+  summary="프런트엔드 생태계의 월간 변화 요약으로, 사용자 경험과 개발 생산성 모두에 영향을 주는 도구·플랫폼 흐름을 빠르게 파악할 수 있습니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 7. 트렌드 분석

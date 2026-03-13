@@ -1,0 +1,11 @@
+<article class="news-spotlight-item">
+  {% if include.source or include.tag %}
+  <div class="news-spotlight-meta">
+    {% if include.source %}<span class="news-spotlight-source">{{ include.source | escape }}</span>{% endif %}
+    {% if include.tag %}<span class="news-spotlight-tag">{{ include.tag | escape }}</span>{% endif %}
+  </div>
+  {% endif %}
+  <h3 class="news-spotlight-title"><a href="{{ include.url | escape }}">{{ include.title | escape }}</a></h3>
+  {% if include.summary %}<p class="news-spotlight-summary">{{ include.summary | escape }}</p>{% endif %}
+  {% if include.note %}<p class="news-spotlight-note">{{ include.note }}</p>{% endif %}
+</article>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: JWT 인증 위협, 이란 암호화폐 유출, 금융 AI 거버넌스"
+title: "기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스"
 date: 2026-03-04 14:05:06 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
@@ -15,18 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='JWT 인증 위협 / 이란 암호화폐 / 금융 AI (2026.03.04)'
+  title='기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">JWT</span>
-      <span class="tag">Authentication</span>
-      <span class="tag">Blockchain</span>
-      <span class="tag">AI-Governance</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>JWT 서명키 유출</strong>: SK쉴더스, 노출된 JWT 서명키를 통한 완전한 인증 우회 분석 — 토큰 위조, 권한 상승, 횡적 이동</li>
-      <li><strong>이란 암호화폐 유출 $1,030만</strong>: 온체인 데이터 기준 미-이스라엘 공습 수 시간 내 이란 거래소에서 대규모 BTC 유출 확인</li>
-      <li><strong>금융 AI 7대 원칙</strong>: SK쉴더스 HeadLine, 금융 분야 AI 거버넌스를 위한 국내외 정책 사례 분석</li>'
-  period='2026.03.04 (24시간)'
-  audience='보안 엔지니어, DevSecOps, SRE, 컴플라이언스 담당자'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">JWT</span> <span class="tag">Blockchain</span> <span class="tag">AI-Governance</span>'
+  highlights_html='<li><strong>포인트 1</strong>: JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-03-04 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

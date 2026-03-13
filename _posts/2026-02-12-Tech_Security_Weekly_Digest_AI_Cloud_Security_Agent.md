@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: 공급망, Windows, APT36"
+title: "기술·보안 주간 다이제스트: 공급망 침해, Windows 보안, APT36"
 date: 2026-02-12 12:41:50 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
@@ -34,12 +34,12 @@ toc: true
 {% endcapture %}
 
 {% include ai-summary-card.html
-  title="기술·보안 주간 다이제스트 (2026년 02월 12일)"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026년 02월 12일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  title='기술·보안 주간 다이제스트: 공급망 침해, Windows 보안, APT36'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Cloud</span> <span class="tag">Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-12 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

@@ -32,9 +32,18 @@ SKIP_FILES = {
 SECTION_BANNERS = {
     "보안": ("Security News Section Banner", "/assets/images/section-security.svg"),
     "AI": ("AI ML News Section Banner", "/assets/images/section-ai-ml.svg"),
-    "클라우드": ("Cloud Infrastructure News Section Banner", "/assets/images/section-cloud.svg"),
-    "DevOps": ("DevOps Platform News Section Banner", "/assets/images/section-devops.svg"),
-    "블록체인": ("Blockchain Web3 News Section Banner", "/assets/images/section-blockchain.svg"),
+    "클라우드": (
+        "Cloud Infrastructure News Section Banner",
+        "/assets/images/section-cloud.svg",
+    ),
+    "DevOps": (
+        "DevOps Platform News Section Banner",
+        "/assets/images/section-devops.svg",
+    ),
+    "블록체인": (
+        "Blockchain Web3 News Section Banner",
+        "/assets/images/section-blockchain.svg",
+    ),
 }
 
 # Category prefix mapping based on section heading
@@ -52,7 +61,11 @@ def detect_category(section_heading: str) -> str:
         return "[클라우드]"
     if "devops" in heading_lower or "데브옵스" in heading_lower:
         return "[DevOps]"
-    if "블록체인" in heading_lower or "blockchain" in heading_lower or "web3" in heading_lower:
+    if (
+        "블록체인" in heading_lower
+        or "blockchain" in heading_lower
+        or "web3" in heading_lower
+    ):
         return "[블록체인]"
     return ""
 
@@ -90,14 +103,16 @@ def truncate_summary(text: str, max_len: int = 200) -> str:
     return truncated + "..."
 
 
-def extract_source_info(lines: list[str], start: int, end: int) -> tuple[str, str] | None:
+def extract_source_info(
+    lines: list[str], start: int, end: int
+) -> tuple[str, str] | None:
     """
     Extract (source_name, url) from > **출처**: [Source](URL) within line range.
     """
     for i in range(start, min(end, len(lines))):
         line = lines[i]
         # Pattern: > **출처**: [Source Name](URL)
-        m = re.match(r'>\s*\*\*출처\*\*\s*:\s*\[([^\]]+)\]\(([^)]+)\)', line)
+        m = re.match(r">\s*\*\*출처\*\*\s*:\s*\[([^\]]+)\]\(([^)]+)\)", line)
         if m:
             return m.group(1).strip(), m.group(2).strip()
     return None
@@ -112,7 +127,7 @@ def extract_summary(lines: list[str], start: int, end: int) -> str | None:
 
     for i in range(start, min(end, len(lines))):
         line = lines[i].strip()
-        if re.match(r'^####\s+(요약|개요)', line):
+        if re.match(r"^####\s+(요약|개요)", line):
             summary_start = i + 1
             break
 
@@ -147,20 +162,22 @@ def find_article_sections(lines: list[str]) -> list[dict]:
         stripped = line.strip()
 
         # Track ## sections for category detection
-        m_section = re.match(r'^##\s+(\d+)\.\s+(.+)', stripped)
+        m_section = re.match(r"^##\s+(\d+)\.\s+(.+)", stripped)
         if m_section:
             current_section = stripped
             continue
 
         # Find ### X.X articles
-        m_article = re.match(r'^###\s+(\d+\.\d+)\s+(.+)', stripped)
+        m_article = re.match(r"^###\s+(\d+\.\d+)\s+(.+)", stripped)
         if m_article:
-            articles.append({
-                "line_idx": i,
-                "number": m_article.group(1),
-                "title": m_article.group(2).strip(),
-                "section_heading": current_section,
-            })
+            articles.append(
+                {
+                    "line_idx": i,
+                    "number": m_article.group(1),
+                    "title": m_article.group(2).strip(),
+                    "section_heading": current_section,
+                }
+            )
 
     # Set end boundaries for each article
     for i, article in enumerate(articles):
@@ -189,7 +206,7 @@ def add_section_banners(lines: list[str]) -> tuple[list[str], int]:
         stripped = line.strip()
 
         # Check for ## N. Section heading
-        m = re.match(r'^##\s+\d+\.\s+(.+)', stripped)
+        m = re.match(r"^##\s+\d+\.\s+(.+)", stripped)
         if m:
             section_text = m.group(1)
 
@@ -299,17 +316,19 @@ def process_file(filepath: Path) -> tuple[int, int]:
 
         # Determine category prefix
         category = detect_category(section_heading)
-        card_title = f"{category} {escaped_title_text}" if category else escaped_title_text
+        card_title = (
+            f"{category} {escaped_title_text}" if category else escaped_title_text
+        )
 
         # Build the news-card include block
         card_block = [
             "",
-            '{%- include news-card.html',
+            "{%- include news-card.html",
             f'  title="{card_title}"',
             f'  url="{url}"',
             f'  summary="{escaped_summary}"',
             f'  source="{escape_quotes(source_name)}"',
-            '-%}',
+            "-%}",
             "",
         ]
 
@@ -324,11 +343,11 @@ def process_file(filepath: Path) -> tuple[int, int]:
         summary_heading_idx = None
         for j in range(idx + 1, min(end_idx, len(lines))):
             stripped = lines[j].strip()
-            if re.match(r'^####\s+(요약|개요)', stripped):
+            if re.match(r"^####\s+(요약|개요)", stripped):
                 summary_heading_idx = j
                 break
             # If we hit another ### or ## heading, stop
-            if re.match(r'^#{2,3}\s+', stripped):
+            if re.match(r"^#{2,3}\s+", stripped):
                 break
 
         if summary_heading_idx is not None:
@@ -386,16 +405,18 @@ def main():
             modified_files.append((filepath.name, articles_converted, banners_added))
             total_articles += articles_converted
             total_banners += banners_added
-            print(f"  ✓ {filepath.name}: {articles_converted} articles, {banners_added} banners")
+            print(
+                f"  ✓ {filepath.name}: {articles_converted} articles, {banners_added} banners"
+            )
         else:
             print(f"  - {filepath.name}: no changes needed")
 
-    print(f"\n{'='*60}")
-    print(f"Summary:")
+    print(f"\n{'=' * 60}")
+    print("Summary:")
     print(f"  Files modified: {len(modified_files)}")
     print(f"  Articles converted: {total_articles}")
     print(f"  Banners added: {total_banners}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     if modified_files:
         print("\nModified files:")

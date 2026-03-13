@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술 & 보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes"
+title: "기술·보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes"
 date: 2026-02-20 09:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes]
@@ -15,12 +15,10 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes'
+  title='기술·보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Gemini</span> <span class="tag">AI</span> <span class="tag">Supply-Chain</span>'
-  highlights_html='<li><strong>PromptSpy 악성코드</strong>: Gemini AI를 악용한 최초의 안드로이드 악성코드 발견, VNC 원격 접근 및 PIN 가로채기 기능 탑재</li>
-      <li><strong>Clinejection 공급망 공격</strong>: AI 코딩 에이전트를 프롬프트 인젝션으로 공급망 공격 벡터로 전환하는 새로운 위협 등장</li>
-      <li><strong>K8s Ingress NGINX 은퇴</strong>: 2026년 3월 이후 공식 지원 종료 예정, 클라우드 네이티브 환경 약 50%에 영향</li>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
   period='2026-02-20 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
@@ -676,13 +674,43 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 ## 7. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Spotify Multi-Agent Architecture for Advertising](https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/) | Spotify Engineering | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
-| [Discord Osprey: Open Sourcing our Rule Engine](https://discord.com/blog/osprey-open-sourcing-our-rule-engine) | Discord Blog | Discord가 사내 규칙 엔진 Osprey를 오픈소스로 공개. 대규모 실시간 콘텐츠 필터링 및 정책 적용에 활용 가능 |
-| [Chrome CSS Zero-Day CVE-2026-2441](https://news.hada.io/topic?id=26823) | GeekNews | 위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다. |
-| [ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days](https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html) | The Hacker News | 위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Spotify Multi-Agent Architecture for Advertising"
+  url="https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/"
+  source="Spotify Engineering"
+  tag="Operator Signal"
+  summary="광고 운영에 멀티에이전트 구조를 적용해 복잡한 의사결정을 자동화하는 사례로, AI 도입이 조직의 승인 흐름과 운영 책임을 어떻게 재편하는지 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="Discord Osprey: Open Sourcing our Rule Engine"
+  url="https://discord.com/blog/osprey-open-sourcing-our-rule-engine"
+  source="Discord Blog"
+  tag="Operator Signal"
+  summary="규칙 엔진 오픈소스화는 대규모 플랫폼이 정책 집행 로직을 어떻게 구조화하고 재사용 가능한 형태로 공개하는지 보여주는 사례입니다."
+%}
+{% include news-spotlight-item.html
+  title="Chrome CSS Zero-Day CVE-2026-2441"
+  url="https://news.hada.io/topic?id=26823"
+  source="GeekNews"
+  tag="Tech Signals"
+  summary="위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다."
+%}
+{% include news-spotlight-item.html
+  title="ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days"
+  url="https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html"
+  source="The Hacker News"
+  tag="Operator Signal"
+  summary="위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 8. 트렌드 분석

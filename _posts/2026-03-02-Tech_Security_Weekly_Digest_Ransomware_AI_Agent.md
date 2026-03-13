@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: 제로트러스트 가시성 전략과 암호화폐 규제 동향"
+title: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응"
 date: 2026-03-02 12:29:39 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
@@ -15,20 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 02일)'
+  title='기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Crypto-Regulation</span>
-      <span class="tag">Anthropic-Courses</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>SK쉴더스 Special Report</strong>: 제로트러스트 가시성 3대 축(네트워크·엔드포인트·ID) 분석 — Lateral Movement 탐지용 SIEM 쿼리와 Splunk/Microsoft Sentinel/IBM QRadar UEBA 플랫폼 권장 구성 포함</li>
-      <li><strong>Trump Media + X 정책</strong>: 미국 암호화폐 규제 완화 가속 — Truth.Fi ETF 출시, X 파트너십 광고 라벨링 의무화로 국내 거래소·마케팅팀 컴플라이언스 재검토 필요</li>
-      <li><strong>Kalshi carve-out</strong>: CFTC 승인 예측 시장의 자기검열 사례 — 규제 리스크 관리 모범 사례로서 핀테크 컴플라이언스팀 참고 가치</li>
-      <li><strong>Anthropic Courses</strong>: Claude API·MCP 서버 보안·Claude Code CI/CD 통합 무료 공식 강의 — DevSecOps 실무자 즉시 활용 가능한 6개 커리큘럼 상세 수록</li>'
-  period='2026년 03월 02일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Zero-Trust</span> <span class="tag">Crypto-Regulation</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span>'
+  highlights_html='<li><strong>포인트 1</strong>: SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-03-02 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

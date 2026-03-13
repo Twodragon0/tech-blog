@@ -81,14 +81,32 @@ def validate_tables(content: str) -> int:
 def validate_code_blocks(content: str) -> int:
     """코드 블록 (10점)"""
     score = 10
-    # 언어 태그 없는 코드 블록 감지
-    if "```\n" in content:
-        score -= 5
-    # 10줄 초과 코드 블록 감지 (간단 검사)
-    blocks = re.findall(r"```.*?\n(.*?)```", content, re.DOTALL)
+    in_block = False
+    unlabeled_openings = 0
+
+    for line in content.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("```"):
+            continue
+
+        fence_meta = stripped[3:].strip()
+        if not in_block:
+            if not fence_meta:
+                unlabeled_openings += 1
+            in_block = True
+        else:
+            in_block = False
+
+    if unlabeled_openings > 0:
+        score -= min(5, unlabeled_openings * 2)
+
+    blocks = re.findall(r"```[a-zA-Z0-9_+\-]*\n(.*?)```", content, re.DOTALL)
+    long_blocks = 0
     for block in blocks:
         if len(block.split("\n")) > 10:
-            score -= 2
+            long_blocks += 1
+    score -= min(4, long_blocks)
+
     return max(0, score)
 
 

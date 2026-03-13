@@ -1,123 +1,135 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="48%" stop-color="#181c3a"/>
+      <stop offset="100%" stop-color="#261c48"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#dc2626"/>
-    </linearGradient>
-    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#4f46e5"/>
-    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(160 108) rotate(90) scale(220)">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 110) rotate(90) scale(260)">
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#67e8f9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 472) rotate(90) scale(220)">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020617" flood-opacity="0.34"/>
+    </filter>
   </defs>
-
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/>
-    <line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/>
-    <line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  <rect width="1200" height="630" fill="#020617" opacity="0.18"/>
+  <circle cx="160" cy="108" r="220" fill="url(#glowA)"/>
+  <circle cx="1020" cy="110" r="260" fill="url(#glowB)"/>
+  <circle cx="980" cy="472" r="220" fill="url(#glowC)"/>
+  <g opacity="0.07" stroke="#cbd5e1" stroke-width="1">
+    <line x1="0" y1="84" x2="1200" y2="84"/>
+    <line x1="0" y1="168" x2="1200" y2="168"/>
+    <line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="336" x2="1200" y2="336"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="504" x2="1200" y2="504"/>
+    <line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/>
   </g>
-
-  <!-- Primary icon -->
-  <g transform="translate(80, 180)">
-    <rect x="25" y="60" width="70" height="80" rx="8" fill="url(#accent)" opacity="0.9"/>
-    <path d="M35 60 V40 C35 18 85 18 85 40 V60" fill="none" stroke="#fca5a5" stroke-width="3"/>
-    <circle cx="60" cy="100" r="10" fill="white"/>
-    <rect x="57" y="100" width="6" height="18" rx="2" fill="white"/>
+  <rect x="54" y="34" width="258" height="38" rx="19" fill="#34d399"/>
+  <text x="183" y="58" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">TECH SECURITY WEEKLY DIGEST</text>
+  <rect x="932" y="34" width="214" height="38" rx="19" fill="#67e8f9"/>
+  <text x="1039" y="58" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.3">FEBRUARY 21, 2026</text>
+  <g transform="translate(62 96)">
+    <text x="0" y="0" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="4">CVE-49113 / RANSOMWARE / RUST SUPPLY CHAIN</text>
+    <text x="0" y="58" fill="#f8fafc" font-family="Arial, sans-serif" font-size="44" font-weight="800">CVE-49113</text>
+    <text x="0" y="102" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28" font-weight="700">Ransomware</text>
+    <text x="0" y="138" fill="#94a3b8" font-family="Arial, sans-serif" font-size="22">CVE-49113, Ransomware, and Rust Supply Chain</text>
+    <text x="0" y="170" fill="#94a3b8" font-family="Arial, sans-serif" font-size="22">framed for weekly operator decisions</text>
   </g>
-
-  <!-- Secondary icon -->
-  <g transform="translate(80, 380)">
-    <path d="M60 5 L115 120 L5 120 Z" fill="url(#accent)" opacity="0.9"/>
-    <path d="M60 20 L105 115 L15 115 Z" fill="none" stroke="#94a3b8" stroke-width="2"/>
-    <text x="60" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">!</text>
-    <circle cx="60" cy="100" r="4" fill="white"/>
+  <g transform="translate(58 198)" filter="url(#softShadow)">
+    <rect width="728" height="264" rx="28" fill="#09111d" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="728" height="264" rx="28" fill="url(#glowB)" opacity="0.16"/>
+    <text x="34" y="42" fill="#f8fafc" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.8">EDITORIAL SIGNAL BOARD</text>
+    
+    <g transform="translate(34 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#34d399"/>
+      <text x="20" y="34" fill="#fde68a" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">CVE-49113</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="800">CVE-49113</text>
+      
+      <text x="20" y="92" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Sort exposure by business impact</text>
+      <text x="20" y="116" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Recheck vulnerable dependencies</text>
+      <text x="20" y="140" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Audit patch exceptions</text>
+      <text x="20" y="184" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Priority: article-specific operator guidance</text>
+    </g>
+    <g transform="translate(261 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#67e8f9"/>
+      <text x="20" y="34" fill="#bae6fd" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">RANSOMWARE</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="800">Ransomware</text>
+      
+      <text x="20" y="92" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Recheck backup recovery readiness</text>
+      <text x="20" y="116" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Review privilege escalation paths</text>
+      <text x="20" y="140" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Practice incident ownership</text>
+      <text x="20" y="184" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Priority: article-specific operator guidance</text>
+    </g>
+    <g transform="translate(488 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#818cf8"/>
+      <text x="20" y="34" fill="#fecdd3" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">RUST SUPPLY</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="800">Rust Supply</text>
+      <text x="20" y="98" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" font-weight="800">Chain</text>
+      <text x="20" y="118" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Audit crate provenance</text>
+      <text x="20" y="142" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Check build reproducibility</text>
+      <text x="20" y="166" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="14">- Verify SBOM freshness</text>
+      <text x="20" y="184" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Priority: article-specific operator guidance</text>
+    </g>
   </g>
-
-  <!-- Main title area -->
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly Digest</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Data Rust AI Threat</text>
+  <g transform="translate(820 182)">
+    <rect width="322" height="290" rx="28" fill="#09111d" stroke="#1e293b" stroke-width="1.5" filter="url(#softShadow)"/>
+    <text x="28" y="40" fill="#f8fafc" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">THREAT RELATION MAP</text>
+    <circle cx="160" cy="146" r="44" fill="#111827" stroke="#67e8f9" stroke-width="2.5"/>
+    <circle cx="160" cy="146" r="24" fill="#0f172a" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="160" y="141" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="11" font-weight="700">RISK</text>
+    <text x="160" y="157" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="11" font-weight="700">CORE</text>
+    <circle cx="72" cy="86" r="30" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/><text x="72" y="82" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="10" font-weight="700">CVE</text><text x="72" y="96" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="10" font-weight="700">49113</text><circle cx="252" cy="82" r="30" fill="#1f2937" stroke="#38bdf8" stroke-width="2"/><text x="252" y="78" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="10" font-weight="700">RANSOM</text><text x="252" y="92" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="10" font-weight="700">WARE</text><circle cx="88" cy="228" r="30" fill="#1f2937" stroke="#fb7185" stroke-width="2"/><text x="88" y="224" text-anchor="middle" fill="#fecdd3" font-family="Arial, sans-serif" font-size="10" font-weight="700">RUST</text><text x="88" y="238" text-anchor="middle" fill="#fecdd3" font-family="Arial, sans-serif" font-size="10" font-weight="700">CHAIN</text><circle cx="244" cy="232" r="30" fill="#1f2937" stroke="#67e8f9" stroke-width="2"/><text x="244" y="228" text-anchor="middle" fill="#cffafe" font-family="Arial, sans-serif" font-size="10" font-weight="700">AI</text><text x="244" y="242" text-anchor="middle" fill="#cffafe" font-family="Arial, sans-serif" font-size="10" font-weight="700">RUNTIME</text>
+    <line x1="96" y1="102" x2="126" y2="123" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="225" y1="100" x2="194" y2="123" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="110" y1="211" x2="133" y2="179" stroke="#fb7185" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="218" y1="213" x2="188" y2="179" stroke="#67e8f9" stroke-width="2" stroke-dasharray="5 4"/>
+    <rect x="28" y="246" width="266" height="22" rx="11" fill="#0f172a" stroke="#334155"/>
+    <text x="161" y="261" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Article-specific cover tuned to the weekly operator story</text>
   </g>
-
-  <!-- Date badge -->
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">February 21, 2026</text>
-
-  <!-- Stats cards -->
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RANSOMWARE</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Ransomware</text>
-    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CVE ALERT</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">CVE Alert</text>
-    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">VULNERABILITY</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Vulnerability</text>
-    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  <g transform="translate(58 494)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">CURATED ITEMS</text>
+    <text x="22" y="48" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="800">5</text>
   </g>
-
-  <!-- Key topics -->
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="120" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
-    <text x="60" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Ransomware</text>
-    <rect x="135" y="0" width="111" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="190" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">CVE Alert</text>
-    <rect x="261" y="0" width="147" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="334" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">Vulnerability</text>
-    <rect x="423" y="0" width="75" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="460" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+  <g transform="translate(230 494)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">SECURITY</text>
+    <text x="22" y="48" fill="#fde68a" font-family="Arial, sans-serif" font-size="28" font-weight="800">4</text>
   </g>
-
-  <!-- Network visualization -->
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="69" cy="49" r="3" fill="#f87171"/>
-    <circle cx="84" cy="84" r="4" fill="#fb923c"/>
-    <circle cx="186" cy="143" r="5" fill="#818cf8"/>
-    <circle cx="74" cy="208" r="6" fill="#34d399"/>
-    <circle cx="135" cy="74" r="3" fill="#fbbf24"/>
-    <circle cx="168" cy="41" r="4" fill="#f87171"/>
-    <circle cx="47" cy="182" r="5" fill="#fb923c"/>
-    <circle cx="107" cy="168" r="6" fill="#818cf8"/>
-    <circle cx="189" cy="64" r="3" fill="#34d399"/>
-    <circle cx="49" cy="138" r="4" fill="#fbbf24"/>
-    <line x1="69" y1="49" x2="84" y2="84" stroke="#475569" stroke-width="1"/>
-    <line x1="84" y1="84" x2="186" y2="143" stroke="#475569" stroke-width="1"/>
-    <line x1="186" y1="143" x2="74" y2="208" stroke="#475569" stroke-width="1"/>
-    <line x1="74" y1="208" x2="135" y2="74" stroke="#475569" stroke-width="1"/>
-    <line x1="135" y1="74" x2="168" y2="41" stroke="#475569" stroke-width="1"/>
-    <line x1="168" y1="41" x2="47" y2="182" stroke="#475569" stroke-width="1"/>
-    <line x1="47" y1="182" x2="107" y2="168" stroke="#475569" stroke-width="1"/>
-    <line x1="107" y1="168" x2="189" y2="64" stroke="#475569" stroke-width="1"/>
+  <g transform="translate(402 494)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">THEMES</text>
+    <text x="22" y="48" fill="#bae6fd" font-family="Arial, sans-serif" font-size="28" font-weight="800">3</text>
   </g>
-
-  <!-- Bottom bar -->
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
-
-  <!-- Bottom text -->
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
-
-  <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Ransomware | CVE Alert | Vulnerability | AI/ML</text>
+  <g transform="translate(602 500)">
+    <rect x="0" y="0" width="91" height="28" rx="14" fill="#3f2a0a"/>
+    <text x="45.5" y="19" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="12" font-weight="700">CVE-49113</text>
+    <rect x="101" y="0" width="98" height="28" rx="14" fill="#082f49"/>
+    <text x="150.0" y="19" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="12" font-weight="700">Ransomware</text>
+  </g>
+  <line x1="58" y1="584" x2="1142" y2="584" stroke="#334155" stroke-width="1"/>
+  <text x="58" y="610" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Each weekly digest cover now reflects its specific article themes instead of a generic template.</text>
+  <text x="1142" y="610" text-anchor="end" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13" font-weight="700">tech.2twodragon.com</text>
 </svg>

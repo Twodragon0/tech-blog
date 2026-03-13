@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술 & 보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
+title: "기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
 date: 2026-02-19 12:36:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE]
@@ -15,20 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술 & 보안 주간 다이제스트 (2026년 02월 19일)'
+  title='기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Dell RecoverPoint VM CVE-2026-22769 제로데이</strong>: CVSS 9.0 취약점이 실제 공격에 악용 중 — 즉시 패치 필요</li>
-      <li><strong>VS Code 확장 4종 치명적 취약점</strong>: 총 1억 2500만 회 설치된 Live Server 등 4개 확장에서 원격 코드 실행 취약점 발견</li>
-      <li><strong>Cellebrite 포렌식 도구 시민사회 감시 적발</strong>: Citizen Lab이 케냐 경찰의 활동가 휴대폰 불법 포렌식 추출 증거 공개</li>
-      <li><strong>Grandstream GXP1600 VoIP 취약점</strong>: CVE-2026-2329 CVSS 9.3 — 인증 없이 원격 코드 실행 가능</li>'
-  period='2026년 02월 19일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Zero-Day</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 202</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-19 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---
@@ -493,11 +485,29 @@ FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트
 
 ## 6. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Amazon Rivian 전기 밴 2025년 50% 증가](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | Amazon이 Rivian 전기 배송 밴 10만 대 추가 약속, 탄소 중립 목표 가속 |
-| [유럽 태양광 지붕 Roofit.Solar 미국 데뷔](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | 유럽 태양광 지붕 회사 Roofit.Solar가 미국 첫 설치 프로젝트 완료 |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Amazon Rivian 전기 밴 2025년 50% 증가"
+  url="https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="Amazon과 Rivian의 전기 밴 확대는 물류 운영 최적화와 차량 표준화가 동시에 진행될 때 fleet economics가 어떻게 달라지는지 보여줍니다."
+%}
+{% include news-spotlight-item.html
+  title="유럽 태양광 지붕 Roofit.Solar 미국 데뷔"
+  url="https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="태양광 건축자재의 시장 확장이 에너지 효율만이 아니라 설치 생태계, 유지보수, 규제 적합성까지 함께 검증되어야 함을 시사합니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 7. 트렌드 분석

@@ -97,7 +97,9 @@ def validate_cdp_endpoint(endpoint: str) -> str:
     dangerous_chars = ['"', "'", "`", "\\", "\n", "\r", "${"]
     for char in dangerous_chars:
         if char in endpoint:
-            raise ValueError(f"CDP endpoint contains disallowed character: {repr(char)}")
+            raise ValueError(
+                f"CDP endpoint contains disallowed character: {repr(char)}"
+            )
 
     return endpoint
 

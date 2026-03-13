@@ -39,19 +39,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 02월 08일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">Signal-Phishing</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Signal 피싱 국가지원 공격</strong>: 독일 BfV/BSI 경고 — 러시아 연계 공격자가 정치인/군인/언론인 대상 Signal 메신저 피싱 캠페인 수행</li>
-      <li><strong>BlackField 랜섬웨어</strong>: LockBit/Conti 소스 코드 재활용 기반 신종 랜섬웨어 — RaaS 진입 장벽 하락</li>
-      <li><strong>제로트러스트 데이터 보안</strong>: 데이터 중심 보안전략으로 기존 경계 기반 모델 한계 극복</li>'
-  period='2026년 02월 08일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  title='기술·보안 주간 다이제스트: Signal 피싱, BlackField 랜섬웨어, 데이터 보안'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Signal-Phishing</span> <span class="tag">BlackField-Ransomware</span> <span class="tag">Zero-Trust</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026-02-08 기술·보안 주간 다이제스트: Signal 피싱 국가지원 공격, BlackField 랜섬웨어, - 2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-08 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---

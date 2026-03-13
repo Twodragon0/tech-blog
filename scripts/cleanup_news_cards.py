@@ -17,7 +17,7 @@ import sys
 def strip_bold_in_param(match_obj):
     """Remove ** markers from a matched parameter value."""
     prefix = match_obj.group(1)  # e.g., summary=" or title="
-    value = match_obj.group(2)   # the content between quotes
+    value = match_obj.group(2)  # the content between quotes
     suffix = match_obj.group(3)  # closing "
     cleaned = value.replace("**", "")
     return prefix + cleaned + suffix
@@ -104,10 +104,10 @@ def process_file(filepath):
 
     # Match {% include news-card.html ... %} blocks (potentially multi-line)
     content = re.sub(
-        r'\{%-?\s*include\s+news-card\.html\s.*?-?%\}',
+        r"\{%-?\s*include\s+news-card\.html\s.*?-?%\}",
         clean_news_card_block,
         content,
-        flags=re.DOTALL
+        flags=re.DOTALL,
     )
 
     with open(filepath, "w", encoding="utf-8") as f:
@@ -117,7 +117,9 @@ def process_file(filepath):
 
 
 def main():
-    posts_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts")
+    posts_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts"
+    )
     files = sorted(glob.glob(os.path.join(posts_dir, "2026-*.md")))
 
     if not files:
@@ -145,13 +147,13 @@ def main():
         total_chulcheo += chulcheo
         total_bold += bold
 
-    print(f"\n{'='*60}")
-    print(f"Summary:")
+    print(f"\n{'=' * 60}")
+    print("Summary:")
     print(f"  Files processed: {len(files)}")
     print(f"  Files modified:  {files_modified}")
     print(f"  출처 lines removed: {total_chulcheo}")
     print(f"  Bold markers cleaned: {total_bold}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":
