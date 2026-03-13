@@ -1,0 +1,6 @@
+<section class="news-spotlight-section"{% if include.aria_label %} aria-label="{{ include.aria_label | escape }}"{% endif %}>
+  {% if include.intro %}<p class="news-spotlight-intro">{{ include.intro }}</p>{% endif %}
+  <div class="news-spotlight-list">
+    {{ include.body }}
+  </div>
+</section>
