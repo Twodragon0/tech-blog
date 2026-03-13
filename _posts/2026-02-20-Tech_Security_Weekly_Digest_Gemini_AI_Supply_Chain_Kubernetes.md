@@ -674,13 +674,43 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 ## 7. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Spotify Multi-Agent Architecture for Advertising](https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/) | Spotify Engineering | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
-| [Discord Osprey: Open Sourcing our Rule Engine](https://discord.com/blog/osprey-open-sourcing-our-rule-engine) | Discord Blog | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
-| [Chrome CSS Zero-Day CVE-2026-2441](https://news.hada.io/topic?id=26823) | GeekNews | 위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다. |
-| [ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days](https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html) | The Hacker News | 위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Spotify Multi-Agent Architecture for Advertising"
+  url="https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/"
+  source="Spotify Engineering"
+  tag="Operator Signal"
+  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+%}
+{% include news-spotlight-item.html
+  title="Discord Osprey: Open Sourcing our Rule Engine"
+  url="https://discord.com/blog/osprey-open-sourcing-our-rule-engine"
+  source="Discord Blog"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% include news-spotlight-item.html
+  title="Chrome CSS Zero-Day CVE-2026-2441"
+  url="https://news.hada.io/topic?id=26823"
+  source="GeekNews"
+  tag="Tech Signals"
+  summary="위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다."
+%}
+{% include news-spotlight-item.html
+  title="ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days"
+  url="https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html"
+  source="The Hacker News"
+  tag="Operator Signal"
+  summary="위협 조건과 영향 자산을 기준으로 대응 우선순위를 즉시 정해야 하는 보안 뉴스입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 8. 트렌드 분석

@@ -567,12 +567,36 @@ Citi 경영진이 비트코인을 자사 뱅킹 시스템에 통합하고 수탁
 
 ## 6. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Tech Monitor - Real-Time AI & Tech Industry](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
-| [Rivian has a new performance division but for](https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
-| [Donut solid-state batteries tested, Tesla](https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Tech Monitor - Real-Time AI & Tech Industry"
+  url="https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents"
+  source="Tech World Monitor"
+  tag="Operator Signal"
+  summary="AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다."
+%}
+{% include news-spotlight-item.html
+  title="Rivian has a new performance division but for"
+  url="https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% include news-spotlight-item.html
+  title="Donut solid-state batteries tested, Tesla"
+  url="https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 
 ---
 

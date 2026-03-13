@@ -272,11 +272,29 @@ IT/OT 융합 환경의 주요 리스크:
 
 ## 3. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/) | Tech World Monitor | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
-| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Tech World Monitor 글로벌 기술 동향 대시보드"
+  url="https://tech.worldmonitor.app/"
+  source="Tech World Monitor"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% include news-spotlight-item.html
+  title="미 공군, 세계 최초 이동식 원자력 발전소 배치"
+  url="https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 4. 트렌드 분석

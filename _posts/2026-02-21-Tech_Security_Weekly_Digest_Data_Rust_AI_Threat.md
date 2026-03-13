@@ -193,11 +193,29 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 
 ## 3. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Amazon 배송 밴 함대 확대, 태양광 세미트럭 및 BetterFleet 방문 소식](https://electrek.co/2026/02/20/amazon-grows-van-fleet-solar-powered-semis-and-betterfleet-stops-by/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
-| [Kia, 대대적인 실내 개편을 통해 신형 전기 SUV 새롭게 단장](https://electrek.co/2026/02/20/kia-refreshing-new-ev-suv-major-interior-overhaul/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Amazon 배송 밴 함대 확대, 태양광 세미트럭 및 BetterFleet 방문 소식"
+  url="https://electrek.co/2026/02/20/amazon-grows-van-fleet-solar-powered-semis-and-betterfleet-stops-by/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% include news-spotlight-item.html
+  title="Kia, 대대적인 실내 개편을 통해 신형 전기 SUV 새롭게 단장"
+  url="https://electrek.co/2026/02/20/kia-refreshing-new-ev-suv-major-interior-overhaul/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 4. 트렌드 분석

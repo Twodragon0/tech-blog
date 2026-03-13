@@ -485,11 +485,29 @@ FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트
 
 ## 6. 기타 주목할 뉴스
 
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [Amazon Rivian 전기 밴 2025년 50% 증가](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
-| [유럽 태양광 지붕 Roofit.Solar 미국 데뷔](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다.
 
+{% capture spotlight_items %}
+{% include news-spotlight-item.html
+  title="Amazon Rivian 전기 밴 2025년 50% 증가"
+  url="https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% include news-spotlight-item.html
+  title="유럽 태양광 지붕 Roofit.Solar 미국 데뷔"
+  url="https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/"
+  source="Electrek"
+  tag="Operator Signal"
+  summary="적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다."
+%}
+{% endcapture %}
+{% include news-spotlight-section.html
+  aria_label="기타 주목할 뉴스"
+  intro="이 섹션은 즉시 대응이 필요한 보안 이슈 외에도 제품 전략, 운영 모델, 정책 변화까지 함께 읽어야 하는 후속 신호를 정리한 것입니다."
+  body=spotlight_items
+%}
 ---
 
 ## 7. 트렌드 분석
