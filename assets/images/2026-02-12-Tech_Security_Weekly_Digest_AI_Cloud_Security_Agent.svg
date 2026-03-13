@@ -1,122 +1,144 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#071421"/>
+      <stop offset="48%" stop-color="#10253b"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#4f46e5"/>
-    </linearGradient>
-    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#10b981"/>
-      <stop offset="100%" stop-color="#059669"/>
-    </linearGradient>
+    <radialGradient id="glowAmber" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(154 112) rotate(90) scale(220)">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 110) rotate(90) scale(250)">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRed" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(986 448) rotate(90) scale(230)">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020617" flood-opacity="0.34"/>
+    </filter>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="#020617" opacity="0.18"/>
+  <circle cx="154" cy="112" r="220" fill="url(#glowAmber)"/>
+  <circle cx="1020" cy="110" r="250" fill="url(#glowBlue)"/>
+  <circle cx="986" cy="448" r="230" fill="url(#glowRed)"/>
 
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/>
-    <line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/>
-    <line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  <g opacity="0.07" stroke="#cbd5e1" stroke-width="1">
+    <line x1="0" y1="84" x2="1200" y2="84"/>
+    <line x1="0" y1="168" x2="1200" y2="168"/>
+    <line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="336" x2="1200" y2="336"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="504" x2="1200" y2="504"/>
+    <line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/>
   </g>
 
-  <!-- Primary icon -->
-  <g transform="translate(80, 180)">
-    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
-    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
-    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#c7d2fe" stroke-width="2"/>
-    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#c7d2fe" stroke-width="2"/>
-    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
+  <rect x="54" y="34" width="258" height="38" rx="19" fill="#22c55e"/>
+  <text x="183" y="58" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">TECH SECURITY WEEKLY DIGEST</text>
+  <rect x="932" y="34" width="214" height="38" rx="19" fill="#c084fc"/>
+  <text x="1039" y="58" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.3">FEBRUARY 12, 2026</text>
+
+  <g transform="translate(62 96)">
+    <text x="0" y="0" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="4">AI PLATFORM / AI AGENT / CLOUD OPS</text>
+    <text x="0" y="58" fill="#f8fafc" font-family="Arial, sans-serif" font-size="46" font-weight="800">Tech Security Weekly Digest</text>
+    <text x="0" y="102" fill="#94a3b8" font-family="Arial, sans-serif" font-size="24">AI Cloud Security Agent</text>
   </g>
 
-  <!-- Secondary icon -->
-  <g transform="translate(80, 380)">
-    <path d="M90 120 L30 120 C13 120 0 107 0 90 C0 75 10 63 24 60 C24 35 45 15 70 15 C92 15 110 30 115 50 C128 52 138 63 138 78 C138 95 125 108 108 108" fill="none" stroke="#10b981" stroke-width="2.5"/>
-    <path d="M50 75 L65 90 L90 60" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <g transform="translate(58 170)" filter="url(#softShadow)">
+    <rect width="728" height="292" rx="28" fill="#09111d" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="728" height="292" rx="28" fill="url(#glowBlue)" opacity="0.2"/>
+    <text x="34" y="42" fill="#f8fafc" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.8">EDITORIAL SIGNAL BOARD</text>
+    <g transform="translate(34 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#22c55e"/>
+      <text x="20" y="34" fill="#fde68a" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">AI PLATFORM</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="800">AI Platform</text>
+      <text x="20" y="108" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Audit prompt and data boundaries</text>
+      <text x="20" y="134" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Gate releases with staged validation</text>
+      <text x="20" y="160" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Monitor drift in live workflows</text>
+      <text x="20" y="183" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Priority: weekly operator guidance</text>
+    </g>
+    <g transform="translate(261 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#c084fc"/>
+      <text x="20" y="34" fill="#bae6fd" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">AI AGENT</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="800">AI Agent</text>
+      <text x="20" y="108" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Review tool and action permissions</text>
+      <text x="20" y="134" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Validate memory and prompt boundaries</text>
+      <text x="20" y="160" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Track fallback and abort paths</text>
+      <text x="20" y="183" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Priority: weekly operator guidance</text>
+    </g>
+    <g transform="translate(488 66)">
+      <rect width="206" height="190" rx="20" fill="#0f172a" stroke="#334155" filter="url(#cardShadow)"/>
+      <rect width="206" height="8" rx="4" fill="#38bdf8"/>
+      <text x="20" y="34" fill="#fecdd3" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">CLOUD OPS</text>
+      <text x="20" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="800">Cloud Ops</text>
+      <text x="20" y="108" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Watch multi-service dependency risk</text>
+      <text x="20" y="134" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Recheck monitoring and failover</text>
+      <text x="20" y="160" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">- Update cloud runbooks and ownership</text>
+      <text x="20" y="183" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Priority: weekly operator guidance</text>
+    </g>
   </g>
 
-  <!-- Main title area -->
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly Digest</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">AI Cloud Security Agent</text>
+  <g transform="translate(820 162)">
+    <rect width="322" height="310" rx="28" fill="#09111d" stroke="#1e293b" stroke-width="1.5" filter="url(#softShadow)"/>
+    <text x="28" y="40" fill="#f8fafc" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">THREAT RELATION MAP</text>
+    <circle cx="160" cy="146" r="44" fill="#111827" stroke="#c084fc" stroke-width="2.5"/>
+    <circle cx="160" cy="146" r="24" fill="#0f172a" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="160" y="141" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="11" font-weight="700">RISK</text>
+    <text x="160" y="157" text-anchor="middle" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="11" font-weight="700">CORE</text>
+    <circle cx="72" cy="86" r="30" fill="#1f2937" stroke="#f59e0b" stroke-width="2"/>
+    <text x="72" y="82" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="10" font-weight="700">AI</text>
+    <text x="72" y="96" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="10" font-weight="700">PLATFORM</text>
+    <circle cx="252" cy="82" r="30" fill="#1f2937" stroke="#38bdf8" stroke-width="2"/>
+    <text x="252" y="78" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="10" font-weight="700">AI</text>
+    <text x="252" y="92" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="10" font-weight="700">AGENT</text>
+    <circle cx="88" cy="228" r="30" fill="#1f2937" stroke="#fb7185" stroke-width="2"/>
+    <text x="88" y="224" text-anchor="middle" fill="#fecdd3" font-family="Arial, sans-serif" font-size="10" font-weight="700">CLOUD</text>
+    <text x="88" y="238" text-anchor="middle" fill="#fecdd3" font-family="Arial, sans-serif" font-size="10" font-weight="700">OPS</text>
+    <circle cx="244" cy="232" r="30" fill="#1f2937" stroke="#67e8f9" stroke-width="2"/>
+    <text x="244" y="228" text-anchor="middle" fill="#cffafe" font-family="Arial, sans-serif" font-size="10" font-weight="700">SECURITY</text>
+    <text x="244" y="242" text-anchor="middle" fill="#cffafe" font-family="Arial, sans-serif" font-size="10" font-weight="700">OPS</text>
+    <line x1="96" y1="102" x2="126" y2="123" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="225" y1="100" x2="194" y2="123" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="110" y1="211" x2="133" y2="179" stroke="#fb7185" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="218" y1="213" x2="188" y2="179" stroke="#67e8f9" stroke-width="2" stroke-dasharray="5 4"/>
+    <rect x="28" y="266" width="266" height="22" rx="11" fill="#0f172a" stroke="#334155"/>
+    <text x="161" y="281" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Signal blending: editorial risk themes for the weekly digest set</text>
   </g>
 
-  <!-- Date badge -->
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">February 12, 2026</text>
-
-  <!-- Stats cards -->
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
-    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
-    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DEVSECOPS</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">DevSecOps</text>
-    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  
+  <g transform="translate(58 488)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">CURATED ITEMS</text>
+    <text x="22" y="48" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="800">10</text>
   </g>
-
-  <!-- Key topics -->
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="75" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
-    <text x="37" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
-    <rect x="90" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="127" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Cloud</text>
-    <rect x="180" y="0" width="111" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="235" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">DevSecOps</text>
-    <rect x="306" y="0" width="102" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="357" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Security</text>
+  <g transform="translate(230 488)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">SIGNALS</text>
+    <text x="22" y="48" fill="#fde68a" font-family="Arial, sans-serif" font-size="28" font-weight="800">10</text>
   </g>
-
-  <!-- Network visualization -->
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="217" cy="223" r="3" fill="#f87171"/>
-    <circle cx="178" cy="178" r="4" fill="#fb923c"/>
-    <circle cx="223" cy="217" r="5" fill="#818cf8"/>
-    <circle cx="79" cy="226" r="6" fill="#34d399"/>
-    <circle cx="186" cy="79" r="3" fill="#fbbf24"/>
-    <circle cx="174" cy="142" r="4" fill="#f87171"/>
-    <circle cx="148" cy="208" r="5" fill="#fb923c"/>
-    <circle cx="69" cy="174" r="6" fill="#818cf8"/>
-    <circle cx="34" cy="66" r="3" fill="#34d399"/>
-    <circle cx="30" cy="189" r="4" fill="#fbbf24"/>
-    <line x1="217" y1="223" x2="178" y2="178" stroke="#475569" stroke-width="1"/>
-    <line x1="178" y1="178" x2="223" y2="217" stroke="#475569" stroke-width="1"/>
-    <line x1="223" y1="217" x2="79" y2="226" stroke="#475569" stroke-width="1"/>
-    <line x1="79" y1="226" x2="186" y2="79" stroke="#475569" stroke-width="1"/>
-    <line x1="186" y1="79" x2="174" y2="142" stroke="#475569" stroke-width="1"/>
-    <line x1="174" y1="142" x2="148" y2="208" stroke="#475569" stroke-width="1"/>
-    <line x1="148" y1="208" x2="69" y2="174" stroke="#475569" stroke-width="1"/>
-    <line x1="69" y1="174" x2="34" y2="66" stroke="#475569" stroke-width="1"/>
+  <g transform="translate(402 488)">
+    <rect width="154" height="60" rx="18" fill="#101827" stroke="#334155"/>
+    <text x="22" y="24" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">FOCUS</text>
+    <text x="22" y="48" fill="#bae6fd" font-family="Arial, sans-serif" font-size="28" font-weight="800">1</text>
   </g>
+  <g transform="translate(602 494)"><rect x="0" y="0" width="116" height="30" rx="15" fill="#3f2a0a"/><text x="58.0" y="20" text-anchor="middle" fill="#fde68a" font-family="Arial, sans-serif" font-size="13" font-weight="700">AI Platform</text><rect x="128" y="0" width="92" height="30" rx="15" fill="#082f49"/><text x="174.0" y="20" text-anchor="middle" fill="#bae6fd" font-family="Arial, sans-serif" font-size="13" font-weight="700">AI Agent</text><rect x="232" y="0" width="100" height="30" rx="15" fill="#3f0b1a"/><text x="282.0" y="20" text-anchor="middle" fill="#fecdd3" font-family="Arial, sans-serif" font-size="13" font-weight="700">Cloud Ops</text></g>
 
-  <!-- Bottom bar -->
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
-
-  <!-- Bottom text -->
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
-
-  <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">AI/ML | Cloud | DevSecOps | Security</text>
+  <line x1="58" y1="584" x2="1142" y2="584" stroke="#334155" stroke-width="1"/>
+  <text x="58" y="610" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Standardized March weekly digest cover system for cards, OG, and social previews</text>
+  <text x="1142" y="610" text-anchor="end" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13" font-weight="700">tech.2twodragon.com</text>
 </svg>
