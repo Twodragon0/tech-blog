@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: RCE, Phishing, Malware"
+title: "기술·보안 주간 다이제스트: AI, Go, AWS"
 date: 2026-02-26 11:05:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS, API]
@@ -15,20 +15,12 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 02월 26일)'
+  title='기술·보안 주간 다이제스트: AI, Go, AWS'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Google</strong>: UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해</li>
-      <li><strong>Claude Code</strong>: RCE 및 API 키 유출 취약점 다수 발견</li>
-      <li><strong>SLH</strong>: IT 헬프데스크 대상 음성 피싱에 여성 모집 (건당 $500-$1,000)</li>
-      <li><strong>Google Cloud</strong>: 프로덕션 AI 에이전트 개발 가이드 공개</li>'
-  period='2026년 02월 26일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Go</span> <span class="tag">AWS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-26 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ---
@@ -439,8 +431,8 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech Monitor - 실시간 AI & 기술 산업](https://tech.worldmonitor.app/) | Tech World Monitor | 글로벌 기술 기업·스타트업·클라우드 인프라·장애 현황을 통합 추적하는 실시간 대시보드 |
-| [현대차 첫 중형 픽업 IONIQ T7 개발](https://electrek.co/2026/02/25/hyundai-new-pickup-potential-4wd-suv-in-the-works/) | Electrek | 현대차가 첫 중형 픽업트럭 시장 진출 추진, IONIQ T7으로 4WD SUV 가능성도 검토 중 |
+| [Tech Monitor - 실시간 AI & 기술 산업](https://tech.worldmonitor.app/) | Tech World Monitor | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
+| [현대차 첫 중형 픽업 IONIQ T7 개발](https://electrek.co/2026/02/25/hyundai-new-pickup-potential-4wd-suv-in-the-works/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
 
 
 ---
