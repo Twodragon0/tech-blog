@@ -58,7 +58,74 @@ def parse_front_matter(content: str) -> dict:
         cats = [c.strip().strip('"').strip("'") for c in raw.split(",")]
         result.setdefault("categories", cats)
 
+    # title
+    m = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', fm_text, re.MULTILINE)
+    if m:
+        result["title"] = m.group(1).strip().strip('"').strip("'")
+
+    # tags
+    tag_m = re.search(r'^tags:\s*\[(.+?)\]', fm_text, re.MULTILINE)
+    if tag_m:
+        result["tags"] = [t.strip().strip('"').strip("'") for t in tag_m.group(1).split(",")]
+
     return result
+
+
+# ──────────────────────────────────────────────
+# Helper: 스마트 요약 생성
+# ──────────────────────────────────────────────
+
+def _trim_summary(text: str) -> str:
+    """Summary 텍스트를 150자 이내로 정리합니다."""
+    text = text.strip()
+    if len(text) > 150:
+        truncated = text[:147]
+        last_period = max(truncated.rfind('.'), truncated.rfind('다.'))
+        if last_period > 80:
+            return text[:last_period + 1]
+        return truncated + "..."
+    return text
+
+
+def _extract_key_topics(content: str) -> str:
+    """본문에서 주요 토픽 키워드를 추출합니다 (## 헤딩 기반)."""
+    headings = re.findall(r'^##\s+(.+?)$', content, re.MULTILINE)
+    skip = {"Executive Summary", "경영진 브리핑", "위험도 평가", "위험 스코어카드", "참고", "References", "마무리", "결론"}
+    topics = [h.strip() for h in headings if h.strip() not in skip][:3]
+    if not topics:
+        return "주요 기술 동향"
+    return ", ".join(topics)
+
+
+def generate_smart_summary(fm: dict, post_type: str, content: str) -> str:
+    """포스트 메타데이터와 본문을 기반으로 맞춤형 Executive Summary를 생성합니다."""
+    title = fm.get("title", "")
+    excerpt = fm.get("excerpt", "")
+    description = fm.get("description", "")
+    tags = fm.get("tags", [])
+    categories = fm.get("categories", [])
+
+    # 1. excerpt가 있으면 우선 사용
+    if excerpt and len(excerpt) > 20:
+        return _trim_summary(excerpt)
+
+    # 2. description이 있으면 사용
+    if description and len(description) > 20:
+        return _trim_summary(description)
+
+    # 3. 포스트 타입별 + 제목/태그 기반 생성
+    tag_str = ", ".join(tags[:3]) if tags else ""
+
+    templates = {
+        "weekly_digest": f"이번 주 주요 보안 위협과 기술 동향을 분석합니다. {_extract_key_topics(content)}에 대한 실무 대응 방안을 제공합니다.",
+        "cloud_course": f"클라우드 보안 실습 과정으로, {_extract_key_topics(content)}를 다룹니다. 실전 환경에서의 보안 설정과 모범 사례를 학습합니다.",
+        "incident": f"보안 사고 분석 및 대응 사례를 다룹니다. {_extract_key_topics(content)}에 대한 근본 원인과 재발 방지 대책을 제시합니다.",
+        "security_guide": f"{_extract_key_topics(content)}에 대한 보안 가이드입니다. 실무에서 즉시 적용 가능한 보안 강화 방안을 제공합니다.",
+        "general": f"{title[:60]}에 대한 기술 분석입니다. {tag_str + ' 관련' if tag_str else ''} 핵심 내용과 실무 적용 방안을 정리합니다.",
+    }
+
+    summary = templates.get(post_type, templates["general"])
+    return _trim_summary(summary)
 
 
 # ──────────────────────────────────────────────
@@ -267,15 +334,8 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     fm = parse_front_matter(content)
     post_type = classify_post(filepath, fm)
 
-    # 브리핑 텍스트 (excerpt 우선, 없으면 description 앞 100자)
-    summary_text = (
-        fm.get("excerpt")
-        or (fm.get("description", "")[:120] + "...")
-        or "보안 위협 분석 및 실무 대응 방안을 제공합니다."
-    )
-    # 너무 길면 자르기
-    if len(summary_text) > 150:
-        summary_text = summary_text[:147] + "..."
+    # 브리핑 텍스트 (포스트 메타데이터 기반 맞춤형 생성)
+    summary_text = generate_smart_summary(fm, post_type, content)
 
     risk_text = risk_level_text(post_type)
 

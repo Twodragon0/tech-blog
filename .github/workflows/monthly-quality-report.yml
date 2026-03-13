@@ -1,0 +1,201 @@
+name: Monthly Post Quality Report
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # 1st of every month, 00:00 UTC (09:00 KST)
+  workflow_dispatch:
+    inputs:
+      create_issue:
+        description: 'Create GitHub issue with report'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  quality-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Generate quality report
+        id: report
+        run: |
+          echo "Generating monthly quality report..."
+
+          ALL_POSTS=$(find _posts -name '*.md' -type f | sort)
+          POST_COUNT=$(echo "$ALL_POSTS" | wc -l | tr -d ' ')
+          echo "Total posts: $POST_COUNT"
+
+          # Generate summary dashboard
+          DASHBOARD=$(python3 scripts/validate_post_quality.py --summary $ALL_POSTS 2>&1 || true)
+          echo "$DASHBOARD"
+
+          # Calculate current month stats
+          CURRENT_MONTH=$(date +%Y-%m)
+          PREV_MONTH=$(date -d "last month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m 2>/dev/null || echo "unknown")
+
+          CURRENT_POSTS=$(find _posts -name "${CURRENT_MONTH}-*.md" -type f 2>/dev/null | sort)
+          CURRENT_COUNT=$(echo "$CURRENT_POSTS" | grep -c '.' 2>/dev/null || echo "0")
+
+          PREV_POSTS=$(find _posts -name "${PREV_MONTH}-*.md" -type f 2>/dev/null | sort)
+          PREV_COUNT=$(echo "$PREV_POSTS" | grep -c '.' 2>/dev/null || echo "0")
+
+          # Get scores for current and previous month
+          CURRENT_SCORES=""
+          if [ "$CURRENT_COUNT" -gt "0" ] && [ -n "$CURRENT_POSTS" ]; then
+            CURRENT_SCORES=$(python3 scripts/validate_post_quality.py --summary $CURRENT_POSTS 2>&1 || true)
+          fi
+
+          PREV_SCORES=""
+          if [ "$PREV_COUNT" -gt "0" ] && [ -n "$PREV_POSTS" ]; then
+            PREV_SCORES=$(python3 scripts/validate_post_quality.py --summary $PREV_POSTS 2>&1 || true)
+          fi
+
+          # Get below-80 posts
+          BELOW_80=$(python3 scripts/validate_post_quality.py --warn-below 80 --quiet $ALL_POSTS 2>&1 || true)
+          BELOW_80_COUNT=$(echo "$BELOW_80" | grep -c "WARNING" 2>/dev/null || echo "0")
+
+          # Save outputs for issue creation
+          {
+            echo "DASHBOARD<<EOFDB"
+            echo "$DASHBOARD"
+            echo "EOFDB"
+          } >> $GITHUB_OUTPUT
+
+          {
+            echo "CURRENT_SCORES<<EOFCS"
+            echo "$CURRENT_SCORES"
+            echo "EOFCS"
+          } >> $GITHUB_OUTPUT
+
+          {
+            echo "PREV_SCORES<<EOFPS"
+            echo "$PREV_SCORES"
+            echo "EOFPS"
+          } >> $GITHUB_OUTPUT
+
+          {
+            echo "BELOW_80<<EOFB80"
+            echo "$BELOW_80"
+            echo "EOFB80"
+          } >> $GITHUB_OUTPUT
+
+          echo "current_month=$CURRENT_MONTH" >> $GITHUB_OUTPUT
+          echo "prev_month=$PREV_MONTH" >> $GITHUB_OUTPUT
+          echo "current_count=$CURRENT_COUNT" >> $GITHUB_OUTPUT
+          echo "prev_count=$PREV_COUNT" >> $GITHUB_OUTPUT
+          echo "below_80_count=$BELOW_80_COUNT" >> $GITHUB_OUTPUT
+          echo "total_count=$POST_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Create or update issue
+        if: github.event_name == 'schedule' || github.event.inputs.create_issue == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RPT_MONTH: ${{ steps.report.outputs.current_month }}
+          RPT_TOTAL: ${{ steps.report.outputs.total_count }}
+          RPT_DASHBOARD: ${{ steps.report.outputs.DASHBOARD }}
+          RPT_CURRENT: ${{ steps.report.outputs.CURRENT_SCORES }}
+          RPT_CURRENT_CNT: ${{ steps.report.outputs.current_count }}
+          RPT_PREV: ${{ steps.report.outputs.PREV_SCORES }}
+          RPT_PREV_MONTH: ${{ steps.report.outputs.prev_month }}
+          RPT_PREV_CNT: ${{ steps.report.outputs.prev_count }}
+          RPT_BELOW80: ${{ steps.report.outputs.BELOW_80 }}
+          RPT_BELOW80_CNT: ${{ steps.report.outputs.below_80_count }}
+          RPT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          TITLE="월간 포스트 품질 리포트 - ${RPT_MONTH}"
+
+          python3 -c "
+          import os, textwrap
+          e = os.environ
+          body = textwrap.dedent('''
+              ## 월간 포스트 품질 리포트
+
+              **보고 기간**: {month}
+              **총 포스트**: {total}개
+
+              ### 전체 품질 대시보드
+
+              \`\`\`
+              {dashboard}
+              \`\`\`
+
+              ### 이번 달 ({month}) - {cur_cnt}개 포스트
+
+              \`\`\`
+              {current}
+              \`\`\`
+
+              ### 지난 달 ({prev_month}) - {prev_cnt}개 포스트
+
+              \`\`\`
+              {prev}
+              \`\`\`
+
+              ### 80점 미만 포스트 ({below_cnt}개)
+
+              <details>
+              <summary>상세 보기</summary>
+
+              \`\`\`
+              {below}
+              \`\`\`
+
+              </details>
+
+              ### 조치 사항
+
+              - [ ] 80점 미만 포스트 품질 개선
+              - [ ] 신규 포스트 품질 기준 준수 확인
+              - [ ] Front matter 크기 최적화
+
+              ---
+              *Auto-generated by [Monthly Quality Report]({run_url})*
+          ''').strip().format(
+              month=e['RPT_MONTH'], total=e['RPT_TOTAL'],
+              dashboard=e['RPT_DASHBOARD'], current=e['RPT_CURRENT'],
+              cur_cnt=e['RPT_CURRENT_CNT'], prev=e['RPT_PREV'],
+              prev_month=e['RPT_PREV_MONTH'], prev_cnt=e['RPT_PREV_CNT'],
+              below=e['RPT_BELOW80'], below_cnt=e['RPT_BELOW80_CNT'],
+              run_url=e['RPT_RUN_URL']
+          )
+          with open('/tmp/quality-report.md', 'w') as f:
+              f.write(body)
+          "
+
+          # Close previous monthly report issues
+          OLD_ISSUES=$(gh issue list --label "quality-report" --state open --json number --jq '.[].number' 2>/dev/null || true)
+          for ISSUE_NUM in $OLD_ISSUES; do
+            gh issue close "$ISSUE_NUM" --comment "새로운 월간 리포트로 대체됩니다." 2>/dev/null || true
+          done
+
+          # Create labels if they don't exist
+          gh label create "quality-report" --color "0E8A16" --description "Automated quality report" 2>/dev/null || true
+          gh label create "automated" --color "EDEDED" --description "Auto-generated by CI" 2>/dev/null || true
+
+          # Create new issue
+          gh issue create \
+            --title "$TITLE" \
+            --body-file /tmp/quality-report.md \
+            --label "quality-report,automated" || true
+
+          echo "Monthly quality report issue created"
