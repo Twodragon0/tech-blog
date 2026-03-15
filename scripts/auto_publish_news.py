@@ -2642,7 +2642,7 @@ def generate_news_section(
             return section
 
     # 폴백: 기존 템플릿
-    section += "#### 개요\n\n"
+    section += "#### 요약\n\n"
     if ko_summary:
         section += f"{ko_summary}\n\n"
     elif content_text:

@@ -4,9 +4,9 @@ layout: post
 title: "기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
 date: 2026-03-15 10:24:40 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, SupplyChain, AI-Security, Bitcoin, APT]
-excerpt: "[Critical] GlassWorm 공급망 공격·중국 APT 위협 긴급 점검 필요. 2026년 03월 15일 주요 보안/기술 뉴스 10건 - VS Code 확장 공급망 공격, AI 에이전트 프롬프트 인젝션, AWS IAM 멀티리전, 비트코인 기관 매집"
-description: "[Critical] GlassWorm·중국 APT 대응 - VS Code Open VSX 확장 감사, AI 에이전트 입출력 검증, AWS IAM Identity Center 멀티리전 접근 정책 재검토 필요. 2026년 03월 15일 보안 뉴스 10건. 공급망 보안, AI 에이전트 취약점, 클라우드 접근 관리를 운영 리스크 기준으로 정리한 DevSecOps 실무 가이드."
+tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, SupplyChain, AI-Security, Bitcoin]
+excerpt: "[Critical] GlassWorm 공급망 공격·AI 에이전트 보안 긴급 점검 필요. 2026년 03월 15일 주요 보안/기술 뉴스 9건 - VS Code 확장 공급망 공격, AI 에이전트 프롬프트 인젝션, AWS IAM 멀티리전, 비트코인 기관 매집"
+description: "[Critical] GlassWorm 공급망 공격 대응 - VS Code Open VSX 확장 감사, AI 에이전트 입출력 검증, AWS IAM Identity Center 멀티리전 접근 정책 재검토 필요. 2026년 03월 15일 보안 뉴스 9건. 공급망 보안, AI 에이전트 취약점, 클라우드 접근 관리를 운영 리스크 기준으로 정리한 DevSecOps 실무 가이드."
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin.svg
@@ -16,7 +16,7 @@ toc: true
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">SupplyChain</span> <span class="tag">AI-Security</span> <span class="tag">Bitcoin</span> <span class="tag">APT</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">SupplyChain</span> <span class="tag">AI-Security</span> <span class="tag">Bitcoin</span>'
   highlights_html='<li><strong>Critical</strong>: GlassWorm이 Open VSX 레지스트리의 72개 확장을 악용한 공급망 공격 - 개발 도구 체인 전체가 공격 표면이 됨</li> <li><strong>High</strong>: AI 에이전트 취약점으로 인한 프롬프트 인젝션·데이터 탈취 가능 - 내부 배포 LLM 에이전트 입출력 검증 즉시 점검 필요</li> <li><strong>Medium</strong>: AWS IAM Identity Center 멀티리전 확장 - 중앙 집중식 접근 관리 아키텍처 채택 검토 시점</li>'
   period='2026-03-15 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
@@ -31,16 +31,16 @@ toc: true
 2026년 03월 15일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
 
 **수집 통계:**
-- **총 뉴스 수**: 10개
-- **보안 뉴스**: 4개
+- **총 뉴스 수**: 9개
+- **보안 뉴스**: 3개
 - **블록체인 뉴스**: 3개
 - **기술 뉴스**: 3개
 
 **이번 주기 특징:**
 
-3월 15일 다이제스트의 핵심은 **개발 도구 공급망을 겨냥한 정교한 공격**입니다. GlassWorm 그룹이 Open VSX 레지스트리에서 72개 확장을 악용한 공급망 공격을 감행했고, 같은 날 AI 에이전트 설계 결함으로 인한 프롬프트 인젝션·데이터 탈취 취약점이 공개됐습니다. 중국 연계 APT 그룹은 동남아 군사 조직을 AppleChris·MemFun 맬웨어로 타격하고 있습니다.
+3월 15일 다이제스트의 핵심은 **개발 도구 공급망을 겨냥한 정교한 공격**입니다. GlassWorm 그룹이 Open VSX 레지스트리에서 72개 확장을 악용한 공급망 공격을 감행했고, 같은 날 AI 에이전트 설계 결함으로 인한 프롬프트 인젝션·데이터 탈취 취약점이 공개됐습니다.
 
-이 세 가지 위협의 공통 분모는 **신뢰된 채널의 무기화**입니다. 확장 마켓플레이스, AI 에이전트 명령 채널, 외교·국방 네트워크 — 모두 조직이 검증 없이 신뢰하는 경로입니다. 이번 주기는 보안팀이 "어떤 채널을 기본 신뢰하고 있는가"를 다시 물어야 할 때입니다.
+이 두 가지 위협의 공통 분모는 **신뢰된 채널의 무기화**입니다. 확장 마켓플레이스, AI 에이전트 명령 채널 — 모두 조직이 검증 없이 신뢰하는 경로입니다. 이번 주기는 보안팀이 "어떤 채널을 기본 신뢰하고 있는가"를 다시 물어야 할 때입니다.
 
 ---
 
@@ -51,7 +51,6 @@ toc: true
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
 | 🔴 **Security** | The Hacker News | GlassWorm, Open VSX 72개 확장 공급망 공격 | 🔴 Critical |
-| 🔴 **Security** | The Hacker News | 중국 APT, 동남아 군 조직에 AppleChris·MemFun 맬웨어 | 🟠 High |
 | 🟠 **Security** | The Hacker News | AI 에이전트 취약점 - 프롬프트 인젝션·데이터 탈취 | 🟠 High |
 | 🟡 **Cloud** | AWS Security Blog | IAM Identity Center 멀티리전 배포 가이드 | 🟡 Medium |
 | 🟡 **Blockchain** | Cointelegraph | Basel III 규칙 변경, BTC 시장 유동성 영향 | 🟡 Medium |
@@ -67,7 +66,6 @@ toc: true
 
 - GlassWorm 공급망 공격은 개발자 워크스테이션과 CI/CD 파이프라인을 동시에 위협합니다. Open VSX 기반 확장을 사용하는 모든 개발 조직이 즉각적인 확장 목록 감사를 수행해야 합니다.
 - AI 에이전트를 내부 업무에 배포한 조직은 에이전트의 입력 검증과 출력 필터링 레이어가 없을 경우, 인증된 사용자가 에이전트를 통해 권한 범위 밖의 데이터를 탈취할 수 있는 경로가 존재합니다.
-- 중국 APT의 동남아 군사 조직 타격은 공급망·파트너 신뢰 경로를 통한 측면 이동 리스크를 높입니다. 방산·외교 파트너와 연결된 네트워크 세그멘테이션을 재점검하세요.
 
 ## 위험 스코어카드
 
@@ -75,7 +73,6 @@ toc: true
 |------|-------------|-----------|
 | 개발 도구 공급망 | Critical | VS Code / Open VSX 확장 감사 + CI/CD 파이프라인 격리 |
 | AI 에이전트 보안 | High | 에이전트 입출력 검증 레이어 점검, 시스템 프롬프트 노출 여부 확인 |
-| APT / 스피어피싱 | High | 외부 파트너 연계 시스템 접근 로그 검토, EDR 탐지 룰 업데이트 |
 | 클라우드 접근 관리 | Medium | AWS IAM Identity Center 멀티리전 아키텍처 검토 |
 
 ---
@@ -95,7 +92,7 @@ toc: true
   severity="Critical"
 %}
 
-#### 개요
+#### 요약
 
 GlassWorm은 VSCodium, Eclipse Che 등 오픈소스 IDE가 의존하는 Open VSX 레지스트리를 표적으로 삼았습니다. 공격 방식은 인기 있는 정상 확장을 복제한 뒤 이름을 유사하게 변조(typosquatting)하거나, 기존 확장 유지관리자 계정을 탈취해 악성 업데이트를 배포하는 두 가지입니다.
 
@@ -156,14 +153,15 @@ NOT (Image="code.exe" OR Image="codium" OR Image="node")
 > **[High]** LLM 에이전트 배포 조직 즉시 점검 필요
 
 {% include news-card.html
-  title="AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration"
-  url="https://thehackernews.com"
+  title="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration"
+  url="https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html"
+  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2mVucJhli25A25joXcap-ewfeMT1Vh-95wQKQfGOue7PwZJ1_55YsG8OQ1DQF7WVOU8tsOy73kGDzgfpTLLeqTYQ1k9LqrFWTNavDmfvCV-9IIER9PfrRsdg1wA5UzpIMrer3xC1mBClBzKkaT6pfczDbppMjZM7afcWu-RURquDGrEfjq3vVBsmlltLm/s1600/open-clawss.jpg"
   summary="OpenClaw 등 여러 LLM 에이전트 프레임워크에서 입력 검증 미흡으로 인한 프롬프트 인젝션 취약점이 발견됐습니다. 공격자가 사용자 입력에 악의적 지시를 삽입하면 에이전트가 접근 가능한 내부 데이터를 외부로 탈취하거나 시스템 프롬프트를 유출할 수 있습니다."
   source="The Hacker News"
   severity="High"
 %}
 
-#### 개요
+#### 요약
 
 이번에 공개된 취약점은 특정 제품의 버그가 아니라 **AI 에이전트 설계 패턴 자체의 구조적 문제**입니다. 대부분의 LLM 에이전트는 사용자 입력, 도구 호출 결과, 웹 검색 결과를 구분 없이 하나의 컨텍스트로 처리합니다. 공격자는 이 경계를 악용해 "이전 지시를 무시하고 다음을 수행하라"는 형태의 인젝션을 외부 데이터(이메일 본문, 웹페이지, 문서)에 심어 둘 수 있습니다.
 
@@ -175,7 +173,7 @@ NOT (Image="code.exe" OR Image="codium" OR Image="node")
 
 **실무 포인트**: 에이전트가 접근하는 데이터 소스(이메일, 문서, 웹)와 실행 가능한 도구(파일 쓰기, API 호출, 이메일 발송)를 분리하고, 도구 실행 전 사람의 승인(human-in-the-loop)을 필수로 설정하세요. 프로덕션 에이전트에서 시스템 프롬프트를 노출하는 API 엔드포인트가 없는지 즉시 점검하세요.
 
-> **출처**: [The Hacker News](https://thehackernews.com)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html)
 
 #### MITRE ATT&CK 매핑
 
@@ -232,46 +230,7 @@ def validate_agent_input(text: str, max_length: int = 4096) -> Optional[str]:
 
 ---
 
-### 1.3 중국 APT, 동남아 군사 조직에 AppleChris·MemFun 맬웨어
-
-> **[High]** 방산·정부 파트너 연계 조직 측면 이동 리스크 주의
-
-{% include news-card.html
-  title="Chinese Hackers Target Southeast Asian Militaries with AppleChris and MemFun Malware"
-  url="https://thehackernews.com"
-  summary="중국 연계 APT 그룹이 동남아시아 군사 조직을 표적으로 AppleChris RAT과 MemFun 인메모리 로더를 배포하는 캠페인이 확인됐습니다. 스피어피싱 이메일을 초기 침투 벡터로 사용하며, 시스템 메모리에만 상주하는 필리스(fileless) 기법으로 탐지를 우회합니다."
-  source="The Hacker News"
-  severity="High"
-%}
-
-#### 개요
-
-이번 캠페인은 동남아시아 국방·외교 조직을 대상으로 하며, 두 가지 커스텀 맬웨어를 사용합니다.
-
-**AppleChris RAT**: 원격 접근 트로이목마(Remote Access Trojan)로, 키로깅·스크린샷·파일 수집·원격 셸 기능을 제공합니다. 통신 채널은 HTTPS를 사용해 정상 트래픽과 혼합되며, C2 인프라로 클라우드 스토리지 서비스를 활용합니다.
-
-**MemFun**: 디스크에 파일을 남기지 않는 인메모리 로더입니다. 합법적인 프로세스(svchost.exe, explorer.exe)에 코드를 인젝션해 동작하며, 재부팅 후에는 별도의 지속성 메커니즘(레지스트리 런키, 예약 작업)을 통해 재활성화합니다.
-
-이 캠페인이 한국·일본 등 역내 방위 산업 조직에 직접 영향을 미칠 가능성은 낮으나, **공급망·파트너 신뢰 경로를 통한 간접 침투** 가능성은 있습니다. 동남아 파트너사의 시스템이 감염된 상태에서 공유 문서, VPN, 이메일 채널을 통해 국내 조직으로 피벗하는 시나리오를 배제할 수 없습니다.
-
-**실무 포인트**: 방산·정부 기관과 파트너십이 있는 조직은 해당 파트너와의 연결 채널(VPN, 공유 파일 서버, 이메일 도메인)에 대한 이상 행위 탐지 규칙을 강화하세요. 내부 네트워크에서 클라우드 스토리지 서비스(OneDrive, Dropbox, Google Drive)로의 대용량 아웃바운드 트래픽을 모니터링하세요.
-
-> **출처**: [The Hacker News](https://thehackernews.com)
-
-#### MITRE ATT&CK 매핑
-
-| 전술 | 기법 ID | 설명 |
-|------|---------|------|
-| Initial Access | T1566.001 | Phishing: Spearphishing Attachment |
-| Execution | T1059.003 | Command and Scripting Interpreter: Windows Command Shell |
-| Defense Evasion | T1055 | Process Injection (MemFun 인메모리 로더) |
-| Persistence | T1053.005 | Scheduled Task/Job |
-| Command and Control | T1071.001 | Application Layer Protocol: Web Protocols (HTTPS C2) |
-| Exfiltration | T1567.002 | Exfiltration Over Web Service: Cloud Storage |
-
----
-
-### 1.4 AWS IAM Identity Center 멀티리전 배포 - 중앙 집중식 접근 관리
+### 1.3 AWS IAM Identity Center 멀티리전 배포 - 중앙 집중식 접근 관리
 
 > **[Medium]** 멀티리전 AWS 환경 운영 조직에게 아키텍처 개선 기회
 
@@ -283,7 +242,7 @@ def validate_agent_input(text: str, max_length: int = 4096) -> Optional[str]:
   severity="Medium"
 %}
 
-#### 개요
+#### 요약
 
 AWS IAM Identity Center(구 AWS SSO)의 멀티리전 지원이 확장됐습니다. 기존에는 특정 리전을 홈 리전으로 설정하고, 그 리전에서만 Identity Center 콘솔을 관리했습니다. 이번 업데이트로 여러 리전의 AWS 계정에 대한 권한을 하나의 IdP 연동(Microsoft Entra ID, Okta 등)으로 일관되게 적용할 수 있습니다.
 
@@ -335,25 +294,23 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
 
 ### 보안 종합 분석
 
-이번 주기 4건의 보안 뉴스를 교차 분석하면 하나의 구조적 패턴이 드러납니다. **신뢰된 채널의 무기화(Weaponization of Trusted Channels)**입니다.
+이번 주기 3건의 보안 뉴스를 교차 분석하면 하나의 구조적 패턴이 드러납니다. **신뢰된 채널의 무기화(Weaponization of Trusted Channels)**입니다.
 
 | 위협 | 악용된 신뢰 채널 | 조직의 취약 지점 |
 |------|----------------|----------------|
 | GlassWorm 공급망 공격 | 오픈소스 확장 마켓플레이스 | 검증 없는 확장 설치 정책 |
 | AI 에이전트 취약점 | LLM의 입력 신뢰 구조 | 에이전트 입출력 검증 미흡 |
-| 중국 APT 캠페인 | 파트너·공급망 신뢰 경로 | 측면 이동 탐지 부재 |
 | AWS IAM 멀티리전 | (방어 측) 중앙 접근 관리 | 리전별 권한 드리프트 |
 
-**세 가지 공격 위협의 연결 고리**: GlassWorm이 개발자 자격증명을 탈취하면, 그 자격증명으로 CI/CD 파이프라인에 침투해 AI 에이전트 설정을 변조하거나, AWS 환경에 대한 지속적 접근권을 획득할 수 있습니다. 중국 APT가 파트너 네트워크를 통해 침투하면 동일한 경로로 내부 AI 에이전트나 개발 환경에 도달할 수 있습니다.
+**두 가지 공격 위협의 연결 고리**: GlassWorm이 개발자 자격증명을 탈취하면, 그 자격증명으로 CI/CD 파이프라인에 침투해 AI 에이전트 설정을 변조하거나, AWS 환경에 대한 지속적 접근권을 획득할 수 있습니다.
 
-이 세 공격은 독립적이지 않습니다. **공격 체인의 다른 지점**입니다.
+이 두 공격은 독립적이지 않습니다. **공격 체인의 다른 지점**입니다.
 
 #### 운영팀을 위한 종합 시사점
 
 **단기(0~7일)**:
 - Open VSX 기반 확장 인벤토리 작성 및 감사 - 72개 악성 확장 목록과 대조
 - AI 에이전트 프로덕션 배포 현황 점검 및 시스템 프롬프트 노출 취약점 확인
-- 동남아 파트너와의 VPN·공유 파일 채널 이상 트래픽 검토
 
 **중기(1~4주)**:
 - IAM Identity Center 멀티리전 마이그레이션 검토 - 리전별 IAM 사용자 폐지 계획 수립
@@ -362,7 +319,6 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
 
 **장기(1~3개월)**:
 - 공급망 보안 프로그램에 오픈소스 소프트웨어 레지스트리 모니터링 포함
-- APT 위협 모델 업데이트 - 동남아·중국 연계 공격 그룹 TTP 내부 공유
 - 제로 트러스트 아키텍처 로드맵에 AI 에이전트 신뢰 경계 설계 반영
 
 ---
@@ -379,7 +335,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   source="Cointelegraph"
 %}
 
-#### 개요
+#### 요약
 
 현행 Basel III 체계에서 비트코인은 Group 2b 자산으로 분류돼 1,250%의 위험 가중치가 적용됩니다. 이는 은행이 BTC 1달러를 보유하려면 자기자본 12.5달러를 적립해야 한다는 의미로, 사실상 은행의 BTC 직접 보유를 금지하는 수준입니다.
 
@@ -401,7 +357,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   source="Cointelegraph"
 %}
 
-#### 개요
+#### 요약
 
 이번 사례는 기술적 취약점이 아닌 **사회공학적 신뢰 조작**의 전형입니다. 전직 국가 지도자 수준의 유명인을 내세워 투자자들의 경계심을 낮추는 이 수법은 딥페이크 광고와 결합해 더 정교해지고 있습니다.
 
@@ -423,7 +379,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   source="Cointelegraph"
 %}
 
-#### 개요
+#### 요약
 
 Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자자들의 레퍼런스 케이스로 자리 잡으면서, 유사 전략을 채택하는 상장사가 늘고 있습니다. 이번 $776M 매수 계획은 STRC라는 수익 공유형 채권 상품을 통해 조달하며, BTC 가격 상승 시 채권 이자를 BTC로 지급하는 구조입니다.
 
@@ -477,7 +433,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
 |--------|-------------|------------|
 | **공급망 보안** | 1건 | GlassWorm, Open VSX, 개발 도구 타깃 |
 | **AI 에이전트 보안** | 2건 | 프롬프트 인젝션, 데이터 탈취, Agentic Workflow |
-| **APT / 국가 지원 위협** | 1건 | 중국 APT, 동남아 군사 조직, 필리스 맬웨어 |
 | **클라우드 접근 관리** | 1건 | AWS IAM Identity Center, 멀티리전, 중앙 집중 |
 | **비트코인 기관화** | 3건 | Basel III, Strategy 매집, 기관 custody |
 
@@ -503,7 +458,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
 |----------|-----------|-----------|
 | P0 | Open VSX 확장 감사 + 개발자 자격증명 로테이션 | GlassWorm 공급망 피해 즉시 차단 |
 | P0 | AI 에이전트 입출력 검증 레이어 + 시스템 프롬프트 노출 점검 | 에이전트 기반 데이터 탈취 경로 차단 |
-| P1 | APT 탐지 규칙 업데이트 (MemFun 인메모리 + 클라우드 스토리지 C2) | 중국 APT 측면 이동 조기 탐지 |
 | P1 | AWS IAM Identity Center 멀티리전 아키텍처 검토 | 리전별 권한 드리프트 제거 |
 | P2 | 사내 암호화폐 투자 사기 인식 교육 (딥페이크 광고 포함) | 유명인 사칭 폰지 사기 피해 예방 |
 
@@ -513,7 +467,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
 |------|-----------|--------|-----------|
 | GlassWorm 확장으로 인한 자격증명 탈취 | 높음 | 높음 (CI/CD·AWS 계정 침해) | P0 즉시 |
 | AI 에이전트 프롬프트 인젝션 악용 | 중간 | 높음 (내부 데이터 탈취) | P0 즉시 |
-| APT 측면 이동 (파트너 네트워크 경유) | 낮음 | 매우 높음 (지속적 내부 침투) | P1 7일 내 |
 | IAM 권한 드리프트 누적 | 높음 | 중간 (과잉 권한 악용) | P1 14일 내 |
 | 유명인 사기 광고 피해 | 중간 | 낮음 (개인 금전 피해) | P2 교육 |
 
@@ -537,12 +490,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
 - [ ] 에이전트 실행 로그 보존 및 SIEM 연동 여부 확인
 
 ### P1 (7일 내)
-
-**APT 탐지 강화**:
-- [ ] SIEM에 클라우드 스토리지(OneDrive, Dropbox, Google Drive)로의 대용량 아웃바운드 트래픽 경보 규칙 추가
-- [ ] EDR에 메모리 전용 프로세스 인젝션(Process Injection, T1055) 탐지 규칙 활성화 여부 확인
-- [ ] 동남아·외부 파트너 VPN 채널에서 유입되는 트래픽 이상 행위 탐지 규칙 추가
-- [ ] AppleChris C2 도메인·IP IOC를 방화벽 차단 목록에 추가 (TH 기사 IoC 참조)
 
 **AWS IAM 접근 관리**:
 - [ ] 리전별 독립 IAM 사용자 현황 파악 및 IAM Identity Center 마이그레이션 로드맵 작성
@@ -579,17 +526,11 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
 **프롬프트 인젝션(Prompt Injection)**
 : 외부 데이터(이메일, 웹페이지, 문서)에 숨겨진 악의적 지시문이 LLM 에이전트의 시스템 프롬프트나 이전 지시를 덮어쓰도록 유도하는 공격입니다. 직접 인젝션(사용자가 직접 시도)과 간접 인젝션(외부 데이터를 통한 시도) 두 가지 유형이 있습니다.
 
-**MemFun**
-: 중국 APT 그룹이 사용하는 인메모리 맬웨어 로더입니다. 디스크에 파일을 기록하지 않고 합법적인 시스템 프로세스 메모리에 코드를 인젝션해 실행합니다. 전통적인 파일 기반 안티바이러스 탐지를 우회하는 데 효과적입니다.
-
 **IAM Identity Center Permission Set**
 : AWS IAM Identity Center에서 사용자 또는 그룹에 부여하는 권한 묶음입니다. AWS 관리형 정책, 인라인 정책, 권한 경계를 조합해 정의하며, 멀티 계정 환경에서 동일한 Permission Set을 여러 계정에 배포할 수 있습니다.
 
 **Basel III**
 : 2008년 금융위기 이후 국제결제은행(BIS)이 도입한 은행 자본·유동성 규제 프레임워크입니다. 현행 규정에서 비트코인은 Group 2b 자산으로 분류돼 1,250%의 위험 가중치가 적용되어, 은행이 BTC를 직접 보유하려면 비현실적인 수준의 자기자본이 필요합니다.
-
-**AppleChris RAT**
-: 중국 연계 APT 그룹이 사용하는 원격 접근 트로이목마(Remote Access Trojan)입니다. HTTPS 기반 C2 통신과 클라우드 스토리지 서비스 활용으로 탐지를 우회하며, 키로깅·스크린샷·파일 수집·원격 셸 기능을 제공합니다.
 
 ---
 
@@ -708,8 +649,7 @@ def audit_agent_io(func):
 | 기사 | 출처 |
 |------|------|
 | GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions | [The Hacker News](https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html) |
-| AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration | [The Hacker News](https://thehackernews.com) |
-| Chinese Hackers Target Southeast Asian Militaries with AppleChris and MemFun | [The Hacker News](https://thehackernews.com) |
+| OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration | [The Hacker News](https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html) |
 | Deploy AWS applications across multiple Regions with IAM Identity Center | [AWS Security Blog](https://aws.amazon.com/blogs/security/deploy-aws-applications-and-access-aws-accounts-across-multiple-regions-with-iam-identity-center/) |
 | Changing Basel rules could unlock huge liquidity for BTC | [Cointelegraph](https://cointelegraph.com/news/changing-basel-rules-huge-liquidity-btc) |
 | Boris Johnson linked to BTC Ponzi scheme allegations | [Cointelegraph](https://cointelegraph.com/news/boris-johnson-btc-ponzi-scheme) |
