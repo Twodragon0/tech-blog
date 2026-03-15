@@ -111,6 +111,8 @@
       /net::ERR_ABORTED.*403.*googlesyndication/i,
       /googlesyndication.*net::ERR_ABORTED/i,
       /adsbygoogle.*Forbidden/i,
+      /adtrafficquality\.google/i,
+      /show_ads_impl_.*\.js/i,
 
       // Firebase Dynamic Links (service ended August 25, 2025)
       /firebase.*dynamic.*link/i,
@@ -124,6 +126,11 @@
       /Network request failed.*app\.goo\.gl/i,
       /GET.*firebaseapp\.com/i,
       /GET.*app\.goo\.gl/i,
+
+      /addthis\.com.*ERR_NAME_NOT_RESOLVED/i,
+      /e\.dlx\.addthis\.com/i,
+      /cookie_push_onload\.html/i,
+      /Failed to load resource: net::ERR_NAME_NOT_RESOLVED/i,
 
       // Favicon and image 404 errors (normal fallback behavior)
       /Failed to load resource.*404/i,
@@ -477,6 +484,28 @@
 
       return false; // Continue default error handling
     };
+
+    window.addEventListener('error', function(event) {
+      var target = event && event.target;
+      if (!target || !target.tagName) {
+        return;
+      }
+
+      var tagName = target.tagName.toLowerCase();
+      if (tagName !== 'img' && tagName !== 'script' && tagName !== 'iframe' && tagName !== 'link') {
+        return;
+      }
+
+      var source = target.currentSrc || target.src || target.href || '';
+      if (!source) {
+        return;
+      }
+
+      if (shouldFilter(String(source))) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }, true);
 
     // Unhandled Promise Rejection handler
     window.addEventListener('unhandledrejection', function(event) {
