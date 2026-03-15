@@ -48,10 +48,14 @@ title: Home
   <!-- Posts Section with Tabs & Controls -->
   <section class="posts-section" aria-label="Blog Posts">
     <div class="posts-toolbar">
-      <div class="posts-tabs" role="tablist" aria-label="Posts sorting">
-        <button class="posts-tab active" role="tab" aria-selected="true" aria-controls="posts-panel" data-sort="recent" type="button">
+      <div class="posts-tabs" role="tablist" aria-label="Posts sorting and categories">
+        <button class="posts-tab active" role="tab" aria-selected="true" aria-controls="posts-panel" data-sort="latest" type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           Latest
+        </button>
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="popular" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.8 5.5 22 7.5 14 2 9 9 9"/></svg>
+          Popular
         </button>
         <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="security" type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -69,6 +73,10 @@ title: Home
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
           Kubernetes
         </button>
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="blockchain" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9 8h4a2 2 0 1 1 0 4H9z"/><path d="M9 12h5a2 2 0 1 1 0 4H9z"/></svg>
+          Blockchain
+        </button>
       </div>
 
       <div class="posts-view-toggle" role="group" aria-label="View mode">
@@ -82,6 +90,7 @@ title: Home
     </div>
 
     <div id="posts-panel" class="posts-list" role="tabpanel" aria-label="Posts list">
+      {% assign now_ts = 'now' | date: '%s' %}
       {% for post in site.posts limit: 30 %}
         {% comment %} Collect all categories for data attribute {% endcomment %}
         {% assign post_cats = "" %}
@@ -100,7 +109,46 @@ title: Home
             {% endunless %}
           {% endfor %}
         {% endif %}
-        <article class="post-card card" data-category="{{ post_cats }}" data-date="{{ post.date | date: '%Y%m%d' }}">
+        {% assign classifier = post.title | append: ' ' | append: post.excerpt | downcase %}
+        {% if post.tags %}
+          {% assign classifier = classifier | append: ' ' | append: post.tags | downcase %}
+        {% endif %}
+        {% unless post_cats contains 'kubernetes' %}
+          {% if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' %}
+            {% if post_cats != "" %}
+              {% assign post_cats = post_cats | append: ' kubernetes' %}
+            {% else %}
+              {% assign post_cats = 'kubernetes' %}
+            {% endif %}
+          {% endif %}
+        {% endunless %}
+        {% unless post_cats contains 'blockchain' %}
+          {% if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' %}
+            {% if post_cats != "" %}
+              {% assign post_cats = post_cats | append: ' blockchain' %}
+            {% else %}
+              {% assign post_cats = 'blockchain' %}
+            {% endif %}
+          {% endif %}
+        {% endunless %}
+        {% assign post_ts = post.date | date: '%s' %}
+        {% assign age_days = now_ts | minus: post_ts | divided_by: 86400 %}
+        {% assign age_under_30 = age_days | at_most: 29 %}
+        {% assign age_under_90 = age_days | at_most: 89 %}
+        {% assign age_under_180 = age_days | at_most: 179 %}
+        {% assign tag_count = post.tags | size %}
+        {% assign popularity = tag_count | times: 12 %}
+        {% if post_cats contains 'kubernetes' %}{% assign popularity = popularity | plus: 8 %}{% endif %}
+        {% if post_cats contains 'blockchain' %}{% assign popularity = popularity | plus: 8 %}{% endif %}
+        {% if post_cats contains 'security' %}{% assign popularity = popularity | plus: 6 %}{% endif %}
+        {% if age_days == age_under_30 %}
+          {% assign popularity = popularity | plus: 24 %}
+        {% elsif age_days == age_under_90 %}
+          {% assign popularity = popularity | plus: 14 %}
+        {% elsif age_days == age_under_180 %}
+          {% assign popularity = popularity | plus: 8 %}
+        {% endif %}
+        <article class="post-card card" data-category="{{ post_cats }}" data-date="{{ post.date | date: '%Y%m%d' }}" data-popularity="{{ popularity }}">
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">

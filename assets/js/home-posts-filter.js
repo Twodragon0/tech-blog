@@ -12,8 +12,15 @@
   var tabs = document.querySelectorAll('.posts-tab');
   var viewBtns = document.querySelectorAll('.view-btn');
   var allCards = Array.prototype.slice.call(document.querySelectorAll('.post-card[data-category]'));
-  var currentFilter = 'recent';
+  var currentFilter = 'latest';
   var showCount = PAGE_SIZE;
+  var categoryModes = {
+    security: true,
+    devsecops: true,
+    cloud: true,
+    kubernetes: true,
+    blockchain: true,
+  };
 
   var showMoreBtn = document.createElement('button');
   showMoreBtn.className = 'btn btn-secondary btn-lg posts-show-more';
@@ -22,15 +29,46 @@
     '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg> More';
   footer.insertBefore(showMoreBtn, footer.firstChild);
 
-  function getFilteredCards(filter) {
-    if (filter === 'recent') {
-      return allCards;
+  function toInt(value) {
+    var parsed = Number.parseInt(String(value || ''), 10);
+    if (Number.isNaN(parsed)) {
+      return 0;
+    }
+    return parsed;
+  }
+
+  function sortCards(cards, mode) {
+    var copied = cards.slice();
+    copied.sort(function (a, b) {
+      var aDate = toInt(a.getAttribute('data-date'));
+      var bDate = toInt(b.getAttribute('data-date'));
+      var aPopularity = 0;
+      var bPopularity = 0;
+
+      if (mode === 'popular') {
+        aPopularity = toInt(a.getAttribute('data-popularity'));
+        bPopularity = toInt(b.getAttribute('data-popularity'));
+        if (aPopularity !== bPopularity) {
+          return bPopularity - aPopularity;
+        }
+      }
+
+      return bDate - aDate;
+    });
+    return copied;
+  }
+
+  function getFilteredCards(mode) {
+    if (mode === 'latest' || mode === 'popular') {
+      return sortCards(allCards, mode);
     }
 
-    return allCards.filter(function (card) {
+    var filtered = allCards.filter(function (card) {
       var cats = (card.getAttribute('data-category') || '').split(' ');
-      return cats.indexOf(filter) !== -1;
+      return cats.indexOf(mode) !== -1;
     });
+
+    return sortCards(filtered, 'latest');
   }
 
   function renderPosts() {
@@ -71,8 +109,8 @@
     }
 
     tabs.forEach(function (tab) {
-      var sort = tab.getAttribute('data-sort') || 'recent';
-      var count = getFilteredCards(sort).length;
+      var sort = tab.getAttribute('data-sort') || 'latest';
+      var count = categoryModes[sort] ? getFilteredCards(sort).length : allCards.length;
       var badge = tab.querySelector('.tab-count');
 
       if (!badge) {
@@ -93,7 +131,7 @@
 
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      currentFilter = tab.getAttribute('data-sort') || 'recent';
+      currentFilter = tab.getAttribute('data-sort') || 'latest';
       showCount = PAGE_SIZE;
       renderPosts();
     });
