@@ -1963,6 +1963,39 @@
   display: none;
 }
 
+.giscus-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+}
+
+.giscus-error.hidden {
+  display: none;
+}
+
+.giscus-error[data-theme-variant="dark"] {
+  border-color: rgba(148, 163, 184, 0.4);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.giscus-error[data-theme-variant="light"] {
+  border-color: rgba(148, 163, 184, 0.35);
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.giscus-error-text {
+  margin: 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
 .noscript-message {
   display: flex;
   flex-direction: column;
