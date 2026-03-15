@@ -15,6 +15,7 @@
 
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
@@ -251,6 +252,11 @@ def main():
     parser.add_argument(
         "--detailed-only", action="store_true", help="상세 리포트만 출력 (요약 제외)"
     )
+    parser.add_argument(
+        "--changed",
+        action="store_true",
+        help="Git 기준 변경된 포스트(_posts/*.md)만 검증",
+    )
     parser.add_argument("file", nargs="?", help="검증할 특정 파일 (선택사항)")
 
     args = parser.parse_args()
@@ -259,11 +265,42 @@ def main():
         print(f"❌ Posts directory not found: {POSTS_DIR}")
         return
 
+    def _resolve_changed_posts() -> list[Path]:
+        changed: set[str] = set()
+        commands = [
+            ["git", "diff", "--name-only", "HEAD", "--", "_posts/*.md"],
+            ["git", "ls-files", "--others", "--exclude-standard", "--", "_posts/*.md"],
+        ]
+
+        for command in commands:
+            try:
+                result = subprocess.run(
+                    command,
+                    cwd=PROJECT_ROOT,
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+            except OSError:
+                continue
+
+            if result.returncode != 0:
+                continue
+
+            for line in result.stdout.splitlines():
+                entry = line.strip()
+                if entry.endswith(".md") and entry.startswith("_posts/"):
+                    changed.add(entry)
+
+        return [PROJECT_ROOT / rel for rel in sorted(changed)]
+
     # 파일 목록
     if args.file:
         post_files = [Path(args.file)]
         if not post_files[0].is_absolute():
             post_files[0] = PROJECT_ROOT / post_files[0]
+    elif args.changed:
+        post_files = _resolve_changed_posts()
     else:
         post_files = sorted(POSTS_DIR.glob("*.md"))
 
