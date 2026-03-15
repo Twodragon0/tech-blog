@@ -12,11 +12,32 @@
 %}
 {% endcomment %}
 
+{% assign risk_text = include.title | append: ' ' | append: include.summary | downcase %}
+{% assign severity_label = include.severity | default: '' %}
+{% if severity_label == '' %}
+  {% if risk_text contains 'critical' or risk_text contains 'rce' or risk_text contains '제로데이' or risk_text contains 'zero-day' or risk_text contains 'exploit' or risk_text contains '랜섬웨어' %}
+    {% assign severity_label = 'Critical' %}
+  {% elsif risk_text contains 'high' or risk_text contains '취약점' or risk_text contains 'cve' or risk_text contains 'malware' or risk_text contains '공격' %}
+    {% assign severity_label = 'High' %}
+  {% else %}
+    {% assign severity_label = 'Medium' %}
+  {% endif %}
+{% endif %}
+{% assign severity_class = severity_label | downcase %}
+{% assign card_image = include.image | default: '' %}
+{% if card_image == '' and include.url %}
+  {% assign card_image = 'https://www.google.com/s2/favicons?sz=256&domain_url=' | append: include.url | url_encode %}
+{% endif %}
+{% assign card_summary = include.summary | default: '' %}
+{% if card_summary == '' %}
+  {% assign card_summary = include.title | strip_html | truncate: 170 %}
+{% endif %}
+
 <div class="news-card">
-  {% if include.image and include.image != "" %}
+  {% if card_image and card_image != "" %}
   <div class="news-card__image">
     <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.title | escape }}">
-      <img src="{{ include.image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225">
+      <img src="{{ card_image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225">
     </a>
   </div>
   {% endif %}
@@ -27,10 +48,8 @@
     <div class="news-card__meta">
       {% if include.source %}<span class="news-card__source">{{ include.source | escape }}</span>{% endif %}
       {% if include.date %}<time class="news-card__date" datetime="{{ include.date }}">{{ include.date }}</time>{% endif %}
-      {% if include.severity %}<span class="news-card__severity news-card__severity--{{ include.severity | downcase }}">{{ include.severity }}</span>{% endif %}
+      <span class="news-card__severity news-card__severity--{{ severity_class }}">{{ severity_label }}</span>
     </div>
-    {% if include.summary and include.summary != "" %}
-    <p class="news-card__summary">{{ include.summary }}</p>
-    {% endif %}
+    <p class="news-card__summary">{{ card_summary }}</p>
   </div>
 </div>
