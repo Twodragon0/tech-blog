@@ -15,10 +15,18 @@
 
 import argparse
 import re
+import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-import yaml
+try:
+    import yaml
+except ModuleNotFoundError:
+    print(
+        "❌ Missing dependency: PyYAML. Run `pip install -r scripts/requirements.txt` and retry.",
+        file=sys.stderr,
+    )
+    raise SystemExit(2)
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
