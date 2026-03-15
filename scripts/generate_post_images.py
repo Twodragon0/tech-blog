@@ -7,6 +7,7 @@ Gemini 2.5 Flash Image (Nano Banana) 또는 Gemini 3 Pro Image (Nano Banana Pro)
 """
 
 import base64
+import hashlib
 import json
 import os
 import re
@@ -43,7 +44,7 @@ try:
     import cairosvg
 
     CAIROSVG_AVAILABLE = True
-except ImportError:
+except Exception:
     CAIROSVG_AVAILABLE = False
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -62,7 +63,18 @@ GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/
 GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent"
 
 # 모델 선택 (환경 변수로 제어 가능)
-USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
+USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "true").lower() == "true"
+
+# Optional GPT-5.4 prompt enhancement (disabled automatically when key is missing)
+# lgtm[py/clear-text-storage-sensitive-data] - Environment variable, not hardcoded
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")  # nosec B105
+OPENAI_CHAT_COMPLETIONS_URL = os.getenv(
+    "OPENAI_CHAT_COMPLETIONS_URL", "https://api.openai.com/v1/chat/completions"
+)
+GPT54_MODEL = os.getenv("GPT54_MODEL", "gpt-5.4")
+USE_GPT54_PROMPT_ENHANCER = (
+    os.getenv("USE_GPT54_PROMPT_ENHANCER", "true").lower() == "true"
+)
 
 # Professional style: clean infographic, no characters/mascots, English text only
 USE_PROFESSIONAL_STYLE = (
@@ -302,12 +314,131 @@ def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
     return image_file.exists(), image_file
 
 
+def _build_visual_direction(post_info: Dict) -> Dict[str, str]:
+    """Build deterministic per-post visual direction for unique images."""
+    seed_source = "|".join(
+        [
+            str(post_info.get("filename", "")),
+            str(post_info.get("title", "")),
+            str(post_info.get("category", "")),
+            " ".join([str(tag) for tag in post_info.get("tags", [])]),
+        ]
+    )
+    digest = hashlib.sha256(seed_source.encode("utf-8")).hexdigest()
+    seed = int(digest[:8], 16)
+
+    layout_modes = [
+        "left-title and right-diagram split",
+        "centered hero panel with side metrics",
+        "top timeline with bottom architecture blocks",
+        "three-column insight cards with connector lines",
+        "radial core system map with surrounding callouts",
+    ]
+    motif_modes = [
+        "network nodes and trust boundaries",
+        "threat-to-control flow with arrows",
+        "stack layers with security guardrails",
+        "pipeline stages with validation checkpoints",
+        "command-center dashboard with status badges",
+    ]
+    background_modes = [
+        "subtle gradient mesh with low-contrast grid",
+        "technical blueprint lines with soft glow",
+        "layered geometric panels with depth shadows",
+        "clean matte background with edge highlights",
+        "soft radial spotlight over neutral base",
+    ]
+    accent_sets = [
+        "#0EA5E9 and #2563EB",
+        "#14B8A6 and #059669",
+        "#8B5CF6 and #4F46E5",
+        "#F59E0B and #D97706",
+        "#DC2626 and #B91C1C",
+    ]
+
+    return {
+        "seed": str(seed),
+        "layout": layout_modes[seed % len(layout_modes)],
+        "motif": motif_modes[(seed // 7) % len(motif_modes)],
+        "background": background_modes[(seed // 13) % len(background_modes)],
+        "accent": accent_sets[(seed // 17) % len(accent_sets)],
+        "id": digest[:12],
+    }
+
+
+def _enhance_prompt_with_gpt54(base_prompt: str, post_info: Dict) -> str:
+    """Enhance image prompt with GPT-5.4 when configured."""
+    if not USE_GPT54_PROMPT_ENHANCER:
+        return base_prompt
+
+    if not OPENAI_API_KEY:
+        log_message("OPENAI_API_KEY가 없어 GPT-5.4 프롬프트 보강을 건너뜁니다.", "INFO")
+        return base_prompt
+
+    try:
+        headers = {
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
+            "Content-Type": "application/json",
+        }
+
+        payload = {
+            "model": GPT54_MODEL,
+            "temperature": 0.4,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are an expert image prompt engineer for technical infographics. "
+                        "Rewrite prompts to maximize visual clarity, uniqueness, and hierarchy. "
+                        "Keep output in English and preserve factual intent."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        "Refine this image prompt for high-quality technical blog cover generation. "
+                        "Output only the final prompt text.\n\n"
+                        f"Title: {post_info.get('title', '')}\n"
+                        f"Category: {post_info.get('category', '')}\n"
+                        f"Base prompt:\n{base_prompt}"
+                    ),
+                },
+            ],
+        }
+
+        response = requests.post(
+            OPENAI_CHAT_COMPLETIONS_URL, headers=headers, json=payload, timeout=45
+        )
+        if response.status_code != 200:
+            log_message(
+                f"GPT-5.4 프롬프트 보강 실패(HTTP {response.status_code}), 기본 프롬프트 사용",
+                "WARNING",
+            )
+            return base_prompt
+
+        data = response.json()
+        choices = data.get("choices", [])
+        if not choices:
+            return base_prompt
+
+        content = choices[0].get("message", {}).get("content", "").strip()
+        if not content:
+            return base_prompt
+
+        log_message("✅ GPT-5.4 프롬프트 보강 적용", "SUCCESS")
+        return content
+    except Exception as e:
+        log_message(f"GPT-5.4 프롬프트 보강 중 예외 발생: {str(e)}", "WARNING")
+        return base_prompt
+
+
 def generate_image_prompt(post_info: Dict) -> str:
     """포스팅 정보를 기반으로 이미지 생성 프롬프트 생성"""
     title = post_info.get("title", "")
     category = post_info.get("category", "")
     highlights = post_info.get("highlights", [])
     excerpt = post_info.get("excerpt", "")
+    visual_direction = _build_visual_direction(post_info)
 
     # 카테고리별 기본 스타일
     category_styles = {
@@ -355,21 +486,28 @@ def generate_image_prompt(post_info: Dict) -> str:
     # 프롬프트 생성 (GEMINI_IMAGE_GUIDE.md 가이드라인 반영)
     if USE_PROFESSIONAL_STYLE:
         style_block = PROFESSIONAL_STYLE.strip()
-        prompt = f"""Create a clean professional infographic image for a tech blog post.
+        prompt = f"""Create a unique, high-quality professional infographic image for a technical blog post.
 
 Title: {title}
 Category: {category}
 Content Summary: {content_summary}
+Visual Direction ID: {visual_direction["id"]}
 
 {style_block}
 
 Layout and content:
 - Layout: horizontal, blog post header image (1200x800px recommended, 300 DPI)
+- Composition: {visual_direction["layout"]}
+- Motif: {visual_direction["motif"]}
+- Background treatment: {visual_direction["background"]}
+- Accent pair (mandatory): {visual_direction["accent"]}
+- Deterministic visual seed: {visual_direction["seed"]}
 - Colors: {colors}
 - All labels and text in the image must be in English only
 - Represent the main topic: {title}
 - Use modern flat icons and diagrams, no characters or mascots
 - Technical diagram aesthetic, suitable for technical blog header
+- Prioritize glanceability: clear hierarchy, 3-5 key visual blocks, strong contrast for text areas
 """
     else:
         prompt = f"""Create a nano banana style illustration for a tech blog post.
@@ -400,7 +538,8 @@ The image should visually represent the main topic: {title}
 Focus on creating an engaging, professional header image that captures the essence of the blog post.
 """
 
-    return prompt.strip()
+    final_prompt = prompt.strip()
+    return _enhance_prompt_with_gpt54(final_prompt, post_info)
 
 
 def generate_image_with_gemini(
@@ -1175,8 +1314,40 @@ def main():
         action="store_true",
         help="이미지 재생성 없이 기존 이미지를 최적화",
     )
+    parser.add_argument(
+        "--use-pro-image",
+        action="store_true",
+        help="Gemini 3 Pro Image 모델 사용 강제",
+    )
+    parser.add_argument(
+        "--use-gpt54-prompt",
+        action="store_true",
+        help="GPT-5.4 기반 프롬프트 보강 활성화",
+    )
+    parser.add_argument(
+        "--no-gpt54-prompt",
+        action="store_true",
+        help="GPT-5.4 프롬프트 보강 비활성화",
+    )
 
     args = parser.parse_args()
+
+    global USE_PRO_MODEL, USE_GPT54_PROMPT_ENHANCER
+    if args.use_pro_image:
+        USE_PRO_MODEL = True
+    if args.use_gpt54_prompt:
+        USE_GPT54_PROMPT_ENHANCER = True
+    if args.no_gpt54_prompt:
+        USE_GPT54_PROMPT_ENHANCER = False
+
+    log_message(
+        f"🧠 Prompt enhancer: {'GPT-5.4 ON' if USE_GPT54_PROMPT_ENHANCER else 'OFF'}",
+        "INFO",
+    )
+    log_message(
+        f"🎨 Image model: {'Gemini 3 Pro Image' if USE_PRO_MODEL else 'Gemini 2.5 Flash Image'}",
+        "INFO",
+    )
 
     # Gemini API 키 확인
     if not GEMINI_API_KEY:
