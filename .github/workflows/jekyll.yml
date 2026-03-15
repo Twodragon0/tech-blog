@@ -119,12 +119,12 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-          cache-dependency-path: scripts/requirements.txt
+          cache-dependency-path: scripts/requirements-ci.txt
 
       - name: Install Python dependencies
         run: |
           echo "📦 Installing Python dependencies..."
-          pip install --quiet Pillow || echo "⚠️ Pillow installation failed, continuing..."
+          pip install --quiet -r scripts/requirements-ci.txt
           echo "✅ Python dependencies installed"
 
       - name: Validate Jekyll Configuration
