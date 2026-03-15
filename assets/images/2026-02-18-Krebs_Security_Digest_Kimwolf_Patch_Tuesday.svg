@@ -1,127 +1,189 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#dc2626"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#4f46e5"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/>
-    <line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/>
-    <line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Primary icon -->
-  <g transform="translate(80, 180)">
-    <ellipse cx="60" cy="80" rx="35" ry="45" fill="url(#accent)" opacity="0.9"/>
-    <circle cx="48" cy="60" r="8" fill="white" opacity="0.8"/>
-    <circle cx="72" cy="60" r="8" fill="white" opacity="0.8"/>
-    <line x1="20" y1="60" x2="35" y2="70" stroke="#fca5a5" stroke-width="2"/>
-    <line x1="100" y1="60" x2="85" y2="70" stroke="#fca5a5" stroke-width="2"/>
-    <line x1="15" y1="90" x2="30" y2="85" stroke="#fca5a5" stroke-width="2"/>
-    <line x1="105" y1="90" x2="90" y2="85" stroke="#fca5a5" stroke-width="2"/>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-
-  <!-- Secondary icon -->
-  <g transform="translate(80, 380)">
-    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
-    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
-    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#94a3b8" stroke-width="2"/>
-    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#94a3b8" stroke-width="2"/>
-    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">KrebsOnSecurity : Kimwolf 2026 2</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
-
-  <!-- Main title area -->
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly Digest</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">AI Cloud Malware Update</text>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">KrebsOnSecurity RSS 10 Kimwolf (I2P), 2 Patch Tuesday, Badbox</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">2.0 .</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="168" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="84" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#KrebsOnSecurity</text>
+      <rect x="180" y="0" width="141" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="250" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Threat-Intel</text>
+      <rect x="333" y="0" width="87" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="376" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Botnet</text>
+      <rect x="432" y="0" width="150" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="507" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Patch-Tuesday</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
   </g>
-
-  <!-- Date badge -->
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">February 18, 2026</text>
-
-  <!-- Stats cards -->
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">MALWARE</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Malware</text>
-    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
-    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
-    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- Key topics -->
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="93" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
-    <text x="46" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Malware</text>
-    <rect x="108" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="145" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
-    <rect x="198" y="0" width="75" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="235" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">Cloud</text>
-    <rect x="288" y="0" width="111" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="343" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">DevSecOps</text>
-  </g>
-
-  <!-- Network visualization -->
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="125" cy="177" r="3" fill="#f87171"/>
-    <circle cx="166" cy="166" r="4" fill="#fb923c"/>
-    <circle cx="97" cy="164" r="5" fill="#818cf8"/>
-    <circle cx="163" cy="163" r="6" fill="#34d399"/>
-    <circle cx="71" cy="163" r="3" fill="#fbbf24"/>
-    <circle cx="60" cy="113" r="4" fill="#f87171"/>
-    <circle cx="108" cy="150" r="5" fill="#fb923c"/>
-    <circle cx="89" cy="60" r="6" fill="#818cf8"/>
-    <circle cx="62" cy="187" r="3" fill="#34d399"/>
-    <circle cx="34" cy="69" r="4" fill="#fbbf24"/>
-    <line x1="125" y1="177" x2="166" y2="166" stroke="#475569" stroke-width="1"/>
-    <line x1="166" y1="166" x2="97" y2="164" stroke="#475569" stroke-width="1"/>
-    <line x1="97" y1="164" x2="163" y2="163" stroke="#475569" stroke-width="1"/>
-    <line x1="163" y1="163" x2="71" y2="163" stroke="#475569" stroke-width="1"/>
-    <line x1="71" y1="163" x2="60" y2="113" stroke="#475569" stroke-width="1"/>
-    <line x1="60" y1="113" x2="108" y2="150" stroke="#475569" stroke-width="1"/>
-    <line x1="108" y1="150" x2="89" y2="60" stroke="#475569" stroke-width="1"/>
-    <line x1="89" y1="60" x2="62" y2="187" stroke="#475569" stroke-width="1"/>
-  </g>
-
-  <!-- Bottom bar -->
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
-
-  <!-- Bottom text -->
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
-
-  <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Malware | AI/ML | Cloud | DevSecOps</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

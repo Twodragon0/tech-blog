@@ -1,192 +1,185 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#050e1f"/>
-      <stop offset="50%" stop-color="#071828"/>
-      <stop offset="100%" stop-color="#0a1f3a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0e2a45"/>
-      <stop offset="100%" stop-color="#071a2e"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0e2a45"/>
-      <stop offset="100%" stop-color="#071a2e"/>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0e2a45"/>
-      <stop offset="100%" stop-color="#071a2e"/>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="statGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="titleGlow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Subtle grid lines -->
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="#0d2540" stroke-width="1" opacity="0.5"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="#0d2540" stroke-width="1" opacity="0.5"/>
-  <line x1="400" y1="0" x2="400" y2="630" stroke="#0d2540" stroke-width="1" opacity="0.3"/>
-  <line x1="800" y1="0" x2="800" y2="630" stroke="#0d2540" stroke-width="1" opacity="0.3"/>
-
-  <!-- Decorative circles background -->
-  <circle cx="1100" cy="80" r="120" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.07"/>
-  <circle cx="1100" cy="80" r="80" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.07"/>
-  <circle cx="100" cy="560" r="100" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.07"/>
-
-  <!-- Top badge -->
-  <rect x="60" y="30" width="230" height="34" rx="17" fill="url(#accentGrad)" filter="url(#shadow)"/>
-  <text x="175" y="52" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">SECURITY TRENDS 2026</text>
-
-  <!-- Date badge -->
-  <rect x="1030" y="30" width="120" height="34" rx="17" fill="#0e2a45" stroke="#1e4a70" stroke-width="1"/>
-  <text x="1090" y="52" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Jan 22, 2026</text>
-
-  <!-- Main title -->
-  <text x="60" y="115" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="46" font-weight="800" filter="url(#titleGlow)">Cloud Security Trends</text>
-  <text x="60" y="165" fill="url(#accentGrad)" font-family="Arial, sans-serif" font-size="46" font-weight="800" filter="url(#titleGlow)">January 2026</text>
-
-  <!-- Subtitle pills -->
-  <rect x="60" y="185" width="130" height="26" rx="13" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="125" y="202" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Kubernetes</text>
-  <rect x="200" y="185" width="120" height="26" rx="13" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="260" y="202" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">VS Code</text>
-  <rect x="330" y="185" width="145" height="26" rx="13" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="402" y="202" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">CNCF Survey</text>
-
-  <!-- Accent line -->
-  <rect x="60" y="225" width="480" height="3" rx="2" fill="url(#accentGrad)" opacity="0.7"/>
-
-  <!-- Card 1: Kubernetes 82% Production -->
-  <rect x="60" y="248" width="340" height="290" rx="16" fill="url(#card1Grad)" stroke="#1a4a6e" stroke-width="1.5" filter="url(#shadow)"/>
-  <!-- Card 1 top accent -->
-  <rect x="60" y="248" width="340" height="4" rx="2" fill="url(#accentGrad)"/>
-
-  <!-- Kubernetes icon: hexagon -->
-  <polygon points="130,285 150,274 170,285 170,307 150,318 130,307" fill="none" stroke="#06b6d4" stroke-width="2.5" filter="url(#glow)"/>
-  <text x="150" y="300" fill="#06b6d4" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">K8s</text>
-
-  <text x="190" y="290" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="15" font-weight="700">Kubernetes</text>
-  <text x="190" y="308" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Production Adoption</text>
-
-  <!-- Big stat -->
-  <text x="230" y="380" fill="url(#statGrad)" font-family="Arial, sans-serif" font-size="72" font-weight="900" text-anchor="middle" filter="url(#titleGlow)">82%</text>
-  <text x="230" y="405" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">of enterprises in production</text>
-
-  <!-- Progress bar -->
-  <rect x="90" y="422" width="280" height="8" rx="4" fill="#0a1f3a"/>
-  <rect x="90" y="422" width="230" height="8" rx="4" fill="url(#accentGrad)"/>
-
-  <text x="90" y="450" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Security remains top challenge</text>
-  <text x="90" y="468" fill="#64748b" font-family="Arial, sans-serif" font-size="11">CNCF Annual Survey 2025</text>
-
-  <!-- Bullet points -->
-  <circle cx="97" cy="492" r="3" fill="#06b6d4"/>
-  <text x="108" y="496" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Runtime security controls</text>
-  <circle cx="97" cy="514" r="3" fill="#06b6d4"/>
-  <text x="108" y="518" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">RBAC policy enforcement</text>
-
-  <!-- Card 2: VS Code Threats -->
-  <rect x="430" y="248" width="340" height="290" rx="16" fill="url(#card2Grad)" stroke="#1e3a6e" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="430" y="248" width="340" height="4" rx="2" fill="#3b82f6"/>
-
-  <!-- VS Code icon: code brackets -->
-  <text x="500" y="302" fill="#3b82f6" font-family="Arial, sans-serif" font-size="28" font-weight="700" filter="url(#glow)">&lt;/&gt;</text>
-
-  <text x="540" y="290" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="15" font-weight="700">VS Code Threats</text>
-  <text x="540" y="308" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Extension Security</text>
-
-  <!-- Threat items -->
-  <rect x="455" y="328" width="290" height="44" rx="8" fill="#0a1f3a" stroke="#1e3a6e" stroke-width="1"/>
-  <rect x="455" y="328" width="4" height="44" rx="2" fill="#ef4444"/>
-  <text x="470" y="346" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13" font-weight="600">Malicious Extensions</text>
-  <text x="470" y="362" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Supply chain compromise vector</text>
-
-  <rect x="455" y="382" width="290" height="44" rx="8" fill="#0a1f3a" stroke="#1e3a6e" stroke-width="1"/>
-  <rect x="455" y="382" width="4" height="44" rx="2" fill="#f59e0b"/>
-  <text x="470" y="400" fill="#fcd34d" font-family="Arial, sans-serif" font-size="13" font-weight="600">Remote Code Execution</text>
-  <text x="470" y="416" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Workspace trust bypass</text>
-
-  <rect x="455" y="436" width="290" height="44" rx="8" fill="#0a1f3a" stroke="#1e3a6e" stroke-width="1"/>
-  <rect x="455" y="436" width="4" height="44" rx="2" fill="#3b82f6"/>
-  <text x="470" y="454" fill="#93c5fd" font-family="Arial, sans-serif" font-size="13" font-weight="600">Credential Exfiltration</text>
-  <text x="470" y="470" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Dev environment targeting</text>
-
-  <text x="455" y="508" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Recommendation: audit installed extensions</text>
-  <text x="455" y="524" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Enable extension verification</text>
-
-  <!-- Card 3: CNCF Survey Results -->
-  <rect x="800" y="248" width="340" height="290" rx="16" fill="url(#card3Grad)" stroke="#1a4a6e" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="800" y="248" width="340" height="4" rx="2" fill="url(#accentGrad)"/>
-
-  <!-- Survey icon: chart bars -->
-  <rect x="830" y="282" width="14" height="30" rx="2" fill="#06b6d4" opacity="0.8"/>
-  <rect x="850" y="274" width="14" height="38" rx="2" fill="#3b82f6" opacity="0.9"/>
-  <rect x="870" y="268" width="14" height="44" rx="2" fill="#06b6d4"/>
-
-  <text x="900" y="290" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="15" font-weight="700">CNCF Survey Results</text>
-  <text x="900" y="308" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Cloud Native Landscape</text>
-
-  <!-- Survey stats -->
-  <text x="825" y="350" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Container Adoption</text>
-  <rect x="825" y="358" width="290" height="10" rx="5" fill="#0a1f3a"/>
-  <rect x="825" y="358" width="261" height="10" rx="5" fill="url(#accentGrad)"/>
-  <text x="1120" y="368" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" text-anchor="end">90%</text>
-
-  <text x="825" y="390" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Security Automation</text>
-  <rect x="825" y="398" width="290" height="10" rx="5" fill="#0a1f3a"/>
-  <rect x="825" y="398" width="202" height="10" rx="5" fill="#3b82f6"/>
-  <text x="1120" y="408" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" text-anchor="end">70%</text>
-
-  <text x="825" y="430" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Multi-cloud Strategy</text>
-  <rect x="825" y="438" width="290" height="10" rx="5" fill="#0a1f3a"/>
-  <rect x="825" y="438" width="174" height="10" rx="5" fill="#06b6d4"/>
-  <text x="1120" y="448" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" text-anchor="end">60%</text>
-
-  <text x="825" y="470" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Service Mesh Usage</text>
-  <rect x="825" y="478" width="290" height="10" rx="5" fill="#0a1f3a"/>
-  <rect x="825" y="478" width="130" height="10" rx="5" fill="#0ea5e9"/>
-  <text x="1120" y="488" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" text-anchor="end">45%</text>
-
-  <circle cx="830" cy="512" r="3" fill="#06b6d4"/>
-  <text x="840" y="516" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">1,200+ respondents worldwide</text>
-  <circle cx="830" cy="530" r="3" fill="#3b82f6"/>
-  <text x="840" y="534" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Security top concern 3 years running</text>
-
-  <!-- Footer bar -->
-  <rect x="0" y="570" width="1200" height="60" fill="#030c18" opacity="0.9"/>
-  <rect x="0" y="570" width="1200" height="2" fill="url(#accentGrad)" opacity="0.5"/>
-
-  <!-- Footer tags -->
-  <rect x="60" y="585" width="140" height="24" rx="12" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="130" y="601" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Kubernetes 82%</text>
-
-  <rect x="212" y="585" width="130" height="24" rx="12" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="277" y="601" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle">VS Code Threats</text>
-
-  <rect x="354" y="585" width="120" height="24" rx="12" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="414" y="601" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle">CNCF Survey</text>
-
-  <rect x="486" y="585" width="120" height="24" rx="12" fill="#0c2236" stroke="#1a4a6e" stroke-width="1"/>
-  <text x="546" y="601" fill="#67e8f9" font-family="Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Cloud Native</text>
-
-  <text x="1140" y="601" fill="#3b82f6" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end">tech.2twodragon.com</text>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2026 1 : Kubernetes 82 , VS Code , CNCF</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">2026 1 . CNCF Kubernetes 82 , VS Code</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="61" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Kubernetes</text>
+      <rect x="135" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="214" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cloud-Security</text>
+      <rect x="306" y="0" width="69" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="340" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#CNCF</text>
+      <rect x="387" y="0" width="177" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="475" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#VS-Code-Security</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>
