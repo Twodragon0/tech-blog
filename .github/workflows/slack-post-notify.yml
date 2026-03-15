@@ -1,7 +1,7 @@
 name: Slack Post Notification
 
 # 새 포스트가 push되면 Slack으로 알림 전송
-# AI Gateway 또는 Incoming Webhook을 통해 전송
+# Slack Bot API (chat.postMessage) 사용
 
 on:
   push:
@@ -54,68 +54,49 @@ jobs:
           echo "count=$POST_COUNT" >> "$GITHUB_OUTPUT"
           python3 scripts/build_slack_post_message.py "$NEW_POSTS" >> "$GITHUB_OUTPUT"
 
-      - name: Post to Slack via AI Gateway
+      - name: Post to Slack via Bot API
         if: steps.posts.outputs.has_posts == 'true'
         env:
-          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
-          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-          SLACK_CHANNEL_ID_DEV: ${{ secrets.SLACK_CHANNEL_ID_DEV }}
-          SLACK_CHANNEL_ID_SECURITY: ${{ secrets.SLACK_CHANNEL_ID_SECURITY }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
           MESSAGE: ${{ steps.posts.outputs.message }}
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "${AI_GATEWAY_URL:-}" ] || [ -z "${AI_GATEWAY_TOKEN:-}" ]; then
-            echo "AI Gateway config not set, skipping"
+          if [ -z "${SLACK_BOT_TOKEN:-}" ]; then
+            echo "::warning::SLACK_BOT_TOKEN not configured, skipping"
             exit 0
           fi
-          channels=()
-          if [ -n "${SLACK_CHANNEL_ID_DEV:-}" ]; then
-            channels+=("channel:${SLACK_CHANNEL_ID_DEV}")
-          fi
-          if [ -n "${SLACK_CHANNEL_ID_SECURITY:-}" ]; then
-            channels+=("channel:${SLACK_CHANNEL_ID_SECURITY}")
-          fi
-          if [ "${#channels[@]}" -eq 0 ]; then
-            echo "No Slack channel ids configured, skipping"
+          if [ -z "${SLACK_CHANNEL_ID:-}" ]; then
+            echo "::warning::SLACK_CHANNEL_ID not configured, skipping"
             exit 0
           fi
-          for target in "${channels[@]}"; do
-            payload=$(TARGET="$target" python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); target=os.environ.get("TARGET", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":target,"message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-            HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
-            echo "Slack response for ${target}: $HTTP_STATUS"
-            if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
-              echo "Slack notification sent successfully to ${target}"
-            else
-              echo "::warning::Slack notification failed for ${target} (HTTP $HTTP_STATUS)"
-              cat /tmp/slack_resp.txt || true
-            fi
-          done
-
-      - name: Post to Slack via Webhook (fallback)
-        if: steps.posts.outputs.has_posts == 'true'
-        continue-on-error: true
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          MESSAGE: ${{ steps.posts.outputs.message }}
-        run: |
-          if [ -z "${SLACK_WEBHOOK:-}" ]; then
-            echo "SLACK_WEBHOOK not configured, skipping fallback"
-            exit 0
-          fi
-          if [ -n "${AI_GATEWAY_URL:-}" ] && [ -n "${AI_GATEWAY_TOKEN:-}" ]; then
-            echo "AI Gateway is primary; webhook fallback not needed"
-            exit 0
-          fi
-          payload=$(python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); print(json.dumps({"text": message}, ensure_ascii=False))')
-          HTTP_STATUS=$(curl -sS -o /tmp/webhook_resp.txt -w "%{http_code}" \
-            -X POST "${SLACK_WEBHOOK}" \
-            -H "Content-Type: application/json" \
+          payload=$(python3 -c '
+          import json, os
+          message = os.environ.get("MESSAGE", "")
+          channel = os.environ.get("SLACK_CHANNEL_ID", "")
+          print(json.dumps({
+              "channel": channel,
+              "text": message,
+              "unfurl_links": False,
+              "unfurl_media": False
+          }, ensure_ascii=False))
+          ')
+          HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" \
+            "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
             -d "$payload")
-          echo "Webhook response: $HTTP_STATUS"
+          echo "Slack response: $HTTP_STATUS"
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
-            echo "Slack webhook notification sent successfully"
+            ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
+            if [ "$ok" = "True" ]; then
+              echo "Slack notification sent successfully"
+            else
+              error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
+              echo "::warning::Slack API error: $error"
+            fi
           else
-            echo "::warning::Slack webhook failed (HTTP $HTTP_STATUS)"
-            cat /tmp/webhook_resp.txt || true
+            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            cat /tmp/slack_resp.txt || true
           fi
