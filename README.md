@@ -125,6 +125,30 @@ tech-blog/
 
 ## 🛠️ 기술 스택
 
+## 🤖 OpenCode Workflow
+
+이 저장소는 `.opencode/` 아래에 프로젝트 전용 OpenCode 명령과 스킬을 함께 관리합니다.
+
+### 자주 쓰는 프로젝트 명령
+
+| Command | 용도 |
+|---------|------|
+| `/improve-posts` | 뉴스 수집부터 포스트 품질 개선까지 반복 수행 |
+| `/validate-posts` | 포스트 품질/보안/이미지 규칙 검증 |
+| `/generate-images` | 누락된 포스트 이미지를 생성 |
+| `/improve-investing-post` | 투자 관련 포스트 1건만 집중 개선 |
+| `/ultrawork-investing-loop` | 투자 포스트 품질/이미지 루프를 반복 실행 |
+
+### 재사용 검토 스킬
+
+| Skill | 용도 |
+|-------|------|
+| `post-validation` | 포스트 품질 게이트와 링크/이미지 규칙 검증 |
+| `security-review` | 코드/스크립트 변경의 보안 점검 |
+| `cost-audit` | AI/자동화 비용 사용 패턴 점검 |
+
+자세한 사용법과 에이전트 구성은 `.opencode/README.md`를 참고하세요.
+
 ### Core
 | 기술 | 용도 |
 |------|------|
