@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-12T12:46:13.676193+00:00",
+  "updated_at": "2026-03-15T01:24:47.136231+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1488,6 +1488,78 @@
       "title": "Claude Code, 코드 리뷰 기능 공개",
       "published_date": "2026-03-12",
       "expires_at": "2026-03-19T12:46:13.676090+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/deploy-aws-applications-and-access-aws-accounts-across-multiple-regions-with-iam-identity-center/",
+      "title": "Deploy AWS applications and access AWS accounts across multiple Regions with IAM",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html",
+      "title": "GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/changing-basel-rules-huge-liquidity-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Changing Basel rules could unlock 'huge' liquidity for BTC: Analyst",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/boris-johnson-btc-ponzi-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Former UK Prime Minister Boris Johnson calls Bitcoin a ‘Ponzi scheme’",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-beats-stocks-strategy-strc-776m-btc-buying-potential?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin beats stocks as Strategy's STRC hints at $776M BTC buying potential",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/balaji-calls-for-crypto-tools-for-refugees-stateless-people?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Balaji calls for more ‘crypto tools’ for refugees amid Middle East tensions",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-can-fight-money-laundering?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto can fight money laundering without stifling financial freedom",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27513",
+      "title": "진짜 내 일을 위한 Agentic Workflow",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27512",
+      "title": "맥북 네오에서 Parallels 가상 머신으로 윈도우 실행 가능 확인",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27511",
+      "title": "Hammerspoon - Lua로 구현된 강력한 macOS 데스크톱 자동화 도구",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27510",
+      "title": "AI는 소프트웨어 엔지니어링을 단순화하지 않았다: 나쁜 엔지니어링을 더 쉽게 만들었을 뿐",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27509",
+      "title": "내 워크플로우를 A/B 테스트하지 말아 주세요",
+      "published_date": "2026-03-15",
+      "expires_at": "2026-03-22T01:24:47.134681+00:00"
     }
   ]
 }
