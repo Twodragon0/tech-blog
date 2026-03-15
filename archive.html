@@ -7,20 +7,49 @@ permalink: /archive/
 <div class="archive-page">
   {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
+  <!-- Archive Toolbar -->
+  <div class="archive-toolbar">
+    <div class="archive-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="archive-search" placeholder="Filter posts..." aria-label="포스트 필터" autocomplete="off">
+    </div>
+    <div class="archive-filters" role="group" aria-label="Category filter">
+      <button class="archive-filter active" data-filter="all" type="button">All</button>
+      {% assign all_cats = site.posts | map: "categories" | flatten | compact | uniq | sort_natural %}
+      {% for cat in all_cats %}
+        {% assign cat_lower = cat | downcase %}
+        {% assign cat_count = 0 %}
+        {% for p in site.posts %}
+          {% for pc in p.categories %}
+            {% if pc == cat %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}
+          {% endfor %}
+        {% endfor %}
+        <button class="archive-filter" data-filter="{{ cat_lower }}" type="button">{{ cat }} <span class="archive-filter-count">{{ cat_count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
+
   <!-- Stats -->
   <div class="archive-stats">
     <div class="archive-stat">
-      <span class="archive-stat-number">{{ site.posts.size }}</span>
-      <span class="archive-stat-label">Total Posts</span>
+      <span class="archive-stat-number" id="archive-visible-count">{{ site.posts.size }}</span>
+      <span class="archive-stat-label">Posts</span>
     </div>
     <div class="archive-stat">
       <span class="archive-stat-number">{{ postsByYear.size }}</span>
       <span class="archive-stat-label">Years</span>
     </div>
+    <div class="archive-stat">
+      {% assign all_categories = site.posts | map: "categories" | flatten | compact | uniq %}
+      <span class="archive-stat-number">{{ all_categories.size }}</span>
+      <span class="archive-stat-label">Categories</span>
+    </div>
   </div>
 
   {% for year in postsByYear %}
-  <section class="archive-year">
+  <section class="archive-year" data-year="{{ year.name }}">
     <h2 id="year-{{ year.name }}" class="archive-year-header">
       <span class="archive-year-name">{{ year.name }}</span>
       <span class="archive-year-count">{{ year.items.size }} posts</span>
@@ -40,7 +69,15 @@ permalink: /archive/
       </h3>
       <ul class="archive-list">
         {% for post in month.items %}
-        <li class="archive-item">
+        {% assign post_cats = "" %}
+        {% if post.categories %}
+          {% for c in post.categories %}
+            {% assign post_cats = post_cats | append: c | downcase | append: " " %}
+          {% endfor %}
+        {% elsif post.category %}
+          {% assign post_cats = post.category | downcase %}
+        {% endif %}
+        <li class="archive-item" data-categories="{{ post_cats | strip }}" data-title="{{ post.title | downcase | escape }}">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m. %d" }}</time>
           {% if post.category %}
           <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
@@ -55,4 +92,71 @@ permalink: /archive/
     {% endfor %}
   </section>
   {% endfor %}
+
+  <div class="archive-empty" style="display:none;">
+    No posts match your search.
+  </div>
 </div>
+
+<script>
+(function() {
+  'use strict';
+
+  var searchInput = document.getElementById('archive-search');
+  var filterBtns = document.querySelectorAll('.archive-filter');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.archive-item'));
+  var years = document.querySelectorAll('.archive-year');
+  var months = document.querySelectorAll('.archive-month');
+  var emptyMsg = document.querySelector('.archive-empty');
+  var visibleCounter = document.getElementById('archive-visible-count');
+  var currentFilter = 'all';
+  var currentSearch = '';
+
+  function applyFilters() {
+    var visibleCount = 0;
+
+    items.forEach(function(item) {
+      var cats = item.getAttribute('data-categories') || '';
+      var title = item.getAttribute('data-title') || '';
+      var matchFilter = currentFilter === 'all' || cats.indexOf(currentFilter) !== -1;
+      var matchSearch = !currentSearch || title.indexOf(currentSearch) !== -1;
+      var show = matchFilter && matchSearch;
+      item.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+
+    // Hide empty months/years
+    months.forEach(function(m) {
+      var visItems = m.querySelectorAll('.archive-item:not([style*="display: none"])');
+      m.style.display = visItems.length > 0 ? '' : 'none';
+    });
+    years.forEach(function(y) {
+      var visMonths = y.querySelectorAll('.archive-month:not([style*="display: none"])');
+      y.style.display = visMonths.length > 0 ? '' : 'none';
+    });
+
+    emptyMsg.style.display = visibleCount === 0 ? '' : 'none';
+    visibleCounter.textContent = visibleCount;
+  }
+
+  // Category filter
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  // Search input
+  var searchTimer;
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function() {
+      currentSearch = searchInput.value.toLowerCase().trim();
+      applyFilters();
+    }, 200);
+  });
+})();
+</script>
