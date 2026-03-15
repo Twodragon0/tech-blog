@@ -129,7 +129,7 @@ jobs:
 
       - name: Validate Jekyll Configuration
         run: |
-          bundle exec jekyll doctor || true
+          bundle exec jekyll doctor
           echo "✅ Jekyll configuration validation completed"
 
       - name: Validate Liquid include syntax in posts
