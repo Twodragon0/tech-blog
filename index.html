@@ -61,9 +61,9 @@ title: Home
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           DevSecOps
         </button>
-        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="cloud" type="button">
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="devops" type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          Cloud
+          DevOps
         </button>
       </div>
 
@@ -79,14 +79,24 @@ title: Home
 
     <div id="posts-panel" class="posts-list" role="tabpanel" aria-label="Posts list">
       {% for post in site.posts limit: 12 %}
-        {% comment %} Assign category for data attribute {% endcomment %}
-        {% assign post_cat = "" %}
+        {% comment %} Collect all categories for data attribute {% endcomment %}
+        {% assign post_cats = "" %}
         {% if post.category and post.category != "" %}
-          {% assign post_cat = post.category | downcase | strip %}
-        {% elsif post.categories.first %}
-          {% assign post_cat = post.categories.first | downcase | strip %}
+          {% assign post_cats = post.category | downcase | strip %}
         {% endif %}
-        <article class="post-card card" data-category="{{ post_cat }}" data-date="{{ post.date | date: '%Y%m%d' }}">
+        {% if post.categories %}
+          {% for cat in post.categories %}
+            {% assign cat_lower = cat | downcase | strip %}
+            {% unless post_cats contains cat_lower %}
+              {% if post_cats != "" %}
+                {% assign post_cats = post_cats | append: " " | append: cat_lower %}
+              {% else %}
+                {% assign post_cats = cat_lower %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+        <article class="post-card card" data-category="{{ post_cats }}" data-date="{{ post.date | date: '%Y%m%d' }}">
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">
@@ -249,8 +259,8 @@ title: Home
           card.style.display = '';
           visibleCount++;
         } else {
-          var cat = card.getAttribute('data-category');
-          if (cat && cat.indexOf(sort) !== -1) {
+          var cats = (card.getAttribute('data-category') || '').split(' ');
+          if (cats.indexOf(sort) !== -1) {
             card.style.display = '';
             visibleCount++;
           } else {
