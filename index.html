@@ -45,21 +45,113 @@ title: Home
     </div>
   </div>
 
-  <!-- Recent Posts -->
-  <section class="recent-posts-section">
-    <div class="section-header">
-      <h2>Recent Posts</h2>
-      <a href="{{ '/archive/' | relative_url }}" class="btn btn-secondary">View All</a>
+  <!-- Posts Section with Tabs & Controls -->
+  <section class="posts-section" aria-label="Blog Posts">
+    <div class="posts-toolbar">
+      <div class="posts-tabs" role="tablist" aria-label="Posts sorting">
+        <button class="posts-tab active" role="tab" aria-selected="true" aria-controls="posts-panel" data-sort="recent" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Latest
+        </button>
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="security" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Security
+        </button>
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="devsecops" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          DevSecOps
+        </button>
+        <button class="posts-tab" role="tab" aria-selected="false" aria-controls="posts-panel" data-sort="cloud" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          Cloud
+        </button>
+      </div>
+
+      <div class="posts-view-toggle" role="group" aria-label="View mode">
+        <button class="view-btn active" data-view="grid" aria-label="Grid view" aria-pressed="true" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="view-btn" data-view="list" aria-label="List view" aria-pressed="false" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+      </div>
     </div>
 
-    <div class="posts-list">
-      {% for post in site.posts limit: 9 %}
-        {% include post-card.html post=post %}
+    <div id="posts-panel" class="posts-list" role="tabpanel" aria-label="Posts list">
+      {% for post in site.posts limit: 12 %}
+        {% comment %} Assign category for data attribute {% endcomment %}
+        {% assign post_cat = "" %}
+        {% if post.category and post.category != "" %}
+          {% assign post_cat = post.category | downcase | strip %}
+        {% elsif post.categories.first %}
+          {% assign post_cat = post.categories.first | downcase | strip %}
+        {% endif %}
+        <article class="post-card card" data-category="{{ post_cat }}" data-date="{{ post.date | date: '%Y%m%d' }}">
+          <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
+            {% if post.image and post.image != "" %}
+            <div class="post-card-image">
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225">
+            </div>
+            {% endif %}
+            <div class="post-card-content">
+              <div class="post-card-meta">
+                {% assign display_cat = "" %}
+                {% if post.category and post.category != "" and post.category != empty %}
+                  {% assign display_cat = post.category | strip %}
+                {% elsif post.categories and post.categories != empty %}
+                  {% if post.categories.first %}
+                    {% assign display_cat = post.categories.first | strip %}
+                  {% else %}
+                    {% assign display_cat = post.categories | strip %}
+                  {% endif %}
+                {% endif %}
+                {% if display_cat != "" and display_cat != empty %}
+                <span class="category-badge {{ display_cat | downcase | replace: ' ', '-' }}">{{ display_cat }}</span>
+                {% endif %}
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%Y. %m. %d" }}
+                </time>
+              </div>
+              <h2 class="post-card-title">{{ post.title | escape }}</h2>
+              {% if post.excerpt and post.excerpt != "" %}
+              {% assign excerpt_text = post.excerpt | strip_html | strip_newlines %}
+              {% if excerpt_text contains ' - ' %}
+                {% assign excerpt_parts = excerpt_text | split: ' - ' %}
+                {% assign excerpt_summary = excerpt_parts.first | truncate: 40 %}
+                {% assign excerpt_highlights = excerpt_parts.last %}
+                <div class="post-card-excerpt">
+                  <span class="excerpt-summary">{{ excerpt_summary }}</span>
+                  <span class="excerpt-highlights">{{ excerpt_highlights | truncate: 80 }}</span>
+                </div>
+              {% else %}
+                <p class="post-card-excerpt">{{ excerpt_text | truncate: 120 }}</p>
+              {% endif %}
+              {% endif %}
+              {% if post.tags and post.tags.size > 0 %}
+              <div class="post-card-tags">
+                {% for tag in post.tags limit:3 %}
+                <span class="tag">#{{ tag | replace: '-', ' ' }}</span>
+                {% endfor %}
+                {% if post.tags.size > 3 %}
+                <span class="tag tag--more">+{{ post.tags.size | minus: 3 }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </a>
+        </article>
         {% comment %} 6번째 포스트 후에 인피드 광고 삽입 {% endcomment %}
         {% if forloop.index == 6 and site.google_adsense %}
           {% include adsense.html type="infeed" %}
         {% endif %}
       {% endfor %}
+    </div>
+
+    <div class="posts-footer">
+      <a href="{{ '/archive/' | relative_url }}" class="btn btn-primary btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V15"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        View All Posts
+      </a>
     </div>
   </section>
 
@@ -77,17 +169,14 @@ title: Home
       {% assign cat_name_lower = cat.name | downcase %}
       {% for post in site.posts %}
         {% assign post_matched = false %}
-        {% comment %} Check post.category (singular) first {% endcomment %}
         {% if post.category and post.category != "" %}
           {% assign post_cat_lower = post.category | downcase | strip %}
           {% if post_cat_lower == cat_name_lower %}
             {% assign post_matched = true %}
           {% endif %}
         {% endif %}
-        {% comment %} Check post.categories (plural) if not matched yet {% endcomment %}
         {% unless post_matched %}
           {% if post.categories %}
-            {% comment %} Try to iterate - works for both arrays and single values {% endcomment %}
             {% for post_cat in post.categories %}
               {% assign post_cat_lower = post_cat | downcase | strip %}
               {% if post_cat_lower == cat_name_lower %}
@@ -95,7 +184,6 @@ title: Home
                 {% break %}
               {% endif %}
             {% endfor %}
-            {% comment %} If iteration didn't work (string case), check directly {% endcomment %}
             {% unless post_matched %}
               {% assign post_cat_lower = post.categories | downcase | strip %}
               {% if post_cat_lower == cat_name_lower %}
@@ -135,3 +223,94 @@ title: Home
     </div>
   </section>
 </div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Tab filtering
+  var tabs = document.querySelectorAll('.posts-tab');
+  var cards = document.querySelectorAll('.post-card[data-category]');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      var sort = tab.getAttribute('data-sort');
+      var visibleCount = 0;
+
+      cards.forEach(function(card) {
+        if (sort === 'recent') {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          var cat = card.getAttribute('data-category');
+          if (cat && cat.indexOf(sort) !== -1) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+
+      // Show empty state if no posts match
+      var panel = document.getElementById('posts-panel');
+      var emptyMsg = panel.querySelector('.posts-empty');
+      if (visibleCount === 0 && sort !== 'recent') {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement('div');
+          emptyMsg.className = 'posts-empty';
+          emptyMsg.textContent = 'No posts in this category on the current page. Check the archive for more.';
+          panel.appendChild(emptyMsg);
+        }
+        emptyMsg.style.display = '';
+      } else if (emptyMsg) {
+        emptyMsg.style.display = 'none';
+      }
+    });
+  });
+
+  // View toggle (grid / list)
+  var viewBtns = document.querySelectorAll('.view-btn');
+  var postsList = document.querySelector('.posts-list');
+
+  viewBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      viewBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      var view = btn.getAttribute('data-view');
+      if (view === 'list') {
+        postsList.classList.add('posts-list--list-view');
+      } else {
+        postsList.classList.remove('posts-list--list-view');
+      }
+
+      try { localStorage.setItem('postsView', view); } catch(e) {}
+    });
+  });
+
+  // Restore saved view preference
+  try {
+    var saved = localStorage.getItem('postsView');
+    if (saved === 'list') {
+      postsList.classList.add('posts-list--list-view');
+      viewBtns.forEach(function(b) {
+        var isList = b.getAttribute('data-view') === 'list';
+        b.classList.toggle('active', isList);
+        b.setAttribute('aria-pressed', isList ? 'true' : 'false');
+      });
+    }
+  } catch(e) {}
+})();
+</script>
