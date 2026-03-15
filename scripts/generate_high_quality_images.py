@@ -49,6 +49,34 @@ def _truncate_title(title: str, max_len: int = 50) -> str:
     return title[: max_len - 3] + "..."
 
 
+def _normalize_english_text(text: str) -> str:
+    """Keep only English-friendly characters for SVG text."""
+    if not text:
+        return ""
+
+    normalized = re.sub(r"[^\x00-\x7F]+", " ", text)
+    normalized = re.sub(r"[^A-Za-z0-9&:/+.,()\-\s]", " ", normalized)
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    return normalized
+
+
+def _derive_english_title(raw_title: str, filename: str) -> str:
+    """Derive an English-only display title for SVG output."""
+    normalized_title = _normalize_english_text(raw_title)
+    if len(normalized_title) >= 8:
+        return normalized_title
+
+    stem = Path(filename).stem
+    stem = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", stem)
+    stem = stem.replace("ampquot", " ").replace("amp", " ")
+    stem = re.sub(r"[_\-]+", " ", stem)
+    stem = _normalize_english_text(stem)
+    if stem:
+        return stem.title()
+
+    return "Tech Blog Post"
+
+
 def extract_post_info(post_file: Path) -> Dict:
     """포스팅 파일에서 정보 추출"""
     try:
@@ -336,6 +364,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     """고퀄리티 SVG 이미지 생성"""
     try:
         title = post_info.get("title", "Tech Blog Post")
+        filename = post_info.get("filename", "")
         category = post_info.get("category", "tech").lower()
         tags = post_info.get("tags", [])
         excerpt = post_info.get("excerpt", "")
@@ -427,16 +456,28 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
 
         config = category_config.get(category, category_config["tech"])
 
-        display_title = _escape_svg_text(_truncate_title(title, 48))
+        english_title = _derive_english_title(str(title), str(filename))
+        display_title = _escape_svg_text(_truncate_title(english_title, 48))
 
         # 태그 처리
-        display_tags = tags[:4] if tags else ["Tech", "Blog", "Update"]
+        raw_tags = tags[:4] if tags else ["Tech", "Blog", "Update"]
+        display_tags = []
+        for raw_tag in raw_tags:
+            normalized_tag = _normalize_english_text(str(raw_tag))
+            if normalized_tag:
+                display_tags.append(_truncate_title(normalized_tag, 18))
+
+        if not display_tags:
+            display_tags = [config["label"], "Architecture", "Overview"]
 
         # 요약 라인 처리
         summary_lines = []
         if highlights:
             for h in highlights[:3]:
                 clean_h = re.sub(r"<[^>]+>", "", h)
+                clean_h = _normalize_english_text(clean_h)
+                if not clean_h:
+                    continue
                 if len(clean_h) > 70:
                     clean_h = clean_h[:67] + "..."
                 summary_lines.append(_escape_svg_text(clean_h))
@@ -446,14 +487,25 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
             for word in words:
                 test_line = f"{line} {word}".strip()
                 if len(test_line) > 70:
-                    summary_lines.append(_escape_svg_text(line))
+                    safe_line = _normalize_english_text(line)
+                    if safe_line:
+                        summary_lines.append(_escape_svg_text(safe_line))
                     line = word
                     if len(summary_lines) >= 3:
                         break
                 else:
                     line = test_line
             if line and len(summary_lines) < 3:
-                summary_lines.append(_escape_svg_text(line))
+                safe_line = _normalize_english_text(line)
+                if safe_line:
+                    summary_lines.append(_escape_svg_text(safe_line))
+
+        if not summary_lines:
+            summary_lines = [
+                "Practical implementation guidance",
+                "Architecture and operational checklist",
+                "Security and reliability focus",
+            ]
 
         date_str = datetime.now().strftime("%B %d, %Y")
         icons_svg = config["icons_func"]()

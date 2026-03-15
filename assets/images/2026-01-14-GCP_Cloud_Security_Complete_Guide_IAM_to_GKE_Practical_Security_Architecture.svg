@@ -1,220 +1,189 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#060e1a"/>
-      <stop offset="50%" stop-color="#0a1628"/>
-      <stop offset="100%" stop-color="#0d1c34"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#4285f4"/>
-      <stop offset="33%" stop-color="#ea4335"/>
-      <stop offset="66%" stop-color="#fbbc04"/>
-      <stop offset="100%" stop-color="#34a853"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a3a6e" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#0d1f40" stop-opacity="0.95"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5a1a1a" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#320d0d" stop-opacity="0.95"/>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4a3800" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#2a1f00" stop-opacity="0.95"/>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="card4Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a3d1e" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#052210" stop-opacity="0.95"/>
-    </linearGradient>
-    <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#4285f4"/>
-      <stop offset="100%" stop-color="#34a853"/>
-    </linearGradient>
-    <filter id="cardShadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="titleGlow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Background grid -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="0" y1="525" x2="1200" y2="525" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="300" y1="0" x2="300" y2="630" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="600" y1="0" x2="600" y2="630" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-  <line x1="900" y1="0" x2="900" y2="630" stroke="#1a2e52" stroke-width="0.5" stroke-opacity="0.4"/>
-
-  <!-- Glow orbs with Google colors -->
-  <circle cx="100" cy="150" r="150" fill="#4285f4" fill-opacity="0.06"/>
-  <circle cx="400" cy="400" r="120" fill="#ea4335" fill-opacity="0.05"/>
-  <circle cx="800" cy="150" r="130" fill="#fbbc04" fill-opacity="0.05"/>
-  <circle cx="1100" cy="400" r="140" fill="#34a853" fill-opacity="0.06"/>
-
-  <!-- Top badge -->
-  <rect x="40" y="28" width="210" height="34" rx="17" fill="url(#badgeGrad)"/>
-  <text x="145" y="50" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">GCP SECURITY 2026</text>
-
-  <!-- Date badge -->
-  <rect x="980" y="28" width="180" height="34" rx="17" fill="#0d1c34" stroke="#4285f4" stroke-width="1.5"/>
-  <text x="1070" y="50" fill="#4285f4" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Jan 14, 2026</text>
-
-  <!-- GCP logo-inspired icon -->
-  <g transform="translate(40, 78)">
-    <polygon points="30,4 56,48 4,48" fill="none" stroke="#4285f4" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="30" cy="48" r="12" fill="none" stroke="#ea4335" stroke-width="2"/>
-    <circle cx="4" cy="48" r="8" fill="none" stroke="#fbbc04" stroke-width="2"/>
-    <circle cx="56" cy="48" r="8" fill="none" stroke="#34a853" stroke-width="2"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Main title -->
-  <text x="120" y="112" fill="url(#titleGrad)" font-family="Arial, sans-serif" font-size="42" font-weight="800" filter="url(#titleGlow)">GCP Cloud Security Complete Guide</text>
-
-  <!-- Subtitle -->
-  <text x="120" y="148" fill="#93c5fd" font-family="Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="3">IAM  |  GKE  |  Security Architecture</text>
-
-  <!-- Divider line -->
-  <rect x="120" y="162" width="960" height="2" rx="1" fill="url(#titleGrad)" opacity="0.5"/>
-
-  <!-- 4 cards layout: 2 top, 2 bottom -->
-  <!-- CARD 1: IAM (blue) -->
-  <rect x="60" y="185" width="250" height="290" rx="14" fill="url(#card1Grad)" stroke="#4285f4" stroke-width="1.5" filter="url(#cardShadow)"/>
-  <rect x="60" y="185" width="250" height="4" rx="2" fill="#4285f4"/>
-
-  <!-- IAM icon: person with key -->
-  <g transform="translate(82, 205)">
-    <circle cx="16" cy="10" r="10" fill="none" stroke="#4285f4" stroke-width="2"/>
-    <path d="M0 40 Q0 28 16 28 Q32 28 32 40" fill="none" stroke="#4285f4" stroke-width="2"/>
-    <rect x="34" y="20" width="18" height="12" rx="3" fill="none" stroke="#4285f4" stroke-width="1.5"/>
-    <circle cx="37" cy="26" r="3" fill="none" stroke="#4285f4" stroke-width="1.5"/>
-    <line x1="37" y1="29" x2="37" y2="32" stroke="#4285f4" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-
-  <text x="155" y="222" fill="#4285f4" font-family="Arial, sans-serif" font-size="16" font-weight="700">IAM</text>
-  <text x="80" y="270" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="13" font-weight="600">Identity Management</text>
-  <text x="80" y="290" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Service accounts</text>
-  <text x="80" y="308" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Workload Identity</text>
-  <text x="80" y="326" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Role bindings</text>
-  <text x="80" y="346" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="13" font-weight="600">Least Privilege</text>
-  <text x="80" y="366" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Predefined roles</text>
-  <text x="80" y="384" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Custom roles</text>
-  <text x="80" y="402" fill="#93c5fd" font-family="Arial, sans-serif" font-size="11">- Org policy</text>
-  <text x="80" y="450" fill="#4285f4" font-family="Arial, sans-serif" font-size="12" font-weight="700">Access Control</text>
-  <rect x="80" y="458" width="80" height="3" rx="1" fill="#4285f4" opacity="0.5"/>
-
-  <!-- CARD 2: VPC (red) -->
-  <rect x="330" y="185" width="250" height="290" rx="14" fill="url(#card2Grad)" stroke="#ea4335" stroke-width="1.5" filter="url(#cardShadow)"/>
-  <rect x="330" y="185" width="250" height="4" rx="2" fill="#ea4335"/>
-
-  <!-- VPC icon: network -->
-  <g transform="translate(352, 205)">
-    <rect x="8" y="0" width="24" height="16" rx="3" fill="none" stroke="#ea4335" stroke-width="1.5"/>
-    <rect x="0" y="28" width="20" height="14" rx="3" fill="none" stroke="#ea4335" stroke-width="1.5"/>
-    <rect x="20" y="28" width="20" height="14" rx="3" fill="none" stroke="#ea4335" stroke-width="1.5"/>
-    <line x1="20" y1="16" x2="10" y2="28" stroke="#ea4335" stroke-width="1.5"/>
-    <line x1="20" y1="16" x2="30" y2="28" stroke="#ea4335" stroke-width="1.5"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">GCP : IAM GKE</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
-
-  <text x="415" y="222" fill="#ea4335" font-family="Arial, sans-serif" font-size="16" font-weight="700">VPC Network</text>
-  <text x="350" y="270" fill="#fecaca" font-family="Arial, sans-serif" font-size="13" font-weight="600">Network Security</text>
-  <text x="350" y="290" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- VPC firewall rules</text>
-  <text x="350" y="308" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- Private Google Access</text>
-  <text x="350" y="326" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- VPC Service Controls</text>
-  <text x="350" y="346" fill="#fecaca" font-family="Arial, sans-serif" font-size="13" font-weight="600">Segmentation</text>
-  <text x="350" y="366" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- Shared VPC</text>
-  <text x="350" y="384" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- Cloud NAT</text>
-  <text x="350" y="402" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11">- Cloud Armor DDoS</text>
-  <text x="350" y="450" fill="#ea4335" font-family="Arial, sans-serif" font-size="12" font-weight="700">Network Isolation</text>
-  <rect x="350" y="458" width="100" height="3" rx="1" fill="#ea4335" opacity="0.5"/>
-
-  <!-- CARD 3: GKE (yellow) -->
-  <rect x="600" y="185" width="250" height="290" rx="14" fill="url(#card3Grad)" stroke="#fbbc04" stroke-width="1.5" filter="url(#cardShadow)"/>
-  <rect x="600" y="185" width="250" height="4" rx="2" fill="#fbbc04"/>
-
-  <!-- GKE icon: container/helm wheel -->
-  <g transform="translate(622, 205)">
-    <circle cx="20" cy="22" r="18" fill="none" stroke="#fbbc04" stroke-width="2"/>
-    <circle cx="20" cy="22" r="7" fill="none" stroke="#fbbc04" stroke-width="2"/>
-    <line x1="20" y1="4" x2="20" y2="15" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="20" y1="29" x2="20" y2="40" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="3" y1="13" x2="13" y2="18" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="27" y1="26" x2="37" y2="31" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="37" y1="13" x2="27" y2="18" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="13" y1="26" x2="3" y2="31" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">GCP : IAM , VPC , Cloud SQL , Cloud</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Storage</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="60" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#GCP</text>
+      <rect x="72" y="0" width="105" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="124" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security</text>
+      <rect x="189" y="0" width="60" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="219" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#IAM</text>
+      <rect x="261" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="318" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cloud-SQL</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
   </g>
-
-  <text x="680" y="222" fill="#fbbc04" font-family="Arial, sans-serif" font-size="16" font-weight="700">GKE Security</text>
-  <text x="620" y="270" fill="#fef3c7" font-family="Arial, sans-serif" font-size="13" font-weight="600">Container Security</text>
-  <text x="620" y="290" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- Workload Identity</text>
-  <text x="620" y="308" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- Binary Authorization</text>
-  <text x="620" y="326" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- Network policies</text>
-  <text x="620" y="346" fill="#fef3c7" font-family="Arial, sans-serif" font-size="13" font-weight="600">Runtime Protection</text>
-  <text x="620" y="366" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- Pod security standards</text>
-  <text x="620" y="384" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- RBAC enforcement</text>
-  <text x="620" y="402" fill="#fde68a" font-family="Arial, sans-serif" font-size="11">- Shielded GKE nodes</text>
-  <text x="620" y="450" fill="#fbbc04" font-family="Arial, sans-serif" font-size="12" font-weight="700">Kubernetes Hardening</text>
-  <rect x="620" y="458" width="120" height="3" rx="1" fill="#fbbc04" opacity="0.5"/>
-
-  <!-- CARD 4: SCC (green) -->
-  <rect x="870" y="185" width="270" height="290" rx="14" fill="url(#card4Grad)" stroke="#34a853" stroke-width="1.5" filter="url(#cardShadow)"/>
-  <rect x="870" y="185" width="270" height="4" rx="2" fill="#34a853"/>
-
-  <!-- SCC icon: security center -->
-  <g transform="translate(892, 205)">
-    <rect x="0" y="0" width="44" height="44" rx="8" fill="none" stroke="#34a853" stroke-width="2"/>
-    <path d="M22 8 L34 14 L34 26 Q34 34 22 40 Q10 34 10 26 L10 14 Z" fill="none" stroke="#34a853" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M16 24 L20 28 L28 20" fill="none" stroke="#34a853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <text x="952" y="222" fill="#34a853" font-family="Arial, sans-serif" font-size="16" font-weight="700">Security Command Center</text>
-  <text x="890" y="270" fill="#bbf7d0" font-family="Arial, sans-serif" font-size="13" font-weight="600">Threat Detection</text>
-  <text x="890" y="290" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Vulnerability scanning</text>
-  <text x="890" y="308" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Anomaly detection</text>
-  <text x="890" y="326" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Threat Intelligence</text>
-  <text x="890" y="346" fill="#bbf7d0" font-family="Arial, sans-serif" font-size="13" font-weight="600">Asset Security</text>
-  <text x="890" y="366" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Asset inventory</text>
-  <text x="890" y="384" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Compliance posture</text>
-  <text x="890" y="402" fill="#86efac" font-family="Arial, sans-serif" font-size="11">- Finding management</text>
-  <text x="890" y="450" fill="#34a853" font-family="Arial, sans-serif" font-size="12" font-weight="700">Security Operations</text>
-  <rect x="890" y="458" width="120" height="3" rx="1" fill="#34a853" opacity="0.5"/>
-
-  <!-- Footer bar -->
-  <rect x="0" y="516" width="1200" height="114" fill="#040810" fill-opacity="0.95"/>
-  <rect x="0" y="516" width="1200" height="2" fill="url(#titleGrad)" opacity="0.6"/>
-
-  <!-- Footer keywords -->
-  <g transform="translate(60, 545)">
-    <rect x="0" y="0" width="56" height="26" rx="13" fill="#1a3a6e" stroke="#4285f4" stroke-width="1"/>
-    <text x="28" y="17" fill="#4285f4" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">GCP</text>
-  </g>
-  <g transform="translate(130, 545)">
-    <rect x="0" y="0" width="56" height="26" rx="13" fill="#1a3a6e" stroke="#4285f4" stroke-width="1"/>
-    <text x="28" y="17" fill="#4285f4" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">IAM</text>
-  </g>
-  <g transform="translate(200, 545)">
-    <rect x="0" y="0" width="56" height="26" rx="13" fill="#5a1a1a" stroke="#ea4335" stroke-width="1"/>
-    <text x="28" y="17" fill="#ea4335" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">VPC</text>
-  </g>
-  <g transform="translate(270, 545)">
-    <rect x="0" y="0" width="56" height="26" rx="13" fill="#4a3800" stroke="#fbbc04" stroke-width="1"/>
-    <text x="28" y="17" fill="#fbbc04" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">GKE</text>
-  </g>
-  <g transform="translate(340, 545)">
-    <rect x="0" y="0" width="100" height="26" rx="13" fill="#0a3d1e" stroke="#34a853" stroke-width="1"/>
-    <text x="50" y="17" fill="#34a853" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">SCC</text>
-  </g>
-
-  <!-- Footer site -->
-  <text x="1140" y="558" fill="#86efac" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="end">tech.2twodragon.com</text>
-
-  <!-- Footer description -->
-  <text x="60" y="598" fill="#2a4a3a" font-family="Arial, sans-serif" font-size="13">Practical GCP cloud security architecture covering IAM, VPC networking, GKE container security, and Security Command Center operations</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

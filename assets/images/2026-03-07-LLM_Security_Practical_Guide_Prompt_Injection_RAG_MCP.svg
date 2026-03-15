@@ -1,150 +1,189 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
+    <!-- Background Gradients -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
       <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#d97706"/>
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
-    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#0891b2"/>
-    </linearGradient>
+    
+    <!-- Glow Effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <!-- Decorative Circles -->
-  <circle cx="150" cy="180" r="260" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="1050" cy="480" r="220" fill="#3b82f6" fill-opacity="0.04"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.02"/>
-
-  <!-- Header Badge -->
-  <rect x="35" y="24" width="240" height="38" rx="19" fill="url(#purpleGradient)" filter="url(#shadow)"/>
-  <text x="155" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">LLM SECURITY 2026</text>
-
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
+  
   <!-- Date Badge -->
-  <rect x="925" y="24" width="240" height="38" rx="19" fill="url(#cyanGradient)" filter="url(#shadow)"/>
-  <text x="1045" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">March 7, 2026</text>
-
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+  </g>
+  
   <!-- Main Title -->
-  <text x="600" y="115" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">LLM Security Practical Guide 2026</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Prompt Injection | RAG Security | MCP Threats | Supply Chain</text>
-
-  <!-- Left Card: Defense -->
-  <g filter="url(#shadow)">
-    <rect x="55" y="200" width="320" height="320" rx="16" fill="url(#cardGradient)"/>
-    <rect x="55" y="200" width="320" height="6" rx="3" fill="url(#greenGradient)"/>
-
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">LLM 2026: , RAG , MCP</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
     <!-- Shield Icon -->
-    <g transform="translate(215, 300)">
-      <path d="M 0 -48 L 38 -28 L 38 8 Q 0 48 -38 8 L -38 -28 Z" fill="url(#greenGradient)" stroke="#10b981" stroke-width="2.5"/>
-      <circle cx="0" cy="-8" r="12" fill="#6ee7b7" fill-opacity="0.4"/>
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-
-    <text x="215" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#10b981" text-anchor="middle">DEFENSE</text>
-    <text x="215" y="428" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Guardrails</text>
-    <text x="215" y="452" font-family="Arial, sans-serif" font-size="15" fill="#6ee7b7" text-anchor="middle">Input Sanitization</text>
-    <text x="215" y="476" font-family="Arial, sans-serif" font-size="14" fill="#34d399" text-anchor="middle">Output Validation</text>
-    <text x="215" y="498" font-family="Arial, sans-serif" font-size="14" fill="#6ee7b7" text-anchor="middle">Access Control</text>
-  </g>
-
-  <!-- Center Card: Threats -->
-  <g filter="url(#shadow)">
-    <rect x="440" y="200" width="320" height="320" rx="16" fill="url(#cardGradient)"/>
-    <rect x="440" y="200" width="320" height="6" rx="3" fill="url(#blueGradient)"/>
-
-    <!-- Brain/AI Icon -->
-    <g transform="translate(600, 300)">
-      <circle cx="0" cy="-20" r="22" fill="none" stroke="#3b82f6" stroke-width="3"/>
-      <circle cx="-18" cy="4" r="15" fill="none" stroke="#3b82f6" stroke-width="3"/>
-      <circle cx="18" cy="4" r="15" fill="none" stroke="#3b82f6" stroke-width="3"/>
-      <circle cx="0" cy="20" r="15" fill="none" stroke="#3b82f6" stroke-width="3"/>
-      <circle cx="0" cy="0" r="6" fill="#3b82f6"/>
-    </g>
-
-    <text x="600" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#3b82f6" text-anchor="middle">THREATS</text>
-    <text x="600" y="428" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Attack Vectors</text>
-    <text x="600" y="452" font-family="Arial, sans-serif" font-size="15" fill="#93c5fd" text-anchor="middle">Injection | RAG Poisoning</text>
-    <text x="600" y="476" font-family="Arial, sans-serif" font-size="14" fill="#60a5fa" text-anchor="middle">Jailbreaking</text>
-    <text x="600" y="498" font-family="Arial, sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle">Model Extraction</text>
-  </g>
-
-  <!-- Right Card: Risks -->
-  <g filter="url(#shadow)">
-    <rect x="825" y="200" width="320" height="320" rx="16" fill="url(#cardGradient)"/>
-    <rect x="825" y="200" width="320" height="6" rx="3" fill="url(#redGradient)"/>
-
+    
     <!-- Lock Icon -->
-    <g transform="translate(985, 300)">
-      <rect x="-22" y="-4" width="44" height="36" rx="4" fill="none" stroke="#dc2626" stroke-width="3"/>
-      <path d="M -14 -4 L -14 -18 Q 0 -30 14 -18 L 14 -4" fill="none" stroke="#dc2626" stroke-width="3"/>
-      <circle cx="0" cy="16" r="5" fill="#dc2626"/>
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
     </g>
-
-    <text x="985" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#dc2626" text-anchor="middle">RISKS</text>
-    <text x="985" y="428" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Supply Chain</text>
-    <text x="985" y="452" font-family="Arial, sans-serif" font-size="15" fill="#f87171" text-anchor="middle">MCP Vulnerabilities</text>
-    <text x="985" y="476" font-family="Arial, sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle">Data Poisoning</text>
-    <text x="985" y="498" font-family="Arial, sans-serif" font-size="14" fill="#f87171" text-anchor="middle">Third-party Plugins</text>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
-
-  <!-- Footer Stats Bar -->
-  <rect x="35" y="548" width="1130" height="58" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
-  <text x="55" y="572" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f59e0b">LLM Security</text>
-  <text x="180" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">|</text>
-  <text x="200" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">4 Topics</text>
-  <text x="290" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">|</text>
-  <text x="310" y="572" font-family="Arial, sans-serif" font-size="13" fill="#fca5a5">Prompt Injection</text>
-  <text x="460" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">|</text>
-  <text x="480" y="572" font-family="Arial, sans-serif" font-size="13" fill="#6ee7b7">RAG</text>
-  <text x="530" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">|</text>
-  <text x="550" y="572" font-family="Arial, sans-serif" font-size="13" fill="#93c5fd">MCP</text>
-  <text x="600" y="572" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">|</text>
-  <text x="620" y="572" font-family="Arial, sans-serif" font-size="13" fill="#f87171">Supply Chain</text>
-
-  <!-- Practical Topics Row -->
-  <text x="55" y="594" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">PRACTICAL TOPICS:</text>
-  <text x="200" y="594" font-family="Arial, sans-serif" font-size="12" fill="#fca5a5">Prompt Injection Detection</text>
-  <text x="430" y="594" font-family="Arial, sans-serif" font-size="12" fill="#6ee7b7">RAG Pipeline Security</text>
-  <text x="640" y="594" font-family="Arial, sans-serif" font-size="12" fill="#93c5fd">MCP Framework Hardening</text>
-  <text x="880" y="594" font-family="Arial, sans-serif" font-size="12" fill="#f87171">Defense Strategies</text>
-
-  <!-- Footer URL -->
-  <text x="1160" y="594" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">LLM - , RAG , MCP</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">, .</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="141" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#LLM-Security</text>
+      <rect x="153" y="0" width="177" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="241" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Prompt-Injection</text>
+      <rect x="342" y="0" width="141" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="412" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#RAG-Security</text>
+      <rect x="495" y="0" width="141" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="565" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#MCP-Security</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

@@ -1,211 +1,185 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#050d1a" />
-      <stop offset="50%" stop-color="#071828" />
-      <stop offset="100%" stop-color="#0a2240" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00c6ff" />
-      <stop offset="100%" stop-color="#0072ff" />
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0e2a4a" />
-      <stop offset="100%" stop-color="#071828" />
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a2040" />
-      <stop offset="100%" stop-color="#071828" />
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0c2848" />
-      <stop offset="100%" stop-color="#071828" />
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="iconGrad1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00c6ff" />
-      <stop offset="100%" stop-color="#0072ff" />
-    </linearGradient>
-    <linearGradient id="iconGrad2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#0ea5e9" />
-    </linearGradient>
-    <linearGradient id="iconGrad3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#22d3ee" />
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="shadowCard">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00c6ff" flood-opacity="0.15" />
-    </filter>
-    <filter id="glowStrong">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0d2a45" stroke-width="0.8" />
-    </pattern>
-    <clipPath id="mainClip">
-      <rect width="1200" height="630" />
-    </clipPath>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6" />
-
-  <!-- Ambient glow orbs -->
-  <circle cx="150" cy="120" r="180" fill="#0072ff" opacity="0.05" />
-  <circle cx="1050" cy="500" r="200" fill="#00c6ff" opacity="0.04" />
-  <circle cx="600" cy="300" r="260" fill="#0050cc" opacity="0.03" />
-
-  <!-- Top accent line -->
-  <rect x="0" y="0" width="1200" height="3" fill="url(#accentGrad)" />
-
-  <!-- Badge -->
-  <rect x="60" y="38" width="230" height="34" rx="17" fill="#0a2240" stroke="#00c6ff" stroke-width="1.5" filter="url(#glow)" />
-  <circle cx="82" cy="55" r="7" fill="url(#iconGrad1)" />
-  <text x="97" y="60" fill="#00c6ff" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">ZERO TRUST SECURITY</text>
-
-  <!-- Date badge -->
-  <rect x="1030" y="38" width="130" height="34" rx="17" fill="#0a2240" stroke="#0072ff" stroke-width="1.5" />
-  <text x="1095" y="60" fill="#60a5fa" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Nov 4, 2025</text>
-
-  <!-- Zscaler Z logo symbol -->
-  <g transform="translate(60, 90)" filter="url(#glowStrong)">
-    <polygon points="0,0 50,0 50,8 14,42 50,42 50,50 0,50 0,42 36,8 0,8" fill="url(#accentGrad)" opacity="0.9" />
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Main title -->
-  <text x="130" y="130" fill="#e8f4ff" font-family="Arial Black, Arial, sans-serif" font-size="46" font-weight="900" letter-spacing="-0.5" filter="url(#glow)">Zscaler Complete Guide</text>
-
-  <!-- Subtitle -->
-  <text x="131" y="168" fill="#60a5fa" font-family="Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="2">SSL Inspection  |  Sandbox  |  AI Protection</text>
-
-  <!-- Separator line -->
-  <rect x="60" y="185" width="500" height="2" rx="1" fill="url(#accentGrad)" opacity="0.7" />
-
-  <!-- ── Card 1: SSL Inspection ── -->
-  <rect x="60" y="210" width="340" height="270" rx="16" fill="url(#card1Grad)" stroke="#1e4a7a" stroke-width="1.5" filter="url(#shadowCard)" />
-  <rect x="60" y="210" width="340" height="4" rx="2" fill="url(#iconGrad1)" />
-
-  <!-- SSL icon: lock -->
-  <g transform="translate(185, 250)" filter="url(#glow)">
-    <rect x="-22" y="-8" width="44" height="36" rx="6" fill="#0a2a4a" stroke="#00c6ff" stroke-width="2" />
-    <rect x="-14" y="-22" width="28" height="22" rx="14" fill="none" stroke="#00c6ff" stroke-width="3" />
-    <circle cx="0" cy="12" r="6" fill="#00c6ff" />
-    <rect x="-2" y="12" width="4" height="8" fill="#00c6ff" />
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-
-  <text x="230" y="312" fill="#e8f4ff" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">SSL Inspection</text>
-  <text x="230" y="338" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Deep packet inspection</text>
-  <text x="230" y="356" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">of encrypted HTTPS traffic</text>
-
-  <!-- SSL stats -->
-  <rect x="85" y="375" width="290" height="1" fill="#1e4a7a" />
-  <text x="100" y="398" fill="#00c6ff" font-family="Arial, sans-serif" font-size="12" font-weight="700">TLS 1.3</text>
-  <text x="100" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Full decryption support</text>
-  <text x="240" y="398" fill="#00c6ff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Zero Latency</text>
-  <text x="240" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Cloud-native speed</text>
-  <text x="100" y="438" fill="#00c6ff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Certificate Pinning</text>
-  <text x="100" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Policy bypass control</text>
-  <text x="240" y="438" fill="#00c6ff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Compliance</text>
-  <text x="240" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">GDPR / HIPAA ready</text>
-
-  <!-- ── Card 2: AI/ML Threat Detection ── -->
-  <rect x="430" y="210" width="340" height="270" rx="16" fill="url(#card2Grad)" stroke="#1a3a6a" stroke-width="1.5" filter="url(#shadowCard)" />
-  <rect x="430" y="210" width="340" height="4" rx="2" fill="url(#iconGrad2)" />
-
-  <!-- AI icon: brain/neural net nodes -->
-  <g transform="translate(600, 262)" filter="url(#glow)">
-    <circle cx="0" cy="0" r="12" fill="#0a2040" stroke="#38bdf8" stroke-width="2.5" />
-    <circle cx="-28" cy="-18" r="7" fill="#38bdf8" opacity="0.8" />
-    <circle cx="28" cy="-18" r="7" fill="#38bdf8" opacity="0.8" />
-    <circle cx="-32" cy="14" r="7" fill="#0ea5e9" opacity="0.7" />
-    <circle cx="32" cy="14" r="7" fill="#0ea5e9" opacity="0.7" />
-    <circle cx="0" cy="26" r="7" fill="#38bdf8" opacity="0.8" />
-    <line x1="0" y1="0" x2="-28" y2="-18" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
-    <line x1="0" y1="0" x2="28" y2="-18" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
-    <line x1="0" y1="0" x2="-32" y2="14" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6" />
-    <line x1="0" y1="0" x2="32" y2="14" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6" />
-    <line x1="0" y1="0" x2="0" y2="26" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
-    <text x="0" y="5" fill="#38bdf8" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">AI</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Zscaler : SSL , , AI, ,</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
-
-  <text x="600" y="312" fill="#e8f4ff" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">AI/ML Threat Detection</text>
-  <text x="600" y="338" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Real-time behavioral analysis</text>
-  <text x="600" y="356" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">and anomaly detection</text>
-
-  <rect x="455" y="375" width="290" height="1" fill="#1a3a6a" />
-  <text x="470" y="398" fill="#38bdf8" font-family="Arial, sans-serif" font-size="12" font-weight="700">Sandbox</text>
-  <text x="470" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Zero-day detonation</text>
-  <text x="610" y="398" fill="#38bdf8" font-family="Arial, sans-serif" font-size="12" font-weight="700">DLP Integration</text>
-  <text x="610" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Data loss prevention</text>
-  <text x="470" y="438" fill="#38bdf8" font-family="Arial, sans-serif" font-size="12" font-weight="700">Phishing AI</text>
-  <text x="470" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">URL risk scoring</text>
-  <text x="610" y="438" fill="#38bdf8" font-family="Arial, sans-serif" font-size="12" font-weight="700">UEBA</text>
-  <text x="610" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">User behavior analytics</text>
-
-  <!-- ── Card 3: Content Filtering ── -->
-  <rect x="800" y="210" width="340" height="270" rx="16" fill="url(#card3Grad)" stroke="#1e4878" stroke-width="1.5" filter="url(#shadowCard)" />
-  <rect x="800" y="210" width="340" height="4" rx="2" fill="url(#iconGrad3)" />
-
-  <!-- Shield icon -->
-  <g transform="translate(970, 262)" filter="url(#glow)">
-    <path d="M0,-28 L22,-14 L22,10 Q22,28 0,36 Q-22,28 -22,10 L-22,-14 Z" fill="#0a2840" stroke="#67e8f9" stroke-width="2.5" />
-    <path d="M-8,2 L-2,10 L12,-8" stroke="#67e8f9" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Zscaler . SSL , (ATP), AI/ / Zero Trust</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="96" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="48" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Zscaler</text>
+      <rect x="108" y="0" width="69" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="142" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#ZTNA</text>
+      <rect x="189" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="268" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#SSL-Inspection</text>
+      <rect x="360" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="421" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Zero-Trust</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
   </g>
-
-  <text x="970" y="312" fill="#e8f4ff" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Content Filtering</text>
-  <text x="970" y="338" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Block malicious and</text>
-  <text x="970" y="356" fill="#7ab8d4" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">inappropriate content</text>
-
-  <rect x="825" y="375" width="290" height="1" fill="#1e4878" />
-  <text x="840" y="398" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="700">Ad Blocking</text>
-  <text x="840" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Malvertising protection</text>
-  <text x="980" y="398" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="700">URL Categories</text>
-  <text x="980" y="414" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">200+ category policies</text>
-  <text x="840" y="438" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="700">DNS Security</text>
-  <text x="840" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">C2 domain blocking</text>
-  <text x="980" y="438" fill="#67e8f9" font-family="Arial, sans-serif" font-size="12" font-weight="700">Firewall-as-a-Service</text>
-  <text x="980" y="454" fill="#5a8aaa" font-family="Arial, sans-serif" font-size="11">Cloud-native FWaaS</text>
-
-  <!-- Footer separator -->
-  <rect x="0" y="502" width="1200" height="1" fill="#0d2a45" />
-
-  <!-- Footer -->
-  <rect x="0" y="503" width="1200" height="127" fill="#030b16" opacity="0.8" />
-
-  <!-- Footer keywords -->
-  <g transform="translate(60, 535)">
-    <rect x="0" y="0" width="100" height="26" rx="13" fill="#0a2240" stroke="#00c6ff" stroke-width="1" />
-    <text x="50" y="18" fill="#00c6ff" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Zero Trust</text>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-  <g transform="translate(175" y="0">
-  </g>
-  <rect x="175" y="535" width="80" height="26" rx="13" fill="#0a2240" stroke="#0072ff" stroke-width="1" />
-  <text x="215" y="553" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Zscaler</text>
-  <rect x="270" y="535" width="110" height="26" rx="13" fill="#0a2240" stroke="#0072ff" stroke-width="1" />
-  <text x="325" y="553" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">SSL Inspection</text>
-  <rect x="395" y="535" width="90" height="26" rx="13" fill="#0a2240" stroke="#0072ff" stroke-width="1" />
-  <text x="440" y="553" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">AI Security</text>
-  <rect x="500" y="535" width="110" height="26" rx="13" fill="#0a2240" stroke="#0072ff" stroke-width="1" />
-  <text x="555" y="553" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Cloud Security</text>
-  <rect x="625" y="535" width="80" height="26" rx="13" fill="#0a2240" stroke="#0072ff" stroke-width="1" />
-  <text x="665" y="553" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">SASE</text>
-
-  <!-- Domain -->
-  <text x="1140" y="548" fill="#3a6a9a" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="end">tech.2twodragon.com</text>
-
-  <!-- Bottom tagline -->
-  <text x="60" y="590" fill="#2a5a8a" font-family="Arial, sans-serif" font-size="13">Comprehensive Zscaler deployment guide for enterprise security teams</text>
-  <text x="1140" y="590" fill="#1a3a5a" font-family="Arial, sans-serif" font-size="12" text-anchor="end">DevSecOps Blog</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>
