@@ -82,7 +82,7 @@ title: Home
     </div>
 
     <div id="posts-panel" class="posts-list" role="tabpanel" aria-label="Posts list">
-      {% for post in site.posts %}
+      {% for post in site.posts limit: 30 %}
         {% comment %} Collect all categories for data attribute {% endcomment %}
         {% assign post_cats = "" %}
         {% if post.category and post.category != "" %}

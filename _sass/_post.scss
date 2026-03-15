@@ -1,5 +1,18 @@
 /* Post-specific Styles */
 
+/* Reading Progress Bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-devsecops, #7c3aed));
+  z-index: 1000;
+  transition: width 100ms linear;
+  pointer-events: none;
+}
+
 [data-theme="dark"] .post-content pre {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
