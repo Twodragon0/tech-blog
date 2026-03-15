@@ -100,6 +100,22 @@
   };
   document.head.appendChild(script);
 
+  // Enhance generic alt text on static mermaid SVG images
+  document.querySelectorAll('img[src*="/mermaid/"]').forEach(function(img) {
+    if (!img.alt || img.alt === 'Mermaid Diagram') {
+      var heading = null;
+      var el = img.previousElementSibling || (img.parentElement && img.parentElement.previousElementSibling);
+      while (el) {
+        if (/^H[1-6]$/.test(el.tagName)) { heading = el.textContent.trim(); break; }
+        el = el.previousElementSibling;
+      }
+      if (heading) {
+        img.alt = heading + ' diagram';
+      }
+      img.setAttribute('role', 'img');
+    }
+  });
+
   // Re-render on theme change (without page reload)
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
