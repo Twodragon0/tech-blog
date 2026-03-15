@@ -17,16 +17,12 @@ permalink: /archive/
     </div>
     <div class="archive-filters" role="group" aria-label="Category filter">
       <button class="archive-filter active" data-filter="all" type="button">All</button>
-      {% assign all_cats = site.posts | map: "categories" | flatten | compact | uniq | sort_natural %}
-      {% for cat in all_cats %}
-        {% assign cat_lower = cat | downcase %}
-        {% assign cat_count = 0 %}
-        {% for p in site.posts %}
-          {% for pc in p.categories %}
-            {% if pc == cat %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}
-          {% endfor %}
-        {% endfor %}
-        <button class="archive-filter" data-filter="{{ cat_lower }}" type="button">{{ cat }} <span class="archive-filter-count">{{ cat_count }}</span></button>
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category in sorted_categories %}
+        {% assign cat_name = category[0] %}
+        {% assign cat_posts = category[1] %}
+        {% assign cat_lower = cat_name | downcase %}
+        <button class="archive-filter" data-filter="{{ cat_lower }}" type="button">{{ cat_name }} <span class="archive-filter-count">{{ cat_posts.size }}</span></button>
       {% endfor %}
     </div>
   </div>
@@ -42,8 +38,7 @@ permalink: /archive/
       <span class="archive-stat-label">Years</span>
     </div>
     <div class="archive-stat">
-      {% assign all_categories = site.posts | map: "categories" | flatten | compact | uniq %}
-      <span class="archive-stat-number">{{ all_categories.size }}</span>
+      <span class="archive-stat-number">{{ site.categories.size }}</span>
       <span class="archive-stat-label">Categories</span>
     </div>
   </div>
