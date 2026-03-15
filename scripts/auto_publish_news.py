@@ -1978,7 +1978,7 @@ toc: true
             content += f"### {title}\n\n"
             if ko_summary:
                 content += f"{ko_summary}\n\n"
-            content += f"> **출처**: [{source_name}]({url})\n\n"
+            # 출처는 news-card에 포함되므로 별도 blockquote 생략
         section_num += 1
 
     # AI/ML 섹션
@@ -1993,7 +1993,7 @@ toc: true
             content += f"### {section_num}.{i} {title}\n\n"
             if ko_summary:
                 content += f"{ko_summary}\n\n"
-            content += f"> **출처**: [{source}]({url})\n\n"
+            # 출처는 news-card에 포함되므로 별도 blockquote 생략
 
             # Key points
             key_points = _generate_key_points(item)
@@ -2014,7 +2014,7 @@ toc: true
             content += f"### {section_num}.{i} {title}\n\n"
             if ko_summary:
                 content += f"{ko_summary}\n\n"
-            content += f"> **출처**: [{source}]({url})\n\n"
+            # 출처는 news-card에 포함되므로 별도 blockquote 생략
         section_num += 1
 
     # Open Source 섹션
@@ -2029,7 +2029,7 @@ toc: true
             content += f"### {section_num}.{i} {title}\n\n"
             if ko_summary:
                 content += f"{ko_summary}\n\n"
-            content += f"> **출처**: [{source}]({url})\n\n"
+            # 출처는 news-card에 포함되므로 별도 blockquote 생략
         section_num += 1
 
     # General 섹션
@@ -2632,7 +2632,6 @@ def generate_news_section(
         enhanced = enhance_content_with_fallback(item)
         if enhanced:
             section += enhanced + "\n\n"
-            section += f"> **출처**: [{source}]({url})\n\n"
 
             # CVE가 있으면 MITRE 매핑 추가
             if cve_ids:
@@ -2654,7 +2653,7 @@ def generate_news_section(
         if action_point:
             section += f"**실무 포인트**: {action_point}\n\n"
 
-    section += f"> **출처**: [{source}]({url})\n\n"
+    # 출처는 news-card에 포함되므로 별도 blockquote 생략
 
     # 핵심 포인트 - only if content differs from summary
     key_points = _generate_key_points(item)
