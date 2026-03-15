@@ -2439,9 +2439,8 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
             return deepseek_translated
 
     if raw_title:
-        source_name = (
-            item.get("source_name", "") or item.get("source", "해외 기술 매체")
-        ).strip()
+        # AI 번역 실패 시: 실제 RSS 제목을 그대로 사용 (일반적 토픽 구문 대신)
+        # CVE가 포함된 경우만 한국어 레이블 추가
         cve_match = re.search(r"CVE-\d{4}-\d+", raw_title, re.IGNORECASE)
         category_label = {
             "security": "보안",
@@ -2454,34 +2453,13 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
             "tech": "기술",
         }.get(category, "기술")
 
-        raw_lower = raw_title.lower()
-        topic_phrase = "해외 기술 동향"
-        topic_rules = [
-            (["ransomware"], "랜섬웨어 위협"),
-            (["malware", "trojan", "backdoor"], "악성코드 위협"),
-            (["zero-day", "0-day"], "제로데이 취약점"),
-            (["vulnerability", "exploit"], "취약점 악용 이슈"),
-            (["phishing", "credential"], "피싱 및 계정 탈취 위협"),
-            (["fortigate", "firewall"], "경계 장비 보안 이슈"),
-            (["kubernetes", "container"], "쿠버네티스/컨테이너 보안 이슈"),
-            (["blockchain", "bitcoin", "wallet"], "블록체인 보안 동향"),
-            (["ai", "agent", "llm"], "AI 보안 동향"),
-            (["cloud", "aws", "azure", "gcp"], "클라우드 보안 동향"),
-        ]
-        for keys, phrase in topic_rules:
-            if any(key in raw_lower for key in keys):
-                topic_phrase = phrase
-                break
-
         if cve_match:
             display_title = (
                 f"[{category_label}] {cve_match.group(0).upper()} 취약점 보안 업데이트"
             )
         else:
-            display_title = f"[{category_label}] {topic_phrase}"
-
-        if source_name:
-            display_title = f"{display_title} ({source_name})"
+            # 실제 영문 제목을 그대로 사용하여 구체성 유지
+            display_title = raw_title
 
         if len(display_title) > max_len:
             display_title = display_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
@@ -2570,43 +2548,27 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
                 KOREAN_SUMMARY_CACHE[cache_key] = deepseek_translated
                 return deepseek_translated
 
-        title_ko = _korean_display_title(item)
+        # AI 번역 실패 시: 실제 RSS 요약 텍스트를 정리하여 사용
+        # 일반적 템플릿 문구 대신 원본 콘텐츠의 구체성을 유지
         source_name = item.get("source_name", item.get("source", ""))
 
-        category = item.get("category", "tech")
-        category_label = {
-            "security": "보안",
-            "devsecops": "DevSecOps",
-            "ai": "AI",
-            "cloud": "클라우드",
-            "devops": "DevOps",
-            "blockchain": "블록체인",
-            "kubernetes": "쿠버네티스",
-            "tech": "기술",
-        }.get(category, "기술")
-        raw_lower = (title_text + " " + raw_text).lower()
-        summary_topic = "주요 보안/기술 이슈"
-        summary_rules = [
-            (["ransomware"], "랜섬웨어 위협"),
-            (["malware", "trojan", "backdoor"], "악성코드 위협"),
-            (["zero-day", "0-day", "cve-"], "취약점 및 제로데이 이슈"),
-            (["phishing", "credential"], "피싱 및 계정 보안 이슈"),
-            (["kubernetes", "container"], "클라우드 네이티브 보안 이슈"),
-            (["blockchain", "bitcoin", "wallet"], "블록체인 보안 동향"),
-            (["ai", "agent", "llm"], "AI 보안 동향"),
-            (["cloud", "aws", "azure", "gcp"], "클라우드 보안 동향"),
-        ]
-        for keys, phrase in summary_rules:
-            if any(key in raw_lower for key in keys):
-                summary_topic = phrase
-                break
+        # HTML 태그 제거 및 정리
+        clean_text = re.sub(r"<[^>]+>", "", raw_text)
+        clean_text = re.sub(r"\s+", " ", clean_text).strip()
+
+        # 첫 2~3문장 추출 (최대 300자)
+        sentences = re.split(r"(?<=[.!?。])\s+", clean_text)
+        sentences = [s.strip() for s in sentences if len(s.strip()) > 10]
+        summary_text = " ".join(sentences[:3])
+        if len(summary_text) > 300:
+            summary_text = summary_text[:297].rsplit(" ", 1)[0] + "..."
+
         action = _generate_contextual_action_point(item)
-        source_suffix = f" ({source_name})" if source_name else ""
-        result = (
-            f"{title_ko}{source_suffix}에서 {summary_topic}이 보고되었습니다. "
-            f"이번 항목은 {category_label} 운영 관점에서 영향도를 검토하고 우선 대응 항목을 점검해야 합니다. "
-            f"{action}"
-        )
+        if summary_text:
+            result = f"{summary_text} {action}"
+        else:
+            title_ko = _korean_display_title(item)
+            result = f"{title_ko}. {action}"
 
         KOREAN_SUMMARY_CACHE[cache_key] = result
         return result
