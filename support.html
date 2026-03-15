@@ -47,7 +47,6 @@ permalink: /support/
             action="https://buttondown.com/api/emails/embed-subscribe/twodragon"
             method="post"
             target="popupwindow"
-            onsubmit="window.open('https://buttondown.com/twodragon', 'popupwindow')"
             class="newsletter-form"
             style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);"
           >
@@ -179,7 +178,7 @@ permalink: /support/
         <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
           커피 한 잔 값으로 블로그 운영을 응원해주세요.
         </p>
-        <a href="#" class="btn" style="width: 100%; justify-content: center; background: #ffdd00; color: #000; font-weight: 600;" onclick="alert('Buy Me a Coffee 계정을 만들고 링크를 설정해주세요. buymeacoffee.com'); return false;">
+        <a href="#" id="buyme-coffee-btn" class="btn" style="width: 100%; justify-content: center; background: #ffdd00; color: #000; font-weight: 600;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 8h-1V4H5v4H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1.17l.59 2.65A2 2 0 0 0 7.72 22h8.56a2 2 0 0 0 1.96-1.65l.59-2.35H20a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z"/>
           </svg>
@@ -368,84 +367,4 @@ permalink: /support/
 }
 </style>
 
-<script>
-(function() {
-  'use strict';
-  
-  const newsletterForm = document.querySelector('.newsletter-form');
-  if (!newsletterForm) return;
-  
-  // 성공/에러 메시지 요소 생성
-  const successMsg = document.createElement('div');
-  successMsg.className = 'success-message';
-  successMsg.textContent = '✅ 구독이 완료되었습니다! 확인 이메일을 확인해주세요.';
-  
-  const errorMsg = document.createElement('div');
-  errorMsg.className = 'error-message';
-  errorMsg.textContent = '❌ 구독 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
-  
-  newsletterForm.appendChild(successMsg);
-  newsletterForm.appendChild(errorMsg);
-  
-  // 폼 제출 이벤트 처리
-  newsletterForm.addEventListener('submit', function(e) {
-    const emailInput = newsletterForm.querySelector('input[type="email"]');
-    const submitButton = newsletterForm.querySelector('button[type="submit"]');
-    
-    // 입력 검증
-    if (!emailInput.value || !emailInput.validity.valid) {
-      e.preventDefault();
-      errorMsg.style.display = 'block';
-      successMsg.style.display = 'none';
-      setTimeout(() => {
-        errorMsg.style.display = 'none';
-      }, 5000);
-      return false;
-    }
-    
-    // 로딩 상태 표시
-    newsletterForm.classList.add('loading');
-    submitButton.disabled = true;
-    errorMsg.style.display = 'none';
-    successMsg.style.display = 'none';
-    
-    // 폼은 기본 동작으로 제출 (Buttondown API로 POST)
-    // 성공 시 팝업 창이 열리므로, 여기서는 에러 처리만 수행
-    // 팝업이 차단된 경우를 대비한 폴백
-    setTimeout(() => {
-      newsletterForm.classList.remove('loading');
-      submitButton.disabled = false;
-      
-      // 팝업이 열렸는지 확인 (간접적으로)
-      // 실제로는 Buttondown이 리디렉션하므로 성공 메시지 표시
-      const checkPopup = setInterval(() => {
-        try {
-          // 팝업 창이 열렸는지 확인
-          if (window.open('', 'popupwindow').closed === false) {
-            clearInterval(checkPopup);
-            successMsg.style.display = 'block';
-            emailInput.value = ''; // 입력 필드 초기화
-          }
-        } catch (err) {
-          // 팝업 차단 등의 경우
-          clearInterval(checkPopup);
-        }
-      }, 100);
-      
-      // 3초 후 체크 중단
-      setTimeout(() => {
-        clearInterval(checkPopup);
-      }, 3000);
-    }, 1000);
-  });
-  
-  // 입력 필드 포커스 시 에러 메시지 숨김
-  const emailInput = newsletterForm.querySelector('input[type="email"]');
-  if (emailInput) {
-    emailInput.addEventListener('focus', function() {
-      errorMsg.style.display = 'none';
-      successMsg.style.display = 'none';
-    });
-  }
-})();
-</script>
+<script src="{{ '/assets/js/support-page.js' | relative_url }}" defer></script>

@@ -47,104 +47,17 @@
 </footer>
 
 <!-- Core JavaScript (모든 페이지에서 로드) -->
-<script src="{{ "/assets/js/main-core.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ '/assets/js/main-core.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ '/assets/js/adsense-init.js' | relative_url }}" defer></script>
 
 <!-- Post-specific JavaScript (포스트 페이지에서만 로드) -->
 {% if page.layout == 'post' %}
-<script src="{{ "/assets/js/main-post.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
-<script src="{{ "/assets/js/post-page.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
-<script src="{{ "/assets/js/share-actions.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ '/assets/js/main-post.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ '/assets/js/post-page.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ '/assets/js/share-actions.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 {% endif %}
 
-<!-- WebP auto-replace for browsers that support it (saves ~75% on PNG images) -->
-<script>
-(function() {
-  if (!self.createImageBitmap) return;
-  var webpTest = new Image();
-  webpTest.onload = function() {
-    document.querySelectorAll('img[src$=".png"]').forEach(function(img) {
-      var src = img.getAttribute('src');
-      if (src && !src.includes('/og/')) {
-        var webpSrc = src.replace(/\.png$/, '.webp');
-        var test = new Image();
-        test.onload = function() { img.src = webpSrc; };
-        test.src = webpSrc;
-      }
-    });
-  };
-  webpTest.src = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiTjt7REA';
-})();
-</script>
-
-<!-- Search & Translation JavaScript (지연 로드) -->
-<script>
-  // Search input focus 시 지연 로드
-  (function() {
-    'use strict';
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-      let searchScriptLoaded = false;
-      const loadSearchScript = function() {
-        if (searchScriptLoaded) return;
-        searchScriptLoaded = true;
-        const script = document.createElement('script');
-        script.src = "{{ "/assets/js/main-search.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}";
-        script.defer = true;
-        script.onerror = function() {
-          console.warn('[Search] Failed to load search script');
-          searchScriptLoaded = false;
-        };
-        document.body.appendChild(script);
-      };
-      // 검색 입력 포커스 시 로드
-      searchInput.addEventListener('focus', loadSearchScript, { once: true, passive: true });
-      // 또는 페이지 로드 후 3초 뒤 지연 로드 (사용자가 아직 페이지에 있는 경우)
-      setTimeout(function() {
-        if (document.visibilityState === 'visible' && !searchScriptLoaded) {
-          if (typeof requestIdleCallback !== 'undefined') {
-            requestIdleCallback(loadSearchScript, { timeout: 2000 });
-          } else {
-            setTimeout(loadSearchScript, 0);
-          }
-        }
-      }, 3000);
-    }
-  })();
-</script>
-
-<!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드, 에러 핸들링 포함) -->
-<script>
-  // Vercel Analytics & Speed Insights 로드 (에러 핸들링 + 샘플링 포함)
-  (function() {
-    // 프로덕션 환경에서만 로드
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return; // 개발 환경에서는 로드하지 않음
-    }
-
-    // 10% 샘플링 (Free tier 최적화)
-    var shouldSample = Math.random() < 0.1;
-
-    // Analytics 스크립트 로드 (샘플링 적용 안 함 - 페이지뷰 추적은 유지)
-    var analyticsScript = document.createElement('script');
-    analyticsScript.defer = true;
-    analyticsScript.src = 'https://va.vercel-scripts.com/v1/script.js';
-    analyticsScript.onerror = function() {
-      // Analytics 로드 실패는 조용히 처리 (Rate Limiting, 네트워크 문제 등)
-    };
-    document.head.appendChild(analyticsScript);
-
-    // Speed Insights 스크립트 로드 (샘플링 적용 - vitals만 전송)
-    if (shouldSample) {
-      var speedInsightsScript = document.createElement('script');
-      speedInsightsScript.defer = true;
-      speedInsightsScript.src = 'https://va.vercel-scripts.com/v1/speed-insights/script.js';
-      speedInsightsScript.onerror = function() {
-        // Speed Insights 로드 실패는 조용히 처리 (429 Rate Limiting 등)
-      };
-      document.head.appendChild(speedInsightsScript);
-    }
-  })();
-</script>
+<script src="{{ '/assets/js/footer-runtime.js' | relative_url }}" data-search-src="{{ '/assets/js/main-search.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 
 <!-- Cloudflare Web Analytics (무료, 프라이버시 친화적) -->
 <!-- 
