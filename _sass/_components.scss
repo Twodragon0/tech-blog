@@ -2069,6 +2069,87 @@ div.post-card-excerpt {
   background-color: var(--color-bg-tertiary);
 }
 
+/* Dark mode: Posts toolbar, tabs, view toggle, archive toolbar */
+[data-theme="dark"] .posts-tab {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .posts-tab:hover {
+  background: var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .posts-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+[data-theme="dark"] .view-btn {
+  color: var(--color-text-tertiary);
+}
+
+[data-theme="dark"] .view-btn.active {
+  background: var(--color-bg-tertiary);
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .posts-view-toggle {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-primary {
+  background: var(--color-primary);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .archive-search {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .archive-search input {
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .archive-filter {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .archive-filter:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .archive-filter.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .tab-count {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+}
+
+[data-theme="dark"] .posts-empty,
+[data-theme="dark"] .archive-empty {
+  color: var(--color-text-tertiary);
+}
+
 .archive-item time {
   color: var(--color-text-tertiary);
   font-size: var(--font-size-sm);
