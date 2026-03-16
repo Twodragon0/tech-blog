@@ -98,7 +98,7 @@
   <!-- Date Badge -->
   <g filter="url(#shadow)">
     <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
-    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 16, 2026</text>
   </g>
   
   <!-- Main Title -->
@@ -145,11 +145,15 @@
     <!-- Summary Content -->
     <g transform="translate(30, 90)">
       <circle cx="8" cy="8" r="4" fill="#ef4444"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">SK 5 Vertical AI , BlackField ,</text>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">: Vertical AI , BlackField , (</text>
     </g>
     <g transform="translate(30, 125)">
       <circle cx="8" cy="8" r="4" fill="#ef4444"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">, OT</text>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">) ( ) 2</text>
+    </g>
+    <g transform="translate(30, 160)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">.</text>
     </g>
     
     <!-- Tags Section -->
