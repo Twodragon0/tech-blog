@@ -6,6 +6,14 @@ import argparse
 from pathlib import Path
 
 
+CURLY_QUOTES = {
+    "\u201c": '"',  # LEFT DOUBLE QUOTATION MARK
+    "\u201d": '"',  # RIGHT DOUBLE QUOTATION MARK
+    "\u2018": "'",  # LEFT SINGLE QUOTATION MARK
+    "\u2019": "'",  # RIGHT SINGLE QUOTATION MARK
+}
+
+
 def fix_content(content: str) -> tuple[str, int]:
     fixed = content
     changes = 0
@@ -20,6 +28,27 @@ def fix_content(content: str) -> tuple[str, int]:
         if count:
             fixed = fixed.replace(old, new)
             changes += count
+
+    # Fix curly quotes inside include blocks (breaks Jekyll parser)
+    import re
+
+    def _fix_curly_quotes_in_block(match: re.Match) -> str:
+        nonlocal changes
+        block = match.group(0)
+        new_block = block
+        for curly, straight in CURLY_QUOTES.items():
+            if curly in new_block:
+                new_block = new_block.replace(curly, straight)
+        if new_block != block:
+            changes += 1
+        return new_block
+
+    fixed = re.sub(
+        r"\{%-?\s*include\s+news-card\.html\b.*?-?%\}",
+        _fix_curly_quotes_in_block,
+        fixed,
+        flags=re.DOTALL,
+    )
 
     return fixed, changes
 

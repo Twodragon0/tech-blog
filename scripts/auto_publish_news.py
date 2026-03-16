@@ -2539,7 +2539,9 @@ def generate_news_section(
             '  url="%s"' % url,
         ]
         if image:
-            card_parts.append('  image="%s"' % image)
+            # Strip query params that break Jekyll include parser
+            clean_image = image.split("?")[0] if "?" in image else image
+            card_parts.append('  image="%s"' % clean_image)
         if ko_summary:
             card_summary = ko_summary[:200].replace('"', '\\"')
             card_parts.append('  summary="%s"' % card_summary)
