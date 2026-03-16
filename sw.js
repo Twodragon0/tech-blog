@@ -29,7 +29,8 @@ const STATIC_ASSETS = [
   '/assets/js/chat-widget-loader.js',
   '/assets/js/subscribe-float.js',
   '/assets/js/support-page.js',
-  '/assets/images/favicon.png'
+  '/assets/images/favicon.png',
+  '/assets/images/news-fallback.svg'
 ];
 
 // 설치: 정적 리소스 캐시 (개별 캐시로 에러 격리)

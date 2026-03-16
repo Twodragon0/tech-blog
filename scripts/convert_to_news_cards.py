@@ -70,6 +70,32 @@ def detect_category(section_heading: str) -> str:
     return ""
 
 
+def determine_severity(title: str, summary: str, category: str) -> str:
+    """Determine severity from title/summary keywords."""
+    text = f"{title} {summary}".lower()
+    is_security = "보안" in category or "security" in category.lower()
+    has_cve = bool(re.search(r"cve-\d{4}-\d+", text))
+    critical_phrases = [
+        "critical", "rce", "zero-day", "0-day", "제로데이",
+        "actively exploited", "in the wild", "emergency patch",
+        "긴급 패치", "remote code execution", "원격 코드 실행",
+        "ransomware attack", "data breach", "데이터 유출",
+    ]
+    high_keywords = [
+        "취약점", "vulnerability", "exploit", "malware", "악성코드",
+        "backdoor", "백도어", "공격", "attack", "privilege escalation",
+        "권한 상승", "authentication bypass", "인증 우회",
+        "supply chain", "공급망", "botnet", "봇넷", "랜섬웨어",
+    ]
+    for phrase in critical_phrases:
+        if phrase in text:
+            return "Critical" if (is_security or has_cve) else "High"
+    for kw in high_keywords:
+        if kw in text:
+            return "High" if (is_security or has_cve) else "Medium"
+    return "Medium"
+
+
 def escape_quotes(text: str) -> str:
     """Escape double quotes for use in include parameters."""
     return text.replace('"', "&quot;")
@@ -321,6 +347,7 @@ def process_file(filepath: Path) -> tuple[int, int]:
         )
 
         # Build the news-card include block
+        severity = determine_severity(title, summary, section_heading)
         card_block = [
             "",
             "{%- include news-card.html",
@@ -328,6 +355,7 @@ def process_file(filepath: Path) -> tuple[int, int]:
             f'  url="{url}"',
             f'  summary="{escaped_summary}"',
             f'  source="{escape_quotes(source_name)}"',
+            f'  severity="{severity}"',
             "-%}",
             "",
         ]
