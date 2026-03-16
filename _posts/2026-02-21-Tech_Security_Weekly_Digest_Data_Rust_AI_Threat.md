@@ -75,6 +75,7 @@ toc: true
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnUd8T_I-xQKNmoLh2WLznpTvsH2JGWkhRJOOcjgUxat1PSS3OKl-z5P-OYhbJssm5DqAP8B3Dye8Z298RAqvSKibFo-ISDmF0qPlOpUdUVKJRO9Gy5MxDZP4A2uUxmoqBpfK95Z4u-hvqmNqsRE42ivsIc2H-NQYubExbmPug9WbHkVpuqry9hO9nNG4y/s1700-e365/ai-code-scan.jpg"
   summary="Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="The Hacker News"
+  severity="Medium"
 -%}
 
 
@@ -105,6 +106,7 @@ Anthropic이 공개한 'Claude Code Security'는 LLM의 문맥 이해 능력을 
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtZg49iJDSf0QXV_lj9uqgkcevxHhncfWJrejyCIdGb2hlzcVefAWXETqflE7uEUTuAGKkqfSpa9_w1FoNTZ-67YU4H-iUio2DfhF7o2qIMIbx8BewvMG8rHsq8eh7gBwjVckasb5Qj8jsGY_3wRjBaYTh-nL10wAWFI5PbCu62cfJFk9Y8ucUBDyQNkEh/s1700-e365/roundcube.jpg"
   summary="CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="The Hacker News"
+  severity="Critical"
 -%}
 
 
@@ -133,6 +135,7 @@ CISA가 Roundcube 웹메일 취약점 2건을 KEV(Known Exploited Vulnerabilitie
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTNtB3q8UY8WtPavGisP57bq3aRlFLsQJSfTpwuLP0E1eqcPNAtjaI2_YeTjOxEi4GGQbFUOu-sYuTLRB_WnoQNAKfiwUIJqmU5G8GrhPjsmKCx_03Ecyid-28wg-nWj4RjV8YWVXM4unbx9uhtxBz-b7crRhe03y4fH8up6O3q2k5Gdjx-r4-9Yk4QCM/s1700-e365/ec.jpg"
   summary="EC-Council AI 인증 포트폴리오 확대: 미국 AI 인력 보안 대비 강화 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="The Hacker News"
+  severity="Medium"
 -%}
 
 
@@ -166,6 +169,7 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Pics-4-1.jpg"
   summary="Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
+  severity="Medium"
 -%}
 
 
@@ -187,6 +191,7 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoins-50-Slide-Quantum-Scare-or-Capital-Rotation.jpg"
   summary="Bitcoin 50% 급락: Quantum Scare인가 Capital Rotation인가? 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
+  severity="Medium"
 -%}
 
 

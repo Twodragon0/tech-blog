@@ -65,6 +65,7 @@ toc: true
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGH5OFCdEH8WLDQvMuU6qAbaI73kVMtx4uASqujZ12UAb3Q-yJX3ZsFCpc1uJuUE4ah_z24WgRv_1JhOem_ISHdoYtPzZPy6o5HwRuoBGjThyru3WAtrcOqyA9hDvSNgSKIgaYUTdIOUJHL7HCRUEZgt9Z8fP6F8oINDt4LkeziTnTW6cx_Qw_DJ2FLMmo/s1700-e365/outlook.jpg"
   summary="공격자는 기존에 신뢰받던 애드인 배포 경로를 악용해 사용자를 가짜 로그인 페이지로 유도했고, 대량의 Microsoft 계정 자격증명을 수집했습니다. 확장 프로그램 생태계의 도메인 소유권 관리가 취약하면 공급망 공격으로 즉시 전환될 수 있음을 보여줍니다."
   source="The Hacker News"
+  severity="High"
 -%}
 
 #### 요약
@@ -92,6 +93,7 @@ toc: true
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbazpuuwU1rJbldu2fNhcDhnmgmpygU-Ci4lvjJXXo3TlmbV06oWZJ-FEJjMtQnkzg9-cBOt9h8aCA5d2EuO3gRaDlbzzc1w4cZRsdDUY1YwMTXv9f3ebp4CrZ-0jIar70HO_pyuhzHdClzTo85wpHJF8wiabXv8ko9fxQbp5WFmWdVwvtqqAkh5mk2_hv/s1700-e365/india.jpg"
   summary="방산/공공 성격의 조직을 대상으로 Windows와 Linux 환경 모두를 겨냥한 RAT 캠페인이 확인되었습니다. 단일 OS 중심 보안 통제만으로는 탐지 누락이 발생할 수 있는 전형적인 사례입니다."
   source="The Hacker News"
+  severity="High"
 -%}
 
 #### 요약
@@ -111,6 +113,7 @@ toc: true
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn9BjSz22uW2NPDNZhkDs7Ygjb5lTP5jFhXbGlk3oBRgpncWsp6pu42-c0T7TXDPviwihS5GuwedI6ULAmI6Zp8NKWOMzS-wJlSjVkd02cB6rM0uLbi-ZU1oxKsSQIpesNLkaA13EDcht62GZgjQbG2nffYeQPhXOWJHUBKhRwKm4s_-_ukeKZuno8I7Iv/s1700-e365/patches.jpg"
   summary="동일 주기에 다수 벤더 패치가 발생하면, 자산 우선순위가 없는 조직은 패치 대기열이 쌓이면서 노출 시간이 급격히 증가합니다."
   source="The Hacker News"
+  severity="High"
 -%}
 
 #### 요약
@@ -135,6 +138,7 @@ toc: true
   image="https://engineering.fb.com/wp-content/uploads/2021/03/RiB_LightNavy.jpg"
   summary="에이전트 기반 개발은 코드 생성 속도를 높였지만, 기존의 사후 테스트 방식으로는 품질을 보장하기 어렵습니다. 개발 루프 내부에서 즉시 검증하는 구조로 전환이 필요합니다."
   source="Meta Engineering Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -152,8 +156,9 @@ toc: true
   title="[AI/ML] 에이전트 우선 개발에서의 하네스 엔지니어링"
   url="https://openai.com/index/harness-engineering"
   image="https://images.ctfassets.net/kftzwdyauwt9/2TjayW57xam6dBbbV28sae/887861e21b8d205c2c392ec5315d3681/SEO.png?w=1600&h=900&fit=fill"
-  summary="에이전트가 코드를 작성하는 환경에서는 “코드 생성 능력”보다 “검증 하네스 설계 능력”이 품질을 결정합니다."
-  source="OpenAI Blog"
+  summary=”에이전트가 코드를 작성하는 환경에서는 “코드 생성 능력”보다 “검증 하네스 설계 능력”이 품질을 결정합니다.”
+  source=”OpenAI Blog”
+  severity=”Medium”
 -%}
 
 #### 요약
@@ -172,6 +177,7 @@ toc: true
   image="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/02/11/ml-20374-1120x630.png"
   summary="관리형 배포는 속도를 높이지만, 모델 버전/평가 지표/비용 통제가 없으면 운영 리스크가 빠르게 누적됩니다."
   source="AWS Machine Learning Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -196,6 +202,7 @@ toc: true
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/13_-_Financial_Services_3p5BECD.max-2600x2600.jpg"
   summary="금융권은 장애 대응을 선택이 아닌 규제 요구로 관리해야 하며, 클라우드 장애 시나리오를 정기 훈련에 내재화해야 합니다."
   source="Google Cloud Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -214,6 +221,7 @@ toc: true
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/finetuning-hero-image.max-2600x2600.jpg"
   summary="파인튜닝은 일관성 개선에 효과적이지만, 데이터 품질과 평가 기준이 부실하면 성능 편차와 보안 리스크가 함께 증가합니다."
   source="Google Cloud Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -232,6 +240,7 @@ toc: true
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/header-alt-text-2436x1200.max-2500x2500.png"
   summary="생성형 AI를 대규모 문서/샘플 생산에 적용할 때는 생성 속도보다 검증 자동화 체계가 품질을 좌우합니다."
   source="Google Cloud Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -256,6 +265,7 @@ toc: true
   image="https://www.cncf.io/wp-content/uploads/2026/02/Akamia-Cloud-Credits-31.png"
   summary="오픈소스 생태계 점검 범위가 확대되며, 내부 프로젝트도 동일한 공급망 보안 기준으로 주기 점검해야 하는 흐름이 강화되고 있습니다."
   source="CNCF Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -270,6 +280,7 @@ toc: true
   image="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/01/header-image.webp"
   summary="단위 테스트 생성/실행 자동화는 생산성을 높이지만, 경계값/실패경로 커버리지는 사람이 보완해야 합니다."
   source="Microsoft .NET Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -284,6 +295,7 @@ toc: true
   image="https://webkit.org/wp-content/uploads/safari26.3-1024x536.png"
   summary="브라우저 업데이트는 프론트엔드 회귀 이슈를 동반할 수 있으므로, 릴리스 직후 핵심 사용자 경로에 대한 자동 테스트 재실행이 필요합니다."
   source="WebKit Blog"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -304,6 +316,7 @@ toc: true
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/BlackRock-Says-1-Crypto-Allocation-in-Asia-Could-Drive-2-Trillion-in-Inflows.jpg"
   summary="기관 자금 유입 기대가 높아질수록 거래소/커스터디/지갑 인프라에 대한 공격 유인이 커집니다."
   source="Bitcoin Magazine"
+  severity="Medium"
 -%}
 
 #### 요약
@@ -318,6 +331,7 @@ toc: true
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/MoonPay-Launches-Crypto-Deposits-Feature-to-Enable-Cross-Chain-Funding-in-Wallet-in-Telegram.jpg"
   summary="사용자 접근성이 올라가면 피싱과 주소 변조 공격도 함께 증가하므로, 사용자 안내와 거래 검증 UX 강화가 필수입니다."
   source="Bitcoin Magazine"
+  severity="Medium"
 -%}
 
 #### 요약

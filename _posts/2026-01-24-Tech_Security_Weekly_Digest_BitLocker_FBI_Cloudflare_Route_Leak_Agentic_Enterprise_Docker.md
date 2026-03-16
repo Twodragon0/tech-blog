@@ -109,6 +109,7 @@ Tech               : ██ 6%
   image="https://www.cncf.io/wp-content/uploads/2026/01/Akamia-Cloud-Credits-25.png"
   summary="Hacker News 705 포인트, 463 댓글로 큰 논란이 된 사건입니다. Microsoft가 FBI 요청에 따라 용의자 노트북 3대의 BitLocker 암호화 복구 키를 제공했습니다."
   source="CNCF Blog - The Autonomous Enterprise 2026 Forecast"
+  severity="High"
 -%}
 
 
@@ -223,6 +224,7 @@ BitLocker Recovery Key Storage:
   image="https://social.news.hada.io/topic/26085"
   summary="GeekNews에서 컨테이너화의 선구자 Docker의 2026년 현황을 심층 분석했습니다. Kubernetes와의 경쟁 이후 Docker의 정체성과 방향성 변화를 다룹니다."
   source="GeekNews - Docker는 무엇이 되었는가?"
+  severity="Medium"
 -%}
 
 

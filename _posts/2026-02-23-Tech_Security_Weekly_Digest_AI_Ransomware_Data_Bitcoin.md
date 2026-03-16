@@ -226,6 +226,7 @@ IT/OT 융합 환경의 주요 리스크:
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoin-Price-Crashes-Below-65000-Drops-5-in-2-Hours-Amid-Six-Week-Slump.jpg"
   summary="비트코인 가격 $65,000 이하로 급락 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
+  severity="Medium"
 -%}
 
 
@@ -255,6 +256,7 @@ IT/OT 융합 환경의 주요 리스크:
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2025-12/019b6f72-662b-7191-9316-5b0e1e6bbce3.jpg"
   summary="러시아 제재 우회를 돕는 암호화폐 거래소 네트워크 적발 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Cointelegraph"
+  severity="High"
 -%}
 
 

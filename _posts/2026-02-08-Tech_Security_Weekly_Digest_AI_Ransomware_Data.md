@@ -138,6 +138,7 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2025-12/019b3309-e16b-7dd9-8348-ff725e9a4189.jpg"
   summary="미국 연방준비제도(Fed)의 다음 FOMC 회의에서 금리 인하를 기대하는 트레이더 비율이 23%를 넘어섰습니다. 최근 인플레이션 둔화 신호와 경기 둔화 우려가 금리 인하 기대감을 높이고 있으며, 이는 암호화폐 시장에 긍정적 영향을 미칠 것으로 전망됩니다."
   source="Cointelegraph"
+  severity="Medium"
 -%}
 
 
@@ -159,6 +160,7 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c3d64-21c8-7e3e-9a59-a0cead31cf78.jpg"
   summary="미국 상품선물거래위원회(CFTC)가 지급결제용 스테이블코인의 발행 기준을 확대하여 국가 신탁은행(National Trust Bank)을 포함시켰습니다. 이는 전통 금융기관의 스테이블코인 시장 진입을 촉진하고 규제 명확성을 높이는 조치입니다."
   source="Cointelegraph"
+  severity="Medium"
 -%}
 
 
