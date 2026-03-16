@@ -4,27 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Console Filter Module (deferred to reduce FID impact) -->
-  <script src="{{ "/assets/js/console-filter.js" | relative_url }}" defer></script>
-  <script>
-  // Initialize console filter after script loads (defer compatible)
-  document.addEventListener('DOMContentLoaded', function() {
-    // Wait for console-filter.js to load and initialize
-    var initFilter = function() {
-      if (window.initConsoleFilter) {
-        window.initConsoleFilter();
-      } else {
-        // Retry if script not yet loaded (defer race condition)
-        setTimeout(initFilter, 50);
-      }
-    };
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(initFilter, { timeout: 1000 });
-    } else {
-      setTimeout(initFilter, 100);
-    }
-  });
-  </script>
+  <script src="{{ '/assets/js/console-filter.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/head-runtime.js' | relative_url }}" data-ga-id="{{ site.google_analytics | default: '' }}" data-adsense-client="{{ site.google_adsense | default: '' }}" data-kakao-app-key="{{ site.kakao_app_key | default: '' }}"></script>
 
   <!-- Security Headers -->
   <!--
@@ -158,13 +139,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | absolute_url }}">
-  <!-- Fallback: SVG 아이콘 (PNG 로드 실패 시) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
 
   <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap, 단일 요청) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
@@ -204,7 +183,7 @@
   {% endif %}
   
   <!-- Ad Optimizer (CLS 방지, deferred for performance) -->
-  <script src="{{ "/assets/js/ad-optimizer.js" | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/ad-optimizer.js' | relative_url }}" defer></script>
   
   <!-- Critical CSS inline (if needed for above-the-fold content) -->
   {% if page.layout == 'post' %}
@@ -261,19 +240,6 @@
   <!-- Main CSS with JS-based fallback (CSP-safe, no inline onerror) -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" id="main-stylesheet" fetchpriority="high">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
-  <script>
-    // CSS load fallback (replaces inline onerror for CSP compliance)
-    (function() {
-      var link = document.getElementById('main-stylesheet');
-      if (!link) return;
-      link.onerror = function() {
-        var s = document.createElement('style');
-        s.textContent = 'body{font-family:"Noto Sans KR",-apple-system,sans-serif;margin:0;padding:0;background:#fff;color:#1a1a1a}.post-article{max-width:800px;margin:0 auto;padding:2.5rem 2rem}.post-title{font-size:clamp(1.5rem,4vw,2.25rem);margin:.5rem 0 1rem}.post-content{font-size:1.0625rem;line-height:1.8}[data-theme="dark"]{background:#0f172a;color:#f1f5f9}';
-        document.head.appendChild(s);
-        link.remove();
-      };
-    })();
-  </script>
 
   {% if page.layout == 'post' %}
   <!-- Post-specific CSS (post, lightbox, syntax) -->
@@ -284,61 +250,6 @@
   <link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% endif %}
 
-  <!-- Body loaded class for FOUC prevention -->
-  <script>
-    // Mark body as loaded to prevent FOUC
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.classList.add('loaded');
-      });
-    } else {
-      document.body.classList.add('loaded');
-    }
-  </script>
-
-  <!-- Service Worker Registration (deferred to idle) -->
-  <script>
-  if ('serviceWorker' in navigator) {
-    // Use requestIdleCallback to defer non-critical SW registration
-    var registerSW = function() {
-      navigator.serviceWorker.register('/sw.js')
-        .then(function(registration) {
-          registration.addEventListener('updatefound', function() {
-            var newWorker = registration.installing;
-            newWorker.addEventListener('statechange', function() {
-              if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
-                var isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                if (isDev) console.debug('[SW] New version ready');
-              }
-            });
-          });
-        })
-        .catch(function() {});
-
-      if (navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
-      }
-    };
-
-    // Defer SW registration using requestIdleCallback (non-blocking)
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(registerSW, { timeout: 2000 });
-    } else {
-      window.addEventListener('load', registerSW);
-    }
-  }
-  </script>
-
-  <!-- Theme Detection (Inline for Performance) - 시스템 설정 우선 -->
-  <script>
-    (function() {
-      var saved = localStorage.getItem('theme');
-      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      // 저장값이 없거나 'system'이면 시스템 설정 따름
-      var theme = (!saved || saved === 'system') ? (systemDark ? 'dark' : 'light') : saved;
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
 
   <script type="application/ld+json">
   {
@@ -381,115 +292,7 @@
   }
   </script>
 
-  {% if site.google_analytics %}
-  <!-- Google Analytics (deferred to idle for better FID) -->
-  <script>
-    // Defer Google Analytics loading using requestIdleCallback (non-blocking)
-    var loadGoogleAnalytics = function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
-      document.head.appendChild(script);
-
-      script.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}', {
-          'send_page_view': false
-        });
-        // Trigger page view after load
-        gtag('event', 'page_view', {
-          'page_path': window.location.pathname + window.location.search
-        });
-      };
-    };
-
-    // Use requestIdleCallback for non-blocking deferred load
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGoogleAnalytics, { timeout: 3000 });
-    } else {
-      window.addEventListener('load', loadGoogleAnalytics);
-    }
-  </script>
-  {% endif %}
-
   {% if site.google_adsense %}
-  <!-- Google AdSense (deferred to idle, graceful degradation) -->
-  <script>
-    (function() {
-      'use strict';
-
-      try {
-        window.adsbygoogle = window.adsbygoogle || [];
-        window.adsbygoogle.pauseAdRequests = 0;
-        window._adsenseLoaded = false;
-
-        var loadAdSense = function() {
-          try {
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
-            script.crossOrigin = 'anonymous';
-            script.setAttribute('data-ad-frequency-hint', '0');
-
-            script.onload = function() {
-              try {
-                window._adsenseLoaded = true;
-              } catch (e) {
-                // Ignore onload error
-              }
-            };
-
-            script.onerror = function() {
-              try {
-                // AdSense load failed (403, network error, ad blocker, etc.)
-                // Remove all ad placeholders to prevent layout shift
-                window._adsenseLoaded = false;
-                var ads = document.querySelectorAll('.adsbygoogle');
-                for (var i = 0; i < ads.length; i++) {
-                  ads[i].style.display = 'none';
-                }
-              } catch (e) {
-                // Ignore onerror processing error
-              }
-            };
-
-            // Suppress fetch/network error logs for AdSense 403/400 errors
-            script.addEventListener('error', function() {
-              // Silently handled above - prevent additional console output
-            }, { once: true });
-
-            if (document.head) {
-              document.head.appendChild(script);
-            }
-          } catch (e) {
-            // Silently fail if AdSense script creation fails
-            window._adsenseLoaded = false;
-          }
-        };
-
-        // Use requestIdleCallback for non-blocking deferred load
-        try {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAdSense, { timeout: 5000 });
-          } else {
-            window.addEventListener('load', loadAdSense);
-          }
-        } catch (e) {
-          // Fallback: load immediately if requestIdleCallback fails
-          try {
-            loadAdSense();
-          } catch (err) {
-            // Final fallback: silently fail
-          }
-        }
-      } catch (e) {
-        // Global AdSense initialization failure - silently ignore
-      }
-    })();
-  </script>
-  
   <style>
     /* Hide Google Ads "Related Topics" UI (advertisement block) while keeping actual ads visible */
     .goog-rtopics,
@@ -529,31 +332,6 @@
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선, 하지만 스크립트는 defer로 로딩) -->
   {% include sentry.html %}
   
-  {% if site.kakao_app_key and site.kakao_app_key != "" %}
-  <!-- Kakao JavaScript SDK (deferred to idle for rich link sharing) -->
-  <script>
-    (function() {
-      var loadKakaoSDK = function() {
-        var script = document.createElement('script');
-        script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
-        script.integrity = 'sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4kykhOQv0b17OH4S';
-        script.crossOrigin = 'anonymous';
-        script.onload = function() {
-          if (window.Kakao && !window.Kakao.isInitialized()) {
-            window.Kakao.init('{{ site.kakao_app_key }}');
-          }
-        };
-        document.head.appendChild(script);
-      };
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadKakaoSDK, { timeout: 3000 });
-      } else {
-        window.addEventListener('load', loadKakaoSDK);
-      }
-    })();
-  </script>
-  {% endif %}
-
   <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용, 최하단으로 이동) -->
   <!-- Note: Analytics는 페이지 로드 후 실행되도록 defer 사용 -->
   

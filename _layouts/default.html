@@ -14,44 +14,6 @@
   {% include footer.html %}
   {% include subscribe-float.html %}
   {% include chat-widget.html %}
-  <!-- Chat widget is loaded on-demand when user interacts -->
-  <script>
-    // Lazy load chat widget script only when user interacts
-    (function() {
-      'use strict';
-      let chatWidgetLoaded = false;
-      const chatToggle = document.getElementById('chat-widget-toggle');
-      
-      function loadChatWidget() {
-        if (chatWidgetLoaded) return;
-        chatWidgetLoaded = true;
-
-        // Load DOMPurify for XSS protection before chat widget
-        const purifyScript = document.createElement('script');
-        purifyScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js';
-        purifyScript.integrity = 'sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu';
-        purifyScript.crossOrigin = 'anonymous';
-        document.head.appendChild(purifyScript);
-
-        const script = document.createElement('script');
-        script.src = "{{ "/assets/js/chat-widget.js" | relative_url }}";
-        script.defer = true;
-        script.onload = function() {
-          // Auto-toggle chat on first click (script just loaded)
-          if (chatToggle) chatToggle.click();
-        };
-        script.onerror = function() {
-          console.error('[Chat Widget] Failed to load script');
-          chatWidgetLoaded = false;
-        };
-        document.body.appendChild(script);
-      }
-      
-      // Load ONLY on user click - never auto-preload
-      if (chatToggle) {
-        chatToggle.addEventListener('click', loadChatWidget, { once: true, passive: true });
-      }
-    })();
-  </script>
+  <script src="{{ '/assets/js/chat-widget-loader.js' | relative_url }}" data-chat-src="{{ '/assets/js/chat-widget.js' | relative_url }}" defer></script>
 </body>
 </html>
