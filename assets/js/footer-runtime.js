@@ -39,6 +39,19 @@
     }, 3000);
   }
 
+  // News card image fallback (CSP-safe)
+  var fallbackImages = document.querySelectorAll('img[data-fallback]');
+  for (var i = 0; i < fallbackImages.length; i++) {
+    (function (img) {
+      img.addEventListener('error', function () {
+        if (img.src !== img.getAttribute('data-fallback')) {
+          img.src = img.getAttribute('data-fallback');
+          img.style.objectFit = 'contain';
+        }
+      }, { once: true });
+    })(fallbackImages[i]);
+  }
+
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return;
   }

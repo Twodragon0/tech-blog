@@ -2612,8 +2612,7 @@ def generate_news_section(
             card_summary = ko_summary[:200].replace('"', '\\"')
             card_parts.append('  summary="%s"' % card_summary)
         card_parts.append('  source="%s"' % source.replace('"', '\\"'))
-        if severity in ("Critical", "High"):
-            card_parts.append('  severity="%s"' % severity)
+        card_parts.append('  severity="%s"' % severity)
         card_parts.append("%}")
         section += "\n".join(card_parts) + "\n\n"
 

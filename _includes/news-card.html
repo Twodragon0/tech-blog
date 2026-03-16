@@ -39,7 +39,7 @@
   {% if card_image and card_image != "" %}
   <div class="news-card__image">
     <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.title | escape }}">
-      <img src="{{ card_image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225">
+      <img src="{{ card_image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225" data-fallback="/assets/images/news-fallback.svg">
     </a>
   </div>
   {% endif %}
