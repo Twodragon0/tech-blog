@@ -137,6 +137,13 @@ jobs:
           python3 scripts/fix_malformed_liquid_includes.py --check
           echo "✅ Liquid include syntax check passed"
 
+      - name: Validate posts (severity, front matter, links)
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "📋 Running post validation on changed files..."
+          python3 scripts/check_posts.py --changed
+          echo "✅ Post validation passed"
+
       - name: Validate post quality (PR only)
         if: github.event_name == 'pull_request'
         continue-on-error: true
