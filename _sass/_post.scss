@@ -1120,8 +1120,10 @@
 .post-content .ai-summary-card {
   margin: 2.5rem 0;
   padding: 1.75rem;
+  padding-left: 2rem;
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   position: relative;
@@ -1147,12 +1149,18 @@
 .ai-badge {
   display: inline-flex;
   align-items: center;
+  gap: 0.375rem;
   padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-primary);
   background-color: var(--color-primary-light);
   border-radius: var(--border-radius-md);
+}
+
+.ai-badge::before {
+  content: '✦';
+  font-size: 0.75rem;
 }
 
 .ai-summary-content {
@@ -1221,6 +1229,7 @@
 
 .summary-row.highlights .summary-value {
   color: var(--color-text-primary);
+  font-weight: 500;
 }
 
 /* CLS 최적화: 하이라이트 행은 리스트가 있어 더 큰 min-height 필요 */
@@ -1242,6 +1251,10 @@
   color: var(--color-text-primary);
   /* CLS 최적화: 리스트 아이템 안정화 */
   min-height: 1.7em;
+}
+
+.summary-list li::marker {
+  color: var(--color-primary);
 }
 
 .summary-list li strong {
@@ -1464,6 +1477,7 @@
 [data-theme="dark"] .ai-summary-card {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
+  border-left-color: var(--color-primary);
 }
 
 [data-theme="dark"] .ai-badge {
