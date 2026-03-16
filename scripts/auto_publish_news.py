@@ -2146,83 +2146,15 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
 
 
 def _determine_severity(item: Dict) -> str:
-    """뉴스 심각도 결정 - 카테고리 인식 + 문맥 기반
+    """뉴스 심각도 결정 - news_utils.determine_severity 위임."""
+    try:
+        from news_utils import determine_severity
+    except ImportError:
+        from scripts.news_utils import determine_severity
 
-    Non-security categories (ai, tech, devops, blockchain) are capped at
-    Medium unless they contain explicit CVE/exploit indicators, preventing
-    SDK releases or product announcements from being labeled Critical.
-    """
-    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}".lower()
-    category = item.get("category", "tech").lower()
-    is_security_category = category in ("security", "devsecops")
-
-    # Phrases that indicate actual vulnerability / active threat
-    critical_phrases = [
-        "critical vulnerability",
-        "critical flaw",
-        "critical patch",
-        "critical security",
-        "critical rce",
-        "rce",
-        "zero-day",
-        "제로데이",
-        "0-day",
-        "cvss 9",
-        "cvss 10",
-        "actively exploited",
-        "in the wild",
-        "emergency patch",
-        "긴급 패치",
-        "pre-auth",
-        "wormable",
-        "remote code execution",
-        "원격 코드 실행",
-        "ransomware attack",
-        "data breach",
-        "데이터 유출",
-    ]
-    high_keywords = [
-        "high severity",
-        "high risk",
-        "권한 상승",
-        "privilege escalation",
-        "authentication bypass",
-        "인증 우회",
-        "ssrf",
-        "sql injection",
-        "command injection",
-        "supply chain attack",
-        "공급망 공격",
-        "backdoor",
-        "백도어",
-        "botnet",
-        "봇넷",
-        "nation-state",
-        "arbitrary code execution",
-        "malware",
-        "악성코드",
-        "exploit kit",
-        "취약점 악용",
-        "sandbox escape",
-        "container escape",
-    ]
-
-    # For non-security categories, only escalate if CVE IDs are present
-    has_cve = bool(re.search(r"CVE-\d{4}-\d+", text, re.IGNORECASE))
-
-    for phrase in critical_phrases:
-        if phrase in text:
-            if is_security_category or has_cve:
-                return "Critical"
-            return "High"  # Cap non-security to High
-
-    for kw in high_keywords:
-        if kw in text:
-            if is_security_category or has_cve:
-                return "High"
-            return "Medium"  # Cap non-security to Medium
-
-    return "Medium"
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
+    category = item.get("category", "tech")
+    return determine_severity(text, category)
 
 
 def _extract_cve_ids(item: Dict) -> List[str]:

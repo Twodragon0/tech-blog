@@ -231,6 +231,26 @@ def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[
     return issues
 
 
+def check_news_card_severity(content: str) -> List[str]:
+    """Check that all news-card includes have an explicit severity parameter."""
+    issues = []
+    # Find all news-card include blocks
+    pattern = re.compile(
+        r'\{%-?\s*include\s+news-card\.html\b(.*?)%\}',
+        re.DOTALL,
+    )
+    for i, match in enumerate(pattern.finditer(content), 1):
+        block = match.group(1)
+        if 'severity=' not in block:
+            # Try to extract title for better reporting
+            title_match = re.search(r'title="([^"]{0,60})', block)
+            title_hint = title_match.group(1) if title_match else f"card #{i}"
+            issues.append(
+                f"⚠️ News card missing severity: \"{title_hint}...\""
+            )
+    return issues
+
+
 def main():
     """메인 함수"""
     parser = argparse.ArgumentParser(
@@ -339,6 +359,9 @@ def main():
 
         # AI 요약 카드 확인
         issues.extend(check_ai_summary_card(content))
+
+        # 뉴스 카드 severity 확인
+        issues.extend(check_news_card_severity(content))
 
         if issues:
             all_issues[post_file.name] = issues

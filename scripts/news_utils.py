@@ -116,6 +116,72 @@ def validate_url(url: str) -> bool:
     return bool(re.match(url_pattern, url, re.IGNORECASE))
 
 
+def determine_severity(
+    text: str,
+    category: str = "tech",
+    *,
+    is_security: bool | None = None,
+) -> str:
+    """Determine news severity from text content and category.
+
+    Args:
+        text: Combined title + summary + content (will be lowercased internally).
+        category: News category string (e.g. 'security', 'devsecops', 'cloud').
+        is_security: Override for security-category detection. When None,
+            auto-detected from category.
+
+    Returns:
+        One of 'Critical', 'High', or 'Medium'.
+    """
+    text_lower = text.lower()
+    cat_lower = category.lower()
+
+    if is_security is None:
+        is_security = cat_lower in (
+            "security", "devsecops", "보안", "보안 뉴스",
+        ) or "보안" in cat_lower or "security" in cat_lower
+
+    has_cve = bool(re.search(r"cve-\d{4}-\d+", text_lower))
+
+    critical_phrases = [
+        "critical vulnerability", "critical flaw", "critical patch",
+        "critical security", "critical rce", "rce",
+        "zero-day", "제로데이", "0-day",
+        "cvss 9", "cvss 10",
+        "actively exploited", "in the wild",
+        "emergency patch", "긴급 패치",
+        "pre-auth", "wormable",
+        "remote code execution", "원격 코드 실행",
+        "ransomware attack", "data breach", "데이터 유출",
+    ]
+    high_keywords = [
+        "high severity", "high risk",
+        "권한 상승", "privilege escalation",
+        "authentication bypass", "인증 우회",
+        "ssrf", "sql injection", "command injection",
+        "supply chain attack", "supply chain", "공급망 공격", "공급망",
+        "backdoor", "백도어",
+        "botnet", "봇넷",
+        "nation-state",
+        "arbitrary code execution",
+        "malware", "악성코드",
+        "exploit kit", "exploit", "취약점 악용", "취약점",
+        "sandbox escape", "container escape",
+        "랜섬웨어", "vulnerability",
+        "공격", "attack",
+    ]
+
+    for phrase in critical_phrases:
+        if phrase in text_lower:
+            return "Critical" if (is_security or has_cve) else "High"
+
+    for kw in high_keywords:
+        if kw in text_lower:
+            return "High" if (is_security or has_cve) else "Medium"
+
+    return "Medium"
+
+
 def clean_text(text: str) -> str:
     """
     텍스트 정규화 및 정제
