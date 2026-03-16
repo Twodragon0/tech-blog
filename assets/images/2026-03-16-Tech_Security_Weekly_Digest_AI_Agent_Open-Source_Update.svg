@@ -114,9 +114,9 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">AWS</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CLOUD</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Amazon Bedrock Claude Agent SDK</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Kiro CLI Claude Code AI</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">,</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AWS Bedrock Multi-Agent Architecture</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Serverless multi-agent system with</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Claude Agent SDK for production use</text>
 
     <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#greenGradient)" fill-opacity="0.2"/>
     <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AWS Korea Blog</text>
@@ -132,7 +132,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Aave to launch &#39;Aave Shield&#39; after</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Aave Shield After $50M Swap Loss</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In a post-mortem of the incident, Aave</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">clarified it was not slippage, but an</text>
 
@@ -168,7 +168,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Venus Protocol hit by $3.7M in &#39;sup</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Venus Protocol $3.7M Supply Attack</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The threat actor manipulated the</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">platform by using Thena tokens to bypass</text>
 
@@ -186,7 +186,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Vitalik Buterin promotes an update</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Vitalik Pushes Wallet UX Update</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The blockchain co-founder said the goal</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">is to make the &quot;self-sovereign&quot; method</text>
 
@@ -208,10 +208,10 @@
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
   </g>
   <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Blockchain</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">3 Tech</text>
   </g>
 
   <!-- Blog Info -->

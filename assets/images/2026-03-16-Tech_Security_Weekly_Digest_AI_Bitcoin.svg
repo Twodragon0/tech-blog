@@ -96,7 +96,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Forensic analysis uncovers draft of</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Forensic Analysis: $5M Libra Deal</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Forensic analysis of lobbyist Mauricio</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Novelli s phone reportedly uncovered a</text>
 
@@ -114,7 +114,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Stablecoin uncertainty could hurt b</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Stablecoin Rules May Hurt Banks More</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Regulatory uncertainty around</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">stablecoins may disadvantage banks, as</text>
 
@@ -132,7 +132,7 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Here s what happened in crypto toda</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Daily Crypto Market Roundup</text>
     <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Need to know what happened in crypto</text>
     <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">today? Here is the latest news on daily</text>
 
@@ -181,15 +181,15 @@
 
     <!-- Icon -->
     <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">DEV</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Security News Update</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SaaS 10 100 1000</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Security News Update</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">MCP is Dead; Long Live MCP</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">CLI-first trend challenges MCP, but</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">enterprise AI engineering still needs it</text>
 
     <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">GeekNews ()</text>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">GeekNews</text>
   </g>
 
   <!-- Footer -->
@@ -200,16 +200,10 @@
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">10 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Security</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Blockchain</text>
   </g>
   <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Tech</text>
   </g>
 
   <!-- Blog Info -->
