@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T01:24:47.136231+00:00",
+  "updated_at": "2026-03-16T01:28:49.598886+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1560,6 +1560,78 @@
       "title": "내 워크플로우를 A/B 테스트하지 말아 주세요",
       "published_date": "2026-03-15",
       "expires_at": "2026-03-22T01:24:47.134681+00:00"
+    },
+    {
+      "url": "https://github.com/fabraix/playground",
+      "title": "Show HN: Open-source playground to red-team AI agents with exploits published",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/implement-serverless-multiagent-bedrock-claude-agent-sdk/",
+      "title": "Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/aave-roll-out-aave-shield-after-50m-user-loss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Aave to launch 'Aave Shield' after $50M token swap mishap",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/clarity-act-hand-crypto-centralized-player?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "CLARITY Act risks handing crypto to centralized players: Gnosis exec",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/venus-protocol-3-7-million-supply-cap-attack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Venus Protocol hit by $3.7M in 'supply cap' attack",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/vitalik-buterin-simplify-ethereum-node?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Vitalik Buterin promotes an update simplifying Ethereum node software",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/how-bitcoin-and-gold-reacted-differently-to-the-iran-war-shock?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "How Bitcoin and Gold reacted differently to the Iran war shock",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27537",
+      "title": "$96 3D 프린팅 로켓, $5 센서로 비행 중 궤적 재계산",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27535",
+      "title": "독일 공군, 2029년까지 운용 가능한 무인 협동 전투기(UCCA) 제공 예정",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27534",
+      "title": "아이티 드론 공습으로 1,250명 사망, 인권단체 “초법적 살해” 규탄",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27533",
+      "title": "물속에서도 숨 쉬며 익사 위기에서 살아남는 뒤영벌 여왕벌",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27532",
+      "title": "Han – Rust로 작성된 한국어 기반 컴파일형 프로그래밍 언어",
+      "published_date": "2026-03-16",
+      "expires_at": "2026-03-23T01:28:49.598776+00:00"
     }
   ]
 }
