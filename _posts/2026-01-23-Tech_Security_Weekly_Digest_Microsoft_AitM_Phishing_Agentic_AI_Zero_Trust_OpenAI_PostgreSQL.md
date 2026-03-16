@@ -151,7 +151,6 @@ Microsoft Defender Security Research Team이 에너지 섹터를 타겟으로 �
 {%- include news-card.html
   title="[보안] Agentic AI 시스템을 위한 Zero Trust 보안 전략"
   url="https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale"
-  image="https://www.datocms-assets.com/2885/1764106190-theattackphase0and1.jpg?w=1200&h=630&fit=crop&auto=format"
   summary="HashiCorp에서 자율 AI 시스템(Agentic AI)의 보안을 위한 포괄적인 Zero Trust 가이드를 발표했습니다. 이는 단순히 AI 모델 보안이 아닌, AI가 사용하는 모든 비인간 ID(NHI: Non-Human Identities)의 관리에 초점을 맞추고 있습니다."
   source="HashiCorp - Zero Trust for Agentic Systems"
   severity="Medium"

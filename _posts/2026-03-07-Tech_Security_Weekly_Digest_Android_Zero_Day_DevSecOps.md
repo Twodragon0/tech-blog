@@ -202,7 +202,6 @@ Aria Operations는 VMware 가상화 인프라의 성능 및 용량 관리 핵심
 {%- include news-card.html
   title="[보안] Cisco SD-WAN 인증 우회 제로데이 (CVE-2026-20127)"
   url="https://www.tenable.com/blog/cve-2026-20127-cisco-catalyst-sd-wan-controllermanager-zero-day-authentication-bypass"
-  image="https://www.tenable.com/sites/default/files/styles/640x360/public/images/articles/FAQ-advisory-zero-day_2.png?itok=xDtxGvoM"
   summary="Cisco SD-WAN 인증 우회 제로데이 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Tenable"
   severity="Critical"
@@ -500,7 +499,6 @@ JFrog은 AI 모델을 소프트웨어 아티팩트와 동일한 수준으로 관
 {%- include news-card.html
   title="[AI/ML] 랜섬웨어 생태계의 구조적 변화"
   url="https://www.recordedfuture.com/blog/ransomware-tactics-2026"
-  image="https://www.recordedfuture.com/blog/media_13d33e30a4d6ff2bf805413e36ff4532517bc417e.png?width=1200&format=pjpg&optimize=medium"
   summary="랜섬웨어 생태계의 구조적 변화 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Recorded Future"
   severity="High"

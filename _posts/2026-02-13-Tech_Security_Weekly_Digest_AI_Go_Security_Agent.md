@@ -188,7 +188,6 @@ Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼
 {%- include news-card.html
   title="[AI/ML] GPT-5.3-Codex-Spark 공개"
   url="https://openai.com/index/introducing-gpt-5-3-codex-spark"
-  image="https://images.ctfassets.net/kftzwdyauwt9/4Q63HBcSm7ApkQDi9iKpop/162358403746b44556f501fdd34de954/GPT-5.3-Codex-Spark_ArtCard_16x9.png?w=1600&h=900&fit=fill"
   summary="실시간 코딩 모델 GPT-5.3-Codex-Spark가 공개되었습니다. 기존 대비 15배 빠른 생성 속도와 128k 컨텍스트를 강조하며, ChatGPT Pro 연구 프리뷰로 제공됩니다."
   source="OpenAI Blog"
   severity="Medium"
