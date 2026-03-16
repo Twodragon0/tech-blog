@@ -80,7 +80,7 @@ toc: true
   title="Forensic analysis uncovers draft of $5M deal tied to"
   url="https://cointelegraph.com/news/milei-libra-promotion-5m-draft-deal-found-novelli-phone?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMDgvMDE5OGU4NGYtNzI5OC03NTdmLWFmZWUtOWYyYjllYmYzNTky.jpg"
-  summary="Forensic analysis of lobbyist Mauricio Novelli’s phone reportedly uncovered a draft document outlining a $5 million payment tied to Argentina's president's promotion of the Libra token. 관련 프로토콜 및 스마트 "
+  summary="Forensic analysis of lobbyist Mauricio Novelli's phone reportedly uncovered a draft document outlining a $5 million payment tied to Argentina's president's promotion of the Libra token. 관련 프로토콜 및 스마트 "
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -117,7 +117,7 @@ Regulatory uncertainty around stablecoins may disadvantage banks, as crypto firm
 ### 1.3 Here’s what happened in crypto today
 
 {% include news-card.html
-  title="Here’s what happened in crypto today"
+  title="Here's what happened in crypto today"
   url="https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzY2NjktN2UxNi03ZmI0LTlmNjItOTIxNWU3YTcwZmIwLmpwZw==.jpg"
   summary="Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, NFTs, Web3 and crypto regulation. 가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대"
