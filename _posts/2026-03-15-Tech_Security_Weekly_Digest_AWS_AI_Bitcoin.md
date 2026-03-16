@@ -321,6 +321,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU2M2MtNWYyMy03N2MyLWIwNTItODQ3ODEwY2E0MjIwLmpwZw==.jpg"
   summary="Changing Basel rules could unlock 'huge' liquidity for BTC 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Cointelegraph"
+  severity="Medium"
 %}
 
 #### 요약
@@ -341,6 +342,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2VkNzAtNzk3ZC03ZWE5LTk5MTItMjAwOGM4YjY1ZTczLmpwZw==.jpg"
   summary="Boris Johnson linked to BTC Ponzi scheme allegations 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Cointelegraph"
+  severity="Medium"
 %}
 
 #### 요약
@@ -361,6 +363,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5Yzk5ODMtZWRmNS03NjU2LTlmOWQtNjgwM2FlOWI4ZTg0LmpwZw==.jpg"
   summary="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Cointelegraph"
+  severity="Medium"
 %}
 
 #### 요약
