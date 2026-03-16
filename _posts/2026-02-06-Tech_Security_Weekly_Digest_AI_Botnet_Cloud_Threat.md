@@ -175,9 +175,6 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
 
 ### 3.1 Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images
 
-> 심각도: Critical (DevSecOps 프로세스 영향)
-
-
 {%- include news-card.html
   title="[클라우드] Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images"
   url="https://www.docker.com/blog/reduce-vulnerability-noise-with-vex-wiz-docker-hardened-images/"
