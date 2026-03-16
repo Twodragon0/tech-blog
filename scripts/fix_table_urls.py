@@ -13,6 +13,14 @@ import sys
 from pathlib import Path
 
 
+def _domain_matches(domain: str, pattern: str) -> bool:
+    """Check if domain exactly matches or is a subdomain of pattern.
+
+    Prevents substring false positives (e.g. 'evilgithub.com' matching 'github.com').
+    """
+    return domain == pattern or domain.endswith("." + pattern)
+
+
 def get_label_for_url(url: str) -> str:
     """Generate a short descriptive label for a URL based on domain rules."""
     # Strip protocol and www
@@ -20,54 +28,54 @@ def get_label_for_url(url: str) -> str:
     domain = domain_part.split("/")[0].lower()
     path = "/" + "/".join(domain_part.split("/")[1:]) if "/" in domain_part else ""
 
-    # Domain-specific rules (ordered from most specific to least)
-    if "docs.datadoghq.com" in domain:
+    # Domain-specific rules using exact domain matching
+    if _domain_matches(domain, "docs.datadoghq.com"):
         return "DataDog Docs"
-    if "learn.datadoghq.com" in domain:
+    if _domain_matches(domain, "learn.datadoghq.com"):
         return "DataDog Learn"
-    if "docs.aws.amazon.com" in domain or ("aws.amazon.com" in domain):
+    if _domain_matches(domain, "docs.aws.amazon.com") or _domain_matches(domain, "aws.amazon.com"):
         return "AWS 문서"
-    if "cloud.google.com" in domain:
+    if _domain_matches(domain, "cloud.google.com"):
         return "GCP 문서"
-    if "azure.microsoft.com" in domain:
+    if _domain_matches(domain, "azure.microsoft.com"):
         return "Azure 문서"
-    if "learn.microsoft.com" in domain or "devblogs.microsoft.com" in domain:
+    if _domain_matches(domain, "learn.microsoft.com") or _domain_matches(domain, "devblogs.microsoft.com"):
         return "MS 문서"
-    if "github.com" in domain:
+    if _domain_matches(domain, "github.com"):
         return "GitHub"
-    if "attack.mitre.org" in domain:
+    if _domain_matches(domain, "attack.mitre.org"):
         return "MITRE ATT&CK"
-    if "cisecurity.org" in domain:
+    if _domain_matches(domain, "cisecurity.org"):
         return "CIS"
-    if "owasp.org" in domain or "cheatsheetseries.owasp.org" in domain:
+    if _domain_matches(domain, "owasp.org"):
         return "OWASP"
-    if "kubernetes.io" in domain:
+    if _domain_matches(domain, "kubernetes.io"):
         return "K8s 문서"
-    if "sans.org" in domain:
+    if _domain_matches(domain, "sans.org"):
         return "SANS"
-    if domain.endswith(".kisa.or.kr") or domain == "kisa.or.kr":
+    if _domain_matches(domain, "kisa.or.kr"):
         return "KISA"
-    if "law.go.kr" in domain:
+    if _domain_matches(domain, "law.go.kr"):
         return "법령정보"
-    if "fsec.or.kr" in domain:
+    if _domain_matches(domain, "fsec.or.kr"):
         return "금융보안원"
-    if "pcisecuritystandards.org" in domain:
+    if _domain_matches(domain, "pcisecuritystandards.org"):
         return "PCI SSC"
-    if "iso.org" in domain:
+    if _domain_matches(domain, "iso.org"):
         return "ISO"
-    if "nist.gov" in domain:
+    if _domain_matches(domain, "nist.gov"):
         return "NIST"
-    if "splunk.com" in domain:
+    if _domain_matches(domain, "splunk.com"):
         return "Splunk"
-    if "registry.terraform.io" in domain:
+    if _domain_matches(domain, "registry.terraform.io"):
         return "Terraform Registry"
-    if "cloudsecurityalliance.org" in domain:
+    if _domain_matches(domain, "cloudsecurityalliance.org"):
         return "CSA"
-    if "skshieldus.com" in domain:
+    if _domain_matches(domain, "skshieldus.com"):
         return "SK Shieldus"
-    if "news.hada.io" in domain:
+    if _domain_matches(domain, "news.hada.io"):
         return "GeekNews"
-    if "cointelegraph.com" in domain:
+    if _domain_matches(domain, "cointelegraph.com"):
         return "CoinTelegraph"
     # Blog pattern
     if "/blog" in path:

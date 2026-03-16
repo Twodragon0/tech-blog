@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 캐시명 변경하여 캐시 무효화
-// v18: 인라인 JS 외부 추출 3차 (mermaid-init)
-const STATIC_CACHE = 'tech-blog-static-v18';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v18';
+// v19: CSP strict 리팩터링 - 외부 추출 JS 캐시 등록
+const STATIC_CACHE = 'tech-blog-static-v19';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v19';
 
 // Dynamic cache settings
 const DYNAMIC_CACHE_MAX_ENTRIES = 50;
@@ -19,6 +19,16 @@ const STATIC_ASSETS = [
   '/assets/js/toc.js',
   '/assets/js/mermaid-init.js',
   '/assets/js/performance-monitor.js',
+  '/assets/js/head-runtime.js',
+  '/assets/js/header-runtime.js',
+  '/assets/js/footer-runtime.js',
+  '/assets/js/console-filter.js',
+  '/assets/js/giscus-init.js',
+  '/assets/js/sentry-init.js',
+  '/assets/js/adsense-init.js',
+  '/assets/js/chat-widget-loader.js',
+  '/assets/js/subscribe-float.js',
+  '/assets/js/support-page.js',
   '/assets/images/favicon.png'
 ];
 
