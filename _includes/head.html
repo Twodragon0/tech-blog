@@ -140,11 +140,11 @@
   <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | absolute_url }}">
 
-  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap, 단일 요청) -->
+  <!-- Fonts: Noto Sans KR (non-blocking load via media swap, CSP-safe) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" id="gfonts">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
   <!-- 분할된 JavaScript 파일들을 prefetch로 미리 캐시 -->
@@ -224,6 +224,13 @@
     .toc-card { display: flex; flex-direction: column; overflow: hidden; border-radius: inherit; }
     .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-border, #dee2e6); }
     .toc-nav { padding: 0.75rem 1rem 1rem; }
+
+    /* Homepage card layout for faster FCP */
+    .post-list { display: grid; gap: 1.5rem; }
+    .post-card { display: flex; border-radius: 12px; overflow: hidden; background: var(--color-bg-secondary, #f8f9fa); border: 1px solid var(--color-border, #dee2e6); }
+    .post-card__image { width: 200px; min-height: 140px; flex-shrink: 0; }
+    .post-card__body { padding: 1rem 1.25rem; flex: 1; min-width: 0; }
+    @media (max-width: 640px) { .post-card { flex-direction: column; } .post-card__image { width: 100%; min-height: 160px; } }
 
     /* Dark mode basic support — data-theme set by inline script before render */
     @media (prefers-color-scheme: dark) {

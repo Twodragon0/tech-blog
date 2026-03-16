@@ -206,6 +206,12 @@
     }
   }
 
+  // Activate non-blocking Google Fonts (media="print" → "all")
+  var gfonts = document.getElementById('gfonts');
+  if (gfonts) {
+    gfonts.media = 'all';
+  }
+
   applyTheme();
   initConsoleFilter();
   bindCssFallback();
