@@ -63,7 +63,7 @@ toc: true
 | 🤖 AI/ML | NVIDIA | Agentic AI 기반 통신 자율 네트워크 + AI-RAN 상용화 실증 | 🟠 High |
 | ☁️ Cloud | AWS Korea | Agentic AI 플랫폼: MCP Registry로 에이전트 도구 통합 관리 | 🟡 Medium |
 | ⛓️ Blockchain | Cointelegraph | 토큰화 금, 주말 가격 발견 100% 주도 / BTC $68K 회복 | 🟡 Medium |
-| 💻 Tech | GeekNews | AI 코딩 시대의 ‘인지 부채’ - 속도가 이해를 초과할 때 | 🟡 Medium |
+| 💻 Tech | GeekNews | AI 코딩 시대의 '인지 부채' - 속도가 이해를 초과할 때 | 🟡 Medium |
 
 ---
 

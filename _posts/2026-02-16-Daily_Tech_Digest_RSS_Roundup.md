@@ -115,8 +115,8 @@ toc: true
 - 실무 시사점: 규제 및 대규모 청산 이벤트 가능성에 대한 모니터링 필요.
 - 추천 액션: 대형 거래소·기관 투자 관련 뉴스 알림을 강화.
 
-출처: [Here’s what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),
-[Study suggests WLFI could act as an ‘early warning signal’ in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),
+출처: [Here's what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),
+[Study suggests WLFI could act as an 'early warning signal' in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound),
 [Mirae Asset agrees to buy 92% stake in Korean exchange Korbit for $93M](https://cointelegraph.com/news/mirae-asset-buy-92-percent-korbit-korea-crypto-exchange?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 ---
@@ -138,8 +138,8 @@ toc: true
 - [Oat – Ultra-lightweight, semantic, zero-dependency HTML UI component library](https://oat.ink/)
 - [Amazon, Google Unwittingly Reveal the Severity of the U.S. Surveillance State](https://greenwald.substack.com/p/amazons-ring-and-googles-nest-unwittingly)
 - [AI is going to kill app subscriptions](https://nichehunt.app/blog/ai-going-to-kill-app-subscriptions)
-- [Here’s what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
-- [Study suggests WLFI could act as an ‘early warning signal’ in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
+- [Here's what happened in crypto today](https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
+- [Study suggests WLFI could act as an 'early warning signal' in crypto](https://cointelegraph.com/news/wlfi-early-warning-signal-crypto-amberdata-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 - [Mirae Asset agrees to buy 92% stake in Korean exchange Korbit for $93M](https://cointelegraph.com/news/mirae-asset-buy-92-percent-korbit-korea-crypto-exchange?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 ## 관련 포스트

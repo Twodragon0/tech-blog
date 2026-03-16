@@ -88,7 +88,7 @@ toc: true
 
 ### 2.1 AI 에이전트 보안과 가드레일
 
-- 핵심 요지: 에이전트 보안은 “탐지 가능성”보다 “파괴 가능성” 기준으로 성숙도를 높여야 한다는 주장이 확산 중입니다.
+- 핵심 요지: 에이전트 보안은 "탐지 가능성"보다 "파괴 가능성" 기준으로 성숙도를 높여야 한다는 주장이 확산 중입니다.
 - 실무 포인트: 에이전트 권한 분리, 입력 검증, 결과 검증 단계가 필수로 요구됩니다.
 
 참고: [Snyk - AI Agent Security Guardrails](https://snyk.io/blog/future-of-ai-agent-security-guardrails/), [Snyk - Breakability](https://snyk.io/blog/exploitability-isn-t-the-answer-breakability-is/)

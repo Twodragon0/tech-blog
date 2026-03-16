@@ -97,7 +97,7 @@ toc: true
 ## 원문 목록 (KrebsOnSecurity)
 - Kimwolf Botnet Swamps Anonymity Network I2P — 2026-02-11 — <https://krebsonsecurity.com/2026/02/kimwolf-botnet-swamps-anonymity-network-i2p/>
 - Patch Tuesday, February 2026 Edition — 2026-02-10 — <https://krebsonsecurity.com/2026/02/patch-tuesday-february-2026-edition/>
-- Please Don’t Feed the Scattered Lapsus ShinyHunters — 2026-02-02 — <https://krebsonsecurity.com/2026/02/please-dont-feed-the-scattered-lapsus-shiny-hunters/>
+- Please Don't Feed the Scattered Lapsus ShinyHunters — 2026-02-02 — <https://krebsonsecurity.com/2026/02/please-dont-feed-the-scattered-lapsus-shiny-hunters/>
 - Who Operates the Badbox 2.0 Botnet? — 2026-01-26 — <https://krebsonsecurity.com/2026/01/who-operates-the-badbox-2-0-botnet/>
 - Kimwolf Botnet Lurking in Corporate, Govt. Networks — 2026-01-20 — <https://krebsonsecurity.com/2026/01/kimwolf-botnet-lurking-in-corporate-govt-networks/>
 - Patch Tuesday, January 2026 Edition — 2026-01-14 — <https://krebsonsecurity.com/2026/01/patch-tuesday-january-2026-edition/>

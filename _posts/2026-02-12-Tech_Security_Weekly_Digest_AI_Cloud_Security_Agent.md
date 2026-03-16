@@ -153,15 +153,15 @@ toc: true
 ### 2.2 에이전트 우선 개발에서의 하네스 엔지니어링
 
 {%- include news-card.html
-  title=”[AI/ML] 에이전트 우선 개발에서의 하네스 엔지니어링”
-  url=”https://openai.com/index/harness-engineering”
-  summary=”에이전트가 코드를 작성하는 환경에서는 코드 생성 능력보다 검증 하네스 설계 능력이 품질을 결정합니다.”
-  source=”OpenAI Blog”
-  severity=”Medium”
+  title="[AI/ML] 에이전트 우선 개발에서의 하네스 엔지니어링"
+  url="https://openai.com/index/harness-engineering"
+  summary="에이전트가 코드를 작성하는 환경에서는 코드 생성 능력보다 검증 하네스 설계 능력이 품질을 결정합니다."
+  source="OpenAI Blog"
+  severity="Medium"
 -%}
 
 #### 요약
-에이전트가 코드를 작성하는 환경에서는 “코드 생성 능력”보다 “검증 하네스 설계 능력”이 품질을 결정합니다.
+에이전트가 코드를 작성하는 환경에서는 "코드 생성 능력"보다 "검증 하네스 설계 능력"이 품질을 결정합니다.
 
 
 #### 핵심 포인트
