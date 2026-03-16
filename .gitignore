@@ -92,6 +92,7 @@ referenced_images.txt
 # Claude/Cursor session
 .claude/settings.local.json
 .claude/settings.json
+.claude/worktrees/
 .cursor/
 .sisyphus/
 .env.backup
