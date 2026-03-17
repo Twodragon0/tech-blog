@@ -49,9 +49,9 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| ⛓️ **Blockchain** | Cointelegraph | Forensic analysis uncovers draft of $5M deal tied to Milei's Libra promotion | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Stablecoin uncertainty could hurt banks more than crypto | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Here’s what happened in crypto today | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | 아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | 스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | 암호화폐 시장 일일 동향 종합 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 창업자를 위한 마케팅 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | MCP는 죽었다; MCP 만세 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | GIMP 3.2 출시 | 🟡 Medium |
@@ -74,13 +74,13 @@ toc: true
 
 ## 1. 블록체인 뉴스
 
-### 1.1 Forensic analysis uncovers draft of $5M deal tied to
+### 1.1 아르헨티나 대통령 Libra 토큰 $5M 거래 포렌식 분석
 
 {% include news-card.html
-  title="Forensic analysis uncovers draft of $5M deal tied to"
+  title="아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석"
   url="https://cointelegraph.com/news/milei-libra-promotion-5m-draft-deal-found-novelli-phone?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMDgvMDE5OGU4NGYtNzI5OC03NTdmLWFmZWUtOWYyYjllYmYzNTky.jpg"
-  summary="Forensic analysis of lobbyist Mauricio Novelli's phone reportedly uncovered a draft document outlining a $5 million payment tied to Argentina's president's promotion of the Libra token. 관련 프로토콜 및 스마트 "
+  summary="아르헨티나 로비스트 Mauricio Novelli의 휴대폰 포렌식 분석에서 대통령의 Libra 토큰 홍보와 연결된 $5M 거래 계약서 초안이 발견되었습니다. 정치인 연계 토큰 프로젝트의 규제 리스크가 재부각되고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -94,13 +94,13 @@ toc: true
 
 ---
 
-### 1.2 Stablecoin uncertainty could hurt banks more than crypto
+### 1.2 스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망
 
 {% include news-card.html
-  title="Stablecoin uncertainty could hurt banks more than crypto"
+  title="스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망"
   url="https://cointelegraph.com/news/stablecoin-uncertainty-could-hurt-banks-more-than-crypto-firms-expert?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzhmMDUtNmFjYi03YmY1LThhMWEtODkxMDA1ZGZkZWJiLmpwZw==.jpg"
-  summary="Regulatory uncertainty around stablecoins may disadvantage banks, as crypto firms continue expanding while financial institutions wait for clearer rules. 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
+  summary="스테이블코인에 대한 규제 불확실성이 크립토 기업보다 전통 금융 기관에 더 큰 타격을 줄 수 있습니다. 크립토 기업은 규제 공백 속에서도 확장을 계속하는 반면, 은행은 명확한 규칙을 기다리며 디지털 자산 서비스 출시를 보류하고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -114,13 +114,13 @@ toc: true
 
 ---
 
-### 1.3 Here’s what happened in crypto today
+### 1.3 암호화폐 시장 일일 동향 종합
 
 {% include news-card.html
-  title="Here's what happened in crypto today"
+  title="암호화폐 시장 일일 동향 종합"
   url="https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzY2NjktN2UxNi03ZmI0LTlmNjItOTIxNWU3YTcwZmIwLmpwZw==.jpg"
-  summary="Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, NFTs, Web3 and crypto regulation. 가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대"
+  summary="Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 일일 종합 리포트입니다. 시장 변동성이 높아지면서 피싱·스캠 활동도 증가 추세입니다."
   source="Cointelegraph"
   severity="Medium"
 %}

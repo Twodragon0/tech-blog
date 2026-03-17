@@ -2803,10 +2803,22 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         template += "- LLM 입출력 데이터 보안 및 프라이버시 검토\n"
         template += "- 모델 서빙 환경의 접근 제어 및 네트워크 격리 확인\n"
         template += "- 프롬프트 인젝션 등 적대적 공격 대응 방안 점검\n"
+    elif any(kw in text for kw in ["gpu", "nvidia", "인프라", "factory", "compute", "training"]):
+        template += "- 대규모 AI 인프라 도입 시 보안 경계 및 접근 제어 설계 검토\n"
+        template += "- GPU 클러스터 운영 환경의 취약점 관리 및 패치 정책 수립\n"
+        template += "- AI 워크로드 데이터 프라이버시 규정(GDPR, HIPAA) 준수 확인\n"
+    elif any(kw in text for kw in ["simulation", "시뮬레이션", "digital twin", "optimize", "최적화"]):
+        template += "- 시뮬레이션 기반 인프라 검증으로 배포 전 보안 취약점 사전 식별 활용\n"
+        template += "- AI 서비스 성능 최적화와 보안 모니터링 균형 설계\n"
+        template += "- 운영 비용 절감 효과와 보안 투자 ROI 분석\n"
+    elif any(kw in text for kw in ["attack", "공격", "threat", "위협", "malware", "악성"]):
+        template += "- AI 기반 위협 탐지 및 자동 대응 파이프라인 구축 검토\n"
+        template += "- AI 모델 자체의 적대적 공격(Adversarial Attack) 방어 설계\n"
+        template += "- 보안 팀의 AI 도구 활용 역량 강화 교육 계획 수립\n"
     else:
-        template += "- 관련 AI/ML 기술의 자사 적용 가능성 및 보안 영향 평가\n"
-        template += "- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립\n"
-        template += "- 팀 내 기술 동향 공유 및 도입 로드맵 논의\n"
+        template += "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토\n"
+        template += "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인\n"
+        template += "- 관련 기술의 자사 환경 적용 가능성 평가 및 보안 영향 분석\n"
 
     template += "\n"
     return template
@@ -2817,9 +2829,9 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         return """
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 운영 환경 변경 시 보안 구성 검증 자동화 파이프라인 점검
+- 인프라 코드(IaC) 보안 스캔 도구 통합 및 정책 업데이트
+- 변경 관리 프로세스에 보안 검토 단계 포함 확인
 
 """
 
@@ -2834,10 +2846,22 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- Kubernetes 클러스터 보안 정책(PSP/PSA) 점검\n"
         template += "- 네트워크 폴리시 및 RBAC 설정 최신화 확인\n"
         template += "- 커뮤니티 행사 참가를 통한 최신 보안 동향 파악\n"
+    elif any(kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]):
+        template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
+        template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
+        template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
+    elif any(kw in text for kw in ["서비스 메시", "service mesh", "istio", "envoy", "네트워크"]):
+        template += "- mTLS 기반 서비스 간 통신 암호화 적용 검토\n"
+        template += "- 서비스 메시 관측성 활용한 이상 트래픽 탐지 설계\n"
+        template += "- 네트워크 폴리시와 서비스 메시 정책 통합 관리\n"
+    elif any(kw in text for kw in ["kubecon", "conference", "컨퍼런스", "행사", "summit"]):
+        template += "- 컨퍼런스에서 발표된 새로운 보안 프레임워크 및 도구 검토\n"
+        template += "- 커뮤니티 모범 사례의 자사 환경 적용 가능성 평가\n"
+        template += "- 발표된 오픈소스 프로젝트의 보안 성숙도 및 도입 로드맵 검토\n"
     else:
-        template += "- 기존 인프라/운영 환경과의 호환성 및 영향도 검토\n"
-        template += "- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립\n"
-        template += "- 팀 내 기술 공유 및 도입 로드맵 논의\n"
+        template += "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+        template += "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+        template += "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
 
     template += "\n"
     return template
@@ -3102,10 +3126,15 @@ def _to_english_svg_text(text: str) -> str:
 
 
 def _truncate_text(text: str, max_len: int) -> str:
-    """텍스트 길이 제한 (영문 기준)"""
+    """텍스트 길이 제한 (단어 경계에서 자름)"""
     if len(text) <= max_len:
         return text
-    return text[:max_len].rstrip(" ,.")
+    # Find last space before max_len to avoid cutting mid-word
+    truncated = text[:max_len]
+    last_space = truncated.rfind(" ")
+    if last_space > max_len * 0.6:  # Only use word boundary if reasonable
+        return truncated[:last_space]
+    return truncated.rstrip(" ,.")
 
 
 def _extract_key_topics(news_items: List[Dict]) -> List[str]:
@@ -3266,10 +3295,6 @@ def generate_svg_image(
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Grid Pattern -->
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
 
   <!-- Decorative Circles -->
