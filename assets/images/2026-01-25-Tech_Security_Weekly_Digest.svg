@@ -1,38 +1,88 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a2a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <!-- Fingerprint scan -->
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="90" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
-      <!-- Fingerprint lines -->
-      <path d="M-50,0 C-50,-30 -25,-50 0,-50" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.3"/>
-      <path d="M-40,10 C-40,-20 -18,-40 10,-40 C38,-40 50,-20 50,10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.35"/>
-      <path d="M-30,20 C-30,-10 -10,-30 15,-30 C40,-30 45,-5 45,20" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
-      <path d="M-20,25 C-20,0 -5,-20 15,-20 C35,-20 38,5 38,25" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.45"/>
-      <path d="M-10,30 C-10,10 0,-10 15,-10 C30,-10 32,15 30,30" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.5"/>
-      <!-- Scan line -->
-      <rect x="-80" y="-2" width="160" height="4" rx="2" fill="#8b5cf6" opacity="0.3">
-        <animate attributeName="y" values="-80;80;-80" dur="3s" repeatCount="indefinite"/>
-      </rect>
-      <!-- Alert at center -->
-      <circle cx="5" cy="5" r="8" fill="#ef4444" opacity="0.5"/>
-      <text x="5" y="9" font-family="Arial,sans-serif" font-size="10" fill="white" text-anchor="middle">!</text>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04">
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient glow -->
+  <circle cx="600" cy="280" r="250" fill="#ef4444" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="300" cy="180" r="150" fill="#f97316" opacity="0.05" filter="url(#softglow)"/>
+  <circle cx="900" cy="400" r="180" fill="#ef4444" opacity="0.03" filter="url(#softglow)"/>
+
+  <!-- Central icon -->
+  <g filter="url(#shadow)">
+
+    <g transform="translate(600,250)">
+      <path d="M0,-130 L110,-85 L110,30 C110,90 55,135 0,160 C-55,135 -110,90 -110,30 L-110,-85 Z" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="2"/>
+      <path d="M0,-110 L90,-72 L90,22 C90,72 45,110 0,132 C-45,110 -90,72 -90,22 L-90,-72 Z" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.3"/>
+      <line x1="-40" y1="-50" x2="40" y2="50" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+      <line x1="40" y1="-50" x2="-40" y2="50" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.6"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Security Weekly Digest</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Identity Threat Analysis | Weekly Intelligence</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">WEEKLY</text>
+
+  <!-- Theme extras -->
+
+    <g opacity="0.5">
+      <polygon points="150,420 165,395 180,420" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="165" y="416" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+      <polygon points="1020,150 1035,125 1050,150" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="1035" y="146" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+      <polygon points="950,450 965,425 980,450" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="965" y="446" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+    </g>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#ef4444">
+    <text x="50" y="100">CVE-2026-XXXX</text>
+    <text x="950" y="120">CVSS: 9.8 CRITICAL</text>
+    <text x="70" y="480">patch --apply fix</text>
+    <text x="920" y="500">vuln.scan(target)</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">VMware vCenter KEV Patch</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Fortinet SSO Bypass + Sandworm DynoWiper</text>
+
+  <!-- Top badges -->
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 25, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 25, 2026</text>
+
+  <!-- Footer -->
+  <text x="1160" y="615" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>

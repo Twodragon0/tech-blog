@@ -3,31 +3,76 @@
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a100a"/>
     </linearGradient>
+    <linearGradient id="wormGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="softglow"><feGaussianBlur stdDeviation="20" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="redglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#ef4444" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="270" r="260" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
-  <g transform="translate(600,250)">
-    <!-- Sandworm / snake shape representing Shai-Hulud -->
-    <path d="M-180,0 C-150,-60 -100,-80 -50,-40 C0,0 50,-40 100,-80 C150,-120 180,-60 160,0 C140,60 100,40 50,0 C0,-40 -50,0 -100,40 C-150,80 -180,60 -180,0 Z" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.5"/>
+
+  <!-- Grid -->
+  <g opacity="0.04">
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff"/><line x1="120" y1="0" x2="120" y2="630" stroke="#fff"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff"/><line x1="240" y1="0" x2="240" y2="630" stroke="#fff"/>
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff"/><line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff"/>
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff"/><line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff"/>
+  </g>
+
+  <!-- Ambient glow -->
+  <circle cx="600" cy="270" r="260" fill="#f59e0b" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="350" cy="200" r="150" fill="#ef4444" opacity="0.05" filter="url(#softglow)"/>
+  <circle cx="900" cy="380" r="180" fill="#f59e0b" opacity="0.03" filter="url(#softglow)"/>
+
+  <!-- Sandworm / Shai-Hulud -->
+  <g transform="translate(600,250)" filter="url(#shadow)">
+    <path d="M-180,0 C-150,-60 -100,-80 -50,-40 C0,0 50,-40 100,-80 C150,-120 180,-60 160,0 C140,60 100,40 50,0 C0,-40 -50,0 -100,40 C-150,80 -180,60 -180,0 Z" fill="none" stroke="url(#wormGrad)" stroke-width="3" opacity="0.6"/>
+    <path d="M-160,5 C-130,-45 -85,-60 -40,-25 C10,10 55,-30 95,-65 C135,-100 160,-50 142,5" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" opacity="0.2"/>
     <!-- Worm eye -->
-    <circle cx="-170" cy="0" r="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <circle cx="-170" cy="0" r="5" fill="#f59e0b" opacity="0.8"/>
-    <!-- 180 packages count -->
-    <circle cx="0" cy="0" r="40" fill="#1e293b" stroke="#ef4444" stroke-width="2.5"/>
-    <text x="0" y="-5" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle">180</text>
+    <circle cx="-170" cy="0" r="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="-170" cy="0" r="6" fill="#f59e0b" opacity="0.8"/>
+    <!-- 180+ packages -->
+    <circle cx="0" cy="0" r="42" fill="#1e293b" stroke="#ef4444" stroke-width="2.5" filter="url(#redglow)"/>
+    <text x="0" y="-5" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle">180+</text>
     <text x="0" y="15" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">packages</text>
     <!-- Scattered malicious package boxes -->
-    <g opacity="0.3">
+    <g opacity="0.4">
       <rect x="-140" y="50" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
       <rect x="60" y="60" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
       <rect x="120" y="30" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
       <rect x="-80" y="70" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+      <rect x="-30" y="65" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
     </g>
   </g>
+
+  <!-- Warning triangles -->
+  <g opacity="0.5">
+    <polygon points="160,430 175,405 190,430" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="175" y="426" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+    <polygon points="1020,160 1035,135 1050,160" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="1035" y="156" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#f59e0b">
+    <text x="50" y="100">npm install worm-pkg</text>
+    <text x="920" y="110">postinstall: exec()</text>
+    <text x="60" y="480">self.replicate(npm)</text>
+    <text x="920" y="490">supply-chain.infect()</text>
+  </g>
+
+  <!-- Title -->
   <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Shai-Hulud Campaign</text>
   <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">180 Malicious npm Packages | Large-scale Analysis</text>
+
+  <!-- Top badges -->
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
   <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">THREAT INTEL</text>
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>

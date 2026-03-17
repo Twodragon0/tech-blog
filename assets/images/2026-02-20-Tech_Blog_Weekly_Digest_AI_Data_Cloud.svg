@@ -1,26 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a1e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <path d="M-30,-60 C-55,-60 -75,-42 -75,-20 C-95,-20 -110,-2 -110,15 C-110,40 -90,52 -70,52 L70,52 C90,52 110,40 110,15 C110,-2 95,-20 75,-20 C75,-42 55,-60 30,-60 C12,-60 0,-50 -5,-42 C-10,-50 -18,-60 -30,-60 Z" fill="#1e293b" stroke="#3b82f6" stroke-width="2.5"/>
-      <path d="M0,-35 L25,-22 L25,10 C25,22 14,30 0,35 C-14,30 -25,22 -25,10 L-25,-22 Z" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1.5"/>
-      <path d="M-6,5 L-2,10 L10,-2" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04">
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient glow -->
+  <circle cx="600" cy="280" r="250" fill="#06b6d4" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="300" cy="180" r="150" fill="#3b82f6" opacity="0.05" filter="url(#softglow)"/>
+  <circle cx="900" cy="400" r="180" fill="#06b6d4" opacity="0.03" filter="url(#softglow)"/>
+
+  <!-- Central icon -->
+  <g filter="url(#shadow)">
+
+    <g transform="translate(600,230)">
+      <path d="M-80,20 C-80,-40 -40,-70 10,-70 C30,-70 50,-60 60,-45 C70,-55 90,-55 105,-40 C130,-40 140,-20 140,0 C140,25 125,40 100,40 L-60,40 C-80,40 -100,25 -100,5 C-100,-5 -90,-15 -80,-15 Z" fill="#1e293b" stroke="#06b6d4" stroke-width="2.5"/>
+      <path d="M-60,20 C-60,-25 -25,-50 15,-50 C30,-50 45,-42 52,-30 C60,-38 75,-38 87,-27 C105,-27 115,-12 115,5 C115,22 103,33 82,33 L-42,33 C-58,33 -75,22 -75,5 C-75,-2 -68,-10 -60,-10 Z" fill="none" stroke="#06b6d4" stroke-width="1" stroke-dasharray="5,3" opacity="0.3"/>
+      <rect x="-15" y="-15" width="30" height="25" rx="4" fill="none" stroke="#06b6d4" stroke-width="2"/>
+      <path d="M-8,-15 L-8,-28 C-8,-38 8,-38 8,-28 L8,-15" fill="none" stroke="#06b6d4" stroke-width="2"/>
+      <circle cx="0" cy="0" r="4" fill="#06b6d4" opacity="0.7"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI + Data + Cloud</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Tech Blog Digest</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b82f6" text-anchor="middle">WEEKLY</text>
+
+  <!-- Theme extras -->
+
+    <g opacity="0.3">
+      <rect x="100" y="130" width="80" height="50" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
+      <text x="140" y="160" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">us-east-1</text>
+      <rect x="1020" y="400" width="80" height="50" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
+      <text x="1060" y="430" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">ap-ne-2</text>
+    </g>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#06b6d4">
+    <text x="50" y="100">aws configure</text>
+    <text x="950" y="120">kubectl apply</text>
+    <text x="70" y="480">terraform plan</text>
+    <text x="920" y="500">cloud.deploy()</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Alignment + EKS Flyte</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Docker Security + Cloud Native Trends</text>
+
+  <!-- Top badges -->
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 20, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 20, 2026</text>
+
+  <!-- Footer -->
+  <text x="1160" y="615" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
