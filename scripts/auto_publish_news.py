@@ -2249,10 +2249,18 @@ def _generate_contextual_action_point(item: Dict) -> str:
 
     # Blockchain
     if category == "blockchain":
-        if any(
-            kw in combined for kw in ["bitcoin", "비트코인", "ethereum", "이더리움"]
-        ):
-            return "가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요."
+        if any(kw in combined for kw in ["hack", "exploit", "attack", "공격", "breach", "침해", "vulnerability"]):
+            return "블록체인 보안 사고 관련 IoC를 확인하고 유사 공격 벡터에 대한 방어 체계를 점검하세요."
+        if any(kw in combined for kw in ["regulation", "규제", "법안", "act", "compliance", "컴플라이언스", "sec", "cftc"]):
+            return "규제 변화에 따른 컴플라이언스 영향을 법무팀과 사전 검토하세요."
+        if any(kw in combined for kw in ["defi", "protocol", "프로토콜", "swap", "스왑", "lending", "대출"]):
+            return "관련 DeFi 프로토콜의 스마트 컨트랙트 감사 현황과 비상 정지 메커니즘을 확인하세요."
+        if any(kw in combined for kw in ["conference", "컨퍼런스", "summit", "speaker", "연사"]):
+            return "대규모 행사 전후로 관련 토큰 사기 및 가짜 이벤트 피싱이 증가합니다. 공식 채널만 이용하세요."
+        if any(kw in combined for kw in ["bitcoin", "비트코인", "btc"]):
+            return "시장 변동성 확대 시기에 피싱 도메인 모니터링을 강화하고 고액 출금 인증 절차를 점검하세요."
+        if any(kw in combined for kw in ["ethereum", "이더리움", "eth", "stablecoin", "스테이블코인"]):
+            return "스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요."
         return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
 
     return "실무 적용 전에 상세 내용을 확인하세요."
