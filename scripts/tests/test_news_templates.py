@@ -10,6 +10,7 @@ import pytest
 
 from auto_publish_news import (
     _generate_ai_analysis_template,
+    _generate_contextual_action_point,
     _generate_devops_template,
 )
 
@@ -496,3 +497,117 @@ class TestAntiRegressionBannedPhrases:
                 assert phrase not in result, (
                     f"Banned phrase {phrase!r} found in devops template for item={item!r}"
                 )
+
+
+# ===========================================================================
+# _generate_contextual_action_point
+# ===========================================================================
+
+class TestGenerateContextualActionPoint:
+    """Tests for inline '실무 포인트' generation."""
+
+    def _item(self, title="", summary="", category="tech"):
+        return {"title": title, "summary": summary, "category": category}
+
+    # --- Blockchain branches ---
+    def test_blockchain_hack_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("Bitcoin exchange hack", category="blockchain")
+        )
+        assert "IoC" in result or "방어" in result
+
+    def test_blockchain_regulation_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("SEC 규제 변화", category="blockchain")
+        )
+        assert "컴플라이언스" in result or "법무" in result
+
+    def test_blockchain_defi_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("DeFi protocol exploit", category="blockchain")
+        )
+        # hack keyword should match first (higher priority)
+        assert "IoC" in result or "스마트 컨트랙트" in result
+
+    def test_blockchain_defi_swap(self):
+        result = _generate_contextual_action_point(
+            self._item("Uniswap 스왑 기능 업데이트", category="blockchain")
+        )
+        assert "스마트 컨트랙트" in result
+
+    def test_blockchain_conference(self):
+        result = _generate_contextual_action_point(
+            self._item("Bitcoin 2026 컨퍼런스 연사", category="blockchain")
+        )
+        assert "공식 채널" in result or "피싱" in result
+
+    def test_blockchain_bitcoin(self):
+        result = _generate_contextual_action_point(
+            self._item("Bitcoin price DCA analysis", category="blockchain")
+        )
+        assert "피싱 도메인" in result or "출금" in result
+
+    def test_blockchain_ethereum_stablecoin(self):
+        result = _generate_contextual_action_point(
+            self._item("스테이블코인 시장 동향", category="blockchain")
+        )
+        assert "트랜잭션 모니터링" in result or "접근 제어" in result
+
+    def test_blockchain_fallback(self):
+        result = _generate_contextual_action_point(
+            self._item("NFT marketplace trends", category="blockchain")
+        )
+        assert "프로토콜" in result or "스마트 컨트랙트" in result
+
+    # --- Security branches ---
+    def test_security_ransomware(self):
+        result = _generate_contextual_action_point(
+            self._item("New ransomware variant", category="security")
+        )
+        assert "백업" in result or "격리" in result
+
+    def test_security_cve(self):
+        result = _generate_contextual_action_point(
+            self._item("CVE-2026-12345 critical vuln", category="security")
+        )
+        assert "CVE" in result or "패치" in result
+
+    # --- AI branches ---
+    def test_ai_agent(self):
+        result = _generate_contextual_action_point(
+            self._item("AI 에이전트 보안", category="ai")
+        )
+        assert "Agent" in result or "권한" in result
+
+    def test_ai_model(self):
+        result = _generate_contextual_action_point(
+            self._item("New LLM model release", category="ai")
+        )
+        assert "적용" in result or "트레이드오프" in result
+
+    # --- Cloud/DevOps branches ---
+    def test_cloud_k8s(self):
+        result = _generate_contextual_action_point(
+            self._item("Kubernetes security update", category="kubernetes")
+        )
+        assert "클러스터" in result
+
+    def test_cloud_aws(self):
+        result = _generate_contextual_action_point(
+            self._item("AWS new service", category="cloud")
+        )
+        assert "클라우드" in result or "인프라" in result
+
+    # --- Anti-regression: no old generic phrases ---
+    def test_no_generic_blockchain_phrase(self):
+        """Blockchain items should never return the old generic phrase."""
+        test_items = [
+            self._item("Bitcoin price analysis", category="blockchain"),
+            self._item("Ethereum DeFi update", category="blockchain"),
+            self._item("Crypto regulation news", category="blockchain"),
+            self._item("NFT marketplace", category="blockchain"),
+        ]
+        banned = "가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요."
+        for item in test_items:
+            result = _generate_contextual_action_point(item)
+            assert result != banned, f"Got banned phrase for: {item['title']}"
