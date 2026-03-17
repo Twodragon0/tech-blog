@@ -456,6 +456,8 @@
   position: relative;
   width: 100%;
   margin: 1.5em 0;
+  min-height: 3em;
+  contain: content;
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) var(--color-bg-tertiary);
