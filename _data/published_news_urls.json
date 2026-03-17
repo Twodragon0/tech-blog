@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-16T09:32:58.993292+00:00",
+  "updated_at": "2026-03-17T01:21:54.611876+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -1692,6 +1692,96 @@
       "title": "너의 실수까지 포함해 너를 알게 해줘",
       "published_date": "2026-03-16",
       "expires_at": "2026-03-23T09:32:58.992960+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/glassworm-attack-uses-stolen-github.html",
+      "title": "GlassWorm Attack Uses Stolen GitHub Tokens to Force-Push Malware Into Python Rep",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/weekly-recap-chrome-0-days-router.html",
+      "title": "⚡ Weekly Recap: Chrome 0-Days, Router Botnets, AWS Breach, Rogue AI Agents & Mor",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/why-security-validation-is-becoming.html",
+      "title": "Why Security Validation Is Becoming Agentic",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/clickfix-campaigns-spread-macsync-macos.html",
+      "title": "ClickFix Campaigns Spread MacSync macOS Infostealer via Fake AI Tool Installers",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/blog/microsoft-security-blog/new-microsoft-purview-innovations-for-fabric-to-safely-accelerate-your-ai-transf/4502156",
+      "title": "New Microsoft Purview innovations for Fabric to safely accelerate your AI transf",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/roche-ai-factories-omniverse/",
+      "title": "Roche Scales NVIDIA AI Factories Globally to Accelerate Drug Discovery, Diagnost",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/dsx-air-simulation-ai-factories/",
+      "title": "NVIDIA DSX Air Boosts Time to Token With Accelerated Simulation for AI Factories",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-and-nvidia-deepen-strategic-collaboration-to-accelerate-ai-from-pilot-to-production/",
+      "title": "AWS and NVIDIA deepen strategic collaboration to accelerate AI from pilot to pro",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/agentic-ai-in-the-enterprise-part-2-guidance-by-persona/",
+      "title": "Agentic AI in the Enterprise Part 2: Guidance by Persona",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-disaggregated-inference-on-aws-powered-by-llm-d/",
+      "title": "Introducing Disaggregated Inference on AWS powered by llm-d",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/gemini-supercharges-the-bigquery-studio-assistant/",
+      "title": "BigQuery Studio is more useful than ever, with enhanced Gemini assistant",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/google-cloud-ai-infrastructure-at-nvidia-gtc-2026/",
+      "title": "Google Cloud and NVIDIA expand AI innovation across industries at GTC 2026",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/ransomware-ttps-shifting-threat-landscape/",
+      "title": "Ransomware Under Pressure: Tactics, Techniques, and Procedures in a Shifting Thr",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-s3-turns-20-amazon-route-53-global-resolver-general-availability-and-more-march-16-2026/",
+      "title": "AWS Weekly Roundup: Amazon S3 turns 20, Amazon Route 53 Global Resolver general ",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/efficient-ebs-monitoring-with-mcp-at-scale/",
+      "title": "대규모 환경에서의 MCP를 활용한 효율적인 EBS 모니터링",
+      "published_date": "2026-03-17",
+      "expires_at": "2026-03-24T01:21:54.611754+00:00"
     }
   ]
 }
