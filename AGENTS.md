@@ -169,6 +169,16 @@ image: /assets/images/YYYY-MM-DD-English_Title.svg
 - **No** `Co-Authored-By: Claude` in messages
 - Korean or English, concise
 
+### Git Pull Upstream Recovery
+- If `git pull` fails with `no such ref was fetched`, reset upstream to a valid branch:
+  - `git branch --set-upstream-to=origin/main <current-branch>`
+- When local changes block pull/rebase, prefer safe sequence:
+  - `git stash push -u -m "temp-before-pull"`
+  - `git pull --rebase --autostash` (or `git pull --no-rebase`)
+  - if conflict is too large: `git rebase --abort` and restore with `git stash pop`
+- If `main` is checked out in another worktree, avoid forced checkout in current tree:
+  - sync from the main worktree, or run `git pull origin main` from the current branch
+
 ### Auto-Yes (project / tmp)
 - **In-repo or tmp**: For any work inside this project or under `/tmp`, treat confirmations as **yes**.
 - **Scripts**: When running scripts that ask for confirmation, use `--yes` or `-y` (e.g. `rename_images_to_english.py --yes`).
