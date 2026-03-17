@@ -12,6 +12,7 @@ from auto_publish_news import (
     _generate_ai_analysis_template,
     _generate_contextual_action_point,
     _generate_devops_template,
+    _generate_security_brief_template,
 )
 
 # ---------------------------------------------------------------------------
@@ -611,3 +612,113 @@ class TestGenerateContextualActionPoint:
         for item in test_items:
             result = _generate_contextual_action_point(item)
             assert result != banned, f"Got banned phrase for: {item['title']}"
+
+
+# ===========================================================================
+# _generate_security_brief_template
+# ===========================================================================
+
+class TestGenerateSecurityBriefTemplate:
+    """Tests for security brief '권장 조치' generation."""
+
+    def _item(self, title="", summary="", content=""):
+        return {"title": title, "summary": summary, "content": content}
+
+    # --- None input ---
+    def test_none_returns_default(self):
+        result = _generate_security_brief_template(None)
+        assert "권장 조치" in result
+        assert "관련 시스템 목록 확인" in result
+
+    # --- Ransomware branch ---
+    def test_ransomware_keyword(self):
+        result = _generate_security_brief_template(self._item("New ransomware variant detected"))
+        assert "백업" in result
+        assert "인시던트 대응" in result
+
+    def test_ransomware_korean(self):
+        result = _generate_security_brief_template(self._item("신규 랜섬웨어 공격 캠페인"))
+        assert "백업" in result
+
+    def test_encrypt_keyword(self):
+        result = _generate_security_brief_template(self._item("File encryption malware spreads"))
+        assert "백업" in result
+
+    # --- Authentication branch ---
+    def test_authentication_keyword(self):
+        result = _generate_security_brief_template(self._item("Authentication bypass vulnerability"))
+        assert "인증" in result or "Credential" in result
+
+    def test_mfa_keyword(self):
+        result = _generate_security_brief_template(self._item("MFA fatigue attack campaign"))
+        assert "MFA" in result or "인증" in result
+
+    def test_auth_bypass_korean(self):
+        result = _generate_security_brief_template(self._item("인증 우회 취약점 발견"))
+        assert "인증" in result
+
+    def test_credential_keyword(self):
+        result = _generate_security_brief_template(self._item("Credential stuffing attack"))
+        assert "인증 정보" in result or "Credential" in result
+
+    def test_sso_keyword(self):
+        result = _generate_security_brief_template(self._item("SSO provider compromise"))
+        assert "SSO" in result or "인증" in result
+
+    # --- Supply chain branch ---
+    def test_supply_chain_keyword(self):
+        result = _generate_security_brief_template(self._item("Supply chain attack on npm"))
+        assert "의존성" in result or "SBOM" in result
+
+    def test_dependency_keyword(self):
+        result = _generate_security_brief_template(self._item("Malicious dependency found"))
+        assert "의존성" in result
+
+    def test_npm_keyword(self):
+        result = _generate_security_brief_template(self._item("npm package backdoor"))
+        assert "의존성" in result or "npm" in result
+
+    def test_pypi_keyword(self):
+        result = _generate_security_brief_template(self._item("PyPI package malware"))
+        assert "의존성" in result or "pip" in result
+
+    def test_sbom_keyword(self):
+        result = _generate_security_brief_template(self._item("SBOM requirements update"))
+        assert "SBOM" in result
+
+    def test_supply_chain_korean(self):
+        result = _generate_security_brief_template(self._item("공급망 공격 증가"))
+        assert "의존성" in result
+
+    # --- Default/fallback ---
+    def test_fallback_generic(self):
+        result = _generate_security_brief_template(self._item("Some generic security news"))
+        assert "권장 조치" in result
+        assert "관련 시스템 목록 확인" in result
+
+    # --- All branches return '권장 조치' header ---
+    def test_all_branches_have_header(self):
+        items = [
+            None,
+            self._item("ransomware attack"),
+            self._item("authentication bypass"),
+            self._item("supply chain attack"),
+            self._item("generic news"),
+        ]
+        for item in items:
+            result = _generate_security_brief_template(item)
+            assert "권장 조치" in result, f"Missing header for: {item}"
+
+    # --- All branches return 4 bullet points ---
+    def test_all_branches_have_four_bullets(self):
+        items = [
+            None,
+            self._item("ransomware attack"),
+            self._item("authentication bypass"),
+            self._item("supply chain attack"),
+            self._item("generic news"),
+        ]
+        for item in items:
+            result = _generate_security_brief_template(item)
+            bullets = [line for line in result.strip().split("\n") if line.strip().startswith("- ")]
+            assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)} for: {item}"
