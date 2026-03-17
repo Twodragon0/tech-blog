@@ -12,6 +12,7 @@ from auto_publish_news import (
     _generate_ai_analysis_template,
     _generate_contextual_action_point,
     _generate_devops_template,
+    _generate_security_analysis_template,
     _generate_security_brief_template,
 )
 
@@ -722,3 +723,143 @@ class TestGenerateSecurityBriefTemplate:
             result = _generate_security_brief_template(item)
             bullets = [line for line in result.strip().split("\n") if line.strip().startswith("- ")]
             assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)} for: {item}"
+
+    # --- Missing keyword edge cases ---
+    def test_password_keyword(self):
+        result = _generate_security_brief_template(
+            self._item("Password spray attack targeting enterprises")
+        )
+        assert "인증" in result or "Credential" in result
+
+    def test_login_keyword(self):
+        result = _generate_security_brief_template(
+            self._item("Brute force login attempts detected")
+        )
+        assert "인증" in result or "Credential" in result
+
+    def test_package_keyword(self):
+        result = _generate_security_brief_template(
+            self._item("Malicious package published to registry")
+        )
+        assert "의존성" in result or "SBOM" in result
+
+    def test_maven_keyword(self):
+        result = _generate_security_brief_template(
+            self._item("Maven repository compromise alert")
+        )
+        assert "의존성" in result or "SBOM" in result
+
+
+# ===========================================================================
+# _generate_security_analysis_template
+# ===========================================================================
+
+class TestGenerateSecurityAnalysisTemplate:
+    """Tests for Critical security news '위협 분석' generation."""
+
+    def _item(self, title="", summary="", content="", category="security"):
+        return {"title": title, "summary": summary, "content": content, "category": category}
+
+    # --- Structure tests ---
+    def test_always_has_threat_analysis_header(self):
+        result = _generate_security_analysis_template(self._item("Generic vuln"))
+        assert "위협 분석" in result
+
+    def test_always_has_action_items(self):
+        result = _generate_security_analysis_template(self._item("Generic vuln"))
+        assert "권장 조치" in result
+
+    def test_always_has_five_checkboxes(self):
+        result = _generate_security_analysis_template(self._item("Generic vuln"))
+        checkboxes = [l for l in result.split("\n") if l.strip().startswith("- [ ]")]
+        assert len(checkboxes) == 5
+
+    def test_has_severity_field(self):
+        result = _generate_security_analysis_template(self._item("Critical vuln"))
+        assert "심각도" in result
+
+    def test_has_priority_field(self):
+        result = _generate_security_analysis_template(self._item("Critical vuln"))
+        assert "대응 우선순위" in result
+
+    # --- CVE extraction ---
+    def test_cve_id_extracted(self):
+        result = _generate_security_analysis_template(
+            self._item("Patch CVE-2026-12345 immediately")
+        )
+        assert "CVE-2026-12345" in result
+
+    def test_multiple_cves(self):
+        result = _generate_security_analysis_template(
+            self._item("CVE-2026-11111 and CVE-2026-22222 found")
+        )
+        assert "CVE-2026-11111" in result
+        assert "CVE-2026-22222" in result
+
+    def test_no_cve_shows_unknown(self):
+        result = _generate_security_analysis_template(self._item("Generic security issue"))
+        assert "미공개" in result or "해당 없음" in result
+
+    # --- SIEM query generation ---
+    def test_rce_generates_siem_query(self):
+        result = _generate_security_analysis_template(
+            self._item("Remote code execution vulnerability")
+        )
+        assert "SIEM 탐지 쿼리" in result
+        assert "splunk" in result.lower() or "exploit" in result
+
+    def test_auth_generates_siem_query(self):
+        result = _generate_security_analysis_template(
+            self._item("Authentication bypass found")
+        )
+        assert "SIEM 탐지 쿼리" in result
+
+    def test_injection_generates_siem_query(self):
+        result = _generate_security_analysis_template(
+            self._item("SQL injection vulnerability in API")
+        )
+        assert "SIEM 탐지 쿼리" in result
+
+    def test_no_siem_for_generic(self):
+        result = _generate_security_analysis_template(
+            self._item("New security best practice guide")
+        )
+        assert "SIEM 탐지 쿼리" not in result
+
+    # --- MITRE ATT&CK ---
+    def test_rce_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item("Remote code execution exploit")
+        )
+        assert "MITRE ATT&CK" in result
+        assert "T1203" in result
+
+    def test_auth_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item("Authentication bypass attack")
+        )
+        assert "T1078" in result
+
+    def test_injection_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item("SQL injection attack")
+        )
+        assert "T1190" in result
+
+    def test_supply_chain_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item("Supply chain compromise detected")
+        )
+        assert "T1195" in result
+
+    def test_zero_day_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item("Zero-day exploit in wild")
+        )
+        assert "T1068" in result
+
+    def test_privilege_mitre_mapping(self):
+        result = _generate_security_analysis_template(
+            self._item(summary="권한 상승 취약점 발견")
+        )
+        assert "T1068" in result
