@@ -585,9 +585,6 @@ OfficeActivity, EmailEvents 테이블 사용
 - [ ] DMARC 정책 설정 (p=none으로 시작, 모니터링 후 강화)
 - [ ] DMARC 집계 보고서 수신 이메일 설정 및 주간 분석 체계 구축
 
-## 관련 포스트
-
-- [클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드]({% post_url 2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide %})
 
 ## 참고 자료 (Comprehensive References)
 

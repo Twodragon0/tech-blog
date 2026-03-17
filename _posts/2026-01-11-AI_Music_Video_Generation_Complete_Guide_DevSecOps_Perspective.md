@@ -260,15 +260,6 @@ DevSecOps 관점에서 생성형 AI를 안전하고 효율적으로 활용하기
 이러한 원칙들을 준수하면, 생성형 AI를 안전하고 효율적으로 활용하여 고품질의 콘텐츠를 제작할 수 있습니다.
 
 
-## 관련 포스트
-
-- [블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례]({% post_url 2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice %})
-- [클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전]({% post_url 2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical %})
-- [2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석]({% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis %})
-- [2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현]({% post_url 2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation %})
-- [AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %})
-- [CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링]({% post_url 2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring %})
-- [GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture %})
 
 ## 참고 자료
 

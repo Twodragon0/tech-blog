@@ -602,11 +602,6 @@ def audit_agent_io(func):
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (3월 12일)]({% post_url 2026-03-12-Tech_Security_Weekly_Digest_AI_Malware_AWS_Patch %}) - 블록체인 신뢰 리스크, Vertical AI 전략, 주소 오염 방지
-- [기술·보안 주간 다이제스트 (3월 11일)]({% post_url 2026-03-11-Tech_Security_Weekly_Digest_AI_Agent_Data_Malware %}) - AI 에이전트 데이터 리스크, 공격 표면 인텔리전스
-- [LLM 보안 실무 가이드]({% post_url 2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP %}) - 프롬프트 인젝션, RAG 보안, MCP 위협 대응
 
 ---
 

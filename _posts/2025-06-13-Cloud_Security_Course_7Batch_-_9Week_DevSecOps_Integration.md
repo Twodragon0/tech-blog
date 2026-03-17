@@ -206,12 +206,6 @@ Plan 단계:
 
 ---
 
-## 관련 포스트
-
-- [클라우드 시큐리티 과정 7기 - 1주차: 클라우드 보안 기초](/security/2025/04/18/Cloud_Security_Course_7Batch_-_1Week_Cloud_Security_Basics.html)
-- [클라우드 시큐리티 과정 7기 - 5주차: 컨테이너 보안](/security/2025/05/16/Cloud_Security_Course_7Batch_-_5Week_Container_Security.html)
-- [AWS Security Hub와 GuardDuty 통합 가이드](/devsecops/2025/03/20/AWS_Security_Hub_GuardDuty_Integration.html)
-- [Kubernetes RBAC 완벽 가이드](/kubernetes/2025/02/10/Kubernetes_RBAC_Complete_Guide.html)
 
 ---
 

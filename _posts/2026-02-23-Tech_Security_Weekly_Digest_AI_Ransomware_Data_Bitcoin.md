@@ -347,11 +347,6 @@ IT/OT 융합 환경의 주요 리스크:
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 22일)]({% post_url 2026-02-22-Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security %}) - AI 위협, 취약점, 보안
-- [기술·보안 주간 다이제스트 (2월 24일)]({% post_url 2026-02-24-Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM %}) - Malware, AI, Docker, LLM
-- [기술·보안 주간 다이제스트 (2월 25일)]({% post_url 2026-02-25-Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM %}) - AI, Malware, 랜섬웨어, LLM
 
 ---
 

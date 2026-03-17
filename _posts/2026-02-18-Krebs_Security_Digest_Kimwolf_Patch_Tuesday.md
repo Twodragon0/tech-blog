@@ -115,11 +115,6 @@ toc: true
 - [ ] MFA 미적용 계정 해소 및 피싱 차단 룰 업데이트
 - [ ] 1월 Patch 미적용 자산 스캔 및 보상 통제 적용
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 17일)]({% post_url 2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk %}) - AI, Cloud Risk
-- [기술·보안 주간 다이제스트 (2월 18일)]({% post_url 2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update %}) - AI, Cloud, Malware
-- [기술·보안 주간 다이제스트 (2월 19일)]({% post_url 2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE %}) - AWS Security, Zero-Day, CVE
 
 ---
 

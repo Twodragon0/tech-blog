@@ -334,6 +334,3 @@ CDN & Failover:
 작성자: Twodragon
 라이선스: CC BY-NC-SA 4.0
 
-## 관련 포스트
-
-- [클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!]({% post_url 2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap %})

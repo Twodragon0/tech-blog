@@ -427,11 +427,6 @@ MDM 기반 Zero Trust 구현 시 핵심 점검 항목은 다음과 같습니다:
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 2일)]({% post_url 2026-02-02-Weekly_Tech_AI_Blockchain_Digest %}) - AI, 블록체인
-- [기술·보안 주간 다이제스트 (2월 4일)]({% post_url 2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go %}) - AI, Docker, Data, Go
-- [기술·보안 주간 다이제스트 (2월 5일)]({% post_url 2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go %}) - CVE, AI, Malware, Go
 
 ---
 

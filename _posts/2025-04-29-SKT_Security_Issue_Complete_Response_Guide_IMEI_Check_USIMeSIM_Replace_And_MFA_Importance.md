@@ -596,8 +596,3 @@ GET /auth_logs/_search
 }
  -->
 
-## 관련 포스트
-
-- [공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법]({% post_url 2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage %})
-- [클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps]({% post_url 2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops %})
-- [Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드]({% post_url 2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide %})

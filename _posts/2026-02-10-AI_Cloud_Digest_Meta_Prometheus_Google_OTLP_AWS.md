@@ -197,11 +197,6 @@ DevSecOps 실무 적용:
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 9일)]({% post_url 2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic %}) - AI, VirusTotal, AWS
-- [기술·보안 주간 다이제스트 (2월 10일)]({% post_url 2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin %}) - CNCF, Chainalysis, Bitcoin
-- [기술·보안 주간 다이제스트 (2월 10일)]({% post_url 2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack %}) - SolarWinds, UNC3886, LLM
 
 ---
 

@@ -772,12 +772,6 @@ Rate Limiting 전략:
 ---
 
 
-## 관련 포스트
-
-- [DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략]({% post_url 2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide %})
-- [클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전]({% post_url 2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical %})
-- [2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석]({% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis %})
-- [AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법]({% post_url 2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective %})
 
 ## 참고 자료
 

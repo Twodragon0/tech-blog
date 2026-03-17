@@ -284,11 +284,6 @@ AML/컴플라이언스 시사점:
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (3월 2일)]({% post_url 2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent %}) - 랜섬웨어 동향, AI 에이전트 보안
-- [기술·보안 주간 다이제스트 (3월 5일)]({% post_url 2026-03-05-Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS %}) - iOS 익스플로잇, 핵티비스트 DDoS
-- [LLM 보안 실무 가이드]({% post_url 2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP %}) - 프롬프트 인젝션, RAG, MCP 보안
 
 ---
 

@@ -515,6 +515,3 @@ Kubernetes 클러스터 배포 전후 확인 항목입니다.
 
 ---
 
-## 관련 포스트
-
-- [이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드]({% post_url 2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide %})

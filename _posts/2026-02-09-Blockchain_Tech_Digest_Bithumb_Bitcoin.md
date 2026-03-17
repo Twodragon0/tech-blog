@@ -146,11 +146,6 @@ toc: true
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 8일)]({% post_url 2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data %}) - AI, 랜섬웨어, Data
-- [기술·보안 주간 다이제스트 (2월 9일)]({% post_url 2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic %}) - AI, VirusTotal, AWS
-- [기술·보안 주간 다이제스트 (2월 10일)]({% post_url 2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS %}) - Meta, Prometheus, Google, AWS
 
 ---
 

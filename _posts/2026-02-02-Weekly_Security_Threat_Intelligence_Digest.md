@@ -522,11 +522,6 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 1일)]({% post_url 2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet %}) - AI, OpenSSL Zero-Day, OWASP
-- [기술·보안 주간 다이제스트 (2월 2일)]({% post_url 2026-02-02-Weekly_Tech_AI_Blockchain_Digest %}) - AI, 블록체인
-- [기술·보안 주간 다이제스트 (2월 3일)]({% post_url 2026-02-03-Weekly_Security_DevOps_Digest %}) - 보안, DevOps
 
 ---
 
