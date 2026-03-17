@@ -59,3 +59,9 @@ exclude = ["vendor/", "node_modules/", "_site/", "scripts/_archive/"]
 # check_untyped_defs = true
 # warn_return_any = true
 # warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["scripts/tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]

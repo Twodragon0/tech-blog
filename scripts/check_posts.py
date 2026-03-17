@@ -251,6 +251,46 @@ def check_news_card_severity(content: str) -> List[str]:
     return issues
 
 
+def check_duplicate_practical_points(content: str) -> List[str]:
+    """Check for duplicate '실무 적용 포인트' bullet points within a single post.
+
+    Detects when the same bullet text appears 3+ times, which indicates
+    copy-pasted generic templates that should be replaced with
+    context-specific content.
+    """
+    issues = []
+    # Extract all bullet lines under "실무 적용 포인트" or "실무 포인트" sections
+    bullets: List[str] = []
+    in_section = False
+    for line in content.split("\n"):
+        stripped = line.strip()
+        # Detect section headers
+        if "실무 적용 포인트" in stripped or "실무 포인트" in stripped:
+            in_section = True
+            continue
+        # Exit section on next header or separator
+        if in_section and (
+            stripped.startswith("#")
+            or stripped.startswith("---")
+            or (stripped.startswith("{%") and "include" in stripped)
+        ):
+            in_section = False
+        # Collect bullet points
+        if in_section and stripped.startswith("- "):
+            bullets.append(stripped[2:].strip())
+
+    # Count occurrences
+    from collections import Counter
+
+    counts = Counter(bullets)
+    for text, count in counts.most_common():
+        if count >= 3:
+            issues.append(
+                f"⚠️ 실무 포인트 반복 {count}회: \"{text[:50]}...\""
+            )
+    return issues
+
+
 def main():
     """메인 함수"""
     parser = argparse.ArgumentParser(
@@ -362,6 +402,9 @@ def main():
 
         # 뉴스 카드 severity 확인
         issues.extend(check_news_card_severity(content))
+
+        # 실무 포인트 반복 감지
+        issues.extend(check_duplicate_practical_points(content))
 
         if issues:
             all_issues[post_file.name] = issues
