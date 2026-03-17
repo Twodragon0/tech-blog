@@ -455,6 +455,3 @@ CISA 경고에 따라 모든 조직은 즉시 의존성 감사를 실시하고, 
 
 마지막 업데이트: 2025-11-15 (Shai-Hulud 2.0, CISA 경고, Nx 공격 등 추가)
 
-## 관련 포스트
-
-- [AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 \U0001F6E1️]({% post_url 2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future %})

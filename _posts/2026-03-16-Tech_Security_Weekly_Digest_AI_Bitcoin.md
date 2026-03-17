@@ -172,10 +172,6 @@ Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 
 - [ ] 암호화폐 관련 피싱/스캠 대응 직원 교육 업데이트
 - [ ] 블록체인 컴플라이언스 정기 점검
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (3월 15일)]({% post_url 2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin %}) - 기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS 
-- [LLM 보안 실무 가이드 2026: 프롬프트 인젝션, RAG 보안, MCP 위협 대응]({% post_url 2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP %})
 
 ---
 ## 참고 자료

@@ -506,6 +506,3 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 - [ ] Post-quantum 암호화 전환 계획 수립 및 인벤토리 정리
 - [ ] Datadog SIEM 또는 동급 통합 모니터링 도구 도입 검토
 
-## 관련 포스트
-
-- [클라우드 시큐리티 8기 4주차: 통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무]({% post_url 2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response %})

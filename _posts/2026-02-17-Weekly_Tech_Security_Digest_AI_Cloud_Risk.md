@@ -163,11 +163,6 @@ toc: true
 - [AWS Weekly Roundup](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/)
 - [Crates.io Malicious Crate Policy](https://blog.rust-lang.org/2026/02/13/crates.io-malicious-crate-update/)
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 17일)]({% post_url 2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security %}) - AI Agent, Cloud Security
-- [기술·보안 주간 다이제스트 (2월 18일)]({% post_url 2026-02-18-Krebs_Security_Digest_Kimwolf_Patch_Tuesday %}) - Kimwolf, Patch Tuesday
-- [기술·보안 주간 다이제스트 (2월 18일)]({% post_url 2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update %}) - AI, Cloud, Malware
 
 ---
 

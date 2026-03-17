@@ -781,11 +781,6 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 ---
 
-## 관련 포스트
-
-- [기술·보안 주간 다이제스트 (2월 20일)]({% post_url 2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud %}) - AI, Data, Cloud
-- [기술·보안 주간 다이제스트 (2월 21일)]({% post_url 2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat %}) - Data, Rust, AI 위협
-- [기술·보안 주간 다이제스트 (2월 22일)]({% post_url 2026-02-22-Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security %}) - AI 위협, 취약점, 보안
 
 ---
 

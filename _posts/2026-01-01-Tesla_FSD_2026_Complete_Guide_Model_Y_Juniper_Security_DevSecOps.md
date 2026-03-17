@@ -951,9 +951,6 @@ DevSecOps 엔지니어로서, 자동차가 단순한 운송 수단을 넘어 이
 ---
 
 
-## 관련 포스트
-
-- [OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안]({% post_url 2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security %})
 
 ## 참고 자료
 

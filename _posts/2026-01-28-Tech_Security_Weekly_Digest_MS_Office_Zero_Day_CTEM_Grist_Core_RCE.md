@@ -289,12 +289,3 @@ Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약
 작성자: Twodragon
 작성일: 2026-01-28
 
-## 관련 포스트
-
-- ['기술·보안 주간 다이제스트: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,]({% post_url 2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents %})
-- ['기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 기술지원 사기 방지,]({% post_url 2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks %})
-- ['기술·보안 주간 다이제스트: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트,]({% post_url 2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e %})
-- [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계]({% post_url 2026-01-28-Claude_MD_Security_Guide %})
-- ['기술·보안 주간 다이제스트: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes]({% post_url 2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent %})
-- ['기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, SolarWinds WHD Critical]({% post_url 2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA %})
-- ['기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT]({% post_url 2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack %})

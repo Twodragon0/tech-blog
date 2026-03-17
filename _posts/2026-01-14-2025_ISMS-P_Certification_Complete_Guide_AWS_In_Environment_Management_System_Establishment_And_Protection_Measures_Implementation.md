@@ -525,12 +525,3 @@ AWS 서비스 버전: 2026년 1월 기준 최신 버전
 
 저작권: 이 포스팅의 코드 예제와 아키텍처 다이어그램은 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다. 자유롭게 사용 및 수정 가능하며, 출처 표기를 권장합니다.
 
-## 관련 포스트
-
-- [AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법]({% post_url 2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective %})
-- [AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %})
-- [CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링]({% post_url 2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring %})
-- [GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처]({% post_url 2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture %})
-- ["\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터]({% post_url 2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide %})
-- [[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석]({% post_url 2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis %})
-- ['AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신]({% post_url 2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis %})

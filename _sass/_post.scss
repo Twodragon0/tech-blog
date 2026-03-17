@@ -2451,6 +2451,305 @@ ins.adsbygoogle-noablate {
   contain: layout style;
 }
 
+/* Related Posts Section - Modern Tech Blog Design */
+.related-posts-section {
+  margin-top: 4rem;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.related-posts-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--color-bg-secondary) 0%, transparent 100%);
+  border-radius: 24px 24px 0 0;
+  z-index: -1;
+}
+
+.related-posts-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.related-posts-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
+  border-radius: 14px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.related-posts-title-wrapper {
+  flex: 1;
+  min-width: 200px;
+}
+
+.related-posts-title-wrapper h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.related-posts-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.related-posts-count {
+  padding: 0.5rem 1rem;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.related-post-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.related-post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.related-post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18);
+  border-color: transparent;
+}
+
+.related-post-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Category-specific accent colors */
+.related-post-card[data-category="security"]::before {
+  background: linear-gradient(90deg, #ef4444, #f97316);
+}
+.related-post-card[data-category="devsecops"]::before {
+  background: linear-gradient(90deg, #8b5cf6, #a855f7);
+}
+.related-post-card[data-category="devops"]::before {
+  background: linear-gradient(90deg, #10b981, #14b8a6);
+}
+.related-post-card[data-category="cloud"]::before {
+  background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+}
+.related-post-card[data-category="kubernetes"]::before {
+  background: linear-gradient(90deg, #326ce5, #6366f1);
+}
+
+.related-post-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-post-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  border-radius: 16px;
+}
+
+.related-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.related-post-category {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 6px;
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+}
+
+/* Category-specific colors */
+.related-post-card[data-category="security"] .related-post-category {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+.related-post-card[data-category="devsecops"] .related-post-category {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border-color: rgba(139, 92, 246, 0.2);
+}
+.related-post-card[data-category="devops"] .related-post-category {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.related-post-card[data-category="cloud"] .related-post-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+.related-post-card[data-category="kubernetes"] .related-post-category {
+  background: rgba(50, 108, 229, 0.1);
+  color: #326ce5;
+  border-color: rgba(50, 108, 229, 0.2);
+}
+
+.related-post-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-border);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.related-post-card:hover .related-post-number {
+  color: var(--color-primary);
+  opacity: 0.3;
+}
+
+.related-post-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.related-post-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+.related-post-card:hover .related-post-title {
+  color: var(--color-primary);
+}
+
+.related-post-excerpt {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-post-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-post-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+}
+
+.related-post-date svg {
+  opacity: 0.7;
+}
+
+.related-post-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.related-post-card:hover .related-post-cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.related-post-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.related-post-card:hover .related-post-cta svg {
+  transform: translateX(4px);
+}
+
+/* Dark mode */
+[data-theme="dark"] .related-posts-section::before {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.5) 0%, transparent 100%);
+}
+
+[data-theme="dark"] .related-post-card {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .related-post-card:hover {
+  background: var(--color-bg-tertiary);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5);
+}
+
 /* ===== Related Posts - Legacy Grid Style (related-grid, related-item) ===== */
 /* Modern tech blog design for related-grid structure */
 .related-grid {
@@ -2681,6 +2980,10 @@ ins.adsbygoogle-noablate {
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .related-posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .related-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
@@ -2688,11 +2991,50 @@ ins.adsbygoogle-noablate {
 }
 
 @media (max-width: 768px) {
+  .related-posts-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+  }
+
+  .related-posts-section::before {
+    left: -1rem;
+    right: -1rem;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .related-posts-header {
+    gap: 1rem;
+  }
+
+  .related-posts-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .related-posts-title-wrapper h3 {
+    font-size: 1.25rem;
+  }
+
+  .related-posts-count {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+
+  .related-posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
   .related-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
+  .related-post-link {
+    padding: 1.5rem;
+  }
+  
   .related-item {
     padding: 1.25rem;
     min-height: 160px;
@@ -2712,9 +3054,56 @@ ins.adsbygoogle-noablate {
     padding-top: 0.875rem;
   }
 
+  .related-post-title {
+    font-size: 1rem;
+  }
+
+  .related-post-number {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .related-posts-section {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .related-posts-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .related-posts-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .related-posts-title-wrapper h3 {
+    font-size: 1.125rem;
+  }
+
+  .related-posts-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .related-post-link {
+    padding: 1.25rem;
+  }
+
+  .related-post-category {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.65rem;
+  }
+
+  .related-post-title {
+    font-size: 0.9375rem;
+  }
+
+  .related-post-excerpt {
+    font-size: 0.8125rem;
+  }
 
   .related-excerpt {
     font-size: 0.8125rem;
