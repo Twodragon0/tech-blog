@@ -3,13 +3,32 @@
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1520"/>
     </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="softglow"><feGaussianBlur stdDeviation="20" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="270" r="260" fill="#f97316" opacity="0.04" filter="url(#sg)"/>
-  <g transform="translate(600,250)">
+
+  <!-- Grid -->
+  <g opacity="0.04">
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff"/><line x1="120" y1="0" x2="120" y2="630" stroke="#fff"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff"/><line x1="240" y1="0" x2="240" y2="630" stroke="#fff"/>
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff"/><line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff"/>
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff"/><line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff"/>
+  </g>
+
+  <!-- Ambient glow -->
+  <circle cx="600" cy="270" r="260" fill="#f97316" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="350" cy="180" r="150" fill="#22c55e" opacity="0.05" filter="url(#softglow)"/>
+  <circle cx="850" cy="380" r="180" fill="#3b82f6" opacity="0.03" filter="url(#softglow)"/>
+
+  <!-- Cloud icon with AWS + FinOps -->
+  <g transform="translate(600,250)" filter="url(#shadow)">
     <path d="M-120,20 C-140,20 -160,0 -150,-25 C-145,-55 -115,-70 -85,-65 C-75,-100 -40,-115 0,-105 C40,-115 75,-100 85,-65 C115,-70 145,-55 150,-25 C160,0 140,20 120,20 Z" fill="#1e293b" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M-100,15 C-115,15 -130,2 -125,-15 C-121,-38 -97,-48 -72,-44 C-64,-70 -35,-82 0,-74 C35,-82 64,-70 72,-44 C97,-48 121,-38 125,-15 C130,2 115,15 100,15 Z" fill="none" stroke="#f97316" stroke-width="1" stroke-dasharray="6,3" opacity="0.3"/>
     <text x="-50" y="-20" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#f97316" opacity="0.8">AWS</text>
     <g transform="translate(50,-30)">
       <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
@@ -20,8 +39,28 @@
       <path d="M-8,5 L-3,12 L10,-2" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
     </g>
   </g>
+
+  <!-- Region markers -->
+  <g opacity="0.3">
+    <rect x="100" y="140" width="90" height="45" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    <text x="145" y="167" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">us-east-1</text>
+    <rect x="1010" y="400" width="90" height="45" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    <text x="1055" y="427" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">ap-ne-2</text>
+  </g>
+
+  <!-- Code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#f97316">
+    <text x="50" y="100">aws iam list-roles</text>
+    <text x="920" y="110">cost-explorer --monthly</text>
+    <text x="70" y="480">guardduty.enable()</text>
+    <text x="910" y="490">budget.alert(threshold)</text>
+  </g>
+
+  <!-- Title -->
   <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS Security and FinOps</text>
   <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Cloud Security Course 7th | Week 3 | Cost Optimization</text>
+
+  <!-- Top badges -->
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
   <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fdba74" text-anchor="middle">CLOUD COURSE</text>
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>

@@ -1,29 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0808"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#f97316" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="90" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
-      <circle cx="0" cy="0" r="65" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.4"/>
-      <circle cx="0" cy="0" r="40" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="0" cy="0" r="15" fill="#f97316" opacity="0.3"/>
-      <text x="0" y="2" font-family="Courier New" font-size="9" fill="#f97316" text-anchor="middle">0-DAY</text>
-    </g>
-    <g opacity="0.4"><line x1="-150" y1="-50" x2="-20" y2="-5" stroke="#f97316" stroke-width="1.5"/><polygon points="-25,-8 -15,-2 -25,2" fill="#f97316"/></g>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04">
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff" stroke-width="1"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS Zero-Day CVE</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | AWS Security Vulnerabilities</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f97316" text-anchor="middle">WEEKLY</text>
+
+  <!-- Ambient glow -->
+  <circle cx="600" cy="280" r="250" fill="#ef4444" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="300" cy="180" r="150" fill="#f59e0b" opacity="0.05" filter="url(#softglow)"/>
+  <circle cx="900" cy="400" r="180" fill="#ef4444" opacity="0.03" filter="url(#softglow)"/>
+
+  <!-- Central icon -->
+  <g filter="url(#shadow)">
+
+    <g transform="translate(600,240)">
+      <rect x="-55" y="-65" width="110" height="110" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2.5"/>
+      <line x1="-55" y1="-30" x2="55" y2="-30" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
+      <text x="0" y="-40" font-family="Arial" font-size="16" fill="#ef4444" text-anchor="middle" font-weight="bold" opacity="0.8">0-DAY</text>
+      <text x="0" y="5" font-family="Courier New" font-size="36" fill="#ef4444" text-anchor="middle" font-weight="bold" opacity="0.5">0</text>
+      <line x1="-30" y1="-20" x2="30" y2="40" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+      <line x1="30" y1="-20" x2="-30" y2="40" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Theme extras -->
+
+    <g opacity="0.4">
+      <polygon points="180,160 195,135 210,160" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="195" y="156" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+      <polygon points="990,420 1005,395 1020,420" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="1005" y="416" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+      <polygon points="1050,150 1065,125 1080,150" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="1065" y="146" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
+    </g>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#ef4444">
+    <text x="50" y="100">CVE-2026-XXXX</text>
+    <text x="950" y="120">exploit(0day)</text>
+    <text x="70" y="480">patch: PENDING</text>
+    <text x="920" y="500">alert: CRITICAL</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Dell RecoverPoint 0-Day</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | AWS Security Update + CVE-2026-2329</text>
+
+  <!-- Top badges -->
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 19, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 19, 2026</text>
+
+  <!-- Footer -->
+  <text x="1160" y="615" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
