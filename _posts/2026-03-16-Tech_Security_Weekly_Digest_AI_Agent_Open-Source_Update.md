@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: 블록체인, 클라우드 보안, AI"
+title: "AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시"
 date: 2026-03-16 10:27:53 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Open-Source, Update]

@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio, FinOps"
+title: "Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안"
 date: 2026-02-13 12:39:45 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]

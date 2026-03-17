@@ -8,7 +8,7 @@ comments: true
 date: 2026-01-28 12:06:07 +0900
 description: '2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계
   프레임워크 실무 적용, Grist-Core RCE 취약점 분석 및 대응 가이드'
-excerpt: "기술·보안 주간 다이제스트: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, - 2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계"
+excerpt: "Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, - 2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계"
 image: /assets/images/2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE.svg
 image_alt: Tech and Security Weekly Digest January 2026 - CVE-2026-21509 MS Office
   Zero-Day CTEM Framework
@@ -24,8 +24,7 @@ tags:
 - RCE
 - Cloud-Security
 - '2026'
-title: '기술·보안 주간 다이제스트: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,
-  Grist-Core RCE 취약점'
+title: "Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE"
 toc: true
 ---
 {%- include ai-summary-card.html

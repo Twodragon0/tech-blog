@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: 공급망 침해, Windows 보안, APT36"
+title: "공급망 침해 사례, Windows 보안 업데이트, APT36 분석"
 date: 2026-02-12 12:41:50 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]

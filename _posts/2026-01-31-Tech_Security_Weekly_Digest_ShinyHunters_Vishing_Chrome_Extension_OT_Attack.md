@@ -25,8 +25,7 @@ tags:
 - CERT-Polska
 - Cloud-Security
 - '2026'
-title: '기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT
-  탈취, 폴란드 에너지 OT 공격'
+title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
 toc: true
 ---
 {%- include ai-summary-card.html

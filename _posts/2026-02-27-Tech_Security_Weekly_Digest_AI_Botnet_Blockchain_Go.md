@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: AI, 봇넷, 블록체인"
+title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
 date: 2026-02-27 12:28:30 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain, Go]
-excerpt: "기술·보안 주간 다이제스트: AI, 봇넷, 블록체인를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
+excerpt: "AI, 봇넷, 블록체인를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
 description: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 author: Twodragon
 comments: true

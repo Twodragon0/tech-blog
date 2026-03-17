@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "2026년 2월 3주차 기술·보안 주간 다이제스트: AI 에이전트 보안, Patch Tuesday, 클라우드 비용"
+title: "AI 에이전트 보안, Patch Tuesday 분석, 클라우드 비용 최적화"
 date: 2026-02-17 10:00:00 +0900
 categories: [security, devsecops, cloud]
 tags: [Weekly-Digest, Security-Weekly, AI-Security, Threat-Intel, Patch-Tuesday, Cloud, FinOps, DevOps, "2026"]

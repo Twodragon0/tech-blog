@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응"
+title: "제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략"
 date: 2026-03-02 12:29:39 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
-excerpt: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
+excerpt: "제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
 description: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석."
 author: Twodragon
 comments: true
