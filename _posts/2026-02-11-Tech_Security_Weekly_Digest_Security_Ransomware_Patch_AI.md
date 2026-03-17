@@ -30,7 +30,7 @@ tags:
 - Ransomware
 - Patch
 - AI
-title: "기술·보안 주간 다이제스트: 랜섬웨어, Fortinet 패치, AI 보안"
+title: "랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석"
 toc: true
 ---
 

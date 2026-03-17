@@ -26,8 +26,7 @@ tags:
 - Prompt-Injection
 - DevSecOps
 - '2026'
-title: '기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 기술지원 사기 방지,
-  Terraform Stacks 혁신'
+title: "Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks"
 toc: true
 ---
 {%- include ai-summary-card.html

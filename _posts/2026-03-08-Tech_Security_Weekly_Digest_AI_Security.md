@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향"
+title: "OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향"
 date: 2026-03-08 12:33:37 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
-excerpt: "기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
+excerpt: "OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
 description: "[High] 애플리케이션 보안 - AI 스캔 결과를 기존 SAST와 교차 검증 필요. [High] Firefox 148 업데이트 필수(14건 High 취약점 수정). 2026년 03월 08일 보안 뉴스 12건. DevSecOps 실무 위협 분석 가이드."
 author: Twodragon
 comments: true

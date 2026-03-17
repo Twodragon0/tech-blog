@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: CVE-2025-49113, 랜섬웨어, Rust 공급망"
+title: "CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안"
 date: 2026-02-21 00:12:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Vulnerability, AI, Security, AWS]
-excerpt: "기술·보안 주간 다이제스트: CVE-2025-49113, 랜섬웨어, Rust 공급망를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
+excerpt: "CVE-2025-49113, 랜섬웨어, Rust 공급망를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
 description: "2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 author: Twodragon
 comments: true

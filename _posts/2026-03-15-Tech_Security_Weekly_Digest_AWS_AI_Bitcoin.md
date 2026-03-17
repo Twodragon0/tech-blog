@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
+title: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
 date: 2026-03-15 10:24:40 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, SupplyChain, AI-Security, Bitcoin]
-excerpt: "기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
+excerpt: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
 description: "[Critical] GlassWorm 공급망 공격 대응 - VS Code Open VSX 확장 감사, AI 에이전트 입출력 검증, AWS IAM Identity Center 멀티리전 접근 정책 재검토 필요. 2026년 03월 15일 보안 뉴스 9건. 공급망 보안, AI 에이전트 취약점, 클라우드 접근 관리를 운영 리스크 기준으로 정리한 DevSecOps 실무 가이드."
 author: Twodragon
 comments: true

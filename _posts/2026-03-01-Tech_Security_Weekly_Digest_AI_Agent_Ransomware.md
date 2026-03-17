@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응"
+title: "AI 에이전트 보안 위협, Gentlemen 랜섬웨어, 운영 대응 전략"
 date: 2026-03-01 23:23:38 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Ransomware]
-excerpt: "기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
+excerpt: "AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
 description: "NVIDIA Agentic AI 통신 자율 네트워크, SK쉴더스 OT 보안·Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 에이전트 플랫폼, 토큰화 금 시장 등 17건의 DevSecOps 실무 위협 분석."
 author: Twodragon
 comments: true

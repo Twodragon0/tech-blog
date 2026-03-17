@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: "기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략"
+title: "Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향"
 date: 2026-02-23 12:39:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
-excerpt: "기술·보안 주간 다이제스트: Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
+excerpt: "Vertical AI 보안, BlackField 랜섬웨어, 데이터 전략를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
 description: "SK쉴더스 11~12월호 보안 리포트 5건 심층 분석(Vertical AI, BlackField 랜섬웨어, 제로트러스트 데이터, EQST insight, OT 보안), 비트코인 $65K 급락, 러시아 제재 우회 거래소 네트워크 적발 등 DevSecOps 실무 위협 분석."
 author: Twodragon
 comments: true

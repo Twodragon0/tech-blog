@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native"
+title: "AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향"
 date: 2026-02-20 08:15:29 +0900
 categories: [tech, devops]
 tags: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
-excerpt: "2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
+excerpt: "AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native를 기준으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2월 하순 주간 다이제스트입니다."
 description: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스 및 트렌드 분석."
 keywords: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
 author: Twodragon

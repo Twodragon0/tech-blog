@@ -26,8 +26,7 @@ tags:
 - ChatGPT-Containers
 - DevSecOps
 - '2026'
-title: '기술·보안 주간 다이제스트: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트,
-  Kimwolf 봇넷 위협'
+title: "MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷"
 toc: true
 ---
 {%- include ai-summary-card.html

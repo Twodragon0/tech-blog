@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: 블록체인, AI, 기술 동향"
+title: "아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향"
 date: 2026-03-16 18:32:58 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Bitcoin]
