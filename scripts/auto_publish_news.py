@@ -2753,22 +2753,38 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
         template += "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
         template += "- 컨테이너 런타임 보안 모니터링 강화\n"
-    elif any(kw in text for kw in ["kubernetes", "k8s", "kcd", "cncf"]):
-        template += "- Kubernetes 클러스터 보안 정책(PSP/PSA) 점검\n"
-        template += "- 네트워크 폴리시 및 RBAC 설정 최신화 확인\n"
-        template += "- 커뮤니티 행사 참가를 통한 최신 보안 동향 파악\n"
-    elif any(kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]):
-        template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
-        template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
-        template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
-    elif any(kw in text for kw in ["서비스 메시", "service mesh", "istio", "envoy", "네트워크"]):
+    elif any(kw in text for kw in ["rbac", "admission controller", "pod security", "psa", "psp", "opa", "gatekeeper"]):
+        template += "- Kubernetes RBAC 역할 및 바인딩 최소 권한 원칙 준수 감사\n"
+        template += "- Admission Controller/OPA 정책으로 비인가 리소스 생성 차단\n"
+        template += "- Pod Security Admission(PSA) restricted 프로필 적용 현황 점검\n"
+    elif any(kw in text for kw in ["image", "이미지", "registry", "레지스트리", "cosign", "sigstore", "sbom"]):
+        template += "- 컨테이너 이미지 서명(cosign/sigstore) 및 무결성 검증 파이프라인 확인\n"
+        template += "- 프라이빗 레지스트리 접근 제어 및 이미지 스캔 정책 점검\n"
+        template += "- SBOM 기반 이미지 의존성 취약점 추적 자동화 설정\n"
+    elif any(kw in text for kw in ["서비스 메시", "service mesh", "istio", "envoy"]):
         template += "- mTLS 기반 서비스 간 통신 암호화 적용 검토\n"
         template += "- 서비스 메시 관측성 활용한 이상 트래픽 탐지 설계\n"
         template += "- 네트워크 폴리시와 서비스 메시 정책 통합 관리\n"
+    elif any(kw in text for kw in ["network policy", "네트워크 폴리시", "ingress", "egress", "cilium"]):
+        template += "- Kubernetes NetworkPolicy로 Pod 간 불필요한 통신 차단 설정\n"
+        template += "- Ingress/Egress 트래픽 암호화(mTLS) 적용 현황 검토\n"
+        template += "- 네트워크 관측성 도구(Cilium Hubble 등)로 이상 트래픽 탐지 강화\n"
     elif any(kw in text for kw in ["kubecon", "conference", "컨퍼런스", "행사", "summit"]):
         template += "- 컨퍼런스에서 발표된 새로운 보안 프레임워크 및 도구 검토\n"
         template += "- 커뮤니티 모범 사례의 자사 환경 적용 가능성 평가\n"
         template += "- 발표된 오픈소스 프로젝트의 보안 성숙도 및 도입 로드맵 검토\n"
+    elif any(kw in text for kw in ["kubernetes", "k8s", "kcd", "cncf"]):
+        template += "- Kubernetes 클러스터 보안 벤치마크(CIS) 준수 점검\n"
+        template += "- API 서버 접근 제어 및 감사 로그(Audit Log) 활성화 확인\n"
+        template += "- 클러스터 업그레이드 주기 및 보안 패치 적용 현황 검토\n"
+    elif any(kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]):
+        template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
+        template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
+        template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
+    elif any(kw in text for kw in ["네트워크", "network"]):
+        template += "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
+        template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
+        template += "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n"
     else:
         template += "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
         template += "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"

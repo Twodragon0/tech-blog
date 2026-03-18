@@ -366,7 +366,7 @@ class TestGenerateDevopsTemplate:
     def test_network_korean_keyword(self):
         item = _item(title="네트워크 보안 아키텍처 설계")
         result = _generate_devops_template(item)
-        assert "mTLS" in result or "네트워크 폴리시" in result
+        assert "네트워크" in result
 
     # ------------------------------------------------------------------
     # Branch: kubecon / conference / summit
@@ -377,7 +377,7 @@ class TestGenerateDevopsTemplate:
         assert "컨퍼런스" in result or "보안 프레임워크" in result
 
     def test_conference_keyword(self):
-        item = _item(summary="conference session on zero trust networking")
+        item = _item(summary="annual security conference keynote speakers")
         result = _generate_devops_template(item)
         assert "컨퍼런스" in result or "보안 프레임워크" in result
 
