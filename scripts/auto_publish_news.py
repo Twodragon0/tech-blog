@@ -2130,22 +2130,32 @@ def _generate_contextual_action_point(item: Dict) -> str:
 
     # AI category
     if category == "ai":
-        if any(kw in combined for kw in ["agent", "에이전트"]):
-            return (
-                "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
-            )
-        if any(kw in combined for kw in ["model", "llm", "모델"]):
-            return (
-                "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
-            )
+        if any(kw in combined for kw in ["agent", "에이전트", "agentic"]):
+            return "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
+        if any(kw in combined for kw in ["coding", "코딩", "copilot", "cursor", "코드 생성", "code generation"]):
+            return "AI 생성 코드에 대한 보안 스캔(SAST/SCA) 게이트를 CI/CD에 필수 적용하세요."
+        if any(kw in combined for kw in ["llm", "gpt", "claude", "gemini"]):
+            return "LLM 서빙 환경의 접근 제어와 프롬프트 인젝션 방어 체계를 점검하세요."
+        if any(kw in combined for kw in ["gpu", "nvidia", "compute", "training", "factory"]):
+            return "AI 인프라 도입 시 보안 경계 설계와 데이터 프라이버시 규정 준수를 확인하세요."
+        if any(kw in combined for kw in ["open source", "오픈소스", "hugging face", "ollama"]):
+            return "오픈소스 모델 도입 시 출처 검증, 라이선스 및 학습 데이터 리스크를 평가하세요."
+        if any(kw in combined for kw in ["model", "모델"]):
+            return "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
         return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
 
     # Cloud / DevOps
     if category in ("cloud", "devops", "kubernetes"):
+        if any(kw in combined for kw in ["rbac", "iam", "권한", "identity"]):
+            return "IAM/RBAC 정책의 최소 권한 원칙 준수와 서비스 계정 감사를 수행하세요."
         if any(kw in combined for kw in ["kubernetes", "k8s", "쿠버네티스"]):
             return "클러스터 버전 호환성과 워크로드 영향을 확인하세요."
         if any(kw in combined for kw in ["docker", "container", "컨테이너"]):
             return "컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요."
+        if any(kw in combined for kw in ["terraform", "iac", "인프라 코드"]):
+            return "IaC 템플릿 보안 스캔(Checkov/tfsec)과 드리프트 탐지를 확인하세요."
+        if any(kw in combined for kw in ["serverless", "lambda", "서버리스", "function"]):
+            return "서버리스 함수의 IAM 역할 최소화와 실행 환경 보안 설정을 점검하세요."
         if any(kw in combined for kw in ["aws", "azure", "gcp"]):
             return "클라우드 서비스 변경사항이 인프라 구성에 미치는 영향을 확인하세요."
         return "인프라 및 운영 환경 영향을 검토하세요."

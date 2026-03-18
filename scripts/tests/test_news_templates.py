@@ -690,7 +690,7 @@ class TestGenerateContextualActionPoint:
         result = _generate_contextual_action_point(
             self._item("New LLM model release", category="ai")
         )
-        assert "적용" in result or "트레이드오프" in result
+        assert "LLM" in result or "프롬프트" in result or "트레이드오프" in result
 
     # --- Cloud/DevOps branches ---
     def test_cloud_k8s(self):
@@ -968,3 +968,132 @@ class TestGenerateSecurityAnalysisTemplate:
             self._item(summary="권한 상승 취약점 발견")
         )
         assert "T1068" in result
+
+
+# =========================================================================
+# Priority Conflict Detection Tests
+# =========================================================================
+
+class TestBranchPriorityConflicts:
+    """Detect when a keyword matches an unintended branch due to ordering.
+
+    Each test uses a keyword that belongs to one specific branch and
+    verifies it does NOT land in a higher-priority branch instead.
+    """
+
+    # --- AI template: istio-like conflicts ---
+    @pytest.mark.parametrize("title,expected_fragment", [
+        # coding branch should not be captured by agent (no agent keyword)
+        ("AI coding assistant security review", "보안 스캔"),
+        # opensource should not be captured by LLM (no llm/gpt/claude keyword)
+        ("오픈소스 AI 프레임워크 비교 분석", "오픈소스"),
+        # GPU should not be captured by simulation
+        ("NVIDIA GPU cluster deployment guide", "GPU"),
+        # simulation should not be captured by GPU (no gpu/nvidia keyword)
+        ("디지털 트윈 시뮬레이션 보안 검증", "시뮬레이션"),
+    ])
+    def test_ai_template_priority(self, title, expected_fragment):
+        item = {"title": title, "summary": ""}
+        result = _generate_ai_analysis_template(item)
+        assert expected_fragment in result, (
+            f"Expected '{expected_fragment}' for '{title}', got: {result[:80]}"
+        )
+
+    # --- DevOps template: K8s sub-branch conflicts ---
+    @pytest.mark.parametrize("title,expected_fragment", [
+        # service mesh should match before network
+        ("Istio service mesh security configuration", "mTLS"),
+        # RBAC should match its own branch
+        ("RBAC role binding audit for clusters", "RBAC"),
+        # image/registry should not be caught by docker (no 'container' word)
+        ("OCI image registry access control", "이미지"),
+        # network policy should match before generic network
+        ("Kubernetes network policy best practices", "NetworkPolicy"),
+        # generic k8s should be last k8s branch
+        ("k8s cluster upgrade strategy guide", "CIS"),
+        # conference should match before generic network even if 'networking' present
+        ("annual security conference keynote speakers", "컨퍼런스"),
+    ])
+    def test_devops_template_priority(self, title, expected_fragment):
+        item = {"title": title, "summary": ""}
+        result = _generate_devops_template(item)
+        assert expected_fragment in result, (
+            f"Expected '{expected_fragment}' for '{title}', got: {result[:80]}"
+        )
+
+    # --- Contextual action point: cross-category conflicts ---
+    @pytest.mark.parametrize("title,category,banned_phrase", [
+        # AI agent should not return generic AI message
+        ("AI 에이전트 보안 점검", "ai", "AI/ML 파이프라인"),
+        # Blockchain hack should not return generic blockchain
+        ("Bitcoin exchange exploit detected", "blockchain", "프로토콜 및 스마트 컨트랙트 영향"),
+        # K8s should not return generic cloud
+        ("Kubernetes security update v1.30", "kubernetes", "인프라 및 운영 환경 영향"),
+    ])
+    def test_contextual_action_specific_over_generic(self, title, category, banned_phrase):
+        item = {"title": title, "summary": "", "category": category}
+        result = _generate_contextual_action_point(item)
+        assert banned_phrase not in result, (
+            f"Got generic phrase '{banned_phrase}' for specific input '{title}'"
+        )
+
+
+# =========================================================================
+# Contextual Action Point - AI/Cloud expanded branches
+# =========================================================================
+
+class TestContextualActionPointExpanded:
+    """Tests for expanded AI and Cloud branches in _generate_contextual_action_point."""
+
+    def _item(self, title="", summary="", category="tech"):
+        return {"title": title, "summary": summary, "category": category}
+
+    # --- AI expanded branches ---
+    def test_ai_coding_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("AI coding assistant comparison", category="ai")
+        )
+        assert "보안 스캔" in result or "SAST" in result
+
+    def test_ai_copilot_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("GitHub Copilot new features", category="ai")
+        )
+        assert "보안 스캔" in result or "SAST" in result
+
+    def test_ai_llm_specific(self):
+        result = _generate_contextual_action_point(
+            self._item("Claude API performance update", category="ai")
+        )
+        assert "프롬프트 인젝션" in result or "LLM" in result
+
+    def test_ai_gpu_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("NVIDIA compute cluster expansion", category="ai")
+        )
+        assert "인프라" in result or "보안 경계" in result
+
+    def test_ai_opensource_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("오픈소스 AI 모델 보안 리뷰", category="ai")
+        )
+        assert "오픈소스" in result or "출처" in result
+
+    # --- Cloud expanded branches ---
+    def test_cloud_rbac_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("IAM policy best practices for cloud", category="cloud")
+        )
+        assert "IAM" in result or "RBAC" in result
+
+    def test_cloud_terraform_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("Terraform IaC security scanning", category="cloud")
+        )
+        assert "IaC" in result or "tfsec" in result
+
+    def test_cloud_serverless_keyword(self):
+        result = _generate_contextual_action_point(
+            self._item("AWS Lambda serverless security guide", category="cloud")
+        )
+        assert "서버리스" in result or "IAM" in result
