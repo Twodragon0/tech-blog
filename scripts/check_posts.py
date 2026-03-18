@@ -143,13 +143,14 @@ def check_image_paths(content: str) -> List[str]:
 
 
 def check_long_code_blocks(content: str) -> List[str]:
-    """긴 코드 블록 확인 (10줄 이상 또는 500자 이상)"""
+    """긴 코드 블록 확인 (30줄 이상 또는 1000자 이상)"""
     issues = []
 
     code_block_pattern = r"```(\w+)?\n(.*?)```"
     matches = re.finditer(code_block_pattern, content, re.DOTALL)
 
     for match in matches:
+        # Skip code blocks inside HTML comments
         last_comment_open = content.rfind("<!--", 0, match.start())
         last_comment_close = content.rfind("-->", 0, match.start())
         if last_comment_open > last_comment_close:
@@ -157,11 +158,17 @@ def check_long_code_blocks(content: str) -> List[str]:
             if comment_end != -1:
                 continue
 
+        # Skip code blocks inside <details> (already collapsed)
+        last_details_open = content.rfind("<details>", 0, match.start())
+        last_details_close = content.rfind("</details>", 0, match.start())
+        if last_details_open > last_details_close:
+            continue
+
         code = match.group(2)
         lines = code.count("\n")
         length = len(code)
 
-        if lines >= 10 or length >= 500:
+        if lines >= 30 or length >= 1000:
             line_num = content[: match.start()].count("\n") + 1
             issues.append(
                 f"💡 Long code block at line {line_num} ({lines} lines, {length} chars) - consider replacing with link"
