@@ -1760,9 +1760,6 @@ toc: true
     # 뉴스 기반 실무 체크리스트
     content += _generate_news_specific_checklist(news_items)
 
-    # 관련 포스트 크로스레퍼런스 (인접 다이제스트 포스트 자동 연결)
-    content += generate_cross_refs(date_file)
-
     content += """## 참고 자료
 
 | 리소스 | 링크 |
@@ -2049,9 +2046,6 @@ toc: true
     # 트렌드 분석
     content += _generate_tech_trend_analysis(news_items, section_num)
     content += _generate_news_specific_checklist(news_items)
-
-    # 관련 포스트 크로스레퍼런스 (인접 다이제스트 포스트 자동 연결)
-    content += generate_cross_refs(date_file)
 
     content += """---
 
