@@ -289,27 +289,86 @@ class TestGenerateDevopsTemplate:
         assert "컨테이너" in result
 
     # ------------------------------------------------------------------
-    # Branch: kubernetes / k8s / kcd / cncf
+    # Branch: rbac / admission controller / pod security
     # ------------------------------------------------------------------
-    def test_kubernetes_keyword(self):
+    def test_rbac_keyword(self):
         item = _item(title="Kubernetes RBAC hardening guide")
         result = _generate_devops_template(item)
-        assert "Kubernetes" in result or "RBAC" in result
+        assert "RBAC" in result
 
-    def test_k8s_keyword(self):
+    def test_admission_controller_keyword(self):
+        item = _item(summary="admission controller policy enforcement")
+        result = _generate_devops_template(item)
+        assert "Admission Controller" in result or "RBAC" in result
+
+    def test_psa_keyword(self):
+        item = _item(title="Pod Security Admission restricted profile")
+        result = _generate_devops_template(item)
+        assert "PSA" in result or "Pod Security" in result
+
+    def test_opa_keyword(self):
+        item = _item(summary="OPA gatekeeper policy update")
+        result = _generate_devops_template(item)
+        assert "OPA" in result or "RBAC" in result
+
+    # ------------------------------------------------------------------
+    # Branch: image / registry / cosign / sigstore
+    # ------------------------------------------------------------------
+    def test_image_signing_keyword(self):
+        item = _item(title="OCI image signing with cosign verification")
+        result = _generate_devops_template(item)
+        assert "cosign" in result or "이미지 서명" in result
+
+    def test_registry_keyword(self):
+        item = _item(summary="private registry access control update")
+        result = _generate_devops_template(item)
+        assert "레지스트리" in result or "이미지" in result
+
+    def test_sigstore_keyword(self):
+        item = _item(title="sigstore supply chain verification")
+        result = _generate_devops_template(item)
+        assert "sigstore" in result or "이미지 서명" in result
+
+    def test_sbom_image_keyword(self):
+        item = _item(summary="SBOM based image vulnerability tracking")
+        result = _generate_devops_template(item)
+        assert "SBOM" in result
+
+    # ------------------------------------------------------------------
+    # Branch: network policy / ingress / egress / cilium
+    # ------------------------------------------------------------------
+    def test_network_policy_keyword(self):
+        item = _item(title="Kubernetes network policy best practices")
+        result = _generate_devops_template(item)
+        assert "NetworkPolicy" in result
+
+    def test_ingress_keyword(self):
+        item = _item(summary="ingress controller security configuration")
+        result = _generate_devops_template(item)
+        assert "Ingress" in result or "NetworkPolicy" in result
+
+    def test_cilium_keyword(self):
+        item = _item(title="Cilium eBPF networking security update")
+        result = _generate_devops_template(item)
+        assert "Cilium" in result or "NetworkPolicy" in result
+
+    # ------------------------------------------------------------------
+    # Branch: kubernetes / k8s / kcd / cncf (general fallback)
+    # ------------------------------------------------------------------
+    def test_k8s_general_keyword(self):
         item = _item(summary="k8s cluster security audit findings")
         result = _generate_devops_template(item)
-        assert "Kubernetes" in result or "RBAC" in result
+        assert "CIS" in result or "API 서버" in result
 
     def test_kcd_keyword(self):
         item = _item(title="KCD Seoul 2024 recap")
         result = _generate_devops_template(item)
-        assert "Kubernetes" in result or "커뮤니티" in result
+        assert "CIS" in result or "클러스터" in result
 
     def test_cncf_keyword(self):
         item = _item(summary="CNCF landscape new additions")
         result = _generate_devops_template(item)
-        assert "Kubernetes" in result or "RBAC" in result
+        assert "CIS" in result or "클러스터" in result
 
     # ------------------------------------------------------------------
     # Branch: ci/cd / pipeline / github action / jenkins / 배포
