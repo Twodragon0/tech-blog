@@ -327,7 +327,10 @@ def main():
 
     def _resolve_changed_posts() -> list[Path]:
         changed: set[str] = set()
+        # PR environment: compare against origin/main
+        # Local: compare HEAD for staged/unstaged changes
         commands = [
+            ["git", "diff", "--name-only", "origin/main...HEAD", "--", "_posts/*.md"],
             ["git", "diff", "--name-only", "HEAD", "--", "_posts/*.md"],
             ["git", "ls-files", "--others", "--exclude-standard", "--", "_posts/*.md"],
         ]
