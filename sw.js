@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
-// 버전 업데이트 시 캐시명 변경하여 캐시 무효화
-// v19: CSP strict 리팩터링 - 외부 추출 JS 캐시 등록
-const STATIC_CACHE = 'tech-blog-static-v19';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v19';
+// Cache version: bump on each deploy or content change
+// v20: Security fix - cache version automation (build marker: 20260318)
+const STATIC_CACHE = 'tech-blog-static-v20';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v20';
 
 // Dynamic cache settings
 const DYNAMIC_CACHE_MAX_ENTRIES = 50;
