@@ -1,33 +1,174 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="60%" style="stop-color:#0d0a20"/>
+      <stop offset="100%" style="stop-color:#0a1628"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326CE5"/>
+      <stop offset="100%" style="stop-color:#1a4ab5"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="titleGlow">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambient">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#4285f4" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <rect x="-140" y="-30" width="65" height="60" rx="8" fill="#1e293b" stroke="#4285f4" stroke-width="2"/>
-      <text x="-108" y="5" font-family="Courier New" font-size="12" font-weight="bold" fill="#4285f4" text-anchor="middle">#1</text>
-      <line x1="-72" y1="0" x2="-42" y2="0" stroke="#4285f4" stroke-width="3" opacity="0.5"/>
-      <circle cx="-57" cy="0" r="4" fill="#1e293b" stroke="#4285f4" stroke-width="1.5"/>
-      <rect x="-38" y="-30" width="65" height="60" rx="8" fill="#1e293b" stroke="#4285f4" stroke-width="2.5"/>
-      <text x="-6" y="8" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="#4285f4" text-anchor="middle" opacity="0.7">B</text>
-      <line x1="30" y1="0" x2="60" y2="0" stroke="#4285f4" stroke-width="3" opacity="0.5"/>
-      <circle cx="45" cy="0" r="4" fill="#1e293b" stroke="#4285f4" stroke-width="1.5"/>
-      <rect x="64" y="-30" width="65" height="60" rx="8" fill="#1e293b" stroke="#4285f4" stroke-width="2"/>
-      <text x="96" y="5" font-family="Courier New" font-size="12" font-weight="bold" fill="#4285f4" text-anchor="middle">#N</text>
-    </g>
+
+  <!-- Ambient glow circles -->
+  <circle cx="200" cy="180" r="220" fill="#8b5cf6" opacity="0.08" filter="url(#ambient)"/>
+  <circle cx="950" cy="200" r="200" fill="#326CE5" opacity="0.09" filter="url(#ambient)"/>
+  <circle cx="600" cy="350" r="180" fill="#8b5cf6" opacity="0.05" filter="url(#ambient)"/>
+  <circle cx="400" cy="420" r="140" fill="#326CE5" opacity="0.06" filter="url(#ambient)"/>
+
+  <!-- Floating code fragments -->
+  <text x="60" y="90" font-family="Courier New,monospace" font-size="12" fill="#8b5cf6" opacity="0.12" transform="rotate(-8,60,90)">cosign verify --key cosign.pub</text>
+  <text x="820" y="110" font-family="Courier New,monospace" font-size="11" fill="#326CE5" opacity="0.13" transform="rotate(5,820,110)">sbom.generate(target)</text>
+  <text x="80" y="480" font-family="Courier New,monospace" font-size="11" fill="#8b5cf6" opacity="0.11" transform="rotate(-4,80,480)">k8s.admission.check(pod)</text>
+  <text x="880" y="490" font-family="Courier New,monospace" font-size="12" fill="#326CE5" opacity="0.12" transform="rotate(6,880,490)">gemini.scan(image)</text>
+  <text x="300" y="70" font-family="Courier New,monospace" font-size="10" fill="#7c3aed" opacity="0.10">{"signed": true, "verified": true}</text>
+  <text x="700" y="530" font-family="Courier New,monospace" font-size="10" fill="#326CE5" opacity="0.11" transform="rotate(-3,700,530)">kubectl apply -f policy.yaml</text>
+
+  <!-- ===== CENTRAL ILLUSTRATION ===== -->
+
+  <!-- Supply chain pipeline - left side items flowing right -->
+  <!-- Source package 1 - compromised (red X) -->
+  <rect x="80" y="255" width="70" height="50" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="115" y="274" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="middle">pkg-a</text>
+  <text x="115" y="287" font-family="Courier New,monospace" font-size="7" fill="#ef4444" text-anchor="middle">v1.2.3</text>
+  <!-- Red X mark -->
+  <line x1="102" y1="294" x2="112" y2="304" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="294" x2="102" y2="304" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Source package 2 - verified (green check) -->
+  <rect x="80" y="325" width="70" height="50" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="115" y="344" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="middle">lib-b</text>
+  <text x="115" y="357" font-family="Courier New,monospace" font-size="7" fill="#22c55e" text-anchor="middle">v2.0.1</text>
+  <!-- Green check mark -->
+  <path d="M103,368 L109,374 L127,362" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Source package 3 - compromised -->
+  <rect x="80" y="395" width="70" height="50" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="115" y="414" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="middle">dep-c</text>
+  <text x="115" y="427" font-family="Courier New,monospace" font-size="7" fill="#ef4444" text-anchor="middle">v0.9.0</text>
+  <line x1="102" y1="434" x2="112" y2="444" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="434" x2="102" y2="444" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Arrows from packages to container -->
+  <line x1="152" y1="280" x2="210" y2="295" stroke="#475569" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="210,291 218,295 210,299" fill="#475569" opacity="0.6"/>
+  <line x1="152" y1="350" x2="210" y2="320" stroke="#475569" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="210,316 218,320 210,324" fill="#475569" opacity="0.6"/>
+  <line x1="152" y1="420" x2="210" y2="345" stroke="#475569" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="210,341 218,345 210,349" fill="#475569" opacity="0.6"/>
+
+  <!-- Central container box -->
+  <rect x="215" y="255" width="130" height="150" rx="12" fill="#0f172a" stroke="#8b5cf6" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="215" y="255" width="130" height="30" rx="12" fill="#8b5cf6" opacity="0.15"/>
+  <rect x="215" y="273" width="130" height="12" fill="#8b5cf6" opacity="0.15"/>
+  <text x="280" y="272" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#c4b5fd" text-anchor="middle">CONTAINER</text>
+  <!-- Container content lines -->
+  <rect x="230" y="297" width="100" height="8" rx="3" fill="#1e293b"/>
+  <rect x="230" y="313" width="80" height="8" rx="3" fill="#1e293b"/>
+  <rect x="230" y="329" width="90" height="8" rx="3" fill="#1e293b"/>
+  <rect x="230" y="345" width="70" height="8" rx="3" fill="#1e293b"/>
+  <!-- Container port indicators -->
+  <circle cx="237" cy="301" r="2" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="237" cy="317" r="2" fill="#22c55e" opacity="0.7"/>
+  <circle cx="237" cy="333" r="2" fill="#ef4444" opacity="0.7"/>
+  <circle cx="237" cy="349" r="2" fill="#8b5cf6" opacity="0.7"/>
+  <!-- Container label at bottom -->
+  <text x="280" y="392" font-family="Courier New,monospace" font-size="9" fill="#8b5cf6" text-anchor="middle" opacity="0.8">app:latest</text>
+
+  <!-- AI Eye/Scanner above - scanning supply chain -->
+  <ellipse cx="280" cy="195" rx="55" ry="28" fill="#0f172a" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="280" cy="195" r="14" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="280" cy="195" r="9" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="280" cy="195" r="4" fill="#c4b5fd"/>
+  <!-- Scan beam -->
+  <line x1="280" y1="223" x2="280" y2="255" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+  <!-- Scanner label -->
+  <text x="280" y="168" font-family="Arial,sans-serif" font-size="10" fill="#c4b5fd" text-anchor="middle" font-weight="bold">GEMINI AI</text>
+  <text x="280" y="158" font-family="Arial,sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">SCANNER</text>
+  <!-- Scan lines radiating from eye -->
+  <line x1="225" y1="195" x2="155" y2="265" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="225" y1="195" x2="155" y2="340" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="225" y1="195" x2="155" y2="415" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,4" opacity="0.2"/>
+
+  <!-- Kubernetes wheel - right side -->
+  <g transform="translate(780, 310)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="75" fill="none" stroke="#326CE5" stroke-width="3" opacity="0.8"/>
+    <circle cx="0" cy="0" r="60" fill="#0f172a" stroke="#326CE5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Hub -->
+    <circle cx="0" cy="0" r="20" fill="#326CE5" opacity="0.3"/>
+    <circle cx="0" cy="0" r="12" fill="#326CE5" opacity="0.6"/>
+    <!-- Spokes - 7 spokes like real k8s wheel -->
+    <line x1="0" y1="-20" x2="0" y2="-60" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <line x1="17" y1="-10" x2="51" y2="-29" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <line x1="17" y1="10" x2="51" y2="29" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <line x1="-17" y1="10" x2="-51" y2="29" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <line x1="-17" y1="-10" x2="-51" y2="-29" stroke="#326CE5" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <!-- Outer knobs -->
+    <circle cx="0" cy="-67" r="8" fill="#326CE5" opacity="0.8"/>
+    <circle cx="58" cy="-33" r="8" fill="#326CE5" opacity="0.8"/>
+    <circle cx="58" cy="33" r="8" fill="#326CE5" opacity="0.8"/>
+    <circle cx="0" cy="67" r="8" fill="#326CE5" opacity="0.8"/>
+    <circle cx="-58" cy="33" r="8" fill="#326CE5" opacity="0.8"/>
+    <circle cx="-58" cy="-33" r="8" fill="#326CE5" opacity="0.8"/>
+    <!-- K8s text -->
+    <text x="0" y="5" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">k8s</text>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Gemini + Supply Chain</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly | AI Supply Chain + Kubernetes</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#4285f4" opacity="0.2" stroke="#4285f4" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#4285f4" text-anchor="middle">WEEKLY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 20, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <!-- K8s label -->
+  <text x="780" y="415" font-family="Arial,sans-serif" font-size="12" fill="#93c5fd" text-anchor="middle" font-weight="bold">KUBERNETES</text>
+
+  <!-- Connection: container to k8s via admission pipeline -->
+  <path d="M345,330 C460,330 560,310 700,310" fill="none" stroke="#326CE5" stroke-width="2" stroke-dasharray="6,4" opacity="0.5"/>
+  <!-- Admission check point -->
+  <rect x="460" y="305" width="90" height="24" rx="10" fill="#0f172a" stroke="#326CE5" stroke-width="1.5"/>
+  <text x="505" y="321" font-family="Arial,sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">ADMISSION</text>
+  <circle cx="700" cy="310" r="5" fill="#326CE5" opacity="0.8"/>
+
+  <!-- SBOM label near container -->
+  <rect x="370" y="255" width="80" height="22" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="410" y="270" font-family="Arial,sans-serif" font-size="9" fill="#c4b5fd" text-anchor="middle">SBOM + sign</text>
+
+  <!-- ===== TOP BADGES ===== -->
+  <!-- Left badge: WEEKLY DIGEST -->
+  <rect x="40" y="22" width="170" height="34" rx="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="125" y="43" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">WEEKLY DIGEST</text>
+
+  <!-- Right badge: date -->
+  <rect x="990" y="22" width="170" height="34" rx="16" fill="#326CE5" opacity="0.15" stroke="#326CE5" stroke-width="1"/>
+  <text x="1075" y="43" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 20, 2026</text>
+
+  <!-- ===== TITLE + SUBTITLE ===== -->
+  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#titleGlow)">AI Supply Chain Defense</text>
+  <text x="600" y="535" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Gemini AI Security | K8s Supply Chain | Container Trust</text>
+
+  <!-- ===== FOOTER ===== -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="40" y="610" font-family="Arial,sans-serif" font-size="12" fill="#475569">20 News | 5 Security | 5 AI/ML | 3 Cloud | 3 DevOps</text>
+  <text x="1160" y="610" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
