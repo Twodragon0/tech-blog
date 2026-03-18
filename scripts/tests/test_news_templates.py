@@ -5,6 +5,8 @@ API disabling and path setup are handled by conftest.py.
 """
 import pytest
 
+from datetime import datetime, timezone, timedelta
+
 from auto_publish_news import (
     _generate_ai_analysis_template,
     _generate_contextual_action_point,
@@ -14,6 +16,17 @@ from auto_publish_news import (
     _generate_security_brief_template,
     _generate_trend_analysis,
     _extract_trend_keyword,
+    filter_published_urls,
+    _deduplicate_crypto_stories,
+    categorize_news,
+    extract_cve_id,
+    _escape_svg_text,
+    _to_english_svg_text,
+    _truncate_text,
+    _extract_key_topics,
+    _table_summary,
+    _filter_by_cutoff,
+    select_top_news,
 )
 
 # ---------------------------------------------------------------------------
@@ -1340,4 +1353,411 @@ class TestGenerateNewsSpecificChecklist:
     def test_empty_items(self):
         result = _generate_news_specific_checklist([])
         assert "실무 체크리스트" in result
-        assert "P0" in result
+
+
+# ===========================================================================
+# filter_published_urls
+# ===========================================================================
+
+class TestFilterPublishedUrls:
+    def test_removes_published(self):
+        items = [{"url": "https://a.com"}, {"url": "https://b.com"}]
+        result = filter_published_urls(items, {"https://a.com"})
+        assert len(result) == 1
+        assert result[0]["url"] == "https://b.com"
+
+    def test_empty_published_set(self):
+        items = [{"url": "https://a.com"}]
+        result = filter_published_urls(items, set())
+        assert len(result) == 1
+
+    def test_link_fallback(self):
+        items = [{"link": "https://x.com"}]
+        result = filter_published_urls(items, {"https://x.com"})
+        assert len(result) == 0
+
+    def test_empty_items(self):
+        result = filter_published_urls([], {"https://a.com"})
+        assert result == []
+
+    def test_keeps_unpublished(self):
+        items = [{"url": "https://new.com"}, {"url": "https://old.com"}]
+        result = filter_published_urls(items, {"https://old.com"})
+        assert len(result) == 1
+        assert result[0]["url"] == "https://new.com"
+
+
+# ===========================================================================
+# _deduplicate_crypto_stories
+# ===========================================================================
+
+class TestDeduplicateCryptoStories:
+    def _crypto_item(self, title, summary_len=50):
+        return {
+            "title": title,
+            "summary": "x" * summary_len,
+            "content": "",
+            "category": "blockchain",
+        }
+
+    def test_keeps_all_when_less_than_three(self):
+        items = [
+            self._crypto_item("Bitcoin crash today"),
+            self._crypto_item("BTC price drops"),
+        ]
+        result = _deduplicate_crypto_stories(items)
+        assert len(result) == 2
+
+    def test_deduplicates_when_three_or_more(self):
+        items = [
+            self._crypto_item("Bitcoin crash analysis", 100),
+            self._crypto_item("BTC price plunge alert", 50),
+            self._crypto_item("crypto dump warning", 30),
+            self._crypto_item("Ethereum news update", 40),  # not price-related
+        ]
+        result = _deduplicate_crypto_stories(items)
+        # 3 crypto price items -> keep 2 most substantive + 1 non-price
+        assert len(result) == 3
+
+    def test_non_crypto_untouched(self):
+        items = [{"title": "AI security update", "summary": "", "content": "", "category": "ai"}]
+        result = _deduplicate_crypto_stories(items)
+        assert len(result) == 1
+
+    def test_exactly_two_crypto_price_items_kept_without_dedup(self):
+        items = [
+            self._crypto_item("Bitcoin surge rally massive", 80),
+            self._crypto_item("BTC price rally surge", 60),
+        ]
+        result = _deduplicate_crypto_stories(items)
+        assert len(result) == 2
+
+    def test_most_substantive_kept_first(self):
+        items = [
+            self._crypto_item("Bitcoin crash", 10),
+            self._crypto_item("BTC price drop", 200),
+            self._crypto_item("crypto dump alert", 5),
+        ]
+        result = _deduplicate_crypto_stories(items)
+        assert len(result) == 2
+        summaries = [len(i["summary"]) for i in result]
+        assert max(summaries) == 200
+
+
+# ===========================================================================
+# categorize_news
+# ===========================================================================
+
+class TestCategorizeNews:
+    def _item(self, title, summary="", category="security", url="", published=""):
+        return {
+            "title": title,
+            "summary": summary,
+            "category": category,
+            "url": url,
+            "published": published,
+        }
+
+    def test_security_category_preserved(self):
+        items = [self._item("New vulnerability found", "CVE exploit attack")]
+        result = categorize_news(items)
+        assert "security" in result
+
+    def test_blockchain_to_ai_reclassification(self):
+        items = [self._item("OpenAI GPT update", "LLM improvements", category="blockchain")]
+        result = categorize_news(items)
+        assert "ai" in result
+
+    def test_cross_category_security_reclassification(self):
+        items = [
+            self._item(
+                "Cloud vulnerability exploit attack breach",
+                "malware ransomware",
+                category="cloud",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result
+
+    def test_kubernetes_merged_to_devops(self):
+        items = [self._item("K8s update", "cluster patch", category="kubernetes")]
+        result = categorize_news(items)
+        assert "devops" in result
+
+    def test_empty_items(self):
+        result = categorize_news([])
+        assert result == {}
+
+    def test_devsecops_merged_to_security(self):
+        items = [self._item("Hardening guide", "devsecops check", category="devsecops")]
+        result = categorize_news(items)
+        assert "security" in result
+
+    def test_blockchain_security_reclassification(self):
+        items = [
+            self._item(
+                "Pentagon military supply chain risk vulnerability",
+                "exploit breach",
+                category="blockchain",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result
+
+
+# ===========================================================================
+# extract_cve_id
+# ===========================================================================
+
+class TestExtractCveId:
+    def test_extracts_from_title(self):
+        assert extract_cve_id("Patch CVE-2026-12345 now", "") == "CVE-2026-12345"
+
+    def test_extracts_from_summary(self):
+        assert extract_cve_id("Security update", "Fix for CVE-2026-99999") == "CVE-2026-99999"
+
+    def test_no_cve_returns_none(self):
+        assert extract_cve_id("Generic news", "No CVE here") is None
+
+    def test_title_priority_over_summary(self):
+        result = extract_cve_id("CVE-2026-11111 critical", "CVE-2026-22222 also")
+        assert result == "CVE-2026-11111"
+
+    def test_cve_with_seven_digits(self):
+        assert extract_cve_id("CVE-2026-1234567 found", "") == "CVE-2026-1234567"
+
+    def test_empty_strings(self):
+        assert extract_cve_id("", "") is None
+
+
+# ===========================================================================
+# _escape_svg_text
+# ===========================================================================
+
+class TestEscapeSvgText:
+    def test_ampersand_escaped(self):
+        assert "&amp;" in _escape_svg_text("A & B")
+
+    def test_less_than_escaped(self):
+        result = _escape_svg_text("<script>")
+        assert "&lt;" in result
+
+    def test_greater_than_escaped(self):
+        result = _escape_svg_text("x > y")
+        assert "&gt;" in result
+
+    def test_double_quote_escaped(self):
+        result = _escape_svg_text('say "hello"')
+        assert "&quot;" in result
+
+    def test_single_quote_escaped(self):
+        result = _escape_svg_text("it's")
+        assert "&#39;" in result
+
+    def test_plain_text_unchanged(self):
+        assert _escape_svg_text("Hello World") == "Hello World"
+
+    def test_empty_string(self):
+        assert _escape_svg_text("") == ""
+
+
+# ===========================================================================
+# _to_english_svg_text
+# ===========================================================================
+
+class TestToEnglishSvgText:
+    def test_korean_removed(self):
+        result = _to_english_svg_text("Hello 세계 World")
+        assert "세계" not in result
+
+    def test_pure_english_preserved(self):
+        result = _to_english_svg_text("Security Update 2026")
+        assert "Security" in result
+        assert "2026" in result
+
+    def test_all_korean_returns_fallback(self):
+        result = _to_english_svg_text("안녕하세요")
+        assert result == "Security News Update"
+
+    def test_empty_string_returns_fallback(self):
+        result = _to_english_svg_text("")
+        assert result == "Security News Update"
+
+    def test_mixed_ascii_and_unicode_punctuation(self):
+        result = _to_english_svg_text("AI Update · 2026")
+        assert "AI" in result
+        assert "2026" in result
+
+
+# ===========================================================================
+# _truncate_text
+# ===========================================================================
+
+class TestTruncateText:
+    def test_short_text_unchanged(self):
+        assert _truncate_text("hello", 10) == "hello"
+
+    def test_truncates_long_text(self):
+        result = _truncate_text("a" * 100, 30)
+        assert len(result) <= 30
+
+    def test_word_boundary_respected(self):
+        result = _truncate_text("hello world foo bar baz", 14)
+        # Should not cut mid-word
+        assert not result.endswith("wor") and not result.endswith("fo")
+
+    def test_exact_length_unchanged(self):
+        text = "hello world"
+        assert _truncate_text(text, len(text)) == text
+
+    def test_trailing_punctuation_stripped(self):
+        result = _truncate_text("aaaa bbbb cccc dddd eeee", 12)
+        assert not result.endswith(",") and not result.endswith(".")
+
+
+# ===========================================================================
+# _extract_key_topics
+# ===========================================================================
+
+class TestExtractKeyTopics:
+    def test_extracts_ai_keyword(self):
+        items = [{"title": "AI security breakthrough", "summary": ""}]
+        result = _extract_key_topics(items)
+        assert any("AI" in t for t in result)
+
+    def test_extracts_cve_keyword(self):
+        items = [{"title": "CVE advisory released", "summary": ""}]
+        result = _extract_key_topics(items)
+        assert any("CVE" in t for t in result)
+
+    def test_empty_items_returns_defaults(self):
+        result = _extract_key_topics([])
+        assert isinstance(result, list)
+        assert len(result) > 0
+
+    def test_max_four_topics(self):
+        items = [
+            {"title": "AI CVE Kubernetes Docker AWS Azure GCP Security Threat", "summary": ""}
+        ]
+        result = _extract_key_topics(items)
+        assert len(result) <= 4
+
+    def test_no_duplicate_topics(self):
+        items = [{"title": "AI AI AI update", "summary": ""}]
+        result = _extract_key_topics(items)
+        assert result.count("AI") <= 1
+
+
+# ===========================================================================
+# _table_summary
+# ===========================================================================
+
+class TestTableSummary:
+    def test_short_text_unchanged(self):
+        assert _table_summary("hello", 120) == "hello"
+
+    def test_truncates_long_text(self):
+        long = "word " * 40
+        result = _table_summary(long, 50)
+        assert len(result) <= 50
+
+    def test_empty_text(self):
+        result = _table_summary("", 120)
+        assert result == ""
+
+    def test_ellipsis_cleaned(self):
+        result = _table_summary("This is a test... sentence", 120)
+        assert "..." not in result
+
+    def test_multiple_spaces_normalized(self):
+        result = _table_summary("hello   world", 120)
+        assert "  " not in result
+
+    def test_trailing_dot_stripped(self):
+        result = _table_summary("Some text.", 120)
+        assert not result.endswith(".")
+
+
+# ===========================================================================
+# _filter_by_cutoff
+# ===========================================================================
+
+class TestFilterByCutoff:
+    def _item_with_date(self, published: str) -> dict:
+        return {"title": "test", "published": published}
+
+    def test_keeps_recent_item(self):
+        now = datetime.now(timezone.utc)
+        recent = (now - timedelta(hours=1)).isoformat()
+        cutoff = now - timedelta(hours=24)
+        result = _filter_by_cutoff([self._item_with_date(recent)], cutoff)
+        assert len(result) == 1
+
+    def test_removes_old_item(self):
+        now = datetime.now(timezone.utc)
+        old = (now - timedelta(days=5)).isoformat()
+        cutoff = now - timedelta(hours=24)
+        result = _filter_by_cutoff([self._item_with_date(old)], cutoff)
+        assert len(result) == 0
+
+    def test_includes_item_with_invalid_date(self):
+        item = {"title": "test", "published": "not-a-date"}
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+        result = _filter_by_cutoff([item], cutoff)
+        assert len(result) == 1
+
+    def test_includes_item_with_empty_date(self):
+        item = {"title": "test", "published": ""}
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+        result = _filter_by_cutoff([item], cutoff)
+        assert len(result) == 1
+
+    def test_empty_list(self):
+        cutoff = datetime.now(timezone.utc)
+        result = _filter_by_cutoff([], cutoff)
+        assert result == []
+
+    def test_z_suffix_handled(self):
+        now = datetime.now(timezone.utc)
+        recent_z = (now - timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        cutoff = now - timedelta(hours=24)
+        result = _filter_by_cutoff([self._item_with_date(recent_z)], cutoff)
+        assert len(result) == 1
+
+
+# ===========================================================================
+# select_top_news
+# ===========================================================================
+
+class TestSelectTopNews:
+    def _item(self, category: str) -> dict:
+        return {"title": f"{category} news", "category": category}
+
+    def test_returns_items_from_categorized(self):
+        categorized = {"security": [self._item("security")]}
+        result = select_top_news(categorized)
+        assert len(result) == 1
+
+    def test_respects_max_total(self):
+        categorized = {"security": [self._item("security")] * 20}
+        result = select_top_news(categorized, max_total=5)
+        assert len(result) == 5
+
+    def test_empty_categorized_returns_empty(self):
+        result = select_top_news({})
+        assert result == []
+
+    def test_multiple_categories_combined(self):
+        categorized = {
+            "security": [self._item("security")],
+            "ai": [self._item("ai")],
+            "devops": [self._item("devops")],
+        }
+        result = select_top_news(categorized, max_total=10)
+        assert len(result) == 3
+
+    def test_default_max_total_is_fifteen(self):
+        items = [self._item("security")] * 20
+        categorized = {"security": items}
+        result = select_top_news(categorized)
+        assert len(result) == 15
