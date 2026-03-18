@@ -815,6 +815,51 @@ class TestGenerateSecurityBriefTemplate:
             result = _generate_security_brief_template(item)
             assert "권장 조치" in result, f"Missing header for: {item}"
 
+    # ------------------------------------------------------------------
+    # Branch: zero-day / exploit
+    # ------------------------------------------------------------------
+    def test_zero_day_keyword(self):
+        result = _generate_security_brief_template(self._item("Zero-day vulnerability in Chrome"))
+        assert "패치" in result or "KEV" in result
+
+    def test_exploit_keyword(self):
+        result = _generate_security_brief_template(self._item("Actively exploited CVE found"))
+        assert "패치" in result or "WAF" in result
+
+    def test_zero_day_korean(self):
+        result = _generate_security_brief_template(self._item("제로데이 취약점 긴급 패치"))
+        assert "패치" in result
+
+    # ------------------------------------------------------------------
+    # Branch: phishing / social engineering
+    # ------------------------------------------------------------------
+    def test_phishing_keyword(self):
+        result = _generate_security_brief_template(self._item("New phishing campaign targeting finance"))
+        assert "피싱" in result or "이메일" in result
+
+    def test_phishing_korean(self):
+        result = _generate_security_brief_template(self._item("금융권 대상 피싱 공격 급증"))
+        assert "피싱" in result or "DMARC" in result
+
+    def test_vishing_keyword(self):
+        result = _generate_security_brief_template(self._item("Vishing attacks using AI deepfake"))
+        assert "피싱" in result or "교육" in result
+
+    # ------------------------------------------------------------------
+    # Branch: data breach / leak
+    # ------------------------------------------------------------------
+    def test_data_breach_keyword(self):
+        result = _generate_security_brief_template(self._item("Major data breach exposes 10M records"))
+        assert "유출" in result or "로테이션" in result
+
+    def test_leak_korean(self):
+        result = _generate_security_brief_template(self._item("개인정보 데이터 유출 사고 발생"))
+        assert "유출" in result or "DLP" in result
+
+    def test_exposed_keyword(self):
+        result = _generate_security_brief_template(self._item("S3 bucket exposed publicly with sensitive data"))
+        assert "유출" in result or "접근 로그" in result
+
     # --- All branches return 4 bullet points ---
     def test_all_branches_have_four_bullets(self):
         items = [
@@ -822,7 +867,10 @@ class TestGenerateSecurityBriefTemplate:
             self._item("ransomware attack"),
             self._item("authentication bypass"),
             self._item("supply chain attack"),
-            self._item("generic news"),
+            self._item("Zero-day exploit found"),
+            self._item("Phishing campaign detected"),
+            self._item("Data breach incident"),
+            self._item("generic security news"),
         ]
         for item in items:
             result = _generate_security_brief_template(item)

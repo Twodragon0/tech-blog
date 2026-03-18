@@ -65,3 +65,10 @@ testpaths = ["scripts/tests"]
 filterwarnings = [
     "ignore::DeprecationWarning",
 ]
+
+[tool.coverage.run]
+source = ["auto_publish_news"]
+
+[tool.coverage.report]
+include = ["scripts/auto_publish_news.py"]
+show_missing = true

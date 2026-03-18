@@ -2696,14 +2696,50 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
 
 """
 
-    # Default: improved generic with "관련 시스템 목록 확인" as first item
+    # Zero-day / exploit advice
+    if any(kw in text for kw in ["zero-day", "제로데이", "0-day", "exploit", "actively exploited"]):
+        return """
+#### 권장 조치
+
+- 영향받는 소프트웨어/버전 인벤토리 즉시 확인 및 패치 적용
+- 패치 불가 시 WAF 규칙 추가 또는 취약 서비스 네트워크 격리
+- CISA KEV 카탈로그 등재 여부 확인 및 패치 SLA 적용
+- EDR/NDR에서 관련 공격 패턴 탐지 룰 활성화
+
+"""
+
+    # Phishing / social engineering advice
+    if any(kw in text for kw in ["phishing", "피싱", "social engineering", "사회공학", "vishing", "smishing"]):
+        return """
+#### 권장 조치
+
+- 직원 대상 피싱 인식 교육 및 시뮬레이션 테스트 실시
+- 이메일 보안 게이트웨이(SEG) 필터링 정책 업데이트
+- 피싱 신고 채널 점검 및 의심 이메일 자동 격리 설정
+- DMARC/SPF/DKIM 설정 상태 확인 및 정책 강화
+
+"""
+
+    # Data breach / leak advice
+    if any(kw in text for kw in ["data breach", "데이터 유출", "leak", "유출", "exposed", "노출"]):
+        return """
+#### 권장 조치
+
+- 유출 범위 파악: 영향받는 데이터 유형, 건수, 시스템 식별
+- 관련 계정 비밀번호 즉시 로테이션 및 세션 무효화
+- 개인정보 유출 시 관할 기관 신고 의무 타임라인 확인
+- DLP 정책 점검 및 민감 데이터 접근 로그 감사
+
+"""
+
+    # Default: improved generic
     return """
 #### 권장 조치
 
-- 관련 시스템 목록 확인
-- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
-- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
-- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
+- 관련 시스템 목록 확인 및 자사 환경 해당 여부 평가
+- 벤더 보안 권고 확인 후 패치 또는 완화 조치 적용
+- SIEM/EDR 탐지 룰에 관련 IoC 추가
+- 보안팀 내 공유 및 모니터링 강화
 
 """
 
