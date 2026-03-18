@@ -57,3 +57,16 @@ if [ -n "$FM_POSTS" ]; then
     fi
 fi
 echo "✅ Front matter structure OK"
+
+# Run template tests when auto_publish_news.py or tests are modified
+STAGED_SCRIPTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E 'scripts/auto_publish_news\.py|scripts/tests/' || true)
+if [ -n "$STAGED_SCRIPTS" ]; then
+    echo ""
+    echo "🧪 Running template tests (script changes detected)..."
+    if python3 -m pytest "$REPO_ROOT/scripts/tests/" -q --no-header --tb=line 2>/dev/null; then
+        echo "✅ Template tests passed"
+    else
+        echo "❌ Template tests failed — fix before committing"
+        exit 1
+    fi
+fi
