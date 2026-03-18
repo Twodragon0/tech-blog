@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "보안 위협, AI, 클라우드 보안"
+title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안"
 date: 2026-03-18 10:11:09 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data, Ransomware]
@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='보안 위협, AI, 클라우드 보안'
+  title='AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">AI</span>
@@ -94,8 +94,6 @@ toc: true
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical
 
 # AI 코드 실행 환경의 DNS 데이터 유출 취약점 분석
 
