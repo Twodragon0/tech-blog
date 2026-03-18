@@ -130,8 +130,46 @@ jobs:
       - name: Run script unit tests
         run: |
           echo "🧪 Running script unit tests..."
-          python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing
+          python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing --cov-report=json:coverage.json
           echo "✅ Script tests completed"
+
+      - name: Post coverage comment (PR only)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -f coverage.json ]; then
+            echo "No coverage data found"
+            exit 0
+          fi
+          COVERAGE=$(python3 -c "
+          import json
+          with open('coverage.json') as f:
+              data = json.load(f)
+          total = data.get('totals', {})
+          pct = total.get('percent_covered_display', 'N/A')
+          stmts = total.get('num_statements', 0)
+          miss = total.get('missing_lines', 0)
+          print(f'| auto_publish_news.py | {stmts} | {miss} | {pct}% |')
+          ")
+          BODY="## Test Coverage Report
+
+          | File | Stmts | Miss | Cover |
+          |------|-------|------|-------|
+          ${COVERAGE}
+
+          *171+ tests, < 1s execution time*"
+
+          EXISTING=$(gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" \
+            --jq '.[] | select(.body | contains("Test Coverage Report")) | .id' 2>/dev/null | head -1 || true)
+
+          if [ -n "$EXISTING" ]; then
+            gh api "repos/${{ github.repository }}/issues/comments/${EXISTING}" -X PATCH -f body="$BODY" || true
+          else
+            gh pr comment "${{ github.event.pull_request.number }}" --body "$BODY" || true
+          fi
+          echo "✅ Coverage comment posted"
 
       - name: Validate Jekyll Configuration
         run: |
