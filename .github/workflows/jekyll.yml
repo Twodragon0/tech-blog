@@ -130,7 +130,7 @@ jobs:
       - name: Run script unit tests
         run: |
           echo "🧪 Running script unit tests..."
-          python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing --cov-report=json:coverage.json
+          python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing --cov-report=json:coverage.json --cov-fail-under=35
           echo "✅ Script tests completed"
 
       - name: Post coverage comment (PR only)

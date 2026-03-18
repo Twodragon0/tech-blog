@@ -27,6 +27,9 @@ from auto_publish_news import (
     _table_summary,
     _filter_by_cutoff,
     select_top_news,
+    generate_mitre_mapping,
+    generate_risk_scorecard,
+    _extract_meaningful_topics,
 )
 
 # ---------------------------------------------------------------------------
@@ -1761,3 +1764,144 @@ class TestSelectTopNews:
         categorized = {"security": items}
         result = select_top_news(categorized)
         assert len(result) == 15
+
+
+# ===========================================================================
+# TestGenerateMitreMapping
+# ===========================================================================
+
+
+class TestGenerateMitreMapping:
+    def _item(self, title="", summary=""):
+        return {"title": title, "summary": summary}
+
+    def test_rce_maps_to_t1203(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Remote code execution vulnerability"))
+        assert "T1203" in result
+
+    def test_exploit_maps_to_t1203(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Active exploit found"))
+        assert "T1203" in result
+
+    def test_auth_maps_to_t1078(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Authentication bypass"))
+        assert "T1078" in result
+
+    def test_credential_maps_to_t1078(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Credential stuffing attack"))
+        assert "T1078" in result
+
+    def test_injection_maps_to_t1190(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("SQL injection found"))
+        assert "T1190" in result
+
+    def test_xss_maps_to_t1190(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("XSS vulnerability"))
+        assert "T1190" in result
+
+    def test_privilege_maps_to_t1068(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Privilege escalation flaw"))
+        assert "T1068" in result
+
+    def test_korean_privilege(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item(summary="권한 상승 취약점"))
+        assert "T1068" in result
+
+    def test_fallback_to_t1190(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("Generic security issue"))
+        assert "T1190" in result
+
+    def test_has_yaml_format(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("test"))
+        assert "mitre_attack:" in result
+        assert "tactics:" in result
+
+    def test_has_header(self):
+        result = generate_mitre_mapping("CVE-2026-12345", self._item("test"))
+        assert "MITRE ATT&CK" in result
+
+    def test_multiple_techniques(self):
+        result = generate_mitre_mapping(
+            "CVE-2026-12345",
+            self._item("RCE exploit with authentication bypass and SQL injection"),
+        )
+        assert "T1203" in result
+        assert "T1078" in result
+        assert "T1190" in result
+
+
+# ===========================================================================
+# TestGenerateRiskScorecard
+# ===========================================================================
+
+
+class TestGenerateRiskScorecard:
+    def _item(self, title, severity_hint="Medium"):
+        item = {"title": title, "summary": title, "content": "", "category": "security"}
+        if severity_hint == "Critical":
+            item["summary"] = f"{title} zero-day exploit actively exploited critical"
+        elif severity_hint == "High":
+            item["summary"] = f"{title} high severity security vulnerability"
+        return item
+
+    def test_has_scorecard_header(self):
+        result = generate_risk_scorecard([self._item("test")])
+        assert "스코어카드" in result
+
+    def test_has_ascii_bars(self):
+        result = generate_risk_scorecard([self._item("Critical vuln", "Critical")])
+        assert "█" in result
+
+    def test_critical_gets_high_score(self):
+        result = generate_risk_scorecard([self._item("Zero-day exploit", "Critical")])
+        assert "/10" in result
+
+    def test_overall_risk_level(self):
+        result = generate_risk_scorecard([self._item("Critical vuln", "Critical")])
+        assert "HIGH" in result or "MEDIUM" in result
+
+    def test_custom_date(self):
+        d = datetime(2026, 3, 18, tzinfo=timezone.utc)
+        result = generate_risk_scorecard([self._item("test")], report_date=d)
+        assert "2026-03-18" in result
+
+    def test_empty_items_medium_default(self):
+        result = generate_risk_scorecard([])
+        assert "5" in result or "LOW" in result or "MEDIUM" in result
+
+    def test_max_five_items(self):
+        items = [self._item(f"Critical vuln {i}", "Critical") for i in range(10)]
+        result = generate_risk_scorecard(items)
+        lines = [line for line in result.split("\n") if "/10" in line and "종합" not in line]
+        assert len(lines) <= 5
+
+
+# ===========================================================================
+# TestExtractMeaningfulTopics
+# ===========================================================================
+
+
+class TestExtractMeaningfulTopics:
+    def test_security_mode(self):
+        items = [{"title": "AI security threat analysis", "summary": ""}]
+        result = _extract_meaningful_topics(items, mode="security")
+        assert isinstance(result, str)
+        assert len(result) > 0
+
+    def test_tech_blog_mode(self):
+        items = [{"title": "Cloud infrastructure update", "summary": ""}]
+        result = _extract_meaningful_topics(items, mode="tech-blog")
+        assert isinstance(result, str)
+
+    def test_empty_items(self):
+        result = _extract_meaningful_topics([], mode="security")
+        assert isinstance(result, str)
+
+    def test_multiple_items(self):
+        items = [
+            {"title": "AI agent security", "summary": ""},
+            {"title": "Kubernetes vulnerability", "summary": ""},
+            {"title": "Ransomware attack", "summary": ""},
+        ]
+        result = _extract_meaningful_topics(items, mode="security")
+        assert len(result) > 0
