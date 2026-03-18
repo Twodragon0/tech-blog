@@ -72,3 +72,22 @@ blogwatcher 자동 생성 포스트에서 "실무 적용 포인트"가 동일한
 | `47e5fe8` | contextual action point 세분화 + 우선순위 충돌 테스트 (162건) |
 | `5a0a225` | pre-commit hook 템플릿 테스트 |
 | `1fb7643` | pre-commit hook 스크립트 변경 감지 |
+| `640c0c5` | Security Brief 7분기 + pytest 커버리지 설정 |
+| `8142f4d` | CI pytest-cov 커버리지 리포트 |
+| `1bff129` | PR 커버리지 코멘트 자동 표시 |
+| `810e5b8` | trend/checklist 테스트 23건 + CLAUDE.md 규칙 |
+| `1e0c122` | 테스트 50초→0.11초 성능 최적화 (lazy import) |
+| `30c0671` | conftest.py 공통화 |
+
+## 최종 성과 요약
+
+| 지표 | Before | After |
+|------|--------|-------|
+| 템플릿 분기 수 | 10개 | **44개** (AI 8 + DevOps 10 + Inline AI 6 + Cloud 6 + Blockchain 7 + Security Brief 7) |
+| 테스트 | 0건 | **194건** |
+| 테스트 실행 시간 | N/A | **0.15초** |
+| 반복 실무 포인트 | 매 포스트 3~5건 | **0건** (자동 감지 차단) |
+| pre-commit 검증 | 포스트 품질만 | 포스트 품질 + **템플릿 테스트 자동 실행** |
+| CI 커버리지 | 없음 | **pytest + coverage 리포트** |
+| dead code | ~90줄 | **제거** |
+| SVG 텍스트 잘림 | 다수 | **단어 경계 절단으로 해결** |
