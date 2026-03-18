@@ -30,6 +30,7 @@ from auto_publish_news import (
     generate_mitre_mapping,
     generate_risk_scorecard,
     _extract_meaningful_topics,
+    _generate_executive_and_risk_sections,
 )
 
 # ---------------------------------------------------------------------------
@@ -1905,3 +1906,59 @@ class TestExtractMeaningfulTopics:
         ]
         result = _extract_meaningful_topics(items, mode="security")
         assert len(result) > 0
+
+
+# ===========================================================================
+# _generate_executive_and_risk_sections
+# ===========================================================================
+
+
+class TestGenerateExecutiveAndRiskSections:
+    def _item(self, title, severity_hint="Medium"):
+        item = {"title": title, "summary": title, "content": "", "category": "security"}
+        if severity_hint == "Critical":
+            item["summary"] = f"{title} zero-day exploit actively exploited critical"
+        elif severity_hint == "High":
+            item["summary"] = f"{title} high severity security vulnerability"
+        return item
+
+    def test_security_mode_has_briefing(self):
+        items = [self._item("test vuln")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "경영진 브리핑" in result
+
+    def test_security_mode_has_scorecard(self):
+        items = [self._item("test vuln")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "위험 스코어카드" in result
+
+    def test_tech_blog_mode(self):
+        items = [self._item("tech update")]
+        result = _generate_executive_and_risk_sections(items, mode="tech-blog")
+        assert "경영진 브리핑" in result
+        assert "배포 안정성" in result
+
+    def test_security_mode_table(self):
+        items = [self._item("vuln")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "위협 대응" in result
+        assert "탐지/모니터링" in result
+
+    def test_critical_items_set_high_overall(self):
+        items = [self._item("Critical zero-day", "Critical")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "High" in result
+
+    def test_many_high_items_set_high_overall(self):
+        items = [self._item(f"High vuln {i}", "High") for i in range(4)]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "High" in result
+
+    def test_medium_only_items(self):
+        items = [self._item("minor issue")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "Low" in result or "Medium" in result
+
+    def test_empty_items(self):
+        result = _generate_executive_and_risk_sections([], mode="security")
+        assert "경영진 브리핑" in result
