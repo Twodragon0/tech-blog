@@ -621,6 +621,15 @@ See `.opencode/README.md` for detailed documentation.
 - [ ] Links point to real resources (no example.com)
 - [ ] Front matter follows format
 - [ ] `lsp_diagnostics` clean on changed files
+- [ ] Template branch changes: `pytest scripts/tests/` passes (pre-commit hook auto-runs)
+
+### Template Branch Rules (`auto_publish_news.py`)
+- **분기 추가 시 반드시 테스트 추가** (`scripts/tests/test_news_templates.py`)
+- **분기 순서 = 우선순위**: 구체적 키워드(istio, cosign)를 일반 키워드(network, image)보다 먼저 배치
+- **과매칭 주의**: `policy`, `container` 같은 광범위 키워드는 `admission controller`, `pod security`처럼 구체화
+- **테스트 입력 설계**: 다른 분기 키워드를 포함하지 않도록 주의
+- **우선순위 충돌 테스트**: `TestBranchPriorityConflicts` parametrized 테스트로 자동 감지
+- **pre-commit hook**: `scripts/auto_publish_news.py` 또는 `scripts/tests/` 변경 시 pytest 자동 실행
 
 ### Security Checklist
 - [ ] Input validation implemented

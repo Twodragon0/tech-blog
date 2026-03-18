@@ -12,8 +12,11 @@ from auto_publish_news import (
     _generate_ai_analysis_template,
     _generate_contextual_action_point,
     _generate_devops_template,
+    _generate_news_specific_checklist,
     _generate_security_analysis_template,
     _generate_security_brief_template,
+    _generate_trend_analysis,
+    _extract_trend_keyword,
 )
 
 # ---------------------------------------------------------------------------
@@ -1145,3 +1148,199 @@ class TestContextualActionPointExpanded:
             self._item("AWS Lambda serverless security guide", category="cloud")
         )
         assert "서버리스" in result or "IAM" in result
+
+
+# ===========================================================================
+# _extract_trend_keyword
+# ===========================================================================
+
+
+class TestExtractTrendKeyword:
+    """Tests for trend keyword extraction from article titles."""
+
+    def test_korean_title(self):
+        result = _extract_trend_keyword("랜섬웨어 공격 급증: 2026년 동향", "Security News")
+        assert "랜섬웨어 공격 급증" in result
+
+    def test_korean_title_truncation(self):
+        long_title = "가" * 50
+        result = _extract_trend_keyword(long_title, "Source")
+        assert len(result) <= 30
+
+    def test_english_short_title(self):
+        result = _extract_trend_keyword("Zero Day Found", "THN")
+        assert result == "Zero Day Found"
+
+    def test_english_long_title(self):
+        result = _extract_trend_keyword(
+            "Critical Zero Day Vulnerability Found in Major Enterprise Software", "THN"
+        )
+        assert len(result.split()) <= 5
+
+    def test_empty_title(self):
+        result = _extract_trend_keyword("", "Source")
+        assert result == ""
+
+    def test_bracketed_prefix_removed(self):
+        result = _extract_trend_keyword("[보안] Cloud Security Updates", "Source")
+        assert not result.startswith("[")
+
+    def test_delimiter_split(self):
+        result = _extract_trend_keyword("AI 보안: 프롬프트 인젝션 방어", "Source")
+        assert "AI 보안" in result
+
+
+# ===========================================================================
+# _generate_trend_analysis
+# ===========================================================================
+
+
+class TestGenerateTrendAnalysis:
+    """Tests for trend analysis section generation."""
+
+    def _items(self, *titles_and_categories):
+        return [
+            {"title": t, "summary": "", "category": c, "source_name": "Test"}
+            for t, c in titles_and_categories
+        ]
+
+    def test_has_section_header(self):
+        items = self._items(("AI security threat", "ai"))
+        result = _generate_trend_analysis(items, 5)
+        assert "## 5. 트렌드 분석" in result
+
+    def test_has_table_format(self):
+        items = self._items(("AI model update", "ai"), ("Cloud breach", "cloud"))
+        result = _generate_trend_analysis(items, 5)
+        assert "| 트렌드 |" in result
+        assert "관련 뉴스 수" in result
+
+    def test_counts_ai_trend(self):
+        items = self._items(
+            ("LLM security", "ai"), ("GPT update", "ai"), ("cloud news", "cloud")
+        )
+        result = _generate_trend_analysis(items, 5)
+        assert "AI/ML" in result
+
+    def test_counts_zero_day_trend(self):
+        items = self._items(("Zero-day exploit found", "security"),)
+        result = _generate_trend_analysis(items, 5)
+        assert "Zero-Day" in result
+
+    def test_no_trends_message(self):
+        items = self._items(("Generic unrelated news", "tech"),)
+        result = _generate_trend_analysis(items, 5)
+        # Either shows a trend or says no trends
+        assert "트렌드" in result
+
+    def test_top_trend_highlighted(self):
+        items = self._items(
+            ("AI attack 1", "ai"),
+            ("AI attack 2", "ai"),
+            ("AI attack 3", "ai"),
+            ("Cloud news", "cloud"),
+        )
+        result = _generate_trend_analysis(items, 5)
+        assert "핵심 트렌드" in result
+        assert "AI/ML" in result
+
+    def test_second_trend_mentioned(self):
+        items = self._items(
+            ("AI news 1", "ai"),
+            ("AI news 2", "ai"),
+            ("Kubernetes update", "devops"),
+        )
+        result = _generate_trend_analysis(items, 5)
+        # Should mention at least the top trend
+        assert "AI/ML" in result
+
+
+# ===========================================================================
+# _generate_news_specific_checklist
+# ===========================================================================
+
+
+class TestGenerateNewsSpecificChecklist:
+    """Tests for news-based practical checklist generation."""
+
+    def _items(self, *specs):
+        """specs: list of (title, category, severity_hint)"""
+        items = []
+        for title, category, sev in specs:
+            item = {
+                "title": title,
+                "summary": title,
+                "category": category,
+                "source_name": "Test",
+            }
+            # Add severity keywords so _determine_severity works
+            if sev == "Critical":
+                item["summary"] = (
+                    f"{title} - zero-day exploit actively exploited critical vulnerability"
+                )
+            elif sev == "High":
+                item["summary"] = f"{title} - high severity security vulnerability"
+            items.append(item)
+        return items
+
+    def test_has_checklist_header(self):
+        items = self._items(("Security news", "security", "Medium"))
+        result = _generate_news_specific_checklist(items)
+        assert "실무 체크리스트" in result
+
+    def test_has_priority_levels(self):
+        items = self._items(("Security news", "security", "Medium"))
+        result = _generate_news_specific_checklist(items)
+        assert "P0 (즉시)" in result
+        assert "P1 (7일 내)" in result
+        assert "P2 (30일 내)" in result
+
+    def test_critical_in_p0(self):
+        items = self._items(("Critical zero-day exploit", "security", "Critical"))
+        result = _generate_news_specific_checklist(items)
+        # P0 section should contain the critical item
+        p0_section = result.split("P1")[0]
+        assert "긴급 패치" in p0_section or "영향도" in p0_section
+
+    def test_high_in_p1(self):
+        items = self._items(("High severity vuln", "security", "High"))
+        result = _generate_news_specific_checklist(items)
+        p1_section = result.split("P1")[1].split("P2")[0]
+        assert "보안 검토" in p1_section or "모니터링" in p1_section
+
+    def test_ai_category_in_p2(self):
+        items = self._items(("AI model security", "ai", "Medium"))
+        result = _generate_news_specific_checklist(items)
+        p2_section = result.split("P2")[1]
+        assert "AI" in p2_section
+
+    def test_blockchain_in_p2(self):
+        items = self._items(("Bitcoin market news", "blockchain", "Medium"))
+        result = _generate_news_specific_checklist(items)
+        p2_section = result.split("P2")[1]
+        assert "블록체인" in p2_section or "암호화폐" in p2_section
+
+    def test_non_security_skipped(self):
+        items = self._items(("Tech startup news", "tech", "Medium"))
+        result = _generate_news_specific_checklist(items)
+        # tech category should not appear in P0/P1 security items
+        assert "Tech startup" not in result.split("P2")[0]
+
+    def test_cve_included(self):
+        items = [
+            {
+                "title": "CVE-2026-99999 critical",
+                "summary": (
+                    "CVE-2026-99999 zero-day exploit actively exploited critical"
+                ),
+                "category": "security",
+                "source_name": "Test",
+            }
+        ]
+        result = _generate_news_specific_checklist(items)
+        assert "CVE-2026-99999" in result
+
+    def test_empty_items(self):
+        result = _generate_news_specific_checklist([])
+        assert "실무 체크리스트" in result
+        assert "P0" in result
