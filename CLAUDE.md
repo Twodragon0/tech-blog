@@ -630,8 +630,8 @@ See `.opencode/README.md` for detailed documentation.
 - **테스트 입력 설계**: 다른 분기 키워드를 포함하지 않도록 주의
 - **우선순위 충돌 테스트**: `TestBranchPriorityConflicts` parametrized 테스트로 자동 감지
 - **pre-commit hook**: `scripts/auto_publish_news.py` 또는 `scripts/tests/` 변경 시 pytest 자동 실행
-- **커버리지 목표**: `auto_publish_news.py` 27% → 35% (주요 public 함수 테스트 확대)
-- **테스트 성능**: 194건 / 0.15초 (conftest.py에서 API 비활성화, lazy import 적용)
+- **커버리지 목표**: `auto_publish_news.py` 40% 이상 유지 (`--cov-fail-under=40` CI 강제)
+- **테스트 현황**: 287건 / 0.19초 (conftest.py에서 API 비활성화, lazy import 적용)
 
 ### Security Checklist
 - [ ] Input validation implemented
