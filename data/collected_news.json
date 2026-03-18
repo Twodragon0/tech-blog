@@ -1,7 +1,25 @@
 {
-  "collected_at": "2026-03-18T01:11:09.085571+00:00",
-  "total_items": 160,
+  "collected_at": "2026-03-18T01:23:24.644205+00:00",
+  "total_items": 159,
   "items": [
+    {
+      "id": "b00f4614b06c",
+      "title": "Bitrefill links Lazarus Group to employee laptop hack, stolen funds",
+      "url": "https://cointelegraph.com/news/bitrefill-claims-lazarus-group-hacked-them-stole-funds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-18T01:11:18+00:00",
+      "summary": "Bitrefill didn’t reveal how much money was drained in the March 1 incident but said it will absorb the losses using its operational capital.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2ZlNzItZjRjOS03MWQyLWE3Y2ItMGYzZjk1MDZiMzdiLmpwZw==.jpg"
+    },
     {
       "id": "4793e064972a",
       "title": "EVs wiped out oil demand equal to 70% of Iran’s exports in 2025",
@@ -85,7 +103,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T21:42:39+00:00",
-      "summary": "Article URL: https://arxiv.org/abs/2603.15381 Comments URL: https://news.ycombinator.com/item?id=47418722 Points: 15 # Comments: 6",
+      "summary": "Article URL: https://arxiv.org/abs/2603.15381 Comments URL: https://news.ycombinator.com/item?id=47418722 Points: 17 # Comments: 5",
       "content": "",
       "tags": [],
       "author": "aanet",
@@ -157,7 +175,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T21:04:26+00:00",
-      "summary": "Article URL: https://mistral.ai/news/forge Comments URL: https://news.ycombinator.com/item?id=47418295 Points: 99 # Comments: 3",
+      "summary": "Article URL: https://mistral.ai/news/forge Comments URL: https://news.ycombinator.com/item?id=47418295 Points: 108 # Comments: 5",
       "content": "",
       "tags": [],
       "author": "pember",
@@ -245,7 +263,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T20:24:33+00:00",
-      "summary": "Article URL: https://www.bbc.com/news/articles/cqj9kgxqjwjo Comments URL: https://news.ycombinator.com/item?id=47417814 Points: 183 # Comments: 118",
+      "summary": "Article URL: https://www.bbc.com/news/articles/cqj9kgxqjwjo Comments URL: https://news.ycombinator.com/item?id=47417814 Points: 190 # Comments: 121",
       "content": "",
       "tags": [],
       "author": "1vuio0pswjnm7",
@@ -261,7 +279,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T20:23:39+00:00",
-      "summary": "Article URL: https://github.com/gsd-build/get-shit-done Comments URL: https://news.ycombinator.com/item?id=47417804 Points: 169 # Comments: 95",
+      "summary": "Article URL: https://github.com/gsd-build/get-shit-done Comments URL: https://news.ycombinator.com/item?id=47417804 Points: 175 # Comments: 102",
       "content": "",
       "tags": [],
       "author": "stefankuehnel",
@@ -334,7 +352,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T19:17:16+00:00",
-      "summary": "Article URL: https://communityforums.atmeta.com/blog/AnnouncementsBlog/updates-to-your-meta-quest-experience-in-2026/1369435 Comments URL: https://news.ycombinator.com/item?id=47416940 Points: 167 # Comments: 172",
+      "summary": "Article URL: https://communityforums.atmeta.com/blog/AnnouncementsBlog/updates-to-your-meta-quest-experience-in-2026/1369435 Comments URL: https://news.ycombinator.com/item?id=47416940 Points: 171 # Comments: 173",
       "content": "",
       "tags": [],
       "author": "par",
@@ -368,7 +386,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T18:59:50+00:00",
-      "summary": "https://web.archive.org/web/20260317185928/https://terathon.... Comments URL: https://news.ycombinator.com/item?id=47416736 Points: 388 # Comments: 33",
+      "summary": "https://web.archive.org/web/20260317185928/https://terathon.... Comments URL: https://news.ycombinator.com/item?id=47416736 Points: 391 # Comments: 34",
       "content": "",
       "tags": [],
       "author": "mwkaufma",
@@ -420,7 +438,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T18:44:09+00:00",
-      "summary": "Article URL: https://hanno.codes/2026/03/17/java-26-is-here/ Comments URL: https://news.ycombinator.com/item?id=47416548 Points: 158 # Comments: 131",
+      "summary": "Article URL: https://hanno.codes/2026/03/17/java-26-is-here/ Comments URL: https://news.ycombinator.com/item?id=47416548 Points: 164 # Comments: 132",
       "content": "",
       "tags": [],
       "author": "mfiguiere",
@@ -454,7 +472,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T18:37:27+00:00",
-      "summary": "Article URL: https://fidget-spinner.github.io/posts/jit-on-track.html Comments URL: https://news.ycombinator.com/item?id=47416486 Points: 251 # Comments: 91",
+      "summary": "Article URL: https://fidget-spinner.github.io/posts/jit-on-track.html Comments URL: https://news.ycombinator.com/item?id=47416486 Points: 256 # Comments: 93",
       "content": "",
       "tags": [],
       "author": "guidoiaquinti",
@@ -496,22 +514,6 @@
       "image": ""
     },
     {
-      "id": "c7b630438f88",
-      "title": "Illinois Introducing Operating System Account Age Bill",
-      "url": "https://www.ilga.gov/Legislation/BillStatus?DocTypeID=HB&DocNum=5511",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-17T18:06:07+00:00",
-      "summary": "Article URL: https://www.ilga.gov/Legislation/BillStatus?DocTypeID=HB&DocNum=5511 Comments URL: https://news.ycombinator.com/item?id=47416131 Points: 243 # Comments: 353",
-      "content": "",
-      "tags": [],
-      "author": "terminalbraid",
-      "priority": 2,
-      "image": "https://cdn.ilga.gov/assets/img/site/open_graph.png"
-    },
-    {
       "id": "05cdb8ab0970",
       "title": "Edge.js: Run Node apps inside a WebAssembly sandbox",
       "url": "https://wasmer.io/posts/edgejs-safe-nodejs-using-wasm-sandbox",
@@ -520,7 +522,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T18:01:50+00:00",
-      "summary": "Article URL: https://wasmer.io/posts/edgejs-safe-nodejs-using-wasm-sandbox Comments URL: https://news.ycombinator.com/item?id=47416081 Points: 91 # Comments: 27",
+      "summary": "Article URL: https://wasmer.io/posts/edgejs-safe-nodejs-using-wasm-sandbox Comments URL: https://news.ycombinator.com/item?id=47416081 Points: 93 # Comments: 27",
       "content": "",
       "tags": [],
       "author": "syrusakbary",
@@ -788,7 +790,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T15:56:09+00:00",
-      "summary": "Article URL: https://theasc.com/articles/the-secret-agent-cinematography Comments URL: https://news.ycombinator.com/item?id=47414440 Points: 119 # Comments: 58",
+      "summary": "Article URL: https://theasc.com/articles/the-secret-agent-cinematography Comments URL: https://news.ycombinator.com/item?id=47414440 Points: 121 # Comments: 58",
       "content": "",
       "tags": [],
       "author": "tambourine_man",
@@ -822,7 +824,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T15:26:32+00:00",
-      "summary": "Article URL: https://unsloth.ai/docs/new/studio Comments URL: https://news.ycombinator.com/item?id=47414032 Points: 149 # Comments: 32",
+      "summary": "Article URL: https://unsloth.ai/docs/new/studio Comments URL: https://news.ycombinator.com/item?id=47414032 Points: 154 # Comments: 33",
       "content": "",
       "tags": [],
       "author": "brainless",
@@ -838,12 +840,28 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T15:16:29+00:00",
-      "summary": "Article URL: https://www.tomshardware.com/video-games/console-gaming/microsofts-unhackable-xbox-one-has-been-hacked-by-bliss-the-2013-console-finally-fell-to-voltage-glitching-allowing-the-loading-of-unsigned-code-at-every-level Comments URL: https://news.ycombinator.com/item?id=47413876 Points: 505 # Comments: 199",
+      "summary": "Article URL: https://www.tomshardware.com/video-games/console-gaming/microsofts-unhackable-xbox-one-has-been-hacked-by-bliss-the-2013-console-finally-fell-to-voltage-glitching-allowing-the-loading-of-unsigned-code-at-every-level Comments URL: https://news.ycombinator.com/item?id=47413876 Points: 512 # Comments: 200",
       "content": "",
       "tags": [],
       "author": "crtasm",
       "priority": 2,
       "image": "https://cdn.mos.cms.futurecdn.net/rZ7dRyfYH7ZD7yApRmNiva-1920-80.jpg"
+    },
+    {
+      "id": "9006c2a5d983",
+      "title": "FFmpeg 8.1",
+      "url": "https://ffmpeg.org/index.html#pr8.1",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-17T14:51:57+00:00",
+      "summary": "Article URL: https://ffmpeg.org/index.html#pr8.1 Comments URL: https://news.ycombinator.com/item?id=47413525 Points: 362 # Comments: 53",
+      "content": "",
+      "tags": [],
+      "author": "gyan",
+      "priority": 2,
+      "image": ""
     },
     {
       "id": "9c9de2503bc3",
@@ -890,7 +908,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T14:28:37+00:00",
-      "summary": "Article URL: https://blog.platformatic.dev/why-nodejs-needs-a-virtual-file-system Comments URL: https://news.ycombinator.com/item?id=47413195 Points: 223 # Comments: 190",
+      "summary": "Article URL: https://blog.platformatic.dev/why-nodejs-needs-a-virtual-file-system Comments URL: https://news.ycombinator.com/item?id=47413195 Points: 223 # Comments: 192",
       "content": "",
       "tags": [],
       "author": "voctor",
@@ -963,7 +981,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T13:54:17+00:00",
-      "summary": "Article URL: https://kalpadesktop.org/ Comments URL: https://news.ycombinator.com/item?id=47412726 Points: 174 # Comments: 78",
+      "summary": "Article URL: https://kalpadesktop.org/ Comments URL: https://news.ycombinator.com/item?id=47412726 Points: 175 # Comments: 78",
       "content": "",
       "tags": [],
       "author": "ogogmad",
@@ -1003,24 +1021,6 @@
       "author": "Cointelegraph by Helen Partz",
       "priority": 2,
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2ZiOGUtMTYxMi03ZjhmLWE4NWEtMGEzYTdjMGU1ODBhLmpwZw==.jpg"
-    },
-    {
-      "id": "0aa181abaee5",
-      "title": "‘Bitcoin Standard’ author explores reality where decentralized gold stopped WWI",
-      "url": "https://cointelegraph.com/news/bitcoin-standard-author-ammous-envisions-world-without-fiat?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-17T13:30:00+00:00",
-      "summary": "Saifedean Ammous, the author of The Bitcoin Standard, released an alternate history last fall, in which a decentralized gold system uproots central banking.",
-      "content": "",
-      "tags": [
-        "Features"
-      ],
-      "author": "Cointelegraph by Aaron Wood",
-      "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2ZiN2UtN2U2MC03NGFmLTllYWUtZjU2OGMyNTc2MjI1LmpwZw==.jpg"
     },
     {
       "id": "1ddb8cac1bd0",
@@ -1104,7 +1104,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-17T12:01:05+00:00",
-      "summary": "Article URL: https://phys.org/news/2026-03-ryugu-asteroid-samples-dna-rna.html Comments URL: https://news.ycombinator.com/item?id=47411480 Points: 175 # Comments: 96",
+      "summary": "Article URL: https://phys.org/news/2026-03-ryugu-asteroid-samples-dna-rna.html Comments URL: https://news.ycombinator.com/item?id=47411480 Points: 178 # Comments: 96",
       "content": "",
       "tags": [],
       "author": "bookofjoe",
@@ -1178,28 +1178,6 @@
       "author": "",
       "priority": 2,
       "image": "https://techblog.lycorp.co.jp/static/3c6636eec062387b0dd2353e127500bd/7d66e/5897cd5b36bf4a4289660632937b5d58.png"
-    },
-    {
-      "id": "c62ab83924e2",
-      "title": "This mine put 100 autonomous electric haul trucks to work – here’s how it went",
-      "url": "https://electrek.co/2026/03/16/this-mine-put-100-autonomous-electric-haul-trucks-to-work-heres-how-it-went/",
-      "source": "electrek",
-      "source_name": "Electrek",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-17T01:13:40+00:00",
-      "summary": "What happens when you deploy 100 massive, driverless, and fully electric heavy haul trucks at a working mine? After nearly a year of continuous operation, one mining company is already finding out. Here’s how their great experiment is going. more…",
-      "content": "",
-      "tags": [
-        "News",
-        "autonomous",
-        "china",
-        "electric trucks",
-        "heavy equipment"
-      ],
-      "author": "Jo Borrás",
-      "priority": 2,
-      "image": "https://electrek.co/wp-content/uploads/sites/3/2026/03/yimin_min_MAIN.jpg?quality=82&strip=all&w=1600"
     },
     {
       "id": "335a1c7cd12a",
@@ -1309,12 +1287,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:11:07.469261+00:00",
+      "published": "2026-03-18T01:23:22.447073+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1328,14 +1306,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:11:05.810601+00:00",
+      "published": "2026-03-18T01:23:20.263405+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
         "랜섬웨어",
-        "보안리포트"
+        "KARA",
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1349,12 +1327,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:11:04.283036+00:00",
+      "published": "2026-03-18T01:23:18.406008+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1368,12 +1346,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:11:02.447245+00:00",
+      "published": "2026-03-18T01:23:16.107449+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1387,12 +1365,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:11:01.190461+00:00",
+      "published": "2026-03-18T01:23:14.574687+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1406,14 +1384,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:59.463875+00:00",
+      "published": "2026-03-18T01:23:12.587449+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
         "랜섬웨어",
-        "보안리포트"
+        "KARA",
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1427,12 +1405,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:57.875192+00:00",
+      "published": "2026-03-18T01:23:10.643867+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1446,12 +1424,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:55.996725+00:00",
+      "published": "2026-03-18T01:23:08.346880+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1465,13 +1443,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:54.236812+00:00",
+      "published": "2026-03-18T01:23:06.043087+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
         "AI보안",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1485,14 +1463,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:52.434583+00:00",
+      "published": "2026-03-18T01:23:03.816659+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
         "랜섬웨어",
-        "보안리포트"
+        "KARA",
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1506,12 +1484,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-18T01:10:48.480174+00:00",
+      "published": "2026-03-18T01:22:59.090063+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
@@ -1525,7 +1503,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-03-18T01:08:53.593817+00:00",
+      "published": "2026-03-18T01:21:09.307367+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view.",
       "tags": [
@@ -2732,9 +2710,9 @@
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
-        "SK쉴더스",
         "취약점",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1,
