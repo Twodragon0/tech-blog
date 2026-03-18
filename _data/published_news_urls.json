@@ -1,228 +1,6 @@
 {
-  "updated_at": "2026-03-17T01:21:54.611876+00:00",
+  "updated_at": "2026-03-18T01:13:50.101483+00:00",
   "entries": [
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/tokenized-gold-weekend-price-discovery-cme-closed?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.first.org/epss/",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27106",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://attack.mitre.org/",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/agentic-ai-platform-part2-agentcore-gateway-identity-making-mcp-registry/",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/polymarket-traders-1m-us-iran-strike-insider-trading-concerns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27107",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/software-defined-ai-ran/",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-recovers-to-68k-following-reported-death-of-iranian-supreme-leader?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "title": "",
-      "published_date": "2026-03-01",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27119",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/x-lifts-crypto-promo-ban-for-paid-partnerships?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kalshi-founder-khamenei-market-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/education",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27118",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/trump-media-considers-truth-social-spinout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "",
-      "published_date": "2026-03-02",
-      "expires_at": "2026-03-10T08:46:19.004994+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/fake-tech-support-spam-deploys.html",
-      "title": "Fake Tech Support Spam Deploys Customized Havoc C2 Across Organizations",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/03/signed-malware-impersonating-workplace-apps-deploys-rmm-backdoors/",
-      "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/building-high-impact-tier-1-3-steps.html",
-      "title": "Building a High-Impact Tier 1: The 3 Steps CISOs Must Follow",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/open-source-cyberstrikeai-deployed-in.html",
-      "title": "Open-Source CyberStrikeAI Deployed in AI-Driven FortiGate Attacks Across 55 Coun",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/2025-finma-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
-      "title": "2025 FINMA ISAE 3000 Type II attestation report available with 183 services in s",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/tips-prompt-writing-project-genie/",
-      "title": "Create new worlds in Project Genie with these 4 tips",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/",
-      "title": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-a-scalable-virtual-try-on-solution-using-amazon-nova-on-aws-part-1/",
-      "title": "Building a scalable virtual try-on solution using Amazon Nova on AWS: part 1",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-lendi-revamped-the-refinance-journey-for-its-customers-using-agentic-ai-in-12-weeks-using-amazon-bedrock/",
-      "title": "How Lendi revamped the refinance journey for its customers using agentic AI in 1",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-tines-enhances-security-analysis-with-amazon-quick-suite/",
-      "title": "How Tines enhances security analysis with Amazon Quick Suite",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/data-strategy-ai-strategy-series-transforming-developers-into-ai-architects-with-google-cloud/",
-      "title": "Data Strategy = AI Strategy Series: Transforming Developers into AI Architects w",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/coruna-powerful-ios-exploit-kit/",
-      "title": "Coruna: The Mysterious Journey of a Powerful iOS Exploit Kit",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-the-mcp-toolbox-java-sdk/",
-      "title": "Announcing the MCP Toolbox Java SDK",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/telecommunications/integrating-nokia-network-as-code-nac-platform/",
-      "title": "From network APIs to network AI agents — building the agentic future of connecti",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
-    {
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/unlocking-document-understanding-with-mistral-document-ai-in-microsoft-foundry/4495664",
-      "title": "Unlocking document understanding with Mistral Document AI in Microsoft Foundry",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T01:10:05.428153+00:00"
-    },
     {
       "url": "https://aws.amazon.com/blogs/security/2025-pitukri-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
       "title": "2025 PiTuKri ISAE 3000 Type II attestation report available with 183 services in",
@@ -1782,6 +1560,96 @@
       "title": "대규모 환경에서의 MCP를 활용한 효율적인 EBS 모니터링",
       "published_date": "2026-03-17",
       "expires_at": "2026-03-24T01:21:54.611754+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/ai-flaws-in-amazon-bedrock-langsmith.html",
+      "title": "AI Flaws in Amazon Bedrock, LangSmith, and SGLang Enable Data Exfiltration and R",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-completes-the-second-gdv-community-audit-with-participant-insurers-in-germany/",
+      "title": "AWS completes the second GDV community audit with participant insurers in German",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/leaknet-ransomware-uses-clickfix-via.html",
+      "title": "LeakNet Ransomware Uses ClickFix via Hacked Sites, Deploys Deno In-Memory Loader",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/ai-is-everywhere-but-cisos-are-still.html",
+      "title": "AI is Everywhere, But CISOs are Still Securing It with Yesterday's Skills and To",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/konni-deploys-endrat-through-spear.html",
+      "title": "Konni Deploys EndRAT Through Phishing, Uses KakaoTalk to Propagate Malware",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/",
+      "title": "Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta’s Ads Ra",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-cloudxr-apple-vision-pro/",
+      "title": "More Than Meets the Eye: NVIDIA RTX-Accelerated Computers Now Connect Directly t",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/correcting-the-record-on-palantir-in-australia-e1d4184c0777?source=rss----3c87dc14372f---4",
+      "title": "Correcting the Record on Palantir in Australia",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/telecom-ai-grids-inference/",
+      "title": "NVIDIA, Telecom Leaders Build AI Grids to Optimize Inference on Distributed Netw",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/personal-intelligence-expansion/",
+      "title": "Bringing the power of Personal Intelligence to more people",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/multi-cluster-gke-inference-gateway-helps-scale-ai-workloads/",
+      "title": "Introducing multi-cluster GKE Inference Gateway: Scale AI workloads around the w",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/rt-assistant-a-realtime-multiagent-voice-bot-using-dotnet-and-open-ai-api/",
+      "title": "RT.Assistant: A Multi-Agent Voice Bot Using .NET and OpenAI",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/17/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-kyvernocon/",
+      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: KyvernoCon",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/17/when-kubernetes-restarts-your-pod-and-when-it-doesnt/",
+      "title": "When Kubernetes restarts your pod — And when it doesn’t",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/conference/jack-mallers-confirmed-as-a-bitcoin-2026-speaker",
+      "title": "Jack Mallers Confirmed As A Bitcoin 2026 Speaker",
+      "published_date": "2026-03-18",
+      "expires_at": "2026-03-25T01:13:50.101374+00:00"
     }
   ]
 }
