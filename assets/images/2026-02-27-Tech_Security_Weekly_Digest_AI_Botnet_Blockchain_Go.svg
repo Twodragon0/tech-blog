@@ -1,34 +1,123 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a0f00"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="ambglow">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="c2glow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textglow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#f59e0b" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="30" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
-      <text x="0" y="5" font-family="Courier New" font-size="10" fill="#f59e0b" text-anchor="middle">C2</text>
-    </g>
-    <g opacity="0.4">
-      <circle cx="-80" cy="-50" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/><line x1="-65" y1="-40" x2="-25" y2="-15" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="80" cy="-50" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/><line x1="65" y1="-40" x2="25" y2="-15" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="-90" cy="30" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/><line x1="-75" y1="25" x2="-28" y2="10" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="90" cy="30" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/><line x1="75" y1="25" x2="28" y2="10" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="-40" cy="70" r="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/><line x1="-35" y1="58" x2="-15" y2="25" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="40" cy="70" r="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/><line x1="35" y1="58" x2="15" y2="25" stroke="#f59e0b" stroke-width="1"/>
-      <circle cx="0" cy="-80" r="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/><line x1="0" y1="-68" x2="0" y2="-30" stroke="#f59e0b" stroke-width="1"/>
-    </g>
-  </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Botnet + Blockchain</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Go + Botnet + Chain</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">WEEKLY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 27, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Ambient glow circles -->
+  <circle cx="600" cy="295" r="240" fill="#f59e0b" opacity="0.08" filter="url(#ambglow)"/>
+  <circle cx="190" cy="175" r="170" fill="#ef4444" opacity="0.07" filter="url(#ambglow)"/>
+  <circle cx="1010" cy="420" r="185" fill="#f59e0b" opacity="0.07" filter="url(#ambglow)"/>
+  <circle cx="960" cy="145" r="130" fill="#ef4444" opacity="0.06" filter="url(#ambglow)"/>
+
+  <!-- Floating code fragments -->
+  <text x="52" y="94" font-family="monospace" font-size="12" fill="#f59e0b" opacity="0.13">c2.command(bot_army)</text>
+  <text x="948" y="84" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.12">go build ./botnet</text>
+  <text x="62" y="562" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.12">chain.track(wallet)</text>
+  <text x="938" y="556" font-family="monospace" font-size="12" fill="#f59e0b" opacity="0.13">ai.evolve(tactics)</text>
+  <text x="498" y="53" font-family="monospace" font-size="11" fill="#f59e0b" opacity="0.10">botnet.spawn(node)</text>
+
+  <!-- Top badge -->
+  <rect x="40" y="32" width="175" height="32" rx="16" fill="#f59e0b" opacity="0.18"/>
+  <rect x="40" y="32" width="175" height="32" rx="16" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <text x="127" y="53" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="1160" y="53" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">February 27, 2026</text>
+
+  <!-- CENTRAL ILLUSTRATION: Botnet topology - C2 + 3 concentric rings -->
+
+  <!-- Ring 3 outer: 12 bot nodes at radius ~235 from center (600,295) -->
+  <!-- Top -->
+  <circle cx="600" cy="60" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="600" y1="75" x2="600" y2="215" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Top-right 30deg -->
+  <circle cx="718" cy="92" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="711" y1="106" x2="623" y2="233" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Right-top -->
+  <circle cx="822" cy="178" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
+  <line x1="809" y1="185" x2="643" y2="252" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Right -->
+  <circle cx="853" cy="295" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
+  <line x1="838" y1="295" x2="660" y2="295" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Right-bottom -->
+  <circle cx="822" cy="412" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="809" y1="405" x2="643" y2="338" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Bottom-right -->
+  <circle cx="718" cy="498" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="711" y1="484" x2="623" y2="357" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Bottom -->
+  <circle cx="600" cy="530" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
+  <line x1="600" y1="515" x2="600" y2="375" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Bottom-left -->
+  <circle cx="482" cy="498" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="489" y1="484" x2="577" y2="357" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Left-bottom -->
+  <circle cx="378" cy="412" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="391" y1="405" x2="557" y2="338" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Left -->
+  <circle cx="347" cy="295" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
+  <line x1="362" y1="295" x2="540" y2="295" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Left-top -->
+  <circle cx="378" cy="178" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="391" y1="185" x2="557" y2="252" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Top-left -->
+  <circle cx="482" cy="92" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
+  <line x1="489" y1="106" x2="577" y2="233" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+
+  <!-- Active attack highlights on 4 outer bots (red fill) -->
+  <circle cx="853" cy="295" r="15" fill="#ef4444" opacity="0.22"/>
+  <circle cx="347" cy="295" r="15" fill="#ef4444" opacity="0.22"/>
+  <circle cx="600" cy="530" r="15" fill="#ef4444" opacity="0.22"/>
+  <circle cx="822" cy="178" r="15" fill="#ef4444" opacity="0.22"/>
+
+  <!-- Ring 2 middle: 6 nodes at radius ~135 -->
+  <circle cx="600" cy="160" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="600" y1="172" x2="600" y2="235" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <circle cx="717" cy="228" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="708" y1="238" x2="632" y2="263" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <circle cx="735" cy="363" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="724" y1="357" x2="650" y2="320" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <circle cx="600" cy="430" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="600" y1="418" x2="600" y2="375" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <circle cx="465" cy="363" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="476" y1="357" x2="550" y2="320" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <circle cx="483" cy="228" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
+  <line x1="492" y1="238" x2="568" y2="263" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+
+  <!-- C2 Central command node (large amber circle) -->
+  <circle cx="600" cy="295" r="80" fill="#150800" stroke="#f59e0b" stroke-width="4" opacity="0.98" filter="url(#c2glow)"/>
+  <circle cx="600" cy="295" r="80" fill="#f59e0b" opacity="0.10"/>
+  <!-- AI brain overlay on C2 -->
+  <ellipse cx="600" cy="287" rx="45" ry="36" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.75"/>
+  <path d="M570 275 Q585 266 600 275 Q615 266 630 275" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
+  <path d="M565 287 Q582 278 600 287 Q618 278 635 287" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
+  <path d="M570 299 Q585 290 600 299 Q615 290 630 299" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
+  <!-- C2 label -->
+  <text x="600" y="334" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.95">C2 NODE</text>
+
+  <!-- Title and subtitle -->
+  <text x="600" y="512" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textglow)">AI-Powered Botnet</text>
+  <text x="600" y="542" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Go-Based C2 | Blockchain Resilience | AI Command Control</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#334155" stroke-width="1" opacity="0.6"/>
+  <text x="600" y="610" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="middle">19 News | 5 Security | 4 AI/ML | 2 Cloud | 3 DevOps</text>
+  <text x="1160" y="610" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>

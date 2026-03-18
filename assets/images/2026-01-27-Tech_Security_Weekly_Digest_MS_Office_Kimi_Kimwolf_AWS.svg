@@ -1,52 +1,233 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a0808"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e3e"/>
+      <stop offset="100%" style="stop-color:#12122a"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2d45"/>
+      <stop offset="100%" style="stop-color:#0f1c2e"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444" stop-opacity="0.05"/>
+      <stop offset="100%" style="stop-color:#ef4444" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="defenseBeam" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6" stop-opacity="0.05"/>
+      <stop offset="100%" style="stop-color:#3b82f6" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <!-- MS Office document with zero-day crack -->
-    <g filter="url(#shadow)">
-      <rect x="-60" y="-80" width="120" height="160" rx="8" fill="#1e293b" stroke="#0078d4" stroke-width="2.5"/>
-      <!-- Doc corner fold -->
-      <path d="M30,-80 L60,-80 L60,-50 Z" fill="#0f172a" stroke="#0078d4" stroke-width="1"/>
-      <!-- Doc lines -->
-      <g opacity="0.2">
-        <rect x="-40" y="-55" width="80" height="5" rx="1" fill="#0078d4"/>
-        <rect x="-40" y="-45" width="60" height="5" rx="1" fill="#0078d4"/>
-        <rect x="-40" y="-35" width="70" height="5" rx="1" fill="#0078d4"/>
-        <rect x="-40" y="-20" width="80" height="5" rx="1" fill="#0078d4"/>
-        <rect x="-40" y="-10" width="50" height="5" rx="1" fill="#0078d4"/>
-      </g>
-      <!-- Zero-day lightning crack -->
-      <path d="M5,-70 L-10,-25 L5,-30 L-15,30 L10,-15 L-5,-10 Z" fill="#ef4444" opacity="0.5"/>
-      <!-- 0-day label -->
-      <rect x="-25" y="35" width="50" height="22" rx="4" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.5"/>
-      <text x="0" y="50" font-family="Courier New" font-size="10" fill="#fca5a5" text-anchor="middle">0-day</text>
-    </g>
-    <!-- Kimwolf botnet -->
-    <g transform="translate(130,0)" opacity="0.5">
-      <circle cx="0" cy="0" r="30" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <!-- Wolf silhouette simplified -->
-      <polygon points="-10,-15 -15,-5 -5,-10 0,-20 5,-10 15,-5 10,-15" fill="#f59e0b" opacity="0.3"/>
-      <text x="0" y="10" font-family="Courier New" font-size="7" fill="#fde68a" text-anchor="middle">Kimwolf</text>
-    </g>
-    <!-- AWS node -->
-    <g transform="translate(-130,0)" opacity="0.5">
-      <circle cx="0" cy="0" r="30" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-      <text x="0" y="5" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#fdba74" text-anchor="middle">AWS</text>
-    </g>
-  </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">MS Office Zero-Day</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Kimi K25 + Kimwolf Botnet + AWS G7e</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 27, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Ambient glow circles -->
+  <circle cx="220" cy="260" r="210" fill="#ef4444" opacity="0.09" filter="url(#glow1)"/>
+  <circle cx="980" cy="290" r="200" fill="#3b82f6" opacity="0.09" filter="url(#glow1)"/>
+  <circle cx="600" cy="270" r="180" fill="#7c3aed" opacity="0.05" filter="url(#glow1)"/>
+
+  <!-- Floating code fragments -->
+  <text x="45" y="80" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.13">office.exploit(macro)</text>
+  <text x="870" y="72" font-family="monospace" font-size="13" fill="#3b82f6" opacity="0.13">apt.kimwolf.c2()</text>
+  <text x="40" y="548" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.12">aws.g7e.deploy()</text>
+  <text x="870" y="548" font-family="monospace" font-size="13" fill="#3b82f6" opacity="0.12">kimi.k25.analyze()</text>
+
+  <!-- Badge -->
+  <rect x="40" y="32" width="170" height="32" rx="16" fill="url(#badgeGrad)" opacity="0.9"/>
+  <text x="125" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="1160" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">January 27, 2026</text>
+
+  <!-- Outer container -->
+  <rect x="60" y="88" width="1080" height="448" rx="14" fill="#06060e" stroke="#1a0808" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- ===== LEFT: MS Office document ===== -->
+  <rect x="88" y="106" width="270" height="358" rx="8" fill="url(#docGrad)" stroke="#2a1a3e" stroke-width="1"/>
+
+  <!-- Word title bar -->
+  <rect x="88" y="106" width="270" height="44" rx="8" fill="#2b2b5a"/>
+  <rect x="88" y="128" width="270" height="22" fill="#2b2b5a"/>
+  <rect x="104" y="114" width="30" height="28" rx="4" fill="#2563eb"/>
+  <text x="119" y="133" font-family="Arial" font-size="16" font-weight="bold" fill="white" text-anchor="middle">W</text>
+  <text x="142" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#93c5fd">Report_Q1.docx</text>
+  <text x="142" y="141" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#64748b">Microsoft Word - Protected View</text>
+
+  <!-- Content lines -->
+  <rect x="104" y="162" width="236" height="8" rx="2" fill="#4a4a7a" opacity="0.55"/>
+  <rect x="104" y="178" width="196" height="8" rx="2" fill="#4a4a7a" opacity="0.45"/>
+  <rect x="104" y="194" width="216" height="8" rx="2" fill="#4a4a7a" opacity="0.40"/>
+
+  <!-- MACRO block - red highlight -->
+  <rect x="98" y="210" width="248" height="76" rx="4" fill="#ef4444" opacity="0.14" stroke="#ef4444" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="106" y="226" font-family="monospace" font-size="10" fill="#f87171">Sub AutoOpen()</text>
+  <text x="106" y="242" font-family="monospace" font-size="10" fill="#fca5a5">  CreateObject("WScript.Shell")</text>
+  <text x="106" y="258" font-family="monospace" font-size="10" fill="#fca5a5">  .Run("cmd /c curl attacker...")</text>
+  <text x="106" y="274" font-family="monospace" font-size="10" fill="#f87171">End Sub</text>
+
+  <!-- Warning badge on macro -->
+  <rect x="106" y="290" width="110" height="18" rx="3" fill="#ef4444" opacity="0.9"/>
+  <text x="161" y="303" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="white" text-anchor="middle">MACRO EXPLOIT</text>
+
+  <!-- More content lines -->
+  <rect x="104" y="318" width="200" height="8" rx="2" fill="#4a4a7a" opacity="0.45"/>
+  <rect x="104" y="334" width="170" height="8" rx="2" fill="#4a4a7a" opacity="0.38"/>
+  <rect x="104" y="350" width="190" height="8" rx="2" fill="#4a4a7a" opacity="0.35"/>
+  <rect x="104" y="366" width="150" height="8" rx="2" fill="#4a4a7a" opacity="0.30"/>
+
+  <!-- CVE badge -->
+  <rect x="104" y="388" width="236" height="28" rx="5" fill="#1a0a1a" stroke="#ef4444" stroke-width="1"/>
+  <text x="222" y="406" font-family="monospace" font-size="11" fill="#f87171" text-anchor="middle">CVE-2026-0142 | CVSS 9.8</text>
+
+  <!-- Label -->
+  <text x="223" y="446" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">MS Office</text>
+  <text x="223" y="462" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Zero-Day Exploit</text>
+
+  <!-- ===== ATTACK FLOW: left to center ===== -->
+  <!-- Wide beam polygon -->
+  <polygon points="358,250 490,220 490,370 358,340" fill="url(#scanBeam)" opacity="0.8"/>
+  <!-- Flow lines with glow -->
+  <line x1="358" y1="265" x2="480" y2="232" stroke="#ef4444" stroke-width="2" opacity="0.7" filter="url(#glow3)"/>
+  <line x1="358" y1="290" x2="480" y2="290" stroke="#ef4444" stroke-width="2.5" opacity="0.85" filter="url(#glow3)"/>
+  <line x1="358" y1="315" x2="480" y2="348" stroke="#ef4444" stroke-width="2" opacity="0.7" filter="url(#glow3)"/>
+  <polygon points="468,224 488,232 468,240" fill="#ef4444" opacity="0.85"/>
+  <polygon points="468,282 488,290 468,298" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <polygon points="468,340 488,348 468,356" fill="#ef4444" opacity="0.85"/>
+  <text x="415" y="272" font-family="monospace" font-size="10" fill="#f87171" text-anchor="middle">EXPLOIT CHAIN</text>
+
+  <!-- ===== CENTER: Kimwolf APT wolf ===== -->
+  <!-- Outer ring -->
+  <circle cx="600" cy="283" r="118" fill="#0a0006" stroke="#ef4444" stroke-width="1.5" filter="url(#glow2)"/>
+  <circle cx="600" cy="283" r="118" fill="#ef4444" opacity="0.04"/>
+
+  <!-- Wolf silhouette -->
+  <!-- Head shape -->
+  <path d="M600,200 Q640,210 660,240 Q670,265 660,295 Q650,325 630,340 Q615,355 600,358 Q585,355 570,340 Q550,325 540,295 Q530,265 540,240 Q560,210 600,200Z" fill="#150008"/>
+  <!-- Ears -->
+  <polygon points="555,222 536,172 578,215" fill="#200010"/>
+  <polygon points="645,222 664,172 622,215" fill="#200010"/>
+  <polygon points="557,214 543,185 576,208" fill="#ef4444" opacity="0.35"/>
+  <polygon points="643,214 657,185 624,208" fill="#ef4444" opacity="0.35"/>
+  <!-- Eyes - glowing red -->
+  <circle cx="577" cy="272" r="12" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <circle cx="623" cy="272" r="12" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <circle cx="577" cy="272" r="6" fill="#fca5a5"/>
+  <circle cx="623" cy="272" r="6" fill="#fca5a5"/>
+  <!-- Snout -->
+  <ellipse cx="600" cy="310" rx="36" ry="26" fill="#100004"/>
+  <!-- Nose -->
+  <ellipse cx="600" cy="302" rx="9" ry="6" fill="#ef4444" opacity="0.7"/>
+  <!-- Fangs -->
+  <polygon points="590,326 594,342 598,326" fill="#e2e8f0" opacity="0.65"/>
+  <polygon points="602,326 606,342 610,326" fill="#e2e8f0" opacity="0.65"/>
+
+  <!-- APT label -->
+  <rect x="518" y="408" width="164" height="28" rx="6" fill="#150008" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="600" y="426" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="bold" fill="#f87171" text-anchor="middle">APT: KIMWOLF</text>
+  <text x="600" y="450" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">C2 Infrastructure Active</text>
+
+  <!-- Kimi K25 badge -->
+  <rect x="480" y="120" width="240" height="44" rx="8" fill="#100f28" stroke="#7c3aed" stroke-width="1"/>
+  <circle cx="506" cy="142" r="14" fill="#3b0764"/>
+  <text x="506" y="147" font-family="Arial" font-size="12" font-weight="bold" fill="#c4b5fd" text-anchor="middle">K</text>
+  <text x="528" y="135" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="bold" fill="#a78bfa">Kimi K25 AI</text>
+  <text x="528" y="151" font-family="monospace" font-size="10" fill="#6d28d9">Threat Intelligence Layer</text>
+
+  <!-- ===== DEFENSE FLOW: right to center ===== -->
+  <polygon points="842,250 710,220 710,370 842,340" fill="url(#defenseBeam)" opacity="0.8"/>
+  <line x1="842" y1="265" x2="720" y2="232" stroke="#3b82f6" stroke-width="2" opacity="0.7" filter="url(#glow3)"/>
+  <line x1="842" y1="290" x2="720" y2="290" stroke="#3b82f6" stroke-width="2.5" opacity="0.85" filter="url(#glow3)"/>
+  <line x1="842" y1="315" x2="720" y2="348" stroke="#3b82f6" stroke-width="2" opacity="0.7" filter="url(#glow3)"/>
+  <polygon points="732,224 712,232 732,240" fill="#3b82f6" opacity="0.85"/>
+  <polygon points="732,282 712,290 732,298" fill="#3b82f6" opacity="0.9" filter="url(#glow3)"/>
+  <polygon points="732,340 712,348 732,356" fill="#3b82f6" opacity="0.85"/>
+  <text x="785" y="272" font-family="monospace" font-size="10" fill="#60a5fa" text-anchor="middle">DETECTION</text>
+
+  <!-- SPARK at clash point (y=165, between flows) -->
+  <circle cx="600" cy="168" r="6" fill="#fbbf24" opacity="0.9" filter="url(#glow3)"/>
+  <line x1="590" y1="158" x2="600" y2="168" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+  <line x1="610" y1="158" x2="600" y2="168" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+  <line x1="600" y1="155" x2="600" y2="168" stroke="#fbbf24" stroke-width="1.5" opacity="0.7"/>
+  <text x="600" y="150" font-family="monospace" font-size="9" fill="#fbbf24" text-anchor="middle">CLASH</text>
+
+  <!-- ===== RIGHT: AWS Cloud ===== -->
+  <rect x="842" y="106" width="270" height="358" rx="8" fill="url(#cloudGrad)" stroke="#1a2d45" stroke-width="1"/>
+
+  <!-- AWS header -->
+  <rect x="842" y="106" width="270" height="42" rx="8" fill="#1a2d45"/>
+  <rect x="842" y="126" width="270" height="22" fill="#1a2d45"/>
+  <text x="862" y="130" font-family="Arial" font-size="14" font-weight="bold" fill="#f97316">aws</text>
+  <text x="900" y="130" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#93c5fd">G7e Instances</text>
+  <text x="900" y="144" font-family="monospace" font-size="10" fill="#64748b">us-east-1 | Seoul</text>
+
+  <!-- Server rack -->
+  <rect x="862" y="158" width="230" height="212" rx="5" fill="#080e18" stroke="#1e3a5f" stroke-width="1"/>
+
+  <!-- Rack units -->
+  <rect x="870" y="166" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#1e3a5f" stroke-width="0.5"/>
+  <circle cx="884" cy="177" r="4" fill="#10b981" filter="url(#glow3)"/>
+  <text x="894" y="181" font-family="monospace" font-size="10" fill="#34d399">g7e.48xlarge  [RUNNING]</text>
+
+  <rect x="870" y="194" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#1e3a5f" stroke-width="0.5"/>
+  <circle cx="884" cy="205" r="4" fill="#10b981" filter="url(#glow3)"/>
+  <text x="894" y="209" font-family="monospace" font-size="10" fill="#34d399">g7e.24xlarge  [RUNNING]</text>
+
+  <rect x="870" y="222" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#3b82f6" stroke-width="0.5"/>
+  <circle cx="884" cy="233" r="4" fill="#3b82f6" filter="url(#glow3)"/>
+  <text x="894" y="237" font-family="monospace" font-size="10" fill="#60a5fa">WAF / Shield   [ACTIVE]</text>
+
+  <rect x="870" y="250" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#3b82f6" stroke-width="0.5"/>
+  <circle cx="884" cy="261" r="4" fill="#3b82f6"/>
+  <text x="894" y="265" font-family="monospace" font-size="10" fill="#60a5fa">GuardDuty      [ARMED]</text>
+
+  <rect x="870" y="278" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#f59e0b" stroke-width="0.5"/>
+  <circle cx="884" cy="289" r="4" fill="#f59e0b"/>
+  <text x="894" y="293" font-family="monospace" font-size="10" fill="#fbbf24">Threat Intel   [ALERT]</text>
+
+  <rect x="870" y="306" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#1e3a5f" stroke-width="0.5"/>
+  <circle cx="884" cy="317" r="4" fill="#10b981"/>
+  <text x="894" y="321" font-family="monospace" font-size="10" fill="#34d399">CloudTrail     [LOGGING]</text>
+
+  <rect x="870" y="334" width="214" height="22" rx="3" fill="#0f1e2e" stroke="#1e3a5f" stroke-width="0.5"/>
+  <circle cx="884" cy="345" r="4" fill="#10b981"/>
+  <text x="894" y="349" font-family="monospace" font-size="10" fill="#34d399">Security Hub   [OK]</text>
+
+  <!-- Cloud icon -->
+  <text x="977" y="400" font-family="Arial" font-size="28" fill="#3b82f6" text-anchor="middle" opacity="0.8">&#x2601;</text>
+  <text x="977" y="426" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">ap-northeast-2</text>
+
+  <!-- Labels -->
+  <text x="977" y="452" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">AWS Cloud</text>
+  <text x="977" y="468" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Defense Layer</text>
+
+  <!-- Title -->
+  <text x="600" y="558" font-family="'Segoe UI',Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textGlow)">Office Zero-Day + APT</text>
+  <text x="600" y="582" font-family="'Segoe UI',Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">MS Office Exploit | Kimi K25 AI | Kimwolf Campaign | AWS G7e</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1a0808" stroke-width="1"/>
+  <text x="40" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#64748b">22 News | 6 Security | 4 AI/ML | 3 Cloud | 3 DevOps</text>
+  <text x="1160" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
 </svg>

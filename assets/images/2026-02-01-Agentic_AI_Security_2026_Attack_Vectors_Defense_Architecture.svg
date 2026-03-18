@@ -1,33 +1,202 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#150a1a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="infraLayer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="platformLayer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e1065"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="agentLayer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#172554"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambiGlow">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="redArrowGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#ef4444" flood-opacity="0.4" result="c"/>
+      <feComposite in="c" in2="blur" operator="in" result="s"/>
+      <feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shieldGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#22c55e" flood-opacity="0.5" result="c"/>
+      <feComposite in="c" in2="blur" operator="in" result="s"/>
+      <feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="80" fill="#1e293b" stroke="#8b5cf6" stroke-width="2.5"/>
-      <circle cx="0" cy="-15" r="25" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1.5"/>
-      <text x="0" y="-8" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle" opacity="0.8">AI</text>
-      <circle cx="-30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="0" cy="35" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <line x1="-15" y1="10" x2="-25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="0" y1="12" x2="0" y2="25" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="15" y1="10" x2="25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-    </g>
-    <g opacity="0.3"><circle cx="-120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="-110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/></g>
+
+  <!-- Grid -->
+  <g opacity="0.035">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(150,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(350,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(850,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1050,0)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-130)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-260)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-390)"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Agentic AI Security</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">2026 Attack Vectors + Defense Architecture</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" text-anchor="middle">AI SECURITY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 1, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Ambient glow circles -->
+  <circle cx="600" cy="300" r="240" fill="#7c3aed" opacity="0.04" filter="url(#ambiGlow)"/>
+  <circle cx="200" cy="300" r="180" fill="#ef4444" opacity="0.06" filter="url(#ambiGlow)"/>
+  <circle cx="1000" cy="300" r="160" fill="#3b82f6" opacity="0.05" filter="url(#ambiGlow)"/>
+
+  <!-- ===== CENTRAL: LAYERED DEFENSE ARCHITECTURE ===== -->
+  <!-- Layer 1: Infrastructure (bottom) -->
+  <rect x="250" y="390" width="700" height="95" rx="10" fill="url(#infraLayer)" opacity="0.9" stroke="#475569" stroke-width="2"/>
+  <text x="600" y="415" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="middle">INFRASTRUCTURE LAYER</text>
+  <!-- Infra components -->
+  <rect x="280" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="325" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Compute</text>
+  <text x="325" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">EC2 / GKE</text>
+  <rect x="390" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="435" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Storage</text>
+  <text x="435" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">S3 / GCS</text>
+  <rect x="500" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="545" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Network</text>
+  <text x="545" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">VPC / FW</text>
+  <rect x="610" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="655" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Identity</text>
+  <text x="655" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">IAM / RBAC</text>
+  <rect x="720" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="765" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Logging</text>
+  <text x="765" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">SIEM / ELK</text>
+  <rect x="830" y="425" width="90" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="875" y="443" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Secrets</text>
+  <text x="875" y="459" font-family="Courier New, monospace" font-size="8" fill="#60a5fa" text-anchor="middle">Vault / KMS</text>
+
+  <!-- Layer 2: AI Platform (middle) -->
+  <rect x="300" y="270" width="600" height="100" rx="10" fill="url(#platformLayer)" opacity="0.9" stroke="#7c3aed" stroke-width="2"/>
+  <text x="600" y="295" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">AI PLATFORM LAYER</text>
+  <!-- Platform components -->
+  <rect x="330" y="305" width="100" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="380" y="323" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Model</text>
+  <text x="380" y="337" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Registry</text>
+  <text x="380" y="349" font-family="Courier New, monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">LLM Hub</text>
+  <rect x="450" y="305" width="100" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="500" y="323" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Inference</text>
+  <text x="500" y="337" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">API</text>
+  <text x="500" y="349" font-family="Courier New, monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">Rate Limit</text>
+  <rect x="570" y="305" width="100" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="620" y="323" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Prompt</text>
+  <text x="620" y="337" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Guard</text>
+  <text x="620" y="349" font-family="Courier New, monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">Filter</text>
+  <rect x="690" y="305" width="100" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="740" y="323" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Vector</text>
+  <text x="740" y="337" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">Store</text>
+  <text x="740" y="349" font-family="Courier New, monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">Pinecone</text>
+  <rect x="810" y="305" width="60" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="840" y="330" font-family="Arial, sans-serif" font-size="9" fill="#a78bfa" text-anchor="middle">RAG</text>
+  <text x="840" y="346" font-family="Courier New, monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">Search</text>
+
+  <!-- Layer 3: Agent Layer (top) -->
+  <rect x="350" y="150" width="500" height="95" rx="10" fill="url(#agentLayer)" opacity="0.9" stroke="#3b82f6" stroke-width="2"/>
+  <text x="600" y="175" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">AGENT EXECUTION LAYER</text>
+  <!-- Agent components -->
+  <rect x="378" y="188" width="92" height="44" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="424" y="206" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Orchestrator</text>
+  <text x="424" y="220" font-family="Courier New, monospace" font-size="8" fill="#bfdbfe" text-anchor="middle">LangGraph</text>
+  <rect x="482" y="188" width="92" height="44" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="528" y="206" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Tool Use</text>
+  <text x="528" y="220" font-family="Courier New, monospace" font-size="8" fill="#bfdbfe" text-anchor="middle">MCP / API</text>
+  <rect x="586" y="188" width="92" height="44" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="632" y="206" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Memory</text>
+  <text x="632" y="220" font-family="Courier New, monospace" font-size="8" fill="#bfdbfe" text-anchor="middle">Short/Long</text>
+  <rect x="690" y="188" width="92" height="44" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="736" y="206" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle">Sandbox</text>
+  <text x="736" y="220" font-family="Courier New, monospace" font-size="8" fill="#bfdbfe" text-anchor="middle">Isolate</text>
+
+  <!-- Green defense shields at layer boundaries -->
+  <!-- Shield between agent and platform -->
+  <g filter="url(#shieldGlow)">
+    <path d="M560,264 L580,255 L600,264 L600,278 C600,285 590,291 580,294 C570,291 560,285 560,278 Z"
+          fill="#14532d" opacity="0.9" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="580" y="278" font-family="Arial, sans-serif" font-size="8" fill="#86efac" text-anchor="middle">GUARD</text>
+
+    <path d="M618,264 L638,255 L658,264 L658,278 C658,285 648,291 638,294 C628,291 618,285 618,278 Z"
+          fill="#14532d" opacity="0.9" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="638" y="278" font-family="Arial, sans-serif" font-size="8" fill="#86efac" text-anchor="middle">AUTH</text>
+  </g>
+
+  <!-- Shield between platform and infra -->
+  <g filter="url(#shieldGlow)">
+    <path d="M540,384 L560,375 L580,384 L580,398 C580,405 570,411 560,414 C550,411 540,405 540,398 Z"
+          fill="#14532d" opacity="0.9" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="560" y="398" font-family="Arial, sans-serif" font-size="8" fill="#86efac" text-anchor="middle">WAF</text>
+
+    <path d="M618,384 L638,375 L658,384 L658,398 C658,405 648,411 638,414 C628,411 618,405 618,398 Z"
+          fill="#14532d" opacity="0.9" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="638" y="398" font-family="Arial, sans-serif" font-size="8" fill="#86efac" text-anchor="middle">SCAN</text>
+  </g>
+
+  <!-- Red attack arrows from left penetrating through layers -->
+  <g filter="url(#redArrowGlow)">
+    <!-- Arrow penetrating agent layer -->
+    <line x1="75" y1="197" x2="348" y2="197" stroke="#ef4444" stroke-width="3" stroke-dasharray="10,5"/>
+    <polygon points="348,191 362,197 348,203" fill="#ef4444"/>
+    <text x="55" y="195" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">PROMPT</text>
+    <text x="55" y="206" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">INJECT</text>
+
+    <!-- Arrow at platform layer -->
+    <line x1="75" y1="320" x2="298" y2="320" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,5"/>
+    <polygon points="298,314 312,320 298,326" fill="#ef4444"/>
+    <text x="55" y="318" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">DATA</text>
+    <text x="55" y="329" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">POISON</text>
+
+    <!-- Arrow at infra layer -->
+    <line x1="75" y1="438" x2="248" y2="438" stroke="#ef4444" stroke-width="2" stroke-dasharray="7,5"/>
+    <polygon points="248,432 262,438 248,444" fill="#ef4444"/>
+    <text x="55" y="436" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">PRIV</text>
+    <text x="55" y="447" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">ESCAL</text>
+  </g>
+
+  <!-- Layer connector lines -->
+  <line x1="600" y1="245" x2="600" y2="270" stroke="#7c3aed" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="600" y1="370" x2="600" y2="390" stroke="#475569" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,3"/>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" fill="#ef4444">
+    <text x="880" y="95"  opacity="0.13">agent.permission.check()</text>
+    <text x="870" y="480" opacity="0.12">vector.analyze(input)</text>
+    <text x="52"  y="95"  opacity="0.12">defense.layer.activate()</text>
+    <text x="42"  y="498" opacity="0.11">threat.model.update()</text>
+    <text x="880" y="540" opacity="0.10">sandbox.isolate(proc)</text>
+    <text x="52"  y="545" opacity="0.10">policy.enforce(rbac)</text>
+  </g>
+
+  <!-- Top badges -->
+  <rect x="40" y="22" width="120" height="32" rx="16" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">GUIDE</text>
+
+  <rect x="988" y="22" width="172" height="32" rx="16" fill="#7c3aed" opacity="0.15" stroke="#7c3aed" stroke-width="1"/>
+  <text x="1074" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">February 1, 2026</text>
+
+  <!-- Title -->
+  <text x="600" y="532" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Agentic AI Security</text>
+  <text x="600" y="562" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">2026 Attack Vectors | Defense Architecture | AI Threat Modeling</text>
+
+  <!-- Footer separator -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Footer labels -->
+  <text x="40"  y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Attack Vectors</text>
+  <text x="170" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Defense Layers</text>
+  <text x="310" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">AI Security</text>
+  <text x="420" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">2026</text>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
