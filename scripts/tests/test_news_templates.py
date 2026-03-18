@@ -177,7 +177,53 @@ class TestGenerateAiAnalysisTemplate:
         assert "위협 탐지" in result
 
     # ------------------------------------------------------------------
-    # Branch 6: fallback (no matching keywords)
+    # Branch 6: coding / devtool / copilot / cursor
+    # ------------------------------------------------------------------
+    def test_coding_keyword(self):
+        item = _item(title="AI coding assistant comparison 2026")
+        result = _generate_ai_analysis_template(item)
+        assert "코딩" in result or "SAST" in result or "보안 스캔" in result
+
+    def test_copilot_keyword(self):
+        item = _item(summary="GitHub Copilot security vulnerabilities in generated code")
+        result = _generate_ai_analysis_template(item)
+        assert "코딩" in result or "SAST" in result or "보안 스캔" in result
+
+    def test_cursor_keyword(self):
+        item = _item(title="Cursor IDE AI features security review")
+        result = _generate_ai_analysis_template(item)
+        assert "코딩" in result or "보안 스캔" in result
+
+    def test_code_generation_keyword(self):
+        item = _item(summary="코드 생성 AI의 보안 위험성 분석")
+        result = _generate_ai_analysis_template(item)
+        assert "코딩" in result or "보안 스캔" in result
+
+    def test_vscode_keyword(self):
+        item = _item(title="VSCode AI extension security audit")
+        result = _generate_ai_analysis_template(item)
+        assert "코딩" in result or "보안 스캔" in result
+
+    # ------------------------------------------------------------------
+    # Branch 7: open source AI / hugging face / ollama
+    # ------------------------------------------------------------------
+    def test_opensource_ai_keyword(self):
+        item = _item(title="오픈소스 AI 프로젝트 보안 평가")
+        result = _generate_ai_analysis_template(item)
+        assert "오픈소스" in result or "라이선스" in result
+
+    def test_huggingface_keyword(self):
+        item = _item(summary="Hugging Face 허브 신규 인기 모델 분석 리포트")
+        result = _generate_ai_analysis_template(item)
+        assert "오픈소스" in result or "다운로드 출처" in result
+
+    def test_ollama_keyword(self):
+        item = _item(title="올라마 로컬 AI 배포 보안 가이드")
+        result = _generate_ai_analysis_template(item)
+        assert "오픈소스" in result or "모델" in result
+
+    # ------------------------------------------------------------------
+    # Branch 8: fallback (no matching keywords)
     # ------------------------------------------------------------------
     def test_fallback_no_keywords(self):
         item = _item(title="Quarterly earnings report", summary="Revenue up 10%")

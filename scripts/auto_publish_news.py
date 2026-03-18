@@ -2722,10 +2722,18 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         template += "- 시뮬레이션 기반 인프라 검증으로 배포 전 보안 취약점 사전 식별 활용\n"
         template += "- AI 서비스 성능 최적화와 보안 모니터링 균형 설계\n"
         template += "- 운영 비용 절감 효과와 보안 투자 ROI 분석\n"
+    elif any(kw in text for kw in ["coding", "코딩", "copilot", "cursor", "code generation", "코드 생성", "devtool", "ide", "vscode"]):
+        template += "- AI 코딩 도구가 생성한 코드에 대한 자동 보안 스캔(SAST/SCA) 게이트 필수 적용\n"
+        template += "- AI 생성 코드의 시크릿/자격증명 하드코딩 여부 자동 탐지 설정\n"
+        template += "- 개발자 대상 AI 코딩 도구 보안 사용 가이드라인 수립 및 교육\n"
     elif any(kw in text for kw in ["attack", "공격", "threat", "위협", "malware", "악성"]):
         template += "- AI 기반 위협 탐지 및 자동 대응 파이프라인 구축 검토\n"
         template += "- AI 모델 자체의 적대적 공격(Adversarial Attack) 방어 설계\n"
         template += "- 보안 팀의 AI 도구 활용 역량 강화 교육 계획 수립\n"
+    elif any(kw in text for kw in ["open source", "오픈소스", "hugging face", "허깅페이스", "올라마", "ollama"]):
+        template += "- 오픈소스 AI 모델 도입 시 라이선스 및 보안 취약점 검토\n"
+        template += "- 모델 다운로드 출처 검증 및 체크섬/서명 확인 절차 수립\n"
+        template += "- 오픈소스 모델의 학습 데이터 편향 및 프라이버시 리스크 평가\n"
     else:
         template += "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토\n"
         template += "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인\n"
