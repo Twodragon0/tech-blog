@@ -1,33 +1,200 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a0f1f"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="coreHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="authHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    </linearGradient>
+    <linearGradient id="sandboxHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14532d"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+    <linearGradient id="monitorHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#92400e"/>
+      <stop offset="100%" style="stop-color:#78350f"/>
+    </linearGradient>
+    <linearGradient id="policyHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7f1d1d"/>
+      <stop offset="100%" style="stop-color:#6b21a8"/>
+    </linearGradient>
+    <linearGradient id="encryptHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4c1d95"/>
+      <stop offset="100%" style="stop-color:#2e1065"/>
+    </linearGradient>
+    <linearGradient id="auditHex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#164e63"/>
+      <stop offset="100%" style="stop-color:#0c4a6e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambiGlow">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="hexGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="80" fill="#1e293b" stroke="#8b5cf6" stroke-width="2.5"/>
-      <circle cx="0" cy="-15" r="25" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1.5"/>
-      <text x="0" y="-8" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle" opacity="0.8">AI</text>
-      <circle cx="-30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="0" cy="35" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <line x1="-15" y1="10" x2="-25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="0" y1="12" x2="0" y2="25" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="15" y1="10" x2="25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-    </g>
-    <g opacity="0.3"><circle cx="-120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="-110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/></g>
+
+  <!-- Grid -->
+  <g opacity="0.035">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(150,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(350,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(600,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(850,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1050,0)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-155)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-310)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-465)"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Agent Architecture</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security Design Guide | Agent Framework</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" text-anchor="middle">ARCHITECTURE</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 28, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Ambient glow circles -->
+  <circle cx="600" cy="295" r="240" fill="#3b82f6" opacity="0.05" filter="url(#ambiGlow)"/>
+  <circle cx="300" cy="200" r="160" fill="#8b5cf6" opacity="0.05" filter="url(#ambiGlow)"/>
+  <circle cx="900" cy="390" r="160" fill="#3b82f6" opacity="0.05" filter="url(#ambiGlow)"/>
+
+  <!-- Helper: hexagon polygon macro (flat-top, size 80) centered at origin -->
+  <!-- Points for size 80 flat-top hex: approx (80,0),(40,69),(-40,69),(-80,0),(-40,-69),(40,-69) -->
+
+  <!-- ===== CENTRAL AGENT CORE HEXAGON ===== -->
+  <g transform="translate(600,295)" filter="url(#hexGlow)">
+    <polygon points="80,0 40,69 -40,69 -80,0 -40,-69 40,-69"
+             fill="url(#coreHex)" stroke="#3b82f6" stroke-width="2.5" opacity="0.95"/>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#93c5fd" text-anchor="middle">Agent</text>
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#93c5fd" text-anchor="middle">Core</text>
+    <text x="0" y="34" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa" text-anchor="middle">Orchestrator</text>
+  </g>
+
+  <!-- ===== 6 SURROUNDING HEXAGONS (size 58) ===== -->
+  <!-- Points for size 58 flat-top hex: (58,0),(29,50),(-29,50),(-58,0),(-29,-50),(29,-50) -->
+  <!-- Hex radius for orbit: 190px from center -->
+
+  <!-- TOP (Auth) at 600,105 -->
+  <g transform="translate(600,105)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#authHex)" stroke="#3b82f6" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Auth</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#bfdbfe" text-anchor="middle">Identity</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#bfdbfe" text-anchor="middle">OAuth / OIDC</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#93c5fd" text-anchor="middle">Zero-Trust</text>
+  </g>
+  <!-- Connector: 600,155 -> 600,226 -->
+  <line x1="600" y1="155" x2="600" y2="226" stroke="#3b82f6" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- TOP-RIGHT (Sandbox) at 765,200 -->
+  <g transform="translate(765,200)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#sandboxHex)" stroke="#22c55e" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">Sandbox</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0" text-anchor="middle">Isolation</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0" text-anchor="middle">gVisor / OCI</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#86efac" text-anchor="middle">Containerd</text>
+  </g>
+  <!-- Connector: 707,200 -> 680,260 -->
+  <line x1="707" y1="215" x2="678" y2="252" stroke="#22c55e" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- BOTTOM-RIGHT (Monitor) at 765,390 -->
+  <g transform="translate(765,390)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#monitorHex)" stroke="#f59e0b" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">Monitor</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#fef3c7" text-anchor="middle">Telemetry</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#fef3c7" text-anchor="middle">Prometheus</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#fde68a" text-anchor="middle">Alerting</text>
+  </g>
+  <!-- Connector: 707,375 -> 678,338 -->
+  <line x1="707" y1="375" x2="678" y2="338" stroke="#f59e0b" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- BOTTOM (Policy) at 600,485 -->
+  <g transform="translate(600,485)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#policyHex)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Policy</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#fecaca" text-anchor="middle">RBAC / OPA</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#fecaca" text-anchor="middle">Kyverno</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#fca5a5" text-anchor="middle">Admission</text>
+  </g>
+  <!-- Connector: 600,435 -> 600,364 -->
+  <line x1="600" y1="435" x2="600" y2="364" stroke="#ef4444" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- BOTTOM-LEFT (Encrypt) at 435,390 -->
+  <g transform="translate(435,390)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#encryptHex)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">Encrypt</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#ddd6fe" text-anchor="middle">TLS 1.3</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#ddd6fe" text-anchor="middle">KMS / Vault</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#c4b5fd" text-anchor="middle">mTLS Mesh</text>
+  </g>
+  <!-- Connector: 493,375 -> 522,338 -->
+  <line x1="493" y1="375" x2="522" y2="338" stroke="#8b5cf6" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- TOP-LEFT (Audit) at 435,200 -->
+  <g transform="translate(435,200)">
+    <polygon points="58,0 29,50 -29,50 -58,0 -29,-50 29,-50"
+             fill="url(#auditHex)" stroke="#06b6d4" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#67e8f9" text-anchor="middle">Audit</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="9" fill="#a5f3fc" text-anchor="middle">Immutable</text>
+    <text x="0" y="23" font-family="Arial, sans-serif" font-size="9" fill="#a5f3fc" text-anchor="middle">Logs / SIEM</text>
+    <text x="0" y="36" font-family="Arial, sans-serif" font-size="8" fill="#67e8f9" text-anchor="middle">Compliance</text>
+  </g>
+  <!-- Connector: 493,215 -> 522,252 -->
+  <line x1="493" y1="215" x2="522" y2="252" stroke="#06b6d4" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- Outer ring circles at connector midpoints (decorative nodes) -->
+  <circle cx="600" cy="190" r="5" fill="#3b82f6" opacity="0.7"/>
+  <circle cx="692" cy="233" r="5" fill="#22c55e" opacity="0.7"/>
+  <circle cx="692" cy="357" r="5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="600" cy="400" r="5" fill="#ef4444" opacity="0.7"/>
+  <circle cx="508" cy="357" r="5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="508" cy="233" r="5" fill="#06b6d4" opacity="0.7"/>
+
+  <!-- Trust boundary ring -->
+  <circle cx="600" cy="295" r="175" fill="none" stroke="#1e293b" stroke-width="1" stroke-dasharray="8,6" opacity="0.5"/>
+
+  <!-- Trust Boundary label -->
+  <text x="790" y="148" font-family="Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle" transform="rotate(-30,790,148)">Trust Boundary</text>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" fill="#3b82f6">
+    <text x="52"  y="98"  opacity="0.14">agent.sandbox.isolate()</text>
+    <text x="35"  y="460" opacity="0.12">policy.enforce(rbac)</text>
+    <text x="880" y="88"  opacity="0.13">audit.log(action)</text>
+    <text x="910" y="488" opacity="0.11">encrypt.transit(data)</text>
+    <text x="68"  y="525" opacity="0.10">auth.verify(token)</text>
+    <text x="855" y="530" opacity="0.10">monitor.alert(anomaly)</text>
+  </g>
+
+  <!-- Top badges -->
+  <rect x="40" y="22" width="120" height="32" rx="16" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <text x="100" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">GUIDE</text>
+
+  <rect x="988" y="22" width="172" height="32" rx="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="1074" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">February 28, 2026</text>
+
+  <!-- Title -->
+  <text x="600" y="532" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Agent Architecture</text>
+  <text x="600" y="562" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security-First Design | Trust Boundaries | Agent Isolation</text>
+
+  <!-- Footer separator -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Footer labels -->
+  <text x="40"  y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Architecture</text>
+  <text x="155" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Security</text>
+  <text x="250" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Design Guide</text>
+  <text x="375" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">Best Practices</text>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>

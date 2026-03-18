@@ -1,33 +1,176 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0d0a1f"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#4c1d95"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambiGlow">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="shieldGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#3b82f6" flood-opacity="0.5" result="c"/>
+      <feComposite in="c" in2="blur" operator="in" result="s"/>
+      <feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="80" fill="#1e293b" stroke="#8b5cf6" stroke-width="2.5"/>
-      <circle cx="0" cy="-15" r="25" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1.5"/>
-      <text x="0" y="-8" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle" opacity="0.8">AI</text>
-      <circle cx="-30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="0" cy="35" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <circle cx="30" cy="25" r="10" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <line x1="-15" y1="10" x2="-25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="0" y1="12" x2="0" y2="25" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-      <line x1="15" y1="10" x2="25" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-    </g>
-    <g opacity="0.3"><circle cx="-120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="120" cy="-30" r="15" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="-110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/><circle cx="110" cy="50" r="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/></g>
+
+  <!-- Grid lines -->
+  <g opacity="0.035">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(120,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(360,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(840,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1080,0)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-160)"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-320)"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Agent Security</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Cloud + Agent Defense</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" text-anchor="middle">WEEKLY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 17, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Ambient glow circles -->
+  <circle cx="600" cy="280" r="260" fill="#3b82f6" opacity="0.05" filter="url(#ambiGlow)"/>
+  <circle cx="320" cy="200" r="160" fill="#8b5cf6" opacity="0.06" filter="url(#ambiGlow)"/>
+  <circle cx="880" cy="360" r="160" fill="#3b82f6" opacity="0.05" filter="url(#ambiGlow)"/>
+
+  <!-- ===== CENTRAL: LARGE CLOUD + AI NODES + SHIELD ===== -->
+  <!-- Cloud base shape (large, fills center) -->
+  <g transform="translate(600,270)">
+    <!-- Main cloud body -->
+    <ellipse cx="0" cy="60" rx="280" ry="115" fill="url(#cloudGrad)" opacity="0.75" stroke="#1e40af" stroke-width="1.5"/>
+    <!-- Cloud bumps top -->
+    <circle cx="-180" cy="10" r="72" fill="url(#cloudGrad)" opacity="0.75" stroke="#1e40af" stroke-width="1"/>
+    <circle cx="-60"  cy="-30" r="88" fill="url(#cloudGrad)" opacity="0.75" stroke="#1e40af" stroke-width="1"/>
+    <circle cx="80"   cy="-45" r="95" fill="url(#cloudGrad)" opacity="0.75" stroke="#1e40af" stroke-width="1"/>
+    <circle cx="210"  cy="0"   r="70" fill="url(#cloudGrad)" opacity="0.75" stroke="#1e40af" stroke-width="1"/>
+
+    <!-- AI Agent nodes inside cloud -->
+    <!-- Central node -->
+    <circle cx="0" cy="55" r="38" fill="url(#nodeGrad)" opacity="0.9" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    <text x="0" y="66" font-family="Arial, sans-serif" font-size="9" fill="#c4b5fd" text-anchor="middle">CORE</text>
+
+    <!-- Satellite nodes -->
+    <circle cx="-130" cy="30" r="26" fill="url(#nodeGrad)" opacity="0.85" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="-130" y="24" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    <text x="-130" y="38" font-family="Arial, sans-serif" font-size="8" fill="#c4b5fd" text-anchor="middle">Agent</text>
+
+    <circle cx="130" cy="20" r="26" fill="url(#nodeGrad)" opacity="0.85" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="130" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    <text x="130" y="28" font-family="Arial, sans-serif" font-size="8" fill="#c4b5fd" text-anchor="middle">Agent</text>
+
+    <circle cx="-80" cy="110" r="22" fill="url(#nodeGrad)" opacity="0.8" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="-80" y="106" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    <text x="-80" y="118" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd" text-anchor="middle">Worker</text>
+
+    <circle cx="80" cy="110" r="22" fill="url(#nodeGrad)" opacity="0.8" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="80" y="106" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    <text x="80" y="118" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd" text-anchor="middle">Worker</text>
+
+    <!-- Interconnect lines between nodes -->
+    <line x1="-104" y1="30" x2="-38" y2="45" stroke="#a78bfa" stroke-width="1.5" opacity="0.5"/>
+    <line x1="104"  y1="20" x2="38"  y2="45" stroke="#a78bfa" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-58"  y1="110" x2="-28" y2="72" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
+    <line x1="58"   y1="110" x2="28"  y2="72" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
+    <line x1="-130" y1="56" x2="-80" y2="90" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+    <line x1="130"  y1="46" x2="80"  y2="90" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+
+    <!-- Workload dots scattered in cloud -->
+    <circle cx="-200" cy="60"  r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="-160" cy="90"  r="4" fill="#60a5fa" opacity="0.4"/>
+    <circle cx="160"  cy="70"  r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="200"  cy="50"  r="4" fill="#60a5fa" opacity="0.4"/>
+    <circle cx="0"    cy="-10" r="4" fill="#818cf8" opacity="0.4"/>
+    <circle cx="-40"  cy="150" r="4" fill="#60a5fa" opacity="0.35"/>
+    <circle cx="40"   cy="145" r="4" fill="#60a5fa" opacity="0.35"/>
+  </g>
+
+  <!-- Shield overlay on cloud (large) -->
+  <g transform="translate(600,255)" filter="url(#shieldGlow)">
+    <path d="M0,-195 L175,-140 L175,55 C175,145 88,210 0,240 C-88,210 -175,145 -175,55 L-175,-140 Z"
+          fill="url(#shieldGrad)" opacity="0.08" stroke="#3b82f6" stroke-width="2.5"/>
+    <path d="M0,-170 L148,-118 L148,45 C148,125 74,182 0,208 C-74,182 -148,125 -148,45 L-148,-118 Z"
+          fill="url(#shieldGrad)" opacity="0.05" stroke="#60a5fa" stroke-width="1.5"/>
+    <!-- Shield checkmark -->
+    <path d="M-35,30 L-10,58 L40,-15" fill="none" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+
+  <!-- Threat arrows bouncing off shield from left -->
+  <g opacity="0.7">
+    <line x1="78" y1="200" x2="268" y2="245" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,4"/>
+    <polygon points="268,240 275,255 260,250" fill="#ef4444"/>
+    <line x1="55" y1="290" x2="245" y2="295" stroke="#ef4444" stroke-width="2" stroke-dasharray="7,4"/>
+    <polygon points="245,290 252,305 237,300" fill="#ef4444"/>
+    <line x1="70" y1="360" x2="255" y2="335" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <!-- Bounce-back lines (red reflects off shield) -->
+    <line x1="268" y1="245" x2="230" y2="195" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+    <line x1="245" y1="295" x2="210" y2="250" stroke="#f87171" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.4"/>
+  </g>
+
+  <!-- Threat arrows from right -->
+  <g opacity="0.65">
+    <line x1="1122" y1="210" x2="932" y2="248" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,4"/>
+    <polygon points="932,243 925,258 940,253" fill="#ef4444"/>
+    <line x1="1130" y1="330" x2="950" y2="315" stroke="#ef4444" stroke-width="2" stroke-dasharray="7,4"/>
+    <!-- Bounce-back -->
+    <line x1="932" y1="248" x2="970" y2="200" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  </g>
+
+  <!-- Threat source labels -->
+  <rect x="38"  y="185" width="90" height="22" rx="5" fill="#7f1d1d" opacity="0.7"/>
+  <text x="83"  y="200" font-family="Arial, sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">DDoS / APT</text>
+  <rect x="38"  y="273" width="90" height="22" rx="5" fill="#7f1d1d" opacity="0.7"/>
+  <text x="83"  y="288" font-family="Arial, sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">Malware</text>
+  <rect x="1072" y="195" width="90" height="22" rx="5" fill="#7f1d1d" opacity="0.7"/>
+  <text x="1117" y="210" font-family="Arial, sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">Ransomware</text>
+  <rect x="1072" y="317" width="90" height="22" rx="5" fill="#7f1d1d" opacity="0.7"/>
+  <text x="1117" y="332" font-family="Arial, sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">Data Leak</text>
+
+  <!-- Floating code fragments -->
+  <g font-family="Courier New, monospace" font-size="11" fill="#8b5cf6">
+    <text x="52"  y="100" opacity="0.14">agent.defend(cloud)</text>
+    <text x="35"  y="455" opacity="0.12">waf.rule.update()</text>
+    <text x="900" y="82"  opacity="0.13">cspm.scan(config)</text>
+    <text x="930" y="490" opacity="0.11">siem.correlate()</text>
+    <text x="75"  y="520" opacity="0.10">workload.protect(pod)</text>
+    <text x="855" y="465" opacity="0.10">iam.policy.enforce()</text>
+  </g>
+
+  <!-- Top badges -->
+  <rect x="40" y="22" width="172" height="32" rx="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="126" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">WEEKLY DIGEST</text>
+
+  <rect x="988" y="22" width="172" height="32" rx="16" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1074" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 17, 2026</text>
+
+  <!-- Title -->
+  <text x="600" y="532" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Agent Cloud Shield</text>
+  <text x="600" y="562" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Autonomous Defense | Cloud Workload Protection | Agent Security</text>
+
+  <!-- Footer separator -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Footer counts -->
+  <text x="40"  y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">20 News</text>
+  <text x="135" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">5 Security</text>
+  <text x="248" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">5 AI/ML</text>
+  <text x="338" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">3 Cloud</text>
+  <text x="420" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">2 DevOps</text>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>

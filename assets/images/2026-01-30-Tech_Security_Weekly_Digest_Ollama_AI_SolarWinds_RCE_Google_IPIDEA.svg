@@ -1,50 +1,255 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a2a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a0c00"/>
+      <stop offset="100%" style="stop-color:#1a0600"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <linearGradient id="rackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#181818"/>
+      <stop offset="100%" style="stop-color:#080808"/>
+    </linearGradient>
+    <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c2410c"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444" stop-opacity="0"/>
+      <stop offset="100%" style="stop-color:#ef4444" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <!-- Ollama llama silhouette -->
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="80" fill="#1e293b" stroke="#8b5cf6" stroke-width="2.5"/>
-      <!-- Simple llama shape -->
-      <path d="M-20,-40 C-20,-55 -10,-60 -5,-55 L-5,-30 M20,-40 C20,-55 10,-60 5,-55 L5,-30" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.5"/>
-      <ellipse cx="0" cy="0" rx="35" ry="30" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.3"/>
-      <text x="0" y="8" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#c4b5fd" text-anchor="middle">Ollama</text>
-      <!-- AI sparkle -->
-      <circle cx="30" cy="-25" r="4" fill="#c4b5fd" opacity="0.5"/>
-    </g>
-    <!-- SolarWinds breach -->
-    <g transform="translate(-130,30)" opacity="0.5">
-      <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
-      <!-- Sun rays -->
-      <g opacity="0.3">
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#ef4444" stroke-width="2"/>
-        <line x1="20" y1="-20" x2="14" y2="-14" stroke="#ef4444" stroke-width="2"/>
-        <line x1="28" y1="0" x2="20" y2="0" stroke="#ef4444" stroke-width="2"/>
-        <line x1="-28" y1="0" x2="-20" y2="0" stroke="#ef4444" stroke-width="2"/>
-      </g>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fca5a5" text-anchor="middle">SOLAR</text>
-      <text x="0" y="44" font-family="Courier New" font-size="7" fill="#fca5a5" text-anchor="middle">RCE</text>
-    </g>
-    <!-- Google/IPIDEA -->
-    <g transform="translate(130,30)" opacity="0.5">
-      <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#4285f4" stroke-width="1.5"/>
-      <text x="0" y="-2" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#93c5fd" text-anchor="middle">G</text>
-      <text x="0" y="10" font-family="Courier New" font-size="6" fill="#60a5fa" text-anchor="middle">IPIDEA</text>
-    </g>
+
+  <!-- Ambient glow circles -->
+  <circle cx="185" cy="295" r="220" fill="#ef4444" opacity="0.07" filter="url(#glow1)"/>
+  <circle cx="1015" cy="285" r="200" fill="#f97316" opacity="0.08" filter="url(#glow1)"/>
+  <circle cx="600" cy="295" r="210" fill="#dc2626" opacity="0.05" filter="url(#glow1)"/>
+
+  <!-- Floating code fragments -->
+  <text x="45" y="78" font-family="monospace" font-size="13" fill="#f97316" opacity="0.13">ollama.serve(0.0.0.0)</text>
+  <text x="860" y="72" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.13">solarwinds.rce.exploit()</text>
+  <text x="40" y="548" font-family="monospace" font-size="13" fill="#f97316" opacity="0.12">shodan.scan(port:11434)</text>
+  <text x="850" y="548" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.12">model.exfil(weights)</text>
+
+  <!-- Badge -->
+  <rect x="40" y="32" width="170" height="32" rx="16" fill="url(#badgeGrad)" opacity="0.9"/>
+  <text x="125" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="1160" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">January 30, 2026</text>
+
+  <!-- ===== LEFT: Internet Globe ===== -->
+  <!-- Globe glow backdrop -->
+  <circle cx="192" cy="288" r="125" fill="#1d4ed8" opacity="0.05" filter="url(#glow2)"/>
+  <!-- Globe main circle -->
+  <circle cx="192" cy="288" r="108" fill="url(#globeGrad)" stroke="#1e3a5f" stroke-width="1.5"/>
+
+  <!-- Globe latitude/longitude grid -->
+  <ellipse cx="192" cy="288" rx="108" ry="38" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="192" cy="288" rx="108" ry="65" fill="none" stroke="#1e3a5f" stroke-width="0.8" opacity="0.4"/>
+  <ellipse cx="192" cy="288" rx="108" ry="90" fill="none" stroke="#1e3a5f" stroke-width="0.7" opacity="0.3"/>
+  <line x1="192" y1="180" x2="192" y2="396" stroke="#1e3a5f" stroke-width="1" opacity="0.5"/>
+  <line x1="84" y1="288" x2="300" y2="288" stroke="#1e3a5f" stroke-width="1" opacity="0.5"/>
+  <line x1="108" y1="222" x2="276" y2="222" stroke="#1e3a5f" stroke-width="0.8" opacity="0.4"/>
+  <line x1="108" y1="354" x2="276" y2="354" stroke="#1e3a5f" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Continents -->
+  <path d="M130,248 Q145,232 168,240 Q184,230 198,244 Q210,258 200,272 Q182,278 160,270 Q138,264 130,248Z" fill="#1e3a5f" opacity="0.65"/>
+  <path d="M208,300 Q222,290 244,297 Q258,306 254,320 Q240,330 220,323 Q208,315 208,300Z" fill="#1e3a5f" opacity="0.55"/>
+  <path d="M155,310 Q165,318 158,330 Q148,335 140,326 Q138,315 148,310Z" fill="#1e3a5f" opacity="0.45"/>
+
+  <!-- INTERNET label -->
+  <text x="192" y="420" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">INTERNET</text>
+  <rect x="132" y="428" width="120" height="20" rx="4" fill="#0a101e" stroke="#3b82f6" stroke-width="1"/>
+  <text x="192" y="442" font-family="monospace" font-size="10" fill="#60a5fa" text-anchor="middle">Shodan scanning...</text>
+
+  <!-- Port indicator -->
+  <rect x="132" y="452" width="120" height="18" rx="3" fill="#0a101e"/>
+  <text x="192" y="465" font-family="monospace" font-size="10" fill="#f87171" text-anchor="middle">port 11434 open!</text>
+
+  <!-- Shodan "eye" symbol -->
+  <circle cx="192" cy="240" r="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <circle cx="192" cy="240" r="5" fill="#3b82f6" filter="url(#glow3)"/>
+
+  <!-- ===== SCAN BEAMS: Globe -> Server ===== -->
+  <!-- Wide cone polygon -->
+  <polygon points="300,230 590,185 590,385 300,345" fill="url(#scanBeam)"/>
+  <!-- Scan beam lines with glow -->
+  <line x1="300" y1="248" x2="584" y2="202" stroke="#ef4444" stroke-width="1.5" opacity="0.55" filter="url(#glow3)"/>
+  <line x1="300" y1="288" x2="584" y2="288" stroke="#ef4444" stroke-width="2.5" opacity="0.75" filter="url(#glow3)"/>
+  <line x1="300" y1="328" x2="584" y2="374" stroke="#ef4444" stroke-width="1.5" opacity="0.55" filter="url(#glow3)"/>
+  <!-- Arrowheads -->
+  <polygon points="572,195 590,202 572,209" fill="#ef4444" opacity="0.8"/>
+  <polygon points="572,280 590,288 572,296" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <polygon points="572,366 590,374 572,382" fill="#ef4444" opacity="0.8"/>
+
+  <!-- Port label on beam -->
+  <circle cx="442" cy="288" r="10" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <circle cx="442" cy="288" r="18" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
+  <text x="442" y="270" font-family="monospace" font-size="10" fill="#f87171" text-anchor="middle">:11434</text>
+
+  <!-- ===== CENTER: Ollama Server Rack ===== -->
+  <!-- Rack outer frame -->
+  <rect x="584" y="108" width="292" height="398" rx="10" fill="url(#rackGrad)" stroke="#2a2a2a" stroke-width="2"/>
+
+  <!-- Rack top strip -->
+  <rect x="584" y="108" width="292" height="38" rx="10" fill="#141414"/>
+  <rect x="584" y="128" width="292" height="18" fill="#141414"/>
+
+  <!-- Ollama brand -->
+  <rect x="600" y="114" width="88" height="24" rx="4" fill="#061a06" stroke="#10b981" stroke-width="1"/>
+  <text x="644" y="130" font-family="monospace" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">ollama</text>
+
+  <!-- EXPOSED warning -->
+  <rect x="698" y="114" width="162" height="24" rx="4" fill="#1c0606" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="779" y="130" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="bold" fill="#f87171" text-anchor="middle">EXPOSED: 0.0.0.0</text>
+
+  <!-- Open rack front panel -->
+  <rect x="600" y="152" width="260" height="338" rx="4" fill="#060606" stroke="#222" stroke-width="1"/>
+
+  <!-- Hinge (left side - door open) -->
+  <rect x="584" y="152" width="16" height="338" rx="2" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <circle cx="592" cy="188" r="3" fill="#333"/>
+  <circle cx="592" cy="310" r="3" fill="#333"/>
+  <circle cx="592" cy="452" r="3" fill="#333"/>
+
+  <!-- Model file slot 1 - normal -->
+  <rect x="608" y="162" width="244" height="42" rx="3" fill="#0a160a" stroke="#1a3a1a" stroke-width="1"/>
+  <rect x="614" y="170" width="6" height="26" rx="1" fill="#10b981"/>
+  <text x="628" y="181" font-family="monospace" font-size="11" fill="#34d399">llama3.2:70b</text>
+  <text x="628" y="196" font-family="monospace" font-size="10" fill="#4a7a4a">weights/ 40GB  format: GGUF</text>
+  <circle cx="826" cy="183" r="9" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <text x="826" y="187" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <!-- Model file slot 2 - normal -->
+  <rect x="608" y="210" width="244" height="42" rx="3" fill="#0a160a" stroke="#1a3a1a" stroke-width="1"/>
+  <rect x="614" y="218" width="6" height="26" rx="1" fill="#10b981"/>
+  <text x="628" y="229" font-family="monospace" font-size="11" fill="#34d399">mistral:7b-instruct</text>
+  <text x="628" y="244" font-family="monospace" font-size="10" fill="#4a7a4a">weights/ 4.1GB format: GGUF</text>
+  <circle cx="826" cy="231" r="9" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <text x="826" y="235" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <!-- Model file slot 3 - ACTIVELY EXFILTRATING -->
+  <rect x="608" y="258" width="244" height="46" rx="3" fill="#1c0606" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="614" y="266" width="6" height="30" rx="1" fill="#ef4444" filter="url(#glow3)"/>
+  <text x="628" y="277" font-family="monospace" font-size="11" fill="#f87171">codellama:34b</text>
+  <text x="628" y="292" font-family="monospace" font-size="10" fill="#ef4444">EXFILTRATING... 18.2GB sent</text>
+  <circle cx="826" cy="281" r="9" fill="#ef4444" filter="url(#glow3)"/>
+  <text x="826" y="285" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <!-- Progress bar for exfil -->
+  <rect x="614" y="297" width="230" height="5" rx="2" fill="#1a1a1a"/>
+  <rect x="614" y="297" width="148" height="5" rx="2" fill="#ef4444" filter="url(#glow3)"/>
+
+  <!-- API endpoint info -->
+  <rect x="608" y="310" width="244" height="28" rx="3" fill="#0e0606" stroke="#ef4444" stroke-width="1"/>
+  <text x="730" y="328" font-family="monospace" font-size="11" fill="#f87171" text-anchor="middle">GET /api/pull  HTTP/1.1</text>
+
+  <!-- Config rows -->
+  <rect x="608" y="344" width="118" height="22" rx="3" fill="#0e0606"/>
+  <text x="667" y="359" font-family="monospace" font-size="10" fill="#f87171" text-anchor="middle">Auth: NONE</text>
+  <rect x="734" y="344" width="118" height="22" rx="3" fill="#0e0606"/>
+  <text x="793" y="359" font-family="monospace" font-size="10" fill="#f97316" text-anchor="middle">Rate: UNLIMITED</text>
+
+  <!-- Model count row -->
+  <rect x="608" y="372" width="244" height="26" rx="3" fill="#080e08" stroke="#1a3a1a" stroke-width="1"/>
+  <text x="680" y="389" font-family="monospace" font-size="11" fill="#34d399">3 models loaded</text>
+  <circle cx="830" cy="385" r="5" fill="#10b981"/>
+
+  <!-- Google IPIDEA note -->
+  <rect x="608" y="404" width="244" height="26" rx="3" fill="#0a0a1e" stroke="#6366f1" stroke-width="1"/>
+  <text x="730" y="421" font-family="monospace" font-size="10" fill="#818cf8" text-anchor="middle">Google IPIDEA proxy chain</text>
+
+  <!-- Cursor blink -->
+  <rect x="614" y="436" width="6" height="16" fill="#f97316" opacity="0.9"/>
+
+  <!-- Ollama label -->
+  <text x="730" y="490" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle">Ollama AI Server</text>
+  <text x="730" y="508" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Unauthenticated Model Exposure</text>
+
+  <!-- ===== RIGHT: SolarWinds Sun ===== -->
+  <!-- Sun glow -->
+  <circle cx="1010" cy="288" r="100" fill="#f97316" opacity="0.07" filter="url(#glow2)"/>
+
+  <!-- Sun rays -->
+  <g stroke="#f97316" stroke-width="3" stroke-linecap="round">
+    <line x1="1010" y1="196" x2="1010" y2="178"/>
+    <line x1="1063" y1="214" x2="1076" y2="201"/>
+    <line x1="1082" y1="266" x2="1100" y2="266"/>
+    <line x1="1063" y1="362" x2="1076" y2="375"/>
+    <line x1="1010" y1="380" x2="1010" y2="398"/>
+    <line x1="957" y1="362" x2="944" y2="375"/>
+    <line x1="938" y1="266" x2="920" y2="266"/>
+    <line x1="957" y1="214" x2="944" y2="201"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Ollama AI + SolarWinds</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | AI Security + RCE + Google IPIDEA</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">WEEKLY</text>
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 30, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Broken/cracked ray accent -->
+  <polyline points="1035,202 1045,211 1040,218" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+  <polyline points="985,202 975,211 980,218" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+
+  <!-- Sun body -->
+  <circle cx="1010" cy="288" r="75" fill="url(#sunGrad)" opacity="0.9"/>
+  <circle cx="1010" cy="288" r="60" fill="#140800"/>
+
+  <!-- Inner sun text -->
+  <text x="1010" y="280" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Solar</text>
+  <text x="1010" y="298" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Winds</text>
+
+  <!-- RCE badge on sun -->
+  <rect x="964" y="238" width="92" height="22" rx="5" fill="#ef4444" opacity="0.95"/>
+  <text x="1010" y="253" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">RCE EXPLOIT</text>
+
+  <!-- Vulnerability warning circles -->
+  <circle cx="942" cy="208" r="14" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <text x="942" y="213" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <circle cx="1078" cy="208" r="14" fill="#ef4444" opacity="0.9" filter="url(#glow3)"/>
+  <text x="1078" y="213" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <circle cx="1094" cy="340" r="14" fill="#f97316" opacity="0.9" filter="url(#glow3)"/>
+  <text x="1094" y="345" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">!</text>
+
+  <!-- CVE label -->
+  <rect x="948" y="368" width="124" height="24" rx="4" fill="#140800" stroke="#f97316" stroke-width="1"/>
+  <text x="1010" y="384" font-family="monospace" font-size="11" fill="#fb923c" text-anchor="middle">CVE-2026-1234</text>
+
+  <!-- SolarWinds label -->
+  <text x="1010" y="422" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle">SolarWinds</text>
+  <text x="1010" y="440" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Remote Code Execution</text>
+
+  <!-- Connection: rack -> sun -->
+  <line x1="876" y1="288" x2="934" y2="288" stroke="#f97316" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+  <polygon points="922,282 938,288 922,294" fill="#f97316" opacity="0.8"/>
+
+  <!-- Title -->
+  <text x="600" y="558" font-family="'Segoe UI',Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textGlow)">Ollama AI Exposure</text>
+  <text x="600" y="582" font-family="'Segoe UI',Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">SolarWinds RCE | Google IPIDEA | AI Model Server Risks</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1a0800" stroke-width="1"/>
+  <text x="40" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#64748b">21 News | 5 Security | 4 AI/ML | 3 Cloud | 3 DevOps</text>
+  <text x="1160" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
 </svg>
