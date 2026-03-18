@@ -1576,7 +1576,7 @@ def generate_post_content(
 
     content = f'''---
 layout: post
-title: "기술·보안 주간 다이제스트: {title_keywords}"
+title: "{title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
@@ -1591,7 +1591,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: {title_keywords}'
+  title='{title_keywords}'
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
