@@ -8,11 +8,20 @@
 import logging
 import re
 
-import requests
-from bs4 import BeautifulSoup
-
 # 로깅 설정
 logger = logging.getLogger(__name__)
+
+
+def _import_requests():
+    """Lazy import for requests (avoid slow top-level import)."""
+    import requests  # noqa: F811
+    return requests
+
+
+def _import_bs4():
+    """Lazy import for BeautifulSoup (avoid slow top-level import)."""
+    from bs4 import BeautifulSoup  # noqa: F811
+    return BeautifulSoup
 
 
 def fetch_original_content(url: str, timeout: int = 15, max_chars: int = 8000) -> str:
@@ -31,9 +40,11 @@ def fetch_original_content(url: str, timeout: int = 15, max_chars: int = 8000) -
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
+        requests = _import_requests()
         response = requests.get(url, headers=headers, timeout=timeout, verify=False)
         response.raise_for_status()
 
+        BeautifulSoup = _import_bs4()
         soup = BeautifulSoup(response.text, "html.parser")
 
         # 불필요한 요소 제거
@@ -66,6 +77,7 @@ def extract_article_content(html_content: str, max_chars: int = 8000) -> str:
         추출된 기사 본문
     """
     try:
+        BeautifulSoup = _import_bs4()
         soup = BeautifulSoup(html_content, "html.parser")
 
         # 불필요한 요소 제거

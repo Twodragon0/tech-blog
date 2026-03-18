@@ -1,12 +1,24 @@
 #!/usr/bin/env python3
 """Unit tests for news template generation functions in auto_publish_news.py."""
+import os
 import sys
 from pathlib import Path
+
+# Disable ALL API calls during testing (Gemini/DeepSeek translation)
+os.environ["GEMINI_API_KEY"] = ""
+os.environ["DEEPSEEK_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["NEWS_NO_TRANSLATE"] = "1"
 
 # Add scripts directory to path so auto_publish_news can be imported directly
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
+
+# Patch module-level Gemini availability before import
+import auto_publish_news
+auto_publish_news._GEMINI_AVAILABLE = False
+auto_publish_news._GEMINI_CIRCUIT_OPEN = True
 
 from auto_publish_news import (
     _generate_ai_analysis_template,
