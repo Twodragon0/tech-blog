@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: AI, Go, AWS'
+  title='UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Go</span> <span class="tag">AWS</span>'
   highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'

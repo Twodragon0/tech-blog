@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native'
+  title='AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향'
   categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
   tags_html='<span class="tag">Tech-Blog</span> <span class="tag">Weekly-Digest</span> <span class="tag">Developer</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Data</span> <span class="tag">Cloud</span> <span class="tag">Go</span>'
   highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
