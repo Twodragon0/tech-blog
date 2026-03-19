@@ -152,7 +152,7 @@ title: Home
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225">
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback-src="{{ '/assets/images/og-default.png' | relative_url }}">
             </div>
             {% endif %}
             <div class="post-card-content">

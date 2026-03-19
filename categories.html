@@ -39,6 +39,26 @@ permalink: /categories/
           {% endunless %}
         {% endif %}
       {% endunless %}
+      {% unless post_matched %}
+        {% assign classifier = post.title | append: ' ' | append: post.excerpt | downcase %}
+        {% if post.tags %}
+          {% assign classifier = classifier | append: ' ' | append: post.tags | downcase %}
+        {% endif %}
+
+        {% if cat_name_lower == 'devops' %}
+          {% if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' %}
+            {% assign post_matched = true %}
+          {% endif %}
+        {% elsif cat_name_lower == 'kubernetes' %}
+          {% if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' %}
+            {% assign post_matched = true %}
+          {% endif %}
+        {% elsif cat_name_lower == 'blockchain' %}
+          {% if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' %}
+            {% assign post_matched = true %}
+          {% endif %}
+        {% endif %}
+      {% endunless %}
       {% if post_matched %}
         {% assign cat_posts = cat_posts | push: post %}
       {% endif %}
@@ -102,6 +122,26 @@ permalink: /categories/
           {% if post_cat_lower == cat_name_lower %}
             {% assign post_matched = true %}
           {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endunless %}
+    {% unless post_matched %}
+      {% assign classifier = post.title | append: ' ' | append: post.excerpt | downcase %}
+      {% if post.tags %}
+        {% assign classifier = classifier | append: ' ' | append: post.tags | downcase %}
+      {% endif %}
+
+      {% if cat_name_lower == 'devops' %}
+        {% if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' %}
+          {% assign post_matched = true %}
+        {% endif %}
+      {% elsif cat_name_lower == 'kubernetes' %}
+        {% if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' %}
+          {% assign post_matched = true %}
+        {% endif %}
+      {% elsif cat_name_lower == 'blockchain' %}
+        {% if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' %}
+          {% assign post_matched = true %}
         {% endif %}
       {% endif %}
     {% endunless %}

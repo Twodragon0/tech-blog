@@ -1,137 +1,186 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#1a0a0a"/>
-      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="cloudFill" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:0.95"/>
-      <stop offset="100%" style="stop-color:#0f2035;stop-opacity:0.95"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <filter id="ambglow">
-      <feGaussianBlur stdDeviation="25" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="waveglow">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="textglow">
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Ambient glow circles -->
-  <circle cx="600" cy="285" r="245" fill="#ef4444" opacity="0.07" filter="url(#ambglow)"/>
-  <circle cx="175" cy="195" r="175" fill="#3b82f6" opacity="0.07" filter="url(#ambglow)"/>
-  <circle cx="1025" cy="375" r="185" fill="#ef4444" opacity="0.07" filter="url(#ambglow)"/>
-  <circle cx="945" cy="125" r="125" fill="#3b82f6" opacity="0.06" filter="url(#ambglow)"/>
-
-  <!-- Floating code fragments -->
-  <text x="52" y="96" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.13">ddos.amplify(cloud)</text>
-  <text x="942" y="86" font-family="monospace" font-size="12" fill="#3b82f6" opacity="0.12">botnet.scale(instances)</text>
-  <text x="58" y="560" font-family="monospace" font-size="12" fill="#3b82f6" opacity="0.12">waf.block(ip_list)</text>
-  <text x="938" y="553" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.13">traffic.analyze()</text>
-  <text x="488" y="53" font-family="monospace" font-size="11" fill="#ef4444" opacity="0.10">attack.flood(target)</text>
-
-  <!-- Top badge -->
-  <rect x="40" y="32" width="175" height="32" rx="16" fill="#ef4444" opacity="0.18"/>
-  <rect x="40" y="32" width="175" height="32" rx="16" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-  <text x="127" y="53" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">WEEKLY DIGEST</text>
-  <text x="1160" y="53" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">February 6, 2026</text>
-
-  <!-- CENTRAL ILLUSTRATION: Large cloud under DDoS attack -->
-
-  <!-- Cloud shape - large, centered ~x350-870, y155-390 -->
-  <path d="M360 378 Q325 378 308 352 Q292 326 314 306 Q312 258 356 248 Q368 208 410 202 Q424 168 462 164 Q482 138 522 143 Q544 118 582 123 Q608 106 645 120 Q685 109 712 136 Q750 132 768 162 Q802 162 818 194 Q848 196 856 228 Q878 252 864 284 Q882 308 872 335 Q860 365 828 376 Q814 394 782 394 Z" fill="url(#cloudFill)" stroke="#3b82f6" stroke-width="3" opacity="0.94"/>
-  <path d="M360 378 Q325 378 308 352 Q292 326 314 306 Q312 258 356 248 Q368 208 410 202 Q424 168 462 164 Q482 138 522 143 Q544 118 582 123 Q608 106 645 120 Q685 109 712 136 Q750 132 768 162 Q802 162 818 194 Q848 196 856 228 Q878 252 864 284 Q882 308 872 335 Q860 365 828 376 Q814 394 782 394 Z" fill="#3b82f6" opacity="0.07"/>
-
-  <!-- Server racks inside cloud, 4 racks -->
-  <!-- Rack 1 -->
-  <rect x="410" y="238" width="58" height="100" rx="5" fill="#060e18" stroke="#3b82f6" stroke-width="1.5" opacity="0.92"/>
-  <rect x="415" y="245" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.50"/>
-  <rect x="415" y="259" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.42"/>
-  <rect x="415" y="273" width="48" height="9" rx="2" fill="#ef4444" opacity="0.68"/>
-  <rect x="415" y="287" width="48" height="9" rx="2" fill="#ef4444" opacity="0.56"/>
-  <rect x="415" y="301" width="48" height="9" rx="2" fill="#ef4444" opacity="0.46"/>
-  <circle cx="454" cy="327" r="5" fill="#ef4444" opacity="0.85"/>
-  <!-- Rack 2 -->
-  <rect x="484" y="222" width="58" height="116" rx="5" fill="#060e18" stroke="#3b82f6" stroke-width="1.5" opacity="0.92"/>
-  <rect x="489" y="229" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.50"/>
-  <rect x="489" y="243" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.42"/>
-  <rect x="489" y="257" width="48" height="9" rx="2" fill="#ef4444" opacity="0.72"/>
-  <rect x="489" y="271" width="48" height="9" rx="2" fill="#ef4444" opacity="0.64"/>
-  <rect x="489" y="285" width="48" height="9" rx="2" fill="#ef4444" opacity="0.54"/>
-  <rect x="489" y="299" width="48" height="9" rx="2" fill="#ef4444" opacity="0.44"/>
-  <circle cx="528" cy="328" r="5" fill="#ef4444" opacity="0.90"/>
-  <!-- Rack 3 -->
-  <rect x="558" y="232" width="58" height="106" rx="5" fill="#060e18" stroke="#3b82f6" stroke-width="1.5" opacity="0.92"/>
-  <rect x="563" y="239" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.50"/>
-  <rect x="563" y="253" width="48" height="9" rx="2" fill="#ef4444" opacity="0.70"/>
-  <rect x="563" y="267" width="48" height="9" rx="2" fill="#ef4444" opacity="0.60"/>
-  <rect x="563" y="281" width="48" height="9" rx="2" fill="#ef4444" opacity="0.50"/>
-  <rect x="563" y="295" width="48" height="9" rx="2" fill="#ef4444" opacity="0.40"/>
-  <circle cx="602" cy="328" r="5" fill="#ef4444" opacity="0.85"/>
-  <!-- Rack 4 -->
-  <rect x="632" y="242" width="58" height="96" rx="5" fill="#060e18" stroke="#3b82f6" stroke-width="1.5" opacity="0.92"/>
-  <rect x="637" y="249" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.50"/>
-  <rect x="637" y="263" width="48" height="9" rx="2" fill="#3b82f6" opacity="0.42"/>
-  <rect x="637" y="277" width="48" height="9" rx="2" fill="#ef4444" opacity="0.58"/>
-  <rect x="637" y="291" width="48" height="9" rx="2" fill="#ef4444" opacity="0.46"/>
-  <circle cx="676" cy="328" r="5" fill="#ef4444" opacity="0.78"/>
-
-  <!-- DDoS wave attacks from LEFT -->
-  <path d="M148 270 Q210 248 268 272 Q228 300 268 328 Q210 342 148 318" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.88" filter="url(#waveglow)"/>
-  <path d="M122 283 Q208 254 262 276" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.55" stroke-dasharray="7,5"/>
-  <path x="104" y="298" d="M104 298 Q205 268 258 292" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.40" stroke-dasharray="7,5"/>
-
-  <!-- DDoS wave attacks from RIGHT -->
-  <path d="M1052 268 Q990 248 932 272 Q972 300 932 328 Q990 342 1052 318" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.88" filter="url(#waveglow)"/>
-  <path d="M1078 283 Q992 254 938 276" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.55" stroke-dasharray="7,5"/>
-  <path d="M1096 298 Q995 268 942 292" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.40" stroke-dasharray="7,5"/>
-
-  <!-- DDoS wave attacks from TOP -->
-  <path d="M518 85 Q558 138 528 180 Q592 160 652 180 Q622 138 662 85" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.82" filter="url(#waveglow)"/>
-  <path d="M505 62 Q550 122 524 162" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.48" stroke-dasharray="7,5"/>
-  <path d="M675 62 Q630 122 656 162" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.48" stroke-dasharray="7,5"/>
-
-  <!-- DDoS wave attacks from BOTTOM -->
-  <path d="M498 490 Q545 440 522 404 Q592 420 662 404 Q639 440 686 490" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.82" filter="url(#waveglow)"/>
-  <path d="M478 512 Q532 456 508 416" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.48" stroke-dasharray="7,5"/>
-  <path d="M706 512 Q652 456 676 416" fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.48" stroke-dasharray="7,5"/>
-
-  <!-- Blue shield (partially broken) protecting cloud - right side -->
-  <path d="M800 165 L888 188 L888 288 Q888 342 800 375 Q712 342 712 288 L712 188 Z" fill="#0f1e36" stroke="#3b82f6" stroke-width="2.5" opacity="0.88"/>
-  <path d="M800 165 L888 188 L888 288 Q888 342 800 375 Q712 342 712 288 L712 188 Z" fill="#3b82f6" opacity="0.08"/>
-  <!-- Shield crack line -->
-  <path d="M822 182 L800 252 L832 272 L804 362" fill="none" stroke="#ef4444" stroke-width="3.5" opacity="0.92"/>
-  <!-- Checkmark (partial/broken) -->
-  <path d="M736 272 L764 300 L832 232" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-
-  <!-- Traffic volume meter: right of shield -->
-  <rect x="928" y="195" width="44" height="170" rx="7" fill="#060e18" stroke="#475569" stroke-width="1.5" opacity="0.90"/>
-  <rect x="933" y="200" width="34" height="158" rx="5" fill="#0a1525" opacity="0.90"/>
-  <!-- Fill level: critical (top 68% red) -->
-  <rect x="933" y="200" width="34" height="108" rx="5" fill="#ef4444" opacity="0.70"/>
-  <!-- Tick marks -->
-  <line x1="967" y1="215" x2="976" y2="215" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
-  <line x1="967" y1="248" x2="976" y2="248" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
-  <line x1="967" y1="282" x2="976" y2="282" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
-  <line x1="967" y1="315" x2="976" y2="315" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
-  <text x="950" y="194" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">CRIT</text>
-  <text x="950" y="382" font-family="Arial,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">TRAFFIC</text>
-
-  <!-- Title and subtitle -->
-  <text x="600" y="512" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textglow)">Cloud Botnet Surge</text>
-  <text x="600" y="542" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI-Enhanced DDoS | Cloud Infrastructure Abuse | Threat Intel</text>
-
-  <!-- Footer -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#334155" stroke-width="1" opacity="0.6"/>
-  <text x="600" y="610" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="middle">20 News | 6 Security | 4 AI/ML | 3 Cloud | 2 DevOps</text>
-  <text x="1160" y="610" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">: CrashFix RAT, DDoS, Codespaces RCE</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">2026-02-06 : CrashFix Python</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">RAT, AISURU 31.4 Tbps DDoS, Codespaces</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="79" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-We...</text>
+      <rect x="171" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="228" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DevSecOps</text>
+      <rect x="297" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="376" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cloud-Security</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>

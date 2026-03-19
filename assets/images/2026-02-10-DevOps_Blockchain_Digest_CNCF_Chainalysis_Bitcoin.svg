@@ -1,172 +1,187 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="55%" style="stop-color:#1a110a"/>
-      <stop offset="100%" style="stop-color:#0a1020"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="blockGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.35"/>
-      <stop offset="100%" style="stop-color:#b45309;stop-opacity:0.08"/>
-    </linearGradient>
-    <linearGradient id="blockGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.25"/>
-      <stop offset="100%" style="stop-color:#b45309;stop-opacity:0.05"/>
-    </linearGradient>
-    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#326CE5;stop-opacity:0.35"/>
-      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.08"/>
-    </linearGradient>
-    <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    
+    <!-- Category Gradient -->
+    <linearGradient id="devopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#326CE5"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="glowStrong">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="ambient">
-      <feGaussianBlur stdDeviation="60"/>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
     </filter>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="5" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Ambient glow -->
-  <circle cx="280" cy="260" r="280" fill="#f59e0b" opacity="0.07" filter="url(#ambient)"/>
-  <circle cx="900" cy="280" r="270" fill="#326CE5" opacity="0.08" filter="url(#ambient)"/>
-  <circle cx="600" cy="320" r="180" fill="#f59e0b" opacity="0.04" filter="url(#ambient)"/>
-  <circle cx="1080" cy="120" r="160" fill="#326CE5" opacity="0.05" filter="url(#ambient)"/>
-
-  <!-- Floating code fragments -->
-  <text x="55" y="130" font-family="Courier New,monospace" font-size="12" fill="#f59e0b" opacity="0.13" transform="rotate(-7,55,130)">kubectl apply -f</text>
-  <text x="900" y="115" font-family="Courier New,monospace" font-size="11" fill="#326CE5" opacity="0.14" transform="rotate(5,900,115)">block.hash(prev)</text>
-  <text x="65" y="505" font-family="Courier New,monospace" font-size="11" fill="#326CE5" opacity="0.12" transform="rotate(4,65,505)">chainalysis.trace()</text>
-  <text x="870" y="535" font-family="Courier New,monospace" font-size="12" fill="#f59e0b" opacity="0.13" transform="rotate(-4,870,535)">helm install bitcoin-node</text>
-  <text x="390" y="72" font-family="Courier New,monospace" font-size="10" fill="#94a3b8" opacity="0.10">merkle.root(transactions)</text>
-  <text x="730" y="572" font-family="Courier New,monospace" font-size="10" fill="#326CE5" opacity="0.11">pod.status = Running</text>
-  <text x="1060" y="330" font-family="Courier New,monospace" font-size="10" fill="#f59e0b" opacity="0.10" transform="rotate(-5,1060,330)">btc.verify(signature)</text>
-  <text x="28" y="370" font-family="Courier New,monospace" font-size="10" fill="#326CE5" opacity="0.10" transform="rotate(3,28,370)">cncf.graduate(project)</text>
-
-  <!-- BLOCKCHAIN SIDE (left) -->
-  <!-- Block 1 with Bitcoin symbol -->
-  <g transform="translate(145,265)" filter="url(#shadow)">
-    <rect x="-58" y="-55" width="116" height="110" rx="10" fill="url(#blockGrad1)" stroke="#f59e0b" stroke-width="2.5"/>
-    <!-- Bitcoin symbol -->
-    <text x="0" y="-10" font-family="Arial,sans-serif" font-size="32" font-weight="bold" fill="#f59e0b" text-anchor="middle" filter="url(#glow)">&#x20BF;</text>
-    <!-- Hash -->
-    <text x="0" y="18" font-family="Courier New,monospace" font-size="7" fill="#fbbf24" text-anchor="middle" opacity="0.8">#000a2f1b</text>
-    <text x="0" y="30" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.6">prev: 0x0000</text>
-    <!-- Block label -->
-    <text x="0" y="46" font-family="Arial,sans-serif" font-size="9" fill="#fcd34d" text-anchor="middle" font-weight="bold">GENESIS</text>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#fbbf24" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#f59e0b" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#d97706" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#f59e0b" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#fbbf24" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#fbbf24" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#devopsGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVOPS</text>
   </g>
-
-  <!-- Chain link 1 -->
-  <g transform="translate(226,265)">
-    <line x1="0" y1="0" x2="38" y2="0" stroke="#f59e0b" stroke-width="3" opacity="0.6"/>
-    <circle cx="10" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
-    <circle cx="20" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
-    <circle cx="30" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-
-  <!-- Block 2 -->
-  <g transform="translate(330,265)" filter="url(#shadow)">
-    <rect x="-55" y="-50" width="110" height="100" rx="10" fill="url(#blockGrad2)" stroke="#f59e0b" stroke-width="2"/>
-    <text x="0" y="-8" font-family="Courier New,monospace" font-size="7" fill="#fbbf24" text-anchor="middle" opacity="0.9">#001f8a3c</text>
-    <text x="0" y="5" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.6">txns: 2,418</text>
-    <text x="0" y="18" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.6">nonce: 84729</text>
-    <text x="0" y="34" font-family="Arial,sans-serif" font-size="9" fill="#fcd34d" text-anchor="middle" font-weight="bold">BLOCK 2</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">2026-02-10 DevOps &amp; : CNCF Velocity, Cluster ...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Infinity/DevOps Loop -->
+    <g transform="translate(80, 290)">
+      <path d="M10 40 Q10 10 40 10 Q70 10 70 40 Q70 70 100 70 Q130 70 130 40 Q130 10 100 10 Q70 10 70 40 Q70 70 40 70 Q10 70 10 40" 
+            fill="none" stroke="url(#devopsGradient)" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Gear Icon -->
+    <g transform="translate(220, 290)">
+      <circle cx="35" cy="35" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <circle cx="35" cy="35" r="10" fill="#0f172a"/>
+      <rect x="30" y="2" width="10" height="15" rx="2" fill="#f59e0b"/>
+      <rect x="30" y="53" width="10" height="15" rx="2" fill="#f59e0b"/>
+      <rect x="2" y="30" width="15" height="10" rx="2" fill="#f59e0b"/>
+      <rect x="53" y="30" width="15" height="10" rx="2" fill="#f59e0b"/>
+    </g>
+    
+    <!-- Code Bracket -->
+    <g transform="translate(330, 295)">
+      <text x="0" y="45" font-family="monospace" font-size="50" font-weight="bold" fill="#a855f7">&lt;/&gt;</text>
+    </g>
+    
   </g>
-
-  <!-- Chain link 2 -->
-  <g transform="translate(408,265)">
-    <line x1="0" y1="0" x2="38" y2="0" stroke="#f59e0b" stroke-width="3" opacity="0.6"/>
-    <circle cx="10" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
-    <circle cx="20" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
-    <circle cx="30" cy="0" r="4" fill="#0a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#devopsGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#fbbf24"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">2026-02-10 DevOps &amp; : CNCF</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#fbbf24"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Velocity, Cluster API, Bitcoin - CNCF</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="150" height="30" rx="15" fill="#fbbf24" fill-opacity="0.15" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="75" y="20" font-family="Arial, sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">#DevOps-Digest</text>
+      <rect x="162" y="0" width="159" height="30" rx="15" fill="#fbbf24" fill-opacity="0.15" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="241" y="20" font-family="Arial, sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">#Blockchain-...</text>
+      <rect x="333" y="0" width="69" height="30" rx="15" fill="#fbbf24" fill-opacity="0.15" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="367" y="20" font-family="Arial, sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">#CNCF</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+    </g>
   </g>
-
-  <!-- Block 3 -->
-  <g transform="translate(510,265)" filter="url(#shadow)">
-    <rect x="-55" y="-50" width="110" height="100" rx="10" fill="url(#blockGrad2)" stroke="#f59e0b" stroke-width="2"/>
-    <text x="0" y="-8" font-family="Courier New,monospace" font-size="7" fill="#fbbf24" text-anchor="middle" opacity="0.9">#00ac912e</text>
-    <text x="0" y="5" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.6">txns: 3,104</text>
-    <text x="0" y="18" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.6">nonce: 21583</text>
-    <text x="0" y="34" font-family="Arial,sans-serif" font-size="9" fill="#fcd34d" text-anchor="middle" font-weight="bold">BLOCK 3</text>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#devopsGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- Bridge / connector -->
-  <g transform="translate(565,265)">
-    <line x1="0" y1="0" x2="70" y2="0" stroke="url(#bridgeGrad)" stroke-width="3" opacity="0.7" stroke-dasharray="8,4"/>
-    <!-- Center bridge node -->
-    <rect x="25" y="-12" width="20" height="24" rx="4" fill="#1e293b" stroke="#94a3b8" stroke-width="1" opacity="0.8"/>
-    <text x="35" y="4" font-family="Arial,sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">API</text>
-  </g>
-
-  <!-- KUBERNETES SIDE (right) -->
-  <!-- K8s cluster: central hub + 3 nodes -->
-  <g transform="translate(870,265)" filter="url(#shadow)">
-    <!-- Outer ring -->
-    <circle cx="0" cy="0" r="78" fill="none" stroke="#326CE5" stroke-width="1.5" opacity="0.3" stroke-dasharray="6,4"/>
-    <!-- Hub -->
-    <circle cx="0" cy="0" r="30" fill="#0a1020" stroke="#326CE5" stroke-width="2.5" filter="url(#glow)"/>
-    <!-- K8s wheel spokes -->
-    <line x1="-12" y1="-20" x2="-26" y2="-46" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <line x1="12" y1="-20" x2="26" y2="-46" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <line x1="24" y1="0" x2="52" y2="0" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <line x1="12" y1="20" x2="26" y2="46" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <line x1="-12" y1="20" x2="-26" y2="46" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <line x1="-24" y1="0" x2="-52" y2="0" stroke="#326CE5" stroke-width="2" opacity="0.7"/>
-    <!-- Hub label -->
-    <text x="0" y="4" font-family="Arial,sans-serif" font-size="9" fill="#93c5fd" text-anchor="middle" font-weight="bold">K8s</text>
-    <!-- Node top -->
-    <circle cx="0" cy="-62" r="16" fill="url(#k8sGrad)" stroke="#326CE5" stroke-width="2"/>
-    <text x="0" y="-58" font-family="Arial,sans-serif" font-size="8" fill="#93c5fd" text-anchor="middle">node1</text>
-    <!-- Node right -->
-    <circle cx="62" cy="36" r="16" fill="url(#k8sGrad)" stroke="#326CE5" stroke-width="2"/>
-    <text x="62" y="40" font-family="Arial,sans-serif" font-size="8" fill="#93c5fd" text-anchor="middle">node2</text>
-    <!-- Node left -->
-    <circle cx="-62" cy="36" r="16" fill="url(#k8sGrad)" stroke="#326CE5" stroke-width="2"/>
-    <text x="-62" y="40" font-family="Arial,sans-serif" font-size="8" fill="#93c5fd" text-anchor="middle">node3</text>
-    <!-- Pod dots inside hub ring -->
-    <circle cx="45" cy="-45" r="5" fill="#326CE5" opacity="0.6"/>
-    <circle cx="-45" cy="-45" r="5" fill="#326CE5" opacity="0.5"/>
-    <circle cx="-52" cy="10" r="5" fill="#60a5fa" opacity="0.6"/>
-  </g>
-
-  <!-- Decorative grid dots bottom-left -->
-  <g opacity="0.07" fill="#f59e0b">
-    <circle cx="130" cy="420" r="2"/><circle cx="150" cy="420" r="2"/><circle cx="170" cy="420" r="2"/>
-    <circle cx="130" cy="440" r="2"/><circle cx="150" cy="440" r="2"/><circle cx="170" cy="440" r="2"/>
-    <circle cx="130" cy="460" r="2"/><circle cx="150" cy="460" r="2"/><circle cx="170" cy="460" r="2"/>
-  </g>
-
-  <!-- Title section -->
-  <text x="600" y="455" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glowStrong)" letter-spacing="1">DevOps + Blockchain</text>
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle" letter-spacing="0.5">CNCF Ecosystem  |  Chainalysis Insights  |  Bitcoin Infrastructure</text>
-
-  <!-- Top badges -->
-  <rect x="40" y="22" width="148" height="34" rx="17" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="114" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fcd34d" text-anchor="middle" letter-spacing="1">WEEKLY DIGEST</text>
-  <rect x="1010" y="22" width="148" height="34" rx="17" fill="#326CE5" opacity="0.2" stroke="#326CE5" stroke-width="1.5"/>
-  <text x="1084" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 10, 2026</text>
-
-  <!-- Footer separator -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1.5"/>
-
-  <!-- Footer stats -->
-  <text x="40" y="610" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="start">15 News</text>
-  <text x="140" y="610" font-family="Arial,sans-serif" font-size="13" fill="#ef4444" opacity="0.8">3 Security</text>
-  <text x="260" y="610" font-family="Arial,sans-serif" font-size="13" fill="#8b5cf6" opacity="0.8">2 AI/ML</text>
-  <text x="355" y="610" font-family="Arial,sans-serif" font-size="13" fill="#326CE5" opacity="0.9">4 Cloud</text>
-  <text x="448" y="610" font-family="Arial,sans-serif" font-size="13" fill="#f59e0b" opacity="0.8">3 DevOps</text>
-  <text x="1160" y="610" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>

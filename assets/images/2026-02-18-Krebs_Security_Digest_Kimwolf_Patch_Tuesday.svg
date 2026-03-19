@@ -1,217 +1,186 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="100%" style="stop-color:#1a0808"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="wolfBody" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#374151"/>
-      <stop offset="100%" style="stop-color:#111827"/>
-    </linearGradient>
-    <linearGradient id="patchedCell" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#16a34a"/>
-      <stop offset="100%" style="stop-color:#14532d"/>
-    </linearGradient>
-    <linearGradient id="critCell" x1="0%" y1="0%" x2="0%" y2="100%">
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#7f1d1d"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <filter id="glow">
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="ambiGlow">
-      <feGaussianBlur stdDeviation="25"/>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="eyeGlow">
-      <feGaussianBlur stdDeviation="7" result="blur"/>
-      <feFlood flood-color="#ef4444" flood-opacity="0.85" result="c"/>
-      <feComposite in="c" in2="blur" operator="in" result="s"/>
-      <feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Subtle dot grid -->
-  <g opacity="0.035">
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(100,0)"/>
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(200,0)"/>
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(600,0)"/>
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1000,0)"/>
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1" transform="translate(1100,0)"/>
-    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-150)"/>
-    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1" transform="translate(0,-300)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Ambient glow circles -->
-  <circle cx="300" cy="280" r="230" fill="#ef4444" opacity="0.06" filter="url(#ambiGlow)"/>
-  <circle cx="880" cy="270" r="200" fill="#f59e0b" opacity="0.07" filter="url(#ambiGlow)"/>
-  <circle cx="600" cy="480" r="110" fill="#7c3aed" opacity="0.05" filter="url(#ambiGlow)"/>
-
-  <!-- Vertical divider -->
-  <line x1="600" y1="75" x2="600" y2="505" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="6,5" opacity="0.6"/>
-
-  <!-- ===== LEFT: WOLF SILHOUETTE ===== -->
-  <!-- Body -->
-  <ellipse cx="300" cy="330" rx="88" ry="72" fill="url(#wolfBody)" opacity="0.95"/>
-  <!-- Neck -->
-  <ellipse cx="300" cy="250" rx="44" ry="52" fill="url(#wolfBody)" opacity="0.95"/>
-  <!-- Head -->
-  <ellipse cx="300" cy="175" rx="62" ry="58" fill="url(#wolfBody)" opacity="0.95"/>
-  <!-- Snout -->
-  <ellipse cx="335" cy="188" rx="38" ry="21" fill="#1f2937" opacity="0.95"/>
-  <!-- Left ear -->
-  <polygon points="250,128 272,82 296,130" fill="url(#wolfBody)" opacity="0.95"/>
-  <!-- Right ear -->
-  <polygon points="308,132 332,84 356,126" fill="url(#wolfBody)" opacity="0.95"/>
-  <!-- Inner ears -->
-  <polygon points="257,125 272,95 290,127" fill="#ef4444" opacity="0.25"/>
-  <polygon points="314,128 330,96 348,124" fill="#ef4444" opacity="0.25"/>
-  <!-- Tail -->
-  <path d="M215,370 C145,345 110,295 135,240" fill="none" stroke="#374151" stroke-width="20" stroke-linecap="round" opacity="0.85"/>
-  <!-- Front legs -->
-  <rect x="240" y="385" width="24" height="85" rx="12" fill="#1f2937" opacity="0.9"/>
-  <rect x="310" y="385" width="24" height="85" rx="12" fill="#1f2937" opacity="0.9"/>
-  <!-- Hind legs -->
-  <rect x="218" y="370" width="20" height="72" rx="10" fill="#374151" opacity="0.75"/>
-  <rect x="344" y="370" width="20" height="72" rx="10" fill="#374151" opacity="0.75"/>
-  <!-- Glowing red eyes -->
-  <ellipse cx="280" cy="168" rx="10" ry="8" fill="#ef4444" filter="url(#eyeGlow)" opacity="1"/>
-  <ellipse cx="318" cy="168" rx="10" ry="8" fill="#ef4444" filter="url(#eyeGlow)" opacity="1"/>
-  <ellipse cx="280" cy="168" rx="3.5" ry="5.5" fill="#1a0000"/>
-  <ellipse cx="318" cy="168" rx="3.5" ry="5.5" fill="#1a0000"/>
-  <!-- Fangs -->
-  <polygon points="288,198 293,218 298,198" fill="white" opacity="0.65"/>
-  <polygon points="304,198 309,218 314,198" fill="white" opacity="0.65"/>
-  <!-- Fur texture lines -->
-  <path d="M265,230 C275,225 285,228 295,224" fill="none" stroke="#4b5563" stroke-width="1" opacity="0.5"/>
-  <path d="M260,245 C272,240 284,242 296,238" fill="none" stroke="#4b5563" stroke-width="1" opacity="0.4"/>
-  <!-- Red aura -->
-  <circle cx="300" cy="200" r="100" fill="#ef4444" opacity="0.04" filter="url(#ambiGlow)"/>
-  <!-- APT badge -->
-  <rect x="218" y="482" width="162" height="28" rx="8" fill="#7f1d1d" opacity="0.7" stroke="#ef4444" stroke-width="1"/>
-  <text x="299" y="501" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">KIMWOLF APT</text>
-  <!-- Left panel label -->
-  <text x="299" y="520" font-family="Arial, sans-serif" font-size="11" fill="#4b5563" text-anchor="middle">Threat Actor</text>
-
-  <!-- ===== RIGHT: PATCH CALENDAR GRID ===== -->
-  <!-- Calendar header bar -->
-  <rect x="640" y="88" width="510" height="38" rx="7" fill="#1e3a5f" opacity="0.85"/>
-  <text x="895" y="113" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#93c5fd" text-anchor="middle">Patch Tuesday — February 2026</text>
-
-  <!-- Row 1 -->
-  <rect x="645" y="138" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="691" y="161" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-001</text>
-  <text x="691" y="178" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="745" y="138" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="791" y="161" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-002</text>
-  <text x="791" y="178" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="845" y="138" width="92" height="58" rx="6" fill="url(#critCell)" opacity="0.9" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="891" y="161" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-003</text>
-  <text x="891" y="178" font-family="Arial, sans-serif" font-size="10" fill="#fecaca" text-anchor="middle">CRITICAL</text>
-
-  <rect x="945" y="138" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="991" y="161" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-004</text>
-  <text x="991" y="178" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="1045" y="138" width="92" height="58" rx="6" fill="url(#critCell)" opacity="0.9" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="1091" y="161" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-005</text>
-  <text x="1091" y="178" font-family="Arial, sans-serif" font-size="10" fill="#fecaca" text-anchor="middle">0-DAY</text>
-
-  <!-- Row 2 -->
-  <rect x="645" y="206" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="691" y="229" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-006</text>
-  <text x="691" y="246" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="745" y="206" width="92" height="58" rx="6" fill="#92400e" opacity="0.8" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="791" y="229" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-007</text>
-  <text x="791" y="246" font-family="Arial, sans-serif" font-size="10" fill="#fde68a" text-anchor="middle">HIGH</text>
-
-  <rect x="845" y="206" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="891" y="229" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-008</text>
-  <text x="891" y="246" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="945" y="206" width="92" height="58" rx="6" fill="url(#critCell)" opacity="0.9" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="991" y="229" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-009</text>
-  <text x="991" y="246" font-family="Arial, sans-serif" font-size="10" fill="#fecaca" text-anchor="middle">EXPLOIT</text>
-
-  <rect x="1045" y="206" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="1091" y="229" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-010</text>
-  <text x="1091" y="246" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <!-- Row 3 -->
-  <rect x="645" y="274" width="92" height="58" rx="6" fill="url(#critCell)" opacity="0.9" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="691" y="297" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-011</text>
-  <text x="691" y="314" font-family="Arial, sans-serif" font-size="10" fill="#fecaca" text-anchor="middle">CRITICAL</text>
-
-  <rect x="745" y="274" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="791" y="297" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-012</text>
-  <text x="791" y="314" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="845" y="274" width="92" height="58" rx="6" fill="#92400e" opacity="0.8" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="891" y="297" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-013</text>
-  <text x="891" y="314" font-family="Arial, sans-serif" font-size="10" fill="#fde68a" text-anchor="middle">HIGH</text>
-
-  <rect x="945" y="274" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="991" y="297" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-014</text>
-  <text x="991" y="314" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <rect x="1045" y="274" width="92" height="58" rx="6" fill="url(#patchedCell)" opacity="0.8" stroke="#15803d" stroke-width="1"/>
-  <text x="1091" y="297" font-family="Courier New, monospace" font-size="9" fill="white" text-anchor="middle" font-weight="bold">CVE-2026-015</text>
-  <text x="1091" y="314" font-family="Arial, sans-serif" font-size="10" fill="#bbf7d0" text-anchor="middle">PATCHED</text>
-
-  <!-- Legend bar -->
-  <rect x="645" y="344" width="492" height="30" rx="6" fill="#0f172a" opacity="0.8"/>
-  <rect x="656" y="354" width="13" height="13" rx="3" fill="#16a34a" opacity="0.9"/>
-  <text x="674" y="365" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Patched</text>
-  <rect x="738" y="354" width="13" height="13" rx="3" fill="#f59e0b" opacity="0.9"/>
-  <text x="756" y="365" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">High</text>
-  <rect x="808" y="354" width="13" height="13" rx="3" fill="#dc2626" opacity="0.9"/>
-  <text x="826" y="365" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Critical / 0-Day / Exploit</text>
-  <text x="1128" y="365" font-family="Arial, sans-serif" font-size="11" fill="#4b5563" text-anchor="end">67 CVEs total</text>
-
-  <!-- Right panel label -->
-  <text x="895" y="395" font-family="Arial, sans-serif" font-size="11" fill="#4b5563" text-anchor="middle">Patch Status Grid</text>
-
-  <!-- Connection lines: wolf eyes target unpatched cells -->
-  <line x1="326" y1="172" x2="845" y2="167" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="7,4" opacity="0.30"/>
-  <line x1="326" y1="172" x2="1045" y2="167" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="7,4" opacity="0.25"/>
-  <line x1="326" y1="172" x2="645" y2="303" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="5,5" opacity="0.20"/>
-  <line x1="326" y1="172" x2="945" y2="235" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,5" opacity="0.18"/>
-
-  <!-- Floating code fragments -->
-  <g font-family="Courier New, monospace" font-size="11" fill="#f59e0b">
-    <text x="52"  y="98"  opacity="0.13">apt.kimwolf.track()</text>
-    <text x="35"  y="455" opacity="0.12">patch.tuesday.apply()</text>
-    <text x="905" y="78"  opacity="0.12">cve.critical.count()</text>
-    <text x="935" y="488" opacity="0.11">ioc.match(hash)</text>
-    <text x="70"  y="520" opacity="0.10">krebs.intel.parse()</text>
-    <text x="860" y="465" opacity="0.10">msrc.advisory.fetch()</text>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-
-  <!-- Top badges -->
-  <rect x="40" y="22" width="172" height="32" rx="16" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
-  <text x="126" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">WEEKLY DIGEST</text>
-
-  <rect x="988" y="22" width="172" height="32" rx="16" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1"/>
-  <text x="1074" y="44" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">February 18, 2026</text>
-
-  <!-- Title -->
-  <text x="600" y="532" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Krebs + Patch Tuesday</text>
-  <text x="600" y="562" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Kimwolf APT Campaign | Microsoft Patch Tuesday | Krebs Intel</text>
-
-  <!-- Footer separator -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1"/>
-
-  <!-- Footer counts -->
-  <text x="40"  y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">18 News</text>
-  <text x="135" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">5 Security</text>
-  <text x="248" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">3 AI/ML</text>
-  <text x="338" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">2 Cloud</text>
-  <text x="420" y="610" font-family="Arial, sans-serif" font-size="12" fill="#475569">3 DevOps</text>
-  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">KrebsOnSecurity : Kimwolf 2026 2</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">KrebsOnSecurity RSS 10 Kimwolf</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">(I2P), 2 Patch Tuesday, Badbox 2.0</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="79" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#KrebsOnSecu...</text>
+      <rect x="171" y="0" width="141" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="241" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Threat-Intel</text>
+      <rect x="324" y="0" width="87" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="367" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Botnet</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>
