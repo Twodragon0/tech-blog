@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: 블록체인, AI, 기술 동향'
+  title='아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">AI</span>
@@ -52,9 +52,9 @@ toc: true
 | ⛓️ **Blockchain** | Cointelegraph | 아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | 스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | 암호화폐 시장 일일 동향 종합 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | 창업자를 위한 마케팅 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | MCP는 죽었다; MCP 만세 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | GIMP 3.2 출시 | 🟡 Medium |
+| 💻 **Tech** | GeekNews | 창업자를 위한 마케팅 | 🟡 Medium |
+| 💻 **Tech** | GeekNews | MCP는 죽었다; MCP 만세 | 🟡 Medium |
+| 💻 **Tech** | GeekNews | GIMP 3.2 출시 | 🟡 Medium |
 
 ---
 
@@ -138,9 +138,9 @@ Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [창업자를 위한 마케팅](https://news.hada.io/topic?id=27531) | GeekNews (긱뉴스) | SaaS·앱·스타트업의 첫 10·100·1000명 사용자 확보를 위한 실용 자료 모음 기술 중심 창업자가 예산 없이 초기 사용자 확보 를 할 수 있도록 돕는 실용적 마케팅 자료 모음집 런칭 플랫폼, 소셜 미디어 |
-| [MCP는 죽었다; MCP 만세](https://news.hada.io/topic?id=27530) | GeekNews (긱뉴스) | 최근 CLI 중심의 유행 이 확산되며 MCP가 과거의 기술로 평가받고 있으나, 글은 조직 단위의 AI 엔지니어링 에서는 여전히 MCP가 핵심임을 강조 CLI는 토큰 절약 과 단순성에서 장점이 있으나, 맞춤형 CLI |
-| [GIMP 3.2 출시](https://news.hada.io/topic?id=27529) | GeekNews (긱뉴스) | 오픈소스 이미지 편집기 GIMP가 버전 3.2 를 공개하며, 3.0 이후 1년간의 개발과 테스트 결과를 반영 새 버전은 비파괴 레이어(Link Layers, Vector Layers) 기능을 도입해 외부 이미지 |
+| [창업자를 위한 마케팅](https://news.hada.io/topic?id=27531) | GeekNews | SaaS·앱·스타트업의 첫 10·100·1000명 사용자 확보를 위한 실용 자료 모음 기술 중심 창업자가 예산 없이 초기 사용자 확보 를 할 수 있도록 돕는 실용적 마케팅 자료 모음집 런칭 플랫폼, 소셜 미디어 |
+| [MCP는 죽었다; MCP 만세](https://news.hada.io/topic?id=27530) | GeekNews | 최근 CLI 중심의 유행 이 확산되며 MCP가 과거의 기술로 평가받고 있으나, 글은 조직 단위의 AI 엔지니어링 에서는 여전히 MCP가 핵심임을 강조 CLI는 토큰 절약 과 단순성에서 장점이 있으나, 맞춤형 CLI |
+| [GIMP 3.2 출시](https://news.hada.io/topic?id=27529) | GeekNews | 오픈소스 이미지 편집기 GIMP가 버전 3.2 를 공개하며, 3.0 이후 1년간의 개발과 테스트 결과를 반영 새 버전은 비파괴 레이어(Link Layers, Vector Layers) 기능을 도입해 외부 이미지 |
 
 
 ---

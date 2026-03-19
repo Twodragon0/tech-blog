@@ -14,7 +14,7 @@ image_alt: "Tech Security Weekly Digest March 08 2026 AI Security"
 toc: true
 ---
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향'
+  title='OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Security</span>'
   highlights_html='<li><strong>포인트 1</strong>: OpenAI Codex Security가 120만 커밋에서 10,561건 취약점 탐지, Anthropic Claude가 Firefox 22개 취약점 발견. USDC 스테이블코인 전송량 $1.8T 돌파, Go 표준 라</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
@@ -64,9 +64,9 @@ toc: true
 | ⛓️ Blockchain | Cointelegraph | [블록체인] 예측 시장 Kalshi, 하메네이 거래 면제 조항으로 소송 피소 | 🟡 Medium |
 | ⛓️ Blockchain | Cointelegraph | [블록체인] Kalshi·Polymarket, 200억 달러 밸류에이션 목표 자금 조달 추진 | 🟡 Medium |
 | ⛓️ Blockchain | Cointelegraph | [블록체인] USDC, Tether 제치고 스테이블코인 전송량 1.8조 달러 돌파 | 🟡 Medium |
-| 💻 Tech | GeekNews (긱뉴스) | AI에이전트 도입의 가장 큰 병목은 성능 보다 신뢰(feat. 시간)이다. | 🟡 Medium |
-| 💻 Tech | GeekNews (긱뉴스) | Autoresearch - Karpathy의 자동 연구 프레임워크 | 🟡 Medium |
-| 💻 Tech | GeekNews (긱뉴스) | Go 표준 라이브러리에 UUID 패키지 추가 제안 | 🟡 Medium |
+| 💻 Tech | GeekNews | AI에이전트 도입의 가장 큰 병목은 성능 보다 신뢰(feat. 시간)이다. | 🟡 Medium |
+| 💻 Tech | GeekNews | Autoresearch - Karpathy의 자동 연구 프레임워크 | 🟡 Medium |
+| 💻 Tech | GeekNews | Go 표준 라이브러리에 UUID 패키지 추가 제안 | 🟡 Medium |
 
 ---
 
