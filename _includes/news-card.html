@@ -26,9 +26,7 @@
 {% assign severity_class = severity_label | downcase %}
 {% assign card_image = include.image | default: '' %}
 {% if card_image == '' and include.url %}
-  {% assign _url_no_proto = include.url | remove: 'https://' | remove: 'http://' %}
-  {% assign _domain_only = _url_no_proto | split: '/' | first %}
-  {% assign card_image = 'https://www.google.com/s2/favicons?sz=128&domain_url=' | append: _domain_only %}
+  {% assign card_image = 'https://www.google.com/s2/favicons?sz=256&domain_url=' | append: include.url | url_encode %}
 {% endif %}
 {% assign card_summary = include.summary | default: '' %}
 {% if card_summary == '' %}

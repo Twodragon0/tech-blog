@@ -1,123 +1,186 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#1a0f00"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <filter id="ambglow">
-      <feGaussianBlur stdDeviation="25" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="c2glow">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="textglow">
+
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Ambient glow circles -->
-  <circle cx="600" cy="295" r="240" fill="#f59e0b" opacity="0.08" filter="url(#ambglow)"/>
-  <circle cx="190" cy="175" r="170" fill="#ef4444" opacity="0.07" filter="url(#ambglow)"/>
-  <circle cx="1010" cy="420" r="185" fill="#f59e0b" opacity="0.07" filter="url(#ambglow)"/>
-  <circle cx="960" cy="145" r="130" fill="#ef4444" opacity="0.06" filter="url(#ambglow)"/>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <!-- Floating code fragments -->
-  <text x="52" y="94" font-family="monospace" font-size="12" fill="#f59e0b" opacity="0.13">c2.command(bot_army)</text>
-  <text x="948" y="84" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.12">go build ./botnet</text>
-  <text x="62" y="562" font-family="monospace" font-size="12" fill="#ef4444" opacity="0.12">chain.track(wallet)</text>
-  <text x="938" y="556" font-family="monospace" font-size="12" fill="#f59e0b" opacity="0.13">ai.evolve(tactics)</text>
-  <text x="498" y="53" font-family="monospace" font-size="11" fill="#f59e0b" opacity="0.10">botnet.spawn(node)</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
 
-  <!-- Top badge -->
-  <rect x="40" y="32" width="175" height="32" rx="16" fill="#f59e0b" opacity="0.18"/>
-  <rect x="40" y="32" width="175" height="32" rx="16" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
-  <text x="127" y="53" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">WEEKLY DIGEST</text>
-  <text x="1160" y="53" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">February 27, 2026</text>
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
 
-  <!-- CENTRAL ILLUSTRATION: Botnet topology - C2 + 3 concentric rings -->
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
 
-  <!-- Ring 3 outer: 12 bot nodes at radius ~235 from center (600,295) -->
-  <!-- Top -->
-  <circle cx="600" cy="60" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="600" y1="75" x2="600" y2="215" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Top-right 30deg -->
-  <circle cx="718" cy="92" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="711" y1="106" x2="623" y2="233" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Right-top -->
-  <circle cx="822" cy="178" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
-  <line x1="809" y1="185" x2="643" y2="252" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Right -->
-  <circle cx="853" cy="295" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
-  <line x1="838" y1="295" x2="660" y2="295" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Right-bottom -->
-  <circle cx="822" cy="412" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="809" y1="405" x2="643" y2="338" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Bottom-right -->
-  <circle cx="718" cy="498" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="711" y1="484" x2="623" y2="357" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Bottom -->
-  <circle cx="600" cy="530" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
-  <line x1="600" y1="515" x2="600" y2="375" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Bottom-left -->
-  <circle cx="482" cy="498" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="489" y1="484" x2="577" y2="357" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Left-bottom -->
-  <circle cx="378" cy="412" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="391" y1="405" x2="557" y2="338" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Left -->
-  <circle cx="347" cy="295" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2.5" opacity="0.92"/>
-  <line x1="362" y1="295" x2="540" y2="295" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Left-top -->
-  <circle cx="378" cy="178" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="391" y1="185" x2="557" y2="252" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
-  <!-- Top-left -->
-  <circle cx="482" cy="92" r="15" fill="#1a0500" stroke="#ef4444" stroke-width="2" opacity="0.85"/>
-  <line x1="489" y1="106" x2="577" y2="233" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.38"/>
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
 
-  <!-- Active attack highlights on 4 outer bots (red fill) -->
-  <circle cx="853" cy="295" r="15" fill="#ef4444" opacity="0.22"/>
-  <circle cx="347" cy="295" r="15" fill="#ef4444" opacity="0.22"/>
-  <circle cx="600" cy="530" r="15" fill="#ef4444" opacity="0.22"/>
-  <circle cx="822" cy="178" r="15" fill="#ef4444" opacity="0.22"/>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+  </g>
 
-  <!-- Ring 2 middle: 6 nodes at radius ~135 -->
-  <circle cx="600" cy="160" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="600" y1="172" x2="600" y2="235" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
-  <circle cx="717" cy="228" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="708" y1="238" x2="632" y2="263" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
-  <circle cx="735" cy="363" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="724" y1="357" x2="650" y2="320" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
-  <circle cx="600" cy="430" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="600" y1="418" x2="600" y2="375" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
-  <circle cx="465" cy="363" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="476" y1="357" x2="550" y2="320" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
-  <circle cx="483" cy="228" r="12" fill="#2a1500" stroke="#f59e0b" stroke-width="2" opacity="0.90"/>
-  <line x1="492" y1="238" x2="568" y2="263" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.52"/>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">Tech Security Weekly Digest Ai Botnet Blockch...</text>
 
-  <!-- C2 Central command node (large amber circle) -->
-  <circle cx="600" cy="295" r="80" fill="#150800" stroke="#f59e0b" stroke-width="4" opacity="0.98" filter="url(#c2glow)"/>
-  <circle cx="600" cy="295" r="80" fill="#f59e0b" opacity="0.10"/>
-  <!-- AI brain overlay on C2 -->
-  <ellipse cx="600" cy="287" rx="45" ry="36" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.75"/>
-  <path d="M570 275 Q585 266 600 275 Q615 266 630 275" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
-  <path d="M565 287 Q582 278 600 287 Q618 278 635 287" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
-  <path d="M570 299 Q585 290 600 299 Q615 290 630 299" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.65"/>
-  <!-- C2 label -->
-  <text x="600" y="334" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.95">C2 NODE</text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
 
-  <!-- Title and subtitle -->
-  <text x="600" y="512" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textglow)">AI-Powered Botnet</text>
-  <text x="600" y="542" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Go-Based C2 | Blockchain Resilience | AI Command Control</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
 
-  <!-- Footer -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#334155" stroke-width="1" opacity="0.6"/>
-  <text x="600" y="610" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="middle">19 News | 5 Security | 4 AI/ML | 2 Cloud | 3 DevOps</text>
-  <text x="1160" y="610" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z"
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+
+  </g>
+
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
+
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">2026 02 27 : The Hacker News, AWS</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Security Blog 30 . AI, Botnet,</text>
+    </g>
+
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="79" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-We...</text>
+      <rect x="171" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="228" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DevSecOps</text>
+      <rect x="297" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="376" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cloud-Security</text>
+    </g>
+
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+    </g>
+  </g>
+
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>

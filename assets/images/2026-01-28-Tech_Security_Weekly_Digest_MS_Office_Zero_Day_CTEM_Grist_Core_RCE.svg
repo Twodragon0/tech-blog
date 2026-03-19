@@ -1,177 +1,186 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#1a0808"/>
-      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.9"/>
-      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:0.9"/>
+
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
       <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <filter id="glow25">
-      <feGaussianBlur stdDeviation="25" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glow8">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="textGlow">
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Ambient glow circles -->
-  <circle cx="200" cy="150" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow25)"/>
-  <circle cx="1000" cy="480" r="220" fill="#f59e0b" opacity="0.07" filter="url(#glow25)"/>
-  <circle cx="600" cy="315" r="280" fill="#ef4444" opacity="0.04" filter="url(#glow25)"/>
-  <circle cx="900" cy="120" r="160" fill="#f59e0b" opacity="0.05" filter="url(#glow25)"/>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <!-- Floating code fragments -->
-  <text x="60" y="200" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.12">exploit.chain(office_doc)</text>
-  <text x="900" y="90" font-family="monospace" font-size="13" fill="#f59e0b" opacity="0.12">ctem.assess(surface)</text>
-  <text x="80" y="520" font-family="monospace" font-size="13" fill="#ef4444" opacity="0.10">grist.rce.payload()</text>
-  <text x="870" y="548" font-family="monospace" font-size="13" fill="#f59e0b" opacity="0.11">patch.verify(cve)</text>
-  <text x="420" y="578" font-family="monospace" font-size="11" fill="#ef4444" opacity="0.10">0day.trigger(macro)</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
 
-  <!-- ===== CENTRAL ILLUSTRATION ===== -->
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
 
-  <!-- Main document body (large, ~60% canvas height) -->
-  <rect x="410" y="85" width="280" height="360" rx="14" fill="#1e1e2e" stroke="#ef4444" stroke-width="2.5"/>
-  <!-- Document header tab -->
-  <rect x="410" y="85" width="280" height="46" rx="14" fill="#ef4444" opacity="0.88"/>
-  <rect x="410" y="117" width="280" height="14" fill="#ef4444" opacity="0.88"/>
-  <!-- W icon + label -->
-  <text x="432" y="118" font-family="Arial Black,sans-serif" font-size="24" font-weight="900" fill="white">W</text>
-  <text x="462" y="118" font-family="Arial,sans-serif" font-size="13" fill="white" opacity="0.9">MS Office Document</text>
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
 
-  <!-- Document content lines -->
-  <rect x="434" y="146" width="200" height="9" rx="4" fill="#374151" opacity="0.7"/>
-  <rect x="434" y="164" width="160" height="9" rx="4" fill="#374151" opacity="0.5"/>
-  <rect x="434" y="182" width="180" height="9" rx="4" fill="#374151" opacity="0.5"/>
-  <rect x="434" y="200" width="130" height="9" rx="4" fill="#374151" opacity="0.4"/>
-  <rect x="434" y="218" width="170" height="9" rx="4" fill="#374151" opacity="0.35"/>
-  <rect x="434" y="236" width="140" height="9" rx="4" fill="#374151" opacity="0.3"/>
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
 
-  <!-- Warning tint overlay on document -->
-  <rect x="410" y="85" width="280" height="360" rx="14" fill="#ef4444" opacity="0.06"/>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
+  </g>
 
-  <!-- CRACK main diagonal -->
-  <polyline points="528,85 498,155 535,215 500,275 520,340 545,445"
-    stroke="#ef4444" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.95"/>
-  <!-- Crack glow -->
-  <polyline points="528,85 498,155 535,215 500,275 520,340 545,445"
-    stroke="#ef4444" stroke-width="12" fill="none" opacity="0.10" stroke-linecap="round"/>
-  <!-- Branch cracks -->
-  <line x1="498" y1="155" x2="446" y2="182" stroke="#f59e0b" stroke-width="2" opacity="0.8"/>
-  <line x1="535" y1="215" x2="585" y2="236" stroke="#f59e0b" stroke-width="2" opacity="0.8"/>
-  <line x1="500" y1="275" x2="452" y2="300" stroke="#ef4444" stroke-width="1.5" opacity="0.7"/>
-  <line x1="520" y1="340" x2="572" y2="358" stroke="#ef4444" stroke-width="1.5" opacity="0.7"/>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">: Microsoft Office Zero-Day , CTEM , Grist-Co...</text>
 
-  <!-- Warning triangle on document -->
-  <polygon points="555,250 532,292 578,292" fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.9"/>
-  <text x="552" y="287" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="#f59e0b" opacity="0.9">!</text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
 
-  <!-- Chain to EMAIL (upper-left) -->
-  <line x1="418" y1="190" x2="220" y2="165" stroke="url(#chainGrad)" stroke-width="2.2" stroke-dasharray="8,4" opacity="0.85"/>
-  <circle cx="356" cy="177" r="5" fill="#ef4444" opacity="0.85"/>
-  <circle cx="290" cy="171" r="5" fill="#f59e0b" opacity="0.85"/>
-  <text x="298" y="162" font-family="monospace" font-size="10" fill="#f59e0b" opacity="0.9">phishing</text>
-  <!-- Email icon -->
-  <rect x="158" y="144" width="62" height="46" rx="7" fill="#1e1e2e" stroke="#ef4444" stroke-width="2"/>
-  <polyline points="158,148 189,175 220,148" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-  <text x="169" y="204" font-family="monospace" font-size="10" fill="#94a3b8">Email</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
 
-  <!-- Chain to BROWSER (mid-left) -->
-  <line x1="413" y1="285" x2="200" y2="305" stroke="url(#chainGrad)" stroke-width="2.2" stroke-dasharray="8,4" opacity="0.85"/>
-  <circle cx="340" cy="294" r="5" fill="#ef4444" opacity="0.85"/>
-  <circle cx="272" cy="300" r="5" fill="#f59e0b" opacity="0.85"/>
-  <text x="265" y="289" font-family="monospace" font-size="10" fill="#f59e0b" opacity="0.9">macro.exec</text>
-  <!-- Browser icon -->
-  <circle cx="170" cy="308" r="30" fill="#1e1e2e" stroke="#ef4444" stroke-width="2"/>
-  <circle cx="170" cy="308" r="15" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-  <line x1="154" y1="308" x2="186" y2="308" stroke="#ef4444" stroke-width="1.5"/>
-  <line x1="170" y1="278" x2="170" y2="338" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="148" y="354" font-family="monospace" font-size="10" fill="#94a3b8">Browser</text>
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z"
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
 
-  <!-- Chain to SERVER (lower-left) -->
-  <line x1="420" y1="380" x2="215" y2="420" stroke="url(#chainGrad)" stroke-width="2.2" stroke-dasharray="8,4" opacity="0.85"/>
-  <circle cx="352" cy="397" r="5" fill="#ef4444" opacity="0.85"/>
-  <circle cx="285" cy="410" r="5" fill="#f59e0b" opacity="0.85"/>
-  <text x="278" y="402" font-family="monospace" font-size="10" fill="#f59e0b" opacity="0.9">RCE</text>
-  <!-- Server icon -->
-  <rect x="165" y="400" width="60" height="48" rx="6" fill="#1e1e2e" stroke="#ef4444" stroke-width="2"/>
-  <rect x="173" y="408" width="44" height="11" rx="3" fill="#374151"/>
-  <rect x="173" y="424" width="44" height="11" rx="3" fill="#374151"/>
-  <circle cx="211" cy="413" r="3" fill="#ef4444"/>
-  <circle cx="211" cy="429" r="3" fill="#f59e0b"/>
-  <text x="163" y="462" font-family="monospace" font-size="10" fill="#94a3b8">Server</text>
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
 
-  <!-- CTEM Framework panel (right) -->
-  <rect x="750" y="100" width="215" height="310" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
-  <rect x="750" y="100" width="215" height="36" rx="10" fill="#f59e0b" opacity="0.18"/>
-  <text x="768" y="123" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b">CTEM Framework</text>
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
 
-  <rect x="768" y="150" width="180" height="24" rx="5" fill="#1e293b"/>
-  <text x="780" y="166" font-family="monospace" font-size="11" fill="#94a3b8">1. Scoping</text>
-  <circle cx="932" cy="162" r="5" fill="#22c55e"/>
+  </g>
 
-  <rect x="768" y="182" width="180" height="24" rx="5" fill="#1e293b"/>
-  <text x="780" y="198" font-family="monospace" font-size="11" fill="#94a3b8">2. Discovery</text>
-  <circle cx="932" cy="194" r="5" fill="#22c55e"/>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
 
-  <rect x="768" y="214" width="180" height="24" rx="5" fill="#1e293b"/>
-  <text x="780" y="230" font-family="monospace" font-size="11" fill="#f59e0b">3. Prioritization</text>
-  <circle cx="932" cy="226" r="5" fill="#f59e0b"/>
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
 
-  <rect x="768" y="246" width="180" height="24" rx="5" fill="#1e293b"/>
-  <text x="780" y="262" font-family="monospace" font-size="11" fill="#ef4444">4. Validation</text>
-  <circle cx="932" cy="258" r="5" fill="#ef4444"/>
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
 
-  <rect x="768" y="278" width="180" height="24" rx="5" fill="#1e293b"/>
-  <text x="780" y="294" font-family="monospace" font-size="11" fill="#ef4444">5. Mobilization</text>
-  <circle cx="932" cy="290" r="5" fill="#ef4444"/>
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">: Microsoft Office Zero-Day</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">, CTEM , - 2026 1 28 :</text>
+    </g>
 
-  <!-- CVE badge -->
-  <rect x="768" y="318" width="180" height="76" rx="6" fill="#1a0808" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="780" y="337" font-family="monospace" font-size="11" fill="#ef4444" font-weight="bold">CVE-2026-XXXX</text>
-  <text x="780" y="354" font-family="monospace" font-size="10" fill="#94a3b8">CVSS: 9.8 CRITICAL</text>
-  <text x="780" y="370" font-family="monospace" font-size="10" fill="#94a3b8">Vector: RCE / Network</text>
-  <text x="780" y="386" font-family="monospace" font-size="10" fill="#f59e0b">Patch: Pending</text>
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="79" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-We...</text>
+      <rect x="171" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="228" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DevSecOps</text>
+      <rect x="297" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="376" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#CVE-2026-21509</text>
+    </g>
 
-  <!-- ===== END CENTRAL ILLUSTRATION ===== -->
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+    </g>
+  </g>
 
-  <!-- Top badge pill -->
-  <rect x="40" y="34" width="272" height="34" rx="17" fill="#1e1e2e" stroke="#ef4444" stroke-width="1.5"/>
-  <rect x="40" y="34" width="128" height="34" rx="17" fill="#ef4444" opacity="0.92"/>
-  <text x="104" y="56" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
-  <text x="240" y="56" font-family="Arial,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">January 28, 2026</text>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
 
-  <!-- Title -->
-  <text x="40" y="508" font-family="Arial Black,sans-serif" font-size="36" font-weight="900" fill="white" filter="url(#textGlow)">MS Office Zero-Day Chain</text>
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
 
-  <!-- Subtitle -->
-  <text x="40" y="540" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8">CTEM Framework  |  Grist Core RCE  |  Exploit Chain Analysis</text>
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
 
-  <!-- Footer separator -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#1e293b" stroke-width="1.5"/>
-
-  <!-- Footer counts -->
-  <text x="40" y="610" font-family="monospace" font-size="12" fill="#64748b">21 News</text>
-  <text x="132" y="610" font-family="monospace" font-size="12" fill="#ef4444">6 Security</text>
-  <text x="244" y="610" font-family="monospace" font-size="12" fill="#8b5cf6">3 AI/ML</text>
-  <text x="336" y="610" font-family="monospace" font-size="12" fill="#06b6d4">2 Cloud</text>
-  <text x="418" y="610" font-family="monospace" font-size="12" fill="#22c55e">4 DevOps</text>
-
-  <!-- Site URL -->
-  <text x="1160" y="610" font-family="monospace" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>
