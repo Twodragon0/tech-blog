@@ -6,13 +6,13 @@
       <stop offset="40%" style="stop-color:#f1f5f9"/>
       <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    
+
     <!-- Category Gradient -->
     <linearGradient id="finopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#14b8a6"/>
       <stop offset="100%" style="stop-color:#0d9488"/>
     </linearGradient>
-    
+
     <!-- Accent Gradient -->
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
@@ -20,20 +20,20 @@
       <stop offset="66%" style="stop-color:#ec4899"/>
       <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    
+
     <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff"/>
       <stop offset="100%" style="stop-color:#f8fafc"/>
     </linearGradient>
-    
+
     <!-- Fire Gradient for Incident -->
     <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:#dc2626"/>
       <stop offset="50%" style="stop-color:#f59e0b"/>
       <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    
+
     <!-- Glow Effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -42,7 +42,7 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
       <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
@@ -51,12 +51,12 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <!-- Shadow -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
     </filter>
-    
+
     <!-- Inner Glow -->
     <filter id="innerGlow">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
@@ -69,60 +69,60 @@
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
+
   <!-- Animated Grid Pattern -->
   <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
     <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#2dd4bf" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  
+
   <!-- Background Decorative Elements -->
   <circle cx="0" cy="0" r="300" fill="#14b8a6" fill-opacity="0.03"/>
   <circle cx="1200" cy="630" r="350" fill="#0d9488" fill-opacity="0.04"/>
   <circle cx="600" cy="315" r="400" fill="#14b8a6" fill-opacity="0.02"/>
-  
+
   <!-- Decorative Lines -->
   <line x1="0" y1="200" x2="150" y2="200" stroke="#2dd4bf" stroke-width="1" opacity="0.3"/>
   <line x1="1050" y1="430" x2="1200" y2="430" stroke="#2dd4bf" stroke-width="1" opacity="0.3"/>
-  
+
   <!-- Top Header Bar -->
   <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
-  
+
   <!-- Category Badge -->
   <g filter="url(#shadow)">
     <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#finopsGradient)"/>
     <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">FINOPS</text>
   </g>
-  
+
   <!-- Date Badge -->
   <g filter="url(#shadow)">
     <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
     <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-  
+
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">8 3 : AWS FinOps ISMS-P</text>
-  
+
   <!-- Subtitle Line -->
   <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
-  
+
   <!-- Icon Section - Left Side -->
   <g opacity="0.95">
-    
+
     <!-- Dollar Chart -->
     <g transform="translate(80, 280)">
       <rect x="5" y="5" width="90" height="70" rx="5" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
       <polyline points="15,60 30,45 50,55 70,30 85,40" fill="none" stroke="#22d3ee" stroke-width="3"/>
       <text x="50" y="55" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#14b8a6" text-anchor="middle">$</text>
     </g>
-    
+
     <!-- Cloud Cost -->
     <g transform="translate(210, 290)">
-      <path d="M20 50 Q5 50 5 35 Q5 20 20 20 Q20 5 40 5 Q60 5 60 25 Q75 25 75 40 Q75 50 60 50 Z" 
+      <path d="M20 50 Q5 50 5 35 Q5 20 20 20 Q20 5 40 5 Q60 5 60 25 Q75 25 75 40 Q75 50 60 50 Z"
             fill="#14b8a6" stroke="#0d9488" stroke-width="2" opacity="0.8"/>
       <text x="40" y="38" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">$</text>
     </g>
-    
+
     <!-- Savings Piggy -->
     <g transform="translate(330, 295)">
       <ellipse cx="40" cy="40" rx="35" ry="25" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
@@ -132,25 +132,25 @@
       <ellipse cx="25" cy="55" rx="8" ry="5" fill="#0d9488"/>
       <ellipse cx="55" cy="55" rx="8" ry="5" fill="#0d9488"/>
     </g>
-    
+
   </g>
-  
+
   <!-- Main Content Card -->
   <g transform="translate(450, 180)" filter="url(#shadow)">
     <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#2dd4bf" stroke-width="1" stroke-opacity="0.3"/>
-    
+
     <!-- Card Header Accent -->
     <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#finopsGradient)"/>
-    
+
     <!-- Card Title -->
     <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
-    
+
     <!-- Summary Content -->
     <g transform="translate(30, 90)">
       <circle cx="8" cy="8" r="4" fill="#2dd4bf"/>
       <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">2025 FinOps AWS , ISMS-P</text>
     </g>
-    
+
     <!-- Tags Section -->
     <g transform="translate(30, 230)">
       <rect x="0" y="0" width="60" height="30" rx="15" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf" stroke-width="1" stroke-opacity="0.4"/>
@@ -160,26 +160,26 @@
       <rect x="171" y="0" width="87" height="30" rx="15" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf" stroke-width="1" stroke-opacity="0.4"/>
       <text x="214" y="20" font-family="Arial, sans-serif" font-size="12" fill="#2dd4bf" text-anchor="middle">#ISMS-P</text>
     </g>
-    
+
     <!-- CTA Button -->
     <g transform="translate(540, 280)">
       <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
       <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
     </g>
   </g>
-  
+
   <!-- Bottom Section -->
   <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
-  
+
   <!-- Blog Branding -->
   <g transform="translate(50, 575)">
     <rect width="45" height="45" rx="10" fill="url(#finopsGradient)" filter="url(#shadow)"/>
     <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-  
+
   <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
   <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
-  
+
   <!-- Tech Stack -->
   <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
   <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>

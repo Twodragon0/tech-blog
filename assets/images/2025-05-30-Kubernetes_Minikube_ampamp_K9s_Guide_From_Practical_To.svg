@@ -6,13 +6,13 @@
       <stop offset="40%" style="stop-color:#f1f5f9"/>
       <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    
+
     <!-- Category Gradient -->
     <linearGradient id="k8sGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
       <stop offset="100%" style="stop-color:#1d4ed8"/>
     </linearGradient>
-    
+
     <!-- Accent Gradient -->
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
@@ -20,20 +20,20 @@
       <stop offset="66%" style="stop-color:#ec4899"/>
       <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    
+
     <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff"/>
       <stop offset="100%" style="stop-color:#f8fafc"/>
     </linearGradient>
-    
+
     <!-- Fire Gradient for Incident -->
     <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:#dc2626"/>
       <stop offset="50%" style="stop-color:#f59e0b"/>
       <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    
+
     <!-- Glow Effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -42,7 +42,7 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
       <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
@@ -51,12 +51,12 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
+
     <!-- Shadow -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
     </filter>
-    
+
     <!-- Inner Glow -->
     <filter id="innerGlow">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
@@ -69,46 +69,46 @@
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
+
   <!-- Animated Grid Pattern -->
   <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
     <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#60a5fa" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  
+
   <!-- Background Decorative Elements -->
   <circle cx="0" cy="0" r="300" fill="#3b82f6" fill-opacity="0.03"/>
   <circle cx="1200" cy="630" r="350" fill="#1d4ed8" fill-opacity="0.04"/>
   <circle cx="600" cy="315" r="400" fill="#3b82f6" fill-opacity="0.02"/>
-  
+
   <!-- Decorative Lines -->
   <line x1="0" y1="200" x2="150" y2="200" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
   <line x1="1050" y1="430" x2="1200" y2="430" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
-  
+
   <!-- Top Header Bar -->
   <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
-  
+
   <!-- Category Badge -->
   <g filter="url(#shadow)">
     <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#k8sGradient)"/>
     <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">KUBERNETES</text>
   </g>
-  
+
   <!-- Date Badge -->
   <g filter="url(#shadow)">
     <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
     <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
   </g>
-  
+
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">Kubernetes Minikube &amp; K9s :</text>
-  
+
   <!-- Subtitle Line -->
   <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
-  
+
   <!-- Icon Section - Left Side -->
   <g opacity="0.95">
-    
+
     <!-- Kubernetes Wheel -->
     <g transform="translate(100, 290)">
       <circle cx="50" cy="50" r="40" fill="none" stroke="#326ce5" stroke-width="4"/>
@@ -124,32 +124,32 @@
         <line x1="61" y1="39" x2="78" y2="22"/>
       </g>
     </g>
-    
+
     <!-- Container Box -->
     <g transform="translate(230, 300)">
       <rect x="10" y="20" width="60" height="50" rx="5" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
       <rect x="10" y="10" width="60" height="15" rx="3" fill="#60a5fa"/>
       <rect x="20" y="35" width="40" height="25" rx="3" fill="#1e3a8a"/>
     </g>
-    
+
     <!-- Pod Circle -->
     <g transform="translate(340, 310)">
       <circle cx="30" cy="30" r="25" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
       <text x="30" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Pod</text>
     </g>
-    
+
   </g>
-  
+
   <!-- Main Content Card -->
   <g transform="translate(450, 180)" filter="url(#shadow)">
     <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-    
+
     <!-- Card Header Accent -->
     <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#k8sGradient)"/>
-    
+
     <!-- Card Title -->
     <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
-    
+
     <!-- Summary Content -->
     <g transform="translate(30, 90)">
       <circle cx="8" cy="8" r="4" fill="#60a5fa"/>
@@ -159,7 +159,7 @@
       <circle cx="8" cy="8" r="4" fill="#60a5fa"/>
       <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Kubernetes 2024-2025 (User</text>
     </g>
-    
+
     <!-- Tags Section -->
     <g transform="translate(30, 230)">
       <rect x="0" y="0" width="123" height="30" rx="15" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
@@ -169,26 +169,26 @@
       <rect x="252" y="0" width="60" height="30" rx="15" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
       <text x="282" y="20" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">#K9s</text>
     </g>
-    
+
     <!-- CTA Button -->
     <g transform="translate(540, 280)">
       <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
       <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
     </g>
   </g>
-  
+
   <!-- Bottom Section -->
   <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
-  
+
   <!-- Blog Branding -->
   <g transform="translate(50, 575)">
     <rect width="45" height="45" rx="10" fill="url(#k8sGradient)" filter="url(#shadow)"/>
     <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-  
+
   <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
   <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
-  
+
   <!-- Tech Stack -->
   <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
   <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
