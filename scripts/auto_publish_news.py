@@ -2835,6 +2835,14 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
         template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
         template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
+    elif any(kw in text for kw in ["database", "데이터베이스", "db", "sql", "cache", "캐시", "redis", "valkey", "memorystore"]):
+        template += "- 데이터베이스/캐시 서비스 업그레이드 시 데이터 무결성 검증 및 접근 제어 점검\n"
+        template += "- DB 연결 암호화(SSL/TLS) 설정이 모든 복제본/노드에 적용되는지 확인\n"
+        template += "- 자동 확장 이벤트 감사 로그 모니터링으로 비정상 리소스 증가 탐지\n"
+    elif any(kw in text for kw in ["mobile", "모바일", "maui", "flutter", "react native", "ios", "android app"]):
+        template += "- 모바일 앱 업데이트에 포함된 보안 패치 및 의존성 변경사항 검토\n"
+        template += "- API 키 및 민감 데이터의 클라이언트 측 노출 방지 설정 점검\n"
+        template += "- 사용자 데이터 수집 시 개인정보 보호 정책(GDPR, 개인정보보호법) 준수 확인\n"
     elif any(kw in text for kw in ["네트워크", "network"]):
         template += "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
         template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
