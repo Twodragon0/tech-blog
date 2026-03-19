@@ -503,7 +503,7 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
 |------|------|----------|
 | [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military |
 | [AttributedString 구조로 풀어낸 대규모 iOS 설정 시스템](https://techblog.lycorp.co.jp/ko/a-large-scale-ios-configuration-system-implemented-with-an-attributedstring-structure) | LINE Engineering | 환경이 바뀌면서 과거에 내렸던 합리적인 결정이 더 이상 유효하지 않게 되는 일은 흔히 생깁니다. 이 글은 LINE 앱이 성장하면서 동적 설정 배포 시스템인 ‘서비스 설정’의 iOS |
-| [류구 소행성 샘플에서 DNA와 RNA의 모든 구성 요소 발견](https://news.hada.io/topic?id=27627) | GeekNews (긱뉴스) | 일본 탐사선이 채취한 류구 소행성 샘플 에서 DNA와 RNA를 구성하는 모든 기본 분자 가 검출됨 분석 결과, 핵산의 주요 구성 성분 인 염기, 당, 인산 등이 모두 존재함이 확인됨 이는 생명체 형성에 필요한 유기 |
+| [류구 소행성 샘플에서 DNA와 RNA의 모든 구성 요소 발견](https://news.hada.io/topic?id=27627) | GeekNews | 일본 탐사선이 채취한 류구 소행성 샘플 에서 DNA와 RNA를 구성하는 모든 기본 분자 가 검출됨 분석 결과, 핵산의 주요 구성 성분 인 염기, 당, 인산 등이 모두 존재함이 확인됨 이는 생명체 형성에 필요한 유기 |
 
 
 ---

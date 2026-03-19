@@ -14,7 +14,7 @@ image_alt: "Tech Security Weekly Digest March 15 2026 GlassWorm Supply Chain AWS
 toc: true
 ---
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전'
+  title='GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">SupplyChain</span> <span class="tag">AI-Security</span> <span class="tag">Bitcoin</span>'
   highlights_html='<li><strong>Critical</strong>: GlassWorm이 Open VSX 레지스트리의 72개 확장을 악용한 공급망 공격 - 개발 도구 체인 전체가 공격 표면이 됨</li> <li><strong>High</strong>: AI 에이전트 취약점으로 인한 프롬프트 인젝션·데이터 탈취 가능 - 내부 배포 LLM 에이전트 입출력 검증 즉시 점검 필요</li> <li><strong>Medium</strong>: AWS IAM Identity Center 멀티리전 확장 - 중앙 집중식 접근 관리 아키텍처 채택 검토 시점</li>'
