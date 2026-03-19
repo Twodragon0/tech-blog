@@ -2781,6 +2781,9 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         template += "- 모델 다운로드 출처 검증 및 체크섬/서명 확인 절차 수립\n"
         template += "- 오픈소스 모델의 학습 데이터 편향 및 프라이버시 리스크 평가\n"
     else:
+        logging.info(
+            f"AI template fallback triggered for: {item.get('title', '')[:60]}"
+        )
         template += "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토\n"
         template += "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인\n"
         template += "- 관련 기술의 자사 환경 적용 가능성 평가 및 보안 영향 분석\n"
@@ -2848,6 +2851,9 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
         template += "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n"
     else:
+        logging.info(
+            f"DevOps template fallback triggered for: {item.get('title', '')[:60]}"
+        )
         template += "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
         template += "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
         template += "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"

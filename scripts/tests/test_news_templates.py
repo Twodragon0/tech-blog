@@ -1962,3 +1962,86 @@ class TestGenerateExecutiveAndRiskSections:
     def test_empty_items(self):
         result = _generate_executive_and_risk_sections([], mode="security")
         assert "경영진 브리핑" in result
+
+
+# ===========================================================================
+# DevOps Template: database/cache and mobile/frontend branches
+# ===========================================================================
+
+
+class TestDevopsTemplateDatabaseBranch:
+    """Tests for database/cache keyword branch in _generate_devops_template."""
+
+    def test_database_keyword(self):
+        item = {"title": "Database migration security guide", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "데이터베이스" in result or "DB" in result
+
+    def test_sql_keyword(self):
+        item = {"title": "Cloud SQL autoscaling read pools", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "DB" in result or "데이터베이스" in result
+
+    def test_cache_keyword(self):
+        item = {"title": "캐시 서비스 보안 설정", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "캐시" in result or "데이터베이스" in result
+
+    def test_redis_keyword(self):
+        item = {"title": "Redis cluster security hardening", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "DB" in result or "데이터베이스" in result
+
+    def test_valkey_keyword(self):
+        item = {"title": "Memorystore for Valkey 9.0 GA", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "데이터베이스" in result or "캐시" in result
+
+    def test_memorystore_keyword(self):
+        item = {"title": "Google Memorystore update", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "데이터베이스" in result or "캐시" in result
+
+
+class TestDevopsTemplateMobileBranch:
+    """Tests for mobile/frontend keyword branch in _generate_devops_template."""
+
+    def test_mobile_keyword(self):
+        item = {"title": "Mobile app security checklist", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "모바일" in result or "개인정보" in result
+
+    def test_maui_keyword(self):
+        item = {"title": ".NET MAUI 11 map pin clustering", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "모바일" in result or "API 키" in result
+
+    def test_flutter_keyword(self):
+        item = {"title": "Flutter security best practices", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "모바일" in result or "개인정보" in result
+
+    def test_react_native_keyword(self):
+        item = {"title": "React Native secure storage guide", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "모바일" in result or "클라이언트" in result
+
+    def test_ios_keyword(self):
+        item = {"title": "iOS app transport security update", "summary": ""}
+        result = _generate_devops_template(item)
+        assert "모바일" in result or "보안 패치" in result
+
+
+class TestDevopsTemplatePriorityDatabase:
+    """Verify database/mobile branches don't conflict with other branches."""
+
+    @pytest.mark.parametrize("title,expected", [
+        ("Valkey cache upgrade guide", "데이터베이스"),
+        ("Redis sentinel security", "데이터베이스"),
+        (".NET MAUI map feature", "모바일"),
+        ("Flutter app release", "모바일"),
+    ])
+    def test_correct_branch_selected(self, title, expected):
+        item = {"title": title, "summary": ""}
+        result = _generate_devops_template(item)
+        assert expected in result, f"Expected '{expected}' for '{title}', got: {result[:80]}"
