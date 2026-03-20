@@ -3633,6 +3633,31 @@ def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List
     return labels[:limit] if labels else ["SECURITY", "CLOUD", "AI"]
 
 
+def _convert_svg_to_og_png(svg_path: Path) -> None:
+    """Convert SVG to PNG for Open Graph social media previews using rsvg-convert."""
+    import shutil
+
+    rsvg = shutil.which("rsvg-convert")
+    if not rsvg:
+        logging.debug("rsvg-convert not found, skipping PNG conversion")
+        return
+
+    png_path = svg_path.with_name(svg_path.stem + "_og.png")
+    try:
+        result = subprocess.run(
+            [rsvg, "-w", "1200", "-h", "630", str(svg_path), "-o", str(png_path)],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode == 0:
+            print(f"✅ Created OG image: {png_path}")
+        else:
+            logging.warning(f"rsvg-convert failed: {result.stderr[:200]}")
+    except Exception as e:
+        logging.warning(f"PNG conversion skipped: {e}")
+
+
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
@@ -3924,6 +3949,9 @@ def main():
     with open(svg_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
     print(f"✅ Created image: {svg_path}")
+
+    # Generate PNG for Open Graph social previews
+    _convert_svg_to_og_png(svg_path)
 
     print(f"\n🎉 Auto publish completed! (mode: {args.mode})")
 
