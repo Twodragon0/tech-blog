@@ -1,130 +1,87 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
-    </linearGradient>
-    <linearGradient id="danger" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="55%" stop-color="#101b34"/>
+      <stop offset="100%" stop-color="#140b25"/>
     </linearGradient>
     <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#2563eb"/>
     </linearGradient>
-    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#dc2626"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="blurGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="20"/>
     </filter>
-    <filter id="sg">
-      <feGaussianBlur stdDeviation="25"/>
-    </filter>
-    <filter id="redglow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feFlood flood-color="#ef4444" flood-opacity="0.25" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
-      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.45"/>
     </filter>
   </defs>
-
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="260" cy="150" r="170" fill="#2563eb" opacity="0.14" filter="url(#blurGlow)"/>
+  <circle cx="885" cy="225" r="170" fill="#dc2626" opacity="0.14" filter="url(#blurGlow)"/>
+  <circle cx="980" cy="470" r="180" fill="#059669" opacity="0.12" filter="url(#blurGlow)"/>
 
-  <!-- Ambient glows -->
-  <circle cx="400" cy="250" r="200" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="600" cy="400" r="150" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
+  <rect x="70" y="58" width="170" height="34" rx="17" fill="#0f172a" stroke="#334155"/>
+  <text x="155" y="81" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#cbd5e1" text-anchor="middle">WEEKLY DIGEST</text>
 
-  <!-- Central: AI Sandbox with DNS leak -->
-  <g transform="translate(600,250)">
-    <!-- Sandbox container -->
-    <rect x="-120" y="-100" width="240" height="160" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2" opacity="0.8"/>
-    <text x="0" y="-110" font-family="Courier New" font-size="11" fill="#60a5fa" text-anchor="middle" opacity="0.6">AI SANDBOX</text>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#f8fafc">AI Sandbox Escape</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#93c5fd">DNS Exfil  Ransomware  GKE</text>
 
-    <!-- Inner AI brain -->
-    <circle cx="0" cy="-30" r="35" fill="#3b82f6" opacity="0.1" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="0" y="-23" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#93c5fd" text-anchor="middle">AI</text>
-
-    <!-- Data nodes inside sandbox -->
-    <circle cx="-60" cy="20" r="12" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-    <text x="-60" y="24" font-family="Courier New" font-size="8" fill="#94a3b8" text-anchor="middle">.env</text>
-    <circle cx="60" cy="20" r="12" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-    <text x="60" y="24" font-family="Courier New" font-size="8" fill="#94a3b8" text-anchor="middle">KEY</text>
-    <circle cx="0" cy="35" r="12" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-    <text x="0" y="39" font-family="Courier New" font-size="8" fill="#94a3b8" text-anchor="middle">SRC</text>
-
-    <!-- DNS leak arrows escaping sandbox -->
-    <g filter="url(#redglow)">
-      <!-- DNS leak right -->
-      <path d="M120,-20 C180,-20 220,0 280,10" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,3"/>
-      <polygon points="278,5 290,10 278,15" fill="#ef4444" opacity="0.8"/>
-      <text x="310" y="15" font-family="Courier New" font-size="10" fill="#fca5a5">DNS:53</text>
-
-      <!-- DNS leak left -->
-      <path d="M-120,-30 C-200,-40 -250,-20 -300,0" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/>
-      <polygon points="-298,-5 -310,0 -298,5" fill="#ef4444" opacity="0.8"/>
-      <text x="-340" y="5" font-family="Courier New" font-size="10" fill="#fca5a5">EXFIL</text>
-
-      <!-- DNS leak down -->
-      <path d="M0,60 C0,100 30,130 50,160" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/>
-      <polygon points="45,158 50,170 55,158" fill="#ef4444" opacity="0.8"/>
-      <text x="80" y="170" font-family="Courier New" font-size="10" fill="#fca5a5">C2</text>
-    </g>
+  <g transform="translate(560 182)" filter="url(#shadow)">
+    <rect x="-155" y="-108" width="310" height="220" rx="26" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="-120" y="-68" width="240" height="104" rx="20" fill="#111c35" stroke="#60a5fa" opacity="0.95"/>
+    <circle cx="0" cy="-16" r="42" fill="#12345c" stroke="#7dd3fc" stroke-width="2"/>
+    <text x="0" y="-7" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#dbeafe" text-anchor="middle">AI</text>
+    <circle cx="-70" cy="40" r="14" fill="#0b1220" stroke="#64748b"/>
+    <circle cx="0" cy="40" r="14" fill="#0b1220" stroke="#64748b"/>
+    <circle cx="70" cy="40" r="14" fill="#0b1220" stroke="#64748b"/>
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#7dd3fc" text-anchor="middle">SANDBOX</text>
   </g>
 
-  <!-- Left: Ransomware lock icon -->
-  <g transform="translate(150,200)">
-    <rect x="-40" y="-10" width="80" height="60" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
-    <path d="M-15,-10 L-15,-30 C-15,-48 15,-48 15,-30 L15,-10" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-    <circle cx="0" cy="20" r="8" fill="#f59e0b" opacity="0.6"/>
-    <rect x="-2" y="22" width="4" height="10" rx="2" fill="#f59e0b" opacity="0.6"/>
-    <text x="0" y="75" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle" opacity="0.5">RANSOMWARE</text>
+  <g stroke="#fb7185" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="12 10">
+    <path d="M720 220 C820 190 910 210 995 255"/>
+    <path d="M425 256 C325 286 245 330 190 395"/>
+    <path d="M608 346 C655 402 740 448 815 470"/>
+  </g>
+  <polygon points="988,244 1020,256 990,270" fill="#fb7185"/>
+  <polygon points="198,382 170,404 208,408" fill="#fb7185"/>
+  <polygon points="806,455 834,478 796,484" fill="#fb7185"/>
+
+  <g transform="translate(1020 258)" filter="url(#shadow)">
+    <circle r="58" fill="#2a1217" stroke="#fb7185" stroke-width="2"/>
+    <circle r="16" fill="#fecdd3"/>
+    <circle cx="-28" cy="-12" r="10" fill="#fecdd3"/>
+    <circle cx="28" cy="12" r="10" fill="#fecdd3"/>
+    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#fda4af" text-anchor="middle">DNS EXFIL</text>
   </g>
 
-  <!-- Right: Cloud/K8s clusters -->
-  <g transform="translate(1050,200)">
-    <circle cx="-30" cy="-20" r="18" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.7"/>
-    <circle cx="30" cy="-20" r="18" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.7"/>
-    <circle cx="0" cy="20" r="18" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.7"/>
-    <line x1="-30" y1="-20" x2="30" y2="-20" stroke="#10b981" stroke-width="1" opacity="0.4"/>
-    <line x1="-30" y1="-20" x2="0" y2="20" stroke="#10b981" stroke-width="1" opacity="0.4"/>
-    <line x1="30" y1="-20" x2="0" y2="20" stroke="#10b981" stroke-width="1" opacity="0.4"/>
-    <text x="-30" y="-16" font-family="Courier New" font-size="8" fill="#6ee7b7" text-anchor="middle">K8s</text>
-    <text x="30" y="-16" font-family="Courier New" font-size="8" fill="#6ee7b7" text-anchor="middle">GKE</text>
-    <text x="0" y="24" font-family="Courier New" font-size="8" fill="#6ee7b7" text-anchor="middle">K8s</text>
-    <text x="0" y="60" font-family="Courier New" font-size="9" fill="#6ee7b7" text-anchor="middle" opacity="0.5">MULTI-CLUSTER</text>
+  <g transform="translate(155 420)" filter="url(#shadow)">
+    <rect x="-55" y="-12" width="110" height="84" rx="16" fill="#221617" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M-22 -12 v-24 c0-26 44-26 44 0 v24" stroke="#fbbf24" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="28" r="10" fill="#fbbf24"/>
+    <rect x="-4" y="36" width="8" height="18" rx="4" fill="#fbbf24"/>
+    <text x="0" y="104" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#fbbf24" text-anchor="middle">RANSOM</text>
   </g>
 
-  <!-- Floating code fragments -->
-  <g font-family="Courier New, monospace" font-size="10" opacity="0.1" fill="#94a3b8">
-    <text x="80" y="100">dns.resolve(encoded_data)</text>
-    <text x="900" y="120">ClickFix: copy-paste</text>
-    <text x="60" y="480">Deno.run(in_memory)</text>
-    <text x="920" y="450">kyverno.policy.enforce</text>
+  <g transform="translate(840 478)" filter="url(#shadow)">
+    <circle cx="-40" cy="-30" r="28" fill="#09261d" stroke="#34d399" stroke-width="2"/>
+    <circle cx="40" cy="-30" r="28" fill="#09261d" stroke="#34d399" stroke-width="2"/>
+    <circle cx="0" cy="35" r="28" fill="#09261d" stroke="#34d399" stroke-width="2"/>
+    <path d="M-15 -22 L15 -22" stroke="#34d399" stroke-width="2"/>
+    <path d="M-24 -12 L0 18" stroke="#34d399" stroke-width="2"/>
+    <path d="M24 -12 L0 18" stroke="#34d399" stroke-width="2"/>
+    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#6ee7b7" text-anchor="middle">GKE MESH</text>
   </g>
 
-  <!-- Title -->
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Sandbox Escape &amp; DNS Exfiltration</text>
-  <text x="600" y="550" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Bedrock Flaws | LeakNet Ransomware | GKE Inference Gateway</text>
-
-  <!-- Top badges -->
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
-
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 18, 2026</text>
-
-  <!-- Footer stats -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="120" y="610" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">24 News</text>
-  <text x="280" y="610" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">5 Security</text>
-  <text x="420" y="610" font-family="Arial, sans-serif" font-size="12" fill="#6366f1" text-anchor="middle">5 AI/ML</text>
-  <text x="560" y="610" font-family="Arial, sans-serif" font-size="12" fill="#10b981" text-anchor="middle">1 Cloud</text>
-  <text x="700" y="610" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle">3 DevOps</text>
-  <text x="1150" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">March 18 2026</text>
+  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
