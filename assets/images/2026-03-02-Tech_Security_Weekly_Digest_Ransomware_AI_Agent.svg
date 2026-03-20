@@ -1,72 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="270" r="260" fill="#10b981" opacity="0.04" filter="url(#sg)"/>
-  <!-- Zero Trust Concentric Perimeter -->
-  <g transform="translate(600,260)">
-    <!-- Outer perimeter (untrusted) -->
-    <circle cx="0" cy="0" r="180" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.3" stroke-dasharray="8,6"/>
-    <text x="0" y="-188" font-family="Courier New" font-size="10" fill="#ef4444" text-anchor="middle" opacity="0.5">UNTRUSTED ZONE</text>
-    <!-- Middle perimeter (verify) -->
-    <circle cx="0" cy="0" r="130" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.4" stroke-dasharray="6,4"/>
-    <text x="0" y="-138" font-family="Courier New" font-size="9" fill="#f59e0b" text-anchor="middle" opacity="0.6">VERIFY ALWAYS</text>
-    <!-- Inner perimeter (micro-segmented) -->
-    <circle cx="0" cy="0" r="80" fill="none" stroke="#10b981" stroke-width="2.5" opacity="0.6"/>
-    <text x="0" y="-88" font-family="Courier New" font-size="9" fill="#10b981" text-anchor="middle" opacity="0.7">MICRO-SEGMENT</text>
-    <!-- Core identity -->
-    <circle cx="0" cy="0" r="35" fill="#1e293b" stroke="#10b981" stroke-width="3"/>
-    <text x="0" y="-5" font-family="Courier New" font-size="11" fill="#34d399" text-anchor="middle">ZERO</text>
-    <text x="0" y="10" font-family="Courier New" font-size="11" fill="#34d399" text-anchor="middle">TRUST</text>
-    <!-- Authentication checkpoints on rings -->
-    <!-- Outer ring gates -->
-    <g transform="translate(180,0)">
-      <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fca5a5" text-anchor="middle">MFA</text>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Large shield outline -->
+    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
+          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Firewall bricks -->
+    <g opacity="0.3">
+      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
     </g>
-    <g transform="translate(-180,0)">
-      <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fca5a5" text-anchor="middle">IAM</text>
-    </g>
-    <g transform="translate(0,180)">
-      <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fca5a5" text-anchor="middle">VPN</text>
-    </g>
-    <!-- Middle ring gates -->
-    <g transform="translate(92,92)">
-      <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fde68a" text-anchor="middle">TLS</text>
-    </g>
-    <g transform="translate(-92,-92)">
-      <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#fde68a" text-anchor="middle">JWT</text>
-    </g>
-    <!-- Inner ring gates -->
-    <g transform="translate(57,57)">
-      <rect x="-10" y="-7" width="20" height="14" rx="3" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-      <text x="0" y="3" font-family="Courier New" font-size="6" fill="#34d399" text-anchor="middle">API</text>
-    </g>
-    <g transform="translate(-57,-57)">
-      <rect x="-10" y="-7" width="20" height="14" rx="3" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-      <text x="0" y="3" font-family="Courier New" font-size="6" fill="#34d399" text-anchor="middle">mTLS</text>
-    </g>
-    <!-- Threat actors outside -->
-    <circle cx="-220" cy="-120" r="5" fill="#ef4444" opacity="0.6"/>
-    <circle cx="230" cy="100" r="5" fill="#ef4444" opacity="0.5"/>
-    <circle cx="200" cy="-140" r="4" fill="#ef4444" opacity="0.4"/>
-    <path d="M-220,-120 L-185,-95" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
-    <path d="M230,100 L185,80" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
   </g>
-  <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Zero Trust Perimeter</text>
-  <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Crypto Regulation | Ransomware Defense | AI Agent</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#6ee7b7" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest Ransomware AI</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AI | Ransomware</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 2, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 2, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
