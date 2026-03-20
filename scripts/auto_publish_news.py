@@ -1311,9 +1311,48 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
             t for t in ranked_topics if t == "기술 동향"
         ]
 
-    title_keywords = ", ".join(ranked_topics[:3])
+    # --- Specific headline extraction for richer titles ---
+    # Sort by severity: Critical > High > Medium
+    severity_order = {"Critical": 0, "High": 1, "Medium": 2, "Low": 3}
+    sorted_items = sorted(
+        news_items,
+        key=lambda x: severity_order.get(_determine_severity(x), 3),
+    )
+
+    # Extract specific keywords from top news headlines
+    specific_terms = []
+    seen_terms = set()
+    _specific_patterns = [
+        (r"(CVE-\d{4}-\d+)", None),  # CVE IDs
+        (r"\b(FortiGate|Fortinet|Cisco\s+\w+|Palo Alto|CrowdStrike|SonicWall|Ivanti)\b", None),
+        (r"\b(Interlock|Speagle|Lazarus|Kimsuky|APT\d+|DarkSword|Perseus)\b", None),
+        (r"\b(BYOVD|EDR\s+[Kk]iller|RaaS)\b", None),
+        (r"\b(Telnetd|OpenSSH|OpenSSL|Chrome|Firefox)\b", None),
+        (r"\b(KubeCon|Kyverno|Cilium|ArgoCD|Helm)\b", None),
+        (r"\b(Bedrock|SageMaker|Nova\s+Forge|Nemotron)\b", None),
+        (r"\b(Morgan Stanley|OFAC|SEC|NASDAQ)\b", None),
+    ]
+
+    for item in sorted_items[:8]:
+        title = item.get("title", "")
+        for pat, _ in _specific_patterns:
+            matches = re.findall(pat, title, re.IGNORECASE)
+            for m in matches:
+                term = m.strip()
+                if term.lower() not in seen_terms and len(term) > 2:
+                    specific_terms.append(term)
+                    seen_terms.add(term.lower())
+
+    if specific_terms:
+        # Combine specific terms with top category for context
+        top_category = ranked_topics[0] if ranked_topics else "보안"
+        headline_parts = specific_terms[:3]
+        title_keywords = f"{top_category}: {', '.join(headline_parts)}"
+    else:
+        title_keywords = ", ".join(ranked_topics[:3])
+
     if len(title_keywords) > 80:
-        title_keywords = title_keywords[:80].rstrip(" ,.")
+        title_keywords = title_keywords[:80].rsplit(" ", 1)[0].rstrip(" ,.")
     return title_keywords
 
 
