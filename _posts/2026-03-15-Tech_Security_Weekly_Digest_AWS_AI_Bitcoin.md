@@ -5,7 +5,7 @@ title: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전
 date: 2026-03-15 10:24:40 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, SupplyChain, AI-Security, Bitcoin]
-excerpt: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 정리한 주간 다이제스트입니다."
+excerpt: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 description: "[Critical] GlassWorm 공급망 공격 대응 - VS Code Open VSX 확장 감사, AI 에이전트 입출력 검증, AWS IAM Identity Center 멀티리전 접근 정책 재검토 필요. 2026년 03월 15일 보안 뉴스 9건. 공급망 보안, AI 에이전트 취약점, 클라우드 접근 관리를 운영 리스크 기준으로 정리한 DevSecOps 실무 가이드."
 author: Twodragon
 comments: true
@@ -85,7 +85,7 @@ toc: true
   title="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers"
   url="https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4d-2XpiCS0UYnMWh32sQEJP9LnlN_m7m2hok9CnY_vu05XXwWn4INodYCvrEdweEzpho7XqcuOFvEPnnEWlHCRa_q3HY3V5O_ii35MVWAimRwsgrpNQrvGqeUchhZ48FRUl91zTpYQdLMRxVvRjV_T8GEm-J9mnMesefzlgeaoE_EU7Ba32liTr63SsQq/s1600/open.jpg"
-  summary="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -150,7 +150,7 @@ NOT (Image="code.exe" OR Image="codium" OR Image="node")
   title="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration"
   url="https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2mVucJhli25A25joXcap-ewfeMT1Vh-95wQKQfGOue7PwZJ1_55YsG8OQ1DQF7WVOU8tsOy73kGDzgfpTLLeqTYQ1k9LqrFWTNavDmfvCV-9IIER9PfrRsdg1wA5UzpIMrer3xC1mBClBzKkaT6pfczDbppMjZM7afcWu-RURquDGrEfjq3vVBsmlltLm/s1600/open-clawss.jpg"
-  summary="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -230,7 +230,7 @@ def validate_agent_input(text: str, max_length: int = 4096) -> Optional[str]:
 {% include news-card.html
   title="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center"
   url="https://aws.amazon.com/blogs/security/deploy-aws-applications-and-access-aws-accounts-across-multiple-regions-with-iam-identity-center/"
-  summary="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="AWS Security Blog"
   severity="Medium"
 %}
@@ -325,7 +325,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Changing Basel rules could unlock 'huge' liquidity for BTC"
   url="https://cointelegraph.com/news/changing-basel-rules-huge-liquidity-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU2M2MtNWYyMy03N2MyLWIwNTItODQ3ODEwY2E0MjIwLmpwZw==.jpg"
-  summary="Changing Basel rules could unlock 'huge' liquidity for BTC 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Changing Basel rules could unlock 'huge' liquidity for BTC를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -346,7 +346,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Boris Johnson linked to BTC Ponzi scheme allegations"
   url="https://cointelegraph.com/news/boris-johnson-btc-ponzi-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2VkNzAtNzk3ZC03ZWE5LTk5MTItMjAwOGM4YjY1ZTczLmpwZw==.jpg"
-  summary="Boris Johnson linked to BTC Ponzi scheme allegations 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Boris Johnson linked to BTC Ponzi scheme allegations를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -367,7 +367,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential"
   url="https://cointelegraph.com/news/bitcoin-beats-stocks-strategy-strc-776m-btc-buying-potential?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5Yzk5ODMtZWRmNS03NjU2LTlmOWQtNjgwM2FlOWI4ZTg0LmpwZw==.jpg"
-  summary="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -390,7 +390,7 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27513"
   source="GeekNews"
   tag="AI Engineering"
-  summary="진짜 내 일을 위한 Agentic Workflow 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="진짜 내 일을 위한 Agentic Workflow를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>보안 관점</strong>: 130억 토큰 규모의 에이전트 코딩 워크플로우는 코드 생성 과정에서 시크릿이 포함된 프롬프트가 LLM 제공사로 전송될 위험이 있습니다. 에이전트 코딩 도입 시 코드베이스 내 시크릿 사전 제거(git-secrets, truffleHog)와 프롬프트 필터링 정책이 필요합니다."
 %}
 {% include news-spotlight-item.html
@@ -398,7 +398,7 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27512"
   source="GeekNews"
   tag="Hardware"
-  summary="MacBook Neo에서 Parallels 가상 머신으로 윈도우 실행 가능 확인 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="MacBook Neo에서 Parallels 가상 머신으로 윈도우 실행 가능 확인를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>운영 관점</strong>: MacBook Neo 환경에서 Windows VM을 사용하는 개발자가 생긴다면, VM 내 Windows 환경의 보안 패치 관리와 호스트-게스트 간 클립보드 공유 범위 정책을 사전에 수립하세요."
 %}
 {% include news-spotlight-item.html
@@ -406,7 +406,7 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27511"
   source="GeekNews"
   tag="Developer Tools"
-  summary="Hammerspoon - Lua로 구현된 강력한 macOS 데스크톱 자동화 도구 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Hammerspoon - Lua로 구현된 강력한 macOS 데스크톱 자동화 도구를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>보안 관점</strong>: Hammerspoon은 macOS 접근성 API에 광범위한 권한을 요구합니다. 조직에서 사용을 허용할 경우 MDM 정책으로 허용 스크립트 범위를 제한하고, 자동화 스크립트가 자격증명이나 민감 데이터에 접근하지 않도록 코드 리뷰 절차를 두세요."
 %}
 {% endcapture %}
