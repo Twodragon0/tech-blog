@@ -3716,15 +3716,63 @@ def generate_svg_image(
   </g>
 """
 
+    # Node icon templates keyed by label keyword
+    _node_icons = {
+        "malware": '<circle r="16" fill="{c}" opacity="0.2"/><circle cx="-12" cy="-8" r="6" fill="{c}" opacity="0.5"/><circle cx="12" cy="8" r="6" fill="{c}" opacity="0.5"/><circle cx="8" cy="-12" r="4" fill="{c}" opacity="0.4"/>',
+        "ransom": '<rect x="-22" y="-4" width="44" height="36" rx="8" fill="#221617" stroke="{c}" stroke-width="2"/><path d="M-12 -4 v-16 c0-18 24-18 24 0 v16" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="6" fill="{c}"/><rect x="-2" y="20" width="4" height="10" rx="2" fill="{c}"/>',
+        "phish": '<path d="M-20 -8 L0 12 L20 -8" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-24" y="-16" width="48" height="36" rx="4" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-24" r="4" fill="{c}"/>',
+        "cve": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{c}" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="{c}" text-anchor="middle" opacity="0.7">PATCH</text>',
+        "cloud": '<path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="{c}" stroke-width="2" transform="scale(0.7)"/>',
+        "ai": '<rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="{c}" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="{c}" text-anchor="middle">AI</text>',
+        "k8s": '<circle cx="-16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="0" cy="16" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><path d="M-8 -6 L8 -6 M-12 2 L0 14 M12 2 L0 14" stroke="{c}" stroke-width="1.5"/>',
+        "dns": '<circle r="16" fill="{c}" opacity="0.15"/><circle cx="-10" cy="-6" r="5" fill="{c}" opacity="0.6"/><circle cx="10" cy="6" r="5" fill="{c}" opacity="0.6"/><circle cx="12" cy="-10" r="3" fill="{c}" opacity="0.4"/>',
+        "edr": '<rect x="-22" y="-18" width="44" height="36" rx="6" fill="#0f172a" stroke="{c}" stroke-width="2"/><path d="M-12 -6 L-4 6 L14 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><line x1="-14" y1="14" x2="14" y2="14" stroke="{c}" stroke-width="1.5" opacity="0.5"/>',
+        "default": '<circle r="18" fill="{c}" opacity="0.18"/><circle r="8" fill="{c}" opacity="0.3"/>',
+    }
+
+    def _match_icon(label: str) -> str:
+        lbl = label.lower()
+        for key in _node_icons:
+            if key in lbl:
+                return key
+        if any(k in lbl for k in ["exploit", "vuln", "patch", "zero"]):
+            return "cve"
+        if any(k in lbl for k in ["encrypt", "lock", "ransom"]):
+            return "ransom"
+        if any(k in lbl for k in ["aws", "gcp", "azure", "cloud"]):
+            return "cloud"
+        if any(k in lbl for k in ["agent", "llm", "model"]):
+            return "ai"
+        if any(k in lbl for k in ["k8s", "kube", "gke", "eks"]):
+            return "k8s"
+        if any(k in lbl for k in ["bot", "worm", "trojan"]):
+            return "malware"
+        return "default"
+
+    # Build attack-flow arrows from core to nodes
+    arrow_svg = ""
     for idx, label in enumerate(focus_labels[:3]):
         x, y = node_positions[idx]
         color = node_colors[idx % len(node_colors)]
+        # Curved arrow path
+        cx1 = 600 + (x - 600) * 0.3
+        cy1 = 336 + (y - 336) * 0.1
+        cx2 = 600 + (x - 600) * 0.7
+        cy2 = 336 + (y - 336) * 0.9
+        arrow_svg += f'  <path d="M600 336 C{cx1:.0f} {cy1:.0f} {cx2:.0f} {cy2:.0f} {x} {y}" fill="none" stroke="{color}" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/>\n'
+
+    svg += arrow_svg
+
+    for idx, label in enumerate(focus_labels[:3]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_icon(label)
+        icon_svg = _node_icons[icon_key].replace("{c}", color)
         svg += f"""
-  <line x1="600" y1="336" x2="{x}" y2="{y}" stroke="{color}" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round" opacity="0.85"/>
   <g transform="translate({x} {y})" filter="url(#shadow)">
-    <circle r="60" fill="#0f172a" stroke="{color}" stroke-width="2"/>
-    <circle r="18" fill="{color}" opacity="0.18"/>
-    <text x="0" y="102" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+    <circle r="58" fill="#0f172a" stroke="{color}" stroke-width="2"/>
+    {icon_svg}
+    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
   </g>
 """
 
