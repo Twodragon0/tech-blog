@@ -3594,6 +3594,25 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
     return topics[:4] if topics else ["Security", "Cloud", "DevOps", "AI"]
 
 
+SVG_DIGEST_POLICY = {
+    "template": "hub-spoke",
+    "max_focus_labels": 3,
+    "max_label_chars": 10,
+    "max_subtitle_chars": 32,
+}
+
+
+def _normalize_svg_focus_label(label: str) -> str:
+    label = re.sub(r"\s+", " ", label.strip().upper())
+    label = re.sub(r"[^A-Z0-9 /+-]", "", label)
+    return _truncate_text(label, SVG_DIGEST_POLICY["max_label_chars"])
+
+
+def _compose_svg_subtitle(labels: List[str]) -> str:
+    subtitle = "  ".join(labels[: SVG_DIGEST_POLICY["max_focus_labels"]])
+    return _truncate_text(subtitle, SVG_DIGEST_POLICY["max_subtitle_chars"])
+
+
 def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List[str]:
     """Return short English labels for low-text digest SVGs."""
     label_patterns = [
@@ -3616,14 +3635,15 @@ def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List
     for item in news_items[:8]:
         text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
         for pattern, label in label_patterns:
-            if re.search(pattern, text) and label not in seen:
-                seen.add(label)
-                labels.append(label)
+            normalized = _normalize_svg_focus_label(label)
+            if re.search(pattern, text) and normalized and normalized not in seen:
+                seen.add(normalized)
+                labels.append(normalized)
                 if len(labels) >= limit:
                     return labels
 
     for topic in _extract_key_topics(news_items):
-        label = _truncate_text(_to_english_svg_text(topic).upper(), 12)
+        label = _normalize_svg_focus_label(_to_english_svg_text(topic))
         if label and label not in seen:
             seen.add(label)
             labels.append(label)
@@ -3664,7 +3684,9 @@ def generate_svg_image(
     """Generate low-text digest SVG focused on standalone comprehension."""
 
     date_display = date.strftime("%B %d, %Y")
-    focus_labels = _extract_visual_focus_labels(news_items, limit=3)
+    focus_labels = _extract_visual_focus_labels(
+        news_items, limit=SVG_DIGEST_POLICY["max_focus_labels"]
+    )
 
     if categorized.get("security") or categorized.get("devsecops"):
         main_category = "security"
@@ -3678,7 +3700,7 @@ def generate_svg_image(
     config = CATEGORY_SVG_CONFIG.get(main_category, CATEGORY_SVG_CONFIG["tech"])
     accent = config["icon_color"]
     headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
-    subtitle = "  ".join(focus_labels)
+    subtitle = _compose_svg_subtitle(focus_labels)
     node_colors = [accent, "#67e8f9", "#f59e0b"]
     node_positions = [(250, 360), (600, 210), (950, 360)]
 
@@ -3701,9 +3723,6 @@ def generate_svg_image(
   <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
   <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
 
-  <rect x="70" y="58" width="170" height="34" rx="17" fill="#0f172a" stroke="#334155"/>
-  <text x="155" y="81" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#cbd5e1" text-anchor="middle">WEEKLY DIGEST</text>
-
   <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">{headline}</text>
   <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
 
@@ -3712,7 +3731,6 @@ def generate_svg_image(
     <circle r="44" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/>
     <path d="M-18 0 h36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
     <path d="M0 -18 v36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
-    <text x="0" y="138" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
   </g>
 """
 
