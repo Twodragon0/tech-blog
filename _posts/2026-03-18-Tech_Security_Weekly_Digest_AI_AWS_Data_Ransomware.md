@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware.svg
-image_alt: "Tech Security Weekly Digest March 18 2026 AI AWS Data"
+image_alt: "AI sandbox DNS exfiltration and multi cluster security overview"
 toc: true
 ---
 
