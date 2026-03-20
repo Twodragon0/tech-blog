@@ -1,56 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a2e"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="280" r="260" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
-  <!-- AI Brain Scanner -->
-  <g transform="translate(600,260)">
-    <!-- Brain outline -->
-    <path d="M0,-120 C60,-120 100,-90 110,-50 C120,-10 100,30 80,50 C60,70 30,80 0,80 C-30,80 -60,70 -80,50 C-100,30 -120,-10 -110,-50 C-100,-90 -60,-120 0,-120Z" fill="#1e293b" stroke="#3b82f6" stroke-width="2.5"/>
-    <!-- Brain folds -->
-    <path d="M-60,-80 C-30,-60 30,-60 60,-80" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
-    <path d="M-70,-40 C-20,-20 20,-20 70,-40" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
-    <path d="M-60,0 C-20,20 20,20 60,0" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
-    <path d="M-40,35 C-10,50 10,50 40,35" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-    <!-- Center divide -->
-    <line x1="0" y1="-110" x2="0" y2="70" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
-    <!-- Scanner beam sweeping -->
-    <rect x="-130" y="-30" width="260" height="4" rx="2" fill="#22d3ee" opacity="0.6"/>
-    <rect x="-130" y="-30" width="260" height="20" rx="2" fill="#22d3ee" opacity="0.05"/>
-    <!-- Eye / sensor in center -->
-    <circle cx="0" cy="-20" r="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="0" cy="-20" r="12" fill="#22d3ee" opacity="0.2"/>
-    <circle cx="0" cy="-20" r="6" fill="#22d3ee" opacity="0.8"/>
-    <!-- Scan crosshair -->
-    <line x1="-30" y1="-20" x2="-14" y2="-20" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-    <line x1="14" y1="-20" x2="30" y2="-20" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-    <line x1="0" y1="-48" x2="0" y2="-32" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-    <line x1="0" y1="-8" x2="0" y2="8" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-    <!-- Vulnerability markers on brain -->
-    <circle cx="-50" cy="-70" r="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.8"/>
-    <text x="-50" y="-66" font-family="Courier New" font-size="10" fill="#ef4444" text-anchor="middle">!</text>
-    <circle cx="60" cy="-50" r="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
-    <text x="60" y="-46" font-family="Courier New" font-size="10" fill="#ef4444" text-anchor="middle">!</text>
-    <circle cx="-30" cy="40" r="8" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-    <text x="-30" y="44" font-family="Courier New" font-size="10" fill="#f59e0b" text-anchor="middle">?</text>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Radar circles -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <circle cx="0" cy="0" r="105" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="0" cy="0" r="6" fill="#ef4444" opacity="0.6"/>
+    <!-- Radar sweep line -->
+    <line x1="0" y1="0" x2="100" y2="-100" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
+    <path d="M0,0 L70,-70 A100,100 0 0,1 100,0 Z" fill="#ef4444" fill-opacity="0.08"/>
+    <!-- Cross hairs -->
+    <line x1="-145" y1="0" x2="145" y2="0" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
+    <line x1="0" y1="-145" x2="0" y2="145" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
+    <!-- Threat dots -->
+    <circle cx="60" cy="-80" r="5" fill="#ef4444" opacity="0.7"/>
+    <circle cx="60" cy="-80" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
+    <circle cx="-40" cy="50" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="-40" cy="50" r="8" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+    <circle cx="90" cy="30" r="3" fill="#f59e0b" opacity="0.5"/>
   </g>
-  <!-- Data streams -->
-  <g opacity="0.2" font-family="Courier New" font-size="10" fill="#3b82f6">
-    <text x="150" y="200">scan:codex_v3</text>
-    <text x="900" y="200">vuln:firefox</text>
-    <text x="130" y="400">model:claude</text>
-    <text x="920" y="380">token:USDC</text>
-  </g>
-  <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Security Scanner</text>
-  <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Codex Vulnerability Scan | Claude Browser Risk | USDC</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest AI Security</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AI</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 8, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 8, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

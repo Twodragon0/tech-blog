@@ -1,89 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
-      <stop offset="0%" stop-color="#0f172a"/><stop offset="50%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#7c3aed"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/><line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/><line x1="1000" y1="0" x2="1000" y2="630"/>
+
+  <circle cx="400" cy="250" r="200" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#f59e0b" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Infinity/figure-8 loop -->
+    <path d="M-80,0 C-80,-60 -160,-60 -160,0 C-160,60 -80,60 -80,0 C-80,-60 0,-60 0,0"
+          fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.3"/>
+    <path d="M80,0 C80,60 160,60 160,0 C160,-60 80,-60 80,0 C80,60 0,60 0,0"
+          fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.3"/>
+    <!-- Stage labels around the loop -->
+    <g font-family="Courier New" font-size="9" text-anchor="middle" opacity="0.7">
+      <circle cx="-160" cy="-35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="-160" y="-32" fill="#fbbf24">PLAN</text>
+      <circle cx="-120" cy="35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="-120" y="38" fill="#fbbf24">CODE</text>
+      <circle cx="-40" cy="-35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="-40" y="-32" fill="#fbbf24">BUILD</text>
+      <circle cx="40" cy="35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="40" y="38" fill="#60a5fa">TEST</text>
+      <circle cx="120" cy="-35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="120" y="-32" fill="#60a5fa">DEPLOY</text>
+      <circle cx="160" cy="35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="160" y="38" fill="#60a5fa">MONITOR</text>
+    </g>
+    <!-- Dev / Ops labels -->
+    <text x="-120" y="-75" font-family="Arial" font-size="11" fill="#f59e0b" text-anchor="middle" opacity="0.5">Dev</text>
+    <text x="120" y="-75" font-family="Arial" font-size="11" fill="#3b82f6" text-anchor="middle" opacity="0.5">Ops</text>
   </g>
-  <!-- Learning path icon - graduation cap -->
-  <g transform="translate(80, 180)">
-    <rect x="0" y="0" width="120" height="120" rx="20" fill="url(#accent)" opacity="0.9"/>
-    <path d="M60 30 L20 55 L60 80 L100 55 Z" fill="white" opacity="0.9"/>
-    <line x1="60" y1="80" x2="60" y2="100" stroke="white" stroke-width="2"/>
-    <path d="M35 62 L35 85 Q60 100 85 85 L85 62" fill="none" stroke="white" stroke-width="2"/>
-  </g>
-  <!-- Step indicators -->
-  <g transform="translate(80, 370)">
-    <circle cx="20" cy="15" r="14" fill="#7c3aed" stroke="#a78bfa" stroke-width="1.5"/>
-    <text x="20" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">1</text>
-    <text x="42" y="20" fill="#a78bfa" font-family="Arial, sans-serif" font-size="12">Fundamentals</text>
-    <circle cx="20" cy="50" r="14" fill="#2563eb" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="20" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">2</text>
-    <text x="42" y="55" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12">Intermediate</text>
-    <circle cx="20" cy="85" r="14" fill="#059669" stroke="#34d399" stroke-width="1.5"/>
-    <text x="20" y="90" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">3</text>
-    <text x="42" y="90" fill="#34d399" font-family="Arial, sans-serif" font-size="12">Advanced</text>
-    <circle cx="20" cy="120" r="14" fill="#dc2626" stroke="#f87171" stroke-width="1.5"/>
-    <text x="20" y="125" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">4</text>
-    <text x="42" y="125" fill="#f87171" font-family="Arial, sans-serif" font-size="12">Expert</text>
-  </g>
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">DEVSECOPS GUIDE</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Learning Path</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">From Zero to Expert</text>
-  </g>
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 10, 2026</text>
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#a78bfa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LEVELS</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">4</text>
-    <text x="55" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">progression tiers</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CERTIFICATIONS</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">12</text>
-    <text x="295" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">recommended</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#34d399" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DURATION</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">12</text>
-    <text x="515" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">months avg</text>
-  </g>
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="120" height="32" rx="16" fill="#581c87" opacity="0.7"/>
-    <text x="60" y="21" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="13">Linux</text>
-    <rect x="135" y="0" width="120" height="32" rx="16" fill="#1e3a8a" opacity="0.7"/>
-    <text x="195" y="21" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="13">Networking</text>
-    <rect x="270" y="0" width="120" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="330" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Cloud</text>
-    <rect x="405" y="0" width="140" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="475" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Containers</text>
-  </g>
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="50" cy="50" r="6" fill="#a78bfa"/><circle cx="120" cy="30" r="4" fill="#60a5fa"/>
-    <circle cx="150" cy="90" r="5" fill="#34d399"/><circle cx="80" cy="120" r="4" fill="#f87171"/>
-    <circle cx="200" cy="60" r="3" fill="#a78bfa"/><circle cx="30" cy="150" r="5" fill="#60a5fa"/>
-    <circle cx="180" cy="140" r="4" fill="#34d399"/>
-    <line x1="50" y1="50" x2="120" y2="30" stroke="#475569" stroke-width="1"/>
-    <line x1="50" y1="50" x2="80" y2="120" stroke="#475569" stroke-width="1"/>
-    <line x1="120" y1="30" x2="150" y2="90" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="200" y2="60" stroke="#475569" stroke-width="1"/>
-    <line x1="80" y1="120" x2="30" y2="150" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="180" y2="140" stroke="#475569" stroke-width="1"/>
-  </g>
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Learning Path Guide</text>
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">Beginner to Expert</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps | Career | Certification</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">devsecops learning path</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">DevSecOps</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">TECH BLOG</text>
+
+  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 10, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
