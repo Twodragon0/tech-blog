@@ -1,285 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="linuxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FCC624"/>
-      <stop offset="100%" style="stop-color:#D9A61A"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9B59B6"/>
-      <stop offset="100%" style="stop-color:#8E44AD"/>
+    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#fca5a5"/>
     </linearGradient>
-    <linearGradient id="kernelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#E74C3C"/>
-      <stop offset="100%" style="stop-color:#C0392B"/>
-    </linearGradient>
-    <linearGradient id="fileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#27AE60"/>
-      <stop offset="100%" style="stop-color:#1E8449"/>
-    </linearGradient>
-    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3498DB"/>
-      <stop offset="100%" style="stop-color:#2980B9"/>
-    </linearGradient>
-    <linearGradient id="responseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F39C12"/>
-      <stop offset="100%" style="stop-color:#D68910"/>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
     </linearGradient>
     <filter id="shadow">
-      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
     </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="iconShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.15"/>
     </filter>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
-  <rect width="1400" height="900" fill="url(#bgGrad)"/>
-  <rect width="1400" height="900" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Header -->
-  <rect x="0" y="0" width="1400" height="80" fill="url(#securityGrad)" opacity="0.9"/>
-  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">Linux Rootkit Detection Pipeline</text>
-  <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">KISA Security Advisory | Kernel &amp; User-Space Detection | Incident Response</text>
+  <!-- Grid Pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="120" x2="1200" y2="120" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="180" x2="1200" y2="180" stroke="#ef4444" stroke-width="1"/>
+  </g>
 
-  <!-- Detection Pipeline -->
-  <g transform="translate(50, 100)">
-    <rect x="0" y="0" width="1300" height="280" rx="15" fill="#1e293b" stroke="#9B59B6" stroke-width="2" filter="url(#shadow)"/>
-    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#9B59B6">Detection Pipeline - 4 Phase Analysis</text>
-    
-    <!-- Phase 1: Kernel Module -->
-    <g transform="translate(30, 50)">
-      <rect x="0" y="0" width="290" height="210" rx="12" fill="rgba(155,89,182,0.15)" stroke="#9B59B6" stroke-width="2"/>
-      <rect x="0" y="0" width="290" height="40" rx="12" fill="url(#securityGrad)"/>
-      <rect x="0" y="25" width="290" height="15" fill="url(#securityGrad)"/>
-      <circle cx="30" cy="20" r="15" fill="#ffffff"/>
-      <text x="30" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">1</text>
-      <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Kernel Module Check</text>
-      
-      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ lsmod vs /sys/module comparison</text>
-      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Hidden module detection</text>
-      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Syscall table verification</text>
-      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ LKM signature validation</text>
-      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Kernel integrity check</text>
-      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ /proc anomaly detection</text>
-      
-      <rect x="15" y="180" width="260" height="25" rx="5" fill="rgba(155,89,182,0.3)" stroke="#9B59B6" stroke-width="1"/>
-      <text x="145" y="197" text-anchor="middle" font-family="monospace" font-size="10" fill="#9B59B6">chkrootkit lkm | modinfo</text>
-    </g>
-    
-    <!-- Arrow 1 -->
-    <g transform="translate(320, 140)">
-      <line x1="0" y1="20" x2="30" y2="20" stroke="#9B59B6" stroke-width="3"/>
-      <polygon points="30,20 20,14 20,26" fill="#9B59B6"/>
-    </g>
-    
-    <!-- Phase 2: File Integrity -->
-    <g transform="translate(360, 50)">
-      <rect x="0" y="0" width="290" height="210" rx="12" fill="rgba(39,174,96,0.15)" stroke="#27AE60" stroke-width="2"/>
-      <rect x="0" y="0" width="290" height="40" rx="12" fill="url(#fileGrad)"/>
-      <rect x="0" y="25" width="290" height="15" fill="url(#fileGrad)"/>
-      <circle cx="30" cy="20" r="15" fill="#ffffff"/>
-      <text x="30" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#27AE60">2</text>
-      <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">File Integrity Check</text>
-      
-      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Binary hash verification</text>
-      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ SUID/SGID bit audit</text>
-      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Config file changes (/etc)</text>
-      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Critical path: /bin /sbin /usr</text>
-      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Hidden file detection (.*)</text>
-      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ LD_PRELOAD hijack check</text>
-      
-      <rect x="15" y="180" width="260" height="25" rx="5" fill="rgba(39,174,96,0.3)" stroke="#27AE60" stroke-width="1"/>
-      <text x="145" y="197" text-anchor="middle" font-family="monospace" font-size="10" fill="#27AE60">AIDE --check | rkhunter</text>
-    </g>
-    
-    <!-- Arrow 2 -->
-    <g transform="translate(650, 140)">
-      <line x1="0" y1="20" x2="30" y2="20" stroke="#27AE60" stroke-width="3"/>
-      <polygon points="30,20 20,14 20,26" fill="#27AE60"/>
-    </g>
-    
-    <!-- Phase 3: Network Analysis -->
-    <g transform="translate(690, 50)">
-      <rect x="0" y="0" width="290" height="210" rx="12" fill="rgba(52,152,219,0.15)" stroke="#3498DB" stroke-width="2"/>
-      <rect x="0" y="0" width="290" height="40" rx="12" fill="url(#networkGrad)"/>
-      <rect x="0" y="25" width="290" height="15" fill="url(#networkGrad)"/>
-      <circle cx="30" cy="20" r="15" fill="#ffffff"/>
-      <text x="30" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498DB">3</text>
-      <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Network Analysis</text>
-      
-      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Hidden connection detection</text>
-      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Backdoor port scanning</text>
-      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Suspicious outbound traffic</text>
-      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ DNS anomaly detection</text>
-      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Promiscuous mode check</text>
-      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Raw socket analysis</text>
-      
-      <rect x="15" y="180" width="260" height="25" rx="5" fill="rgba(52,152,219,0.3)" stroke="#3498DB" stroke-width="1"/>
-      <text x="145" y="197" text-anchor="middle" font-family="monospace" font-size="10" fill="#3498DB">netstat -tulpn | ss | lsof</text>
-    </g>
-    
-    <!-- Arrow 3 -->
-    <g transform="translate(980, 140)">
-      <line x1="0" y1="20" x2="30" y2="20" stroke="#3498DB" stroke-width="3"/>
-      <polygon points="30,20 20,14 20,26" fill="#3498DB"/>
-    </g>
-    
-    <!-- Phase 4: Response -->
-    <g transform="translate(1020, 50)">
-      <rect x="0" y="0" width="250" height="210" rx="12" fill="rgba(231,76,60,0.15)" stroke="#E74C3C" stroke-width="2"/>
-      <rect x="0" y="0" width="250" height="40" rx="12" fill="url(#kernelGrad)"/>
-      <rect x="0" y="25" width="250" height="15" fill="url(#kernelGrad)"/>
-      <circle cx="30" cy="20" r="15" fill="#ffffff"/>
-      <text x="30" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E74C3C">4</text>
-      <text x="140" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Incident Response</text>
-      
-      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Network isolation</text>
-      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Forensic data collection</text>
-      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ SOC team notification</text>
-      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Memory dump capture</text>
-      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Restore from backup</text>
-      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Post-mortem analysis</text>
-      
-      <rect x="15" y="180" width="220" height="25" rx="5" fill="#E74C3C"/>
-      <text x="125" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">QUARANTINE SYSTEM</text>
+  <!-- Background Decorative Circles -->
+  <circle cx="1100" cy="80" r="200" fill="#ef4444" opacity="0.03"/>
+  <circle cx="80" cy="550" r="150" fill="#ef4444" opacity="0.02"/>
+
+  <!-- Category Badge (top-left) -->
+  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
+  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">TECH BLOG</text>
+
+  <!-- Date Badge (top-right) -->
+  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">January 22, 2026</text>
+
+  <!-- Main Title -->
+  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">Linux Rootkit Detection Flow</text>
+
+  <!-- Accent Gradient Bar -->
+  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
+
+  <!-- Left Side: Icon Column -->
+  <g filter="url(#iconShadow)">
+    <g opacity="0.9">
+    <g transform="translate(120,280)"><path d="M0,-22 C12,-22 22,-14 22,0 C22,14 12,26 0,30 C-12,26 -22,14 -22,0 C-22,-14 -12,-22 0,-22Z" fill="none" stroke="#ef4444" stroke-width="2.5"/><path d="M-6,4 L-2,10 L8,-4" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g transform="translate(120,360)"><rect x="-10" y="-4" width="20" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="2.2"/><path d="M-6,-4 L-6,-12 C-6,-20 6,-20 6,-12 L6,-4" fill="none" stroke="#ef4444" stroke-width="2.2"/><circle cx="0" cy="6" r="2.5" fill="#ef4444"/></g>
+    <g transform="translate(120,440)"><path d="M0,-20 L20,16 L-20,16 Z" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linejoin="round"/><line x1="0" y1="-8" x2="0" y2="4" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/><circle cx="0" cy="10" r="2" fill="#ef4444"/></g>
     </g>
   </g>
 
-  <!-- Detection Tools Section -->
-  <g transform="translate(50, 400)">
-    <rect x="0" y="0" width="1300" height="130" rx="12" fill="#1e293b" stroke="#4A90D9" stroke-width="2" filter="url(#shadow)"/>
-    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4A90D9">Detection Tools &amp; Utilities</text>
-    
-    <!-- Tools -->
-    <g transform="translate(30, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#9B59B6">chkrootkit</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">LKM rootkit scanner</text>
-    </g>
-    
-    <g transform="translate(220, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27AE60">rkhunter</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Rootkit Hunter</text>
-    </g>
-    
-    <g transform="translate(410, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3498DB">AIDE</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">File Integrity Monitor</text>
-    </g>
-    
-    <g transform="translate(600, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#F39C12">Lynis</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Security Auditing</text>
-    </g>
-    
-    <g transform="translate(790, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(231,76,60,0.2)" stroke="#E74C3C" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#E74C3C">ClamAV</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Malware Scanner</text>
-    </g>
-    
-    <g transform="translate(980, 50)">
-      <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(74,144,217,0.2)" stroke="#4A90D9" stroke-width="2"/>
-      <text x="85" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#4A90D9">Osquery</text>
-      <text x="85" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">SQL-based Query</text>
-    </g>
-    
-    <g transform="translate(1170, 50)">
-      <rect x="0" y="0" width="100" height="60" rx="8" fill="rgba(22,160,133,0.2)" stroke="#16A085" stroke-width="2"/>
-      <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#16A085">Volatility</text>
-      <text x="50" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Memory</text>
-    </g>
-  </g>
+  <!-- Icon labels -->
+  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
+  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
+  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
 
-  <!-- Rootkit Types Section -->
-  <g transform="translate(50, 550)">
-    <rect x="0" y="0" width="640" height="200" rx="12" fill="#1e293b" stroke="#E74C3C" stroke-width="2" filter="url(#shadow)"/>
-    <text x="320" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#E74C3C">Rootkit Classification</text>
-    
-    <!-- User-space -->
-    <g transform="translate(20, 50)">
-      <rect x="0" y="0" width="290" height="130" rx="8" fill="rgba(243,156,18,0.1)" stroke="#F39C12" stroke-width="1"/>
-      <text x="145" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">User-space Rootkits</text>
-      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Binary replacement (/bin, /sbin)</text>
-      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- LD_PRELOAD library injection</text>
-      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Shared library hooking</text>
-      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Shell modification</text>
-      <text x="15" y="113" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Detection: File hash comparison</text>
-    </g>
-    
-    <!-- Kernel-space -->
-    <g transform="translate(330, 50)">
-      <rect x="0" y="0" width="290" height="130" rx="8" fill="rgba(231,76,60,0.1)" stroke="#E74C3C" stroke-width="1"/>
-      <text x="145" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">Kernel-space Rootkits</text>
-      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- LKM (Loadable Kernel Module)</text>
-      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Syscall table hooking</text>
-      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- VFS layer manipulation</text>
-      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- DKOM (Direct Kernel Object)</text>
-      <text x="15" y="113" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Detection: Kernel memory analysis</text>
-    </g>
-  </g>
+  <!-- Hero Card -->
+  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
 
-  <!-- Automation Section -->
-  <g transform="translate(710, 550)">
-    <rect x="0" y="0" width="640" height="200" rx="12" fill="#1e293b" stroke="#27AE60" stroke-width="2" filter="url(#shadow)"/>
-    <text x="320" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#27AE60">Automation &amp; Scheduled Scanning</text>
-    
-    <!-- Cron Jobs -->
-    <g transform="translate(20, 50)">
-      <rect x="0" y="0" width="600" height="130" rx="8" fill="rgba(39,174,96,0.1)" stroke="#27AE60" stroke-width="1"/>
-      <text x="300" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Recommended Cron Schedule</text>
-      
-      <text x="15" y="50" font-family="monospace" font-size="10" fill="#94a3b8"># Daily chkrootkit scan at 3 AM</text>
-      <text x="15" y="65" font-family="monospace" font-size="11" fill="#e0e0e0">0 3 * * * /usr/bin/chkrootkit | mail -s "Rootkit Report" admin@example.com</text>
-      
-      <text x="15" y="85" font-family="monospace" font-size="10" fill="#94a3b8"># Weekly rkhunter scan on Sunday</text>
-      <text x="15" y="100" font-family="monospace" font-size="11" fill="#e0e0e0">0 4 * * 0 /usr/bin/rkhunter --check --skip-keypress --report-warnings-only</text>
-      
-      <text x="15" y="120" font-family="monospace" font-size="10" fill="#94a3b8"># Daily AIDE integrity check</text>
-      <text x="15" y="135" font-family="monospace" font-size="11" fill="#e0e0e0">0 5 * * * /usr/bin/aide --check | grep -v "^AIDE" | mail admin@example.com</text>
-    </g>
-  </g>
+  <!-- Card Top Border (category color) -->
+  <rect x="200" y="230" width="800" height="6" rx="3" fill="#ef4444" opacity="0.8"/>
+  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
 
-  <!-- Quick Reference Commands -->
-  <g transform="translate(50, 770)">
-    <rect x="0" y="0" width="1300" height="90" rx="12" fill="#1e293b" stroke="#9B59B6" stroke-width="2" filter="url(#shadow)"/>
-    <text x="650" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#9B59B6">Quick Reference Commands</text>
-    
-    <g transform="translate(30, 40)">
-      <rect x="0" y="0" width="300" height="35" rx="5" fill="rgba(155,89,182,0.2)"/>
-      <text x="150" y="22" text-anchor="middle" font-family="monospace" font-size="10" fill="#9B59B6">chkrootkit -q | grep INFECTED</text>
-    </g>
-    
-    <g transform="translate(350, 40)">
-      <rect x="0" y="0" width="300" height="35" rx="5" fill="rgba(39,174,96,0.2)"/>
-      <text x="150" y="22" text-anchor="middle" font-family="monospace" font-size="10" fill="#27AE60">rkhunter --check --sk --rwo</text>
-    </g>
-    
-    <g transform="translate(670, 40)">
-      <rect x="0" y="0" width="300" height="35" rx="5" fill="rgba(52,152,219,0.2)"/>
-      <text x="150" y="22" text-anchor="middle" font-family="monospace" font-size="10" fill="#3498DB">aide --check --config=/etc/aide.conf</text>
-    </g>
-    
-    <g transform="translate(990, 40)">
-      <rect x="0" y="0" width="280" height="35" rx="5" fill="rgba(243,156,18,0.2)"/>
-      <text x="140" y="22" text-anchor="middle" font-family="monospace" font-size="10" fill="#F39C12">lynis audit system --quick</text>
-    </g>
-  </g>
+  <!-- Card Content -->
+  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
+  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
+  <rect x="240" y="305" width="4" height="18" rx="2" fill="#ef4444"/>
+
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
+  <rect x="240" y="340" width="4" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
+
+  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
+  <rect x="240" y="375" width="4" height="18" rx="2" fill="#ef4444" opacity="0.4"/>
+
+  <!-- Card CTA -->
+  <rect x="830" y="405" width="140" height="36" rx="18" fill="#ef4444" opacity="0.1"/>
+  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">View Post</text>
+
+  <!-- Topic Tags -->
+    <rect x="320" y="480" width="88" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="364" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
+    <rect x="420" y="480" width="64" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="452" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Cloud</text>
+    <rect x="496" y="480" width="72" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="532" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">DevOps</text>
 
   <!-- Footer -->
-  <text x="700" y="885" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">KISA Linux Rootkit Detection Guide | Security Hardening | Incident Response | tech.2twodragon.com</text>
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
 </svg>

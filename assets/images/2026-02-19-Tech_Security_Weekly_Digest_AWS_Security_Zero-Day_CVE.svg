@@ -1,186 +1,114 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <!-- Background Gradients -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f8fafc"/>
       <stop offset="40%" style="stop-color:#f1f5f9"/>
       <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-
-    <!-- Category Gradient -->
-    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
-    </linearGradient>
-
-    <!-- Accent Gradient -->
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
       <stop offset="33%" style="stop-color:#8b5cf6"/>
       <stop offset="66%" style="stop-color:#ec4899"/>
       <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-
-    <!-- Card Gradient -->
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#fca5a5"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff"/>
       <stop offset="100%" style="stop-color:#f8fafc"/>
     </linearGradient>
-
-    <!-- Fire Gradient for Incident -->
-    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="50%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#fbbf24"/>
-    </linearGradient>
-
-    <!-- Glow Effects -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
     </filter>
-
-    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Shadow -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
-    </filter>
-
-    <!-- Inner Glow -->
-    <filter id="innerGlow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-      <feOffset in="blur" dx="0" dy="0"/>
-      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
-      <feBlend in2="SourceGraphic"/>
+    <filter id="iconShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.15"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Animated Grid Pattern -->
-  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <!-- Background Decorative Elements -->
-  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
-  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
-  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
-
-  <!-- Decorative Lines -->
-  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
-  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
-
-  <!-- Top Header Bar -->
-  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
-
-  <!-- Category Badge -->
-  <g filter="url(#shadow)">
-    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
-    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  <!-- Grid Pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="120" x2="1200" y2="120" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="180" x2="1200" y2="180" stroke="#ef4444" stroke-width="1"/>
   </g>
 
-  <!-- Date Badge -->
-  <g filter="url(#shadow)">
-    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
-    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">March 15, 2026</text>
-  </g>
+  <!-- Background Decorative Circles -->
+  <circle cx="1100" cy="80" r="200" fill="#ef4444" opacity="0.03"/>
+  <circle cx="80" cy="550" r="150" fill="#ef4444" opacity="0.02"/>
+
+  <!-- Category Badge (top-left) -->
+  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
+  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
+
+  <!-- Date Badge (top-right) -->
+  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">February 19, 2026</text>
 
   <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">: AWS , Zero-Day, CVE-2026-2329</text>
+  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">Tech Security Weekly Digest AWS Security Zero</text>
 
-  <!-- Subtitle Line -->
-  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  <!-- Accent Gradient Bar -->
+  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
 
-  <!-- Icon Section - Left Side -->
-  <g opacity="0.95">
+  <!-- Subtitle -->
+  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
 
-    <!-- Shield Icon -->
-    <g transform="translate(80, 280)">
-      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z"
-            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
-      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-
-    <!-- Lock Icon -->
-    <g transform="translate(200, 300)">
-      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
-      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
-      <circle cx="40" cy="55" r="6" fill="white"/>
-    </g>
-
-    <!-- Alert Triangle -->
-    <g transform="translate(320, 290)">
-      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
-      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
-    </g>
-
-  </g>
-
-  <!-- Main Content Card -->
-  <g transform="translate(450, 180)" filter="url(#shadow)">
-    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
-
-    <!-- Card Header Accent -->
-    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
-
-    <!-- Card Title -->
-    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
-
-    <!-- Summary Content -->
-    <g transform="translate(30, 90)">
-      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Dell RecoverPoint VM CVE-2026-22769</text>
-    </g>
-    <g transform="translate(30, 125)">
-      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">, VS Code 4 (1.25 ) ,</text>
-    </g>
-
-    <!-- Tags Section -->
-    <g transform="translate(30, 230)">
-      <rect x="0" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
-      <text x="79" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-We...</text>
-      <rect x="171" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
-      <text x="228" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DevSecOps</text>
-      <rect x="297" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
-      <text x="376" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cloud-Security</text>
-    </g>
-
-    <!-- CTA Button -->
-    <g transform="translate(540, 280)">
-      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
-      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
+  <!-- Left Side: Icon Column -->
+  <g filter="url(#iconShadow)">
+    <g opacity="0.9">
+    <g transform="translate(120,280)"><path d="M0,-20 L20,16 L-20,16 Z" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linejoin="round"/><line x1="0" y1="-8" x2="0" y2="4" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/><circle cx="0" cy="10" r="2" fill="#ef4444"/></g>
+    <g transform="translate(120,360)"><path d="M0,-22 C12,-22 22,-14 22,0 C22,14 12,26 0,30 C-12,26 -22,14 -22,0 C-22,-14 -12,-22 0,-22Z" fill="none" stroke="#ef4444" stroke-width="2.5"/><path d="M-6,4 L-2,10 L8,-4" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g transform="translate(120,440)"><rect x="-10" y="-4" width="20" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="2.2"/><path d="M-6,-4 L-6,-12 C-6,-20 6,-20 6,-12 L6,-4" fill="none" stroke="#ef4444" stroke-width="2.2"/><circle cx="0" cy="6" r="2.5" fill="#ef4444"/></g>
     </g>
   </g>
 
-  <!-- Bottom Section -->
-  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  <!-- Icon labels -->
+  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
+  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
+  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
 
-  <!-- Blog Branding -->
-  <g transform="translate(50, 575)">
-    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
-    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
-  </g>
+  <!-- Hero Card -->
+  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
 
-  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
-  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  <!-- Card Top Border (category color) -->
+  <rect x="200" y="230" width="800" height="6" rx="3" fill="#ef4444" opacity="0.8"/>
+  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
 
-  <!-- Tech Stack -->
-  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
+  <!-- Card Content -->
+  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
+  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
+  <rect x="240" y="305" width="4" height="18" rx="2" fill="#ef4444"/>
+
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
+  <rect x="240" y="340" width="4" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
+
+  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
+  <rect x="240" y="375" width="4" height="18" rx="2" fill="#ef4444" opacity="0.4"/>
+
+  <!-- Card CTA -->
+  <rect x="830" y="405" width="140" height="36" rx="18" fill="#ef4444" opacity="0.1"/>
+  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">View Post</text>
+
+  <!-- Topic Tags -->
+    <rect x="320" y="480" width="88" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="364" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
+    <rect x="420" y="480" width="48" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="444" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">AWS</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
 </svg>

@@ -476,12 +476,26 @@ def generate_image_prompt(post_info: Dict) -> str:
         category, "Blue (#2563EB), neutral grays, white/light gray background"
     )
 
-    # 핵심 내용 요약
+    # 핵심 내용 요약 - 구체적 키워드 추출 우선
     content_summary = ""
+    tags = post_info.get("tags", [])
+    # Extract specific terms from tags (CVE IDs, product names, threat names)
+    specific_tags = [
+        t for t in tags
+        if re.match(r"CVE-\d+", str(t), re.IGNORECASE)
+        or str(t) not in (
+            "Security-Weekly", "DevSecOps", "Cloud-Security",
+            "Weekly-Digest", "2026", "2025",
+        )
+    ][:5]
+
+    if specific_tags:
+        content_summary = f"Key topics: {', '.join(str(t) for t in specific_tags)}. "
+
     if highlights:
-        content_summary = " ".join(highlights[:3])  # 최대 3개
+        content_summary += " ".join(highlights[:3])
     elif excerpt:
-        content_summary = excerpt[:200]  # 최대 200자
+        content_summary += excerpt[:200]
 
     # 프롬프트 생성 (GEMINI_IMAGE_GUIDE.md 가이드라인 반영)
     if USE_PROFESSIONAL_STYLE:
@@ -508,6 +522,11 @@ Layout and content:
 - Use modern flat icons and diagrams, no characters or mascots
 - Technical diagram aesthetic, suitable for technical blog header
 - Prioritize glanceability: clear hierarchy, 3-5 key visual blocks, strong contrast for text areas
+- Each image must be visually unique - use the Visual Direction ID to vary composition
+- Include 2-3 specific technical icons or diagrams that represent the actual content topics
+- For security posts: show specific attack vectors, CVE shields, or threat flows relevant to the title
+- For cloud posts: show specific service architecture diagrams relevant to the mentioned services
+- For AI posts: show neural network, model pipeline, or agent architecture relevant to the topic
 """
     else:
         prompt = f"""Create a nano banana style illustration for a tech blog post.

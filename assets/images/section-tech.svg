@@ -1,41 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="140">
-      <stop offset="0%" stop-color="#0b1324"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#2563eb"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
+    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#fca5a5"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="iconShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.15"/>
+    </filter>
   </defs>
-  <rect width="800" height="140" rx="12" fill="url(#bg)"/>
-  <rect x="0" y="0" width="800" height="3" rx="1.5" fill="url(#accent)" opacity="0.9"/>
 
-  <g transform="translate(40, 25)">
-    <circle cx="45" cy="45" r="40" fill="url(#accent)" opacity="0.12"/>
-    <rect x="18" y="22" width="54" height="46" rx="6" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
-    <line x1="18" y1="35" x2="72" y2="35" stroke="#93c5fd" stroke-width="2"/>
-    <circle cx="28" cy="28" r="2.5" fill="#93c5fd"/>
-    <circle cx="36" cy="28" r="2.5" fill="#93c5fd"/>
-    <circle cx="44" cy="28" r="2.5" fill="#93c5fd"/>
-    <path d="M27 52 L37 44 L47 53 L60 40" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid Pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="120" x2="1200" y2="120" stroke="#ef4444" stroke-width="1"/>
+    <line x1="0" y1="180" x2="1200" y2="180" stroke="#ef4444" stroke-width="1"/>
   </g>
 
-  <text x="140" y="55" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="13" font-weight="bold" letter-spacing="3">TECH INSIGHTS</text>
-  <text x="140" y="85" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="bold">Technology Trends &amp; Engineering Signals</text>
-  <text x="140" y="115" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Platform Updates | Developer Experience | Architecture Patterns</text>
+  <!-- Background Decorative Circles -->
+  <circle cx="1100" cy="80" r="200" fill="#ef4444" opacity="0.03"/>
+  <circle cx="80" cy="550" r="150" fill="#ef4444" opacity="0.02"/>
 
-  <g opacity="0.3">
-    <circle cx="685" cy="34" r="3" fill="#38bdf8"/>
-    <circle cx="715" cy="52" r="4" fill="#60a5fa"/>
-    <circle cx="748" cy="30" r="2" fill="#93c5fd"/>
-    <circle cx="760" cy="68" r="3" fill="#38bdf8"/>
-    <circle cx="702" cy="92" r="3" fill="#60a5fa"/>
-    <circle cx="735" cy="108" r="2" fill="#93c5fd"/>
-    <line x1="685" y1="34" x2="715" y2="52" stroke="#475569" stroke-width="1"/>
-    <line x1="715" y1="52" x2="748" y2="30" stroke="#475569" stroke-width="1"/>
-    <line x1="760" y1="68" x2="702" y2="92" stroke="#475569" stroke-width="1"/>
-    <line x1="702" y1="92" x2="735" y2="108" stroke="#475569" stroke-width="1"/>
+  <!-- Category Badge (top-left) -->
+  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
+  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">TECH BLOG</text>
+
+  <!-- Date Badge (top-right) -->
+  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">2026</text>
+
+  <!-- Main Title -->
+  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">section tech</text>
+
+  <!-- Accent Gradient Bar -->
+  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
+
+  <!-- Left Side: Icon Column -->
+  <g filter="url(#iconShadow)">
+    <g opacity="0.9">
+    <g transform="translate(120,280)"><path d="M0,-20 L20,16 L-20,16 Z" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linejoin="round"/><line x1="0" y1="-8" x2="0" y2="4" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/><circle cx="0" cy="10" r="2" fill="#ef4444"/></g>
+    <g transform="translate(120,360)"><path d="M0,-22 C12,-22 22,-14 22,0 C22,14 12,26 0,30 C-12,26 -22,14 -22,0 C-22,-14 -12,-22 0,-22Z" fill="none" stroke="#ef4444" stroke-width="2.5"/><path d="M-6,4 L-2,10 L8,-4" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g transform="translate(120,440)"><rect x="-10" y="-4" width="20" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="2.2"/><path d="M-6,-4 L-6,-12 C-6,-20 6,-20 6,-12 L6,-4" fill="none" stroke="#ef4444" stroke-width="2.2"/><circle cx="0" cy="6" r="2.5" fill="#ef4444"/></g>
+    </g>
   </g>
+
+  <!-- Icon labels -->
+  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
+  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
+  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
+
+  <!-- Hero Card -->
+  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Card Top Border (category color) -->
+  <rect x="200" y="230" width="800" height="6" rx="3" fill="#ef4444" opacity="0.8"/>
+  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
+
+  <!-- Card Content -->
+  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
+  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
+  <rect x="240" y="305" width="4" height="18" rx="2" fill="#ef4444"/>
+
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
+  <rect x="240" y="340" width="4" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
+
+  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
+  <rect x="240" y="375" width="4" height="18" rx="2" fill="#ef4444" opacity="0.4"/>
+
+  <!-- Card CTA -->
+  <rect x="830" y="405" width="140" height="36" rx="18" fill="#ef4444" opacity="0.1"/>
+  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">View Post</text>
+
+  <!-- Topic Tags -->
+    <rect x="320" y="480" width="88" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="364" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
+    <rect x="420" y="480" width="64" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="452" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Cloud</text>
+    <rect x="496" y="480" width="72" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="532" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">DevOps</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
 </svg>
