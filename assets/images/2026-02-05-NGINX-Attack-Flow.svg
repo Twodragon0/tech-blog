@@ -1,116 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="40%" style="stop-color:#f1f5f9"/>
-      <stop offset="100%" style="stop-color:#e2e8f0"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="33%" style="stop-color:#8b5cf6"/>
-      <stop offset="66%" style="stop-color:#ec4899"/>
-      <stop offset="100%" style="stop-color:#f59e0b"/>
-    </linearGradient>
-    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#fca5a5"/>
-    </linearGradient>
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff"/>
-      <stop offset="100%" style="stop-color:#f8fafc"/>
-    </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
-    </filter>
-    <filter id="iconShadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.15"/>
-    </filter>
+    <style>
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: 700; fill: #1f2937; }
+      .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #6b7280; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 500; fill: #374151; }
+      .label-small { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 500; fill: #6b7280; }
+      .alert { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #dc2626; }
+      .box-normal { fill: #ecfdf5; stroke: #10b981; stroke-width: 2; }
+      .box-attack { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; }
+      .box-attacker { fill: #fffbeb; stroke: #f59e0b; stroke-width: 2.5; }
+      .arrow-normal { stroke: #10b981; stroke-width: 2.5; fill: none; marker-end: url(#arrow-normal); }
+      .arrow-attack { stroke: #dc2626; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attack); stroke-dasharray: 5,3; }
+      .arrow-attacker { stroke: #f59e0b; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attacker); }
+      .phase-box { fill: #f3f4f6; stroke: #9ca3af; stroke-width: 1; rx: 4; }
+    </style>
+    <marker id="arrow-normal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-attack" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626" />
+    </marker>
+    <marker id="arrow-attacker" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" />
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">NGINX Traffic Hijacking Attack Flow</text>
+  <text x="450" y="50" text-anchor="middle" class="subtitle">CVE-2025-55182 (CVSS 10.0) Exploitation</text>
 
-  <!-- Grid Pattern -->
-  <g opacity="0.04">
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#ef4444" stroke-width="1"/>
-    <line x1="60" y1="0" x2="60" y2="630" stroke="#ef4444" stroke-width="1"/>
-    <line x1="120" y1="0" x2="120" y2="630" stroke="#ef4444" stroke-width="1"/>
-    <line x1="180" y1="0" x2="180" y2="630" stroke="#ef4444" stroke-width="1"/>
-    <line x1="240" y1="0" x2="240" y2="630" stroke="#ef4444" stroke-width="1"/>
-    <line x1="0" y1="60" x2="1200" y2="60" stroke="#ef4444" stroke-width="1"/>
-    <line x1="0" y1="120" x2="1200" y2="120" stroke="#ef4444" stroke-width="1"/>
-    <line x1="0" y1="180" x2="1200" y2="180" stroke="#ef4444" stroke-width="1"/>
-  </g>
+  <!-- Normal Path Section -->
+  <rect x="50" y="80" width="800" height="150" class="phase-box" />
+  <text x="60" y="100" class="subtitle">Normal Traffic Flow</text>
 
-  <!-- Background Decorative Circles -->
-  <circle cx="1100" cy="80" r="200" fill="#ef4444" opacity="0.03"/>
-  <circle cx="80" cy="550" r="150" fill="#ef4444" opacity="0.02"/>
+  <!-- Normal: User -->
+  <rect x="80" y="120" width="120" height="60" class="box-normal" rx="8" />
+  <text x="140" y="145" text-anchor="middle" class="label">User</text>
+  <text x="140" y="165" text-anchor="middle" class="label-small">Request</text>
 
-  <!-- Category Badge (top-left) -->
-  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
-  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">TECH BLOG</text>
+  <!-- Normal: NGINX -->
+  <rect x="280" y="120" width="140" height="60" class="box-normal" rx="8" />
+  <text x="350" y="145" text-anchor="middle" class="label">Normal NGINX</text>
+  <text x="350" y="165" text-anchor="middle" class="label-small">Proxy Server</text>
 
-  <!-- Date Badge (top-right) -->
-  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">February 5, 2026</text>
+  <!-- Normal: Backend -->
+  <rect x="500" y="120" width="140" height="60" class="box-normal" rx="8" />
+  <text x="570" y="145" text-anchor="middle" class="label">Backend Service</text>
+  <text x="570" y="165" text-anchor="middle" class="label-small">Application</text>
 
-  <!-- Main Title -->
-  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">NGINX Attack Flow</text>
+  <!-- Normal Arrows -->
+  <path d="M 200 150 L 270 150" class="arrow-normal" />
+  <path d="M 420 150 L 490 150" class="arrow-normal" />
 
-  <!-- Accent Gradient Bar -->
-  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
+  <!-- Status Label -->
+  <text x="700" y="155" class="label" fill="#10b981" font-weight="700">Secure Connection</text>
 
-  <!-- Subtitle -->
-  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
+  <!-- Attack Path Section -->
+  <rect x="50" y="260" width="800" height="210" class="phase-box" />
+  <text x="60" y="280" class="subtitle">Compromised Traffic Flow</text>
 
-  <!-- Left Side: Icon Column -->
-  <g filter="url(#iconShadow)">
-    <g opacity="0.9">
-    <g transform="translate(120,280)"><path d="M0,-20 L20,16 L-20,16 Z" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linejoin="round"/><line x1="0" y1="-8" x2="0" y2="4" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/><circle cx="0" cy="10" r="2" fill="#ef4444"/></g>
-    <g transform="translate(120,360)"><path d="M0,-22 C12,-22 22,-14 22,0 C22,14 12,26 0,30 C-12,26 -22,14 -22,0 C-22,-14 -12,-22 0,-22Z" fill="none" stroke="#ef4444" stroke-width="2.5"/><path d="M-6,4 L-2,10 L8,-4" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/></g>
-    <g transform="translate(120,440)"><rect x="-10" y="-4" width="20" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="2.2"/><path d="M-6,-4 L-6,-12 C-6,-20 6,-20 6,-12 L6,-4" fill="none" stroke="#ef4444" stroke-width="2.2"/><circle cx="0" cy="6" r="2.5" fill="#ef4444"/></g>
-    </g>
-  </g>
+  <!-- Attack: User -->
+  <rect x="80" y="300" width="120" height="60" class="box-normal" rx="8" />
+  <text x="140" y="325" text-anchor="middle" class="label">User</text>
+  <text x="140" y="345" text-anchor="middle" class="label-small">Victim Request</text>
 
-  <!-- Icon labels -->
-  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
-  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
-  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
+  <!-- Attack: Compromised NGINX -->
+  <rect x="280" y="300" width="140" height="60" class="box-attack" rx="8" />
+  <text x="350" y="320" text-anchor="middle" class="label">Compromised NGINX</text>
+  <text x="350" y="340" text-anchor="middle" class="alert">CVE-2025-55182</text>
+  <text x="350" y="355" text-anchor="middle" class="label-small">Hijacked Config</text>
 
-  <!-- Hero Card -->
-  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Attack: Attacker Proxy -->
+  <rect x="280" y="390" width="140" height="60" class="box-attacker" rx="8" />
+  <text x="350" y="410" text-anchor="middle" class="label">Attacker Proxy</text>
+  <text x="350" y="430" text-anchor="middle" class="label-small">Traffic Interception</text>
 
-  <!-- Card Top Border (category color) -->
-  <rect x="200" y="230" width="800" height="6" rx="3" fill="#ef4444" opacity="0.8"/>
-  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
+  <!-- Attack: Backend -->
+  <rect x="500" y="300" width="140" height="60" class="box-normal" rx="8" />
+  <text x="570" y="325" text-anchor="middle" class="label">Backend Service</text>
+  <text x="570" y="345" text-anchor="middle" class="label-small">Unaware Target</text>
 
-  <!-- Card Content -->
-  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
-  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Attack Arrows -->
+  <path d="M 200 330 L 270 330" class="arrow-attack" />
+  <path d="M 350 360 L 350 385" class="arrow-attacker" />
+  <path d="M 420 420 L 490 340" class="arrow-attacker" />
 
-  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
-  <rect x="240" y="305" width="4" height="18" rx="2" fill="#ef4444"/>
+  <!-- Injection Points -->
+  <rect x="700" y="295" width="140" height="155" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" rx="6" />
+  <text x="770" y="315" text-anchor="middle" class="alert">Attack Vector</text>
 
-  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
-  <rect x="240" y="340" width="4" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
+  <text x="710" y="340" class="label-small" fill="#dc2626">1. Baota Panel</text>
+  <text x="710" y="358" class="label-small" fill="#dc2626">   Compromise</text>
 
-  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
-  <rect x="240" y="375" width="4" height="18" rx="2" fill="#ef4444" opacity="0.4"/>
+  <text x="710" y="385" class="label-small" fill="#dc2626">2. Malicious Config</text>
+  <text x="710" y="403" class="label-small" fill="#dc2626">   Injection</text>
 
-  <!-- Card CTA -->
-  <rect x="830" y="405" width="140" height="36" rx="18" fill="#ef4444" opacity="0.1"/>
-  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">View Post</text>
+  <text x="710" y="430" class="label-small" fill="#dc2626">3. Traffic</text>
+  <text x="710" y="448" class="label-small" fill="#dc2626">   Interception</text>
 
-  <!-- Topic Tags -->
-    <rect x="320" y="480" width="88" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="364" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
-    <rect x="420" y="480" width="64" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="452" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Cloud</text>
-    <rect x="496" y="480" width="72" height="28" rx="14" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="532" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">DevOps</text>
-
-  <!-- Footer -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
-  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
+  <!-- Attack Flow Arrow -->
+  <path d="M 690 370 L 430 330" class="arrow-attack" />
+  <text x="850" y="490" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

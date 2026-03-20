@@ -1,116 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <!-- Background -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="40%" style="stop-color:#f1f5f9"/>
-      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="33%" style="stop-color:#8b5cf6"/>
-      <stop offset="66%" style="stop-color:#ec4899"/>
-      <stop offset="100%" style="stop-color:#f59e0b"/>
+    <linearGradient id="phaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.3" />
     </linearGradient>
-    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#fde68a"/>
-    </linearGradient>
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff"/>
-      <stop offset="100%" style="stop-color:#f8fafc"/>
-    </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
-    </filter>
-    <filter id="iconShadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.15"/>
-    </filter>
+    <marker id="pipeArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1000" height="700" fill="url(#pipeBg)"/>
 
-  <!-- Grid Pattern -->
-  <g opacity="0.04">
-    <line x1="0" y1="0" x2="0" y2="630" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="60" y1="0" x2="60" y2="630" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="120" y1="0" x2="120" y2="630" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="180" y1="0" x2="180" y2="630" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="240" y1="0" x2="240" y2="630" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="0" y1="60" x2="1200" y2="60" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="0" y1="120" x2="1200" y2="120" stroke="#f59e0b" stroke-width="1"/>
-    <line x1="0" y1="180" x2="1200" y2="180" stroke="#f59e0b" stroke-width="1"/>
-  </g>
+  <!-- Title -->
+  <text x="500" y="40" font-size="28" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">
+    ContentPipeline Architecture
+  </text>
 
-  <!-- Background Decorative Circles -->
-  <circle cx="1100" cy="80" r="200" fill="#f59e0b" opacity="0.03"/>
-  <circle cx="80" cy="550" r="150" fill="#f59e0b" opacity="0.02"/>
+  <!-- Phase 1: Blog Generation -->
+  <rect x="50" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="140" y="115" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Phase 1</text>
+  <text x="140" y="135" font-size="13" fill="white" text-anchor="middle">generate_blog_post()</text>
+  <text x="140" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Claude Opus 4.5</text>
+  <text x="140" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">30-60s | $0.10</text>
 
-  <!-- Category Badge (top-left) -->
-  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
-  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">TECH BLOG</text>
+  <!-- Arrow 1 -->
+  <path d="M 230 140 L 295 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="262" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">markdown</text>
 
-  <!-- Date Badge (top-right) -->
-  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">February 5, 2026</text>
+  <!-- Phase 2: Video Script -->
+  <rect x="300" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#10b981" stroke-width="2"/>
+  <text x="390" y="115" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">Phase 2 (Optional)</text>
+  <text x="390" y="135" font-size="13" fill="white" text-anchor="middle">create_video_script()</text>
+  <text x="390" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Claude Sonnet 4</text>
+  <text x="390" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">+30s | $0.05</text>
 
-  <!-- Main Title -->
-  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">Python Pipeline Architecture</text>
+  <!-- Arrow 2 -->
+  <path d="M 480 140 L 545 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="512" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">JSON</text>
 
-  <!-- Accent Gradient Bar -->
-  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
+  <!-- Phase 3: Music -->
+  <rect x="550" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="640" y="115" font-size="14" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Phase 3 (Optional)</text>
+  <text x="640" y="135" font-size="13" fill="white" text-anchor="middle">generate_music()</text>
+  <text x="640" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Suno AI</text>
+  <text x="640" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">Manual | $0</text>
 
-  <!-- Subtitle -->
-  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
+  <!-- Arrow 3 -->
+  <path d="M 730 140 L 795 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="762" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">MP3</text>
 
-  <!-- Left Side: Icon Column -->
-  <g filter="url(#iconShadow)">
-    <g opacity="0.9">
-    <g transform="translate(120,280)"><path d="M-14,0 L14,0" stroke="#f59e0b" stroke-width="2"/><circle cx="-14" cy="0" r="4" fill="none" stroke="#f59e0b" stroke-width="2"/><polygon points="10,-4 18,0 10,4" fill="#f59e0b"/></g>
-    <g transform="translate(120,360)"><rect x="-12" y="-10" width="24" height="20" rx="4" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M-5,-3 L-1,3 L7,-5" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/></g>
-    <g transform="translate(120,440)"><circle cx="0" cy="0" r="14" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M-6,-6 L-6,6 L6,0 Z" fill="#f59e0b" opacity="0.6"/></g>
-    </g>
-  </g>
+  <!-- Phase 4: Animation -->
+  <rect x="800" y="90" width="160" height="100" rx="8" fill="url(#phaseGrad)" stroke="#ec4899" stroke-width="2"/>
+  <text x="880" y="115" font-size="14" font-weight="bold" fill="#ec4899" text-anchor="middle">Phase 4 (Opt)</text>
+  <text x="880" y="135" font-size="13" fill="white" text-anchor="middle">create_anim()</text>
+  <text x="880" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">D-ID</text>
+  <text x="880" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">Manual | $0</text>
 
-  <!-- Icon labels -->
-  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
-  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
-  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
+  <!-- Arrow down to deployment -->
+  <path d="M 500 190 L 500 265" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
 
-  <!-- Hero Card -->
-  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Phase 5: Deployment -->
+  <rect x="350" y="270" width="300" height="80" rx="8" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+  <text x="500" y="295" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Phase 5: deploy_to_git()</text>
+  <text x="500" y="315" font-size="13" fill="white" text-anchor="middle">git add + commit + push</text>
+  <text x="500" y="335" font-size="11" fill="#94a3b8" text-anchor="middle">Vercel Auto-Deploy | GitHub Actions</text>
 
-  <!-- Card Top Border (category color) -->
-  <rect x="200" y="230" width="800" height="6" rx="3" fill="#f59e0b" opacity="0.8"/>
-  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
+  <!-- Data Models -->
+  <rect x="50" y="400" width="280" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="190" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Data Models (Pydantic)</text>
 
-  <!-- Card Content -->
-  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
-  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="70" y="455" font-size="12" fill="#fbbf24" font-family="monospace">class ContentConfig:</text>
+  <text x="90" y="475" font-size="11" fill="#94a3b8" font-family="monospace">topic: str</text>
+  <text x="90" y="490" font-size="11" fill="#94a3b8" font-family="monospace">category: str</text>
+  <text x="90" y="505" font-size="11" fill="#94a3b8" font-family="monospace">generate_video: bool</text>
+  <text x="90" y="520" font-size="11" fill="#94a3b8" font-family="monospace">generate_music: bool</text>
 
-  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
-  <rect x="240" y="305" width="4" height="18" rx="2" fill="#f59e0b"/>
+  <text x="70" y="550" font-size="12" fill="#10b981" font-family="monospace">class BlogPost:</text>
+  <text x="90" y="570" font-size="11" fill="#94a3b8" font-family="monospace">filename: str</text>
+  <text x="90" y="585" font-size="11" fill="#94a3b8" font-family="monospace">content: str</text>
+  <text x="90" y="600" font-size="11" fill="#94a3b8" font-family="monospace">metadata: dict</text>
+  <text x="90" y="615" font-size="11" fill="#94a3b8" font-family="monospace">cost: float</text>
 
-  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
-  <rect x="240" y="340" width="4" height="18" rx="2" fill="#f59e0b" opacity="0.6"/>
+  <!-- Core Features -->
+  <rect x="380" y="400" width="280" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="520" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Core Features</text>
 
-  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
-  <rect x="240" y="375" width="4" height="18" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <circle cx="405" cy="458" r="4" fill="#10b981"/>
+  <text x="420" y="462" font-size="12" fill="white">Async/Await Support</text>
 
-  <!-- Card CTA -->
-  <rect x="830" y="405" width="140" height="36" rx="18" fill="#f59e0b" opacity="0.1"/>
-  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">View Post</text>
+  <circle cx="405" cy="483" r="4" fill="#10b981"/>
+  <text x="420" y="487" font-size="12" fill="white">Prompt Caching (90% savings)</text>
 
-  <!-- Topic Tags -->
-    <rect x="320" y="480" width="88" height="28" rx="14" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="364" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Security</text>
-    <rect x="420" y="480" width="64" height="28" rx="14" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="452" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Cloud</text>
-    <rect x="496" y="480" width="72" height="28" rx="14" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="532" y="499" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">DevOps</text>
+  <circle cx="405" cy="508" r="4" fill="#10b981"/>
+  <text x="420" y="512" font-size="12" fill="white">Cost Tracking (per-phase)</text>
 
-  <!-- Footer -->
-  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
-  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
+  <circle cx="405" cy="533" r="4" fill="#10b981"/>
+  <text x="420" y="537" font-size="12" fill="white">Error Retry (exp backoff)</text>
+
+  <circle cx="405" cy="558" r="4" fill="#10b981"/>
+  <text x="420" y="562" font-size="12" fill="white">Security Validation</text>
+
+  <circle cx="405" cy="583" r="4" fill="#10b981"/>
+  <text x="420" y="587" font-size="12" fill="white">SEO Optimization</text>
+
+  <circle cx="405" cy="608" r="4" fill="#10b981"/>
+  <text x="420" y="612" font-size="12" fill="white">Git Auto-Deploy</text>
+
+  <!-- Performance Metrics -->
+  <rect x="710" y="400" width="240" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="830" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Performance</text>
+
+  <text x="730" y="460" font-size="12" fill="#fbbf24" font-weight="bold">Blog Only:</text>
+  <text x="745" y="480" font-size="11" fill="#94a3b8">Time: 30-60s</text>
+  <text x="745" y="495" font-size="11" fill="#94a3b8">Cost: $0.10</text>
+
+  <text x="730" y="525" font-size="12" fill="#10b981" font-weight="bold">Full Pipeline:</text>
+  <text x="745" y="545" font-size="11" fill="#94a3b8">Time: 5-10 min</text>
+  <text x="745" y="560" font-size="11" fill="#94a3b8">Cost: $0.15-0.20</text>
+  <text x="745" y="575" font-size="11" fill="#94a3b8">(manual steps incl.)</text>
+
+  <text x="730" y="605" font-size="12" fill="#ec4899" font-weight="bold">Time Savings:</text>
+  <text x="745" y="625" font-size="11" fill="#94a3b8">75% vs manual</text>
+
+  <!-- Tech Stack Badge -->
+  <rect x="350" y="670" width="300" height="20" rx="4" fill="#1e40af"/>
+  <text x="500" y="684" font-size="11" fill="white" text-anchor="middle" font-family="monospace">
+    Python 3.11+ | anthropic | pydantic | asyncio | FastAPI
+  </text>
+  <text x="950" y="690" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
