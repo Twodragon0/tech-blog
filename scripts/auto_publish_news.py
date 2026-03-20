@@ -3594,23 +3594,23 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
     return topics[:4] if topics else ["Security", "Cloud", "DevOps", "AI"]
 
 
-SVG_DIGEST_POLICY = {
-    "template": "hub-spoke",
-    "max_focus_labels": 3,
-    "max_label_chars": 10,
-    "max_subtitle_chars": 32,
-}
+SVG_TEMPLATE_HUB_SPOKE = "hub-spoke"
+SVG_TEMPLATE_TIMELINE = "timeline"
+SVG_TEMPLATE_BEFORE_AFTER = "before-after"
+SVG_MAX_FOCUS_LABELS = 3
+SVG_MAX_LABEL_CHARS = 10
+SVG_MAX_SUBTITLE_CHARS = 32
 
 
 def _normalize_svg_focus_label(label: str) -> str:
     label = re.sub(r"\s+", " ", label.strip().upper())
     label = re.sub(r"[^A-Z0-9 /+-]", "", label)
-    return _truncate_text(label, SVG_DIGEST_POLICY["max_label_chars"])
+    return _truncate_text(label, SVG_MAX_LABEL_CHARS)
 
 
 def _compose_svg_subtitle(labels: List[str]) -> str:
-    subtitle = "  ".join(labels[: SVG_DIGEST_POLICY["max_focus_labels"]])
-    return _truncate_text(subtitle, SVG_DIGEST_POLICY["max_subtitle_chars"])
+    subtitle = "  ".join(labels[:SVG_MAX_FOCUS_LABELS])
+    return _truncate_text(subtitle, SVG_MAX_SUBTITLE_CHARS)
 
 
 def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List[str]:
@@ -3653,6 +3653,197 @@ def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List
     return labels[:limit] if labels else ["SECURITY", "CLOUD", "AI"]
 
 
+def _svg_icon_templates() -> Dict[str, str]:
+    return {
+        "malware": '<circle r="16" fill="{c}" opacity="0.2"/><circle cx="-12" cy="-8" r="6" fill="{c}" opacity="0.5"/><circle cx="12" cy="8" r="6" fill="{c}" opacity="0.5"/><circle cx="8" cy="-12" r="4" fill="{c}" opacity="0.4"/>',
+        "ransom": '<rect x="-22" y="-4" width="44" height="36" rx="8" fill="#221617" stroke="{c}" stroke-width="2"/><path d="M-12 -4 v-16 c0-18 24-18 24 0 v16" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="6" fill="{c}"/><rect x="-2" y="20" width="4" height="10" rx="2" fill="{c}"/>',
+        "phish": '<path d="M-20 -8 L0 12 L20 -8" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-24" y="-16" width="48" height="36" rx="4" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-24" r="4" fill="{c}"/>',
+        "cve": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{c}" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="{c}" text-anchor="middle" opacity="0.7">PATCH</text>',
+        "cloud": '<path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="{c}" stroke-width="2" transform="scale(0.7)"/>',
+        "ai": '<rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="{c}" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="{c}" text-anchor="middle">AI</text>',
+        "k8s": '<circle cx="-16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="0" cy="16" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><path d="M-8 -6 L8 -6 M-12 2 L0 14 M12 2 L0 14" stroke="{c}" stroke-width="1.5"/>',
+        "dns": '<circle r="16" fill="{c}" opacity="0.15"/><circle cx="-10" cy="-6" r="5" fill="{c}" opacity="0.6"/><circle cx="10" cy="6" r="5" fill="{c}" opacity="0.6"/><circle cx="12" cy="-10" r="3" fill="{c}" opacity="0.4"/>',
+        "edr": '<rect x="-22" y="-18" width="44" height="36" rx="6" fill="#0f172a" stroke="{c}" stroke-width="2"/><path d="M-12 -6 L-4 6 L14 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><line x1="-14" y1="14" x2="14" y2="14" stroke="{c}" stroke-width="1.5" opacity="0.5"/>',
+        "default": '<circle r="18" fill="{c}" opacity="0.18"/><circle r="8" fill="{c}" opacity="0.3"/>',
+    }
+
+
+def _match_svg_icon(label: str) -> str:
+    lbl = label.lower()
+    for key in _svg_icon_templates():
+        if key in lbl:
+            return key
+    if any(k in lbl for k in ["exploit", "vuln", "patch", "zero"]):
+        return "cve"
+    if any(k in lbl for k in ["encrypt", "lock", "ransom"]):
+        return "ransom"
+    if any(k in lbl for k in ["aws", "gcp", "azure", "cloud"]):
+        return "cloud"
+    if any(k in lbl for k in ["agent", "llm", "model"]):
+        return "ai"
+    if any(k in lbl for k in ["k8s", "kube", "gke", "eks"]):
+        return "k8s"
+    if any(k in lbl for k in ["bot", "worm", "trojan"]):
+        return "malware"
+    return "default"
+
+
+def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str:
+    joined = " ".join(
+        f"{item.get('title', '')} {item.get('summary', '')}" for item in news_items[:8]
+    ).lower()
+    if any(
+        token in joined
+        for token in ["before", "after", "replace", "migrate", "from", "to"]
+    ):
+        return SVG_TEMPLATE_BEFORE_AFTER
+    if any(
+        token in joined
+        for token in ["timeline", "campaign", "wave", "series", "roundup", "weekly"]
+    ):
+        return SVG_TEMPLATE_TIMELINE
+    if any(label in {"PATCH", "ZERO DAY", "RANSOM"} for label in focus_labels):
+        return SVG_TEMPLATE_TIMELINE
+    return SVG_TEMPLATE_HUB_SPOKE
+
+
+def _svg_base_frame(
+    accent: str, headline: str, subtitle: str, date_display: str
+) -> str:
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#181024"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="210" cy="170" r="180" fill="{accent}" opacity="0.14" filter="url(#glow)"/>
+  <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">{headline}</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+"""
+
+
+def _svg_footer(date_display: str) -> str:
+    return f"""
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+
+
+def _render_hub_spoke_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    node_colors = [accent, "#67e8f9", "#f59e0b"]
+    node_positions = [(250, 360), (600, 210), (950, 360)]
+    icons = _svg_icon_templates()
+    svg = _svg_base_frame(accent, headline, subtitle, date_display)
+    svg += f"""
+  <g transform="translate(600 336)" filter="url(#shadow)">
+    <circle r="102" fill="#111827" stroke="{accent}" stroke-width="2.5"/>
+    <circle r="44" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/>
+    <path d="M-18 0 h36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 -18 v36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+  </g>
+"""
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        cx1 = 600 + (x - 600) * 0.3
+        cy1 = 336 + (y - 336) * 0.1
+        cx2 = 600 + (x - 600) * 0.7
+        cy2 = 336 + (y - 336) * 0.9
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        svg += f"""
+  <path d="M600 336 C{cx1:.0f} {cy1:.0f} {cx2:.0f} {cy2:.0f} {x} {y}" fill="none" stroke="{color}" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/>
+  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="58" fill="#0f172a" stroke="{color}" stroke-width="2"/>
+    {icon_svg}
+    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  </g>
+"""
+    return svg + _svg_footer(date_display)
+
+
+def _render_timeline_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    node_colors = [accent, "#67e8f9", "#f59e0b"]
+    centers = [250, 600, 950]
+    icons = _svg_icon_templates()
+    svg = _svg_base_frame(accent, headline, subtitle, date_display)
+    svg += '  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>'
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        color = node_colors[idx % len(node_colors)]
+        center = centers[idx]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        svg += f"""
+  <g transform="translate({center} 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+  </g>
+  <text x="{center}" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+"""
+    return svg + _svg_footer(date_display)
+
+
+def _render_before_after_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    left_label = focus_labels[0] if focus_labels else "BEFORE"
+    right_label = focus_labels[1] if len(focus_labels) > 1 else "AFTER"
+    center_label = focus_labels[2] if len(focus_labels) > 2 else "PATCH"
+    icons = _svg_icon_templates()
+    left_icon = icons[_match_svg_icon(left_label)].replace("{c}", "#ef4444")
+    right_icon = icons[_match_svg_icon(right_label)].replace("{c}", "#22c55e")
+    center_icon = icons[_match_svg_icon(center_label)].replace("{c}", accent)
+    svg = _svg_base_frame(accent, headline, subtitle, date_display)
+    svg += f"""
+  <g transform="translate(250 340)" filter="url(#shadow)">
+    <rect x="-85" y="-85" width="170" height="170" rx="28" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
+    {left_icon}
+  </g>
+  <g transform="translate(600 340)" filter="url(#shadow)">
+    <circle r="62" fill="#111827" stroke="{accent}" stroke-width="2.5"/>
+    {center_icon}
+  </g>
+  <g transform="translate(950 340)" filter="url(#shadow)">
+    <rect x="-85" y="-85" width="170" height="170" rx="28" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+    {right_icon}
+  </g>
+  <path d="M340 340 C430 300 500 300 538 340" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="12 10"/>
+  <path d="M662 340 C720 300 820 300 860 340" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="12 10"/>
+  <text x="250" y="458" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ef4444" text-anchor="middle">{_escape_svg_text(left_label)}</text>
+  <text x="600" y="458" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="{accent}" text-anchor="middle">{_escape_svg_text(center_label)}</text>
+  <text x="950" y="458" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#22c55e" text-anchor="middle">{_escape_svg_text(right_label)}</text>
+"""
+    return svg + _svg_footer(date_display)
+
+
 def _convert_svg_to_og_png(svg_path: Path) -> None:
     """Convert SVG to PNG for Open Graph social media previews using rsvg-convert."""
     import shutil
@@ -3684,9 +3875,7 @@ def generate_svg_image(
     """Generate low-text digest SVG focused on standalone comprehension."""
 
     date_display = date.strftime("%B %d, %Y")
-    focus_labels = _extract_visual_focus_labels(
-        news_items, limit=SVG_DIGEST_POLICY["max_focus_labels"]
-    )
+    focus_labels = _extract_visual_focus_labels(news_items, limit=SVG_MAX_FOCUS_LABELS)
 
     if categorized.get("security") or categorized.get("devsecops"):
         main_category = "security"
@@ -3701,106 +3890,16 @@ def generate_svg_image(
     accent = config["icon_color"]
     headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
     subtitle = _compose_svg_subtitle(focus_labels)
-    node_colors = [accent, "#67e8f9", "#f59e0b"]
-    node_positions = [(250, 360), (600, 210), (950, 360)]
-
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="55%" stop-color="#151b32"/>
-      <stop offset="100%" stop-color="#181024"/>
-    </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="210" cy="170" r="180" fill="{accent}" opacity="0.14" filter="url(#glow)"/>
-  <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
-
-  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">{headline}</text>
-  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
-
-  <g transform="translate(600 336)" filter="url(#shadow)">
-    <circle r="102" fill="#111827" stroke="{accent}" stroke-width="2.5"/>
-    <circle r="44" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/>
-    <path d="M-18 0 h36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
-    <path d="M0 -18 v36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
-  </g>
-"""
-
-    # Node icon templates keyed by label keyword
-    _node_icons = {
-        "malware": '<circle r="16" fill="{c}" opacity="0.2"/><circle cx="-12" cy="-8" r="6" fill="{c}" opacity="0.5"/><circle cx="12" cy="8" r="6" fill="{c}" opacity="0.5"/><circle cx="8" cy="-12" r="4" fill="{c}" opacity="0.4"/>',
-        "ransom": '<rect x="-22" y="-4" width="44" height="36" rx="8" fill="#221617" stroke="{c}" stroke-width="2"/><path d="M-12 -4 v-16 c0-18 24-18 24 0 v16" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="6" fill="{c}"/><rect x="-2" y="20" width="4" height="10" rx="2" fill="{c}"/>',
-        "phish": '<path d="M-20 -8 L0 12 L20 -8" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-24" y="-16" width="48" height="36" rx="4" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-24" r="4" fill="{c}"/>',
-        "cve": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{c}" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="{c}" text-anchor="middle" opacity="0.7">PATCH</text>',
-        "cloud": '<path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="{c}" stroke-width="2" transform="scale(0.7)"/>',
-        "ai": '<rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="{c}" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="{c}" text-anchor="middle">AI</text>',
-        "k8s": '<circle cx="-16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="0" cy="16" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><path d="M-8 -6 L8 -6 M-12 2 L0 14 M12 2 L0 14" stroke="{c}" stroke-width="1.5"/>',
-        "dns": '<circle r="16" fill="{c}" opacity="0.15"/><circle cx="-10" cy="-6" r="5" fill="{c}" opacity="0.6"/><circle cx="10" cy="6" r="5" fill="{c}" opacity="0.6"/><circle cx="12" cy="-10" r="3" fill="{c}" opacity="0.4"/>',
-        "edr": '<rect x="-22" y="-18" width="44" height="36" rx="6" fill="#0f172a" stroke="{c}" stroke-width="2"/><path d="M-12 -6 L-4 6 L14 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><line x1="-14" y1="14" x2="14" y2="14" stroke="{c}" stroke-width="1.5" opacity="0.5"/>',
-        "default": '<circle r="18" fill="{c}" opacity="0.18"/><circle r="8" fill="{c}" opacity="0.3"/>',
-    }
-
-    def _match_icon(label: str) -> str:
-        lbl = label.lower()
-        for key in _node_icons:
-            if key in lbl:
-                return key
-        if any(k in lbl for k in ["exploit", "vuln", "patch", "zero"]):
-            return "cve"
-        if any(k in lbl for k in ["encrypt", "lock", "ransom"]):
-            return "ransom"
-        if any(k in lbl for k in ["aws", "gcp", "azure", "cloud"]):
-            return "cloud"
-        if any(k in lbl for k in ["agent", "llm", "model"]):
-            return "ai"
-        if any(k in lbl for k in ["k8s", "kube", "gke", "eks"]):
-            return "k8s"
-        if any(k in lbl for k in ["bot", "worm", "trojan"]):
-            return "malware"
-        return "default"
-
-    # Build attack-flow arrows from core to nodes
-    arrow_svg = ""
-    for idx, label in enumerate(focus_labels[:3]):
-        x, y = node_positions[idx]
-        color = node_colors[idx % len(node_colors)]
-        # Curved arrow path
-        cx1 = 600 + (x - 600) * 0.3
-        cy1 = 336 + (y - 336) * 0.1
-        cx2 = 600 + (x - 600) * 0.7
-        cy2 = 336 + (y - 336) * 0.9
-        arrow_svg += f'  <path d="M600 336 C{cx1:.0f} {cy1:.0f} {cx2:.0f} {cy2:.0f} {x} {y}" fill="none" stroke="{color}" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/>\n'
-
-    svg += arrow_svg
-
-    for idx, label in enumerate(focus_labels[:3]):
-        x, y = node_positions[idx]
-        color = node_colors[idx % len(node_colors)]
-        icon_key = _match_icon(label)
-        icon_svg = _node_icons[icon_key].replace("{c}", color)
-        svg += f"""
-  <g transform="translate({x} {y})" filter="url(#shadow)">
-    <circle r="58" fill="#0f172a" stroke="{color}" stroke-width="2"/>
-    {icon_svg}
-    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
-  </g>
-"""
-
-    svg += f"""
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
-</svg>"""
-
-    return svg
+    template = _select_svg_template(news_items, focus_labels)
+    if template == SVG_TEMPLATE_TIMELINE:
+        return _render_timeline_svg(
+            accent, headline, subtitle, date_display, focus_labels
+        )
+    if template == SVG_TEMPLATE_BEFORE_AFTER:
+        return _render_before_after_svg(
+            accent, headline, subtitle, date_display, focus_labels
+        )
+    return _render_hub_spoke_svg(accent, headline, subtitle, date_display, focus_labels)
 
 
 # ============================================================================
