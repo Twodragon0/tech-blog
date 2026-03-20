@@ -1351,19 +1351,84 @@ def _generate_executive_and_risk_sections(
     ).lower()
 
     if mode == "tech-blog":
-        briefing = (
-            "- 이번 주기는 기술 도입 속도와 운영 안정성 간 균형이 핵심이며, "
-            "AI/클라우드/개발도구 변화에 대한 표준화된 검증 절차가 필요합니다.\n"
-            "- 단기적으로는 배포 전 검증 기준, 권한/비용 통제, 장애 대응 리허설을 "
-            "동일 주기로 관리하는 것이 효과적입니다."
-        )
+        # Build dynamic briefing from actual tech news
+        briefing_parts = []
+        # Identify dominant topics
+        topic_counts = {}
+        for item in news_items:
+            cat = item.get("category", "tech")
+            topic_counts[cat] = topic_counts.get(cat, 0) + 1
+        top_cats = sorted(topic_counts.items(), key=lambda x: -x[1])[:3]
+        top_cat_names = {
+            "ai": "AI/ML", "cloud": "클라우드", "devops": "DevOps",
+            "security": "보안", "blockchain": "블록체인", "kubernetes": "Kubernetes",
+        }
+        top_labels = [top_cat_names.get(c, c) for c, _ in top_cats]
+
+        if high_titles:
+            briefing_parts.append(
+                f"- **주요 기술 동향**: {', '.join(high_titles[:2])} 등 "
+                f"주목할 업데이트 {high_count}건이 발표되었습니다."
+            )
+        if top_labels:
+            briefing_parts.append(
+                f"- 이번 주기 핵심 분야는 **{', '.join(top_labels)}**이며, "
+                "관련 도구 및 서비스 변경사항에 대한 검증 절차가 필요합니다."
+            )
+        if not briefing_parts:
+            briefing_parts.append(
+                "- 이번 주기는 기술 도입 속도와 운영 안정성 간 균형이 핵심이며, "
+                "표준화된 검증 절차가 필요합니다."
+            )
+        # Add context-specific guidance
+        if any(kw in text_blob for kw in ["kubernetes", "k8s", "docker", "container"]):
+            briefing_parts.append(
+                "- 컨테이너/K8s 관련 변경이 확인되었으며, 클러스터 호환성 검증과 보안 설정 점검을 권고합니다."
+            )
+        elif any(kw in text_blob for kw in ["ai", "llm", "agent", "model"]):
+            briefing_parts.append(
+                "- AI/ML 도구 업데이트가 확인되었으며, 도입 전 보안 경계 설계와 비용 영향 평가를 권고합니다."
+            )
+        else:
+            briefing_parts.append(
+                "- 단기적으로는 배포 전 검증 기준, 권한/비용 통제, 장애 대응 리허설을 "
+                "동일 주기로 관리하는 것이 효과적입니다."
+            )
+        briefing = "\n".join(briefing_parts)
+
+        # Build dynamic scorecard for tech-blog mode
+        tech_areas = []
+        if any(kw in text_blob for kw in ["deploy", "release", "ci", "cd", "pipeline"]):
+            tech_areas.append(
+                "| 배포 안정성 | Medium | 릴리즈 체크리스트와 롤백 절차 점검 |"
+            )
+        if any(kw in text_blob for kw in ["ai", "llm", "agent", "model", "ml"]):
+            tech_areas.append(
+                "| AI 도입 관리 | Medium | AI 도구 표준화 및 접근 권한 검토 |"
+            )
+        if any(kw in text_blob for kw in ["kubernetes", "k8s", "docker", "container", "helm"]):
+            tech_areas.append(
+                "| 컨테이너 운영 | Medium | 클러스터 업그레이드 호환성 및 보안 점검 |"
+            )
+        if any(kw in text_blob for kw in ["cloud", "aws", "gcp", "azure"]):
+            tech_areas.append(
+                "| 클라우드 비용 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |"
+            )
+        if any(kw in text_blob for kw in ["go", "rust", "python", "java", "typescript"]):
+            tech_areas.append(
+                "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |"
+            )
+        if not tech_areas:
+            tech_areas = [
+                "| 배포 안정성 | Medium | 릴리즈 체크리스트와 롤백 절차 점검 |",
+                "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |",
+                "| 비용/운영 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |",
+            ]
+        tech_areas = tech_areas[:4]
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
-            "| 배포 안정성 | Medium | 릴리즈 체크리스트와 롤백 절차 점검 |",
-            "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |",
-            "| 비용/운영 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |",
-        ]
+        ] + tech_areas
     else:
         # Build dynamic briefing from actual top news
         briefing_parts = []

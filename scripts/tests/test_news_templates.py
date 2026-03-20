@@ -2045,3 +2045,172 @@ class TestDevopsTemplatePriorityDatabase:
         item = {"title": title, "summary": ""}
         result = _generate_devops_template(item)
         assert expected in result, f"Expected '{expected}' for '{title}', got: {result[:80]}"
+
+
+# ===========================================================================
+# TestExecutiveBriefingSections
+# ===========================================================================
+
+
+class TestExecutiveBriefingSections:
+    """Tests for _generate_executive_and_risk_sections dynamic content."""
+
+    def _item(self, title="", summary="", category="security"):
+        return {"title": title, "summary": summary, "content": "", "category": category}
+
+    def _critical_item(self, title):
+        """Item that _determine_severity classifies as Critical."""
+        return self._item(
+            title=title,
+            summary=f"{title} zero-day exploit actively exploited critical",
+        )
+
+    def _high_item(self, title):
+        """Item that _determine_severity classifies as High."""
+        return self._item(
+            title=title,
+            summary=f"{title} high severity security vulnerability",
+        )
+
+    # ------------------------------------------------------------------
+    # 1. Critical titles appear in briefing
+    # ------------------------------------------------------------------
+    def test_critical_titles_in_briefing(self):
+        # The title is transformed by _korean_display_title; assert on the
+        # structural label that proves critical items were found and surfaced.
+        items = [self._critical_item("Apache RCE CVE-2026-9999")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "긴급 대응 필요" in result
+        assert "Critical 등급" in result
+
+    def test_critical_count_in_briefing(self):
+        items = [self._critical_item("OpenSSL zero-day exploit")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        # The count "1건" must appear next to the critical label
+        assert "1건" in result
+
+    # ------------------------------------------------------------------
+    # 2. High titles appear in briefing
+    # ------------------------------------------------------------------
+    def test_high_titles_in_briefing(self):
+        # High items surface under 주요 모니터링 대상 with a count
+        items = [self._high_item("Windows privilege escalation")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "주요 모니터링 대상" in result
+        assert "High 등급" in result
+
+    def test_high_titles_triggers_monitoring_label(self):
+        items = [self._high_item("Linux kernel vulnerability")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "주요 모니터링 대상" in result
+
+    # ------------------------------------------------------------------
+    # 3. Ransomware keyword triggers ransomware guidance
+    # ------------------------------------------------------------------
+    def test_ransomware_title_triggers_guidance(self):
+        items = [self._item(title="Ransomware campaign targeting hospitals", summary="ransomware attack")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "랜섬웨어" in result
+        assert "백업" in result
+
+    def test_ransomware_summary_triggers_guidance(self):
+        items = [self._item(title="New malware wave", summary="ransomware encryption spreading")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "랜섬웨어" in result
+
+    # ------------------------------------------------------------------
+    # 4. Zero-day keyword triggers zero-day guidance
+    # ------------------------------------------------------------------
+    def test_zero_day_title_triggers_guidance(self):
+        items = [self._item(title="zero-day in Chrome exploited in wild")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "제로데이" in result
+        assert "임시 완화" in result or "패치" in result
+
+    def test_zero_day_summary_triggers_guidance(self):
+        items = [self._item(title="Browser vuln", summary="0-day actively used by threat actor")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "제로데이" in result
+
+    # ------------------------------------------------------------------
+    # 5. Dynamic risk scorecard - CVE detection
+    # ------------------------------------------------------------------
+    def test_cve_in_title_adds_vuln_row(self):
+        items = [self._item(title="CVE-2026-1234 critical patch released")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "취약점 관리" in result
+
+    def test_vulnerability_keyword_adds_vuln_row(self):
+        items = [self._item(title="Critical vulnerability in OpenSSL", summary="patch available")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "취약점 관리" in result
+
+    # ------------------------------------------------------------------
+    # 6. Dynamic risk scorecard - cloud detection
+    # ------------------------------------------------------------------
+    def test_aws_keyword_adds_cloud_row(self):
+        items = [self._item(title="AWS IAM misconfiguration exposes S3 buckets")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "클라우드 보안" in result
+
+    def test_kubernetes_keyword_adds_cloud_row(self):
+        items = [self._item(title="Kubernetes RBAC bypass vulnerability found")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "클라우드 보안" in result
+
+    # ------------------------------------------------------------------
+    # 7. Dynamic risk scorecard - AI detection
+    # ------------------------------------------------------------------
+    def test_ai_keyword_adds_ai_row(self):
+        items = [self._item(title="AI model poisoning attack discovered")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "AI/ML 보안" in result
+
+    def test_llm_keyword_adds_ai_row(self):
+        items = [self._item(title="LLM prompt injection in enterprise chatbot", summary="LLM security issue")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        assert "AI/ML 보안" in result
+
+    # ------------------------------------------------------------------
+    # 8. Fallback when no keywords match
+    # ------------------------------------------------------------------
+    def test_no_keywords_fallback_rows(self):
+        items = [self._item(title="Quarterly board meeting notes", summary="financials discussed")]
+        result = _generate_executive_and_risk_sections(items, mode="security")
+        # Fallback rows should contain these labels
+        assert "위협 대응" in result
+        assert "탐지/모니터링" in result
+
+    def test_empty_items_fallback_rows(self):
+        result = _generate_executive_and_risk_sections([], mode="security")
+        assert "위협 대응" in result or "경영진 브리핑" in result
+
+    # ------------------------------------------------------------------
+    # 9. tech-blog mode returns expected structure
+    # ------------------------------------------------------------------
+    def test_tech_blog_mode_has_briefing_header(self):
+        items = [self._item(title="AI coding tool update")]
+        result = _generate_executive_and_risk_sections(items, mode="tech-blog")
+        assert "경영진 브리핑" in result
+
+    def test_tech_blog_mode_has_scorecard_header(self):
+        items = [self._item(title="Cloud infrastructure news")]
+        result = _generate_executive_and_risk_sections(items, mode="tech-blog")
+        assert "위험 스코어카드" in result
+
+    # ------------------------------------------------------------------
+    # 10. Max 4 rows in scorecard
+    # ------------------------------------------------------------------
+    def test_max_four_rows_in_scorecard(self):
+        # Item with many keyword matches: CVE, ransomware, cloud, AI, malware, supply chain
+        item = self._item(
+            title="CVE-2026-1234 ransomware AWS AI malware supply chain attack",
+            summary="cve vulnerability ransomware aws kubernetes ai llm malware dependency sbom",
+        )
+        result = _generate_executive_and_risk_sections([item], mode="security")
+        # Count table data rows (lines starting with "| " that are not header or separator)
+        table_rows = [
+            line for line in result.split("\n")
+            if line.startswith("| ") and "---" not in line and "영역" not in line
+        ]
+        assert len(table_rows) <= 4
