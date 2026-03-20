@@ -1,60 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="50%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
   </defs>
-
   <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-
-  <g transform="translate(600,255)">
-    <circle cx="0" cy="0" r="50" fill="#6366f1" fill-opacity="0.08" stroke="#818cf8" stroke-width="2"/>
-    <circle cx="0" cy="0" r="30" fill="#6366f1" fill-opacity="0.12" stroke="#a5b4fc" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="12" fill="#818cf8" opacity="0.6"/>
-    <circle cx="-180" cy="-80" r="22" fill="#1e293b" stroke="#60a5fa" stroke-width="1.5"/>
-    <circle cx="-180" cy="-80" r="8" fill="#3b82f6" opacity="0.5"/>
-    <circle cx="180" cy="-80" r="22" fill="#1e293b" stroke="#60a5fa" stroke-width="1.5"/>
-    <circle cx="180" cy="-80" r="8" fill="#3b82f6" opacity="0.5"/>
-    <circle cx="-200" cy="80" r="18" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-    <circle cx="200" cy="80" r="18" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-    <circle cx="0" cy="-140" r="20" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
-    <circle cx="0" cy="140" r="20" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
-    <circle cx="-100" cy="-40" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="100" cy="-40" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="-100" cy="50" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="100" cy="50" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <g stroke="#6366f1" stroke-width="1" opacity="0.3">
-      <line x1="0" y1="0" x2="-100" y2="-40"/><line x1="0" y1="0" x2="100" y2="-40"/>
-      <line x1="0" y1="0" x2="-100" y2="50"/><line x1="0" y1="0" x2="100" y2="50"/>
-      <line x1="0" y1="0" x2="0" y2="-140"/><line x1="0" y1="0" x2="0" y2="140"/>
-      <line x1="-100" y1="-40" x2="-180" y2="-80"/><line x1="100" y1="-40" x2="180" y2="-80"/>
-      <line x1="-100" y1="50" x2="-200" y2="80"/><line x1="100" y1="50" x2="200" y2="80"/>
-    </g>
-    <g opacity="0.5">
-      <circle cx="-50" cy="-20" r="3" fill="#818cf8"/><circle cx="50" cy="-20" r="3" fill="#818cf8"/>
-      <circle cx="-140" cy="-60" r="2.5" fill="#60a5fa"/><circle cx="140" cy="-60" r="2.5" fill="#60a5fa"/>
-    </g>
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/><line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/><line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">k8s ai agent vs traditional</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
+  <!-- AI vs Traditional comparison icon -->
+  <g transform="translate(80, 180)">
+    <rect x="0" y="0" width="120" height="120" rx="20" fill="url(#accent)" opacity="0.9"/>
+    <!-- AI brain side -->
+    <circle cx="40" cy="50" r="20" fill="none" stroke="white" stroke-width="2"/>
+    <path d="M30 42 Q40 35 50 42" fill="none" stroke="white" stroke-width="1.5"/>
+    <path d="M32 50 Q40 55 48 50" fill="none" stroke="white" stroke-width="1.5"/>
+    <!-- VS -->
+    <text x="60" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">VS</text>
+    <!-- Traditional gear side -->
+    <circle cx="80" cy="50" r="15" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="80" cy="50" r="5" fill="white"/>
+    <text x="60" y="108" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">AI vs MANUAL</text>
+  </g>
+  <!-- Comparison list -->
+  <g transform="translate(80, 370)">
+    <rect x="0" y="0" width="55" height="22" rx="4" fill="#4338ca" stroke="#6366f1" stroke-width="1"/>
+    <text x="28" y="15" text-anchor="middle" fill="#c7d2fe" font-family="monospace" font-size="8">AI</text>
+    <rect x="60" y="0" width="55" height="22" rx="4" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+    <text x="88" y="15" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8">Manual</text>
 
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
-
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 29, 2026</text>
-
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+    <text x="10" y="42" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="11">Speed: 10x faster</text>
+    <text x="10" y="62" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="11">Accuracy: 99.5%</text>
+    <text x="10" y="82" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="11">Cost: 60% less</text>
+    <text x="10" y="102" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="11">Scale: Unlimited</text>
+  </g>
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">K8S OPERATIONS</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">K8s AI Agent</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">vs Traditional Ops</text>
+  </g>
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 29, 2026</text>
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">MTTR REDUCTION</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">85%</text>
+    <text x="95" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">faster</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#34d399" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AUTO-HEAL</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">95%</text>
+    <text x="315" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">success rate</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#fbbf24" font-family="Arial, sans-serif" font-size="12" font-weight="bold">COST SAVING</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">60%</text>
+    <text x="530" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">reduction</text>
+  </g>
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="130" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="65" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AI Ops</text>
+    <rect x="145" y="0" width="130" height="32" rx="16" fill="#1e3a8a" opacity="0.7"/>
+    <text x="210" y="21" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="13">Kubernetes</text>
+    <rect x="290" y="0" width="140" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="360" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Automation</text>
+    <rect x="445" y="0" width="140" height="32" rx="16" fill="#78350f" opacity="0.7"/>
+    <text x="515" y="21" text-anchor="middle" fill="#fcd34d" font-family="Arial, sans-serif" font-size="13">Self-Healing</text>
+  </g>
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="50" cy="50" r="6" fill="#818cf8"/><circle cx="120" cy="30" r="4" fill="#34d399"/>
+    <circle cx="150" cy="90" r="5" fill="#fbbf24"/><circle cx="80" cy="120" r="4" fill="#60a5fa"/>
+    <circle cx="200" cy="60" r="3" fill="#818cf8"/><circle cx="30" cy="150" r="5" fill="#34d399"/>
+    <circle cx="180" cy="140" r="4" fill="#fbbf24"/>
+    <line x1="50" y1="50" x2="120" y2="30" stroke="#475569" stroke-width="1"/>
+    <line x1="50" y1="50" x2="80" y2="120" stroke="#475569" stroke-width="1"/>
+    <line x1="120" y1="30" x2="150" y2="90" stroke="#475569" stroke-width="1"/>
+    <line x1="150" y1="90" x2="200" y2="60" stroke="#475569" stroke-width="1"/>
+    <line x1="80" y1="120" x2="30" y2="150" stroke="#475569" stroke-width="1"/>
+    <line x1="150" y1="90" x2="180" y2="140" stroke="#475569" stroke-width="1"/>
+  </g>
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">K8s AI Agent vs Traditional Operations</text>
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">AI-Powered K8s Ops</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">AI | Kubernetes | Automation | DevOps</text>
 </svg>

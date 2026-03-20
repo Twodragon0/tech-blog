@@ -2,49 +2,119 @@
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1020"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="goldglow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#f59e0b" flood-opacity="0.2" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
   </defs>
 
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+  <!-- Ambient glow -->
+  <circle cx="400" cy="300" r="200" fill="#f59e0b" opacity="0.04" filter="url(#softglow)"/>
+  <circle cx="800" cy="300" r="200" fill="#8b5cf6" opacity="0.04" filter="url(#softglow)"/>
 
-  <g transform="translate(600,255)">
-    <!-- Large shield outline -->
-    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
-          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
-    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
-          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
-    <!-- Checkmark inside shield -->
-    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-    <!-- Firewall bricks -->
-    <g opacity="0.3">
-      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+  <!-- Scale of Justice - Central Visual -->
+  <g transform="translate(600,260)">
+    <!-- Central pillar -->
+    <rect x="-4" y="-80" width="8" height="220" rx="4" fill="#475569" opacity="0.6"/>
+    <circle cx="0" cy="-85" r="12" fill="#64748b" opacity="0.5"/>
+
+    <!-- Balance beam -->
+    <line x1="-250" y1="-50" x2="250" y2="-30" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Left pan (Bitcoin/Crypto - heavier, lower) -->
+    <g transform="translate(-250,-50)">
+      <line x1="0" y1="0" x2="-40" y2="80" stroke="#64748b" stroke-width="2"/>
+      <line x1="0" y1="0" x2="40" y2="80" stroke="#64748b" stroke-width="2"/>
+      <ellipse cx="0" cy="85" rx="60" ry="15" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1.5"/>
+
+      <!-- Bitcoin symbol -->
+      <g transform="translate(0,55)" filter="url(#goldglow)">
+        <circle cx="0" cy="0" r="30" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+        <text x="0" y="10" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fbbf24" text-anchor="middle">B</text>
+        <line x1="-5" y1="-15" x2="-5" y2="-20" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="5" y1="-15" x2="5" y2="-20" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="-5" y1="15" x2="-5" y2="20" stroke="#fbbf24" stroke-width="2"/>
+        <line x1="5" y1="15" x2="5" y2="20" stroke="#fbbf24" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- Right pan (Regulation - lighter, higher) -->
+    <g transform="translate(250,-30)">
+      <line x1="0" y1="0" x2="-40" y2="60" stroke="#64748b" stroke-width="2"/>
+      <line x1="0" y1="0" x2="40" y2="60" stroke="#64748b" stroke-width="2"/>
+      <ellipse cx="0" cy="65" rx="60" ry="15" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1.5"/>
+
+      <!-- Gavel/Law symbol -->
+      <g transform="translate(0,35)">
+        <circle cx="0" cy="0" r="30" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+        <text x="0" y="8" font-family="Arial, sans-serif" font-size="22" fill="#a78bfa" text-anchor="middle">&#x2696;</text>
+      </g>
     </g>
   </g>
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest AI Bitcoin</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AI | Bitcoin</text>
 
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+  <!-- Floating blockchain nodes -->
+  <g opacity="0.3">
+    <circle cx="120" cy="150" r="4" fill="#f59e0b"/>
+    <circle cx="180" cy="120" r="3" fill="#f59e0b"/>
+    <line x1="120" y1="150" x2="180" y2="120" stroke="#f59e0b" stroke-width="0.5"/>
+    <circle cx="160" cy="190" r="3" fill="#f59e0b"/>
+    <line x1="120" y1="150" x2="160" y2="190" stroke="#f59e0b" stroke-width="0.5"/>
+    <line x1="180" y1="120" x2="160" y2="190" stroke="#f59e0b" stroke-width="0.5"/>
 
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 16, 2026</text>
+    <circle cx="1050" cy="180" r="4" fill="#8b5cf6"/>
+    <circle cx="1100" cy="140" r="3" fill="#8b5cf6"/>
+    <line x1="1050" y1="180" x2="1100" y2="140" stroke="#8b5cf6" stroke-width="0.5"/>
+    <circle cx="1090" cy="210" r="3" fill="#8b5cf6"/>
+    <line x1="1050" y1="180" x2="1090" y2="210" stroke="#8b5cf6" stroke-width="0.5"/>
 
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+    <circle cx="100" cy="450" r="3" fill="#f59e0b"/>
+    <circle cx="150" cy="480" r="3" fill="#f59e0b"/>
+    <line x1="100" y1="450" x2="150" y2="480" stroke="#f59e0b" stroke-width="0.5"/>
+
+    <circle cx="1080" cy="430" r="3" fill="#8b5cf6"/>
+    <circle cx="1040" cy="470" r="3" fill="#8b5cf6"/>
+    <line x1="1080" y1="430" x2="1040" y2="470" stroke="#8b5cf6" stroke-width="0.5"/>
+  </g>
+
+  <!-- Trend line (down trend) -->
+  <g transform="translate(100,380)" opacity="0.12">
+    <polyline points="0,0 80,-20 160,10 240,-30 320,-10 400,20 480,-5 560,30 640,15 700,40"
+              fill="none" stroke="#f59e0b" stroke-width="2"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Blockchain Regulation Landscape</text>
+  <text x="600" y="558" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Stablecoin Rules | Libra Forensics | Market Dynamics</text>
+
+  <!-- Top badges -->
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">WEEKLY DIGEST</text>
+
+  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">March 16, 2026</text>
+
+  <!-- Footer -->
+  <text x="1160" y="615" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
