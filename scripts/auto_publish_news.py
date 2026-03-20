@@ -1510,51 +1510,102 @@ def _generate_executive_and_risk_sections(
             )
     else:
         briefing_lines = []
-        for item in top_items[:3]:
-            title = _korean_display_title(item, max_len=54)
-            action = _generate_contextual_action_point(item)
-            briefing_lines.append(f"- {title} 이슈는 {action}")
+        if critical_titles:
+            briefing_lines.append(
+                f"- **긴급 대응 필요**: {', '.join(critical_titles[:2])} 등 Critical 등급 위협 {critical_count}건이 확인되었습니다."
+            )
+        if high_titles:
+            briefing_lines.append(
+                f"- **주요 모니터링 대상**: {', '.join(high_titles[:3])} 등 High 등급 위협 {high_count}건에 대한 탐지 강화가 필요합니다."
+            )
+        if any(
+            kw in text_blob for kw in ["ransomware", "랜섬웨어", "encryption", "암호화"]
+        ):
+            briefing_lines.append(
+                "- 랜섬웨어 관련 위협이 확인되었으며, 백업 무결성 검증과 복구 절차 리허설을 권고합니다."
+            )
+        elif any(kw in text_blob for kw in ["zero-day", "제로데이", "0-day"]):
+            briefing_lines.append(
+                "- 제로데이 취약점이 보고되었으며, 임시 완화 조치 적용과 벤더 패치 일정 확인이 시급합니다."
+            )
+        elif any(kw in text_blob for kw in ["supply chain", "공급망"]):
+            briefing_lines.append(
+                "- 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다."
+            )
         if not briefing_lines:
             briefing_lines = [
                 "- 이번 주기는 취약점 대응과 탐지 체계 운영이 동시에 요구됩니다.",
                 "- 노출 자산 우선순위 기반의 패치와 룰 업데이트가 가장 높은 개선 효과를 제공합니다.",
             ]
 
-        rows = [
-            "| 영역 | 현재 위험도 | 즉시 조치 |",
-            "|------|-------------|-----------|",
-            f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
-            "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
-            "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+        candidate_rows = [
+            (
+                "위협 대응",
+                f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
+            ),
+            (
+                "탐지/모니터링",
+                "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
+            ),
         ]
-
+        if any(
+            kw in text_blob
+            for kw in ["cve", "취약점", "vulnerability", "patch", "패치"]
+        ):
+            cve_level = "Critical" if critical_count > 0 else "High"
+            candidate_rows.append(
+                (
+                    "취약점 관리",
+                    f"| 취약점 관리 | {cve_level} | CVE 기반 패치 우선순위 선정 및 SLA 내 적용 |",
+                )
+            )
+        if any(
+            kw in text_blob
+            for kw in ["cloud", "aws", "gcp", "azure", "kubernetes", "k8s", "iam"]
+        ):
+            candidate_rows.append(
+                (
+                    "클라우드 보안",
+                    "| 클라우드 보안 | Medium | 클라우드 자산 구성 드리프트 점검 및 권한 검토 |",
+                )
+            )
+        if any(
+            kw in text_blob for kw in ["ai", "llm", "agent", "ml", "prompt injection"]
+        ):
+            candidate_rows.append(
+                (
+                    "AI/ML 보안",
+                    "| AI/ML 보안 | Medium | AI 서비스 접근 제어 및 프롬프트 인젝션 방어 점검 |",
+                )
+            )
         if any(
             kw in text_blob for kw in ["ransomware", "랜섬웨어", "encryption", "암호화"]
         ):
-            rows.append(
-                "| 랜섬웨어 대응 | High | 백업 무결성 검증 및 격리 복구 절차 점검 |"
-            )
-        if any(
-            kw in text_blob for kw in ["supply chain", "공급망", "sbom", "dependency"]
-        ):
-            rows.append("| 공급망 보안 | High | 서드파티 의존성 감사 및 SBOM 최신화 |")
-
-        for item in top_items:
-            category = str(item.get("category", "tech")).lower()
-            area = {
-                "security": "위협 대응",
-                "devsecops": "공급망 통제",
-                "cloud": "클라우드 경계",
-                "ai": "AI 운영",
-                "blockchain": "자산 보호",
-            }.get(category, "보안 운영")
-            rows.append(
-                f"| {area} | {_determine_severity(item)} | {_korean_display_title(item, max_len=34)} 우선 점검 |"
+            candidate_rows.append(
+                (
+                    "운영 복원력",
+                    "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+                )
             )
 
-    rows.append(
-        f"| 종합 위험도 | {overall} | Critical {critical_count} / High {high_count} / Medium {medium_count} |"
-    )
+        ordered_labels = [
+            "위협 대응",
+            "탐지/모니터링",
+            "취약점 관리",
+            "클라우드 보안",
+            "AI/ML 보안",
+            "운영 복원력",
+        ]
+        row_map = {label: row for label, row in candidate_rows}
+        selected_rows = [
+            row_map[label] for label in ordered_labels if label in row_map
+        ][:4]
+        rows = [
+            "| 영역 | 현재 위험도 | 즉시 조치 |",
+            "|------|-------------|-----------|",
+            *selected_rows,
+        ]
+
     briefing = "\n".join(briefing_lines)
 
     return (
