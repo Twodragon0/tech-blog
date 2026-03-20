@@ -1487,6 +1487,8 @@ def _generate_executive_and_risk_sections(
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
+            f"| 배포 안정성 | {overall} | 릴리즈 체크리스트와 롤백 절차 점검 |",
+            "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |",
         ]
         for item in top_items:
             area = {
@@ -1513,6 +1515,9 @@ def _generate_executive_and_risk_sections(
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
+            f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
+            "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
+            "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
         ]
         for item in top_items:
             category = str(item.get("category", "tech")).lower()
@@ -1526,6 +1531,10 @@ def _generate_executive_and_risk_sections(
             rows.append(
                 f"| {area} | {_determine_severity(item)} | {_korean_display_title(item, max_len=34)} 우선 점검 |"
             )
+
+    rows.append(
+        f"| 종합 위험도 | {overall} | Critical {critical_count} / High {high_count} / Medium {medium_count} |"
+    )
 
     briefing = "\n".join(briefing_lines)
 
