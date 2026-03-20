@@ -1,7 +1,7 @@
 ---
 description: Lead agent for end-to-end repository work with delegation and hard verification
 mode: primary
-model: openai/gpt-5.3-codex
+model: openai/gpt-5.4
 temperature: 0.2
 steps: 50
 tools:
