@@ -1,108 +1,6 @@
 {
-  "updated_at": "2026-03-19T01:26:25.509233+00:00",
+  "updated_at": "2026-03-20T01:21:49.937938+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/coruna-ios-exploit-kit-uses-23-exploits.html",
-      "title": "Coruna iOS Exploit Kit",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/149-hacktivist-ddos-attacks-hit-110.html",
-      "title": "Hacktivist DDoS 149 Attacks",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/new-rfp-template-for-ai-usage-control.html",
-      "title": "AI Governance RFP Template",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/enhanced-access-denied-error-messages-with-policy-arns/",
-      "title": "AWS IAM Enhanced Error Messages",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/2025-iso-and-csa-star-certificates-are-now-available-with-one-additional-service-and-one-new-region/",
-      "title": "AWS 2025 ISO CSA STAR",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-canvas-writing-coding/",
-      "title": "Google AI Mode Canvas",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/",
-      "title": "OpenAI GPT-5.2 Pro Gravitons",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/unlock-powerful-call-center-analytics-with-amazon-nova-foundation-models/",
-      "title": "AWS Nova Call Center Analytics",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/gke-for-telco-building-a-highly-resilient-network-architecture/",
-      "title": "GKE Telco Architecture",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/h4d-vms-now-ga/",
-      "title": "Google Cloud H4D VM GA",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/manufacturing/how-bmw-is-testing-slms-not-llms-for-natural-language-voice-commands/",
-      "title": "BMW SLM Experiment",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27207",
-      "title": "Qwen Team Departure",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27206",
-      "title": "Agentic Engineering Patterns",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27203",
-      "title": "Motorola GrapheneOS",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27201",
-      "title": "OpenAI Codex Windows",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27200",
-      "title": "Apple MacBook Neo",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T04:33:06.155868+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27190",
-      "title": "Claude Code Guide eBook",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T04:33:06.155868+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/preparing-for-quantum-era-post-quantum.html",
       "title": "Preparing for the Quantum Era: Post-Quantum Cryptography Webinar for Security Le",
@@ -1470,6 +1368,96 @@
       "title": "Build a Multi-Agent System for Expert Content with Google ADK, MCP and Cloud Run",
       "published_date": "2026-03-19",
       "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/speagle-malware-hijacks-cobra-docguard.html",
+      "title": "Speagle Malware Hijacks Cobra DocGuard to Steal Data via Compromised Servers",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/54-edr-killers-use-byovd-to-exploit-34.html",
+      "title": "54 EDR Killers Use BYOVD to Exploit 34 Signed Vulnerable Drivers and Disable Sec",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/threatsday-bulletin-fortigate-raas.html",
+      "title": "ThreatsDay Bulletin: FortiGate RaaS, Citrix Exploits, MCP Abuse, LiveChat Phish ",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/19/new-tools-and-guidance-announcing-zero-trust-for-ai/",
+      "title": "New tools and guidance: Announcing Zero Trust for AI",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/new-perseus-android-banking-malware.html",
+      "title": "New Perseus Android Banking Malware Monitors Notes Apps to Extract Sensitive Dat",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-virtual-reality-update/",
+      "title": "Smooth Moves: 90 Frames-Per-Second Virtual Reality Arrives on GeForce NOW",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment",
+      "title": "How we monitor internal coding agents for misalignment",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-3-super-on-amazon-bedrock/",
+      "title": "Run NVIDIA Nemotron 3 Super on Amazon Bedrock",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-rag-for-video-generation-using-amazon-bedrock-and-amazon-nova-reel/",
+      "title": "Use RAG for video generation using Amazon Bedrock and Amazon Nova Reel",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-v-rag-revolutionizing-ai-powered-video-production-with-retrieval-augmented-generation/",
+      "title": "Introducing V-RAG: revolutionizing AI-powered video production with Retrieval Au",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/20-years-in-the-aws-cloud-how-time-flies/",
+      "title": "20 years in the AWS Cloud – how time flies!",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/accelerating-dotnet-maui-with-ai-agents/",
+      "title": "Accelerating .NET MAUI Development with AI Agents",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/19/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-platform-engineering-day/",
+      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: Platform Engine",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/19/policy-as-code-flexible-kubernetes-governance-with-kyverno/",
+      "title": "Policy-as-Code: Flexible Kubernetes governance with Kyverno",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/north-carolina-propose-bitcoin-reserve",
+      "title": "North Carolina Lawmakers Propose State Bitcoin Reserve",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
     }
   ]
 }
