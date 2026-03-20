@@ -501,49 +501,189 @@ def select_scene_variant(theme: str, filename: str):
     return variants[hash_val % len(variants)]
 
 
+THEME_ICONS = {
+    "threat": [
+        # Shield icon
+        '<path d="M0,-22 C12,-22 22,-14 22,0 C22,14 12,26 0,30 C-12,26 -22,14 -22,0 C-22,-14 -12,-22 0,-22Z" fill="none" stroke="{color}" stroke-width="2.5"/><path d="M-6,4 L-2,10 L8,-4" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>',
+        # Lock icon
+        '<rect x="-10" y="-4" width="20" height="16" rx="3" fill="none" stroke="{color}" stroke-width="2.2"/><path d="M-6,-4 L-6,-12 C-6,-20 6,-20 6,-12 L6,-4" fill="none" stroke="{color}" stroke-width="2.2"/><circle cx="0" cy="6" r="2.5" fill="{color}"/>',
+        # Alert triangle
+        '<path d="M0,-20 L20,16 L-20,16 Z" fill="none" stroke="{color}" stroke-width="2.2" stroke-linejoin="round"/><line x1="0" y1="-8" x2="0" y2="4" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/><circle cx="0" cy="10" r="2" fill="{color}"/>',
+    ],
+    "neural": [
+        '<circle cx="0" cy="0" r="12" fill="none" stroke="{color}" stroke-width="2"/><circle cx="0" cy="0" r="4" fill="{color}"/><line x1="-18" y1="-10" x2="-12" y2="-6" stroke="{color}" stroke-width="1.5"/><line x1="18" y1="-10" x2="12" y2="-6" stroke="{color}" stroke-width="1.5"/><line x1="0" y1="12" x2="0" y2="22" stroke="{color}" stroke-width="1.5"/>',
+        '<rect x="-14" y="-10" width="28" height="20" rx="4" fill="none" stroke="{color}" stroke-width="2"/><line x1="-8" y1="-3" x2="8" y2="-3" stroke="{color}" stroke-width="1.5"/><line x1="-8" y1="3" x2="4" y2="3" stroke="{color}" stroke-width="1.5"/>',
+        '<path d="M-10,-16 C-10,-16 0,-8 0,0 C0,8 -10,16 -10,16" fill="none" stroke="{color}" stroke-width="2"/><path d="M10,-16 C10,-16 0,-8 0,0 C0,8 10,16 10,16" fill="none" stroke="{color}" stroke-width="2"/><circle cx="0" cy="0" r="3" fill="{color}"/>',
+    ],
+    "cloud": [
+        '<path d="M-6,8 C-14,8 -18,2 -18,-4 C-18,-10 -14,-14 -8,-14 C-6,-20 0,-24 6,-24 C14,-24 18,-18 18,-14 C22,-14 26,-10 26,-4 C26,2 22,8 16,8 Z" fill="none" stroke="{color}" stroke-width="2"/>',
+        '<rect x="-12" y="-8" width="24" height="16" rx="3" fill="none" stroke="{color}" stroke-width="2"/><line x1="-6" y1="-2" x2="6" y2="-2" stroke="{color}" stroke-width="1.5"/><line x1="-6" y1="3" x2="2" y2="3" stroke="{color}" stroke-width="1.5"/>',
+        '<circle cx="0" cy="0" r="14" fill="none" stroke="{color}" stroke-width="2"/><path d="M-8,-4 L0,8 L8,-4" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round"/>',
+    ],
+    "pipeline": [
+        '<rect x="-12" y="-10" width="24" height="20" rx="4" fill="none" stroke="{color}" stroke-width="2"/><path d="M-5,-3 L-1,3 L7,-5" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>',
+        '<circle cx="0" cy="0" r="14" fill="none" stroke="{color}" stroke-width="2"/><path d="M-6,-6 L-6,6 L6,0 Z" fill="{color}" opacity="0.6"/>',
+        '<path d="M-14,0 L14,0" stroke="{color}" stroke-width="2"/><circle cx="-14" cy="0" r="4" fill="none" stroke="{color}" stroke-width="2"/><polygon points="10,-4 18,0 10,4" fill="{color}"/>',
+    ],
+    "chain": [
+        '<rect x="-14" y="-10" width="28" height="20" rx="3" fill="none" stroke="{color}" stroke-width="2"/><line x1="-14" y1="-2" x2="14" y2="-2" stroke="{color}" stroke-width="1" opacity="0.5"/><text x="0" y="8" font-family="Courier New" font-size="7" fill="{color}" text-anchor="middle">0xa3f..</text>',
+        '<circle cx="-8" cy="0" r="8" fill="none" stroke="{color}" stroke-width="2"/><circle cx="8" cy="0" r="8" fill="none" stroke="{color}" stroke-width="2"/>',
+        '<path d="M-12,-12 L12,-12 L12,12 L-12,12 Z" fill="none" stroke="{color}" stroke-width="2"/><path d="M-12,-12 L0,0 L12,-12" fill="none" stroke="{color}" stroke-width="1.5" opacity="0.5"/>',
+    ],
+}
+
+THEME_BG_TINT = {
+    "threat": "#ef4444",
+    "neural": "#6366f1",
+    "cloud": "#3b82f6",
+    "pipeline": "#f59e0b",
+    "chain": "#f97316",
+}
+
+
 def generate_visual_svg(filename: str) -> str:
     theme = select_theme(filename)
     primary, accent = THEME_COLORS.get(theme, ("#3b82f6", "#93c5fd"))
+    tint = THEME_BG_TINT.get(theme, "#3b82f6")
     title = extract_title(filename)
     date_str = extract_date(filename)
     subtopics = extract_subtopics(filename)
-    scene_fn = select_scene_variant(theme, filename)
 
-    # Determine if this is a digest or article
     is_digest = "digest" in filename.lower() or "weekly" in filename.lower()
     badge_text = "WEEKLY DIGEST" if is_digest else "TECH BLOG"
+
+    # Select 3 icons deterministically
+    icons = THEME_ICONS.get(theme, THEME_ICONS["threat"])
+    hash_val = int(hashlib.md5(filename.encode()).hexdigest(), 16)
+    icon_indices = [(hash_val + i) % len(icons) for i in range(3)]
+
+    # Build icon elements at 3 positions
+    icon_positions = [(120, 280), (120, 360), (120, 440)]
+    icon_elements = ""
+    for i, (ix, iy) in enumerate(icon_positions):
+        icon_svg = icons[icon_indices[i]].replace("{color}", primary)
+        icon_elements += f'    <g transform="translate({ix},{iy})">{icon_svg}</g>\n'
+
+    # Split subtopics into tag elements
+    topic_list = [t.strip() for t in subtopics.split("|")][:4]
+    tag_elements = ""
+    tag_x = 320
+    for tag in topic_list:
+        tw = len(tag) * 8 + 24
+        tag_elements += (
+            f'    <rect x="{tag_x}" y="480" width="{tw}" height="28" rx="14" '
+            f'fill="{primary}" fill-opacity="0.08" stroke="{primary}" stroke-opacity="0.3" stroke-width="1"/>\n'
+            f'    <text x="{tag_x + tw // 2}" y="499" font-family="Arial, sans-serif" '
+            f'font-size="12" font-weight="600" fill="{primary}" text-anchor="middle">{tag}</text>\n'
+        )
+        tag_x += tw + 12
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="catGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:{primary}"/>
+      <stop offset="100%" style="stop-color:{accent}"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
     </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="iconShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="{primary}" flood-opacity="0.15"/>
+    </filter>
   </defs>
 
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <circle cx="400" cy="250" r="200" fill="{primary}" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="{primary}" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-{scene_fn()}
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{title}</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">{subtopics}</text>
+  <!-- Grid Pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="{tint}" stroke-width="1"/>
+    <line x1="60" y1="0" x2="60" y2="630" stroke="{tint}" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="630" stroke="{tint}" stroke-width="1"/>
+    <line x1="180" y1="0" x2="180" y2="630" stroke="{tint}" stroke-width="1"/>
+    <line x1="240" y1="0" x2="240" y2="630" stroke="{tint}" stroke-width="1"/>
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="{tint}" stroke-width="1"/>
+    <line x1="0" y1="120" x2="1200" y2="120" stroke="{tint}" stroke-width="1"/>
+    <line x1="0" y1="180" x2="1200" y2="180" stroke="{tint}" stroke-width="1"/>
+  </g>
 
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="{primary}" opacity="0.2" stroke="{primary}" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="{accent}" text-anchor="middle">{badge_text}</text>
+  <!-- Background Decorative Circles -->
+  <circle cx="1100" cy="80" r="200" fill="{tint}" opacity="0.03"/>
+  <circle cx="80" cy="550" r="150" fill="{tint}" opacity="0.02"/>
 
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">{date_str}</text>
+  <!-- Category Badge (top-left) -->
+  <rect x="40" y="30" width="140" height="36" rx="18" fill="url(#catGrad)" opacity="0.9"/>
+  <text x="110" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">{badge_text}</text>
 
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Date Badge (top-right) -->
+  <rect x="1010" y="30" width="150" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="1085" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle">{date_str}</text>
+
+  <!-- Main Title -->
+  <text x="600" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">{title}</text>
+
+  <!-- Accent Gradient Bar -->
+  <rect x="400" y="158" width="400" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="600" y="190" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">DevSecOps Weekly Intelligence Report</text>
+
+  <!-- Left Side: Icon Column -->
+  <g filter="url(#iconShadow)">
+    <g opacity="0.9">
+{icon_elements}    </g>
+  </g>
+
+  <!-- Icon labels -->
+  <text x="120" y="315" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">DETECT</text>
+  <text x="120" y="395" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">PROTECT</text>
+  <text x="120" y="475" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">RESPOND</text>
+
+  <!-- Hero Card -->
+  <rect x="200" y="230" width="800" height="230" rx="16" fill="url(#cardBg)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Card Top Border (category color) -->
+  <rect x="200" y="230" width="800" height="6" rx="3" fill="{primary}" opacity="0.8"/>
+  <rect x="200" y="233" width="800" height="3" fill="url(#cardBg)"/>
+
+  <!-- Card Content -->
+  <text x="240" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Architecture Snapshot</text>
+  <line x1="240" y1="290" x2="960" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="#475569">Threat Analysis</text>
+  <rect x="240" y="305" width="4" height="18" rx="2" fill="{primary}"/>
+
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#475569">Risk Assessment and Mitigation Strategy</text>
+  <rect x="240" y="340" width="4" height="18" rx="2" fill="{primary}" opacity="0.6"/>
+
+  <text x="260" y="390" font-family="Arial, sans-serif" font-size="14" fill="#475569">Operational Security Recommendations</text>
+  <rect x="240" y="375" width="4" height="18" rx="2" fill="{primary}" opacity="0.4"/>
+
+  <!-- Card CTA -->
+  <rect x="830" y="405" width="140" height="36" rx="18" fill="{primary}" opacity="0.1"/>
+  <text x="900" y="428" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="{primary}" text-anchor="middle">View Post</text>
+
+  <!-- Topic Tags -->
+{tag_elements}
+  <!-- Footer -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="1160" y="610" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="40" y="610" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Twodragon DevSecOps Blog</text>
 </svg>"""
     return svg
 

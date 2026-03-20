@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "클라우드 보안, 보안 위협, AI"
+title: "Cisco FMC 제로데이 CVE-2026-20131, Telnetd RCE, OFAC 북한 제재"
 date: 2026-03-19 10:23:34 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, Ransomware, Patch]
