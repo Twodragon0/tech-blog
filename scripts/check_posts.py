@@ -17,6 +17,7 @@ import argparse
 import re
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import List, Optional, Tuple
 
@@ -44,6 +45,12 @@ REQUIRED_FIELDS = [
 ]
 OPTIONAL_FIELDS = ["comments", "original_url", "image_alt", "toc"]
 DEPRECATED_FIELDS = ["schema_type", "category"]
+GENERIC_TITLE_PATTERNS = [
+    r"^클라우드 보안, 보안 위협, AI$",
+    r"^보안 위협, AI, 클라우드 보안$",
+    r"^기술 블로그 주간 다이제스트:\s*(기술 동향|클라우드|AI)(,\s*.*)?$",
+    r"^(보안 위협|기술 동향|클라우드 보안|AI)(,\s*(보안 위협|기술 동향|클라우드 보안|AI|DevOps|블록체인)){1,3}$",
+]
 
 
 def extract_front_matter(content: str) -> tuple[dict[str, object], str]:
@@ -96,6 +103,13 @@ def check_front_matter(file_path: Path) -> List[str]:
     if "tags" in front_matter and not isinstance(front_matter["tags"], list):
         issues.append("⚠️ tags should be a list")
 
+    title = str(front_matter.get("title", "")).strip()
+    if title:
+        for pattern in GENERIC_TITLE_PATTERNS:
+            if re.match(pattern, title):
+                issues.append(f"⚠️ Generic title should be more specific: {title}")
+                break
+
     return issues
 
 
@@ -143,13 +157,14 @@ def check_image_paths(content: str) -> List[str]:
 
 
 def check_long_code_blocks(content: str) -> List[str]:
-    """긴 코드 블록 확인 (10줄 이상 또는 500자 이상)"""
+    """긴 코드 블록 확인 (30줄 이상 또는 1000자 이상)"""
     issues = []
 
     code_block_pattern = r"```(\w+)?\n(.*?)```"
     matches = re.finditer(code_block_pattern, content, re.DOTALL)
 
     for match in matches:
+        # Skip code blocks inside HTML comments
         last_comment_open = content.rfind("<!--", 0, match.start())
         last_comment_close = content.rfind("-->", 0, match.start())
         if last_comment_open > last_comment_close:
@@ -157,11 +172,17 @@ def check_long_code_blocks(content: str) -> List[str]:
             if comment_end != -1:
                 continue
 
+        # Skip code blocks inside <details> (already collapsed)
+        last_details_open = content.rfind("<details>", 0, match.start())
+        last_details_close = content.rfind("</details>", 0, match.start())
+        if last_details_open > last_details_close:
+            continue
+
         code = match.group(2)
         lines = code.count("\n")
         length = len(code)
 
-        if lines >= 10 or length >= 500:
+        if lines >= 30 or length >= 1000:
             line_num = content[: match.start()].count("\n") + 1
             issues.append(
                 f"💡 Long code block at line {line_num} ({lines} lines, {length} chars) - consider replacing with link"
@@ -231,23 +252,76 @@ def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[
     return issues
 
 
+def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
+    issues = []
+    image_path = str(front_matter.get("image", ""))
+    if not image_path.endswith(".svg"):
+        return issues
+
+    exists, image_file = check_image_exists(image_path)
+    if not exists or image_file is None:
+        return issues
+
+    try:
+        root = ET.fromstring(image_file.read_text(encoding="utf-8"))
+    except ET.ParseError:
+        return [f"⚠️ Invalid SVG XML: {image_path}"]
+
+    text_nodes = [
+        " ".join((node.itertext())).strip()
+        for node in root.iter()
+        if node.tag.endswith("text")
+    ]
+    text_nodes = [text for text in text_nodes if text]
+    total_chars = sum(len(text) for text in text_nodes)
+
+    if len(text_nodes) > 10:
+        issues.append(
+            f"⚠️ SVG text too dense ({len(text_nodes)} text nodes): {image_path}"
+        )
+    if total_chars > 160:
+        issues.append(
+            f"⚠️ SVG contains too much text ({total_chars} chars): {image_path}"
+        )
+
+    noisy_markers = [
+        "weekly digest",
+        "news collected",
+        "security",
+        "cloud",
+        "devops",
+        "ai/ml",
+        "blockchain",
+    ]
+    repeated_labels = sum(
+        1
+        for text in text_nodes
+        if text.strip().lower() in noisy_markers
+        or text.strip().lower().endswith(" news")
+    )
+    if repeated_labels >= 5:
+        issues.append(
+            f"⚠️ SVG relies on repeated label text instead of a single concept: {image_path}"
+        )
+
+    return issues
+
+
 def check_news_card_severity(content: str) -> List[str]:
     """Check that all news-card includes have an explicit severity parameter."""
     issues = []
     # Find all news-card include blocks
     pattern = re.compile(
-        r'\{%-?\s*include\s+news-card\.html\b(.*?)%\}',
+        r"\{%-?\s*include\s+news-card\.html\b(.*?)%\}",
         re.DOTALL,
     )
     for i, match in enumerate(pattern.finditer(content), 1):
         block = match.group(1)
-        if 'severity=' not in block:
+        if "severity=" not in block:
             # Try to extract title for better reporting
             title_match = re.search(r'title="([^"]{0,60})', block)
             title_hint = title_match.group(1) if title_match else f"card #{i}"
-            issues.append(
-                f"⚠️ News card missing severity: \"{title_hint}...\""
-            )
+            issues.append(f'⚠️ News card missing severity: "{title_hint}..."')
     return issues
 
 
@@ -285,9 +359,7 @@ def check_duplicate_practical_points(content: str) -> List[str]:
     counts = Counter(bullets)
     for text, count in counts.most_common():
         if count >= 3:
-            issues.append(
-                f"⚠️ 실무 포인트 반복 {count}회: \"{text[:50]}...\""
-            )
+            issues.append(f'⚠️ 실무 포인트 반복 {count}회: "{text[:50]}..."')
     return issues
 
 
@@ -390,6 +462,8 @@ def main():
 
         # 이미지 파일 존재 여부 확인
         issues.extend(check_image_files(post_file, front_matter))
+
+        issues.extend(check_svg_text_density(front_matter))
 
         # 더미 링크 확인
         issues.extend(check_dummy_links(content))

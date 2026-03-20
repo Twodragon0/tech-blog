@@ -1,115 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a2a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="nlb" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#ea580c"/>
-    </linearGradient>
-    <linearGradient id="db" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- Ambient glow -->
-  <circle cx="400" cy="260" r="200" fill="#f97316" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="800" cy="260" r="200" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
-  <!-- Grid pattern -->
-  <g opacity="0.03">
-    <line x1="0" y1="100" x2="1200" y2="100" stroke="#fff" stroke-width="1"/>
-    <line x1="0" y1="200" x2="1200" y2="200" stroke="#fff" stroke-width="1"/>
-    <line x1="0" y1="300" x2="1200" y2="300" stroke="#fff" stroke-width="1"/>
-    <line x1="0" y1="400" x2="1200" y2="400" stroke="#fff" stroke-width="1"/>
-    <line x1="200" y1="0" x2="200" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="400" y1="0" x2="400" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="600" y1="0" x2="600" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="800" y1="0" x2="800" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="1000" y1="0" x2="1000" y2="630" stroke="#fff" stroke-width="1"/>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Radar circles -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <circle cx="0" cy="0" r="105" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="0" cy="0" r="6" fill="#ef4444" opacity="0.6"/>
+    <!-- Radar sweep line -->
+    <line x1="0" y1="0" x2="100" y2="-100" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
+    <path d="M0,0 L70,-70 A100,100 0 0,1 100,0 Z" fill="#ef4444" fill-opacity="0.08"/>
+    <!-- Cross hairs -->
+    <line x1="-145" y1="0" x2="145" y2="0" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
+    <line x1="0" y1="-145" x2="0" y2="145" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
+    <!-- Threat dots -->
+    <circle cx="60" cy="-80" r="5" fill="#ef4444" opacity="0.7"/>
+    <circle cx="60" cy="-80" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
+    <circle cx="-40" cy="50" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="-40" cy="50" r="8" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+    <circle cx="90" cy="30" r="3" fill="#f59e0b" opacity="0.5"/>
   </g>
-  <g transform="translate(600,240)">
-    <!-- NLB (Network Load Balancer) - central hub -->
-    <g filter="url(#shadow)">
-      <rect x="-60" y="-70" width="120" height="140" rx="16" fill="#1e293b" stroke="#f97316" stroke-width="3"/>
-      <rect x="-50" y="-60" width="100" height="30" rx="6" fill="url(#nlb)" opacity="0.8"/>
-      <text x="0" y="-40" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">NLB</text>
-      <!-- Port indicators -->
-      <circle cx="-20" cy="-10" r="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-      <text x="-20" y="-6" font-family="Courier New" font-size="7" fill="#fdba74" text-anchor="middle">443</text>
-      <circle cx="20" cy="-10" r="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-      <text x="20" y="-6" font-family="Courier New" font-size="7" fill="#fdba74" text-anchor="middle">3306</text>
-      <!-- Health check indicator -->
-      <g transform="translate(0,25)">
-        <rect x="-35" y="-10" width="70" height="20" rx="4" fill="#22c55e" opacity="0.15"/>
-        <circle cx="-20" cy="0" r="4" fill="#22c55e" opacity="0.8"/>
-        <text x="5" y="4" font-family="Courier New" font-size="9" fill="#86efac" text-anchor="middle">HEALTHY</text>
-      </g>
-      <!-- Traffic arrows -->
-      <g transform="translate(0,50)">
-        <rect x="-8" y="-4" width="4" height="8" rx="1" fill="#f97316" opacity="0.6"/>
-        <rect x="-2" y="-6" width="4" height="12" rx="1" fill="#f97316" opacity="0.8"/>
-        <rect x="4" y="-3" width="4" height="6" rx="1" fill="#f97316" opacity="0.5"/>
-      </g>
-    </g>
-    <!-- Left: Client/VPC -->
-    <g transform="translate(-250,0)">
-      <rect x="-70" y="-50" width="140" height="100" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
-      <text x="0" y="-20" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">VPC</text>
-      <!-- Subnet boxes -->
-      <rect x="-50" y="-5" width="45" height="30" rx="4" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1"/>
-      <text x="-28" y="15" font-family="Courier New" font-size="7" fill="#a78bfa" text-anchor="middle">Private</text>
-      <rect x="5" y="-5" width="45" height="30" rx="4" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1"/>
-      <text x="28" y="15" font-family="Courier New" font-size="7" fill="#a78bfa" text-anchor="middle">Public</text>
-      <!-- Security Group shield -->
-      <g transform="translate(0,40)">
-        <path d="M0,-12 L15,-6 L15,4 C15,10 8,14 0,16 C-8,14 -15,10 -15,4 L-15,-6 Z" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1.5"/>
-        <text x="0" y="6" font-family="Courier New" font-size="6" fill="#c4b5fd" text-anchor="middle">SG</text>
-      </g>
-    </g>
-    <!-- Connection lines VPC -> NLB -->
-    <line x1="-110" y1="0" x2="-65" y2="0" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
-    <polygon points="-70,5 -60,0 -70,-5" fill="#8b5cf6" opacity="0.5"/>
-    <!-- Right: Database cluster -->
-    <g transform="translate(250,0)">
-      <g filter="url(#shadow)">
-        <!-- DB cylinder shape -->
-        <ellipse cx="0" cy="-50" rx="60" ry="15" fill="url(#db)" opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
-        <rect x="-60" y="-50" width="120" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-        <ellipse cx="0" cy="30" rx="60" ry="15" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-        <ellipse cx="0" cy="-50" rx="60" ry="15" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-        <!-- Data rows -->
-        <g opacity="0.4">
-          <line x1="-40" y1="-30" x2="40" y2="-30" stroke="#60a5fa" stroke-width="1"/>
-          <line x1="-40" y1="-15" x2="40" y2="-15" stroke="#60a5fa" stroke-width="1"/>
-          <line x1="-40" y1="0" x2="40" y2="0" stroke="#60a5fa" stroke-width="1"/>
-          <line x1="-40" y1="15" x2="40" y2="15" stroke="#60a5fa" stroke-width="1"/>
-        </g>
-        <text x="0" y="-5" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">RDS</text>
-      </g>
-      <!-- Replica indicator -->
-      <g transform="translate(55,-20)" opacity="0.4">
-        <ellipse cx="0" cy="0" rx="20" ry="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
-        <text x="0" y="4" font-family="Courier New" font-size="7" fill="#60a5fa" text-anchor="middle">R</text>
-      </g>
-    </g>
-    <!-- Connection lines NLB -> DB -->
-    <line x1="65" y1="0" x2="185" y2="0" stroke="#f97316" stroke-width="2" opacity="0.5"/>
-    <polygon points="180,5 190,0 180,-5" fill="#f97316" opacity="0.5"/>
-    <!-- Encrypted traffic indicator -->
-    <g transform="translate(125,-20)">
-      <rect x="-20" y="-8" width="40" height="16" rx="4" fill="#22c55e" opacity="0.1" stroke="#22c55e" stroke-width="1"/>
-      <text x="0" y="4" font-family="Courier New" font-size="7" fill="#86efac" text-anchor="middle">TLS</text>
-    </g>
-  </g>
-  <!-- Title -->
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS Database Gateway</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">NLB + Security Group | RDS Access Architecture</text>
-  <!-- Badges -->
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fdba74" text-anchor="middle">AWS GUIDE</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWSin Database Access Gateway Build NLB</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AWS</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Oct 3, 2025</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">October 3, 2025</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

@@ -1,59 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,230)">
-    <g filter="url(#shadow)">
-      <!-- Car silhouette (Model Y) -->
-      <path d="M-150,20 C-150,20 -140,-10 -120,-25 C-100,-40 -60,-50 -30,-52 L30,-52 C60,-50 100,-40 120,-25 C140,-10 150,20 150,20 Z" fill="#1e293b" stroke="#ef4444" stroke-width="2.5"/>
-      <!-- Windshield -->
-      <path d="M-80,-25 C-60,-45 60,-45 80,-25" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-      <!-- Wheels -->
-      <circle cx="-90" cy="25" r="20" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
-      <circle cx="-90" cy="25" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-      <circle cx="90" cy="25" r="20" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
-      <circle cx="90" cy="25" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-      <!-- Tesla T logo -->
-      <g transform="translate(0,-30)">
-        <line x1="-12" y1="0" x2="12" y2="0" stroke="#ef4444" stroke-width="2.5"/>
-        <line x1="0" y1="0" x2="0" y2="18" stroke="#ef4444" stroke-width="2.5"/>
-      </g>
-      <!-- FSD sensor beams -->
-      <g opacity="0.2">
-        <path d="M-30,-52 L-80,-100 L80,-100 L30,-52" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
-        <path d="M150,10 L200,-30 L200,50 L150,30" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
-        <path d="M-150,10 L-200,-30 L-200,50 L-150,30" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
-      </g>
-      <!-- Detection dots -->
-      <g opacity="0.4">
-        <circle cx="-60" cy="-85" r="3" fill="#3b82f6"/>
-        <circle cx="0" cy="-95" r="3" fill="#3b82f6"/>
-        <circle cx="60" cy="-85" r="3" fill="#3b82f6"/>
-        <circle cx="185" cy="0" r="3" fill="#22c55e"/>
-        <circle cx="-185" cy="0" r="3" fill="#22c55e"/>
-      </g>
-    </g>
-    <!-- FSD badge -->
-    <rect x="-30" y="55" width="60" height="24" rx="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="0" y="72" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#fca5a5" text-anchor="middle">FSD</text>
-    <!-- Security shield -->
-    <g transform="translate(140,60)" opacity="0.5">
-      <path d="M0,-15 L18,-8 L18,8 C18,16 10,22 0,25 C-10,22 -18,16 -18,8 L-18,-8 Z" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1.5"/>
-      <path d="M-4,3 L-1,7 L7,-2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Large shield outline -->
+    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
+          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Firewall bricks -->
+    <g opacity="0.3">
+      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tesla FSD 2026</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Model Y Juniper | Full Self-Driving | Security + DevSecOps</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tesla FSD 2026 Complete Guide Model Y Juniper</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | DevSecOps | Tesla</text>
+
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">AUTOMOTIVE</text>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 1, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 1, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

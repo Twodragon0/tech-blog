@@ -1317,19 +1317,144 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
     return title_keywords
 
 
+def _extract_digest_title_phrases(
+    news_items: List[Dict], mode: str = "security", limit: int = 3
+) -> List[str]:
+    """Build a more specific digest title from top headlines."""
+    phrases: List[str] = []
+    seen: set[str] = set()
+
+    for item in news_items[:8]:
+        raw_title = _korean_display_title(item, max_len=72)
+        candidate = re.split(r"\s*[|:]+\s*|\s+-\s+", raw_title)[0].strip()
+        candidate = re.sub(r"\s+", " ", candidate).strip(" ,.")
+
+        if len(candidate) < 8:
+            candidate = raw_title.strip(" ,.")
+        if len(candidate) > 26:
+            candidate = candidate[:26].rsplit(" ", 1)[0].rstrip(" ,.")
+        if not candidate:
+            continue
+
+        dedupe_key = candidate.lower()
+        if dedupe_key in seen:
+            continue
+
+        seen.add(dedupe_key)
+        phrases.append(candidate)
+        if len(phrases) >= limit:
+            break
+
+    if mode == "tech-blog":
+        generic = {"기술 동향", "개발 플랫폼", "빅테크 전략"}
+    else:
+        generic = {"보안 위협", "클라우드 보안", "AI", "기술 동향"}
+
+    phrases = [p for p in phrases if p not in generic]
+    return phrases[:limit]
+
+
+def _extract_digest_title_labels(
+    news_items: List[Dict], mode: str = "security"
+) -> List[str]:
+    """Fallback title labels built from high-signal keywords."""
+    label_map = [
+        (r"zero-day|0-day|제로데이|cve-", "제로데이"),
+        (r"ransomware|랜섬웨어", "랜섬웨어"),
+        (r"malware|악성코드", "악성코드"),
+        (r"byovd|driver|edr", "BYOVD EDR"),
+        (r"dns|exfil|data leak|유출", "DNS 유출"),
+        (r"telnet", "Telnetd"),
+        (r"cisco|fmc", "Cisco FMC"),
+        (r"dprk|north korea|북한", "북한 위협"),
+        (r"ai agent|agentic|llm|model", "AI 에이전트"),
+        (r"kubernetes|k8s|gke|cluster", "쿠버네티스"),
+        (r"cloud|aws|azure|gcp", "클라우드"),
+        (r"patch|update", "패치"),
+    ]
+    labels: List[str] = []
+    seen: set[str] = set()
+
+    for item in news_items[:8]:
+        text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+        for pattern, label in label_map:
+            if re.search(pattern, text) and label not in seen:
+                seen.add(label)
+                labels.append(label)
+                if len(labels) >= 3:
+                    return labels
+
+    fallback = _extract_meaningful_topics(news_items, mode=mode).split(", ")
+    for label in fallback:
+        if label not in seen:
+            labels.append(label)
+        if len(labels) >= 3:
+            break
+
+    normalized_labels: List[str] = []
+    for label in labels:
+        if label == "AI" and any(existing.startswith("AI ") for existing in labels):
+            continue
+        if label == "클라우드" and any("쿠버네티스" in existing for existing in labels):
+            continue
+        if label not in normalized_labels:
+            normalized_labels.append(label)
+    return normalized_labels[:3]
+
+
+def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
+    """Prefer specific headline-driven titles over generic topic buckets."""
+    headline_phrases = _extract_digest_title_phrases(news_items, mode=mode, limit=3)
+    weak_english_starts = (
+        "how ",
+        "when ",
+        "why ",
+        "what ",
+        "inside ",
+        "introducing ",
+        "announcing ",
+        "from ",
+    )
+
+    weak_phrase_count = sum(
+        1 for p in headline_phrases if p.lower().startswith(weak_english_starts)
+    )
+    headline_joined = " ".join(headline_phrases)
+    has_korean = bool(re.search(r"[가-힣]", headline_joined))
+    has_markdown_noise = any("*" in p or "#" in p for p in headline_phrases)
+
+    if headline_phrases and not (
+        has_markdown_noise or (weak_phrase_count >= 1 and not has_korean)
+    ):
+        title = ", ".join(headline_phrases)
+        if len(title) <= 80:
+            return title
+
+    label_title = ", ".join(_extract_digest_title_labels(news_items, mode=mode))
+    if label_title:
+        return label_title[:80].rstrip(" ,.")
+
+    return _extract_meaningful_topics(news_items, mode=mode)
+
+
 def _generate_executive_and_risk_sections(
     news_items: List[Dict], mode: str = "security"
 ) -> str:
     critical_count = 0
     high_count = 0
     medium_count = 0
+    critical_titles = []
+    high_titles = []
 
     for item in news_items:
         severity = _determine_severity(item)
+        title = _korean_display_title(item, max_len=35)
         if severity == "Critical":
             critical_count += 1
+            critical_titles.append(title)
         elif severity == "High":
             high_count += 1
+            high_titles.append(title)
         else:
             medium_count += 1
 
@@ -1340,34 +1465,148 @@ def _generate_executive_and_risk_sections(
     else:
         overall = "Low"
 
+    severity_rank = {"Critical": 0, "High": 1, "Medium": 2}
+    ranked_items = sorted(
+        news_items,
+        key=lambda item: (
+            severity_rank.get(_determine_severity(item), 3),
+            CATEGORY_PRIORITY.get(str(item.get("category", "tech")).lower(), 99),
+        ),
+    )
+    top_items = ranked_items[:3]
+    text_blob = " ".join(
+        f"{item.get('title', '')} {item.get('summary', '')}" for item in news_items
+    ).lower()
+
     if mode == "tech-blog":
-        briefing = (
-            "- 이번 주기는 기술 도입 속도와 운영 안정성 간 균형이 핵심이며, "
-            "AI/클라우드/개발도구 변화에 대한 표준화된 검증 절차가 필요합니다.\n"
-            "- 단기적으로는 배포 전 검증 기준, 권한/비용 통제, 장애 대응 리허설을 "
-            "동일 주기로 관리하는 것이 효과적입니다."
-        )
+        briefing_lines = []
+        for item in top_items[:2]:
+            title = _korean_display_title(item, max_len=54)
+            action = _generate_contextual_action_point(item)
+            briefing_lines.append(f"- {title} 이슈는 {action}")
+        if len(briefing_lines) < 2:
+            briefing_lines.extend(
+                [
+                    "- 이번 주기는 기술 도입 속도보다 표준화된 검증 흐름 설계가 더 중요합니다.",
+                    "- 배포 전 검증, 권한 통제, 장애 복구 연습을 같은 운영 주기로 관리해야 합니다.",
+                ][len(briefing_lines) :]
+            )
+
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
-            "| 배포 안정성 | Medium | 릴리즈 체크리스트와 롤백 절차 점검 |",
+            f"| 배포 안정성 | {overall} | 릴리즈 체크리스트와 롤백 절차 점검 |",
             "| 개발 생산성 | Medium | 핵심 도구 표준화 및 팀 가이드 업데이트 |",
-            "| 비용/운영 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |",
         ]
+        for item in top_items:
+            area = {
+                "ai": "AI 자동화",
+                "cloud": "플랫폼 운영",
+                "devops": "배포 안정성",
+                "kubernetes": "클러스터 운영",
+            }.get(str(item.get("category", "tech")).lower(), "기술 운영")
+            rows.append(
+                f"| {area} | {_determine_severity(item)} | {_korean_display_title(item, max_len=34)} 점검 |"
+            )
     else:
-        briefing = (
-            "- 이번 주기는 취약점 대응과 탐지 체계 운영이 동시에 요구되며, "
-            "노출 자산 우선순위 기반의 실행이 필요합니다.\n"
-            "- 단기적으로는 패치 SLA 준수, 고위험 자산 모니터링, 탐지 룰 최신화가 "
-            "가장 높은 개선 효과를 제공합니다."
-        )
+        briefing_lines = []
+        if critical_titles:
+            briefing_lines.append(
+                f"- **긴급 대응 필요**: {', '.join(critical_titles[:2])} 등 Critical 등급 위협 {critical_count}건이 확인되었습니다."
+            )
+        if high_titles:
+            briefing_lines.append(
+                f"- **주요 모니터링 대상**: {', '.join(high_titles[:3])} 등 High 등급 위협 {high_count}건에 대한 탐지 강화가 필요합니다."
+            )
+        if any(
+            kw in text_blob for kw in ["ransomware", "랜섬웨어", "encryption", "암호화"]
+        ):
+            briefing_lines.append(
+                "- 랜섬웨어 관련 위협이 확인되었으며, 백업 무결성 검증과 복구 절차 리허설을 권고합니다."
+            )
+        elif any(kw in text_blob for kw in ["zero-day", "제로데이", "0-day"]):
+            briefing_lines.append(
+                "- 제로데이 취약점이 보고되었으며, 임시 완화 조치 적용과 벤더 패치 일정 확인이 시급합니다."
+            )
+        elif any(kw in text_blob for kw in ["supply chain", "공급망"]):
+            briefing_lines.append(
+                "- 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다."
+            )
+        if not briefing_lines:
+            briefing_lines = [
+                "- 이번 주기는 취약점 대응과 탐지 체계 운영이 동시에 요구됩니다.",
+                "- 노출 자산 우선순위 기반의 패치와 룰 업데이트가 가장 높은 개선 효과를 제공합니다.",
+            ]
+
+        candidate_rows = [
+            (
+                "위협 대응",
+                f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
+            ),
+            (
+                "탐지/모니터링",
+                "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
+            ),
+        ]
+        if any(
+            kw in text_blob
+            for kw in ["cve", "취약점", "vulnerability", "patch", "패치"]
+        ):
+            cve_level = "Critical" if critical_count > 0 else "High"
+            candidate_rows.append(
+                (
+                    "취약점 관리",
+                    f"| 취약점 관리 | {cve_level} | CVE 기반 패치 우선순위 선정 및 SLA 내 적용 |",
+                )
+            )
+        if any(
+            kw in text_blob
+            for kw in ["cloud", "aws", "gcp", "azure", "kubernetes", "k8s", "iam"]
+        ):
+            candidate_rows.append(
+                (
+                    "클라우드 보안",
+                    "| 클라우드 보안 | Medium | 클라우드 자산 구성 드리프트 점검 및 권한 검토 |",
+                )
+            )
+        if any(
+            kw in text_blob for kw in ["ai", "llm", "agent", "ml", "prompt injection"]
+        ):
+            candidate_rows.append(
+                (
+                    "AI/ML 보안",
+                    "| AI/ML 보안 | Medium | AI 서비스 접근 제어 및 프롬프트 인젝션 방어 점검 |",
+                )
+            )
+        if any(
+            kw in text_blob for kw in ["ransomware", "랜섬웨어", "encryption", "암호화"]
+        ):
+            candidate_rows.append(
+                (
+                    "운영 복원력",
+                    "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+                )
+            )
+
+        ordered_labels = [
+            "위협 대응",
+            "탐지/모니터링",
+            "취약점 관리",
+            "클라우드 보안",
+            "AI/ML 보안",
+            "운영 복원력",
+        ]
+        row_map = {label: row for label, row in candidate_rows}
+        selected_rows = [
+            row_map[label] for label in ordered_labels if label in row_map
+        ][:4]
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
-            f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
-            "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
-            "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+            *selected_rows,
         ]
+
+    briefing = "\n".join(briefing_lines)
 
     return (
         "## 경영진 브리핑\n\n"
@@ -1454,7 +1693,7 @@ def generate_post_content(
     topics = _extract_key_topics(news_items)
 
     # Better title generation: extract meaningful topics from content
-    title_keywords = _extract_meaningful_topics(news_items, mode="security")
+    title_keywords = _build_digest_title(news_items, mode="security")
 
     base_tags = [
         "Security-Weekly",
@@ -1489,13 +1728,13 @@ title: "{title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{date_str} 주요 보안/기술 뉴스 {total}건 - {", ".join(topics[:3])}"
-description: "{date_str} 보안 뉴스: {source_list} 등 {total}건. {", ".join(topics[:4])} 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+excerpt: "{title_keywords}를 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
+description: "{date_str} 보안 뉴스 요약. {source_list} 등 {total}건을 분석하고 {title_keywords} 중심의 DevSecOps 대응 포인트를 정리합니다."
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "Tech Security Weekly Digest {date.strftime("%B %d %Y")} {" ".join(topics[:3])}"
+image_alt: "{_to_english_svg_text(title_keywords)} security digest overview"
 toc: true
 ---
 
@@ -1781,7 +2020,7 @@ def generate_tech_blog_content(
             topic_groups["General"].append(item)
 
     # Title generation for tech-blog mode
-    title_keywords = _extract_meaningful_topics(news_items, mode="tech-blog")
+    title_keywords = _build_digest_title(news_items, mode="tech-blog")
 
     topics = _extract_key_topics(news_items)
     base_tags = ["Tech-Blog", "Weekly-Digest", "Developer", str(date.year)]
@@ -1830,13 +2069,13 @@ title: "기술 블로그 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
-excerpt: "{date_str} 주요 기술 블로그 뉴스 {total}건 - {", ".join(topics[:3])}"
-description: "{date_str} 테크 블로그 다이제스트: {source_list} 등 {total}건. {", ".join(topics[:4])} 관련 개발자 뉴스 및 트렌드 분석."
+excerpt: "{title_keywords}를 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
+description: "{date_str} 기술 블로그 다이제스트. {source_list} 등 {total}건을 분석하고 {title_keywords} 중심의 개발자 트렌드와 운영 시사점을 정리합니다."
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "Tech Blog Weekly Digest {date.strftime("%B %d %Y")} {" ".join(topics[:3])}"
+image_alt: "{_to_english_svg_text(title_keywords)} tech digest overview"
 toc: true
 ---
 
@@ -2055,7 +2294,9 @@ def _determine_severity(item: Dict) -> str:
     except ImportError:
         from scripts.news_utils import determine_severity
 
-    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
+    text = (
+        f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
+    )
     category = item.get("category", "tech")
     return determine_severity(text, category)
 
@@ -2131,30 +2372,53 @@ def _generate_contextual_action_point(item: Dict) -> str:
     # AI category
     if category == "ai":
         if any(kw in combined for kw in ["agent", "에이전트", "agentic"]):
-            return "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
-        if any(kw in combined for kw in ["coding", "코딩", "copilot", "cursor", "코드 생성", "code generation"]):
+            return (
+                "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
+            )
+        if any(
+            kw in combined
+            for kw in [
+                "coding",
+                "코딩",
+                "copilot",
+                "cursor",
+                "코드 생성",
+                "code generation",
+            ]
+        ):
             return "AI 생성 코드에 대한 보안 스캔(SAST/SCA) 게이트를 CI/CD에 필수 적용하세요."
         if any(kw in combined for kw in ["llm", "gpt", "claude", "gemini"]):
             return "LLM 서빙 환경의 접근 제어와 프롬프트 인젝션 방어 체계를 점검하세요."
-        if any(kw in combined for kw in ["gpu", "nvidia", "compute", "training", "factory"]):
+        if any(
+            kw in combined for kw in ["gpu", "nvidia", "compute", "training", "factory"]
+        ):
             return "AI 인프라 도입 시 보안 경계 설계와 데이터 프라이버시 규정 준수를 확인하세요."
-        if any(kw in combined for kw in ["open source", "오픈소스", "hugging face", "ollama"]):
+        if any(
+            kw in combined
+            for kw in ["open source", "오픈소스", "hugging face", "ollama"]
+        ):
             return "오픈소스 모델 도입 시 출처 검증, 라이선스 및 학습 데이터 리스크를 평가하세요."
         if any(kw in combined for kw in ["model", "모델"]):
-            return "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
+            return (
+                "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
+            )
         return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
 
     # Cloud / DevOps
     if category in ("cloud", "devops", "kubernetes"):
         if any(kw in combined for kw in ["rbac", "iam", "권한", "identity"]):
-            return "IAM/RBAC 정책의 최소 권한 원칙 준수와 서비스 계정 감사를 수행하세요."
+            return (
+                "IAM/RBAC 정책의 최소 권한 원칙 준수와 서비스 계정 감사를 수행하세요."
+            )
         if any(kw in combined for kw in ["kubernetes", "k8s", "쿠버네티스"]):
             return "클러스터 버전 호환성과 워크로드 영향을 확인하세요."
         if any(kw in combined for kw in ["docker", "container", "컨테이너"]):
             return "컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요."
         if any(kw in combined for kw in ["terraform", "iac", "인프라 코드"]):
             return "IaC 템플릿 보안 스캔(Checkov/tfsec)과 드리프트 탐지를 확인하세요."
-        if any(kw in combined for kw in ["serverless", "lambda", "서버리스", "function"]):
+        if any(
+            kw in combined for kw in ["serverless", "lambda", "서버리스", "function"]
+        ):
             return "서버리스 함수의 IAM 역할 최소화와 실행 환경 보안 설정을 점검하세요."
         if any(kw in combined for kw in ["aws", "azure", "gcp"]):
             return "클라우드 서비스 변경사항이 인프라 구성에 미치는 영향을 확인하세요."
@@ -2162,17 +2426,57 @@ def _generate_contextual_action_point(item: Dict) -> str:
 
     # Blockchain
     if category == "blockchain":
-        if any(kw in combined for kw in ["hack", "exploit", "attack", "공격", "breach", "침해", "vulnerability"]):
+        if any(
+            kw in combined
+            for kw in [
+                "hack",
+                "exploit",
+                "attack",
+                "공격",
+                "breach",
+                "침해",
+                "vulnerability",
+            ]
+        ):
             return "블록체인 보안 사고 관련 IoC를 확인하고 유사 공격 벡터에 대한 방어 체계를 점검하세요."
-        if any(kw in combined for kw in ["regulation", "규제", "법안", "act", "compliance", "컴플라이언스", "sec", "cftc"]):
+        if any(
+            kw in combined
+            for kw in [
+                "regulation",
+                "규제",
+                "법안",
+                "act",
+                "compliance",
+                "컴플라이언스",
+                "sec",
+                "cftc",
+            ]
+        ):
             return "규제 변화에 따른 컴플라이언스 영향을 법무팀과 사전 검토하세요."
-        if any(kw in combined for kw in ["defi", "protocol", "프로토콜", "swap", "스왑", "lending", "대출"]):
+        if any(
+            kw in combined
+            for kw in [
+                "defi",
+                "protocol",
+                "프로토콜",
+                "swap",
+                "스왑",
+                "lending",
+                "대출",
+            ]
+        ):
             return "관련 DeFi 프로토콜의 스마트 컨트랙트 감사 현황과 비상 정지 메커니즘을 확인하세요."
-        if any(kw in combined for kw in ["conference", "컨퍼런스", "summit", "speaker", "연사"]):
+        if any(
+            kw in combined
+            for kw in ["conference", "컨퍼런스", "summit", "speaker", "연사"]
+        ):
             return "대규모 행사 전후로 관련 토큰 사기 및 가짜 이벤트 피싱이 증가합니다. 공식 채널만 이용하세요."
         if any(kw in combined for kw in ["bitcoin", "비트코인", "btc"]):
             return "시장 변동성 확대 시기에 피싱 도메인 모니터링을 강화하고 고액 출금 인증 절차를 점검하세요."
-        if any(kw in combined for kw in ["ethereum", "이더리움", "eth", "stablecoin", "스테이블코인"]):
+        if any(
+            kw in combined
+            for kw in ["ethereum", "이더리움", "eth", "stablecoin", "스테이블코인"]
+        ):
             return "스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요."
         return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
 
@@ -2697,7 +3001,10 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
 """
 
     # Zero-day / exploit advice
-    if any(kw in text for kw in ["zero-day", "제로데이", "0-day", "exploit", "actively exploited"]):
+    if any(
+        kw in text
+        for kw in ["zero-day", "제로데이", "0-day", "exploit", "actively exploited"]
+    ):
         return """
 #### 권장 조치
 
@@ -2709,7 +3016,17 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
 """
 
     # Phishing / social engineering advice
-    if any(kw in text for kw in ["phishing", "피싱", "social engineering", "사회공학", "vishing", "smishing"]):
+    if any(
+        kw in text
+        for kw in [
+            "phishing",
+            "피싱",
+            "social engineering",
+            "사회공학",
+            "vishing",
+            "smishing",
+        ]
+    ):
         return """
 #### 권장 조치
 
@@ -2721,7 +3038,10 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
 """
 
     # Data breach / leak advice
-    if any(kw in text for kw in ["data breach", "데이터 유출", "leak", "유출", "exposed", "노출"]):
+    if any(
+        kw in text
+        for kw in ["data breach", "데이터 유출", "leak", "유출", "exposed", "노출"]
+    ):
         return """
 #### 권장 조치
 
@@ -2760,27 +3080,63 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         template += "- LLM 입출력 데이터 보안 및 프라이버시 검토\n"
         template += "- 모델 서빙 환경의 접근 제어 및 네트워크 격리 확인\n"
         template += "- 프롬프트 인젝션 등 적대적 공격 대응 방안 점검\n"
-    elif any(kw in text for kw in ["gpu", "nvidia", "인프라", "factory", "compute", "training"]):
+    elif any(
+        kw in text
+        for kw in ["gpu", "nvidia", "인프라", "factory", "compute", "training"]
+    ):
         template += "- 대규모 AI 인프라 도입 시 보안 경계 및 접근 제어 설계 검토\n"
         template += "- GPU 클러스터 운영 환경의 취약점 관리 및 패치 정책 수립\n"
         template += "- AI 워크로드 데이터 프라이버시 규정(GDPR, HIPAA) 준수 확인\n"
-    elif any(kw in text for kw in ["simulation", "시뮬레이션", "digital twin", "optimize", "최적화"]):
-        template += "- 시뮬레이션 기반 인프라 검증으로 배포 전 보안 취약점 사전 식별 활용\n"
+    elif any(
+        kw in text
+        for kw in ["simulation", "시뮬레이션", "digital twin", "optimize", "최적화"]
+    ):
+        template += (
+            "- 시뮬레이션 기반 인프라 검증으로 배포 전 보안 취약점 사전 식별 활용\n"
+        )
         template += "- AI 서비스 성능 최적화와 보안 모니터링 균형 설계\n"
         template += "- 운영 비용 절감 효과와 보안 투자 ROI 분석\n"
-    elif any(kw in text for kw in ["coding", "코딩", "copilot", "cursor", "code generation", "코드 생성", "devtool", "ide", "vscode"]):
+    elif any(
+        kw in text
+        for kw in [
+            "coding",
+            "코딩",
+            "copilot",
+            "cursor",
+            "code generation",
+            "코드 생성",
+            "devtool",
+            "ide",
+            "vscode",
+        ]
+    ):
         template += "- AI 코딩 도구가 생성한 코드에 대한 자동 보안 스캔(SAST/SCA) 게이트 필수 적용\n"
         template += "- AI 생성 코드의 시크릿/자격증명 하드코딩 여부 자동 탐지 설정\n"
         template += "- 개발자 대상 AI 코딩 도구 보안 사용 가이드라인 수립 및 교육\n"
-    elif any(kw in text for kw in ["attack", "공격", "threat", "위협", "malware", "악성"]):
+    elif any(
+        kw in text for kw in ["attack", "공격", "threat", "위협", "malware", "악성"]
+    ):
         template += "- AI 기반 위협 탐지 및 자동 대응 파이프라인 구축 검토\n"
         template += "- AI 모델 자체의 적대적 공격(Adversarial Attack) 방어 설계\n"
         template += "- 보안 팀의 AI 도구 활용 역량 강화 교육 계획 수립\n"
-    elif any(kw in text for kw in ["open source", "오픈소스", "hugging face", "허깅페이스", "올라마", "ollama"]):
+    elif any(
+        kw in text
+        for kw in [
+            "open source",
+            "오픈소스",
+            "hugging face",
+            "허깅페이스",
+            "올라마",
+            "ollama",
+        ]
+    ):
         template += "- 오픈소스 AI 모델 도입 시 라이선스 및 보안 취약점 검토\n"
         template += "- 모델 다운로드 출처 검증 및 체크섬/서명 확인 절차 수립\n"
         template += "- 오픈소스 모델의 학습 데이터 편향 및 프라이버시 리스크 평가\n"
     else:
+        logging.info(
+            f"AI template fallback triggered for: {item.get('title', '')[:60]}"
+        )
         template += "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토\n"
         template += "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인\n"
         template += "- 관련 기술의 자사 환경 적용 가능성 평가 및 보안 영향 분석\n"
@@ -2807,23 +3163,52 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
         template += "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
         template += "- 컨테이너 런타임 보안 모니터링 강화\n"
-    elif any(kw in text for kw in ["rbac", "admission controller", "pod security", "psa", "psp", "opa", "gatekeeper"]):
+    elif any(
+        kw in text
+        for kw in [
+            "rbac",
+            "admission controller",
+            "pod security",
+            "psa",
+            "psp",
+            "opa",
+            "gatekeeper",
+        ]
+    ):
         template += "- Kubernetes RBAC 역할 및 바인딩 최소 권한 원칙 준수 감사\n"
         template += "- Admission Controller/OPA 정책으로 비인가 리소스 생성 차단\n"
         template += "- Pod Security Admission(PSA) restricted 프로필 적용 현황 점검\n"
-    elif any(kw in text for kw in ["image", "이미지", "registry", "레지스트리", "cosign", "sigstore", "sbom"]):
-        template += "- 컨테이너 이미지 서명(cosign/sigstore) 및 무결성 검증 파이프라인 확인\n"
+    elif any(
+        kw in text
+        for kw in [
+            "image",
+            "이미지",
+            "registry",
+            "레지스트리",
+            "cosign",
+            "sigstore",
+            "sbom",
+        ]
+    ):
+        template += (
+            "- 컨테이너 이미지 서명(cosign/sigstore) 및 무결성 검증 파이프라인 확인\n"
+        )
         template += "- 프라이빗 레지스트리 접근 제어 및 이미지 스캔 정책 점검\n"
         template += "- SBOM 기반 이미지 의존성 취약점 추적 자동화 설정\n"
     elif any(kw in text for kw in ["서비스 메시", "service mesh", "istio", "envoy"]):
         template += "- mTLS 기반 서비스 간 통신 암호화 적용 검토\n"
         template += "- 서비스 메시 관측성 활용한 이상 트래픽 탐지 설계\n"
         template += "- 네트워크 폴리시와 서비스 메시 정책 통합 관리\n"
-    elif any(kw in text for kw in ["network policy", "네트워크 폴리시", "ingress", "egress", "cilium"]):
+    elif any(
+        kw in text
+        for kw in ["network policy", "네트워크 폴리시", "ingress", "egress", "cilium"]
+    ):
         template += "- Kubernetes NetworkPolicy로 Pod 간 불필요한 통신 차단 설정\n"
         template += "- Ingress/Egress 트래픽 암호화(mTLS) 적용 현황 검토\n"
         template += "- 네트워크 관측성 도구(Cilium Hubble 등)로 이상 트래픽 탐지 강화\n"
-    elif any(kw in text for kw in ["kubecon", "conference", "컨퍼런스", "행사", "summit"]):
+    elif any(
+        kw in text for kw in ["kubecon", "conference", "컨퍼런스", "행사", "summit"]
+    ):
         template += "- 컨퍼런스에서 발표된 새로운 보안 프레임워크 및 도구 검토\n"
         template += "- 커뮤니티 모범 사례의 자사 환경 적용 가능성 평가\n"
         template += "- 발표된 오픈소스 프로젝트의 보안 성숙도 및 도입 로드맵 검토\n"
@@ -2831,15 +3216,56 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- Kubernetes 클러스터 보안 벤치마크(CIS) 준수 점검\n"
         template += "- API 서버 접근 제어 및 감사 로그(Audit Log) 활성화 확인\n"
         template += "- 클러스터 업그레이드 주기 및 보안 패치 적용 현황 검토\n"
-    elif any(kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]):
+    elif any(
+        kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]
+    ):
         template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
         template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
         template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
+    elif any(
+        kw in text
+        for kw in [
+            "database",
+            "데이터베이스",
+            "db",
+            "sql",
+            "cache",
+            "캐시",
+            "redis",
+            "valkey",
+            "memorystore",
+        ]
+    ):
+        template += "- 데이터베이스/캐시 서비스 업그레이드 시 데이터 무결성 검증 및 접근 제어 점검\n"
+        template += (
+            "- DB 연결 암호화(SSL/TLS) 설정이 모든 복제본/노드에 적용되는지 확인\n"
+        )
+        template += (
+            "- 자동 확장 이벤트 감사 로그 모니터링으로 비정상 리소스 증가 탐지\n"
+        )
+    elif any(
+        kw in text
+        for kw in [
+            "mobile",
+            "모바일",
+            "maui",
+            "flutter",
+            "react native",
+            "ios",
+            "android app",
+        ]
+    ):
+        template += "- 모바일 앱 업데이트에 포함된 보안 패치 및 의존성 변경사항 검토\n"
+        template += "- API 키 및 민감 데이터의 클라이언트 측 노출 방지 설정 점검\n"
+        template += "- 사용자 데이터 수집 시 개인정보 보호 정책(GDPR, 개인정보보호법) 준수 확인\n"
     elif any(kw in text for kw in ["네트워크", "network"]):
         template += "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
         template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
         template += "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n"
     else:
+        logging.info(
+            f"DevOps template fallback triggered for: {item.get('title', '')[:60]}"
+        )
         template += "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
         template += "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
         template += "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
@@ -3168,254 +3594,192 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
     return topics[:4] if topics else ["Security", "Cloud", "DevOps", "AI"]
 
 
+def _extract_visual_focus_labels(news_items: List[Dict], limit: int = 3) -> List[str]:
+    """Return short English labels for low-text digest SVGs."""
+    label_patterns = [
+        (r"zero-day|0-day|제로데이|cve-", "ZERO DAY"),
+        (r"ransomware|랜섬웨어", "RANSOM"),
+        (r"byovd|driver|edr", "BYOVD"),
+        (r"dns|exfil|data leak|유출", "DNS EXFIL"),
+        (r"malware|악성코드", "MALWARE"),
+        (r"telnet", "TELNETD"),
+        (r"cisco|fmc", "FMC"),
+        (r"dprk|north korea|북한", "DPRK"),
+        (r"ai agent|agentic|llm|model", "AI AGENT"),
+        (r"kubernetes|k8s|gke|cluster", "K8S"),
+        (r"cloud|aws|azure|gcp", "CLOUD"),
+        (r"patch|update", "PATCH"),
+    ]
+
+    labels: List[str] = []
+    seen: set[str] = set()
+    for item in news_items[:8]:
+        text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+        for pattern, label in label_patterns:
+            if re.search(pattern, text) and label not in seen:
+                seen.add(label)
+                labels.append(label)
+                if len(labels) >= limit:
+                    return labels
+
+    for topic in _extract_key_topics(news_items):
+        label = _truncate_text(_to_english_svg_text(topic).upper(), 12)
+        if label and label not in seen:
+            seen.add(label)
+            labels.append(label)
+            if len(labels) >= limit:
+                break
+
+    return labels[:limit] if labels else ["SECURITY", "CLOUD", "AI"]
+
+
+def _convert_svg_to_og_png(svg_path: Path) -> None:
+    """Convert SVG to PNG for Open Graph social media previews using rsvg-convert."""
+    import shutil
+
+    rsvg = shutil.which("rsvg-convert")
+    if not rsvg:
+        logging.debug("rsvg-convert not found, skipping PNG conversion")
+        return
+
+    png_path = svg_path.with_name(svg_path.stem + "_og.png")
+    try:
+        result = subprocess.run(
+            [rsvg, "-w", "1200", "-h", "630", str(svg_path), "-o", str(png_path)],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode == 0:
+            print(f"✅ Created OG image: {png_path}")
+        else:
+            logging.warning(f"rsvg-convert failed: {result.stderr[:200]}")
+    except Exception as e:
+        logging.warning(f"PNG conversion skipped: {e}")
+
+
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
-    """고품질 SVG 이미지 생성 - 카드 기반 레이아웃"""
+    """Generate low-text digest SVG focused on standalone comprehension."""
 
     date_display = date.strftime("%B %d, %Y")
-    # 통계 계산
-    total = sum(len(items) for items in categorized.values())
-    stats = {cat: len(items) for cat, items in categorized.items()}
+    focus_labels = _extract_visual_focus_labels(news_items, limit=3)
 
-    # 핵심 토픽 추출
-    topics = _extract_key_topics(news_items)
-    subtitle_topics = " | ".join(_to_english_svg_text(t) for t in topics)
+    if categorized.get("security") or categorized.get("devsecops"):
+        main_category = "security"
+    elif categorized.get("ai"):
+        main_category = "ai"
+    elif categorized.get("cloud"):
+        main_category = "cloud"
+    else:
+        main_category = "tech"
 
-    # 상위 뉴스 6개 선택 - 카테고리 다양성 보장
-    top_items = []
-    # 카테고리별 할당: security 2개, 나머지 각 1개
-    category_slots = [
-        (["security", "devsecops"], 2),
-        (["ai"], 1),
-        (["cloud"], 1),
-        (["devops", "kubernetes"], 1),
-        (["blockchain"], 1),
-    ]
-    for cat_keys, count in category_slots:
-        for cat_key in cat_keys:
-            if len(top_items) >= 6:
-                break
-            for item in categorized.get(cat_key, []):
-                if item not in top_items and len(top_items) < 6:
-                    top_items.append(item)
-                    count -= 1
-                    if count <= 0:
-                        break
-    # 부족하면 나머지 뉴스에서 채우기
-    if len(top_items) < 6:
-        for item in news_items:
-            if item not in top_items:
-                top_items.append(item)
-            if len(top_items) >= 6:
-                break
+    config = CATEGORY_SVG_CONFIG.get(main_category, CATEGORY_SVG_CONFIG["tech"])
+    accent = config["icon_color"]
+    headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
+    subtitle = "  ".join(focus_labels)
+    node_colors = [accent, "#67e8f9", "#f59e0b"]
+    node_positions = [(250, 360), (600, 210), (950, 360)]
 
-    # SVG 헤더 및 정의
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#181024"/>
     </linearGradient>
-
-    <!-- Card Gradient -->
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
-    </linearGradient>
-
-    <!-- Category Gradients -->
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
-    </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#d97706"/>
-    </linearGradient>
-    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
-
-    <!-- Glow Filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
     </filter>
-
-    <!-- Shadow Filter -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
     </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
-    </pattern>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="210" cy="170" r="180" fill="{accent}" opacity="0.14" filter="url(#glow)"/>
+  <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect x="70" y="58" width="170" height="34" rx="17" fill="#0f172a" stroke="#334155"/>
+  <text x="155" y="81" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#cbd5e1" text-anchor="middle">WEEKLY DIGEST</text>
 
-  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">{headline}</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
 
-  <!-- Decorative Circles -->
-  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
-
-  <!-- Header Section -->
-  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
-
-  <!-- Date Badge -->
-  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
-  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{date_display}</text>
-
-  <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle_topics)}</text>
+  <g transform="translate(600 336)" filter="url(#shadow)">
+    <circle r="102" fill="#111827" stroke="{accent}" stroke-width="2.5"/>
+    <circle r="44" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/>
+    <path d="M-18 0 h36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 -18 v36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="138" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
+  </g>
 """
 
-    # 카드 레이아웃 생성 (최대 6개 카드, 3x2 그리드)
-    card_positions = [
-        (50, 190, 340, 180),  # Row 1, Card 1
-        (430, 190, 340, 180),  # Row 1, Card 2
-        (810, 190, 340, 180),  # Row 1, Card 3
-        (50, 400, 340, 160),  # Row 2, Card 1
-        (430, 400, 340, 160),  # Row 2, Card 2
-        (810, 400, 340, 160),  # Row 2, Card 3
-    ]
-
-    gradient_map = {
-        "security": "redGradient",
-        "devsecops": "purpleGradient",
-        "ai": "indigoGradient",
-        "cloud": "greenGradient",
-        "devops": "orangeGradient",
-        "blockchain": "orangeGradient",
-        "tech": "blueGradient",
+    # Node icon templates keyed by label keyword
+    _node_icons = {
+        "malware": '<circle r="16" fill="{c}" opacity="0.2"/><circle cx="-12" cy="-8" r="6" fill="{c}" opacity="0.5"/><circle cx="12" cy="8" r="6" fill="{c}" opacity="0.5"/><circle cx="8" cy="-12" r="4" fill="{c}" opacity="0.4"/>',
+        "ransom": '<rect x="-22" y="-4" width="44" height="36" rx="8" fill="#221617" stroke="{c}" stroke-width="2"/><path d="M-12 -4 v-16 c0-18 24-18 24 0 v16" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="6" fill="{c}"/><rect x="-2" y="20" width="4" height="10" rx="2" fill="{c}"/>',
+        "phish": '<path d="M-20 -8 L0 12 L20 -8" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-24" y="-16" width="48" height="36" rx="4" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-24" r="4" fill="{c}"/>',
+        "cve": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{c}" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="{c}" text-anchor="middle" opacity="0.7">PATCH</text>',
+        "cloud": '<path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="{c}" stroke-width="2" transform="scale(0.7)"/>',
+        "ai": '<rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="{c}" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="{c}" text-anchor="middle">AI</text>',
+        "k8s": '<circle cx="-16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="16" cy="-12" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><circle cx="0" cy="16" r="12" fill="#09261d" stroke="{c}" stroke-width="1.5"/><path d="M-8 -6 L8 -6 M-12 2 L0 14 M12 2 L0 14" stroke="{c}" stroke-width="1.5"/>',
+        "dns": '<circle r="16" fill="{c}" opacity="0.15"/><circle cx="-10" cy="-6" r="5" fill="{c}" opacity="0.6"/><circle cx="10" cy="6" r="5" fill="{c}" opacity="0.6"/><circle cx="12" cy="-10" r="3" fill="{c}" opacity="0.4"/>',
+        "edr": '<rect x="-22" y="-18" width="44" height="36" rx="6" fill="#0f172a" stroke="{c}" stroke-width="2"/><path d="M-12 -6 L-4 6 L14 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><line x1="-14" y1="14" x2="14" y2="14" stroke="{c}" stroke-width="1.5" opacity="0.5"/>',
+        "default": '<circle r="18" fill="{c}" opacity="0.18"/><circle r="8" fill="{c}" opacity="0.3"/>',
     }
 
-    for idx, item in enumerate(top_items):
-        if idx >= len(card_positions):
-            break
+    def _match_icon(label: str) -> str:
+        lbl = label.lower()
+        for key in _node_icons:
+            if key in lbl:
+                return key
+        if any(k in lbl for k in ["exploit", "vuln", "patch", "zero"]):
+            return "cve"
+        if any(k in lbl for k in ["encrypt", "lock", "ransom"]):
+            return "ransom"
+        if any(k in lbl for k in ["aws", "gcp", "azure", "cloud"]):
+            return "cloud"
+        if any(k in lbl for k in ["agent", "llm", "model"]):
+            return "ai"
+        if any(k in lbl for k in ["k8s", "kube", "gke", "eks"]):
+            return "k8s"
+        if any(k in lbl for k in ["bot", "worm", "trojan"]):
+            return "malware"
+        return "default"
 
-        x, y, width, height = card_positions[idx]
-        category = item.get("category", "tech")
-        if category in ("security", "devsecops"):
-            category_display = "security"
-        elif category in ("devops", "kubernetes"):
-            category_display = "devops"
-        elif category == "ai":
-            category_display = "ai"
-        elif category == "blockchain":
-            category_display = "blockchain"
-        else:
-            category_display = category
+    # Build attack-flow arrows from core to nodes
+    arrow_svg = ""
+    for idx, label in enumerate(focus_labels[:3]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        # Curved arrow path
+        cx1 = 600 + (x - 600) * 0.3
+        cy1 = 336 + (y - 336) * 0.1
+        cx2 = 600 + (x - 600) * 0.7
+        cy2 = 336 + (y - 336) * 0.9
+        arrow_svg += f'  <path d="M600 336 C{cx1:.0f} {cy1:.0f} {cx2:.0f} {cy2:.0f} {x} {y}" fill="none" stroke="{color}" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/>\n'
 
-        config = CATEGORY_SVG_CONFIG.get(category_display, CATEGORY_SVG_CONFIG["tech"])
-        gradient = gradient_map.get(category_display, "blueGradient")
+    svg += arrow_svg
 
-        title = _escape_svg_text(
-            _truncate_text(_to_english_svg_text(item.get("title", "News Update")), 35)
-        )
-        source = _escape_svg_text(
-            _truncate_text(
-                _to_english_svg_text(
-                    item.get("source_name", item.get("source", "Source"))
-                ),
-                20,
-            )
-        )
-
-        # 요약 또는 컨텐츠에서 핵심 정보 추출
-        summary = item.get("summary", item.get("content", ""))
-        summary_lines = []
-        if summary:
-            words = summary.split()
-            line = ""
-            for word in words:
-                if len(line + " " + word) > 40:
-                    summary_lines.append(line.strip())
-                    line = word
-                    if len(summary_lines) >= 2:
-                        break
-                else:
-                    line = line + " " + word if line else word
-            if line and len(summary_lines) < 2:
-                summary_lines.append(line.strip())
-
-        svg += f'''
-  <!-- Card {idx + 1}: {config["label"]} -->
-  <g transform="translate({x}, {y})">
-    <rect width="{width}" height="{height}" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="{width}" height="6" rx="3" fill="url(#{gradient})"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#{gradient})" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="{config["icon_color"]}" text-anchor="middle">{config["icon"]}</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="{config["icon_color"]}">{config["label"]}</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">{title}</text>
-'''
-
-        # 요약 라인 추가
-        for line_idx, line in enumerate(summary_lines[:2]):
-            y_offset = 95 + line_idx * 18
-            svg += f'    <text x="20" y="{y_offset}" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">{_escape_svg_text(_to_english_svg_text(line))}</text>\n'
-
-        # 소스 배지
-        badge_y = height - 25 if height > 160 else height - 20
-        svg += f'''
-    <rect x="20" y="{badge_y}" width="120" height="18" rx="9" fill="url(#{gradient})" fill-opacity="0.2"/>
-    <text x="80" y="{badge_y + 13}" font-family="Arial, sans-serif" font-size="10" fill="{config["icon_color"]}" text-anchor="middle">{source}</text>
+    for idx, label in enumerate(focus_labels[:3]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_icon(label)
+        icon_svg = _node_icons[icon_key].replace("{c}", color)
+        svg += f"""
+  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="58" fill="#0f172a" stroke="{color}" stroke-width="2"/>
+    {icon_svg}
+    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
   </g>
-'''
+"""
 
-    # Footer 섹션
     svg += f"""
-  <!-- Footer -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
-
-  <!-- Stats -->
-  <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{total} News Collected</text>
-  </g>
-  <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("security", 0)} Security</text>
-  </g>
-  <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("cloud", 0)} Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("devops", 0)} DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("ai", 0)} AI/ML</text>
-  </g>
-
-  <!-- Blog Info -->
-  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
 
     return svg
@@ -3633,6 +3997,9 @@ def main():
     with open(svg_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
     print(f"✅ Created image: {svg_path}")
+
+    # Generate PNG for Open Graph social previews
+    _convert_svg_to_og_png(svg_path)
 
     print(f"\n🎉 Auto publish completed! (mode: {args.mode})")
 

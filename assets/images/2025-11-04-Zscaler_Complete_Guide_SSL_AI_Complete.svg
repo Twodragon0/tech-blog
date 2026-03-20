@@ -1,82 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="zs" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0099d5"/><stop offset="100%" style="stop-color:#006eb8"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#0099d5" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,235)">
-    <!-- Cloud proxy shape -->
-    <g filter="url(#shadow)">
-      <path d="M-60,-90 C-90,-90 -120,-70 -120,-45 C-150,-45 -170,-25 -170,0 C-170,30 -150,50 -120,50 L120,50 C150,50 170,30 170,0 C170,-25 150,-45 120,-45 C120,-70 90,-90 60,-90 C35,-90 15,-75 0,-65 C-15,-75 -35,-90 -60,-90 Z" fill="#1e293b" stroke="url(#zs)" stroke-width="3"/>
-      <!-- Zscaler Z logo -->
-      <g transform="translate(0,-20)">
-        <rect x="-35" y="-25" width="70" height="50" rx="8" fill="#0099d5" opacity="0.15"/>
-        <text x="0" y="10" font-family="Arial,sans-serif" font-size="42" font-weight="bold" fill="#0099d5" text-anchor="middle">Z</text>
-      </g>
+
+  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Brain outline -->
+    <path d="M0,-110 C60,-110 110,-70 120,-20 C130,30 100,80 60,100 C30,115 -30,115 -60,100 C-100,80 -130,30 -120,-20 C-110,-70 -60,-110 0,-110Z"
+          fill="#6366f1" fill-opacity="0.05" stroke="#818cf8" stroke-width="2" opacity="0.5"/>
+    <!-- Center division -->
+    <path d="M0,-110 C10,-60 -10,0 5,50 C10,80 0,100 0,100"
+          fill="none" stroke="#a5b4fc" stroke-width="1.5" opacity="0.4"/>
+    <!-- Circuit traces -->
+    <g stroke="#818cf8" stroke-width="1.5" opacity="0.4" fill="none">
+      <path d="M-60,-50 L-30,-50 L-30,-20 L0,-20"/>
+      <path d="M60,-50 L30,-50 L30,-20 L0,-20"/>
+      <path d="M-80,20 L-40,20 L-40,50 L0,50"/>
+      <path d="M80,20 L40,20 L40,50 L0,50"/>
     </g>
-    <!-- SSL inspection tunnel -->
-    <g transform="translate(0,80)">
-      <!-- Tunnel shape -->
-      <path d="M-200,0 C-150,-30 -80,-35 0,-35 C80,-35 150,-30 200,0" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.4"/>
-      <path d="M-200,0 C-150,30 -80,35 0,35 C80,35 150,30 200,0" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.4"/>
-      <!-- SSL lock icons along tunnel -->
-      <g transform="translate(-120,0)">
-        <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#22c55e" opacity="0.3"/>
-        <path d="M-4,-4 L-4,-8 C-4,-11 -2,-13 0,-13 C2,-13 4,-11 4,-8 L4,-4" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.5"/>
-      </g>
-      <g transform="translate(0,0)">
-        <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#22c55e" opacity="0.3"/>
-        <path d="M-4,-4 L-4,-8 C-4,-11 -2,-13 0,-13 C2,-13 4,-11 4,-8 L4,-4" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.5"/>
-      </g>
-      <g transform="translate(120,0)">
-        <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#22c55e" opacity="0.3"/>
-        <path d="M-4,-4 L-4,-8 C-4,-11 -2,-13 0,-13 C2,-13 4,-11 4,-8 L4,-4" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.5"/>
-      </g>
-      <!-- Traffic flow arrows -->
-      <g opacity="0.3">
-        <polygon points="-160,-15 -150,-20 -150,-10" fill="#0099d5"/>
-        <polygon points="-60,-25 -50,-30 -50,-20" fill="#0099d5"/>
-        <polygon points="50,-25 60,-30 60,-20" fill="#0099d5"/>
-        <polygon points="150,-15 160,-20 160,-10" fill="#0099d5"/>
-      </g>
-    </g>
-    <!-- Left: Users -->
-    <g transform="translate(-220,-30)" opacity="0.5">
-      <circle cx="0" cy="-12" r="10" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-      <path d="M-15,15 C-15,5 -8,0 0,0 C8,0 15,5 15,15" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-      <circle cx="25" cy="-8" r="8" fill="none" stroke="#94a3b8" stroke-width="1"/>
-      <path d="M13,12 C13,5 18,0 25,0 C32,0 37,5 37,12" fill="none" stroke="#94a3b8" stroke-width="1"/>
-    </g>
-    <!-- Right: Internet/Apps -->
-    <g transform="translate(220,-30)" opacity="0.5">
-      <circle cx="0" cy="0" r="25" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-      <circle cx="0" cy="0" r="15" fill="none" stroke="#94a3b8" stroke-width="1"/>
-      <line x1="-25" y1="0" x2="25" y2="0" stroke="#94a3b8" stroke-width="1"/>
-      <line x1="0" y1="-25" x2="0" y2="25" stroke="#94a3b8" stroke-width="1"/>
-      <path d="M-10,-25 C-10,-10 -10,10 -10,25" fill="none" stroke="#94a3b8" stroke-width="0.8"/>
-      <path d="M10,-25 C10,-10 10,10 10,25" fill="none" stroke="#94a3b8" stroke-width="0.8"/>
-    </g>
-    <!-- Blocked threats -->
-    <g opacity="0.3">
-      <line x1="-140" y1="60" x2="-130" y2="70" stroke="#ef4444" stroke-width="2"/>
-      <line x1="-130" y1="60" x2="-140" y2="70" stroke="#ef4444" stroke-width="2"/>
-      <line x1="130" y1="60" x2="140" y2="70" stroke="#ef4444" stroke-width="2"/>
-      <line x1="140" y1="60" x2="130" y2="70" stroke="#ef4444" stroke-width="2"/>
-    </g>
+    <!-- Junction dots -->
+    <circle cx="0" cy="-20" r="6" fill="#818cf8" opacity="0.6"/>
+    <circle cx="0" cy="50" r="5" fill="#a5b4fc" opacity="0.5"/>
+    <circle cx="-60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="-80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
+    <circle cx="80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
+    <!-- Pulse rings -->
+    <circle cx="0" cy="-20" r="18" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="-20" r="35" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.1"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Zscaler Complete Guide</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">SSL Inspection | AI-Powered Security | Zero Trust Proxy</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#0099d5" opacity="0.2" stroke="#0099d5" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#67d4ff" text-anchor="middle">ZERO TRUST</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Zscaler Complete Guide SSL AI Complete</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Nov 4, 2025</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">November 4, 2025</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

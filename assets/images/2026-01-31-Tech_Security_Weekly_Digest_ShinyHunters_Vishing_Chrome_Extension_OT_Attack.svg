@@ -1,54 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <!-- Phishing hook (vishing) -->
-    <g filter="url(#shadow)">
-      <path d="M0,-90 L0,-20 C0,10 -20,25 -20,25 C-20,25 0,40 20,25 C20,25 40,10 40,-20 L40,-30" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
-      <!-- Hook point -->
-      <circle cx="-20" cy="30" r="5" fill="#ef4444" opacity="0.6"/>
-      <!-- Fishing line -->
-      <line x1="0" y1="-90" x2="0" y2="-120" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-    </g>
-    <!-- Chrome extension icon -->
-    <g transform="translate(-120,0)">
-      <circle cx="0" cy="0" r="35" fill="#1e293b" stroke="#4285f4" stroke-width="2" filter="url(#shadow)"/>
-      <!-- Chrome colors -->
-      <circle cx="0" cy="0" r="12" fill="#fff" opacity="0.1"/>
-      <path d="M0,-12 A12,12 0 0,1 10,6 L0,0 Z" fill="#ea4335" opacity="0.4"/>
-      <path d="M10,6 A12,12 0 0,1 -10,6 L0,0 Z" fill="#34a853" opacity="0.4"/>
-      <path d="M-10,6 A12,12 0 0,1 0,-12 L0,0 Z" fill="#fbbc05" opacity="0.4"/>
-      <circle cx="0" cy="0" r="6" fill="#4285f4" opacity="0.5"/>
-      <text x="0" y="48" font-family="Courier New" font-size="7" fill="#93c5fd" text-anchor="middle">Extension</text>
-    </g>
-    <!-- OT attack indicator -->
-    <g transform="translate(120,0)" opacity="0.6">
-      <rect x="-35" y="-25" width="70" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <!-- Industrial gauge -->
-      <circle cx="0" cy="-5" r="14" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-      <line x1="0" y1="-5" x2="8" y2="-14" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
-      <text x="0" y="20" font-family="Courier New" font-size="7" fill="#fde68a" text-anchor="middle">OT</text>
-      <text x="0" y="38" font-family="Courier New" font-size="7" fill="#fde68a" text-anchor="middle">Attack</text>
-    </g>
-    <!-- ShinyHunters tag -->
-    <g transform="translate(0,80)">
-      <rect x="-50" y="-12" width="100" height="24" rx="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1"/>
-      <text x="0" y="4" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">ShinyHunters</text>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Large shield outline -->
+    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
+          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Firewall bricks -->
+    <g opacity="0.3">
+      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Vishing + OT Attack</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | ShinyHunters + Chrome Extension + OT</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest ShinyHunters</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security</text>
+
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY</text>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 31, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 31, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

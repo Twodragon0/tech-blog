@@ -1,378 +1,6 @@
 {
-  "updated_at": "2026-03-18T01:13:50.101483+00:00",
+  "updated_at": "2026-03-20T01:21:49.937938+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/2025-pitukri-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
-      "title": "2025 PiTuKri ISAE 3000 Type II attestation report available with 183 services in",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/ai-agents-next-wave-identity-dark.html",
-      "title": "AI Agents: The Next Wave Identity Dark Matter - Powerful, Invisible, and Unmanag",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/starkiller-phishing-suite-uses-aitm.html",
-      "title": "Starkiller Phishing Suite Uses AitM Reverse Proxy to Bypass Multi-Factor Authent",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/microsoft-warns-oauth-redirect-abuse.html",
-      "title": "Microsoft Warns OAuth Redirect Abuse Delivers Malware to Government Targets",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/google-confirms-cve-2026-21385-in.html",
-      "title": "Google Confirms CVE-2026-21385 in Qualcomm Android Component Exploited",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-3-instant-system-card",
-      "title": "GPT-5.3 Instant System Card",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-3-instant",
-      "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/Photoroom/prx-part3",
-      "title": "PRX Part 3 — Training a Text-to-Image Model in 24h!",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/aws-advanced-jdbc-wrappers-blue-green-plugin/",
-      "title": "AWS Advanced JDBC Wrapper의 blue/green 플러그인을 통하여 전환 시 최소의 다운타임 달성하기",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/announcing-docker-hardened-system-packages/",
-      "title": "Announcing Docker Hardened System Packages",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://github.blog/engineering/architecture-optimization/how-we-rebuilt-the-search-architecture-for-high-availability-in-github-enterprise-server/",
-      "title": "How we rebuilt the search architecture for high availability in GitHub Enterpris",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/03/how-to-get-the-most-out-of-kubecon-cloudnativecon-europe-2026/",
-      "title": "How to Get the Most Out of KubeCon + CloudNativeCon Europe 2026",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/indiana-governor-signs-bill-bitcoin",
-      "title": "Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/former-lapd-officer-convicted-in-350000-bitcoin-kidnapping-and-home-invasion",
-      "title": "Former LAPD Officer Convicted in $350,000 Bitcoin Kidnapping and Home Invasion",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/technical/bitcoin-is-the-collateral-it-just-needs-the-credit-markets",
-      "title": "Bitcoin Is The Collateral, It Just Needs The Credit Markets",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T02:39:34.539258+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/sloppylemming-targets-pakistan-and.html",
-      "title": "SloppyLemming Targets Pakistan and Bangladesh Governments Using Dual Malware Cha",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
-      "title": "SK쉴더스 EQST insight 통합 12월호",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
-      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
-      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/arthur-hayes-confirmed-as-a-bitcoin-2026-speaker",
-      "title": "Arthur Hayes Confirmed As A Bitcoin 2026 Speaker",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/print/the-core-issue-why-bitcoin-needed-a-remodel-with-segwit-and-taproot",
-      "title": "The Core Issue: Why Bitcoin Needed A Remodel With Segwit and Taproot",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/ai-agents-show-strong-preference-bitcoin",
-      "title": "AI Agents Show Strong Preference for Bitcoin Over Fiat, BPI Study Finds",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/featured/paraguay-miners-bitcoin-mining",
-      "title": "Paraguay Exploring Using Seized Miners for State-Run Bitcoin Operation",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/tether-and-lugano-launch-plan-%e2%82%bf",
-      "title": "Tether and Lugano Launch Plan ₿ Phase II, Targeting Global Leadership in Digital",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27178",
-      "title": "GPT‑5.3 Instant: 더 자연스럽고 유용한 일상 대화",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27177",
-      "title": "Apple, M5 Pro/Max 탑재한 MacBook Pro 공개",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27176",
-      "title": "도널드 커누스(Donald Knuth), Claude Opus 4.6이 미해결 조합론 문제를 해결한 과정을 논문으로 공개",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27175",
-      "title": "맥으로 돌아오신 것을 환영합니다",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27174",
-      "title": "태아 척추이분증 수술에 세계 최초로 적용된 자궁 내 줄기세포 치료, 안전성 입증",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:01:50.653612+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
-      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf",
-      "title": "HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%202%EC%9B%94%ED%98%B8%20%EC%A7%80%EC%86%8D%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EB%A6%AC%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%90%98%EB%8A%94%20Global%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20260225085159572.pdf",
-      "title": "Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_2%EC%9B%94%ED%98%B8.pdf&r_fname=20260225185712558.pdf",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 2월호",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2",
-      "title": "Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Ca",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/",
-      "title": "Iranian Crypto Outflows Spike After Airstrikes Amid a Year of Rising On-Chain Ac",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/iran-bitcoin-outflows-surge-post-strikes",
-      "title": "Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chain Data Shows",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ray-dalio-cautions-bitcoin-safe-haven-asset?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ray Dalio cautions on Bitcoin, says ‘there is only one gold’",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/crypto-laws-states-party-primaries?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "What's at stake for crypto as 3 US states kick off party primaries?",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27173",
-      "title": "미국 과학기관, 외국인 과학자의 연구소 접근 제한 추진",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27172",
-      "title": "Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요.",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27171",
-      "title": "Show GN: ClaudeTuner - &quot;내가 정말 이 플랜만큼 쓰고 있나?&quot; 궁금해서 만든 사용량 추적 도구 (+ 우리 팀",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27170",
-      "title": "Show GN: Vocova - AI로 100개 이상의 언어로 오디오/비디오를 텍스트로 변환",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27169",
-      "title": "Anthropic Cowork 기능이 macOS에서 경고 없이 10GB VM 번들을 생성함",
-      "published_date": "2026-03-04",
-      "expires_at": "2026-03-11T05:05:54.684890+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/coruna-ios-exploit-kit-uses-23-exploits.html",
-      "title": "Coruna iOS Exploit Kit",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/149-hacktivist-ddos-attacks-hit-110.html",
-      "title": "Hacktivist DDoS 149 Attacks",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/new-rfp-template-for-ai-usage-control.html",
-      "title": "AI Governance RFP Template",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/enhanced-access-denied-error-messages-with-policy-arns/",
-      "title": "AWS IAM Enhanced Error Messages",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/2025-iso-and-csa-star-certificates-are-now-available-with-one-additional-service-and-one-new-region/",
-      "title": "AWS 2025 ISO CSA STAR",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-canvas-writing-coding/",
-      "title": "Google AI Mode Canvas",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/",
-      "title": "OpenAI GPT-5.2 Pro Gravitons",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/unlock-powerful-call-center-analytics-with-amazon-nova-foundation-models/",
-      "title": "AWS Nova Call Center Analytics",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/gke-for-telco-building-a-highly-resilient-network-architecture/",
-      "title": "GKE Telco Architecture",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/h4d-vms-now-ga/",
-      "title": "Google Cloud H4D VM GA",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/manufacturing/how-bmw-is-testing-slms-not-llms-for-natural-language-voice-commands/",
-      "title": "BMW SLM Experiment",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27207",
-      "title": "Qwen Team Departure",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27206",
-      "title": "Agentic Engineering Patterns",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27203",
-      "title": "Motorola GrapheneOS",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27201",
-      "title": "OpenAI Codex Windows",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T01:31:12.240627+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27200",
-      "title": "Apple MacBook Neo",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T04:33:06.155868+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27190",
-      "title": "Claude Code Guide eBook",
-      "published_date": "2026-03-05",
-      "expires_at": "2026-03-12T04:33:06.155868+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/preparing-for-quantum-era-post-quantum.html",
       "title": "Preparing for the Quantum Era: Post-Quantum Cryptography Webinar for Security Le",
@@ -1650,6 +1278,186 @@
       "title": "Jack Mallers Confirmed As A Bitcoin 2026 Speaker",
       "published_date": "2026-03-18",
       "expires_at": "2026-03-25T01:13:50.101374+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/ofac-sanctions-dprk-it-worker-network.html",
+      "title": "OFAC Sanctions DPRK IT Worker Network Funding WMD Programs Through Fake Remote J",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/interlock-ransomware-exploits-cisco-fmc.html",
+      "title": "Interlock Ransomware Exploits Cisco FMC Zero-Day CVE-2026-20131 for Root Access",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html",
+      "title": "Critical Unpatched Telnetd Flaw (CVE-2026-32746) Enables Unauthenticated Root RC",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/claude-code-security-and-magecart.html",
+      "title": "Claude Code Security and Magecart: Getting the Threat Model Right",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/9-critical-ip-kvm-flaws-enable.html",
+      "title": "9 Critical IP KVM Flaws Enable Unauthenticated Root Access Across Four Vendors",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/03/18/ml-applications/friend-bubbles-enhancing-social-discovery-on-facebook-reels/",
+      "title": "Friend Bubbles: Enhancing Social Discovery on Facebook Reels",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/build-robots-with-ai/",
+      "title": "From Simulation to Production: How to Build Robots With AI",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/kick-off-nova-customization-experiments-using-nova-forge-sdk/",
+      "title": "Kick off Nova customization experiments using Nova Forge SDK",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-nova-forge-sdk-a-seamless-way-to-customize-nova-models-for-enterprise-ai/",
+      "title": "Introducing Nova Forge SDK, a seamless way to customize Nova models for enterpri",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-for-production-a-practical-guide-to-strands-evals/",
+      "title": "Evaluating AI agents for production: A practical guide to Strands Evals",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/building-distributed-ai-agents/",
+      "title": "Building Distributed AI Agents",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/memorystore-for-valkey-9-0-is-now-ga/",
+      "title": "Next-gen caching with Memorystore for Valkey 9.0, now GA",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/cloudsql-read-pools-support-autoscaling/",
+      "title": "Streamline read scalability with Cloud SQL autoscaling read pools",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/darksword-ios-exploit-chain/",
+      "title": "The Proliferation of DarkSword: iOS Exploit Chain Adopted by Multiple Threat Act",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/build-a-multi-agent-system-for-expert-content-with-google-adk-mcp-and-cloud-run-part-1/",
+      "title": "Build a Multi-Agent System for Expert Content with Google ADK, MCP and Cloud Run",
+      "published_date": "2026-03-19",
+      "expires_at": "2026-03-26T01:26:25.509118+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/speagle-malware-hijacks-cobra-docguard.html",
+      "title": "Speagle Malware Hijacks Cobra DocGuard to Steal Data via Compromised Servers",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/54-edr-killers-use-byovd-to-exploit-34.html",
+      "title": "54 EDR Killers Use BYOVD to Exploit 34 Signed Vulnerable Drivers and Disable Sec",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/threatsday-bulletin-fortigate-raas.html",
+      "title": "ThreatsDay Bulletin: FortiGate RaaS, Citrix Exploits, MCP Abuse, LiveChat Phish ",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/19/new-tools-and-guidance-announcing-zero-trust-for-ai/",
+      "title": "New tools and guidance: Announcing Zero Trust for AI",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/new-perseus-android-banking-malware.html",
+      "title": "New Perseus Android Banking Malware Monitors Notes Apps to Extract Sensitive Dat",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-virtual-reality-update/",
+      "title": "Smooth Moves: 90 Frames-Per-Second Virtual Reality Arrives on GeForce NOW",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment",
+      "title": "How we monitor internal coding agents for misalignment",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-3-super-on-amazon-bedrock/",
+      "title": "Run NVIDIA Nemotron 3 Super on Amazon Bedrock",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-rag-for-video-generation-using-amazon-bedrock-and-amazon-nova-reel/",
+      "title": "Use RAG for video generation using Amazon Bedrock and Amazon Nova Reel",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-v-rag-revolutionizing-ai-powered-video-production-with-retrieval-augmented-generation/",
+      "title": "Introducing V-RAG: revolutionizing AI-powered video production with Retrieval Au",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/20-years-in-the-aws-cloud-how-time-flies/",
+      "title": "20 years in the AWS Cloud – how time flies!",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/accelerating-dotnet-maui-with-ai-agents/",
+      "title": "Accelerating .NET MAUI Development with AI Agents",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/19/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-platform-engineering-day/",
+      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: Platform Engine",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/19/policy-as-code-flexible-kubernetes-governance-with-kyverno/",
+      "title": "Policy-as-Code: Flexible Kubernetes governance with Kyverno",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/north-carolina-propose-bitcoin-reserve",
+      "title": "North Carolina Lawmakers Propose State Bitcoin Reserve",
+      "published_date": "2026-03-20",
+      "expires_at": "2026-03-27T01:21:49.937832+00:00"
     }
   ]
 }

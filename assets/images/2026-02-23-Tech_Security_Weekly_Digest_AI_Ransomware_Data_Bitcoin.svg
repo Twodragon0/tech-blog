@@ -2,86 +2,59 @@
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="100%" style="stop-color:#1a0505"/>
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="softglow">
-      <feGaussianBlur stdDeviation="20" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Subtle grid -->
-  <g opacity="0.04">
-    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="120" y1="0" x2="120" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="240" y1="0" x2="240" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff" stroke-width="1"/>
-    <line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff" stroke-width="1"/>
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <path d="M0,-135 C75,-135 125,-95 125,-15 C125,65 65,125 0,155 C-65,125 -125,65 -125,-15 C-125,-95 -75,-135 0,-135Z"
+          fill="#ef4444" fill-opacity="0.05" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
+    <path d="M0,-100 C55,-100 90,-70 90,-10 C90,45 50,85 0,110 C-50,85 -90,45 -90,-10 C-90,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.03" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
+    <path d="M-5,-115 L10,-65 L-12,-20 L14,35 L-10,75 L6,125"
+          fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-20" y="-15" width="40" height="32" rx="5" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <path d="M-12,-15 L-12,-28 C-12,-45 12,-45 12,-28 L12,-15" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <circle cx="0" cy="5" r="5" fill="#ef4444" opacity="0.7"/>
+    <rect x="-1.5" y="8" width="3" height="8" rx="1.5" fill="#ef4444" opacity="0.7"/>
   </g>
-
-  <!-- Ambient glow -->
-  <circle cx="600" cy="280" r="250" fill="#ef4444" opacity="0.04" filter="url(#softglow)"/>
-  <circle cx="300" cy="180" r="150" fill="#dc2626" opacity="0.05" filter="url(#softglow)"/>
-  <circle cx="900" cy="400" r="180" fill="#ef4444" opacity="0.03" filter="url(#softglow)"/>
-
-  <!-- Central icon -->
-  <g filter="url(#shadow)">
-
-    <g transform="translate(600,240)">
-      <rect x="-50" y="-40" width="100" height="80" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2.5"/>
-      <path d="M-25,-40 L-25,-65 C-25,-90 25,-90 25,-65 L25,-40" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
-      <circle cx="0" cy="0" r="12" fill="#ef4444" opacity="0.7"/>
-      <rect x="-3" y="2" width="6" height="18" rx="3" fill="#ef4444" opacity="0.9"/>
-      <path d="M-80,-10 L-55,-10 M-80,10 L-55,10" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
-      <path d="M55,-10 L80,-10 M55,10 L80,10" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
-    </g>
+  <g opacity="0.5">
+    <path d="M120,100 C250,150 380,200 485,240" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="483,235 495,240 483,245" fill="#ef4444"/>
+    <path d="M1080,100 C950,150 820,200 715,240" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="717,235 705,240 717,245" fill="#f59e0b"/>
+    <path d="M120,420 C250,370 380,310 490,275" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="488,270 500,275 488,280" fill="#8b5cf6"/>
+    <path d="M1080,420 C950,370 820,310 710,275" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="712,270 700,275 712,280" fill="#3b82f6"/>
   </g>
-
-  <!-- Theme extras -->
-
-    <g font-family="Courier New" font-size="12" fill="#ef4444" opacity="0.15">
-      <text x="80" y="150">ENCRYPTED</text>
-      <text x="950" y="180">LOCKED</text>
-      <text x="100" y="430">$$$ RANSOM $$$</text>
-      <text x="920" y="450">decrypt.key</text>
-    </g>
-
-  <!-- Floating code fragments -->
-  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#ef4444">
-    <text x="50" y="100">encrypt(data)</text>
-    <text x="950" y="120">ransom_note.txt</text>
-    <text x="70" y="480">bitcoin: bc1q...</text>
-    <text x="920" y="500">key_exchange()</text>
+  <g opacity="0.35">
+    <polygon points="170,160 180,145 190,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="180" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
+    <polygon points="1010,160 1020,145 1030,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1020" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
   </g>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest AI Ransomware</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AI | Bitcoin | Ransomware</text>
 
-  <!-- Title -->
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Vertical AI + BlackField</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Weekly Digest | Ransomware Defense + Data Protection</text>
-
-  <!-- Top badges -->
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
 
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 23, 2026</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 23, 2026</text>
 
-  <!-- Footer -->
-  <text x="1160" y="615" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

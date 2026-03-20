@@ -1,57 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a1020"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="270" r="260" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-  <!-- CVE Vulnerability Network Map -->
-  <g transform="translate(600,260)">
-    <!-- Central CVE node -->
-    <circle cx="0" cy="0" r="45" fill="#1e293b" stroke="#ef4444" stroke-width="3"/>
-    <text x="0" y="-8" font-family="Courier New" font-size="10" fill="#fca5a5" text-anchor="middle">CVE-2026</text>
-    <text x="0" y="8" font-family="Courier New" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">20122</text>
-    <circle cx="0" cy="0" r="55" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
-    <!-- Connected vulnerability nodes -->
-    <!-- Cisco -->
-    <line x1="45" y1="-20" x2="140" y2="-80" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="160" cy="-90" r="30" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <text x="160" y="-93" font-family="Courier New" font-size="9" fill="#fde68a" text-anchor="middle">CISCO</text>
-    <text x="160" y="-80" font-family="Courier New" font-size="8" fill="#f59e0b" text-anchor="middle">RCE</text>
-    <!-- AWS -->
-    <line x1="40" y1="25" x2="150" y2="70" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="170" cy="80" r="30" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
-    <text x="170" y="77" font-family="Courier New" font-size="9" fill="#fdba74" text-anchor="middle">AWS</text>
-    <text x="170" y="90" font-family="Courier New" font-size="8" fill="#f97316" text-anchor="middle">IAM</text>
-    <!-- Linux kernel -->
-    <line x1="-45" y1="-20" x2="-140" y2="-80" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="-160" cy="-90" r="30" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <text x="-160" y="-93" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">LINUX</text>
-    <text x="-160" y="-80" font-family="Courier New" font-size="8" fill="#ef4444" text-anchor="middle">KERNEL</text>
-    <!-- AI model -->
-    <line x1="-40" y1="25" x2="-150" y2="70" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="-170" cy="80" r="30" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="-170" y="77" font-family="Courier New" font-size="9" fill="#c4b5fd" text-anchor="middle">AI</text>
-    <text x="-170" y="90" font-family="Courier New" font-size="8" fill="#8b5cf6" text-anchor="middle">MODEL</text>
-    <!-- Outer threat ring -->
-    <circle cx="0" cy="0" r="160" fill="none" stroke="#334155" stroke-width="1" opacity="0.3" stroke-dasharray="6,4"/>
-    <!-- Severity indicators -->
-    <g transform="translate(0,-160)">
-      <rect x="-35" y="-12" width="70" height="24" rx="12" fill="#ef4444" opacity="0.9"/>
-      <text x="0" y="4" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">CRITICAL</text>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Large shield outline -->
+    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
+          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Firewall bricks -->
+    <g opacity="0.3">
+      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
     </g>
-    <!-- Secondary connections -->
-    <line x1="160" y1="-60" x2="170" y2="50" stroke="#475569" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"/>
-    <line x1="-160" y1="-60" x2="-170" y2="50" stroke="#475569" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"/>
   </g>
-  <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">CVE Threat Network</text>
-  <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">CVE-2026-20122 | Cisco RCE | AWS Security</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest Security Threat</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AWS | AI</text>
+
   <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 6, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 6, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

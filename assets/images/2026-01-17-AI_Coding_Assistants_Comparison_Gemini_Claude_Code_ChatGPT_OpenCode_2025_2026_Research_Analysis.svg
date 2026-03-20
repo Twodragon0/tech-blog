@@ -1,65 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a2a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#8b5cf6" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,220)">
-    <!-- Four AI assistants in a row -->
-    <!-- Gemini -->
-    <g transform="translate(-135,-10)" filter="url(#shadow)">
-      <circle cx="0" cy="0" r="40" fill="#1e293b" stroke="#4285f4" stroke-width="2.5"/>
-      <circle cx="-10" cy="-8" r="12" fill="#4285f4" opacity="0.2"/>
-      <circle cx="10" cy="8" r="12" fill="#ea4335" opacity="0.2"/>
-      <text x="0" y="55" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#93c5fd" text-anchor="middle">Gemini</text>
+
+  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Stacked layers -->
+    <g opacity="0.6">
+      <rect x="-120" y="-120" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="-93" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="-60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="-33" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">FEED FORWARD</text>
+      <rect x="-120" y="0" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="27" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="87" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">OUTPUT</text>
     </g>
-    <!-- Claude -->
-    <g transform="translate(-45,-10)" filter="url(#shadow)">
-      <circle cx="0" cy="0" r="40" fill="#1e293b" stroke="#d97706" stroke-width="2.5"/>
-      <circle cx="0" cy="-5" r="15" fill="#d97706" opacity="0.15"/>
-      <text x="0" y="0" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#fbbf24" text-anchor="middle">C</text>
-      <text x="0" y="55" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#fde68a" text-anchor="middle">Claude</text>
+    <!-- Arrows between layers -->
+    <g stroke="#6366f1" stroke-width="1.5" opacity="0.3" fill="#6366f1">
+      <line x1="0" y1="-75" x2="0" y2="-62"/><polygon points="-4,-64 0,-58 4,-64"/>
+      <line x1="0" y1="-15" x2="0" y2="-2"/><polygon points="-4,-4 0,2 4,-4"/>
+      <line x1="0" y1="45" x2="0" y2="58"/><polygon points="-4,56 0,62 4,56"/>
     </g>
-    <!-- ChatGPT -->
-    <g transform="translate(45,-10)" filter="url(#shadow)">
-      <circle cx="0" cy="0" r="40" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/>
-      <circle cx="0" cy="-3" r="14" fill="#10b981" opacity="0.15"/>
-      <path d="M-8,-8 C-8,-15 8,-15 8,-8 L8,5 C8,12 -8,12 -8,5 Z" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
-      <text x="0" y="55" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#86efac" text-anchor="middle">ChatGPT</text>
-    </g>
-    <!-- OpenCode -->
-    <g transform="translate(135,-10)" filter="url(#shadow)">
-      <circle cx="0" cy="0" r="40" fill="#1e293b" stroke="#ec4899" stroke-width="2.5"/>
-      <text x="0" y="2" font-family="Courier New" font-size="12" font-weight="bold" fill="#f9a8d4" text-anchor="middle">&gt;_</text>
-      <text x="0" y="55" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#f9a8d4" text-anchor="middle">OpenCode</text>
-    </g>
-    <!-- VS arrows between -->
-    <g opacity="0.3">
-      <text x="-90" y="-5" font-family="Arial,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">vs</text>
-      <text x="0" y="-5" font-family="Arial,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">vs</text>
-      <text x="90" y="-5" font-family="Arial,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">vs</text>
-    </g>
-    <!-- Comparison chart bars -->
-    <g transform="translate(0,100)">
-      <rect x="-150" y="-5" width="300" height="40" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-      <rect x="-140" y="0" width="60" height="8" rx="2" fill="#4285f4" opacity="0.5"/>
-      <rect x="-140" y="12" width="75" height="8" rx="2" fill="#d97706" opacity="0.5"/>
-      <rect x="-140" y="24" width="55" height="8" rx="2" fill="#10b981" opacity="0.5"/>
-      <text x="140" y="8" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="end">Speed</text>
-      <text x="140" y="20" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="end">Quality</text>
-      <text x="140" y="32" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="end">Cost</text>
+    <!-- Side connections -->
+    <g stroke="#a5b4fc" stroke-width="1" opacity="0.2">
+      <path d="M125,-97 C170,-97 170,-37 125,-37" fill="none"/>
+      <path d="M125,23 C170,23 170,83 125,83" fill="none"/>
     </g>
   </g>
-  <text x="600" y="505" font-family="Arial,sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Coding Assistants</text>
-  <text x="600" y="543" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Gemini vs Claude vs ChatGPT vs OpenCode | 2025-2026</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">AI COMPARE</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Coding Assistants Comparison Gemini Claude</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 17, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 17, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

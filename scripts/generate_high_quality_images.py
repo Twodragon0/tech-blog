@@ -460,12 +460,12 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         display_title = _escape_svg_text(_truncate_title(english_title, 48))
 
         # 태그 처리
-        raw_tags = tags[:4] if tags else ["Tech", "Blog", "Update"]
+        raw_tags = tags[:3] if tags else ["Tech", "Architecture", "Guide"]
         display_tags = []
         for raw_tag in raw_tags:
             normalized_tag = _normalize_english_text(str(raw_tag))
             if normalized_tag:
-                display_tags.append(_truncate_title(normalized_tag, 18))
+                display_tags.append(_truncate_title(normalized_tag, 14))
 
         if not display_tags:
             display_tags = [config["label"], "Architecture", "Overview"]
@@ -473,38 +473,37 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         # 요약 라인 처리
         summary_lines = []
         if highlights:
-            for h in highlights[:3]:
+            for h in highlights[:2]:
                 clean_h = re.sub(r"<[^>]+>", "", h)
                 clean_h = _normalize_english_text(clean_h)
                 if not clean_h:
                     continue
-                if len(clean_h) > 70:
-                    clean_h = clean_h[:67] + "..."
+                if len(clean_h) > 42:
+                    clean_h = clean_h[:39] + "..."
                 summary_lines.append(_escape_svg_text(clean_h))
         elif excerpt:
             words = excerpt.split()
             line = ""
             for word in words:
                 test_line = f"{line} {word}".strip()
-                if len(test_line) > 70:
+                if len(test_line) > 42:
                     safe_line = _normalize_english_text(line)
                     if safe_line:
                         summary_lines.append(_escape_svg_text(safe_line))
                     line = word
-                    if len(summary_lines) >= 3:
+                    if len(summary_lines) >= 2:
                         break
                 else:
                     line = test_line
-            if line and len(summary_lines) < 3:
+            if line and len(summary_lines) < 2:
                 safe_line = _normalize_english_text(line)
                 if safe_line:
                     summary_lines.append(_escape_svg_text(safe_line))
 
         if not summary_lines:
             summary_lines = [
-                "Practical implementation guidance",
-                "Architecture and operational checklist",
-                "Security and reliability focus",
+                "Core architecture and workflow view",
+                "Operational checklist and key actions",
             ]
 
         date_str = datetime.now().strftime("%B %d, %Y")
@@ -514,10 +513,9 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
   <defs>
     <!-- Background Gradients -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="30%" style="stop-color:#0f1629"/>
-      <stop offset="70%" style="stop-color:#1a1f3a"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="40%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
     </linearGradient>
     
     <!-- Category Gradient -->
@@ -536,8 +534,8 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     
     <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8fafc"/>
     </linearGradient>
     
     <!-- Fire Gradient for Incident -->
@@ -614,7 +612,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
   </g>
   
   <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{display_title}</text>
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">{display_title}</text>
   
   <!-- Subtitle Line -->
   <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
@@ -632,7 +630,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#{config["gradient_id"]})"/>
     
     <!-- Card Title -->
-    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="{config["accent"]}">Key Highlights</text>
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Architecture Snapshot</text>
     
     <!-- Summary Content -->'''
 
@@ -643,17 +641,17 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
                 svg_content += f'''
     <g transform="translate(30, {y_offset})">
       <circle cx="8" cy="8" r="4" fill="{config["accent"]}"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">{line}</text>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">{line}</text>
     </g>'''
         else:
             svg_content += f'''
     <g transform="translate(30, 90)">
       <circle cx="8" cy="8" r="4" fill="{config["accent"]}"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Read the full article for detailed insights</text>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Core architecture and workflow view</text>
     </g>
     <g transform="translate(30, 125)">
       <circle cx="8" cy="8" r="4" fill="{config["accent"]}"/>
-      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Stay updated with the latest tech and security news</text>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="13" fill="#334155">Operational checklist and key actions</text>
     </g>'''
 
         # 태그 추가
@@ -679,7 +677,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     <!-- CTA Button -->
     <g transform="translate(540, 280)">
       <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
-      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">View Post</text>
     </g>
   </g>
   
@@ -692,12 +690,12 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
   
-  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Twodragon Tech Blog</text>
   <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
   
   <!-- Tech Stack -->
   <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="end">Draw.io Style Diagram</text>
 </svg>"""
 
         output_svg = output_path.with_suffix(".svg")

@@ -1,83 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a0a2a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="infra" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,230)">
-    <!-- Server rack -->
-    <g filter="url(#shadow)">
-      <rect x="-70" y="-100" width="140" height="200" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2.5"/>
-      <!-- Server units -->
-      <g transform="translate(0,-75)">
-        <rect x="-55" y="-12" width="110" height="28" rx="4" fill="#0f172a" stroke="#6366f1" stroke-width="1"/>
-        <circle cx="-38" cy="2" r="3" fill="#22c55e" opacity="0.8"/>
-        <rect x="-25" y="-2" width="50" height="4" rx="1" fill="#6366f1" opacity="0.2"/>
-        <rect x="-25" y="4" width="35" height="4" rx="1" fill="#6366f1" opacity="0.15"/>
-        <circle cx="42" cy="2" r="4" fill="#1e293b" stroke="#6366f1" stroke-width="0.8"/>
-      </g>
-      <g transform="translate(0,-40)">
-        <rect x="-55" y="-12" width="110" height="28" rx="4" fill="#0f172a" stroke="#6366f1" stroke-width="1"/>
-        <circle cx="-38" cy="2" r="3" fill="#22c55e" opacity="0.8"/>
-        <rect x="-25" y="-2" width="50" height="4" rx="1" fill="#6366f1" opacity="0.2"/>
-        <rect x="-25" y="4" width="45" height="4" rx="1" fill="#6366f1" opacity="0.15"/>
-        <circle cx="42" cy="2" r="4" fill="#1e293b" stroke="#6366f1" stroke-width="0.8"/>
-      </g>
-      <g transform="translate(0,-5)">
-        <rect x="-55" y="-12" width="110" height="28" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
-        <circle cx="-38" cy="2" r="3" fill="#f59e0b" opacity="0.8"/>
-        <rect x="-25" y="-2" width="50" height="4" rx="1" fill="#f59e0b" opacity="0.2"/>
-        <rect x="-25" y="4" width="25" height="4" rx="1" fill="#f59e0b" opacity="0.15"/>
-        <circle cx="42" cy="2" r="4" fill="#1e293b" stroke="#f59e0b" stroke-width="0.8"/>
-      </g>
-      <g transform="translate(0,30)">
-        <rect x="-55" y="-12" width="110" height="28" rx="4" fill="#0f172a" stroke="#6366f1" stroke-width="1"/>
-        <circle cx="-38" cy="2" r="3" fill="#22c55e" opacity="0.8"/>
-        <rect x="-25" y="-2" width="50" height="4" rx="1" fill="#6366f1" opacity="0.2"/>
-        <rect x="-25" y="4" width="40" height="4" rx="1" fill="#6366f1" opacity="0.15"/>
-        <circle cx="42" cy="2" r="4" fill="#1e293b" stroke="#6366f1" stroke-width="0.8"/>
-      </g>
-      <g transform="translate(0,65)">
-        <rect x="-55" y="-12" width="110" height="28" rx="4" fill="#0f172a" stroke="#6366f1" stroke-width="1"/>
-        <circle cx="-38" cy="2" r="3" fill="#22c55e" opacity="0.8"/>
-        <rect x="-25" y="-2" width="50" height="4" rx="1" fill="#6366f1" opacity="0.2"/>
-        <rect x="-25" y="4" width="48" height="4" rx="1" fill="#6366f1" opacity="0.15"/>
-        <circle cx="42" cy="2" r="4" fill="#1e293b" stroke="#6366f1" stroke-width="0.8"/>
-      </g>
-    </g>
-    <!-- Security shield overlay -->
-    <g transform="translate(0,0)">
-      <path d="M0,-120 L90,-90 L90,30 C90,70 50,100 0,115 C-50,100 -90,70 -90,30 L-90,-90 Z" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4" opacity="0.3"/>
-    </g>
-    <!-- Network connections -->
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Large shield outline -->
+    <path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z"
+          fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Firewall bricks -->
     <g opacity="0.3">
-      <line x1="-75" y1="-50" x2="-150" y2="-80" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <line x1="75" y1="-50" x2="150" y2="-80" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <line x1="-75" y1="30" x2="-150" y2="60" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <line x1="75" y1="30" x2="150" y2="60" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <!-- Endpoint nodes -->
-      <circle cx="-155" cy="-83" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
-      <circle cx="155" cy="-83" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
-      <circle cx="-155" cy="63" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
-      <circle cx="155" cy="63" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+      <rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
     </g>
-    <!-- Week 1 badge -->
-    <rect x="80" y="-110" width="50" height="22" rx="6" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-    <text x="105" y="-95" font-family="Courier New" font-size="9" fill="#a5b4fc" text-anchor="middle">W1</text>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Infrastructure Security</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Cloud Security 8th Batch | Week 1 | Security Foundations</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">CLOUD COURSE</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security 8Batch 1Week Infrastructure</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Nov 26, 2025</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">November 26, 2025</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

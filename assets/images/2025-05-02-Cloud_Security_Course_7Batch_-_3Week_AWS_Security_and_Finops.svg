@@ -1,69 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1520"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#22c55e"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="softglow"><feGaussianBlur stdDeviation="20" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Grid -->
-  <g opacity="0.04">
-    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff"/><line x1="120" y1="0" x2="120" y2="630" stroke="#fff"/>
-    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff"/><line x1="240" y1="0" x2="240" y2="630" stroke="#fff"/>
-    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff"/><line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff"/>
-    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff"/><line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff"/>
-  </g>
+  <circle cx="400" cy="250" r="200" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
 
-  <!-- Ambient glow -->
-  <circle cx="600" cy="270" r="260" fill="#f97316" opacity="0.04" filter="url(#softglow)"/>
-  <circle cx="350" cy="180" r="150" fill="#22c55e" opacity="0.05" filter="url(#softglow)"/>
-  <circle cx="850" cy="380" r="180" fill="#3b82f6" opacity="0.03" filter="url(#softglow)"/>
-
-  <!-- Cloud icon with AWS + FinOps -->
-  <g transform="translate(600,250)" filter="url(#shadow)">
-    <path d="M-120,20 C-140,20 -160,0 -150,-25 C-145,-55 -115,-70 -85,-65 C-75,-100 -40,-115 0,-105 C40,-115 75,-100 85,-65 C115,-70 145,-55 150,-25 C160,0 140,20 120,20 Z" fill="#1e293b" stroke="#f97316" stroke-width="2.5"/>
-    <path d="M-100,15 C-115,15 -130,2 -125,-15 C-121,-38 -97,-48 -72,-44 C-64,-70 -35,-82 0,-74 C35,-82 64,-70 72,-44 C97,-48 121,-38 125,-15 C130,2 115,15 100,15 Z" fill="none" stroke="#f97316" stroke-width="1" stroke-dasharray="6,3" opacity="0.3"/>
-    <text x="-50" y="-20" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#f97316" opacity="0.8">AWS</text>
-    <g transform="translate(50,-30)">
-      <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-      <text x="0" y="10" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#22c55e" text-anchor="middle">$</text>
+  <g transform="translate(600,240)">
+    <!-- Three cloud shapes -->
+    <g opacity="0.5">
+      <path d="M-200,-20 C-215,-20 -225,-10 -225,0 C-225,10 -215,20 -200,20 L-140,20 C-125,20 -115,10 -115,0 C-115,-10 -125,-20 -130,-20 C-132,-35 -145,-45 -160,-45 C-180,-45 -195,-35 -200,-20Z"
+            fill="#3b82f6" fill-opacity="0.08" stroke="#60a5fa" stroke-width="1.5"/>
+      <text x="-170" y="5" font-family="Courier New" font-size="9" fill="#60a5fa" text-anchor="middle">AWS</text>
     </g>
-    <g transform="translate(0,60)">
-      <path d="M0,-30 L30,-20 L30,5 C30,20 15,30 0,35 C-15,30 -30,20 -30,5 L-30,-20 Z" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1.5"/>
-      <path d="M-8,5 L-3,12 L10,-2" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+    <g opacity="0.5">
+      <path d="M-30,-30 C-50,-30 -60,-15 -60,0 C-60,15 -50,30 -30,30 L30,30 C50,30 60,15 60,0 C60,-15 50,-30 35,-30 C32,-50 15,-65 0,-65 C-20,-65 -35,-50 -30,-30Z"
+            fill="#f59e0b" fill-opacity="0.08" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="0" y="5" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">GCP</text>
+    </g>
+    <g opacity="0.5">
+      <path d="M140,-20 C125,-20 115,-10 115,0 C115,10 125,20 140,20 L200,20 C215,20 225,10 225,0 C225,-10 215,-20 210,-20 C208,-35 195,-45 180,-45 C160,-45 145,-35 140,-20Z"
+            fill="#0ea5e9" fill-opacity="0.08" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="170" y="5" font-family="Courier New" font-size="9" fill="#38bdf8" text-anchor="middle">Azure</text>
+    </g>
+    <!-- Connection lines -->
+    <g stroke="#475569" stroke-width="1" stroke-dasharray="4,3" opacity="0.3">
+      <line x1="-115" y1="0" x2="-60" y2="0"/>
+      <line x1="60" y1="0" x2="115" y2="0"/>
+      <line x1="0" y1="30" x2="0" y2="70"/>
     </g>
   </g>
-
-  <!-- Region markers -->
-  <g opacity="0.3">
-    <rect x="100" y="140" width="90" height="45" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
-    <text x="145" y="167" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">us-east-1</text>
-    <rect x="1010" y="400" width="90" height="45" rx="4" fill="none" stroke="#3b82f6" stroke-width="1"/>
-    <text x="1055" y="427" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">ap-ne-2</text>
+  <g transform="translate(600,330)">
+    <rect x="-80" y="0" width="160" height="50" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+    <text x="0" y="30" font-family="Courier New" font-size="11" fill="#6ee7b7" text-anchor="middle">SECURITY HUB</text>
   </g>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 7Batch 3Week AWS</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AWS | Cloud | FinOps</text>
 
-  <!-- Code fragments -->
-  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#f97316">
-    <text x="50" y="100">aws iam list-roles</text>
-    <text x="920" y="110">cost-explorer --monthly</text>
-    <text x="70" y="480">guardduty.enable()</text>
-    <text x="910" y="490">budget.alert(threshold)</text>
-  </g>
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">TECH BLOG</text>
 
-  <!-- Title -->
-  <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS Security and FinOps</text>
-  <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Cloud Security Course 7th | Week 3 | Cost Optimization</text>
-
-  <!-- Top badges -->
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fdba74" text-anchor="middle">CLOUD COURSE</text>
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">May 2, 2025</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">May 2, 2025</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

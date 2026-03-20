@@ -1,42 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="140">
-      <stop offset="0%" stop-color="#1a150a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#d97706"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
-  <rect width="800" height="140" rx="12" fill="url(#bg)"/>
-  <rect x="0" y="0" width="800" height="3" rx="1.5" fill="url(#accent)" opacity="0.8"/>
-  <!-- Chain/block icon -->
-  <g transform="translate(40, 25)">
-    <circle cx="45" cy="45" r="40" fill="url(#accent)" opacity="0.12"/>
-    <rect x="15" y="30" width="25" height="25" rx="4" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-    <rect x="50" y="30" width="25" height="25" rx="4" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-    <line x1="40" y1="42" x2="50" y2="42" stroke="#fcd34d" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="27" cy="42" r="4" fill="#fcd34d" opacity="0.5"/>
-    <circle cx="62" cy="42" r="4" fill="#fcd34d" opacity="0.5"/>
-    <text x="27" y="46" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="8" font-weight="bold">B</text>
-    <text x="62" y="46" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="8" font-weight="bold">B</text>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Stacked layers -->
+    <g opacity="0.6">
+      <rect x="-120" y="-120" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="-93" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="-60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="-33" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">FEED FORWARD</text>
+      <rect x="-120" y="0" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="27" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="87" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">OUTPUT</text>
+    </g>
+    <!-- Arrows between layers -->
+    <g stroke="#6366f1" stroke-width="1.5" opacity="0.3" fill="#6366f1">
+      <line x1="0" y1="-75" x2="0" y2="-62"/><polygon points="-4,-64 0,-58 4,-64"/>
+      <line x1="0" y1="-15" x2="0" y2="-2"/><polygon points="-4,-4 0,2 4,-4"/>
+      <line x1="0" y1="45" x2="0" y2="58"/><polygon points="-4,56 0,62 4,56"/>
+    </g>
+    <!-- Side connections -->
+    <g stroke="#a5b4fc" stroke-width="1" opacity="0.2">
+      <path d="M125,-97 C170,-97 170,-37 125,-37" fill="none"/>
+      <path d="M125,23 C170,23 170,83 125,83" fill="none"/>
+    </g>
   </g>
-  <!-- Text -->
-  <text x="140" y="55" fill="#fcd34d" font-family="Arial, sans-serif" font-size="13" font-weight="bold" letter-spacing="3">BLOCKCHAIN &amp; WEB3</text>
-  <text x="140" y="85" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="bold">Blockchain, DeFi &amp; Cryptocurrency</text>
-  <text x="140" y="115" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Bitcoin | Ethereum | Smart Contracts | DeFi Security</text>
-  <!-- Decorative dots -->
-  <g opacity="0.3">
-    <circle cx="685" cy="35" r="3" fill="#f59e0b"/>
-    <circle cx="720" cy="55" r="4" fill="#fbbf24"/>
-    <circle cx="750" cy="30" r="2" fill="#fcd34d"/>
-    <circle cx="755" cy="75" r="3" fill="#f59e0b"/>
-    <circle cx="695" cy="90" r="3" fill="#fbbf24"/>
-    <circle cx="735" cy="105" r="2" fill="#fcd34d"/>
-    <line x1="685" y1="35" x2="720" y2="55" stroke="#475569" stroke-width="1"/>
-    <line x1="720" y1="55" x2="750" y2="30" stroke="#475569" stroke-width="1"/>
-    <line x1="755" y1="75" x2="695" y2="90" stroke="#475569" stroke-width="1"/>
-    <line x1="695" y1="90" x2="735" y2="105" stroke="#475569" stroke-width="1"/>
-  </g>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">section blockchain</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI | Blockchain</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
+
+  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

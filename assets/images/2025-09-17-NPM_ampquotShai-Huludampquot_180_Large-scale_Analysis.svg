@@ -1,81 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a100a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="wormGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#ef4444"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="softglow"><feGaussianBlur stdDeviation="20" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
-    <filter id="redglow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feFlood flood-color="#ef4444" flood-opacity="0.3" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
-      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Grid -->
-  <g opacity="0.04">
-    <line x1="60" y1="0" x2="60" y2="630" stroke="#fff"/><line x1="120" y1="0" x2="120" y2="630" stroke="#fff"/>
-    <line x1="180" y1="0" x2="180" y2="630" stroke="#fff"/><line x1="240" y1="0" x2="240" y2="630" stroke="#fff"/>
-    <line x1="960" y1="0" x2="960" y2="630" stroke="#fff"/><line x1="1020" y1="0" x2="1020" y2="630" stroke="#fff"/>
-    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#fff"/><line x1="1140" y1="0" x2="1140" y2="630" stroke="#fff"/>
-  </g>
+  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
 
-  <!-- Ambient glow -->
-  <circle cx="600" cy="270" r="260" fill="#f59e0b" opacity="0.04" filter="url(#softglow)"/>
-  <circle cx="350" cy="200" r="150" fill="#ef4444" opacity="0.05" filter="url(#softglow)"/>
-  <circle cx="900" cy="380" r="180" fill="#f59e0b" opacity="0.03" filter="url(#softglow)"/>
-
-  <!-- Sandworm / Shai-Hulud -->
-  <g transform="translate(600,250)" filter="url(#shadow)">
-    <path d="M-180,0 C-150,-60 -100,-80 -50,-40 C0,0 50,-40 100,-80 C150,-120 180,-60 160,0 C140,60 100,40 50,0 C0,-40 -50,0 -100,40 C-150,80 -180,60 -180,0 Z" fill="none" stroke="url(#wormGrad)" stroke-width="3" opacity="0.6"/>
-    <path d="M-160,5 C-130,-45 -85,-60 -40,-25 C10,10 55,-30 95,-65 C135,-100 160,-50 142,5" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" opacity="0.2"/>
-    <!-- Worm eye -->
-    <circle cx="-170" cy="0" r="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <circle cx="-170" cy="0" r="6" fill="#f59e0b" opacity="0.8"/>
-    <!-- 180+ packages -->
-    <circle cx="0" cy="0" r="42" fill="#1e293b" stroke="#ef4444" stroke-width="2.5" filter="url(#redglow)"/>
-    <text x="0" y="-5" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle">180+</text>
-    <text x="0" y="15" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">packages</text>
-    <!-- Scattered malicious package boxes -->
-    <g opacity="0.4">
-      <rect x="-140" y="50" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
-      <rect x="60" y="60" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
-      <rect x="120" y="30" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
-      <rect x="-80" y="70" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
-      <rect x="-30" y="65" width="30" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <g transform="translate(600,255)">
+    <!-- Brain outline -->
+    <path d="M0,-110 C60,-110 110,-70 120,-20 C130,30 100,80 60,100 C30,115 -30,115 -60,100 C-100,80 -130,30 -120,-20 C-110,-70 -60,-110 0,-110Z"
+          fill="#6366f1" fill-opacity="0.05" stroke="#818cf8" stroke-width="2" opacity="0.5"/>
+    <!-- Center division -->
+    <path d="M0,-110 C10,-60 -10,0 5,50 C10,80 0,100 0,100"
+          fill="none" stroke="#a5b4fc" stroke-width="1.5" opacity="0.4"/>
+    <!-- Circuit traces -->
+    <g stroke="#818cf8" stroke-width="1.5" opacity="0.4" fill="none">
+      <path d="M-60,-50 L-30,-50 L-30,-20 L0,-20"/>
+      <path d="M60,-50 L30,-50 L30,-20 L0,-20"/>
+      <path d="M-80,20 L-40,20 L-40,50 L0,50"/>
+      <path d="M80,20 L40,20 L40,50 L0,50"/>
     </g>
+    <!-- Junction dots -->
+    <circle cx="0" cy="-20" r="6" fill="#818cf8" opacity="0.6"/>
+    <circle cx="0" cy="50" r="5" fill="#a5b4fc" opacity="0.5"/>
+    <circle cx="-60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="-80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
+    <circle cx="80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
+    <!-- Pulse rings -->
+    <circle cx="0" cy="-20" r="18" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="-20" r="35" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.1"/>
   </g>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">NPM ampquotShai Huludampquot 180 Large scale</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
 
-  <!-- Warning triangles -->
-  <g opacity="0.5">
-    <polygon points="160,430 175,405 190,430" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
-    <text x="175" y="426" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
-    <polygon points="1020,160 1035,135 1050,160" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
-    <text x="1035" y="156" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
-  </g>
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
 
-  <!-- Code fragments -->
-  <g font-family="Courier New, monospace" font-size="11" opacity="0.12" fill="#f59e0b">
-    <text x="50" y="100">npm install worm-pkg</text>
-    <text x="920" y="110">postinstall: exec()</text>
-    <text x="60" y="480">self.replicate(npm)</text>
-    <text x="920" y="490">supply-chain.infect()</text>
-  </g>
-
-  <!-- Title -->
-  <text x="600" y="510" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Shai-Hulud Campaign</text>
-  <text x="600" y="548" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">180 Malicious npm Packages | Large-scale Analysis</text>
-
-  <!-- Top badges -->
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">THREAT INTEL</text>
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Sep 17, 2025</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">September 17, 2025</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

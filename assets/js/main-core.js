@@ -393,5 +393,27 @@
         imageObserver.observe(img);
       });
     }
+
+    const bindImageFallback = (img) => {
+      if (!img || img.dataset.fallbackBound === '1') {
+        return;
+      }
+
+      img.dataset.fallbackBound = '1';
+      img.addEventListener('error', () => {
+        const fallbackSrc = img.getAttribute('data-fallback-src');
+        if (fallbackSrc && img.getAttribute('src') !== fallbackSrc) {
+          img.setAttribute('src', fallbackSrc);
+          return;
+        }
+
+        const wrapper = img.closest('.post-card-image');
+        if (wrapper) {
+          wrapper.style.display = 'none';
+        }
+      });
+    };
+
+    document.querySelectorAll('img[data-fallback-src]').forEach(bindImageFallback);
   });
 })();

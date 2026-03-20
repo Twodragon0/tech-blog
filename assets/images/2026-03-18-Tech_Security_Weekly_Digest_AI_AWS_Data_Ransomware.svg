@@ -1,215 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#0a0f1a"/>
     </linearGradient>
-
-    <!-- Card Gradient -->
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
-    </linearGradient>
-
-    <!-- Category Gradients -->
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
-    </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#d97706"/>
-    </linearGradient>
-    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
-
-    <!-- Glow Filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- Shadow Filter -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
-    </pattern>
+    <marker id="arrowCyan" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#06b6d4"/>
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bg1)"/>
 
-  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="60" y="70" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">AI Sandbox DNS Exfil + Ransomware + GKE</text>
+  <text x="60" y="104" fill="#94a3b8" font-size="18" font-family="Georgia, serif">Mar 18</text>
 
-  <!-- Decorative Circles -->
-  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+  <!-- Curved arrows radiating from center -->
+  <path d="M600,315 C600,220 600,200 600,155" stroke="#06b6d4" stroke-width="3" fill="none" marker-end="url(#arrowCyan)"/>
+  <path d="M600,315 C460,350 360,400 260,470" stroke="#f43f5e" stroke-width="3" fill="none" marker-end="url(#arrowCyan)"/>
+  <path d="M600,315 C740,350 840,400 940,470" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowCyan)"/>
 
-  <!-- Header Section -->
-  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
-
-  <!-- Date Badge -->
-  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
-  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">March 18, 2026</text>
-
-  <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | AWS | Data | Ransomware</text>
-
-  <!-- Card 1: SECURITY -->
-  <g transform="translate(50, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI Flaws in Amazon Bedrock,</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Cybersecurity researchers have disclosed</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">details of a new method for exfiltrating</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+  <!-- Top Center Node -->
+  <g transform="translate(520,110)">
+    <path d="M80,0 L140,40 L140,110 L80,150 L20,110 L20,40 Z" fill="#0f172a" stroke="#06b6d4" stroke-width="3" filter="url(#glowCyan)"/>
+    <!-- Icon: hex chip -->
+    <rect x="58" y="48" width="44" height="44" rx="6" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <path d="M80,52 L80,40 M80,96 L80,108 M58,70 L46,70 M102,70 L114,70" stroke="#06b6d4" stroke-width="2"/>
   </g>
+  <text x="600" y="290" text-anchor="middle" fill="#e2e8f0" font-size="18" font-family="Georgia, serif">AI Sandbox DNS</text>
 
-  <!-- Card 2: SECURITY -->
-  <g transform="translate(430, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AWS completes the second GDV</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">We re excited to announce that Amazon</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Web Services (AWS) has completed its</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">AWS Security Blog</text>
+  <!-- Bottom Left Node -->
+  <g transform="translate(180,450)">
+    <rect x="0" y="0" width="160" height="120" rx="18" fill="#0f172a" stroke="#f43f5e" stroke-width="3"/>
+    <!-- Icon: lock -->
+    <rect x="58" y="52" width="44" height="36" rx="6" fill="none" stroke="#f43f5e" stroke-width="2"/>
+    <path d="M68,52 L68,40 C68,30 92,30 92,40 L92,52" stroke="#f43f5e" stroke-width="2" fill="none"/>
   </g>
+  <text x="260" y="600" text-anchor="middle" fill="#e2e8f0" font-size="18" font-family="Georgia, serif">Ransomware</text>
 
-  <!-- Card 3: AI/ML -->
-  <g transform="translate(810, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Ranking Engineer Agent (REA): The</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Meta s Ranking Engineer Agent (REA)</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">autonomously executes key steps across</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">Meta Engineering</text>
+  <!-- Bottom Right Node -->
+  <g transform="translate(860,450)">
+    <path d="M80,0 L160,60 L80,120 L0,60 Z" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+    <!-- Icon: kube -->
+    <polygon points="80,32 110,52 110,88 80,108 50,88 50,52" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="80" cy="70" r="6" fill="#10b981"/>
   </g>
-
-  <!-- Card 4: CLOUD -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#greenGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">AWS</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CLOUD</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Introducing multi-cluster GKE</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The world of artificial intelligence is</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">moving fast, and so is the need to serve</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Google Cloud Blog</text>
-  </g>
-
-  <!-- Card 5: DEVOPS -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f59e0b" text-anchor="middle">DEV</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">DEVOPS</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">RT.Assistant: A Multi-Agent Voice</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Guest blog post on building a real time</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">assistant using OpenAI Realtime API</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Microsoft .NET Blog</text>
-  </g>
-
-  <!-- Card 6: BLOCKCHAIN -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Jack Mallers Confirmed As A</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin Magazine Jack Mallers Confirmed</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">As A Bitcoin 2026 Speaker Jack Mallers</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Bitcoin Magazine</text>
-  </g>
-
-  <!-- Footer -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
-
-  <!-- Stats -->
-  <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">24 News Collected</text>
-  </g>
-  <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
-  </g>
-  <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">3 DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 AI/ML</text>
-  </g>
-
-  <!-- Blog Info -->
-  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="940" y="600" text-anchor="middle" fill="#e2e8f0" font-size="18" font-family="Georgia, serif">GKE</text>
 </svg>

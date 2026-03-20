@@ -1,34 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a0a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#f97316" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="90" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
-      <circle cx="0" cy="0" r="60" fill="none" stroke="#f97316" stroke-width="1" opacity="0.3"/>
-      <circle cx="0" cy="0" r="30" fill="none" stroke="#f97316" stroke-width="1" opacity="0.2"/>
-      <line x1="-90" y1="0" x2="90" y2="0" stroke="#f97316" stroke-width="0.5" opacity="0.2"/>
-      <line x1="0" y1="-90" x2="0" y2="90" stroke="#f97316" stroke-width="0.5" opacity="0.2"/>
-      <path d="M0,0 L0,-90 A90,90 0 0,1 64,-64 Z" fill="#f97316" opacity="0.06"/>
-      <circle cx="-35" cy="-50" r="4" fill="#ef4444" opacity="0.7"/>
-      <circle cx="50" cy="-15" r="3" fill="#f59e0b" opacity="0.6"/>
-      <circle cx="-15" cy="40" r="4" fill="#ef4444" opacity="0.7"/>
-      <circle cx="40" cy="35" r="3" fill="#f97316" opacity="0.5"/>
-      <circle cx="0" cy="0" r="5" fill="#f97316" opacity="0.8"/>
+
+  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Stacked layers -->
+    <g opacity="0.6">
+      <rect x="-120" y="-120" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="-93" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="-60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="-33" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">FEED FORWARD</text>
+      <rect x="-120" y="0" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="27" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
+      <rect x="-120" y="60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="0" y="87" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">OUTPUT</text>
+    </g>
+    <!-- Arrows between layers -->
+    <g stroke="#6366f1" stroke-width="1.5" opacity="0.3" fill="#6366f1">
+      <line x1="0" y1="-75" x2="0" y2="-62"/><polygon points="-4,-64 0,-58 4,-64"/>
+      <line x1="0" y1="-15" x2="0" y2="-2"/><polygon points="-4,-4 0,2 4,-4"/>
+      <line x1="0" y1="45" x2="0" y2="58"/><polygon points="-4,56 0,62 4,56"/>
+    </g>
+    <!-- Side connections -->
+    <g stroke="#a5b4fc" stroke-width="1" opacity="0.2">
+      <path d="M125,-97 C170,-97 170,-37 125,-37" fill="none"/>
+      <path d="M125,23 C170,23 170,83 125,83" fill="none"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Daily Tech Digest</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">RSS Roundup | Tech News Aggregation</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f97316" text-anchor="middle">DAILY</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Daily Tech Digest RSS Roundup</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">WEEKLY DIGEST</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Feb 16, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 16, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

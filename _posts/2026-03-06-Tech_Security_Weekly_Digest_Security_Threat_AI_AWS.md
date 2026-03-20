@@ -20,7 +20,7 @@ toc: true
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">기술·보안 주간 다이제스트 (2026년 03월 06일)</span>
+    <span class="summary-value">CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>

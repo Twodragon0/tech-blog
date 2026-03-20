@@ -1,90 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
-      <stop offset="0%" stop-color="#0f172a"/><stop offset="50%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#991b1b"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/><line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/><line x1="1000" y1="0" x2="1000" y2="630"/>
+
+  <circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <path d="M0,-135 C75,-135 125,-95 125,-15 C125,65 65,125 0,155 C-65,125 -125,65 -125,-15 C-125,-95 -75,-135 0,-135Z"
+          fill="#ef4444" fill-opacity="0.05" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
+    <path d="M0,-100 C55,-100 90,-70 90,-10 C90,45 50,85 0,110 C-50,85 -90,45 -90,-10 C-90,-70 -55,-100 0,-100Z"
+          fill="#ef4444" fill-opacity="0.03" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
+    <path d="M-5,-115 L10,-65 L-12,-20 L14,35 L-10,75 L6,125"
+          fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-20" y="-15" width="40" height="32" rx="5" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <path d="M-12,-15 L-12,-28 C-12,-45 12,-45 12,-28 L12,-15" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <circle cx="0" cy="5" r="5" fill="#ef4444" opacity="0.7"/>
+    <rect x="-1.5" y="8" width="3" height="8" rx="1.5" fill="#ef4444" opacity="0.7"/>
   </g>
-  <!-- Shell/terminal attack icon -->
-  <g transform="translate(80, 180)">
-    <rect x="0" y="0" width="120" height="120" rx="20" fill="url(#accent)" opacity="0.9"/>
-    <rect x="15" y="20" width="90" height="70" rx="6" fill="#1e293b" stroke="white" stroke-width="2"/>
-    <text x="25" y="42" fill="#22c55e" font-family="monospace" font-size="11">$&gt; exploit</text>
-    <text x="25" y="58" fill="#f87171" font-family="monospace" font-size="11">RCE OK</text>
-    <text x="25" y="74" fill="#fbbf24" font-family="monospace" font-size="11">root#</text>
-    <text x="60" y="112" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">METRO4SHELL</text>
+  <g opacity="0.5">
+    <path d="M120,100 C250,150 380,200 485,240" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="483,235 495,240 483,245" fill="#ef4444"/>
+    <path d="M1080,100 C950,150 820,200 715,240" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="717,235 705,240 717,245" fill="#f59e0b"/>
+    <path d="M120,420 C250,370 380,310 490,275" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="488,270 500,275 488,280" fill="#8b5cf6"/>
+    <path d="M1080,420 C950,370 820,310 710,275" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+    <polygon points="712,270 700,275 712,280" fill="#3b82f6"/>
   </g>
-  <!-- Attack vectors -->
-  <g transform="translate(80, 370)">
-    <rect x="0" y="0" width="120" height="24" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="60" y="16" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="8">JNDI Injection</text>
-    <path d="M60 24 L60 30" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="0" y="30" width="120" height="24" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="60" y="46" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="8">Class Loading</text>
-    <path d="M60 54 L60 60" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="0" y="60" width="120" height="24" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="60" y="76" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="8">Shell Spawn</text>
-    <path d="M60 84 L60 90" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="0" y="90" width="120" height="24" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="60" y="106" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="8">Lateral Move</text>
+  <g opacity="0.35">
+    <polygon points="170,160 180,145 190,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="180" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
+    <polygon points="1010,160 1020,145 1030,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1020" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
   </g>
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">EXPLOIT ANALYSIS</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Metro4Shell Attack</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Vector Analysis</text>
-  </g>
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">February 04, 2026</text>
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#f87171" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SEVERITY</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">9.8</text>
-    <text x="80" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">CVSS</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#fb923c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">VECTORS</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">4</text>
-    <text x="268" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">attack paths</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">TARGETS</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">Java</text>
-    <text x="535" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">apps</text>
-  </g>
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="140" height="32" rx="16" fill="#7f1d1d" opacity="0.7"/>
-    <text x="70" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Metro4Shell</text>
-    <rect x="155" y="0" width="110" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="210" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">JNDI</text>
-    <rect x="280" y="0" width="110" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="335" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">RCE</text>
-    <rect x="405" y="0" width="110" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="460" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Java</text>
-  </g>
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="50" cy="50" r="6" fill="#f87171"/><circle cx="120" cy="30" r="4" fill="#fb923c"/>
-    <circle cx="150" cy="90" r="5" fill="#818cf8"/><circle cx="80" cy="120" r="4" fill="#34d399"/>
-    <circle cx="200" cy="60" r="3" fill="#f87171"/><circle cx="30" cy="150" r="5" fill="#fb923c"/>
-    <circle cx="180" cy="140" r="4" fill="#818cf8"/>
-    <line x1="50" y1="50" x2="120" y2="30" stroke="#475569" stroke-width="1"/>
-    <line x1="50" y1="50" x2="80" y2="120" stroke="#475569" stroke-width="1"/>
-    <line x1="120" y1="30" x2="150" y2="90" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="200" y2="60" stroke="#475569" stroke-width="1"/>
-    <line x1="80" y1="120" x2="30" y2="150" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="180" y2="140" stroke="#475569" stroke-width="1"/>
-  </g>
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Metro4Shell Attack Vector Analysis</text>
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">Critical Exploit</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Metro4Shell | JNDI | RCE | Java</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">metro4shell attack vector</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud | DevOps</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
+
+  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 4, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

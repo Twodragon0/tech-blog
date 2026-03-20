@@ -1,57 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#1a1a0a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#f59e0b" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,230)">
-    <!-- Blockchain chain -->
-    <g filter="url(#shadow)">
-      <!-- Block 1 -->
-      <rect x="-170" y="-40" width="80" height="80" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
-      <text x="-130" y="-10" font-family="Courier New" font-size="8" fill="#fde68a" text-anchor="middle">BLOCK</text>
-      <text x="-130" y="8" font-family="Courier New" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">#1</text>
-      <rect x="-160" y="18" width="60" height="4" rx="1" fill="#f59e0b" opacity="0.2"/>
-      <!-- Chain link -->
-      <line x1="-85" y1="0" x2="-55" y2="0" stroke="#f59e0b" stroke-width="3" opacity="0.5"/>
-      <circle cx="-70" cy="0" r="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <!-- Block 2 (Bitcoin) -->
-      <rect x="-50" y="-40" width="80" height="80" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
-      <text x="-10" y="8" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.7">B</text>
-      <line x1="-10" y1="-15" x2="-10" y2="25" stroke="#f59e0b" stroke-width="1.5" opacity="0.3"/>
-      <!-- Chain link -->
-      <line x1="35" y1="0" x2="65" y2="0" stroke="#f59e0b" stroke-width="3" opacity="0.5"/>
-      <circle cx="50" cy="0" r="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <!-- Block 3 -->
-      <rect x="70" y="-40" width="80" height="80" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
-      <text x="110" y="-10" font-family="Courier New" font-size="8" fill="#fde68a" text-anchor="middle">BLOCK</text>
-      <text x="110" y="8" font-family="Courier New" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">#N</text>
-      <rect x="80" y="18" width="60" height="4" rx="1" fill="#f59e0b" opacity="0.2"/>
+
+  <circle cx="400" cy="250" r="200" fill="#f97316" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#f97316" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <!-- Central ledger -->
+    <rect x="-60" y="-80" width="120" height="160" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="2" opacity="0.7"/>
+    <g font-family="Courier New" font-size="8" fill="#fdba74" opacity="0.6">
+      <text x="-40" y="-55">TX: 0xa3f2..</text>
+      <text x="-40" y="-38">TX: 0x7b1c..</text>
+      <text x="-40" y="-21">TX: 0xd9e4..</text>
+      <line x1="-45" y1="-12" x2="45" y2="-12" stroke="#f97316" stroke-width="0.5" opacity="0.3"/>
+      <text x="-40" y="5">TX: 0x2ef8..</text>
+      <text x="-40" y="22">TX: 0xc1a7..</text>
+      <text x="-40" y="39">TX: 0xb5d3..</text>
+      <line x1="-45" y1="48" x2="45" y2="48" stroke="#f97316" stroke-width="0.5" opacity="0.3"/>
+      <text x="-40" y="65">TX: 0x9f6e..</text>
     </g>
-    <!-- Security shield over chain -->
-    <path d="M0,-70 L190,-45 L190,40 C190,65 100,85 0,95 C-100,85 -190,65 -190,40 L-190,-45 Z" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4" opacity="0.25"/>
-    <!-- Lock -->
-    <g transform="translate(0,70)">
-      <rect x="-12" y="-5" width="24" height="18" rx="3" fill="#22c55e" opacity="0.3"/>
-      <path d="M-7,-5 L-7,-12 C-7,-17 -4,-20 0,-20 C4,-20 7,-17 7,-12 L7,-5" fill="none" stroke="#22c55e" stroke-width="2"/>
-      <circle cx="0" cy="4" r="2.5" fill="#86efac"/>
+    <!-- Connected nodes -->
+    <g opacity="0.4">
+      <circle cx="-200" cy="-60" r="25" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+      <text x="-200" y="-57" font-family="Courier New" font-size="8" fill="#fdba74" text-anchor="middle">NODE</text>
+      <circle cx="200" cy="-60" r="25" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+      <text x="200" y="-57" font-family="Courier New" font-size="8" fill="#fdba74" text-anchor="middle">NODE</text>
+      <circle cx="-200" cy="60" r="25" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+      <text x="-200" y="63" font-family="Courier New" font-size="8" fill="#fdba74" text-anchor="middle">NODE</text>
+      <circle cx="200" cy="60" r="25" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+      <text x="200" y="63" font-family="Courier New" font-size="8" fill="#fdba74" text-anchor="middle">NODE</text>
     </g>
-    <!-- Hash values floating -->
-    <g opacity="0.2">
-      <text x="-160" y="-60" font-family="Courier New" font-size="7" fill="#94a3b8">0x3f2a...</text>
-      <text x="100" y="-60" font-family="Courier New" font-size="7" fill="#94a3b8">0x8b1c...</text>
+    <!-- Connection lines -->
+    <g stroke="#f97316" stroke-width="1" stroke-dasharray="6,3" opacity="0.25">
+      <line x1="-175" y1="-50" x2="-60" y2="-30"/>
+      <line x1="175" y1="-50" x2="60" y2="-30"/>
+      <line x1="-175" y1="50" x2="-60" y2="30"/>
+      <line x1="175" y1="50" x2="60" y2="30"/>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Blockchain Security</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Cryptocurrency + DevSecOps | GitHub Security Tools</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">BLOCKCHAIN</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Blockchain Cryptocurrency Security Complete</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AI | DevSecOps | Blockchain</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fdba74" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 8, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 8, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

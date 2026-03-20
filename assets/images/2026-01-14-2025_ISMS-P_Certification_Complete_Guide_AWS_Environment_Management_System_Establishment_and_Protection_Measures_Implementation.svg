@@ -1,52 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a0a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#22c55e" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,225)">
-    <!-- ISMS-P certification seal -->
-    <g filter="url(#shadow)">
-      <circle cx="0" cy="0" r="90" fill="#1e293b" stroke="#22c55e" stroke-width="3"/>
-      <circle cx="0" cy="0" r="78" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3"/>
-      <circle cx="0" cy="0" r="65" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
-      <!-- Star pattern -->
-      <g opacity="0.2">
-        <polygon points="0,-55 5,-45 15,-45 7,-38 10,-28 0,-35 -10,-28 -7,-38 -15,-45 -5,-45" fill="#22c55e"/>
-      </g>
-      <!-- ISMS-P text -->
-      <text x="0" y="-10" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#22c55e" text-anchor="middle">ISMS-P</text>
-      <!-- Checkmark -->
-      <path d="M-15,15 L-5,28 L20,2" fill="none" stroke="#86efac" stroke-width="4" stroke-linecap="round"/>
-      <!-- Ribbon tails -->
-      <path d="M-60,75 L-40,85 L-60,95" fill="#22c55e" opacity="0.2"/>
-      <path d="M60,75 L40,85 L60,95" fill="#22c55e" opacity="0.2"/>
-      <rect x="-60" y="70" width="120" height="20" rx="3" fill="#22c55e" opacity="0.15"/>
-      <text x="0" y="84" font-family="Courier New" font-size="9" fill="#86efac" text-anchor="middle">CERTIFIED 2025</text>
-    </g>
-    <!-- AWS cloud connection -->
-    <g transform="translate(-170,0)" opacity="0.5">
-      <path d="M-15,-20 C-30,-20 -40,-12 -40,0 C-50,0 -55,8 -55,15 C-55,25 -48,30 -38,30 L20,30 C30,30 35,25 35,15 C35,8 30,0 20,0 C20,-12 10,-20 -5,-20 Z" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-      <text x="-10" y="12" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#fdba74" text-anchor="middle">AWS</text>
-    </g>
-    <line x1="-100" y1="0" x2="-95" y2="0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.3"/>
-    <!-- Protection measures -->
-    <g transform="translate(170,0)" opacity="0.5">
-      <path d="M0,-30 L30,-18 L30,12 C30,25 16,33 0,38 C-16,33 -30,25 -30,12 L-30,-18 Z" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-      <rect x="-12" y="-5" width="24" height="16" rx="3" fill="#3b82f6" opacity="0.3"/>
-      <path d="M-7,-5 L-7,-10 C-7,-15 -4,-18 0,-18 C4,-18 7,-15 7,-10 L7,-5" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
-    </g>
+
+  <circle cx="400" cy="250" r="200" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,240)">
+    <path d="M-60,40 C-95,40 -120,15 -120,-15 C-120,-45 -95,-70 -65,-70 C-60,-100 -30,-120 0,-120 C35,-120 65,-95 65,-70 C100,-70 120,-45 120,-15 C120,15 100,40 65,40 Z"
+          fill="#3b82f6" fill-opacity="0.06" stroke="#60a5fa" stroke-width="2" opacity="0.7"/>
+    <rect x="-50" y="-50" width="30" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1.2"/>
+    <line x1="-45" y1="-35" x2="-25" y2="-35" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+    <line x1="-45" y1="-28" x2="-25" y2="-28" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+    <rect x="10" y="-50" width="30" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1.2"/>
+    <line x1="15" y1="-35" x2="35" y2="-35" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+    <line x1="15" y1="-28" x2="35" y2="-28" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">ISMS-P Certification</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AWS Environment | Management System | Protection Measures</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">COMPLIANCE</text>
+  <g transform="translate(600,350)">
+    <g stroke="#475569" stroke-width="1" opacity="0.4">
+      <line x1="-180" y1="-20" x2="-60" y2="-20"/><line x1="60" y1="-20" x2="180" y2="-20"/>
+      <line x1="0" y1="-30" x2="0" y2="-60"/>
+      <line x1="-180" y1="-20" x2="-180" y2="10"/><line x1="180" y1="-20" x2="180" y2="10"/>
+    </g>
+    <rect x="-205" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+    <text x="-180" y="32" font-family="Courier New" font-size="9" fill="#6ee7b7" text-anchor="middle">K8s</text>
+    <rect x="-85" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="-60" y="32" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">DB</text>
+    <rect x="35" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="60" y="32" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">WAF</text>
+    <rect x="155" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.2"/>
+    <text x="180" y="32" font-family="Courier New" font-size="9" fill="#c4b5fd" text-anchor="middle">IAM</text>
+  </g>
+  <rect x="300" y="100" width="600" height="330" rx="20" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="10,5" opacity="0.3"/>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2025 ISMS P Certification Complete Guide AWS</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AWS | ISMS-P</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 14, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 14, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

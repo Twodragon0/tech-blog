@@ -1,61 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#0a1a1a"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1629"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="250" r="280" fill="#10b981" opacity="0.03" filter="url(#sg)"/>
-  <g transform="translate(600,230)">
-    <!-- Roadmap path -->
-    <g filter="url(#shadow)">
-      <path d="M-200,40 C-150,40 -130,-20 -80,-20 C-30,-20 -10,40 40,40 C90,40 110,-20 160,-20 C210,-20 230,40 230,40" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round"/>
-      <!-- Road dashes -->
-      <path d="M-200,40 C-150,40 -130,-20 -80,-20 C-30,-20 -10,40 40,40 C90,40 110,-20 160,-20 C210,-20 230,40 230,40" fill="none" stroke="#86efac" stroke-width="1.5" stroke-dasharray="8,12" opacity="0.4"/>
+
+  <circle cx="400" cy="250" r="200" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="800" cy="300" r="180" fill="#f59e0b" opacity="0.03" filter="url(#sg)"/>
+  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
+
+  <g transform="translate(600,255)">
+    <path d="M-400,0 L400,0" fill="none" stroke="#475569" stroke-width="3" opacity="0.3"/>
+    <g transform="translate(-300,0)">
+      <rect x="-40" y="-35" width="80" height="70" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+      <text x="0" y="-5" font-family="Courier New" font-size="12" fill="#60a5fa" text-anchor="middle">&lt;/&gt;</text>
+      <text x="0" y="15" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">CODE</text>
+      <polygon points="45,0 55,-8 55,8" fill="#3b82f6" opacity="0.5"/>
     </g>
-    <!-- Milestone nodes -->
-    <g>
-      <!-- Plan -->
-      <circle cx="-180" cy="40" r="16" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
-      <text x="-180" y="44" font-family="Courier New" font-size="8" fill="#93c5fd" text-anchor="middle">Plan</text>
-      <!-- Code -->
-      <circle cx="-80" cy="-20" r="16" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
-      <text x="-80" y="-16" font-family="Courier New" font-size="8" fill="#c4b5fd" text-anchor="middle">Code</text>
-      <!-- Build -->
-      <circle cx="40" cy="40" r="16" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
-      <text x="40" y="44" font-family="Courier New" font-size="8" fill="#fde68a" text-anchor="middle">Build</text>
-      <!-- Test -->
-      <circle cx="160" cy="-20" r="16" fill="#1e293b" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
-      <text x="160" y="-16" font-family="Courier New" font-size="8" fill="#fca5a5" text-anchor="middle">Test</text>
-      <!-- Deploy -->
-      <circle cx="230" cy="40" r="16" fill="#1e293b" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
-      <text x="230" y="44" font-family="Courier New" font-size="8" fill="#86efac" text-anchor="middle">Deploy</text>
+    <g transform="translate(-100,0)">
+      <rect x="-40" y="-35" width="80" height="70" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="0" cy="-5" r="15" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="-5" r="5" fill="#f59e0b" opacity="0.4"/>
+      <text x="0" y="18" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">BUILD</text>
+      <polygon points="45,0 55,-8 55,8" fill="#f59e0b" opacity="0.5"/>
     </g>
-    <!-- Security checkpoints above path -->
-    <g opacity="0.4">
-      <path d="M-130,-55 L-130,-35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <path d="M-130,-62 L-125,-55 L-135,-55 Z" fill="#ef4444"/>
-      <path d="M-10,-5 L-10,15" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <path d="M-10,-12 L-5,-5 L-15,-5 Z" fill="#ef4444"/>
-      <path d="M100,-55 L100,-35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <path d="M100,-62 L105,-55 L95,-55 Z" fill="#ef4444"/>
+    <g transform="translate(100,0)">
+      <rect x="-40" y="-35" width="80" height="70" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <path d="M-8,-12 L-2,0 L12,-16" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+      <text x="0" y="18" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">TEST</text>
+      <polygon points="45,0 55,-8 55,8" fill="#10b981" opacity="0.5"/>
     </g>
-    <!-- 2026 year -->
-    <text x="0" y="-70" font-family="Arial,sans-serif" font-size="48" font-weight="bold" fill="#10b981" text-anchor="middle" opacity="0.15">2026</text>
-    <!-- Terminal prompt -->
-    <g transform="translate(0,90)">
-      <rect x="-80" y="-12" width="160" height="24" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-      <text x="-70" y="4" font-family="Courier New" font-size="10" fill="#86efac">$ roadmap.sh</text>
+    <g transform="translate(300,0)">
+      <rect x="-40" y="-35" width="80" height="70" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+      <path d="M0,-18 L12,2 L4,2 L4,14 L-4,14 L-4,2 L-12,2 Z" fill="#8b5cf6" opacity="0.5" transform="rotate(180,0,-2)"/>
+      <text x="0" y="18" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">DEPLOY</text>
     </g>
   </g>
-  <text x="600" y="500" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">DevSecOps Roadmap 2026</text>
-  <text x="600" y="538" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">roadmap.sh Analysis | Complete Learning Path</text>
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#6ee7b7" text-anchor="middle">ROADMAP</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2026 DevSecOps Roadmap Complete Guide</text>
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">DevSecOps</text>
+
+  <rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">TECH BLOG</text>
+
   <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Jan 10, 2026</text>
-  <text x="1160" y="615" font-family="Arial,sans-serif" font-size="13" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 10, 2026</text>
+
+  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
