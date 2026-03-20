@@ -1323,13 +1323,18 @@ def _generate_executive_and_risk_sections(
     critical_count = 0
     high_count = 0
     medium_count = 0
+    critical_titles = []
+    high_titles = []
 
     for item in news_items:
         severity = _determine_severity(item)
+        title = _korean_display_title(item, max_len=35)
         if severity == "Critical":
             critical_count += 1
+            critical_titles.append(title)
         elif severity == "High":
             high_count += 1
+            high_titles.append(title)
         else:
             medium_count += 1
 
@@ -1339,6 +1344,11 @@ def _generate_executive_and_risk_sections(
         overall = "Medium"
     else:
         overall = "Low"
+
+    # Collect category-specific threat indicators
+    text_blob = " ".join(
+        f"{item.get('title', '')} {item.get('summary', '')}" for item in news_items
+    ).lower()
 
     if mode == "tech-blog":
         briefing = (
@@ -1355,19 +1365,85 @@ def _generate_executive_and_risk_sections(
             "| 비용/운영 | Low | 사용량 모니터링과 예산 임계치 알림 설정 |",
         ]
     else:
-        briefing = (
-            "- 이번 주기는 취약점 대응과 탐지 체계 운영이 동시에 요구되며, "
-            "노출 자산 우선순위 기반의 실행이 필요합니다.\n"
-            "- 단기적으로는 패치 SLA 준수, 고위험 자산 모니터링, 탐지 룰 최신화가 "
-            "가장 높은 개선 효과를 제공합니다."
-        )
+        # Build dynamic briefing from actual top news
+        briefing_parts = []
+        if critical_titles:
+            briefing_parts.append(
+                f"- **긴급 대응 필요**: {', '.join(critical_titles[:2])} 등 "
+                f"Critical 등급 위협 {critical_count}건이 보고되었으며, 즉각적인 패치 및 영향도 평가가 필요합니다."
+            )
+        if high_titles:
+            briefing_parts.append(
+                f"- **주요 모니터링 대상**: {', '.join(high_titles[:3])} 등 "
+                f"High 등급 위협 {high_count}건에 대한 탐지 룰 업데이트와 자산 점검을 권고합니다."
+            )
+        if not briefing_parts:
+            briefing_parts.append(
+                "- 이번 주기는 주요 보안 이슈가 안정적이며, "
+                "기존 모니터링 체계의 정기 검증에 집중할 수 있습니다."
+            )
+        # Add operational guidance based on content
+        if any(kw in text_blob for kw in ["ransomware", "랜섬웨어"]):
+            briefing_parts.append(
+                "- 랜섬웨어 관련 위협이 확인되었으며, 백업 무결성 검증과 복구 절차 리허설을 권고합니다."
+            )
+        elif any(kw in text_blob for kw in ["zero-day", "제로데이", "0-day"]):
+            briefing_parts.append(
+                "- 제로데이 취약점이 보고되었으며, 임시 완화 조치 적용과 벤더 패치 일정 확인이 시급합니다."
+            )
+        elif any(kw in text_blob for kw in ["supply chain", "공급망"]):
+            briefing_parts.append(
+                "- 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다."
+            )
+        else:
+            briefing_parts.append(
+                "- 단기적으로는 패치 SLA 준수와 고위험 자산 모니터링 강화가 가장 높은 개선 효과를 제공합니다."
+            )
+        briefing = "\n".join(briefing_parts)
+
+        # Build dynamic risk scorecard rows based on actual news themes
+        risk_areas = []
+        if any(kw in text_blob for kw in ["cve", "취약점", "vulnerability", "patch", "패치"]):
+            cve_level = "Critical" if critical_count > 0 else "High"
+            risk_areas.append(
+                f"| 취약점 관리 | {cve_level} | CVE 기반 패치 우선순위 선정 및 SLA 내 적용 |"
+            )
+        if any(kw in text_blob for kw in ["ransomware", "랜섬웨어", "encryption", "암호화"]):
+            risk_areas.append(
+                "| 랜섬웨어 대응 | High | 백업 무결성 검증 및 격리 복구 절차 점검 |"
+            )
+        if any(kw in text_blob for kw in ["malware", "악성코드", "edr", "botnet"]):
+            risk_areas.append(
+                f"| 탐지/대응 체계 | {overall} | EDR/SIEM 탐지 룰 업데이트 및 IoC 반영 |"
+            )
+        if any(kw in text_blob for kw in ["supply chain", "공급망", "sbom", "dependency"]):
+            risk_areas.append(
+                "| 공급망 보안 | High | 서드파티 의존성 감사 및 SBOM 최신화 |"
+            )
+        if any(kw in text_blob for kw in ["cloud", "aws", "gcp", "azure", "kubernetes", "k8s"]):
+            risk_areas.append(
+                "| 클라우드 보안 | Medium | 클라우드 자산 구성 드리프트 점검 및 권한 검토 |"
+            )
+        if any(kw in text_blob for kw in ["ai", "llm", "agent", "ml"]):
+            risk_areas.append(
+                "| AI/ML 보안 | Medium | AI 서비스 접근 제어 및 프롬프트 인젝션 방어 점검 |"
+            )
+
+        # Fallback if no specific areas detected
+        if not risk_areas:
+            risk_areas = [
+                f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
+                "| 탐지/모니터링 | Medium | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
+                "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
+            ]
+
+        # Limit to 4 rows max for readability
+        risk_areas = risk_areas[:4]
+
         rows = [
             "| 영역 | 현재 위험도 | 즉시 조치 |",
             "|------|-------------|-----------|",
-            f"| 위협 대응 | {overall} | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |",
-            "| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |",
-            "| 운영 복원력 | Medium | 백업/복구 및 사고 대응 절차 리허설 |",
-        ]
+        ] + risk_areas
 
     return (
         "## 경영진 브리핑\n\n"
