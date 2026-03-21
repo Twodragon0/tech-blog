@@ -3,6 +3,7 @@
 
 API disabling and path setup are handled by conftest.py.
 """
+
 import pytest
 
 from datetime import datetime, timezone, timedelta
@@ -26,6 +27,10 @@ from auto_publish_news import (
     _extract_key_topics,
     _table_summary,
     _filter_by_cutoff,
+    _select_svg_template,
+    SVG_TEMPLATE_BEFORE_AFTER,
+    SVG_TEMPLATE_HUB_SPOKE,
+    SVG_TEMPLATE_TIMELINE,
     select_top_news,
     generate_mitre_mapping,
     generate_risk_scorecard,
@@ -47,6 +52,7 @@ BANNED_PHRASES = [
 # Helpers
 # ===========================================================================
 
+
 def _item(title: str = "", summary: str = "") -> dict:
     """Build a minimal news item dict."""
     return {"title": title, "summary": summary}
@@ -63,6 +69,7 @@ def _assert_no_banned(text: str, label: str = "") -> None:
 # ===========================================================================
 # _generate_ai_analysis_template
 # ===========================================================================
+
 
 class TestGenerateAiAnalysisTemplate:
     """Tests for _generate_ai_analysis_template()."""
@@ -202,7 +209,9 @@ class TestGenerateAiAnalysisTemplate:
         assert "코딩" in result or "SAST" in result or "보안 스캔" in result
 
     def test_copilot_keyword(self):
-        item = _item(summary="GitHub Copilot security vulnerabilities in generated code")
+        item = _item(
+            summary="GitHub Copilot security vulnerabilities in generated code"
+        )
         result = _generate_ai_analysis_template(item)
         assert "코딩" in result or "SAST" in result or "보안 스캔" in result
 
@@ -316,6 +325,7 @@ class TestGenerateAiAnalysisTemplate:
 # _generate_devops_template
 # ===========================================================================
 
+
 class TestGenerateDevopsTemplate:
     """Tests for _generate_devops_template()."""
 
@@ -326,7 +336,11 @@ class TestGenerateDevopsTemplate:
         result = _generate_devops_template(None)
         assert "#### 실무 적용 포인트" in result
         # Must contain operational bullets, not old generic text
-        assert "보안 구성 검증 자동화" in result or "IaC" in result or "변경 관리" in result
+        assert (
+            "보안 구성 검증 자동화" in result
+            or "IaC" in result
+            or "변경 관리" in result
+        )
 
     def test_none_no_banned_phrases(self):
         result = _generate_devops_template(None)
@@ -560,27 +574,41 @@ class TestGenerateDevopsTemplate:
         _assert_no_banned(_generate_devops_template(None), "None branch")
 
     def test_no_banned_phrases_docker_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="docker container")), "docker branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="docker container")), "docker branch"
+        )
 
     def test_no_banned_phrases_k8s_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="kubernetes cluster")), "k8s branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="kubernetes cluster")), "k8s branch"
+        )
 
     def test_no_banned_phrases_cicd_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="ci/cd pipeline")), "ci/cd branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="ci/cd pipeline")), "ci/cd branch"
+        )
 
     def test_no_banned_phrases_mesh_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="service mesh istio")), "mesh branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="service mesh istio")), "mesh branch"
+        )
 
     def test_no_banned_phrases_conference_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="kubecon summit")), "conference branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="kubecon summit")),
+            "conference branch",
+        )
 
     def test_no_banned_phrases_fallback_branch(self):
-        _assert_no_banned(_generate_devops_template(_item(title="random topic")), "fallback branch")
+        _assert_no_banned(
+            _generate_devops_template(_item(title="random topic")), "fallback branch"
+        )
 
 
 # ===========================================================================
 # Cross-function anti-regression sweep
 # ===========================================================================
+
 
 class TestAntiRegressionBannedPhrases:
     """Exhaustive check that no branch in either function emits the old generic text."""
@@ -626,6 +654,7 @@ class TestAntiRegressionBannedPhrases:
 # ===========================================================================
 # _generate_contextual_action_point
 # ===========================================================================
+
 
 class TestGenerateContextualActionPoint:
     """Tests for inline '실무 포인트' generation."""
@@ -741,6 +770,7 @@ class TestGenerateContextualActionPoint:
 # _generate_security_brief_template
 # ===========================================================================
 
+
 class TestGenerateSecurityBriefTemplate:
     """Tests for security brief '권장 조치' generation."""
 
@@ -755,25 +785,35 @@ class TestGenerateSecurityBriefTemplate:
 
     # --- Ransomware branch ---
     def test_ransomware_keyword(self):
-        result = _generate_security_brief_template(self._item("New ransomware variant detected"))
+        result = _generate_security_brief_template(
+            self._item("New ransomware variant detected")
+        )
         assert "백업" in result
         assert "인시던트 대응" in result
 
     def test_ransomware_korean(self):
-        result = _generate_security_brief_template(self._item("신규 랜섬웨어 공격 캠페인"))
+        result = _generate_security_brief_template(
+            self._item("신규 랜섬웨어 공격 캠페인")
+        )
         assert "백업" in result
 
     def test_encrypt_keyword(self):
-        result = _generate_security_brief_template(self._item("File encryption malware spreads"))
+        result = _generate_security_brief_template(
+            self._item("File encryption malware spreads")
+        )
         assert "백업" in result
 
     # --- Authentication branch ---
     def test_authentication_keyword(self):
-        result = _generate_security_brief_template(self._item("Authentication bypass vulnerability"))
+        result = _generate_security_brief_template(
+            self._item("Authentication bypass vulnerability")
+        )
         assert "인증" in result or "Credential" in result
 
     def test_mfa_keyword(self):
-        result = _generate_security_brief_template(self._item("MFA fatigue attack campaign"))
+        result = _generate_security_brief_template(
+            self._item("MFA fatigue attack campaign")
+        )
         assert "MFA" in result or "인증" in result
 
     def test_auth_bypass_korean(self):
@@ -781,20 +821,28 @@ class TestGenerateSecurityBriefTemplate:
         assert "인증" in result
 
     def test_credential_keyword(self):
-        result = _generate_security_brief_template(self._item("Credential stuffing attack"))
+        result = _generate_security_brief_template(
+            self._item("Credential stuffing attack")
+        )
         assert "인증 정보" in result or "Credential" in result
 
     def test_sso_keyword(self):
-        result = _generate_security_brief_template(self._item("SSO provider compromise"))
+        result = _generate_security_brief_template(
+            self._item("SSO provider compromise")
+        )
         assert "SSO" in result or "인증" in result
 
     # --- Supply chain branch ---
     def test_supply_chain_keyword(self):
-        result = _generate_security_brief_template(self._item("Supply chain attack on npm"))
+        result = _generate_security_brief_template(
+            self._item("Supply chain attack on npm")
+        )
         assert "의존성" in result or "SBOM" in result
 
     def test_dependency_keyword(self):
-        result = _generate_security_brief_template(self._item("Malicious dependency found"))
+        result = _generate_security_brief_template(
+            self._item("Malicious dependency found")
+        )
         assert "의존성" in result
 
     def test_npm_keyword(self):
@@ -806,7 +854,9 @@ class TestGenerateSecurityBriefTemplate:
         assert "의존성" in result or "pip" in result
 
     def test_sbom_keyword(self):
-        result = _generate_security_brief_template(self._item("SBOM requirements update"))
+        result = _generate_security_brief_template(
+            self._item("SBOM requirements update")
+        )
         assert "SBOM" in result
 
     def test_supply_chain_korean(self):
@@ -815,7 +865,9 @@ class TestGenerateSecurityBriefTemplate:
 
     # --- Default/fallback ---
     def test_fallback_generic(self):
-        result = _generate_security_brief_template(self._item("Some generic security news"))
+        result = _generate_security_brief_template(
+            self._item("Some generic security news")
+        )
         assert "권장 조치" in result
         assert "관련 시스템 목록 확인" in result
 
@@ -836,45 +888,63 @@ class TestGenerateSecurityBriefTemplate:
     # Branch: zero-day / exploit
     # ------------------------------------------------------------------
     def test_zero_day_keyword(self):
-        result = _generate_security_brief_template(self._item("Zero-day vulnerability in Chrome"))
+        result = _generate_security_brief_template(
+            self._item("Zero-day vulnerability in Chrome")
+        )
         assert "패치" in result or "KEV" in result
 
     def test_exploit_keyword(self):
-        result = _generate_security_brief_template(self._item("Actively exploited CVE found"))
+        result = _generate_security_brief_template(
+            self._item("Actively exploited CVE found")
+        )
         assert "패치" in result or "WAF" in result
 
     def test_zero_day_korean(self):
-        result = _generate_security_brief_template(self._item("제로데이 취약점 긴급 패치"))
+        result = _generate_security_brief_template(
+            self._item("제로데이 취약점 긴급 패치")
+        )
         assert "패치" in result
 
     # ------------------------------------------------------------------
     # Branch: phishing / social engineering
     # ------------------------------------------------------------------
     def test_phishing_keyword(self):
-        result = _generate_security_brief_template(self._item("New phishing campaign targeting finance"))
+        result = _generate_security_brief_template(
+            self._item("New phishing campaign targeting finance")
+        )
         assert "피싱" in result or "이메일" in result
 
     def test_phishing_korean(self):
-        result = _generate_security_brief_template(self._item("금융권 대상 피싱 공격 급증"))
+        result = _generate_security_brief_template(
+            self._item("금융권 대상 피싱 공격 급증")
+        )
         assert "피싱" in result or "DMARC" in result
 
     def test_vishing_keyword(self):
-        result = _generate_security_brief_template(self._item("Vishing attacks using AI deepfake"))
+        result = _generate_security_brief_template(
+            self._item("Vishing attacks using AI deepfake")
+        )
         assert "피싱" in result or "교육" in result
 
     # ------------------------------------------------------------------
     # Branch: data breach / leak
     # ------------------------------------------------------------------
     def test_data_breach_keyword(self):
-        result = _generate_security_brief_template(self._item("Major data breach exposes 10M records"))
+        result = _generate_security_brief_template(
+            self._item("Major data breach exposes 10M records")
+        )
         assert "유출" in result or "로테이션" in result
 
     def test_leak_korean(self):
-        result = _generate_security_brief_template(self._item("개인정보 데이터 유출 사고 발생"))
+        result = _generate_security_brief_template(
+            self._item("개인정보 데이터 유출 사고 발생")
+        )
         assert "유출" in result or "DLP" in result
 
     def test_exposed_keyword(self):
-        result = _generate_security_brief_template(self._item("S3 bucket exposed publicly with sensitive data"))
+        result = _generate_security_brief_template(
+            self._item("S3 bucket exposed publicly with sensitive data")
+        )
         assert "유출" in result or "접근 로그" in result
 
     # --- All branches return 4 bullet points ---
@@ -891,8 +961,14 @@ class TestGenerateSecurityBriefTemplate:
         ]
         for item in items:
             result = _generate_security_brief_template(item)
-            bullets = [line for line in result.strip().split("\n") if line.strip().startswith("- ")]
-            assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)} for: {item}"
+            bullets = [
+                line
+                for line in result.strip().split("\n")
+                if line.strip().startswith("- ")
+            ]
+            assert len(bullets) == 4, (
+                f"Expected 4 bullets, got {len(bullets)} for: {item}"
+            )
 
     # --- Missing keyword edge cases ---
     def test_password_keyword(self):
@@ -924,11 +1000,17 @@ class TestGenerateSecurityBriefTemplate:
 # _generate_security_analysis_template
 # ===========================================================================
 
+
 class TestGenerateSecurityAnalysisTemplate:
     """Tests for Critical security news '위협 분석' generation."""
 
     def _item(self, title="", summary="", content="", category="security"):
-        return {"title": title, "summary": summary, "content": content, "category": category}
+        return {
+            "title": title,
+            "summary": summary,
+            "content": content,
+            "category": category,
+        }
 
     # --- Structure tests ---
     def test_always_has_threat_analysis_header(self):
@@ -967,7 +1049,9 @@ class TestGenerateSecurityAnalysisTemplate:
         assert "CVE-2026-22222" in result
 
     def test_no_cve_shows_unknown(self):
-        result = _generate_security_analysis_template(self._item("Generic security issue"))
+        result = _generate_security_analysis_template(
+            self._item("Generic security issue")
+        )
         assert "미공개" in result or "해당 없음" in result
 
     # --- SIEM query generation ---
@@ -1039,6 +1123,7 @@ class TestGenerateSecurityAnalysisTemplate:
 # Priority Conflict Detection Tests
 # =========================================================================
 
+
 class TestBranchPriorityConflicts:
     """Detect when a keyword matches an unintended branch due to ordering.
 
@@ -1047,16 +1132,19 @@ class TestBranchPriorityConflicts:
     """
 
     # --- AI template: istio-like conflicts ---
-    @pytest.mark.parametrize("title,expected_fragment", [
-        # coding branch should not be captured by agent (no agent keyword)
-        ("AI coding assistant security review", "보안 스캔"),
-        # opensource should not be captured by LLM (no llm/gpt/claude keyword)
-        ("오픈소스 AI 프레임워크 비교 분석", "오픈소스"),
-        # GPU should not be captured by simulation
-        ("NVIDIA GPU cluster deployment guide", "GPU"),
-        # simulation should not be captured by GPU (no gpu/nvidia keyword)
-        ("디지털 트윈 시뮬레이션 보안 검증", "시뮬레이션"),
-    ])
+    @pytest.mark.parametrize(
+        "title,expected_fragment",
+        [
+            # coding branch should not be captured by agent (no agent keyword)
+            ("AI coding assistant security review", "보안 스캔"),
+            # opensource should not be captured by LLM (no llm/gpt/claude keyword)
+            ("오픈소스 AI 프레임워크 비교 분석", "오픈소스"),
+            # GPU should not be captured by simulation
+            ("NVIDIA GPU cluster deployment guide", "GPU"),
+            # simulation should not be captured by GPU (no gpu/nvidia keyword)
+            ("디지털 트윈 시뮬레이션 보안 검증", "시뮬레이션"),
+        ],
+    )
     def test_ai_template_priority(self, title, expected_fragment):
         item = {"title": title, "summary": ""}
         result = _generate_ai_analysis_template(item)
@@ -1065,20 +1153,23 @@ class TestBranchPriorityConflicts:
         )
 
     # --- DevOps template: K8s sub-branch conflicts ---
-    @pytest.mark.parametrize("title,expected_fragment", [
-        # service mesh should match before network
-        ("Istio service mesh security configuration", "mTLS"),
-        # RBAC should match its own branch
-        ("RBAC role binding audit for clusters", "RBAC"),
-        # image/registry should not be caught by docker (no 'container' word)
-        ("OCI image registry access control", "이미지"),
-        # network policy should match before generic network
-        ("Kubernetes network policy best practices", "NetworkPolicy"),
-        # generic k8s should be last k8s branch
-        ("k8s cluster upgrade strategy guide", "CIS"),
-        # conference should match before generic network even if 'networking' present
-        ("annual security conference keynote speakers", "컨퍼런스"),
-    ])
+    @pytest.mark.parametrize(
+        "title,expected_fragment",
+        [
+            # service mesh should match before network
+            ("Istio service mesh security configuration", "mTLS"),
+            # RBAC should match its own branch
+            ("RBAC role binding audit for clusters", "RBAC"),
+            # image/registry should not be caught by docker (no 'container' word)
+            ("OCI image registry access control", "이미지"),
+            # network policy should match before generic network
+            ("Kubernetes network policy best practices", "NetworkPolicy"),
+            # generic k8s should be last k8s branch
+            ("k8s cluster upgrade strategy guide", "CIS"),
+            # conference should match before generic network even if 'networking' present
+            ("annual security conference keynote speakers", "컨퍼런스"),
+        ],
+    )
     def test_devops_template_priority(self, title, expected_fragment):
         item = {"title": title, "summary": ""}
         result = _generate_devops_template(item)
@@ -1087,15 +1178,28 @@ class TestBranchPriorityConflicts:
         )
 
     # --- Contextual action point: cross-category conflicts ---
-    @pytest.mark.parametrize("title,category,banned_phrase", [
-        # AI agent should not return generic AI message
-        ("AI 에이전트 보안 점검", "ai", "AI/ML 파이프라인"),
-        # Blockchain hack should not return generic blockchain
-        ("Bitcoin exchange exploit detected", "blockchain", "프로토콜 및 스마트 컨트랙트 영향"),
-        # K8s should not return generic cloud
-        ("Kubernetes security update v1.30", "kubernetes", "인프라 및 운영 환경 영향"),
-    ])
-    def test_contextual_action_specific_over_generic(self, title, category, banned_phrase):
+    @pytest.mark.parametrize(
+        "title,category,banned_phrase",
+        [
+            # AI agent should not return generic AI message
+            ("AI 에이전트 보안 점검", "ai", "AI/ML 파이프라인"),
+            # Blockchain hack should not return generic blockchain
+            (
+                "Bitcoin exchange exploit detected",
+                "blockchain",
+                "프로토콜 및 스마트 컨트랙트 영향",
+            ),
+            # K8s should not return generic cloud
+            (
+                "Kubernetes security update v1.30",
+                "kubernetes",
+                "인프라 및 운영 환경 영향",
+            ),
+        ],
+    )
+    def test_contextual_action_specific_over_generic(
+        self, title, category, banned_phrase
+    ):
         item = {"title": title, "summary": "", "category": category}
         result = _generate_contextual_action_point(item)
         assert banned_phrase not in result, (
@@ -1106,6 +1210,7 @@ class TestBranchPriorityConflicts:
 # =========================================================================
 # Contextual Action Point - AI/Cloud expanded branches
 # =========================================================================
+
 
 class TestContextualActionPointExpanded:
     """Tests for expanded AI and Cloud branches in _generate_contextual_action_point."""
@@ -1173,7 +1278,9 @@ class TestExtractTrendKeyword:
     """Tests for trend keyword extraction from article titles."""
 
     def test_korean_title(self):
-        result = _extract_trend_keyword("랜섬웨어 공격 급증: 2026년 동향", "Security News")
+        result = _extract_trend_keyword(
+            "랜섬웨어 공격 급증: 2026년 동향", "Security News"
+        )
         assert "랜섬웨어 공격 급증" in result
 
     def test_korean_title_truncation(self):
@@ -1237,12 +1344,16 @@ class TestGenerateTrendAnalysis:
         assert "AI/ML" in result
 
     def test_counts_zero_day_trend(self):
-        items = self._items(("Zero-day exploit found", "security"),)
+        items = self._items(
+            ("Zero-day exploit found", "security"),
+        )
         result = _generate_trend_analysis(items, 5)
         assert "Zero-Day" in result
 
     def test_no_trends_message(self):
-        items = self._items(("Generic unrelated news", "tech"),)
+        items = self._items(
+            ("Generic unrelated news", "tech"),
+        )
         result = _generate_trend_analysis(items, 5)
         # Either shows a trend or says no trends
         assert "트렌드" in result
@@ -1363,6 +1474,7 @@ class TestGenerateNewsSpecificChecklist:
 # filter_published_urls
 # ===========================================================================
 
+
 class TestFilterPublishedUrls:
     def test_removes_published(self):
         items = [{"url": "https://a.com"}, {"url": "https://b.com"}]
@@ -1395,6 +1507,7 @@ class TestFilterPublishedUrls:
 # _deduplicate_crypto_stories
 # ===========================================================================
 
+
 class TestDeduplicateCryptoStories:
     def _crypto_item(self, title, summary_len=50):
         return {
@@ -1424,7 +1537,14 @@ class TestDeduplicateCryptoStories:
         assert len(result) == 3
 
     def test_non_crypto_untouched(self):
-        items = [{"title": "AI security update", "summary": "", "content": "", "category": "ai"}]
+        items = [
+            {
+                "title": "AI security update",
+                "summary": "",
+                "content": "",
+                "category": "ai",
+            }
+        ]
         result = _deduplicate_crypto_stories(items)
         assert len(result) == 1
 
@@ -1452,6 +1572,7 @@ class TestDeduplicateCryptoStories:
 # categorize_news
 # ===========================================================================
 
+
 class TestCategorizeNews:
     def _item(self, title, summary="", category="security", url="", published=""):
         return {
@@ -1468,7 +1589,9 @@ class TestCategorizeNews:
         assert "security" in result
 
     def test_blockchain_to_ai_reclassification(self):
-        items = [self._item("OpenAI GPT update", "LLM improvements", category="blockchain")]
+        items = [
+            self._item("OpenAI GPT update", "LLM improvements", category="blockchain")
+        ]
         result = categorize_news(items)
         assert "ai" in result
 
@@ -1513,12 +1636,16 @@ class TestCategorizeNews:
 # extract_cve_id
 # ===========================================================================
 
+
 class TestExtractCveId:
     def test_extracts_from_title(self):
         assert extract_cve_id("Patch CVE-2026-12345 now", "") == "CVE-2026-12345"
 
     def test_extracts_from_summary(self):
-        assert extract_cve_id("Security update", "Fix for CVE-2026-99999") == "CVE-2026-99999"
+        assert (
+            extract_cve_id("Security update", "Fix for CVE-2026-99999")
+            == "CVE-2026-99999"
+        )
 
     def test_no_cve_returns_none(self):
         assert extract_cve_id("Generic news", "No CVE here") is None
@@ -1537,6 +1664,7 @@ class TestExtractCveId:
 # ===========================================================================
 # _escape_svg_text
 # ===========================================================================
+
 
 class TestEscapeSvgText:
     def test_ampersand_escaped(self):
@@ -1569,6 +1697,7 @@ class TestEscapeSvgText:
 # _to_english_svg_text
 # ===========================================================================
 
+
 class TestToEnglishSvgText:
     def test_korean_removed(self):
         result = _to_english_svg_text("Hello 세계 World")
@@ -1597,6 +1726,7 @@ class TestToEnglishSvgText:
 # _truncate_text
 # ===========================================================================
 
+
 class TestTruncateText:
     def test_short_text_unchanged(self):
         assert _truncate_text("hello", 10) == "hello"
@@ -1623,6 +1753,7 @@ class TestTruncateText:
 # _extract_key_topics
 # ===========================================================================
 
+
 class TestExtractKeyTopics:
     def test_extracts_ai_keyword(self):
         items = [{"title": "AI security breakthrough", "summary": ""}]
@@ -1641,7 +1772,10 @@ class TestExtractKeyTopics:
 
     def test_max_four_topics(self):
         items = [
-            {"title": "AI CVE Kubernetes Docker AWS Azure GCP Security Threat", "summary": ""}
+            {
+                "title": "AI CVE Kubernetes Docker AWS Azure GCP Security Threat",
+                "summary": "",
+            }
         ]
         result = _extract_key_topics(items)
         assert len(result) <= 4
@@ -1655,6 +1789,7 @@ class TestExtractKeyTopics:
 # ===========================================================================
 # _table_summary
 # ===========================================================================
+
 
 class TestTableSummary:
     def test_short_text_unchanged(self):
@@ -1685,6 +1820,7 @@ class TestTableSummary:
 # ===========================================================================
 # _filter_by_cutoff
 # ===========================================================================
+
 
 class TestFilterByCutoff:
     def _item_with_date(self, published: str) -> dict:
@@ -1733,6 +1869,7 @@ class TestFilterByCutoff:
 # select_top_news
 # ===========================================================================
 
+
 class TestSelectTopNews:
     def _item(self, category: str) -> dict:
         return {"title": f"{category} news", "category": category}
@@ -1777,39 +1914,57 @@ class TestGenerateMitreMapping:
         return {"title": title, "summary": summary}
 
     def test_rce_maps_to_t1203(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Remote code execution vulnerability"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Remote code execution vulnerability")
+        )
         assert "T1203" in result
 
     def test_exploit_maps_to_t1203(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Active exploit found"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Active exploit found")
+        )
         assert "T1203" in result
 
     def test_auth_maps_to_t1078(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Authentication bypass"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Authentication bypass")
+        )
         assert "T1078" in result
 
     def test_credential_maps_to_t1078(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Credential stuffing attack"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Credential stuffing attack")
+        )
         assert "T1078" in result
 
     def test_injection_maps_to_t1190(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("SQL injection found"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("SQL injection found")
+        )
         assert "T1190" in result
 
     def test_xss_maps_to_t1190(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("XSS vulnerability"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("XSS vulnerability")
+        )
         assert "T1190" in result
 
     def test_privilege_maps_to_t1068(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Privilege escalation flaw"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Privilege escalation flaw")
+        )
         assert "T1068" in result
 
     def test_korean_privilege(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item(summary="권한 상승 취약점"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item(summary="권한 상승 취약점")
+        )
         assert "T1068" in result
 
     def test_fallback_to_t1190(self):
-        result = generate_mitre_mapping("CVE-2026-12345", self._item("Generic security issue"))
+        result = generate_mitre_mapping(
+            "CVE-2026-12345", self._item("Generic security issue")
+        )
         assert "T1190" in result
 
     def test_has_yaml_format(self):
@@ -1873,7 +2028,9 @@ class TestGenerateRiskScorecard:
     def test_max_five_items(self):
         items = [self._item(f"Critical vuln {i}", "Critical") for i in range(10)]
         result = generate_risk_scorecard(items)
-        lines = [line for line in result.split("\n") if "/10" in line and "종합" not in line]
+        lines = [
+            line for line in result.split("\n") if "/10" in line and "종합" not in line
+        ]
         assert len(lines) <= 5
 
 
@@ -2035,16 +2192,21 @@ class TestDevopsTemplateMobileBranch:
 class TestDevopsTemplatePriorityDatabase:
     """Verify database/mobile branches don't conflict with other branches."""
 
-    @pytest.mark.parametrize("title,expected", [
-        ("Valkey cache upgrade guide", "데이터베이스"),
-        ("Redis sentinel security", "데이터베이스"),
-        (".NET MAUI map feature", "모바일"),
-        ("Flutter app release", "모바일"),
-    ])
+    @pytest.mark.parametrize(
+        "title,expected",
+        [
+            ("Valkey cache upgrade guide", "데이터베이스"),
+            ("Redis sentinel security", "데이터베이스"),
+            (".NET MAUI map feature", "모바일"),
+            ("Flutter app release", "모바일"),
+        ],
+    )
     def test_correct_branch_selected(self, title, expected):
         item = {"title": title, "summary": ""}
         result = _generate_devops_template(item)
-        assert expected in result, f"Expected '{expected}' for '{title}', got: {result[:80]}"
+        assert expected in result, (
+            f"Expected '{expected}' for '{title}', got: {result[:80]}"
+        )
 
 
 # ===========================================================================
@@ -2108,13 +2270,22 @@ class TestExecutiveBriefingSections:
     # 3. Ransomware keyword triggers ransomware guidance
     # ------------------------------------------------------------------
     def test_ransomware_title_triggers_guidance(self):
-        items = [self._item(title="Ransomware campaign targeting hospitals", summary="ransomware attack")]
+        items = [
+            self._item(
+                title="Ransomware campaign targeting hospitals",
+                summary="ransomware attack",
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         assert "랜섬웨어" in result
         assert "백업" in result
 
     def test_ransomware_summary_triggers_guidance(self):
-        items = [self._item(title="New malware wave", summary="ransomware encryption spreading")]
+        items = [
+            self._item(
+                title="New malware wave", summary="ransomware encryption spreading"
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         assert "랜섬웨어" in result
 
@@ -2128,7 +2299,11 @@ class TestExecutiveBriefingSections:
         assert "임시 완화" in result or "패치" in result
 
     def test_zero_day_summary_triggers_guidance(self):
-        items = [self._item(title="Browser vuln", summary="0-day actively used by threat actor")]
+        items = [
+            self._item(
+                title="Browser vuln", summary="0-day actively used by threat actor"
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         assert "제로데이" in result
 
@@ -2141,7 +2316,11 @@ class TestExecutiveBriefingSections:
         assert "취약점 관리" in result
 
     def test_vulnerability_keyword_adds_vuln_row(self):
-        items = [self._item(title="Critical vulnerability in OpenSSL", summary="patch available")]
+        items = [
+            self._item(
+                title="Critical vulnerability in OpenSSL", summary="patch available"
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         assert "취약점 관리" in result
 
@@ -2167,7 +2346,12 @@ class TestExecutiveBriefingSections:
         assert "AI/ML 보안" in result
 
     def test_llm_keyword_adds_ai_row(self):
-        items = [self._item(title="LLM prompt injection in enterprise chatbot", summary="LLM security issue")]
+        items = [
+            self._item(
+                title="LLM prompt injection in enterprise chatbot",
+                summary="LLM security issue",
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         assert "AI/ML 보안" in result
 
@@ -2175,7 +2359,11 @@ class TestExecutiveBriefingSections:
     # 8. Fallback when no keywords match
     # ------------------------------------------------------------------
     def test_no_keywords_fallback_rows(self):
-        items = [self._item(title="Quarterly board meeting notes", summary="financials discussed")]
+        items = [
+            self._item(
+                title="Quarterly board meeting notes", summary="financials discussed"
+            )
+        ]
         result = _generate_executive_and_risk_sections(items, mode="security")
         # Fallback rows should contain these labels
         assert "위협 대응" in result
@@ -2210,7 +2398,103 @@ class TestExecutiveBriefingSections:
         result = _generate_executive_and_risk_sections([item], mode="security")
         # Count table data rows (lines starting with "| " that are not header or separator)
         table_rows = [
-            line for line in result.split("\n")
+            line
+            for line in result.split("\n")
             if line.startswith("| ") and "---" not in line and "영역" not in line
         ]
         assert len(table_rows) <= 4
+
+
+class TestSelectSvgTemplate:
+    """Tests for _select_svg_template()."""
+
+    def test_before_after_requires_explicit_transition_language(self):
+        items = [
+            _item(
+                title="Migrate from legacy IAM to zero-trust access model",
+                summary="before and after control changes are compared",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["CLOUD", "IAM"])
+
+        assert result == SVG_TEMPLATE_BEFORE_AFTER
+
+    def test_generic_to_word_does_not_trigger_before_after(self):
+        items = [
+            _item(
+                title="Weekly security digest",
+                summary="guide to threat detection and response planning",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD"])
+
+        assert result != SVG_TEMPLATE_BEFORE_AFTER
+
+    def test_focus_labels_can_force_timeline_without_keyword(self):
+        items = [_item(title="Security digest", summary="executive risk briefing")]
+
+        result = _select_svg_template(items, focus_labels=["ZERO DAY", "CLOUD"])
+
+        assert result == SVG_TEMPLATE_TIMELINE
+
+    def test_hub_spoke_for_mixed_topics_without_transition_or_timeline_cues(self):
+        items = [
+            _item(
+                title="AI agent security and cloud observability",
+                summary="kubernetes posture review and runtime telemetry",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["AI AGENT", "K8S", "CLOUD"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_korean_weekly_threat_digest_prefers_timeline(self):
+        items = [
+            _item(
+                title="주간 보안 위협 인텔리전스 다이제스트",
+                summary="제로데이 취약점과 패치 동향 요약",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["ZERO DAY", "PATCH"])
+
+        assert result == SVG_TEMPLATE_TIMELINE
+
+    def test_korean_weekly_platform_digest_prefers_hub_spoke(self):
+        items = [
+            _item(
+                title="주간 기술 다이제스트",
+                summary="AI 데이터 클라우드 플랫폼 동향 요약",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD", "K8S"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_real_mixed_platform_digest_prefers_hub_spoke(self):
+        items = [
+            _item(
+                title="AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향",
+                summary="AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native를 기준으로 기술 관점과 경영진 관점을 함께 정리한 2월 하순 주간 다이제스트입니다.",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD", "K8S"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_real_security_cloud_digest_prefers_hub_spoke(self):
+        items = [
+            _item(
+                title="2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI",
+                summary="AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 보안 동향을 함께 다룹니다.",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["RANSOM", "CLOUD", "AWS"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
