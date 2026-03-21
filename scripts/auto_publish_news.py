@@ -3689,6 +3689,7 @@ def _match_svg_icon(label: str) -> str:
 
 
 def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str:
+    title_joined = " ".join(item.get("title", "") for item in news_items[:8]).lower()
     joined = " ".join(
         f"{item.get('title', '')} {item.get('summary', '')}" for item in news_items[:8]
     ).lower()
@@ -3742,10 +3743,12 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
         r"\bbreach\b",
         r"\bincident\b",
         r"\bthreat\b",
+        r"\bbotnet\b",
         r"제로데이",
         r"패치",
         r"랜섬웨어",
         r"악성코드",
+        r"봇넷",
         r"공격",
         r"침해",
         r"위협",
@@ -3785,6 +3788,9 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
     incident_score = sum(
         1 for pattern in incident_patterns if re.search(pattern, joined)
     )
+    title_incident_score = sum(
+        1 for pattern in incident_patterns if re.search(pattern, title_joined)
+    )
     hub_score = sum(1 for pattern in hub_patterns if re.search(pattern, joined))
     risk_focus_score = sum(
         1 for label in focus_labels if label in {"PATCH", "ZERO DAY", "RANSOM"}
@@ -3792,7 +3798,14 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
 
     if timeline_score >= 1:
         return SVG_TEMPLATE_TIMELINE
-    if digest_score >= 1 and (incident_score >= 1 or risk_focus_score >= 1):
+    if (
+        digest_score >= 1
+        and hub_score >= 3
+        and title_incident_score == 0
+        and incident_score <= 1
+    ):
+        return SVG_TEMPLATE_HUB_SPOKE
+    if digest_score >= 1 and (incident_score >= 2 or title_incident_score >= 1):
         return SVG_TEMPLATE_TIMELINE
     if incident_score >= 2 and hub_score <= 2:
         return SVG_TEMPLATE_TIMELINE
