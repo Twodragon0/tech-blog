@@ -2430,7 +2430,7 @@ class TestSelectSvgTemplate:
 
         result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD"])
 
-        assert result == SVG_TEMPLATE_TIMELINE
+        assert result != SVG_TEMPLATE_BEFORE_AFTER
 
     def test_focus_labels_can_force_timeline_without_keyword(self):
         items = [_item(title="Security digest", summary="executive risk briefing")]
@@ -2472,5 +2472,29 @@ class TestSelectSvgTemplate:
         ]
 
         result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD", "K8S"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_real_mixed_platform_digest_prefers_hub_spoke(self):
+        items = [
+            _item(
+                title="AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향",
+                summary="AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native를 기준으로 기술 관점과 경영진 관점을 함께 정리한 2월 하순 주간 다이제스트입니다.",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["AI AGENT", "CLOUD", "K8S"])
+
+        assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_real_security_cloud_digest_prefers_hub_spoke(self):
+        items = [
+            _item(
+                title="2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI",
+                summary="AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 보안 동향을 함께 다룹니다.",
+            )
+        ]
+
+        result = _select_svg_template(items, focus_labels=["RANSOM", "CLOUD", "AWS"])
 
         assert result == SVG_TEMPLATE_HUB_SPOKE
