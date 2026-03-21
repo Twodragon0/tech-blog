@@ -5,36 +5,39 @@
       <stop offset="55%" stop-color="#151b32"/>
       <stop offset="100%" stop-color="#181024"/>
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/></filter>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
+    </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="210" cy="170" r="180" fill="#22c55e" opacity="0.14" filter="url(#glow)"/>
+  <circle cx="210" cy="170" r="180" fill="#dc2626" opacity="0.14" filter="url(#glow)"/>
   <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.10" filter="url(#glow)"/>
-  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">AI SIGNAL MAP</text>
-  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">AI AGENT  SECURITY  CLOUD</text>
-  <g transform="translate(600 336)" filter="url(#shadow)">
-    <circle r="102" fill="#111827" stroke="#22c55e" stroke-width="2.5"/>
-    <circle r="44" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/>
-    <path d="M-18 0 h36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
-    <path d="M0 -18 v36" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">ZERO DAY  AI AGENT  LLM</text>
+  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
+  <g transform="translate(250 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#dc2626" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#dc2626" text-anchor="middle" opacity="0.7">PATCH</text>
   </g>
-  <path d="M600 336 C495 338 355 358 250 360" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/> <path d="M600 336 C600 323 600 223 600 210" fill="none" stroke="#67e8f9" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/> <path d="M600 336 C705 338 845 358 950 360" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.8"/>
-  <g transform="translate(250 360)" filter="url(#shadow)">
-    <circle r="58" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
-    <rect x="-26" y="-18" width="52" height="36" rx="8" fill="#111c35" stroke="#22c55e" stroke-width="2"/><circle cx="0" cy="-2" r="12" fill="#12345c" stroke="#22c55e" stroke-width="1.5"/>
-    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  </g> <g transform="translate(600 210)" filter="url(#shadow)">
-    <circle r="58" fill="#0f172a" stroke="#67e8f9" stroke-width="2"/>
-    <circle r="18" fill="#67e8f9" opacity="0.18"/><circle r="8" fill="#67e8f9" opacity="0.3"/>
-    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#67e8f9" text-anchor="middle">SECURITY</text>
-  </g> <g transform="translate(950 360)" filter="url(#shadow)">
-    <circle r="58" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-    <path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="#8b5cf6" stroke-width="2" transform="scale(0.7)"/>
-    <text x="0" y="92" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8b5cf6" text-anchor="middle">CLOUD</text>
+  <text x="250" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">ZERO DAY</text>
+
+  <g transform="translate(600 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#67e8f9" stroke-width="2.5"/>
+    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#67e8f9" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#67e8f9" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#67e8f9" text-anchor="middle">AI</text>
   </g>
+  <text x="600" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#67e8f9" text-anchor="middle">AI AGENT</text>
+
+  <g transform="translate(950 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#f59e0b" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#f59e0b" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#f59e0b" text-anchor="middle">AI</text>
+  </g>
+  <text x="950" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f59e0b" text-anchor="middle">LLM</text>
+
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Feb 10</text>
+  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">February 10, 2026</text>
   <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

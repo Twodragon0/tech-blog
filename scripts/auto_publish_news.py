@@ -3692,17 +3692,111 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
     joined = " ".join(
         f"{item.get('title', '')} {item.get('summary', '')}" for item in news_items[:8]
     ).lower()
-    if any(
-        token in joined
-        for token in ["before", "after", "replace", "migrate", "from", "to"]
-    ):
+    before_after_patterns = [
+        r"\bbefore\b",
+        r"\bafter\b",
+        r"\bfrom\b.{0,80}\bto\b",
+        r"\b(?:replace|replaced|replacing|migration|migrate|migrates|migrating)\b",
+        r"\b(?:upgrade|downgrade|rollback|rollbacks|rollbacked|rollbacking|swap|swaps|swapped|transition|transitions|transitioning)\b",
+        r"\bvs\.?\b",
+        r"\bversus\b",
+        r"비교",
+        r"전환",
+        r"이전.*이후",
+        r"마이그레이션",
+        r"교체",
+    ]
+    if any(re.search(pattern, joined) for pattern in before_after_patterns):
         return SVG_TEMPLATE_BEFORE_AFTER
-    if any(
-        token in joined
-        for token in ["timeline", "campaign", "wave", "series", "roundup", "weekly"]
-    ):
+
+    digest_patterns = [
+        r"\bweekly\b",
+        r"\broundup\b",
+        r"\bdigest\b",
+        r"주간",
+        r"다이제스트",
+        r"종합",
+        r"요약",
+    ]
+    timeline_patterns = [
+        r"\btimeline\b",
+        r"\bcampaign\b",
+        r"\bwave\b",
+        r"\bseries\b",
+        r"\bpatch tuesday\b",
+        r"위협 인텔리전스",
+        r"패치 화요일",
+        r"캠페인",
+        r"연쇄",
+        r"흐름",
+    ]
+    incident_patterns = [
+        r"\bzero-day\b",
+        r"\b0-day\b",
+        r"cve-\d{4}-\d+",
+        r"\bpatch(?:ed|ing)?\b",
+        r"\bransom(?:ware)?\b",
+        r"\bmalware\b",
+        r"\bexploit\b",
+        r"\battack\b",
+        r"\bbreach\b",
+        r"\bincident\b",
+        r"\bthreat\b",
+        r"제로데이",
+        r"패치",
+        r"랜섬웨어",
+        r"악성코드",
+        r"공격",
+        r"침해",
+        r"위협",
+        r"취약점",
+    ]
+    hub_patterns = [
+        r"\bai\b",
+        r"\bagentic\b",
+        r"\bagent\b",
+        r"\bllm\b",
+        r"\bcloud\b",
+        r"\baws\b",
+        r"\bazure\b",
+        r"\bgcp\b",
+        r"\bkubernetes\b",
+        r"\bk8s\b",
+        r"\bdocker\b",
+        r"\bblockchain\b",
+        r"\bbitcoin\b",
+        r"\bdevops\b",
+        r"\bdata\b",
+        r"\brust\b",
+        r"\bgo\b",
+        r"에이전트",
+        r"클라우드",
+        r"쿠버네티스",
+        r"블록체인",
+        r"비트코인",
+        r"데이터",
+        r"개발자",
+        r"플랫폼",
+    ]
+    digest_score = sum(1 for pattern in digest_patterns if re.search(pattern, joined))
+    timeline_score = sum(
+        1 for pattern in timeline_patterns if re.search(pattern, joined)
+    )
+    incident_score = sum(
+        1 for pattern in incident_patterns if re.search(pattern, joined)
+    )
+    hub_score = sum(1 for pattern in hub_patterns if re.search(pattern, joined))
+    risk_focus_score = sum(
+        1 for label in focus_labels if label in {"PATCH", "ZERO DAY", "RANSOM"}
+    )
+
+    if timeline_score >= 1:
         return SVG_TEMPLATE_TIMELINE
-    if any(label in {"PATCH", "ZERO DAY", "RANSOM"} for label in focus_labels):
+    if digest_score >= 1 and (incident_score >= 1 or risk_focus_score >= 1):
+        return SVG_TEMPLATE_TIMELINE
+    if incident_score >= 2 and hub_score <= 2:
+        return SVG_TEMPLATE_TIMELINE
+    if risk_focus_score >= 1 and hub_score <= 1:
         return SVG_TEMPLATE_TIMELINE
     return SVG_TEMPLATE_HUB_SPOKE
 
