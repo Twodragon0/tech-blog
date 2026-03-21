@@ -3699,7 +3699,7 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
         r"\bfrom\b.{0,80}\bto\b",
         r"\b(?:replace|replaced|replacing|migration|migrate|migrates|migrating)\b",
         r"\b(?:upgrade|downgrade|rollback|rollbacks|rollbacked|rollbacking|swap|swaps|swapped|transition|transitions|transitioning)\b",
-        r"\bvs\.?\b",
+        r"\bvs\.?(?!\s*code\b)\b",
         r"\bversus\b",
         r"비교",
         r"전환",
