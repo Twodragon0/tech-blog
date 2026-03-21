@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-03-20T01:21:49.937938+00:00",
+  "updated_at": "2026-03-21T01:16:25.001453+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/preparing-for-quantum-era-post-quantum.html",
-      "title": "Preparing for the Quantum Era: Post-Quantum Cryptography Webinar for Security Le",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/cisco-confirms-active-exploitation-of.html",
-      "title": "Cisco Confirms Active Exploitation of Two Catalyst SD-WAN Manager Vulnerabilitie",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/threatsday-bulletin-redis-rce-ddr5-bot.html",
-      "title": "ThreatsDay Bulletin: DDR5 Bot Scalping, Samsung TV Tracking, Reddit Privacy Fine",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-completes-the-2026-annual-dubai-electronic-security-centre-desc-certification-audit/",
-      "title": "AWS completes the 2026 annual Dubai Electronic Security Centre (DESC) certificat",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/dust-specter-targets-iraqi-officials.html",
-      "title": "Dust Specter Targets Iraqi Officials with New SPLITDROP and GHOSTFORM Malware",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/maven-smart-system-innovating-for-the-alliance-5ebc31709eea?source=rss----3c87dc14372f---4",
-      "title": "Maven Smart System: Innovating for the Alliance",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/",
-      "title": "Ask a Techspert: How does AI understand my visual searches?",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/products/google-ai-updates-february-2026/",
-      "title": "The latest AI news we announced in February",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-march-2026-games-list/",
-      "title": "March Into the Cloud With 15 New Games Coming to GeForce NOW",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-gpt-5-4",
-      "title": "Introducing GPT-5.4",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-now-supports-custom-metrics-natively/",
-      "title": "Grow your own way: Introducing native support for custom metrics in GKE",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/",
-      "title": "The ultimate Nano Banana prompting guide",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-the-google-cloud-recommended-security-checklist/",
-      "title": "Make security simpler: Introducing the Google Cloud recommended security checkli",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/2025-zero-day-review/",
-      "title": "Look What You Made Us Patch: 2025 Zero-Days in Review",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/meritz-securities-wts-with-gen-ai/",
-      "title": "메리츠증권의 AWS 클라우드 여정: 클라우드 기반 차세대 증권 플랫폼 설계",
-      "published_date": "2026-03-06",
-      "expires_at": "2026-03-13T03:29:08.081439+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html",
       "title": "OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561 High-Severity",
@@ -1458,6 +1368,96 @@
       "title": "North Carolina Lawmakers Propose State Bitcoin Reserve",
       "published_date": "2026-03-20",
       "expires_at": "2026-03-27T01:21:49.937832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/trivy-security-scanner-github-actions.html",
+      "title": "Trivy Security Scanner GitHub Actions Breached, 75 Tags Hijacked to Steal CI/CD ",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html",
+      "title": "Critical Langflow Flaw CVE-2026-33017 Triggers Attacks within 20 Hours of Disclo",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/google-adds-24-hour-wait-for-unverified.html",
+      "title": "Google Adds 24-Hour Wait for Unverified App Sideloading to Reduce Malware and Sc",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/cti-realm-a-new-benchmark-for-end-to-end-detection-rule-generation-with-ai-agents/",
+      "title": "CTI-REALM: A new benchmark for end-to-end detection rule generation with AI agen",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
+      "title": "Secure agentic AI end-to-end",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune",
+      "title": "Build a Domain-Specific Embedding Model in Under a Day",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/ibm-granite/granite-libraries",
+      "title": "What's New in Mellea 0.4.0 + Granite Libraries Release",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/20/your-merge-forward-guide-to-kubecon-cloudnativecon-amsterdam/",
+      "title": "Your Merge Forward guide to KubeCon + CloudNativeCon Amsterdam",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/20/crossplane-and-ai-the-case-for-api-first-infrastructure/",
+      "title": "Crossplane and AI: The case for API-first infrastructure",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/20/kubecon-cloudnativecon-eu-2026-end-user-tab-recommendations-and-tips/",
+      "title": "KubeCon + CloudNativeCon EU 2026: End User TAB recommendations and tips",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://kubernetes.io/blog/2026/03/20/ingress2gateway-1-0-release/",
+      "title": "Announcing Ingress2Gateway 1.0: Your Path to Gateway API",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://kubernetes.io/blog/2026/03/20/running-agents-on-kubernetes-with-agent-sandbox/",
+      "title": "Running Agents on Kubernetes with Agent Sandbox",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/white-house-reaches-tentative-crypto",
+      "title": "White House Reaches Tentative Crypto Regulatory Agreement: Report",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/phong-le-calls-morgan-stanleys-bitcoin",
+      "title": "Phong Le Calls Morgan Stanley’s BTC ETF a “Monster Bitcoin” Bet With $160 Billio",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-holds-70000-amid-war",
+      "title": "Bitcoin Price Holds $70,000 as War-Driven Inflation Fears Meet Defensive Market ",
+      "published_date": "2026-03-21",
+      "expires_at": "2026-03-28T01:16:25.001344+00:00"
     }
   ]
 }
