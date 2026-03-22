@@ -1,89 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <!-- Dark Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Left Side: Text Content -->
-  <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">Weekly Security</text>
-  <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">DevOps Digest</text>
-  
-  <!-- Date Badge -->
-  <rect x="60" y="285" width="320" height="40" rx="8" fill="#1a1f3a" stroke="#4f46e5" stroke-width="2"/>
-  <text x="80" y="312" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">FEBRUARY 3, 2026</text>
-  
-  <!-- Tag Pills -->
-  <g y="420">
-    <!-- Tag 1: Security -->
-    <rect x="60" y="420" width="90" height="32" rx="16" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="105" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#06b6d4" text-anchor="middle">Security</text>
-    
-    <!-- Tag 2: DevOps -->
-    <rect x="170" y="420" width="80" height="32" rx="16" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-    <text x="210" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#10b981" text-anchor="middle">DevOps</text>
-    
-    <!-- Tag 3: Weekly -->
-    <rect x="270" y="420" width="80" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="310" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Weekly</text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="60" y="595" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
-  
-  <!-- Right Side: Illustration (Weekly Security DevOps Digest) -->
-  <defs>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Weekly Calendar/Stacked Papers Theme -->
-  <!-- Stack of digest papers (left to right, layered effect) -->
-  <rect x="720" y="280" width="140" height="95" rx="4" fill="#1e293b" stroke="#0ea5e9" stroke-width="2" opacity="0.9" transform="rotate(-5 790 327.5)"/>
-  <rect x="745" y="275" width="140" height="95" rx="4" fill="#1e293b" stroke="#06b6d4" stroke-width="2" opacity="0.7" transform="rotate(-2 815 322.5)"/>
-  <rect x="770" y="270" width="140" height="95" rx="4" fill="#1e293b" stroke="#0ea5e9" stroke-width="2" opacity="0.5"/>
-  
-  <!-- Shield symbol (top right) -->
-  <path d="M 920 240 L 950 255 L 950 310 Q 935 330 920 340 Q 905 330 890 310 L 890 255 Z" fill="url(#shieldGrad)" opacity="0.9"/>
-  <circle cx="920" cy="285" r="10" fill="#0a0c1a" stroke="#0ea5e9" stroke-width="2"/>
-  <path d="M 916 280 L 920 288 L 925 283" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Gear/automation symbol (bottom left of illustration) -->
-  <g transform="translate(770, 360)">
-    <circle cx="0" cy="0" r="22" fill="url(#gearGrad)" opacity="0.8"/>
-    <circle cx="0" cy="0" r="12" fill="#0a0c1a"/>
-    <rect x="-4" y="-28" width="8" height="8" fill="url(#gearGrad)" rx="1"/>
-    <rect x="19" y="-8" width="8" height="8" fill="url(#gearGrad)" rx="1" transform="rotate(60 23 -4)"/>
-    <rect x="19" y="12" width="8" height="8" fill="url(#gearGrad)" rx="1" transform="rotate(120 23 16)"/>
-    <rect x="-4" y="28" width="8" height="8" fill="url(#gearGrad)" rx="1"/>
-    <rect x="-31" y="12" width="8" height="8" fill="url(#gearGrad)" rx="1" transform="rotate(-120 -27 16)"/>
-    <rect x="-31" y="-8" width="8" height="8" fill="url(#gearGrad)" rx="1" transform="rotate(-60 -27 -4)"/>
-  </g>
-  
-  <!-- Lock symbol (bottom right) -->
-  <rect x="895" y="340" width="50" height="45" rx="6" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-  <path d="M 905 340 Q 905 325 920 325 Q 935 325 935 340" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="920" cy="365" r="4" fill="#f59e0b"/>
-  
-  <!-- Checkmarks for weekly updates (upper right corner) -->
-  <g transform="translate(980, 260)">
-    <circle cx="0" cy="0" r="8" fill="none" stroke="#10b981" stroke-width="1.5"/>
-    <path d="M -4 0 L -1 3 L 3 -2" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  <g transform="translate(1000, 285)">
-    <circle cx="0" cy="0" r="8" fill="none" stroke="#10b981" stroke-width="1.5"/>
-    <path d="M -4 0 L -1 3 L 3 -2" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  <g transform="translate(1020, 310)">
-    <circle cx="0" cy="0" r="8" fill="none" stroke="#10b981" stroke-width="1.5"/>
-    <path d="M -4 0 L -1 3 L 3 -2" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  
-  <!-- Pulse/activity indicator circles (center right) -->
-  <circle cx="880" cy="330" r="6" fill="#0ea5e9" opacity="0.4"/>
-  <circle cx="880" cy="330" r="12" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.3"/>
-  <circle cx="880" cy="330" r="18" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="bg0203" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0f18"/><stop offset="100%" stop-color="#141c2e"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg0203)"/>
+  <text x="60" y="72" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">Agent RCE and Device Control</text>
+  <text x="60" y="106" fill="#94a3b8" font-size="18" font-family="Georgia, serif">Feb 03</text>
+  <line x1="300" y1="315" x2="540" y2="315" stroke="#ef4444" stroke-width="4" stroke-dasharray="10 8"/><line x1="660" y1="315" x2="900" y2="315" stroke="#22c55e" stroke-width="4" stroke-dasharray="10 8"/>
+  <g transform="translate(140,220)"><rect width="180" height="190" rx="22" fill="#0f172a" stroke="#ef4444" stroke-width="3"/><rect x="48" y="72" width="84" height="52" rx="8" fill="none" stroke="#ef4444" stroke-width="2.5"/><text x="90" y="165" text-anchor="middle" fill="#ef4444" font-size="16" font-family="Arial" font-weight="700">AI AGENT RCE</text><text x="90" y="186" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">One click path</text></g>
+  <g transform="translate(510,205)"><circle cx="90" cy="110" r="96" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/><rect x="56" y="68" width="68" height="84" rx="10" fill="none" stroke="#38bdf8" stroke-width="2.5"/><circle cx="90" cy="128" r="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/><text x="90" y="226" text-anchor="middle" fill="#38bdf8" font-size="17" font-family="Arial" font-weight="700">MDM CONTROL</text><text x="90" y="248" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Device policy drift</text></g>
+  <g transform="translate(880,220)"><rect width="180" height="190" rx="22" fill="#0f172a" stroke="#22c55e" stroke-width="3"/><path d="M58 132 L90 58 L122 132" fill="none" stroke="#22c55e" stroke-width="2.5"/><path d="M70 102 H110" stroke="#22c55e" stroke-width="2.5"/><text x="90" y="165" text-anchor="middle" fill="#22c55e" font-size="16" font-family="Arial" font-weight="700">DEVOPS</text><text x="90" y="186" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Operational review</text></g>
 </svg>
