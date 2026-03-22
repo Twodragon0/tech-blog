@@ -2498,3 +2498,17 @@ class TestSelectSvgTemplate:
         result = _select_svg_template(items, focus_labels=["RANSOM", "CLOUD", "AWS"])
 
         assert result == SVG_TEMPLATE_HUB_SPOKE
+
+    def test_vs_code_does_not_trigger_before_after(self):
+        items = [
+            _item(
+                title="AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석",
+                summary="Dell RecoverPoint VM 제로데이 악용과 VS Code 확장 취약점, 포렌식 도구 오남용 사례를 함께 다룹니다.",
+            )
+        ]
+
+        result = _select_svg_template(
+            items, focus_labels=["ZERO DAY", "PATCH", "CLOUD"]
+        )
+
+        assert result == SVG_TEMPLATE_TIMELINE
