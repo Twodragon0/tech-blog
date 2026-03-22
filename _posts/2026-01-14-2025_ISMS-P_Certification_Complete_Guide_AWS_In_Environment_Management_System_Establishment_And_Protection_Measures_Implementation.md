@@ -22,7 +22,6 @@ tags:
 - ISMS
 - NIST-CSF
 - AI-Security
-keywords: [ISMS-P, AWS, Security, Compliance, ISMS, NIST-CSF, AI-Security]
 title: '2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
 toc: true
 ---
@@ -112,67 +111,19 @@ toc: true
 
 ### AWS 기반 ISMS-P 네트워크 아키텍처
 
-<details>
-<summary>AWS 기반 ISMS-P 네트워크 아키텍처 다이어그램 (click to expand)</summary>
+아키텍처 핵심은 아래 흐름으로 이해하면 됩니다.
 
-```text
-┌────────────────────────────────────────────────────────────────────┐
-│                     CloudFront (CDN)                               │
-│                  TLS 1.3, WAF, Shield Standard                     │
-└────────────────────────────────┬───────────────────────────────────┘
-                                 │
-┌────────────────────────────────┴───────────────────────────────────┐
-│                    Application Load Balancer                        │
-│             TLS 1.2+, ACM 인증서, Security Policy                   │
-└────────────────────────────────┬───────────────────────────────────┘
-                                 │
-         ┌───────────────────────┴───────────────────────┐
-         │             VPC (10.0.0.0/16)                 │
-         │  ┌──────────────────────────────────────────┐ │
-         │  │   Public Subnet (10.0.1.0/24)            │ │
-         │  │   ├─ NAT Gateway                         │ │
-         │  │   └─ Bastion Host (MFA 필수)             │ │
-         │  └──────────────────┬───────────────────────┘ │
-         │                     │                          │
-         │  ┌──────────────────┴───────────────────────┐ │
-         │  │   Private Subnet (10.0.2.0/24)           │ │
-         │  │   ├─ ECS Fargate (애플리케이션)          │ │
-         │  │   ├─ Lambda (비즈니스 로직)              │ │
-         │  │   └─ Security Group (최소 권한)          │ │
-         │  └──────────────────┬───────────────────────┘ │
-         │                     │                          │
-         │  ┌──────────────────┴───────────────────────┐ │
-         │  │   Data Subnet (10.0.3.0/24)              │ │
-         │  │   ├─ RDS (Multi-AZ, 암호화)              │ │
-         │  │   ├─ ElastiCache (암호화)                │ │
-         │  │   └─ No Internet Access                  │ │
-         │  └──────────────────────────────────────────┘ │
-         └──────────────────────────────────────────────┘
-                         │
-         ┌───────────────┴────────────────┐
-         │                                │
-┌────────┴─────────┐          ┌──────────┴──────────┐
-│   S3 (암호화)    │          │   KMS (CMK)         │
-│   ├─ 개인정보    │          │   ├─ 키 로테이션    │
-│   ├─ 로그        │          │   └─ 접근 정책      │
-│   └─ 백업        │          └─────────────────────┘
-└──────────────────┘
-         │
-┌────────┴─────────────────────────────────────────────┐
-│            보안 모니터링 및 로깅                       │
-│  ┌──────────────┬──────────────┬─────────────────┐   │
-│  │ CloudTrail   │ CloudWatch   │ Security Hub    │   │
-│  │ (모든 API)   │ (메트릭)     │ (통합 대시보드) │   │
-│  └──────┬───────┴──────┬───────┴─────┬───────────┘   │
-│         │              │              │               │
-│  ┌──────┴──────┬───────┴──────┬──────┴──────┐        │
-│  │ GuardDuty   │ Config       │ Inspector   │        │
-│  │ (위협탐지)  │ (규정준수)   │ (취약점)    │        │
-│  └─────────────┴──────────────┴─────────────┘        │
-└──────────────────────────────────────────────────────┘
-```
+- 엣지: `CloudFront` + `WAF` + `Shield Standard`
+- 진입: `ALB` + `TLS 1.2+` + `ACM`
+- 애플리케이션 계층: `Private Subnet`의 `ECS Fargate`와 `Lambda`
+- 데이터 계층: `Data Subnet`의 `RDS`, `ElastiCache`, 인터넷 비노출 원칙
+- 저장/암호화: `S3` 로그·백업 + `KMS CMK`
+- 보안 운영: `CloudTrail`, `CloudWatch`, `Security Hub`, `GuardDuty`, `Config`, `Inspector`
 
-</details>
+<!-- Full ASCII architecture omitted for readability. Reference:
+https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html
+https://docs.aws.amazon.com/whitepapers/latest/introduction-devsecops-aws/welcome.html
+-->
 
 #### CloudTrail 로그 설정
 
@@ -530,4 +481,3 @@ AWS 서비스 버전: 2026년 1월 기준 최신 버전
 ---
 
 저작권: 이 포스팅의 코드 예제와 아키텍처 다이어그램은 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다. 자유롭게 사용 및 수정 가능하며, 출처 표기를 권장합니다.
-
