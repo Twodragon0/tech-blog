@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.svg
-image_alt: "Tech Security Weekly Digest March 16 2026 AI Agent Open-Source"
+image_alt: "AI red team tooling, Bedrock multi-agent workflows, and Aave Shield digest"
 toc: true
 ---
 

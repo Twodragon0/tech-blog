@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.svg
-image_alt: "Tech Security Weekly Digest March 16 2026 AI Bitcoin"
+image_alt: "Libra token forensics, stablecoin regulation, and crypto market digest"
 toc: true
 ---
 
