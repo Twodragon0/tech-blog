@@ -1,78 +1,6 @@
 {
-  "updated_at": "2026-03-22T01:24:45.568073+00:00",
+  "updated_at": "2026-03-23T01:23:43.162567+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html",
-      "title": "OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561 High-Severity",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html",
-      "title": "Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI Model",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Prediction market Kalshi sued over Khamenei trade carveout",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kalshi, Polymarket eye $20B valuations in potential fundraising: WSJ",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "USDC beats Tether as stablecoin transfer volume hits $1.8T all-time high",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/grok-viral-roasts-musk-netanyahu-starmer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Grok delivers viral vulgar roasts of Musk, Netanyahu and Starmer",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/florida-senate-passes-stablecoin-bill-desantis-signature?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Florida Senate passes state-level stablecoin bill, awaits DeSantis’ signature",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27301",
-      "title": "AI에이전트 도입의 가장 큰 병목은 성능 보다 신뢰(feat. 시간)이다.",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27300",
-      "title": "Autoresearch - Karpathy의 자동 연구 프레임워크",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27299",
-      "title": "Go 표준 라이브러리에 UUID 패키지 추가 제안",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27298",
-      "title": "Ki Editor - AST 기반으로 동작하는 에디터",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27297",
-      "title": "메타, 비트토렌트를 통한 불법 도서 업로드가 공정 이용에 해당한다고 주장",
-      "published_date": "2026-03-08",
-      "expires_at": "2026-03-15T03:33:43.729665+00:00"
-    },
     {
       "url": "https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/",
       "title": "How AI Assistants are Moving the Security Goalposts",
@@ -1548,6 +1476,96 @@
       "title": "인터넷 아카이브 차단은 AI를 막지 못하지만 웹의 역사 기록을 지워버림",
       "published_date": "2026-03-22",
       "expires_at": "2026-03-29T01:24:45.567978+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
+      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
+      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
+      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/lessons-from-the-resolv-hack/",
+      "title": "The Resolv Hack: How One Compromised Key Printed $23 Million",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/tokenized-deposits-europe-banks-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Banks push tokenized deposits as onchain cash race intensifies: Report",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/divergence-between-btc-gold-retail-central-bank?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BTC and gold divergence reflects split between retail and central banks: Analyst",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/fidelity-letter-sec-alternative-trading-systems?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Fidelity urges SEC to move further on crypto activity by broker-dealers",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/resolv-says-no-assets-lost-as-defi-partners-respond-to-usr-depeg?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Resolv says no assets lost as DeFi protocols respond to $24M USR exploit",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27749",
+      "title": "헤드폰 사용 거부 승객, 이제 United 항공편에서 퇴출 가능",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27748",
+      "title": "서구 자동차 제조사의 전기차 후퇴, 산업적 퇴보로 이어질 위험",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27747",
+      "title": "대규모 연구, 대마초가 불안·우울·외상후스트레스장애(PTSD)에 효과 없음 확인",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27746",
+      "title": "FFmpeg 101 (2024)",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27745",
+      "title": "Grafeo – Rust로 구축된 빠르고 경량의 임베디드 그래프 데이터베이스",
+      "published_date": "2026-03-23",
+      "expires_at": "2026-03-30T01:23:43.162444+00:00"
     }
   ]
 }
