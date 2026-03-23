@@ -350,6 +350,8 @@ claude --teammate-mode tmux
 | `security-auditor` | sonnet | 보안 감사 (시크릿, CSP, XSS) |
 | `seo-optimizer` | haiku | SEO 분석 및 개선 권장 |
 | `performance-analyst` | haiku | 성능 분석 (Core Web Vitals) |
+| `architect` | opus | 사이트 아키텍처, 자동화 파이프라인, Vercel 배포 설계 |
+| `test-engineer` | sonnet | 스크립트 테스트, 포스트 검증, 템플릿 분기 테스트 |
 
 **키보드 단축키** (in-process 모드):
 
