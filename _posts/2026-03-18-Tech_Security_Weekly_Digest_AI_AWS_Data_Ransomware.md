@@ -4,7 +4,7 @@ title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클
 date: 2026-03-18 10:11:09 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data, Ransomware]
-excerpt: "2026년 03월 18일 주요 보안/기술 뉴스 24건 - AI, AWS, Data"
+excerpt: "AI 샌드박스 DNS 유출 위협, LeakNet 랜섬웨어 ClickFix 소셜 엔지니어링 캠페인, GKE 멀티클러스터 보안 설계 이슈를 중심으로 2026년 03월 18일 주요 보안·기술 뉴스 24건을 분석하고 공격 경로·탐지 포인트·DevSecOps 실무 대응 포인트를 정리합니다."
 description: "2026년 03월 18일 보안 뉴스: The Hacker News, AWS Security Blog 등 24건. AI, AWS, Data, Ransomware 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data]
 author: Twodragon

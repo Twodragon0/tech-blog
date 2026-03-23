@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "FBI, 러시아 해커들의 Signal 및, Oracle, Identity, Trivy 공급망 공격으로 47개 npm"
+title: "FBI Signal 피싱 경고, Oracle Identity RCE, Trivy 공급망 공격 47개 npm 패키지 감염"
 date: 2026-03-22 10:22:54 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI, Apple]
-excerpt: "FBI, 러시아 해커들의 Signal 및, Oracle, Identity, Trivy 공급망 공격으로 47개 npm를 중심으로 2026년 03월 22일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다."
+excerpt: "FBI의 러시아 해커 Signal·WhatsApp 피싱 경고, Oracle Identity Manager 미인증 RCE 취약점, Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파 등 2026년 03월 22일 주요 보안 뉴스 15건과 DevSecOps 대응 우선순위를 정리합니다."
 description: "2026년 03월 22일 보안 뉴스 요약. The Hacker News, SK쉴더스 보안 리포트 등 15건을 분석하고 FBI, 러시아 해커들의 Signal 및, Oracle, Identity, Trivy 공급망 공격으로 47개 npm 중심의 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI]
 author: Twodragon
