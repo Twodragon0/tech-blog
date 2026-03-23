@@ -3434,6 +3434,12 @@ _TECH_PRESERVE = {
     "nginx", "apache", "redis", "mysql", "postgresql", "mongodb",
     "cve", "rce", "xss", "ssrf", "sqli", "csrf", "idor",
     "ai", "llm", "gpt", "ml", "api", "sdk", "cli", "vpn", "tls", "ssl",
+    # Security tools & platforms
+    "burp", "nessus", "qualys", "snyk", "sonarqube", "trivy", "grype",
+    "falco", "wazuh", "splunk", "datadog", "grafana", "prometheus",
+    "nmap", "wireshark", "metasploit", "cobalt", "crowdstrike", "sentinel",
+    "owasp", "mitre", "siem", "edr", "xdr", "soar", "cnapp", "cspm",
+    "zscaler", "cloudflare", "paloalto", "fortinet", "checkpoint",
 }
 
 

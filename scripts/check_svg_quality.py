@@ -94,6 +94,37 @@ def check_svg_file(path: Path) -> list[Issue]:
     return issues
 
 
+def fix_svg_dimensions(path: Path) -> bool:
+    """Add width/height from viewBox if missing. Returns True if fixed."""
+    try:
+        tree = ET.parse(path)
+    except ET.ParseError:
+        return False
+
+    root = tree.getroot()
+    if "width" in root.attrib and "height" in root.attrib:
+        return False
+
+    viewbox = root.attrib.get("viewBox", "").strip()
+    if not viewbox:
+        return False
+    m = VIEWBOX_RE.match(viewbox)
+    if not m:
+        return False
+
+    w, h = m.group(3), m.group(4)
+    content = path.read_text(encoding="utf-8")
+    svg_tag_match = re.search(r"(<svg\b[^>]*)(>)", content)
+    if not svg_tag_match or "width=" in svg_tag_match.group(1):
+        return False
+
+    tag = svg_tag_match.group(1).rstrip()
+    new_tag = f'{tag} width="{w}" height="{h}"' + svg_tag_match.group(2)
+    content = content[: svg_tag_match.start()] + new_tag + content[svg_tag_match.end() :]
+    path.write_text(content, encoding="utf-8")
+    return True
+
+
 def collect_svg_files(targets: list[str]) -> list[Path]:
     paths: list[Path] = []
     for target in targets:
@@ -133,12 +164,28 @@ def main() -> int:
         action="store_true",
         help="Exit with code 1 if any FAIL issues are found",
     )
+    parser.add_argument(
+        "--fix",
+        action="store_true",
+        help="Auto-fix: add width/height from viewBox when missing",
+    )
     args = parser.parse_args()
 
     svg_files = collect_svg_files(args.targets)
 
     if not svg_files:
         print("No SVG files found.")
+        return 0
+
+    # --fix mode: auto-add width/height from viewBox
+    if args.fix:
+        fixed = 0
+        for path in svg_files:
+            if fix_svg_dimensions(path):
+                rel = path.relative_to(PROJECT_ROOT) if path.is_absolute() and path.is_relative_to(PROJECT_ROOT) else path
+                print(f"[FIXED] {rel}")
+                fixed += 1
+        print(f"\nFixed {fixed} / {len(svg_files)} files")
         return 0
 
     total_fail = 0
