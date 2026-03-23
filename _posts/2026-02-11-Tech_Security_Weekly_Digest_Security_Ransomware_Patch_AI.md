@@ -7,7 +7,7 @@ comments: true
 date: 2026-02-11 12:47:26 +0900
 description: '2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. 보안, 랜섬웨어, 패치, AI 관련 DevSecOps
   실무 위협 분석 및 대응 가이드.'
-excerpt: "2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. 보안, 랜섬웨어, 패치, AI 관련 DevSecOps"
+excerpt: "2026년 02월 11일 보안 뉴스 26건: The Hacker News 등 주요 매체 기반으로 보안, 랜섬웨어, 패치, AI 관련 DevSecOps 실무 위협 분석 및 대응 가이드. 공격 경로·영향 자산·탐지 포인트와 경영진 관점 우선순위·대응 체크리스트를 함께 제공합니다."
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
 image_alt: 기술·보안 주간 다이제스트 2026년 2월 11일 보안 랜섬웨어 패치
 keywords:

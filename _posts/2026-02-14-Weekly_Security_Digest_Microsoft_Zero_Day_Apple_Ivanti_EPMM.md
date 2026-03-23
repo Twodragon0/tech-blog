@@ -5,7 +5,7 @@ title: "2026년 2월 2주차 보안 위협 종합 분석: Microsoft 6건 Zero-Da
 date: 2026-02-14 09:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, Zero-Day, Patch-Tuesday, CVE-2026-21510, CVE-2026-20700, Ivanti-EPMM, Ransomware, AI-Security, Supply-Chain, Kubernetes, "2026"]
-excerpt: "Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년..."
+excerpt: "Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년 2월 14일 보안 뉴스 종합 분석 및 DevSecOps 실무 대응 가이드입니다."
 description: "2026년 2월 14일 보안 주간 다이제스트: Microsoft 6건 Zero-Day (CVE-2026-21510, CVE-2026-21513), Apple dyld Zero-Day (CVE-2026-20700), Ivanti EPMM RCE (CVE-2026-1281), SAP..."
 author: Twodragon
 comments: true

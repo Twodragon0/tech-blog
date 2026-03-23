@@ -8,7 +8,7 @@ comments: true
 date: 2026-02-10 13:00:00 +0900
 description: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude
   Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼
-excerpt: "2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트 - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude"
+excerpt: "Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼 등 주요 AI·클라우드 업데이트를 실무 관점으로 정리한 2026-02-10 주간 다이제스트입니다."
 image: /assets/images/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.svg
 image_alt: AI·클라우드 다이제스트 2026년 2월 10일 Meta Prometheus Google OTLP AWS
 layout: post

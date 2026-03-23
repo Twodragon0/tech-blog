@@ -5,7 +5,7 @@ title: "AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석"
 date: 2026-02-19 12:36:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE]
-excerpt: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석."
+excerpt: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석 및 DevSecOps 대응 가이드입니다."
 description: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 2026년 2월 19일 보안 뉴스 27건 실무 분석."
 author: Twodragon
 comments: true
