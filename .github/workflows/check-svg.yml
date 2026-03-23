@@ -30,6 +30,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Auto-fix SVG dimensions
+        run: |
+          echo "Auto-fixing missing width/height from viewBox..."
+          python3 scripts/check_svg_quality.py --fix assets/images/
+
       - name: Run SVG quality check
         run: |
           echo "Checking SVG quality in assets/images/..."

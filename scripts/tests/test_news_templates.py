@@ -17,6 +17,7 @@ from auto_publish_news import (
     _generate_security_brief_template,
     _generate_trend_analysis,
     _extract_trend_keyword,
+    _apply_trend_kr_map,
     filter_published_urls,
     _deduplicate_crypto_stories,
     categorize_news,
@@ -1311,6 +1312,66 @@ class TestExtractTrendKeyword:
     def test_delimiter_split(self):
         result = _extract_trend_keyword("AI 보안: 프롬프트 인젝션 방어", "Source")
         assert "AI 보안" in result
+
+
+# ===========================================================================
+# _apply_trend_kr_map
+# ===========================================================================
+
+
+class TestApplyTrendKrMap:
+    """Tests for English-to-Korean trend keyword mapping."""
+
+    def test_single_word_mapping(self):
+        assert _apply_trend_kr_map("vulnerability") == "취약점"
+
+    def test_multi_word_mapping(self):
+        result = _apply_trend_kr_map("privilege escalation detected")
+        assert "권한 상승" in result
+        assert "탐지된" in result
+
+    def test_tech_terms_preserved(self):
+        result = _apply_trend_kr_map("kubernetes vulnerability")
+        assert "kubernetes" in result
+        assert "취약점" in result
+
+    def test_new_security_terms(self):
+        assert "스캐너" in _apply_trend_kr_map("scanner")
+        assert "탐지" in _apply_trend_kr_map("detection")
+        assert "캠페인" in _apply_trend_kr_map("campaign")
+        assert "백도어" in _apply_trend_kr_map("backdoor")
+        assert "자격증명" in _apply_trend_kr_map("credential")
+
+    def test_multi_word_security_phrases(self):
+        result = _apply_trend_kr_map("lateral movement detected")
+        assert "횡적 이동" in result
+
+        result = _apply_trend_kr_map("data exfiltration campaign")
+        assert "데이터 유출" in result
+        assert "캠페인" in result
+
+    def test_case_insensitive(self):
+        result = _apply_trend_kr_map("MALWARE Attack")
+        assert "악성코드" in result
+        assert "공격" in result
+
+    def test_unmapped_words_kept(self):
+        result = _apply_trend_kr_map("unknown foobar")
+        assert "unknown" in result
+        assert "foobar" in result
+
+    def test_security_tools_preserved(self):
+        result = _apply_trend_kr_map("burp scanner nessus detection")
+        assert "burp" in result
+        assert "nessus" in result
+        assert "스캐너" in result
+        assert "탐지" in result
+
+    def test_remediation_terms(self):
+        assert "조치" in _apply_trend_kr_map("remediation")
+        assert "완화" in _apply_trend_kr_map("mitigation")
+        assert "우회 조치" in _apply_trend_kr_map("workaround")
+        assert "권고" in _apply_trend_kr_map("advisory")
 
 
 # ===========================================================================
