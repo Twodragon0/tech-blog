@@ -508,12 +508,12 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
 | **AI/ML** | 13건 | OFAC 북한 IT 워커 제재, Interlock 랜섬웨어 Cisco FMC 악용, Claude Code 보안 분석 |
-| **Cloud Security** | 5건 | IP KVM 치명적 취약점 9건, 시뮬레이션→프로덕션 전환 가이드, Memorystore 차세대 캐싱 |
-| **Zero-Day** | 2건 | Interlock 랜섬웨어 Cisco FMC 제로데이 악용, DarkSword iOS 악성코드 확산 |
-| **Supply Chain** | 1건 | Nova Forge SDK 공급망 보안 |
+| **클라우드 보안** | 5건 | IP KVM 치명적 취약점 9건, 시뮬레이션→프로덕션 전환 가이드, Memorystore 차세대 캐싱 |
+| **제로데이** | 2건 | Interlock 랜섬웨어 Cisco FMC 제로데이 악용, DarkSword iOS 악성코드 확산 |
+| **공급망 보안** | 1건 | Nova Forge SDK 공급망 보안 |
 | **Ransomware** | 1건 | Interlock 랜섬웨어 Cisco FMC 제로데이 악용 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(13건)입니다. OFAC 북한 IT 워커 제재, Interlock 랜섬웨어 Cisco FMC 제로데이 악용 등이 주요 이슈입니다. **Cloud Security** 분야에서는 IP KVM 치명적 취약점 9건, 시뮬레이션에서 프로덕션 전환 보안 가이드 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(13건)입니다. OFAC 북한 IT 워커 제재, Interlock 랜섬웨어 Cisco FMC 제로데이 악용 등이 주요 이슈입니다. **클라우드 보안** 분야에서는 IP KVM 치명적 취약점 9건, 시뮬레이션에서 프로덕션 전환 보안 가이드 관련 동향에 주목할 필요가 있습니다.
 
 ---
 

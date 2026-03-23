@@ -442,12 +442,12 @@ MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 비
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
 | **AI/ML** | 11건 | AI 플랫폼 샌드박스 취약점, AI 에이전트 권한 관리, GKE Inference Gateway |
-| **Cloud Security** | 5건 | Amazon Bedrock DNS 유출, AWS GDV 감사, 멀티 클러스터 보안 경계 |
+| **클라우드 보안** | 5건 | Amazon Bedrock DNS 유출, AWS GDV 감사, 멀티 클러스터 보안 경계 |
 | **Container/K8s** | 3건 | GKE Inference Gateway 멀티 클러스터, KyvernoCon 정책 엔진, Pod 재시작 유형 분류 |
-| **Authentication** | 2건 | AWS GDV 공동 감사, LeakNet ClickFix 자격증명 탈취 |
+| **인증 보안** | 2건 | AWS GDV 공동 감사, LeakNet ClickFix 자격증명 탈취 |
 | **Ransomware** | 1건 | LeakNet 랜섬웨어 ClickFix + Deno 인메모리 로더 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(11건)입니다. AI 플랫폼 샌드박스의 DNS 기반 데이터 유출 취약점, AI 에이전트 권한 관리 등이 주요 이슈입니다. **Cloud Security** 분야에서는 Amazon Bedrock 코드 인터프리터 보안, AWS GDV 공동 감사 등 관리형 서비스의 보안 검증이 화두입니다. **Container/K8s** 영역에서는 KyvernoCon 정책 엔진과 Pod 재시작 유형별 대응 가이드가 실무에 직결되는 주제로 부상했습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(11건)입니다. AI 플랫폼 샌드박스의 DNS 기반 데이터 유출 취약점, AI 에이전트 권한 관리 등이 주요 이슈입니다. **클라우드 보안** 분야에서는 Amazon Bedrock 코드 인터프리터 보안, AWS GDV 공동 감사 등 관리형 서비스의 보안 검증이 화두입니다. **Container/K8s** 영역에서는 KyvernoCon 정책 엔진과 Pod 재시작 유형별 대응 가이드가 실무에 직결되는 주제로 부상했습니다.
 
 ---
 
