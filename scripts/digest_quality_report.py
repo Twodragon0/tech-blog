@@ -22,13 +22,13 @@ _TRUNCATION_PARTICLES = re.compile(
 )
 
 # English-only trend header (no Korean chars)
-_ENGLISH_HEADER = re.compile(r"^\*\*[A-Za-z /\-]+\*\*$")
+_ENGLISH_HEADER = re.compile(r"^\*\*[A-Za-z0-9 /\-&.]+\*\*$")
 
 # Acceptable English-only headers (industry standard terms)
 _ALLOWED_ENGLISH_HEADERS = {
     "**AI/ML**", "**AI/LLM**", "**CVE ID**", "**Ransomware**",
-    "**K8s**", "**DevOps**", "**DevSecOps**", "**FinOps**",
-    "**CVSS**", "**MITRE ATT&CK**", "**IoC**",
+    "**K8s**", "**Container/K8s**", "**DevOps**", "**DevSecOps**", "**FinOps**",
+    "**CVSS**", "**MITRE ATT&CK**", "**IoC**", "**IoT/OT**",
 }
 
 # Proper Korean sentence endings

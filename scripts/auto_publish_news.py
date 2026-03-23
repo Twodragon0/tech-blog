@@ -2860,11 +2860,14 @@ def _truncate_korean_sentence(text: str, max_len: int) -> str:
     if len(text) <= max_len:
         return text
     clipped = text[:max_len]
-    # Try sentence boundaries
+    # Find the latest sentence boundary (prefer more text over separator type)
+    best_idx, best_len = -1, 0
     for sep in ["습니다.", "니다.", "했습니다.", "됩니다.", "입니다.", "다.", "됨.", "임."]:
         idx = clipped.rfind(sep)
-        if idx > max_len * 0.4:
-            return clipped[: idx + len(sep)]
+        if idx > max_len * 0.4 and idx > best_idx:
+            best_idx, best_len = idx, len(sep)
+    if best_idx > 0:
+        return clipped[: best_idx + best_len]
     # Word boundary fallback
     clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
     if re.search(r"[가-힣]", clipped):
