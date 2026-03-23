@@ -3471,6 +3471,20 @@ _TECH_PRESERVE = {
 }
 
 
+# Stop words to drop from translated output
+_STOP_WORDS = {
+    "a", "an", "the", "in", "on", "at", "to", "for", "of", "by",
+    "with", "from", "and", "or", "but", "is", "are", "was", "were",
+    "be", "been", "being", "has", "have", "had", "do", "does", "did",
+    "that", "this", "these", "those", "it", "its",
+    "as", "how", "what", "why", "who", "when", "where", "which",
+    "not", "no", "just", "over", "up", "out", "all", "can", "may",
+    "will", "would", "could", "should", "here's", "there's",
+    "more", "most", "very", "also", "than", "then", "so", "if",
+    "about", "into", "after", "before", "between", "under", "above",
+}
+
+
 def _apply_trend_kr_map(phrase: str) -> str:
     """Apply Korean mapping to English phrase, preserving tech terms."""
     # Multi-word phrase replacements first
@@ -3486,10 +3500,14 @@ def _apply_trend_kr_map(phrase: str) -> str:
     for token in tokens:
         # Strip punctuation for lookup
         clean = token.strip(".,;:!?\"'()[]")
-        if clean.lower() in _TECH_PRESERVE:
+        low = clean.lower()
+        # Drop stop words (articles, prepositions, conjunctions)
+        if low in _STOP_WORDS:
+            continue
+        if low in _TECH_PRESERVE:
             translated.append(token)
-        elif clean.lower() in _TREND_KR_MAP:
-            translated.append(_TREND_KR_MAP[clean.lower()])
+        elif low in _TREND_KR_MAP:
+            translated.append(_TREND_KR_MAP[low])
         else:
             translated.append(token)
     return " ".join(translated)
