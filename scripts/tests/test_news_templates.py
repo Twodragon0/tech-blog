@@ -1447,7 +1447,7 @@ class TestGenerateTrendAnalysis:
             ("Zero-day exploit found", "security"),
         )
         result = _generate_trend_analysis(items, 5)
-        assert "Zero-Day" in result
+        assert "제로데이" in result
 
     def test_no_trends_message(self):
         items = self._items(
