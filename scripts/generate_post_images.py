@@ -1231,6 +1231,215 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
         return False
 
 
+# Node definitions for THREAT SIGNAL MAP SVG (Digest posts)
+_DIGEST_NODE_DEFS = {
+    "ransomware": {
+        "label": "RANSOMWARE",
+        "color": "#dc2626",
+        "icon": '<rect x="-22" y="-4" width="44" height="36" rx="8" fill="#221617" stroke="{color}" stroke-width="2"/>'
+        '<path d="M-12 -4 v-16 c0-18 24-18 24 0 v16" stroke="{color}" stroke-width="4" fill="none" stroke-linecap="round"/>'
+        '<circle cx="0" cy="16" r="6" fill="{color}"/><rect x="-2" y="20" width="4" height="10" rx="2" fill="{color}"/>',
+    },
+    "zero-day": {
+        "label": "ZERO DAY",
+        "color": "#dc2626",
+        "icon": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{color}" stroke-width="2"/>'
+        '<text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{color}" text-anchor="middle">CVE</text>'
+        '<text x="0" y="12" font-family="Courier New" font-size="8" fill="{color}" text-anchor="middle" opacity="0.7">0-DAY</text>',
+    },
+    "malware": {
+        "label": "MALWARE",
+        "color": "#f59e0b",
+        "icon": '<circle r="16" fill="{color}" opacity="0.2"/>'
+        '<circle cx="-12" cy="-8" r="6" fill="{color}" opacity="0.5"/>'
+        '<circle cx="12" cy="8" r="6" fill="{color}" opacity="0.5"/>'
+        '<circle cx="8" cy="-12" r="4" fill="{color}" opacity="0.4"/>',
+    },
+    "blockchain": {
+        "label": "BLOCKCHAIN",
+        "color": "#8b5cf6",
+        "icon": '<ellipse cx="-10" cy="-6" rx="14" ry="10" fill="none" stroke="{color}" stroke-width="2.5" transform="rotate(-30 -10 -6)"/>'
+        '<ellipse cx="10" cy="6" rx="14" ry="10" fill="none" stroke="{color}" stroke-width="2.5" transform="rotate(-30 10 6)"/>'
+        '<circle cx="-18" cy="18" r="3" fill="{color}" opacity="0.6"/>'
+        '<circle cx="18" cy="-18" r="3" fill="{color}" opacity="0.6"/>',
+    },
+    "ai": {
+        "label": "AI/ML",
+        "color": "#22d3ee",
+        "icon": '<circle r="14" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<circle r="6" fill="{color}" opacity="0.4"/>'
+        '<line x1="-20" y1="-14" x2="-8" y2="-6" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="20" y1="-14" x2="8" y2="-6" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="-20" y1="14" x2="-8" y2="6" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="20" y1="14" x2="8" y2="6" stroke="{color}" stroke-width="1.5"/>'
+        '<circle cx="-20" cy="-14" r="4" fill="{color}" opacity="0.5"/>'
+        '<circle cx="20" cy="-14" r="4" fill="{color}" opacity="0.5"/>'
+        '<circle cx="-20" cy="14" r="4" fill="{color}" opacity="0.5"/>'
+        '<circle cx="20" cy="14" r="4" fill="{color}" opacity="0.5"/>',
+    },
+    "cloud": {
+        "label": "CLOUD",
+        "color": "#3b82f6",
+        "icon": '<ellipse cx="0" cy="4" rx="22" ry="14" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<circle cx="-8" cy="-4" r="10" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<circle cx="8" cy="-6" r="12" fill="none" stroke="{color}" stroke-width="2"/>',
+    },
+    "patch": {
+        "label": "PATCH",
+        "color": "#22c55e",
+        "icon": '<path d="M0 -24 L20 -12 L20 8 C20 22 0 32 0 32 C0 32 -20 22 -20 8 L-20 -12 Z" fill="none" stroke="{color}" stroke-width="2.5"/>'
+        '<path d="M-8 2 L-2 8 L10 -6" stroke="{color}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+    },
+    "supply-chain": {
+        "label": "SUPPLY CHAIN",
+        "color": "#f97316",
+        "icon": '<rect x="-18" y="-12" width="14" height="14" rx="3" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<rect x="4" y="-12" width="14" height="14" rx="3" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<rect x="-7" y="6" width="14" height="14" rx="3" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<line x1="-4" y1="2" x2="-1" y2="6" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="11" y1="2" x2="4" y2="6" stroke="{color}" stroke-width="1.5"/>',
+    },
+    "auth": {
+        "label": "AUTH",
+        "color": "#eab308",
+        "icon": '<rect x="-16" y="-4" width="32" height="24" rx="4" fill="none" stroke="{color}" stroke-width="2"/>'
+        '<path d="M-8 -4 v-10 c0-12 16-12 16 0 v10" stroke="{color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>'
+        '<circle cx="0" cy="8" r="4" fill="{color}"/>',
+    },
+}
+
+# Keyword-to-node mapping for automatic detection
+_DIGEST_KEYWORD_MAP = {
+    "ransomware": "ransomware", "랜섬웨어": "ransomware",
+    "zero-day": "zero-day", "제로데이": "zero-day", "0-day": "zero-day",
+    "malware": "malware", "악성코드": "malware", "trojan": "malware", "트로이목마": "malware",
+    "blockchain": "blockchain", "블록체인": "blockchain", "defi": "blockchain",
+    "crypto": "blockchain", "bitcoin": "blockchain", "비트코인": "blockchain",
+    "ai": "ai", "llm": "ai", "gpt": "ai", "ml": "ai",
+    "cloud": "cloud", "aws": "cloud", "azure": "cloud", "gcp": "cloud", "클라우드": "cloud",
+    "patch": "patch", "cve": "patch", "패치": "patch",
+    "supply chain": "supply-chain", "공급망": "supply-chain",
+    "authentication": "auth", "인증": "auth", "credential": "auth", "identity": "auth",
+    "zero trust": "patch", "제로트러스트": "patch",
+    "botnet": "malware", "봇넷": "malware", "spyware": "malware",
+    "exploit": "zero-day", "익스플로잇": "zero-day",
+}
+
+
+def _detect_digest_nodes(post_info: Dict) -> list:
+    """Detect up to 3 unique threat signal nodes from post content."""
+    title = post_info.get("title", "").lower()
+    tags = [t.lower() for t in post_info.get("tags", [])]
+    text = f"{title} {' '.join(tags)}"
+
+    seen = []
+    # Check multi-word phrases first
+    for keyword in sorted(_DIGEST_KEYWORD_MAP.keys(), key=len, reverse=True):
+        if keyword in text and _DIGEST_KEYWORD_MAP[keyword] not in seen:
+            seen.append(_DIGEST_KEYWORD_MAP[keyword])
+            if len(seen) >= 3:
+                break
+
+    # Ensure at least 2 nodes
+    if len(seen) < 2:
+        for fallback in ["ai", "patch", "malware"]:
+            if fallback not in seen:
+                seen.append(fallback)
+                if len(seen) >= 2:
+                    break
+
+    return seen[:3]
+
+
+def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
+    """Generate THREAT SIGNAL MAP style SVG for Digest posts based on content."""
+    try:
+        nodes = _detect_digest_nodes(post_info)
+        node_configs = [_DIGEST_NODE_DEFS[n] for n in nodes]
+
+        # Extract date from filename or post_info
+        date_str = post_info.get("date", "")
+        if date_str:
+            try:
+                from datetime import datetime as dt
+                parsed = dt.strptime(str(date_str)[:10], "%Y-%m-%d")
+                date_display = parsed.strftime("%B %d, %Y")
+            except (ValueError, TypeError):
+                date_display = datetime.now().strftime("%B %d, %Y")
+        else:
+            date_display = datetime.now().strftime("%B %d, %Y")
+
+        subtitle = "  ".join(nc["label"] for nc in node_configs)
+
+        # Calculate node positions based on count
+        if len(node_configs) == 2:
+            positions = [350, 850]
+        else:
+            positions = [250, 600, 950]
+
+        # Build node SVG elements
+        nodes_svg = ""
+        for i, (nc, x_pos) in enumerate(zip(node_configs, positions)):
+            color = nc["color"]
+            icon_svg = nc["icon"].replace("{color}", color)
+            nodes_svg += f"""
+  <g transform="translate({x_pos} 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+  </g>
+  <text x="{x_pos}" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="{color}" text-anchor="middle">{nc["label"]}</text>
+"""
+
+        # Connection dots between nodes
+        dots_svg = ""
+        for i in range(len(positions) - 1):
+            mid_x = (positions[i] + positions[i + 1]) // 2
+            dots_svg += f'  <circle cx="{mid_x}" cy="340" r="4" fill="#475569"/>\n'
+
+        # Glow circles - use node colors
+        glows = ""
+        glow_positions = [(210, 170, 180), (600, 140, 160), (980, 220, 170)]
+        for i, nc in enumerate(node_configs):
+            cx, cy, r = glow_positions[i]
+            glows += f'  <circle cx="{cx}" cy="{cy}" r="{r}" fill="{nc["color"]}" opacity="0.12" filter="url(#glow)"/>\n'
+
+        svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#181024"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+{glows}  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{subtitle}</text>
+  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
+{nodes_svg}{dots_svg}
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>'''
+
+        output_svg = output_path.with_suffix(".svg")
+        with open(output_svg, "w", encoding="utf-8") as f:
+            f.write(svg)
+
+        log_message(f"✅ Digest SVG 이미지 생성 완료: {output_svg.name}", "SUCCESS")
+        return True
+
+    except Exception as e:
+        log_message(f"❌ Digest SVG 생성 실패: {str(e)}", "ERROR")
+        return False
+
+
 def process_post(
     post_file: Path, force: bool = False, optimize_only: bool = False
 ) -> bool:
@@ -1281,8 +1490,14 @@ def process_post(
         image_generated = generate_image_with_gemini(prompt, output_path)
 
     if not image_generated:
-        log_message("🎨 SVG 폴백 이미지 생성 시도...", "INFO")
-        image_generated = generate_fallback_svg(post_info, output_path)
+        # Use Digest-style SVG for Weekly Digest posts
+        is_digest = "Digest" in post_file.name or "Weekly_Digest" in post_info.get("title", "")
+        if is_digest:
+            log_message("🎨 Digest SVG 이미지 생성 시도...", "INFO")
+            image_generated = generate_digest_svg(post_info, output_path)
+        if not image_generated:
+            log_message("🎨 SVG 폴백 이미지 생성 시도...", "INFO")
+            image_generated = generate_fallback_svg(post_info, output_path)
         if not image_generated:
             save_prompt_file(prompt, output_path)
 
