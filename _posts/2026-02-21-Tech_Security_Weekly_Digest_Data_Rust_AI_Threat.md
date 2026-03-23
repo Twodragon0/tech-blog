@@ -17,7 +17,9 @@ toc: true
   title='CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Vulnerability</span> <span class="tag">AI</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>보안 뉴스</strong>: The Hacker News, SK쉴더스 보안 리포트 등 15건의 취약점, AI, 클라우드 보안 관련 DevSecOps 실무 위협 분석</li>
+      <li><strong>실무 관점</strong>: 영향 범위와 우선순위를 함께 점검해야 합니다</li>
+      <li><strong>운영 체계</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
   period='2026-02-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

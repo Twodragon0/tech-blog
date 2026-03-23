@@ -133,6 +133,12 @@ jobs:
           python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing --cov-report=json:coverage.json --cov-fail-under=40
           echo "✅ Script tests completed"
 
+      - name: Digest quality gate
+        run: |
+          echo "📋 Running Digest quality report..."
+          python3 scripts/digest_quality_report.py --all --ci
+          echo "✅ Digest quality check passed"
+
       - name: Post coverage comment (PR only)
         if: github.event_name == 'pull_request'
         continue-on-error: true
