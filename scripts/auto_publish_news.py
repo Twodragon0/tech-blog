@@ -3361,6 +3361,77 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
     return content
 
 
+# Common English phrases to Korean mapping for trend keywords
+_TREND_KR_MAP = {
+    "vulnerability": "취약점",
+    "vulnerabilities": "취약점",
+    "attack": "공격",
+    "attacks": "공격",
+    "breach": "침해",
+    "exploit": "익스플로잇",
+    "exploits": "익스플로잇",
+    "malware": "악성코드",
+    "ransomware": "랜섬웨어",
+    "phishing": "피싱",
+    "zero-day": "제로데이",
+    "zero day": "제로데이",
+    "supply chain": "공급망",
+    "patch": "패치",
+    "update": "업데이트",
+    "updates": "업데이트",
+    "security": "보안",
+    "threat": "위협",
+    "threats": "위협",
+    "critical": "심각한",
+    "new": "신규",
+    "found": "발견",
+    "targets": "표적",
+    "warns": "경고",
+    "flaw": "결함",
+    "flaws": "결함",
+    "bug": "버그",
+    "bugs": "버그",
+    "leaked": "유출",
+    "stolen": "탈취",
+    "exposed": "노출",
+    "compromised": "침해된",
+}
+
+# Technical terms to preserve as-is (not translated)
+_TECH_PRESERVE = {
+    "kubernetes", "docker", "aws", "azure", "gcp", "linux", "windows",
+    "android", "ios", "macos", "python", "java", "golang", "rust",
+    "github", "gitlab", "npm", "pip", "helm", "terraform", "ansible",
+    "nginx", "apache", "redis", "mysql", "postgresql", "mongodb",
+    "cve", "rce", "xss", "ssrf", "sqli", "csrf", "idor",
+    "ai", "llm", "gpt", "ml", "api", "sdk", "cli", "vpn", "tls", "ssl",
+}
+
+
+def _apply_trend_kr_map(phrase: str) -> str:
+    """Apply Korean mapping to English phrase, preserving tech terms."""
+    # Multi-word phrase replacements first
+    result = phrase
+    for en, kr in _TREND_KR_MAP.items():
+        if " " in en:
+            pattern = re.compile(re.escape(en), re.IGNORECASE)
+            result = pattern.sub(kr, result)
+
+    # Word-by-word replacement
+    tokens = result.split()
+    translated = []
+    for token in tokens:
+        # Strip punctuation for lookup
+        clean = token.strip(".,;:!?\"'()[]")
+        if clean.lower() in _TECH_PRESERVE:
+            translated.append(token)
+        elif clean.lower() in _TREND_KR_MAP:
+            translated.append(_TREND_KR_MAP[clean.lower()])
+        else:
+            translated.append(token)
+    return " ".join(translated)
+
+
 def _extract_trend_keyword(title: str, source: str) -> str:
     """Extract concise descriptive keyword from article title for trend table"""
     if not title:
@@ -3374,15 +3445,16 @@ def _extract_trend_keyword(title: str, source: str) -> str:
         if len(segment) > 40:
             segment = segment[:40]
         return segment
-    # For English titles, extract product/topic name
+    # For English titles, extract product/topic name then apply Korean mapping
     words = title.split()
     if len(words) <= 6:
-        return title.strip()
-    # Take first meaningful phrase (up to 7 words, max 60 chars)
-    phrase = " ".join(words[:7])
-    if len(phrase) > 60:
-        phrase = phrase[:60].rsplit(" ", 1)[0]
-    return phrase
+        phrase = title.strip()
+    else:
+        # Take first meaningful phrase (up to 7 words, max 60 chars)
+        phrase = " ".join(words[:7])
+        if len(phrase) > 60:
+            phrase = phrase[:60].rsplit(" ", 1)[0]
+    return _apply_trend_kr_map(phrase)
 
 
 def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
