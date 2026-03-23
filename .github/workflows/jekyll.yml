@@ -136,7 +136,16 @@ jobs:
       - name: Digest quality gate
         run: |
           echo "📋 Running Digest quality report..."
-          python3 scripts/digest_quality_report.py --all --ci
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            CHANGED=$(git diff --name-only origin/main...HEAD -- '_posts/*Digest*.md' || true)
+            if [ -n "$CHANGED" ]; then
+              python3 scripts/digest_quality_report.py --files $CHANGED --ci
+            else
+              echo "No Digest posts changed, skipping"
+            fi
+          else
+            python3 scripts/digest_quality_report.py --all --ci
+          fi
           echo "✅ Digest quality check passed"
 
       - name: Post coverage comment (PR only)

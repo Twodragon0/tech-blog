@@ -3572,6 +3572,11 @@ _TECH_PRESERVE = {
 }
 
 
+# Sanity check: no duplicate keys in mapping dicts
+assert len(_TREND_KR_MAP) == len(dict(_TREND_KR_MAP)), (
+    "Duplicate key in _TREND_KR_MAP — check for repeated entries"
+)
+
 # Stop words to drop from translated output
 _STOP_WORDS = {
     "a", "an", "the", "in", "on", "at", "to", "for", "of", "by",

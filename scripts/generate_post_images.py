@@ -1326,8 +1326,8 @@ _DIGEST_NODE_DEFS = {
     "finops": {
         "label": "FINOPS",
         "color": "#14b8a6",
-        "icon": '<text x="0" y="6" font-family="Arial" font-size="28" font-weight="700" fill="{color}" text-anchor="middle">$</text>'
-        '<circle r="22" fill="none" stroke="{color}" stroke-width="2" stroke-dasharray="6 4"/>',
+        "icon": '<circle r="22" fill="none" stroke="{color}" stroke-width="2" stroke-dasharray="6 4"/>'
+        '<path d="M2,-16 v4 c-7,1 -12,5 -12,10 c0,6 5,9 12,10 v7 c-4,-1 -8,-3 -11,-5 l-2,3 c3,3 8,5 13,6 v4 h3 v-4 c8,-1 13,-5 13,-11 c0,-6 -5,-9 -13,-10 v-7 c3,1 7,2 10,4 l2,-3 c-3,-3 -7,-5 -12,-5 v-4 z" fill="{color}"/>',
     },
 }
 
@@ -1427,11 +1427,13 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
             mid_x = (positions[i] + positions[i + 1]) // 2
             dots_svg += f'  <circle cx="{mid_x}" cy="340" r="4" fill="#475569"/>\n'
 
-        # Glow circles - use node colors
+        # Glow circles - position relative to nodes
         glows = ""
-        glow_positions = [(210, 170, 180), (600, 140, 160), (980, 220, 170)]
+        glow_offsets = [(0, -170, 180), (0, -200, 160), (0, -120, 170)]
         for i, nc in enumerate(node_configs):
-            cx, cy, r = glow_positions[i]
+            dx, dy, r = glow_offsets[i]
+            cx = positions[i] + dx
+            cy = 340 + dy
             glows += f'  <circle cx="{cx}" cy="{cy}" r="{r}" fill="{nc["color"]}" opacity="0.12" filter="url(#glow)"/>\n'
 
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">

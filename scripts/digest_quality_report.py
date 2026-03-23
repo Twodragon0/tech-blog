@@ -211,19 +211,23 @@ def main():
     parser.add_argument(
         "--ci", action="store_true", help="Exit with code 1 if issues found"
     )
+    parser.add_argument(
+        "--files", nargs="+", help="Check specific files instead of searching"
+    )
     args = parser.parse_args()
 
-    if args.all:
-        month = None
+    if args.files:
+        posts = [Path(f) for f in args.files if Path(f).exists()]
+    elif args.all:
+        posts = find_digest_posts(None)
     elif args.month:
-        month = args.month
+        posts = find_digest_posts(args.month)
     else:
         from datetime import datetime
-        month = datetime.now().strftime("%Y-%m")
+        posts = find_digest_posts(datetime.now().strftime("%Y-%m"))
 
-    posts = find_digest_posts(month)
     if not posts:
-        print(f"No Digest posts found for {month or 'all months'}")
+        print("No Digest posts found")
         sys.exit(0)
 
     report = generate_report(posts)
