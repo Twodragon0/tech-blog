@@ -1306,6 +1306,29 @@ _DIGEST_NODE_DEFS = {
         '<path d="M-8 -4 v-10 c0-12 16-12 16 0 v10" stroke="{color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>'
         '<circle cx="0" cy="8" r="4" fill="{color}"/>',
     },
+    "kubernetes": {
+        "label": "K8S",
+        "color": "#326ce5",
+        "icon": '<polygon points="0,-22 20,-8 12,18 -12,18 -20,-8" fill="none" stroke="{color}" stroke-width="2.5"/>'
+        '<circle r="6" fill="{color}" opacity="0.4"/>'
+        '<line x1="0" y1="-6" x2="0" y2="-18" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="5" y1="3" x2="16" y2="12" stroke="{color}" stroke-width="1.5"/>'
+        '<line x1="-5" y1="3" x2="-16" y2="12" stroke="{color}" stroke-width="1.5"/>',
+    },
+    "devops": {
+        "label": "DEVOPS",
+        "color": "#f97316",
+        "icon": '<path d="M-16 0 A16 16 0 0 1 16 0" fill="none" stroke="{color}" stroke-width="2.5"/>'
+        '<path d="M16 0 A16 16 0 0 1 -16 0" fill="none" stroke="{color}" stroke-width="2.5" stroke-dasharray="4 3"/>'
+        '<polygon points="16,-4 22,0 16,4" fill="{color}"/>'
+        '<polygon points="-16,4 -22,0 -16,-4" fill="{color}"/>',
+    },
+    "finops": {
+        "label": "FINOPS",
+        "color": "#14b8a6",
+        "icon": '<text x="0" y="6" font-family="Arial" font-size="28" font-weight="700" fill="{color}" text-anchor="middle">$</text>'
+        '<circle r="22" fill="none" stroke="{color}" stroke-width="2" stroke-dasharray="6 4"/>',
+    },
 }
 
 # Keyword-to-node mapping for automatic detection
@@ -1323,6 +1346,10 @@ _DIGEST_KEYWORD_MAP = {
     "zero trust": "patch", "제로트러스트": "patch",
     "botnet": "malware", "봇넷": "malware", "spyware": "malware",
     "exploit": "zero-day", "익스플로잇": "zero-day",
+    "kubernetes": "kubernetes", "k8s": "kubernetes", "컨테이너": "kubernetes",
+    "container": "kubernetes", "docker": "kubernetes", "helm": "kubernetes",
+    "devops": "devops", "devsecops": "devops", "ci/cd": "devops", "pipeline": "devops",
+    "finops": "finops", "cost": "finops", "billing": "finops", "비용": "finops",
 }
 
 

@@ -62,6 +62,27 @@ if [[ -n "$STAGED_POSTS" ]]; then
       fi
   fi
   echo "✅ Front matter structure OK"
+
+  # Check for truncated table summaries in digest posts
+  echo "📋 Checking table summary completeness..."
+  TRUNC_COUNT=0
+  while IFS= read -r f; do
+    # Only check Digest posts
+    if echo "$f" | grep -q "Digest"; then
+      # Find table rows with 핵심 내용 or 주요 키워드 that end with particles or mid-sentence
+      TRUNC=$(grep -nE '\|[^|]+\|[^|]*\s+(의|에|를|이|가|은|는|한|된|인|할|위한|하기)\s*\|' "$REPO_ROOT/$f" 2>/dev/null || true)
+      if [ -n "$TRUNC" ]; then
+        echo "⚠️  $f: truncated table cell detected"
+        echo "$TRUNC" | head -3
+        TRUNC_COUNT=$((TRUNC_COUNT + 1))
+      fi
+    fi
+  done <<< "$STAGED_POSTS"
+  if [ "$TRUNC_COUNT" -gt "0" ]; then
+    echo "❌ $TRUNC_COUNT post(s) have truncated table summaries — fix before committing"
+    exit 1
+  fi
+  echo "✅ Table summaries OK"
 fi
 
 # Run template tests when auto_publish_news.py or tests are modified
