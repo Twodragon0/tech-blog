@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='FBI, 러시아 해커들의 Signal 및, Oracle, Identity, Trivy 공급망 공격으로 47개 npm'
+  title='FBI 러시아 해커 피싱 경고, Oracle CVE-2026-21992 패치, Trivy 공급망 공격'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">CVE</span>
@@ -24,7 +24,7 @@ toc: true
       <span class="tag">Apple</span>
       <span class="tag">2026</span>'
   highlights_html='<li><strong>The Hacker News</strong>: FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격 경고</li>
-      <li><strong>The Hacker News</strong>: Oracle, Identity Manager에서 인증되지 않은 RCE를 가능하게 하는 치명적</li>
+      <li><strong>The Hacker News</strong>: Oracle Identity Manager 인증되지 않은 RCE 치명적 CVE-2026-21992 패치</li>
       <li><strong>The Hacker News</strong>: Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파</li>'
   period='2026년 03월 22일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
@@ -262,11 +262,11 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
 | **AI/ML** | 8건 | FBI 러시아 해커 경고, Oracle 치명적 CVE-2026-21992 패치, Trivy 공급망 공격 |
-| **Cloud Security** | 1건 | CISA Apple·Craft CMS 취약점 경보 |
-| **Supply Chain** | 1건 | Trivy 공급망 공격 경보 |
-| **Authentication** | 1건 | Oracle CVE-2026-21992 미인증 RCE 패치 |
+| **클라우드 보안** | 1건 | CISA Apple·Craft CMS 취약점 경보 |
+| **공급망 보안** | 1건 | Trivy 공급망 공격 경보 |
+| **인증 보안** | 1건 | Oracle CVE-2026-21992 미인증 RCE 패치 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(8건)입니다. FBI 러시아 해커 경고, Oracle CVE-2026-21992 미인증 RCE 패치 등이 주요 이슈입니다. **Cloud Security** 분야에서는 CISA Apple·Craft CMS 취약점 경보 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(8건)입니다. FBI 러시아 해커 경고, Oracle CVE-2026-21992 미인증 RCE 패치 등이 주요 이슈입니다. **클라우드 보안** 분야에서는 CISA Apple·Craft CMS 취약점 경보 관련 동향에 주목할 필요가 있습니다.
 
 ---
 

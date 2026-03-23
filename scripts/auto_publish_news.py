@@ -2852,12 +2852,18 @@ def _table_summary(text: str, max_len: int = 200) -> str:
         return cleaned
     # Try to end at a sentence boundary
     clipped = cleaned[:max_len]
-    for sep in [".", "다.", "니다.", "습니다."]:
+    for sep in ["습니다.", "니다.", "했습니다.", "됩니다.", "입니다.", "다.", "됨.", "임."]:
         idx = clipped.rfind(sep)
-        if idx > max_len * 0.5:
+        if idx > max_len * 0.4:
             return clipped[: idx + len(sep)]
-    # Fallback: end at word boundary
-    clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.")
+    # Fallback: end at word boundary and add proper ending
+    clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
+    # Add natural Korean sentence ending if text looks Korean
+    if re.search(r"[가-힣]", clipped):
+        # Remove trailing particles/fragments for cleaner ending
+        clipped = re.sub(r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할|할\s)$", "", clipped)
+        if not re.search(r"[.다됨임]$", clipped):
+            clipped += " 등이 확인되었습니다."
     return clipped
 
 
@@ -3562,7 +3568,12 @@ def _apply_trend_kr_map(phrase: str) -> str:
 
 
 def _extract_trend_keyword(title: str, source: str) -> str:
-    """Extract concise descriptive keyword from article title for trend table"""
+    """Extract concise descriptive keyword from article title for trend table.
+
+    Returns a short Korean phrase suitable for the trend analysis table.
+    English titles are translated via _apply_trend_kr_map; if the result
+    is still mostly English, fall back to a source-based label.
+    """
     if not title:
         return ""
     # Remove common prefixes/noise
@@ -3583,7 +3594,24 @@ def _extract_trend_keyword(title: str, source: str) -> str:
         phrase = " ".join(words[:7])
         if len(phrase) > 60:
             phrase = phrase[:60].rsplit(" ", 1)[0]
-    return _apply_trend_kr_map(phrase)
+    translated = _apply_trend_kr_map(phrase)
+    # If still mostly English after mapping, use a shorter source-based label
+    kr_chars = len(re.findall(r"[가-힣]", translated))
+    total_alpha = len(re.findall(r"[a-zA-Z]", translated))
+    if total_alpha > 0 and kr_chars / max(total_alpha + kr_chars, 1) < 0.3:
+        # Try translating the full title for better coverage
+        full_translated = _apply_trend_kr_map(title.strip())
+        kr_full = len(re.findall(r"[가-힣]", full_translated))
+        total_full = len(re.findall(r"[a-zA-Z]", full_translated))
+        if kr_full / max(total_full + kr_full, 1) >= 0.3:
+            # Truncate to reasonable length
+            if len(full_translated) > 40:
+                full_translated = full_translated[:40].rsplit(" ", 1)[0]
+            return full_translated
+        # Final fallback: source name as context
+        if source:
+            return f"{source} 관련 동향"
+    return translated
 
 
 def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
