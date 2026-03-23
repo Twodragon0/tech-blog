@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest: CVE, Patch, AI, and Apple</title>
+  <title>Tech Security Weekly Digest</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b1120"/>
@@ -14,29 +14,32 @@
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="210" cy="170" r="180" fill="#dc2626" opacity="0.14" filter="url(#glow)"/>
-  <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="210" cy="170" r="180" fill="#22c55e" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="600" cy="140" r="160" fill="#f97316" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="980" cy="220" r="170" fill="#22d3ee" opacity="0.12" filter="url(#glow)"/>
   <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">ZERO DAY  PATCH  MALWARE</text>
+  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">PATCH  SUPPLY CHAIN  AI/ML</text>
   <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
+
   <g transform="translate(250 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#dc2626" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#dc2626" text-anchor="middle" opacity="0.7">PATCH</text>
+    <circle r="56" fill="#0f172a" stroke="#22c55e" stroke-width="2.5"/>
+    <path d="M0 -24 L20 -12 L20 8 C20 22 0 32 0 32 C0 32 -20 22 -20 8 L-20 -12 Z" fill="none" stroke="#22c55e" stroke-width="2.5"/><path d="M-8 2 L-2 8 L10 -6" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <text x="250" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">ZERO DAY</text>
+  <text x="250" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#22c55e" text-anchor="middle">PATCH</text>
 
   <g transform="translate(600 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#67e8f9" stroke-width="2.5"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#67e8f9" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#67e8f9" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#67e8f9" text-anchor="middle" opacity="0.7">PATCH</text>
+    <circle r="56" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
+    <rect x="-18" y="-12" width="14" height="14" rx="3" fill="none" stroke="#f97316" stroke-width="2"/><rect x="4" y="-12" width="14" height="14" rx="3" fill="none" stroke="#f97316" stroke-width="2"/><rect x="-7" y="6" width="14" height="14" rx="3" fill="none" stroke="#f97316" stroke-width="2"/><line x1="-4" y1="2" x2="-1" y2="6" stroke="#f97316" stroke-width="1.5"/><line x1="11" y1="2" x2="4" y2="6" stroke="#f97316" stroke-width="1.5"/>
   </g>
-  <text x="600" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#67e8f9" text-anchor="middle">PATCH</text>
+  <text x="600" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f97316" text-anchor="middle">SUPPLY CHAIN</text>
 
   <g transform="translate(950 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
-    <circle r="16" fill="#f59e0b" opacity="0.2"/><circle cx="-12" cy="-8" r="6" fill="#f59e0b" opacity="0.5"/><circle cx="12" cy="8" r="6" fill="#f59e0b" opacity="0.5"/><circle cx="8" cy="-12" r="4" fill="#f59e0b" opacity="0.4"/>
+    <circle r="56" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
+    <circle r="14" fill="none" stroke="#22d3ee" stroke-width="2"/><circle r="6" fill="#22d3ee" opacity="0.4"/><line x1="-20" y1="-14" x2="-8" y2="-6" stroke="#22d3ee" stroke-width="1.5"/><line x1="20" y1="-14" x2="8" y2="-6" stroke="#22d3ee" stroke-width="1.5"/><line x1="-20" y1="14" x2="-8" y2="6" stroke="#22d3ee" stroke-width="1.5"/><line x1="20" y1="14" x2="8" y2="6" stroke="#22d3ee" stroke-width="1.5"/><circle cx="-20" cy="-14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="20" cy="-14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="-20" cy="14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="20" cy="14" r="4" fill="#22d3ee" opacity="0.5"/>
   </g>
-  <text x="950" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f59e0b" text-anchor="middle">MALWARE</text>
+  <text x="950" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#22d3ee" text-anchor="middle">AI/ML</text>
+  <circle cx="425" cy="340" r="4" fill="#475569"/>
+  <circle cx="775" cy="340" r="4" fill="#475569"/>
 
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
   <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">March 22, 2026</text>

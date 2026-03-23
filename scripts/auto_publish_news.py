@@ -2664,7 +2664,7 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
 
         concise = " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
         if len(concise) > 220:
-            concise = concise[:220].rsplit(" ", 1)[0].rstrip(" ,.")
+            concise = _truncate_korean_sentence(concise, 220)
         return concise
 
     cache_key = item.get("id") or item.get("url") or item.get("title") or text[:80]
@@ -2718,7 +2718,7 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         sentences = [s.strip() for s in sentences if len(s.strip()) > 10]
         summary_text = " ".join(sentences[:3])
         if len(summary_text) > 300:
-            summary_text = summary_text[:297].rsplit(" ", 1)[0] + "..."
+            summary_text = _truncate_korean_sentence(summary_text, 300)
 
         action = _generate_contextual_action_point(item)
         if summary_text:
@@ -2862,6 +2862,27 @@ def _table_summary(text: str, max_len: int = 200) -> str:
     if re.search(r"[가-힣]", clipped):
         # Remove trailing particles/fragments for cleaner ending
         clipped = re.sub(r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할|할\s)$", "", clipped)
+        if not re.search(r"[.다됨임]$", clipped):
+            clipped += " 등이 확인되었습니다."
+    return clipped
+
+
+def _truncate_korean_sentence(text: str, max_len: int) -> str:
+    """Truncate text at a Korean sentence boundary, ensuring proper ending."""
+    if len(text) <= max_len:
+        return text
+    clipped = text[:max_len]
+    # Try sentence boundaries
+    for sep in ["습니다.", "니다.", "했습니다.", "됩니다.", "입니다.", "다.", "됨.", "임."]:
+        idx = clipped.rfind(sep)
+        if idx > max_len * 0.4:
+            return clipped[: idx + len(sep)]
+    # Word boundary fallback
+    clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
+    if re.search(r"[가-힣]", clipped):
+        clipped = re.sub(
+            r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할)$", "", clipped
+        )
         if not re.search(r"[.다됨임]$", clipped):
             clipped += " 등이 확인되었습니다."
     return clipped
