@@ -1286,7 +1286,7 @@ class TestExtractTrendKeyword:
     def test_korean_title_truncation(self):
         long_title = "가" * 50
         result = _extract_trend_keyword(long_title, "Source")
-        assert len(result) <= 30
+        assert len(result) <= 40
 
     def test_english_short_title(self):
         result = _extract_trend_keyword("Zero Day Found", "THN")
@@ -1296,7 +1296,7 @@ class TestExtractTrendKeyword:
         result = _extract_trend_keyword(
             "Critical Zero Day Vulnerability Found in Major Enterprise Software", "THN"
         )
-        assert len(result.split()) <= 5
+        assert len(result.split()) <= 7
 
     def test_empty_title(self):
         result = _extract_trend_keyword("", "Source")

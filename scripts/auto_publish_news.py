@@ -2845,12 +2845,19 @@ def generate_news_section(
     return section
 
 
-def _table_summary(text: str, max_len: int = 120) -> str:
+def _table_summary(text: str, max_len: int = 200) -> str:
     cleaned = re.sub(r"\s+", " ", (text or "").strip())
     cleaned = cleaned.replace("...", " ").replace("…", " ").strip(" .")
     if len(cleaned) <= max_len:
         return cleaned
-    clipped = cleaned[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+    # Try to end at a sentence boundary
+    clipped = cleaned[:max_len]
+    for sep in [".", "다.", "니다.", "습니다."]:
+        idx = clipped.rfind(sep)
+        if idx > max_len * 0.5:
+            return clipped[: idx + len(sep)]
+    # Fallback: end at word boundary
+    clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.")
     return clipped
 
 
@@ -3294,14 +3301,21 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
         count = 0
         representative_titles = []
         for item in news_items:
-            text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+            # Use title primarily for classification to avoid false positives
+            title_text = item.get("title", "").lower()
             for kw in keywords:
-                if kw in text:
+                # Require word boundary match for short keywords (<=3 chars)
+                if len(kw) <= 3:
+                    if re.search(r"\b" + re.escape(kw) + r"\b", title_text):
+                        matched = True
+                    else:
+                        matched = False
+                else:
+                    matched = kw in title_text
+                if matched:
                     count += 1
-                    # Extract short descriptive keyword from article title
                     title = item.get("title", "")
                     source = item.get("source_name", "")
-                    # Create concise reference: "Source Product/Topic"
                     short_ref = _extract_trend_keyword(title, source)
                     if short_ref and short_ref not in representative_titles:
                         representative_titles.append(short_ref)
@@ -3355,21 +3369,19 @@ def _extract_trend_keyword(title: str, source: str) -> str:
     title = re.sub(r"^\[.*?\]\s*", "", title)
     # For Korean titles, extract key noun phrases
     if re.search(r"[가-힣]", title):
-        # Try to extract the main topic (first meaningful segment)
         parts = re.split(r"[,:\-–—·]", title)
         segment = parts[0].strip()
-        if len(segment) > 30:
-            segment = segment[:30]
+        if len(segment) > 40:
+            segment = segment[:40]
         return segment
     # For English titles, extract product/topic name
-    # Remove articles and common words
     words = title.split()
-    if len(words) <= 4:
+    if len(words) <= 6:
         return title.strip()
-    # Take first meaningful phrase (up to 5 words, max 40 chars)
-    phrase = " ".join(words[:5])
-    if len(phrase) > 40:
-        phrase = phrase[:40].rsplit(" ", 1)[0]
+    # Take first meaningful phrase (up to 7 words, max 60 chars)
+    phrase = " ".join(words[:7])
+    if len(phrase) > 60:
+        phrase = phrase[:60].rsplit(" ", 1)[0]
     return phrase
 
 
