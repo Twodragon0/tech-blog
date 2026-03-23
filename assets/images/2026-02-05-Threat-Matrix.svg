@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" role="img" aria-labelledby="threat-matrix-title threat-matrix-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" role="img" aria-labelledby="threat-matrix-title threat-matrix-desc" width="700" height="600">
   <title>Threat-Matrix</title>
   <title id="threat-matrix-title">Threat Severity Matrix</title>
   <desc id="threat-matrix-desc">2D scatter plot showing security threats plotted by exploitability and impact</desc>

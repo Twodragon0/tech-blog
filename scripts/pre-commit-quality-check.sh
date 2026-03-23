@@ -17,8 +17,10 @@ WARN_BELOW=80
 STAGED_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep '^_posts/.*\.md$' || true)
 # Collect staged script files for template test
 STAGED_SCRIPTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E 'scripts/auto_publish_news\.py|scripts/tests/' || true)
+# Collect staged SVG files
+STAGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep '\.svg$' || true)
 
-if [[ -z "$STAGED_POSTS" && -z "$STAGED_SCRIPTS" ]]; then
+if [[ -z "$STAGED_POSTS" && -z "$STAGED_SCRIPTS" && -z "$STAGED_SVGS" ]]; then
   exit 0
 fi
 
@@ -71,5 +73,24 @@ if [ -n "$STAGED_SCRIPTS" ]; then
     else
         echo "❌ Template tests failed — fix before committing"
         exit 1
+    fi
+fi
+
+# SVG quality check (only when SVG files are staged)
+if [ -n "$STAGED_SVGS" ]; then
+    SVG_CHECKER="$REPO_ROOT/scripts/check_svg_quality.py"
+    if [ -f "$SVG_CHECKER" ]; then
+        echo ""
+        echo "🖼️  Running SVG quality check..."
+        SVG_FILES=()
+        while IFS= read -r f; do
+            SVG_FILES+=("$REPO_ROOT/$f")
+        done <<< "$STAGED_SVGS"
+        if python3 "$SVG_CHECKER" --ci "${SVG_FILES[@]}"; then
+            echo "✅ SVG quality check passed"
+        else
+            echo "❌ SVG quality check failed — fix before committing"
+            exit 1
+        fi
     fi
 fi

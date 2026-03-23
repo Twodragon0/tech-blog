@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none" width="400" height="225">
   <title>news-fallback</title>
   <rect width="400" height="225" rx="8" fill="#f1f5f9"/>
   <path d="M180 90h40v4h-40zM170 100h60v4h-60zM175 110h50v4h-50z" fill="#94a3b8"/>
