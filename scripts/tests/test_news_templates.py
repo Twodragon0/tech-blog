@@ -1373,6 +1373,42 @@ class TestApplyTrendKrMap:
         assert "우회 조치" in _apply_trend_kr_map("workaround")
         assert "권고" in _apply_trend_kr_map("advisory")
 
+    def test_cloud_infrastructure_terms(self):
+        assert "잘못 설정된" in _apply_trend_kr_map("misconfigured")
+        assert "과잉 권한" in _apply_trend_kr_map("overprivileged")
+        assert "드리프트" in _apply_trend_kr_map("drift")
+        assert "컴플라이언스" in _apply_trend_kr_map("compliance")
+        assert "거버넌스" in _apply_trend_kr_map("governance")
+
+    def test_cloud_workload_terms(self):
+        assert "워크로드" in _apply_trend_kr_map("workload")
+        assert "컨테이너" in _apply_trend_kr_map("container")
+        assert "서버리스" in _apply_trend_kr_map("serverless")
+        assert "마이크로서비스" in _apply_trend_kr_map("microservices")
+        assert "배포" in _apply_trend_kr_map("deployment")
+
+    def test_cloud_operations_terms(self):
+        assert "장애" in _apply_trend_kr_map("outage")
+        assert "옵저버빌리티" in _apply_trend_kr_map("observability")
+        assert "모니터링" in _apply_trend_kr_map("monitoring")
+        assert "인시던트" in _apply_trend_kr_map("incident")
+        assert "오토스케일링" in _apply_trend_kr_map("autoscaling")
+
+    def test_cloud_multi_word_phrases(self):
+        result = _apply_trend_kr_map("cost optimization strategy")
+        assert "비용 최적화" in result
+        result = _apply_trend_kr_map("identity federation breach")
+        assert "ID 페더레이션" in result
+        result = _apply_trend_kr_map("secret sprawl detected")
+        assert "시크릿 난립" in result
+        assert "탐지된" in result
+
+    def test_mixed_cloud_security(self):
+        result = _apply_trend_kr_map("misconfigured container vulnerability")
+        assert "잘못 설정된" in result
+        assert "컨테이너" in result
+        assert "취약점" in result
+
 
 # ===========================================================================
 # _generate_trend_analysis

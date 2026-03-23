@@ -186,7 +186,9 @@ def main() -> int:
                 print(f"[FIXED] {rel}")
                 fixed += 1
         print(f"\nFixed {fixed} / {len(svg_files)} files")
-        return 0
+        if not args.ci:
+            return 0
+        # --fix --ci: continue to quality check after fixing
 
     total_fail = 0
     total_warn = 0
