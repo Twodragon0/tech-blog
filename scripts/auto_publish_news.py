@@ -2647,6 +2647,10 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
     sentences = [s.strip() for s in sentences if s.strip()]
     selected = sentences[:max_sentences] if sentences else [text[:220]]
 
+    cache_key = item.get("id") or item.get("url") or item.get("title") or text[:80]
+    if cache_key in KOREAN_SUMMARY_CACHE:
+        return KOREAN_SUMMARY_CACHE[cache_key]
+
     has_korean = bool(re.search(r"[가-힣]", text))
     if has_korean:
         needs_refine = len(text) > 220 or "URL:" in summary or "http" in summary
@@ -2660,16 +2664,14 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
                 generated = re.sub(r"\s+", " ", generated)
                 generated = generated.replace("...", " ").replace("…", " ").strip(" .")
                 if len(generated) >= 25:
+                    KOREAN_SUMMARY_CACHE[cache_key] = generated
                     return generated
 
         concise = " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
         if len(concise) > 220:
             concise = _truncate_korean_sentence(concise, 220)
+        KOREAN_SUMMARY_CACHE[cache_key] = concise
         return concise
-
-    cache_key = item.get("id") or item.get("url") or item.get("title") or text[:80]
-    if cache_key in KOREAN_SUMMARY_CACHE:
-        return KOREAN_SUMMARY_CACHE[cache_key]
 
     if check_gemini_available():
         prompt = (
@@ -2850,21 +2852,7 @@ def _table_summary(text: str, max_len: int = 200) -> str:
     cleaned = cleaned.replace("...", " ").replace("…", " ").strip(" .")
     if len(cleaned) <= max_len:
         return cleaned
-    # Try to end at a sentence boundary
-    clipped = cleaned[:max_len]
-    for sep in ["습니다.", "니다.", "했습니다.", "됩니다.", "입니다.", "다.", "됨.", "임."]:
-        idx = clipped.rfind(sep)
-        if idx > max_len * 0.4:
-            return clipped[: idx + len(sep)]
-    # Fallback: end at word boundary and add proper ending
-    clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
-    # Add natural Korean sentence ending if text looks Korean
-    if re.search(r"[가-힣]", clipped):
-        # Remove trailing particles/fragments for cleaner ending
-        clipped = re.sub(r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할|할\s)$", "", clipped)
-        if not re.search(r"[.다됨임]$", clipped):
-            clipped += " 등이 확인되었습니다."
-    return clipped
+    return _truncate_korean_sentence(cleaned, max_len)
 
 
 def _truncate_korean_sentence(text: str, max_len: int) -> str:
@@ -3535,8 +3523,7 @@ _TREND_KR_MAP = {
     "performance": "성능",
     "reliability": "안정성",
     "resilience": "복원력",
-    # Cloud & infrastructure terms
-    "misconfiguration": "설정 오류",
+    # Cloud & infrastructure terms (note: "misconfiguration" already defined above)
     "misconfigured": "잘못 설정된",
     "overprivileged": "과잉 권한",
     "drift": "드리프트",
@@ -3550,7 +3537,6 @@ _TREND_KR_MAP = {
     "serverless": "서버리스",
     "microservice": "마이크로서비스",
     "microservices": "마이크로서비스",
-    "deployment": "배포",
     "outage": "장애",
     "downtime": "다운타임",
     "latency": "지연",

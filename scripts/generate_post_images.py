@@ -1340,12 +1340,12 @@ _DIGEST_KEYWORD_MAP = {
     "crypto": "blockchain", "bitcoin": "blockchain", "비트코인": "blockchain",
     "ai": "ai", "llm": "ai", "gpt": "ai", "ml": "ai",
     "cloud": "cloud", "aws": "cloud", "azure": "cloud", "gcp": "cloud", "클라우드": "cloud",
-    "patch": "patch", "cve": "patch", "패치": "patch",
+    "patch": "patch", "패치": "patch",
     "supply chain": "supply-chain", "공급망": "supply-chain",
     "authentication": "auth", "인증": "auth", "credential": "auth", "identity": "auth",
-    "zero trust": "patch", "제로트러스트": "patch",
+    "zero trust": "auth", "제로트러스트": "auth",
     "botnet": "malware", "봇넷": "malware", "spyware": "malware",
-    "exploit": "zero-day", "익스플로잇": "zero-day",
+    "cve": "zero-day", "exploit": "zero-day", "익스플로잇": "zero-day",
     "kubernetes": "kubernetes", "k8s": "kubernetes", "컨테이너": "kubernetes",
     "container": "kubernetes", "docker": "kubernetes", "helm": "kubernetes",
     "devops": "devops", "devsecops": "devops", "ci/cd": "devops", "pipeline": "devops",
@@ -1360,9 +1360,13 @@ def _detect_digest_nodes(post_info: Dict) -> list:
     text = f"{title} {' '.join(tags)}"
 
     seen = []
-    # Check multi-word phrases first
+    # Check multi-word phrases first, use word boundary for short keywords
     for keyword in sorted(_DIGEST_KEYWORD_MAP.keys(), key=len, reverse=True):
-        if keyword in text and _DIGEST_KEYWORD_MAP[keyword] not in seen:
+        if len(keyword) <= 3:
+            matched = bool(re.search(r"\b" + re.escape(keyword) + r"\b", text))
+        else:
+            matched = keyword in text
+        if matched and _DIGEST_KEYWORD_MAP[keyword] not in seen:
             seen.append(_DIGEST_KEYWORD_MAP[keyword])
             if len(seen) >= 3:
                 break

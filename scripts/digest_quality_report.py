@@ -47,7 +47,11 @@ def find_digest_posts(month: str = None) -> list:
 
 def analyze_post(filepath: Path) -> dict:
     """Analyze a single post for quality issues."""
-    content = filepath.read_text(encoding="utf-8")
+    try:
+        content = filepath.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        issues["summary_quality"] = "encoding_error"
+        return issues
     lines = content.split("\n")
     issues = {
         "truncated_cells": [],
@@ -92,10 +96,7 @@ def analyze_post(filepath: Path) -> dict:
             for li in li_matches:
                 clean = re.sub(r"<[^>]+>", "", li)
                 if len(clean) > 20 and not _KOREAN_ENDINGS.search(clean):
-                    # Check if it ends with a complete thought
-                    if _TRUNCATION_PARTICLES.search(clean) or clean.endswith(
-                        tuple("CI/CD의에를을이가은는")
-                    ):
+                    if _TRUNCATION_PARTICLES.search(clean):
                         issues["incomplete_highlights"].append(
                             {"line": i, "text": clean[-50:]}
                         )

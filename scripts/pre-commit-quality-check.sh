@@ -70,7 +70,7 @@ if [[ -n "$STAGED_POSTS" ]]; then
     # Only check Digest posts
     if echo "$f" | grep -q "Digest"; then
       # Find table rows with 핵심 내용 or 주요 키워드 that end with particles or mid-sentence
-      TRUNC=$(grep -nE '\|[^|]+\|[^|]*\s+(의|에|를|이|가|은|는|한|된|인|할|위한|하기)\s*\|' "$REPO_ROOT/$f" 2>/dev/null || true)
+      TRUNC=$(grep -nE '\|[^|]{30,}\|[^|]*\s+(의|에|를|을|이|가|은|는|와|과|로|으로|에서|한|된|인|할|위한|하기|대한)\s*\|' "$REPO_ROOT/$f" 2>/dev/null || true)
       if [ -n "$TRUNC" ]; then
         echo "⚠️  $f: truncated table cell detected"
         echo "$TRUNC" | head -3
