@@ -10,7 +10,7 @@ tags:
 - VPC
 - GuardDuty
 - Security-Architecture
-excerpt: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안"
+excerpt: "클라우드 시큐리티 8기 2주차 핵심 정리. VPC 보안 설계, IAM 최소 권한 원칙, S3 버킷 보안 정책, GuardDuty 위협 탐지 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent에서 발표된 신규 보안 서비스를 실무 중심으로 완벽 정복합니다."
 description: VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안
   서비스를 실무 중심으로 완벽 정복하세요.
 image: /assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.svg

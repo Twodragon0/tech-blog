@@ -7,7 +7,7 @@ comments: true
 date: 2025-11-26 19:36:52 +0900
 description: 클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신
   보안 기술을 실무 중심으로 학습하세요.
-excerpt: "클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신"
+excerpt: "클라우드 시큐리티 8기 1주차 핵심 정리. 클라우드 인프라의 본질적 이해부터 2025년 최신 보안 트렌드까지 폭넓게 다룹니다. AI 보안 위협 대응 전략, Zero Trust 아키텍처 설계 원칙, Post-quantum 암호화 등 미래 보안 기술을 실무 중심으로 학습합니다."
 image: /assets/images/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.svg
 image_alt: 'Cloud Security 8Batch 1Week: From Infrastructure Essence to Security Future'
 layout: post

@@ -7,7 +7,7 @@ comments: true
 date: 2025-04-30 19:51:25 +0900
 description: 공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용
   PC 보안 모범 사례, 2025년 인증 보안 트렌드(FIDO2, AI 피싱 대응)까지 상세 정리.
-excerpt: "공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용"
+excerpt: "공용 PC 환경에서도 안전하게 인증하는 방법을 알아봅니다. FIDO2 기반 패스키(Passkey) WebAuthn 인증, OTP 2단계 인증 강화, 암호 관리자 활용법, 공용 PC 보안 모범 사례, AI 피싱 대응 전략까지 2025년 최신 인증 보안 트렌드를 실무 관점에서 정리합니다."
 image: /assets/images/2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage.svg
 image_alt: 'Safely on Public PC: Passkey OTP Strong Password Management Usage'
 layout: post

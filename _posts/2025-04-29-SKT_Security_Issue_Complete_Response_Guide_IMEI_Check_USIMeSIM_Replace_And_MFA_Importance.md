@@ -10,7 +10,7 @@ tags:
 - MFA
 - USIM
 - Security-Incident
-excerpt: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성 - SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,"
+excerpt: "SK텔레콤 USIM 정보 유출 사태 완벽 대응 가이드. USIM/eSIM 즉시 교체 방법, IMEI 확인, MFA 활성화, SIM 스와핑 공격 위험성과 방어 전략, 통신사 보안 서비스 가입, 금융 계좌 보호 설정까지 개인과 기업이 취해야 할 실무 중심 보안 조치를 단계별로 정리합니다."
 description: SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,
   OTP/MFA 중요성, 통신사 보안 강화 조치, 개인/기업 보안 시사점까지 실무 중심 정리.
 image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance.svg

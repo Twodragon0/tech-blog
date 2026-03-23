@@ -11,7 +11,7 @@ tags:
 - Datadog
 - AI
 - Conference
-excerpt: "AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안의 공존, AWS re:Invent 보안 발표,"
+excerpt: "12월 주요 컨퍼런스 회고 및 2025년 전망. AWSKRUG, OWASP, Datadog 세미나를 통해 살펴본 AI와 보안의 공존, AWS re:Invent 주요 보안 발표, Zero Trust 표준화 동향, LLM 보안 이슈, 옵저버빌리티 트렌드까지 현장에서 포착한 인사이트를 정리합니다."
 description: AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안의 공존, AWS re:Invent 보안 발표,
   Zero Trust 표준화 등 최신 트렌드를 확인하세요.
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
