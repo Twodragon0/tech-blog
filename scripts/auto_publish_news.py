@@ -3817,7 +3817,8 @@ def _select_svg_template(news_items: List[Dict], focus_labels: List[str]) -> str
 def _svg_base_frame(
     accent: str, headline: str, subtitle: str, date_display: str
 ) -> str:
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b1120"/>

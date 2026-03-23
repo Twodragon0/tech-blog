@@ -1125,7 +1125,8 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 
         date_str = datetime.now().strftime("%B %d, %Y")
 
-        svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+        svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(display_title)}</title>
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0f23"/>

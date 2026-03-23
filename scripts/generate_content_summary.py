@@ -660,7 +660,8 @@ def _get_config(category: str) -> Dict:
 
 def _svg_header(config: Dict) -> str:
     """Common SVG header with defs, background, grid pattern."""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{config.get("title", "Tech Blog Content Summary")}</title>
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0f23"/>

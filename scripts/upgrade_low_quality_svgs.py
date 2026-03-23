@@ -466,7 +466,8 @@ def generate_svg(cfg):
     elif cfg["badge"] in ("SECURITY", "AI CLOUD"):
         badge_color = "#3b82f6"
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{cfg.get("headline", "Tech Blog")}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a1a"/>

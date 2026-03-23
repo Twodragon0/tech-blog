@@ -589,6 +589,7 @@ def build_svg(title_raw: str, image_path: str, date_str: str) -> str:
     stat_cards_svg = render_stat_cards(cards, accent)
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>{headline}</title>
   <defs>
     <!-- Background gradient -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
