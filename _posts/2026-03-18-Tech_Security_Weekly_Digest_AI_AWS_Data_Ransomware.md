@@ -430,9 +430,9 @@ MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 비
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military |
-| [소프트웨어 3.0 시대를 수용하다](https://toss.tech/article/harness-for-team-productivity-eng) | 토스 기술 블로그 | 개발자가 계층화 아키텍처를 기반으로 Claude Code를 어떻게 이해하고 활용하는지 설명합니다. 이는 소프트웨어 개발 패러다임의 변화를 의미하는 Software 3.0 시대를 수용하는 방식 중 하나입니다 |
-| [LINE 앱의 다자간 대화 기능 통합](https://techblog.lycorp.co.jp/ko/unification-of-group-chat-on-the-line-app) | LINE Engineering | 이 글은 합병 이전 구 블로그에 게시했던 기사(최초 게시일: 2022년 2월 24일)를 현재 블로그로 이관한 것으로, 내용은 최초 게시 시점 기준입니다.LINE은 1:1 대화뿐 아 |
+| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 뉴스, 시장 동향, 군사·지정학적 이벤트, 인터넷 장애, 데이터센터 현황 등을 지도 위에서 한눈에 확인할 수 있습니다. |
+| [소프트웨어 3.0 시대를 수용하다](https://toss.tech/article/harness-for-team-productivity-eng) | 토스 기술 블로그 | 개발자가 계층화 아키텍처를 기반으로 Claude Code를 어떻게 이해하고 활용하는지 설명합니다. Software 3.0 패러다임에서 AI는 단순 도구가 아닌 개발 파이프라인의 핵심 레이어로 자리잡으며, 팀 생산성 향상 사례와 함께 실무 적용 방법을 소개합니다. |
+| [LINE 앱의 다자간 대화 기능 통합](https://techblog.lycorp.co.jp/ko/unification-of-group-chat-on-the-line-app) | LINE Engineering | LINE은 1:1 대화뿐 아니라 그룹 채팅, 오픈 채팅 등 다양한 다자간 대화 기능을 단일 아키텍처로 통합한 과정을 공유합니다. 합병 전후 레거시 시스템을 점진적으로 마이그레이션한 경험과 기술적 의사결정을 담고 있습니다. |
 
 
 ---

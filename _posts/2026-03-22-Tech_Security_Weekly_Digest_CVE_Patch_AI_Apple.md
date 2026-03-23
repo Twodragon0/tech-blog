@@ -250,9 +250,9 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military |
-| [디자인 프로세스는 죽지 않았다, 압축되었을 뿐](https://news.hada.io/topic?id=27724) | GeekNews (긱뉴스) | AI가 디자인 작업 속도를 높이면서 "프로세스를 버려라"는 주장이 확산되고 있지만, 이는 숙련된 디자이너의 작업 방식을 오해한 결과 숙련된 디자이너가 "그냥 만들기 시작했다"고 말할 때, 실제로는 수년간 축적된 |
-| [아동 보호를 인터넷 접근 통제로 바꾸지 말라](https://news.hada.io/topic?id=27723) | GeekNews (긱뉴스) | 전 세계에서 확산 중인 연령 확인 제도 가 단순한 아동 보호를 넘어 인터넷 접근 구조 자체를 재편 하고 있음 이 제도는 ‘접근 전 신원 증명’이라는 접근 통제 아키텍처 로 작동하며, 일부는 운영체제 수준의 신원 |
+| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 뉴스, 시장 동향, 군사·지정학적 이벤트, 인터넷 장애, 데이터센터 현황 등을 지도 위에서 한눈에 확인할 수 있습니다. |
+| [디자인 프로세스는 죽지 않았다, 압축되었을 뿐](https://news.hada.io/topic?id=27724) | GeekNews (긱뉴스) | AI가 디자인 작업 속도를 높이면서 "프로세스를 버려라"는 주장이 확산되고 있지만, 이는 숙련된 디자이너의 작업 방식을 오해한 결과입니다. 숙련된 디자이너가 "그냥 만들기 시작했다"고 말할 때, 실제로는 수년간 축적된 암묵지가 빠르게 작동하는 것으로, AI 시대에도 디자인 사고는 여전히 핵심입니다. |
+| [아동 보호를 인터넷 접근 통제로 바꾸지 말라](https://news.hada.io/topic?id=27723) | GeekNews (긱뉴스) | 전 세계에서 확산 중인 연령 확인 제도가 단순한 아동 보호를 넘어 인터넷 접근 구조 자체를 재편하고 있습니다. ‘접근 전 신원 증명’ 아키텍처로 작동하며 일부는 운영체제 수준의 신원 인프라로 확장되고 있어, 개인정보 보호와 표현의 자유 침해 우려가 커지고 있습니다. |
 
 
 ---
@@ -261,12 +261,12 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 8건 | FBI Warns Russian Hackers Target, Oracle Patches Critical CVE-2026-21992, Trivy Supply Chain Attack Triggers |
-| **Cloud Security** | 1건 | CISA Flags Apple, Craft CMS, |
-| **Supply Chain** | 1건 | Trivy Supply Chain Attack Triggers |
-| **Authentication** | 1건 | Oracle Patches Critical CVE-2026-21992 |
+| **AI/ML** | 8건 | FBI 러시아 해커 경고, Oracle 치명적 CVE-2026-21992 패치, Trivy 공급망 공격 |
+| **Cloud Security** | 1건 | CISA Apple·Craft CMS 취약점 경보 |
+| **Supply Chain** | 1건 | Trivy 공급망 공격 경보 |
+| **Authentication** | 1건 | Oracle CVE-2026-21992 미인증 RCE 패치 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(8건)입니다. FBI Warns Russian Hackers Target, Oracle Patches Critical CVE-2026-21992 등이 주요 이슈입니다. **Cloud Security** 분야에서는 CISA Flags Apple, Craft CMS, 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(8건)입니다. FBI 러시아 해커 경고, Oracle CVE-2026-21992 미인증 RCE 패치 등이 주요 이슈입니다. **Cloud Security** 분야에서는 CISA Apple·Craft CMS 취약점 경보 관련 동향에 주목할 필요가 있습니다.
 
 ---
 

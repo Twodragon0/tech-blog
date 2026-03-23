@@ -496,9 +496,9 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military |
-| [AttributedString 구조로 풀어낸 대규모 iOS 설정 시스템](https://techblog.lycorp.co.jp/ko/a-large-scale-ios-configuration-system-implemented-with-an-attributedstring-structure) | LINE Engineering | 환경이 바뀌면서 과거에 내렸던 합리적인 결정이 더 이상 유효하지 않게 되는 일은 흔히 생깁니다. 이 글은 LINE 앱이 성장하면서 동적 설정 배포 시스템인 ‘서비스 설정’의 iOS |
-| [류구 소행성 샘플에서 DNA와 RNA의 모든 구성 요소 발견](https://news.hada.io/topic?id=27627) | GeekNews | 일본 탐사선이 채취한 류구 소행성 샘플 에서 DNA와 RNA를 구성하는 모든 기본 분자 가 검출됨 분석 결과, 핵산의 주요 구성 성분 인 염기, 당, 인산 등이 모두 존재함이 확인됨 이는 생명체 형성에 필요한 유기 |
+| [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 뉴스, 시장 동향, 군사·지정학적 이벤트, 인터넷 장애, 데이터센터 현황 등을 지도 위에서 한눈에 확인할 수 있습니다. |
+| [AttributedString 구조로 풀어낸 대규모 iOS 설정 시스템](https://techblog.lycorp.co.jp/ko/a-large-scale-ios-configuration-system-implemented-with-an-attributedstring-structure) | LINE Engineering | LINE 앱이 성장하면서 동적 설정 배포 시스템인 ‘서비스 설정’의 iOS 구현을 AttributedString 구조로 전면 재설계한 과정을 공유합니다. 기존 설계의 한계를 극복하고 유연한 설정 표현과 타입 안전성을 동시에 확보한 방법을 설명합니다. |
+| [류구 소행성 샘플에서 DNA와 RNA의 모든 구성 요소 발견](https://news.hada.io/topic?id=27627) | GeekNews | 일본 탐사선이 채취한 류구 소행성 샘플에서 DNA와 RNA를 구성하는 모든 기본 분자가 검출되었습니다. 염기, 당, 인산 등 핵산의 주요 구성 성분이 모두 확인되어, 생명체 형성에 필요한 유기 분자가 우주에서 유래했을 가능성을 강하게 시사합니다. |
 
 
 ---
@@ -507,13 +507,13 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 13건 | OFAC Sanctions DPRK IT Worker, Interlock Ransomware Exploits Cisco FMC, Claude Code Security and Magecart: |
-| **Cloud Security** | 5건 | 9 Critical IP KVM Flaws, From Simulation to Production: How, Next-gen caching with Memorystore for |
-| **Zero-Day** | 2건 | Interlock Ransomware Exploits Cisco FMC, The Proliferation of DarkSword: iOS |
-| **Supply Chain** | 1건 | Introducing Nova Forge SDK, a |
-| **Ransomware** | 1건 | Interlock Ransomware Exploits Cisco FMC |
+| **AI/ML** | 13건 | OFAC 북한 IT 워커 제재, Interlock 랜섬웨어 Cisco FMC 악용, Claude Code 보안 분석 |
+| **Cloud Security** | 5건 | IP KVM 치명적 취약점 9건, 시뮬레이션→프로덕션 전환 가이드, Memorystore 차세대 캐싱 |
+| **Zero-Day** | 2건 | Interlock 랜섬웨어 Cisco FMC 제로데이 악용, DarkSword iOS 악성코드 확산 |
+| **Supply Chain** | 1건 | Nova Forge SDK 공급망 보안 |
+| **Ransomware** | 1건 | Interlock 랜섬웨어 Cisco FMC 제로데이 악용 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(13건)입니다. OFAC Sanctions DPRK IT Worker, Interlock Ransomware Exploits Cisco FMC 등이 주요 이슈입니다. **Cloud Security** 분야에서는 9 Critical IP KVM Flaws, From Simulation to Production: How 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(13건)입니다. OFAC 북한 IT 워커 제재, Interlock 랜섬웨어 Cisco FMC 제로데이 악용 등이 주요 이슈입니다. **Cloud Security** 분야에서는 IP KVM 치명적 취약점 9건, 시뮬레이션에서 프로덕션 전환 보안 가이드 관련 동향에 주목할 필요가 있습니다.
 
 ---
 
