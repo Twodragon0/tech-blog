@@ -600,6 +600,62 @@ opencode sisyphus
 
 See `.opencode/README.md` for detailed documentation.
 
+## Agent Teams Configuration
+
+### Project Agents (`.claude/agents/`)
+
+| Agent | Model | Role |
+|-------|-------|------|
+| `blog-lead` | opus | 프로젝트 리드, 콘텐츠 전략, 작업 분배 |
+| `architect` | opus | Jekyll 구조 설계, 스크립트 아키텍처 |
+| `post-researcher` | sonnet | 기술 블로그 주제 리서치, 트렌드 분석 |
+| `post-quality-reviewer` | haiku | 포스트 품질 검증, 마크다운 린팅 |
+| `post-validator` | haiku | 포스트 유효성 검사 (프론트매터, 링크, 이미지) |
+| `security-auditor` | sonnet | 보안 감사, CSP/HSTS 검증, 의존성 검사 |
+| `seo-optimizer` | haiku | SEO 메타데이터, Open Graph, JSON-LD 최적화 |
+| `performance-analyst` | haiku | Core Web Vitals, 캐싱, 로딩 성능 분석 |
+| `test-engineer` | sonnet | 스크립트 테스트, 템플릿 분기 테스트, CI 검증 |
+
+### Agent Responsibilities
+
+| Agent | Primary Files | Key Tools |
+|-------|--------------|-----------|
+| `blog-lead` | All — coordination role | Read, Grep, Glob, Bash, Write, Edit |
+| `architect` | _layouts/, _includes/, scripts/, docs/ | Read, Grep, Glob, Bash |
+| `post-researcher` | _posts/, docs/guides/ | Read, Grep, Glob, Bash |
+| `post-quality-reviewer` | _posts/ | Read, Grep, Glob, Bash |
+| `post-validator` | _posts/, assets/images/ | Read, Grep, Glob, Bash |
+| `security-auditor` | _includes/, api/, .github/workflows/ | Read, Grep, Glob, Bash |
+| `seo-optimizer` | _includes/, _layouts/ (meta tags) | Read, Grep, Glob, Bash |
+| `performance-analyst` | assets/, _includes/, api/ | Read, Grep, Glob, Bash |
+| `test-engineer` | scripts/tests/, .github/workflows/ | Read, Write, Edit, Bash, Grep, Glob |
+
+### Multi-Agent Workflow Patterns
+
+#### New Blog Post (end-to-end)
+```
+post-researcher  →  blog-lead  →  post-quality-reviewer  →  post-validator  →  seo-optimizer
+(topic research)    (draft/write)   (quality review)          (validation)       (SEO optimize)
+```
+
+#### Security Audit
+```
+security-auditor  →  architect  →  test-engineer
+(audit findings)     (fix design)    (verify fixes)
+```
+
+#### Performance Optimization
+```
+performance-analyst  →  architect  →  test-engineer  →  performance-analyst
+(identify issues)       (solution)    (implement+test)    (verify improvement)
+```
+
+#### Script Development
+```
+architect  →  blog-lead  →  test-engineer  →  post-validator
+(design)      (implement)    (TDD tests)       (integration verify)
+```
+
 ## Related Documentation
 
 | Document | Purpose |
