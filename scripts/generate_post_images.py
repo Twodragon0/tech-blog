@@ -17,6 +17,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.security import mask_sensitive_info, validate_masked_text
+from scripts.lib.logging_utils import log_message
+
 import frontmatter
 import requests
 
@@ -95,79 +99,17 @@ Style: Clean professional infographic
 """
 
 
-def _validate_masked_text(text: str) -> bool:
-    """
-    텍스트가 안전하게 마스킹되었는지 검증합니다.
-
-    Args:
-        text: 검증할 텍스트
-
-    Returns:
-        안전하면 True, 아니면 False
-    """
-    if not text:
-        return True
-
-    # 실제 API 키 패턴이 남아있는지 확인
-    api_key_patterns = [
-        r"sk-[a-zA-Z0-9_-]{20,}",
-        r"AIza[0-9A-Za-z_-]{35}",
-        r"[a-zA-Z0-9_-]{40,}",
-    ]
-
-    for pattern in api_key_patterns:
-        if re.search(pattern, text):
-            return False
-
-    # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
-    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10 and GEMINI_API_KEY in text:
-        return False
-
-    return True
-
-
-def mask_sensitive_info(text: str) -> str:
-    """
-    로그에 기록될 민감한 정보를 마스킹합니다.
-
-    Args:
-        text: 마스킹할 텍스트
-
-    Returns:
-        마스킹된 텍스트
-    """
-    if not text:
-        return text
-
-    # API 키 마스킹
-    masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", text)
-    masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
-    masked = re.sub(
-        r"[a-zA-Z0-9_-]{40,}",
-        lambda m: m.group()[:8] + "***MASKED***" if len(m.group()) > 40 else m.group(),
-        masked,
-    )
-
-    # 환경 변수에서 읽은 실제 API 키 값 마스킹
-    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
-        masked = masked.replace(GEMINI_API_KEY, "***GEMINI_API_KEY_MASKED***")
-
-    # URL에 포함된 API 키 마스킹 (key= 파라미터)
-    masked = re.sub(r"[?&]key=[a-zA-Z0-9_-]+", "?key=***MASKED***", masked)
-
-    return masked
-
 
 def _write_validated_safe_text(file_path: Path, safe_text: str) -> None:
     """
     검증된 안전한 텍스트만 파일에 기록합니다.
 
-    이 함수는 _validate_masked_text()로 검증된 텍스트만 받습니다.
+    이 함수는 validate_masked_text()로 검증된 텍스트만 받습니다.
     CodeQL이 민감 정보 저장으로 감지하지 않도록 별도 함수로 분리했습니다.
 
     Args:
         file_path: 파일 경로
-        safe_text: _validate_masked_text()로 검증된 안전한 텍스트
+        safe_text: validate_masked_text()로 검증된 안전한 텍스트
     """
     # Security: This function only receives pre-validated safe text
     # All sensitive information has been masked and validated before reaching here
@@ -175,20 +117,20 @@ def _write_validated_safe_text(file_path: Path, safe_text: str) -> None:
         return
 
     # Additional runtime validation (defense in depth)
-    if not _validate_masked_text(safe_text):
+    if not validate_masked_text(safe_text):
         # If somehow unsafe text reached here, block it
         return
 
     try:
         # 보안: 검증된 안전한 텍스트만 파일에 기록
-        # CodeQL 경고 방지: 이미 _validate_masked_text()로 검증된 텍스트만 기록
+        # CodeQL 경고 방지: 이미 validate_masked_text()로 검증된 텍스트만 기록
         with open(file_path, "w", encoding="utf-8") as f:
             # 최종 검증: 기록 직전 한 번 더 확인
-            if _validate_masked_text(safe_text):
+            if validate_masked_text(safe_text):
                 # Security: Write only pre-validated, sanitized text
                 # This text has been masked and validated, contains no sensitive data
-                # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
-                # CodeQL: This text has been validated by _validate_masked_text() and contains no sensitive data
+                # nosec B608 - sanitized via mask_sensitive_info and validate_masked_text
+                # CodeQL: This text has been validated by validate_masked_text() and contains no sensitive data
                 f.write(safe_text)
                 f.flush()
     except Exception:
@@ -206,9 +148,9 @@ def _safe_print(text: str) -> None:
 
     # 추가 검증 (defense in depth)
     safe_text = mask_sensitive_info(text)
-    if _validate_masked_text(safe_text):
+    if validate_masked_text(safe_text):
         # Security: Output only pre-validated, sanitized text
-        # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
+        # nosec B608 - sanitized via mask_sensitive_info and validate_masked_text
         print(safe_text)
 
 
@@ -244,16 +186,6 @@ def optimize_image(image_path: Path):
     except Exception as e:
         log_message(f"❌ 이미지 최적화 실패: {str(e)}", "ERROR")
 
-
-def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력 (민감 정보 자동 마스킹)"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    icons = {"INFO": "ℹ️", "SUCCESS": "✅", "WARNING": "⚠️", "ERROR": "❌"}
-    icon = icons.get(level, "ℹ️")
-    # 민감 정보 마스킹 후 출력
-    safe_message = mask_sensitive_info(message)
-    log_entry = f"[{timestamp}] [{level}] {icon} {safe_message}"
-    _safe_print(log_entry)
 
 
 def extract_post_info(post_file: Path) -> Dict:
@@ -700,9 +632,9 @@ def generate_image_with_gemini(
                         safe_prompt = mask_sensitive_info(prompt)
 
                         # 보안: 검증된 안전한 텍스트만 파일에 기록
-                        if _validate_masked_text(
+                        if validate_masked_text(
                             safe_text_response
-                        ) and _validate_masked_text(safe_prompt):
+                        ) and validate_masked_text(safe_prompt):
                             safe_content = "# Image Generation Prompt\n\n"
                             safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
                             safe_content += f"Output: {output_path.name}\n\n"
@@ -795,7 +727,7 @@ def save_prompt_file(prompt: str, output_path: Path):
         safe_prompt = mask_sensitive_info(prompt)
 
         # 검증
-        if not _validate_masked_text(safe_prompt):
+        if not validate_masked_text(safe_prompt):
             log_message(
                 "⚠️ 프롬프트에 민감 정보가 포함되어 저장이 차단되었습니다.", "WARNING"
             )
@@ -855,7 +787,7 @@ def generate_audio(post_info: Dict, output_path: Path) -> bool:
 
         # 민감 정보 마스킹
         safe_audio_text = mask_sensitive_info(audio_text)
-        if not _validate_masked_text(safe_audio_text):
+        if not validate_masked_text(safe_audio_text):
             log_message(
                 "⚠️ 오디오 텍스트에 민감 정보가 포함되어 생성이 차단되었습니다.",
                 "WARNING",

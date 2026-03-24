@@ -10,6 +10,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 import frontmatter
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -18,13 +21,6 @@ IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
 IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
-
-def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    icons = {"INFO": "ℹ️", "SUCCESS": "✅", "WARNING": "⚠️", "ERROR": "❌"}
-    icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] [{level}] {icon} {message}")
 
 
 def _escape_svg_text(text: str) -> str:

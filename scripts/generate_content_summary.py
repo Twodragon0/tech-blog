@@ -28,6 +28,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 import frontmatter
 
 try:
@@ -274,13 +277,6 @@ KNOWN_TECH_TERMS = {
 # Logging
 # ---------------------------------------------------------------------------
 
-
-def log_message(message: str, level: str = "INFO"):
-    """Print a log message with timestamp."""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    icons = {"INFO": "[i]", "SUCCESS": "[+]", "WARNING": "[!]", "ERROR": "[x]"}
-    icon = icons.get(level, "[i]")
-    print(f"[{timestamp}] [{level}] {icon} {message}")
 
 
 # ---------------------------------------------------------------------------

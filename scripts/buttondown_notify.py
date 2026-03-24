@@ -18,18 +18,12 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.security import mask_sensitive_info
+
 import requests
 import yaml
 
-
-def mask_sensitive_info(text: str) -> str:
-    if not text:
-        return text
-    masked = re.sub(r"Token\s+[a-zA-Z0-9_-]{20,}", "Token ***MASKED***", text)
-    buttondown_key = os.getenv("BUTTONDOWN_API_KEY", "")
-    if buttondown_key and len(buttondown_key) > 10:
-        masked = masked.replace(buttondown_key, "***MASKED***")
-    return masked
 
 
 def safe_print(message: str) -> None:
