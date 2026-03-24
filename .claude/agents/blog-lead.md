@@ -6,6 +6,8 @@ tools:
   - Grep
   - Glob
   - Bash
+  - Write
+  - Edit
   - Agent
 model: opus
 memory: project
