@@ -2,8 +2,17 @@ name: Lighthouse CI
 on:
   push:
     branches: [main]
+    paths:
+      - '_includes/**'
+      - '_layouts/**'
+      - '_sass/**'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - '_config.yml'
+      - 'vercel.json'
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: lighthouse-${{ github.ref }}
@@ -15,19 +24,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Lighthouse CI
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
+
+      - name: Run Lighthouse CI on local build
         id: lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: |
-            https://tech.2twodragon.com
+          staticDistDir: ./_site
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 1
 
       - name: Check Lighthouse scores
         run: |
-          echo "Lighthouse results: ${{ steps.lighthouse.outputs.manifest }}"
           node - <<'EOF'
           const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST || '[]');
           const thresholds = {
@@ -48,7 +66,7 @@ jobs:
             }
           }
           if (failed) {
-            console.error('One or more Lighthouse thresholds not met.');
+            console.error('Lighthouse thresholds not met.');
             process.exit(1);
           } else {
             console.log('All Lighthouse thresholds met.');
