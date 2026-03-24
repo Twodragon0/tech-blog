@@ -20,6 +20,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 # diagrams 라이브러리 임포트
 try:
     from diagrams import Cluster, Diagram, Edge
@@ -119,19 +122,6 @@ STANDARD_GRAPH_ATTR = {
     "dpi": "150",
 }
 
-
-def log_message(message: str, level: str = "INFO") -> None:
-    """로그 메시지 출력"""
-    timestamp = datetime.now().strftime("%H:%M:%S")
-    icons = {
-        "INFO": "ℹ️",
-        "SUCCESS": "✅",
-        "WARNING": "⚠️",
-        "ERROR": "❌",
-        "DIAGRAM": "📊",
-    }
-    icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] {icon} {message}")
 
 
 # ============================================================================

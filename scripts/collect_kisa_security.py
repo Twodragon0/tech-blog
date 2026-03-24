@@ -14,10 +14,14 @@ Usage:
 import argparse
 import json
 import re
+import sys
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.security import mask_sensitive_info
 
 try:
     import requests
@@ -106,20 +110,6 @@ class SecurityNotice:
     category: Optional[str] = None
     severity: Optional[str] = None
     references: Optional[List[Dict[str, str]]] = None
-
-
-def mask_sensitive_info(text: str) -> str:
-    """민감 정보 마스킹"""
-    patterns = [
-        (
-            r'(api[_-]?key|token|secret|password|pwd)\s*[=:]\s*["\']?[\w-]+["\']?',
-            r"\1=***MASKED***",
-        ),
-        (r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b", "***IP_MASKED***"),
-    ]
-    for pattern, replacement in patterns:
-        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
-    return text
 
 
 def safe_log(message: str, level: str = "INFO") -> None:

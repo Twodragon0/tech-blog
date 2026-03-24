@@ -24,6 +24,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
@@ -31,20 +34,6 @@ DIAGRAMS_DIR = IMAGES_DIR / "diagrams"
 
 # mermaid.ink API 엔드포인트
 MERMAID_INK_API = "https://mermaid.ink/img"
-
-
-def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
-    timestamp = datetime.now().strftime("%H:%M:%S")
-    icons = {
-        "INFO": "ℹ️",
-        "SUCCESS": "✅",
-        "WARNING": "⚠️",
-        "ERROR": "❌",
-        "DIAGRAM": "📊",
-    }
-    icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] {icon} {message}")
 
 
 def extract_mermaid_charts(content: str) -> List[Tuple[int, str, str]]:

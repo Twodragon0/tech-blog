@@ -28,6 +28,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 # diagrams 라이브러리 임포트
 try:
     from diagrams import Cluster, Diagram, Edge
@@ -110,14 +113,6 @@ KEYWORD_TYPE_MAP = {
         "GitHub Actions",
     ],
 }
-
-
-def log_message(message: str, level: str = "INFO") -> None:
-    """로그 메시지 출력"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    icons = {"INFO": "ℹ️", "SUCCESS": "✅", "WARNING": "⚠️", "ERROR": "❌"}
-    icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] [{level}] {icon} {message}")
 
 
 def detect_diagram_type(content: str, tags: List[str]) -> str:

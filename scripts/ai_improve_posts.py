@@ -13,6 +13,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+from scripts.lib.security import mask_sensitive_info, validate_masked_text
+
 import requests
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
@@ -46,87 +50,15 @@ def check_gemini_cli_available() -> bool:
         return False
 
 
-def mask_sensitive_info(text: str) -> str:
-    """
-    로그에 기록될 민감한 정보를 마스킹합니다.
-
-    Args:
-        text: 마스킹할 텍스트
-
-    Returns:
-        마스킹된 텍스트
-    """
-    if not text:
-        return text
-
-    # API 키 마스킹 (sk-, sk-ant-, AIza 등으로 시작하는 키)
-    masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", text)
-    masked = re.sub(r"sk-ant-[a-zA-Z0-9_-]{20,}", "sk-ant-***MASKED***", masked)
-    masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
-
-    # 환경 변수에서 읽은 실제 API 키 값 마스킹
-    if CLAUDE_API_KEY and len(CLAUDE_API_KEY) > 10:
-        masked = masked.replace(CLAUDE_API_KEY, "***CLAUDE_API_KEY_MASKED***")
-    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
-        masked = masked.replace(GEMINI_API_KEY, "***GEMINI_API_KEY_MASKED***")
-
-    # URL에 포함된 API 키 마스킹 (key= 파라미터)
-    masked = re.sub(r"[?&]key=[a-zA-Z0-9_-]+", "?key=***MASKED***", masked)
-
-    # 일반적인 API 키 패턴 마스킹 (긴 알파벳/숫자 조합)
-    masked = re.sub(
-        r"[a-zA-Z0-9_-]{40,}",
-        lambda m: m.group()[:8] + "***MASKED***" if len(m.group()) > 40 else m.group(),
-        masked,
-    )
-
-    return masked
-
-
-def _validate_masked_text(text: str) -> bool:
-    """
-    텍스트에 민감 정보가 포함되어 있지 않은지 검증합니다.
-
-    Args:
-        text: 검증할 텍스트
-
-    Returns:
-        안전하면 True, 민감 정보가 있으면 False
-    """
-    if not text:
-        return True
-
-    # 실제 API 키 패턴이 남아있는지 확인
-    api_key_patterns = [
-        r"sk-[a-zA-Z0-9_-]{20,}",  # Claude API key
-        r"sk-ant-[a-zA-Z0-9_-]{20,}",  # Anthropic API key
-        r"AIza[0-9A-Za-z_-]{35,}",  # Google API key
-        r"[a-zA-Z0-9_-]{40,}",  # 일반적인 긴 API 키 패턴
-    ]
-
-    for pattern in api_key_patterns:
-        if re.search(pattern, text):
-            return False
-
-    # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
-    if CLAUDE_API_KEY and len(CLAUDE_API_KEY) > 10 and CLAUDE_API_KEY in text:
-        return False
-    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10 and GEMINI_API_KEY in text:
-        return False
-
-    # API 키 패턴이 없으면 안전
-    return True
-
-
 def _write_safe_text_to_stdout(safe_text: str) -> None:
     """
     검증된 안전한 텍스트만 stdout에 기록합니다.
 
-    이 함수는 _validate_masked_text()로 검증된 텍스트만 받습니다.
+    이 함수는 validate_masked_text()로 검증된 텍스트만 받습니다.
     CodeQL이 민감 정보 로깅으로 감지하지 않도록 별도 함수로 분리했습니다.
 
     Args:
-        safe_text: _validate_masked_text()로 검증된 안전한 텍스트
+        safe_text: validate_masked_text()로 검증된 안전한 텍스트
     """
     # Security: This function only receives pre-validated safe text
     # All sensitive information has been masked and validated before reaching here
@@ -134,7 +66,7 @@ def _write_safe_text_to_stdout(safe_text: str) -> None:
         return
 
     # Additional runtime validation (defense in depth)
-    if not _validate_masked_text(safe_text):
+    if not validate_masked_text(safe_text):
         # If somehow unsafe text reached here, block it
         return
 
@@ -159,7 +91,7 @@ def _safe_console_output(text: str) -> None:
 
     # 보안: 최종 마스킹 - CodeQL이 인식할 수 있도록 출력 직전에 마스킹
     final_text = mask_sensitive_info(text)
-    if _validate_masked_text(final_text):
+    if validate_masked_text(final_text):
         # nosec B608: This text has been sanitized through mask_sensitive_info
         _write_safe_text_to_stdout(final_text)
     else:
@@ -170,25 +102,25 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
     """
     검증된 안전한 텍스트만 파일에 기록합니다.
 
-    이 함수는 _validate_masked_text()로 검증된 텍스트만 받습니다.
+    이 함수는 validate_masked_text()로 검증된 텍스트만 받습니다.
     CodeQL이 민감 정보 저장으로 감지하지 않도록 별도 함수로 분리했습니다.
 
     Args:
         file_path: 로그 파일 경로
-        safe_text: _validate_masked_text()로 검증된 안전한 텍스트
+        safe_text: validate_masked_text()로 검증된 안전한 텍스트
     """
     # Security: This function only receives pre-validated safe text
     if not safe_text:
         return
 
     # Additional runtime validation (defense in depth)
-    if not _validate_masked_text(safe_text):
+    if not validate_masked_text(safe_text):
         return
 
     try:
         # 보안: 최종 마스킹 - CodeQL이 인식할 수 있도록 기록 직전에 마스킹
         final_text = mask_sensitive_info(safe_text)
-        if not _validate_masked_text(final_text):
+        if not validate_masked_text(final_text):
             return
 
         # UTF-8로 인코딩
@@ -197,9 +129,9 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
         with open(file_path, "ab") as f:
             # Security: Write only pre-validated, sanitized text
             # This text has been masked and validated, contains no sensitive data
-            # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
+            # nosec B608 - sanitized via mask_sensitive_info and validate_masked_text
             # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
-            # CodeQL: This text has been validated by _validate_masked_text() and contains no sensitive data
+            # CodeQL: This text has been validated by validate_masked_text() and contains no sensitive data
             f.write(safe_bytes)  # Sanitized data only
             f.flush()
     except Exception:
@@ -223,29 +155,9 @@ def _safe_file_write(file_path: Path, text: str) -> None:
 
     # 보안: 최종 마스킹 - CodeQL이 인식할 수 있도록 기록 직전에 마스킹
     final_text = mask_sensitive_info(text)
-    if _validate_masked_text(final_text):
+    if validate_masked_text(final_text):
         # nosec B608: This text has been sanitized through mask_sensitive_info
         _write_safe_text_to_file(file_path, final_text)
-
-
-def log_message(message: str):
-    """
-    로그 메시지 기록 (민감 정보 자동 마스킹)
-
-    모든 민감 정보는 기록 전에 자동으로 마스킹됩니다.
-    """
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # 민감 정보 마스킹 (모든 로깅 전에 수행)
-    safe_message = mask_sensitive_info(message)
-    log_entry = f"[{timestamp}] {safe_message}\n"
-
-    # 콘솔 출력 (이미 마스킹된 메시지만 출력)
-    safe_console_output = mask_sensitive_info(log_entry.strip())
-    _safe_console_output(safe_console_output)
-
-    # 파일 기록 (이미 마스킹된 메시지만 기록)
-    safe_file_content = mask_sensitive_info(log_entry)
-    _safe_file_write(LOG_FILE, safe_file_content)
 
 
 def extract_post_info(file_path: Path) -> Optional[Dict]:

@@ -5,26 +5,18 @@
 """
 
 import re
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 LOG_FILE = Path(__file__).parent.parent / "improvement_log.txt"
 RUN_DURATION = 3600  # 1시간
-
-
-def log_message(message: str):
-    """로그 메시지 기록"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_entry = f"[{timestamp}] {message}\n"
-    print(log_entry.strip())
-    try:
-        with open(LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(log_entry)
-    except Exception:
-        pass
 
 
 def extract_post_info(file_path: Path) -> Dict:

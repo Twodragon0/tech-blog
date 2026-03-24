@@ -12,6 +12,9 @@ import sys
 from pathlib import Path
 from typing import List
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib.logging_utils import log_message
+
 # Pillow import (이미지 처리)
 try:
     from PIL import Image, ImageOps
@@ -28,18 +31,6 @@ IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
 # 지원되는 이미지 형식
 SUPPORTED_FORMATS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff", ".tif"}
-
-
-def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
-    icons = {
-        "INFO": "ℹ️",
-        "SUCCESS": "✅",
-        "WARNING": "⚠️",
-        "ERROR": "❌",
-    }
-    icon = icons.get(level, "ℹ️")
-    print(f"{icon} {message}")
 
 
 def optimize_image(
