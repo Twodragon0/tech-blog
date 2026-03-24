@@ -1,81 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>AI Era Enterprise AI Service Security Guide: Ensu...</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#0b0e1a"/>
-<stop offset="50%" stop-color="#111827"/>
-<stop offset="100%" stop-color="#0f0a1e"/>
-</linearGradient>
-<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#22d3ee"/>
-<stop offset="100%" stop-color="#8b5cf6"/>
-</linearGradient>
-<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="200" cy="200" r="250" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
-<circle cx="900" cy="400" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#sg)"/>
-<g transform="translate(600,260)">
-<g opacity="0.8">
-<circle cx="-200" cy="-80" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-<circle cx="-200" cy="-20" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-<circle cx="-200" cy="40" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-<circle cx="-200" cy="100" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-</g>
-<g opacity="0.8">
-<circle cx="-60" cy="-100" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-<circle cx="-60" cy="-40" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-<circle cx="-60" cy="20" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-<circle cx="-60" cy="80" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-<circle cx="-60" cy="140" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-</g>
-<g opacity="0.8">
-<circle cx="80" cy="-80" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-<circle cx="80" cy="-20" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-<circle cx="80" cy="40" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-<circle cx="80" cy="100" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-</g>
-<g opacity="0.8">
-<circle cx="220" cy="-30" r="20" fill="#0f172a" stroke="#ec4899" stroke-width="2.5"/>
-<circle cx="220" cy="50" r="20" fill="#0f172a" stroke="#ec4899" stroke-width="2.5"/>
-</g>
-<g stroke="#475569" stroke-width="0.8" opacity="0.25">
-<line x1="-184" y1="-80" x2="-76" y2="-100"/>
-<line x1="-184" y1="-80" x2="-76" y2="-40"/>
-<line x1="-184" y1="-20" x2="-76" y2="-40"/>
-<line x1="-184" y1="-20" x2="-76" y2="20"/>
-<line x1="-184" y1="40" x2="-76" y2="20"/>
-<line x1="-184" y1="40" x2="-76" y2="80"/>
-<line x1="-184" y1="100" x2="-76" y2="80"/>
-<line x1="-184" y1="100" x2="-76" y2="140"/>
-<line x1="-44" y1="-100" x2="64" y2="-80"/>
-<line x1="-44" y1="-40" x2="64" y2="-20"/>
-<line x1="-44" y1="20" x2="64" y2="40"/>
-<line x1="-44" y1="80" x2="64" y2="100"/>
-<line x1="-44" y1="140" x2="64" y2="40"/>
-<line x1="96" y1="-80" x2="200" y2="-30"/>
-<line x1="96" y1="-20" x2="200" y2="-30"/>
-<line x1="96" y1="40" x2="200" y2="50"/>
-<line x1="96" y1="100" x2="200" y2="50"/>
-</g>
-<g stroke="#22d3ee" stroke-width="1.5" opacity="0.4">
-<line x1="-184" y1="-20" x2="-76" y2="-40"/>
-<line x1="-44" y1="-40" x2="64" y2="-20"/>
-<line x1="96" y1="-20" x2="200" y2="-30"/>
-</g>
-<text x="-200" y="145" font-family="Courier New" font-size="10" fill="#22d3ee" text-anchor="middle">INPUT</text>
-<text x="-60" y="175" font-family="Courier New" font-size="10" fill="#8b5cf6" text-anchor="middle">HIDDEN</text>
-<text x="220" y="95" font-family="Courier New" font-size="10" fill="#ec4899" text-anchor="middle">OUTPUT</text>
-</g>
-<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Era Enterprise AI Service Security Guide:</text>
-<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Ensu...</text>
-<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | Enterprise-Security | AI-Security | Governance</text>
-<rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
-<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">SECURITY</text>
-<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">October 31, 2025</text>
-<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>AI Era Enterprise AI Service Security Guide: Ensu...</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="250" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="900" cy="400" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#sg)"/>
+  <g transform="translate(600,260)">
+    <!-- Neural network layers -->
+    <!-- Input layer -->
+    <g opacity="0.8">
+      <circle cx="-200" cy="-80" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="-200" cy="-20" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="-200" cy="40" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="-200" cy="100" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+    </g>
+    <!-- Hidden layer 1 -->
+    <g opacity="0.8">
+      <circle cx="-60" cy="-100" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+      <circle cx="-60" cy="-40" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+      <circle cx="-60" cy="20" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+      <circle cx="-60" cy="80" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+      <circle cx="-60" cy="140" r="16" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+    </g>
+    <!-- Hidden layer 2 -->
+    <g opacity="0.8">
+      <circle cx="80" cy="-80" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="80" cy="-20" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="80" cy="40" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="80" cy="100" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+    </g>
+    <!-- Output layer -->
+    <g opacity="0.8">
+      <circle cx="220" cy="-30" r="20" fill="#0f172a" stroke="#ec4899" stroke-width="2.5"/>
+      <circle cx="220" cy="50" r="20" fill="#0f172a" stroke="#ec4899" stroke-width="2.5"/>
+    </g>
+
+    <!-- Connections (sampled) -->
+    <g stroke="#475569" stroke-width="0.8" opacity="0.25">
+      <line x1="-184" y1="-80" x2="-76" y2="-100"/>
+      <line x1="-184" y1="-80" x2="-76" y2="-40"/>
+      <line x1="-184" y1="-20" x2="-76" y2="-40"/>
+      <line x1="-184" y1="-20" x2="-76" y2="20"/>
+      <line x1="-184" y1="40" x2="-76" y2="20"/>
+      <line x1="-184" y1="40" x2="-76" y2="80"/>
+      <line x1="-184" y1="100" x2="-76" y2="80"/>
+      <line x1="-184" y1="100" x2="-76" y2="140"/>
+      <line x1="-44" y1="-100" x2="64" y2="-80"/>
+      <line x1="-44" y1="-40" x2="64" y2="-20"/>
+      <line x1="-44" y1="20" x2="64" y2="40"/>
+      <line x1="-44" y1="80" x2="64" y2="100"/>
+      <line x1="-44" y1="140" x2="64" y2="40"/>
+      <line x1="96" y1="-80" x2="200" y2="-30"/>
+      <line x1="96" y1="-20" x2="200" y2="-30"/>
+      <line x1="96" y1="40" x2="200" y2="50"/>
+      <line x1="96" y1="100" x2="200" y2="50"/>
+    </g>
+
+    <!-- Highlighted active connections -->
+    <g stroke="#22d3ee" stroke-width="1.5" opacity="0.4">
+      <line x1="-184" y1="-20" x2="-76" y2="-40"/>
+      <line x1="-44" y1="-40" x2="64" y2="-20"/>
+      <line x1="96" y1="-20" x2="200" y2="-30"/>
+    </g>
+
+    <!-- Labels -->
+    <text x="-200" y="145" font-family="Courier New" font-size="10" fill="#22d3ee" text-anchor="middle">INPUT</text>
+    <text x="-60" y="175" font-family="Courier New" font-size="10" fill="#8b5cf6" text-anchor="middle">HIDDEN</text>
+    <text x="220" y="95" font-family="Courier New" font-size="10" fill="#ec4899" text-anchor="middle">OUTPUT</text>
+  </g>
+
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Era Enterprise AI Service Security Guide:</text>
+  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Ensu...</text>
+  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | Enterprise-Security | AI-Security | Governance</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">SECURITY</text>
+  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">October 31, 2025</text>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

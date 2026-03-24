@@ -1,43 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>Tech Security Weekly Digest</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
-<circle cx="0" cy="0" r="105" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
-<circle cx="0" cy="0" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-<circle cx="0" cy="0" r="35" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-<circle cx="0" cy="0" r="6" fill="#ef4444" opacity="0.6"/>
-<line x1="0" y1="0" x2="100" y2="-100" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
-<path d="M0,0 L70,-70 A100,100 0 0,1 100,0 Z" fill="#ef4444" fill-opacity="0.08"/>
-<line x1="-145" y1="0" x2="145" y2="0" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<line x1="0" y1="-145" x2="0" y2="145" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<circle cx="60" cy="-80" r="5" fill="#ef4444" opacity="0.7"/>
-<circle cx="60" cy="-80" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-<circle cx="-40" cy="50" r="4" fill="#f59e0b" opacity="0.6"/>
-<circle cx="-40" cy="50" r="8" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
-<circle cx="90" cy="30" r="3" fill="#f59e0b" opacity="0.5"/>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech Security Weekly Digest</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">WEEKLY DIGEST</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 23, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>Tech and Security Weekly Digest January 2026 - AitM P...</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.5"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="250" cy="200" r="160" fill="#f97316" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="600" cy="200" r="160" fill="#ec4899" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="950" cy="200" r="160" fill="#22d3ee" opacity="0.08" filter="url(#glow)"/>
+
+  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="92" y="120" font-family="Arial,sans-serif" font-size="16" fill="#64748b">DEVOPS  PHISH  AI/ML</text>
+
+  <line x1="180" y1="320" x2="1020" y2="320" stroke="#334155" stroke-width="3" stroke-dasharray="12 8" opacity="0.4"/>
+  <path d="M320 320 C425 270 425 270 530 320" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
+  <polygon points="528,315 538,320 528,325" fill="#ec4899" opacity="0.6"/>
+  <path d="M670 320 C775 270 775 270 880 320" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
+  <polygon points="878,315 888,320 878,325" fill="#22d3ee" opacity="0.6"/>
+
+  <g transform="translate(250 320)" filter="url(#shadow)">
+    <circle r="70" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
+    <circle r="70" fill="#f97316" opacity="0.04"/>
+    <path d="M-18 0 A18 18 0 0 1 18 0" fill="none" stroke="#f97316" stroke-width="3"/><path d="M18 0 A18 18 0 0 1 -18 0" fill="none" stroke="#f97316" stroke-width="3" stroke-dasharray="5 3"/><polygon points="18,-5 25,0 18,5" fill="#f97316"/><polygon points="-18,5 -25,0 -18,-5" fill="#f97316"/>
+  </g>
+  <text x="250" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#f97316" text-anchor="middle">DEVOPS</text>
+
+  <g transform="translate(600 320)" filter="url(#shadow)">
+    <circle r="70" fill="#0f172a" stroke="#ec4899" stroke-width="2.5"/>
+    <circle r="70" fill="#ec4899" opacity="0.04"/>
+    <path d="M-22 -10 L0 14 L22 -10" fill="none" stroke="#ec4899" stroke-width="3" stroke-linecap="round"/><rect x="-26" y="-18" width="52" height="40" rx="5" fill="none" stroke="#ec4899" stroke-width="2"/><circle cx="0" cy="-26" r="4" fill="#ec4899"/>
+  </g>
+  <text x="600" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#ec4899" text-anchor="middle">PHISH</text>
+
+  <g transform="translate(950 320)" filter="url(#shadow)">
+    <circle r="70" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
+    <circle r="70" fill="#22d3ee" opacity="0.04"/>
+    <circle r="18" fill="none" stroke="#22d3ee" stroke-width="2.5"/><circle r="8" fill="#22d3ee" opacity="0.35"/><line x1="-24" y1="-16" x2="-10" y2="-8" stroke="#22d3ee" stroke-width="2"/><line x1="24" y1="-16" x2="10" y2="-8" stroke="#22d3ee" stroke-width="2"/><line x1="-24" y1="16" x2="-10" y2="8" stroke="#22d3ee" stroke-width="2"/><line x1="24" y1="16" x2="10" y2="8" stroke="#22d3ee" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="24" cy="-16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="-24" cy="16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="24" cy="16" r="5" fill="#22d3ee" opacity="0.5"/>
+  </g>
+  <text x="950" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#22d3ee" text-anchor="middle">AI/ML</text>
+
+  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">Tech and Security Weekly Digest January 2026 -</text>
+  <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">AitM P...</text>
+  <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Security-Weekly | AitM-Phishing | BEC | Zero-Trust</text>
+
+  <rect x="40" y="20" width="120" height="30" rx="15" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#f87171" text-anchor="middle">SECURITY</text>
+  <rect x="1040" y="20" width="120" height="30" rx="15" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 23, 2026</text>
+
+  <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
+  <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
+  <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
 </svg>

@@ -1199,6 +1199,158 @@ def visual_generic_tech(title, subtitle, date_str, label):
 ''' + _svg_footer(title, subtitle, date_str, label, "#3b82f6")
 
 
+# ─── DIGEST TEMPLATE (THREAT SIGNAL MAP v2) ────────────────────────
+
+# Node icon definitions for digest SVG - larger, more detailed
+DIGEST_ICONS = {
+    "malware": {"label": "MALWARE", "color": "#ef4444",
+        "icon": '<circle r="20" fill="{c}" opacity="0.15"/><circle cx="-14" cy="-10" r="7" fill="{c}" opacity="0.5"/><circle cx="14" cy="10" r="7" fill="{c}" opacity="0.5"/><circle cx="10" cy="-14" r="5" fill="{c}" opacity="0.4"/><circle cx="-10" cy="14" r="4" fill="{c}" opacity="0.3"/><line x1="-14" y1="-10" x2="14" y2="10" stroke="{c}" stroke-width="1" opacity="0.3"/>'},
+    "ransomware": {"label": "RANSOM", "color": "#dc2626",
+        "icon": '<rect x="-24" y="-4" width="48" height="38" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><path d="M-14 -4 v-18 c0-20 28-20 28 0 v18" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="7" fill="{c}"/><rect x="-2" y="20" width="4" height="12" rx="2" fill="{c}"/>'},
+    "zero-day": {"label": "ZERO DAY", "color": "#f97316",
+        "icon": '<rect x="-24" y="-18" width="48" height="36" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><text x="0" y="-2" font-family="Courier New" font-size="14" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="14" font-family="Courier New" font-size="9" fill="{c}" text-anchor="middle" opacity="0.7">0-DAY</text>'},
+    "cloud": {"label": "CLOUD", "color": "#3b82f6",
+        "icon": '<path d="M-20 12 C-34 12 -38 -2 -38 -12 C-38 -24 -28 -32 -16 -32 C-12 -44 0 -50 12 -50 C28 -50 38 -38 38 -30 C48 -30 52 -22 52 -12 C52 -2 48 12 32 12 Z" fill="#0b1628" stroke="{c}" stroke-width="2.5" transform="scale(0.65)"/>'},
+    "ai": {"label": "AI/ML", "color": "#22d3ee",
+        "icon": '<circle r="18" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="8" fill="{c}" opacity="0.35"/><line x1="-24" y1="-16" x2="-10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="24" y1="-16" x2="10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="-24" y1="16" x2="-10" y2="8" stroke="{c}" stroke-width="2"/><line x1="24" y1="16" x2="10" y2="8" stroke="{c}" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="-24" cy="16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="16" r="5" fill="{c}" opacity="0.5"/>'},
+    "kubernetes": {"label": "K8S", "color": "#326ce5",
+        "icon": '<polygon points="0,-24 22,-10 14,20 -14,20 -22,-10" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="7" fill="{c}" opacity="0.35"/><line x1="0" y1="-7" x2="0" y2="-20" stroke="{c}" stroke-width="2"/><line x1="6" y1="4" x2="18" y2="14" stroke="{c}" stroke-width="2"/><line x1="-6" y1="4" x2="-18" y2="14" stroke="{c}" stroke-width="2"/>'},
+    "patch": {"label": "PATCH", "color": "#22c55e",
+        "icon": '<path d="M0,-26 L22,-14 L22,10 C22,24 0,34 0,34 C0,34 -22,24 -22,10 L-22,-14 Z" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-9,2 L-3,10 L12,-8" stroke="{c}" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'},
+    "blockchain": {"label": "CHAIN", "color": "#8b5cf6",
+        "icon": '<rect x="-20" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="4" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="-8" y="4" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><line x1="-4" y1="0" x2="-1" y2="4" stroke="{c}" stroke-width="2"/><line x1="12" y1="0" x2="5" y2="4" stroke="{c}" stroke-width="2"/>'},
+    "botnet": {"label": "BOTNET", "color": "#f59e0b",
+        "icon": '<circle r="10" fill="{c}" opacity="0.25"/><circle cx="-22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="-22" cy="14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="14" r="6" fill="{c}" opacity="0.3"/><line x1="-5" y1="-5" x2="-16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="-5" x2="16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="-5" y1="5" x2="-16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="5" x2="16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/>'},
+    "phishing": {"label": "PHISH", "color": "#ec4899",
+        "icon": '<path d="M-22 -10 L0 14 L22 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-26" y="-18" width="52" height="40" rx="5" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-26" r="4" fill="{c}"/>'},
+    "auth": {"label": "AUTH", "color": "#eab308",
+        "icon": '<rect x="-18" y="-4" width="36" height="28" rx="5" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-10 -4 v-12 c0-14 20-14 20 0 v12" stroke="{c}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="0" cy="10" r="5" fill="{c}"/>'},
+    "devops": {"label": "DEVOPS", "color": "#f97316",
+        "icon": '<path d="M-18 0 A18 18 0 0 1 18 0" fill="none" stroke="{c}" stroke-width="3"/><path d="M18 0 A18 18 0 0 1 -18 0" fill="none" stroke="{c}" stroke-width="3" stroke-dasharray="5 3"/><polygon points="18,-5 25,0 18,5" fill="{c}"/><polygon points="-18,5 -25,0 -18,-5" fill="{c}"/>'},
+}
+
+DIGEST_KEYWORD_MAP = {
+    "ransomware": "ransomware", "ransom": "ransomware",
+    "zero-day": "zero-day", "0-day": "zero-day", "cve": "zero-day", "exploit": "zero-day",
+    "malware": "malware", "trojan": "malware", "worm": "malware",
+    "botnet": "botnet", "bot": "botnet", "ddos": "botnet",
+    "blockchain": "blockchain", "bitcoin": "blockchain", "crypto": "blockchain", "defi": "blockchain",
+    "ai": "ai", "llm": "ai", "gpt": "ai", "agent": "ai", "ml": "ai",
+    "cloud": "cloud", "aws": "cloud", "azure": "cloud", "gcp": "cloud",
+    "patch": "patch", "update": "patch", "fix": "patch",
+    "kubernetes": "kubernetes", "k8s": "kubernetes", "docker": "kubernetes", "container": "kubernetes",
+    "phishing": "phishing", "phish": "phishing",
+    "authentication": "auth", "mfa": "auth", "credential": "auth", "zero trust": "auth",
+    "devops": "devops", "devsecops": "devops", "cicd": "devops", "ci/cd": "devops",
+}
+
+
+def _detect_digest_nodes(title, tags):
+    """Detect up to 3 unique threat signal nodes from title and tags."""
+    text = f"{title} {' '.join(str(t) for t in tags)}".lower()
+    seen = []
+    for keyword in sorted(DIGEST_KEYWORD_MAP.keys(), key=len, reverse=True):
+        if len(keyword) <= 2:
+            matched = re.search(r"\b" + re.escape(keyword) + r"\b", text) is not None
+        else:
+            matched = keyword in text
+        if matched and DIGEST_KEYWORD_MAP[keyword] not in seen:
+            seen.append(DIGEST_KEYWORD_MAP[keyword])
+            if len(seen) >= 3:
+                break
+    # Ensure at least 2 nodes
+    for fallback in ["ai", "patch", "malware"]:
+        if len(seen) >= 2:
+            break
+        if fallback not in seen:
+            seen.append(fallback)
+    return seen[:3]
+
+
+def visual_digest(title, subtitle, date_str, tags):
+    """High-quality THREAT SIGNAL MAP for digest posts."""
+    nodes = _detect_digest_nodes(title, tags if isinstance(tags, list) else [])
+    node_configs = [DIGEST_ICONS.get(n, DIGEST_ICONS["malware"]) for n in nodes]
+
+    # Node positions
+    if len(node_configs) == 2:
+        positions = [350, 850]
+    else:
+        positions = [250, 600, 950]
+
+    # Subtitle from node labels
+    node_subtitle = "  ".join(nc["label"] for nc in node_configs)
+
+    # Build node SVGs with larger circles (r=70)
+    nodes_svg = ""
+    for i, (nc, x_pos) in enumerate(zip(node_configs, positions)):
+        c = nc["color"]
+        icon = nc["icon"].replace("{c}", c)
+        nodes_svg += f'''
+  <g transform="translate({x_pos} 320)" filter="url(#shadow)">
+    <circle r="70" fill="#0f172a" stroke="{c}" stroke-width="2.5"/>
+    <circle r="70" fill="{c}" opacity="0.04"/>
+    {icon}
+  </g>
+  <text x="{x_pos}" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="{c}" text-anchor="middle">{nc["label"]}</text>
+'''
+
+    # Curved attack-flow arrows between nodes
+    arrows_svg = ""
+    for i in range(len(positions) - 1):
+        x1, x2 = positions[i] + 70, positions[i + 1] - 70
+        mid = (x1 + x2) // 2
+        c1 = node_configs[i]["color"]
+        c2 = node_configs[i + 1]["color"]
+        arrows_svg += f'''  <path d="M{x1} 320 C{mid} 270 {mid} 270 {x2} 320" fill="none" stroke="{c1}" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
+  <polygon points="{x2-2},315 {x2+8},320 {x2-2},325" fill="{c2}" opacity="0.6"/>
+'''
+
+    # Glow circles behind nodes
+    glows = ""
+    for i, nc in enumerate(node_configs):
+        glows += f'  <circle cx="{positions[i]}" cy="200" r="160" fill="{nc["color"]}" opacity="0.08" filter="url(#glow)"/>\n'
+
+    # Title display (2 lines if needed)
+    title_lines = wrap_title(title, 50)
+    if len(title_lines) == 1:
+        title_svg = f'  <text x="600" y="498" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">{escape_svg(title_lines[0])}</text>'
+    else:
+        title_svg = f'  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">{escape_svg(title_lines[0])}</text>\n  <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">{escape_svg(title_lines[1])}</text>'
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>{escape_svg(title)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="25"/></filter>
+    <filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.5"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+{glows}
+  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="92" y="120" font-family="Arial,sans-serif" font-size="16" fill="#64748b">{escape_svg(node_subtitle)}</text>
+
+  <line x1="180" y1="320" x2="1020" y2="320" stroke="#334155" stroke-width="3" stroke-dasharray="12 8" opacity="0.4"/>
+{arrows_svg}{nodes_svg}
+{title_svg}
+  <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">{escape_svg(subtitle)}</text>
+
+  <rect x="40" y="20" width="120" height="30" rx="15" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#f87171" text-anchor="middle">SECURITY</text>
+  <rect x="1040" y="20" width="120" height="30" rx="15" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">{escape_svg(date_str)}</text>
+
+  <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
+  <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
+  <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
+</svg>'''
+
+
 # ─── TOPIC DETECTION & MAPPING ─────────────────────────────────────
 
 TOPIC_RULES = [
@@ -1285,10 +1437,6 @@ def process_post(post_path):
         print(f"  SKIP (no title): {post_path.name}")
         return False
 
-    # Skip digest posts (they have their own THREAT SIGNAL MAP style)
-    if "Digest" in post_path.name or "Weekly_Digest" in title:
-        return False
-
     image_path = post.get("image", "")
     if not image_path:
         return False
@@ -1306,9 +1454,6 @@ def process_post(post_path):
         categories = [categories]
     if isinstance(tags, str):
         tags = [tags]
-
-    # Detect topic and get visual function
-    visual_func = detect_topic(title, tags, categories)
 
     # Build subtitle from tags
     tag_display = [str(t) for t in tags[:4]] if tags else []
@@ -1328,21 +1473,27 @@ def process_post(post_path):
     else:
         date_str = datetime.now().strftime("%B %d, %Y")
 
-    label = get_label(categories)
-
-    # Generate SVG
     # Use English title for SVG display (from filename or image_alt)
     display_title = post.get("image_alt", "") or title
     # Remove emojis
     display_title = re.sub(r'[^\x00-\x7F\uAC00-\uD7A3\u3131-\u3163\u3000-\u303f]+', '', display_title).strip()
-    display_title = truncate(display_title, 52)
 
-    svg_content = visual_func(display_title, subtitle, date_str, label)
+    is_digest = "Digest" in post_path.name or "Weekly_Digest" in title
+
+    if is_digest:
+        display_title = truncate(display_title, 56)
+        svg_content = visual_digest(display_title, subtitle, date_str, tags)
+    else:
+        display_title = truncate(display_title, 52)
+        label = get_label(categories)
+        visual_func = detect_topic(title, tags, categories)
+        svg_content = visual_func(display_title, subtitle, date_str, label)
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
 
-    print(f"  OK: {svg_filename} [{visual_func.__name__}]")
+    func_name = "visual_digest" if is_digest else visual_func.__name__
+    print(f"  OK: {svg_filename} [{func_name}]")
     return True
 
 
@@ -1384,11 +1535,10 @@ def main():
                 if isinstance(categories, str):
                     categories = [categories]
                 if "Digest" in post_file.name:
-                    print(f"  DIGEST (skip): {post_file.name}")
-                    skipped += 1
-                    continue
-                func = detect_topic(title, tags, categories)
-                print(f"  {post_file.name} -> {func.__name__}")
+                    print(f"  {post_file.name} -> visual_digest")
+                else:
+                    func = detect_topic(title, tags, categories)
+                    print(f"  {post_file.name} -> {func.__name__}")
                 generated += 1
             except Exception:
                 skipped += 1

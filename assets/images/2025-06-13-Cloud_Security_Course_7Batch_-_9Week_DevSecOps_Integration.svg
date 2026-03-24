@@ -1,59 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>Cloud Security Course 7Batch 9Week: DevSecOps Int...</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#0b0e1a"/>
-<stop offset="50%" stop-color="#111827"/>
-<stop offset="100%" stop-color="#0f0a1e"/>
-</linearGradient>
-<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#8b5cf6"/>
-<stop offset="100%" stop-color="#ec4899"/>
-</linearGradient>
-<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="200" cy="200" r="250" fill="#8b5cf6" opacity="0.06" filter="url(#sg)"/>
-<circle cx="900" cy="400" r="200" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
-<g transform="translate(600,260)">
-<path d="M-180,0 C-180,-90 -60,-90 0,0 C60,90 180,90 180,0 C180,-90 60,-90 0,0 C-60,90 -180,90 -180,0Z" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
-<path d="M-180,0 C-180,-90 -60,-90 0,0 C60,90 180,90 180,0 C180,-90 60,-90 0,0 C-60,90 -180,90 -180,0Z" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.4"/>
-<g transform="translate(-140,0)">
-<circle r="28" fill="#0f172a" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="10" fill="#60a5fa" text-anchor="middle">PLAN</text>
-</g>
-<g transform="translate(-55,-55)">
-<circle r="28" fill="#0f172a" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="10" fill="#4ade80" text-anchor="middle">CODE</text>
-</g>
-<g transform="translate(55,-55)">
-<circle r="28" fill="#0f172a" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="10" fill="#fbbf24" text-anchor="middle">BUILD</text>
-</g>
-<g transform="translate(140,0)">
-<circle r="28" fill="#0f172a" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="10" fill="#f87171" text-anchor="middle">TEST</text>
-</g>
-<g transform="translate(55,55)">
-<circle r="28" fill="#0f172a" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="10" fill="#f472b6" text-anchor="middle">DEPLOY</text>
-</g>
-<g transform="translate(-55,55)">
-<circle r="28" fill="#0f172a" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
-<text x="0" y="4" font-family="Courier New" font-size="9" fill="#a78bfa" text-anchor="middle">MONITOR</text>
-</g>
-<path d="M0,-18 L16,-10 L16,6 C16,16 0,22 0,22 C0,22 -16,16 -16,6 L-16,-10 Z" fill="#8b5cf6" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
-<text x="0" y="6" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#c4b5fd" text-anchor="middle">SEC</text>
-</g>
-<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 7Batch 9Week:</text>
-<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">DevSecOps Int...</text>
-<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">DevSecOps | Integration | Cloud-Security | SDLC</text>
-<rect x="40" y="22" width="140" height="32" rx="16" fill="#8b5cf6" opacity="0.25" stroke="#8b5cf6" stroke-width="1"/>
-<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" text-anchor="middle">DEVSECOPS</text>
-<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">June 13, 2025</text>
-<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>Cloud Security Course 7Batch 9Week: DevSecOps Int...</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="250" fill="#8b5cf6" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="900" cy="400" r="200" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
+  <g transform="translate(600,260)">
+    <!-- Infinity loop -->
+    <path d="M-180,0 C-180,-90 -60,-90 0,0 C60,90 180,90 180,0 C180,-90 60,-90 0,0 C-60,90 -180,90 -180,0Z"
+          fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
+    <path d="M-180,0 C-180,-90 -60,-90 0,0 C60,90 180,90 180,0 C180,-90 60,-90 0,0 C-60,90 -180,90 -180,0Z"
+          fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.4"/>
+
+    <!-- Pipeline stages on the loop -->
+    <g transform="translate(-140,0)">
+      <circle r="28" fill="#0f172a" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="10" fill="#60a5fa" text-anchor="middle">PLAN</text>
+    </g>
+    <g transform="translate(-55,-55)">
+      <circle r="28" fill="#0f172a" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="10" fill="#4ade80" text-anchor="middle">CODE</text>
+    </g>
+    <g transform="translate(55,-55)">
+      <circle r="28" fill="#0f172a" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="10" fill="#fbbf24" text-anchor="middle">BUILD</text>
+    </g>
+    <g transform="translate(140,0)">
+      <circle r="28" fill="#0f172a" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="10" fill="#f87171" text-anchor="middle">TEST</text>
+    </g>
+    <g transform="translate(55,55)">
+      <circle r="28" fill="#0f172a" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="10" fill="#f472b6" text-anchor="middle">DEPLOY</text>
+    </g>
+    <g transform="translate(-55,55)">
+      <circle r="28" fill="#0f172a" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+      <text x="0" y="4" font-family="Courier New" font-size="9" fill="#a78bfa" text-anchor="middle">MONITOR</text>
+    </g>
+
+    <!-- Center shield -->
+    <path d="M0,-18 L16,-10 L16,6 C16,16 0,22 0,22 C0,22 -16,16 -16,6 L-16,-10 Z"
+          fill="#8b5cf6" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="0" y="6" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#c4b5fd" text-anchor="middle">SEC</text>
+  </g>
+
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 7Batch 9Week:</text>
+  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">DevSecOps Int...</text>
+  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">DevSecOps | Integration | Cloud-Security | SDLC</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#8b5cf6" opacity="0.25" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" text-anchor="middle">DEVSECOPS</text>
+  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">June 13, 2025</text>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

@@ -1,70 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>Claude Code and OpenCode Best Practices 38 Guide ...</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#0b0e1a"/>
-<stop offset="50%" stop-color="#111827"/>
-<stop offset="100%" stop-color="#0f0a1e"/>
-</linearGradient>
-<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#22d3ee"/>
-<stop offset="100%" stop-color="#ec4899"/>
-</linearGradient>
-<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="200" cy="200" r="250" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
-<circle cx="900" cy="400" r="200" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
-<g transform="translate(600,250)">
-<rect x="-220" y="-110" width="440" height="260" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-<rect x="-220" y="-110" width="440" height="30" rx="12" fill="#1e293b"/>
-<circle cx="-198" cy="-95" r="5" fill="#ef4444" opacity="0.7"/>
-<circle cx="-182" cy="-95" r="5" fill="#f59e0b" opacity="0.7"/>
-<circle cx="-166" cy="-95" r="5" fill="#22c55e" opacity="0.7"/>
-<text x="0" y="-90" font-family="Courier New" font-size="10" fill="#64748b" text-anchor="middle">main.py</text>
-<g font-family="Courier New" font-size="11">
-<text x="-200" y="-60" fill="#64748b">1</text>
-<text x="-180" y="-60" fill="#c084fc">def</text>
-<text x="-148" y="-60" fill="#fbbf24"> analyze(data):</text>
-<text x="-200" y="-40" fill="#64748b">2</text>
-<text x="-170" y="-40" fill="#94a3b8"> results = []</text>
-<text x="-200" y="-20" fill="#64748b">3</text>
-<text x="-170" y="-20" fill="#c084fc"> for</text>
-<text x="-134" y="-20" fill="#94a3b8"> item </text>
-<text x="-86" y="-20" fill="#c084fc">in</text>
-<text x="-68" y="-20" fill="#94a3b8"> data:</text>
-</g>
-<rect x="-205" y="-2" width="400" height="55" rx="4" fill="#22d3ee" opacity="0.06" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,3"/>
-<g font-family="Courier New" font-size="11">
-<text x="-200" y="18" fill="#64748b">4</text>
-<text x="-170" y="18" fill="#22d3ee" opacity="0.8"> score = model.predict(item)</text>
-<text x="-200" y="38" fill="#64748b">5</text>
-<text x="-170" y="38" fill="#22d3ee" opacity="0.8"> results.append(score)</text>
-</g>
-<g transform="translate(180,15)">
-<rect x="-25" y="-12" width="50" height="24" rx="12" fill="#22d3ee" opacity="0.2" stroke="#22d3ee" stroke-width="1"/>
-<text x="0" y="4" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#22d3ee" text-anchor="middle">AI</text>
-</g>
-<text x="-200" y="78" font-family="Courier New" font-size="11" fill="#64748b">6</text>
-<text x="-170" y="78" fill="#c084fc" font-family="Courier New" font-size="11"> return</text>
-<text x="-106" y="78" fill="#94a3b8" font-family="Courier New" font-size="11"> results</text>
-<g transform="translate(220,-40)" opacity="0.5">
-<rect x="-35" y="-40" width="70" height="80" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
-<text x="0" y="-20" font-family="Courier New" font-size="8" fill="#22d3ee" text-anchor="middle">Claude</text>
-<text x="0" y="-6" font-family="Courier New" font-size="8" fill="#ec4899" text-anchor="middle">Gemini</text>
-<text x="0" y="8" font-family="Courier New" font-size="8" fill="#4ade80" text-anchor="middle">GPT</text>
-<text x="0" y="22" font-family="Courier New" font-size="8" fill="#60a5fa" text-anchor="middle">Codex</text>
-</g>
-</g>
-<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code and OpenCode Best Practices 38</text>
-<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Guide ...</text>
-<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Claude-Code | OpenCode | Best-Practices | AI-Agent</text>
-<rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
-<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">DEVOPS</text>
-<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 25, 2026</text>
-<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>Claude Code and OpenCode Best Practices 38 Guide ...</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="250" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="900" cy="400" r="200" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
+  <g transform="translate(600,250)">
+    <!-- Code editor window -->
+    <rect x="-220" y="-110" width="440" height="260" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <!-- Title bar -->
+    <rect x="-220" y="-110" width="440" height="30" rx="12" fill="#1e293b"/>
+    <circle cx="-198" cy="-95" r="5" fill="#ef4444" opacity="0.7"/>
+    <circle cx="-182" cy="-95" r="5" fill="#f59e0b" opacity="0.7"/>
+    <circle cx="-166" cy="-95" r="5" fill="#22c55e" opacity="0.7"/>
+    <text x="0" y="-90" font-family="Courier New" font-size="10" fill="#64748b" text-anchor="middle">main.py</text>
+
+    <!-- Code lines -->
+    <g font-family="Courier New" font-size="11">
+      <text x="-200" y="-60" fill="#64748b">1</text>
+      <text x="-180" y="-60" fill="#c084fc">def</text>
+      <text x="-148" y="-60" fill="#fbbf24"> analyze(data):</text>
+      <text x="-200" y="-40" fill="#64748b">2</text>
+      <text x="-170" y="-40" fill="#94a3b8">  results = []</text>
+      <text x="-200" y="-20" fill="#64748b">3</text>
+      <text x="-170" y="-20" fill="#c084fc">  for</text>
+      <text x="-134" y="-20" fill="#94a3b8"> item </text>
+      <text x="-86" y="-20" fill="#c084fc">in</text>
+      <text x="-68" y="-20" fill="#94a3b8"> data:</text>
+    </g>
+
+    <!-- AI suggestion highlight -->
+    <rect x="-205" y="-2" width="400" height="55" rx="4" fill="#22d3ee" opacity="0.06" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,3"/>
+    <g font-family="Courier New" font-size="11">
+      <text x="-200" y="18" fill="#64748b">4</text>
+      <text x="-170" y="18" fill="#22d3ee" opacity="0.8">    score = model.predict(item)</text>
+      <text x="-200" y="38" fill="#64748b">5</text>
+      <text x="-170" y="38" fill="#22d3ee" opacity="0.8">    results.append(score)</text>
+    </g>
+
+    <!-- AI badge -->
+    <g transform="translate(180,15)">
+      <rect x="-25" y="-12" width="50" height="24" rx="12" fill="#22d3ee" opacity="0.2" stroke="#22d3ee" stroke-width="1"/>
+      <text x="0" y="4" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#22d3ee" text-anchor="middle">AI</text>
+    </g>
+
+    <!-- Bottom status -->
+    <text x="-200" y="78" font-family="Courier New" font-size="11" fill="#64748b">6</text>
+    <text x="-170" y="78" fill="#c084fc" font-family="Courier New" font-size="11">  return</text>
+    <text x="-106" y="78" fill="#94a3b8" font-family="Courier New" font-size="11"> results</text>
+
+    <!-- Autocomplete popup -->
+    <g transform="translate(220,-40)" opacity="0.5">
+      <rect x="-35" y="-40" width="70" height="80" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+      <text x="0" y="-20" font-family="Courier New" font-size="8" fill="#22d3ee" text-anchor="middle">Claude</text>
+      <text x="0" y="-6" font-family="Courier New" font-size="8" fill="#ec4899" text-anchor="middle">Gemini</text>
+      <text x="0" y="8" font-family="Courier New" font-size="8" fill="#4ade80" text-anchor="middle">GPT</text>
+      <text x="0" y="22" font-family="Courier New" font-size="8" fill="#60a5fa" text-anchor="middle">Codex</text>
+    </g>
+  </g>
+
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code and OpenCode Best Practices 38</text>
+  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Guide ...</text>
+  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Claude-Code | OpenCode | Best-Practices | AI-Agent</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">DEVOPS</text>
+  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 25, 2026</text>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

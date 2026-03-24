@@ -1,0 +1,58 @@
+name: Lighthouse CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        id: lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://tech.2twodragon.com
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 1
+
+      - name: Check Lighthouse scores
+        run: |
+          echo "Lighthouse results: ${{ steps.lighthouse.outputs.manifest }}"
+          node - <<'EOF'
+          const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST || '[]');
+          const thresholds = {
+            performance: 0.7,
+            accessibility: 0.8,
+            'best-practices': 0.8,
+            seo: 0.9,
+          };
+          let failed = false;
+          for (const result of manifest) {
+            const summary = result.summary;
+            console.log('URL:', result.url);
+            for (const [category, min] of Object.entries(thresholds)) {
+              const score = summary[category];
+              const status = score >= min ? 'PASS' : 'FAIL';
+              console.log(`  ${category}: ${(score * 100).toFixed(0)} (required: ${min * 100}) [${status}]`);
+              if (score < min) failed = true;
+            }
+          }
+          if (failed) {
+            console.error('One or more Lighthouse thresholds not met.');
+            process.exit(1);
+          } else {
+            console.log('All Lighthouse thresholds met.');
+          }
+          EOF
+        env:
+          LIGHTHOUSE_MANIFEST: ${{ steps.lighthouse.outputs.manifest }}
