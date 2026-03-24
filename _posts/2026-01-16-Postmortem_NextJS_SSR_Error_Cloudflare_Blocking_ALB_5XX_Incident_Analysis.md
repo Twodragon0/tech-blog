@@ -83,10 +83,10 @@ toc: true
 | 항목 | 내용 |
 |------|------|
 | 발생 일시 | 2026-01-14 |
-| 영향 서비스 | web-app (example.com, content.example.com) |
+| 영향 서비스 | web-app (service.internal, content.service.internal) |
 | 심각도 | High |
 | 장애 지속 시간 | 약 5분 (5XX 에러 집중 발생) |
-| 영향 범위 | content.example.com: 881 요청, example.com: 285 요청 |
+| 영향 범위 | content.service.internal: 881 요청, service.internal: 285 요청 |
 | 근본 원인 | Next.js SSR 환경에서 location 객체 접근 + 배포 후 버그 노출 |
 
 ### 인시던트 타임라인
@@ -148,14 +148,14 @@ if (typeof window !== 'undefined') {
 2. 모바일 앱 감지
 
 ```typescript
-// src/components/example/ExampleComponent.tsx
+// src/components/example/SSRComponent.tsx
 // 이전 버전에서는 문제 없었음 (다른 방식으로 리다이렉트 처리)
 ```
 
 변경 후 (v1.0.1) - 문제 발생:
 
 ```typescript
-// src/components/example/ExampleComponent.tsx...
+// src/components/example/SSRComponent.tsx...
 ```
 
 배포 후 발생한 문제:
@@ -165,7 +165,7 @@ if (typeof window !== 'undefined') {
 
 ```text
 ReferenceError: location is not defined
-at ExampleComponent.handleAction
+at SSRComponent.handleAction
 ```
 
 3. 배포 직후 + 10분 (T+10분): 5XX 에러 급증 (50개 이상)...
@@ -268,7 +268,7 @@ at ExampleComponent.handleAction
 
 문제 코드 위치 (총 5개 파일):
 
-1. `src/components/example/ExampleComponent.tsx` (Line 50)
+1. `src/components/example/SSRComponent.tsx` (Line 50)
 
    ```typescript
    // ❌ 문제 코드 (SSR에서 ReferenceError 발생)

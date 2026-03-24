@@ -3821,11 +3821,15 @@ def _to_english_svg_text(text: str) -> str:
             continue
         else:
             result.append(" ")
-    # Clean up multiple spaces
-    cleaned = " ".join("".join(result).split())
-    if not cleaned.strip():
+    # Clean up multiple spaces and orphaned punctuation
+    cleaned = "".join(result)
+    cleaned = re.sub(r"\s*,\s*", ", ", cleaned)  # normalize comma spacing
+    cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)  # collapse repeated commas
+    cleaned = " ".join(cleaned.split())  # normalize whitespace
+    cleaned = cleaned.strip(" ,;:-")  # strip leading/trailing punctuation
+    if not cleaned:
         return "Security News Update"
-    return cleaned.strip()
+    return cleaned
 
 
 def _truncate_text(text: str, max_len: int) -> str:
@@ -4365,6 +4369,10 @@ def main():
 
     global _AI_MODE
     _AI_MODE = args.use_ai
+
+    gemini_api_key = os.getenv("GEMINI_API_KEY", "")
+    if not gemini_api_key:
+        logging.warning("GEMINI_API_KEY not set - API features disabled")
 
     print(f"📰 Auto Publish News (mode: {args.mode}, ai: {_AI_MODE})")
     print("=" * 50)

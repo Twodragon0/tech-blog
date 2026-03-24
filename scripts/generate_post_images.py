@@ -1545,6 +1545,9 @@ def process_post(
 
 def main():
     """메인 함수"""
+    if not GEMINI_API_KEY:
+        log_message("GEMINI_API_KEY not set - API features disabled", "WARNING")
+
     import argparse
 
     parser = argparse.ArgumentParser(

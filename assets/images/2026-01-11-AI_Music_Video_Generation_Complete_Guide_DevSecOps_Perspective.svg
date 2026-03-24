@@ -1,61 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Music Video Generation Complete Guide DevSecOps Perspective</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-
-  <g transform="translate(600,255)">
-    <circle cx="0" cy="0" r="50" fill="#6366f1" fill-opacity="0.08" stroke="#818cf8" stroke-width="2"/>
-    <circle cx="0" cy="0" r="30" fill="#6366f1" fill-opacity="0.12" stroke="#a5b4fc" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="12" fill="#818cf8" opacity="0.6"/>
-    <circle cx="-180" cy="-80" r="22" fill="#1e293b" stroke="#60a5fa" stroke-width="1.5"/>
-    <circle cx="-180" cy="-80" r="8" fill="#3b82f6" opacity="0.5"/>
-    <circle cx="180" cy="-80" r="22" fill="#1e293b" stroke="#60a5fa" stroke-width="1.5"/>
-    <circle cx="180" cy="-80" r="8" fill="#3b82f6" opacity="0.5"/>
-    <circle cx="-200" cy="80" r="18" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-    <circle cx="200" cy="80" r="18" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-    <circle cx="0" cy="-140" r="20" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
-    <circle cx="0" cy="140" r="20" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
-    <circle cx="-100" cy="-40" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="100" cy="-40" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="-100" cy="50" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <circle cx="100" cy="50" r="14" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
-    <g stroke="#6366f1" stroke-width="1" opacity="0.3">
-      <line x1="0" y1="0" x2="-100" y2="-40"/><line x1="0" y1="0" x2="100" y2="-40"/>
-      <line x1="0" y1="0" x2="-100" y2="50"/><line x1="0" y1="0" x2="100" y2="50"/>
-      <line x1="0" y1="0" x2="0" y2="-140"/><line x1="0" y1="0" x2="0" y2="140"/>
-      <line x1="-100" y1="-40" x2="-180" y2="-80"/><line x1="100" y1="-40" x2="180" y2="-80"/>
-      <line x1="-100" y1="50" x2="-200" y2="80"/><line x1="100" y1="50" x2="200" y2="80"/>
-    </g>
-    <g opacity="0.5">
-      <circle cx="-50" cy="-20" r="3" fill="#818cf8"/><circle cx="50" cy="-20" r="3" fill="#818cf8"/>
-      <circle cx="-140" cy="-60" r="2.5" fill="#60a5fa"/><circle cx="140" cy="-60" r="2.5" fill="#60a5fa"/>
-    </g>
-  </g>
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Music Video Generation Complete Guide</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI | DevSecOps</text>
-
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
-
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 11, 2026</text>
-
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<title>AI Music Video Generation Complete Guide: DevSecO...</title>
+<defs>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#0b0e1a"/>
+<stop offset="50%" stop-color="#111827"/>
+<stop offset="100%" stop-color="#0f0a1e"/>
+</linearGradient>
+<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#ec4899"/>
+<stop offset="100%" stop-color="#8b5cf6"/>
+</linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="200" cy="200" r="250" fill="#ec4899" opacity="0.06" filter="url(#sg)"/>
+<circle cx="900" cy="400" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#sg)"/>
+<g transform="translate(600,260)">
+<rect x="-300" y="-30.0" width="8" height="60" rx="4" fill="#ec4899" opacity="0.30"/>
+<rect x="-285" y="-48.28375132668024" width="8" height="97" rx="4" fill="#8b5cf6" opacity="0.49"/>
+<rect x="-270" y="-60.16555169050943" width="8" height="120" rx="4" fill="#3b82f6" opacity="0.66"/>
+<rect x="-255" y="-62.33199882957547" width="8" height="125" rx="4" fill="#ec4899" opacity="0.77"/>
+<rect x="-240" y="-53.61905216256074" width="8" height="107" rx="4" fill="#8b5cf6" opacity="0.80"/>
+<rect x="-225" y="-35.35362979751232" width="8" height="71" rx="4" fill="#3b82f6" opacity="0.75"/>
+<rect x="-210" y="-20.188842216256425" width="8" height="40" rx="4" fill="#ec4899" opacity="0.64"/>
+<rect x="-195" y="-34.128251199581946" width="8" height="68" rx="4" fill="#8b5cf6" opacity="0.47"/>
+<rect x="-180" y="-55.01997412314205" width="8" height="110" rx="4" fill="#3b82f6" opacity="0.33"/>
+<rect x="-165" y="-67.1826475469451" width="8" height="134" rx="4" fill="#ec4899" opacity="0.52"/>
+<rect x="-150" y="-68.15682091853445" width="8" height="136" rx="4" fill="#8b5cf6" opacity="0.68"/>
+<rect x="-135" y="-57.97120842099297" width="8" height="116" rx="4" fill="#3b82f6" opacity="0.78"/>
+<rect x="-120" y="-39.111788254639976" width="8" height="78" rx="4" fill="#ec4899" opacity="0.80"/>
+<rect x="-105" y="-33.12344560751542" width="8" height="66" rx="4" fill="#8b5cf6" opacity="0.74"/>
+<rect x="-90" y="-46.084680375565554" width="8" height="92" rx="4" fill="#3b82f6" opacity="0.62"/>
+<rect x="-75" y="-51.73591505960515" width="8" height="103" rx="4" fill="#ec4899" opacity="0.44"/>
+<rect x="-60" y="-51.324309533724204" width="8" height="103" rx="4" fill="#8b5cf6" opacity="0.36"/>
+<rect x="-45" y="-49.499039359199216" width="8" height="99" rx="4" fill="#3b82f6" opacity="0.55"/>
+<rect x="-30" y="-39.17859692852295" width="8" height="78" rx="4" fill="#ec4899" opacity="0.70"/>
+<rect x="-15" y="-29.700300515255567" width="8" height="59" rx="4" fill="#8b5cf6" opacity="0.78"/>
+<rect x="0" y="-50.96425016858211" width="8" height="102" rx="4" fill="#3b82f6" opacity="0.79"/>
+<rect x="15" y="-65.18500312653511" width="8" height="130" rx="4" fill="#ec4899" opacity="0.73"/>
+<rect x="30" y="-69.00426010119872" width="8" height="138" rx="4" fill="#8b5cf6" opacity="0.59"/>
+<rect x="45" y="-61.332588990044286" width="8" height="123" rx="4" fill="#3b82f6" opacity="0.41"/>
+<rect x="60" y="-43.6299430106625" width="8" height="87" rx="4" fill="#ec4899" opacity="0.39"/>
+<rect x="75" y="-19.585582250748544" width="8" height="39" rx="4" fill="#8b5cf6" opacity="0.57"/>
+<rect x="90" y="-27.885789884318633" width="8" height="56" rx="4" fill="#3b82f6" opacity="0.71"/>
+<rect x="105" y="-47.02226013678065" width="8" height="94" rx="4" fill="#ec4899" opacity="0.79"/>
+<rect x="120" y="-60.01006731012853" width="8" height="120" rx="4" fill="#8b5cf6" opacity="0.79"/>
+<rect x="135" y="-62.36873513293529" width="8" height="125" rx="4" fill="#3b82f6" opacity="0.71"/>
+<rect x="150" y="-54.23411884397821" width="8" height="108" rx="4" fill="#ec4899" opacity="0.57"/>
+<rect x="165" y="-38.10320578656393" width="8" height="76" rx="4" fill="#8b5cf6" opacity="0.38"/>
+<rect x="180" y="-41.20988978248515" width="8" height="82" rx="4" fill="#3b82f6" opacity="0.42"/>
+<rect x="195" y="-56.255236747272136" width="8" height="113" rx="4" fill="#ec4899" opacity="0.60"/>
+<rect x="210" y="-62.74121271572628" width="8" height="125" rx="4" fill="#8b5cf6" opacity="0.73"/>
+<rect x="225" y="-58.535778778646154" width="8" height="117" rx="4" fill="#3b82f6" opacity="0.80"/>
+<rect x="240" y="-43.926087999973774" width="8" height="88" rx="4" fill="#ec4899" opacity="0.78"/>
+<rect x="255" y="-25.78394527609844" width="8" height="52" rx="4" fill="#8b5cf6" opacity="0.69"/>
+<rect x="270" y="-23.864905713475913" width="8" height="48" rx="4" fill="#3b82f6" opacity="0.54"/>
+<rect x="285" y="-47.17352156186156" width="8" height="94" rx="4" fill="#ec4899" opacity="0.35"/>
+<circle r="35" fill="#0f172a" stroke="#ec4899" stroke-width="2.5" filter="url(#shadow)"/>
+<polygon points="-10,-16 -10,16 18,0" fill="#ec4899" opacity="0.8"/>
+</g>
+<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Music Video Generation Complete Guide:</text>
+<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">DevSecO...</text>
+<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | Generative-AI | Music-Video | DevSecOps</text>
+<rect x="40" y="22" width="140" height="32" rx="16" fill="#ec4899" opacity="0.25" stroke="#ec4899" stroke-width="1"/>
+<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ec4899" text-anchor="middle">DEVSECOPS</text>
+<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 11, 2026</text>
+<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

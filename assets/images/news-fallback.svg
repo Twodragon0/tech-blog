@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none" width="400" height="225">
-  <title>news-fallback</title>
-  <rect width="400" height="225" rx="8" fill="#f1f5f9"/>
-  <path d="M180 90h40v4h-40zM170 100h60v4h-60zM175 110h50v4h-50z" fill="#94a3b8"/>
-  <circle cx="200" cy="70" r="16" stroke="#94a3b8" stroke-width="2" fill="none"/>
-  <path d="M192 70l4 4 8-8" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="200" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">News Article</text>
+<title>news-fallback</title>
+<rect width="400" height="225" rx="8" fill="#f1f5f9"/>
+<path d="M180 90h40v4h-40zM170 100h60v4h-60zM175 110h50v4h-50z" fill="#94a3b8"/>
+<circle cx="200" cy="70" r="16" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<path d="M192 70l4 4 8-8" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="200" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">News Article</text>
 </svg>

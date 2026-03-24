@@ -2,6 +2,17 @@
 (function() {
   'use strict';
 
+  // localStorage 안전 래퍼 (private browsing / quota exceeded 대응)
+  function safeGetItem(key) {
+    try { return localStorage.getItem(key); } catch(e) { return null; }
+  }
+  function safeSetItem(key, value) {
+    try { localStorage.setItem(key, value); } catch(e) { /* private browsing or quota exceeded */ }
+  }
+  function safeRemoveItem(key) {
+    try { localStorage.removeItem(key); } catch(e) { /* ignored */ }
+  }
+
   // 현재 페이지의 certification ID 추출
   function getCertificationId() {
     const path = window.location.pathname;
@@ -759,27 +770,23 @@
     });
     
     updateStats();
-    localStorage.removeItem(`${certId}-answers`);
-    localStorage.removeItem(`${certId}-checked`);
+    safeRemoveItem(`${certId}-answers`);
+    safeRemoveItem(`${certId}-checked`);
   }
 
   // 답안 저장
   function saveAnswers() {
-    try {
-      localStorage.setItem(`${certId}-answers`, JSON.stringify(state.answers));
-      localStorage.setItem(`${certId}-checked`, JSON.stringify(state.checked));
-      localStorage.setItem(`${certId}-stats`, JSON.stringify(state.stats));
-    } catch (e) {
-      // localStorage not available
-    }
+    safeSetItem(`${certId}-answers`, JSON.stringify(state.answers));
+    safeSetItem(`${certId}-checked`, JSON.stringify(state.checked));
+    safeSetItem(`${certId}-stats`, JSON.stringify(state.stats));
   }
 
   // 저장된 답안 불러오기
   function loadSavedAnswers() {
     try {
-      const savedAnswers = localStorage.getItem(`${certId}-answers`);
-      const savedChecked = localStorage.getItem(`${certId}-checked`);
-      const savedStats = localStorage.getItem(`${certId}-stats`);
+      const savedAnswers = safeGetItem(`${certId}-answers`);
+      const savedChecked = safeGetItem(`${certId}-checked`);
+      const savedStats = safeGetItem(`${certId}-stats`);
       
       if (savedAnswers) {
         state.answers = JSON.parse(savedAnswers);

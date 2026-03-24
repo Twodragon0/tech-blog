@@ -1,61 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security Course 8Batch 6Week AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <circle cx="400" cy="250" r="200" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-
-  <g transform="translate(600,240)">
-    <!-- Three cloud shapes -->
-    <g opacity="0.5">
-      <path d="M-200,-20 C-215,-20 -225,-10 -225,0 C-225,10 -215,20 -200,20 L-140,20 C-125,20 -115,10 -115,0 C-115,-10 -125,-20 -130,-20 C-132,-35 -145,-45 -160,-45 C-180,-45 -195,-35 -200,-20Z"
-            fill="#3b82f6" fill-opacity="0.08" stroke="#60a5fa" stroke-width="1.5"/>
-      <text x="-170" y="5" font-family="Courier New" font-size="9" fill="#60a5fa" text-anchor="middle">AWS</text>
-    </g>
-    <g opacity="0.5">
-      <path d="M-30,-30 C-50,-30 -60,-15 -60,0 C-60,15 -50,30 -30,30 L30,30 C50,30 60,15 60,0 C60,-15 50,-30 35,-30 C32,-50 15,-65 0,-65 C-20,-65 -35,-50 -30,-30Z"
-            fill="#f59e0b" fill-opacity="0.08" stroke="#fbbf24" stroke-width="1.5"/>
-      <text x="0" y="5" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">GCP</text>
-    </g>
-    <g opacity="0.5">
-      <path d="M140,-20 C125,-20 115,-10 115,0 C115,10 125,20 140,20 L200,20 C215,20 225,10 225,0 C225,-10 215,-20 210,-20 C208,-35 195,-45 180,-45 C160,-45 145,-35 140,-20Z"
-            fill="#0ea5e9" fill-opacity="0.08" stroke="#38bdf8" stroke-width="1.5"/>
-      <text x="170" y="5" font-family="Courier New" font-size="9" fill="#38bdf8" text-anchor="middle">Azure</text>
-    </g>
-    <!-- Connection lines -->
-    <g stroke="#475569" stroke-width="1" stroke-dasharray="4,3" opacity="0.3">
-      <line x1="-115" y1="0" x2="-60" y2="0"/>
-      <line x1="60" y1="0" x2="115" y2="0"/>
-      <line x1="0" y1="30" x2="0" y2="70"/>
-    </g>
-  </g>
-  <g transform="translate(600,330)">
-    <rect x="-80" y="0" width="160" height="50" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
-    <text x="0" y="30" font-family="Courier New" font-size="11" fill="#6ee7b7" text-anchor="middle">SECURITY HUB</text>
-  </g>
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 8Batch 6Week AWS WAF</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | AWS | Cloud | DevSecOps</text>
-
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">TECH BLOG</text>
-
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 8, 2026</text>
-
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<title>Cloud Security Course 8Batch 6Week: AWS WAF Cloud...</title>
+<defs>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#0b0e1a"/>
+<stop offset="50%" stop-color="#111827"/>
+<stop offset="100%" stop-color="#0f0a1e"/>
+</linearGradient>
+<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#f59e0b"/>
+<stop offset="100%" stop-color="#3b82f6"/>
+</linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="200" cy="200" r="250" fill="#f59e0b" opacity="0.06" filter="url(#sg)"/>
+<circle cx="900" cy="400" r="200" fill="#3b82f6" opacity="0.05" filter="url(#sg)"/>
+<g transform="translate(600,260)">
+<circle r="50" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="0" y="6" font-family="Courier New" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">CLOUD</text>
+<g transform="translate(-200,-80)">
+<rect x="-55" y="-35" width="110" height="70" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+<text x="0" y="-8" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#f59e0b" text-anchor="middle">AWS</text>
+<text x="0" y="14" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">EC2 | S3 | IAM</text>
+</g>
+<g transform="translate(200,-80)">
+<rect x="-55" y="-35" width="110" height="70" rx="14" fill="#0f172a" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+<text x="0" y="-8" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#60a5fa" text-anchor="middle">GCP</text>
+<text x="0" y="14" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">GKE | IAM</text>
+</g>
+<g transform="translate(0,140)">
+<rect x="-65" y="-30" width="130" height="60" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+<text x="0" y="-4" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle">SECURITY</text>
+<text x="0" y="16" font-family="Courier New" font-size="9" fill="#94a3b8" text-anchor="middle">GuardDuty | WAF</text>
+</g>
+<line x1="-145" y1="-60" x2="-55" y2="-20" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+<line x1="145" y1="-60" x2="55" y2="-20" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+<line x1="0" y1="50" x2="0" y2="110" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+<circle cx="-100" cy="60" r="3" fill="#f59e0b" opacity="0.4"/>
+<circle cx="120" cy="40" r="2" fill="#3b82f6" opacity="0.5"/>
+<circle cx="-150" cy="-20" r="2" fill="#10b981" opacity="0.3"/>
+</g>
+<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 8Batch 6Week: AWS WAF</text>
+<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud...</text>
+<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS | CloudFront | cloudsecurity | Cybersecurity</text>
+<rect x="40" y="22" width="140" height="32" rx="16" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
+<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">SECURITY</text>
+<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 08, 2026</text>
+<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

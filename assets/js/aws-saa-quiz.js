@@ -2,6 +2,17 @@
 (function() {
   'use strict';
 
+  // localStorage 안전 래퍼 (private browsing / quota exceeded 대응)
+  function safeGetItem(key) {
+    try { return localStorage.getItem(key); } catch(e) { return null; }
+  }
+  function safeSetItem(key, value) {
+    try { localStorage.setItem(key, value); } catch(e) { /* private browsing or quota exceeded */ }
+  }
+  function safeRemoveItem(key) {
+    try { localStorage.removeItem(key); } catch(e) { /* ignored */ }
+  }
+
   // 문제 데이터 구조
   const questionsData = [
     {
@@ -781,27 +792,23 @@
     });
     
     updateStats();
-    localStorage.removeItem('aws-saa-answers');
-    localStorage.removeItem('aws-saa-checked');
+    safeRemoveItem('aws-saa-answers');
+    safeRemoveItem('aws-saa-checked');
   }
 
   // 답안 저장
   function saveAnswers() {
-    try {
-      localStorage.setItem('aws-saa-answers', JSON.stringify(state.answers));
-      localStorage.setItem('aws-saa-checked', JSON.stringify(state.checked));
-      localStorage.setItem('aws-saa-stats', JSON.stringify(state.stats));
-    } catch (e) {
-      // localStorage not available
-    }
+    safeSetItem('aws-saa-answers', JSON.stringify(state.answers));
+    safeSetItem('aws-saa-checked', JSON.stringify(state.checked));
+    safeSetItem('aws-saa-stats', JSON.stringify(state.stats));
   }
 
   // 저장된 답안 불러오기
   function loadSavedAnswers() {
     try {
-      const savedAnswers = localStorage.getItem('aws-saa-answers');
-      const savedChecked = localStorage.getItem('aws-saa-checked');
-      const savedStats = localStorage.getItem('aws-saa-stats');
+      const savedAnswers = safeGetItem('aws-saa-answers');
+      const savedChecked = safeGetItem('aws-saa-checked');
+      const savedStats = safeGetItem('aws-saa-stats');
       
       if (savedAnswers) {
         state.answers = JSON.parse(savedAnswers);

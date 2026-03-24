@@ -874,6 +874,10 @@ def main():
     log_message(f"실행 시간: {RUN_DURATION}초 (1시간)")
     log_message(f"Claude API: {'사용 가능' if CLAUDE_API_KEY else '미설정'}")
     log_message(f"Gemini API: {'사용 가능' if GEMINI_API_KEY else '미설정'}")
+    if not GEMINI_API_KEY:
+        log_message("GEMINI_API_KEY not set - API features disabled", "WARNING")
+    if not CLAUDE_API_KEY:
+        log_message("CLAUDE_API_KEY not set - API features disabled", "WARNING")
     log_message("=" * 60)
 
     # 모든 포스팅 파일 목록

@@ -1,59 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>GCP Cloud Security Complete Guide IAM to GKE Practical Security Architecture</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="50%" style="stop-color:#0f1629"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <circle cx="400" cy="250" r="200" fill="#3b82f6" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="800" cy="300" r="180" fill="#3b82f6" opacity="0.03" filter="url(#sg)"/>
-  <circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-
-  <g transform="translate(600,240)">
-    <path d="M-60,40 C-95,40 -120,15 -120,-15 C-120,-45 -95,-70 -65,-70 C-60,-100 -30,-120 0,-120 C35,-120 65,-95 65,-70 C100,-70 120,-45 120,-15 C120,15 100,40 65,40 Z"
-          fill="#3b82f6" fill-opacity="0.06" stroke="#60a5fa" stroke-width="2" opacity="0.7"/>
-    <rect x="-50" y="-50" width="30" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1.2"/>
-    <line x1="-45" y1="-35" x2="-25" y2="-35" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-    <line x1="-45" y1="-28" x2="-25" y2="-28" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-    <rect x="10" y="-50" width="30" height="40" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1.2"/>
-    <line x1="15" y1="-35" x2="35" y2="-35" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-    <line x1="15" y1="-28" x2="35" y2="-28" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-  </g>
-  <g transform="translate(600,350)">
-    <g stroke="#475569" stroke-width="1" opacity="0.4">
-      <line x1="-180" y1="-20" x2="-60" y2="-20"/><line x1="60" y1="-20" x2="180" y2="-20"/>
-      <line x1="0" y1="-30" x2="0" y2="-60"/>
-      <line x1="-180" y1="-20" x2="-180" y2="10"/><line x1="180" y1="-20" x2="180" y2="10"/>
-    </g>
-    <rect x="-205" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
-    <text x="-180" y="32" font-family="Courier New" font-size="9" fill="#6ee7b7" text-anchor="middle">K8s</text>
-    <rect x="-85" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
-    <text x="-60" y="32" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">DB</text>
-    <rect x="35" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="60" y="32" font-family="Courier New" font-size="9" fill="#fca5a5" text-anchor="middle">WAF</text>
-    <rect x="155" y="10" width="50" height="35" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.2"/>
-    <text x="180" y="32" font-family="Courier New" font-size="9" fill="#c4b5fd" text-anchor="middle">IAM</text>
-  </g>
-  <rect x="300" y="100" width="600" height="330" rx="20" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="10,5" opacity="0.3"/>
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">GCP Cloud Security Complete Guide IAM to GKE</text>
-  <text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud</text>
-
-  <rect x="40" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">TECH BLOG</text>
-
-  <rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 14, 2026</text>
-
-  <line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<title>GCP Cloud Security Complete Guide: IAM to GKE Pra...</title>
+<defs>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#0b0e1a"/>
+<stop offset="50%" stop-color="#111827"/>
+<stop offset="100%" stop-color="#0f0a1e"/>
+</linearGradient>
+<linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#326ce5"/>
+<stop offset="100%" stop-color="#7c3aed"/>
+</linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="200" cy="200" r="250" fill="#326ce5" opacity="0.06" filter="url(#sg)"/>
+<circle cx="900" cy="400" r="200" fill="#7c3aed" opacity="0.05" filter="url(#sg)"/>
+<g transform="translate(600,250)">
+<circle r="100" fill="none" stroke="#326ce5" stroke-width="2" opacity="0.3"/>
+<circle r="65" fill="none" stroke="#326ce5" stroke-width="1.5" opacity="0.4"/>
+<circle r="30" fill="#326ce5" opacity="0.15"/>
+<circle r="12" fill="#326ce5" opacity="0.4"/>
+<g stroke="#326ce5" stroke-width="2" opacity="0.5">
+<line x1="0" y1="-30" x2="0" y2="-95"/>
+<line x1="26" y1="-15" x2="82" y2="-48"/>
+<line x1="26" y1="15" x2="82" y2="48"/>
+<line x1="0" y1="30" x2="0" y2="95"/>
+<line x1="-26" y1="15" x2="-82" y2="48"/>
+<line x1="-26" y1="-15" x2="-82" y2="-48"/>
+</g>
+<g>
+<rect x="-18" y="-115" width="36" height="36" rx="8" fill="#0f172a" stroke="#326ce5" stroke-width="2"/>
+<text x="0" y="-92" font-family="Courier New" font-size="9" fill="#60a5fa" text-anchor="middle">POD</text>
+</g>
+<g transform="translate(95,-55)">
+<rect x="-18" y="-18" width="36" height="36" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+<text x="0" y="5" font-family="Courier New" font-size="9" fill="#4ade80" text-anchor="middle">SVC</text>
+</g>
+<g transform="translate(95,55)">
+<rect x="-18" y="-18" width="36" height="36" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+<text x="0" y="5" font-family="Courier New" font-size="9" fill="#a78bfa" text-anchor="middle">NS</text>
+</g>
+<g transform="translate(-95,-55)">
+<rect x="-18" y="-18" width="36" height="36" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+<text x="0" y="5" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">DPL</text>
+</g>
+<g transform="translate(-95,55)">
+<rect x="-18" y="-18" width="36" height="36" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+<text x="0" y="5" font-family="Courier New" font-size="9" fill="#f87171" text-anchor="middle">SEC</text>
+</g>
+<g transform="translate(0,115)">
+<rect x="-18" y="-18" width="36" height="36" rx="8" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
+<text x="0" y="5" font-family="Courier New" font-size="9" fill="#2dd4bf" text-anchor="middle">ING</text>
+</g>
+<text x="-220" y="-20" font-family="Courier New" font-size="11" fill="#475569">kubectl apply -f</text>
+<text x="160" y="-20" font-family="Courier New" font-size="11" fill="#475569">helm upgrade</text>
+</g>
+<text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">GCP Cloud Security Complete Guide: IAM to</text>
+<text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">GKE Pra...</text>
+<text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">GCP | Security | IAM | Cloud-SQL</text>
+<rect x="40" y="22" width="140" height="32" rx="16" fill="#326ce5" opacity="0.25" stroke="#326ce5" stroke-width="1"/>
+<text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#326ce5" text-anchor="middle">SECURITY</text>
+<rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+<text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 14, 2026</text>
+<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+<text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
