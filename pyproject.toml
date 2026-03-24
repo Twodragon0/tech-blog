@@ -67,8 +67,16 @@ filterwarnings = [
 ]
 
 [tool.coverage.run]
-source = ["auto_publish_news"]
+source = ["scripts"]
 
 [tool.coverage.report]
-include = ["scripts/auto_publish_news.py"]
+include = [
+    "scripts/auto_publish_news.py",
+    "scripts/check_posts.py",
+    "scripts/fix_links_unified.py",
+    "scripts/verify_images_unified.py",
+    "scripts/regenerate_all_images.py",
+    "scripts/lib/*.py",
+]
 show_missing = true
+fail_under = 55
