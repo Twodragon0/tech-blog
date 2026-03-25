@@ -1693,12 +1693,12 @@ def generate_news_section(
         card_parts = [
             "{% include news-card.html",
             '  title="%s"' % _sanitize_liquid_param(title),
-            '  url="%s"' % url,
+            '  url="%s"' % _sanitize_liquid_param(url),
         ]
         if image:
             # Strip query params that break Jekyll include parser
             clean_image = image.split("?")[0] if "?" in image else image
-            card_parts.append('  image="%s"' % clean_image)
+            card_parts.append('  image="%s"' % _sanitize_liquid_param(clean_image))
         if ko_summary:
             card_summary = _sanitize_liquid_param(ko_summary[:200])
             card_parts.append('  summary="%s"' % card_summary)
