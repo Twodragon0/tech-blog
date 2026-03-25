@@ -960,10 +960,25 @@ CATEGORY_SVG_CONFIG = {
 }
 
 
-def _escape_svg_text(text: str) -> str:
-    """SVG 텍스트 이스케이프"""
+def _strip_korean(text: str) -> str:
+    """SVG 텍스트에서 한글 제거 - SVG는 영문만 허용"""
     if not text:
         return ""
+    result = []
+    for char in text:
+        if "\uac00" <= char <= "\ud7a3" or "\u3131" <= char <= "\u3163" or "\u3165" <= char <= "\u318e":
+            result.append(" ")
+        else:
+            result.append(char)
+    cleaned = " ".join("".join(result).split())
+    return cleaned.strip(" ,;:-") or "Tech Blog"
+
+
+def _escape_svg_text(text: str) -> str:
+    """SVG 텍스트 이스케이프 (한글 자동 제거 포함)"""
+    if not text:
+        return ""
+    text = _strip_korean(text)
     return (
         text.replace("&", "&amp;")
         .replace("<", "&lt;")

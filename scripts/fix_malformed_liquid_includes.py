@@ -43,12 +43,14 @@ def fix_content(content: str) -> tuple[str, int]:
             changes += 1
         return new_block
 
-    fixed = re.sub(
-        r"\{%-?\s*include\s+news-card\.html\b.*?-?%\}",
-        _fix_curly_quotes_in_block,
-        fixed,
-        flags=re.DOTALL,
-    )
+    # Fix curly quotes in both news-card and ai-summary-card include blocks
+    for include_name in ("news-card", "ai-summary-card"):
+        fixed = re.sub(
+            rf"\{{%-?\s*include\s+{include_name}\.html\b.*?-?%\}}",
+            _fix_curly_quotes_in_block,
+            fixed,
+            flags=re.DOTALL,
+        )
 
     return fixed, changes
 
