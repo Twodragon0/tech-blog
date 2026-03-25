@@ -331,8 +331,39 @@ def _has_batchim(char: str) -> bool:
     return (code % 28) != 0
 
 
+def _title_quality_score(title: str) -> int:
+    """제목 품질 점수 (0-100). 낮을수록 나쁨."""
+    score = 100
+    # Dangling Korean particles at phrase boundaries
+    dangling = re.compile(
+        r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|하는|하기|하여|통해|대한)\s*[,.]?\s*$"
+    )
+    for part in title.split(","):
+        if dangling.search(part.strip()):
+            score -= 20
+    # Too many commas = keyword soup
+    comma_count = title.count(",")
+    if comma_count > 4:
+        score -= 15
+    # Very short phrases between commas
+    parts = [p.strip() for p in title.split(",")]
+    short_parts = sum(1 for p in parts if len(p) < 4)
+    score -= short_parts * 10
+    # Repeated words
+    words = title.lower().split()
+    if len(words) != len(set(words)):
+        score -= 15
+    # Length check
+    if len(title) > 70:
+        score -= 10
+    elif len(title) < 15:
+        score -= 10
+    return max(0, score)
+
+
 def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
-    """Prefer specific headline-driven titles over generic topic buckets."""
+    """Prefer specific headline-driven titles over generic topic buckets.
+    Falls back to label-based title if quality score is too low."""
     headline_phrases = _extract_digest_title_phrases(news_items, mode=mode, limit=3)
     weak_english_starts = (
         "how ",
@@ -356,6 +387,13 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
         has_markdown_noise or (weak_phrase_count >= 1 and not has_korean)
     ):
         title = ", ".join(headline_phrases)
+        # Quality gate: reject low-quality titles
+        if _title_quality_score(title) < 50:
+            label_title = ", ".join(
+                _extract_digest_title_labels(news_items, mode=mode)
+            )
+            if label_title:
+                return label_title[:80].rstrip(" ,.")
         if len(title) <= 80:
             return title
 
