@@ -387,13 +387,22 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
         has_markdown_noise or (weak_phrase_count >= 1 and not has_korean)
     ):
         title = ", ".join(headline_phrases)
+        score = _title_quality_score(title)
+        log_message(
+            f"[Title QA] score={score} title={title!r}", "INFO"
+        )
         # Quality gate: reject low-quality titles
-        if _title_quality_score(title) < 50:
+        if score < 50:
             label_title = ", ".join(
                 _extract_digest_title_labels(news_items, mode=mode)
             )
             if label_title:
-                return label_title[:80].rstrip(" ,.")
+                fallback = label_title[:80].rstrip(" ,.")
+                log_message(
+                    f"[Title QA] fallback={fallback!r} (score {score}<50)",
+                    "WARNING",
+                )
+                return fallback
         if len(title) <= 80:
             return title
 

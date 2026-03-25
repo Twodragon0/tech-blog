@@ -132,6 +132,46 @@ class TestBuildCleanImageAlt:
         assert not result.startswith(" ")
 
 
+class TestTitleQualityScore:
+    """Title quality scoring for auto-fallback."""
+
+    @pytest.fixture
+    def score_fn(self):
+        from news.content_generator import _title_quality_score
+        return _title_quality_score
+
+    def test_good_title_high_score(self, score_fn):
+        assert score_fn("Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어") >= 80
+
+    def test_keyword_title_decent_score(self, score_fn):
+        assert score_fn("북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE") >= 60
+
+    def test_dangling_particle_low_score(self, score_fn):
+        title = "Trivy 공급망 침해를 탐지, 조사 및, CI/CD 침해를"
+        assert score_fn(title) < 50
+
+    def test_keyword_soup_low_score(self, score_fn):
+        title = "A, B, C, D, E, F"
+        assert score_fn(title) < 70
+
+    def test_repeated_words_penalized(self, score_fn):
+        title = "Trivy 공급망 Trivy 침해"
+        assert score_fn(title) < 90
+
+    def test_too_short_penalized(self, score_fn):
+        assert score_fn("AI 보안") < 100
+
+    def test_too_long_penalized(self, score_fn):
+        long_title = "A" * 75
+        assert score_fn(long_title) < 100
+
+    def test_empty_returns_zero_or_low(self, score_fn):
+        assert score_fn("") <= 90
+
+    def test_perfect_english_title(self, score_fn):
+        assert score_fn("Zero-Day Exploit, Ransomware Attack, Cloud Security") >= 80
+
+
 class TestCheckTableCellTruncation:
     """Table cell truncation detection in check_posts.py."""
 
