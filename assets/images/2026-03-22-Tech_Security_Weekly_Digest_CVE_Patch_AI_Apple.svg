@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>FBI, Signal , Oracle, Identity, Trivy 47 npm security...</title>
+  <title>FBI Signal Phishing, Oracle Identity RCE, Trivy Supply Chain Attack</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0e1a"/>
@@ -45,8 +45,8 @@
   </g>
   <text x="950" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#22c55e" text-anchor="middle">PATCH</text>
 
-  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">FBI, Signal , Oracle, Identity, Trivy 47 npm</text>
-  <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">security...</text>
+  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">FBI Signal Phishing / Oracle RCE / Trivy Attack</text>
+  <text x="600" y="508" font-family="Arial,sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">Weekly Security Digest - March 22, 2026</text>
   <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Security-Weekly | DevSecOps | Cloud-Security | Weekly-Digest</text>
 
   <rect x="40" y="20" width="120" height="30" rx="15" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>

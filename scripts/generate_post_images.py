@@ -974,12 +974,30 @@ def _escape_svg_text(text: str) -> str:
 
 
 def _truncate_title(title: str, max_len: int = 50) -> str:
-    """제목 길이 제한"""
+    """제목 길이 제한 - 핵심 키워드를 / 구분자로 축약"""
     if not title:
         return "Tech Blog Post"
     if len(title) <= max_len:
         return title
-    return title[: max_len - 3] + "..."
+    # Try splitting by comma and taking meaningful parts
+    parts = [p.strip() for p in title.split(",") if p.strip()]
+    if len(parts) >= 2:
+        # Build title from parts, separated by " / "
+        result = parts[0]
+        for part in parts[1:]:
+            candidate = result + " / " + part
+            if len(candidate) <= max_len:
+                result = candidate
+            else:
+                break
+        if len(result) <= max_len:
+            return result
+    # Fallback: truncate at word boundary
+    truncated = title[:max_len]
+    last_space = truncated.rfind(" ")
+    if last_space > max_len // 2:
+        truncated = truncated[:last_space]
+    return truncated.rstrip(" ,;:-")
 
 
 def _extract_keywords_from_title(title: str) -> list:

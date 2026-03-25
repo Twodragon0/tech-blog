@@ -261,6 +261,67 @@ def _extract_digest_title_labels(
     return normalized_labels[:3]
 
 
+def _build_clean_excerpt(title_keywords: str, date_str: str, total: int, mode: str) -> str:
+    """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 목표"""
+    # 조사 보정: 받침 여부에 따라 을/를 선택
+    last_char = title_keywords.rstrip()[-1] if title_keywords.rstrip() else ""
+    particle = "을" if _has_batchim(last_char) else "를"
+    if mode == "tech":
+        return f"{title_keywords}{particle} 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
+    return f"{title_keywords}{particle} 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
+
+
+def _build_clean_description(title_keywords: str, source_list: str, date_str: str, total: int, mode: str) -> str:
+    """품질 검증된 description 생성 - 단어 나열 방지"""
+    # title_keywords에서 핵심 구문 3개를 추출하여 자연스러운 문장 구성
+    parts = [p.strip() for p in title_keywords.split(",") if p.strip()]
+    if len(parts) >= 3:
+        keywords_text = f"{parts[0]}, {parts[1]}, {parts[2]}"
+    elif len(parts) == 2:
+        keywords_text = f"{parts[0]}, {parts[1]}"
+    else:
+        keywords_text = title_keywords
+
+    # 빈 구문 제거 후 고아 쉼표 정리
+    parts = [p for p in parts if len(p.strip()) >= 2]
+    if len(parts) >= 3:
+        keywords_text = f"{parts[0]}, {parts[1]}, {parts[2]}"
+    elif len(parts) == 2:
+        keywords_text = f"{parts[0]}, {parts[1]}"
+    elif parts:
+        keywords_text = parts[0]
+    # 각 구문이 너무 짧거나 단어 조각이면 전체 사용
+    if not parts or any(len(p) < 2 for p in parts[:3]):
+        keywords_text = re.sub(r",\s*,", ",", title_keywords[:60]).rstrip(" ,.")
+
+    if mode == "tech":
+        return f"{date_str} 기술 블로그 다이제스트. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 개발자 트렌드와 운영 시사점을 정리합니다."
+    return f"{date_str} 보안 뉴스 요약. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 DevSecOps 대응 포인트를 정리합니다."
+
+
+def _build_clean_image_alt(title_keywords: str, mode: str) -> str:
+    """품질 검증된 image_alt 생성 - 공백/조각 방지, 영문만"""
+    alt_text = _to_english_svg_text(title_keywords)
+    # 연속 공백, 고아 쉼표 정리
+    alt_text = re.sub(r"\s*,\s*,\s*", ", ", alt_text)
+    alt_text = re.sub(r"\s{2,}", " ", alt_text)
+    alt_text = alt_text.strip(" ,;:-")
+    # 너무 짧거나 폴백인 경우 mode 기반 기본값
+    if not alt_text or alt_text == "Security News Update" or len(alt_text) < 10:
+        suffix = "security" if mode == "security" else "tech"
+        return f"Weekly {suffix} digest overview"
+    suffix = "security" if mode == "security" else "tech"
+    return f"{alt_text} - {suffix} digest overview"
+
+
+def _has_batchim(char: str) -> bool:
+    """한글 문자의 받침 여부 확인"""
+    if not char or not ("가" <= char <= "힣"):
+        return False
+    code = ord(char) - 0xAC00
+    return (code % 28) != 0
+
+
 def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
     """Prefer specific headline-driven titles over generic topic buckets."""
     headline_phrases = _extract_digest_title_phrases(news_items, mode=mode, limit=3)
@@ -587,13 +648,13 @@ title: "{title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{title_keywords}를 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
-description: "{date_str} 보안 뉴스 요약. {source_list} 등 {total}건을 분석하고 {title_keywords} 중심의 DevSecOps 대응 포인트를 정리합니다."
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, 'security')}"
+description: "{_build_clean_description(title_keywords, source_list, date_str, total, 'security')}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_to_english_svg_text(title_keywords)} security digest overview"
+image_alt: "{_build_clean_image_alt(title_keywords, 'security')}"
 toc: true
 ---
 
@@ -928,13 +989,13 @@ title: "기술 블로그 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
-excerpt: "{title_keywords}를 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
-description: "{date_str} 기술 블로그 다이제스트. {source_list} 등 {total}건을 분석하고 {title_keywords} 중심의 개발자 트렌드와 운영 시사점을 정리합니다."
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, 'tech')}"
+description: "{_build_clean_description(title_keywords, source_list, date_str, total, 'tech')}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_to_english_svg_text(title_keywords)} tech digest overview"
+image_alt: "{_build_clean_image_alt(title_keywords, 'tech')}"
 toc: true
 ---
 

@@ -326,57 +326,71 @@ def check_news_card_severity(content: str) -> List[str]:
 
 
 def check_table_cell_truncation(content: str) -> List[str]:
-    """마크다운 테이블 셀이 문장 중간에 잘린 패턴 감지"""
+    """마크다운 테이블 셀이 문장 중간에 잘린 패턴 감지 (양성 지표 기반)"""
     issues = []
 
-    # 문장 종결 패턴 (한국어 + 영문 마침표/느낌표/물음표)
-    sentence_end_pattern = re.compile(
-        r"(?:[.!?]|다|요|함|됨|음|임|함|었|겠|죠|군|네|죠)\s*$"
-    )
-    # 쉼표 뒤 바로 끝나는 셀
+    # --- 양성 잘림 지표 (positive truncation indicators) ---
+    # 1. 쉼표 뒤 바로 끝나는 셀
     trailing_comma_pattern = re.compile(r",\s*$")
-    # 영문 관사/전치사로 끝나는 셀
+    # 2. 영문 관사/전치사로 끝나는 셀 (Q&A 등 약어 제외)
     dangling_english_pattern = re.compile(
-        r"\b(?:the|a|an|in|of|for|to|with)\s*$", re.IGNORECASE
+        r"(?<![&/])\b(?:the|a|an|in|of|for|to|with|and|or)\s*$", re.IGNORECASE
     )
+    # 3. 한국어 접속사/복합 조사로 끝나는 셀 (단일 글자 조사 제외 - 오탐 방지)
+    dangling_korean_pattern = re.compile(
+        r"(?:\s(?:및|또는|그리고|하지만|그래서|따라서|때문에))\s*$"
+    )
+    # 4. 좌측 잘림: 소문자 영문으로 시작하되 알려진 기술 용어 제외
+    _LOWERCASE_TECH_TERMS = {
+        "eSIM", "iOS", "iPad", "iPhone", "iCloud", "iMac", "iTerm",
+        "macOS", "npm", "nmap", "kubectl", "git", "curl", "wget",
+        "sudo", "ssh", "http", "https", "localhost", "terraform",
+        "ansible", "docker", "podman", "systemd", "rsync", "cron",
+        "chmod", "chown", "grep", "sed", "awk", "jq", "yq",
+    }
 
     for line_num, line in enumerate(content.split("\n"), 1):
-        # 마크다운 테이블 행만 처리 (|로 시작하거나 |를 포함하는 행)
         stripped = line.strip()
         if not stripped.startswith("|") or not stripped.endswith("|"):
             continue
-        # 구분선 행 건너뜀 (|---|---|)
         if re.match(r"^\|[\s\-:]+\|[\s\-:|]*$", stripped):
             continue
 
-        # 각 셀 추출 (앞뒤 | 제거 후 split)
         cells = stripped[1:-1].split("|")
         for cell in cells:
             cell_stripped = cell.strip()
-            if not cell_stripped:
+            if not cell_stripped or len(cell_stripped) <= 5:
                 continue
 
             if trailing_comma_pattern.search(cell_stripped):
-                snippet = cell_stripped[-30:] if len(cell_stripped) > 30 else cell_stripped
+                snippet = cell_stripped[-40:] if len(cell_stripped) > 40 else cell_stripped
                 issues.append(
                     f"WARNING: line {line_num} - 테이블 셀이 문장 중간에 잘림: \"{snippet}\""
                 )
             elif dangling_english_pattern.search(cell_stripped):
-                snippet = cell_stripped[-30:] if len(cell_stripped) > 30 else cell_stripped
+                snippet = cell_stripped[-40:] if len(cell_stripped) > 40 else cell_stripped
                 issues.append(
                     f"WARNING: line {line_num} - 테이블 셀이 문장 중간에 잘림: \"{snippet}\""
                 )
-            elif (
-                len(cell_stripped) > 8
-                and not sentence_end_pattern.search(cell_stripped)
-                and not cell_stripped[-1] in ".!?)]}`'\""
-                and re.search(r"[가-힣]", cell_stripped)
-            ):
-                # 한국어 셀인데 종결어미 없이 끝나는 경우
-                snippet = cell_stripped[-30:] if len(cell_stripped) > 30 else cell_stripped
+            elif dangling_korean_pattern.search(cell_stripped) and len(cell_stripped) > 10:
+                snippet = cell_stripped[-40:] if len(cell_stripped) > 40 else cell_stripped
                 issues.append(
-                    f"WARNING: line {line_num} - 테이블 셀이 문장 중간에 잘림: \"{snippet}\""
+                    f"WARNING: line {line_num} - 테이블 셀이 조사/접속사로 끝남: \"{snippet}\""
                 )
+            elif cell_stripped[0].islower() and not cell_stripped.startswith("http"):
+                # Extract first word, stripping trailing punctuation
+                raw_first = cell_stripped.split()[0].rstrip(",:;\"'") if cell_stripped.split() else ""
+                first_word = re.split(r"[,/;:\-]", raw_first)[0]
+                if (
+                    len(first_word) >= 2
+                    and first_word not in _LOWERCASE_TECH_TERMS
+                    and not re.match(r"^[a-z][\w\-.:/]+$", raw_first)  # skip identifiers/paths
+                    and not re.match(r"^[a-z]+[A-Z]", raw_first)  # skip camelCase (hostUsers, runAsNonRoot)
+                ):
+                    snippet = cell_stripped[:40] if len(cell_stripped) > 40 else cell_stripped
+                    issues.append(
+                        f"WARNING: line {line_num} - 테이블 셀이 좌측에서 잘림: \"{snippet}\""
+                    )
 
     return issues
 
