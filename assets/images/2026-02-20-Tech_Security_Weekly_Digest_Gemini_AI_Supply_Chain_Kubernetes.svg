@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>기술 보안 주간 다이제스트 2026년 2월 20일 Gemini AI 공급망 Kubernetes</title>
+  <title>2026 2 20 Gemini AI Kubernetes</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0e1a"/>
@@ -45,7 +45,7 @@
   </g>
   <text x="950" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD</text>
 
-  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">기술 보안 주간 다이제스트 2026년 2월 20일 Gemini AI 공급망</text>
+  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">2026 2 20 Gemini AI</text>
   <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">Kubernetes</text>
   <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Security-Weekly | DevSecOps | Cloud-Security | Weekly-Digest</text>
 

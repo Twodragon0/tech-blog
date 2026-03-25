@@ -1665,6 +1665,16 @@ def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
     """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
+    # fmt: off
+    _CURLY_QUOTES = {"\u201c": '"', "\u201d": '"', "\u2018": "'", "\u2019": "'"}
+    # fmt: on
+
+    def _sanitize_liquid_param(text: str) -> str:
+        """Liquid include 파라미터용 문자열 정리 - curly quotes, 이중 따옴표 이스케이프"""
+        for curly, straight in _CURLY_QUOTES.items():
+            text = text.replace(curly, straight)
+        return text.replace('"', '\\"')
+
     title = _korean_display_title(item)
     url = item.get("url", "")
     source = item.get("source_name", item.get("source", "Unknown"))
@@ -1682,7 +1692,7 @@ def generate_news_section(
     if image or ko_summary:
         card_parts = [
             "{% include news-card.html",
-            '  title="%s"' % title.replace('"', '\\"'),
+            '  title="%s"' % _sanitize_liquid_param(title),
             '  url="%s"' % url,
         ]
         if image:
@@ -1690,9 +1700,9 @@ def generate_news_section(
             clean_image = image.split("?")[0] if "?" in image else image
             card_parts.append('  image="%s"' % clean_image)
         if ko_summary:
-            card_summary = ko_summary[:200].replace('"', '\\"')
+            card_summary = _sanitize_liquid_param(ko_summary[:200])
             card_parts.append('  summary="%s"' % card_summary)
-        card_parts.append('  source="%s"' % source.replace('"', '\\"'))
+        card_parts.append('  source="%s"' % _sanitize_liquid_param(source))
         card_parts.append('  severity="%s"' % severity)
         card_parts.append("%}")
         section += "\n".join(card_parts) + "\n\n"

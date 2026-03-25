@@ -378,14 +378,22 @@ def check_table_cell_truncation(content: str) -> List[str]:
                     f"WARNING: line {line_num} - 테이블 셀이 조사/접속사로 끝남: \"{snippet}\""
                 )
             elif cell_stripped[0].islower() and not cell_stripped.startswith("http"):
-                # Extract first word, stripping trailing punctuation
+                # Skip code/config patterns that legitimately start lowercase
+                if (
+                    "`" in cell_stripped  # code snippets with backticks
+                    or "\\" in cell_stripped  # escaped quotes/code patterns
+                    or "=" in cell_stripped.split()[0]  # key=value config (p=quarantine)
+                    or "[.]" in cell_stripped  # defanged domains (evil[.]com)
+                    or re.match(r"^[a-z]+\(", cell_stripped)  # function calls
+                ):
+                    continue
                 raw_first = cell_stripped.split()[0].rstrip(",:;\"'") if cell_stripped.split() else ""
                 first_word = re.split(r"[,/;:\-]", raw_first)[0]
                 if (
                     len(first_word) >= 2
                     and first_word not in _LOWERCASE_TECH_TERMS
                     and not re.match(r"^[a-z][\w\-.:/]+$", raw_first)  # skip identifiers/paths
-                    and not re.match(r"^[a-z]+[A-Z]", raw_first)  # skip camelCase (hostUsers, runAsNonRoot)
+                    and not re.match(r"^[a-z]+[A-Z]", raw_first)  # skip camelCase
                 ):
                     snippet = cell_stripped[:40] if len(cell_stripped) > 40 else cell_stripped
                     issues.append(
