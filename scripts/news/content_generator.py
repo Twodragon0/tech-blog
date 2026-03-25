@@ -180,6 +180,10 @@ def _extract_digest_title_phrases(
     news_items: List[Dict], mode: str = "security", limit: int = 3
 ) -> List[str]:
     """Build a more specific digest title from top headlines."""
+    # Korean particles/endings that indicate an incomplete phrase
+    _DANGLING_SUFFIXES = re.compile(
+        r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|하는|하기|하여|통해|대한)\s*$"
+    )
     phrases: List[str] = []
     seen: set[str] = set()
 
@@ -192,7 +196,12 @@ def _extract_digest_title_phrases(
             candidate = raw_title.strip(" ,.")
         if len(candidate) > 26:
             candidate = candidate[:26].rsplit(" ", 1)[0].rstrip(" ,.")
-        if not candidate:
+
+        # Trim dangling Korean particles (cut back to last noun)
+        while _DANGLING_SUFFIXES.search(candidate) and len(candidate) > 6:
+            candidate = _DANGLING_SUFFIXES.sub("", candidate).rsplit(" ", 1)[0].rstrip(" ,.")
+
+        if not candidate or len(candidate) < 4:
             continue
 
         dedupe_key = candidate.lower()

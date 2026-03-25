@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Keep up with Ransomware, Special Report 12월호, SK쉴더스 EQST insight 통합 12월호"
+title: "Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, SK쉴더스 EQST 보안 리포트"
 date: 2026-03-23 10:23:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
-excerpt: "Keep up with Ransomware, Special Report 12월호, SK쉴더스 EQST insight 통합 12월호를 중심으로 2026년 03월 23일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다."
-description: "2026년 03월 23일 보안 뉴스 요약. SK쉴더스 보안 리포트 등 15건을 분석하고 Keep up with Ransomware, Special Report 12월호, SK쉴더스 EQST insight 통합 12월호 중심의 DevSecOps 대응 포인트를 정리합니다."
+excerpt: "Gentlemen 랜섬웨어 확산 위협, 제로트러스트 가시성 분석, SK쉴더스 EQST 통합 보안 리포트 등 2026년 03월 23일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다."
+description: "2026년 03월 23일 보안 뉴스 요약. SK쉴더스 보안 리포트 등 15건을 분석하고 Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, EQST 통합 리포트 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
 author: Twodragon
 comments: true
@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Keep up with Ransomware, Special Report 12월호, SK쉴더스 EQST insight 통합 12월호'
+  title='Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, SK쉴더스 EQST 보안 리포트'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">Ransomware</span>
