@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-03-24T01:18:57.773976+00:00",
+  "updated_at": "2026-03-25T01:24:18.907170+00:00",
   "entries": [
-    {
-      "url": "https://asec.ahnlab.com/ko/92869/",
-      "title": "2026년 2월 국내외 금융권 관련 보안 이슈",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/how-to-stop-ai-data-leaks-webinar-guide.html",
-      "title": "How to Stop AI Data Leaks: A Webinar Guide to Auditing Modern Agentic Workflows",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/fortigate-devices-exploited-to-breach.html",
-      "title": "FortiGate Devices Exploited to Breach Networks and Steal Service Account Credent",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/kadnap-malware-infects-14000-edge.html",
-      "title": "KadNap Malware Infects 14,000+ Edge Devices to Power Stealth Proxy Botnet",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-european-sovereign-cloud-achieves-first-compliance-milestone-soc-2-and-c5-reports-plus-seven-iso-certifications/",
-      "title": "AWS European Sovereign Cloud achieves first compliance milestone: SOC 2 and C5 r",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/jetson-generative-ai-edge-oss/",
-      "title": "As Open Models Spark AI Boom, NVIDIA Jetson Brings It to Life at the Edge",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/gdc-2026-virtual-game-development/",
-      "title": "NVIDIA Virtualizes Game Development With RTX PRO Server",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-flux-ltx-video-comfyui-gdc/",
-      "title": "NVIDIA and ComfyUI Streamline Local AI Video Generation for Game Developers and ",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-thinking-machines-lab/",
-      "title": "NVIDIA and Thinking Machines Lab Announce Long-Term Gigawatt-Scale Strategic Par",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
-      "title": "Gemini in Google Sheets just achieved state-of-the-art performance.",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-new-threat-horizons-report-highlights-current-cloud-threats/",
-      "title": "Cloud CISO Perspectives: New Threat Horizons report highlights current cloud thr",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-for-government-build-custom-ai-agents-for-unclassified-work-on-genaimil/",
-      "title": "Gemini for Government: Build custom AI agents for unclassified work on GenAI.mil",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/whats-holding-back-ai-agents-its-still-security/",
-      "title": "What’s Holding Back AI Agents? It’s Still Security",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/dotnet-11-preview-2/",
-      "title": ".NET 11 Preview 2 is now available!",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-march-2026-servicing-updates/",
-      "title": ".NET and .NET Framework March 2026 servicing releases updates",
-      "published_date": "2026-03-11",
-      "expires_at": "2026-03-18T01:23:43.621538+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/researchers-trick-perplexitys-comet-ai.html",
       "title": "Researchers Trick Perplexity's Comet AI Browser Into Phishing Scam in Under Four",
@@ -1500,6 +1410,96 @@
       "title": "Trivy supply chain compromise: What Docker Hub users should know",
       "published_date": "2026-03-24",
       "expires_at": "2026-03-31T01:18:57.773841+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/24/detecting-investigating-defending-against-trivy-supply-chain-compromise/",
+      "title": "Guidance for detecting, investigating, and defending against the Trivy supply ch",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/teampcp-backdoors-litellm-versions.html",
+      "title": "TeamPCP Backdoors LiteLLM Versions 1.82.7–1.82.8 Likely via Trivy CI/CD Compromi",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/tax-search-ads-deliver-screenconnect.html",
+      "title": "Tax Search Ads Deliver ScreenConnect Malware Using Huawei Driver to Disable EDR",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/5-learnings-from-first-ever-gartner.html",
+      "title": "5 Learnings from the First-Ever Gartner Market Guide for Guardian Agents",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/hackers-use-fake-resumes-to-steal.html",
+      "title": "Hackers Use Fake Resumes to Steal Enterprise Credentials and Deploy Crypto Miner",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/manufacturing-with-the-connected-edge-f8d8871ec437?source=rss----3c87dc14372f---4",
+      "title": "Manufacturing with the Connected Edge",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://openai.com/index/teen-safety-policies-gpt-oss-safeguard",
+      "title": "Helping developers build safer AI experiences for teens",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://openai.com/index/update-on-the-openai-foundation",
+      "title": "Update on the OpenAI Foundation",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+      "title": "Powering product discovery in ChatGPT",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/",
+      "title": "Advancing Open Source AI, NVIDIA Donates Dynamic Resource Allocation Driver for ",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/5-ways-our-enterprise-browser-keeps-reinforcing-security/",
+      "title": "5 Ways our Enterprise Browser Keeps Reinforcing Security",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-and-oss-innovation-at-kubecon-eu-2026/",
+      "title": "The open platform for the AI era: GKE, agents, and OSS innovation at KubeCon EU ",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/llm-d-officially-a-cncf-sandbox-project/",
+      "title": "Kubernetes as AI Infrastructure: Google Cloud, llm-d, and the CNCF",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/aws-devops-agent-k8s-operator/",
+      "title": "Agent 로 최적화 하는 EKS 운영: AWS DevOps Agent + K8s Operator로 MTTR 줄이기",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/building-intelligent-physical-ai-from-edge-to-cloud-with-strands-agents-bedrock-agentcore-claude-4-5-nvidia-gr00t-and-hugging-face-lerobot/",
+      "title": "지능형 Physical AI 구축: Strands Agents, Bedrock AgentCore, Claude 4.6, NVIDIA GR00T,",
+      "published_date": "2026-03-25",
+      "expires_at": "2026-04-01T01:24:18.907037+00:00"
     }
   ]
 }
