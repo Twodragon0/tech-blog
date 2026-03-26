@@ -417,7 +417,7 @@ class TestCheckSvgTextDensity:
         assert any("text nodes" in i for i in issues)
 
     def test_too_many_chars_flagged(self, tmp_path):
-        long_text = "A" * 200
+        long_text = "A" * 350
         svg = f'<svg xmlns="http://www.w3.org/2000/svg"><text>{long_text}</text></svg>'
         issues = self._make_svg_and_check(tmp_path, svg)
         assert any("too much text" in i for i in issues)
