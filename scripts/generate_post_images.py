@@ -963,14 +963,105 @@ CATEGORY_SVG_CONFIG = {
         "icon": "!!",
         "accent": "#f87171",
     },
+    "ai": {
+        "gradient_start": "#06b6d4",
+        "gradient_end": "#0891b2",
+        "gradient_id": "cyanGradient",
+        "label": "AI/ML",
+        "icon": "AI",
+        "accent": "#22d3ee",
+    },
+    "blockchain": {
+        "gradient_start": "#8b5cf6",
+        "gradient_end": "#7c3aed",
+        "gradient_id": "violetGradient",
+        "label": "BLOCKCHAIN",
+        "icon": "BTC",
+        "accent": "#a78bfa",
+    },
     "tech": {
         "gradient_start": "#3b82f6",
         "gradient_end": "#1d4ed8",
         "gradient_id": "blueGradient",
         "label": "TECH",
-        "icon": "AI",
+        "icon": "T",
         "accent": "#60a5fa",
     },
+}
+
+# Category-specific central illustration SVG fragments
+_CATEGORY_ILLUSTRATIONS = {
+    "security": '''
+    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="{accent}" stroke-width="3"/>
+    <path d="M-12,2 L-4,12 L16,-10" stroke="{accent}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-50" cy="-30" r="8" fill="{accent}" opacity="0.3"/>
+    <circle cx="50" cy="-30" r="8" fill="{accent}" opacity="0.3"/>
+    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>''',
+    "devsecops": '''
+    <circle cx="-60" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
+    <circle cx="60" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
+    <line x1="-38" y1="0" x2="-22" y2="0" stroke="{accent}" stroke-width="2"/>
+    <line x1="22" y1="0" x2="38" y2="0" stroke="{accent}" stroke-width="2"/>
+    <polygon points="-25,-4 -18,0 -25,4" fill="{accent}"/>
+    <polygon points="35,-4 42,0 35,4" fill="{accent}"/>
+    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>''',
+    "cloud": '''
+    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="{accent}" stroke-width="3"/>
+    <line x1="-20" y1="30" x2="-20" y2="45" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <line x1="10" y1="30" x2="10" y2="50" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <line x1="35" y1="30" x2="35" y2="42" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>
+    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>''',
+    "kubernetes": '''
+    <polygon points="0,-45 40,-20 40,20 0,45 -40,20 -40,-20" fill="none" stroke="{accent}" stroke-width="3"/>
+    <circle r="12" fill="{accent}" opacity="0.3"/>
+    <line x1="0" y1="-12" x2="0" y2="-38" stroke="{accent}" stroke-width="2"/>
+    <line x1="10" y1="6" x2="34" y2="16" stroke="{accent}" stroke-width="2"/>
+    <line x1="-10" y1="6" x2="-34" y2="16" stroke="{accent}" stroke-width="2"/>
+    <circle cx="0" cy="-38" r="5" fill="{accent}" opacity="0.5"/>
+    <circle cx="34" cy="16" r="5" fill="{accent}" opacity="0.5"/>
+    <circle cx="-34" cy="16" r="5" fill="{accent}" opacity="0.5"/>''',
+    "ai": '''
+    <circle r="14" fill="{accent}" opacity="0.3"/>
+    <circle r="6" fill="{accent}" opacity="0.6"/>
+    <line x1="-30" y1="-25" x2="-10" y2="-8" stroke="{accent}" stroke-width="2"/>
+    <line x1="30" y1="-25" x2="10" y2="-8" stroke="{accent}" stroke-width="2"/>
+    <line x1="-30" y1="25" x2="-10" y2="8" stroke="{accent}" stroke-width="2"/>
+    <line x1="30" y1="25" x2="10" y2="8" stroke="{accent}" stroke-width="2"/>
+    <circle cx="-30" cy="-25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
+    <circle cx="30" cy="-25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
+    <circle cx="-30" cy="25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
+    <circle cx="30" cy="25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
+    <line x1="-30" y1="-17" x2="-30" y2="17" stroke="{accent}" stroke-width="1" opacity="0.3"/>
+    <line x1="30" y1="-17" x2="30" y2="17" stroke="{accent}" stroke-width="1" opacity="0.3"/>''',
+    "devops": '''
+    <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="{accent}" stroke-width="3"/>
+    <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="{accent}" stroke-width="3" stroke-dasharray="5 3"/>
+    <polygon points="20,-5 28,0 20,5" fill="{accent}"/>
+    <polygon points="-20,5 -28,0 -20,-5" fill="{accent}"/>
+    <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
+    <line x1="-35" y1="0" x2="-28" y2="0" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>
+    <line x1="28" y1="0" x2="35" y2="0" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>''',
+    "blockchain": '''
+    <rect x="-20" y="-30" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
+    <rect x="-20" y="-5" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
+    <rect x="-20" y="20" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
+    <line x1="0" y1="-10" x2="0" y2="-5" stroke="{accent}" stroke-width="2"/>
+    <line x1="0" y1="15" x2="0" y2="20" stroke="{accent}" stroke-width="2"/>
+    <line x1="-30" y1="-20" x2="-20" y2="-20" stroke="{accent}" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 2"/>
+    <line x1="20" y1="5" x2="30" y2="5" stroke="{accent}" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 2"/>''',
+    "finops": '''
+    <circle r="35" fill="none" stroke="{accent}" stroke-width="2.5" stroke-dasharray="8 4"/>
+    <text x="0" y="8" font-family="Arial,sans-serif" font-size="32" font-weight="bold" fill="{accent}" text-anchor="middle" opacity="0.8">$</text>
+    <line x1="-50" y1="20" x2="-35" y2="-10" stroke="{accent}" stroke-width="2" opacity="0.4"/>
+    <line x1="-35" y1="-10" x2="-15" y2="5" stroke="{accent}" stroke-width="2" opacity="0.4"/>
+    <line x1="15" y1="-5" x2="35" y2="-20" stroke="{accent}" stroke-width="2" opacity="0.4"/>
+    <line x1="35" y1="-20" x2="50" y2="-15" stroke="{accent}" stroke-width="2" opacity="0.4"/>''',
 }
 
 
@@ -1117,99 +1208,46 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 
         date_str = datetime.now().strftime("%B %d, %Y")
 
-        svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+        # Get category-specific illustration
+        illustration = _CATEGORY_ILLUSTRATIONS.get(
+            category, _CATEGORY_ILLUSTRATIONS.get("tech", "")
+        )
+        if not illustration:
+            # Fallback to security illustration for unknown categories
+            illustration = _CATEGORY_ILLUSTRATIONS.get("security", "")
+        illustration = illustration.replace("{accent}", config["accent"])
+
+        svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{_escape_svg_text(display_title)}</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f0a1e"/>
     </linearGradient>
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
-    </linearGradient>
-    <linearGradient id="{config["gradient_id"]}" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:{config["gradient_start"]}"/>
-      <stop offset="100%" style="stop-color:{config["gradient_end"]}"/>
-    </linearGradient>
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="250" cy="250" r="220" fill="{config["accent"]}" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="950" cy="400" r="200" fill="{config["gradient_end"]}" opacity="0.04" filter="url(#sg)"/>
 
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <circle cx="100" cy="100" r="200" fill="{config["accent"]}" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="{config["gradient_start"]}" fill-opacity="0.03"/>
-
-  <rect x="40" y="30" width="180" height="36" rx="18" fill="url(#{config["gradient_id"]})" filter="url(#shadow)"/>
-  <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{config["label"]}</text>
-
-  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{date_str}</text>
-
-  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{display_title}</text>
-  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle)}</text>
-
-  <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
-
-  <g transform="translate(100, 220)">
-    <rect width="1000" height="280" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1000" height="8" rx="4" fill="url(#{config["gradient_id"]})"/>
-
-    <circle cx="60" cy="70" r="35" fill="url(#{config["gradient_id"]})" fill-opacity="0.2"/>
-    <text x="60" y="78" font-family="Arial, sans-serif" font-size="20" fill="{config["accent"]}" text-anchor="middle">{config["icon"]}</text>
-
-    <text x="120" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="{config["accent"]}">{config["label"]} POST</text>
-    <text x="120" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Featured Content</text>
-'''
-
-        if summary_lines:
-            for idx, line in enumerate(summary_lines[:3]):
-                y_offset = 130 + idx * 28
-                svg_content += f'    <text x="40" y="{y_offset}" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{line}</text>\n'
-        else:
-            svg_content += '    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Read the full article for detailed insights and analysis.</text>\n'
-            svg_content += '    <text x="40" y="158" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Stay updated with the latest tech and security news.</text>\n'
-
-        tag_x = 40
-        for idx, tag in enumerate(display_tags[:4]):
-            tag_text = _escape_svg_text(f"#{tag}" if not tag.startswith("#") else tag)
-            tag_width = len(tag_text) * 8 + 20
-            svg_content += f'''
-    <rect x="{tag_x}" y="220" width="{tag_width}" height="26" rx="13" fill="{config["accent"]}" fill-opacity="0.2"/>
-    <text x="{tag_x + tag_width // 2}" y="238" font-family="Arial, sans-serif" font-size="12" fill="{config["accent"]}" text-anchor="middle">{tag_text}</text>
-'''
-            tag_x += tag_width + 15
-
-        svg_content += """
-    <rect x="820" y="210" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
-    <text x="890" y="238" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+  <!-- Central illustration -->
+  <g transform="translate(600,280)" filter="url(#shadow)">
+    <circle r="80" fill="#0f172a" stroke="{config["accent"]}" stroke-width="2.5" opacity="0.8"/>
+{illustration}
   </g>
 
-  <line x1="50" y1="560" x2="1150" y2="560" stroke="#334155" stroke-width="1"/>
-
-  <text x="60" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
-  <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
-
-  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
-</svg>"""
+  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{display_title}</text>
+  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle)}</text>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="{config["accent"]}" text-anchor="middle">{config["label"]}</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="{config["accent"]}" opacity="0.25" stroke="{config["accent"]}" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">{date_str}</text>
+  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>'''
 
         output_svg = output_path.with_suffix(".svg")
         with open(output_svg, "w", encoding="utf-8") as f:
