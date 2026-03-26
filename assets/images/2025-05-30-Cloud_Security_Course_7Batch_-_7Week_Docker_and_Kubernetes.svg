@@ -46,8 +46,7 @@
     </g>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 7Batch 7Week: Docker</text>
-  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">and Ku...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 7Batch</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Docker | Kubernetes | Container | K8s</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#2496ed" opacity="0.25" stroke="#2496ed" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#2496ed" text-anchor="middle">KUBERNETES</text>

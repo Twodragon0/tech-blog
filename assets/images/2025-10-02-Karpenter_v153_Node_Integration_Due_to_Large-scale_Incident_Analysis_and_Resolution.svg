@@ -52,7 +52,7 @@
     <path d="M-100,-105 L100,-105" stroke="#22c55e" stroke-width="1" opacity="0.3"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Karpenter v1.5.3 Large-Scale Incident Analysis an...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Karpenter v153 Node Integration Due</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Karpenter | Kubernetes | AWS | Post-Mortem</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#326ce5" opacity="0.25" stroke="#326ce5" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#326ce5" text-anchor="middle">INCIDENT</text>

@@ -1003,30 +1003,43 @@ def _escape_svg_text(text: str) -> str:
 
 
 def _truncate_title(title: str, max_len: int = 50) -> str:
-    """제목 길이 제한 - 핵심 키워드를 / 구분자로 축약"""
+    """제목 길이 제한 - 핵심 키워드만 추출하여 축약 (잘림 방지)"""
     if not title:
         return "Tech Blog Post"
     if len(title) <= max_len:
         return title
-    # Try splitting by comma and taking meaningful parts
-    parts = [p.strip() for p in title.split(",") if p.strip()]
-    if len(parts) >= 2:
-        # Build title from parts, separated by " / "
-        result = parts[0]
-        for part in parts[1:]:
-            candidate = result + " / " + part
-            if len(candidate) <= max_len:
-                result = candidate
-            else:
-                break
-        if len(result) <= max_len:
-            return result
-    # Fallback: truncate at word boundary
-    truncated = title[:max_len]
-    last_space = truncated.rfind(" ")
-    if last_space > max_len // 2:
-        truncated = truncated[:last_space]
-    return truncated.rstrip(" ,;:-")
+
+    # Strategy 1: Split by common delimiters and take first meaningful part
+    for delim in [" - ", ": ", ", ", " | "]:
+        parts = [p.strip() for p in title.split(delim) if p.strip()]
+        if len(parts) >= 2:
+            result = parts[0]
+            for part in parts[1:]:
+                candidate = result + " + " + part
+                if len(candidate) <= max_len:
+                    result = candidate
+                else:
+                    break
+            if len(result) <= max_len:
+                return result
+
+    # Strategy 2: Extract key technical words (skip filler words)
+    skip_words = {
+        "the", "a", "an", "and", "or", "of", "in", "on", "to", "for",
+        "with", "from", "by", "is", "are", "was", "were", "be", "been",
+        "complete", "guide", "practical", "comprehensive", "understanding",
+        "overview", "introduction", "analysis", "perspective", "strategy",
+    }
+    words = [w for w in title.split() if w.lower() not in skip_words]
+    result = ""
+    for word in words:
+        candidate = (result + " " + word).strip() if result else word
+        if len(candidate) <= max_len:
+            result = candidate
+        else:
+            break
+
+    return result.rstrip(" ,;:-") if result else title.split()[0]
 
 
 def _extract_keywords_from_title(title: str) -> list:

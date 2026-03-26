@@ -50,7 +50,7 @@
     </g>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code and OpenCode Best Practices 38 Guide ...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code OpenCode Best Practices 38 Agent</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Claude-Code | OpenCode | Best-Practices | AI-Agent</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">DEVOPS</text>

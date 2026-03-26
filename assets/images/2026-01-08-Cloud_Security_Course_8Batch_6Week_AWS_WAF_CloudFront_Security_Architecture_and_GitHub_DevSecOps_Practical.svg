@@ -49,7 +49,7 @@
     <circle cx="-150" cy="-20" r="2" fill="#10b981" opacity="0.3"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 8Batch 6Week: AWS WAF Cloud...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security Course 8Batch 6Week AWS WAF</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS | CloudFront | cloudsecurity | Cybersecurity</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">SECURITY</text>

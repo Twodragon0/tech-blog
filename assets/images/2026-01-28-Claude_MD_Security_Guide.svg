@@ -81,8 +81,7 @@
     <text x="220" y="95" font-family="Courier New" font-size="10" fill="#ec4899" text-anchor="middle">OUTPUT</text>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">CLAUDE.md Security Guide - AI Agent Security</text>
-  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Guid...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">CLAUDE.md Security Guide</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">CLAUDE.md | AI-Security | Claude-Code | DevSecOps</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">SECURITY</text>
