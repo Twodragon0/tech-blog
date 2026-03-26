@@ -36,6 +36,22 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Python dependencies
+        run: |
+          pip install frontmatter beautifulsoup4 Pillow
+
+      - name: Verify images
+        run: |
+          echo "🖼️ Running image verification..."
+          python3 scripts/verify_images_unified.py --all 2>&1 | tee /tmp/image-report.txt || true
+          echo "image_issues=$(grep -c '❌\|⚠️' /tmp/image-report.txt || echo 0)" >> $GITHUB_OUTPUT
+
+      - name: Check posts
+        run: |
+          echo "📝 Running post quality check..."
+          python3 scripts/check_posts.py 2>&1 | tee /tmp/post-report.txt || true
+          echo "post_issues=$(grep -c '⚠️' /tmp/post-report.txt || echo 0)" >> $GITHUB_OUTPUT
+
       - name: Generate quality report and issue body
         id: report
         run: |

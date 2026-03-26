@@ -1223,8 +1223,7 @@ _DIGEST_NODE_DEFS = {
         "label": "ZERO DAY",
         "color": "#dc2626",
         "icon": '<rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="{color}" stroke-width="2"/>'
-        '<text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="{color}" text-anchor="middle">CVE</text>'
-        '<text x="0" y="12" font-family="Courier New" font-size="8" fill="{color}" text-anchor="middle" opacity="0.7">0-DAY</text>',
+        '<text x="0" font-family="Courier New" fill="{color}" text-anchor="middle"><tspan y="-2" font-size="11" font-weight="700">CVE</tspan><tspan x="0" y="12" font-size="8" opacity="0.7">0-DAY</tspan></text>',
     },
     "malware": {
         "label": "MALWARE",
@@ -1397,8 +1396,14 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
     <circle r="56" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
     {icon_svg}
   </g>
-  <text x="{x_pos}" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="{color}" text-anchor="middle">{nc["label"]}</text>
+
 """
+
+        # Node labels as single text element with tspans
+        labels_svg = '  <text font-family="Arial, sans-serif" font-size="16" font-weight="700">'
+        for nc, x_pos in zip(node_configs, positions):
+            labels_svg += f'<tspan x="{x_pos}" y="448" fill="{nc["color"]}" text-anchor="middle">{nc["label"]}</tspan>'
+        labels_svg += '</text>\n'
 
         # Connection dots between nodes
         dots_svg = ""
@@ -1431,13 +1436,11 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-{glows}  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">{subtitle}</text>
+{glows}  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">{subtitle}</tspan></text>
   <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
-{nodes_svg}{dots_svg}
+{nodes_svg}{labels_svg}{dots_svg}
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">{date_display}</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
 </svg>'''
 
         output_svg = output_path.with_suffix(".svg")
