@@ -304,6 +304,12 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
             f"⚠️ SVG relies on repeated label text instead of a single concept: {image_path}"
         )
 
+    truncated = [t for t in text_nodes if t.endswith("...") or t.endswith("\u2026")]
+    if truncated:
+        issues.append(
+            f"⚠️ SVG contains truncated text: {truncated[0][:50]}... in {image_path}"
+        )
+
     return issues
 
 

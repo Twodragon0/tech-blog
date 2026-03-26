@@ -450,3 +450,15 @@ class TestCheckSvgTextDensity:
             fm = {"image": "/assets/images/missing.svg"}
             issues = check_svg_text_density(fm)
         assert issues == []
+
+    def test_no_truncated_text_in_svg(self, tmp_path):
+        """SVG text 내 '...'로 끝나는 잘린 텍스트가 없어야 함"""
+        svg = '<svg xmlns="http://www.w3.org/2000/svg"><text>Cloud Security Course 7Batch 4Week: AWS Vulnerabi...</text></svg>'
+        issues = self._make_svg_and_check(tmp_path, svg)
+        assert any("truncat" in i.lower() or "..." in i for i in issues)
+
+    def test_clean_text_no_truncation_warning(self, tmp_path):
+        """정상 텍스트에는 잘림 경고가 없어야 함"""
+        svg = '<svg xmlns="http://www.w3.org/2000/svg"><text>Cloud Security Course</text></svg>'
+        issues = self._make_svg_and_check(tmp_path, svg)
+        assert not any("truncat" in i.lower() for i in issues)
