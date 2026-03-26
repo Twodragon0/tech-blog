@@ -411,6 +411,13 @@ npm token create --read-only --cidr=10.0.0.0/8
 21. Log4j 취약점 (참고 사례)
     - NIST: https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 
+> 📌 **관련 보도**: [클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라! (2025년 11월 21일)](/posts/2025/11/21/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/)
+> 📌 **관련 보도**: [Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE, Google IPIDEA (2026년 01월 30일)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/)
+> 📌 **관련 보도**: [주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 (2026년 02월 02일)](/posts/2026/02/02/Weekly_Security_Threat_Intelligence_Digest/)
+> 📌 **관련 보도**: [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 (2026년 02월 10일)](/posts/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack/)
+> 📌 **관련 보도**: [AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략 (2026년 02월 17일)](/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/)
+> 📌 **관련 보도**: [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향 (2026년 02월 23일)](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/)
+
 ### 3.6 학술 논문 및 연구
 
 22. "소프트웨어 공급망 공격: 체계적 문헌 검토" (Software Supply Chain Attacks: A Systematic Literature Review)

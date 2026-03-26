@@ -10,12 +10,14 @@ SVG 텍스트 노드 밀도 최적화 스크립트
 4. g 내부 코드/숫자 장식용 text 노드 제거 (라인번호, 코드 하이라이팅)
 """
 
+import argparse
 import os
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-ASSETS_DIR = Path("/Users/yong/Desktop/tech-blog/assets/images")
+PROJECT_ROOT = Path(__file__).parent.parent
+ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 SVG_NS = "http://www.w3.org/2000/svg"
 
 ET.register_namespace("", SVG_NS)
@@ -294,8 +296,14 @@ def optimize_svg(filepath: Path) -> tuple[int, int, str]:
 # ---------------------------------------------------------------------------
 
 def main():
-    print("SVG 텍스트 노드 밀도 최적화")
-    print("=" * 65)
+    parser = argparse.ArgumentParser(description="SVG 텍스트 노드 밀도 최적화")
+    parser.add_argument("--quiet", "-q", action="store_true", help="변경 사항만 출력 (이미 OK/상세 건너뜀)")
+    args = parser.parse_args()
+    quiet = args.quiet
+
+    if not quiet:
+        print("SVG 텍스트 노드 밀도 최적화")
+        print("=" * 65)
 
     svg_files = sorted(ASSETS_DIR.glob("*.svg"))
 
@@ -334,17 +342,25 @@ def main():
             counts["error"] += 1
             detail_lines.append(f"  !!  {before:2d}    {name}  [{status}]")
 
-    for line in detail_lines:
-        print(line)
-
-    print()
-    print("=" * 65)
-    print(f"최적화 완료 (10 이하)  : {counts['optimized']:3d}개")
-    print(f"부분 개선 (10 초과)    : {counts['partial']:3d}개")
-    print(f"변환 불가              : {counts['no_improvement']:3d}개")
-    print(f"한글 포함 (건너뜀)     : {counts['korean']:3d}개")
-    print(f"이미 OK (10 이하)      : {counts['already_ok']:3d}개")
-    print(f"오류                   : {counts['error']:3d}개")
+    if quiet:
+        # quiet 모드: 변경된 파일만 출력
+        for line in detail_lines:
+            if line.startswith("  OK") or line.startswith("  ~"):
+                print(line)
+        changed = counts["optimized"] + counts["partial"]
+        if changed > 0:
+            print(f"  → {changed}개 SVG 최적화 완료")
+    else:
+        for line in detail_lines:
+            print(line)
+        print()
+        print("=" * 65)
+        print(f"최적화 완료 (10 이하)  : {counts['optimized']:3d}개")
+        print(f"부분 개선 (10 초과)    : {counts['partial']:3d}개")
+        print(f"변환 불가              : {counts['no_improvement']:3d}개")
+        print(f"한글 포함 (건너뜀)     : {counts['korean']:3d}개")
+        print(f"이미 OK (10 이하)      : {counts['already_ok']:3d}개")
+        print(f"오류                   : {counts['error']:3d}개")
 
 
 if __name__ == "__main__":

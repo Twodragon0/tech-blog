@@ -167,6 +167,13 @@ SK쉴더스 EQST는 11월~1월호 보안 리포트 10건을 발행하며, Vertic
 | XZ Utils | 2024 | 리눅스 전체 | 미상 (국가급) | SSH 백도어 (사전 차단) |
 | Notepad++ | 2026 | 수백만 사용자 | 국가 지원 그룹 | 개발자/관리자 환경 침해 |
 
+> 📌 **관련 보도**: [NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석 (2025년 09월 17일)](/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/)
+> 📌 **관련 보도**: [클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라! (2025년 11월 21일)](/posts/2025/11/21/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/)
+> 📌 **관련 보도**: [Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE, Google IPIDEA (2026년 01월 30일)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/)
+> 📌 **관련 보도**: [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 (2026년 02월 10일)](/posts/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack/)
+> 📌 **관련 보도**: [AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략 (2026년 02월 17일)](/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/)
+> 📌 **관련 보도**: [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향 (2026년 02월 23일)](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/)
+
 ### 1.5 공격 흐름도 (Attack Flow)
 
 
@@ -536,6 +543,13 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 | MITRE ATT&CK T1195.002 - Compromise Software Supply Chain | [attack.mitre.org/techniques/T1195/002](https://attack.mitre.org/techniques/T1195/002/) | MITRE Corporation |
 | SolarWinds Supply Chain Attack Analysis | [mandiant.com/resources/blog/evasive-attacker](https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor) | Mandiant |
 | NIST SP 800-161 Rev. 1 - Cyber Supply Chain Risk Management | [csrc.nist.gov/publications/detail/sp/800-161](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final) | NIST |
+
+> 📌 **관련 보도**: [NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석 (2025년 09월 17일)](/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/)
+> 📌 **관련 보도**: [클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라! (2025년 11월 21일)](/posts/2025/11/21/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/)
+> 📌 **관련 보도**: [Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE, Google IPIDEA (2026년 01월 30일)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/)
+> 📌 **관련 보도**: [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 (2026년 02월 10일)](/posts/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack/)
+> 📌 **관련 보도**: [AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략 (2026년 02월 17일)](/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/)
+> 📌 **관련 보도**: [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향 (2026년 02월 23일)](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/)
 
 ### SK쉴더스 보안 리포트 (2025.11 - 2026.01)
 
