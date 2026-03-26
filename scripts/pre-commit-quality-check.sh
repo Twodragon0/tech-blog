@@ -97,6 +97,20 @@ if [ -n "$STAGED_SCRIPTS" ]; then
     fi
 fi
 
+# SVG text density optimization (only when SVG files are staged)
+if [ -n "$STAGED_SVGS" ]; then
+    SVG_OPTIMIZER="$REPO_ROOT/scripts/optimize_svg_text_density.py"
+    if [ -f "$SVG_OPTIMIZER" ]; then
+        echo ""
+        echo "🔧 Running SVG text density optimization..."
+        python3 "$SVG_OPTIMIZER" --quiet 2>/dev/null || true
+        # Re-stage optimized SVGs
+        while IFS= read -r f; do
+            git add "$REPO_ROOT/$f" 2>/dev/null || true
+        done <<< "$STAGED_SVGS"
+    fi
+fi
+
 # SVG quality check (only when SVG files are staged)
 if [ -n "$STAGED_SVGS" ]; then
     SVG_CHECKER="$REPO_ROOT/scripts/check_svg_quality.py"
