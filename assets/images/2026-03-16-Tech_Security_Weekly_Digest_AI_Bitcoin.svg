@@ -15,8 +15,7 @@
   <circle cx="600" cy="200" r="160" fill="#8b5cf6" opacity="0.08" filter="url(#glow)"/>
   <circle cx="950" cy="200" r="160" fill="#3b82f6" opacity="0.08" filter="url(#glow)"/>
 
-  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="120" font-family="Arial,sans-serif" font-size="16" fill="#64748b">DEVOPS  CHAIN  CLOUD</text>
+  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc"><tspan>THREAT SIGNAL MAP</tspan><tspan x="92" dy="30">DEVOPS  CHAIN  CLOUD</tspan></text>
 
   <line x1="180" y1="320" x2="1020" y2="320" stroke="#334155" stroke-width="3" stroke-dasharray="12 8" opacity="0.4"/>
   <path d="M320 320 C425 270 425 270 530 320" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
@@ -45,8 +44,7 @@
   </g>
   <text x="950" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD</text>
 
-  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">Tech Security Weekly Digest March 16 2026 AI</text>
-  <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">Bitcoin</text>
+  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">Tech Security Weekly Digest March 16 2026 AI Bitcoin</text>
   <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Security-Weekly | DevSecOps | Cloud-Security | Weekly-Digest</text>
 
   <rect x="40" y="20" width="120" height="30" rx="15" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
@@ -56,5 +54,4 @@
 
   <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
   <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
-  <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
 </svg>

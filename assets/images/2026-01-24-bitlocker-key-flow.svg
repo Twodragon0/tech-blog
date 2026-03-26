@@ -23,7 +23,6 @@
 </defs>
 <rect width="800" height="500" fill="url(#bgGrad)"/>
 <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#f8fafc" text-anchor="middle">BitLocker Recovery Key Storage Paths</text>
-<text x="400" y="65" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Understanding where your encryption keys are stored</text>
 <g transform="translate(350, 120)">
 <rect width="100" height="80" rx="12" fill="#3b82f6" filter="url(#shadow)"/>
 <text x="50" y="35" font-size="28" text-anchor="middle">💻</text>
@@ -49,7 +48,6 @@
 <rect width="160" height="100" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
 <rect x="0" y="0" width="160" height="28" rx="12" fill="url(#warnGrad)"/>
 <text x="80" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Active Directory</text>
-<text x="80" y="48" font-family="system-ui" font-size="9" fill="#fcd34d" text-anchor="middle">Enterprise Managed</text>
 <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">- Org controlled</text>
 <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">- Admin access possible</text>
 </g>
@@ -58,7 +56,6 @@
 <rect width="160" height="100" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
 <rect x="0" y="0" width="160" height="28" rx="12" fill="url(#warnGrad)"/>
 <text x="80" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Azure AD / Entra ID</text>
-<text x="80" y="48" font-family="system-ui" font-size="9" fill="#fcd34d" text-anchor="middle">Cloud + Org Managed</text>
 <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">- Hybrid control</text>
 <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">- MS + Org access</text>
 </g>
@@ -83,7 +80,6 @@
 <g transform="translate(500, 450)">
 <rect width="280" height="40" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
 <text x="140" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#60a5fa" text-anchor="middle">💡 Recommendation</text>
-<text x="140" y="32" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Use local storage + secure backup for sensitive data</text>
 </g>
 <text x="750" y="490" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

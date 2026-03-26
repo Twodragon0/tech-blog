@@ -22,7 +22,6 @@
 <g transform="translate(210,125)">
 <line x1="0" y1="0" x2="80" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/>
 <polygon points="80,-5 90,0 80,5" fill="#ef4444"/>
-<text x="40" y="-8" font-family="system-ui" font-size="9" fill="#fca5a5" text-anchor="middle">DNS param injection</text>
 </g>
 <g transform="translate(300,70)" filter="url(#sh2)">
 <rect width="200" height="120" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
@@ -37,7 +36,6 @@
 <g transform="translate(500,125)">
 <line x1="0" y1="0" x2="80" y2="0" stroke="#f97316" stroke-width="2" stroke-dasharray="6,3"/>
 <polygon points="80,-5 90,0 80,5" fill="#f97316"/>
-<text x="40" y="-8" font-family="system-ui" font-size="9" fill="#fdba74" text-anchor="middle">Pivot to LAN</text>
 </g>
 <g transform="translate(590,80)" filter="url(#sh2)">
 <rect width="160" height="100" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
@@ -46,11 +44,9 @@
 <text x="80" y="76" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Traffic interception</text>
 <text x="80" y="94" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">DNS hijacking</text>
 </g>
-<text x="450" y="230" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fca5a5" text-anchor="middle">Active Exploitation Scenarios</text>
 <g transform="translate(30,250)" filter="url(#sh2)">
 <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
 <circle cx="25" cy="25" r="12" fill="#ef4444" opacity="0.2"/>
-<text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">A</text>
 <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fca5a5" text-anchor="middle">DDoS Botnet</text>
 <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Device recruited as</text>
 <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">DDoS attack infrastructure</text>
@@ -58,7 +54,6 @@
 <g transform="translate(240,250)" filter="url(#sh2)">
 <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
 <circle cx="25" cy="25" r="12" fill="#ef4444" opacity="0.2"/>
-<text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">B</text>
 <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fca5a5" text-anchor="middle">DNS Hijacking</text>
 <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Manipulate DNS responses</text>
 <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">for phishing/malware</text>
@@ -66,7 +61,6 @@
 <g transform="translate(450,250)" filter="url(#sh2)">
 <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
 <circle cx="25" cy="25" r="12" fill="#f97316" opacity="0.2"/>
-<text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">C</text>
 <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fdba74" text-anchor="middle">MitM Attack</text>
 <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Intercept all traffic</text>
 <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">through compromised router</text>
@@ -74,7 +68,6 @@
 <g transform="translate(660,250)" filter="url(#sh2)">
 <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
 <circle cx="25" cy="25" r="12" fill="#f97316" opacity="0.2"/>
-<text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">D</text>
 <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fdba74" text-anchor="middle">LAN Scanning</text>
 <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Internal network recon</text>
 <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">and lateral movement</text>

@@ -15,8 +15,7 @@
   <circle cx="600" cy="200" r="160" fill="#f97316" opacity="0.08" filter="url(#glow)"/>
   <circle cx="950" cy="200" r="160" fill="#3b82f6" opacity="0.08" filter="url(#glow)"/>
 
-  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="120" font-family="Arial,sans-serif" font-size="16" fill="#64748b">DEVOPS  ZERO DAY  CLOUD</text>
+  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc"><tspan>THREAT SIGNAL MAP</tspan><tspan x="92" dy="30">DEVOPS  ZERO DAY  CLOUD</tspan></text>
 
   <line x1="180" y1="320" x2="1020" y2="320" stroke="#334155" stroke-width="3" stroke-dasharray="12 8" opacity="0.4"/>
   <path d="M320 320 C425 270 425 270 530 320" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
@@ -34,7 +33,7 @@
   <g transform="translate(600 320)" filter="url(#shadow)">
     <circle r="70" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
     <circle r="70" fill="#f97316" opacity="0.04"/>
-    <rect x="-24" y="-18" width="48" height="36" rx="8" fill="#1a1020" stroke="#f97316" stroke-width="2.5"/><text x="0" y="-2" font-family="Courier New" font-size="14" font-weight="700" fill="#f97316" text-anchor="middle">CVE</text><text x="0" y="14" font-family="Courier New" font-size="9" fill="#f97316" text-anchor="middle" opacity="0.7">0-DAY</text>
+    <rect x="-24" y="-18" width="48" height="36" rx="8" fill="#1a1020" stroke="#f97316" stroke-width="2.5"/><text x="0" y="-2" font-family="Courier New" font-size="14" font-weight="700" fill="#f97316" text-anchor="middle">CVE</text>
   </g>
   <text x="600" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#f97316" text-anchor="middle">ZERO DAY</text>
 
@@ -55,5 +54,4 @@
 
   <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
   <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
-  <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
 </svg>

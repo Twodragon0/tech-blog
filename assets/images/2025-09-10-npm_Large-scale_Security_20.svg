@@ -33,11 +33,9 @@
       <!-- Left branch -->
       <line x1="-50" y1="-10" x2="-140" y2="-70" stroke="#475569" stroke-width="1.5"/>
       <rect x="-190" y="-95" width="100" height="50" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
-      <text x="-140" y="-67" font-family="Courier New" font-size="9" fill="#4ade80" text-anchor="middle">lodash@4.x</text>
 
       <line x1="-50" y1="10" x2="-160" y2="70" stroke="#475569" stroke-width="1.5"/>
       <rect x="-210" y="45" width="100" height="50" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
-      <text x="-160" y="73" font-family="Courier New" font-size="9" fill="#fbbf24" text-anchor="middle">axios@1.x</text>
       <circle cx="-120" cy="55" r="8" fill="#f59e0b" opacity="0.3"/>
 
       <!-- Right branch -->
@@ -55,8 +53,7 @@
     <circle r="160" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.15" stroke-dasharray="6,8"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Urgent: npm Ecosystem Large-Scale Security</text>
-  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Breach...</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Urgent: npm Ecosystem Large-Scale Security Breach...</text>
   <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">npm | Supply-Chain | Malware | Security-Incident</text>
   <rect x="40" y="22" width="140" height="32" rx="16" fill="#cb3837" opacity="0.25" stroke="#cb3837" stroke-width="1"/>
   <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#cb3837" text-anchor="middle">INCIDENT</text>

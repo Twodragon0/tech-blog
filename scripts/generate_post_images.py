@@ -11,6 +11,8 @@ import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import time
 from datetime import datetime
@@ -50,6 +52,8 @@ try:
     CAIROSVG_AVAILABLE = True
 except Exception:
     CAIROSVG_AVAILABLE = False
+
+RSVG_CONVERT_PATH = shutil.which("rsvg-convert")
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -810,22 +814,32 @@ def generate_audio(post_info: Dict, output_path: Path) -> bool:
 
 def convert_svg_to_png(svg_path: Path, png_path: Path) -> bool:
     """SVG 파일을 PNG로 변환"""
-    if not CAIROSVG_AVAILABLE:
-        log_message(
-            "⚠️ cairosvg 라이브러리가 설치되지 않아 SVG 변환을 건너뜁니다.", "WARNING"
-        )
-        log_message("💡 설치: pip install cairosvg", "INFO")
-        return False
+    if CAIROSVG_AVAILABLE:
+        try:
+            cairosvg.svg2png(
+                url=str(svg_path), write_to=str(png_path), scale=2
+            )  # 2x scale for higher quality
+            log_message(f"✅ SVG → PNG 변환 완료: {png_path.name}", "SUCCESS")
+            return True
+        except Exception as e:
+            log_message(f"⚠️ cairosvg 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
 
-    try:
-        cairosvg.svg2png(
-            url=str(svg_path), write_to=str(png_path), scale=2
-        )  # 2x scale for higher quality
-        log_message(f"✅ SVG → PNG 변환 완료: {png_path.name}", "SUCCESS")
-        return True
-    except Exception as e:
-        log_message(f"⚠️ SVG 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
-        return False
+    if RSVG_CONVERT_PATH:
+        try:
+            result = subprocess.run(
+                [RSVG_CONVERT_PATH, "-w", "1200", "-h", "630", str(svg_path), "-o", str(png_path)],
+                capture_output=True, text=True, timeout=30
+            )
+            if result.returncode == 0:
+                log_message(f"✅ SVG → PNG 변환 완료 (rsvg-convert): {png_path.name}", "SUCCESS")
+                return True
+            log_message(f"⚠️ rsvg-convert 실패: {mask_sensitive_info(result.stderr)}", "WARNING")
+        except Exception as e:
+            log_message(f"⚠️ rsvg-convert 오류: {mask_sensitive_info(str(e))}", "WARNING")
+
+    log_message("⚠️ SVG 변환 불가: cairosvg 또는 rsvg-convert 필요", "WARNING")
+    log_message("💡 설치: pip install cairosvg 또는 brew install librsvg", "INFO")
+    return False
 
 
 def generate_video(image_path: Path, audio_path: Path, output_path: Path) -> bool:

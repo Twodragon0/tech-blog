@@ -181,6 +181,7 @@ DevSecOps 실무자에게 이 공격은 **이중의 위험**을 제기합니다.
 - [ ] **종속성 최소화 및 고정**: 패키지 종속성을 최소화하고, **정확한 버전(lock 파일)을 고정**하여 예기치 않은 업데이트로 인한 감염을 방지한다. 모든 업데이트는 검증 후 단계적으로 진행한다.
 - [ ] **사고 대응 계획 점검**: 공급망 공격을 특별히 고려한
 
+> 📌 **관련 보도**: [Trivy CI/CD 침해·Critical Langflow RCE·Google 사이드로딩 차단](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) | [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/)
 
 ---
 
@@ -285,6 +286,22 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+## 요약 및 다음 단계
+
+### 이번 주 핵심 정리
+
+- **긴급 패치 필요**: Oracle Identity Manager CVE-2026-21992 미인증 RCE 취약점은 즉시 패치가 필요한 Critical 등급입니다. Oracle 제품군 사용 조직은 패치 적용 상태를 즉시 확인하세요.
+- **공급망 자가 확산 위협**: Trivy 공급망 공격으로 47개 npm 패키지에 CanisterWorm이 자가 확산한 사건은 패키지 레지스트리 의존성의 위험성을 경고합니다. `npm audit`과 lockfile 무결성 검증을 강화하세요.
+- **피싱 공격 고도화**: FBI가 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격을 경고했습니다. 메신저 기반 소셜 엔지니어링에 대한 사용자 보안 교육을 업데이트하세요.
+
+### 다음 주 주목 사항
+
+- CISA KEV에 추가된 Apple·Craft CMS·Laravel 취약점 패치 기한(2026년 4월 3일) 모니터링
+- CanisterWorm 영향 npm 패키지 전체 목록 공개 및 후속 조치
+- Oracle 추가 보안 패치 릴리스 여부
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |
