@@ -1,61 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Claude Code and OpenCode Best Practices 38 Guide ...</title>
+  <title>Claude Code &amp;amp; OpenCode : 38</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0e1a"/>
       <stop offset="50%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#0f0a1e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee"/>
-      <stop offset="100%" stop-color="#ec4899"/>
-    </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
     <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="200" r="250" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="900" cy="400" r="200" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
-  <g transform="translate(600,250)">
-    <!-- Code editor window -->
-    <rect x="-220" y="-110" width="440" height="260" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-    <!-- Title bar -->
-    <rect x="-220" y="-110" width="440" height="30" rx="12" fill="#1e293b"/>
-    <circle cx="-198" cy="-95" r="5" fill="#ef4444" opacity="0.7"/>
-    <circle cx="-182" cy="-95" r="5" fill="#f59e0b" opacity="0.7"/>
-    <circle cx="-166" cy="-95" r="5" fill="#22c55e" opacity="0.7"/>
-    <text x="0" y="-90" font-family="Courier New" font-size="10" fill="#64748b" text-anchor="middle">main.py</text>
+  <circle cx="250" cy="250" r="220" fill="#fbbf24" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="950" cy="400" r="200" fill="#d97706" opacity="0.04" filter="url(#sg)"/>
 
-    <!-- Code lines -->
-    <g font-family="Courier New" font-size="11">
-    </g>
+  <!-- Central illustration -->
+  <g transform="translate(600,280)" filter="url(#shadow)">
+    <circle r="80" fill="#0f172a" stroke="#fbbf24" stroke-width="2.5" opacity="0.8"/>
 
-    <!-- AI suggestion highlight -->
-    <rect x="-205" y="-2" width="400" height="55" rx="4" fill="#22d3ee" opacity="0.06" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,3"/>
-    <g font-family="Courier New" font-size="11">
-    </g>
-
-    <!-- AI badge -->
-    <g transform="translate(180,15)">
-      <rect x="-25" y="-12" width="50" height="24" rx="12" fill="#22d3ee" opacity="0.2" stroke="#22d3ee" stroke-width="1"/>
-      <text x="0" y="4" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#22d3ee" text-anchor="middle">AI</text>
-    </g>
-
-    <!-- Bottom status -->
-
-    <!-- Autocomplete popup -->
-    <g transform="translate(220,-40)" opacity="0.5">
-      <rect x="-35" y="-40" width="70" height="80" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
-    </g>
+    <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5 3"/>
+    <polygon points="20,-5 28,0 20,5" fill="#fbbf24"/>
+    <polygon points="-20,5 -28,0 -20,-5" fill="#fbbf24"/>
+    <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
+    <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
+    <line x1="-35" y1="0" x2="-28" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
+    <line x1="28" y1="0" x2="35" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code OpenCode Best Practices 38 Agent</text>
-  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Claude-Code | OpenCode | Best-Practices | AI-Agent</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">DEVOPS</text>
+  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Claude Code &amp; OpenCode : 38</text>
+  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Tech | Blog | Update</text>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">DEVOPS</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#fbbf24" opacity="0.25" stroke="#fbbf24" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
   <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 25, 2026</text>
   <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
   <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

@@ -1,53 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 8Batch 3Week: Complete Strategy fr...</title>
+  <title>8 3</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0e1a"/>
       <stop offset="50%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#0f0a1e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22c55e"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
     <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="200" r="250" fill="#22c55e" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="900" cy="400" r="200" fill="#3b82f6" opacity="0.05" filter="url(#sg)"/>
-  <g transform="translate(600,250)">
-    <!-- Certificate badge -->
-    <circle r="90" fill="#22c55e" opacity="0.06" filter="url(#sg)"/>
-    <circle r="70" fill="#0f172a" stroke="#22c55e" stroke-width="2.5" filter="url(#shadow)"/>
-    <path d="M0,-40 L8,-15 L35,-15 L14,2 L22,28 L0,14 L-22,28 L-14,2 L-35,-15 L-8,-15 Z"
-          fill="#22c55e" opacity="0.3"/>
-    <text x="0" y="55" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#4ade80" text-anchor="middle">CERTIFIED</text>
+  <circle cx="250" cy="250" r="220" fill="#2dd4bf" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="950" cy="400" r="200" fill="#0d9488" opacity="0.04" filter="url(#sg)"/>
 
-    <!-- Checklist -->
-    <g transform="translate(-220,-60)">
-      <rect x="-70" y="-60" width="140" height="180" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
-      <text x="0" y="-35" font-family="Courier New" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle">AUDIT CHECKLIST</text>
-    </g>
+  <!-- Central illustration -->
+  <g transform="translate(600,280)" filter="url(#shadow)">
+    <circle r="80" fill="#0f172a" stroke="#2dd4bf" stroke-width="2.5" opacity="0.8"/>
 
-    <!-- Compliance scores -->
-    <g transform="translate(220,-20)">
-      <rect x="-65" y="-60" width="130" height="140" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
-      <text x="0" y="-35" font-family="Courier New" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle">COMPLIANCE</text>
-      <text x="0" y="5" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="#4ade80" text-anchor="middle">92%</text>
-      <rect x="-45" y="25" width="90" height="8" rx="4" fill="#1e293b"/>
-      <rect x="-45" y="25" width="82" height="8" rx="4" fill="#22c55e" opacity="0.6"/>
-      <text x="0" y="52" font-family="Courier New" font-size="9" fill="#64748b" text-anchor="middle">ISMS-P Ready</text>
-    </g>
+    <circle r="35" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-dasharray="8 4"/>
+    <text x="0" y="8" font-family="Arial,sans-serif" font-size="32" font-weight="bold" fill="#2dd4bf" text-anchor="middle" opacity="0.8">$</text>
+    <line x1="-50" y1="20" x2="-35" y2="-10" stroke="#2dd4bf" stroke-width="2" opacity="0.4"/>
+    <line x1="-35" y1="-10" x2="-15" y2="5" stroke="#2dd4bf" stroke-width="2" opacity="0.4"/>
+    <line x1="15" y1="-5" x2="35" y2="-20" stroke="#2dd4bf" stroke-width="2" opacity="0.4"/>
+    <line x1="35" y1="-20" x2="50" y2="-15" stroke="#2dd4bf" stroke-width="2" opacity="0.4"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Cloud Security 8Batch 3Week</text>
-  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS | FinOps | ISMS-P | Audit</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22c55e" opacity="0.25" stroke="#22c55e" stroke-width="1"/>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22c55e" text-anchor="middle">FINOPS</text>
+  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">8 3</text>
+  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS</text>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#2dd4bf" text-anchor="middle">FINOPS</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#2dd4bf" opacity="0.25" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
   <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">December 12, 2025</text>
   <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
   <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

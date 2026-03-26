@@ -1,61 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS re:Inforce 2025: Cloud Security Present and F...</title>
+  <title>AWS re:Inforce 2025: 🛡️</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0e1a"/>
       <stop offset="50%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#0f0a1e"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
-    </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
     <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="200" r="250" fill="#f59e0b" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="900" cy="400" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#sg)"/>
-  <g transform="translate(600,260)">
-    <!-- Presentation cards -->
-    <g transform="translate(-180,-30)" filter="url(#shadow)">
-      <rect x="-80" y="-70" width="160" height="140" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-      <rect x="-65" y="-55" width="130" height="8" rx="4" fill="#f59e0b" opacity="0.3"/>
-      <rect x="-65" y="-38" width="90" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-24" width="110" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-10" width="70" height="6" rx="3" fill="#334155"/>
-      <circle cx="0" cy="35" r="20" fill="#f59e0b" opacity="0.15"/>
-      <text x="0" y="40" font-family="Arial,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle">1</text>
-    </g>
+  <circle cx="250" cy="250" r="220" fill="#34d399" opacity="0.06" filter="url(#sg)"/>
+  <circle cx="950" cy="400" r="200" fill="#059669" opacity="0.04" filter="url(#sg)"/>
 
-    <g transform="translate(0,-30)" filter="url(#shadow)">
-      <rect x="-80" y="-70" width="160" height="140" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
-      <rect x="-65" y="-55" width="130" height="8" rx="4" fill="#8b5cf6" opacity="0.3"/>
-      <rect x="-65" y="-38" width="100" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-24" width="80" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-10" width="110" height="6" rx="3" fill="#334155"/>
-      <circle cx="0" cy="35" r="20" fill="#8b5cf6" opacity="0.15"/>
-      <text x="0" y="40" font-family="Arial,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle">2</text>
-    </g>
+  <!-- Central illustration -->
+  <g transform="translate(600,280)" filter="url(#shadow)">
+    <circle r="80" fill="#0f172a" stroke="#34d399" stroke-width="2.5" opacity="0.8"/>
 
-    <g transform="translate(180,-30)" filter="url(#shadow)">
-      <rect x="-80" y="-70" width="160" height="140" rx="14" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
-      <rect x="-65" y="-55" width="130" height="8" rx="4" fill="#3b82f6" opacity="0.3"/>
-      <rect x="-65" y="-38" width="90" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-24" width="120" height="6" rx="3" fill="#334155"/>
-      <rect x="-65" y="-10" width="60" height="6" rx="3" fill="#334155"/>
-      <circle cx="0" cy="35" r="20" fill="#3b82f6" opacity="0.15"/>
-      <text x="0" y="40" font-family="Arial,sans-serif" font-size="14" fill="#60a5fa" text-anchor="middle">3</text>
-    </g>
+    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
+    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
   </g>
 
-  <text x="600" y="490" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS reInforce 2025 Cloud Security and Future</text>
-  <text x="600" y="555" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS | reInforce | Cloud-Security | Conference</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="1"/>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">CLOUD</text>
+  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS re:Inforce 2025: 🛡️</text>
+  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS</text>
+  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">CLOUD</text>
+  <rect x="40" y="22" width="140" height="32" rx="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
   <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">September 16, 2025</text>
   <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
   <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
