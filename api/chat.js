@@ -14,6 +14,7 @@
 //   "conversationHistory": [{"role": "user", "content": "..."}, ...] (선택사항)
 // }
 
+import { createHash } from 'crypto';
 import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
 
 const DEBUG = process.env.DEBUG === 'true';
@@ -240,10 +241,20 @@ export default async function handler(req, res) {
     }
 
     // Rate limiting 체크 (Upstash Redis 또는 In-Memory fallback)
-    const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() 
-      || req.headers['x-real-ip'] 
+    // x-real-ip: Vercel이 설정하는 실제 클라이언트 IP (스푸핑 불가)
+    // x-forwarded-for: 프록시 체인 IP (첫 번째만 사용, 스푸핑 가능)
+    const clientIp = req.headers['x-real-ip']
+      || req.headers['x-forwarded-for']?.split(',')[0]?.trim()
       || 'unknown';
-    const rateLimitIdentifier = sessionId || clientIp;
+    // IP + User-Agent 해시 핑거프린트로 스푸핑 방어 강화
+    const ua = req.headers['user-agent'] || '';
+    const fingerprint = createHash('sha256')
+      .update(`${clientIp}:${ua}`)
+      .digest('hex')
+      .substring(0, 16);
+    const rateLimitIdentifier = sessionId
+      ? `session:${sessionId}`
+      : `ip:${fingerprint}`;
     
     const rateLimitResult = await checkRateLimit(rateLimitIdentifier, 'anonymous');
     setRateLimitHeaders(res, rateLimitResult.headers);

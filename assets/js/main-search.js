@@ -150,10 +150,20 @@
     }
 
     function highlightMatch(text, query) {
-      if (!text || !query) return escapeHtml(text) || '';
-      const safe = escapeHtml(text);
-      const escaped = escapeRegex(escapeHtml(query));
-      return safe.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+      if (!query || !text) return document.createTextNode(text || '');
+      const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+      const fragment = document.createDocumentFragment();
+      const parts = text.split(regex);
+      parts.forEach((part, i) => {
+        if (i % 2 === 1) {
+          const mark = document.createElement('mark');
+          mark.textContent = part;
+          fragment.appendChild(mark);
+        } else if (part) {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+      return fragment;
     }
 
     function getExcerpt(item, query) {
@@ -181,31 +191,68 @@
 
     function renderResults(results, query, isServer) {
       activeResultIndex = -1;
+      searchResults.textContent = '';
       if (!results || results.length === 0) {
-        searchResults.innerHTML = '<div class="search-result-item no-results">검색 결과가 없습니다.</div>';
+        const noResults = document.createElement('div');
+        noResults.className = 'search-result-item no-results';
+        noResults.textContent = '검색 결과가 없습니다.';
+        searchResults.appendChild(noResults);
         searchResults.style.display = 'block';
         return;
       }
-      const badge = isServer ? '<div class="search-source-badge">Full-text search</div>' : '';
-      // Security: all dynamic values are escaped via escapeHtml() and safeUrl() before insertion
-      searchResults.innerHTML = badge + results.slice(0, 10).map(item => `
-        <a href="${safeUrl(item.url)}" class="search-result-item" data-url="${escapeHtml(item.url)}">
-          <div class="search-result-title">${highlightMatch(item.title || '', query)}</div>
-          <div class="search-result-meta">
-            ${escapeHtml(item.date || '')}
-            ${item.category ? ' <span class="search-category">' + escapeHtml(item.category) + '</span>' : ''}
-            ${Array.isArray(item.tags) ? item.tags.slice(0, 3).map(t => '<span class="search-tag">' + escapeHtml(t) + '</span>').join('') : ''}
-          </div>
-          <div class="search-result-excerpt">${highlightMatch(getExcerpt(item, query), query)}</div>
-        </a>
-      `).join('');
+      if (isServer) {
+        const badge = document.createElement('div');
+        badge.className = 'search-source-badge';
+        badge.textContent = 'Full-text search';
+        searchResults.appendChild(badge);
+      }
+      results.slice(0, 10).forEach(item => {
+        const link = document.createElement('a');
+        link.href = safeUrl(item.url);
+        link.className = 'search-result-item';
+        link.dataset.url = item.url || '';
+
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'search-result-title';
+        titleDiv.appendChild(highlightMatch(item.title || '', query));
+        link.appendChild(titleDiv);
+
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'search-result-meta';
+        if (item.date) {
+          metaDiv.appendChild(document.createTextNode(item.date));
+        }
+        if (item.category) {
+          const catSpan = document.createElement('span');
+          catSpan.className = 'search-category';
+          catSpan.textContent = item.category;
+          metaDiv.appendChild(document.createTextNode(' '));
+          metaDiv.appendChild(catSpan);
+        }
+        if (Array.isArray(item.tags)) {
+          item.tags.slice(0, 3).forEach(t => {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'search-tag';
+            tagSpan.textContent = t;
+            metaDiv.appendChild(tagSpan);
+          });
+        }
+        link.appendChild(metaDiv);
+
+        const excerptDiv = document.createElement('div');
+        excerptDiv.className = 'search-result-excerpt';
+        excerptDiv.appendChild(highlightMatch(getExcerpt(item, query), query));
+        link.appendChild(excerptDiv);
+
+        searchResults.appendChild(link);
+      });
       searchResults.style.display = 'block';
     }
 
     searchInput.addEventListener('input', function(e) {
       const query = e.target.value.trim();
       if (query.length < 2) {
-        searchResults.innerHTML = '';
+        searchResults.textContent = '';
         searchResults.style.display = 'none';
         clearTimeout(searchDebounceTimer);
         return;

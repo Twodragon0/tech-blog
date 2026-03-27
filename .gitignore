@@ -114,3 +114,4 @@ USER.md
 # Generated local pipeline state
 _data/processed_news_ids.json
 _drafts/prompts/
+.venv/

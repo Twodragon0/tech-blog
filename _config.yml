@@ -187,8 +187,11 @@ google_adsense: "ca-pub-6788271437088974"
 #   2. 새 JavaScript 프로젝트 생성
 #   3. Project Settings → Client Keys (DSN) 에서 DSN 복사
 #   4. 아래 값을 실제 DSN으로 교체
-# DSN은 공개 키이므로 소스 코드에 포함해도 안전합니다 (Sentry 공식 권장)
-sentry_dsn: "https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512"
+# DSN은 환경변수 SENTRY_DSN에서 주입합니다.
+# Vercel: Settings → Environment Variables → SENTRY_DSN 설정
+# 로컬: export SENTRY_DSN="your-dsn-here" 후 Jekyll 빌드
+# Vercel build command 예시: JEKYLL_ENV=production bundle exec jekyll build
+sentry_dsn: ""
 
 # Cloudflare Web Analytics (무료, 프라이버시 친화적)
 # 토큰 발급: Cloudflare Dashboard → Analytics & Logs → Web Analytics → Add a site
