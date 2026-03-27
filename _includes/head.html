@@ -178,8 +178,11 @@
   <link rel="dns-prefetch" href="https://www.gstatic.com">
   
   {% if page.layout == 'post' and page.image %}
-  <!-- Preload critical post image -->
-  <link rel="preload" href="{{ page.image | relative_url }}" as="image" fetchpriority="high">
+  <!-- Preload critical post image (AVIF priority for LCP) -->
+  {% assign preload_img = page.image | relative_url %}
+  {% assign preload_avif = preload_img | replace: '_og.png', '_og.avif' %}
+  <link rel="preload" href="{{ preload_avif }}" as="image" type="image/avif" fetchpriority="high">
+  <link rel="preload" href="{{ preload_img }}" as="image" fetchpriority="low">
   {% endif %}
   
   <!-- Ad Optimizer (CLS 방지, deferred for performance) -->

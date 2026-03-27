@@ -156,6 +156,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // 이미지 요청 시 AVIF/WebP 콘텐츠 협상
+  if (url.pathname.match(/\/_og\.png$/)) {
+    const accept = request.headers.get('Accept') || '';
+    let bestUrl = url.href;
+    if (accept.includes('image/avif')) {
+      bestUrl = url.href.replace('_og.png', '_og.avif');
+    } else if (accept.includes('image/webp')) {
+      bestUrl = url.href.replace('_og.png', '_og.webp');
+    }
+    if (bestUrl !== url.href) {
+      event.respondWith(
+        fetch(bestUrl).catch(() => fetch(request))
+      );
+      return;
+    }
+  }
+
   // 캐시 가능한 리소스만 처리
   event.respondWith(
     fetch(request)

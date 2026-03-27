@@ -1656,6 +1656,16 @@ def main():
         help="이미지 재생성 없이 기존 이미지를 최적화",
     )
     parser.add_argument(
+        "--webp-only",
+        action="store_true",
+        help="기존 PNG에서 WebP만 생성 (SVG/PNG 재생성 없음)",
+    )
+    parser.add_argument(
+        "--avif-only",
+        action="store_true",
+        help="기존 PNG에서 AVIF만 생성 (SVG/PNG 재생성 없음)",
+    )
+    parser.add_argument(
         "--use-pro-image",
         action="store_true",
         help="Gemini 3 Pro Image 모델 사용 강제",
@@ -1722,6 +1732,33 @@ def main():
         posts = sorted(
             POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
         )[: args.recent]
+
+    # --webp-only / --avif-only: 기존 PNG에서 변환만 수행
+    if getattr(args, 'webp_only', False) or getattr(args, 'avif_only', False):
+        from pathlib import Path as P
+        pngs = sorted(IMAGES_DIR.glob("*_og.png"))
+        converted = 0
+        for png in pngs:
+            if args.webp_only:
+                webp = png.with_suffix(".webp")
+                if not webp.exists() and CWEBP_PATH:
+                    try:
+                        subprocess.run([CWEBP_PATH, "-q", "80", "-quiet", str(png), "-o", str(webp)], capture_output=True, timeout=30)
+                        if webp.exists():
+                            converted += 1
+                    except Exception:
+                        pass
+            if args.avif_only:
+                avif = png.with_suffix(".avif")
+                if not avif.exists() and AVIFENC_PATH:
+                    try:
+                        subprocess.run([AVIFENC_PATH, "-s", "6", "-q", "40", str(png), str(avif)], capture_output=True, timeout=60)
+                        if avif.exists():
+                            converted += 1
+                    except Exception:
+                        pass
+        log_message(f"✅ {converted}개 파일 변환 완료", "SUCCESS")
+        sys.exit(0)
 
     if not posts:
         log_message("❌ 처리할 포스팅이 없습니다.", "ERROR")
