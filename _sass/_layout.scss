@@ -7,7 +7,7 @@
   left: 0;
   z-index: 10000;
   padding: 0.75rem 1.5rem;
-  background: var(--color-primary, #2563eb);
+  background: var(--color-primary);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -16,7 +16,7 @@
 
   &:focus {
     top: 0;
-    outline: 3px solid var(--color-primary, #2563eb);
+    outline: 3px solid var(--color-primary);
     outline-offset: 2px;
   }
 }
@@ -535,22 +535,6 @@
   outline-offset: 2px;
 }
 
-.footer-socials {
-  display: flex;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-md);
-}
-
-.footer-socials a {
-  color: var(--color-text-tertiary);
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.footer-socials a:hover {
-  color: var(--color-primary);
-  transform: translateY(-2px);
-}
-
 .footer-newsletter {
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-lg);
@@ -594,17 +578,6 @@
 
 .footer-copyright {
   margin-top: var(--spacing-lg);
-}
-
-.footer-theme-info {
-  margin-top: var(--spacing-md);
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
-}
-
-.footer-theme-info a {
-  color: var(--color-text-tertiary);
-  text-decoration: underline;
 }
 
 /* Tablet responsive - 중간 크기 화면 최적화 */

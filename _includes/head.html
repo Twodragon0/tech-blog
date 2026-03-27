@@ -258,6 +258,8 @@
   {% if page.layout == 'post' %}
   <!-- Post-specific CSS (post, lightbox, syntax) -->
   <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <!-- Chat widget CSS (only loaded for posts where the chat widget appears) -->
+  <link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% endif %}
   {% if page.url contains '/certifications' %}
   <!-- Certification page CSS -->

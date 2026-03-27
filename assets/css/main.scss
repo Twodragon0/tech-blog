@@ -8,6 +8,6 @@
 @use "base";
 @use "layout";
 @use "components";
-@use "chat-widget";
+// chat-widget → assets/css/chat-page.scss (loaded on post pages only)
 // post, lightbox, syntax → assets/css/post.scss (loaded on post pages only)
 // certification → assets/css/certification.scss (loaded on certification pages only)
