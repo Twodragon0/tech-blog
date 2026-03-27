@@ -3,9 +3,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- FOUC prevention: apply theme immediately before first paint (inline required) -->
+  <script id="theme-init">(function(){var t=localStorage.getItem('theme');if(!t||t==='system'){t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
   <!-- Console Filter Module (deferred to reduce FID impact) -->
   <script src="{{ '/assets/js/console-filter.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/head-runtime.js' | relative_url }}" data-ga-id="{{ site.google_analytics | default: '' }}" data-adsense-client="{{ site.google_adsense | default: '' }}" data-kakao-app-key="{{ site.kakao_app_key | default: '' }}"></script>
+  <script src="{{ '/assets/js/head-runtime.js' | relative_url }}" id="head-runtime-script" data-ga-id="{{ site.google_analytics | default: '' }}" data-adsense-client="{{ site.google_adsense | default: '' }}" data-kakao-app-key="{{ site.kakao_app_key | default: '' }}" defer></script>
 
   <!-- Security Headers -->
   <!--

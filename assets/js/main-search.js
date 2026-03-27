@@ -66,6 +66,8 @@
       return new Promise((resolve) => {
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js';
+        script.integrity = 'sha384-P/y/5cwqUn6MDvJ9lCHJSaAi2EoH3JSeEdyaORsQMPgbpvA+NvvUqik7XH2YGBjb';
+        script.crossOrigin = 'anonymous';
         script.onload = resolve;
         script.onerror = () => resolve();
         document.head.appendChild(script);

@@ -6,10 +6,11 @@
   }
   window.__headRuntimeInitialized = true;
 
-  var currentScript = document.currentScript;
-  var gaId = (currentScript && currentScript.getAttribute('data-ga-id')) || '';
-  var adsenseClient = (currentScript && currentScript.getAttribute('data-adsense-client')) || '';
-  var kakaoAppKey = (currentScript && currentScript.getAttribute('data-kakao-app-key')) || '';
+  // defer 환경에서 document.currentScript는 null이므로 id 기반으로 읽기
+  var scriptEl = document.getElementById('head-runtime-script');
+  var gaId = (scriptEl && scriptEl.getAttribute('data-ga-id')) || '';
+  var adsenseClient = (scriptEl && scriptEl.getAttribute('data-adsense-client')) || '';
+  var kakaoAppKey = (scriptEl && scriptEl.getAttribute('data-kakao-app-key')) || '';
 
   function runWhenBodyAvailable(callback) {
     if (document.body) {
@@ -37,6 +38,11 @@
   }
 
   function applyTheme() {
+    // 인라인 스크립트(#theme-init)가 이미 data-theme을 설정했으므로
+    // defer 실행 시점에 테마가 없을 경우에만 폴백으로 적용
+    if (document.documentElement.getAttribute('data-theme')) {
+      return;
+    }
     try {
       var saved = localStorage.getItem('theme');
       var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

@@ -13,6 +13,8 @@
   // Load mermaid.js on demand
   var script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js';
+  script.integrity = 'sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I';
+  script.crossOrigin = 'anonymous';
   script.onload = function() {
     try {
       var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
