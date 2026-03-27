@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // Cache version: bump on each deploy or content change
-// v20: Security fix - cache version automation (build marker: 20260318)
-const STATIC_CACHE = 'tech-blog-static-v20';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v20';
+// v21: OG PNG optimization (-7.2MB) + category illustrations (build marker: 20260327)
+const STATIC_CACHE = 'tech-blog-static-v21';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v21';
 
 // Dynamic cache settings
 const DYNAMIC_CACHE_MAX_ENTRIES = 50;
