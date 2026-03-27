@@ -179,6 +179,14 @@
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-slow);
+  border-radius: var(--border-radius-md);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="light"] .post-card-image,
+  :not([data-theme="dark"]) .post-card-image {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .post-card:hover .post-card-image img {
