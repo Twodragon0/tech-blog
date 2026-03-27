@@ -21,18 +21,36 @@
     purifyScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js';
     purifyScript.integrity = 'sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu';
     purifyScript.crossOrigin = 'anonymous';
-    document.head.appendChild(purifyScript);
 
-    var node = document.createElement('script');
-    node.src = widgetSrc;
-    node.defer = true;
-    node.onload = function () {
-      chatToggle.click();
+    // DOMPurify 로드 완료 후 chat-widget.js 로드 (race condition 방지)
+    purifyScript.onload = function () {
+      var node = document.createElement('script');
+      node.src = widgetSrc;
+      node.defer = true;
+      node.onload = function () {
+        chatToggle.click();
+      };
+      node.onerror = function () {
+        chatWidgetLoaded = false;
+      };
+      document.body.appendChild(node);
     };
-    node.onerror = function () {
-      chatWidgetLoaded = false;
+
+    // DOMPurify CDN 실패 시에도 chat-widget.js 로드 (fallback textContent 사용)
+    purifyScript.onerror = function () {
+      var node = document.createElement('script');
+      node.src = widgetSrc;
+      node.defer = true;
+      node.onload = function () {
+        chatToggle.click();
+      };
+      node.onerror = function () {
+        chatWidgetLoaded = false;
+      };
+      document.body.appendChild(node);
     };
-    document.body.appendChild(node);
+
+    document.head.appendChild(purifyScript);
   }
 
   chatToggle.addEventListener('click', loadChatWidget, { once: true, passive: true });

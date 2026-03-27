@@ -581,27 +581,27 @@ export default async function handler(req, res) {
 }
 
 // XSS 방지를 위한 입력 정제 함수 (강화)
-// 보안: 멀티바이트 문자 및 유니코드 정규화 지원
+// 보안: 멀티바이트 문자, 유니코드 정규화, null byte, backtick, unicode escape 대응
+// 서버리스 환경 의존성 최소화를 위해 라이브러리 없이 구현
 function sanitizeInput(input) {
   if (typeof input !== 'string') {
     return '';
   }
 
+  // 보안: null byte 제거 (poison null byte 공격 방지, 이스케이프 전에 처리)
+  let sanitized = input.replace(/\0/g, '');
+
   // 보안: 유니코드 정규화 (NFC) - 멀티바이트 문자 처리
-  let sanitized = input.normalize('NFC');
-  
-  // HTML 태그 및 위험한 문자 제거 (XSS 방지 강화)
-  // 실제로는 더 강력한 라이브러리(DOMPurify 등)를 사용하는 것이 좋습니다
-  // 하지만 서버리스 환경에서는 의존성 최소화를 위해 기본 함수 사용
-  
-  // 보안: 멀티바이트 문자를 고려한 완전한 sanitization
-  // 모든 위험한 문자를 먼저 이스케이프 처리
-  // 멀티바이트 문자 시퀀스를 올바르게 처리하기 위해 정규화된 문자열 사용
-  
+  sanitized = sanitized.normalize('NFC');
+
   // 1단계: 멀티바이트 문자 시퀀스 처리 (유니코드 정규화 후)
-  // 위험한 유니코드 조합 문자 제거
+  // 위험한 유니코드 조합 문자 제거 (zero-width, bidi override, invisible chars)
   sanitized = sanitized.replace(/[\u200B-\u200D\uFEFF\u202A-\u202E\u2060-\u206F]/g, '');
-  
+
+  // 보안: 유니코드 이스케이프 시퀀스 제거 (\uXXXX, \xXX 패턴)
+  sanitized = sanitized.replace(/\\u[0-9a-fA-F]{4}/g, '');
+  sanitized = sanitized.replace(/\\x[0-9a-fA-F]{2}/g, '');
+
   // 2단계: HTML 특수 문자 이스케이프 (멀티바이트 안전)
   sanitized = sanitized
     // 앰퍼샌드 먼저 처리 (다른 엔티티와 충돌 방지)
@@ -613,8 +613,10 @@ function sanitizeInput(input) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#x27;')
     // 슬래시 이스케이프
-    .replace(/\//g, '&#x2F;');
-  
+    .replace(/\//g, '&#x2F;')
+    // 보안: 백틱 이스케이프 (template literal injection 방지)
+    .replace(/`/g, '&#x60;');
+
   // 3단계: 이미 이스케이프된 엔티티 복원 (중복 이스케이프 방지)
   sanitized = sanitized
     .replace(/&amp;amp;/g, '&amp;')
@@ -622,14 +624,13 @@ function sanitizeInput(input) {
     .replace(/&amp;gt;/g, '&gt;')
     .replace(/&amp;quot;/g, '&quot;')
     .replace(/&amp;#x27;/g, '&#x27;')
-    .replace(/&amp;#x2F;/g, '&#x2F;');
-  
+    .replace(/&amp;#x2F;/g, '&#x2F;')
+    .replace(/&amp;#x60;/g, '&#x60;');
+
   // 4단계: 제어 문자 제거 (보안 강화) - 유니코드 제어 문자 포함
   sanitized = sanitized.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
-  
+
   // 5단계: 위험한 패턴 제거 (멀티바이트 고려, 완전한 패턴 매칭)
-  // 멀티바이트 문자를 고려하여 모든 변형 패턴 제거
-  // 정규화된 문자열에서 위험한 패턴 검사
   const dangerousPatterns = [
     /javascript\s*:/gi,
     /data\s*:\s*text\s*\/\s*html/gi,
@@ -640,15 +641,19 @@ function sanitizeInput(input) {
     /&lt;\s*iframe/gi,
     /&lt;\s*object/gi,
     /&lt;\s*embed/gi,
+    /&lt;\s*svg/gi,
+    /&lt;\s*math/gi,
     /expression\s*\(/gi,
+    /url\s*\(/gi,
+    /import\s*\(/gi,
   ];
-  
+
   for (const pattern of dangerousPatterns) {
     sanitized = sanitized.replace(pattern, '');
   }
-  
+
   sanitized = sanitized.trim();
-  
+
   return sanitized;
 }
 

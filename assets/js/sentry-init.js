@@ -122,21 +122,8 @@
         }
         return undefined;
       })(),
-      integrations: [
-        Sentry.browserTracingIntegration({
-          tracePropagationTargets: ['localhost', /^https:\/\/tech\.2twodragon\.com/],
-        }),
-        Sentry.replayIntegration({
-          maskAllText: true,
-          blockAllMedia: true,
-          maskAllInputs: true,
-          networkDetailAllowUrls: [],
-        }),
-      ],
+      // bundle.min.js: Tracing/Replay 통합 제거 (기본 에러 추적만 사용)
       sampleRate: getDynamicSampleRate(),
-      tracesSampleRate: isProduction ? 0.01 : 0,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: isProduction ? 0.5 : 0,
       maxBreadcrumbs: 30,
       attachStacktrace: true,
       allowUrls: [/https?:\/\/(www\.)?tech\.2twodragon\.com/],

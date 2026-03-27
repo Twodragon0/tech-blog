@@ -1,13 +1,13 @@
 /**
  * Upstash Redis Rate Limiting Utility
- * 
+ *
  * 보안, 비용 최적화, 운영 효율성을 위한 Rate Limiting 구현
- * 
+ *
  * Free Tier Limits (2025년 기준):
  * - 500K commands/month
  * - 256MB storage
  * - 10GB bandwidth/month
- * 
+ *
  * 비용 최적화 전략:
  * - analytics: false로 설정하여 추가 명령어 사용 방지
  * - 적절한 TTL 설정으로 불필요한 키 저장 방지
@@ -91,81 +91,8 @@ class UpstashRedis {
 }
 
 /**
- * Sliding Window Rate Limiter
- * 
- * 알고리즘: Sliding Window Counter
- * - 현재 윈도우와 이전 윈도우의 가중 평균을 사용
- * - 정확도와 메모리 효율성의 균형
- * 
- * Redis 명령어 사용:
- * - limit() 호출당 2-3 commands (INCR + EXPIRE 또는 GET + INCR + EXPIRE)
- */
-class SlidingWindowRateLimiter {
-  constructor(redis, options = {}) {
-    this.redis = redis;
-    this.prefix = options.prefix || 'ratelimit';
-    this.maxRequests = options.maxRequests || 10;
-    this.windowMs = options.windowMs || 60000; // 1분
-  }
-
-  /**
-   * Rate limit 체크
-   * 
-   * @param {string} identifier - 사용자 식별자 (IP, userId 등)
-   * @returns {Promise<{success: boolean, limit: number, remaining: number, reset: number}>}
-   */
-  async limit(identifier) {
-    const now = Date.now();
-    const windowStart = Math.floor(now / this.windowMs) * this.windowMs;
-    const key = `${this.prefix}:${identifier}:${windowStart}`;
-    const windowSeconds = Math.ceil(this.windowMs / 1000);
-
-    try {
-      // Pipeline으로 INCR과 EXPIRE를 한 번에 실행 (1 HTTP call)
-      const results = await this.redis.pipeline([
-        ['INCR', key],
-        ['EXPIRE', key, windowSeconds],
-      ]);
-
-      const currentCount = results[0].result || 0;
-      const remaining = Math.max(0, this.maxRequests - currentCount);
-      const reset = windowStart + this.windowMs;
-
-      return {
-        success: currentCount <= this.maxRequests,
-        limit: this.maxRequests,
-        remaining,
-        reset: Math.ceil(reset / 1000), // Unix timestamp in seconds
-        retryAfter: currentCount > this.maxRequests 
-          ? Math.ceil((reset - now) / 1000) 
-          : 0,
-      };
-    } catch (error) {
-      // Redis 오류 시 요청 허용 (fail-open, 의도적 선택)
-      // 설계 결정: 가용성 우선으로 fail-open을 채택.
-      // Redis 장애 시 서비스를 중단하지 않도록 허용하되,
-      // 악용 위험을 줄이기 위해 구조화된 경고 로그를 남긴다.
-      // 만약 보안을 가용성보다 우선하려면 success: false로 변경할 것.
-      console.warn('[RateLimit] FAIL-OPEN: Redis unavailable, allowing request.', {
-        error: error.message,
-        identifier: undefined, // identifier는 이 스코프에서 접근 불가, 상위에서 로깅 권장
-        timestamp: new Date().toISOString(),
-      });
-      return {
-        success: true,
-        limit: this.maxRequests,
-        remaining: this.maxRequests,
-        reset: Math.ceil((now + this.windowMs) / 1000),
-        retryAfter: 0,
-        error: 'Redis unavailable, allowing request (fail-open)',
-      };
-    }
-  }
-}
-
-/**
  * In-Memory Rate Limiter (Fallback)
- * 
+ *
  * Redis를 사용할 수 없는 경우의 폴백
  * 주의: 다중 인스턴스 환경에서는 정확하지 않음
  */
@@ -174,7 +101,7 @@ class InMemoryRateLimiter {
     this.maxRequests = options.maxRequests || 10;
     this.windowMs = options.windowMs || 60000;
     this.store = new Map();
-    
+
     // 주기적으로 오래된 레코드 정리 (메모리 누수 방지)
     this.cleanupInterval = setInterval(() => {
       const now = Date.now();
@@ -227,8 +154,79 @@ class InMemoryRateLimiter {
 }
 
 /**
+ * Sliding Window Rate Limiter
+ *
+ * 알고리즘: Sliding Window Counter
+ * - 현재 윈도우와 이전 윈도우의 가중 평균을 사용
+ * - 정확도와 메모리 효율성의 균형
+ *
+ * Redis 명령어 사용:
+ * - limit() 호출당 2-3 commands (INCR + EXPIRE 또는 GET + INCR + EXPIRE)
+ */
+class SlidingWindowRateLimiter {
+  constructor(redis, options = {}) {
+    this.redis = redis;
+    this.prefix = options.prefix || 'ratelimit';
+    this.maxRequests = options.maxRequests || 10;
+    this.windowMs = options.windowMs || 60000; // 1분
+    // Redis 장애 시 사용할 인메모리 폴백 (fail-open 방지)
+    this.fallback = new InMemoryRateLimiter({
+      maxRequests: this.maxRequests,
+      windowMs: this.windowMs,
+    });
+  }
+
+  /**
+   * Rate limit 체크
+   *
+   * @param {string} identifier - 사용자 식별자 (IP, userId 등)
+   * @returns {Promise<{success: boolean, limit: number, remaining: number, reset: number}>}
+   */
+  async limit(identifier) {
+    const now = Date.now();
+    const windowStart = Math.floor(now / this.windowMs) * this.windowMs;
+    const key = `${this.prefix}:${identifier}:${windowStart}`;
+    const windowSeconds = Math.ceil(this.windowMs / 1000);
+
+    try {
+      // Pipeline으로 INCR과 EXPIRE를 한 번에 실행 (1 HTTP call)
+      const results = await this.redis.pipeline([
+        ['INCR', key],
+        ['EXPIRE', key, windowSeconds],
+      ]);
+
+      const currentCount = results[0].result || 0;
+      const remaining = Math.max(0, this.maxRequests - currentCount);
+      const reset = windowStart + this.windowMs;
+
+      return {
+        success: currentCount <= this.maxRequests,
+        limit: this.maxRequests,
+        remaining,
+        reset: Math.ceil(reset / 1000), // Unix timestamp in seconds
+        retryAfter: currentCount > this.maxRequests
+          ? Math.ceil((reset - now) / 1000)
+          : 0,
+      };
+    } catch (error) {
+      // Redis 장애 시 인메모리 폴백으로 rate limiting 유지 (fail-open 방지)
+      // 보안 우선: Redis 없이도 rate limiting을 적용하여 DeepSeek API 비용 남용 방지
+      // 주의: 다중 인스턴스 환경에서는 인스턴스별 독립 카운팅됨
+      console.warn('[RateLimit] Redis unavailable, falling back to in-memory limiter.', {
+        error: error.message,
+        identifier,
+        timestamp: new Date().toISOString(),
+      });
+      const fallbackResult = await this.fallback.limit(identifier);
+      fallbackResult.error = 'Redis unavailable, using in-memory fallback';
+      return fallbackResult;
+    }
+  }
+}
+
+/**
  * Rate Limiter Factory
- * 
+ *
  * 환경 변수에 따라 적절한 Rate Limiter 반환
  */
 function createRateLimiter(tier = 'anonymous') {
@@ -269,7 +267,7 @@ let authenticatedLimiter = null;
 
 /**
  * Rate Limit 체크 함수
- * 
+ *
  * @param {string} identifier - 사용자 식별자
  * @param {string} tier - 'anonymous' 또는 'authenticated'
  * @returns {Promise<{success: boolean, headers: Object}>}
@@ -307,7 +305,7 @@ function formatResult(result) {
 
 /**
  * Rate Limit 응답 헤더 설정 헬퍼
- * 
+ *
  * @param {Response} res - Vercel Response 객체
  * @param {Object} headers - Rate limit 헤더
  */

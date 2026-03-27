@@ -135,6 +135,7 @@
       if (!card.querySelector('.question-actions')) {
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'question-actions';
+        // Security: innerHTML is safe here — static template with only integer questionNum (parsed via parseInt)
         actionsDiv.innerHTML = `
           <button type="button" class="check-button" data-question="${questionNum}" aria-label="문제 ${questionNum} 정답 확인">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -404,6 +405,7 @@
     });
     
     // 상태 아이콘 업데이트
+    // Security: innerHTML is safe here — static HTML strings with no user input
     if (statusEl) {
       if (isChecked) {
         statusEl.innerHTML = isCorrect !== null && isCorrect

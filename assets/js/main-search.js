@@ -187,6 +187,7 @@
         return;
       }
       const badge = isServer ? '<div class="search-source-badge">Full-text search</div>' : '';
+      // Security: all dynamic values are escaped via escapeHtml() and safeUrl() before insertion
       searchResults.innerHTML = badge + results.slice(0, 10).map(item => `
         <a href="${safeUrl(item.url)}" class="search-result-item" data-url="${escapeHtml(item.url)}">
           <div class="search-result-title">${highlightMatch(item.title || '', query)}</div>

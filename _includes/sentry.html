@@ -1,9 +1,9 @@
 {% if site.sentry_dsn and site.sentry_dsn != "" %}
-<!-- Sentry SDK: Error Tracking + Tracing + Replay (Free tier 최대 활용) -->
+<!-- Sentry SDK: 기본 에러 추적만 (번들 크기 최소화: ~20KB vs ~70KB) -->
 <!-- Defer loading to reduce FID (First Input Delay) -->
 <script
-  src="https://browser.sentry-cdn.com/9.5.0/bundle.tracing.replay.min.js"
-  integrity="sha384-o/GEuWSkrvEGEtjN67ud+ssWsPJyX6RPCWqDvd8EE0N5nm6Id38XSS62lM4ETM0O"
+  src="https://browser.sentry-cdn.com/9.5.0/bundle.min.js"
+  integrity="sha384-5uFF6g91sxV2Go9yGCIngIx1AD3yg6buf0YFt7PSNheVk6CneEMSH6Eap5+e+8gt"
   crossorigin="anonymous"
   defer
 ></script>
