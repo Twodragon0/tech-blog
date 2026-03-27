@@ -306,6 +306,54 @@
   }
   </script>
 
+  {% if page.layout == "post" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "{{ site.url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.category | default: page.categories[0] | default: 'Blog' }}",
+        "item": "{{ site.url }}/{{ page.category | default: page.categories[0] | default: 'blog' | downcase }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ page.title | escape }}"
+      }
+    ]
+  }
+  </script>
+  {% elsif page.title %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "{{ site.url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title | escape }}"
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
   {% if site.google_adsense %}
   <style>
     /* Hide Google Ads "Related Topics" UI (advertisement block) while keeping actual ads visible */

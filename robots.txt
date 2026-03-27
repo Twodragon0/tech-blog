@@ -10,6 +10,13 @@ sitemap:
 
 User-agent: *
 Allow: /
+Allow: /feed.xml
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /api/markdown
+Allow: /assets/
+Allow: /posts/
 Disallow: /_site/
 Disallow: /_posts/
 Disallow: /_layouts/
@@ -21,15 +28,6 @@ Disallow: /vendor/
 Disallow: /node_modules/
 Disallow: /api/
 Crawl-delay: 1
-
-# Allow important paths explicitly
-Allow: /feed.xml
-Allow: /sitemap.xml
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /api/markdown
-Allow: /assets/
-Allow: /posts/
 
 # AI Crawlers - Allow for AI training and discovery
 User-agent: GPTBot
