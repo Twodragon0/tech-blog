@@ -12,6 +12,7 @@ image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day
 image_alt: Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - DevSecOps
 - AI-Security
@@ -54,6 +55,39 @@ toc: true
 - [ ] 보안 모니터링 규칙 업데이트
 - [ ] 관련 보안 정책 검토 및 갱신
 - [ ] 팀 내 보안 공지 공유 완료
+
+---
+
+## 서론
+
+안녕하세요, **Twodragon**입니다.
+
+2026년 02월 01일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
+
+**수집 통계:**
+- **총 뉴스 수**: 22개
+- **보안 뉴스**: 10개
+- **AI/ML 뉴스**: 6개
+- **클라우드 뉴스**: 3개
+- **DevOps 뉴스**: 2개
+- **블록체인 뉴스**: 1개
+
+---
+
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Fortinet | CVE-2026-24858 FortiCloud SSO 제로데이 - 방화벽 무단 접근 실제 공격 | 🔴 Critical |
+| 🔒 **Security** | Microsoft | CVE-2026-24304 Azure RM CVSS 9.9 - 전체 리소스 제어권 탈취 | 🔴 Critical |
+| 🔒 **Security** | CNCF | CVE-2026-22039 Kyverno - K8s 네임스페이스 격리 무력화 | 🔴 Critical |
+| 🤖 **AI/ML** | AISLE | AI 시스템이 OpenSSL 제로데이 12건 전량 발견 - 역사적 사건 | 🟠 High |
+| 🔒 **Security** | OWASP | Agentic AI Top 10 프레임워크 공식 발표 | 🟠 High |
+| ☁️ **Cloud** | eScan | 공급망 공격 - 안티바이러스 업데이트 서버 침해 | 🟡 Medium |
+
+---
 
 ## Executive Summary
 

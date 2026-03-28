@@ -5,6 +5,7 @@ title: "Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안"
 date: 2026-02-13 12:39:45 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]
+keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Go,  Security,  Agent]
 excerpt: "Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark 출시, FinOps CUD 업데이트 등 2026-02-13 핵심 이슈 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리합니다."
 description: "2026년 02월 13일 보안 뉴스: Gemini AI 악용 정찰, Lazarus 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark, FinOps CUD 업데이트 등 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리했습니다."
 author: Twodragon

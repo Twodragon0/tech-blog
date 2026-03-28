@@ -5,6 +5,7 @@ title: "JWT 인증 위협, 암호화폐 유출 사고, 금융 AI 거버넌스"
 date: 2026-03-04 14:05:06 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
+keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  JWT,  Blockchain,  AI-Governance]
 excerpt: "JWT 서명키 유출로 인한 인증 체계 붕괴 위협, 이란 거래소 비트코인 유출 사고, 금융분야 AI 7대 거버넌스 원칙에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
 description: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석."
 author: Twodragon

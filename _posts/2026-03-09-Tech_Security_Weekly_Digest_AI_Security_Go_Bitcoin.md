@@ -5,6 +5,7 @@ title: "AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehou
 date: 2026-03-09 12:37:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
+keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Security,  Go,  Bitcoin]
 excerpt: "AI 에이전트 프롬프트 인젝션·공급망 보안 위협, Saylor 비트코인 대규모 매수 동향, Agent Safehouse 샌드박스 도구 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 description: "[High] AI 에이전트 보안 위협 - 프롬프트 인젝션·과도한 권한·공급망 공격(Krebs on Security). [High] 민감 데이터 접근 경로 최소화, 감사 로그 점검. 2026년 03월 09일 보안 뉴스 11건. DevSecOps 실무 위협 분석 가이드."
 author: Twodragon

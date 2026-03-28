@@ -5,6 +5,7 @@ title: "CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석"
 date: 2026-03-06 12:29:02 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
+keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Security,  Threat,  AI,  AWS]
 excerpt: "CVE-2026-20122 Cisco Catalyst SD-WAN Manager 활성 공격, AWS 운영 보안, AI 위협 분석에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 즉시 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
 description: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안..."
 author: Twodragon

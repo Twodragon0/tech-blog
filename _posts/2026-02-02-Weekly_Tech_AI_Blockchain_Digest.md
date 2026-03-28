@@ -13,6 +13,7 @@ image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
 image_alt: Weekly Tech AI Blockchain Digest Feb 2 2026
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - Apple
 - Bitcoin-Crash

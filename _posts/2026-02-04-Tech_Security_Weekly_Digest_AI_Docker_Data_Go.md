@@ -13,6 +13,7 @@ image_alt: Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AW
   IAM
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - DevSecOps
 - Cloud-Security

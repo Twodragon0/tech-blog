@@ -5,6 +5,7 @@ title: "Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동
 date: 2026-02-23 12:39:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
+keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Ransomware,  Zero-Trust,  OT-Security,  Bitcoin]
 excerpt: "SK쉴더스 Vertical AI 보안 전략, BlackField 랜섬웨어 분석, 제로트러스트 데이터 보호, OT 보안, 비트코인 $65K 급락 및 러시아 제재 우회 거래소 적발 등을 기술·경영진 관점으로 정리한 2026년 2월 23일 주간 보안 다이제스트입니다."
 description: "SK쉴더스 11~12월호 보안 리포트 5건 심층 분석(Vertical AI, BlackField 랜섬웨어, 제로트러스트 데이터, EQST insight, OT 보안), 비트코인 $65K 급락, 러시아 제재 우회 거래소 네트워크 적발 등 DevSecOps 실무 위협 분석."
 author: Twodragon

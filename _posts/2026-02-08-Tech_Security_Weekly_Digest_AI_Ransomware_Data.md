@@ -13,6 +13,7 @@ image_alt: Tech Security Weekly Digest February 08 2026 Signal Phishing BlackFie
   Ransomware Zero Trust Data
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - DevSecOps
 - Cloud-Security

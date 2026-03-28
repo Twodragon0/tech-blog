@@ -12,6 +12,7 @@ image: /assets/images/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Compariso
 image_alt: AI vs Claude Code AI Coding Assistant Comparison 2026
 layout: post
 tags:
+keywords: [tags:]
 - AI-Assistant
 - Claude-Code
 - AI

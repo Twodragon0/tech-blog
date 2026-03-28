@@ -12,6 +12,7 @@ image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Thr
 image_alt: Tech Security Weekly Digest February 06 2026 AI Botnet Cloud
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - DevSecOps
 - Cloud-Security

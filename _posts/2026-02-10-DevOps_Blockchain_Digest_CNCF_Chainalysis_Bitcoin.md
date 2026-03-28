@@ -13,6 +13,7 @@ image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitco
 image_alt: DevOps·블록체인 다이제스트 2026년 2월 10일 CNCF Velocity Cluster API Chainalysis
 layout: post
 tags:
+keywords: [tags:]
 - DevOps-Digest
 - Blockchain-Digest
 - CNCF

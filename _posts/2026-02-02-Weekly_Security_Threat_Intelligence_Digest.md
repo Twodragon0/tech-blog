@@ -14,6 +14,7 @@ image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg
 image_alt: Weekly Security Threat Intelligence Digest Feb 2 2026
 layout: post
 tags:
+keywords: [tags:]
 - Security-Weekly
 - Supply-Chain
 - Notepad++
