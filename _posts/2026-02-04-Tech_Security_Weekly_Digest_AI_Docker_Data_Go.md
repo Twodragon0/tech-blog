@@ -23,6 +23,7 @@ tags:
 - AI-Agent-Security
 - AWS-IAM
 - '2026'
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Docker, CVE-2025-11953, Metro4Shell, RCE, AI-Agent-Security]
 title: '2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격'
 toc: true
 ---

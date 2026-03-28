@@ -24,6 +24,7 @@ tags:
 - DevSecOps
 - Zero-Trust
 - '2025'
+keywords: [Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps]
 title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
 toc: true
 ---

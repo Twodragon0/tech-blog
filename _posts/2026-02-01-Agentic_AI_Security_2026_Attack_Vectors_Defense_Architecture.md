@@ -26,6 +26,7 @@ tags:
 - CrowdStrike
 - Google-Security
 - '2026'
+keywords: [Agentic-AI, AI-Security, Tool-Poisoning, Prompt-Injection, LLM-Security, Supply-Chain, Zero-Trust, DevSecOps]
 title: '에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드'
 toc: true
 ---

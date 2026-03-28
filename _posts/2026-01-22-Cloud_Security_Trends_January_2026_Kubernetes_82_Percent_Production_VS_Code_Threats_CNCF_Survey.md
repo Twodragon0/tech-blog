@@ -24,6 +24,7 @@ tags:
 - Net-NTLMv1
 - DevSecOps
 - '2026'
+keywords: [Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1]
 title: '2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사
   분석'
 toc: true

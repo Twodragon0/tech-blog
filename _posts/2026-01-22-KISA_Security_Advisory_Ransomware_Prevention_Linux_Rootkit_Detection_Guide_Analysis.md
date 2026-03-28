@@ -24,6 +24,7 @@ tags:
 - E-commerce-Security
 - DevSecOps
 - '2026'
+keywords: [KISA, Ransomware, Linux-Rootkit, Security-Advisory, Incident-Prevention, Backup, Phishing, E-commerce-Security]
 title: 'KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'
 toc: true
 ---

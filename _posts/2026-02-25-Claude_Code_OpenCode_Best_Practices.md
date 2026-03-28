@@ -20,6 +20,7 @@ tags:
 - MCP
 - AI-Coding
 - '2026'
+keywords: [Claude-Code, OpenCode, Best-Practices, AI-Agent, Prompt-Engineering, Agent-Teams, MCP, AI-Coding]
 author: Twodragon
 toc: true
 ---

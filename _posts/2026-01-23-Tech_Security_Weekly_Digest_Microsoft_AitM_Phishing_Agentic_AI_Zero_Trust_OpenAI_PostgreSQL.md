@@ -26,6 +26,7 @@ tags:
 - vLLM
 - DevSecOps
 - '2026'
+keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI]
 title: "Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 보안"
 toc: true
 ---

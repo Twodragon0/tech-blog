@@ -22,6 +22,7 @@ tags:
 - BlackField-Ransomware
 - Zero-Trust
 - Data-Security
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust]
 title: "Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안"
 toc: true
 ---

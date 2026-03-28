@@ -25,6 +25,7 @@ tags:
 - CloudTrail
 - CloudWatch
 - Security-Hub
+keywords: [AWS, Security, IAM, VPC, S3, RDS, EKS, CloudTrail]
 title: 'AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
 toc: true
 ---

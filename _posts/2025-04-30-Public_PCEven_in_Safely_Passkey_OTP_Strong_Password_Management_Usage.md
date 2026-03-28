@@ -17,6 +17,7 @@ tags:
 - OTP
 - Password-Manager
 - Authentication
+keywords: [Passkey, OTP, Password-Manager, Authentication]
 title: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법
 toc: true
 ---

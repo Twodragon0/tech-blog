@@ -21,6 +21,7 @@ tags:
 - Agentic-AI
 - AI
 - VirusTotal
+keywords: [Security-Digest, Cloud-Digest, AI-Agent-Security, Supply-Chain, AWS, Agentic-AI, AI, VirusTotal]
 title: '2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI'
 toc: true
 ---

@@ -18,6 +18,7 @@ tags:
 - Cloud-Security
 - SDLC
 - Security-Automation
+keywords: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
 title: '클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'
 toc: true
 series: "Cloud Security Course 7기"

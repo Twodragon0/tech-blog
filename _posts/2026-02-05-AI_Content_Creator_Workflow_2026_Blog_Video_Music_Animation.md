@@ -2,10 +2,9 @@
 
 author: Twodragon
 categories:
-- AI
-- DevSecOps
-- Content Creation
-- Automation
+- ai
+- devsecops
+- devops
 comments: true
 date: 2026-02-05 09:00:00 +0900
 description: '2026년 AI 콘텐츠 크리에이터 워크플로우: Claude Opus 4.5 블로그 생성, Qwen3-TTS 오픈소스 음성 합성, Suno AI 음악, Runway Gen-3 영상, D-ID 애니메이션, Python End-to-End 파이프라인, 3대 사례연구, DevSecOps...'
@@ -24,6 +23,7 @@ tags:
 - DevSecOps
 - Automation
 - Workflow
+keywords: [AI, Claude, Suno AI, Animation, Video Production, Content Strategy, 2026 Trends, DevSecOps]
 title: AI로 완성하는 콘텐츠 크리에이터 워크플로우 2026 - 블로그부터 영상, 음악, 애니메이션까지
 toc: true
 ---

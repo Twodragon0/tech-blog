@@ -28,6 +28,7 @@ tags:
 - Mythril
 - Securify
 - CI-CD
+keywords: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps]
 title: '블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
 toc: true
 ---

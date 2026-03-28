@@ -29,6 +29,7 @@ tags:
 - Airflow
 - Platform-Engineering
 - '2026'
+keywords: [Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm]
 title: "VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper"
 toc: true
 ---

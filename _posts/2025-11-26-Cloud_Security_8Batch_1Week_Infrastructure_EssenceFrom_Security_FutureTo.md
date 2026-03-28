@@ -16,6 +16,7 @@ tags:
 - Infrastructure
 - Cloud-Security
 - AWS
+keywords: [Infrastructure, Cloud-Security, AWS]
 title: '클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
 toc: true
 series: "Cloud Security Course 8기"

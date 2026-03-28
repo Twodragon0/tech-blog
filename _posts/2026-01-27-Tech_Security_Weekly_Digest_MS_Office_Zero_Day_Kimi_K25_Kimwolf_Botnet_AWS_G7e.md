@@ -26,6 +26,7 @@ tags:
 - ChatGPT-Containers
 - DevSecOps
 - '2026'
+keywords: [Security-Weekly, Zero-Day, Microsoft-Office, Kimi-K25, AI-Agents, Kimwolf-Botnet, AWS-G7e, NVIDIA-Blackwell]
 title: "MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷"
 toc: true
 ---

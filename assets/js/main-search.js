@@ -409,24 +409,17 @@
 
     function sanitizeTranslation(html) {
       if (!html) return '';
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
-      // Remove script tags and event handlers to prevent XSS from external translation API
-      temp.querySelectorAll('script, iframe, object, embed, link[rel="import"]').forEach(el => el.remove());
-      temp.querySelectorAll('*').forEach(el => {
-        for (const attr of Array.from(el.attributes)) {
-          if (attr.name.startsWith('on') || /^\s*javascript\s*:/i.test(String(attr.value))) {
-            el.removeAttribute(attr.name);
-          }
-        }
-        if (el.tagName === 'A' && el.href) {
-          try {
-            const proto = new URL(el.href).protocol;
-            if (proto !== 'https:' && proto !== 'http:') el.removeAttribute('href');
-          } catch { el.removeAttribute('href'); }
-        }
-      });
-      return temp.innerHTML;
+      if (typeof DOMPurify !== 'undefined') {
+        return DOMPurify.sanitize(html, {
+          ALLOWED_TAGS: ['p','br','strong','em','a','span','div','ul','ol','li',
+                         'h1','h2','h3','h4','h5','h6','code','pre','blockquote',
+                         'table','thead','tbody','tr','th','td','hr','del','mark'],
+          ALLOWED_ATTR: ['class','href','target','rel'],
+        });
+      }
+      // Fallback: strip all HTML
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.body.textContent || '';
     }
 
     function stripBrowserTranslationTags(html) {

@@ -24,6 +24,7 @@ tags:
 - Ethereum-Quantum
 - FOSDEM-2026
 - '2026'
+keywords: [Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit]
 title: '주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의
   역설, DeFi 보안, FOSDEM 2026'
 toc: true

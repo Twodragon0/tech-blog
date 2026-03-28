@@ -11,6 +11,7 @@ tags:
 - Cloud-Security
 - Cost-Optimization
 - Well-Architected
+keywords: [AWS, FinOps, Cloud-Security, Cost-Optimization, Well-Architected]
 excerpt: "클라우드 시큐리티 과정 7기 3주차 핵심 정리. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty, Security Hub), FinOps 프레임워크와 비용 최적화 전략, AWS Well-Architected Framework의 실무 적용 방법을 체계적으로 학습합니다."
 description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,
   Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.

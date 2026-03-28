@@ -22,6 +22,7 @@ tags:
 - AI-Agent
 - Prompt-Engineering
 - '2026'
+keywords: [CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines, AI-Agent, Prompt-Engineering, 2026]
 title: 'CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
 toc: true
 ---

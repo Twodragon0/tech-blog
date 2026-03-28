@@ -27,6 +27,7 @@ tags:
 - Network-Policies
 - RBAC
 - Pod-Security-Standards
+keywords: [CI/CD, Kubernetes, DevSecOps, K8s-Security, Cloud-Security, ArgoCD, Jenkins, Network-Policies]
 title: "\U0001F680 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터
   클러스터 보안까지"
 toc: true

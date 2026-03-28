@@ -24,6 +24,7 @@ tags:
 - RCE
 - Cloud-Security
 - '2026'
+keywords: [Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE]
 title: "Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE"
 toc: true
 ---

@@ -21,6 +21,7 @@ tags:
 - Botnet
 - Cloud
 - Threat
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud]
 title: "CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점"
 toc: true
 ---

@@ -20,6 +20,7 @@ tags:
 - Security-Group
 - Database
 - Network
+keywords: [AWS, NLB, Security-Group, Database, Network]
 title: 'AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
 toc: true
 ---

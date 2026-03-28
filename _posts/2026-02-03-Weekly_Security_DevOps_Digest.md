@@ -32,6 +32,7 @@ tags:
 - Zero-Trust
 - Atomic-Stealer
 - '2026'
+keywords: [Security-Weekly, AI, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf]
 title: '주간 보안·DevOps 다이제스트: AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
 toc: true
 ---

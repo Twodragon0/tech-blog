@@ -25,6 +25,7 @@ tags:
 - Zero-Trust
 - DevSecOps
 - '2026'
+keywords: [AI-Agent, AI-Security, Stateful-Runtime, Continuous-Evaluation, OWASP, Prompt-Injection, Bedrock, Vertex-AI]
 title: 'AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation 실무 적용'
 toc: true
 ---

@@ -19,6 +19,7 @@ tags:
 - Kubernetes
 - Incident-Response
 - AWS
+keywords: [Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS]
 title: '[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
 toc: true
 ---

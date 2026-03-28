@@ -20,6 +20,7 @@ tags:
 - Cluster-API
 - Chainalysis
 - Bitcoin
+keywords: [DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API, Chainalysis, Bitcoin]
 title: '2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
 toc: true
 ---

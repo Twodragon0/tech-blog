@@ -28,6 +28,7 @@ tags:
 - CNCF
 - DevSecOps
 - '2026'
+keywords: [Security-Weekly, BitLocker, FBI, Encryption, Route-Leak, BGP, Cloudflare, Agentic-AI]
 title: "Microsoft BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안"
 toc: true
 ---

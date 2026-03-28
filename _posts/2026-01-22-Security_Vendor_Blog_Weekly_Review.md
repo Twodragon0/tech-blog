@@ -23,6 +23,7 @@ tags:
 - Zero-Trust
 - AI-Security
 - '2026'
+keywords: [Security-Vendor-News, DevSecOps, Cloud-Security, Hashicorp, Cloudflare, Snyk, Jamf, Zero-Trust]
 title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
 toc: true
 ---

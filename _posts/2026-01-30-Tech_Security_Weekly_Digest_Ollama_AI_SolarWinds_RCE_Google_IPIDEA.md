@@ -26,6 +26,7 @@ tags:
 - ICS
 - DevSecOps
 - '2026'
+keywords: [Security-Weekly, Ollama, LLMjacking, SolarWinds, CVE-2025-40551, CVE-2025-40552, IPIDEA, Residential-Proxy]
 title: "Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE, Google IPIDEA"
 toc: true
 ---

@@ -23,6 +23,7 @@ tags:
 - Suno
 - VEO-3
 - Content-Creation
+keywords: [AI, Generative-AI, Music-Video, DevSecOps, Security, Midjourney, Suno, VEO-3]
 title: 'AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법'
 toc: true
 ---

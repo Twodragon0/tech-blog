@@ -22,6 +22,7 @@ tags:
 - ISMS
 - NIST-CSF
 - AI-Security
+keywords: [ISMS-P, AWS, Security, Compliance, ISMS, NIST-CSF, AI-Security]
 title: '2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
 toc: true
 ---

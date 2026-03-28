@@ -20,6 +20,7 @@ tags:
 - 학습-경로
 - roadmap.sh
 - '2026'
+keywords: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]
 title: '2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
 toc: true
 ---

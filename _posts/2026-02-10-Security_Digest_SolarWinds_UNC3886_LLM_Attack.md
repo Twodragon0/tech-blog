@@ -18,6 +18,7 @@ tags:
 - LLM-Safety
 - UNC1069
 - CVE-2025-40551
+keywords: [Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069, CVE-2025-40551]
 title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
 toc: true
 ---

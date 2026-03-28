@@ -17,6 +17,7 @@ tags:
 - DevSecOps
 - FinOps
 - Course
+keywords: [Cloud-Security, DevSecOps, FinOps, Course]
 title: '클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
 toc: true
 series: "Cloud Security Course 8기"

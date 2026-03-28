@@ -22,6 +22,7 @@ tags:
 - GKE
 - Cloud-Monitoring
 - Cloud-Logging
+keywords: [GCP, Security, IAM, Cloud-SQL, Cloud-Storage, GKE, Cloud-Monitoring, Cloud-Logging]
 title: 'GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
 toc: true
 ---

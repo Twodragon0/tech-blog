@@ -25,6 +25,7 @@ tags:
 - CERT-Polska
 - Cloud-Security
 - '2026'
+keywords: [Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security]
 title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
 toc: true
 ---

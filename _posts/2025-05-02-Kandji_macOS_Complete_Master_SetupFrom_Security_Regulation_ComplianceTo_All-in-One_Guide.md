@@ -11,6 +11,7 @@ tags:
 - MDM
 - Endpoint-Security
 - Compliance
+keywords: [Kandji, macOS, MDM, Endpoint-Security, Compliance]
 excerpt: "Kandji를 활용한 macOS 엔드포인트 완벽 관리 가이드. MDM 정책 설정과 보안 강화, 패스키 기반 FIDO2/WebAuthn 인증 통합, Zero Trust 아키텍처 적용, AI 위협 탐지까지 2025년 최신 엔드포인트 보안 트렌드를 실무 중심으로 정리합니다."
 description: Kandji macOS 엔드포인트 관리 완벽 가이드. MDM 정책 설정, 보안 강화, 패스키 기반 인증, FIDO2/WebAuthn
   통합, Zero Trust 적용, AI 위협 탐지까지 2025년 최신 보안 트렌드 정리.

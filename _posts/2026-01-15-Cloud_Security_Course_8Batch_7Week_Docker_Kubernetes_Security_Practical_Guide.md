@@ -27,6 +27,7 @@ tags:
 - K9s
 - Pod-Security-Standards
 - User-Namespaces
+keywords: [Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s]
 title: "\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터
   보안까지"
 toc: true

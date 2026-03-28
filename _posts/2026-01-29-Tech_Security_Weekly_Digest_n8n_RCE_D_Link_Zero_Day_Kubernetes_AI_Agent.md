@@ -27,6 +27,7 @@ tags:
 - NHI
 - DevSecOps
 - '2026'
+keywords: [Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes]
 title: "n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안"
 toc: true
 ---

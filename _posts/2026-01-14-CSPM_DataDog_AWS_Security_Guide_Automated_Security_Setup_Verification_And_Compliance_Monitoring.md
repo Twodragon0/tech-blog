@@ -26,6 +26,7 @@ tags:
 - Misconfiguration
 - Claude
 - Autonomous Coding
+keywords: [CSPM, DataDog, AWS, Security, Compliance, Monitoring, Automation, Misconfiguration]
 title: 'CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
 toc: true
 ---

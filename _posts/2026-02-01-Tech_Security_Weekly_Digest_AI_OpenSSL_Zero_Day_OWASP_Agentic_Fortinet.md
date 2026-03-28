@@ -26,6 +26,7 @@ tags:
 - eScan
 - NIST
 - '2026'
+keywords: [Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet]
 title: "AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치"
 toc: true
 ---
