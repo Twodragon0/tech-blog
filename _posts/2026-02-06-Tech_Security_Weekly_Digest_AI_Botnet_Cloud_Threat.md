@@ -34,6 +34,38 @@ toc: true
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
+---
+
+## 서론
+
+안녕하세요, **Twodragon**입니다.
+
+2026년 02월 06일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
+
+**수집 통계:**
+- **총 뉴스 수**: 24개
+- **보안 뉴스**: 12개
+- **AI/ML 뉴스**: 5개
+- **클라우드 뉴스**: 4개
+- **DevOps 뉴스**: 2개
+- **블록체인 뉴스**: 1개
+
+---
+
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | The Hacker News | AISURU 봇넷 31.4 Tbps DDoS 기록 경신 - 역대 최대 규모 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | CrashFix ClickFix 변종 Python RAT 배포 - 기업 시스템 타겟 | 🟠 High |
+| 🔒 **Security** | The Hacker News | Codespaces RCE 취약점 - 클라우드 개발 환경 원격 코드 실행 | 🟠 High |
+| 🤖 **AI/ML** | The Hacker News | AI Usage Control 구매 가이드 - Shadow AI 데이터 유출 위험 | 🟠 High |
+| ⚙️ **DevOps** | The Hacker News | BYOVD 복합 위협 - 정상 드라이버 악용 EDR 우회 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python...

@@ -89,6 +89,19 @@ toc: true
 
 ---
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Mandiant | ShinyHunters 비싱 공격 - SaaS 플랫폼 MFA 우회 및 자격증명 탈취 | 🔴 Critical |
+| 🔒 **Security** | CERT Polska | 폴란드 OT 공격 - 30+ 풍력/태양광 발전소 협조적 사이버 공격 | 🔴 Critical |
+| 🔒 **Security** | Chrome 보안 팀 | 악성 Chrome 확장 - ChatGPT 인증 토큰 탈취 및 어필리에이트 하이재킹 | 🟠 High |
+| 🤖 **AI/ML** | Google Cloud | CISO 2026 우선순위 - AI 보안, 클라우드 거버넌스, 규제 대응 | 🟡 Medium |
+
+---
+
 ![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 1. ShinyHunters Vishing 공격: SaaS MFA 우회 심층 분석

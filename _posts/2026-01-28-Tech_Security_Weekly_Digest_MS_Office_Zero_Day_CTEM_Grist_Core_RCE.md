@@ -73,6 +73,19 @@ toc: true
 
 ---
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Microsoft | CVE-2026-21509 MS Office Protected View 우회 제로데이 - 실제 악용 중 | 🔴 Critical |
+| 🔒 **Security** | Grist-Core | Grist-Core RCE 취약점 - 오픈소스 스프레드시트 원격 코드 실행 | 🟠 High |
+| 🔒 **Security** | Gartner | CTEM 5단계 프레임워크 - 지속적 위협 노출 관리 실무 적용 | 🟠 High |
+| 🔒 **Security** | Splunk/CrowdStrike | CVE-2026-21509 탐지 룰 - SIEM/EDR 쿼리 제공 | 🟡 Medium |
+
+---
+
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
