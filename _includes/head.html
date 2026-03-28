@@ -142,10 +142,9 @@
   <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | absolute_url }}">
 
-  <!-- Fonts: Noto Sans KR (non-blocking load via preload + media swap) -->
+  <!-- Fonts: Noto Sans KR (non-blocking load via media swap; preload removed to avoid duplicate bandwidth) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" as="style" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" id="gfonts">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
 

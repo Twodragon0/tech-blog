@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // Cache version: bump on each deploy or content change
-// v21: OG PNG optimization (-7.2MB) + category illustrations (build marker: 20260327)
-const STATIC_CACHE = 'tech-blog-static-v21';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v21';
+// v22: chat-page.css 분리 등록 (build marker: 20260327)
+const STATIC_CACHE = 'tech-blog-static-v22';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v22';
 
 // Dynamic cache settings
 const DYNAMIC_CACHE_MAX_ENTRIES = 50;
@@ -12,6 +12,7 @@ const DYNAMIC_CACHE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 const STATIC_ASSETS = [
   '/',
   '/assets/css/main.css',
+  '/assets/css/chat-page.css',
   '/assets/js/main-core.js',
   '/assets/js/post-page.js',
   '/assets/js/google-translate.js',
