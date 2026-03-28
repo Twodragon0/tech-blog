@@ -39,19 +39,12 @@
     <rect x="-155" y="-110" width="310" height="160" rx="8" fill="none" stroke="#4285f4" stroke-width="2"/>
     <!-- AWS KRUG logo area -->
     <rect x="-145" y="-100" width="90" height="45" rx="5" fill="#ff9900" opacity="0.1" stroke="#ff9900" stroke-width="1.5"/>
-    <text x="-100" y="-82" font-family="monospace" font-size="9" fill="#ff9900" text-anchor="middle" font-weight="bold">AWSKRUG</text>
-    <text x="-100" y="-68" font-family="monospace" font-size="7" fill="#ff9900" text-anchor="middle">AWS Korea</text>
     <!-- OWASP logo area -->
     <rect x="-45" y="-100" width="90" height="45" rx="5" fill="#4285f4" opacity="0.1" stroke="#4285f4" stroke-width="1.5"/>
-    <text x="0" y="-82" font-family="monospace" font-size="9" fill="#4285f4" text-anchor="middle" font-weight="bold">OWASP</text>
-    <text x="0" y="-68" font-family="monospace" font-size="7" fill="#4285f4" text-anchor="middle">Top 10</text>
     <!-- Datadog logo area -->
     <rect x="55" y="-100" width="90" height="45" rx="5" fill="#632ca6" opacity="0.1" stroke="#632ca6" stroke-width="1.5"/>
-    <text x="100" y="-82" font-family="monospace" font-size="9" fill="#a078d6" text-anchor="middle" font-weight="bold">Datadog</text>
-    <text x="100" y="-68" font-family="monospace" font-size="7" fill="#a078d6" text-anchor="middle">SIEM</text>
     <!-- AI Security label below logos -->
     <rect x="-145" y="-45" width="290" height="30" rx="5" fill="#f39c12" opacity="0.1" stroke="#f39c12" stroke-width="1"/>
-    <text x="0" y="-25" font-family="monospace" font-size="9" fill="#f39c12" text-anchor="middle" font-weight="bold">2025 AI &amp; Security Coexistence</text>
     <!-- Speaker silhouette -->
     <circle cx="0" cy="-5" r="12" fill="#4285f4" opacity="0.3"/>
     <path d="M-15,15 L0,7 L15,15 L15,55 L-15,55 Z" fill="#4285f4" opacity="0.2"/>

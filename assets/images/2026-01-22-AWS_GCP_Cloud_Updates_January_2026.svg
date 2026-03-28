@@ -34,9 +34,7 @@
   <polygon points="982,435 991,422 975,426" fill="rgba(255,200,50,0.5)"/>
   <path d="M1050 340 Q1080 380 1070 415" fill="none" stroke="rgba(66,133,244,0.5)" stroke-width="2" stroke-dasharray="6,3"/>
   <polygon points="1067,420 1077,407 1061,412" fill="rgba(66,133,244,0.5)"/>
-  <!-- Labels -->
-  <text x="900" y="260" font-family="Arial,sans-serif" font-size="13" fill="#ff9900" text-anchor="middle" font-weight="700" opacity="0.8">AWS</text>
-  <text x="1060" y="240" font-family="Arial,sans-serif" font-size="13" fill="#4285f4" text-anchor="middle" font-weight="700" opacity="0.8">GCP</text>
+  <!-- Labels removed (decorative) -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(255,153,0,0.15)" stroke="rgba(255,153,0,0.4)" stroke-width="1"/>
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#ff9900" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>

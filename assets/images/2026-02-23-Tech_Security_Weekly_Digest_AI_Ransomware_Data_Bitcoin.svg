@@ -24,35 +24,24 @@
   <!-- Vertical stack layers with lock icons -->
   <!-- Layer 1: AI Application -->
   <rect x="790" y="138" width="340" height="46" rx="6" fill="rgba(142,68,173,0.18)" stroke="#8e44ad" stroke-width="2"/>
-  <text x="960" y="156" font-size="11" fill="rgba(255,255,255,0.8)" font-family="monospace" text-anchor="middle" font-weight="700">AI APPLICATION LAYER</text>
-  <text x="960" y="172" font-size="9" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Vertical AI Model + Inference API</text>
   <!-- Lock icon layer 1 -->
   <rect x="800" y="148" width="16" height="12" rx="2" fill="none" stroke="#8e44ad" stroke-width="1.5"/>
   <path d="M 804 148 Q 804 143 808 143 Q 812 143 812 148" fill="none" stroke="#8e44ad" stroke-width="1.5"/>
   <!-- Layer 2: Security Controls -->
   <rect x="790" y="192" width="340" height="46" rx="6" fill="rgba(231,76,60,0.15)" stroke="#e74c3c" stroke-width="2"/>
-  <text x="960" y="210" font-size="11" fill="rgba(255,255,255,0.8)" font-family="monospace" text-anchor="middle" font-weight="700">SECURITY CONTROL LAYER</text>
-  <text x="960" y="226" font-size="9" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">WAF + RBAC + Audit Logging</text>
   <rect x="800" y="202" width="16" height="12" rx="2" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
   <path d="M 804 202 Q 804 197 808 197 Q 812 197 812 202" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
   <!-- Layer 3: Data Layer -->
   <rect x="790" y="246" width="340" height="46" rx="6" fill="rgba(243,156,18,0.15)" stroke="#f39c12" stroke-width="2"/>
-  <text x="960" y="264" font-size="11" fill="rgba(255,255,255,0.8)" font-family="monospace" text-anchor="middle" font-weight="700">DATA LAYER</text>
-  <text x="960" y="280" font-size="9" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Encrypted Storage + DLP + Masking</text>
   <rect x="800" y="256" width="16" height="12" rx="2" fill="none" stroke="#f39c12" stroke-width="1.5"/>
   <path d="M 804 256 Q 804 251 808 251 Q 812 251 812 256" fill="none" stroke="#f39c12" stroke-width="1.5"/>
   <!-- Layer 4: Ransomware threat indicator -->
   <rect x="790" y="300" width="340" height="46" rx="6" fill="rgba(192,57,43,0.2)" stroke="#c0392b" stroke-width="2"/>
-  <text x="960" y="318" font-size="11" fill="rgba(255,100,100,0.9)" font-family="monospace" text-anchor="middle" font-weight="700">BLACKFIELD RANSOMWARE</text>
-  <text x="960" y="334" font-size="9" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Data encryption + Bitcoin ransom demand</text>
   <!-- Attack arrow through layers -->
   <polygon points="768,280 780,310 756,310" fill="#e74c3c" opacity="0.8"/>
   <line x1="768" y1="280" x2="768" y2="370" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="5,3"/>
-  <text x="750" y="335" font-size="9" fill="rgba(231,76,60,0.7)" font-family="monospace" text-anchor="middle" transform="rotate(-90 750 335)">ATTACK</text>
   <!-- Bitcoin symbol -->
   <circle cx="1110" cy="200" r="28" fill="rgba(243,156,18,0.18)" stroke="#f39c12" stroke-width="2"/>
-  <text x="1110" y="207" font-size="22" fill="#f39c12" font-family="sans-serif" text-anchor="middle" font-weight="700">&#x20BF;</text>
-  <text x="1110" y="240" font-size="9" fill="rgba(243,156,18,0.65)" font-family="monospace" text-anchor="middle">Ransom BTC</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

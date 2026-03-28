@@ -32,7 +32,6 @@
     <rect x="-75" y="-80" width="150" height="80" rx="8" fill="#38bdf8" opacity="0.04"/>
     <!-- Warning badge -->
     <circle cx="55" cy="-65" r="18" fill="#ef4444" opacity="0.85"/>
-    <text x="55" y="-58" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">14</text>
     <!-- Magnifying glass -->
     <circle cx="0" cy="85" r="25" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.7"/>
     <line x1="18" y1="103" x2="32" y2="117" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.7"/>

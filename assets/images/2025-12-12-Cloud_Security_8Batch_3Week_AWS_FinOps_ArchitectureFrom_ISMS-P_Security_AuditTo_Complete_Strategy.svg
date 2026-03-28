@@ -29,7 +29,6 @@
     <rect x="-155" y="-110" width="175" height="130" rx="8" fill="none" stroke="#f1c40f" stroke-width="2"/>
     <!-- Dashboard header -->
     <rect x="-155" y="-110" width="175" height="20" rx="8" fill="#f1c40f" opacity="0.15"/>
-    <text x="-67" y="-96" font-family="monospace" font-size="8" fill="#f1c40f" text-anchor="middle" font-weight="bold">Cost Dashboard</text>
     <!-- Bar chart bars -->
     <rect x="-140" y="-50" width="20" height="50" rx="3" fill="#f1c40f" opacity="0.5"/>
     <rect x="-112" y="-70" width="20" height="70" rx="3" fill="#f1c40f" opacity="0.4"/>
@@ -39,11 +38,8 @@
     <!-- Trend line going down (savings) -->
     <polyline points="-130,-75 -102,-60 -74,-45 -46,-70 -18,-40" fill="none" stroke="#27ae60" stroke-width="2.5"/>
     <polygon points="-22,-35 -16,-41 -22,-47" fill="#27ae60"/>
-    <!-- $ label -->
-    <text x="-67" y="-85" font-family="monospace" font-size="8" fill="#f1c40f" text-anchor="middle">$128K saved</text>
     <!-- Audit checklist (right) -->
     <rect x="35" y="-110" width="130" height="140" rx="8" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <text x="100" y="-95" font-family="monospace" font-size="8" fill="#27ae60" text-anchor="middle" font-weight="bold">ISMS-P Audit</text>
     <!-- Checklist items -->
     <circle cx="50" cy="-75" r="5" fill="#27ae60" opacity="0.7"/>
     <path d="M47,-76 L49,-73 L54,-79" fill="none" stroke="white" stroke-width="1.5"/>
@@ -61,10 +57,8 @@
     <!-- Certification badge -->
     <circle cx="100" cy="35" r="22" fill="none" stroke="#27ae60" stroke-width="2"/>
     <path d="M100,13 L106,28 L122,28 L110,37 L114,52 L100,43 L86,52 L90,37 L78,28 L94,28 Z" fill="#27ae60" opacity="0.3"/>
-    <text x="100" y="39" font-family="monospace" font-size="7" fill="#27ae60" text-anchor="middle" font-weight="bold">ISMS-P</text>
     <!-- Week 3 badge -->
     <rect x="-155" y="38" width="80" height="28" rx="8" fill="#f1c40f" opacity="0.15" stroke="#f1c40f" stroke-width="1"/>
-    <text x="-115" y="56" font-family="monospace" font-size="10" fill="#f1c40f" text-anchor="middle" font-weight="bold">WEEK 3</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="250" height="34" rx="17" fill="#f1c40f" opacity="0.15" stroke="#f1c40f" stroke-width="1"/>

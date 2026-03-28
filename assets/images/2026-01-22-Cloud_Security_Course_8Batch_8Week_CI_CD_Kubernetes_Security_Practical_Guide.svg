@@ -23,23 +23,18 @@
   <circle cx="1050" cy="450" r="140" fill="rgba(50,108,229,0.07)"/>
   <!-- CI/CD pipeline -->
   <rect x="790" y="195" width="72" height="40" rx="5" fill="rgba(39,174,96,0.15)" stroke="#27ae60" stroke-width="2" opacity="0.85"/>
-  <text x="826" y="219" font-family="Arial,sans-serif" font-size="10" fill="#27ae60" text-anchor="middle" font-weight="700">BUILD</text>
   <line x1="862" y1="215" x2="892" y2="215" stroke="rgba(39,174,96,0.6)" stroke-width="2"/>
   <polygon points="892,211 900,215 892,219" fill="rgba(39,174,96,0.6)"/>
   <rect x="900" y="195" width="72" height="40" rx="5" fill="rgba(39,174,96,0.12)" stroke="#27ae60" stroke-width="2" opacity="0.75"/>
-  <text x="936" y="219" font-family="Arial,sans-serif" font-size="10" fill="#27ae60" text-anchor="middle" font-weight="700">TEST</text>
   <line x1="972" y1="215" x2="1002" y2="215" stroke="rgba(39,174,96,0.6)" stroke-width="2"/>
   <polygon points="1002,211 1010,215 1002,219" fill="rgba(39,174,96,0.6)"/>
   <rect x="1010" y="195" width="80" height="40" rx="5" fill="rgba(50,108,229,0.15)" stroke="#326ce5" stroke-width="2" opacity="0.85"/>
-  <text x="1050" y="219" font-family="Arial,sans-serif" font-size="10" fill="#326ce5" text-anchor="middle" font-weight="700">DEPLOY</text>
   <!-- K8s hexagon -->
   <polygon points="970,290 1002,310 1002,350 970,370 938,350 938,310" fill="rgba(50,108,229,0.1)" stroke="#326ce5" stroke-width="2.5" opacity="0.85"/>
-  <text x="970" y="335" font-family="Arial,sans-serif" font-size="12" fill="#326ce5" text-anchor="middle" font-weight="700">K8s</text>
   <!-- Security gate below -->
   <rect x="928" y="400" width="84" height="52" rx="6" fill="rgba(255,200,0,0.08)" stroke="rgba(255,200,0,0.6)" stroke-width="2.5"/>
   <circle cx="970" cy="416" r="10" fill="none" stroke="rgba(255,200,0,0.6)" stroke-width="2"/>
   <rect x="966" y="424" width="8" height="14" rx="2" fill="rgba(255,200,0,0.4)"/>
-  <text x="970" y="464" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,200,0,0.7)" text-anchor="middle">SCAN</text>
   <!-- Connector arrows -->
   <line x1="970" y1="370" x2="970" y2="400" stroke="rgba(255,200,0,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>

@@ -26,26 +26,21 @@
   <!-- CI/CD pipeline stages -->
   <!-- Stage 1: Code -->
   <rect x="845" y="210" width="65" height="45" rx="6" fill="rgba(39,174,96,0.2)" stroke="rgba(39,174,96,0.6)" stroke-width="2"/>
-  <text x="877" y="238" font-family="monospace" font-size="12" font-weight="700" fill="rgba(39,174,96,0.85)" text-anchor="middle">CODE</text>
   <!-- Arrow -->
   <line x1="910" y1="232" x2="928" y2="232" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
   <path d="M924 227 L934 232 L924 237" fill="rgba(255,255,255,0.3)"/>
   <!-- Stage 2: Build -->
   <rect x="930" y="210" width="65" height="45" rx="6" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.6)" stroke-width="2"/>
-  <text x="962" y="238" font-family="monospace" font-size="12" font-weight="700" fill="rgba(41,128,185,0.85)" text-anchor="middle">BUILD</text>
   <!-- Arrow -->
   <line x1="995" y1="232" x2="1013" y2="232" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
   <path d="M1009 227 L1019 232 L1009 237" fill="rgba(255,255,255,0.3)"/>
   <!-- Stage 3: Security Gate (highlighted) -->
   <rect x="1015" y="205" width="75" height="55" rx="6" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.65)" stroke-width="2.5"/>
-  <text x="1052" y="230" font-family="monospace" font-size="10" font-weight="700" fill="rgba(231,76,60,0.85)" text-anchor="middle">SEC</text>
-  <text x="1052" y="246" font-family="monospace" font-size="10" font-weight="700" fill="rgba(231,76,60,0.75)" text-anchor="middle">GATE</text>
   <!-- Arrow -->
   <line x1="1090" y1="232" x2="1108" y2="232" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
   <path d="M1104 227 L1114 232 L1104 237" fill="rgba(255,255,255,0.3)"/>
   <!-- Stage 4: Deploy -->
   <rect x="1110" y="210" width="65" height="45" rx="6" fill="rgba(39,174,96,0.2)" stroke="rgba(39,174,96,0.55)" stroke-width="2"/>
-  <text x="1142" y="238" font-family="monospace" font-size="11" font-weight="700" fill="rgba(39,174,96,0.8)" text-anchor="middle">DEPLOY</text>
   <!-- K8s pod below pipeline -->
   <!-- Kubernetes wheel small -->
   <circle cx="990" cy="360" r="48" fill="none" stroke="rgba(50,108,229,0.55)" stroke-width="2.5"/>
@@ -58,7 +53,6 @@
   <line x1="1008" y1="350" x2="1032" y2="336" stroke="rgba(50,108,229,0.55)" stroke-width="3.5" stroke-linecap="round"/>
   <!-- Policy shield overlay -->
   <path d="M1090 335 L1130 347 L1130 378 Q1130 400 1090 412 Q1050 400 1050 378 L1050 347 Z" fill="none" stroke="rgba(39,174,96,0.65)" stroke-width="2.5"/>
-  <text x="1090" y="380" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="rgba(39,174,96,0.8)" text-anchor="middle">PSP</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

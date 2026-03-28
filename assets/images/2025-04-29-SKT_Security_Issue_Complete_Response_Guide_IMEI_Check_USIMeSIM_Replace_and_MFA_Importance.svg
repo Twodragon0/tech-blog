@@ -29,7 +29,6 @@
   <line x1="915" y1="248" x2="915" y2="285" stroke="rgba(41,128,185,0.5)" stroke-width="2"/>
   <line x1="940" y1="248" x2="940" y2="285" stroke="rgba(41,128,185,0.5)" stroke-width="2"/>
   <line x1="965" y1="248" x2="965" y2="285" stroke="rgba(41,128,185,0.5)" stroke-width="2"/>
-  <text x="940" y="210" font-family="monospace" font-size="11" fill="rgba(41,128,185,0.7)" text-anchor="middle">SIM</text>
   <!-- Shield with MFA checkmark -->
   <path d="M1055 195 L1115 215 L1115 275 Q1115 325 1055 355 Q995 325 995 275 L995 215 Z" fill="none" stroke="rgba(231,76,60,0.7)" stroke-width="3"/>
   <path d="M1030 280 L1050 300 L1085 250" fill="none" stroke="rgba(231,76,60,0.9)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -37,7 +36,6 @@
   <circle cx="1015" cy="395" r="9" fill="rgba(231,76,60,0.5)"/>
   <circle cx="1055" cy="395" r="9" fill="rgba(231,76,60,0.7)"/>
   <circle cx="1095" cy="395" r="9" fill="rgba(231,76,60,0.5)"/>
-  <text x="1055" y="435" font-family="system-ui,sans-serif" font-size="12" fill="rgba(231,76,60,0.6)" text-anchor="middle" letter-spacing="2">MFA</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

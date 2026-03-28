@@ -35,7 +35,7 @@
   <path d="M870,216 L870,244 M858,228 L882,228" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
   <!-- Alert icon -->
   <polygon points="1000,215 1020,248 980,248" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="2"/>
-  <text x="1000" y="241" font-family="Arial,sans-serif" font-size="11" fill="rgba(231,76,60,0.7)" text-anchor="middle" font-weight="700">!</text>
+  <!-- decorative ! removed -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#3498db" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>

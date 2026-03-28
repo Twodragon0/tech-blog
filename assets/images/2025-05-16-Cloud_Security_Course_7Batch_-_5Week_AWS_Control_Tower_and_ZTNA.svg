@@ -40,7 +40,6 @@
   <circle cx="1075" cy="290" r="75" fill="none" stroke="rgba(26,188,156,0.25)" stroke-width="2" stroke-dasharray="8,5"/>
   <circle cx="1075" cy="290" r="50" fill="none" stroke="rgba(26,188,156,0.38)" stroke-width="2" stroke-dasharray="6,4"/>
   <circle cx="1075" cy="290" r="28" fill="none" stroke="rgba(26,188,156,0.6)" stroke-width="2"/>
-  <text x="1075" y="297" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="rgba(26,188,156,0.85)" text-anchor="middle">ZT</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

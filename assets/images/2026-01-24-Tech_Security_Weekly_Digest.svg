@@ -24,8 +24,6 @@
   <!-- FBI badge -->
   <circle cx="880" cy="280" r="45" fill="rgba(52,152,219,0.1)" stroke="#3498db" stroke-width="2.5" opacity="0.8"/>
   <circle cx="880" cy="280" r="32" fill="none" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
-  <text x="880" y="277" font-family="Arial,sans-serif" font-size="11" fill="#3498db" text-anchor="middle" font-weight="700">FBI</text>
-  <text x="880" y="292" font-family="Arial,sans-serif" font-size="8" fill="rgba(52,152,219,0.7)" text-anchor="middle">ALERT</text>
   <!-- Network route leak diagram -->
   <circle cx="1060" cy="255" r="15" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1.5"/>
   <circle cx="1100" cy="285" r="15" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="1.5"/>
@@ -35,12 +33,10 @@
   <!-- Leak arrow -->
   <path d="M1100 285 Q1130 285 1140 310" fill="none" stroke="rgba(192,57,43,0.6)" stroke-width="2.5" stroke-dasharray="5,3"/>
   <polygon points="1137,313 1145,317 1143,307" fill="rgba(192,57,43,0.6)"/>
-  <text x="1120" y="280" font-family="Arial,sans-serif" font-size="9" fill="rgba(192,57,43,0.7)">BGP LEAK</text>
   <!-- Lock icon for BitLocker -->
   <rect x="856" y="350" width="48" height="40" rx="5" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="2"/>
   <circle cx="880" cy="344" r="14" fill="none" stroke="#c0392b" stroke-width="2"/>
   <rect x="872" y="358" width="16" height="18" rx="2" fill="rgba(192,57,43,0.3)"/>
-  <text x="880" y="405" font-family="Arial,sans-serif" font-size="9" fill="rgba(192,57,43,0.7)" text-anchor="middle">BitLocker FBI</text>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#c0392b" text-anchor="middle" letter-spacing="2">JANUARY 24, 2026</text>

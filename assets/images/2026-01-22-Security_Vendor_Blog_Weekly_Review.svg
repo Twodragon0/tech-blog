@@ -38,11 +38,7 @@
   <line x1="1060" y1="235" x2="1105" y2="235" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
   <line x1="1060" y1="247" x2="1105" y2="247" stroke="rgba(52,152,219,0.3)" stroke-width="1"/>
   <line x1="1060" y1="259" x2="1090" y2="259" stroke="rgba(52,152,219,0.3)" stroke-width="1"/>
-  <!-- Vendor labels below -->
-  <text x="842" y="308" font-family="Arial,sans-serif" font-size="9" fill="rgba(52,152,219,0.6)" text-anchor="middle">CrowdStrike</text>
-  <text x="922" y="318" font-family="Arial,sans-serif" font-size="9" fill="rgba(52,152,219,0.6)" text-anchor="middle">Mandiant</text>
-  <text x="1002" y="298" font-family="Arial,sans-serif" font-size="9" fill="rgba(52,152,219,0.7)" text-anchor="middle">Palo Alto</text>
-  <text x="1082" y="313" font-family="Arial,sans-serif" font-size="9" fill="rgba(52,152,219,0.6)" text-anchor="middle">Sentinel1</text>
+  <!-- Vendor labels removed (decorative) -->
   <!-- Magnifier -->
   <circle cx="990" cy="400" r="35" fill="none" stroke="rgba(52,152,219,0.5)" stroke-width="2.5"/>
   <line x1="1016" y1="426" x2="1040" y2="450" stroke="rgba(52,152,219,0.5)" stroke-width="3" stroke-linecap="round"/>

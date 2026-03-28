@@ -27,38 +27,29 @@
   <g transform="translate(940,290)" opacity="0.38">
     <!-- VPC outer boundary -->
     <rect x="-165" y="-120" width="330" height="240" rx="12" fill="none" stroke="#2980b9" stroke-width="2.5"/>
-    <text x="0" y="-128" font-family="monospace" font-size="10" fill="#2980b9" text-anchor="middle">VPC</text>
     <!-- Public subnet -->
     <rect x="-150" y="-105" width="130" height="80" rx="6" fill="#2980b9" opacity="0.08" stroke="#2980b9" stroke-width="1.5"/>
-    <text x="-85" y="-88" font-family="monospace" font-size="8" fill="#7eb8e0" text-anchor="middle">Public Subnet</text>
     <!-- EC2 instance icon in public subnet -->
     <rect x="-120" y="-80" width="35" height="35" rx="4" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <text x="-102" y="-58" font-family="monospace" font-size="7" fill="#2980b9" text-anchor="middle">EC2</text>
     <!-- NAT/IGW -->
     <rect x="-65" y="-80" width="35" height="35" rx="4" fill="none" stroke="#7eb8e0" stroke-width="1.5"/>
-    <text x="-47" y="-58" font-family="monospace" font-size="7" fill="#7eb8e0" text-anchor="middle">IGW</text>
     <!-- Private subnet -->
     <rect x="-150" y="-15" width="130" height="80" rx="6" fill="#2980b9" opacity="0.05" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="-85" y="2" font-family="monospace" font-size="8" fill="#7eb8e0" text-anchor="middle">Private Subnet</text>
     <!-- RDS in private -->
     <ellipse cx="-120" cy="28" rx="22" ry="8" fill="none" stroke="#2980b9" stroke-width="1.5"/>
     <rect x="-142" y="28" width="44" height="18" fill="none" stroke="#2980b9" stroke-width="1.5"/>
     <ellipse cx="-120" cy="46" rx="22" ry="8" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <text x="-120" y="38" font-family="monospace" font-size="7" fill="#2980b9" text-anchor="middle">RDS</text>
     <!-- Lambda in private -->
     <polygon points="-65,18 -45,22 -65,55 -75,38" fill="none" stroke="#f39c12" stroke-width="1.5"/>
-    <text x="-58" y="65" font-family="monospace" font-size="7" fill="#f39c12" text-anchor="middle">Lambda</text>
     <!-- GuardDuty eye icon (right side) -->
     <ellipse cx="100" cy="-20" rx="55" ry="35" fill="none" stroke="#f39c12" stroke-width="2.5"/>
     <circle cx="100" cy="-20" r="18" fill="none" stroke="#f39c12" stroke-width="2"/>
     <circle cx="100" cy="-20" r="7" fill="#f39c12" opacity="0.5"/>
-    <text x="100" y="30" font-family="monospace" font-size="9" fill="#f39c12" text-anchor="middle" font-weight="bold">GuardDuty</text>
     <!-- Scan lines from GuardDuty -->
     <line x1="45" y1="-20" x2="-20" y2="-50" stroke="#f39c12" stroke-width="1" opacity="0.4" stroke-dasharray="4 3"/>
     <line x1="45" y1="-20" x2="-20" y2="20" stroke="#f39c12" stroke-width="1" opacity="0.4" stroke-dasharray="4 3"/>
     <!-- Week 2 badge -->
     <rect x="-165" y="135" width="80" height="28" rx="8" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-    <text x="-125" y="153" font-family="monospace" font-size="10" fill="#7eb8e0" text-anchor="middle" font-weight="bold">WEEK 2</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="250" height="34" rx="17" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>

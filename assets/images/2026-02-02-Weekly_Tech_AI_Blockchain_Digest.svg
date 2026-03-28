@@ -25,13 +25,11 @@
   <circle cx="1050" cy="350" r="140" fill="rgba(26,188,156,0.04)"/>
   <!-- Bitcoin symbol with downward arrow -->
   <circle cx="990" cy="300" r="65" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="2.5"/>
-  <text x="990" y="320" font-family="system-ui,sans-serif" font-size="60" fill="rgba(241,196,15,0.7)" text-anchor="middle" font-weight="700">B</text>
   <!-- Downward arrow -->
   <line x1="1070" y1="290" x2="1070" y2="360" stroke="#e74c3c" stroke-width="3"/>
   <polygon points="1070,370 1058,352 1082,352" fill="#e74c3c"/>
   <!-- $74K label -->
   <rect x="1010" y="380" width="90" height="30" rx="4" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <text x="1055" y="400" font-family="system-ui,sans-serif" font-size="14" fill="#e74c3c" text-anchor="middle" font-weight="700">$74K</text>
   <!-- Circuit nodes (AI) -->
   <circle cx="870" cy="230" r="10" fill="rgba(26,188,156,0.4)" stroke="#1abc9c" stroke-width="1.5"/>
   <circle cx="910" cy="210" r="7" fill="rgba(26,188,156,0.3)" stroke="#1abc9c" stroke-width="1"/>

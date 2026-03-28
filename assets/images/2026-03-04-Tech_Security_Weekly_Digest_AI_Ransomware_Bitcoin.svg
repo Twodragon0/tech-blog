@@ -31,15 +31,11 @@
     <rect x="-80" y="-18" width="68" height="36" rx="6" fill="#4a9eff" opacity="0.3" stroke="#4a9eff" stroke-width="1"/>
     <rect x="-4" y="-18" width="68" height="36" rx="6" fill="#64d250" opacity="0.2" stroke="#64d250" stroke-width="1"/>
     <rect x="72" y="-18" width="68" height="36" rx="6" fill="#f5a623" opacity="0.25" stroke="#f5a623" stroke-width="1"/>
-    <text x="-46" y="7" font-family="monospace" font-size="11" fill="#93c5fd" text-anchor="middle">header</text>
-    <text x="30" y="7" font-family="monospace" font-size="11" fill="#86efac" text-anchor="middle">payload</text>
-    <text x="106" y="7" font-family="monospace" font-size="11" fill="#f5a623" text-anchor="middle">sig</text>
   </g>
   <!-- Date + category -->
   <rect x="70" y="44" width="158" height="34" rx="17" fill="#f5a623" opacity="0.18" stroke="#f5a623" stroke-width="1.5"/>
   <text x="149" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f5a623" text-anchor="middle">March 4, 2026</text>
   <rect x="248" y="44" width="128" height="34" rx="17" fill="rgba(245,166,35,0.1)" stroke="#f5a623" stroke-width="1.5"/>
-  <text x="312" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f5a623" text-anchor="middle">FINOPS</text>
   <!-- Title -->
   <text x="70" y="195" font-family="Arial,sans-serif" font-size="48" font-weight="bold" fill="white" filter="url(#glow)">JWT Auth Threat</text>
   <text x="70" y="254" font-family="Arial,sans-serif" font-size="48" font-weight="bold" fill="white" filter="url(#glow)">Crypto Breach</text>

@@ -52,7 +52,6 @@
     <line x1="150" y1="46" x2="162" y2="28" stroke="#e74c3c" stroke-width="2.5"/>
     <!-- 180 badge -->
     <rect x="-25" y="100" width="80" height="45" rx="8" fill="#d35400" opacity="0.2" stroke="#d35400" stroke-width="1.5"/>
-    <text x="15" y="128" font-family="monospace" font-size="22" fill="#d35400" text-anchor="middle" font-weight="bold">180</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="270" height="34" rx="17" fill="#d35400" opacity="0.15" stroke="#d35400" stroke-width="1"/>

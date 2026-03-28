@@ -33,18 +33,11 @@
   <!-- Security shield at center -->
   <path d="M975 285 L990 291 L1005 285 L1005 298 Q1005 310 990 316 Q975 310 975 298 Z" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
   <path d="M982 299 L988 305 L1000 291" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Dev label -->
-  <text x="930" y="307" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="rgba(142,68,173,0.75)" text-anchor="middle">DEV</text>
-  <!-- Ops label -->
-  <text x="1050" y="307" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="rgba(39,174,96,0.75)" text-anchor="middle">OPS</text>
   <!-- Rotation arrows around loop -->
   <path d="M900 232 Q930 215 960 232" fill="none" stroke="rgba(142,68,173,0.5)" stroke-width="2" stroke-linecap="round"/>
   <path d="M1020 232 Q1050 215 1080 232" fill="none" stroke="rgba(39,174,96,0.5)" stroke-width="2" stroke-linecap="round"/>
   <path d="M957 228 L963 240 L970 230" fill="none" stroke="rgba(142,68,173,0.5)" stroke-width="1.5" stroke-linecap="round"/>
   <path d="M1077 228 L1083 240 L1090 230" fill="none" stroke="rgba(39,174,96,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Integration labels around the loop -->
-  <text x="930" y="393" font-family="system-ui,sans-serif" font-size="11" fill="rgba(142,68,173,0.55)" text-anchor="middle">Plan - Code - Build</text>
-  <text x="1050" y="393" font-family="system-ui,sans-serif" font-size="11" fill="rgba(39,174,96,0.55)" text-anchor="middle">Test - Deploy - Monitor</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

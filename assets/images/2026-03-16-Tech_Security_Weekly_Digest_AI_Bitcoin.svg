@@ -20,7 +20,6 @@
   <circle cx="1000" cy="280" r="110" fill="none" stroke="rgba(243,156,18,0.15)" stroke-width="1"/>
   <circle cx="1000" cy="280" r="80" fill="none" stroke="rgba(243,156,18,0.1)" stroke-width="1"/>
   <!-- BTC symbol paths (simplified) -->
-  <text x="1000" y="305" font-family="system-ui,sans-serif" font-size="80" font-weight="700" fill="rgba(243,156,18,0.35)" text-anchor="middle">B</text>
   <!-- Candlestick chart decorations -->
   <rect x="780" y="440" width="8" height="60" rx="2" fill="rgba(231,76,60,0.5)"/>
   <rect x="780" y="410" width="8" height="15" rx="1" fill="rgba(231,76,60,0.3)"/>

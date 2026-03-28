@@ -25,22 +25,16 @@
   <rect x="870" y="200" width="200" height="260" rx="8" fill="rgba(44,62,80,0.3)" stroke="rgba(44,62,80,0.6)" stroke-width="2"/>
   <!-- Server units -->
   <rect x="885" y="215" width="170" height="30" rx="3" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="970" y="234" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">VMware vCenter</text>
   <rect x="885" y="255" width="170" height="30" rx="3" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="970" y="274" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">Fortinet FortiOS</text>
   <rect x="885" y="295" width="170" height="30" rx="3" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="970" y="314" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">SSO Module</text>
   <!-- Crack lines (critical vuln) -->
   <path d="M940 200 L955 230 L945 255 L960 290" fill="none" stroke="rgba(230,126,34,0.6)" stroke-width="2.5"/>
   <path d="M1000 200 L990 240 L1005 270 L995 310" fill="none" stroke="rgba(192,57,43,0.5)" stroke-width="2"/>
   <!-- Alert badges -->
   <circle cx="1085" cy="215" r="14" fill="rgba(230,126,34,0.25)" stroke="#e67e22" stroke-width="2"/>
-  <text x="1085" y="219" font-family="Arial,sans-serif" font-size="10" fill="#e67e22" text-anchor="middle" font-weight="700">!</text>
   <circle cx="1085" cy="255" r="14" fill="rgba(192,57,43,0.25)" stroke="#c0392b" stroke-width="2"/>
-  <text x="1085" y="259" font-family="Arial,sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="700">!</text>
-  <!-- Sandworm label -->
+  <!-- Sandworm label shape -->
   <rect x="880" y="375" width="180" height="28" rx="4" fill="rgba(192,57,43,0.1)" stroke="rgba(192,57,43,0.4)" stroke-width="1.5"/>
-  <text x="970" y="393" font-family="Arial,sans-serif" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="700">SANDWORM GROUP</text>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(230,126,34,0.15)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#e67e22" text-anchor="middle" letter-spacing="2">JANUARY 25, 2026</text>

@@ -61,11 +61,7 @@
   <line x1="1128" y1="262" x2="1128" y2="280" stroke="rgba(253,121,168,0.3)" stroke-width="1"/>
   <line x1="1138" y1="262" x2="1138" y2="280" stroke="rgba(253,121,168,0.3)" stroke-width="1"/>
   <line x1="1148" y1="262" x2="1148" y2="280" stroke="rgba(253,121,168,0.3)" stroke-width="1"/>
-  <!-- Workflow labels -->
-  <text x="867" y="302" font-family="system-ui,sans-serif" font-size="12" fill="rgba(225,112,85,0.8)" text-anchor="middle">Blog</text>
-  <text x="957" y="302" font-family="system-ui,sans-serif" font-size="12" fill="rgba(253,121,168,0.8)" text-anchor="middle">Video</text>
-  <text x="1047" y="302" font-family="system-ui,sans-serif" font-size="12" fill="rgba(225,112,85,0.8)" text-anchor="middle">Music</text>
-  <text x="1140" y="302" font-family="system-ui,sans-serif" font-size="12" fill="rgba(253,121,168,0.8)" text-anchor="middle">Anim</text>
+  <!-- Workflow labels removed (decorative) -->
   <!-- AI brain icon above flow -->
   <circle cx="1000" cy="175" r="30" fill="rgba(225,112,85,0.15)" stroke="#e17055" stroke-width="1.5"/>
   <path d="M986 175 Q986 165 995 162 Q1005 160 1010 168 Q1015 160 1022 163 Q1028 167 1025 175 Q1028 182 1022 185 Q1015 188 1010 182 Q1005 188 995 186 Q986 183 986 175 Z" fill="rgba(225,112,85,0.4)" stroke="#e17055" stroke-width="1"/>

@@ -27,11 +27,8 @@
   <g transform="translate(940,295)" opacity="0.4">
     <!-- Security group dashed border -->
     <rect x="-155" y="-130" width="310" height="250" rx="12" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="10 5"/>
-    <text x="0" y="-138" font-family="monospace" font-size="10" fill="#27ae60" text-anchor="middle">Security Group</text>
     <!-- NLB box -->
     <rect x="-140" y="-60" width="85" height="110" rx="8" fill="none" stroke="#2980b9" stroke-width="2.5"/>
-    <text x="-97" y="-25" font-family="monospace" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="bold">NLB</text>
-    <text x="-97" y="-10" font-family="monospace" font-size="8" fill="#2980b9" text-anchor="middle">Load Balancer</text>
     <!-- Distribution lines -->
     <line x1="-55" y1="-5" x2="20" y2="-55" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
     <line x1="-55" y1="10" x2="20" y2="10" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
@@ -44,12 +41,10 @@
     <ellipse cx="70" cy="-65" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
     <rect x="38" y="-65" width="64" height="45" fill="none" stroke="#27ae60" stroke-width="2"/>
     <ellipse cx="70" cy="-20" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <text x="70" y="-37" font-family="monospace" font-size="9" fill="#27ae60" text-anchor="middle">RDS</text>
     <!-- DB cylinder 2 -->
     <ellipse cx="70" cy="45" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
     <rect x="38" y="45" width="64" height="45" fill="none" stroke="#27ae60" stroke-width="2"/>
     <ellipse cx="70" cy="90" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <text x="70" y="72" font-family="monospace" font-size="9" fill="#27ae60" text-anchor="middle">Aurora</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="240" height="34" rx="17" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>

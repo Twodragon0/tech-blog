@@ -37,7 +37,6 @@
   <rect x="998" y="290" width="28" height="22" rx="3" fill="rgba(41,128,185,0.35)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
   <!-- Warning triangle over whale -->
   <polygon points="990,215 1020,265 960,265" fill="rgba(211,84,0,0.3)" stroke="#d35400" stroke-width="2"/>
-  <text x="990" y="258" font-family="system-ui,sans-serif" font-size="22" fill="#d35400" text-anchor="middle" font-weight="700">!</text>
   <!-- Attack arrows -->
   <line x1="1080" y1="280" x2="1055" y2="315" stroke="rgba(231,76,60,0.7)" stroke-width="2" stroke-dasharray="5 3"/>
   <polygon points="1055,315 1060,302 1068,308" fill="rgba(231,76,60,0.7)"/>
@@ -45,7 +44,6 @@
   <polygon points="905,310 898,298 907,296" fill="rgba(231,76,60,0.7)"/>
   <!-- CVE label -->
   <rect x="920" y="400" width="140" height="30" rx="5" fill="rgba(211,84,0,0.2)" stroke="rgba(211,84,0,0.5)" stroke-width="1"/>
-  <text x="990" y="420" font-family="system-ui,sans-serif" font-size="13" fill="#d35400" text-anchor="middle" font-weight="700">CVE-2025-11953</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

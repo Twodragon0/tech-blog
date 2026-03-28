@@ -29,7 +29,6 @@
   <rect x="774" y="184" width="65" height="6" rx="2" fill="rgba(41,128,185,0.2)"/>
   <!-- RCE lightning bolt on server -->
   <polygon points="865,135 852,162 867,159 854,186 880,155 864,159" fill="#e74c3c" opacity="0.9"/>
-  <text x="824" y="238" font-size="10" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">n8n RCE</text>
   <!-- Panel 2: Router + warning -->
   <rect x="916" y="135" width="118" height="82" rx="6" fill="rgba(231,76,60,0.1)" stroke="#e74c3c" stroke-width="1.5"/>
   <line x1="930" y1="150" x2="1018" y2="150" stroke="rgba(231,76,60,0.4)" stroke-width="1.5"/>
@@ -37,8 +36,6 @@
   <rect x="944" y="170" width="58" height="6" rx="2" fill="rgba(231,76,60,0.2)"/>
   <!-- Warning triangle -->
   <polygon points="975,185 958,210 992,210" fill="none" stroke="#f39c12" stroke-width="2.2" opacity="0.9"/>
-  <text x="975" y="206" font-size="13" fill="#f39c12" font-family="sans-serif" text-anchor="middle">!</text>
-  <text x="975" y="238" font-size="10" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">D-Link 0Day</text>
   <!-- Panel 3: K8s hex + AI -->
   <polygon points="1078,158 1108,174 1108,206 1078,222 1048,206 1048,174" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="1.5"/>
   <circle cx="1078" cy="190" r="11" fill="none" stroke="#326ce5" stroke-width="1.5"/>
@@ -48,7 +45,6 @@
   <line x1="1067" y1="197" x2="1058" y2="202" stroke="#326ce5" stroke-width="1.5"/>
   <!-- AI spark bolt above K8s -->
   <polygon points="1096,142 1090,157 1102,153 1094,170 1112,156 1100,160" fill="#9b59b6" opacity="0.85"/>
-  <text x="1078" y="240" font-size="10" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">K8s Agent</text>
   <!-- Dot separators -->
   <circle cx="900" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>
   <circle cx="910" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>

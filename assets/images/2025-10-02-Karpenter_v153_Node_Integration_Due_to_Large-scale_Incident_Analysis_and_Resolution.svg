@@ -27,18 +27,13 @@
   <g transform="translate(930,290)" opacity="0.38">
     <!-- Warning K8s node (left) -->
     <polygon points="0,-65 56,-32 56,32 0,65 -56,32 -56,-32" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
-    <text x="0" y="0" font-family="monospace" font-size="11" fill="#e74c3c" text-anchor="middle" font-weight="bold">NODE</text>
-    <text x="0" y="15" font-family="monospace" font-size="9" fill="#e74c3c" text-anchor="middle">v1.5.3</text>
     <!-- Warning triangle above -->
     <polygon points="0,-100 20,-72 -20,-72" fill="#e74c3c" opacity="0.75"/>
-    <text x="0" y="-80" font-family="Arial,sans-serif" font-size="16" fill="#152535" text-anchor="middle" font-weight="bold">!</text>
     <!-- Recovery arrow -->
     <path d="M65,0 Q105,-25 145,0" fill="none" stroke="#326ce5" stroke-width="3.5"/>
     <polygon points="143,-7 156,0 143,7" fill="#326ce5"/>
     <!-- Healed K8s node (right) -->
     <polygon points="210,-60 262,-30 262,30 210,60 158,30 158,-30" fill="none" stroke="#326ce5" stroke-width="2.5"/>
-    <text x="210" y="0" font-family="monospace" font-size="11" fill="#326ce5" text-anchor="middle" font-weight="bold">NODE</text>
-    <text x="210" y="15" font-family="monospace" font-size="9" fill="#326ce5" text-anchor="middle">healed</text>
     <!-- Check mark circle -->
     <circle cx="210" cy="-80" r="16" fill="#326ce5" opacity="0.45"/>
     <path d="M202,-81 L207,-74 L220,-88" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>

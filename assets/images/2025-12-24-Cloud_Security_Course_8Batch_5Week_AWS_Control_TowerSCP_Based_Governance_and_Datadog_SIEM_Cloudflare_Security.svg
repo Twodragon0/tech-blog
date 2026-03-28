@@ -28,32 +28,21 @@
     <!-- Control Tower (left): layered hierarchy -->
     <!-- Tower top (root account) -->
     <polygon points="0,-120 30,-90 -30,-90" fill="#632ca6" opacity="0.4"/>
-    <text x="0" y="-100" font-family="monospace" font-size="7" fill="#a068d6" text-anchor="middle">Root</text>
     <!-- SCP layer 1 -->
     <rect x="-50" y="-85" width="100" height="28" rx="5" fill="#632ca6" opacity="0.2" stroke="#632ca6" stroke-width="1.5"/>
-    <text x="0" y="-67" font-family="monospace" font-size="8" fill="#a068d6" text-anchor="middle">SCP Policy</text>
     <!-- SCP layer 2 -->
     <rect x="-65" y="-50" width="130" height="28" rx="5" fill="#632ca6" opacity="0.15" stroke="#632ca6" stroke-width="1.5"/>
-    <text x="0" y="-31" font-family="monospace" font-size="8" fill="#a068d6" text-anchor="middle">OU: Security</text>
     <!-- SCP layer 3 -->
     <rect x="-80" y="-15" width="160" height="28" rx="5" fill="#632ca6" opacity="0.1" stroke="#632ca6" stroke-width="1.5"/>
-    <text x="0" y="4" font-family="monospace" font-size="8" fill="#a068d6" text-anchor="middle">OU: Workloads</text>
-    <!-- Control Tower label -->
-    <text x="0" y="30" font-family="monospace" font-size="9" fill="#632ca6" text-anchor="middle" font-weight="bold">Control Tower</text>
     <!-- SIEM dashboard (right side) -->
     <rect x="30" y="-120" width="165" height="170" rx="8" fill="none" stroke="#00b4d8" stroke-width="2"/>
     <!-- SIEM header -->
     <rect x="30" y="-120" width="165" height="22" rx="8" fill="#00b4d8" opacity="0.15"/>
-    <text x="112" y="-104" font-family="monospace" font-size="8" fill="#00b4d8" text-anchor="middle" font-weight="bold">Datadog SIEM</text>
     <!-- Log stream lines -->
     <rect x="38" y="-92" width="149" height="8" rx="2" fill="#00b4d8" opacity="0.1"/>
-    <text x="40" y="-85" font-family="monospace" font-size="6" fill="#00b4d8">ALERT: Brute force detected</text>
     <rect x="38" y="-80" width="149" height="8" rx="2" fill="#00b4d8" opacity="0.05"/>
-    <text x="40" y="-73" font-family="monospace" font-size="6" fill="#4de8ff" opacity="0.7">INFO: GuardDuty event ingested</text>
     <rect x="38" y="-68" width="149" height="8" rx="2" fill="#c0392b" opacity="0.08"/>
-    <text x="40" y="-61" font-family="monospace" font-size="6" fill="#ff6b6b">CRIT: IAM privilege escalation</text>
     <rect x="38" y="-56" width="149" height="8" rx="2" fill="#00b4d8" opacity="0.05"/>
-    <text x="40" y="-49" font-family="monospace" font-size="6" fill="#4de8ff" opacity="0.7">INFO: CloudTrail log processed</text>
     <!-- Mini bar chart for events -->
     <rect x="38" y="-40" width="149" height="60" rx="4" fill="#0a0f1a" stroke="#00b4d8" stroke-width="1" opacity="0.6"/>
     <rect x="45" y="-5" width="12" height="15" rx="2" fill="#00b4d8" opacity="0.5"/>
@@ -66,7 +55,6 @@
     <rect x="157" y="-30" width="12" height="40" rx="2" fill="#c0392b" opacity="0.6"/>
     <!-- Week 5 badge -->
     <rect x="30" y="55" width="80" height="28" rx="8" fill="#00b4d8" opacity="0.15" stroke="#00b4d8" stroke-width="1"/>
-    <text x="70" y="73" font-family="monospace" font-size="10" fill="#00b4d8" text-anchor="middle" font-weight="bold">WEEK 5</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="260" height="34" rx="17" fill="#632ca6" opacity="0.15" stroke="#632ca6" stroke-width="1"/>

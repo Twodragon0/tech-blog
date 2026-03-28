@@ -22,10 +22,8 @@
     <path d="M-60,20 Q-80,20 -80,0 Q-80,-25 -55,-25 Q-55,-55 -25,-55 Q0,-70 25,-55 Q45,-60 55,-45 Q75,-45 75,-25 Q75,0 55,20 Z" fill="none" stroke="#a855f7" stroke-width="2.5"/>
     <path d="M-60,20 Q-80,20 -80,0 Q-80,-25 -55,-25 Q-55,-55 -25,-55 Q0,-70 25,-55 Q45,-60 55,-45 Q75,-45 75,-25 Q75,0 55,20 Z" fill="#a855f7" opacity="0.07"/>
     <!-- AWS label -->
-    <text x="0" y="-15" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#a855f7" text-anchor="middle" opacity="0.9">AWS</text>
     <!-- Shield below -->
     <path d="M0,30 L18,38 L18,55 C18,65 0,73 0,73 C0,73 -18,65 -18,55 L-18,38 Z" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    <text x="0" y="57" font-family="Arial,sans-serif" font-size="14" fill="#f59e0b" text-anchor="middle">!</text>
   </g>
   <!-- Date + category -->
   <rect x="70" y="44" width="158" height="34" rx="17" fill="#a855f7" opacity="0.15" stroke="#a855f7" stroke-width="1.5"/>

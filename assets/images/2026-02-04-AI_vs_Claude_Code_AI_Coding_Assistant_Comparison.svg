@@ -58,11 +58,7 @@
   <rect x="1021" y="328" width="70" height="6" rx="2" fill="rgba(255,255,255,0.15)"/>
   <rect x="1013" y="340" width="115" height="6" rx="2" fill="rgba(162,155,254,0.4)"/>
   <rect x="1013" y="352" width="85" height="6" rx="2" fill="rgba(255,255,255,0.2)"/>
-  <!-- VS divider -->
-  <text x="987" y="315" font-family="system-ui,sans-serif" font-size="20" fill="rgba(255,255,255,0.5)" text-anchor="middle" font-weight="700">VS</text>
-  <!-- Labels -->
-  <text x="912" y="205" font-family="system-ui,sans-serif" font-size="13" fill="#00cec9" text-anchor="middle">AI Tools</text>
-  <text x="1077" y="205" font-family="system-ui,sans-serif" font-size="13" fill="#a29bfe" text-anchor="middle">Claude Code</text>
+  <!-- VS divider / Labels removed (decorative) -->
   <!-- Score bars under editors -->
   <rect x="848" y="415" width="120" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
   <rect x="848" y="415" width="82" height="10" rx="4" fill="rgba(0,206,201,0.6)"/>

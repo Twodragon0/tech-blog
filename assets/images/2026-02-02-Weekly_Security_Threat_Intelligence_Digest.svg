@@ -39,7 +39,6 @@
   <line x1="1090" y1="285" x2="1100" y2="288" stroke="#e74c3c" stroke-width="2"/>
   <!-- Small warning on package -->
   <circle cx="990" cy="310" r="18" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5"/>
-  <text x="990" y="317" font-family="system-ui,sans-serif" font-size="18" fill="#e74c3c" text-anchor="middle" font-weight="700">!</text>
   <!-- Chain to the left -->
   <ellipse cx="880" cy="310" rx="14" ry="20" fill="none" stroke="rgba(41,128,185,0.4)" stroke-width="2"/>
   <ellipse cx="905" cy="310" rx="14" ry="20" fill="none" stroke="rgba(41,128,185,0.4)" stroke-width="2"/>

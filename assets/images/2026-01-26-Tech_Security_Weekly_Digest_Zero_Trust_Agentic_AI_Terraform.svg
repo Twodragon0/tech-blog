@@ -24,20 +24,12 @@
   <!-- Zero Trust perimeter -->
   <circle cx="900" cy="300" r="80" fill="none" stroke="#6c5ce7" stroke-width="2" opacity="0.5" stroke-dasharray="7,4"/>
   <circle cx="900" cy="300" r="50" fill="none" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
-  <!-- ZT label -->
-  <text x="900" y="298" font-family="Arial,sans-serif" font-size="11" fill="#6c5ce7" text-anchor="middle" font-weight="700">ZERO</text>
-  <text x="900" y="313" font-family="Arial,sans-serif" font-size="11" fill="#6c5ce7" text-anchor="middle" font-weight="700">TRUST</text>
   <!-- Terraform blocks (right side) -->
   <rect x="1020" y="200" width="52" height="46" rx="4" fill="rgba(123,79,207,0.2)" stroke="#7b4fcf" stroke-width="2"/>
-  <text x="1046" y="228" font-family="Arial,sans-serif" font-size="9" fill="#7b4fcf" text-anchor="middle" font-weight="700">TF</text>
   <rect x="1080" y="225" width="52" height="46" rx="4" fill="rgba(123,79,207,0.15)" stroke="rgba(123,79,207,0.6)" stroke-width="2"/>
-  <text x="1106" y="253" font-family="Arial,sans-serif" font-size="9" fill="rgba(123,79,207,0.8)" text-anchor="middle" font-weight="700">TF</text>
   <rect x="1050" y="280" width="52" height="46" rx="4" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="2"/>
-  <text x="1076" y="308" font-family="Arial,sans-serif" font-size="9" fill="#6c5ce7" text-anchor="middle" font-weight="700">STACK</text>
   <!-- AI agent node connecting ZT and Terraform -->
   <circle cx="970" cy="380" r="30" fill="rgba(108,92,231,0.15)" stroke="#6c5ce7" stroke-width="2.5"/>
-  <text x="970" y="376" font-family="Arial,sans-serif" font-size="10" fill="#6c5ce7" text-anchor="middle" font-weight="700">AI</text>
-  <text x="970" y="391" font-family="Arial,sans-serif" font-size="8" fill="rgba(108,92,231,0.7)" text-anchor="middle">AGENT</text>
   <!-- Connector lines -->
   <line x1="950" y1="340" x2="940" y2="350" stroke="rgba(108,92,231,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
   <line x1="990" y1="362" x2="1050" y2="320" stroke="rgba(123,79,207,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>

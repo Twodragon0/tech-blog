@@ -36,22 +36,17 @@
     <!-- Badges on rungs -->
     <!-- Security badge (bottom) -->
     <rect x="70" y="65" width="90" height="30" rx="8" fill="#6c5ce7" opacity="0.2" stroke="#6c5ce7" stroke-width="1.5"/>
-    <text x="115" y="85" font-family="monospace" font-size="10" fill="#b39ef7" text-anchor="middle" font-weight="bold">Security</text>
     <!-- DevOps badge (middle) -->
     <rect x="70" y="5" width="90" height="30" rx="8" fill="#2980b9" opacity="0.2" stroke="#2980b9" stroke-width="1.5"/>
-    <text x="115" y="25" font-family="monospace" font-size="10" fill="#7eb8e0" text-anchor="middle" font-weight="bold">DevOps</text>
     <!-- DevSecOps badge (upper middle) -->
     <rect x="70" y="-55" width="100" height="30" rx="8" fill="#6c5ce7" opacity="0.25" stroke="#6c5ce7" stroke-width="1.5"/>
-    <text x="120" y="-35" font-family="monospace" font-size="9" fill="#b39ef7" text-anchor="middle" font-weight="bold">DevSecOps</text>
     <!-- FinOps badge (top) -->
     <rect x="70" y="-115" width="90" height="30" rx="8" fill="#f39c12" opacity="0.2" stroke="#f39c12" stroke-width="1.5"/>
-    <text x="115" y="-95" font-family="monospace" font-size="10" fill="#f5c860" text-anchor="middle" font-weight="bold">FinOps</text>
     <!-- Star at top -->
     <polygon points="0,-145 6,-130 21,-130 10,-120 14,-105 0,-114 -14,-105 -10,-120 -21,-130 -6,-130" fill="#f39c12" opacity="0.6"/>
     <!-- Arrow showing progression -->
     <path d="M-90,-60 Q-100,-20 -90,20" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="5 3"/>
     <polygon points="-96,17 -90,28 -84,17" fill="#f39c12" opacity="0.7"/>
-    <text x="-120" y="-18" font-family="monospace" font-size="8" fill="#f39c12" opacity="0.7" text-anchor="middle">level up</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="260" height="34" rx="17" fill="#6c5ce7" opacity="0.15" stroke="#6c5ce7" stroke-width="1"/>

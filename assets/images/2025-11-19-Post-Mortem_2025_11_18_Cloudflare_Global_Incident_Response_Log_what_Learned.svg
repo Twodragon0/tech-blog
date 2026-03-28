@@ -50,9 +50,6 @@
     <!-- Recovery marker -->
     <line x1="30" y1="104" x2="30" y2="130" stroke="#27ae60" stroke-width="2"/>
     <polygon points="25,130 35,130 30,140" fill="#27ae60" opacity="0.7"/>
-    <text x="-100" y="148" font-family="monospace" font-size="9" fill="#f48120" opacity="0.7">00:00</text>
-    <text x="80" y="148" font-family="monospace" font-size="9" fill="#f48120" opacity="0.7" text-anchor="end">24:00</text>
-    <text x="-5" y="165" font-family="monospace" font-size="8" fill="#27ae60" text-anchor="middle">RESOLVED</text>
   </g>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <rect x="40" y="38" width="260" height="34" rx="17" fill="#f48120" opacity="0.15" stroke="#f48120" stroke-width="1"/>

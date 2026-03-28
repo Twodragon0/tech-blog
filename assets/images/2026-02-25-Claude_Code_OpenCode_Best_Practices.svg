@@ -36,16 +36,10 @@
   <rect x="870" y="290" width="150" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
   <rect x="870" y="310" width="140" height="8" rx="4" fill="rgba(218,119,86,0.55)"/>
   <rect x="870" y="330" width="195" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
-  <!-- Checkmarks next to code lines -->
-  <text x="1080" y="178" font-family="Arial" font-size="14" fill="rgba(39,174,96,0.8)">&#10003;</text>
-  <text x="1080" y="238" font-family="Arial" font-size="14" fill="rgba(39,174,96,0.8)">&#10003;</text>
-  <text x="1080" y="278" font-family="Arial" font-size="14" fill="rgba(39,174,96,0.8)">&#10003;</text>
-  <text x="1080" y="338" font-family="Arial" font-size="14" fill="rgba(39,174,96,0.8)">&#10003;</text>
   <!-- Terminal cursor blink -->
   <rect x="860" y="355" width="12" height="16" rx="2" fill="rgba(218,119,86,0.8)"/>
   <!-- Number badge "38" -->
   <circle cx="1075" cy="390" r="30" fill="rgba(108,92,231,0.4)" stroke="rgba(108,92,231,0.7)" stroke-width="2"/>
-  <text x="1075" y="398" font-family="Arial" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)" text-anchor="middle">38</text>
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>

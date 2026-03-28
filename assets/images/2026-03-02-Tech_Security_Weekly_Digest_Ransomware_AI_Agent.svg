@@ -38,7 +38,6 @@
     <line x1="32" y1="32" x2="46" y2="46" stroke="#ff6b6b" stroke-width="2.5" opacity="0.6"/>
     <line x1="-32" y1="-32" x2="-46" y2="-46" stroke="#ff6b6b" stroke-width="2.5" opacity="0.6"/>
     <line x1="-32" y1="32" x2="-46" y2="46" stroke="#ff6b6b" stroke-width="2.5" opacity="0.6"/>
-    <text x="0" y="10" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#ff6b6b" text-anchor="middle" opacity="0.8">!</text>
   </g>
   <!-- Date + category -->
   <rect x="70" y="44" width="158" height="34" rx="17" fill="#ff6b6b" opacity="0.15" stroke="#ff6b6b" stroke-width="1.5"/>

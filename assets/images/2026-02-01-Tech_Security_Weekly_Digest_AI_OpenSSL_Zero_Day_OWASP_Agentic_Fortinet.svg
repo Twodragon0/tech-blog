@@ -37,14 +37,12 @@
   <line x1="1015" y1="305" x2="1008" y2="320" stroke="#e74c3c" stroke-width="1.5"/>
   <!-- Warning badge -->
   <polygon points="1070,230 1090,265 1050,265" fill="rgba(231,76,60,0.3)" stroke="#e74c3c" stroke-width="1.5"/>
-  <text x="1070" y="260" font-family="system-ui,sans-serif" font-size="18" fill="#e74c3c" text-anchor="middle" font-weight="700">!</text>
   <!-- Radiate lines from lock -->
   <line x1="995" y1="260" x2="995" y2="230" stroke="rgba(231,76,60,0.4)" stroke-width="1" stroke-dasharray="3 2"/>
   <line x1="940" y1="290" x2="910" y2="270" stroke="rgba(231,76,60,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
   <line x1="1050" y1="290" x2="1080" y2="270" stroke="rgba(231,76,60,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
   <!-- CVE count badge -->
   <rect x="900" y="400" width="100" height="36" rx="6" fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1"/>
-  <text x="950" y="423" font-family="system-ui,sans-serif" font-size="14" fill="#e74c3c" text-anchor="middle" font-weight="700">12 CVEs</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->

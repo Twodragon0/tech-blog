@@ -24,12 +24,8 @@
   <!-- Panel 1: Ollama AI exposed server -->
   <rect x="760" y="135" width="130" height="88" rx="7" fill="rgba(108,92,231,0.12)" stroke="#6c5ce7" stroke-width="1.5"/>
   <circle cx="800" cy="168" r="22" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <text x="800" y="163" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">ollama</text>
-  <text x="800" y="176" font-size="9" fill="rgba(108,92,231,0.8)" font-family="monospace" text-anchor="middle">:11434</text>
   <!-- Exposed warning on server -->
   <rect x="830" y="154" width="50" height="20" rx="3" fill="rgba(231,76,60,0.3)" stroke="#e74c3c" stroke-width="1"/>
-  <text x="855" y="167" font-size="9" fill="#ff8a80" font-family="monospace" text-anchor="middle">OPEN</text>
-  <text x="825" y="214" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">AI Exposed</text>
   <!-- Panel 2: SolarWinds sun cracked -->
   <circle cx="970" cy="175" r="32" fill="rgba(243,156,18,0.12)" stroke="#f39c12" stroke-width="2" opacity="0.85"/>
   <line x1="970" y1="138" x2="970" y2="128" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
@@ -39,8 +35,6 @@
   <line x1="935" y1="175" x2="924" y2="175" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
   <!-- Crack on sun -->
   <polyline points="958,158 966,174 956,186" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="970" y="182" font-size="10" fill="rgba(243,156,18,0.65)" font-family="monospace" text-anchor="middle">SW</text>
-  <text x="970" y="218" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">SolarWinds</text>
   <!-- Panel 3: IPIDEA proxy disruption nodes -->
   <circle cx="1110" cy="160" r="22" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1.5"/>
   <circle cx="1090" cy="188" r="14" fill="rgba(52,152,219,0.1)" stroke="#3498db" stroke-width="1"/>
@@ -50,7 +44,6 @@
   <line x1="1137" y1="183" x2="1123" y2="197" stroke="#e67e22" stroke-width="2"/>
   <line x1="1110" y1="138" x2="1090" y2="188" stroke="rgba(52,152,219,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
   <line x1="1110" y1="138" x2="1130" y2="190" stroke="rgba(230,126,34,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <text x="1110" y="215" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">IPIDEA</text>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
