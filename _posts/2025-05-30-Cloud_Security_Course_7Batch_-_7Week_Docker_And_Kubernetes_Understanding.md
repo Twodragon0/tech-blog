@@ -343,60 +343,45 @@ kubectl create secret generic db-credentials \
 
 #### External Secrets Operator
 
-> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.[AWS WAF]
-        ALB[Application LB]
-    end
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-    subgraph "Kubernetes Cluster"
-        subgraph "Control Plane"
-            API[API Server<br/>+Audit Logging]
-            ETCD[etcd<br/>Encrypted]
-            ADMISSION[Admission Controllers<br/>- OPA/Gatekeeper<br/>- Pod Security]
-        end
+<details>
+<summary>Kubernetes 보안 아키텍처 다이어그램 (click to expand)</summary>
 
-        subgraph "Security Layer"
-            FALCO[Falco<br/>Runtime Detection]
-            TRIVY[Trivy Scanner]
-            NETPOL[Network Policies]
-        end
+```text
+[AWS WAF] --> ALB[Application LB]
 
-        subgraph "Worker Nodes"
-            subgraph "Pod Security"
-                POD1[Pod: Frontend<br/>- User Namespaces<br/>- Seccomp<br/>- AppArmor]
-                POD2[Pod: Backend<br/>- Non-root<br/>- Read-only FS<br/>- Drop Capabilities]
-            end
-        end
+Kubernetes Cluster:
+  Control Plane:
+    API Server (+Audit Logging)
+    etcd (Encrypted)
+    Admission Controllers (OPA/Gatekeeper, Pod Security)
 
-        subgraph "Secret Management"
-            ESO[External Secrets<br/>Operator]
-            VAULT[HashiCorp Vault /<br/>AWS Secrets Manager]
-        end
-    end
+  Security Layer:
+    Falco (Runtime Detection)
+    Trivy Scanner
+    Network Policies
 
-    USER |HTTPS| WAF
-    WAF |Filtered| ALB
-    ALB |mTLS| API
+  Worker Nodes:
+    Pod: Frontend (User Namespaces, Seccomp, AppArmor)
+    Pod: Backend (Non-root, Read-only FS, Drop Capabilities)
 
-    ATTACKER -.->|Blocked| WAF
-    ATTACKER -.->|Detected| FALCO
+  Secret Management:
+    External Secrets Operator --> HashiCorp Vault / AWS Secrets Manager
 
-    API  ADMISSION
-    ADMISSION |Validate/Mutate| POD1
-    ADMISSION |Validate/Mutate| POD2
+Flow:
+  USER --HTTPS--> WAF --Filtered--> ALB --mTLS--> API
+  ATTACKER --Blocked--> WAF
+  ATTACKER --Detected--> Falco
+  API --> Admission --> Pod Validate/Mutate
+  Trivy --> Pod Scan
+  Network Policies --> Pod Enforce
+  ESO --> Vault --> Pod Inject
+  Falco --> Pod Monitor
+  API --Encrypted--> etcd
+```
 
-    TRIVY |Scan| POD1
-    TRIVY |Scan| POD2
-
-    NETPOL |Enforce| POD1
-    NETPOL |Enforce| POD2
-
-    ESO |Fetch| VAULT
-    VAULT |Inject| POD2
-
-    FALCO |Monitor| POD1
-    FALCO |Monitor| POD2
-
-    API |Encrypted| ETCD
+</details>
 
 
 #### Falco 이벤트 상관 분석
@@ -415,8 +400,6 @@ cat /var/log/falco/events.txt | \
 > ```bash
 > # 1. Service 없이 직접 통신하는 Pod 탐지...
 > ```
-```markdown
-
 
 ### 4.2 Secret 접근 이상 탐지
 

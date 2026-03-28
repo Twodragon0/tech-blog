@@ -302,6 +302,9 @@ contract SecureContract is AccessControl {
 
 예시:
 
+<details>
+<summary>Solidity 긴급 중지 메커니즘 스마트 컨트랙트 예시 (click to expand)</summary>
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -334,6 +337,8 @@ contract FailSafeVault is Pausable, Ownable {
     }
 }
 ```
+
+</details>
 
 ### 4.3 보안 체크리스트
 
