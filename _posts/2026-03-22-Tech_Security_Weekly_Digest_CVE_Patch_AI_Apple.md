@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "FBI Signal 피싱 경고, Oracle Identity RCE, Trivy 공급망 공격 47개 npm 패키지 감염"
+title: "FBI Signal 피싱, Oracle RCE, Trivy 공급망 47개 npm 감염"
 date: 2026-03-22 10:22:54 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI, Apple]

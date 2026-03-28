@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화
+title: 'Amazon Q Developer & GitHub Advanced Security로 AWS 코드 보안 강화'
 date: 2025-05-24 00:17:56 +0900
 categories:
 - devsecops

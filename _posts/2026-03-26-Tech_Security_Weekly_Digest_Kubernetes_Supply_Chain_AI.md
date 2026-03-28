@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kubernetes RBAC 우회 취약점, SLSA 공급망 보안, AI 에이전트 프롬프트 인젝션 방어 - 보안 주간 다이제스트"
+title: "Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어"
 date: 2026-03-26 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Kubernetes, Supply-Chain, AI-Agent]

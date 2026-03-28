@@ -21,7 +21,7 @@ tags:
 - ChatGPT
 - OpenTelemetry
 keywords: [AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry]
-title: '2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
+title: 'AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS'
 toc: true
 ---
 {% capture ai_categories_html %}

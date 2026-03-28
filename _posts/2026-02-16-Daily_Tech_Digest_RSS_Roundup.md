@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "2026년 2월 16일 데일리 테크 다이제스트: LLM 추론 최적화, Windows 네이티브 개발, 크립토 시장 신호"
+title: "데일리 테크: LLM 추론 최적화, Windows 네이티브 개발, 크립토 동향"
 date: 2026-02-16 10:00:00 +0900
 categories: [devops, devsecops, finops]
 tags: [Daily-Digest, Tech-Newsletter, AI-Inference, Windows-Dev, Surveillance-Tech, UI-Library, Crypto-Market, RSS, "2026"]

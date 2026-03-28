@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI 에이전트 보안 위협, 클라우드 Zero-Day, 컨테이너 공급망 공격 - 보안 주간 다이제스트"
+title: "AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격"
 date: 2026-03-28 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Zero-Day]

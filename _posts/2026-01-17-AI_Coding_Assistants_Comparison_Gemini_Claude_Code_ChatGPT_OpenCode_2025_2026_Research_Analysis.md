@@ -29,8 +29,7 @@ tags:
 - '2025'
 - '2026'
 keywords: [AI, Coding-Assistants, Gemini, Claude-Code, ChatGPT, OpenCode, DeepSeek, SWE-Bench]
-title: 'AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신
-  연구 논문 기반 종합 평가'
+title: 'AI 코딩 어시스턴트 비교: Gemini, Claude Code, ChatGPT, OpenCode 2026'
 toc: true
 ---
 {%- include ai-summary-card.html

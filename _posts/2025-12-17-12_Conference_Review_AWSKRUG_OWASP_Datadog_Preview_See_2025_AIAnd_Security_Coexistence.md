@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: '[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
+title: '[12월 컨퍼런스] AWSKRUG, OWASP, Datadog: 2025년 AI와 보안 공존'
 date: 2025-12-17 12:26:37 +0900
 categories:
 - cloud

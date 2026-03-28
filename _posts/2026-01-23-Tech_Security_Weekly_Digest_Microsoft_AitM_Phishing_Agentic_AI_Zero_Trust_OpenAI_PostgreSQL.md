@@ -27,7 +27,7 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI]
-title: "Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 보안"
+title: "Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL"
 toc: true
 ---
 {%- include ai-summary-card.html

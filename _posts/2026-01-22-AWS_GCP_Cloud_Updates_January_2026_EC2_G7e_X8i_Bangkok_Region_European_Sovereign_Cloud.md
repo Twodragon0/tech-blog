@@ -26,8 +26,7 @@ tags:
 - FinOps
 - '2026'
 keywords: [AWS, GCP, EC2-G7e, EC2-X8i, NVIDIA-Blackwell, Bangkok-Region, European-Sovereign-Cloud, Gemini-3]
-title: 'AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign
-  Cloud'
+title: 'AWS/GCP 2026년 1월: EC2 G7e/X8i, Bangkok 리전, Sovereign Cloud'
 toc: true
 ---
 {%- include ai-summary-card.html

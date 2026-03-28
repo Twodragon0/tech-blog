@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS IAM Zero Trust 구현, GCP Workload Identity 보안, FinOps 비용 최적화 - 보안 주간 다이제스트"
+title: "AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화"
 date: 2026-03-27 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Trust, Cloud, FinOps]

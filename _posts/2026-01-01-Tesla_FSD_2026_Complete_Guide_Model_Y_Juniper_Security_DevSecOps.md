@@ -24,7 +24,7 @@ tags:
 - DevSecOps
 - Cybersecurity
 keywords: [Tesla, FSD, Model Y, Juniper, Hardware 4, Automotive Security, DevSecOps, Cybersecurity]
-title: '테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석'
+title: '테슬라 FSD 2026: Model Y Juniper 비용, 하드웨어, DevSecOps 보안'
 toc: true
 ---
 {% capture ai_categories_html %}

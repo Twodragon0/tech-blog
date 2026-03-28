@@ -27,7 +27,7 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity]
-title: "Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks"
+title: "AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks"
 toc: true
 ---
 {%- include ai-summary-card.html
