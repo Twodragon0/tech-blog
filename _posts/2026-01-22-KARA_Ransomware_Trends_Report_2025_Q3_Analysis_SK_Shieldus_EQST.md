@@ -8,7 +8,7 @@ comments: true
 date: 2026-01-22 14:30:00 +0900
 description: SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0,
   Akira, INC Ransomware) 분석, 공격 통계, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략.
-excerpt: "SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0,"
+excerpt: "SK쉴더스 EQST 기반 2025년 3분기 랜섬웨어 동향 분석. LockBit 5.0, Akira 등 주요 그룹 분석, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략을 제공합니다."
 image: /assets/images/2026-01-22-KARA_Ransomware_Trends_2025_Q3.svg
 image_alt: KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major
   Groups, Defense Strategies

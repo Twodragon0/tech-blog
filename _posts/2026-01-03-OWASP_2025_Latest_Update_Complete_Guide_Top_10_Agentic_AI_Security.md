@@ -9,7 +9,7 @@ date: 2026-01-03 10:00:00 +0900
 description: OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures,
   Cryptographic Failures 신규 추가, 에이전틱 AI 상위 10대 위협 가이드, SecureCode v2.0 데이터셋(1,215개
   보안 코딩 예제), 실무 적용 가이드(Dependabot, SBOM, Post-Quantum 암호화)까지 DevSecOps 관점에서 상세 분석.
-excerpt: "OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures,"
+excerpt: "OWASP 2025년 주요 업데이트 완벽 정리. Top 10의 Supply Chain Failures 신규 추가, 에이전틱 AI 위협 가이드, SecureCode v2.0, 실무 적용 가이드까지 DevSecOps 관점으로 분석합니다."
 image: /assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg
 image_alt: 'OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security'
 layout: post

@@ -8,7 +8,7 @@ comments: true
 date: 2026-01-22 12:30:28 +0900
 description: '주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI
   관리, HashiCorp-AWS 클라우드 운영 간소화 등 2026년 1월 보안 업계 핵심 이슈 심층 분석'
-excerpt: "주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI"
+excerpt: "주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI 관리, HashiCorp-AWS 클라우드 운영 간소화 등 2026년 1월 핵심 이슈를 분석합니다."
 image: /assets/images/2026-01-22-Security_Vendor_Blog_Weekly_Review.svg
 image_alt: Security Vendor Blog Weekly Review January 2026
 layout: post
