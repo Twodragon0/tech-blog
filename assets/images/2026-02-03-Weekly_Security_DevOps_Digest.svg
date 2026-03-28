@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Agent Security Vulns MDM App Control Weekly News</title>
+  <title>Weekly Security DevOps Digest</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f0a2a"/>
-      <stop offset="100%" stop-color="#1a1545"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6c5ce7"/>
-      <stop offset="100%" stop-color="#00b894"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,55 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
   <!-- Background circles -->
-  <circle cx="1050" cy="350" r="200" fill="rgba(108,92,231,0.04)"/>
-  <circle cx="1050" cy="350" r="140" fill="rgba(0,184,148,0.04)"/>
-  <!-- Pipeline with security checkpoint - DevSecOps flow -->
-  <line x1="840" y1="310" x2="1140" y2="310" stroke="rgba(0,184,148,0.4)" stroke-width="3"/>
-  <!-- Stage 1: Code -->
-  <rect x="840" y="292" width="50" height="36" rx="6" fill="rgba(108,92,231,0.25)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <!-- Stage 2: Build -->
-  <rect x="920" y="292" width="50" height="36" rx="6" fill="rgba(0,184,148,0.2)" stroke="#00b894" stroke-width="1.5"/>
-  <!-- Stage 3: Security checkpoint (highlighted) -->
-  <rect x="1000" y="280" width="60" height="60" rx="8" fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="2"/>
-  <polygon points="1030,293 1035,305 1048,305 1038,313 1042,325 1030,317 1018,325 1022,313 1012,305 1025,305" fill="rgba(231,76,60,0.5)" stroke="#e74c3c" stroke-width="1"/>
-  <!-- Stage 4: Deploy -->
-  <rect x="1090" y="292" width="50" height="36" rx="6" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <!-- Flow arrows -->
-  <polygon points="912,310 904,304 904,316" fill="rgba(0,184,148,0.6)"/>
-  <polygon points="992,310 984,304 984,316" fill="rgba(0,184,148,0.6)"/>
-  <polygon points="1082,310 1074,304 1074,316" fill="rgba(0,184,148,0.6)"/>
-  <!-- Vulnerability detected indicator -->
-  <line x1="1030" y1="240" x2="1030" y2="278" stroke="rgba(231,76,60,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <circle cx="1030" cy="232" r="12" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5"/>
-  <!-- MDM device icon -->
-  <rect x="860" y="380" width="36" height="55" rx="5" fill="rgba(108,92,231,0.15)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <rect x="864" y="385" width="28" height="38" rx="2" fill="rgba(108,92,231,0.2)"/>
-  <circle cx="878" cy="430" r="4" fill="rgba(108,92,231,0.5)" stroke="#6c5ce7" stroke-width="1"/>
-  <!-- Lock on device -->
-  <circle cx="878" cy="398" r="8" fill="none" stroke="rgba(0,184,148,0.6)" stroke-width="1.5"/>
-  <rect x="874" y="396" width="8" height="10" rx="2" fill="rgba(0,184,148,0.3)" stroke="rgba(0,184,148,0.5)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 3, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 3, 2026</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI Agent Security</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">MDM App Control</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Weekly Security DevOps Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1"></text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI Vulns, MDM App Control, Weekly DevSecOps News</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI | Moltbot | Moltbook</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY DEVOPS DIGEST</text>
-  <!-- Keyword tags -->
-  <rect x="80" y="420" width="110" height="36" rx="18" fill="rgba(108,92,231,0.18)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="135" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#6c5ce7" text-anchor="middle" font-weight="600">AI Agent</text>
-  <rect x="208" y="420" width="130" height="36" rx="18" fill="rgba(0,184,148,0.18)" stroke="rgba(0,184,148,0.4)" stroke-width="1"/>
-  <text x="273" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#00b894" text-anchor="middle" font-weight="600">MDM Control</text>
-  <rect x="356" y="420" width="100" height="36" rx="18" fill="rgba(108,92,231,0.18)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="406" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#6c5ce7" text-anchor="middle" font-weight="600">DevOps</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">AI</text>
+  <rect x="174" y="420" width="99" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="223" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Moltbot</text>
+  <rect x="287" y="420" width="108" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="341" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Moltbook</text>
   <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>

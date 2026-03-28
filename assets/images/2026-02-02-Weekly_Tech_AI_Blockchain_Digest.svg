@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Apple MLX Bug Bitcoin 74K Drop AI Creativity Debate</title>
+  <title>Weekly Tech AI Blockchain Digest</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1a1a"/>
-      <stop offset="100%" stop-color="#1a3333"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f1c40f"/>
-      <stop offset="100%" stop-color="#1abc9c"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,56 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
   <!-- Background circles -->
-  <circle cx="1050" cy="350" r="200" fill="rgba(241,196,15,0.04)"/>
-  <circle cx="1050" cy="350" r="140" fill="rgba(26,188,156,0.04)"/>
-  <!-- Bitcoin symbol with downward arrow -->
-  <circle cx="990" cy="300" r="65" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="2.5"/>
-  <!-- Downward arrow -->
-  <line x1="1070" y1="290" x2="1070" y2="360" stroke="#e74c3c" stroke-width="3"/>
-  <polygon points="1070,370 1058,352 1082,352" fill="#e74c3c"/>
-  <!-- $74K label -->
-  <rect x="1010" y="380" width="90" height="30" rx="4" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <!-- Circuit nodes (AI) -->
-  <circle cx="870" cy="230" r="10" fill="rgba(26,188,156,0.4)" stroke="#1abc9c" stroke-width="1.5"/>
-  <circle cx="910" cy="210" r="7" fill="rgba(26,188,156,0.3)" stroke="#1abc9c" stroke-width="1"/>
-  <circle cx="860" cy="260" r="7" fill="rgba(26,188,156,0.3)" stroke="#1abc9c" stroke-width="1"/>
-  <circle cx="900" cy="250" r="5" fill="rgba(26,188,156,0.3)" stroke="#1abc9c" stroke-width="1"/>
-  <line x1="870" y1="230" x2="910" y2="210" stroke="rgba(26,188,156,0.35)" stroke-width="1"/>
-  <line x1="870" y1="230" x2="860" y2="260" stroke="rgba(26,188,156,0.35)" stroke-width="1"/>
-  <line x1="870" y1="230" x2="900" y2="250" stroke="rgba(26,188,156,0.35)" stroke-width="1"/>
-  <line x1="910" y1="210" x2="900" y2="250" stroke="rgba(26,188,156,0.25)" stroke-width="1"/>
-  <!-- Apple chip icon (MLX) -->
-  <rect x="850" y="380" width="50" height="50" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
-  <rect x="858" y="390" width="34" height="30" rx="4" fill="rgba(26,188,156,0.2)" stroke="rgba(26,188,156,0.4)" stroke-width="1"/>
-  <!-- Chip pins -->
-  <line x1="850" y1="395" x2="843" y2="395" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <line x1="850" y1="405" x2="843" y2="405" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <line x1="850" y1="415" x2="843" y2="415" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <line x1="900" y1="395" x2="907" y2="395" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <line x1="900" y1="405" x2="907" y2="405" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <line x1="900" y1="415" x2="907" y2="415" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 2, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 2, 2026</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Bitcoin $74K Drop</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Apple MLX Bug</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Weekly Tech AI Blockchain</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Digest</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI Creativity Debate, Blockchain and Tech Digest</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Apple | Bitcoin Crash | AI Creativity</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">TECH WEEKLY DIGEST</text>
-  <!-- Keyword tags -->
-  <rect x="80" y="420" width="100" height="36" rx="18" fill="rgba(241,196,15,0.18)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
-  <text x="130" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#f1c40f" text-anchor="middle" font-weight="600">Bitcoin</text>
-  <rect x="198" y="420" width="120" height="36" rx="18" fill="rgba(26,188,156,0.18)" stroke="rgba(26,188,156,0.4)" stroke-width="1"/>
-  <text x="258" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#1abc9c" text-anchor="middle" font-weight="600">Apple MLX</text>
-  <rect x="336" y="420" width="120" height="36" rx="18" fill="rgba(241,196,15,0.18)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
-  <text x="396" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#f1c40f" text-anchor="middle" font-weight="600">AI Creative</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="81" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Apple</text>
+  <rect x="175" y="420" width="153" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="251" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Bitcoin Crash</text>
+  <rect x="342" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="418" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI Creativity</text>
   <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>

@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security Course 8Batch 6Week AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical</title>
+  <title>Cloud Security Course 8Batch 6Week AWS WAF CloudFront Security Architecture And </title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1b2a"/>
-      <stop offset="100%" style="stop-color:#1a3555"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff9900"/>
-      <stop offset="100%" style="stop-color:#2980b9"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,44 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- WAF shield -->
-  <path d="M900 230 L860 250 L860 310 Q860 360 900 378 Q940 360 940 310 L940 250 Z" fill="rgba(255,153,0,0.12)" stroke="rgba(255,153,0,0.55)" stroke-width="2"/>
-  <rect x="876" y="275" width="48" height="8" rx="3" fill="rgba(255,153,0,0.5)"/>
-  <rect x="876" y="291" width="48" height="8" rx="3" fill="rgba(255,153,0,0.4)"/>
-  <rect x="876" y="307" width="38" height="8" rx="3" fill="rgba(255,153,0,0.3)"/>
-  <!-- Arrow from WAF to CDN -->
-  <line x1="940" y1="305" x2="990" y2="305" stroke="rgba(255,153,0,0.5)" stroke-width="2" stroke-dasharray="6,3"/>
-  <polygon points="990,300 1000,305 990,310" fill="rgba(255,153,0,0.6)"/>
-  <!-- CDN cloud -->
-  <ellipse cx="1055" cy="285" rx="65" ry="30" fill="rgba(41,128,185,0.12)" stroke="rgba(41,128,185,0.4)" stroke-width="1.8"/>
-  <ellipse cx="1030" cy="295" rx="40" ry="22" fill="rgba(41,128,185,0.08)" stroke="rgba(41,128,185,0.3)" stroke-width="1.5"/>
-  <ellipse cx="1080" cy="295" rx="42" ry="22" fill="rgba(41,128,185,0.08)" stroke="rgba(41,128,185,0.3)" stroke-width="1.5"/>
-  <!-- CDN edge nodes -->
-  <circle cx="1000" cy="355" r="14" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.55)" stroke-width="1.5"/>
-  <circle cx="1055" cy="360" r="14" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.55)" stroke-width="1.5"/>
-  <circle cx="1110" cy="355" r="14" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.55)" stroke-width="1.5"/>
-  <line x1="1030" y1="305" x2="1000" y2="341" stroke="rgba(41,128,185,0.35)" stroke-width="1"/>
-  <line x1="1055" y1="307" x2="1055" y2="346" stroke="rgba(41,128,185,0.35)" stroke-width="1"/>
-  <line x1="1080" y1="305" x2="1110" y2="341" stroke="rgba(41,128,185,0.35)" stroke-width="1"/>
-  <!-- Week badge -->
-  <rect x="870" y="410" width="160" height="44" rx="8" fill="rgba(255,153,0,0.12)" stroke="rgba(255,153,0,0.4)" stroke-width="1.5"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(255,153,0,0.14)" stroke="rgba(255,153,0,0.38)" stroke-width="1"/>
-  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 8, 2026</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Cloud Security 8th</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Week 6: WAF and CloudFront</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">AWS WAF and CloudFront security architecture with GitHub DevSecOps</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">CLOUD SECURITY COURSE</text>
-  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(255,153,0,0.14)" stroke="rgba(255,153,0,0.4)" stroke-width="1"/>
-  <text x="130" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">AWS WAF</text>
-  <rect x="195" y="402" width="112" height="36" rx="18" fill="rgba(41,128,185,0.14)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="251" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">CloudFront</text>
-  <rect x="322" y="402" width="88" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="366" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Week 6</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 8, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 8Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">6Week AWS WAF CloudFront...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | CloudFront | cloudsecurity</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="126" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="237" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">CloudFront</text>
+  <rect x="314" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="390" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">cloudsecurity</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -2,15 +2,16 @@
   <title>Tech Security Weekly Digest n8n RCE D Link Zero Day Kubernetes AI Agent</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1520"/>
-      <stop offset="100%" style="stop-color:#1a2d42"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2980b9"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,60 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Panel 1: n8n RCE server -->
-  <rect x="760" y="135" width="128" height="85" rx="6" fill="rgba(41,128,185,0.12)" stroke="#2980b9" stroke-width="1.5"/>
-  <rect x="774" y="148" width="100" height="8" rx="2" fill="rgba(41,128,185,0.45)"/>
-  <rect x="774" y="162" width="78" height="6" rx="2" fill="rgba(41,128,185,0.3)"/>
-  <rect x="774" y="173" width="88" height="6" rx="2" fill="rgba(41,128,185,0.3)"/>
-  <rect x="774" y="184" width="65" height="6" rx="2" fill="rgba(41,128,185,0.2)"/>
-  <!-- RCE lightning bolt on server -->
-  <polygon points="865,135 852,162 867,159 854,186 880,155 864,159" fill="#e74c3c" opacity="0.9"/>
-  <!-- Panel 2: Router + warning -->
-  <rect x="916" y="135" width="118" height="82" rx="6" fill="rgba(231,76,60,0.1)" stroke="#e74c3c" stroke-width="1.5"/>
-  <line x1="930" y1="150" x2="1018" y2="150" stroke="rgba(231,76,60,0.4)" stroke-width="1.5"/>
-  <rect x="944" y="157" width="46" height="8" rx="2" fill="rgba(231,76,60,0.3)"/>
-  <rect x="944" y="170" width="58" height="6" rx="2" fill="rgba(231,76,60,0.2)"/>
-  <!-- Warning triangle -->
-  <polygon points="975,185 958,210 992,210" fill="none" stroke="#f39c12" stroke-width="2.2" opacity="0.9"/>
-  <!-- Panel 3: K8s hex + AI -->
-  <polygon points="1078,158 1108,174 1108,206 1078,222 1048,206 1048,174" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="1.5"/>
-  <circle cx="1078" cy="190" r="11" fill="none" stroke="#326ce5" stroke-width="1.5"/>
-  <line x1="1078" y1="174" x2="1078" y2="163" stroke="#326ce5" stroke-width="1.5"/>
-  <line x1="1078" y1="206" x2="1078" y2="218" stroke="#326ce5" stroke-width="1.5"/>
-  <line x1="1089" y1="183" x2="1098" y2="178" stroke="#326ce5" stroke-width="1.5"/>
-  <line x1="1067" y1="197" x2="1058" y2="202" stroke="#326ce5" stroke-width="1.5"/>
-  <!-- AI spark bolt above K8s -->
-  <polygon points="1096,142 1090,157 1102,153 1094,170 1112,156 1100,160" fill="#9b59b6" opacity="0.85"/>
-  <!-- Dot separators -->
-  <circle cx="900" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="910" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="1032" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="1040" cy="178" r="3" fill="rgba(255,255,255,0.25)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
-  <!-- Title -->
-  <text x="80" y="185" font-size="42" font-weight="700" fill="white" font-family="sans-serif">n8n RCE, D-Link Zero-Day</text>
-  <text x="80" y="245" font-size="42" font-weight="700" fill="white" font-family="sans-serif">and K8s AI Agent</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">n8n RCE D Link Zero Day...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="18" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Weekly security digest: critical vulnerabilities and emerging K8s AI capabilities</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">n8n | RCE | CVE 2026 1470</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.5)" stroke-width="1"/>
-  <text x="130" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">n8n RCE</text>
-  <rect x="196" y="402" width="120" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
-  <text x="256" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">D-Link 0Day</text>
-  <rect x="332" y="402" width="110" height="36" rx="18" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="387" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">K8s Agent</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">n8n</text>
+  <rect x="174" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="214" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">RCE</text>
+  <rect x="268" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="344" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">CVE 2026 1470</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Alignment Research and EKS Flyte Workflow</title>
+  <title>Tech Blog Weekly Digest AI Data Cloud</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f20"/>
-      <stop offset="100%" stop-color="#151a35"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a150a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#6c5ce7"/>
-      <stop offset="100%" stop-color="#00cec9"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#a3e635"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,63 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Container boxes -->
+  <rect x="880" y="170" width="60" height="50" rx="6" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <rect x="960" y="170" width="60" height="50" rx="6" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="240" width="60" height="50" rx="6" fill="rgba(163,230,53,0.06)" stroke="rgba(163,230,53,0.25)" stroke-width="1.5"/>
+  <!-- Arrows -->
+  <line x1="910" y1="220" x2="940" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="990" y1="220" x2="960" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Gear -->
+  <circle cx="950" cy="370" r="25" fill="none" stroke="rgba(34,197,94,0.3)" stroke-width="2"/>
+  <circle cx="950" cy="370" r="10" fill="none" stroke="rgba(34,197,94,0.2)" stroke-width="1.5"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- DAG Workflow nodes -->
-  <!-- Node A (start) -->
-  <rect x="820" y="160" width="64" height="40" rx="8" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.6)" stroke-width="2"/>
-  <!-- Node B -->
-  <rect x="920" y="130" width="64" height="40" rx="8" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.5)" stroke-width="1.5"/>
-  <!-- Node C -->
-  <rect x="920" y="210" width="64" height="40" rx="8" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.5)" stroke-width="1.5"/>
-  <!-- Node D -->
-  <rect x="1030" y="170" width="64" height="40" rx="8" fill="rgba(0,206,201,0.25)" stroke="rgba(0,206,201,0.6)" stroke-width="2"/>
-  <!-- Node E (terminal) -->
-  <rect x="1120" y="170" width="64" height="40" rx="8" fill="rgba(0,206,201,0.3)" stroke="rgba(0,206,201,0.7)" stroke-width="2"/>
-  <!-- Arrows between nodes -->
-  <line x1="884" y1="175" x2="920" y2="155" stroke="rgba(108,92,231,0.5)" stroke-width="1.5"/>
-  <polygon points="920,155 906,148 908,162" fill="rgba(108,92,231,0.5)"/>
-  <line x1="884" y1="185" x2="920" y2="225" stroke="rgba(108,92,231,0.5)" stroke-width="1.5"/>
-  <polygon points="920,225 907,215 910,229" fill="rgba(108,92,231,0.5)"/>
-  <line x1="984" y1="150" x2="1030" y2="180" stroke="rgba(108,92,231,0.45)" stroke-width="1.5"/>
-  <polygon points="1030,180 1016,170 1020,184" fill="rgba(108,92,231,0.45)"/>
-  <line x1="984" y1="230" x2="1030" y2="200" stroke="rgba(108,92,231,0.45)" stroke-width="1.5"/>
-  <polygon points="1030,200 1016,194 1020,208" fill="rgba(108,92,231,0.45)"/>
-  <line x1="1094" y1="190" x2="1120" y2="190" stroke="rgba(0,206,201,0.6)" stroke-width="2"/>
-  <polygon points="1120,190 1108,184 1108,196" fill="rgba(0,206,201,0.6)"/>
-  <!-- Lower DAG branch -->
-  <rect x="840" y="340" width="56" height="36" rx="6" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1.5"/>
-  <rect x="940" y="340" width="56" height="36" rx="6" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1.5"/>
-  <rect x="1040" y="340" width="56" height="36" rx="6" fill="rgba(0,206,201,0.2)" stroke="rgba(0,206,201,0.5)" stroke-width="1.5"/>
-  <line x1="896" y1="358" x2="940" y2="358" stroke="rgba(108,92,231,0.4)" stroke-width="1.5"/>
-  <polygon points="940,358 928,352 928,364" fill="rgba(108,92,231,0.4)"/>
-  <line x1="996" y1="358" x2="1040" y2="358" stroke="rgba(0,206,201,0.4)" stroke-width="1.5"/>
-  <polygon points="1040,358 1028,352 1028,364" fill="rgba(0,206,201,0.4)"/>
-  <!-- EKS hexagon hint -->
-  <polygon points="1100,430 1125,416 1150,430 1150,458 1125,472 1100,458" fill="none" stroke="rgba(0,206,201,0.4)" stroke-width="2"/>
-  <polygon points="1108,435 1125,425 1142,435 1142,454 1125,464 1108,454" fill="rgba(0,206,201,0.1)" stroke="rgba(0,206,201,0.3)" stroke-width="1"/>
-  <!-- AI brain nodes -->
-  <circle cx="880" cy="450" r="16" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.5)" stroke-width="1.5"/>
-  <circle cx="920" cy="475" r="10" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <circle cx="850" cy="475" r="10" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <line x1="864" y1="450" x2="850" y2="465" stroke="rgba(108,92,231,0.35)" stroke-width="1.5"/>
-  <line x1="896" y1="450" x2="920" y2="465" stroke="rgba(108,92,231,0.35)" stroke-width="1.5"/>
-  <line x1="880" y1="466" x2="880" y2="490" stroke="rgba(108,92,231,0.3)" stroke-width="1"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="180" y="81" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">FEBRUARY 20, 2026</text>
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">AI Alignment Research</text>
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">and EKS Flyte Workflow</text>
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">ML pipeline orchestration, AI safety &amp; Docker ecosystem</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)"/>
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)" letter-spacing="2">TECH BLOG DIGEST</text>
-  <rect x="80" y="410" width="120" height="36" rx="18" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="140" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">AI Alignment</text>
-  <rect x="216" y="410" width="110" height="36" rx="18" fill="rgba(0,206,201,0.15)" stroke="rgba(0,206,201,0.4)" stroke-width="1"/>
-  <text x="271" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">EKS Flyte</text>
-  <rect x="342" y="410" width="80" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="382" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Docker</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.25)"/>
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="1">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 20, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Blog Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Data Cloud</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Tech Blog | Developer | AI</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Tech Blog</text>
+  <rect x="211" y="420" width="117" height="36" rx="18" fill="rgba(163,230,53,0.15)" stroke="rgba(163,230,53,0.35)" stroke-width="1"/>
+  <text x="269" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#d9f99d" text-anchor="middle" font-weight="600">Developer</text>
+  <rect x="342" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="382" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

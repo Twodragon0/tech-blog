@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 7th Week 7 Docker and Kubernetes</title>
+  <title>Cloud Security Course 7Batch   7Week Docker And Kubernetes Understanding</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1a20"/>
-      <stop offset="100%" stop-color="#153040"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0f0a25"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2496ed"/>
-      <stop offset="100%" stop-color="#326ce5"/>
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,51 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- K8s hexagon -->
+  <polygon points="950,150 990,172 990,218 950,240 910,218 910,172" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="195" r="18" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <!-- Pod boxes -->
+  <rect x="880" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="940" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="310" width="45" height="35" rx="5" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" stroke-width="1.5"/>
+  <line x1="925" y1="327" x2="940" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="985" y1="327" x2="1000" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <!-- Background circles -->
-  <circle cx="1050" cy="350" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="350" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Docker whale body -->
-  <ellipse cx="940" cy="290" rx="70" ry="45" fill="none" stroke="rgba(36,150,237,0.65)" stroke-width="3"/>
-  <!-- Whale tail -->
-  <path d="M870 290 Q850 270 840 280 Q848 300 870 305" fill="none" stroke="rgba(36,150,237,0.55)" stroke-width="3"/>
-  <!-- Container stacks on whale -->
-  <rect x="905" y="255" width="24" height="18" rx="2" fill="rgba(36,150,237,0.45)" stroke="rgba(36,150,237,0.6)" stroke-width="1.5"/>
-  <rect x="935" y="255" width="24" height="18" rx="2" fill="rgba(36,150,237,0.45)" stroke="rgba(36,150,237,0.6)" stroke-width="1.5"/>
-  <rect x="965" y="255" width="24" height="18" rx="2" fill="rgba(36,150,237,0.45)" stroke="rgba(36,150,237,0.6)" stroke-width="1.5"/>
-  <rect x="920" y="232" width="24" height="18" rx="2" fill="rgba(36,150,237,0.35)" stroke="rgba(36,150,237,0.5)" stroke-width="1.5"/>
-  <rect x="950" y="232" width="24" height="18" rx="2" fill="rgba(36,150,237,0.35)" stroke="rgba(36,150,237,0.5)" stroke-width="1.5"/>
-  <!-- Kubernetes wheel (helm/steering wheel) -->
-  <circle cx="1070" cy="370" r="55" fill="none" stroke="rgba(50,108,229,0.65)" stroke-width="3"/>
-  <circle cx="1070" cy="370" r="22" fill="none" stroke="rgba(50,108,229,0.7)" stroke-width="3"/>
-  <!-- K8s spokes (6) -->
-  <line x1="1070" y1="315" x2="1070" y2="348" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="1070" y1="392" x2="1070" y2="425" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="1022" y1="342" x2="1047" y2="357" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="1093" y1="383" x2="1118" y2="398" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="1022" y1="398" x2="1047" y2="383" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
-  <line x1="1093" y1="357" x2="1118" y2="342" stroke="rgba(50,108,229,0.65)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="190" height="32" rx="4" fill="rgba(36,150,237,0.2)" stroke="rgba(36,150,237,0.4)" stroke-width="1"/>
-  <text x="175" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 30, 2025</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 30, 2025</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security 7th</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="42" font-weight="700" fill="white" letter-spacing="-1">Week 7: Docker &amp; K8s</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 7Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">7Week Docker And Kubernetes...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Container and Kubernetes Security Practices</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Docker | Kubernetes | Container</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
-  <!-- Category -->
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY COURSE</text>
-  <!-- Tags -->
-  <rect x="80" y="420" width="100" height="36" rx="18" fill="rgba(36,150,237,0.18)" stroke="rgba(36,150,237,0.4)" stroke-width="1"/>
-  <text x="130" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#2496ed" text-anchor="middle" font-weight="600">Docker</text>
-  <rect x="196" y="420" width="120" height="36" rx="18" fill="rgba(50,108,229,0.18)" stroke="rgba(50,108,229,0.4)" stroke-width="1"/>
-  <text x="256" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#326ce5" text-anchor="middle" font-weight="600">Kubernetes</text>
-  <rect x="332" y="420" width="90" height="36" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="377" y="443" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)" text-anchor="middle" font-weight="600">Week 7</text>
-  <!-- Bottom -->
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">KUBERNETES DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="90" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="125" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Docker</text>
+  <rect x="184" y="420" width="126" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="247" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Kubernetes</text>
+  <rect x="324" y="420" width="117" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="382" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Container</text>
+  <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>

@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Finds 12 OpenSSL Zero-Days OWASP Agentic Framework Fortinet Patch</title>
+  <title>Tech Security Weekly Digest AI OpenSSL Zero Day OWASP Agentic Fortinet</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1628"/>
-      <stop offset="100%" stop-color="#1a2d4a"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#3498db"/>
-      <stop offset="100%" stop-color="#e74c3c"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,50 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
   <!-- Background circles -->
-  <circle cx="1050" cy="350" r="200" fill="rgba(52,152,219,0.04)"/>
-  <circle cx="1050" cy="350" r="140" fill="rgba(231,76,60,0.04)"/>
-  <!-- Lock icon with crack lines - zero-day concept -->
-  <rect x="930" y="280" width="130" height="100" rx="10" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="2"/>
-  <!-- Lock shackle -->
-  <path d="M955 280 L955 250 Q995 220 1035 250 L1035 280" fill="none" stroke="#3498db" stroke-width="2.5"/>
-  <!-- Keyhole -->
-  <circle cx="995" cy="320" r="14" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-  <rect x="990" y="320" width="10" height="20" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <!-- Crack lines through lock -->
-  <line x1="970" y1="285" x2="985" y2="310" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="985" y1="310" x2="975" y2="330" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="1005" y1="288" x2="1015" y2="305" stroke="#e74c3c" stroke-width="1.5"/>
-  <line x1="1015" y1="305" x2="1008" y2="320" stroke="#e74c3c" stroke-width="1.5"/>
-  <!-- Warning badge -->
-  <polygon points="1070,230 1090,265 1050,265" fill="rgba(231,76,60,0.3)" stroke="#e74c3c" stroke-width="1.5"/>
-  <!-- Radiate lines from lock -->
-  <line x1="995" y1="260" x2="995" y2="230" stroke="rgba(231,76,60,0.4)" stroke-width="1" stroke-dasharray="3 2"/>
-  <line x1="940" y1="290" x2="910" y2="270" stroke="rgba(231,76,60,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
-  <line x1="1050" y1="290" x2="1080" y2="270" stroke="rgba(231,76,60,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
-  <!-- CVE count badge -->
-  <rect x="900" y="400" width="100" height="36" rx="6" fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 1, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 1, 2026</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OpenSSL Zero-Days</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OWASP &amp; Fortinet</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OpenSSL Zero Day OWASP...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI Finds 12 Vulns, Agentic Framework, Critical Patch</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | AI Security | OpenSSL</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
   <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
-  <!-- Keyword tags -->
-  <rect x="80" y="420" width="110" height="36" rx="18" fill="rgba(52,152,219,0.18)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="135" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#3498db" text-anchor="middle" font-weight="600">OpenSSL</text>
-  <rect x="208" y="420" width="120" height="36" rx="18" fill="rgba(231,76,60,0.18)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <text x="268" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#e74c3c" text-anchor="middle" font-weight="600">Zero-Day</text>
-  <rect x="346" y="420" width="110" height="36" rx="18" fill="rgba(52,152,219,0.18)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="401" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#3498db" text-anchor="middle" font-weight="600">Fortinet</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="135" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="278" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AI Security</text>
+  <rect x="360" y="420" width="99" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="409" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">OpenSSL</text>
   <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>

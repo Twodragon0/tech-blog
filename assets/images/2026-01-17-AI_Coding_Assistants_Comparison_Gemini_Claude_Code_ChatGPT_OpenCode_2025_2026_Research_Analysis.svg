@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Coding Assistants Comparison Gemini Claude Code ChatGPT OpenCode 2025 2026 Research Analysis</title>
+  <title>AI Coding Assistants Comparison Gemini Claude Code ChatGPT OpenCode 2025 2026 Re</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0f1a"/>
-      <stop offset="100%" style="stop-color:#151a30"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00cec9"/>
-      <stop offset="100%" style="stop-color:#a29bfe"/>
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,55 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- 4 AI icons side by side comparison -->
-  <!-- Gemini: G multicolor circle -->
-  <circle cx="870" cy="300" r="38" fill="rgba(66,133,244,0.12)" stroke="rgba(66,133,244,0.42)" stroke-width="2"/>
-  <path d="M852 300 Q870 262 888 300 Q870 338 852 300 Z" fill="rgba(66,133,244,0.45)"/>
-  <path d="M888 300 Q870 262 870 280 Q870 300 888 300 Z" fill="rgba(234,67,53,0.45)"/>
-  <path d="M852 300 Q870 300 870 320 Q870 338 852 300 Z" fill="rgba(251,188,4,0.45)"/>
-  <path d="M888 300 Q870 320 870 338 Q888 338 888 300 Z" fill="rgba(52,168,83,0.45)"/>
-  <!-- Claude: orange diamond -->
-  <circle cx="960" cy="300" r="38" fill="rgba(205,92,18,0.12)" stroke="rgba(205,92,18,0.42)" stroke-width="2"/>
-  <polygon points="960,270 982,300 960,330 938,300" fill="rgba(205,92,18,0.45)"/>
-  <polygon points="960,278 976,300 960,322 944,300" fill="rgba(231,76,60,0.35)"/>
-  <!-- ChatGPT: teal circle with C -->
-  <circle cx="1050" cy="300" r="38" fill="rgba(16,163,127,0.12)" stroke="rgba(16,163,127,0.42)" stroke-width="2"/>
-  <circle cx="1050" cy="300" r="22" fill="rgba(16,163,127,0.2)" stroke="rgba(16,163,127,0.55)" stroke-width="1.5"/>
-  <path d="M1063 290 Q1050 278 1037 290 Q1028 300 1037 310 Q1050 322 1063 310" fill="none" stroke="rgba(16,163,127,0.85)" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- OpenCode / generic AI: purple hexagon -->
-  <circle cx="1140" cy="300" r="38" fill="rgba(162,155,254,0.12)" stroke="rgba(162,155,254,0.42)" stroke-width="2"/>
-  <polygon points="1140,272 1158,282 1158,302 1158,318 1140,328 1122,318 1122,282" fill="rgba(162,155,254,0.2)" stroke="rgba(162,155,254,0.5)" stroke-width="1.5"/>
-  <circle cx="1140" cy="300" r="10" fill="rgba(162,155,254,0.45)"/>
-  <!-- Comparison VS dividers -->
-  <line x1="915" y1="270" x2="915" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1005" y1="270" x2="1005" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1095" y1="270" x2="1095" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
-  <!-- Score bars below icons -->
-  <rect x="848" y="352" width="44" height="6" rx="3" fill="rgba(66,133,244,0.5)"/>
-  <rect x="938" y="352" width="44" height="6" rx="3" fill="rgba(205,92,18,0.55)"/>
-  <rect x="1028" y="352" width="44" height="6" rx="3" fill="rgba(16,163,127,0.5)"/>
-  <rect x="1118" y="352" width="44" height="6" rx="3" fill="rgba(162,155,254,0.5)"/>
-  <rect x="848" y="362" width="36" height="4" rx="2" fill="rgba(66,133,244,0.3)"/>
-  <rect x="938" y="362" width="40" height="4" rx="2" fill="rgba(205,92,18,0.35)"/>
-  <rect x="1028" y="362" width="32" height="4" rx="2" fill="rgba(16,163,127,0.3)"/>
-  <rect x="1118" y="362" width="38" height="4" rx="2" fill="rgba(162,155,254,0.3)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(0,206,201,0.14)" stroke="rgba(0,206,201,0.38)" stroke-width="1"/>
-  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 17, 2026</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">AI Coding Assistants</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Comparison 2025-2026</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Gemini, Claude Code, ChatGPT and OpenCode research analysis</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">AI TOOLS COMPARISON</text>
-  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(0,206,201,0.14)" stroke="rgba(0,206,201,0.4)" stroke-width="1"/>
-  <text x="125" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Gemini</text>
-  <rect x="185" y="402" width="120" height="36" rx="18" fill="rgba(162,155,254,0.14)" stroke="rgba(162,155,254,0.4)" stroke-width="1"/>
-  <text x="245" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Claude Code</text>
-  <rect x="320" y="402" width="105" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="372" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">ChatGPT</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 17, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI Coding Assistants</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Comparison Gemini Claude...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI | Coding Assistants | Gemini</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">AI</text>
+  <rect x="174" y="420" width="162" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="255" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Coding Assist.</text>
+  <rect x="350" y="420" width="90" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="395" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Gemini</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

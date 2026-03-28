@@ -2,15 +2,16 @@
   <title>Postmortem NextJS SSR Error Cloudflare Blocking ALB 5XX Incident Analysis</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0a0a"/>
-      <stop offset="100%" style="stop-color:#2d1515"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#130820"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e74c3c"/>
-      <stop offset="100%" style="stop-color:#f39c12"/>
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,56 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Abstract nodes -->
+  <circle cx="920" cy="200" r="18" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <circle cx="990" cy="240" r="14" fill="none" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="310" r="16" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <line x1="920" y1="218" x2="990" y2="226" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="990" y1="254" x2="950" y2="294" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="950" y1="294" x2="920" y2="218" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Abstract shape -->
+  <rect x="900" y="370" width="100" height="60" rx="8" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Cascade failure: Client box -->
-  <rect x="840" y="248" width="88" height="44" rx="5" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.55)" stroke-width="1.8"/>
-  <rect x="850" y="258" width="50" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
-  <rect x="850" y="268" width="38" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
-  <!-- Arrow with X (blocked) -->
-  <line x1="928" y1="270" x2="965" y2="270" stroke="rgba(231,76,60,0.6)" stroke-width="2"/>
-  <polygon points="965,265 977,270 965,275" fill="rgba(231,76,60,0.65)"/>
-  <!-- X mark over arrow -->
-  <line x1="940" y1="262" x2="953" y2="278" stroke="rgba(243,156,18,0.8)" stroke-width="2.5"/>
-  <line x1="953" y1="262" x2="940" y2="278" stroke="rgba(243,156,18,0.8)" stroke-width="2.5"/>
-  <!-- Cloudflare box (blocking) -->
-  <rect x="977" y="248" width="95" height="44" rx="5" fill="rgba(243,156,18,0.15)" stroke="rgba(243,156,18,0.55)" stroke-width="1.8"/>
-  <rect x="987" y="258" width="58" height="6" rx="2" fill="rgba(255,255,255,0.22)"/>
-  <rect x="987" y="268" width="44" height="5" rx="2" fill="rgba(255,255,255,0.14)"/>
-  <!-- Arrow to ALB -->
-  <line x1="1072" y1="270" x2="1098" y2="270" stroke="rgba(231,76,60,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
-  <polygon points="1098,265 1110,270 1098,275" fill="rgba(231,76,60,0.6)"/>
-  <!-- ALB box -->
-  <rect x="1110" y="248" width="70" height="44" rx="5" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.5)" stroke-width="1.8"/>
-  <rect x="1118" y="258" width="42" height="6" rx="2" fill="rgba(255,255,255,0.22)"/>
-  <rect x="1118" y="268" width="32" height="5" rx="2" fill="rgba(255,255,255,0.14)"/>
-  <!-- 5XX error badge -->
-  <rect x="1090" y="308" width="78" height="38" rx="6" fill="rgba(231,76,60,0.35)" stroke="rgba(231,76,60,0.75)" stroke-width="2"/>
-  <!-- Error cascade arrows going down -->
-  <line x1="1024" y1="292" x2="1024" y2="330" stroke="rgba(231,76,60,0.45)" stroke-width="1.5" stroke-dasharray="3,3"/>
-  <line x1="1145" y1="292" x2="1145" y2="308" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="3,3"/>
-  <!-- Server stack (origin) -->
-  <rect x="840" y="338" width="88" height="32" rx="4" fill="rgba(231,76,60,0.12)" stroke="rgba(231,76,60,0.4)" stroke-width="1.5"/>
-  <rect x="840" y="374" width="88" height="32" rx="4" fill="rgba(231,76,60,0.1)" stroke="rgba(231,76,60,0.35)" stroke-width="1.5"/>
-  <rect x="840" y="410" width="88" height="32" rx="4" fill="rgba(231,76,60,0.08)" stroke="rgba(231,76,60,0.3)" stroke-width="1.5"/>
-  <!-- Down arrows on server stack -->
-  <line x1="884" y1="292" x2="884" y2="338" stroke="rgba(231,76,60,0.45)" stroke-width="1.5" stroke-dasharray="3,3"/>
-  <polygon points="880,336 884,346 888,336" fill="rgba(231,76,60,0.5)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(231,76,60,0.14)" stroke="rgba(231,76,60,0.38)" stroke-width="1"/>
-  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 16, 2026</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Post-Mortem: Next.js</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">SSR and ALB 5XX Error</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Cloudflare blocking and ALB 5XX incident analysis and resolution</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">POST-MORTEM</text>
-  <rect x="80" y="402" width="118" height="36" rx="18" fill="rgba(231,76,60,0.14)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <text x="139" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Next.js SSR</text>
-  <rect x="213" y="402" width="105" height="36" rx="18" fill="rgba(243,156,18,0.14)" stroke="rgba(243,156,18,0.4)" stroke-width="1"/>
-  <text x="265" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Cloudflare</text>
-  <rect x="333" y="402" width="92" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="379" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">ALB 5XX</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 16, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Postmortem NextJS SSR Error</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloudflare Blocking ALB 5XX...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Post Mortem | Next.js | SSR</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">INCIDENT ANALYSIS</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="135" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="147" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Post Mortem</text>
+  <rect x="229" y="420" width="99" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="278" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Next.js</text>
+  <rect x="342" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="382" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">SSR</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

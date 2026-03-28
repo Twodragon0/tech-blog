@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>OWASP 2025 Complete Guide Top 10 AI Security</title>
+  <title>OWASP 2025 Latest Update Complete Guide Top 10 Agentic AI Security</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0f1a"/>
-      <stop offset="100%" style="stop-color:#151a35"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2980b9"/>
-      <stop offset="100%" style="stop-color:#e67e22"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,58 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Top 10 numbered bars -->
-  <rect x="760" y="120" width="90" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
-  <rect x="760" y="138" width="76" height="13" rx="3" fill="#3498db" opacity="0.65"/>
-  <rect x="760" y="156" width="100" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
-  <rect x="760" y="174" width="70" height="13" rx="3" fill="#1c638e" opacity="0.6"/>
-  <rect x="760" y="192" width="82" height="13" rx="3" fill="#2980b9" opacity="0.55"/>
-  <rect x="760" y="210" width="68" height="13" rx="3" fill="#3498db" opacity="0.65"/>
-  <rect x="760" y="228" width="88" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
-  <rect x="760" y="246" width="74" height="13" rx="3" fill="#1c638e" opacity="0.55"/>
-  <rect x="760" y="264" width="72" height="13" rx="3" fill="#3498db" opacity="0.65"/>
-  <rect x="760" y="282" width="84" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
-  <!-- AI Brain (stylized neural net) -->
-  <ellipse cx="970" cy="360" rx="58" ry="48" fill="none" stroke="#e67e22" stroke-width="2" opacity="0.8"/>
-  <ellipse cx="970" cy="360" rx="36" ry="30" fill="rgba(230,126,34,0.08)"/>
-  <circle cx="948" cy="350" r="5" fill="#e67e22" opacity="0.9"/>
-  <circle cx="975" cy="342" r="4" fill="#e67e22" opacity="0.8"/>
-  <circle cx="992" cy="358" r="5" fill="#e67e22" opacity="0.9"/>
-  <circle cx="967" cy="374" r="4" fill="#e67e22" opacity="0.8"/>
-  <circle cx="950" cy="370" r="3" fill="#e67e22" opacity="0.7"/>
-  <line x1="948" y1="350" x2="975" y2="342" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
-  <line x1="975" y1="342" x2="992" y2="358" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
-  <line x1="992" y1="358" x2="967" y2="374" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
-  <line x1="967" y1="374" x2="950" y2="370" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
-  <line x1="950" y1="370" x2="948" y2="350" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
-  <!-- Shield -->
-  <path d="M1060 135 L1105 152 L1105 196 Q1105 228 1060 245 Q1015 228 1015 196 L1015 152 Z" fill="none" stroke="#2980b9" stroke-width="2.5" opacity="0.8"/>
-  <path d="M1060 152 L1096 166 L1096 195 Q1096 218 1060 232 Q1024 218 1024 195 L1024 166 Z" fill="rgba(41,128,185,0.12)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="6" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 3, 2026</text>
-  <!-- Title -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">OWASP 2025 Complete Guide</text>
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Top 10 and AI Security</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 3, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OWASP 2025 Latest Update</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Complete Guide Top 10...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Comprehensive breakdown of OWASP Top 10 with AI threat integration</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">OWASP | Security | Top10</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY FRAMEWORK</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.5)" stroke-width="1"/>
-  <text x="145" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">OWASP Top 10</text>
-  <rect x="226" y="402" width="120" height="36" rx="18" fill="rgba(230,126,34,0.2)" stroke="rgba(230,126,34,0.45)" stroke-width="1"/>
-  <text x="286" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Security</text>
-  <rect x="362" y="402" width="80" height="36" rx="18" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="402" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Guide</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="81" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">OWASP</text>
+  <rect x="175" y="420" width="108" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="229" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Security</text>
+  <rect x="297" y="420" width="81" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="337" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Top10</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,20 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS Database Gateway - NLB Security Group Guide</title>
+  <title>AWSIn Database Access Gateway Build NLB Security Group Complete Guide</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1b2a"/>
-      <stop offset="100%" stop-color="#1a3050"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2980b9"/>
-      <stop offset="100%" stop-color="#27ae60"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="450" r="200" fill="#2980b9" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="140" fill="#27ae60" opacity="0.05" filter="url(#sg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -23,45 +20,43 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Topic illustrations: NLB load balancer with DB icons behind security group -->
-  <g transform="translate(940,295)" opacity="0.4">
-    <!-- Security group dashed border -->
-    <rect x="-155" y="-130" width="310" height="250" rx="12" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="10 5"/>
-    <!-- NLB box -->
-    <rect x="-140" y="-60" width="85" height="110" rx="8" fill="none" stroke="#2980b9" stroke-width="2.5"/>
-    <!-- Distribution lines -->
-    <line x1="-55" y1="-5" x2="20" y2="-55" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
-    <line x1="-55" y1="10" x2="20" y2="10" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
-    <line x1="-55" y1="25" x2="20" y2="65" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
-    <!-- Arrows on lines -->
-    <polygon points="17,-62 22,-53 12,-50" fill="#2980b9"/>
-    <polygon points="17,5 23,12 13,14" fill="#2980b9"/>
-    <polygon points="17,58 23,67 13,68" fill="#2980b9"/>
-    <!-- DB cylinder 1 -->
-    <ellipse cx="70" cy="-65" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <rect x="38" y="-65" width="64" height="45" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <ellipse cx="70" cy="-20" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <!-- DB cylinder 2 -->
-    <ellipse cx="70" cy="45" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <rect x="38" y="45" width="64" height="45" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <ellipse cx="70" cy="90" rx="32" ry="11" fill="none" stroke="#27ae60" stroke-width="2"/>
-  </g>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="40" y="38" width="240" height="34" rx="17" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#2980b9">OCTOBER 3, 2025</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">AWS Database Gateway -</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#27ae60" filter="url(#glow)">NLB Security Group Guide</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">Build secure DB access gateway with NLB &amp; Security Group configuration</text>
-  <line x1="80" y1="325" x2="560" y2="325" stroke="#2980b9" stroke-width="2" opacity="0.6"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#27ae60" letter-spacing="3">AWS ARCHITECTURE GUIDE</text>
-  <rect x="80" y="398" width="120" height="32" rx="16" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-  <text x="140" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7eb8e0" text-anchor="middle">NLB Gateway</text>
-  <rect x="214" y="398" width="140" height="32" rx="16" fill="#27ae60" opacity="0.15" stroke="#27ae60" stroke-width="1"/>
-  <text x="284" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7dcea0" text-anchor="middle">Security Group</text>
-  <rect x="368" y="398" width="100" height="32" rx="16" fill="#2980b9" opacity="0.1" stroke="#2980b9" stroke-width="1"/>
-  <text x="418" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7eb8e0" text-anchor="middle">Database</text>
-  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
-  <line x1="0" y1="520" x2="1200" y2="520" stroke="#2980b9" stroke-width="1" opacity="0.3"/>
-  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">OCTOBER 3, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWSIn Database Access Gateway</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Build NLB Security Group...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | NLB | Security Group</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="214" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">NLB</text>
+  <rect x="268" y="420" width="162" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="349" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Security Group</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

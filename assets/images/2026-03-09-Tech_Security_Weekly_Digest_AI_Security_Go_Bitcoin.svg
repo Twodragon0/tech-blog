@@ -1,56 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Agent Security, Bitcoin Saylor, Agent Safehouse - Security Weekly 2026-03-09</title>
+  <title>Tech Security Weekly Digest AI Security Go Bitcoin</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a1a2e"/>
-      <stop offset="50%" stop-color="#16213e"/>
-      <stop offset="100%" stop-color="#0f3460"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#6366f1"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="45"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="200" r="280" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="220" fill="#6366f1" opacity="0.07" filter="url(#sg)"/>
-  <!-- Agent Safehouse / sandbox icon -->
-  <g transform="translate(960,290)" filter="url(#glow)" opacity="0.6">
-    <!-- House/vault shape -->
-    <polygon points="0,-70 65,0 65,60 -65,60 -65,0" fill="none" stroke="#6366f1" stroke-width="2.5"/>
-    <polygon points="0,-70 65,0 65,60 -65,60 -65,0" fill="#6366f1" opacity="0.07"/>
-    <!-- Door -->
-    <rect x="-18" y="10" width="36" height="50" rx="4" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.7"/>
-    <!-- Lock on door -->
-    <circle cx="0" cy="35" r="6" fill="#f59e0b" opacity="0.9"/>
-    <!-- Satellite dish (monitoring) -->
-    <circle cx="40" cy="-20" r="15" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
-    <line x1="40" y1="-20" x2="40" y2="-5" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-    <!-- Injection warning -->
-    <line x1="-60" y1="-18" x2="-28" y2="-18" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.7"/>
-  </g>
-  <!-- Date + category -->
-  <rect x="70" y="44" width="158" height="34" rx="17" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="149" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fcd34d" text-anchor="middle">March 9, 2026</text>
-  <rect x="248" y="44" width="148" height="34" rx="17" fill="rgba(99,102,241,0.15)" stroke="#6366f1" stroke-width="1.5"/>
-  <text x="322" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">AI AGENT</text>
-  <!-- Title -->
-  <text x="70" y="195" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">AI Agent</text>
-  <text x="70" y="252" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">Security Threats</text>
-  <text x="70" y="308" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Weekly Security Digest</text>
-  <!-- Keywords -->
-  <rect x="70" y="368" width="168" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="154" y="391" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#fcd34d" text-anchor="middle">Prompt Inject</text>
-  <rect x="258" y="368" width="138" height="36" rx="18" fill="rgba(99,102,241,0.14)" stroke="#6366f1" stroke-width="1.5"/>
-  <text x="327" y="391" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#a5b4fc" text-anchor="middle">Safehouse</text>
-  <rect x="416" y="368" width="118" height="36" rx="18" fill="rgba(245,166,35,0.13)" stroke="#f5a623" stroke-width="1.5"/>
-  <text x="475" y="391" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Bitcoin</text>
-  <!-- Accent bar -->
-  <rect x="70" y="434" width="420" height="4" rx="2" fill="url(#acc)"/>
-  <!-- Footer -->
-  <line x1="50" y1="592" x2="1150" y2="592" stroke="#1e293b" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
-  <text x="70" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b">DevSecOps Weekly Intel</text>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 9, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Security Go Bitcoin</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AI</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

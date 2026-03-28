@@ -1,20 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 8th - Week 3: FinOps and ISMS-P Audit</title>
+  <title>Cloud Security 8Batch 3Week AWS FinOps ArchitectureFrom ISMS P Security AuditTo </title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a1500"/>
-      <stop offset="100%" stop-color="#2d2500"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a1a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f1c40f"/>
-      <stop offset="100%" stop-color="#27ae60"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="450" r="200" fill="#f1c40f" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="140" fill="#27ae60" opacity="0.05" filter="url(#sg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -23,59 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Topic illustrations: Cost dashboard with audit checklist -->
-  <g transform="translate(940,290)" opacity="0.38">
-    <!-- Cost dashboard screen -->
-    <rect x="-155" y="-110" width="175" height="130" rx="8" fill="none" stroke="#f1c40f" stroke-width="2"/>
-    <!-- Dashboard header -->
-    <rect x="-155" y="-110" width="175" height="20" rx="8" fill="#f1c40f" opacity="0.15"/>
-    <!-- Bar chart bars -->
-    <rect x="-140" y="-50" width="20" height="50" rx="3" fill="#f1c40f" opacity="0.5"/>
-    <rect x="-112" y="-70" width="20" height="70" rx="3" fill="#f1c40f" opacity="0.4"/>
-    <rect x="-84" y="-40" width="20" height="40" rx="3" fill="#27ae60" opacity="0.6"/>
-    <rect x="-56" y="-80" width="20" height="80" rx="3" fill="#f1c40f" opacity="0.3"/>
-    <rect x="-28" y="-55" width="20" height="55" rx="3" fill="#27ae60" opacity="0.5"/>
-    <!-- Trend line going down (savings) -->
-    <polyline points="-130,-75 -102,-60 -74,-45 -46,-70 -18,-40" fill="none" stroke="#27ae60" stroke-width="2.5"/>
-    <polygon points="-22,-35 -16,-41 -22,-47" fill="#27ae60"/>
-    <!-- Audit checklist (right) -->
-    <rect x="35" y="-110" width="130" height="140" rx="8" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <!-- Checklist items -->
-    <circle cx="50" cy="-75" r="5" fill="#27ae60" opacity="0.7"/>
-    <path d="M47,-76 L49,-73 L54,-79" fill="none" stroke="white" stroke-width="1.5"/>
-    <line x1="60" y1="-75" x2="155" y2="-75" stroke="#27ae60" stroke-width="1" opacity="0.5"/>
-    <circle cx="50" cy="-55" r="5" fill="#27ae60" opacity="0.7"/>
-    <path d="M47,-56 L49,-53 L54,-59" fill="none" stroke="white" stroke-width="1.5"/>
-    <line x1="60" y1="-55" x2="155" y2="-55" stroke="#27ae60" stroke-width="1" opacity="0.5"/>
-    <circle cx="50" cy="-35" r="5" fill="#27ae60" opacity="0.7"/>
-    <path d="M47,-36 L49,-33 L54,-39" fill="none" stroke="white" stroke-width="1.5"/>
-    <line x1="60" y1="-35" x2="155" y2="-35" stroke="#27ae60" stroke-width="1" opacity="0.5"/>
-    <circle cx="50" cy="-15" r="5" fill="#f1c40f" opacity="0.5"/>
-    <line x1="60" y1="-15" x2="155" y2="-15" stroke="#f1c40f" stroke-width="1" opacity="0.4"/>
-    <circle cx="50" cy="5" r="5" fill="#f1c40f" opacity="0.3"/>
-    <line x1="60" y1="5" x2="155" y2="5" stroke="#f1c40f" stroke-width="1" opacity="0.3"/>
-    <!-- Certification badge -->
-    <circle cx="100" cy="35" r="22" fill="none" stroke="#27ae60" stroke-width="2"/>
-    <path d="M100,13 L106,28 L122,28 L110,37 L114,52 L100,43 L86,52 L90,37 L78,28 L94,28 Z" fill="#27ae60" opacity="0.3"/>
-    <!-- Week 3 badge -->
-    <rect x="-155" y="38" width="80" height="28" rx="8" fill="#f1c40f" opacity="0.15" stroke="#f1c40f" stroke-width="1"/>
-  </g>
+  <!-- Cost graph bars -->
+  <rect x="880" y="260" width="30" height="80" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="220" width="30" height="120" rx="4" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+  <rect x="960" y="240" width="30" height="100" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="180" width="30" height="160" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <!-- Trend line -->
+  <polyline points="895,270 935,230 975,250 1015,190" fill="none" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+  <circle cx="1015" cy="190" r="5" fill="rgba(34,197,94,0.5)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="40" y="38" width="250" height="34" rx="17" fill="#f1c40f" opacity="0.15" stroke="#f1c40f" stroke-width="1"/>
-  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f1c40f">DECEMBER 12, 2025</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">Cloud Security 8th -</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#f1c40f" filter="url(#glow)">Week 3: FinOps &amp; ISMS-P Audit</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">AWS cost optimization strategy &amp; ISMS-P security certification audit</text>
-  <line x1="80" y1="325" x2="560" y2="325" stroke="#f1c40f" stroke-width="2" opacity="0.6"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#27ae60" letter-spacing="3">CLOUD SECURITY COURSE</text>
-  <rect x="80" y="398" width="80" height="32" rx="16" fill="#f1c40f" opacity="0.15" stroke="#f1c40f" stroke-width="1"/>
-  <text x="120" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5dc60" text-anchor="middle">FinOps</text>
-  <rect x="174" y="398" width="90" height="32" rx="16" fill="#27ae60" opacity="0.15" stroke="#27ae60" stroke-width="1"/>
-  <text x="219" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7dcea0" text-anchor="middle">ISMS-P</text>
-  <rect x="278" y="398" width="80" height="32" rx="16" fill="#f1c40f" opacity="0.1" stroke="#f1c40f" stroke-width="1"/>
-  <text x="318" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5dc60" text-anchor="middle">Week 3</text>
-  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
-  <line x1="0" y1="520" x2="1200" y2="520" stroke="#f1c40f" stroke-width="1" opacity="0.3"/>
-  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">DECEMBER 12, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security 8Batch 3Week</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS FinOps ArchitectureFrom...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | FinOps | ISMS P</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">FINOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="90" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="219" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">FinOps</text>
+  <rect x="278" y="420" width="90" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="323" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">ISMS P</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

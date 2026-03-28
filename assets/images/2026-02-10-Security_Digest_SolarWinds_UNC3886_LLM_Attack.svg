@@ -2,15 +2,16 @@
   <title>Security Digest SolarWinds UNC3886 LLM Attack</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a0a0a"/>
-      <stop offset="100%" stop-color="#2d1212"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c0392b"/>
-      <stop offset="100%" stop-color="#e67e22"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,40 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="420" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="420" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Crosshair/target -->
-  <circle cx="968" cy="360" r="68" fill="none" stroke="rgba(192,57,43,0.5)" stroke-width="2.5"/>
-  <circle cx="968" cy="360" r="44" fill="none" stroke="rgba(192,57,43,0.4)" stroke-width="2"/>
-  <circle cx="968" cy="360" r="16" fill="rgba(192,57,43,0.25)" stroke="rgba(192,57,43,0.7)" stroke-width="2.5"/>
-  <!-- Crosshair lines -->
-  <line x1="900" y1="360" x2="952" y2="360" stroke="rgba(192,57,43,0.6)" stroke-width="2"/>
-  <line x1="984" y1="360" x2="1036" y2="360" stroke="rgba(192,57,43,0.6)" stroke-width="2"/>
-  <line x1="968" y1="292" x2="968" y2="344" stroke="rgba(192,57,43,0.6)" stroke-width="2"/>
-  <line x1="968" y1="376" x2="968" y2="428" stroke="rgba(192,57,43,0.6)" stroke-width="2"/>
-  <!-- Satellite dish arc signals -->
-  <path d="M1082 296 Q1118 278 1148 308" fill="none" stroke="rgba(230,126,34,0.5)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M1090 308 Q1122 292 1148 320" fill="none" stroke="rgba(230,126,34,0.38)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M1098 320 Q1126 306 1148 332" fill="none" stroke="rgba(230,126,34,0.28)" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Dish pole -->
-  <line x1="1098" y1="332" x2="1098" y2="400" stroke="rgba(230,126,34,0.5)" stroke-width="4"/>
-  <line x1="1082" y1="400" x2="1114" y2="400" stroke="rgba(230,126,34,0.5)" stroke-width="4"/>
-  <!-- Signal beam to target -->
-  <line x1="1082" y1="312" x2="1032" y2="345" stroke="rgba(230,126,34,0.3)" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
   <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 10, 2026</text>
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">SolarWinds RCE</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">UNC3886 Espionage</text>
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">SolarWinds RCE, UNC3886 Telecom Espionage, LLM Attack</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Security Digest SolarWinds</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">UNC3886 LLM Attack</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Security Digest | SolarWinds RCE | UNC3886</text>
+  <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY DIGEST</text>
-  <rect x="80" y="400" width="115" height="30" rx="15" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
-  <text x="137" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">SolarWinds</text>
-  <rect x="210" y="400" width="105" height="30" rx="15" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
-  <text x="262" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">UNC3886</text>
-  <rect x="330" y="400" width="110" height="30" rx="15" fill="rgba(230,126,34,0.15)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
-  <text x="385" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">LLM Attack</text>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="162" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="161" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Security Dige.</text>
+  <rect x="256" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="337" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">SolarWinds RCE</text>
+  <rect x="432" y="420" width="99" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="481" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">UNC3886</text>
+  <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>

@@ -1,20 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 8th OT Guide - DevSecOps to FinOps</title>
+  <title>Cloud Security 8Batch OT Guide DevSecOpsFrom FinOpsTo Practical Talent Leap</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f0a1a"/>
-      <stop offset="100%" stop-color="#1a1530"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#6c5ce7"/>
-      <stop offset="100%" stop-color="#f39c12"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="450" r="200" fill="#6c5ce7" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="140" fill="#f39c12" opacity="0.05" filter="url(#sg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -23,47 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Topic illustrations: Career ladder with Security/DevOps/FinOps badges -->
-  <g transform="translate(950,300)" opacity="0.38">
-    <!-- Ladder rails -->
-    <line x1="-60" y1="-130" x2="-60" y2="130" stroke="#6c5ce7" stroke-width="3"/>
-    <line x1="60" y1="-130" x2="60" y2="130" stroke="#6c5ce7" stroke-width="3"/>
-    <!-- Ladder rungs -->
-    <line x1="-60" y1="-100" x2="60" y2="-100" stroke="#6c5ce7" stroke-width="2.5"/>
-    <line x1="-60" y1="-40" x2="60" y2="-40" stroke="#6c5ce7" stroke-width="2.5"/>
-    <line x1="-60" y1="20" x2="60" y2="20" stroke="#6c5ce7" stroke-width="2.5"/>
-    <line x1="-60" y1="80" x2="60" y2="80" stroke="#6c5ce7" stroke-width="2.5"/>
-    <!-- Badges on rungs -->
-    <!-- Security badge (bottom) -->
-    <rect x="70" y="65" width="90" height="30" rx="8" fill="#6c5ce7" opacity="0.2" stroke="#6c5ce7" stroke-width="1.5"/>
-    <!-- DevOps badge (middle) -->
-    <rect x="70" y="5" width="90" height="30" rx="8" fill="#2980b9" opacity="0.2" stroke="#2980b9" stroke-width="1.5"/>
-    <!-- DevSecOps badge (upper middle) -->
-    <rect x="70" y="-55" width="100" height="30" rx="8" fill="#6c5ce7" opacity="0.25" stroke="#6c5ce7" stroke-width="1.5"/>
-    <!-- FinOps badge (top) -->
-    <rect x="70" y="-115" width="90" height="30" rx="8" fill="#f39c12" opacity="0.2" stroke="#f39c12" stroke-width="1.5"/>
-    <!-- Star at top -->
-    <polygon points="0,-145 6,-130 21,-130 10,-120 14,-105 0,-114 -14,-105 -10,-120 -21,-130 -6,-130" fill="#f39c12" opacity="0.6"/>
-    <!-- Arrow showing progression -->
-    <path d="M-90,-60 Q-100,-20 -90,20" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="5 3"/>
-    <polygon points="-96,17 -90,28 -84,17" fill="#f39c12" opacity="0.7"/>
-  </g>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="40" y="38" width="260" height="34" rx="17" fill="#6c5ce7" opacity="0.15" stroke="#6c5ce7" stroke-width="1"/>
-  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#6c5ce7">NOVEMBER 21, 2025</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">Cloud Security 8th OT Guide</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#f39c12" filter="url(#glow)">DevSecOps to FinOps</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">8th batch orientation: practical DevSecOps to FinOps talent development</text>
-  <line x1="80" y1="325" x2="540" y2="325" stroke="#6c5ce7" stroke-width="2" opacity="0.6"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#f39c12" letter-spacing="3">CLOUD SECURITY COURSE</text>
-  <rect x="80" y="398" width="110" height="32" rx="16" fill="#6c5ce7" opacity="0.15" stroke="#6c5ce7" stroke-width="1"/>
-  <text x="135" y="419" font-family="Arial,sans-serif" font-size="13" fill="#b39ef7" text-anchor="middle">DevSecOps</text>
-  <rect x="204" y="398" width="80" height="32" rx="16" fill="#f39c12" opacity="0.15" stroke="#f39c12" stroke-width="1"/>
-  <text x="244" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5c860" text-anchor="middle">FinOps</text>
-  <rect x="298" y="398" width="110" height="32" rx="16" fill="#6c5ce7" opacity="0.1" stroke="#6c5ce7" stroke-width="1"/>
-  <text x="353" y="419" font-family="Arial,sans-serif" font-size="13" fill="#b39ef7" text-anchor="middle">8th Batch</text>
-  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
-  <line x1="0" y1="520" x2="1200" y2="520" stroke="#6c5ce7" stroke-width="1" opacity="0.3"/>
-  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">NOVEMBER 21, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security 8Batch OT Guide</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">DevSecOpsFrom FinOpsTo...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Cloud Security | DevSecOps | FinOps</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="162" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="161" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="256" y="420" width="117" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="314" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="387" y="420" width="90" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="432" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">FinOps</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

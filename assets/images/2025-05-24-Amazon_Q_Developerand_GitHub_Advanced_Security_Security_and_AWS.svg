@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Amazon Q Developer and GitHub Advanced Security on AWS</title>
+  <title>Amazon Q DeveloperAnd GitHub Advanced Security Security And AWS</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1b2a"/>
-      <stop offset="100%" stop-color="#1a3050"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2980b9"/>
-      <stop offset="100%" stop-color="#27ae60"/>
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,49 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
   <!-- Background circles -->
-  <circle cx="1050" cy="350" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="350" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- AI Code assistant icon (Amazon Q) -->
-  <!-- Q letter in a diamond shape -->
-  <rect x="870" y="190" width="130" height="130" rx="10" fill="none" stroke="rgba(41,128,185,0.55)" stroke-width="3" transform="rotate(45 935 255)"/>
-  <!-- Code lines inside/near Q -->
-  <line x1="875" y1="320" x2="920" y2="320" stroke="rgba(41,128,185,0.4)" stroke-width="2"/>
-  <line x1="875" y1="332" x2="905" y2="332" stroke="rgba(41,128,185,0.3)" stroke-width="2"/>
-  <!-- GHAS security scan badge -->
-  <rect x="1020" y="195" width="150" height="110" rx="8" fill="rgba(39,174,96,0.12)" stroke="rgba(39,174,96,0.5)" stroke-width="2"/>
-  <!-- Shield inside GHAS badge -->
-  <path d="M1068 220 L1120 232 L1120 268 Q1120 295 1068 310 Q1016 295 1016 268 L1016 232 Z" fill="none" stroke="rgba(39,174,96,0.65)" stroke-width="2.5"/>
-  <path d="M1043 262 L1060 279 L1096 243" fill="none" stroke="rgba(39,174,96,0.9)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Scan lines (representing code scanning) -->
-  <line x1="870" y1="365" x2="1000" y2="365" stroke="rgba(41,128,185,0.25)" stroke-width="1.5"/>
-  <line x1="870" y1="378" x2="960" y2="378" stroke="rgba(41,128,185,0.18)" stroke-width="1.5"/>
-  <line x1="870" y1="391" x2="980" y2="391" stroke="rgba(41,128,185,0.22)" stroke-width="1.5"/>
-  <circle cx="862" cy="365" r="4" fill="rgba(39,174,96,0.6)"/>
-  <circle cx="862" cy="378" r="4" fill="rgba(39,174,96,0.5)"/>
-  <circle cx="862" cy="391" r="4" fill="rgba(41,128,185,0.55)"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="190" height="32" rx="4" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="175" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 24, 2025</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 24, 2025</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="44" font-weight="700" fill="white" letter-spacing="-1">Amazon Q Developer</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="40" font-weight="700" fill="white" letter-spacing="-1">and GitHub GHAS on AWS</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Amazon Q DeveloperAnd GitHub</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Advanced Security Security...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI-Powered Code Security and Advanced Scanning</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Amazon Q | GitHub Advanced Security | Code Security</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
-  <!-- Category -->
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS GUIDE</text>
-  <!-- Tags -->
-  <rect x="80" y="420" width="110" height="36" rx="18" fill="rgba(41,128,185,0.18)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="135" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#2980b9" text-anchor="middle" font-weight="600">Amazon Q</text>
-  <rect x="206" y="420" width="120" height="36" rx="18" fill="rgba(39,174,96,0.18)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
-  <text x="266" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#27ae60" text-anchor="middle" font-weight="600">GitHub GHAS</text>
-  <rect x="342" y="420" width="80" height="36" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="382" y="443" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)" text-anchor="middle" font-weight="600">AWS</text>
-  <!-- Bottom -->
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="108" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="134" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Amazon Q</text>
+  <rect x="202" y="420" width="162" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="283" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">GitHub Advanc.</text>
+  <rect x="378" y="420" width="153" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="454" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Code Security</text>
+  <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>

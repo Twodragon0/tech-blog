@@ -1,20 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloudflare Global Incident Post-Mortem 2025-11-18</title>
+  <title>Post Mortem 2025 11 18 Cloudflare Global Incident Response Log What Learned</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a0a0a"/>
-      <stop offset="100%" stop-color="#2d1515"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#130820"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f48120"/>
-      <stop offset="100%" stop-color="#e74c3c"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="450" r="200" fill="#f48120" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="140" fill="#e74c3c" opacity="0.05" filter="url(#sg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -23,50 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Topic illustrations: Globe with outage indicators + timeline bar -->
-  <g transform="translate(950,280)" opacity="0.38">
-    <!-- Globe circle -->
-    <circle cx="0" cy="0" r="90" fill="none" stroke="#f48120" stroke-width="2.5"/>
-    <!-- Globe latitude lines -->
-    <ellipse cx="0" cy="0" rx="90" ry="30" fill="none" stroke="#f48120" stroke-width="1" opacity="0.4"/>
-    <ellipse cx="0" cy="-45" rx="65" ry="18" fill="none" stroke="#f48120" stroke-width="1" opacity="0.3"/>
-    <ellipse cx="0" cy="45" rx="65" ry="18" fill="none" stroke="#f48120" stroke-width="1" opacity="0.3"/>
-    <!-- Globe longitude lines -->
-    <line x1="0" y1="-90" x2="0" y2="90" stroke="#f48120" stroke-width="1" opacity="0.4"/>
-    <path d="M-45,-80 Q-20,0 -45,80" fill="none" stroke="#f48120" stroke-width="1" opacity="0.3"/>
-    <path d="M45,-80 Q20,0 45,80" fill="none" stroke="#f48120" stroke-width="1" opacity="0.3"/>
-    <!-- Outage indicator dots -->
-    <circle cx="-30" cy="-20" r="8" fill="#e74c3c" opacity="0.8"/>
-    <circle cx="40" cy="10" r="8" fill="#e74c3c" opacity="0.8"/>
-    <circle cx="-50" cy="30" r="6" fill="#e74c3c" opacity="0.7"/>
-    <circle cx="20" cy="-45" r="7" fill="#e74c3c" opacity="0.75"/>
-    <!-- Pulse rings around dots -->
-    <circle cx="-30" cy="-20" r="15" fill="none" stroke="#e74c3c" stroke-width="1.5" opacity="0.4"/>
-    <circle cx="40" cy="10" r="15" fill="none" stroke="#e74c3c" stroke-width="1.5" opacity="0.4"/>
-    <!-- Timeline bar below globe -->
-    <rect x="-100" y="110" width="200" height="16" rx="8" fill="#1a0a0a" stroke="#f48120" stroke-width="1.5"/>
-    <!-- Red outage zone on timeline -->
-    <rect x="-30" y="112" width="60" height="12" rx="6" fill="#e74c3c" opacity="0.7"/>
-    <!-- Recovery marker -->
-    <line x1="30" y1="104" x2="30" y2="130" stroke="#27ae60" stroke-width="2"/>
-    <polygon points="25,130 35,130 30,140" fill="#27ae60" opacity="0.7"/>
-  </g>
+  <!-- Abstract nodes -->
+  <circle cx="920" cy="200" r="18" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <circle cx="990" cy="240" r="14" fill="none" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="310" r="16" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <line x1="920" y1="218" x2="990" y2="226" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="990" y1="254" x2="950" y2="294" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="950" y1="294" x2="920" y2="218" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Abstract shape -->
+  <rect x="900" y="370" width="100" height="60" rx="8" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="40" y="38" width="260" height="34" rx="17" fill="#f48120" opacity="0.15" stroke="#f48120" stroke-width="1"/>
-  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f48120">NOVEMBER 19, 2025</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">Cloudflare Global Incident</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#f48120" filter="url(#glow)">Post-Mortem 2025-11-18</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">Response log, root cause analysis &amp; lessons learned from global outage</text>
-  <line x1="80" y1="325" x2="540" y2="325" stroke="#f48120" stroke-width="2" opacity="0.6"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#e74c3c" letter-spacing="3">POST-MORTEM</text>
-  <rect x="80" y="398" width="110" height="32" rx="16" fill="#f48120" opacity="0.15" stroke="#f48120" stroke-width="1"/>
-  <text x="135" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5a060" text-anchor="middle">Cloudflare</text>
-  <rect x="204" y="398" width="90" height="32" rx="16" fill="#e74c3c" opacity="0.15" stroke="#e74c3c" stroke-width="1"/>
-  <text x="249" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f08080" text-anchor="middle">Incident</text>
-  <rect x="308" y="398" width="120" height="32" rx="16" fill="#f48120" opacity="0.1" stroke="#f48120" stroke-width="1"/>
-  <text x="368" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5a060" text-anchor="middle">Post-Mortem</text>
-  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
-  <line x1="0" y1="520" x2="1200" y2="520" stroke="#f48120" stroke-width="1" opacity="0.3"/>
-  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">NOVEMBER 19, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Post Mortem 2025 11 18</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloudflare Global Incident...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Cloudflare | Post Mortem | Incident Response</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">INCIDENT ANALYSIS</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="126" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="143" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Cloudflare</text>
+  <rect x="220" y="420" width="135" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="287" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Post Mortem</text>
+  <rect x="369" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="450" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Incident Resp.</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

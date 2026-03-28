@@ -2,15 +2,16 @@
   <title>Tech Security Weekly Digest AI Ransomware Data Bitcoin</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#150a1a"/>
-      <stop offset="100%" style="stop-color:#2a1530"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8e44ad"/>
-      <stop offset="100%" style="stop-color:#f39c12"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,52 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Vertical stack layers with lock icons -->
-  <!-- Layer 1: AI Application -->
-  <rect x="790" y="138" width="340" height="46" rx="6" fill="rgba(142,68,173,0.18)" stroke="#8e44ad" stroke-width="2"/>
-  <!-- Lock icon layer 1 -->
-  <rect x="800" y="148" width="16" height="12" rx="2" fill="none" stroke="#8e44ad" stroke-width="1.5"/>
-  <path d="M 804 148 Q 804 143 808 143 Q 812 143 812 148" fill="none" stroke="#8e44ad" stroke-width="1.5"/>
-  <!-- Layer 2: Security Controls -->
-  <rect x="790" y="192" width="340" height="46" rx="6" fill="rgba(231,76,60,0.15)" stroke="#e74c3c" stroke-width="2"/>
-  <rect x="800" y="202" width="16" height="12" rx="2" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
-  <path d="M 804 202 Q 804 197 808 197 Q 812 197 812 202" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
-  <!-- Layer 3: Data Layer -->
-  <rect x="790" y="246" width="340" height="46" rx="6" fill="rgba(243,156,18,0.15)" stroke="#f39c12" stroke-width="2"/>
-  <rect x="800" y="256" width="16" height="12" rx="2" fill="none" stroke="#f39c12" stroke-width="1.5"/>
-  <path d="M 804 256 Q 804 251 808 251 Q 812 251 812 256" fill="none" stroke="#f39c12" stroke-width="1.5"/>
-  <!-- Layer 4: Ransomware threat indicator -->
-  <rect x="790" y="300" width="340" height="46" rx="6" fill="rgba(192,57,43,0.2)" stroke="#c0392b" stroke-width="2"/>
-  <!-- Attack arrow through layers -->
-  <polygon points="768,280 780,310 756,310" fill="#e74c3c" opacity="0.8"/>
-  <line x1="768" y1="280" x2="768" y2="370" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="5,3"/>
-  <!-- Bitcoin symbol -->
-  <circle cx="1110" cy="200" r="28" fill="rgba(243,156,18,0.18)" stroke="#f39c12" stroke-width="2"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.4)" stroke-width="1"/>
-  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">FEBRUARY 23, 2026</text>
-  <!-- Title -->
-  <text x="80" y="185" font-size="40" font-weight="700" fill="white" font-family="sans-serif">Vertical AI Security and</text>
-  <text x="80" y="245" font-size="40" font-weight="700" fill="white" font-family="sans-serif">BlackField Ransomware</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 23, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Ransomware Data Bitcoin</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="18" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Weekly digest: vertical AI security stack and BlackField ransomware data threats</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AI</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.5)" stroke-width="1"/>
-  <text x="137" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Vertical AI</text>
-  <rect x="211" y="402" width="115" height="36" rx="18" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.45)" stroke-width="1"/>
-  <text x="268" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">BlackField</text>
-  <rect x="342" y="402" width="130" height="36" rx="18" fill="rgba(243,156,18,0.2)" stroke="rgba(243,156,18,0.4)" stroke-width="1"/>
-  <text x="407" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Data Security</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

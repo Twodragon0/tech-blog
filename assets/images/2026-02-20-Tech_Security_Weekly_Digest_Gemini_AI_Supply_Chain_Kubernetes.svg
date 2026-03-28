@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Gemini 3.1 Pro Launch and K8s Security</title>
+  <title>Tech Security Weekly Digest Gemini AI Supply Chain Kubernetes</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f1020"/>
-      <stop offset="100%" stop-color="#1a1a40"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4285f4"/>
-      <stop offset="100%" stop-color="#34a853"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,56 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Gemini 4-pointed star -->
-  <path d="M930,150 Q960,200 990,150 Q960,100 930,150 Z" fill="rgba(66,133,244,0.5)" stroke="rgba(66,133,244,0.8)" stroke-width="1.5"/>
-  <path d="M930,150 Q880,180 930,210 Q960,180 930,150 Z" fill="rgba(52,168,83,0.4)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <path d="M990,150 Q1040,180 990,210 Q960,180 990,150 Z" fill="rgba(234,67,53,0.4)" stroke="rgba(234,67,53,0.6)" stroke-width="1.5"/>
-  <path d="M930,210 Q960,260 990,210 Q960,200 930,210 Z" fill="rgba(251,188,5,0.4)" stroke="rgba(251,188,5,0.6)" stroke-width="1.5"/>
-  <!-- Star glow -->
-  <circle cx="960" cy="180" r="8" fill="rgba(66,133,244,0.4)"/>
-  <!-- Kubernetes wheel -->
-  <circle cx="960" cy="380" r="60" fill="none" stroke="rgba(52,168,83,0.4)" stroke-width="2.5"/>
-  <circle cx="960" cy="380" r="18" fill="rgba(52,168,83,0.2)" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <!-- K8s spokes (7 spokes) -->
-  <line x1="960" y1="362" x2="960" y2="322" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <line x1="960" y1="398" x2="960" y2="438" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <line x1="943" y1="369" x2="911" y2="349" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <line x1="977" y1="391" x2="1009" y2="411" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <line x1="943" y1="391" x2="911" y2="411" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <line x1="977" y1="369" x2="1009" y2="349" stroke="rgba(52,168,83,0.5)" stroke-width="2"/>
-  <!-- Pod circles at wheel ends -->
-  <circle cx="960" cy="318" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <circle cx="960" cy="442" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <circle cx="907" cy="346" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <circle cx="1013" cy="414" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <circle cx="907" cy="414" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <circle cx="1013" cy="346" r="8" fill="rgba(52,168,83,0.3)" stroke="rgba(52,168,83,0.6)" stroke-width="1.5"/>
-  <!-- Connecting line between Gemini star and K8s wheel -->
-  <line x1="960" y1="280" x2="960" y2="320" stroke="rgba(66,133,244,0.3)" stroke-width="1.5" stroke-dasharray="5,4"/>
-  <!-- Supply chain nodes -->
-  <rect x="820" y="200" width="40" height="28" rx="4" fill="rgba(66,133,244,0.15)" stroke="rgba(66,133,244,0.35)" stroke-width="1"/>
-  <line x1="860" y1="214" x2="880" y2="214" stroke="rgba(66,133,244,0.35)" stroke-width="1.5"/>
-  <polygon points="880,214 872,209 872,219" fill="rgba(66,133,244,0.35)"/>
-  <rect x="1060" y="200" width="40" height="28" rx="4" fill="rgba(52,168,83,0.15)" stroke="rgba(52,168,83,0.35)" stroke-width="1"/>
-  <line x1="1040" y1="214" x2="1060" y2="214" stroke="rgba(52,168,83,0.35)" stroke-width="1.5"/>
-  <polygon points="1060,214 1052,209 1052,219" fill="rgba(52,168,83,0.35)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="1"/>
-  <text x="180" y="81" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">FEBRUARY 20, 2026</text>
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">Gemini 3.1 Pro Launch</text>
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">and K8s Security</text>
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">AI model releases, supply chain integrity &amp; Kubernetes hardening</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)"/>
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
-  <rect x="80" y="410" width="110" height="36" rx="18" fill="rgba(66,133,244,0.15)" stroke="rgba(66,133,244,0.4)" stroke-width="1"/>
-  <text x="135" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Gemini AI</text>
-  <rect x="206" y="410" width="125" height="36" rx="18" fill="rgba(52,168,83,0.15)" stroke="rgba(52,168,83,0.4)" stroke-width="1"/>
-  <text x="269" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Supply Chain</text>
-  <rect x="347" y="410" width="105" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="400" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Kubernetes</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.25)"/>
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="1">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 20, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Gemini AI Supply Chain...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | Gemini</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="90" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="432" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Gemini</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

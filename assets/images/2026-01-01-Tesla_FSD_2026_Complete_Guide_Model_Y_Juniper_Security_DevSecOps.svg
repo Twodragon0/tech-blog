@@ -2,15 +2,16 @@
   <title>Tesla FSD 2026 Complete Guide Model Y Juniper Security DevSecOps</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1520"/>
-      <stop offset="100%" style="stop-color:#1a2d42"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e74c3c"/>
-      <stop offset="100%" style="stop-color:#3498db"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,44 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Car silhouette body -->
-  <ellipse cx="990" cy="395" rx="155" ry="38" fill="rgba(52,152,219,0.12)" stroke="rgba(52,152,219,0.35)" stroke-width="1.5"/>
-  <path d="M865 390 Q878 348 918 328 Q955 312 990 312 Q1025 312 1062 328 Q1102 348 1115 390 Z" fill="rgba(52,152,219,0.18)" stroke="rgba(52,152,219,0.45)" stroke-width="1.5"/>
-  <path d="M918 328 Q955 290 990 286 Q1025 290 1062 328" fill="none" stroke="rgba(52,152,219,0.35)" stroke-width="1.5"/>
-  <!-- Wheels -->
-  <circle cx="912" cy="398" r="26" fill="rgba(10,25,45,0.9)" stroke="rgba(52,152,219,0.65)" stroke-width="2"/>
-  <circle cx="912" cy="398" r="13" fill="rgba(52,152,219,0.28)"/>
-  <circle cx="1068" cy="398" r="26" fill="rgba(10,25,45,0.9)" stroke="rgba(52,152,219,0.65)" stroke-width="2"/>
-  <circle cx="1068" cy="398" r="13" fill="rgba(52,152,219,0.28)"/>
-  <!-- FSD sensor rays -->
-  <line x1="990" y1="314" x2="945" y2="235" stroke="rgba(231,76,60,0.5)" stroke-width="1.2" stroke-dasharray="5,4"/>
-  <line x1="990" y1="314" x2="990" y2="225" stroke="rgba(231,76,60,0.5)" stroke-width="1.2" stroke-dasharray="5,4"/>
-  <line x1="990" y1="314" x2="1035" y2="235" stroke="rgba(231,76,60,0.5)" stroke-width="1.2" stroke-dasharray="5,4"/>
-  <line x1="865" y1="362" x2="820" y2="308" stroke="rgba(231,76,60,0.38)" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="1115" y1="362" x2="1160" y2="308" stroke="rgba(231,76,60,0.38)" stroke-width="1" stroke-dasharray="4,4"/>
-  <!-- Radar arcs -->
-  <path d="M990 314 m-50 0 a50,50 0 0,1 100,0" fill="none" stroke="rgba(52,152,219,0.25)" stroke-width="1.5"/>
-  <path d="M990 314 m-80 0 a80,80 0 0,1 160,0" fill="none" stroke="rgba(52,152,219,0.15)" stroke-width="1"/>
-  <!-- Security shield below car -->
-  <path d="M990 438 L970 454 L970 474 Q970 490 990 498 Q1010 490 1010 474 L1010 454 Z" fill="rgba(231,76,60,0.18)" stroke="rgba(231,76,60,0.7)" stroke-width="2"/>
-  <path d="M983 463 L988 470 L998 458" fill="none" stroke="rgba(231,76,60,0.95)" stroke-width="2.2"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(231,76,60,0.14)" stroke="rgba(231,76,60,0.38)" stroke-width="1"/>
-  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 1, 2026</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Tesla FSD 2026 Guide</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Model Y Security Analysis</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Full Self-Driving Security from a DevSecOps Perspective</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">AUTOMOTIVE SECURITY</text>
-  <rect x="80" y="402" width="112" height="36" rx="18" fill="rgba(231,76,60,0.14)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <text x="136" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Tesla FSD</text>
-  <rect x="207" y="402" width="102" height="36" rx="18" fill="rgba(52,152,219,0.14)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="258" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Model Y</text>
-  <rect x="324" y="402" width="115" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="381" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">DevSecOps</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 1, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tesla FSD 2026 Complete Guide</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Model Y Juniper Security...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Tesla | FSD | Model Y</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="81" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Tesla</text>
+  <rect x="175" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="215" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">FSD</text>
+  <rect x="269" y="420" width="99" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="318" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Model Y</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -2,15 +2,16 @@
   <title>Tech Security Weekly Digest Ollama AI SolarWinds RCE Google IPIDEA</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1b2a"/>
-      <stop offset="100%" style="stop-color:#1a3050"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2980b9"/>
-      <stop offset="100%" style="stop-color:#f39c12"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,54 +20,42 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Panel 1: Ollama AI exposed server -->
-  <rect x="760" y="135" width="130" height="88" rx="7" fill="rgba(108,92,231,0.12)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <circle cx="800" cy="168" r="22" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="1.5"/>
-  <!-- Exposed warning on server -->
-  <rect x="830" y="154" width="50" height="20" rx="3" fill="rgba(231,76,60,0.3)" stroke="#e74c3c" stroke-width="1"/>
-  <!-- Panel 2: SolarWinds sun cracked -->
-  <circle cx="970" cy="175" r="32" fill="rgba(243,156,18,0.12)" stroke="#f39c12" stroke-width="2" opacity="0.85"/>
-  <line x1="970" y1="138" x2="970" y2="128" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
-  <line x1="996" y1="149" x2="1003" y2="142" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
-  <line x1="1005" y1="175" x2="1016" y2="175" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
-  <line x1="944" y1="149" x2="937" y2="142" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
-  <line x1="935" y1="175" x2="924" y2="175" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
-  <!-- Crack on sun -->
-  <polyline points="958,158 966,174 956,186" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Panel 3: IPIDEA proxy disruption nodes -->
-  <circle cx="1110" cy="160" r="22" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1.5"/>
-  <circle cx="1090" cy="188" r="14" fill="rgba(52,152,219,0.1)" stroke="#3498db" stroke-width="1"/>
-  <circle cx="1130" cy="190" r="14" fill="rgba(230,126,34,0.1)" stroke="#e67e22" stroke-width="1" stroke-dasharray="4,3"/>
-  <!-- X on disrupted node -->
-  <line x1="1123" y1="183" x2="1137" y2="197" stroke="#e67e22" stroke-width="2"/>
-  <line x1="1137" y1="183" x2="1123" y2="197" stroke="#e67e22" stroke-width="2"/>
-  <line x1="1110" y1="138" x2="1090" y2="188" stroke="rgba(52,152,219,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="1110" y1="138" x2="1130" y2="190" stroke="rgba(230,126,34,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
-  <!-- Title -->
-  <text x="80" y="185" font-size="40" font-weight="700" fill="white" font-family="sans-serif">Ollama AI Exposed,</text>
-  <text x="80" y="245" font-size="40" font-weight="700" fill="white" font-family="sans-serif">SolarWinds RCE and IPIDEA</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Ollama AI SolarWinds RCE...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="18" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Weekly digest: AI server exposure, WHD exploit chain and proxy disruptions</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Ollama | LLMjacking | SolarWinds</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.5)" stroke-width="1"/>
-  <text x="130" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ollama AI</text>
-  <rect x="196" y="402" width="120" height="36" rx="18" fill="rgba(243,156,18,0.2)" stroke="rgba(243,156,18,0.45)" stroke-width="1"/>
-  <text x="256" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">SolarWinds</text>
-  <rect x="332" y="402" width="90" height="36" rx="18" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="377" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">IPIDEA</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="90" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="125" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Ollama</text>
+  <rect x="184" y="420" width="126" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="247" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">LLMjacking</text>
+  <rect x="324" y="420" width="126" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="387" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">SolarWinds</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

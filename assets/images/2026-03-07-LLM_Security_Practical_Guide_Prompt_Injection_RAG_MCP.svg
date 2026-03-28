@@ -1,71 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>LLM Security Guide - Prompt Injection, RAG, MCP 2026-03-07</title>
+  <title>LLM Security Practical Guide Prompt Injection RAG MCP</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a1a2e"/>
-      <stop offset="50%" stop-color="#4a1942"/>
-      <stop offset="100%" stop-color="#2d1b3d"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ec4899"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="45"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="180" cy="200" r="300" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1100" cy="430" r="250" fill="#8b5cf6" opacity="0.07" filter="url(#sg)"/>
-  <!-- LLM neural net visualization -->
-  <g transform="translate(960,310)" filter="url(#glow)" opacity="0.5">
-    <!-- Input layer -->
-    <circle cx="-90" cy="-60" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
-    <circle cx="-90" cy="0" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
-    <circle cx="-90" cy="60" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
-    <!-- Hidden layer -->
-    <circle cx="0" cy="-80" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
-    <circle cx="0" cy="-27" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
-    <circle cx="0" cy="27" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
-    <circle cx="0" cy="80" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
-    <!-- Output layer -->
-    <circle cx="90" cy="-40" r="8" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"/>
-    <circle cx="90" cy="40" r="8" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"/>
-    <!-- Connections input -> hidden -->
-    <line x1="-82" y1="-60" x2="-8" y2="-80" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <line x1="-82" y1="-60" x2="-8" y2="-27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <line x1="-82" y1="0" x2="-8" y2="-27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <line x1="-82" y1="0" x2="-8" y2="27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <line x1="-82" y1="60" x2="-8" y2="27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <line x1="-82" y1="60" x2="-8" y2="80" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
-    <!-- Connections hidden -> output -->
-    <line x1="8" y1="-80" x2="82" y2="-40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
-    <line x1="8" y1="-27" x2="82" y2="-40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
-    <line x1="8" y1="27" x2="82" y2="40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
-    <line x1="8" y1="80" x2="82" y2="40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
-    <!-- Injection arrow -->
-    <path d="M-120,0 L-98,0" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arr)" opacity="0.9"/>
-  </g>
-  <!-- Date + category -->
-  <rect x="70" y="44" width="158" height="34" rx="17" fill="#ec4899" opacity="0.15" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="149" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f9a8d4" text-anchor="middle">March 7, 2026</text>
-  <rect x="248" y="44" width="158" height="34" rx="17" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="327" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">AI SECURITY</text>
-  <!-- Title -->
-  <text x="70" y="188" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">LLM Security</text>
-  <text x="70" y="242" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">Practical Guide</text>
-  <text x="70" y="296" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.6)">Prompt Injection / RAG / MCP Threats 2026</text>
-  <!-- Keywords -->
-  <rect x="70" y="358" width="168" height="36" rx="18" fill="rgba(236,72,153,0.15)" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="154" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f9a8d4" text-anchor="middle">Prompt Injection</text>
-  <rect x="258" y="358" width="98" height="36" rx="18" fill="rgba(139,92,246,0.14)" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="307" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">RAG</text>
-  <rect x="376" y="358" width="98" height="36" rx="18" fill="rgba(245,158,11,0.14)" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="425" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">MCP</text>
-  <rect x="494" y="358" width="108" height="36" rx="18" fill="rgba(239,68,68,0.14)" stroke="#ef4444" stroke-width="1.5"/>
-  <!-- Accent bar -->
-  <rect x="70" y="424" width="460" height="4" rx="2" fill="url(#acc)"/>
-  <!-- Footer -->
-  <line x1="50" y1="592" x2="1150" y2="592" stroke="#2d1b3d" stroke-width="1" opacity="0.7"/>
-  <text x="1150" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
-  <text x="70" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b">LLM Security Deep Dive</text>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 7, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">LLM Security Practical Guide</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Prompt Injection RAG MCP</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">LLM Security | Prompt Injection | RAG Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="144" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="152" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">LLM Security</text>
+  <rect x="238" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="319" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Prompt Inject.</text>
+  <rect x="414" y="420" width="144" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="486" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">RAG Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

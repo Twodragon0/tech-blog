@@ -1,20 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 8th - Week 2: VPC to GuardDuty</title>
+  <title>Cloud Security 8Batch 2Week AWS Security Architecture Core VPCFrom GuardDutyTo C</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1b2a"/>
-      <stop offset="100%" stop-color="#1a3555"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2980b9"/>
-      <stop offset="100%" stop-color="#f39c12"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="450" r="200" fill="#2980b9" opacity="0.05" filter="url(#sg)"/>
-  <circle cx="1050" cy="450" r="140" fill="#f39c12" opacity="0.05" filter="url(#sg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -23,50 +20,43 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Topic illustrations: VPC subnet boxes with GuardDuty eye icon -->
-  <g transform="translate(940,290)" opacity="0.38">
-    <!-- VPC outer boundary -->
-    <rect x="-165" y="-120" width="330" height="240" rx="12" fill="none" stroke="#2980b9" stroke-width="2.5"/>
-    <!-- Public subnet -->
-    <rect x="-150" y="-105" width="130" height="80" rx="6" fill="#2980b9" opacity="0.08" stroke="#2980b9" stroke-width="1.5"/>
-    <!-- EC2 instance icon in public subnet -->
-    <rect x="-120" y="-80" width="35" height="35" rx="4" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <!-- NAT/IGW -->
-    <rect x="-65" y="-80" width="35" height="35" rx="4" fill="none" stroke="#7eb8e0" stroke-width="1.5"/>
-    <!-- Private subnet -->
-    <rect x="-150" y="-15" width="130" height="80" rx="6" fill="#2980b9" opacity="0.05" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <!-- RDS in private -->
-    <ellipse cx="-120" cy="28" rx="22" ry="8" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <rect x="-142" y="28" width="44" height="18" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <ellipse cx="-120" cy="46" rx="22" ry="8" fill="none" stroke="#2980b9" stroke-width="1.5"/>
-    <!-- Lambda in private -->
-    <polygon points="-65,18 -45,22 -65,55 -75,38" fill="none" stroke="#f39c12" stroke-width="1.5"/>
-    <!-- GuardDuty eye icon (right side) -->
-    <ellipse cx="100" cy="-20" rx="55" ry="35" fill="none" stroke="#f39c12" stroke-width="2.5"/>
-    <circle cx="100" cy="-20" r="18" fill="none" stroke="#f39c12" stroke-width="2"/>
-    <circle cx="100" cy="-20" r="7" fill="#f39c12" opacity="0.5"/>
-    <!-- Scan lines from GuardDuty -->
-    <line x1="45" y1="-20" x2="-20" y2="-50" stroke="#f39c12" stroke-width="1" opacity="0.4" stroke-dasharray="4 3"/>
-    <line x1="45" y1="-20" x2="-20" y2="20" stroke="#f39c12" stroke-width="1" opacity="0.4" stroke-dasharray="4 3"/>
-    <!-- Week 2 badge -->
-    <rect x="-165" y="135" width="80" height="28" rx="8" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-  </g>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="40" y="38" width="250" height="34" rx="17" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#2980b9">DECEMBER 5, 2025</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">Cloud Security 8th -</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#f39c12" filter="url(#glow)">Week 2: VPC to GuardDuty</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">AWS VPC architecture, subnets, security groups &amp; GuardDuty threat detection</text>
-  <line x1="80" y1="325" x2="560" y2="325" stroke="#2980b9" stroke-width="2" opacity="0.6"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#f39c12" letter-spacing="3">CLOUD SECURITY COURSE</text>
-  <rect x="80" y="398" width="60" height="32" rx="16" fill="#2980b9" opacity="0.15" stroke="#2980b9" stroke-width="1"/>
-  <text x="110" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7eb8e0" text-anchor="middle">VPC</text>
-  <rect x="154" y="398" width="110" height="32" rx="16" fill="#f39c12" opacity="0.15" stroke="#f39c12" stroke-width="1"/>
-  <text x="209" y="419" font-family="Arial,sans-serif" font-size="13" fill="#f5c860" text-anchor="middle">GuardDuty</text>
-  <rect x="278" y="398" width="80" height="32" rx="16" fill="#2980b9" opacity="0.1" stroke="#2980b9" stroke-width="1"/>
-  <text x="318" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7eb8e0" text-anchor="middle">Week 2</text>
-  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
-  <line x1="0" y1="520" x2="1200" y2="520" stroke="#2980b9" stroke-width="1" opacity="0.3"/>
-  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">DECEMBER 5, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security 8Batch 2Week</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS Security Architecture...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | VPC | GuardDuty</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="214" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">VPC</text>
+  <rect x="268" y="420" width="117" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="326" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">GuardDuty</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

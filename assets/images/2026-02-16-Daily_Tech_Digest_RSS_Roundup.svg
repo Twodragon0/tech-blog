@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>LLM Reasoning Optimization and Windows Dev Trends</title>
+  <title>Daily Tech Digest RSS Roundup</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1520"/>
-      <stop offset="100%" stop-color="#15253a"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a1a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3498db"/>
-      <stop offset="100%" stop-color="#1abc9c"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -19,44 +20,40 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cost graph bars -->
+  <rect x="880" y="260" width="30" height="80" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="220" width="30" height="120" rx="4" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+  <rect x="960" y="240" width="30" height="100" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="180" width="30" height="160" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <!-- Trend line -->
+  <polyline points="895,270 935,230 975,250 1015,190" fill="none" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+  <circle cx="1015" cy="190" r="5" fill="rgba(34,197,94,0.5)"/>
+  <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- RSS icon base: corner dot + arcs -->
-  <circle cx="860" cy="460" r="14" fill="rgba(52,152,219,0.7)"/>
-  <path d="M860,420 Q900,420 900,460" fill="none" stroke="rgba(52,152,219,0.6)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M860,380 Q940,380 940,460" fill="none" stroke="rgba(52,152,219,0.5)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M860,340 Q980,340 980,460" fill="none" stroke="rgba(52,152,219,0.4)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M860,300 Q1020,300 1020,460" fill="none" stroke="rgba(52,152,219,0.3)" stroke-width="6" stroke-linecap="round"/>
-  <!-- Data streams flowing right -->
-  <line x1="1000" y1="200" x2="1120" y2="200" stroke="rgba(26,188,156,0.4)" stroke-width="2" stroke-dasharray="8,4"/>
-  <line x1="1000" y1="220" x2="1100" y2="220" stroke="rgba(26,188,156,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <line x1="1000" y1="240" x2="1080" y2="240" stroke="rgba(26,188,156,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
-  <circle cx="1130" cy="200" r="5" fill="rgba(26,188,156,0.6)"/>
-  <circle cx="1110" cy="220" r="4" fill="rgba(26,188,156,0.4)"/>
-  <circle cx="1090" cy="240" r="3" fill="rgba(26,188,156,0.3)"/>
-  <!-- Document icons -->
-  <rect x="1050" y="130" width="50" height="64" rx="4" fill="none" stroke="rgba(52,152,219,0.3)" stroke-width="1.5"/>
-  <line x1="1060" y1="152" x2="1090" y2="152" stroke="rgba(52,152,219,0.3)" stroke-width="1.5"/>
-  <line x1="1060" y1="165" x2="1090" y2="165" stroke="rgba(52,152,219,0.3)" stroke-width="1.5"/>
-  <line x1="1060" y1="178" x2="1080" y2="178" stroke="rgba(52,152,219,0.3)" stroke-width="1.5"/>
-  <rect x="990" y="155" width="44" height="56" rx="4" fill="none" stroke="rgba(26,188,156,0.3)" stroke-width="1.5"/>
-  <line x1="999" y1="174" x2="1025" y2="174" stroke="rgba(26,188,156,0.3)" stroke-width="1.5"/>
-  <line x1="999" y1="185" x2="1025" y2="185" stroke="rgba(26,188,156,0.3)" stroke-width="1.5"/>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="180" y="81" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">FEBRUARY 16, 2026</text>
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">LLM Reasoning Optimization</text>
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">and Windows Dev Trends</text>
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Daily RSS roundup: AI inference, dev tools &amp; crypto ecosystem</text>
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)"/>
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)" letter-spacing="2">DAILY TECH DIGEST</text>
-  <rect x="80" y="410" width="130" height="36" rx="18" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="145" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">LLM Optimize</text>
-  <rect x="226" y="410" width="120" height="36" rx="18" fill="rgba(26,188,156,0.15)" stroke="rgba(26,188,156,0.4)" stroke-width="1"/>
-  <text x="286" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Windows Dev</text>
-  <rect x="362" y="410" width="80" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="402" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Crypto</text>
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.25)"/>
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="1">DevSecOps</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 16, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Daily Tech Digest RSS Roundup</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1"></text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Daily Digest | Tech Newsletter | AI Inference</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">FINOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="144" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="152" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Daily Digest</text>
+  <rect x="238" y="420" width="162" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="319" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Tech Newslett.</text>
+  <rect x="414" y="420" width="144" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="486" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI Inference</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>
