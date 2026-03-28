@@ -112,6 +112,7 @@ DevSecOps 관점에서 이 공격은 다음과 같은 심각한 영향을 시사
 - [ ] **사고 대응 계획에 '개인 계정 침해' 시나리오 추가:** 조직의 공식 자산이 아닌 직원의 개인 메신저 계정 침해가 회사에 미치는 영향을 평가하고, 내부 보고 절차, 법무팀 협의 프로세스, PR 대응 방안 등을 사고 대응 계획(IRP)에 명시적으로 포함 및 테스트합니다.
 - [ ] **
 
+> 📌 **관련 보도**: [Trivy CI/CD 침해·Langflow RCE](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) | [Gentlemen 랜섬웨어·제로트러스트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/)
 
 ---
 
@@ -180,8 +181,6 @@ DevSecOps 실무자에게 이 공격은 **이중의 위험**을 제기합니다.
 - [ ] **행위 기반 탐지 강화**: 네트워크 트래픽에서 ICP 캐니스터 또는 기타 비정상적인 외부 프로토콜에 대한 아웃바운드 연결 시도를 탐지하는 규칙을 추가하고, CI/CD 환경 내부에서의 **비정상적인 패키지 설치 또는 자가 전파 시도**를 로깅 및 경고한다.
 - [ ] **종속성 최소화 및 고정**: 패키지 종속성을 최소화하고, **정확한 버전(lock 파일)을 고정**하여 예기치 않은 업데이트로 인한 감염을 방지한다. 모든 업데이트는 검증 후 단계적으로 진행한다.
 - [ ] **사고 대응 계획 점검**: 공급망 공격을 특별히 고려한
-
-> 📌 **관련 보도**: [Trivy CI/CD 침해·Critical Langflow RCE·Google 사이드로딩 차단](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) | [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/)
 
 ---
 

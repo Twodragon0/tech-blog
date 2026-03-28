@@ -129,6 +129,8 @@ spec:
             name: "!cluster-admin"
 ```
 
+> 📌 **관련 보도**: [Trivy 공급망 침해·LiteLLM 백도어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) | [AWS IAM Zero Trust·GCP 보안](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/)
+
 ---
 
 ### 1.2 Cilium 1.17과 eBPF 기반 런타임 네트워크 정책

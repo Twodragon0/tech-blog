@@ -89,6 +89,8 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 > SK쉴더스 보안 리포트는 국내 보안 환경에 특화된 위협 분석을 제공합니다. 원문을 다운로드하여 상세 내용을 확인하시기 바랍니다.
 
+> 📌 **관련 보도**: [FBI Signal 피싱·Oracle Identity RCE](/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/) | [북한 해커 VS Code·IAM 정책](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/)
+
 ---
 
 ## 2. 블록체인 뉴스

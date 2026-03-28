@@ -112,7 +112,7 @@ toc: true
 - [ ] **간접 프롬프트 인젝션 방어 계층 추가**: 외부 데이터(문서, 웹페이지, API 응답)가 에이전트 컨텍스트에 주입되기 전 입력 검증 및 새니타이징 파이프라인을 적용합니다.
 - [ ] **에이전트 프레임워크 버전 업데이트 및 보안 패치 적용**: LangChain 0.3.x, AutoGPT 0.6.x, CrewAI 0.4.x 이상으로 업데이트하고 보안 권고를 확인합니다.
 
-> 📌 **관련 보도**: [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) | [Kubernetes 공급망 보안, AI 코드 에이전트 위협](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/)
+> 📌 **관련 보도**: [AWS IAM Zero Trust·GCP 보안](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/)
 
 ---
 
