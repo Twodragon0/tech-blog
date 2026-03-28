@@ -12,7 +12,6 @@ image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.s
 image_alt: 보안 다이제스트 2026년 2월 10일 SolarWinds RCE UNC3886 LLM 공격
 layout: post
 tags:
-keywords: [tags:]
 - Security-Digest
 - SolarWinds-RCE
 - UNC3886

@@ -15,7 +15,6 @@ image: /assets/images/2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense
 image_alt: Agentic AI Security 2026 - Attack Vectors and Defense Architecture Guide
 layout: post
 tags:
-keywords: [tags:]
 - Agentic-AI
 - AI-Security
 - Tool-Poisoning

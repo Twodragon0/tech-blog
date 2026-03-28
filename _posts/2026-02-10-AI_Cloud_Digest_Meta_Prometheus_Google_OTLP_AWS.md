@@ -13,7 +13,6 @@ image: /assets/images/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS
 image_alt: AI·클라우드 다이제스트 2026년 2월 10일 Meta Prometheus Google OTLP AWS
 layout: post
 tags:
-keywords: [tags:]
 - AI-Digest
 - Cloud-Digest
 - Meta-Prometheus

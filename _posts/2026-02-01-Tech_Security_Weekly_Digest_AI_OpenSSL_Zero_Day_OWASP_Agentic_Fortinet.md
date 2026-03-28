@@ -12,7 +12,6 @@ image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day
 image_alt: Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis
 layout: post
 tags:
-keywords: [tags:]
 - Security-Weekly
 - DevSecOps
 - AI-Security

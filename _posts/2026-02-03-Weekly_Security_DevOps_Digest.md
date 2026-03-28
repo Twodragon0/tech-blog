@@ -12,7 +12,6 @@ image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
 image_alt: Weekly Security and DevOps Digest Feb 3 2026
 layout: post
 tags:
-keywords: [tags:]
 - Security-Weekly
 - AI
 - Moltbot

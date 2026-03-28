@@ -14,7 +14,6 @@ image_alt: AI Agent Security Architecture Design Guide - Stateful Runtime and Co
   Evaluation
 layout: post
 tags:
-keywords: [tags:]
 - AI-Agent
 - AI-Security
 - Stateful-Runtime

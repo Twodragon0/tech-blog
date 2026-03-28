@@ -13,7 +13,6 @@ image: /assets/images/2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic
 image_alt: 보안·클라우드 다이제스트 2026년 2월 9일 AI VirusTotal AWS Agentic AI
 layout: post
 tags:
-keywords: [tags:]
 - Security-Digest
 - Cloud-Digest
 - AI-Agent-Security
