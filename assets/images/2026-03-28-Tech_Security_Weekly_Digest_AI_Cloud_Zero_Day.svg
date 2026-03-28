@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>AI Agent Security and Cloud Zero-Day Threats</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="50%" stop-color="#0f1629"/>
+      <stop offset="100%" stop-color="#130820"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Soft glow circles -->
+  <circle cx="180" cy="300" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#sg)"/>
+  <circle cx="1020" cy="260" r="200" fill="#06b6d4" opacity="0.05" filter="url(#sg)"/>
+  <circle cx="600" cy="150" r="150" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
+
+  <!-- Grid lines -->
+  <line x1="200" y1="0" x2="200" y2="630" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="0" x2="500" y2="630" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="1050" y1="0" x2="1050" y2="630" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="130" x2="1200" y2="130" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="280" x2="1200" y2="280" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="430" x2="1200" y2="430" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="560" x2="1200" y2="560" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Right side illustration: Cloud + Zero-Day + AI Agent -->
+  <g transform="translate(900,220)">
+    <!-- Cloud shape -->
+    <ellipse cx="0" cy="-40" rx="100" ry="50" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.4"/>
+    <ellipse cx="-50" cy="-20" rx="60" ry="35" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.3"/>
+    <ellipse cx="50" cy="-20" rx="60" ry="35" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.3"/>
+
+    <!-- Zero-day lightning bolt -->
+    <polygon points="-5,-80 15,-30 0,-30 20,20 -15,-20 0,-20 -20,-80" fill="#ef4444" opacity="0.6"/>
+    <polygon points="-5,-80 15,-30 0,-30 20,20 -15,-20 0,-20 -20,-80" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- AI agent nodes -->
+    <circle cx="-80" cy="50" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="-80" y="55" font-family="monospace" font-size="10" fill="#8b5cf6" text-anchor="middle">AI</text>
+    <circle cx="0" cy="80" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="0" y="85" font-family="monospace" font-size="10" fill="#8b5cf6" text-anchor="middle">AGT</text>
+    <circle cx="80" cy="50" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="80" y="55" font-family="monospace" font-size="10" fill="#8b5cf6" text-anchor="middle">LLM</text>
+
+    <!-- Connecting lines between nodes -->
+    <line x1="-62" y1="50" x2="-18" y2="72" stroke="#8b5cf6" stroke-width="1.5" opacity="0.4"/>
+    <line x1="18" y1="72" x2="62" y2="50" stroke="#8b5cf6" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-62" y1="50" x2="62" y2="50" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
+
+    <!-- Container supply chain boxes -->
+    <rect x="-120" y="120" width="60" height="35" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="-90" y="142" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">IMG</text>
+    <rect x="-30" y="120" width="60" height="35" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="0" y="142" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">SBOM</text>
+    <rect x="60" y="120" width="60" height="35" rx="6" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
+    <text x="90" y="138" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="middle">CVE</text>
+    <text x="90" y="150" font-family="monospace" font-size="8" fill="#f87171" text-anchor="middle">0-day</text>
+
+    <!-- Supply chain arrows -->
+    <line x1="-60" y1="137" x2="-35" y2="137" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="-38,133 -30,137 -38,141" fill="#f59e0b" opacity="0.5"/>
+    <line x1="30" y1="137" x2="55" y2="137" stroke="#ef4444" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+    <polygon points="52,133 60,137 52,141" fill="#ef4444" opacity="0.5"/>
+  </g>
+
+  <!-- Category badge (top-left) -->
+  <rect x="40" y="22" width="130" height="32" rx="16" fill="#8b5cf6" opacity="0.25" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="105" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">ZERO-DAY</text>
+
+  <!-- Date badge (top-right) -->
+  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1"/>
+  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#67e8f9" text-anchor="middle">March 28, 2026</text>
+
+  <!-- Title area -->
+  <text x="80" y="480" font-family="Arial,sans-serif" font-size="32" font-weight="bold" fill="white" filter="url(#glow)">AI Agent Security + Cloud Zero-Day</text>
+  <text x="80" y="518" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8">Container Supply Chain | Cloud Infrastructure | LLM Agent Defense</text>
+
+  <!-- Pill tags -->
+  <rect x="80" y="535" width="65" height="26" rx="13" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="112" y="553" font-family="Arial,sans-serif" font-size="11" fill="#a78bfa" text-anchor="middle">AI</text>
+  <rect x="155" y="535" width="85" height="26" rx="13" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1"/>
+  <text x="197" y="553" font-family="Arial,sans-serif" font-size="11" fill="#67e8f9" text-anchor="middle">Cloud</text>
+  <rect x="250" y="535" width="90" height="26" rx="13" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+  <text x="295" y="553" font-family="Arial,sans-serif" font-size="11" fill="#f87171" text-anchor="middle">Zero-Day</text>
+
+  <!-- Bottom line + footer -->
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="50" y="612" font-family="Arial,sans-serif" font-size="12" fill="#64748b">DevSecOps Weekly Digest</text>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>
