@@ -608,13 +608,13 @@ spec:
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **Zero Trust** | 5건 | IAM Identity Center, SCP, 조건부 접근, MFA |
+| **제로 트러스트** | 5건 | IAM Identity Center, SCP, 조건부 접근, MFA |
 | **클라우드 보안** | 5건 | Workload Identity, CloudTrail, GuardDuty, VPC |
 | **FinOps** | 4건 | Spot, Graviton, Karpenter, Cost Allocation |
 | **IaC 보안** | 3건 | Terraform, tfsec, checkov, Policy as Code |
 | **위협 탐지** | 2건 | GuardDuty, Security Hub, EventBridge |
 
-이번 주기의 핵심 트렌드는 **Zero Trust**(5건)와 **클라우드 보안**(5건)입니다. AWS IAM Identity Center 기반 Zero Trust 구현과 GCP Workload Identity Federation이 주요 이슈입니다. **FinOps** 분야에서는 Spot/Graviton 인스턴스 전환을 통한 비용 최적화가 실무 사례와 함께 주목받고 있으며, **IaC 보안** 분야에서는 Terraform Stacks와 보안 스캔 자동화가 핵심 과제입니다.
+이번 주기의 핵심 트렌드는 **제로 트러스트**(5건)와 **클라우드 보안**(5건)입니다. AWS IAM Identity Center 기반 제로 트러스트 구현과 GCP Workload Identity Federation이 주요 이슈입니다. **FinOps** 분야에서는 Spot/Graviton 인스턴스 전환을 통한 비용 최적화가 실무 사례와 함께 주목받고 있으며, **IaC 보안** 분야에서는 Terraform Stacks와 보안 스캔 자동화가 핵심 과제입니다.
 
 ---
 
