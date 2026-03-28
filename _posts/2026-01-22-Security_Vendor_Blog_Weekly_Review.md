@@ -75,6 +75,19 @@ toc: true
 
 ---
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Jamf | VS Code 터널 악용 Contagious Interview 캠페인 확대 | 🔴 Critical |
+| 🔒 **Security** | Cloudflare | ACME 인증서 검증 취약점 공개 및 완화 조치 | 🟠 High |
+| 🤖 **AI/ML** | Snyk | AI 에이전트 시대 기계 속도 보안 필요성 강조 | 🟡 Medium |
+| ☁️ **Cloud** | HashiCorp | Agentic AI Zero Trust NHI 관리, Kiro IDE 파트너십 | 🟡 Medium |
+
+---
+
 ---
 
 ## MITRE ATT&CK 매핑
