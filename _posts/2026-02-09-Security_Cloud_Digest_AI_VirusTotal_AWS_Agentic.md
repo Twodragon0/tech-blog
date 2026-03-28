@@ -51,6 +51,8 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+> 함께 읽기: 같은 날짜의 [블록체인 & 테크] 다이제스트 [2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K](/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin)에서 Bithumb 오송금 사고, Bitcoin $71K 회복, 임베디드 최적화를 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

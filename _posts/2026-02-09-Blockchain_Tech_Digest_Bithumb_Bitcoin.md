@@ -43,6 +43,8 @@ toc: true
   audience='DevOps/DevSecOps/Cloud 보안 담당자'
 %}
 
+> 함께 읽기: 같은 날짜의 [보안 & 클라우드] 다이제스트 [2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI](/2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic)에서 AI VirusTotal 통합, AWS Agentic AI, 랜섬웨어 동향을 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

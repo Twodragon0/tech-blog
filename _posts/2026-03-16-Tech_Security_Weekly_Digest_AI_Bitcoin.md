@@ -28,6 +28,8 @@ toc: true
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시](/2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update)에서 AI 에이전트 레드팀 도구, AWS Bedrock 멀티에이전트 보안 아키텍처, DeFi 보안 이슈를 심층 분석합니다.
+
 ---
 
 ## 서론

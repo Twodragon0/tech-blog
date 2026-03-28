@@ -23,6 +23,8 @@ toc: true
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [AI 에이전트 보안, Patch Tuesday 분석, 클라우드 비용 최적화](/2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk)에서 Kimwolf 봇넷, Patch Tuesday 취약점 대응, 클라우드 비용 최적화를 심층 분석합니다.
+
 ## Executive Summary
 
 > **경영진 브리핑**: Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석.

@@ -40,6 +40,8 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석](/2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update)에서 AI·클라우드 침해 분석, 안드로이드 악성코드, 업데이트 리스크를 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

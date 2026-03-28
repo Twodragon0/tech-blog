@@ -23,6 +23,8 @@ toc: true
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes)에서 AI 공급망 공격 신규 벡터, Kubernetes Ingress NGINX 은퇴 이슈, DevSecOps 위협 대응을 심층 분석합니다.
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스 및 트렌드 분석.

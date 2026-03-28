@@ -43,6 +43,8 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드/플랫폼 리더"
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략](/2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security)에서 Infostealer 악성코드의 AI 에이전트 토큰 탈취, Bitwarden/LastPass 패스워드 복구 공격, AWS 서버리스 방어 아키텍처를 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

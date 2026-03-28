@@ -49,6 +49,10 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+> 함께 읽기: 같은 날짜의 [DevOps & 블록체인] 다이제스트 [2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin](/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin)에서 CNCF 프로젝트 현황, Cluster API v1.12, Bitcoin $70K 동향을 심층 분석합니다.
+
+> 함께 읽기: 같은 날짜의 [보안] 다이제스트 [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격](/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack)에서 SolarWinds RCE, 중국 UNC3886 첩보전, LLM 안전 정렬 무력화를 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

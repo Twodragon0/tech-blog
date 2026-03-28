@@ -49,6 +49,10 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+> 함께 읽기: 같은 날짜의 [AI & 클라우드] 다이제스트 [2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트](/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS)에서 Meta Prometheus 클러스터, Google OTLP, AWS Claude Bedrock 통합을 심층 분석합니다.
+
+> 함께 읽기: 같은 날짜의 [보안] 다이제스트 [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격](/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack)에서 SolarWinds RCE, 중국 UNC3886 첩보전, LLM 안전 정렬 무력화를 심층 분석합니다.
+
 ## 📊 빠른 참조
 
 ### 이번 주 하이라이트

@@ -23,6 +23,8 @@ toc: true
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
+> 함께 읽기: 같은 날짜의 기술 다이제스트 [AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향](/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud)에서 AI 정렬 연구, EKS Flyte 워크플로, Docker 보안 트렌드를 심층 분석합니다.
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관련 DevSecOps 실무 위협 분석 및 대응 가이드.

@@ -29,6 +29,8 @@ toc: true
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
+> 함께 읽기: 같은 날짜의 보안 다이제스트 [아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향](/2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin)에서 Libra 토큰 온체인 포렌식, 스테이블코인 규제 동향, 암호화폐 시장 보안 이슈를 심층 분석합니다.
+
 ---
 
 ## 서론
