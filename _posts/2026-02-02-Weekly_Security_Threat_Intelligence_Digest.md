@@ -55,6 +55,22 @@ toc: true
   <figcaption>그림 1: 2월 2일 위협 인텔리전스 핵심 - 공급망 공격, 랜섬웨어, 제로트러스트</figcaption>
 </figure>
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Hacker News / NIST | Notepad++ 배포 인프라 침해 — 국가 지원 공급망 공격 (T1195.002), 수백만 개발자 노출 | 🔴 Critical |
+| 🔒 **Security** | SK쉴더스 EQST | BlackField 랜섬웨어 — LockBit·Babuk·Conti 유출 코드 복합 재활용, 새로운 위협 빌딩 블록 | 🔴 Critical |
+| 🔒 **Security** | SK쉴더스 EQST | Sinobi 랜섬웨어 — Lynx 그룹과 코드·인프라·TTP 연계, Gentlemen 랜섬웨어 등장 | 🔴 Critical |
+| 🔒 **Security** | SK쉴더스 EQST | JWT 서명키 유출 — HS256 대칭키 노출 시 토큰 위조·세션 하이재킹·권한 상승 공격 체인 | 🟠 High |
+| 🔒 **Security** | SK쉴더스 EQST | 제로트러스트 데이터 보안 — 데이터 중심 접근으로 패러다임 전환, 암호화·분류·접근 제어 통합 | 🟠 High |
+| 🤖 **AI/ML** | SK쉴더스 EQST | Vertical AI SOC 자동화 — 도메인 특화 AI로 보안 운영 자동화, 탐지·분류·대응 가속화 | 🟡 Medium |
+| ⚙️ **DevOps** | HashiCorp | Boundary 0.21 패스워드리스 RDP — etcd-free Kubernetes 시크릿 관리(VSO), 접근 제어 현대화 | 🟡 Medium |
+
+---
+
 ## 경영진 요약
 
 ### 위험 평가 스코어카드

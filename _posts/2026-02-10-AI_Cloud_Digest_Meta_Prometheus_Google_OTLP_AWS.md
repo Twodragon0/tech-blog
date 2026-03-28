@@ -49,6 +49,20 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🤖 **AI/ML** | Meta Engineering | Meta Prometheus 기가와트급 AI 클러스터 백엔드 집계 기술 공개 | 🟠 High |
+| 🤖 **AI/ML** | OpenAI Blog | ChatGPT 미 국방부 GenAI.mil 플랫폼 통합 - 300만 인원 대상 | 🟠 High |
+| ☁️ **Cloud** | Google Cloud Blog | OTLP 네이티브 지원 - 벤더 중립적 관찰성 전환 | 🟠 High |
+| ☁️ **Cloud** | AWS Blog | Claude Opus 4.6 Bedrock 통합 + CloudFront mTLS Origin 인증 | 🟠 High |
+| 🔒 **Security** | Google | Safer Internet Day - 아동/청소년 온라인 안전 기능 강화 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트 - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude

@@ -49,6 +49,19 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| ⚙️ **DevOps** | CNCF | Project Velocity 2025 - K8s가 AI 워크로드 OS로 확립, 82% 프로덕션 사용 | 🟠 High |
+| ⚙️ **DevOps** | Kubernetes | Cluster API v1.12 - In-Place 업데이트로 다운타임 최소화 | 🟠 High |
+| ⛓️ **Blockchain** | Chainalysis | Hexagate MegaETH 실시간 스마트 컨트랙트 보안 통합 | 🟠 High |
+| ⛓️ **Blockchain** | Bitcoin Magazine | Bitcoin $70K 회복 - $60K 저점에서 강력 반등 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin - CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place

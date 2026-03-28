@@ -40,6 +40,19 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | KrebsOnSecurity | Kimwolf 봇넷 I2P 익명망 오염 - C2/DDoS 트래픽 위장 | 🔴 Critical |
+| 🔒 **Security** | KrebsOnSecurity | 2월 Patch Tuesday - Windows RCE·권한상승 긴급 패치 | 🔴 Critical |
+| 🔒 **Security** | KrebsOnSecurity | Badbox 2.0 - SOHO 라우터·엣지 장비 프록시 거점화 | 🟠 High |
+| 🔒 **Security** | KrebsOnSecurity | ShinyHunters/Scattered 소셜 엔지니어링 계정 탈취 | 🟠 High |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: KrebsOnSecurity RSS 10건 요약 — Kimwolf 봇넷(I2P), 2월 Patch Tuesday, Badbox 2.0 등 핵심 위협과 대응.

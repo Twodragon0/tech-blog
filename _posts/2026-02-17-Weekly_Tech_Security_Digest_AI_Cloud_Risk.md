@@ -43,6 +43,20 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드/플랫폼 리더"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Microsoft | 2월 Patch Tuesday 다수 CVE 대응 - 공격 표면 축소 핵심 | 🔴 Critical |
+| 🔒 **Security** | Threat Intel | Kimwolf 봇넷 I2P 악용 + 공급망 악성 패키지 재부각 | 🟠 High |
+| 🤖 **AI/ML** | Industry | AI 에이전트 가드레일 전략 - 보안 성숙도 요구 확대 | 🟠 High |
+| ☁️ **Cloud** | FinOps | Spend-based CUD 최적화 - 클라우드 비용 투명성 개선 | 🟡 Medium |
+| 🤖 **AI/ML** | Industry | LLM 운영 성능 - 추론 비용·지연 최적화 전략 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: AI 에이전트 보안 리스크, Microsoft Patch Tuesday, 공급망/봇넷 위협, 클라우드 비용 최적화와 LLM 운영 이슈를 2월 3주차 관점에서 요약합니다.

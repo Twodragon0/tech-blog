@@ -51,6 +51,20 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | AI + VirusTotal | AI 에이전트 스킬 공급망 보안 - VirusTotal 통합 악성 스킬 사전 탐지 | 🔴 Critical |
+| 🔒 **Security** | SK쉴더스 EQST | BlackField 랜섬웨어 - LockBit/Conti 코드 재활용 이중 협박 | 🟠 High |
+| ☁️ **Cloud** | AWS Korea Blog | Agentic AI 플랫폼 - 2명이 7주 만에 MCP 기반 엔드투엔드 구축 | 🟠 High |
+| ☁️ **Cloud** | AWS Korea Blog | ASP.NET 모노리스 마이크로서비스 전환 - AWS Transform Custom | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 EQST | 제로트러스트 데이터 보안 4대 핵심 전략 | 🟠 High |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI - AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트,

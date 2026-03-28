@@ -46,6 +46,22 @@ toc: true
       <li><strong>CrossCurve DeFi $3M 익스플로잇</strong>: 크로스체인 브릿지 프로토콜 스마트 컨트랙트 침해로 $3M 탈취, Ethereum Foundation 양자 보안 PQ 서명 우선순위 격상</li>'
 -%}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🤖 **AI/ML** | Apple / MLX | A18 Pro Neural Engine에서 MLX LLM 추론 시 텐서 값 심각한 왜곡 버그 발견 | 🟠 High |
+| ⛓️ **Blockchain** | Bitcoin / Binance | BTC $74K 급락, $19B 청산 이벤트 — Kevin Warsh Fed 의장 후보 지명 여파 | 🔴 Critical |
+| 🤖 **AI/ML** | 몬트리올대 연구 | GPT-4가 인간 평균 창의성 초과, 그러나 상위 10% 인간은 모든 AI를 크게 앞섬 | 🟡 Medium |
+| 🔒 **Security** | CrossCurve DeFi | 크로스체인 브릿지 스마트 컨트랙트 침해로 $3M 탈취 | 🔴 Critical |
+| 🔒 **Security** | Ethereum Foundation | 양자 내성 PQ 서명 우선순위 격상 — 장기 보안 로드맵 업데이트 | 🟠 High |
+| 🤖 **AI/ML** | Claude Code | 실전 프롬프팅 팁 공개 — 컨텍스트 관리 및 에이전트 활용 가이드 | 🟡 Medium |
+| ⚙️ **DevOps** | FOSDEM 2026 | 오픈소스 컨퍼런스 주요 발표 — Linux, 컨테이너, 보안 트랙 하이라이트 | 🟢 Low |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 - 2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin

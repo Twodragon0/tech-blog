@@ -61,6 +61,23 @@ toc: true
 
 > 함께 읽기: 지난주 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화를 심층 분석합니다. 기술/AI/블록체인 소식은 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)를 참고하세요.
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | Moltbot / CVE-2026-25253 | 원클릭 RCE(CVSS 8.8) — 인증 토큰 탈취 기반 원격 코드 실행, 즉시 패치 필요 | 🔴 Critical |
+| 🔒 **Security** | ClawHavoc 캠페인 (Koi Security) | ClawHub 악성 스킬 341개 중 335개 macOS Atomic Stealer(AMOS) 배포 확인 | 🔴 Critical |
+| 🔒 **Security** | Moltbook 자격증명 유출 (Wiz) | AI 소셜네트워크 Moltbook에서 수백만 건 자격증명 인증 없이 노출 | 🟠 High |
+| 🔒 **Security** | 가짜 VS Code 확장 | Clawdbot 사칭 확장이 ScreenConnect RAT 설치 — 공급망 위협 | 🟠 High |
+| ⚙️ **DevOps** | MDM 앱 제어 (Jamf / Intune) | Jamf Pro Configuration Profile과 Intune App Protection Policy 비교 가이드, Zero Trust 전략 핵심 | 🟡 Medium |
+| 🔒 **Security** | Microsoft NTLM 폐지 | NTLM 3단계 폐지 로드맵 발표 — Kerberos/Modern Auth 전환 권고 | 🟡 Medium |
+| 🤖 **AI/ML** | Snowflake-OpenAI 파트너십 | 2억 달러 규모 전략적 파트너십 체결 — 엔터프라이즈 AI 데이터 플랫폼 통합 | 🟢 Low |
+| ⚙️ **DevOps** | Kubernetes 1.33 | 보안 강화 업데이트 — RBAC 개선 및 Pod Security 정책 변경 사항 포함 | 🟡 Medium |
+
+---
+
 ## 요약
 
 2026년 2월 첫째 주, AI 에이전트 생태계에 연쇄 보안 위협이 현실화되었습니다. AI(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 여러 건 동시다발적으로 발생하며, AI 코딩 에이전트의 보안이 중요해지고 있습니다:

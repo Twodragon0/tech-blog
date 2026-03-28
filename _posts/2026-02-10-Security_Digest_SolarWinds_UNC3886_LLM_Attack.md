@@ -45,6 +45,19 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🔒 **Security** | The Hacker News | SolarWinds WHD RCE 다단계 공격 - CVE-2025-40551 CVSS 9.8 | 🔴 Critical |
+| 🔒 **Security** | Mandiant | 중국 UNC3886 싱가포르 4대 통신사 사이버 첩보 캠페인 | 🔴 Critical |
+| 🤖 **AI/ML** | Microsoft | LLM 안전 정렬 단일 프롬프트 GRPO 무력화 기법 발표 | 🟠 High |
+| 🔒 **Security** | Mandiant | 북한 UNC1069 딥페이크 기반 암호화폐 탈취 공격 | 🟠 High |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 - SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM

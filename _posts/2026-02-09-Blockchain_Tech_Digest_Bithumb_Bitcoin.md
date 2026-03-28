@@ -43,6 +43,19 @@ toc: true
   audience='DevOps/DevSecOps/Cloud 보안 담당자'
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| ⛓️ **Blockchain** | Bitcoin Magazine | Bithumb $44B 비트코인 오송금 - 내부 운영 프로세스 실패로 대규모 자산 오송금 | 🔴 Critical |
+| ⛓️ **Blockchain** | Bitcoin Magazine | Bitcoin $71K 회복 - 기관·소매 동반 매수세로 급반등 | 🟡 Medium |
+| 🤖 **AI/ML** | GeekNews | 게임보이 컬러 실시간 3D 셰이더 - 4MHz/8KB 극한 환경 최적화 | 🟡 Medium |
+| 🤖 **AI/ML** | GeekNews | 2026년 AI/UX 18가지 예측 - AI-First UX 설계 패러다임 전환 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K - Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현,

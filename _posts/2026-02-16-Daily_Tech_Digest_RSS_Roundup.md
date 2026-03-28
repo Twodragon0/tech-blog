@@ -43,6 +43,20 @@ toc: true
   audience="DevOps/DevSecOps 엔지니어, 제품/플랫폼 리더, 데이터·AI 팀, 보안 담당자"
 %}
 
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 🤖 **AI/ML** | Sean Goedecke | LLM 추론 최적화 2가지 트릭 - 서비스 비용·지연 절감 전략 | 🟠 High |
+| ⚙️ **DevOps** | Tech Blog | Windows 네이티브 개발 환경 병목 해소 사례 | 🟡 Medium |
+| 🔒 **Security** | Tech News | 스마트홈 감시 논쟁 - Amazon·Google 데이터 거버넌스 리스크 | 🟡 Medium |
+| 🤖 **AI/ML** | Industry | AI가 앱 구독 모델 재편 - 가격·패키징 전략 재검토 필요 | 🟡 Medium |
+| ⛓️ **Blockchain** | Crypto News | WLFI 조기 경보 논쟁 + 국내 거래소 Korbit 지분 인수 | 🟡 Medium |
+
+---
+
 ## Executive Summary
 
 > **경영진 브리핑**: 지난 24시간 RSS를 바탕으로 LLM 추론 최적화, Windows 개발 환경 개선, 스마트홈 감시 이슈, 앱 구독 모델 변화, 크립토 시장 신호를 요약합니다.
