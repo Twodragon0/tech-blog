@@ -1,39 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026-02-10 DevOps &amp;amp</title>
+  <title>DevOps Blockchain Digest CNCF Chainalysis Bitcoin</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0f1a0a"/>
+      <stop offset="100%" stop-color="#1a3010"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#27ae60"/>
+      <stop offset="100%" stop-color="#f39c12"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#fbbf24" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#d97706" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#fbbf24" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="#fbbf24" stroke-width="3"/>
-    <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5 3"/>
-    <polygon points="20,-5 28,0 20,5" fill="#fbbf24"/>
-    <polygon points="-20,5 -28,0 -20,-5" fill="#fbbf24"/>
-    <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
-    <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
-    <line x1="-35" y1="0" x2="-28" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
-    <line x1="28" y1="0" x2="35" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
-  </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2026-02-10 DevOps &amp;</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">DevOps | API</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">DEVOPS</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#fbbf24" opacity="0.25" stroke="#fbbf24" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="420" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="420" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Kubernetes wheel -->
+  <circle cx="958" cy="352" r="54" fill="rgba(39,174,96,0.12)" stroke="rgba(39,174,96,0.45)" stroke-width="2.5"/>
+  <circle cx="958" cy="352" r="16" fill="rgba(39,174,96,0.25)" stroke="rgba(39,174,96,0.6)" stroke-width="2"/>
+  <!-- 7 spokes -->
+  <line x1="958" y1="298" x2="958" y2="336" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="999" y1="313" x2="976" y2="328" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="1010" y1="354" x2="974" y2="354" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="999" y1="392" x2="976" y2="375" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="958" y1="406" x2="958" y2="368" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="917" y1="392" x2="940" y2="375" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <line x1="906" y1="354" x2="942" y2="354" stroke="rgba(39,174,96,0.6)" stroke-width="3"/>
+  <!-- Blockchain links -->
+  <rect x="1035" y="310" width="48" height="28" rx="14" fill="none" stroke="rgba(243,156,18,0.55)" stroke-width="3"/>
+  <rect x="1075" y="310" width="48" height="28" rx="14" fill="none" stroke="rgba(39,174,96,0.55)" stroke-width="3"/>
+  <rect x="1115" y="310" width="48" height="28" rx="14" fill="none" stroke="rgba(243,156,18,0.55)" stroke-width="3"/>
+  <rect x="1035" y="368" width="48" height="28" rx="14" fill="none" stroke="rgba(39,174,96,0.55)" stroke-width="3"/>
+  <rect x="1075" y="368" width="48" height="28" rx="14" fill="none" stroke="rgba(243,156,18,0.55)" stroke-width="3"/>
+  <rect x="1115" y="368" width="48" height="28" rx="14" fill="none" stroke="rgba(39,174,96,0.55)" stroke-width="3"/>
+  <!-- Connecting hash marks -->
+  <line x1="1083" y1="324" x2="1075" y2="324" stroke="rgba(243,156,18,0.3)" stroke-width="2"/>
+  <line x1="1123" y1="324" x2="1115" y2="324" stroke="rgba(39,174,96,0.3)" stroke-width="2"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(39,174,96,0.2)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 10, 2026</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">CNCF Velocity</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Bitcoin Trends</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">CNCF Velocity, Cluster API, Bitcoin Trends</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVOPS BLOCKCHAIN DIGEST</text>
+  <rect x="80" y="400" width="80" height="30" rx="15" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="120" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">CNCF</text>
+  <rect x="175" y="400" width="115" height="30" rx="15" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="232" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Cluster API</text>
+  <rect x="305" y="400" width="100" height="30" rx="15" fill="rgba(243,156,18,0.15)" stroke="rgba(243,156,18,0.4)" stroke-width="1"/>
+  <text x="355" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Bitcoin</text>
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

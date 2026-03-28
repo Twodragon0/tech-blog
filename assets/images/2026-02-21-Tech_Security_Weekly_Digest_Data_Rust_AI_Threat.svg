@@ -1,37 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>CVE-2025-49113 , , Rust</title>
+  <title>CVE-2025-49113 Analysis and Rust Supply Chain</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#1a0f0a"/>
+      <stop offset="100%" stop-color="#2d1a10"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d35400"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">CVE-2025-49113 , , Rust</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">CVE</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Rust gear icon (8-tooth cogwheel) -->
+  <circle cx="960" cy="260" r="55" fill="none" stroke="rgba(211,84,0,0.5)" stroke-width="3"/>
+  <circle cx="960" cy="260" r="28" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.5)" stroke-width="2"/>
+  <!-- Gear teeth (8 rectangular teeth around circle) -->
+  <rect x="950" y="196" width="20" height="18" rx="2" fill="rgba(211,84,0,0.4)" stroke="rgba(211,84,0,0.6)" stroke-width="1"/>
+  <rect x="950" y="306" width="20" height="18" rx="2" fill="rgba(211,84,0,0.4)" stroke="rgba(211,84,0,0.6)" stroke-width="1"/>
+  <rect x="896" y="250" width="18" height="20" rx="2" fill="rgba(211,84,0,0.4)" stroke="rgba(211,84,0,0.6)" stroke-width="1"/>
+  <rect x="1006" y="250" width="18" height="20" rx="2" fill="rgba(211,84,0,0.4)" stroke="rgba(211,84,0,0.6)" stroke-width="1"/>
+  <!-- Diagonal teeth -->
+  <rect x="906" y="210" width="16" height="18" rx="2" fill="rgba(211,84,0,0.35)" stroke="rgba(211,84,0,0.55)" stroke-width="1" transform="rotate(-45,914,219)"/>
+  <rect x="997" y="210" width="16" height="18" rx="2" fill="rgba(211,84,0,0.35)" stroke="rgba(211,84,0,0.55)" stroke-width="1" transform="rotate(45,1005,219)"/>
+  <rect x="906" y="292" width="16" height="18" rx="2" fill="rgba(211,84,0,0.35)" stroke="rgba(211,84,0,0.55)" stroke-width="1" transform="rotate(45,914,301)"/>
+  <rect x="997" y="292" width="16" height="18" rx="2" fill="rgba(211,84,0,0.35)" stroke="rgba(211,84,0,0.55)" stroke-width="1" transform="rotate(-45,1005,301)"/>
+  <!-- Vulnerability crack through gear -->
+  <path d="M940,215 L952,240 L935,252 L958,275 L945,300" fill="none" stroke="rgba(192,57,43,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Crack glow -->
+  <path d="M940,215 L952,240 L935,252 L958,275 L945,300" fill="none" stroke="rgba(192,57,43,0.3)" stroke-width="6" stroke-linecap="round"/>
+  <!-- Supply chain nodes -->
+  <rect x="810" y="380" width="50" height="36" rx="5" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1.5"/>
+  <line x1="860" y1="398" x2="900" y2="398" stroke="rgba(211,84,0,0.4)" stroke-width="1.5"/>
+  <polygon points="900,398 890,392 890,404" fill="rgba(211,84,0,0.4)"/>
+  <rect x="900" y="380" width="50" height="36" rx="5" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.5)" stroke-width="1.5"/>
+  <!-- Warning on poisoned node -->
+  <polygon points="925,387 918,400 932,400" fill="none" stroke="rgba(255,200,0,0.7)" stroke-width="1.5"/>
+  <line x1="925" y1="390" x2="925" y2="395" stroke="rgba(255,200,0,0.7)" stroke-width="1.5"/>
+  <circle cx="925" cy="398" r="1.5" fill="rgba(255,200,0,0.7)"/>
+  <line x1="950" y1="398" x2="990" y2="398" stroke="rgba(192,57,43,0.4)" stroke-width="1.5"/>
+  <polygon points="990,398 980,392 980,404" fill="rgba(192,57,43,0.4)"/>
+  <rect x="990" y="380" width="50" height="36" rx="5" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.4)" stroke-width="1.5"/>
+  <line x1="1040" y1="398" x2="1080" y2="398" stroke="rgba(192,57,43,0.35)" stroke-width="1.5"/>
+  <polygon points="1080,398 1070,392 1070,404" fill="rgba(192,57,43,0.35)"/>
+  <rect x="1080" y="380" width="50" height="36" rx="5" fill="rgba(192,57,43,0.1)" stroke="rgba(192,57,43,0.3)" stroke-width="1.5"/>
+  <!-- Ransomware lock symbol -->
+  <rect x="1060" y="440" width="50" height="40" rx="4" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.5)" stroke-width="1.5"/>
+  <path d="M1070,440 Q1070,420 1085,420 Q1100,420 1100,440" fill="none" stroke="rgba(192,57,43,0.5)" stroke-width="2"/>
+  <circle cx="1085" cy="458" r="6" fill="rgba(192,57,43,0.5)"/>
+  <line x1="1085" y1="464" x2="1085" y2="474" stroke="rgba(192,57,43,0.5)" stroke-width="2"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(211,84,0,0.2)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">FEBRUARY 21, 2026</text>
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">CVE-2025-49113 Analysis</text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">and Rust Supply Chain</text>
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Critical vulnerability deep-dive &amp; Rust ecosystem threats</text>
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)"/>
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <rect x="80" y="410" width="120" height="36" rx="18" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+  <text x="140" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">CVE Analysis</text>
+  <rect x="216" y="410" width="115" height="36" rx="18" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <text x="274" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Ransomware</text>
+  <rect x="347" y="410" width="120" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="407" y="433" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Rust Security</text>
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.25)"/>
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="1">DevSecOps</text>
 </svg>

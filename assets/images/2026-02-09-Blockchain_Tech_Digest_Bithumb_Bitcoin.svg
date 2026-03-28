@@ -1,49 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026 2 9 Bithumb Bitcoin 71K</title>
+  <title>Blockchain Tech Digest Bithumb Bitcoin</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#1a1500"/>
+      <stop offset="100%" stop-color="#332a00"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="25"/></filter>
-    <filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.5"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f1c40f"/>
+      <stop offset="100%" stop-color="#e67e22"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="350" cy="200" r="160" fill="#8b5cf6" opacity="0.08" filter="url(#glow)"/>
-  <circle cx="850" cy="200" r="160" fill="#22d3ee" opacity="0.08" filter="url(#glow)"/>
-
-  <text x="90" y="90" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="120" font-family="Arial,sans-serif" font-size="16" fill="#64748b">CHAIN  AI/ML</text>
-
-  <line x1="180" y1="320" x2="1020" y2="320" stroke="#334155" stroke-width="3" stroke-dasharray="12 8" opacity="0.4"/>
-  <path d="M420 320 C600 270 600 270 780 320" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
-  <polygon points="778,315 788,320 778,325" fill="#22d3ee" opacity="0.6"/>
-
-  <g transform="translate(350 320)" filter="url(#shadow)">
-    <circle r="70" fill="#0f172a" stroke="#8b5cf6" stroke-width="2.5"/>
-    <circle r="70" fill="#8b5cf6" opacity="0.04"/>
-    <rect x="-20" y="-16" width="16" height="16" rx="4" fill="none" stroke="#8b5cf6" stroke-width="2"/><rect x="4" y="-16" width="16" height="16" rx="4" fill="none" stroke="#8b5cf6" stroke-width="2"/><rect x="-8" y="4" width="16" height="16" rx="4" fill="none" stroke="#8b5cf6" stroke-width="2"/><line x1="-4" y1="0" x2="-1" y2="4" stroke="#8b5cf6" stroke-width="2"/><line x1="12" y1="0" x2="5" y2="4" stroke="#8b5cf6" stroke-width="2"/>
-  </g>
-  <text x="350" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#8b5cf6" text-anchor="middle">CHAIN</text>
-
-  <g transform="translate(850 320)" filter="url(#shadow)">
-    <circle r="70" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
-    <circle r="70" fill="#22d3ee" opacity="0.04"/>
-    <circle r="18" fill="none" stroke="#22d3ee" stroke-width="2.5"/><circle r="8" fill="#22d3ee" opacity="0.35"/><line x1="-24" y1="-16" x2="-10" y2="-8" stroke="#22d3ee" stroke-width="2"/><line x1="24" y1="-16" x2="10" y2="-8" stroke="#22d3ee" stroke-width="2"/><line x1="-24" y1="16" x2="-10" y2="8" stroke="#22d3ee" stroke-width="2"/><line x1="24" y1="16" x2="10" y2="8" stroke="#22d3ee" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="24" cy="-16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="-24" cy="16" r="5" fill="#22d3ee" opacity="0.5"/><circle cx="24" cy="16" r="5" fill="#22d3ee" opacity="0.5"/>
-  </g>
-  <text x="850" y="420" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#22d3ee" text-anchor="middle">AI/ML</text>
-
-  <text x="600" y="498" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">2026 2 9 Bithumb Bitcoin 71K</text>
-  <text x="600" y="535" font-family="Arial,sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Blockchain-Digest | Tech-Digest | Bithumb | Bitcoin</text>
-
-  <rect x="40" y="20" width="120" height="30" rx="15" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-  <text x="100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#f87171" text-anchor="middle">SECURITY</text>
-  <rect x="1040" y="20" width="120" height="30" rx="15" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <text x="1100" y="41" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 09, 2026</text>
-
-  <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
-  <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
-  <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="400" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="400" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Bitcoin circle -->
+  <circle cx="970" cy="345" r="68" fill="rgba(241,196,15,0.12)" stroke="rgba(241,196,15,0.5)" stroke-width="3"/>
+  <circle cx="970" cy="345" r="52" fill="rgba(241,196,15,0.06)" stroke="rgba(241,196,15,0.2)" stroke-width="1"/>
+  <!-- B letter shape lines for bitcoin symbol -->
+  <line x1="957" y1="318" x2="957" y2="372" stroke="rgba(241,196,15,0.7)" stroke-width="4"/>
+  <path d="M957 318 Q982 318 982 331 Q982 344 957 344" fill="none" stroke="rgba(241,196,15,0.7)" stroke-width="3.5"/>
+  <path d="M957 344 Q985 344 985 358 Q985 372 957 372" fill="none" stroke="rgba(241,196,15,0.7)" stroke-width="3.5"/>
+  <!-- Candlestick chart -->
+  <!-- Bar 1 red -->
+  <line x1="1075" y1="330" x2="1075" y2="415" stroke="rgba(231,76,60,0.5)" stroke-width="1.5"/>
+  <rect x="1068" y="348" width="14" height="42" fill="rgba(231,76,60,0.65)"/>
+  <!-- Bar 2 green outline -->
+  <line x1="1100" y1="312" x2="1100" y2="400" stroke="rgba(39,174,96,0.5)" stroke-width="1.5"/>
+  <rect x="1093" y="322" width="14" height="48" fill="none" stroke="rgba(39,174,96,0.65)" stroke-width="2"/>
+  <!-- Bar 3 green filled -->
+  <line x1="1125" y1="285" x2="1125" y2="390" stroke="rgba(39,174,96,0.5)" stroke-width="1.5"/>
+  <rect x="1118" y="298" width="14" height="62" fill="rgba(39,174,96,0.65)"/>
+  <!-- Bar 4 red -->
+  <line x1="1150" y1="298" x2="1150" y2="408" stroke="rgba(231,76,60,0.5)" stroke-width="1.5"/>
+  <rect x="1143" y="312" width="14" height="52" fill="rgba(231,76,60,0.65)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 9, 2026</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Bithumb Incident</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Bitcoin $71K Analysis</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Bithumb Operations Incident, Bitcoin $71K Analysis</text>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">BLOCKCHAIN TECH DIGEST</text>
+  <rect x="80" y="400" width="100" height="30" rx="15" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
+  <text x="130" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Bithumb</text>
+  <rect x="195" y="400" width="100" height="30" rx="15" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
+  <text x="245" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Bitcoin</text>
+  <rect x="310" y="400" width="130" height="30" rx="15" fill="rgba(230,126,34,0.15)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
+  <text x="375" y="420" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle">Crypto Market</text>
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>
