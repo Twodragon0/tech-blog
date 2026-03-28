@@ -1,37 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>LLM 2026</title>
+  <title>LLM Security Guide - Prompt Injection, RAG, MCP 2026-03-07</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#4a1942"/>
+      <stop offset="100%" stop-color="#2d1b3d"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="45"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="180" cy="200" r="300" fill="#ec4899" opacity="0.05" filter="url(#sg)"/>
+  <circle cx="1100" cy="430" r="250" fill="#8b5cf6" opacity="0.07" filter="url(#sg)"/>
+  <!-- LLM neural net visualization -->
+  <g transform="translate(960,310)" filter="url(#glow)" opacity="0.5">
+    <!-- Input layer -->
+    <circle cx="-90" cy="-60" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
+    <circle cx="-90" cy="0" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
+    <circle cx="-90" cy="60" r="8" fill="#ec4899" stroke="#ec4899" stroke-width="1.5"/>
+    <!-- Hidden layer -->
+    <circle cx="0" cy="-80" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="0" cy="-27" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="0" cy="27" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="0" cy="80" r="8" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5"/>
+    <!-- Output layer -->
+    <circle cx="90" cy="-40" r="8" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"/>
+    <circle cx="90" cy="40" r="8" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"/>
+    <!-- Connections input -> hidden -->
+    <line x1="-82" y1="-60" x2="-8" y2="-80" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-82" y1="-60" x2="-8" y2="-27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-82" y1="0" x2="-8" y2="-27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-82" y1="0" x2="-8" y2="27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-82" y1="60" x2="-8" y2="27" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-82" y1="60" x2="-8" y2="80" stroke="#ec4899" stroke-width="0.8" opacity="0.4"/>
+    <!-- Connections hidden -> output -->
+    <line x1="8" y1="-80" x2="82" y2="-40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
+    <line x1="8" y1="-27" x2="82" y2="-40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
+    <line x1="8" y1="27" x2="82" y2="40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
+    <line x1="8" y1="80" x2="82" y2="40" stroke="#8b5cf6" stroke-width="0.8" opacity="0.4"/>
+    <!-- Injection arrow -->
+    <path d="M-120,0 L-98,0" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arr)" opacity="0.9"/>
+    <text x="-140" y="5" font-family="Arial,sans-serif" font-size="11" fill="#ff4444" text-anchor="middle" opacity="0.9">INJECT</text>
   </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">LLM 2026</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Tech | Blog | Update</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Date + category -->
+  <rect x="70" y="44" width="158" height="34" rx="17" fill="#ec4899" opacity="0.15" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="149" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f9a8d4" text-anchor="middle">March 7, 2026</text>
+  <rect x="248" y="44" width="158" height="34" rx="17" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="327" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">AI SECURITY</text>
+  <!-- Title -->
+  <text x="70" y="188" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">LLM Security</text>
+  <text x="70" y="242" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="white" filter="url(#glow)">Practical Guide</text>
+  <text x="70" y="296" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.6)">Prompt Injection / RAG / MCP Threats 2026</text>
+  <!-- Keywords -->
+  <rect x="70" y="358" width="168" height="36" rx="18" fill="rgba(236,72,153,0.15)" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="154" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f9a8d4" text-anchor="middle">Prompt Injection</text>
+  <rect x="258" y="358" width="98" height="36" rx="18" fill="rgba(139,92,246,0.14)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="307" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#c4b5fd" text-anchor="middle">RAG</text>
+  <rect x="376" y="358" width="98" height="36" rx="18" fill="rgba(245,158,11,0.14)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="425" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">MCP</text>
+  <rect x="494" y="358" width="108" height="36" rx="18" fill="rgba(239,68,68,0.14)" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="548" y="381" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">OWASP</text>
+  <!-- Accent bar -->
+  <rect x="70" y="424" width="460" height="4" rx="2" fill="url(#acc)"/>
+  <!-- Footer -->
+  <line x1="50" y1="592" x2="1150" y2="592" stroke="#2d1b3d" stroke-width="1" opacity="0.7"/>
+  <text x="1150" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
+  <text x="70" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b">LLM Security Deep Dive</text>
 </svg>

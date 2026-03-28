@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Zero Trust Architecture, Cloud Security and FinOps</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1a0e"/>
+      <stop offset="50%" stop-color="#0c1f14"/>
+      <stop offset="100%" stop-color="#0a1810"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="300" r="250" fill="#10b981" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="600" cy="250" r="200" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
+  <circle cx="1000" cy="300" r="250" fill="#22d3ee" opacity="0.04" filter="url(#sg)"/>
+
+  <!-- Zero Trust concentric circles -->
+  <g transform="translate(200,280)">
+    <circle r="65" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.2"/>
+    <circle r="45" fill="none" stroke="#10b981" stroke-width="2" opacity="0.3"/>
+    <circle r="25" fill="none" stroke="#10b981" stroke-width="2.5" opacity="0.5"/>
+    <circle r="8" fill="#10b981" opacity="0.3"/>
+    <text y="4" font-family="monospace" font-size="7" fill="#10b981" text-anchor="middle" font-weight="bold">ID</text>
+    <!-- Lock icon -->
+    <rect x="-6" y="-80" width="12" height="10" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <path d="M-4,-80 L-4,-86 Q0,-92 4,-86 L4,-80" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <text y="90" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle" font-weight="bold">Zero Trust</text>
+  </g>
+
+  <!-- Cloud Security -->
+  <g transform="translate(600,280)">
+    <!-- Cloud shape -->
+    <ellipse cx="0" cy="-10" rx="75" ry="40" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.4"/>
+    <rect x="-60" y="-15" width="120" height="45" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle">
+      <tspan x="0" y="3" font-weight="bold">AWS + GCP</tspan>
+      <tspan x="0" y="18" font-size="9" opacity="0.7">IAM / Workload ID</tspan>
+    </text>
+    <!-- Shield -->
+    <path d="M-15,-45 L0,-55 L15,-45 L15,-30 L0,-22 L-15,-30 Z" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+
+  <!-- FinOps chart -->
+  <g transform="translate(1000,280)">
+    <rect x="-65" y="-50" width="130" height="100" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2" opacity="0.6"/>
+    <!-- Bar chart -->
+    <rect x="-45" y="10" width="18" height="30" rx="3" fill="#22d3ee" opacity="0.6"/>
+    <rect x="-20" y="-5" width="18" height="45" rx="3" fill="#22d3ee" opacity="0.4"/>
+    <rect x="5" y="-20" width="18" height="60" rx="3" fill="#22d3ee" opacity="0.3"/>
+    <rect x="30" y="-35" width="18" height="75" rx="3" fill="#22d3ee" opacity="0.5"/>
+    <!-- Trend line -->
+    <polyline points="-36,-10 -11,-25 14,-15 39,-40" fill="none" stroke="#10b981" stroke-width="2"/>
+    <text y="-60" font-family="monospace" font-size="11" fill="#22d3ee" text-anchor="middle" font-weight="bold">FinOps</text>
+    <text y="65" font-family="monospace" font-size="9" fill="#22d3ee" text-anchor="middle" opacity="0.7">Cost Optimize</text>
+  </g>
+
+  <!-- Connecting lines -->
+  <line x1="280" y1="280" x2="520" y2="280" stroke="#10b981" stroke-width="1.5" stroke-dasharray="8 4" opacity="0.3"/>
+  <line x1="680" y1="280" x2="920" y2="280" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8 4" opacity="0.3"/>
+
+  <!-- Title -->
+  <text x="600" y="85" font-family="Arial,sans-serif" font-size="32" fill="#e2e8f0" text-anchor="middle" font-weight="bold" filter="url(#glow)">Tech Security Weekly Digest</text>
+  <text x="600" y="125" font-family="Arial,sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Zero Trust | Cloud Security | FinOps</text>
+
+  <!-- Date badge -->
+  <rect x="490" y="140" width="220" height="30" rx="15" fill="#1e293b" stroke="#10b981" stroke-width="1" opacity="0.6"/>
+  <text x="600" y="161" font-family="monospace" font-size="14" fill="#34d399" text-anchor="middle">2026-03-27</text>
+
+  <!-- Bottom tags -->
+  <g transform="translate(600,560)">
+    <rect x="-290" y="-15" width="90" height="28" rx="14" fill="#064e3b" opacity="0.6"/>
+    <text x="-245" y="4" font-family="monospace" font-size="11" fill="#6ee7b7" text-anchor="middle">IAM SCP</text>
+    <rect x="-170" y="-15" width="100" height="28" rx="14" fill="#78350f" opacity="0.4"/>
+    <text x="-120" y="4" font-family="monospace" font-size="11" fill="#fbbf24" text-anchor="middle">Workload ID</text>
+    <rect x="-40" y="-15" width="80" height="28" rx="14" fill="#164e63" opacity="0.6"/>
+    <text x="0" y="4" font-family="monospace" font-size="11" fill="#67e8f9" text-anchor="middle">Spot</text>
+    <rect x="70" y="-15" width="100" height="28" rx="14" fill="#064e3b" opacity="0.6"/>
+    <text x="120" y="4" font-family="monospace" font-size="11" fill="#6ee7b7" text-anchor="middle">Terraform</text>
+    <rect x="200" y="-15" width="100" height="28" rx="14" fill="#164e63" opacity="0.6"/>
+    <text x="250" y="4" font-family="monospace" font-size="11" fill="#67e8f9" text-anchor="middle">GuardDuty</text>
+  </g>
+</svg>

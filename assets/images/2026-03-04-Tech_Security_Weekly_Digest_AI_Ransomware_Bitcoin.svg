@@ -1,37 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>JWT , , AI</title>
+  <title>JWT Auth Threat, Crypto Breach - Security Weekly 2026-03-04</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#3e2723"/>
+      <stop offset="100%" stop-color="#1a0a00"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#ff6b35"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sg"><feGaussianBlur stdDeviation="45"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="200" r="280" fill="#f5a623" opacity="0.05" filter="url(#sg)"/>
+  <circle cx="1050" cy="450" r="240" fill="#ff6b35" opacity="0.05" filter="url(#sg)"/>
+  <!-- Bitcoin symbol -->
+  <g transform="translate(960,310)" filter="url(#glow)" opacity="0.6">
+    <circle r="70" fill="none" stroke="#f5a623" stroke-width="2.5"/>
+    <circle r="70" fill="#f5a623" opacity="0.07"/>
+    <text x="0" y="22" font-family="Arial,sans-serif" font-size="60" font-weight="bold" fill="#f5a623" text-anchor="middle" opacity="0.9">B</text>
+    <line x1="-8" y1="-42" x2="-8" y2="-56" stroke="#f5a623" stroke-width="3.5"/>
+    <line x1="8" y1="-42" x2="8" y2="-56" stroke="#f5a623" stroke-width="3.5"/>
+    <line x1="-8" y1="36" x2="-8" y2="50" stroke="#f5a623" stroke-width="3.5"/>
+    <line x1="8" y1="36" x2="8" y2="50" stroke="#f5a623" stroke-width="3.5"/>
   </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">JWT , , AI</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- JWT token visual -->
+  <g transform="translate(820,480)" opacity="0.4">
+    <rect x="-80" y="-18" width="68" height="36" rx="6" fill="#4a9eff" opacity="0.3" stroke="#4a9eff" stroke-width="1"/>
+    <rect x="-4" y="-18" width="68" height="36" rx="6" fill="#64d250" opacity="0.2" stroke="#64d250" stroke-width="1"/>
+    <rect x="72" y="-18" width="68" height="36" rx="6" fill="#f5a623" opacity="0.25" stroke="#f5a623" stroke-width="1"/>
+    <text x="-46" y="7" font-family="monospace" font-size="11" fill="#93c5fd" text-anchor="middle">header</text>
+    <text x="30" y="7" font-family="monospace" font-size="11" fill="#86efac" text-anchor="middle">payload</text>
+    <text x="106" y="7" font-family="monospace" font-size="11" fill="#f5a623" text-anchor="middle">sig</text>
+  </g>
+  <!-- Date + category -->
+  <rect x="70" y="44" width="158" height="34" rx="17" fill="#f5a623" opacity="0.18" stroke="#f5a623" stroke-width="1.5"/>
+  <text x="149" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f5a623" text-anchor="middle">March 4, 2026</text>
+  <rect x="248" y="44" width="128" height="34" rx="17" fill="rgba(245,166,35,0.1)" stroke="#f5a623" stroke-width="1.5"/>
+  <text x="312" y="66" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f5a623" text-anchor="middle">FINOPS</text>
+  <!-- Title -->
+  <text x="70" y="195" font-family="Arial,sans-serif" font-size="48" font-weight="bold" fill="white" filter="url(#glow)">JWT Auth Threat</text>
+  <text x="70" y="254" font-family="Arial,sans-serif" font-size="48" font-weight="bold" fill="white" filter="url(#glow)">Crypto Breach</text>
+  <text x="70" y="310" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.58)">Weekly Security Digest</text>
+  <!-- Keywords -->
+  <rect x="70" y="370" width="88" height="36" rx="18" fill="rgba(245,166,35,0.18)" stroke="#f5a623" stroke-width="1.5"/>
+  <text x="114" y="393" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#f5a623" text-anchor="middle">JWT</text>
+  <rect x="178" y="370" width="128" height="36" rx="18" fill="rgba(255,107,53,0.14)" stroke="#ff6b35" stroke-width="1.5"/>
+  <text x="242" y="393" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#ff9a6b" text-anchor="middle">Bitcoin</text>
+  <rect x="326" y="370" width="138" height="36" rx="18" fill="rgba(100,210,80,0.1)" stroke="#64d250" stroke-width="1.5"/>
+  <text x="395" y="393" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#64d250" text-anchor="middle">AI Gov</text>
+  <!-- Accent bar -->
+  <rect x="70" y="437" width="360" height="4" rx="2" fill="url(#acc)"/>
+  <!-- Footer -->
+  <line x1="50" y1="592" x2="1150" y2="592" stroke="#334155" stroke-width="1" opacity="0.4"/>
+  <text x="1150" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">tech.2twodragon.com</text>
+  <text x="70" y="616" font-family="Arial,sans-serif" font-size="13" fill="#64748b">DevSecOps Weekly Intel</text>
 </svg>
