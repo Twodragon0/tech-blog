@@ -127,7 +127,7 @@ toc: true
 - AWS EC2 G7e NVIDIA Blackwell 인스턴스
 - ChatGPT 컨테이너 기능과 보안 고려사항
 
-## 빠른 참조
+## 📊 빠른 참조
 
 ### 2026년 1월 27일 주요 기술/보안 이슈
 

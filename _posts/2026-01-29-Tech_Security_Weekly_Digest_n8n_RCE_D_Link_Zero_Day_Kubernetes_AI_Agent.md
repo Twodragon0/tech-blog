@@ -89,7 +89,7 @@ toc: true
 - Infomaniak Swiss Sovereign Cloud와 데이터 주권 동향
 - 비인간 ID(NHI) 클라우드 침해 벡터 분석 및 방어 전략
 
-## 빠른 참조
+## 📊 빠른 참조
 
 ### 2026년 1월 29일 주요 기술/보안 이슈
 

@@ -87,7 +87,7 @@ toc: true
 - Microsoft AI 기반 위협 탐지 자동화 워크플로우
 - OT/에너지 시스템 사이버보안 실태와 방어 전략
 
-## 빠른 참조
+## 📊 빠른 참조
 
 > 📌 **관련 보도**: [NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석 (2025년 09월 17일)](/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/)
 > 📌 **관련 보도**: [클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라! (2025년 11월 21일)](/posts/2025/11/21/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/)
