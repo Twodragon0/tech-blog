@@ -1,40 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>n8n-sandbox-escape-attack-flow</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<path d="M0,-140 C80,-140 140,-100 140,0 C140,80 80,160 0,180 C-80,160 -140,80 -140,0 C-140,-100 -80,-140 0,-140Z" fill="#ef4444" fill-opacity="0.04" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
-<path d="M0,-100 C55,-100 100,-70 100,0 C100,55 55,110 0,130 C-55,110 -100,55 -100,0 C-100,-70 -55,-100 0,-100Z" fill="#ef4444" fill-opacity="0.06" stroke="#fca5a5" stroke-width="1.5" opacity="0.4"/>
-<path d="M-25,10 L-8,30 L30,-20" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-<g opacity="0.3">
-<rect x="-250" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-<rect x="-250" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-<rect x="-250" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-<rect x="170" y="-30" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-<rect x="170" y="5" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-<rect x="170" y="40" width="80" height="25" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-</g>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">n8n sandbox escape attack flow</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud | DevOps</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 29, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f0a"/>
+      <stop offset="100%" style="stop-color:#2d1a10"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d35400"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
+    </linearGradient>
+    <marker id="arrowesc" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Sandbox dashed container -->
+  <rect x="770" y="148" width="218" height="175" rx="8" fill="rgba(211,84,0,0.06)" stroke="#d35400" stroke-width="2" stroke-dasharray="9,5"/>
+  <text x="879" y="168" font-size="11" fill="rgba(211,84,0,0.8)" font-family="monospace" text-anchor="middle" letter-spacing="1">SANDBOX</text>
+  <!-- n8n Node box inside sandbox -->
+  <rect x="820" y="178" width="118" height="45" rx="5" fill="rgba(211,84,0,0.18)" stroke="#d35400" stroke-width="1.5"/>
+  <text x="879" y="196" font-size="10" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle">n8n Node</text>
+  <text x="879" y="213" font-size="9" fill="rgba(255,200,100,0.85)" font-family="monospace" text-anchor="middle">exec(payload)</text>
+  <!-- VM context label -->
+  <rect x="800" y="240" width="158" height="28" rx="4" fill="rgba(0,0,0,0.3)"/>
+  <text x="879" y="258" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">vm.runInNewContext(...)</text>
+  <!-- Crack / break-out marks on right wall -->
+  <line x1="988" y1="175" x2="1010" y2="163" stroke="#e74c3c" stroke-width="2.5"/>
+  <line x1="1010" y1="163" x2="1004" y2="192" stroke="#e74c3c" stroke-width="2.5"/>
+  <line x1="1004" y1="192" x2="1025" y2="180" stroke="#e74c3c" stroke-width="2.5"/>
+  <line x1="1025" y1="180" x2="1018" y2="210" stroke="#e74c3c" stroke-width="2.5"/>
+  <!-- Escape arrow -->
+  <path d="M 988 230 Q 1028 230 1055 265" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowesc)"/>
+  <!-- Host OS box outside -->
+  <rect x="1040" y="270" width="130" height="52" rx="7" fill="rgba(231,76,60,0.18)" stroke="#e74c3c" stroke-width="2"/>
+  <text x="1105" y="293" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle">HOST OS</text>
+  <text x="1105" y="311" font-size="9" fill="rgba(231,76,60,0.85)" font-family="monospace" text-anchor="middle">RCE achieved</text>
+  <!-- Stage labels -->
+  <text x="780" y="144" font-size="9" fill="rgba(255,200,100,0.6)" font-family="monospace">STEP 1: INJECT</text>
+  <text x="992" y="160" font-size="9" fill="rgba(231,76,60,0.75)" font-family="monospace">STEP 2: BREAK</text>
+  <text x="1042" y="262" font-size="9" fill="rgba(231,76,60,0.75)" font-family="monospace">STEP 3: ESCAPE</text>
+  <!-- Code snippet -->
+  <rect x="770" y="368" width="310" height="60" rx="5" fill="rgba(0,0,0,0.45)" stroke="rgba(211,84,0,0.3)" stroke-width="1"/>
+  <text x="785" y="385" font-size="9" fill="rgba(255,160,80,0.9)" font-family="monospace">// CVE-2024-XXXX n8n RCE</text>
+  <text x="785" y="400" font-size="9" fill="rgba(255,100,100,0.9)" font-family="monospace">vm.runInNewContext(`process.exit(0)`)</text>
+  <text x="785" y="418" font-size="9" fill="rgba(255,100,100,0.6)" font-family="monospace">// Bypasses Node.js VM sandbox isolation</text>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(211,84,0,0.25)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">n8n Sandbox Escape</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Attack Flow</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">How attackers escape n8n VM sandbox to achieve remote code execution</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">RCE ANALYSIS</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(211,84,0,0.25)" stroke="rgba(211,84,0,0.5)" stroke-width="1"/>
+  <text x="130" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">n8n RCE</text>
+  <rect x="196" y="402" width="140" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
+  <text x="266" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Sandbox Escape</text>
+  <rect x="352" y="402" width="110" height="36" rx="18" fill="rgba(211,84,0,0.2)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <text x="407" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Attack Flow</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

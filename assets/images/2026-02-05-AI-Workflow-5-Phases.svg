@@ -1,45 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>AI-Workflow-5-Phases</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<path d="M0,-110 C60,-110 110,-70 120,-20 C130,30 100,80 60,100 C30,115 -30,115 -60,100 C-100,80 -130,30 -120,-20 C-110,-70 -60,-110 0,-110Z" fill="#6366f1" fill-opacity="0.05" stroke="#818cf8" stroke-width="2" opacity="0.5"/>
-<path d="M0,-110 C10,-60 -10,0 5,50 C10,80 0,100 0,100" fill="none" stroke="#a5b4fc" stroke-width="1.5" opacity="0.4"/>
-<g stroke="#818cf8" stroke-width="1.5" opacity="0.4" fill="none">
-<path d="M-60,-50 L-30,-50 L-30,-20 L0,-20"/>
-<path d="M60,-50 L30,-50 L30,-20 L0,-20"/>
-<path d="M-80,20 L-40,20 L-40,50 L0,50"/>
-<path d="M80,20 L40,20 L40,50 L0,50"/>
-</g>
-<circle cx="0" cy="-20" r="6" fill="#818cf8" opacity="0.6"/>
-<circle cx="0" cy="50" r="5" fill="#a5b4fc" opacity="0.5"/>
-<circle cx="-60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
-<circle cx="60" cy="-50" r="4" fill="#60a5fa" opacity="0.5"/>
-<circle cx="-80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
-<circle cx="80" cy="20" r="3.5" fill="#a78bfa" opacity="0.5"/>
-<circle cx="0" cy="-20" r="18" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
-<circle cx="0" cy="-20" r="35" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.1"/>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Workflow 5 Phases</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 5, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1530"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#00b894"/>
+    </linearGradient>
+    <marker id="flowarrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#6c5ce7"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- 5 phase circles in a flow line -->
+  <!-- Connecting flow line -->
+  <line x1="782" y1="280" x2="850" y2="280" stroke="rgba(108,92,231,0.4)" stroke-width="2" marker-end="url(#flowarrow)"/>
+  <line x1="898" y1="280" x2="966" y2="280" stroke="rgba(108,92,231,0.4)" stroke-width="2" marker-end="url(#flowarrow)"/>
+  <line x1="1014" y1="280" x2="1082" y2="280" stroke="rgba(0,184,148,0.4)" stroke-width="2" marker-end="url(#flowarrow)"/>
+  <line x1="1130" y1="280" x2="1155" y2="280" stroke="rgba(0,184,148,0.4)" stroke-width="2"/>
+  <!-- Phase 1: Input -->
+  <circle cx="758" cy="280" r="34" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="2.5"/>
+  <circle cx="758" cy="280" r="20" fill="rgba(108,92,231,0.3)"/>
+  <text x="758" y="275" font-size="16" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" font-weight="700">1</text>
+  <text x="758" y="335" font-size="10" fill="rgba(108,92,231,0.8)" font-family="monospace" text-anchor="middle">INPUT</text>
+  <!-- Phase 2: Process -->
+  <circle cx="874" cy="280" r="34" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="2.5"/>
+  <circle cx="874" cy="280" r="20" fill="rgba(108,92,231,0.3)"/>
+  <text x="874" y="275" font-size="16" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" font-weight="700">2</text>
+  <text x="874" y="335" font-size="10" fill="rgba(108,92,231,0.8)" font-family="monospace" text-anchor="middle">PROCESS</text>
+  <!-- Phase 3: Generate -->
+  <circle cx="990" cy="280" r="34" fill="rgba(0,184,148,0.2)" stroke="#00b894" stroke-width="2.5"/>
+  <circle cx="990" cy="280" r="20" fill="rgba(0,184,148,0.3)"/>
+  <text x="990" y="275" font-size="16" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" font-weight="700">3</text>
+  <text x="990" y="335" font-size="10" fill="rgba(0,184,148,0.8)" font-family="monospace" text-anchor="middle">GENERATE</text>
+  <!-- Phase 4: Validate -->
+  <circle cx="1106" cy="280" r="34" fill="rgba(0,184,148,0.2)" stroke="#00b894" stroke-width="2.5"/>
+  <circle cx="1106" cy="280" r="20" fill="rgba(0,184,148,0.3)"/>
+  <text x="1106" y="275" font-size="16" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" font-weight="700">4</text>
+  <text x="1106" y="335" font-size="10" fill="rgba(0,184,148,0.8)" font-family="monospace" text-anchor="middle">VALIDATE</text>
+  <!-- Phase 5 label (outside visible area hint) -->
+  <text x="1165" y="280" font-size="12" fill="rgba(0,184,148,0.6)" font-family="monospace">5</text>
+  <text x="1165" y="294" font-size="10" fill="rgba(0,184,148,0.5)" font-family="monospace">OUT</text>
+  <!-- Phase descriptions below -->
+  <text x="758" y="356" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Data, Prompt</text>
+  <text x="874" y="356" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">RAG, Chain</text>
+  <text x="990" y="356" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">LLM, Agents</text>
+  <text x="1106" y="356" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Eval, Guard</text>
+  <!-- Mini circuit nodes connecting phases -->
+  <circle cx="758" cy="180" r="6" fill="rgba(108,92,231,0.4)" stroke="#6c5ce7" stroke-width="1"/>
+  <circle cx="874" cy="180" r="6" fill="rgba(108,92,231,0.4)" stroke="#6c5ce7" stroke-width="1"/>
+  <circle cx="990" cy="180" r="6" fill="rgba(0,184,148,0.4)" stroke="#00b894" stroke-width="1"/>
+  <circle cx="1106" cy="180" r="6" fill="rgba(0,184,148,0.4)" stroke="#00b894" stroke-width="1"/>
+  <line x1="758" y1="180" x2="874" y2="180" stroke="rgba(108,92,231,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="874" y1="180" x2="990" y2="180" stroke="rgba(108,92,231,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="990" y1="180" x2="1106" y2="180" stroke="rgba(0,184,148,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="758" y1="180" x2="758" y2="246" stroke="rgba(108,92,231,0.2)" stroke-width="1"/>
+  <line x1="874" y1="180" x2="874" y2="246" stroke="rgba(108,92,231,0.2)" stroke-width="1"/>
+  <line x1="990" y1="180" x2="990" y2="246" stroke="rgba(0,184,148,0.2)" stroke-width="1"/>
+  <line x1="1106" y1="180" x2="1106" y2="246" stroke="rgba(0,184,148,0.2)" stroke-width="1"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">FEBRUARY 5, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">AI Workflow</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">5 Phases</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Input to output: 5-phase framework for building production AI pipelines</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">AI WORKFLOW</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.5)" stroke-width="1"/>
+  <text x="135" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Workflow</text>
+  <rect x="206" y="402" width="100" height="36" rx="18" fill="rgba(0,184,148,0.2)" stroke="rgba(0,184,148,0.45)" stroke-width="1"/>
+  <text x="256" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">5 Phases</text>
+  <rect x="322" y="402" width="95" height="36" rx="18" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="369" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Pipeline</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

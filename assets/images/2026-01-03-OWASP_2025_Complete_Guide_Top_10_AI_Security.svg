@@ -20,58 +20,68 @@
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Top-10 list panel -->
-  <rect x="840" y="195" width="195" height="270" rx="8" fill="rgba(41,128,185,0.09)" stroke="rgba(41,128,185,0.28)" stroke-width="1.5"/>
-  <rect x="856" y="213" width="48" height="20" rx="4" fill="rgba(41,128,185,0.45)"/>
-  <rect x="914" y="216" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="226" width="76" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="245" width="48" height="20" rx="4" fill="rgba(41,128,185,0.38)"/>
-  <rect x="914" y="248" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="258" width="68" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="277" width="48" height="20" rx="4" fill="rgba(230,126,34,0.42)"/>
-  <rect x="914" y="280" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="290" width="80" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="309" width="48" height="20" rx="4" fill="rgba(230,126,34,0.36)"/>
-  <rect x="914" y="312" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="322" width="62" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="341" width="48" height="20" rx="4" fill="rgba(41,128,185,0.32)"/>
-  <rect x="914" y="344" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="354" width="88" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="373" width="48" height="20" rx="4" fill="rgba(41,128,185,0.26)"/>
-  <rect x="914" y="376" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="386" width="72" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="856" y="405" width="48" height="20" rx="4" fill="rgba(230,126,34,0.22)"/>
-  <rect x="914" y="408" width="100" height="6" rx="3" fill="rgba(255,255,255,0.22)"/>
-  <rect x="914" y="418" width="55" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-  <!-- AI brain circle -->
-  <circle cx="1090" cy="310" r="58" fill="rgba(230,126,34,0.07)" stroke="rgba(230,126,34,0.28)" stroke-width="1.5"/>
-  <circle cx="1090" cy="310" r="36" fill="rgba(230,126,34,0.1)" stroke="rgba(230,126,34,0.38)" stroke-width="1.2"/>
-  <circle cx="1090" cy="284" r="5" fill="rgba(230,126,34,0.65)"/>
-  <circle cx="1068" cy="318" r="5" fill="rgba(230,126,34,0.65)"/>
-  <circle cx="1112" cy="318" r="5" fill="rgba(230,126,34,0.65)"/>
-  <circle cx="1078" cy="338" r="5" fill="rgba(230,126,34,0.65)"/>
-  <circle cx="1102" cy="338" r="5" fill="rgba(230,126,34,0.65)"/>
-  <line x1="1090" y1="284" x2="1068" y2="318" stroke="rgba(230,126,34,0.42)" stroke-width="1.2"/>
-  <line x1="1090" y1="284" x2="1112" y2="318" stroke="rgba(230,126,34,0.42)" stroke-width="1.2"/>
-  <line x1="1068" y1="318" x2="1078" y2="338" stroke="rgba(230,126,34,0.42)" stroke-width="1.2"/>
-  <line x1="1112" y1="318" x2="1102" y2="338" stroke="rgba(230,126,34,0.42)" stroke-width="1.2"/>
-  <line x1="1068" y1="318" x2="1102" y2="338" stroke="rgba(230,126,34,0.28)" stroke-width="1"/>
-  <line x1="1112" y1="318" x2="1078" y2="338" stroke="rgba(230,126,34,0.28)" stroke-width="1"/>
+  <!-- Top 10 numbered bars -->
+  <rect x="760" y="120" width="90" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
+  <text x="768" y="131" font-size="9" fill="white" font-family="monospace">A01 Broken Access</text>
+  <rect x="760" y="138" width="76" height="13" rx="3" fill="#3498db" opacity="0.65"/>
+  <text x="768" y="149" font-size="9" fill="white" font-family="monospace">A02 Crypto Failures</text>
+  <rect x="760" y="156" width="100" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
+  <text x="768" y="167" font-size="9" fill="white" font-family="monospace">A03 Injection</text>
+  <rect x="760" y="174" width="70" height="13" rx="3" fill="#1c638e" opacity="0.6"/>
+  <text x="768" y="185" font-size="9" fill="white" font-family="monospace">A04 Insecure Design</text>
+  <rect x="760" y="192" width="82" height="13" rx="3" fill="#2980b9" opacity="0.55"/>
+  <text x="768" y="203" font-size="9" fill="white" font-family="monospace">A05 Misconfiguration</text>
+  <rect x="760" y="210" width="68" height="13" rx="3" fill="#3498db" opacity="0.65"/>
+  <text x="768" y="221" font-size="9" fill="white" font-family="monospace">A06 Outdated Components</text>
+  <rect x="760" y="228" width="88" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
+  <text x="768" y="239" font-size="9" fill="white" font-family="monospace">A07 Auth Failures</text>
+  <rect x="760" y="246" width="74" height="13" rx="3" fill="#1c638e" opacity="0.55"/>
+  <text x="768" y="257" font-size="9" fill="white" font-family="monospace">A08 Data Integrity</text>
+  <rect x="760" y="264" width="72" height="13" rx="3" fill="#3498db" opacity="0.65"/>
+  <text x="768" y="275" font-size="9" fill="white" font-family="monospace">A09 Logging Failures</text>
+  <rect x="760" y="282" width="84" height="13" rx="3" fill="#2980b9" opacity="0.75"/>
+  <text x="768" y="293" font-size="9" fill="white" font-family="monospace">A10 SSRF</text>
+  <!-- AI Brain (stylized neural net) -->
+  <ellipse cx="970" cy="360" rx="58" ry="48" fill="none" stroke="#e67e22" stroke-width="2" opacity="0.8"/>
+  <ellipse cx="970" cy="360" rx="36" ry="30" fill="rgba(230,126,34,0.08)"/>
+  <circle cx="948" cy="350" r="5" fill="#e67e22" opacity="0.9"/>
+  <circle cx="975" cy="342" r="4" fill="#e67e22" opacity="0.8"/>
+  <circle cx="992" cy="358" r="5" fill="#e67e22" opacity="0.9"/>
+  <circle cx="967" cy="374" r="4" fill="#e67e22" opacity="0.8"/>
+  <circle cx="950" cy="370" r="3" fill="#e67e22" opacity="0.7"/>
+  <line x1="948" y1="350" x2="975" y2="342" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
+  <line x1="975" y1="342" x2="992" y2="358" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
+  <line x1="992" y1="358" x2="967" y2="374" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
+  <line x1="967" y1="374" x2="950" y2="370" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
+  <line x1="950" y1="370" x2="948" y2="350" stroke="#e67e22" stroke-width="1.2" opacity="0.6"/>
+  <text x="970" y="415" font-size="10" fill="rgba(230,126,34,0.7)" font-family="monospace" text-anchor="middle">AI THREATS</text>
+  <!-- Shield -->
+  <path d="M1060 135 L1105 152 L1105 196 Q1105 228 1060 245 Q1015 228 1015 196 L1015 152 Z" fill="none" stroke="#2980b9" stroke-width="2.5" opacity="0.8"/>
+  <path d="M1060 152 L1096 166 L1096 195 Q1096 218 1060 232 Q1024 218 1024 195 L1024 166 Z" fill="rgba(41,128,185,0.12)"/>
+  <text x="1053" y="200" font-size="26" fill="#2980b9" font-family="sans-serif" opacity="0.9">&#x2713;</text>
+  <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(41,128,185,0.14)" stroke="rgba(41,128,185,0.38)" stroke-width="1"/>
-  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 3, 2026</text>
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">OWASP 2025 Top 10 and</text>
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">AI Security Guide</text>
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Complete walkthrough of OWASP 2025 with AI threat landscape</text>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="6" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="190" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 3, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">OWASP 2025 Complete Guide</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Top 10 and AI Security</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Comprehensive breakdown of OWASP Top 10 with AI threat integration</text>
+  <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">SECURITY FRAMEWORK</text>
-  <rect x="80" y="402" width="128" height="36" rx="18" fill="rgba(41,128,185,0.14)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
-  <text x="144" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">OWASP Top 10</text>
-  <rect x="223" y="402" width="115" height="36" rx="18" fill="rgba(230,126,34,0.14)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
-  <text x="280" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">AI Security</text>
-  <rect x="353" y="402" width="82" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="394" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Guide</text>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY FRAMEWORK</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.5)" stroke-width="1"/>
+  <text x="145" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">OWASP Top 10</text>
+  <rect x="226" y="402" width="120" height="36" rx="18" fill="rgba(230,126,34,0.2)" stroke="rgba(230,126,34,0.45)" stroke-width="1"/>
+  <text x="286" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Security</text>
+  <rect x="362" y="402" width="80" height="36" rx="18" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="402" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Guide</text>
+  <!-- Bottom bar -->
   <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
-  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

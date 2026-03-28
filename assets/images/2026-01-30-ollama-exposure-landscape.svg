@@ -1,52 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>ollama-exposure-landscape</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<path d="M0,-135 C75,-135 125,-95 125,-15 C125,65 65,125 0,155 C-65,125 -125,65 -125,-15 C-125,-95 -75,-135 0,-135Z" fill="#ef4444" fill-opacity="0.05" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
-<path d="M0,-100 C55,-100 90,-70 90,-10 C90,45 50,85 0,110 C-50,85 -90,45 -90,-10 C-90,-70 -55,-100 0,-100Z" fill="#ef4444" fill-opacity="0.03" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
-<path d="M-5,-115 L10,-65 L-12,-20 L14,35 L-10,75 L6,125" fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
-<rect x="-20" y="-15" width="40" height="32" rx="5" fill="none" stroke="#ef4444" stroke-width="2"/>
-<path d="M-12,-15 L-12,-28 C-12,-45 12,-45 12,-28 L12,-15" fill="none" stroke="#ef4444" stroke-width="2.5"/>
-<circle cx="0" cy="5" r="5" fill="#ef4444" opacity="0.7"/>
-<rect x="-1.5" y="8" width="3" height="8" rx="1.5" fill="#ef4444" opacity="0.7"/>
-</g>
-<g opacity="0.5">
-<path d="M120,100 C250,150 380,200 485,240" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="483,235 495,240 483,245" fill="#ef4444"/>
-<path d="M1080,100 C950,150 820,200 715,240" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="717,235 705,240 717,245" fill="#f59e0b"/>
-<path d="M120,420 C250,370 380,310 490,275" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="488,270 500,275 488,280" fill="#8b5cf6"/>
-<path d="M1080,420 C950,370 820,310 710,275" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="712,270 700,275 712,280" fill="#3b82f6"/>
-</g>
-<g opacity="0.35">
-<polygon points="170,160 180,145 190,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="180" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
-<polygon points="1010,160 1020,145 1030,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="1020" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">ollama exposure landscape</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud | DevOps</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 30, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1530"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Globe outline -->
+  <circle cx="960" cy="275" r="125" fill="none" stroke="rgba(108,92,231,0.3)" stroke-width="2"/>
+  <ellipse cx="960" cy="275" rx="62" ry="125" fill="none" stroke="rgba(108,92,231,0.2)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="275" rx="125" ry="42" fill="none" stroke="rgba(108,92,231,0.2)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="275" rx="125" ry="22" fill="none" stroke="rgba(108,92,231,0.15)" stroke-width="1"/>
+  <!-- Exposed server dots scattered on globe -->
+  <circle cx="900" cy="175" r="4" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="940" cy="165" r="3" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="985" cy="170" r="5" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="1020" cy="180" r="3" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="855" cy="225" r="4" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="880" cy="250" r="3" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="920" cy="235" r="5" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="960" cy="220" r="4" fill="#e74c3c" opacity="0.85"/>
+  <circle cx="1005" cy="230" r="3" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="1045" cy="240" r="4" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="1075" cy="255" r="5" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="840" cy="280" r="3" fill="#e67e22" opacity="0.7"/>
+  <circle cx="870" cy="295" r="4" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="915" cy="285" r="3" fill="#e67e22" opacity="0.7"/>
+  <circle cx="955" cy="280" r="5" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="1000" cy="275" r="4" fill="#e74c3c" opacity="0.85"/>
+  <circle cx="1040" cy="290" r="3" fill="#e67e22" opacity="0.7"/>
+  <circle cx="1080" cy="305" r="4" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="900" cy="330" r="3" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="945" cy="335" r="4" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="990" cy="325" r="5" fill="#e74c3c" opacity="0.9"/>
+  <circle cx="1035" cy="340" r="3" fill="#e67e22" opacity="0.65"/>
+  <circle cx="875" cy="360" r="3" fill="#e74c3c" opacity="0.6"/>
+  <circle cx="925" cy="370" r="4" fill="#e74c3c" opacity="0.7"/>
+  <!-- Big count label -->
+  <text x="960" y="268" font-size="28" font-weight="700" fill="rgba(231,76,60,0.9)" font-family="sans-serif" text-anchor="middle">175K</text>
+  <text x="960" y="290" font-size="11" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">EXPOSED</text>
+  <!-- AI Model icon (llama) -->
+  <text x="960" y="420" font-size="11" fill="rgba(108,92,231,0.6)" font-family="monospace" text-anchor="middle">ollama :11434</text>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="42" font-weight="700" fill="white" font-family="sans-serif">Ollama AI Server</text>
+  <text x="80" y="245" font-size="42" font-weight="700" fill="white" font-family="sans-serif">175K Exposure Landscape</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Over 175,000 Ollama AI servers exposed to the internet without authentication</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">AI EXPOSURE ANALYSIS</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.5)" stroke-width="1"/>
+  <text x="125" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ollama</text>
+  <rect x="186" y="402" width="120" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
+  <text x="246" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Exposure</text>
+  <rect x="322" y="402" width="130" height="36" rx="18" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="387" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">175K Servers</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

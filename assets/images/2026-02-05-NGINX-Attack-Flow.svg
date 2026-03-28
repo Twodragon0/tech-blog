@@ -1,59 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
-<title>NGINX-Attack-Flow</title>
-<defs>
-<style> .title { font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: 700; fill: #1f2937; } .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #6b7280; } .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 500; fill: #374151; } .label-small { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 500; fill: #6b7280; } .alert { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #dc2626; } .box-normal { fill: #ecfdf5; stroke: #10b981; stroke-width: 2; } .box-attack { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; } .box-attacker { fill: #fffbeb; stroke: #f59e0b; stroke-width: 2.5; } .arrow-normal { stroke: #10b981; stroke-width: 2.5; fill: none; marker-end: url(#arrow-normal); } .arrow-attack { stroke: #dc2626; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attack); stroke-dasharray: 5,3; } .arrow-attacker { stroke: #f59e0b; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attacker); } .phase-box { fill: #f3f4f6; stroke: #9ca3af; stroke-width: 1; rx: 4; } </style>
-<marker id="arrow-normal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-<path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
-</marker>
-<marker id="arrow-attack" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-<path d="M0,0 L0,6 L9,3 z" fill="#dc2626" />
-</marker>
-<marker id="arrow-attacker" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-<path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" />
-</marker>
-</defs>
-<text x="450" y="30" text-anchor="middle" class="title">NGINX Traffic Hijacking Attack Flow</text>
-<text x="450" y="50" text-anchor="middle" class="subtitle">CVE-2025-55182 (CVSS 10.0) Exploitation</text>
-<rect x="50" y="80" width="800" height="150" class="phase-box" />
-<text x="60" y="100" class="subtitle">Normal Traffic Flow</text>
-<rect x="80" y="120" width="120" height="60" class="box-normal" rx="8" />
-<text x="140" y="145" text-anchor="middle" class="label">User</text>
-<text x="140" y="165" text-anchor="middle" class="label-small">Request</text>
-<rect x="280" y="120" width="140" height="60" class="box-normal" rx="8" />
-<text x="350" y="145" text-anchor="middle" class="label">Normal NGINX</text>
-<text x="350" y="165" text-anchor="middle" class="label-small">Proxy Server</text>
-<rect x="500" y="120" width="140" height="60" class="box-normal" rx="8" />
-<text x="570" y="145" text-anchor="middle" class="label">Backend Service</text>
-<text x="570" y="165" text-anchor="middle" class="label-small">Application</text>
-<path d="M 200 150 L 270 150" class="arrow-normal" />
-<path d="M 420 150 L 490 150" class="arrow-normal" />
-<text x="700" y="155" class="label" fill="#10b981" font-weight="700">Secure Connection</text>
-<rect x="50" y="260" width="800" height="210" class="phase-box" />
-<text x="60" y="280" class="subtitle">Compromised Traffic Flow</text>
-<rect x="80" y="300" width="120" height="60" class="box-normal" rx="8" />
-<text x="140" y="325" text-anchor="middle" class="label">User</text>
-<text x="140" y="345" text-anchor="middle" class="label-small">Victim Request</text>
-<rect x="280" y="300" width="140" height="60" class="box-attack" rx="8" />
-<text x="350" y="320" text-anchor="middle" class="label">Compromised NGINX</text>
-<text x="350" y="340" text-anchor="middle" class="alert">CVE-2025-55182</text>
-<text x="350" y="355" text-anchor="middle" class="label-small">Hijacked Config</text>
-<rect x="280" y="390" width="140" height="60" class="box-attacker" rx="8" />
-<text x="350" y="410" text-anchor="middle" class="label">Attacker Proxy</text>
-<text x="350" y="430" text-anchor="middle" class="label-small">Traffic Interception</text>
-<rect x="500" y="300" width="140" height="60" class="box-normal" rx="8" />
-<text x="570" y="325" text-anchor="middle" class="label">Backend Service</text>
-<text x="570" y="345" text-anchor="middle" class="label-small">Unaware Target</text>
-<path d="M 200 330 L 270 330" class="arrow-attack" />
-<path d="M 350 360 L 350 385" class="arrow-attacker" />
-<path d="M 420 420 L 490 340" class="arrow-attacker" />
-<rect x="700" y="295" width="140" height="155" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" rx="6" />
-<text x="770" y="315" text-anchor="middle" class="alert">Attack Vector</text>
-<text x="710" y="340" class="label-small" fill="#dc2626">1. Baota Panel</text>
-<text x="710" y="358" class="label-small" fill="#dc2626"> Compromise</text>
-<text x="710" y="385" class="label-small" fill="#dc2626">2. Malicious Config</text>
-<text x="710" y="403" class="label-small" fill="#dc2626"> Injection</text>
-<text x="710" y="430" class="label-small" fill="#dc2626">3. Traffic</text>
-<text x="710" y="448" class="label-small" fill="#dc2626"> Interception</text>
-<path d="M 690 370 L 430 330" class="arrow-attack" />
-<text x="850" y="490" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1520"/>
+      <stop offset="100%" style="stop-color:#152535"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27ae60"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
+    </linearGradient>
+    <marker id="normalflow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#27ae60"/>
+    </marker>
+    <marker id="attackflow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- NGINX hexagon (central) -->
+  <polygon points="960,175 995,195 995,235 960,255 925,235 925,195" fill="rgba(39,174,96,0.15)" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="960" y="213" font-size="14" fill="#27ae60" font-family="sans-serif" text-anchor="middle" font-weight="700">NGINX</text>
+  <text x="960" y="230" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">:80/:443</text>
+  <!-- Normal client flow (green) -->
+  <circle cx="830" cy="215" r="22" fill="rgba(39,174,96,0.12)" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="830" y="219" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">Client</text>
+  <line x1="852" y1="215" x2="925" y2="215" stroke="#27ae60" stroke-width="1.5" marker-end="url(#normalflow)"/>
+  <!-- Normal backend -->
+  <circle cx="830" cy="300" r="22" fill="rgba(39,174,96,0.1)" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="830" y="304" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">Backend</text>
+  <line x1="925" y1="235" x2="852" y2="300" stroke="#27ae60" stroke-width="1.5" marker-end="url(#normalflow)"/>
+  <!-- Attacker injection path (red dashed) -->
+  <circle cx="830" cy="135" r="22" fill="rgba(231,76,60,0.15)" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="830" y="139" font-size="9" fill="rgba(255,120,120,0.8)" font-family="monospace" text-anchor="middle">Attacker</text>
+  <line x1="852" y1="135" x2="920" y2="190" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#attackflow)"/>
+  <!-- Hijack redirect arrow -->
+  <path d="M 995 215 Q 1060 215 1070 270" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#attackflow)"/>
+  <!-- Malicious backend -->
+  <circle cx="1090" cy="285" r="25" fill="rgba(231,76,60,0.18)" stroke="#e74c3c" stroke-width="2"/>
+  <text x="1090" y="281" font-size="8" fill="rgba(255,120,120,0.8)" font-family="monospace" text-anchor="middle">EVIL</text>
+  <text x="1090" y="293" font-size="8" fill="rgba(255,120,120,0.8)" font-family="monospace" text-anchor="middle">Server</text>
+  <!-- Config injection label -->
+  <rect x="910" y="135" width="130" height="36" rx="5" fill="rgba(0,0,0,0.4)" stroke="rgba(231,76,60,0.35)" stroke-width="1"/>
+  <text x="975" y="151" font-size="9" fill="rgba(255,120,120,0.85)" font-family="monospace" text-anchor="middle">nginx.conf hijack</text>
+  <text x="975" y="164" font-size="9" fill="rgba(255,120,120,0.65)" font-family="monospace" text-anchor="middle">proxy_pass overridden</text>
+  <!-- Stage labels -->
+  <text x="830" y="118" font-size="9" fill="rgba(231,76,60,0.7)" font-family="monospace" text-anchor="middle">ATTACKER</text>
+  <text x="830" y="198" font-size="9" fill="rgba(39,174,96,0.7)" font-family="monospace" text-anchor="middle">NORMAL</text>
+  <text x="830" y="282" font-size="9" fill="rgba(39,174,96,0.7)" font-family="monospace" text-anchor="middle">ORIGIN</text>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(39,174,96,0.2)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">FEBRUARY 5, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">NGINX Hijacking</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Attack Flow</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">How attackers hijack NGINX config to redirect traffic to malicious servers</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">ATTACK ANALYSIS</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(39,174,96,0.2)" stroke="rgba(39,174,96,0.45)" stroke-width="1"/>
+  <text x="125" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">NGINX</text>
+  <rect x="186" y="402" width="105" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
+  <text x="238" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Hijacking</text>
+  <rect x="307" y="402" width="115" height="36" rx="18" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="364" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Attack Flow</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

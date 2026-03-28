@@ -1,48 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>AI-Tools-Ecosystem</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#6366f1" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#6366f1" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<g opacity="0.6">
-<rect x="-120" y="-120" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
-<text x="0" y="-93" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
-<rect x="-120" y="-60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
-<text x="0" y="-33" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">FEED FORWARD</text>
-<rect x="-120" y="0" width="240" height="45" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
-<text x="0" y="27" font-family="Courier New" font-size="10" fill="#a5b4fc" text-anchor="middle">ATTENTION</text>
-<rect x="-120" y="60" width="240" height="45" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
-<text x="0" y="87" font-family="Courier New" font-size="10" fill="#818cf8" text-anchor="middle">OUTPUT</text>
-</g>
-<g stroke="#6366f1" stroke-width="1.5" opacity="0.3" fill="#6366f1">
-<line x1="0" y1="-75" x2="0" y2="-62"/><polygon points="-4,-64 0,-58 4,-64"/>
-<line x1="0" y1="-15" x2="0" y2="-2"/><polygon points="-4,-4 0,2 4,-4"/>
-<line x1="0" y1="45" x2="0" y2="58"/><polygon points="-4,56 0,62 4,56"/>
-</g>
-<g stroke="#a5b4fc" stroke-width="1" opacity="0.2">
-<path d="M125,-97 C170,-97 170,-37 125,-37" fill="none"/>
-<path d="M125,23 C170,23 170,83 125,83" fill="none"/>
-</g>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Tools Ecosystem</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">AI</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">February 5, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#151a30"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00cec9"/>
+      <stop offset="100%" style="stop-color:#6c5ce7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Central AI hub -->
+  <circle cx="960" cy="280" r="45" fill="rgba(0,206,201,0.18)" stroke="#00cec9" stroke-width="2.5"/>
+  <circle cx="960" cy="280" r="28" fill="rgba(0,206,201,0.25)"/>
+  <text x="960" y="276" font-size="10" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle">AI</text>
+  <text x="960" y="290" font-size="10" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle">HUB</text>
+  <!-- 7 category nodes radiating out -->
+  <!-- LLMs (top) -->
+  <circle cx="960" cy="160" r="26" fill="rgba(0,206,201,0.15)" stroke="#00cec9" stroke-width="1.5"/>
+  <text x="960" y="156" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">LLM</text>
+  <text x="960" y="168" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Models</text>
+  <line x1="960" y1="235" x2="960" y2="186" stroke="rgba(0,206,201,0.45)" stroke-width="1.5"/>
+  <!-- Code gen (top-right) -->
+  <circle cx="1055" cy="192" r="24" fill="rgba(108,92,231,0.15)" stroke="#6c5ce7" stroke-width="1.5"/>
+  <text x="1055" y="188" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Code</text>
+  <text x="1055" y="200" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Gen</text>
+  <line x1="992" y1="252" x2="1038" y2="211" stroke="rgba(108,92,231,0.45)" stroke-width="1.5"/>
+  <!-- Image gen (right) -->
+  <circle cx="1090" cy="280" r="24" fill="rgba(253,203,110,0.15)" stroke="#fdcb6e" stroke-width="1.5"/>
+  <text x="1090" y="276" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Image</text>
+  <text x="1090" y="288" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Gen</text>
+  <line x1="1005" y1="280" x2="1066" y2="280" stroke="rgba(253,203,110,0.45)" stroke-width="1.5"/>
+  <!-- Audio gen (bottom-right) -->
+  <circle cx="1055" cy="370" r="24" fill="rgba(0,206,201,0.12)" stroke="#00cec9" stroke-width="1.5"/>
+  <text x="1055" y="366" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Audio</text>
+  <text x="1055" y="378" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Gen</text>
+  <line x1="993" y1="309" x2="1038" y2="352" stroke="rgba(0,206,201,0.4)" stroke-width="1.5"/>
+  <!-- Agents (bottom) -->
+  <circle cx="960" cy="400" r="24" fill="rgba(108,92,231,0.15)" stroke="#6c5ce7" stroke-width="1.5"/>
+  <text x="960" y="396" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">AI</text>
+  <text x="960" y="408" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Agents</text>
+  <line x1="960" y1="325" x2="960" y2="376" stroke="rgba(108,92,231,0.45)" stroke-width="1.5"/>
+  <!-- Reasoning (bottom-left) -->
+  <circle cx="865" cy="370" r="24" fill="rgba(253,203,110,0.12)" stroke="#fdcb6e" stroke-width="1.5"/>
+  <text x="865" y="366" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Reason</text>
+  <text x="865" y="378" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">ing</text>
+  <line x1="927" y1="309" x2="882" y2="352" stroke="rgba(253,203,110,0.4)" stroke-width="1.5"/>
+  <!-- Search/RAG (left) -->
+  <circle cx="832" cy="280" r="24" fill="rgba(0,206,201,0.12)" stroke="#00cec9" stroke-width="1.5"/>
+  <text x="832" y="276" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">RAG</text>
+  <text x="832" y="288" font-size="8" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">Search</text>
+  <line x1="915" y1="280" x2="856" y2="280" stroke="rgba(0,206,201,0.4)" stroke-width="1.5"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(0,206,201,0.2)" stroke="rgba(0,206,201,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">FEBRUARY 5, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">AI Tools Ecosystem</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">2026</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Comprehensive landscape of AI tools: LLMs, code gen, agents and reasoning</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">AI TOOLS LANDSCAPE</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(0,206,201,0.2)" stroke="rgba(0,206,201,0.45)" stroke-width="1"/>
+  <text x="130" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Tools</text>
+  <rect x="196" y="402" width="110" height="36" rx="18" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.45)" stroke-width="1"/>
+  <text x="251" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ecosystem</text>
+  <rect x="322" y="402" width="70" height="36" rx="18" fill="rgba(0,206,201,0.15)" stroke="rgba(0,206,201,0.4)" stroke-width="1"/>
+  <text x="357" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">2026</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

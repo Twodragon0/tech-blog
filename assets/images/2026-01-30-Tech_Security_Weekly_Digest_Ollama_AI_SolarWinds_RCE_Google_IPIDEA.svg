@@ -1,37 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Ollama AI 175K</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#1a3050"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2980b9"/>
+      <stop offset="100%" style="stop-color:#f39c12"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Ollama AI 175K</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Panel 1: Ollama AI exposed server -->
+  <rect x="760" y="135" width="130" height="88" rx="7" fill="rgba(108,92,231,0.12)" stroke="#6c5ce7" stroke-width="1.5"/>
+  <circle cx="800" cy="168" r="22" fill="rgba(108,92,231,0.2)" stroke="#6c5ce7" stroke-width="1.5"/>
+  <text x="800" y="163" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">ollama</text>
+  <text x="800" y="176" font-size="9" fill="rgba(108,92,231,0.8)" font-family="monospace" text-anchor="middle">:11434</text>
+  <!-- Exposed warning on server -->
+  <rect x="830" y="154" width="50" height="20" rx="3" fill="rgba(231,76,60,0.3)" stroke="#e74c3c" stroke-width="1"/>
+  <text x="855" y="167" font-size="9" fill="#ff8a80" font-family="monospace" text-anchor="middle">OPEN</text>
+  <text x="825" y="214" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">AI Exposed</text>
+  <!-- Panel 2: SolarWinds sun cracked -->
+  <circle cx="970" cy="175" r="32" fill="rgba(243,156,18,0.12)" stroke="#f39c12" stroke-width="2" opacity="0.85"/>
+  <line x1="970" y1="138" x2="970" y2="128" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
+  <line x1="996" y1="149" x2="1003" y2="142" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
+  <line x1="1005" y1="175" x2="1016" y2="175" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
+  <line x1="944" y1="149" x2="937" y2="142" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
+  <line x1="935" y1="175" x2="924" y2="175" stroke="#f39c12" stroke-width="2" opacity="0.65"/>
+  <!-- Crack on sun -->
+  <polyline points="958,158 966,174 956,186" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="970" y="182" font-size="10" fill="rgba(243,156,18,0.65)" font-family="monospace" text-anchor="middle">SW</text>
+  <text x="970" y="218" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">SolarWinds</text>
+  <!-- Panel 3: IPIDEA proxy disruption nodes -->
+  <circle cx="1110" cy="160" r="22" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1.5"/>
+  <circle cx="1090" cy="188" r="14" fill="rgba(52,152,219,0.1)" stroke="#3498db" stroke-width="1"/>
+  <circle cx="1130" cy="190" r="14" fill="rgba(230,126,34,0.1)" stroke="#e67e22" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- X on disrupted node -->
+  <line x1="1123" y1="183" x2="1137" y2="197" stroke="#e67e22" stroke-width="2"/>
+  <line x1="1137" y1="183" x2="1123" y2="197" stroke="#e67e22" stroke-width="2"/>
+  <line x1="1110" y1="138" x2="1090" y2="188" stroke="rgba(52,152,219,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1110" y1="138" x2="1130" y2="190" stroke="rgba(230,126,34,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="1110" y="215" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">IPIDEA</text>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(41,128,185,0.25)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
+  <!-- Title -->
+  <text x="80" y="185" font-size="40" font-weight="700" fill="white" font-family="sans-serif">Ollama AI Exposed,</text>
+  <text x="80" y="245" font-size="40" font-weight="700" fill="white" font-family="sans-serif">SolarWinds RCE and IPIDEA</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="18" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Weekly digest: AI server exposure, WHD exploit chain and proxy disruptions</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <!-- Category -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Pill tags -->
+  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.5)" stroke-width="1"/>
+  <text x="130" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ollama AI</text>
+  <rect x="196" y="402" width="120" height="36" rx="18" fill="rgba(243,156,18,0.2)" stroke="rgba(243,156,18,0.45)" stroke-width="1"/>
+  <text x="256" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">SolarWinds</text>
+  <rect x="332" y="402" width="90" height="36" rx="18" fill="rgba(41,128,185,0.2)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="377" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">IPIDEA</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>
