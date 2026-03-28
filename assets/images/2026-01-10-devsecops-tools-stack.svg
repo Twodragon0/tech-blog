@@ -1,43 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>devsecops-tools-stack</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#f59e0b" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#f59e0b" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<path d="M-80,0 C-80,-60 -160,-60 -160,0 C-160,60 -80,60 -80,0 C-80,-60 0,-60 0,0" fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.3"/>
-<path d="M80,0 C80,60 160,60 160,0 C160,-60 80,-60 80,0 C80,60 0,60 0,0" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.3"/>
-<g font-family="Courier New" font-size="9" text-anchor="middle" opacity="0.7">
-<circle cx="-160" cy="-35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-<circle cx="-120" cy="35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-<circle cx="-40" cy="-35" r="18" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-<circle cx="40" cy="35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
-<text x="40" y="38" fill="#60a5fa">TEST</text>
-<circle cx="120" cy="-35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
-<text x="120" y="-32" fill="#60a5fa">DEPLOY</text>
-<circle cx="160" cy="35" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
-<text x="160" y="38" fill="#60a5fa">MONITOR</text>
-</g>
-<text x="120" y="-75" font-family="Arial" font-size="11" fill="#3b82f6" text-anchor="middle" opacity="0.5">Ops</text>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">devsecops tools stack</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">DevSecOps</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fde68a" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 10, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a1a"/>
+      <stop offset="100%" style="stop-color:#2d152d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8e44ad"/>
+      <stop offset="100%" style="stop-color:#1abc9c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Tool stack layers from bottom to top -->
+  <!-- SCA layer (bottom) -->
+  <rect x="848" y="430" width="284" height="46" rx="6" fill="rgba(26,188,156,0.12)" stroke="rgba(26,188,156,0.45)" stroke-width="1.8"/>
+  <rect x="858" y="440" width="58" height="26" rx="4" fill="rgba(26,188,156,0.3)"/>
+  <rect x="924" y="446" width="90" height="8" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="924" y="458" width="68" height="6" rx="2" fill="rgba(255,255,255,0.12)"/>
+  <!-- DAST layer (middle) -->
+  <rect x="848" y="374" width="284" height="46" rx="6" fill="rgba(142,68,173,0.12)" stroke="rgba(142,68,173,0.45)" stroke-width="1.8"/>
+  <rect x="858" y="384" width="58" height="26" rx="4" fill="rgba(142,68,173,0.3)"/>
+  <rect x="924" y="390" width="90" height="8" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="924" y="402" width="75" height="6" rx="2" fill="rgba(255,255,255,0.12)"/>
+  <!-- SAST layer (top) -->
+  <rect x="848" y="318" width="284" height="46" rx="6" fill="rgba(142,68,173,0.18)" stroke="rgba(142,68,173,0.55)" stroke-width="1.8"/>
+  <rect x="858" y="328" width="58" height="26" rx="4" fill="rgba(142,68,173,0.4)"/>
+  <rect x="924" y="334" width="90" height="8" rx="3" fill="rgba(255,255,255,0.22)"/>
+  <rect x="924" y="346" width="82" height="6" rx="2" fill="rgba(255,255,255,0.14)"/>
+  <!-- Connector dots between layers -->
+  <circle cx="990" cy="372" r="5" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="990" cy="316" r="5" fill="rgba(255,255,255,0.25)"/>
+  <!-- IaC layer (top cap) -->
+  <rect x="848" y="262" width="284" height="46" rx="6" fill="rgba(26,188,156,0.18)" stroke="rgba(26,188,156,0.55)" stroke-width="1.8"/>
+  <rect x="858" y="272" width="58" height="26" rx="4" fill="rgba(26,188,156,0.4)"/>
+  <rect x="924" y="278" width="90" height="8" rx="3" fill="rgba(255,255,255,0.22)"/>
+  <rect x="924" y="290" width="65" height="6" rx="2" fill="rgba(255,255,255,0.14)"/>
+  <circle cx="990" cy="260" r="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(142,68,173,0.14)" stroke="rgba(142,68,173,0.38)" stroke-width="1"/>
+  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 10, 2026</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">DevSecOps Tools</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Stack 2026</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Complete SAST, DAST, SCA and IaC security tooling overview</text>
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">DEVSECOPS TOOLS</text>
+  <rect x="80" y="402" width="105" height="36" rx="18" fill="rgba(142,68,173,0.14)" stroke="rgba(142,68,173,0.4)" stroke-width="1"/>
+  <text x="132" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Tool Stack</text>
+  <rect x="200" y="402" width="115" height="36" rx="18" fill="rgba(26,188,156,0.14)" stroke="rgba(26,188,156,0.4)" stroke-width="1"/>
+  <text x="257" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">SAST/DAST</text>
+  <rect x="330" y="402" width="70" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="365" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">SCA</text>
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
 </svg>

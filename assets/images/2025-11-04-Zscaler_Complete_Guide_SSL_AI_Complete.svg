@@ -1,37 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Zscaler</title>
+  <title>Zscaler Complete Guide - SSL Inspection and AI Security</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0f1a"/>
+      <stop offset="100%" stop-color="#151a35"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0076d6"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
     </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="1050" cy="450" r="200" fill="#0076d6" opacity="0.05" filter="url(#sg)"/>
+  <circle cx="1050" cy="450" r="140" fill="#00b4d8" opacity="0.05" filter="url(#sg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Topic illustrations: Zscaler cloud proxy with SSL inspection flow -->
+  <g transform="translate(950,290)" opacity="0.38">
+    <!-- Internet cloud (left) -->
+    <path d="M-160,10 Q-170,25 -155,30 Q-140,35 -125,25 Q-112,38 -95,36 Q-78,34 -72,22 Q-58,24 -54,12 Q-50,-2 -64,-10 Q-66,-26 -82,-28 Q-90,-40 -108,-40 Q-126,-40 -134,-28 Q-152,-28 -158,-16 Q-164,-4 -160,10 Z" fill="none" stroke="#0076d6" stroke-width="2"/>
+    <text x="-115" y="52" font-family="monospace" font-size="9" fill="#0076d6" text-anchor="middle">Internet</text>
+    <!-- SSL inspection box (center - Zscaler) -->
+    <rect x="-35" y="-45" width="100" height="80" rx="10" fill="#0076d6" opacity="0.1" stroke="#0076d6" stroke-width="2.5"/>
+    <text x="15" y="-15" font-family="monospace" font-size="10" fill="#0076d6" text-anchor="middle" font-weight="bold">Zscaler</text>
+    <text x="15" y="0" font-family="monospace" font-size="8" fill="#00b4d8" text-anchor="middle">SSL Inspect</text>
+    <text x="15" y="15" font-family="monospace" font-size="8" fill="#00b4d8" text-anchor="middle">AI Filter</text>
+    <!-- Lock icon on Zscaler -->
+    <rect x="5" y="-40" width="20" height="16" rx="3" fill="none" stroke="#00b4d8" stroke-width="1.5"/>
+    <path d="M8,-40 L8,-46 Q15,-54 22,-46 L22,-40" fill="none" stroke="#00b4d8" stroke-width="1.5"/>
+    <!-- Internal cloud (right) -->
+    <path d="M75,10 Q65,25 80,30 Q95,35 110,25 Q123,38 140,36 Q157,34 163,22 Q177,24 181,12 Q185,-2 171,-10 Q169,-26 153,-28 Q145,-40 127,-40 Q109,-40 101,-28 Q83,-28 77,-16 Q71,-4 75,10 Z" fill="none" stroke="#00b4d8" stroke-width="2"/>
+    <text x="128" y="52" font-family="monospace" font-size="9" fill="#00b4d8" text-anchor="middle">Enterprise</text>
+    <!-- Flow arrows -->
+    <line x1="-55" y1="-10" x2="-38" y2="-10" stroke="#0076d6" stroke-width="2"/>
+    <polygon points="-40,-16 -32,-10 -40,-4" fill="#0076d6"/>
+    <line x1="68" y1="-10" x2="73" y2="-10" stroke="#00b4d8" stroke-width="2"/>
+    <polygon points="71,-16 79,-10 71,-4" fill="#00b4d8"/>
+    <!-- AI badge -->
+    <rect x="-30" y="60" width="90" height="30" rx="8" fill="#00b4d8" opacity="0.15" stroke="#00b4d8" stroke-width="1"/>
+    <text x="15" y="80" font-family="monospace" font-size="11" fill="#00b4d8" text-anchor="middle" font-weight="bold">AI + ZTNA</text>
   </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Zscaler</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="40" y="38" width="250" height="34" rx="17" fill="#0076d6" opacity="0.15" stroke="#0076d6" stroke-width="1"/>
+  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#0076d6">NOVEMBER 4, 2025</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#ffffff" filter="url(#glow)">Zscaler Complete Guide -</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="bold" fill="#00b4d8" filter="url(#glow)">SSL Inspection &amp; AI Security</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="#94a3b8">Zscaler ZIA, ZPA, SSL inspection and AI-powered threat prevention</text>
+  <line x1="80" y1="325" x2="540" y2="325" stroke="#0076d6" stroke-width="2" opacity="0.6"/>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#00b4d8" letter-spacing="3">ZERO TRUST GUIDE</text>
+  <rect x="80" y="398" width="100" height="32" rx="16" fill="#0076d6" opacity="0.15" stroke="#0076d6" stroke-width="1"/>
+  <text x="130" y="419" font-family="Arial,sans-serif" font-size="13" fill="#60b8f0" text-anchor="middle">Zscaler</text>
+  <rect x="194" y="398" width="120" height="32" rx="16" fill="#00b4d8" opacity="0.15" stroke="#00b4d8" stroke-width="1"/>
+  <text x="254" y="419" font-family="Arial,sans-serif" font-size="13" fill="#7de8f5" text-anchor="middle">SSL Inspect</text>
+  <rect x="328" y="398" width="120" height="32" rx="16" fill="#0076d6" opacity="0.1" stroke="#0076d6" stroke-width="1"/>
+  <text x="388" y="419" font-family="Arial,sans-serif" font-size="13" fill="#60b8f0" text-anchor="middle">AI Security</text>
+  <rect x="0" y="520" width="1200" height="110" fill="#000000" opacity="0.25"/>
+  <line x1="0" y1="520" x2="1200" y2="520" stroke="#0076d6" stroke-width="1" opacity="0.3"/>
+  <text x="80" y="566" font-family="Arial,sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
+  <text x="80" y="592" font-family="Arial,sans-serif" font-size="13" fill="#475569">DevSecOps</text>
 </svg>

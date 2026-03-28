@@ -1,37 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Kandji macOS !</title>
+  <title>Kandji macOS Complete Setup Security and Compliance Guide</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0f0a1a"/>
+      <stop offset="100%" stop-color="#1a1530"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6c5ce7"/>
+      <stop offset="100%" stop-color="#a29bfe"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Kandji macOS !</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Tech | Blog | Update</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="350" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="350" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Apple logo simplified outline -->
+  <path d="M985 195 Q978 182 985 174 Q998 165 1004 178 Q1018 158 1040 163 Q1060 163 1065 178 Q1079 160 1094 170 Q1100 194 1086 215 Q1100 236 1094 260 Q1084 286 1064 290 Q1050 296 1040 282 Q1030 296 1018 290 Q992 286 983 260 Q975 236 986 215 Z" fill="none" stroke="rgba(162,155,254,0.65)" stroke-width="3"/>
+  <!-- Management gear centered below apple -->
+  <circle cx="1040" cy="385" r="38" fill="none" stroke="rgba(108,92,231,0.6)" stroke-width="3"/>
+  <circle cx="1040" cy="385" r="20" fill="none" stroke="rgba(108,92,231,0.5)" stroke-width="2"/>
+  <circle cx="1040" cy="385" r="8" fill="rgba(108,92,231,0.4)"/>
+  <!-- Gear teeth 8 positions -->
+  <rect x="1033" y="342" width="14" height="12" rx="2" fill="rgba(108,92,231,0.55)"/>
+  <rect x="1033" y="417" width="14" height="12" rx="2" fill="rgba(108,92,231,0.55)"/>
+  <rect x="997" y="378" width="12" height="14" rx="2" fill="rgba(108,92,231,0.55)"/>
+  <rect x="1071" y="378" width="12" height="14" rx="2" fill="rgba(108,92,231,0.55)"/>
+  <rect x="1007" y="350" width="10" height="10" rx="2" fill="rgba(108,92,231,0.4)"/>
+  <rect x="1063" y="350" width="10" height="10" rx="2" fill="rgba(108,92,231,0.4)"/>
+  <rect x="1007" y="411" width="10" height="10" rx="2" fill="rgba(108,92,231,0.4)"/>
+  <rect x="1063" y="411" width="10" height="10" rx="2" fill="rgba(108,92,231,0.4)"/>
+  <!-- Compliance checkmark badge -->
+  <rect x="1095" y="185" width="82" height="62" rx="8" fill="rgba(108,92,231,0.18)" stroke="rgba(162,155,254,0.55)" stroke-width="2"/>
+  <path d="M1113 217 L1128 232 L1160 202" fill="none" stroke="rgba(162,155,254,0.9)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="180" height="32" rx="4" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="170" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 2, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Kandji macOS</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="44" font-weight="700" fill="white" letter-spacing="-1">Complete Setup Guide</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Security Regulation and Compliance All-in-One</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">MDM SECURITY GUIDE</text>
+  <!-- Tags -->
+  <rect x="80" y="420" width="115" height="36" rx="18" fill="rgba(108,92,231,0.18)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <text x="137" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#6c5ce7" text-anchor="middle" font-weight="600">Kandji MDM</text>
+  <rect x="211" y="420" width="90" height="36" rx="18" fill="rgba(162,155,254,0.18)" stroke="rgba(162,155,254,0.4)" stroke-width="1"/>
+  <text x="256" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a29bfe" text-anchor="middle" font-weight="600">macOS</text>
+  <rect x="317" y="420" width="120" height="36" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="377" y="443" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)" text-anchor="middle" font-weight="600">Compliance</text>
+  <!-- Bottom -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

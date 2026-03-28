@@ -1,43 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#151a30"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00cec9"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#0891b2" opacity="0.04" filter="url(#sg)"/>
-
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" opacity="0.8"/>
-
-    <circle r="14" fill="#22d3ee" opacity="0.3"/>
-    <circle r="6" fill="#22d3ee" opacity="0.6"/>
-    <line x1="-30" y1="-25" x2="-10" y2="-8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="30" y1="-25" x2="10" y2="-8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="-30" y1="25" x2="-10" y2="8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="30" y1="25" x2="10" y2="8" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="-30" cy="-25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="30" cy="-25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="-30" cy="25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="30" cy="25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="-30" y1="-17" x2="-30" y2="17" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
-    <line x1="30" y1="-17" x2="30" y2="17" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
-  </g>
-
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">AI/ML</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 26, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- 4 AI icons side by side comparison -->
+  <!-- Gemini: G multicolor circle -->
+  <circle cx="870" cy="300" r="38" fill="rgba(66,133,244,0.12)" stroke="rgba(66,133,244,0.42)" stroke-width="2"/>
+  <path d="M852 300 Q870 262 888 300 Q870 338 852 300 Z" fill="rgba(66,133,244,0.45)"/>
+  <path d="M888 300 Q870 262 870 280 Q870 300 888 300 Z" fill="rgba(234,67,53,0.45)"/>
+  <path d="M852 300 Q870 300 870 320 Q870 338 852 300 Z" fill="rgba(251,188,4,0.45)"/>
+  <path d="M888 300 Q870 320 870 338 Q888 338 888 300 Z" fill="rgba(52,168,83,0.45)"/>
+  <!-- Claude: orange diamond -->
+  <circle cx="960" cy="300" r="38" fill="rgba(205,92,18,0.12)" stroke="rgba(205,92,18,0.42)" stroke-width="2"/>
+  <polygon points="960,270 982,300 960,330 938,300" fill="rgba(205,92,18,0.45)"/>
+  <polygon points="960,278 976,300 960,322 944,300" fill="rgba(231,76,60,0.35)"/>
+  <!-- ChatGPT: teal circle with C -->
+  <circle cx="1050" cy="300" r="38" fill="rgba(16,163,127,0.12)" stroke="rgba(16,163,127,0.42)" stroke-width="2"/>
+  <circle cx="1050" cy="300" r="22" fill="rgba(16,163,127,0.2)" stroke="rgba(16,163,127,0.55)" stroke-width="1.5"/>
+  <path d="M1063 290 Q1050 278 1037 290 Q1028 300 1037 310 Q1050 322 1063 310" fill="none" stroke="rgba(16,163,127,0.85)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- OpenCode / generic AI: purple hexagon -->
+  <circle cx="1140" cy="300" r="38" fill="rgba(162,155,254,0.12)" stroke="rgba(162,155,254,0.42)" stroke-width="2"/>
+  <polygon points="1140,272 1158,282 1158,302 1158,318 1140,328 1122,318 1122,282" fill="rgba(162,155,254,0.2)" stroke="rgba(162,155,254,0.5)" stroke-width="1.5"/>
+  <circle cx="1140" cy="300" r="10" fill="rgba(162,155,254,0.45)"/>
+  <!-- Comparison VS dividers -->
+  <line x1="915" y1="270" x2="915" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1005" y1="270" x2="1005" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1095" y1="270" x2="1095" y2="330" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- Score bars below icons -->
+  <rect x="848" y="352" width="44" height="6" rx="3" fill="rgba(66,133,244,0.5)"/>
+  <rect x="938" y="352" width="44" height="6" rx="3" fill="rgba(205,92,18,0.55)"/>
+  <rect x="1028" y="352" width="44" height="6" rx="3" fill="rgba(16,163,127,0.5)"/>
+  <rect x="1118" y="352" width="44" height="6" rx="3" fill="rgba(162,155,254,0.5)"/>
+  <rect x="848" y="362" width="36" height="4" rx="2" fill="rgba(66,133,244,0.3)"/>
+  <rect x="938" y="362" width="40" height="4" rx="2" fill="rgba(205,92,18,0.35)"/>
+  <rect x="1028" y="362" width="32" height="4" rx="2" fill="rgba(16,163,127,0.3)"/>
+  <rect x="1118" y="362" width="38" height="4" rx="2" fill="rgba(162,155,254,0.3)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="60" width="210" height="30" rx="4" fill="rgba(0,206,201,0.14)" stroke="rgba(0,206,201,0.38)" stroke-width="1"/>
+  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.72)" text-anchor="middle" letter-spacing="1">JANUARY 17, 2026</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">AI Coding Assistants</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Comparison 2025-2026</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.65)">Gemini, Claude Code, ChatGPT and OpenCode research analysis</text>
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="2">AI TOOLS COMPARISON</text>
+  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(0,206,201,0.14)" stroke="rgba(0,206,201,0.4)" stroke-width="1"/>
+  <text x="125" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Gemini</text>
+  <rect x="185" y="402" width="120" height="36" rx="18" fill="rgba(162,155,254,0.14)" stroke="rgba(162,155,254,0.4)" stroke-width="1"/>
+  <text x="245" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">Claude Code</text>
+  <rect x="320" y="402" width="105" height="36" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="372" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.82)" text-anchor="middle">ChatGPT</text>
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="545" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" text-anchor="end">DevSecOps</text>
 </svg>

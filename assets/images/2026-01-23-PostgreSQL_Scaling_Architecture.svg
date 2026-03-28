@@ -1,43 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>PostgreSQL Scaling Architecture</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
-<circle cx="0" cy="0" r="105" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
-<circle cx="0" cy="0" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-<circle cx="0" cy="0" r="35" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-<circle cx="0" cy="0" r="6" fill="#ef4444" opacity="0.6"/>
-<line x1="0" y1="0" x2="100" y2="-100" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
-<path d="M0,0 L70,-70 A100,100 0 0,1 100,0 Z" fill="#ef4444" fill-opacity="0.08"/>
-<line x1="-145" y1="0" x2="145" y2="0" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<line x1="0" y1="-145" x2="0" y2="145" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<circle cx="60" cy="-80" r="5" fill="#ef4444" opacity="0.7"/>
-<circle cx="60" cy="-80" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-<circle cx="-40" cy="50" r="4" fill="#f59e0b" opacity="0.6"/>
-<circle cx="-40" cy="50" r="8" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
-<circle cx="90" cy="30" r="3" fill="#f59e0b" opacity="0.5"/>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">PostgreSQL Scaling Architecture</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud | DevOps</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">January 23, 2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1520"/>
+      <stop offset="100%" style="stop-color:#152535"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#336791"/>
+      <stop offset="100%" style="stop-color:#27ae60"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(51,103,145,0.07)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(39,174,96,0.07)"/>
+  <!-- Primary DB -->
+  <ellipse cx="970" cy="225" rx="60" ry="22" fill="rgba(51,103,145,0.3)" stroke="#336791" stroke-width="2.5"/>
+  <rect x="910" y="225" width="120" height="50" fill="rgba(51,103,145,0.15)" stroke="#336791" stroke-width="2.5"/>
+  <ellipse cx="970" cy="275" rx="60" ry="22" fill="rgba(51,103,145,0.25)" stroke="#336791" stroke-width="2"/>
+  <text x="970" y="255" font-family="Arial,sans-serif" font-size="11" fill="#336791" text-anchor="middle" font-weight="700">PRIMARY</text>
+  <!-- Read replicas -->
+  <ellipse cx="860" cy="370" rx="48" ry="18" fill="rgba(51,103,145,0.2)" stroke="rgba(51,103,145,0.6)" stroke-width="2"/>
+  <rect x="812" y="370" width="96" height="40" fill="rgba(51,103,145,0.1)" stroke="rgba(51,103,145,0.5)" stroke-width="2"/>
+  <ellipse cx="860" cy="410" rx="48" ry="18" fill="rgba(51,103,145,0.15)" stroke="rgba(51,103,145,0.5)" stroke-width="1.5"/>
+  <text x="860" y="395" font-family="Arial,sans-serif" font-size="9" fill="rgba(51,103,145,0.8)" text-anchor="middle">REPLICA 1</text>
+  <ellipse cx="1080" cy="370" rx="48" ry="18" fill="rgba(51,103,145,0.2)" stroke="rgba(51,103,145,0.6)" stroke-width="2"/>
+  <rect x="1032" y="370" width="96" height="40" fill="rgba(51,103,145,0.1)" stroke="rgba(51,103,145,0.5)" stroke-width="2"/>
+  <ellipse cx="1080" cy="410" rx="48" ry="18" fill="rgba(51,103,145,0.15)" stroke="rgba(51,103,145,0.5)" stroke-width="1.5"/>
+  <text x="1080" y="395" font-family="Arial,sans-serif" font-size="9" fill="rgba(51,103,145,0.8)" text-anchor="middle">REPLICA 2</text>
+  <!-- Sharding arrow and shard -->
+  <line x1="970" y1="297" x2="860" y2="370" stroke="rgba(39,174,96,0.4)" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="970" y1="297" x2="1080" y2="370" stroke="rgba(39,174,96,0.4)" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Shard label -->
+  <text x="870" y="355" font-family="Arial,sans-serif" font-size="9" fill="rgba(39,174,96,0.6)" text-anchor="middle">replication</text>
+  <text x="1090" y="355" font-family="Arial,sans-serif" font-size="9" fill="rgba(39,174,96,0.6)" text-anchor="middle">replication</text>
+  <!-- Sharding label -->
+  <rect x="932" y="453" width="76" height="26" rx="4" fill="rgba(39,174,96,0.12)" stroke="rgba(39,174,96,0.4)" stroke-width="1.5"/>
+  <text x="970" y="470" font-family="Arial,sans-serif" font-size="9" fill="#27ae60" text-anchor="middle">SHARDING</text>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(51,103,145,0.15)" stroke="rgba(51,103,145,0.4)" stroke-width="1"/>
+  <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#336791" text-anchor="middle" letter-spacing="2">JANUARY 23, 2026</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">PostgreSQL Scaling</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Architecture</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">Read replicas, sharding and high-availability patterns</text>
+  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)"/>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(51,103,145,0.8)" letter-spacing="3">DATABASE ARCHITECTURE</text>
+  <rect x="80" y="400" width="100" height="28" rx="14" fill="rgba(51,103,145,0.15)" stroke="rgba(51,103,145,0.4)" stroke-width="1"/>
+  <text x="130" y="419" font-family="Arial,sans-serif" font-size="13" fill="#336791" text-anchor="middle">PostgreSQL</text>
+  <rect x="192" y="400" width="75" height="28" rx="14" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <text x="229" y="419" font-family="Arial,sans-serif" font-size="13" fill="#27ae60" text-anchor="middle">Scaling</text>
+  <rect x="279" y="400" width="110" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="334" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Architecture</text>
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
+  <text x="1120" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="end">DevSecOps</text>
 </svg>

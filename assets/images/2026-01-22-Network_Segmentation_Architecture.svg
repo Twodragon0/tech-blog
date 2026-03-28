@@ -1,223 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
-<title>Network Segmentation Architecture</title>
-<defs>
-<linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0f172a"/>
-<stop offset="100%" style="stop-color:#1e293b"/>
-</linearGradient>
-<linearGradient id="internetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#E74C3C"/>
-<stop offset="100%" style="stop-color:#C0392B"/>
-</linearGradient>
-<linearGradient id="dmzGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#F39C12"/>
-<stop offset="100%" style="stop-color:#D68910"/>
-</linearGradient>
-<linearGradient id="appGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#27AE60"/>
-<stop offset="100%" style="stop-color:#1E8449"/>
-</linearGradient>
-<linearGradient id="dataGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#3498DB"/>
-<stop offset="100%" style="stop-color:#2980B9"/>
-</linearGradient>
-<linearGradient id="mgmtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#9B59B6"/>
-<stop offset="100%" style="stop-color:#7D3C98"/>
-</linearGradient>
-<filter id="shadow">
-<feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
-</filter>
-<filter id="glow">
-<feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
-<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-</pattern>
-<marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-<polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
-</marker>
-<marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-<polygon points="0 0, 10 3.5, 0 7" fill="#3498DB"/>
-</marker>
-<marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-<polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
-</marker>
-</defs>
-<rect width="1400" height="900" fill="url(#bgGrad)"/>
-<rect width="1400" height="900" fill="url(#grid)"/>
-<rect x="0" y="0" width="1400" height="80" fill="url(#internetGrad)" opacity="0.9"/>
-<text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">Network Segmentation Architecture</text>
-<text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">Defense in Depth - Zero Trust Network Architecture - KISA Ransomware Prevention</text>
-<g transform="translate(550, 100)">
-<ellipse cx="150" cy="40" rx="130" ry="45" fill="url(#internetGrad)" filter="url(#shadow)"/>
-<text x="150" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Internet</text>
-<text x="150" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Untrusted Zone</text>
-<text x="320" y="20" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">⚠ Phishing</text>
-<text x="320" y="40" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">⚠ Exploit</text>
-<text x="320" y="60" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">⚠ Ransomware</text>
-</g>
-<g transform="translate(550, 180)">
-<rect x="0" y="0" width="300" height="50" rx="8" fill="rgba(231,76,60,0.3)" stroke="#E74C3C" stroke-width="3"/>
-<text x="150" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E74C3C">Perimeter Firewall</text>
-<text x="150" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">WAF + IPS/IDS + DDoS Protection</text>
-</g>
-<rect x="50" y="250" width="1300" height="400" rx="15" fill="none" stroke="#4A90D9" stroke-width="2" stroke-dasharray="10,5"/>
-<text x="700" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4A90D9">Internal Network Zones - Segmented Architecture</text>
-<g transform="translate(80, 290)">
-<rect x="0" y="0" width="380" height="320" rx="15" fill="#1e293b" stroke="#F39C12" stroke-width="3" filter="url(#shadow)"/>
-<rect x="0" y="0" width="380" height="45" rx="15" fill="url(#dmzGrad)"/>
-<rect x="0" y="30" width="380" height="15" fill="url(#dmzGrad)"/>
-<text x="190" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">DMZ Zone</text>
-<g transform="translate(20, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">Web Server</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Nginx/Apache</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Port: 80, 443</text>
-</g>
-<g transform="translate(200, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">Reverse Proxy</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">HAProxy/Envoy</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Load Balancing</text>
-</g>
-<g transform="translate(20, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">API Gateway</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Kong/AWS API GW</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Rate Limiting</text>
-</g>
-<g transform="translate(200, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">Mail Relay</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">SMTP Gateway</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Port: 25, 587</text>
-</g>
-<rect x="20" y="230" width="340" height="70" rx="6" fill="rgba(243,156,18,0.1)" stroke="#F39C12" stroke-width="1"/>
-<text x="190" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#F39C12">Public-Facing Services</text>
-<text x="190" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Internet accessible</text>
-<text x="190" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Limited internal access</text>
-</g>
-<g transform="translate(460, 420)">
-<line x1="0" y1="0" x2="60" y2="0" stroke="#27AE60" stroke-width="3" marker-end="url(#arrowGreen)"/>
-<text x="30" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27AE60">443, 8080</text>
-</g>
-<g transform="translate(510, 290)">
-<rect x="0" y="0" width="380" height="320" rx="15" fill="#1e293b" stroke="#27AE60" stroke-width="3" filter="url(#shadow)"/>
-<rect x="0" y="0" width="380" height="45" rx="15" fill="url(#appGrad)"/>
-<rect x="0" y="30" width="380" height="15" fill="url(#appGrad)"/>
-<text x="190" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Application Zone</text>
-<g transform="translate(20, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">App Servers</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Spring/Node/Django</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Port: 8080, 3000</text>
-</g>
-<g transform="translate(200, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Kubernetes</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">EKS/GKE/AKS</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Container Workloads</text>
-</g>
-<g transform="translate(20, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Message Queue</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Kafka/RabbitMQ</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Async Processing</text>
-</g>
-<g transform="translate(200, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Cache Layer</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Redis/Memcached</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Session/Data Cache</text>
-</g>
-<rect x="20" y="230" width="340" height="70" rx="6" fill="rgba(39,174,96,0.1)" stroke="#27AE60" stroke-width="1"/>
-<text x="190" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#27AE60">Business Logic Layer</text>
-<text x="190" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ No direct internet access</text>
-<text x="190" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ DMZ and Data zone only</text>
-</g>
-<g transform="translate(890, 420)">
-<line x1="0" y1="0" x2="60" y2="0" stroke="#3498DB" stroke-width="3" marker-end="url(#arrowBlue)"/>
-<text x="30" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498DB">5432, 3306</text>
-</g>
-<g transform="translate(940, 290)">
-<rect x="0" y="0" width="380" height="320" rx="15" fill="#1e293b" stroke="#3498DB" stroke-width="3" filter="url(#shadow)"/>
-<rect x="0" y="0" width="380" height="45" rx="15" fill="url(#dataGrad)"/>
-<rect x="0" y="30" width="380" height="15" fill="url(#dataGrad)"/>
-<text x="190" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Data Zone</text>
-<g transform="translate(20, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498DB">Database</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">PostgreSQL/MySQL</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Port: 5432, 3306</text>
-</g>
-<g transform="translate(200, 60)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498DB">Object Storage</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">S3/GCS/Blob</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Encrypted at Rest</text>
-</g>
-<g transform="translate(20, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498DB">Backup Storage</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Immutable Backup</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">3-2-1 Rule</text>
-</g>
-<g transform="translate(200, 145)">
-<rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="1"/>
-<text x="80" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498DB">Data Warehouse</text>
-<text x="80" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">BigQuery/Redshift</text>
-<text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Analytics</text>
-</g>
-<rect x="20" y="230" width="340" height="70" rx="6" fill="rgba(52,152,219,0.1)" stroke="#3498DB" stroke-width="1"/>
-<text x="190" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3498DB">Sensitive Data Storage</text>
-<text x="190" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ No internet egress</text>
-<text x="190" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ App zone access only</text>
-</g>
-<g transform="translate(1200, 200)">
-<line x1="0" y1="80" x2="0" y2="0" stroke="#E74C3C" stroke-width="3" stroke-dasharray="8,4"/>
-<circle cx="0" cy="0" r="18" fill="#E74C3C"/>
-<text x="0" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">X</text>
-<text x="50" y="6" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">BLOCKED</text>
-<text x="50" y="22" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Data → Internet</text>
-</g>
-<g transform="translate(50, 680)">
-<rect x="0" y="0" width="1300" height="180" rx="12" fill="#1e293b" stroke="#9B59B6" stroke-width="2" filter="url(#shadow)"/>
-<text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#9B59B6">Firewall Rules &amp; Security Policies</text>
-<g transform="translate(30, 50)">
-<rect x="0" y="0" width="400" height="110" rx="8" fill="rgba(39,174,96,0.1)" stroke="#27AE60" stroke-width="1"/>
-<text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27AE60">ALLOW Rules</text>
-<circle cx="20" cy="48" r="6" fill="#27AE60"/>
-<text x="35" y="52" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">Internet → DMZ: HTTPS (443) only</text>
-<circle cx="20" cy="68" r="6" fill="#27AE60"/>
-<text x="35" y="72" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">DMZ → App: HTTP/S (8080, 443)</text>
-<circle cx="20" cy="88" r="6" fill="#27AE60"/>
-<text x="35" y="92" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">App → Data: DB ports (5432, 3306, 1433)</text>
-</g>
-<g transform="translate(450, 50)">
-<rect x="0" y="0" width="400" height="110" rx="8" fill="rgba(231,76,60,0.1)" stroke="#E74C3C" stroke-width="1"/>
-<text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#E74C3C">DENY Rules</text>
-<circle cx="20" cy="48" r="6" fill="#E74C3C"/>
-<text x="35" y="52" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">Data → Internet: DENY ALL</text>
-<circle cx="20" cy="68" r="6" fill="#E74C3C"/>
-<text x="35" y="72" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">DMZ → Data: DENY DIRECT</text>
-<circle cx="20" cy="88" r="6" fill="#E74C3C"/>
-<text x="35" y="92" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">Internet → App/Data: DENY ALL</text>
-</g>
-<g transform="translate(870, 50)">
-<rect x="0" y="0" width="400" height="110" rx="8" fill="rgba(243,156,18,0.1)" stroke="#F39C12" stroke-width="1"/>
-<text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#F39C12">Security Controls</text>
-<circle cx="20" cy="48" r="6" fill="#F39C12"/>
-<text x="35" y="52" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">All zones: Egress filtering enabled</text>
-<circle cx="20" cy="68" r="6" fill="#F39C12"/>
-<text x="35" y="72" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">Logging: All traffic logged to SIEM</text>
-<circle cx="20" cy="88" r="6" fill="#F39C12"/>
-<text x="35" y="92" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">Micro-segmentation with K8s Network Policy</text>
-</g>
-</g>
-<text x="700" y="885" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">KISA Ransomware Prevention - Network Segmentation Architecture | Zero Trust Network | tech.2twodragon.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1520"/>
+      <stop offset="100%" style="stop-color:#152535"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2980b9"/>
+      <stop offset="100%" style="stop-color:#1abc9c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="rgba(41,128,185,0.06)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(26,188,156,0.07)"/>
+  <!-- Zone boxes -->
+  <rect x="800" y="185" width="120" height="70" rx="6" fill="rgba(231,76,60,0.1)" stroke="rgba(231,76,60,0.5)" stroke-width="2"/>
+  <text x="860" y="224" font-family="Arial,sans-serif" font-size="11" fill="rgba(231,76,60,0.8)" text-anchor="middle" font-weight="700">DMZ</text>
+  <!-- Firewall between DMZ and Internal -->
+  <rect x="918" y="198" width="24" height="44" rx="3" fill="rgba(255,200,0,0.15)" stroke="rgba(255,200,0,0.6)" stroke-width="2"/>
+  <line x1="926" y1="210" x2="934" y2="210" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <line x1="926" y1="220" x2="934" y2="220" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <line x1="926" y1="230" x2="934" y2="230" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <rect x="942" y="185" width="120" height="70" rx="6" fill="rgba(41,128,185,0.1)" stroke="rgba(41,128,185,0.5)" stroke-width="2"/>
+  <text x="1002" y="224" font-family="Arial,sans-serif" font-size="11" fill="rgba(41,128,185,0.8)" text-anchor="middle" font-weight="700">INTERNAL</text>
+  <!-- Firewall between Internal and Secure -->
+  <rect x="1060" y="198" width="24" height="44" rx="3" fill="rgba(255,200,0,0.15)" stroke="rgba(255,200,0,0.6)" stroke-width="2"/>
+  <line x1="1068" y1="210" x2="1076" y2="210" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <line x1="1068" y1="220" x2="1076" y2="220" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <line x1="1068" y1="230" x2="1076" y2="230" stroke="rgba(255,200,0,0.6)" stroke-width="1.5"/>
+  <rect x="1084" y="185" width="90" height="70" rx="6" fill="rgba(26,188,156,0.1)" stroke="rgba(26,188,156,0.5)" stroke-width="2"/>
+  <text x="1129" y="224" font-family="Arial,sans-serif" font-size="11" fill="rgba(26,188,156,0.8)" text-anchor="middle" font-weight="700">SECURE</text>
+  <!-- Bottom zone labels -->
+  <text x="860" y="275" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)" text-anchor="middle">WEB SERVERS</text>
+  <text x="1002" y="275" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)" text-anchor="middle">APP SERVERS</text>
+  <text x="1129" y="275" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)" text-anchor="middle">DB TIER</text>
+  <!-- Second row: OT/IoT zone -->
+  <rect x="840" y="340" width="340" height="70" rx="6" fill="rgba(155,89,182,0.08)" stroke="rgba(155,89,182,0.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="1010" y="378" font-family="Arial,sans-serif" font-size="11" fill="rgba(155,89,182,0.7)" text-anchor="middle" font-weight="700">OT / IoT SEGMENT</text>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(41,128,185,0.15)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#2980b9" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Network Segmentation</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Architecture</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">DMZ, internal and secure zones with firewall enforcement</text>
+  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)"/>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(41,128,185,0.8)" letter-spacing="3">NETWORK SECURITY</text>
+  <rect x="80" y="400" width="110" height="28" rx="14" fill="rgba(41,128,185,0.15)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+  <text x="135" y="419" font-family="Arial,sans-serif" font-size="13" fill="#2980b9" text-anchor="middle">Segmentation</text>
+  <rect x="202" y="400" width="80" height="28" rx="14" fill="rgba(26,188,156,0.15)" stroke="rgba(26,188,156,0.4)" stroke-width="1"/>
+  <text x="242" y="419" font-family="Arial,sans-serif" font-size="13" fill="#1abc9c" text-anchor="middle">Network</text>
+  <rect x="294" y="400" width="65" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="326" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Zones</text>
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)"/>
+  <text x="80" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
+  <text x="1120" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="end">DevSecOps</text>
 </svg>
