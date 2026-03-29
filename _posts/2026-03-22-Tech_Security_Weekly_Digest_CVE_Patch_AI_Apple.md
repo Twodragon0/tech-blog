@@ -301,6 +301,20 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 
 ---
 
+## 이번 주 다이제스트
+
+| 날짜 | 주제 | 링크 |
+|------|------|------|
+| 2026-03-23 | Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, SK쉴더스 EQST 보안 리포트 | [바로가기](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) |
+| 2026-03-24 | 북한 해커, VS Code 자동 실행 작업, IAM 정책 유형, 주간 보안 뉴스 요약 | [바로가기](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) |
+| 2026-03-25 | Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어 | [바로가기](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) |
+| 2026-03-26 | Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어 | [바로가기](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) |
+| 2026-03-27 | AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화 | [바로가기](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) |
+| 2026-03-28 | AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격 | [바로가기](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) |
+| 2026-03-29 | 랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석 | [바로가기](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) |
+
+---
+
 ## 참고 자료
 
 | 리소스 | 링크 |
