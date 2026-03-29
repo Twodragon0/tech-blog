@@ -13,6 +13,8 @@ import os
 import re
 import shutil
 import subprocess
+import xml.etree.ElementTree as ET
+from io import StringIO
 import sys
 import time
 from datetime import datetime
@@ -104,6 +106,22 @@ Style: Clean professional infographic
 - Technical diagram aesthetic
 """
 
+
+
+def validate_and_fix_svg(svg_content: str) -> str:
+    """Validate SVG XML and fix common issues."""
+    try:
+        ET.fromstring(svg_content)
+        return svg_content  # Already valid
+    except ET.ParseError:
+        # Fix bare & (not part of existing entities)
+        fixed = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#)', '&amp;', svg_content)
+        try:
+            ET.fromstring(fixed)
+            return fixed
+        except ET.ParseError as e:
+            print(f"  WARNING: SVG XML still invalid after fix attempt: {e}")
+            return fixed  # Return best-effort fix
 
 
 def _write_validated_safe_text(file_path: Path, safe_text: str) -> None:
@@ -1287,6 +1305,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 </svg>'''
 
         output_svg = output_path.with_suffix(".svg")
+        svg_content = validate_and_fix_svg(svg_content)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg_content)
 
@@ -1532,6 +1551,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
 </svg>'''
 
         output_svg = output_path.with_suffix(".svg")
+        svg = validate_and_fix_svg(svg)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg)
 

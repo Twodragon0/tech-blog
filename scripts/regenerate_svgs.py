@@ -9,6 +9,8 @@ import json
 import os
 import re
 import hashlib
+import xml.etree.ElementTree as ET
+from io import StringIO
 from datetime import datetime
 
 # Color schemes by category
@@ -316,6 +318,22 @@ def generate_svg(entry: dict) -> str:
     return svg
 
 
+def validate_and_fix_svg(svg_content: str) -> str:
+    """Validate SVG XML and fix common issues."""
+    try:
+        ET.fromstring(svg_content)
+        return svg_content  # Already valid
+    except ET.ParseError:
+        # Fix bare & (not part of existing entities)
+        fixed = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#)', '&amp;', svg_content)
+        try:
+            ET.fromstring(fixed)
+            return fixed
+        except ET.ParseError as e:
+            print(f"  WARNING: SVG XML still invalid after fix attempt: {e}")
+            return fixed  # Return best-effort fix
+
+
 def main():
     with open('/tmp/svg_regen_list.json') as f:
         entries = json.load(f)
@@ -324,6 +342,7 @@ def main():
     for entry in entries:
         svg_path = entry['svg']
         svg_content = generate_svg(entry)
+        svg_content = validate_and_fix_svg(svg_content)
 
         with open(svg_path, 'w', encoding='utf-8') as f:
             f.write(svg_content)
