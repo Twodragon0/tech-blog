@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Karpenter v153 Node Integration to Large-scale Incident Analysis</title>
+  <title>Karpenter v1.5.3</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#130820"/>
+      <stop offset="100%" stop-color="#1a0a10"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#ec4899"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -20,41 +20,41 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Abstract nodes -->
-  <circle cx="920" cy="200" r="18" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
-  <circle cx="990" cy="240" r="14" fill="none" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
-  <circle cx="950" cy="310" r="16" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <line x1="920" y1="218" x2="990" y2="226" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <line x1="990" y1="254" x2="950" y2="294" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <line x1="950" y1="294" x2="920" y2="218" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <!-- Abstract shape -->
-  <rect x="900" y="370" width="100" height="60" rx="8" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <!-- Lock icon -->
+  <rect x="925" y="210" width="60" height="50" rx="8" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M935,210 L935,190 Q935,170 955,170 Q975,170 975,190 L975,210" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="2"/>
+  <circle cx="955" cy="235" r="6" fill="rgba(239,68,68,0.3)"/>
+  <line x1="955" y1="241" x2="955" y2="250" stroke="rgba(239,68,68,0.3)" stroke-width="2"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(239,68,68,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
   <!-- Background circles -->
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
   <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">OCTOBER 2, 2025</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Karpenter v153 Node Integration</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">to Large-scale Incident Analysis</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Karpenter v1.5.3</text>
+
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Karpenter | Kubernetes | AWS</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Incident | Karpenter</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
-  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">INCIDENT ANALYSIS</text>
-  <!-- Keyword tags (3 max) -->
-  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
-  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Karpenter</text>
-  <rect x="211" y="420" width="126" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
-  <text x="274" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Kubernetes</text>
-  <rect x="351" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
-  <text x="391" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AWS</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">INCIDENT</text>
+  <!-- Keyword tags -->
+  <rect x="80" y="420" width="111" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="135" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Karpenter</text>
+  <rect x="205" y="420" width="120" height="36" rx="18" fill="rgba(236,72,153,0.18)" stroke="rgba(236,72,153,0.4)" stroke-width="1"/>
+  <text x="265" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#f9a8d4" text-anchor="middle" font-weight="600">Kubernetes</text>
+  <rect x="339" y="420" width="70" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="374" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AWS</text>
   <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">Incident</text>
 </svg>
