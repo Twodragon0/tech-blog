@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -48,7 +48,7 @@ jobs:
 
       - name: Create issue on failure
         if: steps.npm_audit.outputs.vulnerabilities > 0
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd  # v8
         with:
           script: |
             const title = `[Security] npm audit: ${process.env.VULNS} high/critical vulnerabilities`;
@@ -77,10 +77,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@e5517072e87f198d9533967ae13d97c11b604005  # v1 (v1.99.0)
         with:
           ruby-version: '3.3'
           bundler-cache: true
@@ -103,7 +103,7 @@ jobs:
 
       - name: Create issue on failure
         if: steps.bundle_audit.outputs.vulnerable == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd  # v8
         with:
           script: |
             const title = '[Security] bundle-audit: Ruby gem vulnerabilities detected';
