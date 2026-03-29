@@ -395,7 +395,7 @@ jobs:
       
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
         # deploy-pages 액션 타임아웃: 10분 (600000ms)
         # 액션 내부에서 deployment_queued 상태를 모니터링하며 대기
         timeout-minutes: 10
