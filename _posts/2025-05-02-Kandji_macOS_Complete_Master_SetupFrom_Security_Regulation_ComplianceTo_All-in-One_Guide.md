@@ -290,7 +290,7 @@ csrutil status | grep -q "enabled" && echo "PASS [2.10.1] SIP 활성화" || echo
 
 스크립트 실행 시 예상 출력:
 
-```
+```text
 === CIS macOS Benchmark 감사 ===
 PASS [1.1] 자동 업데이트 활성화
 PASS [2.3.1] 방화벽 활성화
@@ -399,7 +399,7 @@ done
 
 Splunk 검색 쿼리(SPL) 예시:
 
-```
+```splunk
 index=kandji sourcetype="kandji:audit"
 | stats count by action, device_name, user_email
 | where count > 5

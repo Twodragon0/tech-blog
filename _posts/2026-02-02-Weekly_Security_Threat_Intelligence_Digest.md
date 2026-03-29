@@ -26,8 +26,7 @@ tags:
 - Red-Team
 - '2026'
 keywords: [Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus]
-title: '주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트
-  종합, HashiCorp 보안 자동화'
+title: '보안 위협 인텔리전스: Notepad++ 공급망 공격, SK쉴더스, HashiCorp'
 toc: true
 ---
 {%- include ai-summary-card.html
