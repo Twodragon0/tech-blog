@@ -6,7 +6,7 @@ date: 2025-05-23 01:07:48 +0900
 categories: [security, devsecops]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
 keywords: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
-excerpt: "클라우드 시큐리티 과정 7기 6주차 핵심 정리. AWS WAF 규칙 설계, Cloudflare 보안 기능(DDoS 방어, SSL/TLS, Zero Trust), GitHub 보안 자동화(Dependabot, CodeQL, SAST)를 실무 중심으로 다루며 현대 웹 애플리케이션 보안 아키텍처를 학습합니다."
+excerpt: "클라우드 시큐리티 7기 6주차: AWS WAF 규칙 설계, Cloudflare DDoS/WAF 보안, GitHub Dependabot·CodeQL 자동화를 실무 중심으로 정리합니다."
 description: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare, GitHub 보안 자동화 실무 정리."
 image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
 toc: true
@@ -136,10 +136,90 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.1 커스텀 규칙 예제
 
-> ```json
-> {...
-> ```
+SQL Injection 차단을 위한 AWS WAF Web ACL 규칙 JSON 예제입니다:
 
+```json
+{
+  "Name": "SQLInjectionRuleGroup",
+  "Scope": "REGIONAL",
+  "DefaultAction": { "Allow": {} },
+  "Rules": [
+    {
+      "Name": "BlockSQLInjection",
+      "Priority": 1,
+      "Action": { "Block": {} },
+      "Statement": {
+        "SqliMatchStatement": {
+          "FieldToMatch": {
+            "Body": {}
+          },
+          "TextTransformations": [
+            { "Priority": 0, "Type": "URL_DECODE" },
+            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
+          ]
+        }
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "SQLInjectionRule"
+      }
+    },
+    {
+      "Name": "BlockXSS",
+      "Priority": 2,
+      "Action": { "Block": {} },
+      "Statement": {
+        "XssMatchStatement": {
+          "FieldToMatch": {
+            "AllQueryArguments": {}
+          },
+          "TextTransformations": [
+            { "Priority": 0, "Type": "URL_DECODE" },
+            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
+          ]
+        }
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "XSSRule"
+      }
+    }
+  ],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "SQLInjectionRuleGroup"
+  }
+}
+```
+
+Cloudflare WAF 커스텀 규칙 예제 (API 활용):
+
+```bash
+# Cloudflare WAF 커스텀 규칙 생성
+curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets" \
+  -H "Authorization: Bearer ${CF_API_TOKEN}" \
+  -H "Content-Type: application/json" \
+  --data '{
+    "name": "Custom WAF Rules",
+    "kind": "zone",
+    "phase": "http_request_firewall_custom",
+    "rules": [
+      {
+        "action": "block",
+        "expression": "(http.request.uri.query contains \"SELECT\" and http.request.uri.query contains \"FROM\") or (http.request.body contains \"UNION SELECT\")",
+        "description": "SQL Injection 차단 규칙"
+      },
+      {
+        "action": "challenge",
+        "expression": "cf.threat_score gt 30",
+        "description": "위협 점수 높은 요청에 챌린지 적용"
+      }
+    ]
+  }'
+```
 
 #### 2.3.2 Rate Limiting 전략
 
@@ -152,10 +232,65 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.3 Geo-blocking 전략
 
-> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. Geo-blocking 설정 예제 (Terraform)...
-#### 3.6.2 Rate Limiting 전략
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-> 참고: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있습니다.
+Geo-blocking 설정 예제 (AWS CLI):
+
+```bash
+# 특정 국가 차단을 위한 AWS WAF Geo Match 규칙 생성
+aws wafv2 create-rule-group \
+  --name "GeoBlockRuleGroup" \
+  --scope REGIONAL \
+  --capacity 50 \
+  --rules '[
+    {
+      "Name": "BlockHighRiskCountries",
+      "Priority": 1,
+      "Action": { "Block": {} },
+      "Statement": {
+        "GeoMatchStatement": {
+          "CountryCodes": ["CN", "RU", "KP"]
+        }
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "GeoBlockRule"
+      }
+    }
+  ]' \
+  --visibility-config SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=GeoBlockRuleGroup
+```
+
+## 3. Cloudflare 보안
+
+### 3.1 Cloudflare 주요 보안 기능
+
+Cloudflare는 DDoS 방어, WAF, SSL/TLS, Bot Management 등 종합적인 웹 보안 서비스를 제공합니다.
+
+| 기능 | 설명 |
+|------|------|
+| DDoS 방어 | 자동 완화 및 Rate Limiting |
+| WAF | OWASP Core Rule Set 기반 규칙 |
+| SSL/TLS | TLS 1.3, HSTS, Full Strict 모드 |
+| Bot Management | 자동화된 봇 탐지 및 차단 |
+| Zero Trust | 내부 애플리케이션 접근 제어 |
+
+### 3.2 Rate Limiting 전략
+
+Cloudflare Rate Limiting을 활용하여 API 남용과 DDoS 공격을 완화할 수 있습니다.
+
+| 시나리오 | 임계값 | 기간 | 대응 |
+|---------|--------|------|------|
+| 로그인 시도 | 5회 | 1분 | 10분 차단 |
+| API 호출 | 100회 | 1분 | 챌린지 페이지 |
+| 페이지 요청 | 500회 | 10초 | CAPTCHA |
+
+## 4. GitHub 보안 자동화
+
+### 4.1 개요
+
+GitHub Advanced Security는 Dependabot과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있습니다.
 
 ### 4.2 Dependabot
 
@@ -199,8 +334,86 @@ Code Scanning 설정 단계:
 
 #### 4.4.1 CodeQL 쿼리 예제
 
+SQL Injection 취약점을 탐지하는 CodeQL 쿼리 예제입니다:
 
-## MITRE ATT&CK 매핑
+```ql
+/**
+ * @name SQL Injection 취약점 탐지
+ * @description 사용자 입력이 SQL 쿼리에 직접 삽입되는 경우를 탐지합니다.
+ * @kind path-problem
+ * @problem.severity error
+ * @security-severity 9.8
+ */
+
+import javascript
+import DataFlow::PathGraph
+
+class SqlInjectionConfig extends TaintTracking::Configuration {
+  SqlInjectionConfig() { this = "SqlInjectionConfig" }
+
+  override predicate isSource(DataFlow::Node source) {
+    exists(Express::RequestExpr req |
+      source.asExpr() = req.getAPropertyRead(["query", "body", "params"])
+    )
+  }
+
+  override predicate isSink(DataFlow::Node sink) {
+    exists(DatabaseQuery query | sink.asExpr() = query.getAQueryArgument())
+  }
+}
+
+from SqlInjectionConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
+where config.hasFlowPath(source, sink)
+select sink.getNode(), source, sink, "사용자 입력이 SQL 쿼리에 직접 삽입됩니다."
+```
+
+#### 4.4.2 GitHub Actions CodeQL 워크플로우
+
+```yaml
+# .github/workflows/codeql-analysis.yml
+name: "CodeQL Analysis"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'  # 매주 월요일 오전 6시 실행
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      matrix:
+        language: ['javascript', 'python']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
+```
+
+## 5. MITRE ATT&CK 매핑
 
 이 섹션에서는 AWS WAF, Cloudflare, GitHub 보안 통제가 어떻게 MITRE ATT&CK 프레임워크의 공격 기법을 방어하는지 매핑합니다.
 
@@ -220,35 +433,90 @@ Code Scanning 설정 단계:
 - ⚠️ 부분 대응
 - ❌ 대응 불가
 
-## SIEM 탐지 쿼리
+## 6. SIEM 탐지 쿼리
 
+### AWS WAF 공격 탐지
 
-#### 공공기관
+AWS CloudWatch Logs Insights를 활용한 WAF 공격 탐지 쿼리입니다:
 
-> ```bash
-> # 공공기관 Cloudflare 설정...
-> ```
+```sql
+-- AWS WAF 차단된 요청 분석 (CloudWatch Logs Insights)
+fields @timestamp, httpRequest.clientIp, httpRequest.uri, action
+| filter action = "BLOCK"
+| stats count(*) as blocked_count by httpRequest.clientIp
+| sort blocked_count desc
+| limit 20
+```
 
-> ```text
-
+```bash
+# AWS CLI: WAF 로그에서 차단된 요청 수 조회
+aws wafv2 get-sampled-requests \
+  --web-acl-arn "arn:aws:wafv2:ap-northeast-2:ACCOUNT_ID:regional/webacl/MyWebACL/ID" \
+  --rule-metric-name "SQLInjectionRule" \
+  --scope REGIONAL \
+  --time-window StartTime=$(date -d '-1 hour' +%s),EndTime=$(date +%s) \
+  --max-items 100
+```
 
 ### Cloudflare 이상 탐지
 
-> ...
-> ```
+Cloudflare 보안 이벤트 조회 (API 활용):
 
-> ```text
+```bash
+# Cloudflare 보안 이벤트 조회
+curl -s "https://api.cloudflare.com/client/v4/zones/{zone_id}/security/events?per_page=50" \
+  -H "Authorization: Bearer ${CF_API_TOKEN}" | \
+  jq '.result[] | {action, clientIP: .clientIP, uri: .clientRequestHTTPHost, ruleId: .ruleId}'
 
-### 시크릿 노출 및 대응
+# Cloudflare Firewall 이벤트 분석 (GraphQL)
+curl -s "https://api.cloudflare.com/client/v4/graphql" \
+  -H "Authorization: Bearer ${CF_API_TOKEN}" \
+  -H "Content-Type: application/json" \
+  --data '{
+    "query": "{ viewer { zones(filter: {zoneTag: \"{zone_id}\"}) { firewallEventsAdaptive(filter: {datetime_gt: \"2025-05-22T00:00:00Z\"}, limit: 100, orderBy: [datetime_DESC]) { action clientIP clientRequestHTTPHost ruleId } } } }"
+  }'
+```
 
-> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 보안
+### 시크릿 노출 탐지
+
+GitHub Secret Scanning 및 Gitleaks를 활용한 시크릿 탐지 방법:
+
+```bash
+# Gitleaks로 로컬 저장소 시크릿 스캔
+gitleaks detect --source . --report-format json --report-path gitleaks-report.json
+
+# GitHub CLI로 Secret Scanning 알림 조회
+gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, secret_type}'
+```
+
+## 7. 보안 체크리스트
+
+### AWS WAF 보안
 
 - [ ] WAF 웹 ACL 규칙 생성 및 적용
+  ```bash
+  # Web ACL 목록 확인
+  aws wafv2 list-web-acls --scope REGIONAL --region ap-northeast-2
+  ```
 - [ ] SQL Injection, XSS 차단 규칙 활성화
+  ```bash
+  # AWS 관리형 규칙 그룹 확인
+  aws wafv2 list-available-managed-rule-groups --scope REGIONAL
+  ```
 - [ ] Rate Limiting 규칙 설정
 - [ ] IP 기반 접근 제어 구성
+  ```bash
+  # IP Set 생성 (차단 대상 IP 관리)
+  aws wafv2 create-ip-set --name "BlockedIPs" --scope REGIONAL \
+    --ip-address-version IPV4 --addresses "203.0.113.0/24"
+  ```
 - [ ] Geo-blocking 필요 시 적용
 - [ ] CloudWatch 로그 및 알림 설정
+  ```bash
+  # WAF 로깅 활성화 확인
+  aws wafv2 get-logging-configuration \
+    --resource-arn "arn:aws:wafv2:ap-northeast-2:ACCOUNT_ID:regional/webacl/MyWebACL/ID"
+  ```
 
 ### Cloudflare 보안
 
@@ -262,9 +530,21 @@ Code Scanning 설정 단계:
 ### GitHub 보안
 
 - [ ] Dependabot 활성화 및 설정
+  ```bash
+  # GitHub CLI로 Dependabot 알림 확인
+  gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] | {number, state, package: .security_vulnerability.package.name}'
+  ```
 - [ ] Code Scanning (CodeQL) 활성화
+  ```bash
+  # Code Scanning 알림 조회
+  gh api repos/{owner}/{repo}/code-scanning/alerts --jq '.[] | {number, state, rule: .rule.id}'
+  ```
 - [ ] Secret Scanning 활성화
 - [ ] Branch Protection Rules 설정
+  ```bash
+  # Branch Protection 상태 확인
+  gh api repos/{owner}/{repo}/branches/main/protection
+  ```
 - [ ] 취약점 알림 수신자 설정
 - [ ] Security Advisory 프로세스 수립
 

@@ -166,9 +166,35 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 
 #### 2.1.3 IAM 정책 최소 권한 분석
 
-> ```json
-> // Amazon Q가 제안하는 최소 권한 IAM 정책...
-> ```
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AmazonQDeveloperReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "codewhisperer:GenerateRecommendations",
+        "codewhisperer:ListRecommendations",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3ReadForCodeContext",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::YOUR_CODE_BUCKET",
+        "arn:aws:s3:::YOUR_CODE_BUCKET/*"
+      ]
+    }
+  ]
+}
+```
 
 
 참고: IAM 정책 모범 사례는 [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) 및 [IAM Policy Simulator](https://policysim.aws.amazon.com/) 참조
@@ -177,9 +203,24 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 
 #### 2.2.1 VS Code 설정
 
-> ```json
-> // .vscode/settings.json...
-> ```
+```json
+{
+  "amazonQ.telemetry": false,
+  "amazonQ.shareContentWithAWS": false,
+  "amazonQ.workspaceContext": true,
+  "amazonQ.suppressAutoSuggestions": false,
+  "amazonQ.importRecommendations": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.preview": true,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
 
 
 #### 2.2.2 JetBrains IDE 설정
@@ -282,9 +323,45 @@ paths:
 
 #### 3.2.1 자동 병합 전략
 
-> ```yaml
-> # .github/dependabot.yml...
-> ```
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "security"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+```
 
 
 참고: Dependabot 설정은 [GitHub Dependabot Configuration](https://docs.github.com/en/code-security) 참조

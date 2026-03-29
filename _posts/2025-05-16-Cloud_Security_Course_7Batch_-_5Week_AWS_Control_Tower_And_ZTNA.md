@@ -61,7 +61,9 @@ series_total: 7
 | 멀티 계정 권한 분산 | 높음 | SCP 기반 중앙 통제 |
 | 비인가 리전 사용 | 중간 | Guardrails 리전 제한 |
 | 네트워크 경계 침투 | 높음 | ZTNA 제로 트러스트 적용 |
-| 계정 간 데이터 유출 | 높음 | VPC Endpoint + PrivateLink | 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
+| 계정 간 데이터 유출 | 높음 | VPC Endpoint + PrivateLink |
+
+멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
 
 ### Learning Scorecard
 
@@ -180,9 +182,98 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 - CloudTrail에서 루트 계정 직접 사용 감지
 - Config Rules 위반 항목 24시간 내 수정
 
-## 4. 참고 자료 및 추가 학습
+### 3.2 실전 AWS CLI 탐지 명령어
 
-### 4.1 공식 문서
+**1) CloudTrail로 루트 계정 직접 사용 이력 조회**
+
+```bash
+# 최근 24시간 내 루트 계정 API 호출 내역 조회
+aws cloudtrail lookup-events \
+  --lookup-attributes AttributeKey=Username,AttributeValue=root \
+  --start-time $(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ) \
+  --query 'Events[*].{Time:EventTime,Event:EventName,Source:EventSource}' \
+  --output table
+```
+
+**2) AWS Config - SCP 위반 또는 비준수 리소스 목록 조회**
+
+```bash
+# Config Rules 중 NON_COMPLIANT 상태인 리소스 일괄 조회
+aws configservice describe-compliance-by-config-rule \
+  --compliance-types NON_COMPLIANT \
+  --query 'ComplianceByConfigRules[*].{Rule:ConfigRuleName,Compliance:Compliance.ComplianceType}' \
+  --output table
+```
+
+**3) Control Tower Guardrails - 위반 계정 확인**
+
+```bash
+# 특정 Control Tower Guardrail 위반 계정 조회 (AWS Control Tower API)
+aws controltower list-enabled-controls \
+  --target-identifier arn:aws:organizations::ACCOUNT_ID:ou/OU_ID \
+  --query 'enabledControls[*].{Arn:controlIdentifier,Status:driftStatusSummary.driftStatus}' \
+  --output table
+```
+
+## 4. ZTNA (Zero Trust Network Access)
+
+### 4.1 Zero Trust 핵심 원칙
+
+ZTNA는 "절대 신뢰하지 말고, 항상 검증하라(Never Trust, Always Verify)"는 원칙을 기반으로 합니다.
+
+| 원칙 | 설명 | AWS 적용 방법 |
+|------|------|--------------|
+| 명시적 검증 | 모든 요청을 사용자·기기·위치 기반으로 인증 | IAM Identity Center + MFA 강제 적용 |
+| 최소 권한 접근 | 필요한 리소스에만 최소한의 권한 부여 | IAM 최소 권한 정책 + SCP |
+| 침해 가정 | 이미 내부가 침해되었다고 가정하고 방어 | GuardDuty + VPC Flow Logs 실시간 분석 |
+| 마이크로 세그멘테이션 | 네트워크를 세분화해 측면 이동(lateral movement) 차단 | Security Group + VPC + PrivateLink |
+
+### 4.2 AWS에서의 ZTNA 구현
+
+**PrivateLink와 VPC Endpoint를 활용한 네트워크 격리**
+
+```yaml
+# CloudFormation: VPC Endpoint for S3 (Gateway Type)
+Resources:
+  S3VPCEndpoint:
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      VpcId: !Ref VPC
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.s3
+      RouteTableIds:
+        - !Ref PrivateRouteTable
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - arn:aws:s3:::my-secure-bucket
+              - arn:aws:s3:::my-secure-bucket/*
+```
+
+**Security Group 최소 권한 규칙 예시**
+
+```bash
+# 특정 애플리케이션 서버에서 RDS로만 3306 포트 허용 (Zero Trust 접근 통제)
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-RDS_GROUP_ID \
+  --protocol tcp \
+  --port 3306 \
+  --source-group sg-APP_SERVER_GROUP_ID
+```
+
+### 4.3 ZTNA 도입 체크리스트
+
+- [ ] IAM Identity Center(AWS SSO) 활성화 및 MFA 필수 설정
+- [ ] VPC Endpoint를 통한 AWS 서비스 프라이빗 접근 구성
+- [ ] PrivateLink로 외부 서비스 연결 시 인터넷 우회 차단
+- [ ] Security Group에 0.0.0.0/0 인바운드 규칙 제거
+- [ ] VPC Flow Logs 활성화 및 Athena 쿼리 설정
+
+## 5. 참고 자료 및 추가 학습
+
+### 5.1 공식 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -192,7 +283,7 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 | AWS Well-Architected Framework - Security Pillar | [docs.aws.amazon.com/wellarchitected/security-pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
 | IAM Identity Center 문서 | [docs.aws.amazon.com/singlesignon](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
 
-### 4.2 실습 환경 및 튜토리얼
+### 5.2 실습 환경 및 튜토리얼
 
 | 리소스 | 설명 |
 |--------|------|
@@ -200,7 +291,7 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 | AWS Samples - Control Tower Customizations | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
 | Terraform AWS Control Tower Module | Infrastructure as Code 예제 ([Terraform Registry](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
-### 4.3 한국어 리소스
+### 5.3 한국어 리소스
 
 | 리소스 | 링크 |
 |--------|------|
@@ -208,7 +299,7 @@ Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 | 클라우드 보안 컨설팅 (Twodragon) | [tech.2twodragon.com](https://tech.2twodragon.com) |
 | AWS 공인 교육 과정 | AWS Training and Certification 한국어 과정 |
 
-### 4.4 관련 AWS 서비스
+### 5.4 관련 AWS 서비스
 
 | 서비스 | 설명 | 링크 |
 |--------|------|------|

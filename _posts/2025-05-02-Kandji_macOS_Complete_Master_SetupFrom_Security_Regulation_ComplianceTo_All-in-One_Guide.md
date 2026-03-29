@@ -156,6 +156,42 @@ WHERE service = 'kTCCServiceCamera';
 
 #### Kandji PPPC (Privacy Preferences Policy Control)
 
+PPPC 프로파일로 앱의 카메라/마이크 접근 권한을 MDM에서 사전 승인할 수 있습니다.
+
+```xml
+<!-- Kandji PPPC 프로파일 예시: 카메라 및 마이크 권한 사전 승인 -->
+<dict>
+    <key>PayloadType</key>
+    <string>com.apple.TCC.configuration-profile-policy</string>
+    <key>Services</key>
+    <dict>
+        <!-- 카메라 접근 허용 (Zoom) -->
+        <key>Camera</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>us.zoom.xos</string>
+                <key>IdentifierType</key>
+                <string>bundleID</string>
+                <key>Authorization</key>
+                <string>Allow</string>
+            </dict>
+        </array>
+        <!-- 마이크 접근 허용 (Microsoft Teams) -->
+        <key>Microphone</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>com.microsoft.teams</string>
+                <key>IdentifierType</key>
+                <string>bundleID</string>
+                <key>Authorization</key>
+                <string>Allow</string>
+            </dict>
+        </array>
+    </dict>
+</dict>
+```
 
 ## 3. MDM 정책 설정
 
@@ -252,6 +288,17 @@ echo "$fv" | grep -q "On" && echo "PASS [2.5.1] FileVault 활성화" || echo "FA
 csrutil status | grep -q "enabled" && echo "PASS [2.10.1] SIP 활성화" || echo "FAIL [2.10.1] SIP 비활성화"
 ```
 
+스크립트 실행 시 예상 출력:
+
+```
+=== CIS macOS Benchmark 감사 ===
+PASS [1.1] 자동 업데이트 활성화
+PASS [2.3.1] 방화벽 활성화
+PASS [2.5.1] FileVault 활성화
+PASS [2.10.1] SIP 활성화
+```
+
+비준수 항목이 있는 경우 `FAIL`로 표시되며, Kandji 컴플라이언스 대시보드에 자동 보고됩니다.
 
 ## 5. 패치 관리
 
@@ -328,6 +375,36 @@ MDM의 Zero Trust 역할:
 
 ### 7.1 Splunk 연동
 
+Kandji 이벤트를 Splunk HTTP Event Collector(HEC)로 전송합니다.
+
+```bash
+# Kandji → Splunk HEC 연동 예시
+# 1. Kandji Audit Log API로 이벤트 수집
+KANDJI_TOKEN="YOUR_KANDJI_API_TOKEN"
+SPLUNK_HEC_URL="https://splunk.example.com:8088/services/collector"
+SPLUNK_HEC_TOKEN="YOUR_SPLUNK_HEC_TOKEN"
+
+# Kandji audit events 조회 (최근 1시간)
+events=$(curl -s -X GET "https://api.kandji.io/api/v1/audit-log?limit=100" \
+  -H "Authorization: Bearer ${KANDJI_TOKEN}" | jq -c '.results[]')
+
+# Splunk HEC로 이벤트 전송
+echo "$events" | while IFS= read -r event; do
+  curl -s -X POST "${SPLUNK_HEC_URL}" \
+    -H "Authorization: Splunk ${SPLUNK_HEC_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "{\"sourcetype\": \"kandji:audit\", \"event\": ${event}}"
+done
+```
+
+Splunk 검색 쿼리(SPL) 예시:
+
+```
+index=kandji sourcetype="kandji:audit"
+| stats count by action, device_name, user_email
+| where count > 5
+| sort -count
+```
 
 ## 8. 제로 트러스트 아키텍처 통합
 
@@ -374,6 +451,28 @@ ls /Applications/ | grep -i "Okta Verify"
 ### 8.2 SASE 통합
 
 #### Zscaler ZIA 연동
+
+Kandji 관리 디바이스를 Zscaler ZIA에 SAML/OAuth로 통합합니다.
+
+**연동 절차:**
+
+1. **Zscaler IdP 설정**: ZIA Admin Console → Authentication → SAML → New Identity Provider에서 Kandji 인증서 업로드
+2. **Kandji SCEP 프로파일 배포**: Zscaler 클라이언트 인증서를 MDM으로 자동 배포
+
+```bash
+# Zscaler Client Connector 설치 확인
+ls /Applications/ | grep -i "Zscaler"
+
+# Zscaler 터널 연결 상태 확인
+/Applications/Zscaler/Zscaler.app/Contents/MacOS/ZscalerTunnel --status 2>/dev/null \
+  || echo "Zscaler 앱 미설치"
+
+# 디바이스 인증서 (Zscaler용) 확인
+security find-certificate -a -Z /Library/Keychains/System.keychain \
+  | grep -i "Zscaler"
+```
+
+3. **조건부 접근 정책**: Kandji 컴플라이언스 상태를 Zscaler에서 디바이스 신뢰 신호로 활용하여 비준수 디바이스의 인터넷 접근을 차단합니다.
 
 ## 9. 한국 기업 환경 적용
 
