@@ -1,8 +1,10 @@
+---
+layout: null
+---
 // Service Worker for Offline Support and Caching
-// Cache version: bump on each deploy or content change
-// v22: chat-page.css 분리 등록 (build marker: 20260327)
-const STATIC_CACHE = 'tech-blog-static-v22';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v22';
+// Cache version: auto-versioned by Jekyll build time (Unix timestamp)
+const STATIC_CACHE = 'tech-blog-static-{{ site.time | date: "%s" }}';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-{{ site.time | date: "%s" }}';
 
 // Dynamic cache settings
 const DYNAMIC_CACHE_MAX_ENTRIES = 50;

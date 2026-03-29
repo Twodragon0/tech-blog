@@ -615,6 +615,18 @@ def audit_agent_io(func):
 
 ---
 
+## 이번 주 다이제스트
+
+| 날짜 | 주제 | 링크 |
+|------|------|------|
+| 2026-03-16 | AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시 | [바로가기](/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/) |
+| 2026-03-16 | 아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향 | [바로가기](/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Bitcoin/) |
+| 2026-03-17 | GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협 | [바로가기](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) |
+| 2026-03-18 | AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안 | [바로가기](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/) |
+| 2026-03-19 | 북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE | [바로가기](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) |
+| 2026-03-20 | Speagle 데이터 유출, BYOVD EDR 킬러, AI 코드 에이전트 모니터링 | [바로가기](/posts/2026/03/20/Tech_Security_Weekly_Digest_Malware_Data_Security_Threat/) |
+| 2026-03-21 | Trivy CI/CD 침해, Langflow RCE, Google 사이드로딩 차단 | [바로가기](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) |
+
 ## 참고 자료
 
 ### 보안 기준 및 프레임워크
