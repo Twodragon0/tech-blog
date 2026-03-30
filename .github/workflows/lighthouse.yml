@@ -35,11 +35,25 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Start local HTTP server
+        run: |
+          npx --yes serve@14 _site --listen 4000 &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
+          # Wait for server to be ready
+          for i in $(seq 1 15); do
+            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then
+              echo "Server ready after ${i}s"
+              break
+            fi
+            sleep 1
+          done
+
       - name: Run Lighthouse CI on local build
         id: lighthouse
         uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18  # v12
         with:
-          staticDistDir: ./_site
+          urls: |
+            http://localhost:4000/
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 1

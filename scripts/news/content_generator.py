@@ -388,8 +388,8 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
     ):
         title = ", ".join(headline_phrases)
         score = _title_quality_score(title)
-        log_message(
-            f"[Title QA] score={score} title={title!r}", "INFO"
+        logging.info(
+            f"[Title QA] score={score} title={title!r}"
         )
         # Quality gate: reject low-quality titles
         if score < 50:
@@ -398,9 +398,8 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
             )
             if label_title:
                 fallback = label_title[:80].rstrip(" ,.")
-                log_message(
-                    f"[Title QA] fallback={fallback!r} (score {score}<50)",
-                    "WARNING",
+                logging.warning(
+                    f"[Title QA] fallback={fallback!r} (score {score}<50)"
                 )
                 return fallback
         if len(title) <= 80:
