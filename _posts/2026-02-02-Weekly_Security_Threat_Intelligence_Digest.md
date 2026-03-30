@@ -514,27 +514,27 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 
 ### P0 - 즉시
 
-- [ ] Notepad++ 설치 현황 파악 및 해시 검증 ([공식 공지](https://notepad-plus-plus.org/news/hijacked-incident-info-update/))
-- [ ] EDR/SIEM에 Notepad++ 비정상 행위 및 랜섬웨어 탐지 쿼리 적용
-- [ ] Sinobi/Lynx IOC 반영 (SK쉴더스 KARA 리포트 참조)
-- [ ] 백업 무결성 검증 및 복구 테스트 수행
-- [ ] JWT 시크릿 긴급 점검: 소스코드/설정 파일 하드코딩 스캔 (trufflehog, gitleaks)
+- Notepad++ 설치 현황 파악 및 해시 검증 ([공식 공지](https://notepad-plus-plus.org/news/hijacked-incident-info-update/))
+- EDR/SIEM에 Notepad++ 비정상 행위 및 랜섬웨어 탐지 쿼리 적용
+- Sinobi/Lynx IOC 반영 (SK쉴더스 KARA 리포트 참조)
+- 백업 무결성 검증 및 복구 테스트 수행
+- JWT 시크릿 긴급 점검: 소스코드/설정 파일 하드코딩 스캔 (trufflehog, gitleaks)
 
 ### P1 - 이번 주
 
-- [ ] JWT 서명 알고리즘 감사: HS256 사용 서비스 -> RS256/ES256 전환 계획
-- [ ] Kubernetes 시크릿 관리 점검 (etcd 암호화 또는 VSO 도입)
-- [ ] RDP 접근 관리 현황 점검 (Boundary 0.21 패스워드리스 평가)
-- [ ] MITRE ATT&CK 커버리지 측정: 현재 탐지 룰의 매트릭스 커버리지율
-- [ ] 위협 인텔리전스 피드: Lynx/BlackField/Sinobi IOC 구독/갱신
+- JWT 서명 알고리즘 감사: HS256 사용 서비스 -> RS256/ES256 전환 계획
+- Kubernetes 시크릿 관리 점검 (etcd 암호화 또는 VSO 도입)
+- RDP 접근 관리 현황 점검 (Boundary 0.21 패스워드리스 평가)
+- MITRE ATT&CK 커버리지 측정: 현재 탐지 룰의 매트릭스 커버리지율
+- 위협 인텔리전스 피드: Lynx/BlackField/Sinobi IOC 구독/갱신
 
 ### P2 - 이번 달
 
-- [ ] 레드팀 프로그램 기획: Sinobi TTP 기반 시나리오 포함
-- [ ] 데이터 중심 제로트러스트 로드맵: 데이터 분류 -> 보호 -> 모니터링
-- [ ] Vertical AI 파일럿: SOC Tier 1 알림 분류 자동화 PoC
-- [ ] 공급망 보안 정책 수립: SBOM 관리, 코드 서명 검증 프로세스
-- [ ] OT 보안 점검: IT-OT 경계 보안 상태 확인
+- 레드팀 프로그램 기획: Sinobi TTP 기반 시나리오 포함
+- 데이터 중심 제로트러스트 로드맵: 데이터 분류 -> 보호 -> 모니터링
+- Vertical AI 파일럿: SOC Tier 1 알림 분류 자동화 PoC
+- 공급망 보안 정책 수립: SBOM 관리, 코드 서명 검증 프로세스
+- OT 보안 점검: IT-OT 경계 보안 상태 확인
 
 ---
 

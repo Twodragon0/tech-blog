@@ -373,27 +373,27 @@ User Request → Planning Agent (Task Decomposition)
 
 ### 긴급 (이번 주 내 조치)
 
-- [ ] BitLocker 복구 키 저장 위치 점검: Microsoft 계정 백업 여부 확인
-- [ ] BGP 모니터링 설정: Route Leak 탐지 알림 구성
-- [ ] Docker Desktop 라이선스 확인: 구독 정책 변경 영향 점검
-- [ ] Threat Hunting 실행: BitLocker 복구 키 접근 로그 분석
-- [ ] RPKI 검증 상태 확인: 자사 프리픽스 ROA 등록 여부
+- BitLocker 복구 키 저장 위치 점검: Microsoft 계정 백업 여부 확인
+- BGP 모니터링 설정: Route Leak 탐지 알림 구성
+- Docker Desktop 라이선스 확인: 구독 정책 변경 영향 점검
+- Threat Hunting 실행: BitLocker 복구 키 접근 로그 분석
+- RPKI 검증 상태 확인: 자사 프리픽스 ROA 등록 여부
 
 ### 중요 (이번 달 내 계획)
 
-- [ ] RPKI ROA 레코드 등록: 자사 프리픽스 보호
-- [ ] 멀티 컨테이너 런타임 전략 수립: Docker 종속성 감소
-- [ ] AI 코드 생성 정책 수립: 내부 가이드라인 정의
-- [ ] BGP 이상 탐지 자동화: SIEM 통합 및 알림 설정
-- [ ] 암호화 정책 재평가: 민감 데이터 암호화 방식 검토
+- RPKI ROA 레코드 등록: 자사 프리픽스 보호
+- 멀티 컨테이너 런타임 전략 수립: Docker 종속성 감소
+- AI 코드 생성 정책 수립: 내부 가이드라인 정의
+- BGP 이상 탐지 자동화: SIEM 통합 및 알림 설정
+- 암호화 정책 재평가: 민감 데이터 암호화 방식 검토
 
 ### 권장 (분기 내 검토)
 
-- [ ] Airflow 3.1 업그레이드 검토: Cloud Composer 사용 시
-- [ ] ADK + Datadog 파일럿: AI 에이전트 모니터링 구축
-- [ ] 자율 기업 전환 로드맵: 4대 제어 기둥 현황 평가
-- [ ] 제로 트러스트 아키텍처 도입: 네트워크 세그먼트 분리
-- [ ] NHI 인벤토리 구축: 비인간 ID 목록화 및 관리 정책
+- Airflow 3.1 업그레이드 검토: Cloud Composer 사용 시
+- ADK + Datadog 파일럿: AI 에이전트 모니터링 구축
+- 자율 기업 전환 로드맵: 4대 제어 기둥 현황 평가
+- 제로 트러스트 아키텍처 도입: 네트워크 세그먼트 분리
+- NHI 인벤토리 구축: 비인간 ID 목록화 및 관리 정책
 
 ---
 

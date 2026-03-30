@@ -385,27 +385,27 @@ index=docker OR index=network OR index=endpoint
 
 ### P0 (즉시 대응)
 
-- [ ] Docker Desktop 최신 버전으로 업데이트하여 DockerDash 취약점 패치 적용
-- [ ] `npm audit` 실행하여 CVE-2025-11953 (Metro4Shell) 영향 여부 확인
-- [ ] `npm ls @react-native-community/cli` 로 취약 패키지 사용 여부 점검
-- [ ] Metro Development Server(포트 8081)의 외부 네트워크 노출 차단 확인
-- [ ] AI 에이전트 실행 환경의 컨테이너 격리 수준 점검
+- Docker Desktop 최신 버전으로 업데이트하여 DockerDash 취약점 패치 적용
+- `npm audit` 실행하여 CVE-2025-11953 (Metro4Shell) 영향 여부 확인
+- `npm ls @react-native-community/cli` 로 취약 패키지 사용 여부 점검
+- Metro Development Server(포트 8081)의 외부 네트워크 노출 차단 확인
+- AI 에이전트 실행 환경의 컨테이너 격리 수준 점검
 
 ### P1 (7일 이내)
 
-- [ ] AWS IAM Identity Center 멀티리전 복제 설정 및 보안 정책 검토
-- [ ] AI 에이전트 자격증명 관리 체계 점검 (임시 토큰, 최소 권한)
-- [ ] Docker 이미지 메타데이터 검사 자동화 파이프라인 구축
-- [ ] SOC 도구 스택 최적화 검토 (Smarter SOC Blueprint 참고)
-- [ ] 클라우드 장애 대응 계획(DRP) 검토 및 업데이트
+- AWS IAM Identity Center 멀티리전 복제 설정 및 보안 정책 검토
+- AI 에이전트 자격증명 관리 체계 점검 (임시 토큰, 최소 권한)
+- Docker 이미지 메타데이터 검사 자동화 파이프라인 구축
+- SOC 도구 스택 최적화 검토 (Smarter SOC Blueprint 참고)
+- 클라우드 장애 대응 계획(DRP) 검토 및 업데이트
 
 ### P2 (30일 이내)
 
-- [ ] 3Cs 프레임워크 기반 AI 에이전트 보안 정책 수립
-- [ ] SBOM(Software Bill of Materials) 관리 체계 구축/업데이트
-- [ ] SIEM 탐지 룰 업데이트 (DockerDash, Metro4Shell 관련)
-- [ ] 공급망 보안 감사 (npm, Docker Hub 이미지)
-- [ ] AI 모델 배포 전 보안 평가 체크리스트 정비
+- 3Cs 프레임워크 기반 AI 에이전트 보안 정책 수립
+- SBOM(Software Bill of Materials) 관리 체계 구축/업데이트
+- SIEM 탐지 룰 업데이트 (DockerDash, Metro4Shell 관련)
+- 공급망 보안 감사 (npm, Docker Hub 이미지)
+- AI 모델 배포 전 보안 평가 체크리스트 정비
 
 ---
 

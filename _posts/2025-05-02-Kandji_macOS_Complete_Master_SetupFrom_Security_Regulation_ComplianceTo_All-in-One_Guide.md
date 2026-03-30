@@ -743,9 +743,9 @@ Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 
 
 ## 도입 체크리스트
 
-- [ ] Apple Business Manager 등록 및 Kandji 연동 완료
-- [ ] MDM 프로파일 배포 및 FileVault 2 암호화 필수 설정
-- [ ] Gatekeeper, SIP, TCC 보안 정책 Blueprint 적용
-- [ ] SIEM 연동 (Splunk 또는 Azure Sentinel) 구성 완료
-- [ ] CIS Benchmark 기반 컴플라이언스 자동 점검 활성화
+- Apple Business Manager 등록 및 Kandji 연동 완료
+- MDM 프로파일 배포 및 FileVault 2 암호화 필수 설정
+- Gatekeeper, SIP, TCC 보안 정책 Blueprint 적용
+- SIEM 연동 (Splunk 또는 Azure Sentinel) 구성 완료
+- CIS Benchmark 기반 컴플라이언스 자동 점검 활성화
 

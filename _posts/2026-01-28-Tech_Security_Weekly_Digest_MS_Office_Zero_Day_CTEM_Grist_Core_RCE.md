@@ -170,25 +170,25 @@ Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약
 
 ### P0 - 즉시 조치 (24시간 이내)
 
-- [ ] Microsoft Office 패치 (KB5034173) 전사 배포
-- [ ] EDR에서 Office 프로세스 자식 프로세스 모니터링 강화
-- [ ] Grist-Core 사용 시 1.1.15 이상으로 업그레이드 또는 네트워크 격리
-- [ ] 이메일 게이트웨이에서 Office 매크로 포함 파일 격리 정책 적용
-- [ ] 사용자 대상 피싱 경고 공지 발송
+- Microsoft Office 패치 (KB5034173) 전사 배포
+- EDR에서 Office 프로세스 자식 프로세스 모니터링 강화
+- Grist-Core 사용 시 1.1.15 이상으로 업그레이드 또는 네트워크 격리
+- 이메일 게이트웨이에서 Office 매크로 포함 파일 격리 정책 적용
+- 사용자 대상 피싱 경고 공지 발송
 
 ### P1 - 7일 이내
 
-- [ ] SIEM에 CVE-2026-21509 탐지 룰 배포
-- [ ] Threat Hunting: 최근 30일 Office → 의심 프로세스 실행 이력 조사
-- [ ] ASM(Attack Surface Management) 도구로 외부 노출 자산 점검
-- [ ] 보안 인식 교육: 피싱 대응 시뮬레이션
+- SIEM에 CVE-2026-21509 탐지 룰 배포
+- Threat Hunting: 최근 30일 Office → 의심 프로세스 실행 이력 조사
+- ASM(Attack Surface Management) 도구로 외부 노출 자산 점검
+- 보안 인식 교육: 피싱 대응 시뮬레이션
 
 ### P2 - 30일 이내
 
-- [ ] CTEM 프레임워크 파일럿 도입 검토
-- [ ] EPSS 기반 취약점 우선순위화 프로세스 수립
-- [ ] 공격 표면 인벤토리 최신화
-- [ ] BAS 도구로 탐지 능력 검증
+- CTEM 프레임워크 파일럿 도입 검토
+- EPSS 기반 취약점 우선순위화 프로세스 수립
+- 공격 표면 인벤토리 최신화
+- BAS 도구로 탐지 능력 검증
 
 ---
 

@@ -284,24 +284,24 @@ SK쉴더스가 공개한 진단 가이드의 핵심 체크리스트:
 
 ### P0: 즉시 적용 (이번 주)
 
-- [ ] AI 에이전트가 사용하는 도구 인벤토리 작성
-- [ ] 도구 설명(description) 내 숨겨진 지시 스캔
-- [ ] 고위험 작업에 대한 Human-in-the-Loop 확인
-- [ ] JWT 서명키 저장 방식 점검 (하드코딩 여부)
+- AI 에이전트가 사용하는 도구 인벤토리 작성
+- 도구 설명(description) 내 숨겨진 지시 스캔
+- 고위험 작업에 대한 Human-in-the-Loop 확인
+- JWT 서명키 저장 방식 점검 (하드코딩 여부)
 
 ### P1: 7일 내
 
-- [ ] MCP 서버/도구에 대한 허용 목록(allowlist) 구축
-- [ ] 에이전트 도구 호출 감사 로그 활성화
-- [ ] SIEM 탐지 룰에 에이전틱 공격 패턴 추가
-- [ ] LLM Application 취약점 진단 (OWASP LLM Top 10 기반)
+- MCP 서버/도구에 대한 허용 목록(allowlist) 구축
+- 에이전트 도구 호출 감사 로그 활성화
+- SIEM 탐지 룰에 에이전틱 공격 패턴 추가
+- LLM Application 취약점 진단 (OWASP LLM Top 10 기반)
 
 ### P2: 30일 내
 
-- [ ] 에이전틱 보안 성숙도 자가 평가 (L0~L4)
-- [ ] AI 에이전트 보안 정책 문서화
-- [ ] Red Team 시나리오에 Tool Poisoning/Chain Attack 추가
-- [ ] 보안 교육에 에이전틱 AI 위협 모듈 추가
+- 에이전틱 보안 성숙도 자가 평가 (L0~L4)
+- AI 에이전트 보안 정책 문서화
+- Red Team 시나리오에 Tool Poisoning/Chain Attack 추가
+- 보안 교육에 에이전틱 AI 위협 모듈 추가
 
 ---
 

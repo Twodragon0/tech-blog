@@ -475,32 +475,32 @@ spec:
 파이프라인 구성 전 반드시 확인해야 할 항목입니다.
 
 **파이프라인 설정 검토:**
-- [ ] GitHub Actions permissions를 최소 필요 권한으로 제한했는가?
-- [ ] 모든 Secret을 GitHub Secrets 또는 외부 Secret 관리 도구에 저장했는가?
-- [ ] SAST 도구(Semgrep, SonarQube)가 파이프라인에 통합되어 있는가?
-- [ ] 컨테이너 이미지 취약점 스캔(Trivy)이 빌드 단계에서 실행되는가?
-- [ ] 프로덕션 배포 전 수동 승인 단계가 있는가?
-- [ ] 파이프라인 실행 로그가 감사 목적으로 보존되는가?
-- [ ] Gitleaks 또는 truffleHog로 커밋 전 Secret 스캐닝을 수행하는가?
-- [ ] 의존성 취약점 스캔(npm audit, pip audit)이 자동화되어 있는가?
-- [ ] 이미지 서명(Cosign)이 배포 파이프라인에 적용되어 있는가?
-- [ ] SBOM(Software Bill of Materials)이 생성 및 관리되고 있는가?
+- GitHub Actions permissions를 최소 필요 권한으로 제한했는가?
+- 모든 Secret을 GitHub Secrets 또는 외부 Secret 관리 도구에 저장했는가?
+- SAST 도구(Semgrep, SonarQube)가 파이프라인에 통합되어 있는가?
+- 컨테이너 이미지 취약점 스캔(Trivy)이 빌드 단계에서 실행되는가?
+- 프로덕션 배포 전 수동 승인 단계가 있는가?
+- 파이프라인 실행 로그가 감사 목적으로 보존되는가?
+- Gitleaks 또는 truffleHog로 커밋 전 Secret 스캐닝을 수행하는가?
+- 의존성 취약점 스캔(npm audit, pip audit)이 자동화되어 있는가?
+- 이미지 서명(Cosign)이 배포 파이프라인에 적용되어 있는가?
+- SBOM(Software Bill of Materials)이 생성 및 관리되고 있는가?
 
 ### 6.2 Kubernetes 클러스터 보안 체크리스트
 
 Kubernetes 클러스터 배포 전후 확인 항목입니다.
 
 **클러스터 보안 검토:**
-- [ ] RBAC가 활성화되어 있으며 최소 권한 원칙이 적용되어 있는가?
-- [ ] Pod Security Standards(Restricted)가 프로덕션 네임스페이스에 적용되어 있는가?
-- [ ] Network Policy(Default Deny)가 모든 네임스페이스에 설정되어 있는가?
-- [ ] etcd 데이터가 암호화되어 있는가?
-- [ ] API 서버에 익명 접근이 비활성화되어 있는가?
-- [ ] kube-bench로 CIS Kubernetes Benchmark를 실행했는가?
-- [ ] Falco 또는 런타임 보안 도구가 활성화되어 있는가?
-- [ ] 클러스터 감사 로그(Audit Logging)가 활성화되어 있는가?
-- [ ] Service Account 토큰 자동 마운트가 비활성화되어 있는가?
-- [ ] 컨테이너 이미지가 서명되고 검증 정책이 적용되어 있는가?
+- RBAC가 활성화되어 있으며 최소 권한 원칙이 적용되어 있는가?
+- Pod Security Standards(Restricted)가 프로덕션 네임스페이스에 적용되어 있는가?
+- Network Policy(Default Deny)가 모든 네임스페이스에 설정되어 있는가?
+- etcd 데이터가 암호화되어 있는가?
+- API 서버에 익명 접근이 비활성화되어 있는가?
+- kube-bench로 CIS Kubernetes Benchmark를 실행했는가?
+- Falco 또는 런타임 보안 도구가 활성화되어 있는가?
+- 클러스터 감사 로그(Audit Logging)가 활성화되어 있는가?
+- Service Account 토큰 자동 마운트가 비활성화되어 있는가?
+- 컨테이너 이미지가 서명되고 검증 정책이 적용되어 있는가?
 
 ### 6.3 보안 성숙도 모델
 

@@ -158,24 +158,24 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 
 ### P0 - 즉시 조치 (24시간 이내)
 
-- [ ] 비싱 경고: 전사 피싱/비싱 경보 발령 - IT 헬프데스크 사칭 공격 주의
-- [ ] Chrome 확장 감사: 전사 Chrome 확장 프로그램 인벤토리 수집 및 미승인 확장 제거
-- [ ] ChatGPT 세션 토큰 로테이션: OpenAI 서비스 사용자의 세션 재인증 강제
-- [ ] OT 네트워크 점검: 에너지/제조 환경의 IT-OT 경계 방화벽 룰 긴급 점검
+- 비싱 경고: 전사 피싱/비싱 경보 발령 - IT 헬프데스크 사칭 공격 주의
+- Chrome 확장 감사: 전사 Chrome 확장 프로그램 인벤토리 수집 및 미승인 확장 제거
+- ChatGPT 세션 토큰 로테이션: OpenAI 서비스 사용자의 세션 재인증 강제
+- OT 네트워크 점검: 에너지/제조 환경의 IT-OT 경계 방화벽 룰 긴급 점검
 
 ### P1 - 7일 이내
 
-- [ ] FIDO2 MFA 전환 계획: SMS/OTP MFA → 피싱 방지 MFA(FIDO2, WebAuthn) 전환 로드맵 수립
-- [ ] 브라우저 정책 배포: Chrome Enterprise 관리 정책으로 확장 프로그램 허용 목록 적용
-- [ ] SIEM 탐지 룰 배포: ShinyHunters 비싱 패턴 및 비정상 MFA 인증 탐지 룰 적용
-- [ ] OT IDS 모니터링: OT 네트워크 IDS/IPS 룰 업데이트 및 모니터링 강화
+- FIDO2 MFA 전환 계획: SMS/OTP MFA → 피싱 방지 MFA(FIDO2, WebAuthn) 전환 로드맵 수립
+- 브라우저 정책 배포: Chrome Enterprise 관리 정책으로 확장 프로그램 허용 목록 적용
+- SIEM 탐지 룰 배포: ShinyHunters 비싱 패턴 및 비정상 MFA 인증 탐지 룰 적용
+- OT IDS 모니터링: OT 네트워크 IDS/IPS 룰 업데이트 및 모니터링 강화
 
 ### P2 - 30일 이내
 
-- [ ] CISO 2026 우선순위 검토: AI 보안 거버넌스, 공급망 보안, 규제 대응 계획 수립
-- [ ] IEC 62443 Gap 분석: OT 환경 보안 수준 평가 및 개선 계획
-- [ ] API 토큰 관리 체계: AI 서비스(ChatGPT, Claude, Gemini) API 키 중앙화 관리 및 로테이션 정책
-- [ ] 비싱 시뮬레이션: 보안 인식 교육에 비싱 시나리오 추가
+- CISO 2026 우선순위 검토: AI 보안 거버넌스, 공급망 보안, 규제 대응 계획 수립
+- IEC 62443 Gap 분석: OT 환경 보안 수준 평가 및 개선 계획
+- API 토큰 관리 체계: AI 서비스(ChatGPT, Claude, Gemini) API 키 중앙화 관리 및 로테이션 정책
+- 비싱 시뮬레이션: 보안 인식 교육에 비싱 시나리오 추가
 
 ---
 

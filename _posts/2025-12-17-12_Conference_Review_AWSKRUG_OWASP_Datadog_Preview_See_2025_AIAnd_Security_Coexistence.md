@@ -501,9 +501,9 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 
 ## 2025년 보안 대응 체크리스트
 
-- [ ] AI 보안 거버넌스 정책 수립 (Shadow AI 사용 현황 파악 포함)
-- [ ] Zero Trust 아키텍처 마이그레이션 로드맵 작성
-- [ ] SBOM(Software Bill of Materials) 기반 공급망 보안 체계 구축
-- [ ] Post-quantum 암호화 전환 계획 수립 및 인벤토리 정리
-- [ ] Datadog SIEM 또는 동급 통합 모니터링 도구 도입 검토
+- AI 보안 거버넌스 정책 수립 (Shadow AI 사용 현황 파악 포함)
+- Zero Trust 아키텍처 마이그레이션 로드맵 작성
+- SBOM(Software Bill of Materials) 기반 공급망 보안 체계 구축
+- Post-quantum 암호화 전환 계획 수립 및 인벤토리 정리
+- Datadog SIEM 또는 동급 통합 모니터링 도구 도입 검토
 

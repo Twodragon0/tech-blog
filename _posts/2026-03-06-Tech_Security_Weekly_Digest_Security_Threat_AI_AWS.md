@@ -686,23 +686,23 @@ AI 분야에서는 GPT-5.4의 네이티브 컴퓨터 사용 기능 출시가 가
 
 ### P0 (즉시)
 
-- [ ] Cisco SD-WAN Manager 패치: CVE-2026-20122 영향받는 Catalyst SD-WAN Manager 버전 확인 및 긴급 패치 적용
-- [ ] MFA 정책 검토: Tycoon 2FA 해체에 따른 IoC 차단 및 FIDO2/WebAuthn 전환 계획 수립
-- [ ] AI 브라우저 확장 프로그램 감사: 기업 환경에서 미승인 AI 관련 브라우저 확장 프로그램 식별 및 차단
+- Cisco SD-WAN Manager 패치: CVE-2026-20122 영향받는 Catalyst SD-WAN Manager 버전 확인 및 긴급 패치 적용
+- MFA 정책 검토: Tycoon 2FA 해체에 따른 IoC 차단 및 FIDO2/WebAuthn 전환 계획 수립
+- AI 브라우저 확장 프로그램 감사: 기업 환경에서 미승인 AI 관련 브라우저 확장 프로그램 식별 및 차단
 
 ### P1 (7일 내)
 
-- [ ] APT28(BadPaw/MeowMeow) 및 Dust Specter(SPLITDROP/GHOSTFORM) IoC를 SIEM/EDR에 반영
-- [ ] Google Cloud 보안 체크리스트 다운로드 및 GCP 환경 설정 대조 감사
-- [ ] GTIG 2025 제로데이 리뷰 기반 자사 취약점 관리 우선순위 재검토
-- [ ] Windows 환경 NTLM 사용 현황 감사 및 Credential Guard 활성화 검토
+- APT28(BadPaw/MeowMeow) 및 Dust Specter(SPLITDROP/GHOSTFORM) IoC를 SIEM/EDR에 반영
+- Google Cloud 보안 체크리스트 다운로드 및 GCP 환경 설정 대조 감사
+- GTIG 2025 제로데이 리뷰 기반 자사 취약점 관리 우선순위 재검토
+- Windows 환경 NTLM 사용 현황 감사 및 Credential Guard 활성화 검토
 
 ### P2 (30일 내)
 
-- [ ] 포스트 양자 암호화 마이그레이션 로드맵 초안 수립 (장기 보존 데이터 우선)
-- [ ] GKE 커스텀 메트릭 네이티브 지원 활용한 AI 워크로드 오토스케일링 최적화
-- [ ] AI 에이전트 보안 정책 수립: GPT-5.4 컴퓨터 사용 기능 등 에이전틱 AI 도구의 권한 범위 정의
-- [ ] MCP 프로토콜 기반 AI 도구 통합 표준화 검토
+- 포스트 양자 암호화 마이그레이션 로드맵 초안 수립 (장기 보존 데이터 우선)
+- GKE 커스텀 메트릭 네이티브 지원 활용한 AI 워크로드 오토스케일링 최적화
+- AI 에이전트 보안 정책 수립: GPT-5.4 컴퓨터 사용 기능 등 에이전틱 AI 도구의 권한 범위 정의
+- MCP 프로토콜 기반 AI 도구 통합 표준화 검토
 
 ---
 

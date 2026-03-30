@@ -410,21 +410,21 @@ DDoS 이커머스 대응 핵심:
 
 ### P0 (즉시)
 
-- [ ] CrashFix Python RAT - finger.exe GPO 차단 배포, Portable Python 비승인 경로 실행 차단, EDR 탐지 룰 추가
-- [ ] Codespaces RCE/BYOVD - Codespaces 보안 정책 점검, WDAC 취약 드라이버 차단 목록 업데이트, AsyncRAT IOC 등록
+- CrashFix Python RAT - finger.exe GPO 차단 배포, Portable Python 비승인 경로 실행 차단, EDR 탐지 룰 추가
+- Codespaces RCE/BYOVD - Codespaces 보안 정책 점검, WDAC 취약 드라이버 차단 목록 업데이트, AsyncRAT IOC 등록
 
 ### P1 (7일 내)
 
-- [ ] AISURU 31.4 Tbps DDoS - CDN/DDoS 방어 서비스 적용 현황 점검, Rate Limiting 임계값 검토, DDoS 대응 런북 업데이트
-- [ ] Shadow AI 통제 - 프록시 로그에서 AI 서비스 접근 현황 분석, AI 사용 정책(AUP) 수립, DLP 정책에 AI 서비스 탐지 룰 추가
-- [ ] VEX 기반 취약점 관리 - Docker 하드닝 이미지 전환 검토, CI/CD 파이프라인에 VEX 필터링 단계 추가
+- AISURU 31.4 Tbps DDoS - CDN/DDoS 방어 서비스 적용 현황 점검, Rate Limiting 임계값 검토, DDoS 대응 런북 업데이트
+- Shadow AI 통제 - 프록시 로그에서 AI 서비스 접근 현황 분석, AI 사용 정책(AUP) 수립, DLP 정책에 AI 서비스 탐지 룰 추가
+- VEX 기반 취약점 관리 - Docker 하드닝 이미지 전환 검토, CI/CD 파이프라인에 VEX 필터링 단계 추가
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신 (Codespaces, AI 서비스, P2P 네트워크 포함)
-- [ ] ISMS-P 2.6.3 개발 보안 요구사항 대비 Codespaces 보안 설정 감사
-- [ ] 보안 도구 Implementation Gap 점검 - 도입 대비 기능 활성화율 측정
-- [ ] .NET Framework 3.5 의존 레거시 애플리케이션 마이그레이션 계획 수립
+- 공격 표면 인벤토리 갱신 (Codespaces, AI 서비스, P2P 네트워크 포함)
+- ISMS-P 2.6.3 개발 보안 요구사항 대비 Codespaces 보안 설정 감사
+- 보안 도구 Implementation Gap 점검 - 도입 대비 기능 활성화율 측정
+- .NET Framework 3.5 의존 레거시 애플리케이션 마이그레이션 계획 수립
 
 ---
 

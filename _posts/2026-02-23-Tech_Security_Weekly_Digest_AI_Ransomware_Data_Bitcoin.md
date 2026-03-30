@@ -330,21 +330,21 @@ IT/OT 융합 환경의 주요 리스크:
 
 ### P0 (즉시)
 
-- [ ] BlackField 랜섬웨어 탐지: EDR/SIEM에 볼륨 섀도 복사본 삭제, `.blackfield` 확장자 생성 탐지 룰 추가
-- [ ] 러시아 제재 우회 거래소: 5개 거래소(ABCeX, Rapira, Exmo, Bitpapa, Aifory Pro) 주소 블랙리스트 등록 및 자금 흐름 점검
-- [ ] 비트코인 급락 리스크: 암호화폐 자산 보유 시 자동 청산 임계값 및 리스크 관리 체계 재점검
+- BlackField 랜섬웨어 탐지: EDR/SIEM에 볼륨 섀도 복사본 삭제, `.blackfield` 확장자 생성 탐지 룰 추가
+- 러시아 제재 우회 거래소: 5개 거래소(ABCeX, Rapira, Exmo, Bitpapa, Aifory Pro) 주소 블랙리스트 등록 및 자금 흐름 점검
+- 비트코인 급락 리스크: 암호화폐 자산 보유 시 자동 청산 임계값 및 리스크 관리 체계 재점검
 
 ### P1 (7일 내)
 
-- [ ] 제로트러스트 데이터 보안: 자사 데이터 분류 체계(Public/Internal/Confidential/Restricted) 현황 점검 및 갭 분석
-- [ ] EQST insight IoC 반영: SK쉴더스 EQST 리포트의 국내 타겟 위협 그룹 IoC를 SIEM/EDR 탐지 룰에 업데이트
-- [ ] Vertical AI 보안 검토: 자사 SOC의 AI 활용 현황 파악 및 Vertical AI 도입 타당성 검토 시작
+- 제로트러스트 데이터 보안: 자사 데이터 분류 체계(Public/Internal/Confidential/Restricted) 현황 점검 및 갭 분석
+- EQST insight IoC 반영: SK쉴더스 EQST 리포트의 국내 타겟 위협 그룹 IoC를 SIEM/EDR 탐지 룰에 업데이트
+- Vertical AI 보안 검토: 자사 SOC의 AI 활용 현황 파악 및 Vertical AI 도입 타당성 검토 시작
 
 ### P2 (30일 내)
 
-- [ ] OT 보안 진단: IT/OT 네트워크 세그멘테이션 현황 점검, Purdue Model 기반 분리 계획 수립
-- [ ] AML/KYC 정책 강화: 암호화폐 관련 서비스의 OFAC SDN 리스트 자동 업데이트 프로세스 구축
-- [ ] 데이터 중심 제로트러스트 로드맵: 데이터 자산 인벤토리 구축 및 DLP 정책 수립 계획 수립
+- OT 보안 진단: IT/OT 네트워크 세그멘테이션 현황 점검, Purdue Model 기반 분리 계획 수립
+- AML/KYC 정책 강화: 암호화폐 관련 서비스의 OFAC SDN 리스트 자동 업데이트 프로세스 구축
+- 데이터 중심 제로트러스트 로드맵: 데이터 자산 인벤토리 구축 및 DLP 정책 수립 계획 수립
 
 ---
 

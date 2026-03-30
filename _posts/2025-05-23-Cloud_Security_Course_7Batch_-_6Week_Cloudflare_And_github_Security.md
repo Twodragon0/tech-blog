@@ -493,25 +493,25 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
 
 ### AWS WAF 보안
 
-- [ ] WAF 웹 ACL 규칙 생성 및 적용
+- WAF 웹 ACL 규칙 생성 및 적용
   ```bash
   # Web ACL 목록 확인
   aws wafv2 list-web-acls --scope REGIONAL --region ap-northeast-2
   ```
-- [ ] SQL Injection, XSS 차단 규칙 활성화
+- SQL Injection, XSS 차단 규칙 활성화
   ```bash
   # AWS 관리형 규칙 그룹 확인
   aws wafv2 list-available-managed-rule-groups --scope REGIONAL
   ```
-- [ ] Rate Limiting 규칙 설정
-- [ ] IP 기반 접근 제어 구성
+- Rate Limiting 규칙 설정
+- IP 기반 접근 제어 구성
   ```bash
   # IP Set 생성 (차단 대상 IP 관리)
   aws wafv2 create-ip-set --name "BlockedIPs" --scope REGIONAL \
     --ip-address-version IPV4 --addresses "203.0.113.0/24"
   ```
-- [ ] Geo-blocking 필요 시 적용
-- [ ] CloudWatch 로그 및 알림 설정
+- Geo-blocking 필요 시 적용
+- CloudWatch 로그 및 알림 설정
   ```bash
   # WAF 로깅 활성화 확인
   aws wafv2 get-logging-configuration \
@@ -520,40 +520,40 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
 
 ### Cloudflare 보안
 
-- [ ] SSL/TLS 설정 (TLS 1.3, HSTS 활성화)
-- [ ] WAF 규칙 활성화 (OWASP Core Rule Set)
-- [ ] DDoS 보호 설정 확인
-- [ ] Bot Management 규칙 구성
-- [ ] Rate Limiting 설정
-- [ ] Page Rules 보안 정책 적용
+- SSL/TLS 설정 (TLS 1.3, HSTS 활성화)
+- WAF 규칙 활성화 (OWASP Core Rule Set)
+- DDoS 보호 설정 확인
+- Bot Management 규칙 구성
+- Rate Limiting 설정
+- Page Rules 보안 정책 적용
 
 ### GitHub 보안
 
-- [ ] Dependabot 활성화 및 설정
+- Dependabot 활성화 및 설정
   ```bash
   # GitHub CLI로 Dependabot 알림 확인
   gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] | {number, state, package: .security_vulnerability.package.name}'
   ```
-- [ ] Code Scanning (CodeQL) 활성화
+- Code Scanning (CodeQL) 활성화
   ```bash
   # Code Scanning 알림 조회
   gh api repos/{owner}/{repo}/code-scanning/alerts --jq '.[] | {number, state, rule: .rule.id}'
   ```
-- [ ] Secret Scanning 활성화
-- [ ] Branch Protection Rules 설정
+- Secret Scanning 활성화
+- Branch Protection Rules 설정
   ```bash
   # Branch Protection 상태 확인
   gh api repos/{owner}/{repo}/branches/main/protection
   ```
-- [ ] 취약점 알림 수신자 설정
-- [ ] Security Advisory 프로세스 수립
+- 취약점 알림 수신자 설정
+- Security Advisory 프로세스 수립
 
 ### 보안 모니터링
 
-- [ ] WAF 로그 모니터링 대시보드 구성
-- [ ] Cloudflare Analytics 모니터링
-- [ ] GitHub Security Alerts 검토 프로세스
-- [ ] 정기 보안 검토 일정 수립
+- WAF 로그 모니터링 대시보드 구성
+- Cloudflare Analytics 모니터링
+- GitHub Security Alerts 검토 프로세스
+- 정기 보안 검토 일정 수립
 
 ---
 

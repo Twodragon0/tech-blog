@@ -433,17 +433,17 @@ Rate Limiting 규칙 추가:
 
 ### 3.1 즉시 확인 필요
 
-- [ ] Cloudflare Security Events에서 차단된 IP 패턴 분석
-- [ ] ALB Target Group Health 상태 확인
-- [ ] Pod 에러 로그 상세 분석
-- [ ] CloudWatch 5XX 에러 메트릭 확인
+- Cloudflare Security Events에서 차단된 IP 패턴 분석
+- ALB Target Group Health 상태 확인
+- Pod 에러 로그 상세 분석
+- CloudWatch 5XX 에러 메트릭 확인
 
 ### 3.2 정기 모니터링
 
-- [ ] 일일 Pod 에러율 확인
-- [ ] 주간 Cloudflare 차단 이벤트 리뷰
-- [ ] ALB Target Group Health 상태 주간 리포트
-- [ ] 애플리케이션 성능 메트릭 추적
+- 일일 Pod 에러율 확인
+- 주간 Cloudflare 차단 이벤트 리뷰
+- ALB Target Group Health 상태 주간 리포트
+- 애플리케이션 성능 메트릭 추적
 
 ## 4. 보안 권장사항
 

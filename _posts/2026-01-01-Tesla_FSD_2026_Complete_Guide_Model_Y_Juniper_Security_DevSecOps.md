@@ -719,13 +719,13 @@ OTA (Over-The-Air) 업데이트 보안 프로세스:
 
 OTA 업데이트 보안 체크리스트:
 
-- [ ] TLS 1.3을 통한 암호화된 다운로드
-- [ ] 인증서 고정 (Certificate Pinning)
-- [ ] SHA-256 해시 검증
-- [ ] 디지털 서명 검증 (Tesla 공개 키)
-- [ ] 시스템 백업 생성
-- [ ] 롤백 기능 활성화
-- [ ] 업데이트 실패 시 자동 롤백
+- TLS 1.3을 통한 암호화된 다운로드
+- 인증서 고정 (Certificate Pinning)
+- SHA-256 해시 검증
+- 디지털 서명 검증 (Tesla 공개 키)
+- 시스템 백업 생성
+- 롤백 기능 활성화
+- 업데이트 실패 시 자동 롤백
 
 > 참고: 보안 OTA 업데이트 구현 관련 자세한 내용은 [wolfBoot Secure Bootloader](https://github.com/wolfSSL/wolfBoot) 및 [Infineon OTA Examples](https://github.com/Infineon/mtb-t2g-example-aws-iot-ota-mqtt-ethernet-dualbank) 참조
 

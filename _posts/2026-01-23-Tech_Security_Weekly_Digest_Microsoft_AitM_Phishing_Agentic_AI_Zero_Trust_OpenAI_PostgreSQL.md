@@ -250,21 +250,21 @@ Capital One이 핀테크 기업 Brex를 $5.15B에 인수한다고 발표. 기업
 
 ### 긴급 (이번 주 내 조치)
 
-- [ ] 피싱 방지 MFA 도입 상태 점검: FIDO2/Passkey 지원 여부 확인
-- [ ] SharePoint 외부 공유 설정 감사: Anyone 링크 비활성화
-- [ ] 받은편지함 규칙 모니터링 설정: 의심스러운 규칙 자동 알림
+- 피싱 방지 MFA 도입 상태 점검: FIDO2/Passkey 지원 여부 확인
+- SharePoint 외부 공유 설정 감사: Anyone 링크 비활성화
+- 받은편지함 규칙 모니터링 설정: 의심스러운 규칙 자동 알림
 
 ### 중요 (이번 달 내 계획)
 
-- [ ] Agentic AI 보안 정책 수립: NHI 관리 체계 검토
-- [ ] 동적 시크릿 관리 도입: Vault 또는 유사 솔루션 검토
-- [ ] PostgreSQL 스케일링 아키텍처 검토: Connection pooling, Read replica 구성
+- Agentic AI 보안 정책 수립: NHI 관리 체계 검토
+- 동적 시크릿 관리 도입: Vault 또는 유사 솔루션 검토
+- PostgreSQL 스케일링 아키텍처 검토: Connection pooling, Read replica 구성
 
 ### 권장 (분기 내 검토)
 
-- [ ] AI 도구 활용 SRE 자동화: Gemini CLI 또는 유사 도구 파일럿
-- [ ] LLM 추론 인프라 최적화: vLLM 도입 검토
-- [ ] AI 생성 콘텐츠 검증 체계: 내부 문서/코드 리뷰 프로세스
+- AI 도구 활용 SRE 자동화: Gemini CLI 또는 유사 도구 파일럿
+- LLM 추론 인프라 최적화: vLLM 도입 검토
+- AI 생성 콘텐츠 검증 체계: 내부 문서/코드 리뷰 프로세스
 
 ---
 

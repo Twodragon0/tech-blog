@@ -580,11 +580,11 @@ OfficeActivity, EmailEvents 테이블 사용
 
 ## 이메일 인증 설정 체크리스트
 
-- [ ] SendGrid 도메인 인증 (Domain Authentication) 완료
-- [ ] SPF DNS TXT 레코드 등록 및 검증 (dig 명령어로 확인)
-- [ ] DKIM 서명 키 생성 및 DNS CNAME 레코드 등록
-- [ ] DMARC 정책 설정 (p=none으로 시작, 모니터링 후 강화)
-- [ ] DMARC 집계 보고서 수신 이메일 설정 및 주간 분석 체계 구축
+- SendGrid 도메인 인증 (Domain Authentication) 완료
+- SPF DNS TXT 레코드 등록 및 검증 (dig 명령어로 확인)
+- DKIM 서명 키 생성 및 DNS CNAME 레코드 등록
+- DMARC 정책 설정 (p=none으로 시작, 모니터링 후 강화)
+- DMARC 집계 보고서 수신 이메일 설정 및 주간 분석 체계 구축
 
 
 ## 참고 자료 (Comprehensive References)

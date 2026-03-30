@@ -147,26 +147,26 @@ index=k8s_network OR index=firewall
 
 ### 4.1 이번 달 필수 점검 항목
 
-- [ ] Kubernetes 보안: RBAC, Network Policy, Pod Security Standards 검토
-- [ ] VS Code 보안: 확장 프로그램 감사, 터널링 정책 수립
-- [ ] CRI-O 업데이트: 최신 보안 패치 적용
-- [ ] NTLM 감사: Net-NTLMv1 사용 현황 파악 및 마이그레이션 계획
-- [ ] GPU 활용률: 유휴 GPU 모니터링 및 재활용 정책 검토
-- [ ] 플랫폼 의존성: OSS 의존성 업데이트 상태 확인
+- Kubernetes 보안: RBAC, Network Policy, Pod Security Standards 검토
+- VS Code 보안: 확장 프로그램 감사, 터널링 정책 수립
+- CRI-O 업데이트: 최신 보안 패치 적용
+- NTLM 감사: Net-NTLMv1 사용 현황 파악 및 마이그레이션 계획
+- GPU 활용률: 유휴 GPU 모니터링 및 재활용 정책 검토
+- 플랫폼 의존성: OSS 의존성 업데이트 상태 확인
 
 ### 4.2 한국 조직 특화 체크리스트
 
 #### CSAP 인증 대상 기업
-- [ ] 컨테이너 보안 정책: NIPA 가이드라인 준수 여부 확인
-- [ ] 로그 보관: Kubernetes audit log 1년 이상 보관
-- [ ] 암호화: Secret 암호화 (etcd encryption at rest 활성화)
-- [ ] 접근통제: RBAC + MFA 적용 확인
+- 컨테이너 보안 정책: NIPA 가이드라인 준수 여부 확인
+- 로그 보관: Kubernetes audit log 1년 이상 보관
+- 암호화: Secret 암호화 (etcd encryption at rest 활성화)
+- 접근통제: RBAC + MFA 적용 확인
 
 #### K-ISMS-P 인증 대상 (금융/통신)
-- [ ] 개인정보 처리: 컨테이너 내 PIPA 준수 확인
-- [ ] 보안 모니터링: 24/7 보안관제 체계 구축
-- [ ] 사고 대응: 컨테이너 환경 포렌식 절차 수립
-- [ ] 공급망 보안: 컨테이너 이미지 스캔 100% 적용
+- 개인정보 처리: 컨테이너 내 PIPA 준수 확인
+- 보안 모니터링: 24/7 보안관제 체계 구축
+- 사고 대응: 컨테이너 환경 포렌식 절차 수립
+- 공급망 보안: 컨테이너 이미지 스캔 100% 적용
 
 ---
 

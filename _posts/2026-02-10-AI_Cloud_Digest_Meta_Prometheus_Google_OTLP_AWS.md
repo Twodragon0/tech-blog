@@ -223,17 +223,17 @@ DevSecOps 실무 적용:
 
 ### 관찰성(Observability) 구축
 
-- [ ] OpenTelemetry(OTLP) 표준 채택으로 벤더 중립적 텔레메트리 파이프라인 구축
-- [ ] Google Cloud Monitoring OTLP 네이티브 엔드포인트 활용 검토
-- [ ] 분산 추적(Distributed Tracing) → 메트릭 → 로그 3계층 관찰성 완성
-- [ ] SLO/SLI 기반 알림 임계값 설정 및 정기 검토
+- OpenTelemetry(OTLP) 표준 채택으로 벤더 중립적 텔레메트리 파이프라인 구축
+- Google Cloud Monitoring OTLP 네이티브 엔드포인트 활용 검토
+- 분산 추적(Distributed Tracing) → 메트릭 → 로그 3계층 관찰성 완성
+- SLO/SLI 기반 알림 임계값 설정 및 정기 검토
 
 ### AI 인프라 보안
 
-- [ ] Amazon Bedrock 모델 접근 IAM 정책 최소 권한 원칙 적용
-- [ ] Claude Opus 4.6 API 호출 로그 감사 추적 설정
-- [ ] 군사/정부 AI 플랫폼 참조: 데이터 주권 및 모델 격리 요구사항 검토
-- [ ] 기가와트급 AI 클러스터 전력 효율 및 냉각 설계 시 Meta Prometheus 아키텍처 참고
+- Amazon Bedrock 모델 접근 IAM 정책 최소 권한 원칙 적용
+- Claude Opus 4.6 API 호출 로그 감사 추적 설정
+- 군사/정부 AI 플랫폼 참조: 데이터 주권 및 모델 격리 요구사항 검토
+- 기가와트급 AI 클러스터 전력 효율 및 냉각 설계 시 Meta Prometheus 아키텍처 참고
 
 ---
 

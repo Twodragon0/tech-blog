@@ -42,11 +42,11 @@ series_total: 7
 
 ### 실습 체크리스트
 
-- [ ] 실습 환경 구성 완료
-- [ ] 보안 설정 적용 확인
-- [ ] 테스트 및 검증 수행
-- [ ] 실습 리소스 정리 (비용 방지)
-- [ ] 학습 내용 문서화
+- 실습 환경 구성 완료
+- 보안 설정 적용 확인
+- 테스트 및 검증 수행
+- 실습 리소스 정리 (비용 방지)
+- 학습 내용 문서화
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
@@ -265,11 +265,11 @@ aws ec2 authorize-security-group-ingress \
 
 ### 4.3 ZTNA 도입 체크리스트
 
-- [ ] IAM Identity Center(AWS SSO) 활성화 및 MFA 필수 설정
-- [ ] VPC Endpoint를 통한 AWS 서비스 프라이빗 접근 구성
-- [ ] PrivateLink로 외부 서비스 연결 시 인터넷 우회 차단
-- [ ] Security Group에 0.0.0.0/0 인바운드 규칙 제거
-- [ ] VPC Flow Logs 활성화 및 Athena 쿼리 설정
+- IAM Identity Center(AWS SSO) 활성화 및 MFA 필수 설정
+- VPC Endpoint를 통한 AWS 서비스 프라이빗 접근 구성
+- PrivateLink로 외부 서비스 연결 시 인터넷 우회 차단
+- Security Group에 0.0.0.0/0 인바운드 규칙 제거
+- VPC Flow Logs 활성화 및 Athena 쿼리 설정
 
 ## 5. 참고 자료 및 추가 학습
 

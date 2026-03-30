@@ -257,34 +257,34 @@ FinOps와 보안은 상호 보완적인 관계입니다. 비용 최적화와 보
 
 ### FinOps 도입 체크리스트
 
-- [ ] Cost Optimization Hub 활성화 및 대시보드 구성
-- [ ] 리소스 태깅 전략 수립 및 적용 (Environment, Project, Team, Owner)
-- [ ] AWS Budgets 예산 알림 설정 (80%, 100%, 120%)
-- [ ] Cost Anomaly Detection 활성화 및 Slack/Email 연동
-- [ ] 월간 비용 리뷰 미팅 프로세스 수립
-- [ ] RI/Savings Plans 커버리지 분석 및 최적화
-- [ ] Unit Economics 메트릭 정의 및 대시보드 구성
-- [ ] FinOps 문화 정착을 위한 교육 계획 수립
+- Cost Optimization Hub 활성화 및 대시보드 구성
+- 리소스 태깅 전략 수립 및 적용 (Environment, Project, Team, Owner)
+- AWS Budgets 예산 알림 설정 (80%, 100%, 120%)
+- Cost Anomaly Detection 활성화 및 Slack/Email 연동
+- 월간 비용 리뷰 미팅 프로세스 수립
+- RI/Savings Plans 커버리지 분석 및 최적화
+- Unit Economics 메트릭 정의 및 대시보드 구성
+- FinOps 문화 정착을 위한 교육 계획 수립
 
 ### ISMS-P 대응 체크리스트
 
-- [ ] AWS Artifact에서 컴플라이언스 보고서 다운로드
-- [ ] AWS Config Rules 필수 규칙 활성화 (s3-bucket-public-read-prohibited, iam-password-policy, encrypted-volumes)
-- [ ] Security Hub 활성화 및 CIS Benchmark 점검
-- [ ] CloudTrail 전체 리전 활성화 및 로그 보관 정책 설정
-- [ ] IAM 정책 검토 및 최소 권한 원칙 적용
-- [ ] MFA 전체 사용자 적용 확인
-- [ ] 개인정보보호 관련 데이터 분류 및 접근 제어
-- [ ] 백업 및 재해복구 정책 수립
+- AWS Artifact에서 컴플라이언스 보고서 다운로드
+- AWS Config Rules 필수 규칙 활성화 (s3-bucket-public-read-prohibited, iam-password-policy, encrypted-volumes)
+- Security Hub 활성화 및 CIS Benchmark 점검
+- CloudTrail 전체 리전 활성화 및 로그 보관 정책 설정
+- IAM 정책 검토 및 최소 권한 원칙 적용
+- MFA 전체 사용자 적용 확인
+- 개인정보보호 관련 데이터 분류 및 접근 제어
+- 백업 및 재해복구 정책 수립
 
 ### 보안 자동화 체크리스트
 
-- [ ] GuardDuty 활성화 및 알림 설정
-- [ ] Macie 활성화 및 민감 데이터 탐지 설정
-- [ ] Security Hub 자동 수정 활성화 (Auto-Remediation)
-- [ ] CloudWatch Events로 보안 이벤트 자동 대응
-- [ ] Lambda 함수로 자동 인시던트 대응 구현
-- [ ] SIEM 통합 (Splunk, Azure Sentinel 등)
+- GuardDuty 활성화 및 알림 설정
+- Macie 활성화 및 민감 데이터 탐지 설정
+- Security Hub 자동 수정 활성화 (Auto-Remediation)
+- CloudWatch Events로 보안 이벤트 자동 대응
+- Lambda 함수로 자동 인시던트 대응 구현
+- SIEM 통합 (Splunk, Azure Sentinel 등)
 
 ---
 

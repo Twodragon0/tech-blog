@@ -156,14 +156,14 @@ pip-audit
 ### 4.1 Pre-commit Hook 설정
 
 > 참고: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.)
-- [ ] 에러 핸들링 가이드라인 문서화
+- 에러 핸들링 가이드라인 문서화
 
 ### P2 - 개선 (운영 중)
 
-- [ ] 정기 보안 감사 스케줄 설정
-- [ ] 침투 테스트 수행
-- [ ] 보안 인시던트 대응 절차 문서화
-- [ ] AI 생성 코드 리뷰 프로세스 정립
+- 정기 보안 감사 스케줄 설정
+- 침투 테스트 수행
+- 보안 인시던트 대응 절차 문서화
+- AI 생성 코드 리뷰 프로세스 정립
 
 ---
 

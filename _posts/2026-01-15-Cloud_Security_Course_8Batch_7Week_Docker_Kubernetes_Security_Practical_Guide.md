@@ -221,17 +221,17 @@ CMD ["node", "server.js"]
 
 ### Docker 컨테이너 보안 체크
 
-- [ ] Dockerfile에서 비루트 사용자(`USER 1000:1000`) 설정 확인
-- [ ] `readOnlyRootFilesystem: true` 설정으로 파일시스템 보호
-- [ ] `capabilities.drop: ALL` 로 불필요한 권한 제거
-- [ ] Trivy 또는 Snyk으로 이미지 취약점 스캔 실행
-- [ ] 민감 정보를 환경 변수 대신 Kubernetes Secrets로 관리
+- Dockerfile에서 비루트 사용자(`USER 1000:1000`) 설정 확인
+- `readOnlyRootFilesystem: true` 설정으로 파일시스템 보호
+- `capabilities.drop: ALL` 로 불필요한 권한 제거
+- Trivy 또는 Snyk으로 이미지 취약점 스캔 실행
+- 민감 정보를 환경 변수 대신 Kubernetes Secrets로 관리
 
 ### Kubernetes 보안 체크
 
-- [ ] Pod Security Standards 정책 Namespace에 적용
-- [ ] Network Policies로 Pod 간 불필요한 통신 차단
-- [ ] RBAC 최소 권한 원칙 검토 및 적용
-- [ ] Kubernetes Audit 로그 활성화 여부 확인
-- [ ] External Secrets Operator 또는 Sealed Secrets로 Secret 외부 관리
+- Pod Security Standards 정책 Namespace에 적용
+- Network Policies로 Pod 간 불필요한 통신 차단
+- RBAC 최소 권한 원칙 검토 및 적용
+- Kubernetes Audit 로그 활성화 여부 확인
+- External Secrets Operator 또는 Sealed Secrets로 Secret 외부 관리
 
