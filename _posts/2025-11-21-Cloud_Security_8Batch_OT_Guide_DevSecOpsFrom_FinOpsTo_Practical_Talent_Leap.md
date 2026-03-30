@@ -300,13 +300,6 @@ GitHub 리포지토리:
 - [Airbnb's BinaryAlert](https://github.com/airbnb/binaryalert) - 실시간 악성코드 탐지 시스템
 - [Lyft's Cartography](https://github.com/lyft/cartography) - 클라우드 인프라 그래프 시각화
 
-> 📌 **관련 보도**: [NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석 (2025년 09월 17일)](/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/)
-> 📌 **관련 보도**: [Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE, Google IPIDEA (2026년 01월 30일)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/)
-> 📌 **관련 보도**: [주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 (2026년 02월 02일)](/posts/2026/02/02/Weekly_Security_Threat_Intelligence_Digest/)
-> 📌 **관련 보도**: [2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격 (2026년 02월 10일)](/posts/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack/)
-> 📌 **관련 보도**: [AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략 (2026년 02월 17일)](/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/)
-> 📌 **관련 보도**: [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향 (2026년 02월 23일)](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/)
-
 ### 3.5 커뮤니티 및 컨퍼런스
 
 보안 커뮤니티:

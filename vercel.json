@@ -41,7 +41,8 @@
         { "key": "X-DNS-Prefetch-Control", "value": "on" },
         { "key": "X-Download-Options", "value": "noopen" },
         { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
-        { "key": "Reporting-Endpoints", "value": "csp-endpoint=\"https://o4510686170710016.ingest.us.sentry.io/api/4510686177984512/security/?sentry_key=61fd23528aff138753e071de26c5b306\"" }
+        { "key": "Reporting-Endpoints", "value": "csp-endpoint=\"https://o4510686170710016.ingest.us.sentry.io/api/4510686177984512/security/?sentry_key=61fd23528aff138753e071de26c5b306\"" },
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=86400" }
       ]
     },
     {

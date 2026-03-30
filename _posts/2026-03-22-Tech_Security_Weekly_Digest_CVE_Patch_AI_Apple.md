@@ -112,8 +112,6 @@ DevSecOps 관점에서 이 공격은 다음과 같은 심각한 영향을 시사
 - [ ] **사고 대응 계획에 '개인 계정 침해' 시나리오 추가:** 조직의 공식 자산이 아닌 직원의 개인 메신저 계정 침해가 회사에 미치는 영향을 평가하고, 내부 보고 절차, 법무팀 협의 프로세스, PR 대응 방안 등을 사고 대응 계획(IRP)에 명시적으로 포함 및 테스트합니다.
 - [ ] **
 
-> 📌 **관련 보도**: [Trivy CI/CD 침해·Langflow RCE](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) | [Gentlemen 랜섬웨어·제로트러스트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/)
-
 ---
 
 ### 1.2 Oracle, Identity Manager에서 인증되지 않은 RCE를 가능하게 하는 치명적 CVE-2026-21992 패치
@@ -126,8 +124,6 @@ DevSecOps 관점에서 이 공격은 다음과 같은 심각한 영향을 시사
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-21992
 
 # Oracle CVE-2026-21992 원격 코드 실행 취약점 분석
 

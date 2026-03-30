@@ -92,8 +92,6 @@ toc: true
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical
-
 ## 1. 기술적 배경 및 위협 분석
 Kubernetes 1.28~1.31 버전에서 RBAC(Role-Based Access Control) 인가 모듈의 바인딩 평가 로직에 결함이 발견되었습니다. 공격자는 특수하게 조작된 API 요청을 통해 ClusterRoleBinding의 권한 범위를 우회하여, 네임스페이스 수준의 권한만 가진 사용자가 클러스터 전체 관리자 권한을 획득할 수 있습니다. 이 취약점은 **인증된 사용자라면 누구나 악용 가능**하다는 점에서 특히 위험합니다.
 
@@ -128,8 +126,6 @@ spec:
           roleRef:
             name: "!cluster-admin"
 ```
-
-> 📌 **관련 보도**: [Trivy 공급망 침해·LiteLLM 백도어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) | [AWS IAM Zero Trust·GCP 보안](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/)
 
 ---
 
