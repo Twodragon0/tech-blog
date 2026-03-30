@@ -19,6 +19,9 @@ author:
   linkedin: ""
   twitter: ""
 
+# Google Analytics
+google_analytics: "G-B29150XJ73"
+
 # Build Settings
 markdown: kramdown
 highlighter: rouge
