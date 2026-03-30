@@ -402,7 +402,15 @@
       height: 0 !important;
       min-height: 0 !important;
     }
-    /* CLS prevention: contain auto-placed ads */
+    /* CLS prevention: reserve space for ads before they load */
+    .adsbygoogle:not([data-ad-status]) {
+      min-height: 100px;
+      contain: layout style;
+    }
+    .adsbygoogle[data-ad-format="fluid"]:not([data-ad-status]),
+    .adsbygoogle[data-ad-layout="in-article"]:not([data-ad-status]) {
+      min-height: 250px;
+    }
     .google-auto-placed {
       contain: layout style;
     }
