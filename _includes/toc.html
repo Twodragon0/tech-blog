@@ -33,7 +33,7 @@
               {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
               {% assign title = title_start | split: '</h' | first | strip_html %}
               {% assign item_count = item_count | plus: 1 %}
-              <a href="#{{ id }}" class="toc-card-item" data-index="{{ item_count }}" aria-label="섹션 {{ item_count }}: {{ title }}">
+              <a href="#{{ id }}" class="toc-card-item{% if item_count > 6 %} toc-hidden{% endif %}" data-index="{{ item_count }}" aria-label="섹션 {{ item_count }}: {{ title }}">
                 <span class="toc-item-number" aria-hidden="true">{{ item_count }}</span>
                 <span class="toc-item-text">{{ title }}</span>
                 <svg class="toc-item-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">

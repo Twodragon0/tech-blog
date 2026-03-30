@@ -18,13 +18,8 @@
   const maxPreview = 6;
   let isExpanded = false;
 
-  // 6개 초과 시 일부만 표시, 아니면 버튼 숨김
+  // 6개 초과 시 버튼 텍스트 설정 (toc-hidden은 서버 사이드에서 이미 적용)
   if (tocItems.length > maxPreview) {
-    tocItems.forEach((item, index) => {
-      if (index >= maxPreview) {
-        item.classList.add('toc-hidden');
-      }
-    });
     tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
   } else {
     tocToggle.style.display = 'none';
