@@ -277,6 +277,11 @@
   <link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
   {% endif %}
+  {% if page.url contains '/discussion' or page.url contains '/tags' or page.url contains '/archive' or page.layout == 'post' %}
+  <!-- Page-specific CSS: discussion, tags, archive, news-card (deferred: CSP-safe) -->
+  <link rel="stylesheet" href="{{ '/assets/css/pages-extra.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
+  <noscript><link rel="stylesheet" href="{{ '/assets/css/pages-extra.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
+  {% endif %}
 
 
   <script type="application/ld+json">
