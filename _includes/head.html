@@ -142,17 +142,19 @@
   <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | absolute_url }}">
 
-  <!-- Fonts: Noto Sans KR (non-blocking load via media swap; preload removed to avoid duplicate bandwidth) -->
-  <!-- Font preload for LCP optimization -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/notosanskr/v39/PbykFmXiEBPT4ITbgNA5Cgm203Tq4JJWq209pU0DPdWuqxJFA4GNDCBYtw.0.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Font preload: Korean Hangul syllables for FOUT minimization -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLHq8H4gdeG6cl5G3CHlodySd_ke-3HNnn9yQA.118.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLHq8H4gdeG6cl5G3CHlodySd_ke-3HNnn9yQA.116.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLHq8H4gdeG6cl5G3CHlodySd_ke-3HNnn9yQA.115.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Fonts: Noto Sans KR (CSP-safe non-blocking load via JS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" id="gfonts">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" id="gfonts">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
+  <script>
+    // CSP-safe deferred CSS/font loading (replaces inline onload handlers)
+    var gf=document.getElementById('gfonts');
+    if(gf){gf.addEventListener('load',function(){this.media='all'});}
+    document.querySelectorAll('.deferred-css').forEach(function(el){
+      el.addEventListener('load',function(){this.media='all';});
+    });
+  </script>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
   <!-- 분할된 JavaScript 파일들을 prefetch로 미리 캐시 -->
@@ -263,16 +265,16 @@
   <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
 
   {% if page.layout == 'post' %}
-  <!-- Post-specific CSS (deferred: not needed for above-the-fold render) -->
-  <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" onload="this.media='all'">
+  <!-- Post-specific CSS (deferred: CSP-safe) -->
+  <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
-  <!-- Chat widget CSS (deferred: chat widget is below-the-fold) -->
-  <link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" onload="this.media='all'">
+  <!-- Chat widget CSS (deferred: CSP-safe) -->
+  <link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
   {% endif %}
   {% if page.url contains '/certifications' %}
-  <!-- Certification page CSS (deferred: not needed for initial render) -->
-  <link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" onload="this.media='all'">
+  <!-- Certification page CSS (deferred: CSP-safe) -->
+  <link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
   {% endif %}
 
