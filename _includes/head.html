@@ -236,8 +236,10 @@
     .post-content h2 { font-size: 1.5rem; line-height: 1.3; min-height: 1.95rem; }
 
     /* TOC container - prevent layout shift */
-    .toc-container { margin-bottom: 2rem; background-color: var(--color-bg-secondary, #f8f9fa); border-radius: 12px; border: 1px solid var(--color-border, #dee2e6); }
+    .toc-container { margin-bottom: 2rem; background-color: var(--color-bg-secondary, #f8f9fa); border-radius: 12px; border: 1px solid var(--color-border, #dee2e6); contain: layout style; }
     .toc-card { display: flex; flex-direction: column; overflow: hidden; border-radius: inherit; }
+    .toc-grid { contain: layout style; }
+    .toc-card-item { min-height: 2.25rem; }
     .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-border, #dee2e6); }
     .toc-nav { padding: 0.75rem 1rem 1rem; }
 
