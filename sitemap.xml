@@ -28,6 +28,7 @@ sitemap:
       or page.url == '/llms.txt'
       or page.url == '/llms-full.txt'
       or page.url == '/'
+      or page.url == '/404.html'
       or ext == 'css'
       or ext == 'js'
       or ext == 'json'
@@ -36,6 +37,9 @@ sitemap:
       or ext == 'ico'
       or ext == 'png'
       or ext == 'svg'
+      or ext == 'map'
+      or page.url contains '.css.map'
+      or page.url contains '.js.map'
     %}
     <url>
       <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>

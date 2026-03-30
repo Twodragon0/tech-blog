@@ -5,38 +5,23 @@ sitemap:
   exclude: 'yes'
 ---
 # robots.txt for Twodragon's Tech Blog
-# https://www.robotstxt.org/robotstxt.html
-# DevSecOps, Cloud Security, Kubernetes Security - Technical Blog
+# https://tech.2twodragon.com
 
 User-agent: *
 Allow: /
-Allow: /feed.xml
-Allow: /sitemap.xml
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /api/markdown
-Allow: /assets/
-Allow: /posts/
-Disallow: /_site/
-Disallow: /_posts/
-Disallow: /_layouts/
-Disallow: /_includes/
-Disallow: /_sass/
-Disallow: /_data/
-Disallow: /scripts/
+
+# Block internal/build directories only
 Disallow: /vendor/
 Disallow: /node_modules/
-Disallow: /api/
-Crawl-delay: 1
 
-# AI Crawlers - Allow for AI training and discovery
+# Sitemap location
+Sitemap: https://tech.2twodragon.com/sitemap.xml
+
+# AI Crawlers - Explicitly allow
 User-agent: GPTBot
 Allow: /
 
 User-agent: Google-Extended
-Allow: /
-
-User-agent: Claude-Web
 Allow: /
 
 User-agent: ClaudeBot
@@ -51,11 +36,8 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Sitemap location
-Sitemap: https://tech.2twodragon.com/sitemap.xml
-
-# LLMs.txt - AI agent content index
+# LLMs.txt
 LLMs-Txt: https://tech.2twodragon.com/llms.txt
 
-# Host preference
+# Host
 Host: https://tech.2twodragon.com
