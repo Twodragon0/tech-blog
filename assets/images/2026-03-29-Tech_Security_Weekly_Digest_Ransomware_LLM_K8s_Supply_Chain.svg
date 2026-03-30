@@ -1,37 +1,132 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>LLM , K8s</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.05"/>
+    </linearGradient>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">LLM , K8s</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">K8s</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(239,68,68,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(124,58,237,0.06)" stroke="none"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Kubernetes + Ransomware + LLM + Supply Chain -->
+  <!-- Outer ring - K8s cluster boundary -->
+  <circle cx="1010" cy="225" r="120" fill="rgba(124,58,237,0.06)" stroke="rgba(124,58,237,0.25)" stroke-width="1.5" stroke-dasharray="8 4"/>
+
+  <!-- Inner K8s hexagon -->
+  <polygon points="1010,148 1076,186 1076,264 1010,302 944,264 944,186" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
+
+  <!-- K8s wheel spokes -->
+  <line x1="1010" y1="225" x2="1010" y2="148" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="225" x2="1076" y2="186" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="225" x2="1076" y2="264" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="225" x2="1010" y2="302" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="225" x2="944" y2="264" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="225" x2="944" y2="186" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+
+  <!-- K8s center hub -->
+  <circle cx="1010" cy="225" r="22" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+  <circle cx="1010" cy="225" r="10" fill="rgba(99,102,241,0.2)" stroke="rgba(99,102,241,0.5)" stroke-width="1"/>
+
+  <!-- K8s node pods at hexagon vertices -->
+  <circle cx="1010" cy="148" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)" stroke-width="1.2"/>
+  <circle cx="1076" cy="186" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)" stroke-width="1.2"/>
+  <circle cx="1076" cy="264" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)" stroke-width="1.2"/>
+  <circle cx="1010" cy="302" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)" stroke-width="1.2"/>
+  <circle cx="944" cy="264" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,58,237,0.45)" stroke-width="1.2"/>
+  <circle cx="944" cy="186" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)" stroke-width="1.2"/>
+
+  <!-- Ransomware lock icon overlaid top-left of illustration -->
+  <rect x="888" y="140" width="36" height="30" rx="4" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <path d="M896 140 Q896 128 906 128 Q916 128 916 140" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <circle cx="906" cy="155" r="5" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+  <rect x="904" y="156" width="4" height="7" rx="1" fill="rgba(239,68,68,0.4)"/>
+
+  <!-- LLM neural net pattern bottom-right -->
+  <circle cx="1100" cy="300" r="7" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+  <circle cx="1130" cy="280" r="7" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+  <circle cx="1130" cy="320" r="7" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+  <circle cx="1155" cy="300" r="7" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+  <line x1="1100" y1="300" x2="1130" y2="280" stroke="rgba(251,191,36,0.2)" stroke-width="1"/>
+  <line x1="1100" y1="300" x2="1130" y2="320" stroke="rgba(251,191,36,0.2)" stroke-width="1"/>
+  <line x1="1130" y1="280" x2="1155" y2="300" stroke="rgba(251,191,36,0.2)" stroke-width="1"/>
+  <line x1="1130" y1="320" x2="1155" y2="300" stroke="rgba(251,191,36,0.2)" stroke-width="1"/>
+  <line x1="1130" y1="280" x2="1130" y2="320" stroke="rgba(251,191,36,0.15)" stroke-width="0.8"/>
+
+  <!-- Supply chain link icon -->
+  <path d="M893 310 Q893 300 903 300 L913 300 Q923 300 923 310 Q923 320 913 320 L903 320 Q893 320 893 310 Z" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1.2"/>
+  <path d="M910 310 Q910 300 920 300 L930 300 Q940 300 940 310 Q940 320 930 320 L920 320 Q910 320 910 310 Z" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1.2"/>
+
+  <!-- Orbit ring around cluster -->
+  <ellipse cx="1010" cy="225" rx="145" ry="50" fill="none" stroke="rgba(239,68,68,0.08)" stroke-width="1" stroke-dasharray="4 8" transform="rotate(-20 1010 225)"/>
+
+  <!-- Alert dot moving on orbit -->
+  <circle cx="1090" cy="160" r="5" fill="rgba(239,68,68,0.5)" stroke="rgba(239,68,68,0.8)" stroke-width="1"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.6)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(251,191,36,0.6)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(99,102,241,0.6)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(239,68,68,0.9)" text-anchor="middle" letter-spacing="1.5">MARCH 29, 2026</text>
+
+  <!-- Title lines -->
+  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Ransomware LLM K8s Supply</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly threat intelligence · Cloud security · AI risk</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(239,68,68,0.7)" letter-spacing="3">SECURITY · THREAT INTELLIGENCE</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+  <text x="140" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(239,68,68,0.9)" text-anchor="middle">Ransomware</text>
+
+  <rect x="214" y="402" width="90" height="36" rx="18" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
+  <text x="259" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(251,191,36,0.9)" text-anchor="middle">LLM Risk</text>
+
+  <rect x="318" y="402" width="120" height="36" rx="18" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.35)" stroke-width="1"/>
+  <text x="378" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(99,102,241,0.9)" text-anchor="middle">K8s · Supply</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="0.5">security</text>
 </svg>

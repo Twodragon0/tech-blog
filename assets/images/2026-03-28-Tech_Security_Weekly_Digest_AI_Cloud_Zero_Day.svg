@@ -1,37 +1,131 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI , Zero-Day</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="50%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#cc2200"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3333;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#ff3333;stop-opacity:0.05"/>
+    </linearGradient>
   </defs>
+
+  <!-- 1. Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- 2. Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- 3. RIGHT SIDE ILLUSTRATION: Cloud + Shield + Zero Day circuit -->
+  <!-- Cloud base shape -->
+  <ellipse cx="1010" cy="265" rx="110" ry="65" fill="rgba(100,160,255,0.08)" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="255" rx="60" ry="50" fill="rgba(100,160,255,0.07)" stroke="rgba(100,180,255,0.25)" stroke-width="1"/>
+  <ellipse cx="1060" cy="250" rx="55" ry="48" fill="rgba(100,160,255,0.07)" stroke="rgba(100,180,255,0.25)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI , Zero-Day</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | Zero-Day</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Shield overlaying cloud -->
+  <path d="M1010,175 L1055,195 L1055,235 Q1055,275 1010,295 Q965,275 965,235 L965,195 Z"
+        fill="rgba(255,60,60,0.10)" stroke="rgba(255,100,100,0.38)" stroke-width="2"/>
+  <!-- Shield inner glow -->
+  <path d="M1010,188 L1046,205 L1046,238 Q1046,268 1010,284 Q974,268 974,238 L974,205 Z"
+        fill="rgba(255,80,80,0.07)" stroke="rgba(255,140,140,0.22)" stroke-width="1"/>
+  <!-- Shield checkmark / lock icon -->
+  <rect x="1003" y="225" width="14" height="18" rx="2" fill="none" stroke="rgba(255,120,120,0.55)" stroke-width="2"/>
+  <path d="M1003,229 Q1003,220 1010,220 Q1017,220 1017,229" fill="none" stroke="rgba(255,120,120,0.55)" stroke-width="2"/>
+  <circle cx="1010" cy="235" r="2.5" fill="rgba(255,120,120,0.7)"/>
+
+  <!-- Circuit board lines radiating from shield -->
+  <line x1="1010" y1="295" x2="1010" y2="325" stroke="rgba(255,100,100,0.3)" stroke-width="1.5"/>
+  <line x1="1010" y1="325" x2="990" y2="325" stroke="rgba(255,100,100,0.22)" stroke-width="1.5"/>
+  <circle cx="990" cy="325" r="3" fill="rgba(255,100,100,0.35)"/>
+
+  <line x1="1010" y1="325" x2="1030" y2="325" stroke="rgba(255,100,100,0.22)" stroke-width="1.5"/>
+  <line x1="1030" y1="325" x2="1030" y2="345" stroke="rgba(255,100,100,0.18)" stroke-width="1.5"/>
+  <circle cx="1030" cy="345" r="3" fill="rgba(255,100,100,0.3)"/>
+
+  <!-- AI neural nodes -->
+  <circle cx="895" cy="165" r="14" fill="rgba(80,120,255,0.09)" stroke="rgba(100,150,255,0.35)" stroke-width="1.5"/>
+  <circle cx="895" cy="165" r="5" fill="rgba(100,150,255,0.25)"/>
+  <circle cx="1120" cy="175" r="12" fill="rgba(80,120,255,0.09)" stroke="rgba(100,150,255,0.30)" stroke-width="1.5"/>
+  <circle cx="1120" cy="175" r="4" fill="rgba(100,150,255,0.22)"/>
+  <circle cx="900" cy="310" r="10" fill="rgba(80,120,255,0.08)" stroke="rgba(100,150,255,0.28)" stroke-width="1.5"/>
+  <circle cx="900" cy="310" r="4" fill="rgba(100,150,255,0.2)"/>
+  <circle cx="1130" cy="305" r="11" fill="rgba(80,120,255,0.08)" stroke="rgba(100,150,255,0.28)" stroke-width="1.5"/>
+  <circle cx="1130" cy="305" r="4" fill="rgba(100,150,255,0.2)"/>
+
+  <!-- Neural connections -->
+  <line x1="895" y1="165" x2="965" y2="200" stroke="rgba(100,150,255,0.18)" stroke-width="1"/>
+  <line x1="1120" y1="175" x2="1055" y2="200" stroke="rgba(100,150,255,0.18)" stroke-width="1"/>
+  <line x1="900" y1="310" x2="965" y2="270" stroke="rgba(100,150,255,0.15)" stroke-width="1"/>
+  <line x1="1130" y1="305" x2="1055" y2="270" stroke="rgba(100,150,255,0.15)" stroke-width="1"/>
+
+  <!-- Zero day burst rings -->
+  <circle cx="1010" cy="230" r="85" fill="none" stroke="rgba(255,80,80,0.06)" stroke-width="1" stroke-dasharray="4,8"/>
+  <circle cx="1010" cy="230" r="115" fill="none" stroke="rgba(255,80,80,0.04)" stroke-width="1" stroke-dasharray="2,12"/>
+
+  <!-- Binary data streams -->
+  <text x="890" y="150" font-family="monospace" font-size="9" fill="rgba(100,180,255,0.22)">01001011</text>
+  <text x="1070" y="145" font-family="monospace" font-size="9" fill="rgba(100,180,255,0.20)">10110100</text>
+  <text x="880" y="330" font-family="monospace" font-size="9" fill="rgba(100,180,255,0.18)">11001010</text>
+  <text x="1075" y="332" font-family="monospace" font-size="9" fill="rgba(100,180,255,0.18)">01110001</text>
+
+  <!-- 4. Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,160,60,0.7)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,80,80,0.55)"/>
+
+  <!-- 5. Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,40,40,0.03)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,40,40,0.04)" stroke="none"/>
+
+  <!-- 6. Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- 7. Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New',monospace" font-size="12" fill="rgba(255,150,150,0.9)" text-anchor="middle" letter-spacing="1">MARCH 28, 2026</text>
+
+  <!-- 8. Title line 1 -->
+  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+
+  <!-- 9. Title line 2 -->
+  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="rgba(255,120,120,0.95)">AI Cloud Zero Day</text>
+
+  <!-- 10. Subtitle -->
+  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly intelligence briefing — Security / Cloud / AI threats</text>
+
+  <!-- 11. Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+
+  <!-- 12. Category label -->
+  <text x="80" y="370" font-family="'Arial',sans-serif" font-size="14" fill="rgba(255,255,255,0.40)" letter-spacing="3">SECURITY INTELLIGENCE DIGEST</text>
+
+  <!-- 13. Tag pills -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,50,50,0.25)" stroke="rgba(255,80,80,0.45)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,140,140,0.95)" text-anchor="middle" font-weight="600">ZERO-DAY</text>
+
+  <rect x="224" y="402" width="120" height="36" rx="18" fill="rgba(200,130,20,0.22)" stroke="rgba(255,180,50,0.40)" stroke-width="1"/>
+  <text x="284" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,200,100,0.95)" text-anchor="middle" font-weight="600">AI THREAT</text>
+
+  <rect x="358" y="402" width="110" height="36" rx="18" fill="rgba(30,100,200,0.22)" stroke="rgba(80,160,255,0.38)" stroke-width="1"/>
+  <text x="413" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(120,190,255,0.95)" text-anchor="middle" font-weight="600">CLOUD SEC</text>
+
+  <!-- 14. Footer -->
+  <text x="80" y="545" font-family="'Courier New',monospace" font-size="14" fill="rgba(255,255,255,0.30)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,255,255,0.25)" text-anchor="end" letter-spacing="2">SECURITY</text>
 </svg>

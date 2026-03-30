@@ -1,37 +1,163 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026 3</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="50%" stop-color="#ff6b35"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4444" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c0392b" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#e74c3c" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d35400" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#e67e22" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a5276" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#2980b9" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c0392b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#922b21" stop-opacity="0.6"/>
+    </linearGradient>
   </defs>
+
+  <!-- 1. Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- 2. Grid -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- 3. RIGHT SIDE ILLUSTRATION: Monthly Security Index — Shield + Calendar + Lock + Checklist -->
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2026 3</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Tech | Blog | Update</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Outer orbit ring -->
+  <circle cx="1010" cy="225" r="155" fill="none" stroke="rgba(255,68,68,0.18)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <circle cx="1010" cy="225" r="130" fill="none" stroke="rgba(255,107,53,0.12)" stroke-width="1" stroke-dasharray="3,6"/>
+
+  <!-- Shield body (large, semi-transparent) -->
+  <path d="M1010,90 L1100,125 L1100,215 Q1100,295 1010,330 Q920,295 920,215 L920,125 Z"
+        fill="rgba(192,57,43,0.09)" stroke="rgba(255,68,68,0.32)" stroke-width="1.8"/>
+
+  <!-- Shield inner highlight -->
+  <path d="M1010,108 L1086,137 L1086,214 Q1086,280 1010,310 Q934,280 934,214 L934,137 Z"
+        fill="rgba(255,68,68,0.06)" stroke="rgba(255,100,80,0.20)" stroke-width="1"/>
+
+  <!-- Calendar grid inside shield -->
+  <!-- Calendar top bar -->
+  <rect x="963" y="152" width="94" height="14" rx="3" fill="rgba(255,68,68,0.22)" stroke="rgba(255,100,80,0.35)" stroke-width="0.8"/>
+  <!-- Calendar body -->
+  <rect x="963" y="168" width="94" height="80" rx="2" fill="rgba(15,15,30,0.50)" stroke="rgba(255,68,68,0.28)" stroke-width="0.8"/>
+  <!-- Calendar grid lines -->
+  <line x1="963" y1="183" x2="1057" y2="183" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+  <line x1="963" y1="198" x2="1057" y2="198" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+  <line x1="963" y1="213" x2="1057" y2="213" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+  <line x1="963" y1="228" x2="1057" y2="228" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+  <line x1="976" y1="168" x2="976" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <line x1="989" y1="168" x2="989" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <line x1="1002" y1="168" x2="1002" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <line x1="1015" y1="168" x2="1015" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <line x1="1028" y1="168" x2="1028" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <line x1="1041" y1="168" x2="1041" y2="248" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+  <!-- Calendar month label -->
+  <text x="1010" y="162" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.75)" text-anchor="middle" font-weight="700">MAR 2026</text>
+  <!-- Highlighted date cells -->
+  <rect x="1002" y="169" width="13" height="13" rx="2" fill="rgba(255,68,68,0.50)"/>
+  <rect x="1015" y="199" width="13" height="13" rx="2" fill="rgba(255,107,53,0.30)"/>
+  <rect x="976" y="214" width="13" height="13" rx="2" fill="rgba(255,68,68,0.22)"/>
+  <rect x="1028" y="184" width="13" height="13" rx="2" fill="rgba(192,57,43,0.28)"/>
+  <rect x="989" y="229" width="13" height="13" rx="2" fill="rgba(255,68,68,0.18)"/>
+  <!-- Check marks on cells -->
+  <path d="M1005,176 L1007,179 L1013,173" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M1018,206 L1020,209 L1026,203" fill="none" stroke="rgba(255,200,180,0.7)" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Lock icon over shield bottom -->
+  <rect x="994" y="258" width="32" height="24" rx="4" fill="rgba(192,57,43,0.30)" stroke="rgba(255,68,68,0.50)" stroke-width="1.2"/>
+  <path d="M999,258 Q999,246 1010,246 Q1021,246 1021,258" fill="none" stroke="rgba(255,68,68,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="1010" cy="270" r="3.5" fill="rgba(255,180,160,0.70)"/>
+  <line x1="1010" y1="273" x2="1010" y2="278" stroke="rgba(255,180,160,0.70)" stroke-width="1.5"/>
+
+  <!-- Floating index/list items outside shield -->
+  <!-- Item 1 -->
+  <rect x="875" y="148" width="36" height="6" rx="3" fill="rgba(255,68,68,0.20)" stroke="rgba(255,68,68,0.30)" stroke-width="0.7"/>
+  <rect x="875" y="160" width="26" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <!-- Item 2 -->
+  <rect x="1098" y="170" width="36" height="6" rx="3" fill="rgba(255,107,53,0.20)" stroke="rgba(255,107,53,0.30)" stroke-width="0.7"/>
+  <rect x="1098" y="182" width="22" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <!-- Item 3 -->
+  <rect x="886" y="295" width="36" height="6" rx="3" fill="rgba(192,57,43,0.22)" stroke="rgba(192,57,43,0.35)" stroke-width="0.7"/>
+  <rect x="886" y="307" width="28" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+  <!-- Item 4 -->
+  <rect x="1096" y="288" width="36" height="6" rx="3" fill="rgba(255,68,68,0.18)" stroke="rgba(255,68,68,0.28)" stroke-width="0.7"/>
+  <rect x="1096" y="300" width="20" height="4" rx="2" fill="rgba(255,255,255,0.07)"/>
+
+  <!-- Corner decorative dots orbiting -->
+  <circle cx="1010" cy="70" r="4" fill="rgba(255,68,68,0.40)" stroke="rgba(255,68,68,0.60)" stroke-width="1"/>
+  <circle cx="1155" cy="210" r="3.5" fill="rgba(255,107,53,0.35)" stroke="rgba(255,107,53,0.55)" stroke-width="1"/>
+  <circle cx="870" cy="215" r="3" fill="rgba(192,57,43,0.30)" stroke="rgba(192,57,43,0.50)" stroke-width="1"/>
+  <circle cx="1010" cy="370" r="3.5" fill="rgba(255,68,68,0.25)" stroke="rgba(255,68,68,0.45)" stroke-width="1"/>
+
+  <!-- 4. Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="rgba(255,68,68,0.80)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,107,53,0.65)"/>
+  <circle cx="860" cy="440" r="3.5" fill="rgba(192,57,43,0.55)"/>
+
+  <!-- 5. Background circles (subtle) -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(192,57,43,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,68,68,0.04)" stroke="none"/>
+
+  <!-- 6. Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- 7. Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeBg)"/>
+  <text x="180" y="81" font-family="'Arial', sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.95)" text-anchor="middle" letter-spacing="1.5">MARCH 30, 2026</text>
+
+  <!-- 8. Title line 1 -->
+  <text x="80" y="185" font-family="'Arial Black', 'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">March 2026 Security</text>
+
+  <!-- 9. Title line 2 -->
+  <text x="80" y="245" font-family="'Arial Black', 'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Digest Monthly Index</text>
+
+  <!-- 10. Subtitle -->
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,180,160,0.85)">Monthly roundup of critical CVEs, threat intel, and security advisories</text>
+
+  <!-- 11. Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+
+  <!-- 12. Category label -->
+  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(255,100,80,0.90)" letter-spacing="3">SECURITY / DIGEST / MONTHLY</text>
+
+  <!-- 13. Three tag pills -->
+  <!-- Tag 1: Red -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="url(#tagRed)" stroke="rgba(231,76,60,0.50)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,220,215,0.95)" text-anchor="middle">CVE Tracker</text>
+
+  <!-- Tag 2: Amber -->
+  <rect x="224" y="402" width="140" height="36" rx="18" fill="url(#tagAmber)" stroke="rgba(230,126,34,0.50)" stroke-width="1"/>
+  <text x="294" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,235,210,0.95)" text-anchor="middle">Threat Intel</text>
+
+  <!-- Tag 3: Blue -->
+  <rect x="378" y="402" width="150" height="36" rx="18" fill="url(#tagBlue)" stroke="rgba(41,128,185,0.50)" stroke-width="1"/>
+  <text x="453" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(200,230,255,0.95)" text-anchor="middle">Advisories</text>
+
+  <!-- 14. Footer -->
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="80" y="545" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,120,100,0.70)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,120,100,0.55)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>
