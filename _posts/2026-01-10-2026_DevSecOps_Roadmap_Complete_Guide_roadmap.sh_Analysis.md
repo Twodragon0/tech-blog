@@ -15,9 +15,9 @@ image_alt: '2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis'
 layout: post
 tags:
 - DevSecOps
-- 로드맵
-- 보안
-- 학습-경로
+- roadmap
+- security
+- learning-path
 - roadmap.sh
 - '2026'
 keywords: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]

@@ -169,6 +169,8 @@ def sanitize_text(text):
     text = re.sub(r"&\w+;", "", text)
     # Remove ampamp, amplsquo etc artifacts
     text = re.sub(r"amp[a-z]+", "", text)
+    # Remove Korean/CJK characters (SVG text must be English only)
+    text = re.sub(r'[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f\u4e00-\u9fff]+', '', text)
     return text.strip()
 
 
@@ -337,14 +339,18 @@ def make_title_lines(words, max_chars=30):
     return [line1, line2]
 
 
+def _is_ascii_safe(text):
+    """Check if text contains only ASCII-safe characters (no Korean/CJK)."""
+    return not bool(re.search(r'[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f\u4e00-\u9fff]', text))
+
 def get_tag_labels(tags, categories, filename_words):
-    """Get 3 keyword labels for tag pills."""
+    """Get 3 keyword labels for tag pills (English only)."""
     candidates = []
 
-    # Prefer tags
+    # Prefer tags (filter out Korean)
     for t in tags:
         t_clean = t.replace("-", " ").strip()
-        if t_clean and len(t_clean) <= 20:
+        if t_clean and len(t_clean) <= 20 and _is_ascii_safe(t_clean):
             candidates.append(t_clean)
 
     # Then categories
