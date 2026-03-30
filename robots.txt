@@ -9,15 +9,9 @@ sitemap:
 
 User-agent: *
 Allow: /
-
-# Block internal/build directories only
 Disallow: /vendor/
 Disallow: /node_modules/
 
-# Sitemap location
-Sitemap: https://tech.2twodragon.com/sitemap.xml
-
-# AI Crawlers - Explicitly allow
 User-agent: GPTBot
 Allow: /
 
@@ -36,8 +30,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# LLMs.txt
-LLMs-Txt: https://tech.2twodragon.com/llms.txt
-
-# Host
-Host: https://tech.2twodragon.com
+Sitemap: https://tech.2twodragon.com/sitemap.xml

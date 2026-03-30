@@ -251,7 +251,8 @@
     { "source": "/posts/2026/01/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/", "destination": "/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/", "statusCode": 301 },
     { "source": "/posts/2026/02/Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture/", "destination": "/posts/2026/02/01/Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture/", "statusCode": 301 },
     { "source": "/posts/2026/02/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/", "destination": "/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/", "statusCode": 301 },
-    { "source": "/posts/2026/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/", "destination": "/posts/2026/02/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/", "statusCode": 301 }
+    { "source": "/posts/2026/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/", "destination": "/posts/2026/02/02/Weekly_Tech_AI_Blockchain_Digest/", "statusCode": 301 },
+    { "source": "/posts/2026/02/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/", "destination": "/posts/2026/02/02/Weekly_Tech_AI_Blockchain_Digest/", "statusCode": 301 }
   ],
   "rewrites": [
     {
