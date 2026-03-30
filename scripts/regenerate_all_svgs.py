@@ -144,6 +144,21 @@ GENERIC_WORDS = {
     "based", "oriented", "driven", "focused", "using", "via",
 }
 
+# Keyword to icon type mapping (ordered by specificity: specific first, generic last)
+ICON_KEYWORDS = [
+    # Specific keywords first
+    ("kubernetes", ["kubernetes", "k8s", "helm", "istio", "pod", "kubectl"]),
+    ("container", ["docker", "container", "dockerfile", "containerd", "podman"]),
+    ("ransomware", ["ransomware", "malware", "trojan", "phishing", "threat", "apt", "exploit", "attack"]),
+    ("ai", ["ai", "llm", "gpt", "chatgpt", "gemini", "claude", "agent", "ml", "deepseek", "openai", "langchain", "copilot"]),
+    ("blockchain", ["blockchain", "bitcoin", "ethereum", "crypto", "web3", "nft", "defi", "solidity"]),
+    ("finops", ["finops", "cost", "billing", "pricing", "budget", "spend"]),
+    ("zerotrust", ["zerotrust", "zero trust", "zero-trust", "network", "firewall", "vpn", "sdn", "proxy", "mesh", "ingress"]),
+    ("cloud", ["aws", "gcp", "azure", "cloud", "ec2", "s3", "lambda", "terraform", "iam", "vpc"]),
+    ("security", ["security", "vulnerability", "cve", "siem", "xss", "csrf", "injection", "owasp", "pentest", "soc", "compliance", "audit"]),
+    ("devops", ["devops", "ci", "cd", "cicd", "ci-cd", "ci/cd", "pipeline", "jenkins", "github actions", "argocd", "gitops"]),
+]
+
 
 def sanitize_text(text):
     """Make text safe for SVG XML."""
@@ -155,6 +170,101 @@ def sanitize_text(text):
     # Remove ampamp, amplsquo etc artifacts
     text = re.sub(r"amp[a-z]+", "", text)
     return text.strip()
+
+
+def hex_to_rgb(hex_color):
+    """Convert hex color to R,G,B tuple."""
+    h = hex_color.lstrip("#")
+    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+
+
+def detect_icon_type(filename, tags, categories):
+    """Detect the best icon type based on filename, tags, and categories."""
+    # Build a combined search string from all metadata
+    search_parts = [filename.lower().replace("_", " ").replace("-", " ")]
+    search_parts.extend(t.lower() for t in tags)
+    search_parts.extend(c.lower() for c in categories)
+    search_text = " ".join(search_parts)
+
+    for icon_type, keywords in ICON_KEYWORDS:
+        for kw in keywords:
+            if kw in search_text:
+                return icon_type
+
+    return "default"
+
+
+def generate_icon_svg(icon_type, theme):
+    """Generate the decorative icon SVG elements based on icon type."""
+    r, g, b = hex_to_rgb(theme["primary"])
+
+    if icon_type == "security":
+        return f'''  <!-- Shield with lock -->
+  <path d="M980,150 L1040,175 L1040,230 Q1040,275 980,300 Q920,275 920,230 L920,175 Z" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <rect x="965" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba({r},{g},{b},0.4)" stroke-width="1.5"/>
+  <path d="M970,220 L970,210 Q970,198 980,198 Q990,198 990,210 L990,220" fill="none" stroke="rgba({r},{g},{b},0.35)" stroke-width="1.5"/>'''
+
+    if icon_type == "cloud":
+        return f'''  <!-- Cloud shape -->
+  <path d="M940,180 Q940,140 980,140 Q1000,110 1040,120 Q1080,110 1090,150 Q1120,155 1120,185 Q1120,215 1090,215 L960,215 Q940,215 940,180 Z" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>'''
+
+    if icon_type == "kubernetes" or icon_type == "container":
+        return f'''  <!-- Hexagonal container -->
+  <polygon points="980,150 1020,170 1020,210 980,230 940,210 940,170" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <line x1="980" y1="170" x2="980" y2="210" stroke="rgba({r},{g},{b},0.15)" stroke-width="1"/>
+  <line x1="950" y1="180" x2="1010" y2="180" stroke="rgba({r},{g},{b},0.15)" stroke-width="1"/>'''
+
+    if icon_type == "ai":
+        return f'''  <!-- Brain/neural network -->
+  <circle cx="980" cy="190" r="40" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <circle cx="965" cy="180" r="4" fill="rgba({r},{g},{b},0.2)"/>
+  <circle cx="995" cy="180" r="4" fill="rgba({r},{g},{b},0.2)"/>
+  <path d="M962,200 Q980,215 998,200" fill="none" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <line x1="950" y1="160" x2="930" y2="140" stroke="rgba({r},{g},{b},0.15)" stroke-width="1"/>
+  <line x1="1010" y1="160" x2="1030" y2="140" stroke="rgba({r},{g},{b},0.15)" stroke-width="1"/>
+  <circle cx="930" cy="140" r="3" fill="rgba({r},{g},{b},0.2)"/>
+  <circle cx="1030" cy="140" r="3" fill="rgba({r},{g},{b},0.2)"/>'''
+
+    if icon_type == "ransomware":
+        return f'''  <!-- Warning triangle -->
+  <polygon points="980,150 1040,260 920,260" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <text x="980" y="235" font-family="system-ui,sans-serif" font-size="36" fill="rgba({r},{g},{b},0.3)" text-anchor="middle" font-weight="700">!</text>'''
+
+    if icon_type == "finops":
+        return f'''  <!-- Dollar in circle -->
+  <circle cx="980" cy="200" r="45" fill="rgba({r},{g},{b},0.06)" stroke="rgba({r},{g},{b},0.2)" stroke-width="1.5"/>
+  <text x="980" y="218" font-family="system-ui,sans-serif" font-size="40" fill="rgba({r},{g},{b},0.3)" text-anchor="middle" font-weight="700">$</text>'''
+
+    if icon_type == "blockchain":
+        return f'''  <!-- Chain links -->
+  <rect x="930" y="180" width="40" height="20" rx="10" fill="none" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <rect x="980" y="200" width="40" height="20" rx="10" fill="none" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <line x1="970" y1="195" x2="980" y2="205" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>'''
+
+    if icon_type == "zerotrust":
+        return f'''  <!-- Network nodes with dashed connections -->
+  <circle cx="940" cy="200" r="14" fill="rgba({r},{g},{b},0.1)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <circle cx="1020" cy="180" r="14" fill="rgba({r},{g},{b},0.1)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <circle cx="1020" cy="240" r="14" fill="rgba({r},{g},{b},0.1)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <line x1="954" y1="195" x2="1006" y2="185" stroke="rgba({r},{g},{b},0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="954" y1="210" x2="1006" y2="235" stroke="rgba({r},{g},{b},0.15)" stroke-width="1" stroke-dasharray="4,4"/>'''
+
+    if icon_type == "devops":
+        return f'''  <!-- Pipeline nodes -->
+  <circle cx="920" cy="200" r="18" fill="rgba({r},{g},{b},0.08)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <circle cx="990" cy="200" r="18" fill="rgba({r},{g},{b},0.08)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <circle cx="1060" cy="200" r="18" fill="rgba({r},{g},{b},0.08)" stroke="rgba({r},{g},{b},0.3)" stroke-width="1.5"/>
+  <line x1="938" y1="200" x2="972" y2="200" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>
+  <line x1="1008" y1="200" x2="1042" y2="200" stroke="rgba({r},{g},{b},0.25)" stroke-width="1.5"/>'''
+
+    # Default: pipeline icon (3 connected circles in triangle)
+    return f'''  <!-- Default pipeline icon -->
+  <circle cx="920" cy="200" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
+  <circle cx="990" cy="200" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
+  <circle cx="955" cy="270" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
+  <line x1="938" y1="200" x2="972" y2="200" stroke="{theme["icon_line"]}" stroke-width="1.5"/>
+  <line x1="930" y1="215" x2="945" y2="255" stroke="{theme["icon_line"]}" stroke-width="1.5"/>
+  <line x1="980" y1="215" x2="965" y2="255" stroke="{theme["icon_line"]}" stroke-width="1.5"/>'''
 
 
 def extract_title_from_filename(filename):
@@ -344,7 +454,7 @@ def estimate_text_width(text, font_size=14):
 
 
 def generate_svg(date_str, title_line1, title_line2, subtitle, category_label,
-                 tag1, tag2, tag3, theme):
+                 tag1, tag2, tag3, theme, icon_svg=""):
     """Generate SVG content matching the reference template."""
 
     # Calculate pill widths
@@ -382,13 +492,7 @@ def generate_svg(date_str, title_line1, title_line2, subtitle, category_label,
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Pipeline icon -->
-  <circle cx="920" cy="200" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
-  <circle cx="990" cy="200" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
-  <circle cx="955" cy="270" r="18" fill="{theme["icon_fill"]}" stroke="{theme["icon_stroke"]}" stroke-width="1.5"/>
-  <line x1="938" y1="200" x2="972" y2="200" stroke="{theme["icon_line"]}" stroke-width="1.5"/>
-  <line x1="930" y1="215" x2="945" y2="255" stroke="{theme["icon_line"]}" stroke-width="1.5"/>
-  <line x1="980" y1="215" x2="965" y2="255" stroke="{theme["icon_line"]}" stroke-width="1.5"/>
+{icon_svg}
   <!-- Alert dots -->
   <circle cx="870" cy="400" r="6" fill="{theme["dot_colors"][0]}"/>
   <circle cx="900" cy="420" r="4" fill="{theme["dot_colors"][1]}"/>
@@ -427,6 +531,8 @@ def generate_svg(date_str, title_line1, title_line2, subtitle, category_label,
 
 
 def main():
+    force = "--force" in sys.argv
+
     # Collect all posts and their image references
     posts = {}
     for fname in sorted(os.listdir(POSTS_DIR)):
@@ -442,12 +548,15 @@ def main():
             }
 
     print(f"Found {len(posts)} posts with image references")
+    if force:
+        print("Force mode: regenerating ALL SVGs regardless of quality")
 
     # Track results
     skipped_good = 0
     skipped_no_post = 0
     regenerated = 0
     errors = 0
+    icon_counts = {}
 
     # Get all SVGs
     all_svgs = sorted(f for f in os.listdir(IMAGES_DIR) if f.endswith(".svg"))
@@ -467,8 +576,8 @@ def main():
 
         svg_path = os.path.join(IMAGES_DIR, svg_name)
 
-        # Check if already good quality
-        if check_svg_quality(svg_path):
+        # Check if already good quality (skip unless --force)
+        if not force and check_svg_quality(svg_path):
             skipped_good += 1
             continue
 
@@ -507,10 +616,15 @@ def main():
         # Tag pills
         tag_labels = get_tag_labels(tags, categories, title_words)
 
+        # Detect icon type and generate icon SVG
+        icon_type = detect_icon_type(post_file, tags, categories)
+        icon_svg = generate_icon_svg(icon_type, theme)
+        icon_counts[icon_type] = icon_counts.get(icon_type, 0) + 1
+
         # Generate SVG
         svg_content = generate_svg(
             date_str, title_line1, title_line2, subtitle, category_label,
-            tag_labels[0], tag_labels[1], tag_labels[2], theme,
+            tag_labels[0], tag_labels[1], tag_labels[2], theme, icon_svg,
         )
 
         # Validate XML
@@ -535,6 +649,11 @@ def main():
     print(f"  Regenerated:                    {regenerated}")
     print(f"  Errors:                         {errors}")
     print(f"  Total SVGs processed:           {skipped_good + regenerated + errors}")
+    if icon_counts:
+        print()
+        print("Icon distribution:")
+        for icon_type, count in sorted(icon_counts.items(), key=lambda x: -x[1]):
+            print(f"  {icon_type:15s}: {count}")
     print("=" * 60)
 
 

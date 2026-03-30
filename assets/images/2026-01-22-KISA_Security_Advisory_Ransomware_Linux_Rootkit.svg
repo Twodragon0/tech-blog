@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>KISA Security Advisory Ransomware Linux Rootkit</title>
+  <title>KISA Security Advisory Ransomware Prevention Linux Rootkit Detection</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0c1a"/>
@@ -20,12 +20,9 @@
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <!-- Chart icon -->
-  <line x1="900" y1="310" x2="900" y2="180" stroke="rgba(239,68,68,0.2)" stroke-width="1.5"/>
-  <line x1="900" y1="310" x2="1030" y2="310" stroke="rgba(239,68,68,0.2)" stroke-width="1.5"/>
-  <rect x="920" y="260" width="20" height="50" rx="2" fill="rgba(239,68,68,0.15)"/>
-  <rect x="950" y="220" width="20" height="90" rx="2" fill="rgba(239,68,68,0.2)"/>
-  <rect x="980" y="240" width="20" height="70" rx="2" fill="rgba(239,68,68,0.15)"/>
+  <!-- Warning triangle -->
+  <polygon points="980,150 1040,260 920,260" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <text x="980" y="235" font-family="system-ui,sans-serif" font-size="36" fill="rgba(239,68,68,0.3)" text-anchor="middle" font-weight="700">!</text>
   <!-- Alert dots -->
   <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
   <circle cx="900" cy="420" r="4" fill="rgba(239,68,68,0.25)"/>
@@ -39,21 +36,21 @@
   <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
   <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 22, 2026</text>
   <!-- Main title -->
-  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">KISA Security Advisory</text>
-  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Ransomware Linux Rootkit</text>
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">KISA Security Advisory Ransomware</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Prevention Linux Rootkit Detection</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Security | Devsecops | KISA</text>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Security | Devsecops</text>
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
   <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY</text>
   <!-- Keyword tags -->
-  <rect x="80" y="420" width="70" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
-  <text x="115" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">KISA</text>
-  <rect x="164" y="420" width="120" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">KISA</text>
+  <rect x="174" y="420" width="101" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
   <text x="224" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Ransomware</text>
-  <rect x="298" y="420" width="147" height="36" rx="18" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <text x="371" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Linux Rootkit</text>
+  <rect x="289" y="420" width="124" height="36" rx="18" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="351" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Linux Rootkit</text>
   <!-- Bottom rule -->
   <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
   <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
