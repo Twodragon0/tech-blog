@@ -269,10 +269,9 @@
   <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
 
   {% if page.layout == 'post' %}
-  <!-- Post-specific CSS (deferred: CSP-safe) -->
-  <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
-  <noscript><link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
-  <!-- Chat widget CSS (deferred: CSP-safe) -->
+  <!-- Post-specific CSS: TOC, post content, share buttons (sync for layout stability) -->
+  <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <!-- Chat widget CSS (deferred: below-the-fold) -->
   <link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/chat-page.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
   {% endif %}
