@@ -121,6 +121,53 @@ layout: default
     {% include share-buttons.html %}
   </footer>
 
+  {% comment %} 관련 포스트 {% endcomment %}
+  {% assign all_posts = site.posts | where_exp: "post", "post.url != page.url" %}
+  {% if page.categories.first %}
+    {% assign cat = page.categories.first %}
+    {% assign related = all_posts | where_exp: "post", "post.categories contains cat" | limit: 3 %}
+  {% elsif page.category %}
+    {% assign related = all_posts | where: "category", page.category | limit: 3 %}
+  {% else %}
+    {% assign related = all_posts | limit: 3 %}
+  {% endif %}
+
+  {% if related.size > 0 %}
+  <section class="related-posts-section" aria-labelledby="related-posts-heading">
+    <div class="related-posts-header">
+      <div class="related-posts-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <div class="related-posts-title-wrapper">
+        <h3 id="related-posts-heading">Continue Reading</h3>
+        <p class="related-posts-subtitle">{{ related.size }}개의 관련 글</p>
+      </div>
+    </div>
+    <div class="related-posts-grid">
+      {% for post in related limit: 3 %}
+      <article class="related-post-card" data-category="{{ post.category | default: post.categories.first | default: 'blog' | downcase }}">
+        <a href="{{ post.url | relative_url }}" class="related-post-link" aria-label="{{ post.title | escape }}">
+          <div class="related-post-body">
+            <span class="related-post-category">{{ post.category | default: post.categories.first | default: "Blog" }}</span>
+            <h4 class="related-post-title">{{ post.title | escape }}</h4>
+            {% if post.excerpt %}
+            <p class="related-post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+            {% endif %}
+          </div>
+          <div class="related-post-footer">
+            <time class="related-post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+            <span class="related-post-cta">Read more &rarr;</span>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% comment %} 콘텐츠 하단 광고 {% endcomment %}
   {% if site.google_adsense %}
   {% include adsense.html type="footer" %}
