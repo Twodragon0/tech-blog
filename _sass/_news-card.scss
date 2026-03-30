@@ -41,9 +41,8 @@
 
 .news-card__image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  aspect-ratio: 16 / 9;
   transition: transform 0.3s ease;
 }
 
