@@ -1,34 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="50%" stop-color="#ff8800"/>
-      <stop offset="100%" stop-color="#cc2200"/>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="50%" style="stop-color:#ff8800"/>
+      <stop offset="100%" style="stop-color:#cc2244"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="100%" stop-color="#ff880000" stop-opacity="0"/>
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff3300" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#ff660000" stop-opacity="0"/>
+    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.05"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softglow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
   <!-- Grid lines horizontal -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
@@ -38,120 +30,105 @@
 
   <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Monthly Security Index Shield/Calendar Icon -->
-  <!-- Outer shield -->
-  <path d="M1010,130 L1140,155 L1140,255 Q1140,315 1010,335 Q880,315 880,255 L880,155 Z"
-        fill="rgba(255,60,0,0.07)" stroke="rgba(255,80,0,0.28)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,150 L1120,170 L1120,255 Q1120,305 1010,322 Q900,305 900,255 L900,170 Z"
-        fill="rgba(255,80,0,0.06)" stroke="rgba(255,100,0,0.22)" stroke-width="1"/>
-  <!-- Core shield -->
-  <path d="M1010,172 L1100,188 L1100,252 Q1100,292 1010,306 Q920,292 920,252 L920,188 Z"
-        fill="rgba(200,40,0,0.08)" stroke="rgba(255,120,0,0.18)" stroke-width="1"/>
+  <!-- Background circles (subtle) -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,68,68,0.04)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,68,68,0.06)" stroke-width="1"/>
 
-  <!-- Calendar grid inside shield -->
-  <rect x="950" y="205" width="120" height="90" rx="4"
-        fill="rgba(255,255,255,0.04)" stroke="rgba(255,160,80,0.20)" stroke-width="1"/>
-  <!-- Calendar header -->
-  <rect x="950" y="205" width="120" height="22" rx="4"
-        fill="rgba(255,60,0,0.12)" stroke="none"/>
-  <text x="1010" y="221" font-family="monospace" font-size="9" fill="rgba(255,180,100,0.7)" text-anchor="middle" font-weight="700">MAR 2026</text>
-  <!-- Calendar dots (days) -->
-  <circle cx="966" cy="240" r="3" fill="rgba(255,100,60,0.5)"/>
-  <circle cx="982" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="998" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1014" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1030" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1046" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1062" cy="240" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="966" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="982" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="998" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1014" cy="257" r="3" fill="rgba(255,160,60,0.6)"/>
-  <circle cx="1030" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1046" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1062" cy="257" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="966" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="982" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="998" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1014" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1030" cy="274" r="3.5" fill="rgba(255,60,0,0.7)" filter="url(#glow)"/>
-  <circle cx="1046" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
-  <circle cx="1062" cy="274" r="3" fill="rgba(255,100,60,0.35)"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Monthly Digest / Calendar + Shield + Index -->
+  <!-- Outer calendar frame -->
+  <rect x="890" y="135" width="220" height="175" rx="14" fill="rgba(255,80,80,0.07)" stroke="rgba(255,100,100,0.25)" stroke-width="1.5"/>
+  <!-- Calendar header bar -->
+  <rect x="890" y="135" width="220" height="38" rx="14" fill="rgba(255,60,60,0.13)" stroke="none"/>
+  <rect x="890" y="155" width="220" height="18" fill="rgba(255,60,60,0.13)" stroke="none"/>
+  <!-- Calendar month label circles (days) -->
+  <circle cx="922" cy="196" r="9" fill="rgba(255,80,80,0.12)" stroke="rgba(255,120,120,0.3)" stroke-width="1"/>
+  <circle cx="955" cy="196" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="988" cy="196" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1021" cy="196" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1054" cy="196" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1087" cy="196" r="9" fill="rgba(255,140,60,0.12)" stroke="rgba(255,160,80,0.3)" stroke-width="1"/>
+  <circle cx="922" cy="221" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="955" cy="221" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="988" cy="221" r="9" fill="rgba(255,180,60,0.14)" stroke="rgba(255,200,80,0.35)" stroke-width="1"/>
+  <circle cx="1021" cy="221" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1054" cy="221" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1087" cy="221" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="922" cy="246" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="955" cy="246" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="988" cy="246" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1021" cy="246" r="9" fill="rgba(60,160,255,0.13)" stroke="rgba(80,180,255,0.3)" stroke-width="1"/>
+  <circle cx="1054" cy="246" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1087" cy="246" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="922" cy="271" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="955" cy="271" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="988" cy="271" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1021" cy="271" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <circle cx="1054" cy="271" r="9" fill="rgba(255,80,80,0.08)" stroke="rgba(255,120,120,0.2)" stroke-width="1"/>
+  <!-- Calendar rings at top -->
+  <rect x="934" y="127" width="8" height="18" rx="4" fill="rgba(255,120,120,0.35)" stroke="none"/>
+  <rect x="1058" y="127" width="8" height="18" rx="4" fill="rgba(255,120,120,0.35)" stroke="none"/>
 
-  <!-- Lock icon on shield -->
-  <rect x="993" y="155" width="34" height="28" rx="5"
-        fill="rgba(255,80,30,0.12)" stroke="rgba(255,140,60,0.30)" stroke-width="1.5"/>
-  <path d="M1000,155 Q1000,143 1010,143 Q1020,143 1020,155"
-        fill="none" stroke="rgba(255,140,60,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="168" r="4" fill="rgba(255,160,80,0.45)"/>
-  <rect x="1009" y="168" width="2" height="6" fill="rgba(255,160,80,0.45)"/>
+  <!-- Shield overlay (security symbol) -->
+  <path d="M1000,155 L1040,170 L1040,205 Q1040,235 1000,250 Q960,235 960,205 L960,170 Z"
+        fill="rgba(255,60,60,0.09)" stroke="rgba(255,100,100,0.32)" stroke-width="1.5"/>
+  <!-- Shield inner check/index lines -->
+  <line x1="975" y1="200" x2="985" y2="213" stroke="rgba(255,180,100,0.45)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="985" y1="213" x2="1025" y2="188" stroke="rgba(255,180,100,0.45)" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Orbiting security nodes -->
-  <circle cx="885" cy="200" r="18" fill="rgba(255,40,0,0.08)" stroke="rgba(255,80,40,0.22)" stroke-width="1"/>
-  <circle cx="885" cy="200" r="6" fill="rgba(255,60,0,0.18)" stroke="rgba(255,100,60,0.3)" stroke-width="1"/>
-  <circle cx="1135" cy="200" r="18" fill="rgba(200,0,80,0.08)" stroke="rgba(220,40,100,0.22)" stroke-width="1"/>
-  <circle cx="1135" cy="200" r="6" fill="rgba(200,0,80,0.18)" stroke="rgba(220,60,100,0.3)" stroke-width="1"/>
-  <circle cx="1010" cy="330" r="18" fill="rgba(255,100,0,0.08)" stroke="rgba(255,140,0,0.22)" stroke-width="1"/>
-  <circle cx="1010" cy="330" r="6" fill="rgba(255,120,0,0.18)" stroke="rgba(255,160,0,0.3)" stroke-width="1"/>
+  <!-- Index list lines (digest) -->
+  <rect x="895" y="300" width="200" height="4" rx="2" fill="rgba(255,80,80,0.15)" stroke="none"/>
+  <rect x="895" y="312" width="160" height="3" rx="2" fill="rgba(255,255,255,0.07)" stroke="none"/>
+  <rect x="895" y="322" width="180" height="3" rx="2" fill="rgba(255,255,255,0.05)" stroke="none"/>
+  <!-- Dot bullets -->
+  <circle cx="888" cy="302" r="3" fill="rgba(255,80,80,0.4)"/>
+  <circle cx="888" cy="313" r="3" fill="rgba(255,160,60,0.4)"/>
+  <circle cx="888" cy="323" r="3" fill="rgba(80,160,255,0.4)"/>
 
-  <!-- Connecting lines to nodes -->
-  <line x1="898" y1="200" x2="920" y2="190" stroke="rgba(255,80,40,0.18)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1122" y1="200" x2="1100" y2="190" stroke="rgba(220,40,100,0.18)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1010" y1="317" x2="1010" y2="306" stroke="rgba(255,140,0,0.18)" stroke-width="1" stroke-dasharray="3,3"/>
-
-  <!-- Decorative scan lines -->
-  <line x1="880" y1="175" x2="1140" y2="175" stroke="rgba(255,80,0,0.08)" stroke-width="0.5"/>
-  <line x1="880" y1="200" x2="1140" y2="200" stroke="rgba(255,80,0,0.06)" stroke-width="0.5"/>
-  <line x1="880" y1="225" x2="1140" y2="225" stroke="rgba(255,80,0,0.08)" stroke-width="0.5"/>
-  <line x1="880" y1="300" x2="1140" y2="300" stroke="rgba(255,80,0,0.06)" stroke-width="0.5"/>
+  <!-- Connecting arc decoration -->
+  <path d="M880,340 Q1010,280 1140,340" fill="none" stroke="rgba(255,60,60,0.12)" stroke-width="1.5"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.6)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.6)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.5)" filter="url(#glow)"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,60,0,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,60,0,0.05)" stroke-width="1"/>
+  <circle cx="870" cy="400" r="5" fill="rgba(255,80,80,0.5)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,160,60,0.45)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(80,160,255,0.4)"/>
 
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,80,0,0.25)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,160,80,0.85)" font-weight="600" letter-spacing="1">MARCH 30, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,68,68,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,140,140,0.9)" text-anchor="middle" letter-spacing="2">MARCH 30, 2026</text>
 
   <!-- Title line 1 -->
   <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white">March 2026 Security</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="rgba(255,200,160,0.95)">Digest Monthly Index</text>
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white">Digest Monthly Index</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,255,255,0.5)">Compiled threat intelligence, advisories &amp; CVE highlights</text>
+  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,180,180,0.75)">Monthly roundup: vulnerabilities, patches, AI threats &amp; cloud security</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,120,60,0.75)" letter-spacing="3">SECURITY / MONTHLY DIGEST / INDEX</text>
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(255,100,100,0.7)" letter-spacing="3">SECURITY / MONTHLY DIGEST</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,30,30,0.18)" stroke="rgba(255,60,60,0.30)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(255,120,100,0.9)" text-anchor="middle" font-weight="600">CVE Roundup</text>
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(255,50,50,0.18)" stroke="rgba(255,80,80,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,140,140,0.95)" text-anchor="middle">CVE Digest</text>
 
-  <rect x="226" y="402" width="148" height="36" rx="18" fill="rgba(200,100,0,0.18)" stroke="rgba(255,160,0,0.30)" stroke-width="1"/>
-  <text x="300" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(255,200,80,0.9)" text-anchor="middle" font-weight="600">Threat Intel</text>
+  <rect x="226" y="402" width="140" height="36" rx="18" fill="rgba(255,140,30,0.15)" stroke="rgba(255,160,60,0.38)" stroke-width="1"/>
+  <text x="296" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,190,100,0.95)" text-anchor="middle">Patch Tracker</text>
 
-  <rect x="390" y="402" width="152" height="36" rx="18" fill="rgba(20,60,180,0.20)" stroke="rgba(60,120,255,0.30)" stroke-width="1"/>
-  <text x="466" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(120,180,255,0.9)" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="382" y="402" width="140" height="36" rx="18" fill="rgba(40,120,255,0.14)" stroke="rgba(80,160,255,0.36)" stroke-width="1"/>
+  <text x="452" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(120,190,255,0.95)" text-anchor="middle">AI Threats</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.30)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,100,60,0.40)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,100,100,0.4)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

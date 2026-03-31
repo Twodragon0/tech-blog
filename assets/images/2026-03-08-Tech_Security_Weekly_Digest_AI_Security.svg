@@ -1,37 +1,133 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>OpenAI Codex + Claude Firefox</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff3366"/>
+      <stop offset="100%" stop-color="#6633ff"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff3366"/>
+      <stop offset="100%" stop-color="#6633ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff3366" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6633ff" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">OpenAI Codex + Claude Firefox</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- RIGHT SIDE ILLUSTRATION: AI Shield + Neural Network Security Icon -->
+  <!-- Outer shield shape -->
+  <path d="M1010,135 L1130,165 L1130,255 Q1130,315 1010,340 Q890,315 890,255 L890,165 Z"
+        fill="rgba(255,51,102,0.06)" stroke="rgba(255,51,102,0.25)" stroke-width="1.5"/>
+  <!-- Inner shield -->
+  <path d="M1010,155 L1110,180 L1110,255 Q1110,302 1010,322 Q910,302 910,255 L910,180 Z"
+        fill="rgba(102,51,255,0.08)" stroke="rgba(102,51,255,0.22)" stroke-width="1"/>
+
+  <!-- Central AI brain circle -->
+  <circle cx="1010" cy="238" r="52" fill="rgba(255,51,102,0.07)" stroke="rgba(255,51,102,0.3)" stroke-width="1.5"/>
+  <circle cx="1010" cy="238" r="36" fill="rgba(102,51,255,0.09)" stroke="rgba(102,51,255,0.28)" stroke-width="1"/>
+  <circle cx="1010" cy="238" r="18" fill="rgba(255,180,50,0.12)" stroke="rgba(255,180,50,0.35)" stroke-width="1.5"/>
+
+  <!-- Neural network nodes -->
+  <circle cx="950" cy="200" r="7" fill="rgba(255,51,102,0.15)" stroke="rgba(255,51,102,0.4)" stroke-width="1.2"/>
+  <circle cx="1070" cy="200" r="7" fill="rgba(255,51,102,0.15)" stroke="rgba(255,51,102,0.4)" stroke-width="1.2"/>
+  <circle cx="940" cy="240" r="6" fill="rgba(102,51,255,0.15)" stroke="rgba(102,51,255,0.4)" stroke-width="1.2"/>
+  <circle cx="1080" cy="240" r="6" fill="rgba(102,51,255,0.15)" stroke="rgba(102,51,255,0.4)" stroke-width="1.2"/>
+  <circle cx="955" cy="278" r="7" fill="rgba(255,51,102,0.15)" stroke="rgba(255,51,102,0.4)" stroke-width="1.2"/>
+  <circle cx="1065" cy="278" r="7" fill="rgba(255,51,102,0.15)" stroke="rgba(255,51,102,0.4)" stroke-width="1.2"/>
+  <!-- Extra outer nodes -->
+  <circle cx="1010" cy="180" r="5" fill="rgba(255,180,50,0.13)" stroke="rgba(255,180,50,0.38)" stroke-width="1"/>
+  <circle cx="1010" cy="298" r="5" fill="rgba(255,180,50,0.13)" stroke="rgba(255,180,50,0.38)" stroke-width="1"/>
+
+  <!-- Neural connections -->
+  <line x1="950" y1="200" x2="992" y2="238" stroke="rgba(255,51,102,0.18)" stroke-width="1"/>
+  <line x1="1070" y1="200" x2="1028" y2="238" stroke="rgba(255,51,102,0.18)" stroke-width="1"/>
+  <line x1="940" y1="240" x2="992" y2="238" stroke="rgba(102,51,255,0.18)" stroke-width="1"/>
+  <line x1="1080" y1="240" x2="1028" y2="238" stroke="rgba(102,51,255,0.18)" stroke-width="1"/>
+  <line x1="955" y1="278" x2="992" y2="238" stroke="rgba(255,51,102,0.15)" stroke-width="1"/>
+  <line x1="1065" y1="278" x2="1028" y2="238" stroke="rgba(255,51,102,0.15)" stroke-width="1"/>
+  <line x1="1010" y1="180" x2="1010" y2="220" stroke="rgba(255,180,50,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="298" x2="1010" y2="256" stroke="rgba(255,180,50,0.2)" stroke-width="1"/>
+
+  <!-- Cross connections between outer nodes -->
+  <line x1="950" y1="200" x2="940" y2="240" stroke="rgba(255,51,102,0.1)" stroke-width="0.8"/>
+  <line x1="1070" y1="200" x2="1080" y2="240" stroke="rgba(255,51,102,0.1)" stroke-width="0.8"/>
+  <line x1="940" y1="240" x2="955" y2="278" stroke="rgba(102,51,255,0.1)" stroke-width="0.8"/>
+  <line x1="1080" y1="240" x2="1065" y2="278" stroke="rgba(102,51,255,0.1)" stroke-width="0.8"/>
+
+  <!-- Lock icon in center of brain -->
+  <rect x="1002" y="231" width="16" height="13" rx="2" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <path d="M1005,231 Q1005,225 1010,225 Q1015,225 1015,231" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.2"/>
+  <circle cx="1010" cy="237" r="2" fill="rgba(255,180,50,0.6)"/>
+
+  <!-- Orbit ring around shield -->
+  <ellipse cx="1010" cy="238" rx="78" ry="24" fill="none" stroke="rgba(255,51,102,0.1)" stroke-width="1" stroke-dasharray="4,6" transform="rotate(-20,1010,238)"/>
+  <ellipse cx="1010" cy="238" rx="78" ry="24" fill="none" stroke="rgba(102,51,255,0.1)" stroke-width="1" stroke-dasharray="4,6" transform="rotate(70,1010,238)"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,51,102,0.6)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="3" fill="rgba(255,180,50,0.55)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="3.5" fill="rgba(102,51,255,0.6)" filter="url(#glow)"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeBg)" stroke="rgba(255,51,102,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,255,255,0.85)" text-anchor="middle" letter-spacing="1.5">MARCH 8, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Digest AI Security</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Weekly intelligence briefing on AI threats and security</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(255,51,102,0.85)" letter-spacing="3">SECURITY / DEVSECOPS</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(255,51,102,0.18)" stroke="rgba(255,51,102,0.4)" stroke-width="1"/>
+  <text x="140" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,140,0.95)" text-anchor="middle">AI Threats</text>
+
+  <rect x="214" y="402" width="130" height="36" rx="18" fill="rgba(255,180,50,0.15)" stroke="rgba(255,180,50,0.38)" stroke-width="1"/>
+  <text x="279" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,200,80,0.95)" text-anchor="middle">CVE Watch</text>
+
+  <rect x="358" y="402" width="130" height="36" rx="18" fill="rgba(80,120,255,0.15)" stroke="rgba(80,150,255,0.38)" stroke-width="1"/>
+  <text x="423" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(120,170,255,0.95)" text-anchor="middle">Zero-Day</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="0.5">SECURITY</text>
 </svg>

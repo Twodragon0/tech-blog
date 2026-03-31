@@ -1,139 +1,132 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5b2de0;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ff3b30;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff9500;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#007aff;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5b2de0;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:0.12" />
-      <stop offset="100%" style="stop-color:#5b2de0;stop-opacity:0.08" />
+      <stop offset="0%" style="stop-color:#ff3b30;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff3b30;stop-opacity:0"/>
     </linearGradient>
     <linearGradient id="appleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#aaaaaa;stop-opacity:0.06" />
+      <stop offset="0%" style="stop-color:#ff9500;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#ff3b30;stop-opacity:0.10"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007aff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#5ac8fa;stop-opacity:0.07"/>
     </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Grid lines horizontal -->
+  <!-- Grid: horizontal lines -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- Grid lines vertical -->
+  <!-- Grid: vertical lines -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Apple + Shield + CVE/AI motif -->
+  <!-- RIGHT SIDE ILLUSTRATION: Apple-inspired security shield with CVE/AI elements -->
 
-  <!-- Outer security ring -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(255,59,59,0.25)" stroke-width="1.5" stroke-dasharray="8,4"/>
-  <circle cx="1010" cy="225" r="88" fill="none" stroke="rgba(91,45,224,0.2)" stroke-width="1" stroke-dasharray="5,6"/>
+  <!-- Outer ring - AI neural halo -->
+  <circle cx="1010" cy="225" r="130" fill="none" stroke="rgba(0,122,255,0.22)" stroke-width="1.5" stroke-dasharray="8 6"/>
+  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(255,149,0,0.15)" stroke-width="1" stroke-dasharray="4 8"/>
 
-  <!-- Shield body -->
-  <path d="M1010,130 L1075,158 L1075,218 Q1075,268 1010,295 Q945,268 945,218 L945,158 Z"
-        fill="url(#shieldGrad)" stroke="rgba(255,100,80,0.3)" stroke-width="1.5"/>
-
-  <!-- Shield inner glow -->
-  <path d="M1010,148 L1060,170 L1060,218 Q1060,255 1010,275 Q960,255 960,218 L960,170 Z"
-        fill="rgba(255,59,59,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Shield body (Apple security reference) -->
+  <path d="M1010,110 L1060,135 L1075,180 L1075,225 Q1075,290 1010,320 Q945,290 945,225 L945,180 L960,135 Z"
+        fill="url(#shieldGrad)" stroke="rgba(0,122,255,0.35)" stroke-width="1.5"/>
 
   <!-- Apple logo silhouette inside shield -->
-  <!-- Apple body -->
-  <path d="M1010,175 Q1030,172 1040,185 Q1048,197 1045,215 Q1041,235 1028,242 Q1022,245 1015,242 Q1010,240 1005,242 Q998,245 992,242 Q979,235 975,215 Q972,197 980,185 Q990,172 1010,175 Z"
-        fill="url(#appleGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
-  <!-- Apple leaf -->
-  <path d="M1010,175 Q1018,163 1028,165 Q1022,172 1010,175 Z"
-        fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-  <!-- Apple bite -->
-  <circle cx="1040" cy="192" r="10" fill="rgba(10,12,26,0.7)"/>
+  <g transform="translate(998,165)" opacity="0.55">
+    <path d="M12,0 C12,0 16,-3 20,0 C24,3 24,9 24,9 C24,9 20,10 18,8 C16,6 16,3 12,0 Z" fill="rgba(255,255,255,0.45)"/>
+    <path d="M6,10 Q0,10 0,20 Q0,34 6,40 Q10,44 14,42 Q17,41 20,42 Q23,41 26,42 Q30,44 34,40 Q40,34 40,20 Q40,10 34,10 Q30,10 27,12 Q24,14 20,14 Q16,14 13,12 Q10,10 6,10 Z" fill="rgba(255,255,255,0.40)"/>
+  </g>
 
-  <!-- CVE label inside shield -->
-  <text x="1010" y="268" font-family="monospace" font-size="9" fill="rgba(255,100,80,0.7)" text-anchor="middle" letter-spacing="2">CVE</text>
+  <!-- CVE badge elements -->
+  <rect x="940" y="290" width="70" height="22" rx="4" fill="rgba(255,59,48,0.12)" stroke="rgba(255,59,48,0.30)" stroke-width="1"/>
+  <text x="975" y="305" font-size="10" font-family="monospace" fill="rgba(255,59,48,0.85)" text-anchor="middle" font-weight="700">CVE</text>
 
-  <!-- AI neural nodes around shield -->
-  <circle cx="940" cy="160" r="5" fill="rgba(91,45,224,0.5)" stroke="rgba(91,45,224,0.6)" stroke-width="1"/>
-  <circle cx="1080" cy="165" r="4" fill="rgba(91,45,224,0.4)" stroke="rgba(91,45,224,0.5)" stroke-width="1"/>
-  <circle cx="930" cy="230" r="4" fill="rgba(255,59,59,0.4)" stroke="rgba(255,59,59,0.5)" stroke-width="1"/>
-  <circle cx="1090" cy="235" r="5" fill="rgba(255,59,59,0.5)" stroke="rgba(255,59,59,0.6)" stroke-width="1"/>
-  <circle cx="960" cy="295" r="4" fill="rgba(91,45,224,0.35)" stroke="rgba(91,45,224,0.45)" stroke-width="1"/>
-  <circle cx="1060" cy="300" r="4" fill="rgba(255,100,50,0.4)" stroke="rgba(255,100,50,0.5)" stroke-width="1"/>
+  <rect x="1020" y="290" width="70" height="22" rx="4" fill="rgba(255,149,0,0.10)" stroke="rgba(255,149,0,0.28)" stroke-width="1"/>
+  <text x="1055" y="305" font-size="10" font-family="monospace" fill="rgba(255,149,0,0.85)" text-anchor="middle" font-weight="700">PATCH</text>
+
+  <!-- AI neural nodes radiating from shield -->
+  <circle cx="880" cy="155" r="6" fill="rgba(90,200,250,0.14)" stroke="rgba(90,200,250,0.32)" stroke-width="1.2"/>
+  <circle cx="1140" cy="175" r="5" fill="rgba(90,200,250,0.10)" stroke="rgba(90,200,250,0.28)" stroke-width="1"/>
+  <circle cx="1120" cy="280" r="7" fill="rgba(0,122,255,0.12)" stroke="rgba(0,122,255,0.30)" stroke-width="1.2"/>
+  <circle cx="885" cy="295" r="5" fill="rgba(255,149,0,0.12)" stroke="rgba(255,149,0,0.28)" stroke-width="1"/>
+  <circle cx="900" cy="210" r="4" fill="rgba(90,200,250,0.10)" stroke="rgba(90,200,250,0.25)" stroke-width="1"/>
+  <circle cx="1125" cy="220" r="4" fill="rgba(90,200,250,0.10)" stroke="rgba(90,200,250,0.25)" stroke-width="1"/>
 
   <!-- Neural connection lines -->
-  <line x1="940" y1="160" x2="960" y2="170" stroke="rgba(91,45,224,0.25)" stroke-width="1"/>
-  <line x1="1080" y1="165" x2="1060" y2="172" stroke="rgba(91,45,224,0.22)" stroke-width="1"/>
-  <line x1="930" y1="230" x2="945" y2="218" stroke="rgba(255,59,59,0.2)" stroke-width="1"/>
-  <line x1="1090" y1="235" x2="1075" y2="220" stroke="rgba(255,59,59,0.22)" stroke-width="1"/>
-  <line x1="960" y1="295" x2="975" y2="278" stroke="rgba(91,45,224,0.2)" stroke-width="1"/>
-  <line x1="1060" y1="300" x2="1047" y2="280" stroke="rgba(255,100,50,0.2)" stroke-width="1"/>
+  <line x1="880" y1="155" x2="945" y2="175" stroke="rgba(90,200,250,0.12)" stroke-width="1"/>
+  <line x1="1140" y1="175" x2="1075" y2="185" stroke="rgba(90,200,250,0.10)" stroke-width="1"/>
+  <line x1="1120" y1="280" x2="1075" y2="265" stroke="rgba(0,122,255,0.12)" stroke-width="1"/>
+  <line x1="885" y1="295" x2="945" y2="270" stroke="rgba(255,149,0,0.10)" stroke-width="1"/>
+  <line x1="900" y1="210" x2="945" y2="215" stroke="rgba(90,200,250,0.10)" stroke-width="1"/>
+  <line x1="1125" y1="220" x2="1075" y2="220" stroke="rgba(90,200,250,0.10)" stroke-width="1"/>
 
-  <!-- Patch indicator ring -->
-  <circle cx="1010" cy="225" r="60" fill="none" stroke="rgba(255,200,50,0.15)" stroke-width="2" stroke-dasharray="3,9"/>
+  <!-- Lock icon inside shield lower half -->
+  <rect x="1000" y="230" width="20" height="16" rx="3" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="1.2"/>
+  <path d="M1004,230 L1004,225 Q1004,219 1010,219 Q1016,219 1016,225 L1016,230" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="1.2"/>
+  <circle cx="1010" cy="238" r="2.5" fill="rgba(255,255,255,0.40)"/>
 
-  <!-- PATCH text arc indicator -->
-  <text font-family="monospace" font-size="8" fill="rgba(255,200,50,0.4)" letter-spacing="3">
-    <textPath href="#patchArc">PATCH · UPDATE · SECURE</textPath>
-  </text>
-  <defs>
-    <path id="patchArc" d="M910,225 A100,100 0 0,1 1110,225"/>
-  </defs>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,59,59,0.03)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(91,45,224,0.04)" stroke="none"/>
+  <!-- AI hexagon pattern -->
+  <polygon points="1010,148 1020,153 1020,163 1010,168 1000,163 1000,153" fill="rgba(0,122,255,0.08)" stroke="rgba(0,122,255,0.22)" stroke-width="1"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,59,59,0.7)"/>
-  <circle cx="900" cy="420" r="3" fill="rgba(255,160,50,0.6)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(255,59,59,0.5)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(255,59,48,0.75)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,149,0,0.65)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,59,48,0.50)"/>
+
+  <!-- Background subtle circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,59,59,0.15)" stroke="rgba(255,59,59,0.35)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="rgba(255,140,120,0.95)" text-anchor="middle" letter-spacing="1.5" font-weight="600">MARCH 22, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,59,48,0.12)" stroke="rgba(255,59,48,0.28)" stroke-width="1"/>
+  <text x="180" y="81" font-size="12" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,100,80,0.90)" text-anchor="middle" font-weight="600" letter-spacing="1.5">MARCH 22, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-size="46" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">CVE Patch AI Apple</text>
+  <text x="80" y="245" font-size="46" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" fill="white" letter-spacing="-0.5">CVE Patch AI Apple</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(200,180,200,0.75)">Security vulnerabilities, AI threats &amp; Apple patches</text>
+  <text x="80" y="300" font-size="19" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Security vulnerabilities, patches &amp; AI-driven threat intelligence</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,120,100,0.8)" letter-spacing="3" font-weight="600">SECURITY · DEVSECOPS · ADVISORY</text>
+  <text x="80" y="370" font-size="14" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,255,255,0.40)" letter-spacing="3" font-weight="500">SECURITY · DEVSECOPS · VULNERABILITY</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="400" width="110" height="36" rx="18" fill="rgba(255,59,59,0.18)" stroke="rgba(255,59,59,0.4)" stroke-width="1"/>
-  <text x="135" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(255,130,110,0.95)" text-anchor="middle" font-weight="500">CVE Patch</text>
+  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(255,59,48,0.18)" stroke="rgba(255,59,48,0.35)" stroke-width="1"/>
+  <text x="130" y="425" font-size="13" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,100,80,0.95)" text-anchor="middle" font-weight="600">CVE-2026</text>
 
-  <rect x="205" y="400" width="90" height="36" rx="18" fill="rgba(255,160,30,0.18)" stroke="rgba(255,160,30,0.4)" stroke-width="1"/>
-  <text x="250" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(255,190,80,0.95)" text-anchor="middle" font-weight="500">AI Risk</text>
+  <rect x="196" y="402" width="110" height="36" rx="18" fill="rgba(255,149,0,0.15)" stroke="rgba(255,149,0,0.32)" stroke-width="1"/>
+  <text x="251" y="425" font-size="13" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,165,50,0.95)" text-anchor="middle" font-weight="600">Apple Patch</text>
 
-  <rect x="308" y="400" width="100" height="36" rx="18" fill="rgba(91,45,224,0.2)" stroke="rgba(130,90,255,0.4)" stroke-width="1"/>
-  <text x="358" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(170,140,255,0.95)" text-anchor="middle" font-weight="500">Apple Fix</text>
+  <rect x="322" y="402" width="90" height="36" rx="18" fill="rgba(0,122,255,0.15)" stroke="rgba(0,122,255,0.32)" stroke-width="1"/>
+  <text x="367" y="425" font-size="13" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(100,180,255,0.95)" text-anchor="middle" font-weight="600">AI Intel</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(180,160,180,0.5)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(255,100,80,0.45)" text-anchor="end" letter-spacing="1.5">SECURITY</text>
+  <text x="80" y="545" font-size="13" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,255,255,0.30)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" font-family="'Helvetica Neue',Arial,sans-serif" fill="rgba(255,255,255,0.30)" text-anchor="end" letter-spacing="0.5">SECURITY</text>
 </svg>
