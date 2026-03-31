@@ -1,24 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ff6b00;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff3b3b;stop-opacity:0.4" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff3b3b;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:0.08" />
-    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.4"/>
+    </marker>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -27,131 +13,104 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- LEFT SIDE -->
+  <!-- Date Badge -->
+  <g>
+    <rect x="50" y="40" width="210" height="48" rx="10" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="155" y="73" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">MARCH 19, 2026</text>
+  </g>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Main Title -->
+  <text x="75" y="215" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff">Tech Security</text>
+  <text x="75" y="275" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff">Weekly Digest</text>
+  <text x="75" y="335" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ef4444">Zero Day</text>
 
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,59,59,0.05)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,107,0,0.06)" stroke-width="1"/>
+  <!-- Tag Pills -->
+  <g>
+    <rect x="75" y="410" width="125" height="38" rx="22" fill="#3b82f6" opacity="0.10" stroke="#3b82f6" stroke-width="0.25"/>
+    <text x="137" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Security</text>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Shield with lock + CVE warning + ransomware skull -->
-  <!-- Outer shield body -->
-  <path d="M1010,140 L1100,140 L1130,175 L1130,260 L1010,310 L890,260 L890,175 Z"
-        fill="url(#shieldGrad)" stroke="rgba(255,59,59,0.35)" stroke-width="1.5"/>
-  <!-- Shield inner ring -->
-  <path d="M1010,158 L1085,158 L1108,186 L1108,255 L1010,295 L912,255 L912,186 Z"
-        fill="none" stroke="rgba(255,100,50,0.22)" stroke-width="1"/>
+    <rect x="220" y="410" width="125" height="38" rx="22" fill="#f59e0b" opacity="0.10" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="282" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Threats</text>
 
-  <!-- Lock body on shield -->
-  <rect x="983" y="205" width="54" height="42" rx="6"
-        fill="rgba(255,59,59,0.12)" stroke="rgba(255,80,40,0.45)" stroke-width="1.5"/>
-  <!-- Lock shackle -->
-  <path d="M993,205 L993,192 Q1010,178 1027,192 L1027,205"
-        fill="none" stroke="rgba(255,80,40,0.45)" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Lock keyhole -->
-  <circle cx="1010" cy="222" r="6" fill="rgba(255,59,59,0.5)" stroke="rgba(255,100,50,0.6)" stroke-width="1"/>
-  <rect x="1007" y="224" width="6" height="10" rx="2" fill="rgba(255,59,59,0.5)"/>
+    <rect x="365" y="410" width="125" height="38" rx="22" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="427" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Vulnerabilities</text>
+  </g>
 
-  <!-- CVE tag floating top-right -->
-  <rect x="1095" y="148" width="70" height="26" rx="5"
-        fill="rgba(255,59,59,0.14)" stroke="rgba(255,59,59,0.4)" stroke-width="1"/>
-  <text x="1130" y="166" font-family="monospace" font-size="11" font-weight="700"
-        fill="rgba(255,80,80,0.85)" text-anchor="middle">CVE</text>
+  <!-- Footer -->
+  <text x="75" y="575" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" opacity="0.65">tech.2twodragon.com</text>
 
-  <!-- Zero-Day warning triangle -->
-  <polygon points="950,148 990,148 970,108"
-           fill="rgba(255,120,0,0.12)" stroke="rgba(255,140,0,0.4)" stroke-width="1.5"/>
-  <text x="970" y="141" font-family="monospace" font-size="13" font-weight="900"
-        fill="rgba(255,140,0,0.8)" text-anchor="middle">!</text>
+  <!-- RIGHT SIDE - Detailed Visual Scene -->
 
-  <!-- Ransomware hex pattern -->
-  <polygon points="1095,260 1115,248 1135,260 1135,284 1115,296 1095,284"
-           fill="rgba(160,0,255,0.08)" stroke="rgba(160,60,255,0.3)" stroke-width="1"/>
-  <polygon points="1100,263 1115,254 1130,263 1130,281 1115,290 1100,281"
-           fill="none" stroke="rgba(160,60,255,0.2)" stroke-width="1"/>
-  <text x="1115" y="275" font-family="monospace" font-size="9" font-weight="700"
-        fill="rgba(180,80,255,0.7)" text-anchor="middle">$</text>
+  <!-- Vulnerable Shield (Cracked) - Left position -->
+  <g transform="translate(750, 215)">
+    <!-- Outer shield shape with crack indication -->
+    <path d="M -45,-55 L 45,-55 L 45,5 Q 0,70 0,70 Q 0,70 -45,5 Z" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3" filter="url(#glow)"/>
 
-  <!-- Binary/exploit streams -->
-  <text x="892" y="165" font-family="monospace" font-size="9" fill="rgba(255,59,59,0.25)">10110</text>
-  <text x="892" y="178" font-family="monospace" font-size="9" fill="rgba(255,59,59,0.18)">01001</text>
-  <text x="892" y="191" font-family="monospace" font-size="9" fill="rgba(255,59,59,0.12)">11010</text>
+    <!-- Crack lines -->
+    <line x1="-8" y1="-45" x2="15" y2="35" stroke="#ef4444" stroke-width="0.35" opacity="0.35"/>
+    <line x1="8" y1="-35" x2="-5" y2="25" stroke="#ef4444" stroke-width="0.25" opacity="0.25"/>
+    <line x1="0" y1="-20" x2="12" y2="15" stroke="#ef4444" stroke-width="0.20" opacity="0.20"/>
 
-  <text x="1095" y="310" font-family="monospace" font-size="9" fill="rgba(255,107,0,0.25)">0xDEAD</text>
-  <text x="1095" y="323" font-family="monospace" font-size="9" fill="rgba(255,107,0,0.18)">0xBEEF</text>
+    <!-- Warning indicator -->
+    <circle cx="0" cy="8" r="20" fill="none" stroke="#ef4444" stroke-width="0.35" opacity="0.40"/>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.35">!</text>
+  </g>
 
-  <!-- Radar/scan rings emanating from shield -->
-  <circle cx="1010" cy="225" r="88" fill="none" stroke="rgba(255,59,59,0.07)" stroke-width="1" stroke-dasharray="4,6"/>
-  <circle cx="1010" cy="225" r="118" fill="none" stroke="rgba(255,59,59,0.04)" stroke-width="1" stroke-dasharray="3,8"/>
+  <!-- Secure Shield (Checkmark) - Right position -->
+  <g transform="translate(980, 190)">
+    <!-- Large shield with checkmark -->
+    <path d="M -55,-65 L 55,-65 L 55,15 Q 0,85 0,85 Q 0,85 -55,15 Z" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.35" filter="url(#glow)"/>
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,59,59,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.7)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,59,59,0.5)" filter="url(#glow)"/>
+    <!-- Checkmark circle background -->
+    <circle cx="0" cy="12" r="25" fill="none" stroke="#3b82f6" stroke-width="0.30" opacity="0.45"/>
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+    <!-- Checkmark -->
+    <path d="M -15,8 L -3,20 L 20,-8" stroke="#3b82f6" stroke-width="0.40" fill="none" opacity="0.50" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4"
-        fill="rgba(255,59,59,0.12)" stroke="rgba(255,59,59,0.35)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,120,100,0.9)" text-anchor="middle" letter-spacing="1.5">MARCH 19, 2026</text>
+  <!-- Data Flow Arrows -->
+  <g>
+    <!-- Primary flow arrow -->
+    <path d="M 810,250 Q 870,225 930,200" stroke="#f59e0b" stroke-width="0.30" fill="none" opacity="0.35" marker-end="url(#arrowhead)" stroke-linecap="round"/>
 
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="white">Tech Security Weekly Digest</text>
+    <!-- Secondary flows -->
+    <line x1="920" y1="130" x2="920" y2="150" stroke="#3b82f6" stroke-width="0.25" opacity="0.25"/>
+    <line x1="920" y1="400" x2="920" y2="420" stroke="#3b82f6" stroke-width="0.25" opacity="0.25"/>
+  </g>
 
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="rgba(255,80,60,0.95)">Zero Day CVE Ransomware</text>
+  <!-- Warning Triangles - Alert indicators -->
+  <g>
+    <!-- Top alert -->
+    <polygon points="920,110 928,140 912,140" fill="#ef4444" opacity="0.11" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="920" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.35">⚠</text>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19"
-        fill="rgba(200,180,180,0.75)">Critical vulnerabilities, exploit intelligence &amp; threat analysis</text>
+    <!-- Bottom alert -->
+    <polygon points="920,430 928,460 912,460" fill="#f59e0b" opacity="0.11" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="920" y="450" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.35">⚠</text>
+  </g>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+  <!-- Network Connection Points -->
+  <g fill="#3b82f6" opacity="0.30">
+    <circle cx="680" cy="190" r="3.5"/>
+    <circle cx="1050" cy="280" r="3.5"/>
+    <circle cx="740" cy="370" r="3.5"/>
+    <circle cx="1030" cy="420" r="3.5"/>
+  </g>
 
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600"
-        fill="rgba(255,59,59,0.8)" letter-spacing="2.5">SECURITY / THREAT INTELLIGENCE</text>
+  <!-- Connection Lines -->
+  <g stroke="#3b82f6" stroke-width="0.20" opacity="0.15" fill="none" stroke-dasharray="3,3">
+    <line x1="680" y1="190" x2="750" y2="280"/>
+    <line x1="1050" y1="280" x2="1030" y2="420"/>
+  </g>
 
-  <!-- Tag pills -->
-  <rect x="80" y="400" width="110" height="36" rx="18"
-        fill="rgba(255,40,40,0.18)" stroke="rgba(255,59,59,0.5)" stroke-width="1"/>
-  <text x="135" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,100,100,0.95)" text-anchor="middle">ZERO-DAY</text>
+  <!-- Data Stream Indicators - flowing arrows -->
+  <g stroke="#f59e0b" stroke-width="0.20" opacity="0.20" fill="none">
+    <path d="M 820,240 L 835,230" stroke-linecap="round"/>
+    <path d="M 840,235 L 855,225" stroke-linecap="round"/>
+    <path d="M 860,230 L 875,220" stroke-linecap="round"/>
+  </g>
 
-  <rect x="204" y="400" width="90" height="36" rx="18"
-        fill="rgba(255,140,0,0.16)" stroke="rgba(255,140,0,0.45)" stroke-width="1"/>
-  <text x="249" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,165,60,0.95)" text-anchor="middle">CVE</text>
-
-  <rect x="308" y="400" width="120" height="36" rx="18"
-        fill="rgba(140,60,255,0.16)" stroke="rgba(160,80,255,0.45)" stroke-width="1"/>
-  <text x="368" y="423" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(180,120,255,0.95)" text-anchor="middle">RANSOMWARE</text>
-
-  <!-- Footer line -->
-  <line x1="80" y1="530" x2="1120" y2="530" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-
-  <!-- Footer text left -->
-  <text x="80" y="555" font-family="'Segoe UI', Arial, sans-serif" font-size="14"
-        fill="rgba(180,160,160,0.55)">tech.2twodragon.com</text>
-
-  <!-- Footer text right -->
-  <text x="1120" y="555" font-family="'Segoe UI', Arial, sans-serif" font-size="14"
-        fill="rgba(255,59,59,0.55)" text-anchor="end">SECURITY</text>
 </svg>
