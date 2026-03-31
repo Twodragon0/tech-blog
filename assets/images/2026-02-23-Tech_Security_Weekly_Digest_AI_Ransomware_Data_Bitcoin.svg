@@ -1,154 +1,148 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#f6ad55;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="bitcoinGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f6ad55;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.06"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Bitcoin + Shield + AI/Ransomware composite icon -->
-  <!-- Outer shield frame -->
-  <path d="M1010,130 L1110,158 L1110,240 Q1110,305 1010,330 Q910,305 910,240 L910,158 Z"
-        fill="rgba(229,62,62,0.07)" stroke="rgba(229,62,62,0.28)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,148 L1094,170 L1094,242 Q1094,297 1010,318 Q926,297 926,242 L926,170 Z"
-        fill="rgba(229,62,62,0.04)" stroke="rgba(229,62,62,0.18)" stroke-width="1"/>
-
-  <!-- Bitcoin symbol inside shield -->
-  <circle cx="1010" cy="238" r="38" fill="rgba(246,173,85,0.1)" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
-  <!-- Bitcoin B shape -->
-  <text x="998" y="252" font-family="Georgia, serif" font-size="42" font-weight="900"
-        fill="rgba(246,173,85,0.65)" filter="url(#glow)">₿</text>
-
-  <!-- AI neural nodes around shield -->
-  <circle cx="880" cy="155" r="6" fill="rgba(66,153,225,0.12)" stroke="rgba(66,153,225,0.35)" stroke-width="1"/>
-  <circle cx="850" cy="200" r="4" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.30)" stroke-width="1"/>
-  <circle cx="860" cy="265" r="5" fill="rgba(66,153,225,0.12)" stroke="rgba(66,153,225,0.30)" stroke-width="1"/>
-  <circle cx="1140" cy="160" r="5" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.30)" stroke-width="1"/>
-  <circle cx="1155" cy="215" r="7" fill="rgba(66,153,225,0.12)" stroke="rgba(66,153,225,0.35)" stroke-width="1"/>
-  <circle cx="1140" cy="275" r="4" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.28)" stroke-width="1"/>
-
-  <!-- Neural connection lines -->
-  <line x1="880" y1="155" x2="910" y2="170" stroke="rgba(66,153,225,0.20)" stroke-width="1"/>
-  <line x1="850" y1="200" x2="910" y2="210" stroke="rgba(66,153,225,0.18)" stroke-width="1"/>
-  <line x1="860" y1="265" x2="910" y2="255" stroke="rgba(66,153,225,0.18)" stroke-width="1"/>
-  <line x1="1140" y1="160" x2="1110" y2="172" stroke="rgba(66,153,225,0.20)" stroke-width="1"/>
-  <line x1="1155" y1="215" x2="1110" y2="218" stroke="rgba(66,153,225,0.18)" stroke-width="1"/>
-  <line x1="1140" y1="275" x2="1110" y2="258" stroke="rgba(66,153,225,0.18)" stroke-width="1"/>
-
-  <!-- Ransomware lock icon below shield -->
-  <rect x="988" y="338" width="44" height="34" rx="5"
-        fill="rgba(229,62,62,0.10)" stroke="rgba(229,62,62,0.32)" stroke-width="1.5"/>
-  <path d="M998,338 Q998,320 1010,320 Q1022,320 1022,338"
-        fill="none" stroke="rgba(229,62,62,0.32)" stroke-width="1.5"/>
-  <circle cx="1010" cy="356" r="4" fill="rgba(229,62,62,0.50)"/>
-
-  <!-- Data stream lines (representing data breach) -->
-  <line x1="885" y1="340" x2="985" y2="340" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,6"/>
-  <line x1="885" y1="352" x2="985" y2="352" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,8"/>
-  <line x1="885" y1="364" x2="985" y2="364" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,6"/>
-
-  <!-- Orbiting data particles around Bitcoin circle -->
-  <circle cx="1010" cy="200" r="3" fill="rgba(246,173,85,0.40)" stroke="none"/>
-  <circle cx="1048" cy="215" r="2.5" fill="rgba(246,173,85,0.35)" stroke="none"/>
-  <circle cx="1052" cy="258" r="3" fill="rgba(246,173,85,0.35)" stroke="none"/>
-  <circle cx="968" cy="214" r="2.5" fill="rgba(246,173,85,0.35)" stroke="none"/>
-  <circle cx="967" cy="257" r="3" fill="rgba(246,173,85,0.38)" stroke="none"/>
-
-  <!-- Weekly digest calendar icon (top-right corner hint) -->
-  <rect x="1075" y="130" width="50" height="46" rx="4"
-        fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-  <rect x="1075" y="130" width="50" height="14" rx="4"
-        fill="rgba(229,62,62,0.20)" stroke="none"/>
-  <line x1="1092" y1="156" x2="1092" y2="170" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1100" y1="156" x2="1100" y2="170" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1108" y1="156" x2="1108" y2="170" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1086" y1="163" x2="1114" y2="163" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.70)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(246,173,85,0.70)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(66,153,225,0.70)"/>
-
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left side content -->
+  <!-- Title -->
+  <text x="60" y="185" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif">Tech Security Weekly Digest</text>
+  <text x="60" y="245" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif">Ransomware Data</text>
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="230" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.40)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="13" font-weight="600"
-        fill="rgba(229,62,62,0.90)" letter-spacing="1">FEBRUARY 23, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700"
-        fill="white" opacity="0.97">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700"
-        fill="white" opacity="0.97">AI Ransomware Data Bitcoin</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19"
-        fill="rgba(255,255,255,0.55)">Weekly roundup of threats, vulnerabilities &amp; crypto security</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" font-weight="600"
-        fill="rgba(255,255,255,0.38)" letter-spacing="3">SECURITY / THREAT INTELLIGENCE / CRYPTOCURRENCY</text>
-
+  <rect x="60" y="280" width="280" height="50" rx="25" fill="#2d2e4a" stroke="#6b5fff" stroke-width="2"/>
+  <text x="175" y="311" font-size="18" font-weight="600" fill="#b8b9ff" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">FEBRUARY 23, 2026</text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.40)" stroke-width="1"/>
-  <text x="135" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600"
-        fill="rgba(229,62,62,0.90)" text-anchor="middle">Ransomware</text>
-
-  <rect x="204" y="402" width="96" height="36" rx="18" fill="rgba(246,173,85,0.16)" stroke="rgba(246,173,85,0.38)" stroke-width="1"/>
-  <text x="252" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600"
-        fill="rgba(246,173,85,0.90)" text-anchor="middle">Bitcoin</text>
-
-  <rect x="314" y="402" width="78" height="36" rx="18" fill="rgba(66,153,225,0.16)" stroke="rgba(66,153,225,0.38)" stroke-width="1"/>
-  <text x="353" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600"
-        fill="rgba(66,153,225,0.90)" text-anchor="middle">AI</text>
-
+  <g id="tags">
+    <!-- Tag 1: ransomware -->
+    <rect x="60" y="410" width="140" height="40" rx="20" fill="#ff3d4d" opacity="0.2" stroke="#ff3d4d" stroke-width="1.5"/>
+    <text x="130" y="435" font-size="14" font-weight="600" fill="#ff6b7a" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">ransomware</text>
+    
+    <!-- Tag 2: data breach -->
+    <rect x="210" y="410" width="140" height="40" rx="20" fill="#ff8c42" opacity="0.2" stroke="#ff8c42" stroke-width="1.5"/>
+    <text x="280" y="435" font-size="14" font-weight="600" fill="#ffb380" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">data breach</text>
+    
+    <!-- Tag 3: encryption -->
+    <rect x="360" y="410" width="140" height="40" rx="20" fill="#6b5fff" opacity="0.2" stroke="#6b5fff" stroke-width="1.5"/>
+    <text x="430" y="435" font-size="14" font-weight="600" fill="#9d9dff" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">encryption</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14"
-        fill="rgba(255,255,255,0.30)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600"
-        fill="rgba(229,62,62,0.45)" text-anchor="end" letter-spacing="2">SECURITY</text>
+  <text x="60" y="590" font-size="14" fill="#666b7f" font-family="system-ui, -apple-system, sans-serif">tech.2twodragon.com</text>
+  
+  <!-- Right side: Illustration for Ransomware &amp; Data -->
+  <g id="illustration">
+    <!-- Background gradient overlay for illustration area -->
+    <defs>
+      <linearGradient id="illGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#1a1d3a;stop-opacity:0.4"/>
+        <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
+      </linearGradient>
+      <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#ff6b7a;stop-opacity:0.3"/>
+        <stop offset="100%" style="stop-color:#ff3d4d;stop-opacity:0"/>
+      </radialGradient>
+    </defs>
+    
+    <!-- Central locked folder with chains -->
+    <g id="locked-folder">
+      <!-- Glow effect -->
+      <circle cx="925" cy="280" r="120" fill="url(#glowRed)"/>
+      
+      <!-- Folder shadow/3D effect -->
+      <path d="M 850 240 L 900 200 L 1000 200 L 1000 360 L 850 360 Z" fill="#1a1d3a" opacity="0.5"/>
+      
+      <!-- Main folder -->
+      <g>
+        <!-- Folder body -->
+        <rect x="840" y="230" width="170" height="140" rx="8" fill="#2d2e4a" stroke="#ff6b7a" stroke-width="3"/>
+        
+        <!-- Folder tab -->
+        <rect x="840" y="210" width="60" height="25" rx="4" fill="#2d2e4a" stroke="#ff6b7a" stroke-width="2"/>
+        
+        <!-- Center lock symbol -->
+        <circle cx="925" cy="295" r="35" fill="#ff3d4d"/>
+        <rect x="905" y="265" width="40" height="35" rx="6" fill="#ff3d4d"/>
+        <circle cx="925" cy="285" r="8" fill="#0a0c1a"/>
+        <path d="M 920 285 L 920 295 L 930 295 L 930 285" fill="none" stroke="#0a0c1a" stroke-width="2"/>
+      </g>
+      
+      <!-- Data flow streams (red/orange lines escaping) -->
+      <g id="data-streams" opacity="0.8">
+        <!-- Stream 1: upward left -->
+        <path d="M 880 230 Q 860 180 850 120" fill="none" stroke="#ff6b7a" stroke-width="2.5" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="850" cy="120" r="3" fill="#ff8c42"/>
+        
+        <!-- Stream 2: upward center -->
+        <path d="M 925 230 Q 930 170 925 100" fill="none" stroke="#ff8c42" stroke-width="2.5" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="925" cy="100" r="3" fill="#ffa500"/>
+        
+        <!-- Stream 3: upward right -->
+        <path d="M 970 230 Q 990 175 1005 115" fill="none" stroke="#ff3d4d" stroke-width="2.5" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="1005" cy="115" r="3" fill="#ff6b7a"/>
+        
+        <!-- Stream 4: downward left -->
+        <path d="M 880 370 Q 850 420 830 480" fill="none" stroke="#ff8c42" stroke-width="2.5" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- Stream 5: downward right -->
+        <path d="M 970 370 Q 1010 425 1040 490" fill="none" stroke="#ff3d4d" stroke-width="2.5" stroke-dasharray="5,5">
+          <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+        </path>
+      </g>
+    </g>
+    
+    <!-- Encryption/code symbols around -->
+    <g id="encryption-symbols" opacity="0.6">
+      <!-- Binary code blocks -->
+      <g id="code-block-1">
+        <rect x="750" y="200" width="60" height="60" rx="4" fill="#6b5fff" opacity="0.15" stroke="#6b5fff" stroke-width="1.5"/>
+        <text x="780" y="225" font-size="12" font-family="monospace" fill="#9d9dff" text-anchor="middle">01</text>
+        <text x="780" y="245" font-size="12" font-family="monospace" fill="#9d9dff" text-anchor="middle">10</text>
+      </g>
+      
+      <g id="code-block-2">
+        <rect x="1080" y="320" width="60" height="60" rx="4" fill="#6b5fff" opacity="0.15" stroke="#6b5fff" stroke-width="1.5"/>
+        <text x="1110" y="345" font-size="12" font-family="monospace" fill="#9d9dff" text-anchor="middle">FF</text>
+        <text x="1110" y="365" font-size="12" font-family="monospace" fill="#9d9dff" text-anchor="middle">AA</text>
+      </g>
+    </g>
+    
+    <!-- Warning symbols -->
+    <g id="warning-icons">
+      <!-- Warning triangle 1 -->
+      <g id="warning-1">
+        <polygon points="745,450 765,400 785,450" fill="none" stroke="#ff8c42" stroke-width="2"/>
+        <line x1="755" y1="415" x2="755" y2="435" stroke="#ff8c42" stroke-width="2"/>
+        <circle cx="755" cy="445" r="2" fill="#ff8c42"/>
+      </g>
+      
+      <!-- Warning triangle 2 -->
+      <g id="warning-2">
+        <polygon points="1080,500 1100,450 1120,500" fill="none" stroke="#ff3d4d" stroke-width="2"/>
+        <line x1="1100" y1="465" x2="1100" y2="485" stroke="#ff3d4d" stroke-width="2"/>
+        <circle cx="1100" cy="495" r="2" fill="#ff3d4d"/>
+      </g>
+    </g>
+    
+    <!-- Network vulnerability nodes -->
+    <g id="network-nodes" opacity="0.7">
+      <!-- Node 1 -->
+      <circle cx="800" cy="350" r="8" fill="#ff6b7a"/>
+      <circle cx="800" cy="350" r="4" fill="#ff3d4d"/>
+      
+      <!-- Node 2 -->
+      <circle cx="1050" cy="280" r="8" fill="#ff8c42"/>
+      <circle cx="1050" cy="280" r="4" fill="#ff6b7a"/>
+      
+      <!-- Connecting compromised lines -->
+      <path d="M 800 350 Q 880 310 1050 280" fill="none" stroke="#ff6b7a" stroke-width="2" opacity="0.5"/>
+    </g>
+  </g>
 </svg>

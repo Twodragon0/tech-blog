@@ -1,0 +1,134 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient overlay on right side for visual separation -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Right side illustration area background -->
+  <rect x="700" y="0" width="500" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Conference stage/podium base -->
+  <rect x="750" y="420" width="400" height="180" fill="#1a2540" rx="8"/>
+
+  <!-- Podium steps (3D effect) -->
+  <polygon points="750,420 850,380 850,420" fill="#0f1a2e"/>
+  <polygon points="1150,420 1050,380 1050,420" fill="#0f1a2e"/>
+
+  <!-- Central presentation screen/monitor -->
+  <rect x="800" y="300" width="300" height="140" fill="#0f1a2e" rx="6"/>
+  <rect x="810" y="310" width="280" height="120" fill="#0a0f1f" rx="4"/>
+
+  <!-- Display content lines (representing data visualization) -->
+  <line x1="830" y1="330" x2="920" y2="330" stroke="#ff6b35" stroke-width="3" stroke-linecap="round"/>
+  <line x1="830" y1="345" x2="950" y2="345" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="830" y1="360" x2="900" y2="360" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+  <line x1="830" y1="375" x2="940" y2="375" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+  <line x1="830" y1="390" x2="880" y2="390" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Datadog-inspired monitoring visualization (circular gauges) -->
+  <g>
+    <!-- Left gauge -->
+    <circle cx="950" cy="240" r="45" fill="none" stroke="#1a2540" stroke-width="2"/>
+    <circle cx="950" cy="240" r="40" fill="none" stroke="#00d4ff" stroke-width="3" stroke-dasharray="188 251" stroke-linecap="round"/>
+    <text x="950" y="250" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4ff" text-anchor="middle">CPU</text>
+
+    <!-- Right gauge -->
+    <circle cx="1050" cy="240" r="45" fill="none" stroke="#1a2540" stroke-width="2"/>
+    <circle cx="1050" cy="240" r="40" fill="none" stroke="#ff6b35" stroke-width="3" stroke-dasharray="157 251" stroke-linecap="round"/>
+    <text x="1050" y="250" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b35" text-anchor="middle">MEM</text>
+  </g>
+
+  <!-- Security shield (OWASP) -->
+  <g>
+    <path d="M 850 120 L 890 100 L 890 150 Q 870 170 850 165 Q 830 170 810 150 L 810 100 Z" fill="none" stroke="#4ade80" stroke-width="3" stroke-linejoin="round"/>
+    <text x="850" y="145" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80" text-anchor="middle">SEC</text>
+  </g>
+
+  <!-- AWS-inspired arc/cloud element -->
+  <path d="M 920 80 Q 970 60 1020 80" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="920" cy="80" r="4" fill="#ff9900"/>
+  <circle cx="1020" cy="80" r="4" fill="#ff9900"/>
+
+  <!-- Conference participants (simplified) -->
+  <g>
+    <!-- Person 1 -->
+    <circle cx="760" cy="480" r="8" fill="#00d4ff"/>
+    <rect x="753" y="495" width="14" height="20" fill="#00d4ff" rx="2"/>
+
+    <!-- Person 2 -->
+    <circle cx="810" cy="475" r="8" fill="#4ade80"/>
+    <rect x="803" y="490" width="14" height="22" fill="#4ade80" rx="2"/>
+
+    <!-- Person 3 -->
+    <circle cx="1100" cy="480" r="8" fill="#a78bfa"/>
+    <rect x="1093" y="495" width="14" height="20" fill="#a78bfa" rx="2"/>
+  </g>
+
+  <!-- Floating data points (conference interaction) -->
+  <circle cx="880" cy="200" r="3" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="920" cy="210" r="2" fill="#4ade80" opacity="0.7"/>
+  <circle cx="1000" cy="190" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="1080" cy="220" r="3" fill="#ff6b35" opacity="0.7"/>
+
+  <!-- Connection lines (network/knowledge sharing) -->
+  <line x1="950" y1="160" x2="970" y2="200" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="970" y1="200" x2="1000" y2="240" stroke="#ff6b35" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- LEFT SIDE CONTENT -->
+
+  <!-- Title Line 1 -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Conference Review
+  </text>
+
+  <!-- Title Line 2 -->
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    AWSKRUG OWASP Datadog
+  </text>
+
+  <!-- Date Badge -->
+  <rect x="60" y="270" width="380" height="50" fill="#1a2540" rx="8"/>
+  <text x="250" y="305" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6b35" text-anchor="middle">
+    DECEMBER 17, 2025
+  </text>
+
+  <!-- Tag Pills -->
+  <!-- Tag 1: Cloud -->
+  <rect x="60" y="420" width="100" height="38" fill="#0f1a2e" rx="19" stroke="#00d4ff" stroke-width="2"/>
+  <text x="110" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    Cloud
+  </text>
+
+  <!-- Tag 2: Security -->
+  <rect x="180" y="420" width="120" height="38" fill="#0f1a2e" rx="19" stroke="#4ade80" stroke-width="2"/>
+  <text x="240" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4ade80" text-anchor="middle">
+    Security
+  </text>
+
+  <!-- Tag 3: Conference -->
+  <rect x="320" y="420" width="120" height="38" fill="#0f1a2e" rx="19" stroke="#ff6b35" stroke-width="2"/>
+  <text x="380" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#ff6b35" text-anchor="middle">
+    Conference
+  </text>
+
+  <!-- Footer -->
+  <text x="60" y="595" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#666666">
+    tech.2twodragon.com
+  </text>
+</svg>

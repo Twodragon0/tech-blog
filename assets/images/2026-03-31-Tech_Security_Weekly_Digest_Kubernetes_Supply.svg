@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Subtle gradient overlay -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0f1224;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="containerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#0099dd;stop-opacity:0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- LEFT SIDE: TEXT -->
+  <!-- Main title line 1 -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="0.5">
+    Tech Security Weekly
+  </text>
+
+  <!-- Main title line 2 -->
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="0.5">
+    Digest Kubernetes Supply
+  </text>
+
+  <!-- Date badge -->
+  <rect x="60" y="280" width="280" height="40" rx="6" fill="#1a2a4a" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+  <text x="75" y="305" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d4ff">
+    MARCH 26, 2026
+  </text>
+
+  <!-- Tag pills -->
+  <g id="tags">
+    <!-- Tag 1 -->
+    <rect x="60" y="420" width="110" height="32" rx="16" fill="#1a3a2a" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+    <text x="115" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#00ff88" text-anchor="middle">
+      KUBERNETES
+    </text>
+
+    <!-- Tag 2 -->
+    <rect x="185" y="420" width="100" height="32" rx="16" fill="#3a2a1a" stroke="#ffaa00" stroke-width="1.5" opacity="0.7"/>
+    <text x="235" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ffaa00" text-anchor="middle">
+      SUPPLY CHAIN
+    </text>
+
+    <!-- Tag 3 -->
+    <rect x="300" y="420" width="80" height="32" rx="16" fill="#3a1a2a" stroke="#ff3366" stroke-width="1.5" opacity="0.7"/>
+    <text x="340" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff3366" text-anchor="middle">
+      SECURITY
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" fill="#666666" font-weight="500">
+    tech.2twodragon.com
+  </text>
+
+  <!-- RIGHT SIDE: KUBERNETES SUPPLY CHAIN ILLUSTRATION -->
+  <!-- Background glow -->
+  <circle cx="920" cy="315" r="280" fill="#00d4ff" opacity="0.05"/>
+
+  <!-- Supply Chain Flow: Container Nodes -->
+  <!-- Node 1: Registry -->
+  <g id="node1">
+    <rect x="750" y="200" width="70" height="70" rx="8" fill="url(#containerGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="785" cy="235" r="6" fill="#001a33"/>
+    <circle cx="785" cy="255" r="6" fill="#001a33"/>
+    <line x1="765" y1="235" x2="805" y2="235" stroke="#001a33" stroke-width="2"/>
+    <line x1="765" y1="255" x2="805" y2="255" stroke="#001a33" stroke-width="2"/>
+    <text x="785" y="315" font-family="Arial, sans-serif" font-size="12" fill="#aabbff" text-anchor="middle" font-weight="600">Registry</text>
+  </g>
+
+  <!-- Connection arrow 1 -->
+  <defs>
+    <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00ff88"/>
+    </marker>
+  </defs>
+  <path d="M 820 235 L 880 235" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowHead)" opacity="0.7"/>
+
+  <!-- Node 2: Image Repository -->
+  <g id="node2">
+    <rect x="880" y="200" width="70" height="70" rx="8" fill="url(#containerGrad)" opacity="0.85" filter="url(#glow)"/>
+    <rect x="895" y="215" width="40" height="40" fill="#001a33" opacity="0.6"/>
+    <circle cx="905" cy="225" r="3" fill="#00ff88"/>
+    <circle cx="915" cy="225" r="3" fill="#00ff88"/>
+    <circle cx="925" cy="225" r="3" fill="#00ff88"/>
+    <circle cx="905" cy="235" r="3" fill="#00ff88"/>
+    <circle cx="915" cy="235" r="3" fill="#00ff88"/>
+    <circle cx="925" cy="235" r="3" fill="#00ff88"/>
+    <text x="915" y="315" font-family="Arial, sans-serif" font-size="12" fill="#aabbff" text-anchor="middle" font-weight="600">Images</text>
+  </g>
+
+  <!-- Connection arrow 2 -->
+  <path d="M 950 235 L 1010 235" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowHead)" opacity="0.7"/>
+
+  <!-- Node 3: K8s Cluster -->
+  <g id="node3">
+    <rect x="1010" y="200" width="70" height="70" rx="8" fill="#ff3366" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="1030" cy="220" r="6" fill="#ffaacc"/>
+    <circle cx="1050" cy="220" r="6" fill="#ffaacc"/>
+    <rect x="1025" y="235" width="50" height="20" fill="none" stroke="#ffaacc" stroke-width="2" rx="3"/>
+    <text x="1045" y="315" font-family="Arial, sans-serif" font-size="12" fill="#ffaacc" text-anchor="middle" font-weight="600">Cluster</text>
+  </g>
+
+  <!-- Security Threat Layer -->
+  <!-- Warning icon on arrow -->
+  <circle cx="920" cy="180" r="20" fill="#ffaa00" opacity="0.8" filter="url(#glow)"/>
+  <text x="920" y="190" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#000" text-anchor="middle">!</text>
+  <text x="920" y="160" font-family="Arial, sans-serif" font-size="11" fill="#ffaa00" text-anchor="middle" font-weight="600">Vulnerability</text>
+
+  <!-- Pod network illustration below -->
+  <!-- Pods in cluster -->
+  <g id="pods">
+    <!-- Pod 1 -->
+    <rect x="1010" y="340" width="25" height="25" rx="4" fill="#00ff88" opacity="0.7"/>
+    <circle cx="1022" cy="352" r="3" fill="#001a33"/>
+
+    <!-- Pod 2 -->
+    <rect x="1045" y="340" width="25" height="25" rx="4" fill="#00ff88" opacity="0.7"/>
+    <circle cx="1057" cy="352" r="3" fill="#001a33"/>
+
+    <!-- Pod 3 -->
+    <rect x="1010" y="375" width="25" height="25" rx="4" fill="#00ff88" opacity="0.7"/>
+    <circle cx="1022" cy="387" r="3" fill="#001a33"/>
+
+    <!-- Pod 4 (compromised) -->
+    <rect x="1045" y="375" width="25" height="25" rx="4" fill="#ff3366" opacity="0.8"/>
+    <circle cx="1057" cy="387" r="3" fill="#ffaacc"/>
+
+    <text x="1045" y="425" font-family="Arial, sans-serif" font-size="11" fill="#00ff88" text-anchor="middle" font-weight="600">Running Pods</text>
+  </g>
+
+  <!-- Supply chain attack flow -->
+  <g id="attackFlow">
+    <!-- Attacker source -->
+    <circle cx="800" cy="480" r="25" fill="#ff3366" opacity="0.6" filter="url(#glow)"/>
+    <text x="800" y="488" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">ATTACK</text>
+
+    <!-- Attack arrow pointing right -->
+    <path d="M 825 480 L 900 430" stroke="#ff3366" stroke-width="2.5" fill="none" opacity="0.7" stroke-dasharray="5,5"/>
+    <polygon points="900,430 895,440 905,435" fill="#ff3366" opacity="0.7"/>
+  </g>
+
+  <!-- Supply Chain Security elements -->
+  <!-- Lock icon indicating protection -->
+  <g id="lock">
+    <rect x="1070" y="280" width="30" height="35" rx="4" fill="none" stroke="#00ff88" stroke-width="2.5"/>
+    <path d="M 1077 285 Q 1077 280 1083 280 Q 1089 280 1089 285" fill="none" stroke="#00ff88" stroke-width="2.5"/>
+    <circle cx="1083" cy="300" r="2.5" fill="#00ff88"/>
+    <text x="1115" y="303" font-family="Arial, sans-serif" font-size="11" fill="#00ff88" font-weight="600">Signed</text>
+  </g>
+
+  <!-- Verification checkmark -->
+  <g id="check">
+    <circle cx="1100" cy="360" r="18" fill="#00ff88" opacity="0.2"/>
+    <path d="M 1092 362 L 1098 368 L 1108 358" stroke="#00ff88" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1100" y="390" font-family="Arial, sans-serif" font-size="11" fill="#00ff88" text-anchor="middle" font-weight="600">Verified</text>
+  </g>
+
+  <!-- Middle layer: SBOM concept -->
+  <g id="sbom">
+    <rect x="820" y="390" width="140" height="80" rx="6" fill="#1a3a4a" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+    <text x="890" y="410" font-family="Arial, sans-serif" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="bold">SBOM</text>
+    <text x="890" y="428" font-family="Arial, sans-serif" font-size="10" fill="#aabbff" text-anchor="middle">Dependencies</text>
+    <line x1="835" y1="435" x2="945" y2="435" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+    <circle cx="850" cy="450" r="3" fill="#00ff88"/>
+    <circle cx="870" cy="450" r="3" fill="#00ff88"/>
+    <circle cx="890" cy="450" r="3" fill="#ff3366"/>
+    <circle cx="910" cy="450" r="3" fill="#00ff88"/>
+    <text x="890" y="470" font-family="Arial, sans-serif" font-size="9" fill="#ffaa00" text-anchor="middle">1 vulnerability</text>
+  </g>
+</svg>

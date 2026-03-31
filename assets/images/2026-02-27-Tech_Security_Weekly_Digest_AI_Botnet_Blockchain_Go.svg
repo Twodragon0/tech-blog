@@ -1,150 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#1e1e2e;stop-opacity:0.3"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: AI Botnet Blockchain Go Unique Icon -->
-  <!-- Blockchain hex chain structure -->
-  <polygon points="1010,140 1040,157 1040,191 1010,208 980,191 980,157" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-  <polygon points="1010,148 1033,161 1033,187 1010,200 987,187 987,161" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
-  <text x="1010" y="178" font-family="monospace" font-size="11" fill="rgba(59,130,246,0.7)" text-anchor="middle" font-weight="700">BLOCK</text>
-
-  <polygon points="1085,140 1115,157 1115,191 1085,208 1055,191 1055,157" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
-  <polygon points="1085,148 1108,161 1108,187 1085,200 1062,187 1062,161" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
-  <text x="1085" y="178" font-family="monospace" font-size="11" fill="rgba(239,68,68,0.7)" text-anchor="middle" font-weight="700">CHAIN</text>
-
-  <!-- Chain links between hexagons -->
-  <line x1="1040" y1="174" x2="1055" y2="174" stroke="rgba(245,158,11,0.5)" stroke-width="2"/>
-  <circle cx="1047" cy="174" r="3" fill="rgba(245,158,11,0.5)"/>
-
-  <!-- Go Gopher abstract icon -->
-  <circle cx="935" cy="175" r="28" fill="rgba(0,173,216,0.07)" stroke="rgba(0,173,216,0.3)" stroke-width="1.5"/>
-  <circle cx="924" cy="168" r="8" fill="rgba(0,173,216,0.1)" stroke="rgba(0,173,216,0.4)" stroke-width="1"/>
-  <circle cx="946" cy="168" r="8" fill="rgba(0,173,216,0.1)" stroke="rgba(0,173,216,0.4)" stroke-width="1"/>
-  <circle cx="921" cy="166" r="3" fill="rgba(0,173,216,0.6)"/>
-  <circle cx="943" cy="166" r="3" fill="rgba(0,173,216,0.6)"/>
-  <line x1="929" y1="178" x2="941" y2="178" stroke="rgba(0,173,216,0.4)" stroke-width="1.5"/>
-  <text x="935" y="198" font-family="monospace" font-size="9" fill="rgba(0,173,216,0.6)" text-anchor="middle">Go</text>
-
-  <!-- AI Neural Network nodes -->
-  <circle cx="900" cy="240" r="10" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="940" cy="255" r="10" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="980" cy="240" r="10" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="920" cy="280" r="10" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="960" cy="280" r="10" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="940" cy="310" r="12" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.5)" stroke-width="1.5"/>
-  <!-- Neural connections -->
-  <line x1="900" y1="240" x2="940" y2="255" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="940" y1="255" x2="980" y2="240" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="900" y1="240" x2="920" y2="280" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="940" y1="255" x2="920" y2="280" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="940" y1="255" x2="960" y2="280" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="980" y1="240" x2="960" y2="280" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <line x1="920" y1="280" x2="940" y2="310" stroke="rgba(168,85,247,0.3)" stroke-width="1.2"/>
-  <line x1="960" y1="280" x2="940" y2="310" stroke="rgba(168,85,247,0.3)" stroke-width="1.2"/>
-  <text x="940" y="314" font-family="monospace" font-size="7" fill="rgba(168,85,247,0.6)" text-anchor="middle">AI</text>
-
-  <!-- Botnet spider web pattern -->
-  <circle cx="1080" cy="265" r="35" fill="none" stroke="rgba(239,68,68,0.12)" stroke-width="1"/>
-  <circle cx="1080" cy="265" r="22" fill="none" stroke="rgba(239,68,68,0.15)" stroke-width="1"/>
-  <circle cx="1080" cy="265" r="10" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
-  <line x1="1080" y1="230" x2="1080" y2="300" stroke="rgba(239,68,68,0.15)" stroke-width="0.8"/>
-  <line x1="1045" y1="265" x2="1115" y2="265" stroke="rgba(239,68,68,0.15)" stroke-width="0.8"/>
-  <line x1="1055" y1="240" x2="1105" y2="290" stroke="rgba(239,68,68,0.1)" stroke-width="0.8"/>
-  <line x1="1105" y1="240" x2="1055" y2="290" stroke="rgba(239,68,68,0.1)" stroke-width="0.8"/>
-  <!-- Botnet nodes on web -->
-  <circle cx="1080" cy="230" r="4" fill="rgba(239,68,68,0.5)"/>
-  <circle cx="1115" cy="265" r="4" fill="rgba(239,68,68,0.5)"/>
-  <circle cx="1080" cy="300" r="4" fill="rgba(239,68,68,0.5)"/>
-  <circle cx="1045" cy="265" r="4" fill="rgba(239,68,68,0.5)"/>
-  <circle cx="1105" cy="240" r="3" fill="rgba(239,68,68,0.4)"/>
-  <circle cx="1105" cy="290" r="3" fill="rgba(239,68,246,0.4)"/>
-  <circle cx="1055" cy="240" r="3" fill="rgba(239,68,68,0.4)"/>
-  <circle cx="1055" cy="290" r="3" fill="rgba(239,68,68,0.4)"/>
-
-  <!-- Shield with lock security overlay -->
-  <path d="M1010,215 L1040,228 L1040,258 Q1040,275 1010,282 Q980,275 980,258 L980,228 Z" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
-  <rect x="1003" y="248" width="14" height="12" rx="2" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.5)" stroke-width="1"/>
-  <path d="M1006,248 Q1006,242 1010,242 Q1014,242 1014,248" fill="none" stroke="rgba(245,158,11,0.5)" stroke-width="1.2"/>
-  <circle cx="1010" cy="254" r="2" fill="rgba(245,158,11,0.7)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="#ef4444" opacity="0.8"/>
-  <circle cx="900" cy="420" r="4" fill="#f59e0b" opacity="0.8"/>
-  <circle cx="860" cy="440" r="4" fill="#3b82f6" opacity="0.8"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,255,255,0.75)" letter-spacing="1">FEBRUARY 27, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="rgba(255,255,255,0.9)">AI Botnet Blockchain Go</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly curated intelligence: AI threats, botnet activity &amp; blockchain security</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" fill="rgba(239,68,68,0.85)" letter-spacing="3">SECURITY / THREAT INTELLIGENCE</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="100" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.45)" stroke-width="1"/>
-  <text x="130" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(239,68,68,0.95)" text-anchor="middle" font-weight="600">AI-Threats</text>
-
-  <rect x="196" y="402" width="110" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="251" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(245,158,11,0.95)" text-anchor="middle" font-weight="600">Blockchain</text>
-
-  <rect x="322" y="402" width="88" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <text x="366" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(59,130,246,0.95)" text-anchor="middle" font-weight="600">Botnet</text>
-
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left Section: Text Content -->
+  <!-- Title Line 1 -->
+  <text x="40" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  
+  <!-- Title Line 2 -->
+  <text x="40" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Botnet Blockchain</text>
+  
+  <!-- Date Badge -->
+  <rect x="40" y="280" width="280" height="50" rx="6" fill="rgba(220, 53, 69, 0.15)" stroke="#dc3545" stroke-width="1.5"/>
+  <text x="55" y="312" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#ff6b7a">FEBRUARY 27, 2026</text>
+  
+  <!-- Tag Pills -->
+  <!-- Tag 1: Botnet -->
+  <g>
+    <rect x="40" y="420" width="110" height="35" rx="18" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
+    <text x="95" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff8888" text-anchor="middle">Botnet</text>
+  </g>
+  
+  <!-- Tag 2: Blockchain -->
+  <g>
+    <rect x="160" y="420" width="130" height="35" rx="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="1"/>
+    <text x="225" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#9f88ff" text-anchor="middle">Blockchain</text>
+  </g>
+  
+  <!-- Tag 3: Malware -->
+  <g>
+    <rect x="300" y="420" width="110" height="35" rx="18" fill="rgba(255, 159, 64, 0.2)" stroke="#ff9f40" stroke-width="1"/>
+    <text x="355" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ffb366" text-anchor="middle">Malware</text>
+  </g>
+  
+  <!-- Right Section: Illustration - Botnet + Blockchain Integration -->
+  <!-- Background gradient effect for right section -->
+  <defs>
+    <radialGradient id="threatGrad" cx="850" cy="200">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="chainGrad" x1="700" y1="0" x2="1150" y2="630">
+      <stop offset="0%" style="stop-color:#7b68ee;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <rect x="700" y="0" width="500" height="630" fill="url(#threatGrad)"/>
+  
+  <!-- Blockchain Chain Links (diagonal) -->
+  <g stroke="#7b68ee" stroke-width="2" fill="none" opacity="0.6">
+    <circle cx="750" cy="100" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
+    <line x1="768" y1="108" x2="820" y2="152"/>
+    <circle cx="838" cy="170" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
+    <line x1="856" y1="188" x2="908" y2="232"/>
+    <circle cx="926" cy="250" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
+    <line x1="944" y1="268" x2="996" y2="312"/>
+    <circle cx="1014" cy="330" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
+    <line x1="1032" y1="348" x2="1084" y2="392"/>
+    <circle cx="1102" cy="410" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
+  </g>
+  
+  <!-- Botnet Nodes Network (interconnected circles) -->
+  <!-- Central malicious cluster -->
+  <g opacity="0.8">
+    <!-- Node 1 -->
+    <circle cx="850" cy="250" r="20" fill="rgba(255, 68, 68, 0.3)" stroke="#ff4444" stroke-width="2.5"/>
+    <circle cx="850" cy="250" r="14" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+    
+    <!-- Node 2 -->
+    <circle cx="920" cy="310" r="18" fill="rgba(255, 100, 100, 0.25)" stroke="#ff6464" stroke-width="2"/>
+    
+    <!-- Node 3 -->
+    <circle cx="780" cy="360" r="19" fill="rgba(255, 68, 68, 0.3)" stroke="#ff4444" stroke-width="2.5"/>
+    
+    <!-- Node 4 -->
+    <circle cx="1000" cy="380" r="17" fill="rgba(255, 80, 80, 0.28)" stroke="#ff5050" stroke-width="2"/>
+    
+    <!-- Node 5 -->
+    <circle cx="900" cy="450" r="16" fill="rgba(255, 120, 120, 0.25)" stroke="#ff7878" stroke-width="2"/>
+    
+    <!-- Malicious traffic lines between nodes -->
+    <line x1="850" y1="250" x2="920" y2="310" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
+    <line x1="850" y1="250" x2="780" y2="360" stroke="#ff5555" stroke-width="1.5" opacity="0.5"/>
+    <line x1="920" y1="310" x2="1000" y2="380" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
+    <line x1="780" y1="360" x2="900" y2="450" stroke="#ff5555" stroke-width="1.5" opacity="0.5"/>
+    <line x1="1000" y1="380" x2="900" y2="450" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Threat Indicators -->
+  <!-- Warning symbol -->
+  <g opacity="0.7">
+    <path d="M 1050 150 L 1070 120 L 1090 150 Z" fill="rgba(255, 159, 64, 0.4)" stroke="#ff9f40" stroke-width="1.5"/>
+    <line x1="1070" y1="135" x2="1070" y2="145" stroke="#ff9f40" stroke-width="2"/>
+    <circle cx="1070" cy="152" r="2" fill="#ff9f40"/>
+  </g>
+  
+  <!-- Propagation waves -->
+  <g stroke="#ff6b6b" stroke-width="1" fill="none" opacity="0.4">
+    <circle cx="850" cy="250" r="35"/>
+    <circle cx="850" cy="250" r="55"/>
+  </g>
+  
+  <!-- Encrypted connection indicator (lock symbol) -->
+  <g opacity="0.6">
+    <rect x="750" y="520" width="30" height="32" rx="4" fill="none" stroke="#7b68ee" stroke-width="1.5"/>
+    <path d="M 765 520 Q 765 510 775 510 Q 785 510 785 520" fill="none" stroke="#7b68ee" stroke-width="1.5"/>
+    <circle cx="767" cy="535" r="2" fill="#7b68ee"/>
+  </g>
+  
+  <!-- Data flow indicators -->
+  <g stroke="#ff8888" stroke-width="1.5" fill="none" opacity="0.5">
+    <path d="M 730 200 Q 800 180 850 250" stroke-dasharray="4,4"/>
+    <path d="M 980 500 Q 950 480 920 450" stroke-dasharray="4,4"/>
+  </g>
+  
+  <!-- Network pulse dots -->
+  <circle cx="1050" cy="280" r="3" fill="#ff6b6b" opacity="0.6"/>
+  <circle cx="1100" cy="350" r="3" fill="#7b68ee" opacity="0.6"/>
+  <circle cx="800" cy="300" r="3" fill="#ff9f40" opacity="0.6"/>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="600" y="610" font-family="Arial, sans-serif" font-size="13" fill="rgba(255, 255, 255, 0.5)" text-anchor="middle">tech.2twodragon.com</text>
 </svg>

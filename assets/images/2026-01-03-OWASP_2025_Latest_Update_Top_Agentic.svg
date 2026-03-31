@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d63031;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="agentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffaa00;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Left side: Title and metadata -->
+  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5px">OWASP 2025</text>
+  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5px">Latest Update Top</text>
+  <text x="50" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#00d4ff" letter-spacing="-0.5px">Agentic</text>
+
+  <!-- Date badge -->
+  <rect x="50" y="330" width="180" height="36" rx="6" fill="rgba(0, 212, 255, 0.15)" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="65" y="352" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d4ff">JANUARY 3, 2026</text>
+
+  <!-- Tag pills -->
+  <g>
+    <!-- Tag 1 -->
+    <rect x="50" y="420" width="110" height="32" rx="16" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
+    <text x="105" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ff6b6b" text-anchor="middle">Security</text>
+
+    <!-- Tag 2 -->
+    <rect x="175" y="420" width="110" height="32" rx="16" fill="rgba(0, 212, 255, 0.2)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="230" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#00d4ff" text-anchor="middle">AI Agents</text>
+
+    <!-- Tag 3 -->
+    <rect x="300" y="420" width="110" height="32" rx="16" fill="rgba(255, 170, 0, 0.2)" stroke="#ffaa00" stroke-width="1"/>
+    <text x="355" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ffaa00" text-anchor="middle">Threats</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="50" y="605" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="rgba(255, 255, 255, 0.5)">tech.2twodragon.com</text>
+
+  <!-- Right side: Illustration for OWASP 2025 Agentic -->
+
+  <!-- Background accent circle -->
+  <circle cx="950" cy="280" r="220" fill="rgba(0, 212, 255, 0.08)" />
+
+  <!-- Central security shield -->
+  <g transform="translate(950, 220)">
+    <!-- Shield outline -->
+    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 60 -50 20 L -50 -40 Z" fill="url(#shieldGradient)" stroke="#ff6b6b" stroke-width="2" opacity="0.9"/>
+    <!-- Shield checkmark -->
+    <path d="M -15 5 L -5 15 L 15 -5" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- AI Agent nodes (neural network style) -->
+  <!-- Left neural node -->
+  <circle cx="800" cy="200" r="28" fill="url(#nodeGradient)" opacity="0.85"/>
+  <circle cx="800" cy="200" r="24" fill="none" stroke="#ffaa00" stroke-width="2" opacity="0.6"/>
+  <text x="800" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#1a1a2a" text-anchor="middle">A</text>
+
+  <!-- Top neural node -->
+  <circle cx="950" cy="110" r="26" fill="url(#agentGradient)" opacity="0.85"/>
+  <circle cx="950" cy="110" r="22" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+  <text x="950" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">I</text>
+
+  <!-- Right neural node -->
+  <circle cx="1100" cy="200" r="28" fill="url(#nodeGradient)" opacity="0.85"/>
+  <circle cx="1100" cy="200" r="24" fill="none" stroke="#ffaa00" stroke-width="2" opacity="0.6"/>
+  <text x="1100" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#1a1a2a" text-anchor="middle">V</text>
+
+  <!-- Bottom neural nodes -->
+  <circle cx="880" cy="350" r="24" fill="url(#agentGradient)" opacity="0.75"/>
+  <circle cx="880" cy="350" r="20" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5"/>
+
+  <circle cx="1020" cy="350" r="24" fill="url(#nodeGradient)" opacity="0.75"/>
+  <circle cx="1020" cy="350" r="20" fill="none" stroke="#ffaa00" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Connection lines (neural network) -->
+  <line x1="800" y1="200" x2="950" y2="110" stroke="url(#agentGradient)" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+  <line x1="950" y1="110" x2="1100" y2="200" stroke="url(#agentGradient)" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+  <line x1="800" y1="200" x2="880" y2="350" stroke="url(#nodeGradient)" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  <line x1="1100" y1="200" x2="1020" y2="350" stroke="url(#nodeGradient)" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  <line x1="880" y1="350" x2="1020" y2="350" stroke="#ff6b6b" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  <line x1="950" y1="110" x2="950" y2="220" stroke="#ff6b6b" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- Agent threat indicators (small warning symbols) -->
+  <g transform="translate(830, 280)">
+    <circle cx="0" cy="0" r="14" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1.5"/>
+    <text x="0" y="5" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#ff6b6b" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Vulnerability layers (stacked) -->
+  <g transform="translate(1070, 290)">
+    <rect x="-20" y="-25" width="40" height="15" rx="2" fill="rgba(255, 107, 107, 0.3)" stroke="#ff6b6b" stroke-width="1"/>
+    <rect x="-20" y="-5" width="40" height="15" rx="2" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
+    <rect x="-20" y="15" width="40" height="15" rx="2" fill="rgba(255, 107, 107, 0.1)" stroke="#ff6b6b" stroke-width="1"/>
+  </g>
+
+  <!-- Agentic intelligence indicator (pulsing dots) -->
+  <g opacity="0.7">
+    <circle cx="920" cy="160" r="3" fill="#00d4ff"/>
+    <circle cx="920" cy="170" r="2.5" fill="#00d4ff" opacity="0.6"/>
+    <circle cx="920" cy="180" r="2" fill="#00d4ff" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,106 +1,153 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Left side: Text content -->
-  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
-    Krebs Security Digest
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14162d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wolfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d32f2f;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="pulseGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff9500;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Ambient threat pulses (right side) -->
+  <circle cx="920" cy="200" r="90" fill="url(#pulseGrad)" opacity="0.6"/>
+  <circle cx="980" cy="420" r="70" fill="url(#pulseGrad)" opacity="0.4"/>
+
+  <!-- Left side - Typography -->
+  <!-- Title line 1 -->
+  <text x="60" y="185" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">
+    Krebs Security
   </text>
-  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
-    Kimwolf Patch Tuesday
+
+  <!-- Title line 2 -->
+  <text x="60" y="245" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">
+    Digest Kimwolf
   </text>
-  
+
   <!-- Date badge -->
-  <rect x="60" y="280" width="280" height="50" rx="4" fill="#d32f2f" opacity="0.15" stroke="#d32f2f" stroke-width="2"/>
-  <text x="75" y="312" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6b6b">
-    FEBRUARY 18, 2026
-  </text>
-  
-  <!-- Tag pills -->
   <g>
-    <!-- Tag 1: Security -->
-    <rect x="60" y="420" width="110" height="36" rx="18" fill="#1a3a52" stroke="#00a8ff" stroke-width="1.5"/>
-    <text x="115" y="443" font-family="Arial, sans-serif" font-size="14" fill="#00a8ff" text-anchor="middle" font-weight="500">
-      Security
-    </text>
-    
-    <!-- Tag 2: Patch -->
-    <rect x="185" y="420" width="100" height="36" rx="18" fill="#3a2a1a" stroke="#ff9500" stroke-width="1.5"/>
-    <text x="235" y="443" font-family="Arial, sans-serif" font-size="14" fill="#ff9500" text-anchor="middle" font-weight="500">
-      Patch
-    </text>
-    
-    <!-- Tag 3: Threat -->
-    <rect x="300" y="420" width="100" height="36" rx="18" fill="#4a1a1a" stroke="#ff4444" stroke-width="1.5"/>
-    <text x="350" y="443" font-family="Arial, sans-serif" font-size="14" fill="#ff4444" text-anchor="middle" font-weight="500">
-      Threat
+    <rect x="60" y="320" width="300" height="50" fill="#1a1f3a" stroke="#ff6b6b" stroke-width="2" rx="6" opacity="0.8"/>
+    <text x="80" y="352" font-size="22" font-weight="600" fill="#ff9999" font-family="Arial, sans-serif">
+      FEBRUARY 18, 2026
     </text>
   </g>
-  
-  <!-- Right side: Illustration -->
-  <!-- Large shield with warning stripes -->
-  <path d="M 850 180 L 920 180 L 920 300 Q 920 380 850 420 Q 780 380 780 300 L 780 180 Z" 
-        fill="#ff6b6b" opacity="0.15" stroke="#ff6b6b" stroke-width="2"/>
-  
-  <!-- Shield inner gradient effect -->
-  <path d="M 855 195 L 915 195 L 915 295 Q 915 365 850 400 Q 785 365 785 295 L 785 195 Z" 
-        fill="none" stroke="#ff9500" stroke-width="1.5" opacity="0.6"/>
-  
-  <!-- Warning exclamation mark in shield -->
-  <text x="850" y="290" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#ff6b6b" text-anchor="middle">
-    !
+
+  <!-- Tag pills -->
+  <!-- Tag 1: Security -->
+  <rect x="60" y="415" width="95" height="32" fill="#d32f2f" rx="16" opacity="0.9"/>
+  <text x="107.5" y="436" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    Security
   </text>
-  
-  <!-- Patch elements around shield -->
-  <g opacity="0.8">
-    <!-- Patch 1 (top left) -->
-    <rect x="750" y="150" width="35" height="35" rx="2" fill="#00a8ff" stroke="#00d4ff" stroke-width="1.5"/>
-    <circle cx="767.5" cy="167.5" r="3" fill="#00d4ff"/>
-    <line x1="760" y1="167.5" x2="775" y2="167.5" stroke="#00d4ff" stroke-width="1"/>
-    <line x1="767.5" y1="160" x2="767.5" y2="175" stroke="#00d4ff" stroke-width="1"/>
-    
-    <!-- Patch 2 (top right) -->
-    <rect x="950" y="165" width="35" height="35" rx="2" fill="#ffb300" stroke="#ffc75f" stroke-width="1.5"/>
-    <circle cx="967.5" cy="182.5" r="3" fill="#ffc75f"/>
-    <line x1="960" y1="182.5" x2="975" y2="182.5" stroke="#ffc75f" stroke-width="1"/>
-    <line x1="967.5" y1="175" x2="967.5" y2="190" stroke="#ffc75f" stroke-width="1"/>
-    
-    <!-- Patch 3 (bottom left) -->
-    <rect x="720" y="350" width="35" height="35" rx="2" fill="#76ff03" stroke="#b2ff59" stroke-width="1.5"/>
-    <circle cx="737.5" cy="367.5" r="3" fill="#b2ff59"/>
-    <line x1="730" y1="367.5" x2="745" y2="367.5" stroke="#b2ff59" stroke-width="1"/>
-    <line x1="737.5" y1="360" x2="737.5" y2="375" stroke="#b2ff59" stroke-width="1"/>
-    
-    <!-- Patch 4 (right) -->
-    <rect x="965" y="340" width="35" height="35" rx="2" fill="#ff6b6b" stroke="#ff9999" stroke-width="1.5"/>
-    <circle cx="982.5" cy="357.5" r="3" fill="#ff9999"/>
-    <line x1="975" y1="357.5" x2="990" y2="357.5" stroke="#ff9999" stroke-width="1"/>
-    <line x1="982.5" y1="350" x2="982.5" y2="365" stroke="#ff9999" stroke-width="1"/>
-  </g>
-  
-  <!-- Network/threat nodes -->
-  <g opacity="0.7" stroke="#00a8ff" stroke-width="1" fill="none">
-    <!-- Connection lines -->
-    <line x1="800" y1="250" x2="740" y2="200"/>
-    <line x1="900" y1="250" x2="960" y2="200"/>
-    <line x1="850" y1="420" x2="780" y2="480"/>
-    <line x1="850" y1="420" x2="920" y2="480"/>
-  </g>
-  
-  <!-- Threat indicator nodes -->
-  <circle cx="740" cy="200" r="6" fill="#d32f2f" opacity="0.8"/>
-  <circle cx="960" cy="200" r="6" fill="#ff6b6b" opacity="0.7"/>
-  <circle cx="780" cy="480" r="5" fill="#ff9500" opacity="0.8"/>
-  <circle cx="920" cy="480" r="5" fill="#ff9500" opacity="0.7"/>
-  
-  <!-- Checkmark overlay (patch applied indicator) -->
-  <g opacity="0.6">
-    <circle cx="1000" cy="400" r="25" fill="none" stroke="#76ff03" stroke-width="2"/>
-    <polyline points="995,405 1000,410 1010,395" fill="none" stroke="#76ff03" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  
-  <!-- Bottom footer -->
-  <text x="1140" y="610" font-family="Arial, sans-serif" font-size="14" fill="#666666" text-anchor="end">
+
+  <!-- Tag 2: Patches -->
+  <rect x="170" y="415" width="85" height="32" fill="#ff9500" rx="16" opacity="0.9"/>
+  <text x="212.5" y="436" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    Patches
+  </text>
+
+  <!-- Tag 3: Kimwolf -->
+  <rect x="270" y="415" width="90" height="32" fill="#00a8ff" rx="16" opacity="0.9"/>
+  <text x="315" y="436" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    Kimwolf
+  </text>
+
+  <!-- Footer -->
+  <text x="60" y="600" font-size="14" font-weight="500" fill="#7f8c8d" font-family="Arial, sans-serif">
     tech.2twodragon.com
   </text>
+
+  <!-- Right side illustration (x=700-1150) - Wolf with security elements -->
+
+  <!-- Wolf head silhouette -->
+  <g id="wolf">
+    <!-- Main head -->
+    <ellipse cx="900" cy="220" rx="45" ry="50" fill="url(#wolfGrad)" opacity="0.9"/>
+
+    <!-- Snout -->
+    <path d="M 920 230 Q 960 220 975 235 Q 965 245 945 248 Q 925 245 920 230"
+          fill="url(#wolfGrad)" opacity="0.85"/>
+
+    <!-- Ears -->
+    <polygon points="885,165 875,130 895,145" fill="#d32f2f" opacity="0.95"/>
+    <polygon points="915,165 925,130 905,145" fill="#d32f2f" opacity="0.95"/>
+
+    <!-- Eye sockets -->
+    <circle cx="885" cy="210" r="8" fill="#0a0c1a" opacity="0.8"/>
+    <circle cx="915" cy="210" r="8" fill="#0a0c1a" opacity="0.8"/>
+
+    <!-- Eyes (threat indicator) -->
+    <circle cx="885" cy="210" r="5" fill="#00d4ff" opacity="0.95"/>
+    <circle cx="915" cy="210" r="5" fill="#00d4ff" opacity="0.95"/>
+
+    <!-- Pupils -->
+    <circle cx="885" cy="210" r="2.5" fill="#000"/>
+    <circle cx="915" cy="210" r="2.5" fill="#000"/>
+
+    <!-- Jaw outline -->
+    <path d="M 920 245 Q 945 255 970 250" fill="none" stroke="#d32f2f" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- Alert shield overlay on wolf -->
+  <g id="alert-shield">
+    <path d="M 900 150 L 950 150 L 950 280 Q 925 310 900 305 Q 875 310 850 280 L 850 150 Z"
+          fill="none" stroke="#ff6b6b" stroke-width="2.5" opacity="0.6"/>
+    <path d="M 905 160 L 945 160 L 945 275 Q 925 300 900 296 Q 875 300 855 275 L 855 160 Z"
+          fill="none" stroke="#ff9500" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Threat indicator - pulsing circles -->
+  <circle cx="750" cy="180" r="4" fill="#ff4444" opacity="0.8"/>
+  <circle cx="750" cy="180" r="8" fill="#ff4444" opacity="0.3"/>
+  <circle cx="1050" cy="240" r="4" fill="#ff4444" opacity="0.7"/>
+  <circle cx="1050" cy="240" r="8" fill="#ff4444" opacity="0.25"/>
+  <circle cx="850" cy="420" r="4" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="850" cy="420" r="7" fill="#00d4ff" opacity="0.2"/>
+
+  <!-- Connection lines from wolf to threats -->
+  <line x1="870" y1="220" x2="755" y2="185" stroke="#ff6b6b" stroke-width="1" opacity="0.4"/>
+  <line x1="930" y1="215" x2="1050" y2="245" stroke="#ff6b6b" stroke-width="1" opacity="0.35"/>
+
+  <!-- Patch update badges -->
+  <!-- Top left patch -->
+  <g opacity="0.75">
+    <rect x="745" y="130" width="40" height="40" fill="none" stroke="#00a8ff" stroke-width="2" rx="4"/>
+    <circle cx="765" cy="150" r="3" fill="#00a8ff"/>
+    <line x1="755" y1="150" x2="775" y2="150" stroke="#00a8ff" stroke-width="1.5"/>
+    <line x1="765" y1="140" x2="765" y2="160" stroke="#00a8ff" stroke-width="1.5"/>
+  </g>
+
+  <!-- Top right patch -->
+  <g opacity="0.75">
+    <rect x="1055" y="145" width="40" height="40" fill="none" stroke="#2ecc71" stroke-width="2" rx="4"/>
+    <polyline points="1065,165 1070,172 1080,155" fill="none" stroke="#2ecc71" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bottom patch -->
+  <g opacity="0.7">
+    <rect x="880" y="400" width="40" height="40" fill="none" stroke="#ff9500" stroke-width="2" rx="4"/>
+    <text x="900" y="424" font-size="20" font-weight="bold" fill="#ff9500" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Warning stripes on alert zone -->
+  <g opacity="0.3" stroke="#ff6b6b" stroke-width="1.5">
+    <line x1="820" y1="200" x2="830" y2="220"/>
+    <line x1="830" y1="200" x2="840" y2="220"/>
+    <line x1="840" y1="200" x2="850" y2="220"/>
+    <line x1="950" y1="200" x2="960" y2="220"/>
+    <line x1="960" y1="200" x2="970" y2="220"/>
+    <line x1="970" y1="200" x2="980" y2="220"/>
+  </g>
+
+  <!-- Vulnerability indicator - central eye -->
+  <circle cx="900" cy="320" r="20" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+  <circle cx="900" cy="320" r="14" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.4"/>
+  <circle cx="900" cy="320" r="8" fill="#ff6b6b" opacity="0.4"/>
 </svg>

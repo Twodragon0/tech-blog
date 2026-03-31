@@ -1,0 +1,186 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient defs -->
+  <defs>
+    <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="grad-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff9d;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00cc66;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+
+  <!-- LEFT SIDE: TEXT CONTENT -->
+
+  <!-- Title -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Cloud Security
+  </text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Integration Security
+  </text>
+
+  <!-- Date badge -->
+  <rect x="80" y="290" width="280" height="50" rx="8" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2"/>
+  <text x="100" y="322" font-family="Arial, sans-serif" font-size="16" fill="#00d4ff" font-weight="500">
+    DECEMBER 19, 2025 • WEEK 4
+  </text>
+
+  <!-- Tag pills -->
+  <g id="tags">
+    <rect x="80" y="420" width="140" height="40" rx="20" fill="#1a3a2a" stroke="#00ff9d" stroke-width="1.5"/>
+    <text x="100" y="445" font-family="Arial, sans-serif" font-size="14" fill="#00ff9d" font-weight="500">
+      Integration
+    </text>
+
+    <rect x="240" y="420" width="120" height="40" rx="20" fill="#2a1a3a" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="265" y="445" font-family="Arial, sans-serif" font-size="14" fill="#a855f7" font-weight="500">
+      Security
+    </text>
+
+    <rect x="380" y="420" width="120" height="40" rx="20" fill="#1a2a3a" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="405" y="445" font-family="Arial, sans-serif" font-size="14" fill="#00d4ff" font-weight="500">
+      DevSecOps
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="595" font-family="Arial, sans-serif" font-size="14" fill="#666" font-weight="400">
+    tech.2twodragon.com
+  </text>
+
+  <!-- RIGHT SIDE: ILLUSTRATION -->
+
+  <!-- Background accent shape -->
+  <circle cx="900" cy="150" r="200" fill="#1a3a4a" opacity="0.3"/>
+  <circle cx="950" cy="400" r="180" fill="#2a1a3a" opacity="0.2"/>
+
+  <!-- Cloud infrastructure base -->
+  <g id="cloud-infrastructure">
+    <!-- Cloud 1 -->
+    <path d="M 750 250 Q 720 200 800 180 Q 850 170 880 210 Q 900 150 950 180 Q 1000 150 1010 210 L 1010 280 Q 950 300 880 290 Q 800 310 750 280 Z"
+          fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+
+    <!-- Cloud 2 -->
+    <path d="M 730 380 Q 710 350 770 330 Q 810 320 840 350 Q 860 300 900 330 Q 940 300 950 350 L 950 420 Q 890 435 840 425 Q 770 440 730 410 Z"
+          fill="none" stroke="#00ff9d" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Integration pipeline stages -->
+  <g id="pipeline">
+    <!-- Stage 1: Code -->
+    <circle cx="750" cy="320" r="35" fill="none" stroke="#00d4ff" stroke-width="2.5"/>
+    <circle cx="750" cy="320" r="28" fill="#0a2a3a" opacity="0.6"/>
+    <text x="740" y="330" font-family="Arial, sans-serif" font-size="20" fill="#00d4ff" font-weight="bold" text-anchor="middle">
+      ⟨⟩
+    </text>
+    <text x="750" y="370" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">
+      CODE
+    </text>
+
+    <!-- Arrow 1 -->
+    <path d="M 790 320 L 820 320" stroke="#00ff9d" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-green)"/>
+    <defs>
+      <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#00ff9d"/>
+      </marker>
+    </defs>
+
+    <!-- Stage 2: Security Check -->
+    <circle cx="850" cy="320" r="35" fill="none" stroke="#00ff9d" stroke-width="2.5"/>
+    <circle cx="850" cy="320" r="28" fill="#0a3a1a" opacity="0.6"/>
+    <text x="845" y="330" font-family="Arial, sans-serif" font-size="22" fill="#00ff9d" font-weight="bold" text-anchor="middle">
+      ✓
+    </text>
+    <text x="850" y="370" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">
+      SCAN
+    </text>
+
+    <!-- Arrow 2 -->
+    <path d="M 890 320 L 920 320" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-purple)"/>
+    <defs>
+      <marker id="arrowhead-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#a855f7"/>
+      </marker>
+    </defs>
+
+    <!-- Stage 3: Deploy -->
+    <circle cx="950" cy="320" r="35" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <circle cx="950" cy="320" r="28" fill="#2a0a3a" opacity="0.6"/>
+    <text x="945" y="330" font-family="Arial, sans-serif" font-size="22" fill="#a855f7" font-weight="bold" text-anchor="middle">
+      ↗
+    </text>
+    <text x="950" y="370" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">
+      BUILD
+    </text>
+  </g>
+
+  <!-- Security gates/shields -->
+  <g id="security-gates">
+    <!-- Gate 1: SAST -->
+    <rect x="730" y="120" width="60" height="60" rx="6" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+    <text x="760" y="145" font-family="Arial, sans-serif" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="bold">
+      SAST
+    </text>
+    <text x="760" y="158" font-family="Arial, sans-serif" font-size="8" fill="#666" text-anchor="middle">
+      Analysis
+    </text>
+
+    <!-- Gate 2: Dependency Check -->
+    <rect x="840" y="120" width="60" height="60" rx="6" fill="none" stroke="#00ff9d" stroke-width="1.5" opacity="0.7"/>
+    <text x="870" y="145" font-family="Arial, sans-serif" font-size="10" fill="#00ff9d" text-anchor="middle" font-weight="bold">
+      DEPS
+    </text>
+    <text x="870" y="158" font-family="Arial, sans-serif" font-size="8" fill="#666" text-anchor="middle">
+      Check
+    </text>
+
+    <!-- Gate 3: Container -->
+    <rect x="950" y="120" width="60" height="60" rx="6" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.7"/>
+    <text x="980" y="145" font-family="Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="bold">
+      IMG
+    </text>
+    <text x="980" y="158" font-family="Arial, sans-serif" font-size="8" fill="#666" text-anchor="middle">
+      Scan
+    </text>
+  </g>
+
+  <!-- Runtime security monitoring -->
+  <g id="monitoring">
+    <!-- Monitoring base -->
+    <rect x="730" y="450" width="280" height="100" rx="8" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+
+    <!-- Monitoring points -->
+    <circle cx="780" cy="480" r="6" fill="#00ff9d" opacity="0.8"/>
+    <circle cx="850" cy="490" r="6" fill="#00ff9d" opacity="0.7"/>
+    <circle cx="920" cy="485" r="6" fill="#00ff9d" opacity="0.8"/>
+    <circle cx="980" cy="495" r="6" fill="#00ff9d" opacity="0.7"/>
+
+    <!-- Connection lines -->
+    <line x1="780" y1="480" x2="850" y2="490" stroke="#00ff9d" stroke-width="1" opacity="0.4"/>
+    <line x1="850" y1="490" x2="920" y2="485" stroke="#00ff9d" stroke-width="1" opacity="0.4"/>
+    <line x1="920" y1="485" x2="980" y2="495" stroke="#00ff9d" stroke-width="1" opacity="0.4"/>
+
+    <!-- Labels -->
+    <text x="820" y="535" font-family="Arial, sans-serif" font-size="11" fill="#00ff9d" font-weight="500">
+      Runtime Protection
+    </text>
+  </g>
+
+  <!-- Vertical integration flow accent -->
+  <line x1="900" y1="190" x2="900" y2="470" stroke="#a855f7" stroke-width="1.5" opacity="0.3" stroke-dasharray="5,5"/>
+
+  <!-- Accent circles for depth -->
+  <circle cx="1050" cy="250" r="3" fill="#00ff9d" opacity="0.5"/>
+  <circle cx="1070" cy="290" r="3" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="1055" cy="350" r="3" fill="#a855f7" opacity="0.5"/>
+  <circle cx="1080" cy="400" r="3" fill="#00ff9d" opacity="0.4"/>
+</svg>

@@ -1,136 +1,168 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient Overlay -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#ef4444"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#7f1d1d;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:0.6"/>
-    </linearGradient>
-    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#78350f;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#92400e;stop-opacity:0.6"/>
-    </linearGradient>
-    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.6"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
     </linearGradient>
   </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- Right Side Illustration (x=700-1150) -->
+  <!-- Kubernetes Cluster Container -->
+  <g id="k8s-cluster">
+    <!-- Outer Ring (Kubernetes) -->
+    <circle cx="950" cy="280" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+    <circle cx="950" cy="280" r="145" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
 
-  <!-- Grid horizontal lines -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <!-- Central Control Plane -->
+    <rect x="915" y="245" width="70" height="70" fill="#00d4ff" opacity="0.2" rx="8"/>
+    <rect x="915" y="245" width="70" height="70" fill="none" stroke="#00d4ff" stroke-width="2" rx="8"/>
+    <text x="950" y="290" font-family="monospace" font-size="24" fill="#00d4ff" text-anchor="middle" font-weight="bold">K8s</text>
 
-  <!-- Grid vertical lines -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <!-- Worker Nodes (3 containers) -->
+    <!-- Node 1 (Top Left) -->
+    <g id="node1">
+      <circle cx="820" cy="180" r="35" fill="#ff6b6b" opacity="0.15"/>
+      <circle cx="820" cy="180" r="35" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+      <rect x="805" y="165" width="30" height="30" fill="#ff6b6b" opacity="0.2" rx="4"/>
+      <rect x="805" y="165" width="30" height="30" fill="none" stroke="#ff6b6b" stroke-width="1.5" rx="4"/>
+    </g>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Kubernetes + CI/CD + Cloud Security -->
-  <!-- Outer ring - cluster boundary -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(59,130,246,0.25)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="95" fill="rgba(59,130,246,0.04)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
+    <!-- Node 2 (Bottom Left) -->
+    <g id="node2">
+      <circle cx="820" cy="380" r="35" fill="#4ecdc4" opacity="0.15"/>
+      <circle cx="820" cy="380" r="35" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+      <rect x="805" y="365" width="30" height="30" fill="#4ecdc4" opacity="0.2" rx="4"/>
+      <rect x="805" y="365" width="30" height="30" fill="none" stroke="#4ecdc4" stroke-width="1.5" rx="4"/>
+    </g>
 
-  <!-- Kubernetes hexagon (center) -->
-  <polygon points="1010,160 1058,187 1058,243 1010,270 962,243 962,187" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-  <!-- K8s spokes -->
-  <line x1="1010" y1="160" x2="1010" y2="140" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <line x1="1058" y1="187" x2="1075" y2="177" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <line x1="1058" y1="243" x2="1075" y2="253" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <line x1="1010" y1="270" x2="1010" y2="290" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <line x1="962" y1="243" x2="945" y2="253" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <line x1="962" y1="187" x2="945" y2="177" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <!-- K8s center dot -->
-  <circle cx="1010" cy="215" r="22" fill="rgba(59,130,246,0.12)" stroke="rgba(99,179,237,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="215" r="10" fill="rgba(59,130,246,0.2)" stroke="rgba(147,210,255,0.5)" stroke-width="1"/>
+    <!-- Node 3 (Right) -->
+    <g id="node3">
+      <circle cx="1080" cy="280" r="35" fill="#ffd93d" opacity="0.15"/>
+      <circle cx="1080" cy="280" r="35" fill="none" stroke="#ffd93d" stroke-width="2"/>
+      <rect x="1065" y="265" width="30" height="30" fill="#ffd93d" opacity="0.2" rx="4"/>
+      <rect x="1065" y="265" width="30" height="30" fill="none" stroke="#ffd93d" stroke-width="1.5" rx="4"/>
+    </g>
 
-  <!-- Pod nodes around the hexagon -->
-  <circle cx="1010" cy="135" r="9" fill="rgba(99,179,237,0.15)" stroke="rgba(99,179,237,0.45)" stroke-width="1.2"/>
-  <circle cx="1080" cy="172" r="9" fill="rgba(99,179,237,0.15)" stroke="rgba(99,179,237,0.45)" stroke-width="1.2"/>
-  <circle cx="1080" cy="258" r="9" fill="rgba(139,92,246,0.15)" stroke="rgba(167,139,250,0.45)" stroke-width="1.2"/>
-  <circle cx="1010" cy="295" r="9" fill="rgba(139,92,246,0.15)" stroke="rgba(167,139,250,0.45)" stroke-width="1.2"/>
-  <circle cx="940" cy="258" r="9" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.45)" stroke-width="1.2"/>
-  <circle cx="940" cy="172" r="9" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.45)" stroke-width="1.2"/>
+    <!-- Connection Lines -->
+    <line x1="880" y1="200" x2="920" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <line x1="880" y1="360" x2="920" y2="300" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <line x1="1045" y1="280" x2="985" y2="280" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+  </g>
 
-  <!-- CI/CD pipeline arrow flow (top-right area) -->
-  <rect x="880" y="130" width="42" height="24" rx="4" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
-  <text x="901" y="146" font-size="8" fill="rgba(52,211,153,0.7)" text-anchor="middle" font-family="monospace">CI</text>
-  <line x1="922" y1="142" x2="938" y2="142" stroke="rgba(52,211,153,0.35)" stroke-width="1.2" marker-end="url(#arrowGreen)"/>
-  <rect x="939" y="130" width="42" height="24" rx="4" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
-  <text x="960" y="146" font-size="8" fill="rgba(167,139,250,0.7)" text-anchor="middle" font-family="monospace">CD</text>
+  <!-- CI/CD Pipeline (Left of K8s) -->
+  <g id="cicd-pipeline">
+    <!-- Pipeline stages -->
+    <g id="stage1">
+      <rect x="710" y="150" width="50" height="50" fill="#6366f1" opacity="0.3" rx="6"/>
+      <rect x="710" y="150" width="50" height="50" fill="none" stroke="#6366f1" stroke-width="2" rx="6"/>
+      <text x="735" y="182" font-family="monospace" font-size="11" fill="#6366f1" text-anchor="middle" font-weight="bold">BUILD</text>
+    </g>
 
-  <!-- Shield icon for security (lower right) -->
-  <path d="M1080,310 L1100,318 L1100,338 Q1100,350 1080,358 Q1060,350 1060,338 L1060,318 Z" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1.2"/>
-  <path d="M1073,335 L1078,340 L1088,328" fill="none" stroke="rgba(239,68,68,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Arrow 1 -->
+    <path d="M 770 175 L 795 175" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.6"/>
+    <polygon points="795,175 785,170 785,180" fill="#6366f1" opacity="0.6"/>
 
-  <!-- Cloud shape (background) -->
-  <circle cx="888" cy="305" r="20" fill="rgba(99,179,237,0.06)" stroke="rgba(99,179,237,0.2)" stroke-width="1"/>
-  <circle cx="905" cy="298" r="25" fill="rgba(99,179,237,0.06)" stroke="rgba(99,179,237,0.2)" stroke-width="1"/>
-  <circle cx="925" cy="305" r="20" fill="rgba(99,179,237,0.06)" stroke="rgba(99,179,237,0.2)" stroke-width="1"/>
-  <rect x="880" y="305" width="60" height="20" rx="0" fill="rgba(99,179,237,0.06)"/>
-  <!-- Lock on cloud -->
-  <rect x="904" y="306" width="10" height="8" rx="1" fill="none" stroke="rgba(99,179,237,0.4)" stroke-width="1"/>
-  <path d="M906,306 Q906,302 909,302 Q912,302 912,306" fill="none" stroke="rgba(99,179,237,0.4)" stroke-width="1"/>
-  <circle cx="909" cy="310" r="1.5" fill="rgba(99,179,237,0.5)"/>
+    <g id="stage2">
+      <rect x="800" y="150" width="50" height="50" fill="#8b5cf6" opacity="0.3" rx="6"/>
+      <rect x="800" y="150" width="50" height="50" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6"/>
+      <text x="825" y="182" font-family="monospace" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">TEST</text>
+    </g>
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(251,191,36,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(52,211,153,0.7)"/>
+    <!-- Arrow 2 -->
+    <path d="M 860 175 L 885 175" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.6"/>
+    <polygon points="885,175 875,170 875,180" fill="#8b5cf6" opacity="0.6"/>
 
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+    <g id="stage3">
+      <rect x="890" y="150" width="50" height="50" fill="#ec4899" opacity="0.3" rx="6"/>
+      <rect x="890" y="150" width="50" height="50" fill="none" stroke="#ec4899" stroke-width="2" rx="6"/>
+      <text x="915" y="182" font-family="monospace" font-size="11" fill="#ec4899" text-anchor="middle" font-weight="bold">DEPLOY</text>
+    </g>
+  </g>
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <!-- Security Shields -->
+  <g id="security-shields">
+    <!-- Shield 1 (Network Security) -->
+    <g id="shield1" transform="translate(750, 380)">
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
+      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#10b981" text-anchor="middle" font-weight="bold">NET</text>
+    </g>
 
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-size="13" fill="rgba(147,210,255,0.9)" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="1">JUNE 6, 2025</text>
+    <!-- Shield 2 (Image Security) -->
+    <g id="shield2" transform="translate(900, 420)">
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold">IMG</text>
+    </g>
 
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.5">Cloud Security Course 7Batch</text>
+    <!-- Shield 3 (Pod Security) -->
+    <g id="shield3" transform="translate(1050, 380)">
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="2"/>
+      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">POD</text>
+    </g>
+  </g>
 
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.5">8Week CI/CD And Kubernetes</text>
+  <!-- Locks -->
+  <g id="security-locks">
+    <!-- Lock 1 -->
+    <g transform="translate(730, 280)">
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
+      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#00d4ff" stroke-width="1.5" rx="2"/>
+      <circle cx="0" cy="5" r="2" fill="#00d4ff"/>
+    </g>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(148,163,184,0.85)" font-family="'Segoe UI', Arial, sans-serif">Kubernetes Cluster Deployment · CI/CD Pipeline · Cloud Security</text>
+    <!-- Lock 2 -->
+    <g transform="translate(1120, 320)">
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#10b981" stroke-width="1.5" rx="2"/>
+      <circle cx="0" cy="5" r="2" fill="#10b981"/>
+    </g>
+  </g>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+  <!-- Left Side Content -->
+  <!-- Title -->
+  <text x="60" y="185" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Cloud Security</text>
+  <text x="60" y="245" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Course 8Week CI/CD</text>
 
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(99,179,237,0.7)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="2" font-weight="600">KUBERNETES · DEVSECOPS · CI/CD</text>
+  <!-- Date Badge -->
+  <g id="date-badge">
+    <rect x="60" y="275" width="220" height="45" fill="#00d4ff" opacity="0.15" rx="25"/>
+    <rect x="60" y="275" width="220" height="45" fill="none" stroke="#00d4ff" stroke-width="2" rx="25"/>
+    <circle cx="85" cy="297.5" r="6" fill="#00d4ff"/>
+    <text x="100" y="305" font-family="monospace" font-size="16" font-weight="600" fill="#00d4ff">JUNE 6, 2025</text>
+  </g>
 
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="url(#tagRed)" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
-  <text x="145" y="425" font-size="13" fill="rgba(252,165,165,0.95)" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="600">Kubernetes</text>
+  <!-- Tag Pills -->
+  <!-- Tag 1 -->
+  <g id="tag1">
+    <rect x="60" y="420" width="110" height="35" fill="#6366f1" opacity="0.2" rx="18"/>
+    <rect x="60" y="420" width="110" height="35" fill="none" stroke="#6366f1" stroke-width="1.5" rx="18"/>
+    <text x="115" y="443" font-family="sans-serif" font-size="13" fill="#6366f1" text-anchor="middle" font-weight="600">Kubernetes</text>
+  </g>
 
-  <rect x="224" y="402" width="110" height="36" rx="18" fill="url(#tagAmber)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
-  <text x="279" y="425" font-size="13" fill="rgba(253,230,138,0.95)" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="600">CI / CD</text>
+  <!-- Tag 2 -->
+  <g id="tag2">
+    <rect x="185" y="420" width="95" height="35" fill="#8b5cf6" opacity="0.2" rx="18"/>
+    <rect x="185" y="420" width="95" height="35" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="18"/>
+    <text x="232.5" y="443" font-family="sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="600">CI/CD</text>
+  </g>
 
-  <rect x="348" y="402" width="130" height="36" rx="18" fill="url(#tagBlue)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
-  <text x="413" y="425" font-size="13" fill="rgba(147,210,255,0.95)" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="600">Cloud Security</text>
+  <!-- Tag 3 -->
+  <g id="tag3">
+    <rect x="300" y="420" width="110" height="35" fill="#ec4899" opacity="0.2" rx="18"/>
+    <rect x="300" y="420" width="110" height="35" fill="none" stroke="#ec4899" stroke-width="1.5" rx="18"/>
+    <text x="355" y="443" font-family="sans-serif" font-size="13" fill="#ec4899" text-anchor="middle" font-weight="600">Security</text>
+  </g>
 
   <!-- Footer -->
-  <text x="80" y="545" font-size="14" fill="rgba(148,163,184,0.5)" font-family="'Segoe UI', Arial, sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="14" fill="rgba(148,163,184,0.5)" font-family="'Segoe UI', Arial, sans-serif" text-anchor="end">kubernetes</text>
+  <text x="60" y="595" font-family="monospace" font-size="12" fill="#ffffff" opacity="0.7">tech.2twodragon.com</text>
+
+  <!-- Decorative Elements -->
+  <!-- Subtle dots -->
+  <circle cx="400" cy="100" r="2" fill="#00d4ff" opacity="0.3"/>
+  <circle cx="500" cy="500" r="2" fill="#6366f1" opacity="0.3"/>
+  <circle cx="150" cy="500" r="2" fill="#8b5cf6" opacity="0.3"/>
 </svg>

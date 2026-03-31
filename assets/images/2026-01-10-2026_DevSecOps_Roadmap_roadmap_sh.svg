@@ -1,0 +1,187 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1d2e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="secGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d60084;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Left Section: Text Content -->
+  <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">
+    2026 DevSecOps
+  </text>
+  <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">
+    Roadmap roadmap.sh
+  </text>
+
+  <!-- Date Badge -->
+  <rect x="60" y="280" width="280" height="48" rx="24" fill="rgba(0, 212, 255, 0.15)" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="170" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    JANUARY 10, 2026
+  </text>
+
+  <!-- Tags -->
+  <rect x="60" y="420" width="110" height="36" rx="18" fill="rgba(0, 212, 255, 0.2)" stroke="#00d4ff" stroke-width="1"/>
+  <text x="115" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    DevSecOps
+  </text>
+
+  <rect x="190" y="420" width="90" height="36" rx="18" fill="rgba(255, 0, 110, 0.2)" stroke="#ff006e" stroke-width="1"/>
+  <text x="235" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ff006e" text-anchor="middle">
+    Security
+  </text>
+
+  <rect x="310" y="420" width="80" height="36" rx="18" fill="rgba(0, 255, 150, 0.2)" stroke="#00ff96" stroke-width="1"/>
+  <text x="350" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00ff96" text-anchor="middle">
+    Roadmap
+  </text>
+
+  <!-- Footer -->
+  <text x="60" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="rgba(255, 255, 255, 0.5)">
+    tech.2twodragon.com
+  </text>
+
+  <!-- Right Section: Illustration -->
+
+  <!-- Roadmap Path - curved path representing journey -->
+  <path d="M 750 120 Q 850 150 900 200 T 950 280 T 920 380 T 880 450" stroke="url(#roadGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Milestone circles along the path -->
+  <!-- M1: Foundation -->
+  <circle cx="750" cy="120" r="24" fill="rgba(0, 212, 255, 0.1)" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="750" cy="120" r="12" fill="#00d4ff"/>
+  <text x="750" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    Foundation
+  </text>
+
+  <!-- M2: CI/CD -->
+  <circle cx="900" cy="200" r="24" fill="rgba(0, 212, 255, 0.1)" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="900" cy="200" r="12" fill="#00d4ff"/>
+  <text x="900" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    CI/CD Pipeline
+  </text>
+
+  <!-- M3: Security -->
+  <circle cx="950" cy="300" r="24" fill="rgba(255, 0, 110, 0.1)" stroke="#ff006e" stroke-width="2"/>
+  <circle cx="950" cy="300" r="12" fill="#ff006e"/>
+  <text x="950" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#ff006e" text-anchor="middle">
+    Security First
+  </text>
+
+  <!-- M4: Governance -->
+  <circle cx="880" cy="450" r="24" fill="rgba(0, 255, 150, 0.1)" stroke="#00ff96" stroke-width="2"/>
+  <circle cx="880" cy="450" r="12" fill="#00ff96"/>
+  <text x="880" y="495" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00ff96" text-anchor="middle">
+    Governance
+  </text>
+
+  <!-- DevSecOps Triangle Concept -->
+  <!-- Development -->
+  <circle cx="770" cy="330" r="32" fill="rgba(0, 212, 255, 0.08)" stroke="rgba(0, 212, 255, 0.3)" stroke-width="1.5"/>
+  <text x="770" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#00d4ff" text-anchor="middle">
+    Dev
+  </text>
+  <text x="770" y="342" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="rgba(0, 212, 255, 0.7)" text-anchor="middle">
+    Agile
+  </text>
+
+  <!-- Security -->
+  <circle cx="740" cy="420" r="32" fill="rgba(255, 0, 110, 0.08)" stroke="rgba(255, 0, 110, 0.3)" stroke-width="1.5"/>
+  <text x="740" y="415" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ff006e" text-anchor="middle">
+    Sec
+  </text>
+  <text x="740" y="432" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="rgba(255, 0, 110, 0.7)" text-anchor="middle">
+    Testing
+  </text>
+
+  <!-- Operations -->
+  <circle cx="800" cy="420" r="32" fill="rgba(0, 255, 150, 0.08)" stroke="rgba(0, 255, 150, 0.3)" stroke-width="1.5"/>
+  <text x="800" y="415" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#00ff96" text-anchor="middle">
+    Ops
+  </text>
+  <text x="800" y="432" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="rgba(0, 255, 150, 0.7)" text-anchor="middle">
+    Monitor
+  </text>
+
+  <!-- Connecting lines for triangle -->
+  <line x1="770" y1="362" x2="755" y2="395" stroke="rgba(0, 212, 255, 0.2)" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="770" y1="362" x2="785" y2="395" stroke="rgba(0, 255, 150, 0.2)" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="755" y1="395" x2="785" y2="395" stroke="rgba(255, 0, 110, 0.2)" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- Cloud Infrastructure Icons -->
+  <!-- Container/Kubernetes representation -->
+  <rect x="1020" y="120" width="50" height="50" rx="4" fill="rgba(0, 212, 255, 0.1)" stroke="#00d4ff" stroke-width="1.5"/>
+  <rect x="1030" y="130" width="12" height="12" fill="#00d4ff" opacity="0.6"/>
+  <rect x="1045" y="130" width="12" height="12" fill="#00d4ff" opacity="0.8"/>
+  <rect x="1030" y="145" width="12" height="12" fill="#00d4ff" opacity="0.8"/>
+  <rect x="1045" y="145" width="12" height="12" fill="#00d4ff" opacity="0.6"/>
+  <text x="1045" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    K8s
+  </text>
+
+  <!-- Security scanning -->
+  <g transform="translate(1080, 120)">
+    <rect width="50" height="50" rx="4" fill="rgba(255, 0, 110, 0.1)" stroke="#ff006e" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="16" fill="none" stroke="#ff006e" stroke-width="2"/>
+    <line x1="18" y1="25" x2="32" y2="25" stroke="#ff006e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="25" y1="18" x2="25" y2="32" stroke="#ff006e" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="1105" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#ff006e" text-anchor="middle">
+    Scan
+  </text>
+
+  <!-- Cloud deployment -->
+  <g transform="translate(1020, 250)">
+    <rect width="50" height="50" rx="4" fill="rgba(0, 255, 150, 0.1)" stroke="#00ff96" stroke-width="1.5"/>
+    <path d="M 25 15 Q 15 22 15 30 Q 15 35 25 40 Q 35 35 35 30 Q 35 22 25 15 Z" fill="#00ff96" opacity="0.8"/>
+    <circle cx="25" cy="30" r="4" fill="rgba(10, 12, 26, 1)"/>
+  </g>
+  <text x="1045" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00ff96" text-anchor="middle">
+    Cloud
+  </text>
+
+  <!-- Compliance/Policy -->
+  <g transform="translate(1080, 250)">
+    <rect width="50" height="50" rx="4" fill="rgba(0, 212, 255, 0.1)" stroke="#00d4ff" stroke-width="1.5"/>
+    <rect x="13" y="13" width="24" height="32" fill="none" stroke="#00d4ff" stroke-width="2" rx="2"/>
+    <line x1="16" y1="19" x2="32" y2="19" stroke="#00d4ff" stroke-width="1.5"/>
+    <line x1="16" y1="24" x2="32" y2="24" stroke="#00d4ff" stroke-width="1.5"/>
+    <line x1="16" y1="29" x2="26" y2="29" stroke="#00d4ff" stroke-width="1.5"/>
+  </g>
+  <text x="1105" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00d4ff" text-anchor="middle">
+    Policy
+  </text>
+
+  <!-- Tech stack dots -->
+  <circle cx="1020" cy="380" r="5" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="1035" cy="380" r="5" fill="#ff006e" opacity="0.8"/>
+  <circle cx="1050" cy="380" r="5" fill="#00ff96" opacity="0.8"/>
+  <circle cx="1065" cy="380" r="5" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="1080" cy="380" r="5" fill="#ff006e" opacity="0.6"/>
+  <circle cx="1095" cy="380" r="5" fill="#00ff96" opacity="0.6"/>
+
+  <!-- Decorative accent lines -->
+  <line x1="700" y1="80" x2="1140" y2="80" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/>
+  <line x1="700" y1="540" x2="1140" y2="540" stroke="rgba(255, 0, 110, 0.1)" stroke-width="1"/>
+</svg>

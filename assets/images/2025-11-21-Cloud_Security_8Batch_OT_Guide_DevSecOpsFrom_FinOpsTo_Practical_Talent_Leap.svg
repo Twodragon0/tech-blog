@@ -1,148 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left side: Content area (0-650px) -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="50%" style="stop-color:#f6ad55"/>
-      <stop offset="100%" style="stop-color:#4299e1"/>
-    </linearGradient>
-    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#c53030;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#9b2c2c;stop-opacity:0.85"/>
-    </linearGradient>
-    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#b7791f;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#975a16;stop-opacity:0.85"/>
-    </linearGradient>
-    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2b6cb0;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:0.85"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="60%" style="stop-color:#f6ad55"/>
-      <stop offset="100%" style="stop-color:transparent"/>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Cloud Security + DevSecOps + FinOps + Talent Leap -->
-  <!-- Central cloud shape -->
-  <ellipse cx="1010" cy="210" rx="90" ry="55" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.30)" stroke-width="1.5"/>
-  <ellipse cx="960" cy="230" rx="55" ry="38" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.22)" stroke-width="1"/>
-  <ellipse cx="1060" cy="228" rx="55" ry="38" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.22)" stroke-width="1"/>
-  <rect x="920" y="230" width="180" height="45" rx="4" fill="rgba(66,153,225,0.07)" stroke="none"/>
-
-  <!-- Shield overlay (security) -->
-  <polygon points="1010,148 1055,168 1055,205 1010,230 965,205 965,168" fill="rgba(229,62,62,0.09)" stroke="rgba(229,62,62,0.32)" stroke-width="1.5"/>
-  <polygon points="1010,160 1047,177 1047,208 1010,228 973,208 973,177" fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.20)" stroke-width="1"/>
-  <!-- Checkmark inside shield -->
-  <polyline points="994,193 1006,207 1030,178" fill="none" stroke="rgba(229,62,62,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- FinOps: coin/dollar ring -->
-  <circle cx="1010" cy="188" r="16" fill="none" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="188" r="10" fill="rgba(246,173,85,0.10)" stroke="rgba(246,173,85,0.25)" stroke-width="1"/>
-  <text x="1010" y="193" font-family="monospace" font-size="11" fill="rgba(246,173,85,0.55)" text-anchor="middle" font-weight="bold">$</text>
-
-  <!-- DevSecOps: gear rings -->
-  <circle cx="890" cy="170" r="32" fill="none" stroke="rgba(154,230,180,0.18)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="890" cy="170" r="22" fill="rgba(154,230,180,0.07)" stroke="rgba(154,230,180,0.25)" stroke-width="1"/>
-  <!-- Gear teeth simplified -->
-  <rect x="886" y="136" width="8" height="10" rx="2" fill="rgba(154,230,180,0.20)"/>
-  <rect x="886" y="194" width="8" height="10" rx="2" fill="rgba(154,230,180,0.20)"/>
-  <rect x="856" y="166" width="10" height="8" rx="2" fill="rgba(154,230,180,0.20)"/>
-  <rect x="914" y="166" width="10" height="8" rx="2" fill="rgba(154,230,180,0.20)"/>
-  <circle cx="890" cy="170" r="10" fill="rgba(154,230,180,0.12)" stroke="rgba(154,230,180,0.30)" stroke-width="1"/>
-
-  <!-- Talent Leap: upward arrow / person silhouette -->
-  <circle cx="1100" cy="170" r="14" fill="rgba(160,118,249,0.12)" stroke="rgba(160,118,249,0.32)" stroke-width="1.5"/>
-  <!-- Arrow up -->
-  <line x1="1100" y1="185" x2="1100" y2="158" stroke="rgba(160,118,249,0.55)" stroke-width="2.5" stroke-linecap="round"/>
-  <polyline points="1092,166 1100,155 1108,166" fill="none" stroke="rgba(160,118,249,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Leap trajectory arc -->
-  <path d="M1078,220 Q1100,185 1122,220" fill="none" stroke="rgba(160,118,249,0.28)" stroke-width="1.5" stroke-dasharray="5 3"/>
-
-  <!-- OT/ICS honeycomb hexagons -->
-  <polygon points="950,290 970,278 990,290 990,314 970,326 950,314" fill="rgba(246,173,85,0.07)" stroke="rgba(246,173,85,0.28)" stroke-width="1.2"/>
-  <polygon points="988,290 1008,278 1028,290 1028,314 1008,326 988,314" fill="rgba(246,173,85,0.06)" stroke="rgba(246,173,85,0.22)" stroke-width="1"/>
-  <polygon points="1026,290 1046,278 1066,290 1066,314 1046,326 1026,314" fill="rgba(246,173,85,0.05)" stroke="rgba(246,173,85,0.18)" stroke-width="1"/>
-  <!-- OT label inside hex -->
-  <text x="969" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.60)" text-anchor="middle" font-weight="bold">OT</text>
-  <text x="1007" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.50)" text-anchor="middle">ICS</text>
-  <text x="1045" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.40)" text-anchor="middle">SCA</text>
-
-  <!-- Connecting lines between elements -->
-  <line x1="912" y1="170" x2="963" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="1057" y1="170" x2="1086" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="970" y1="278" x2="970" y2="248" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="1010" y1="278" x2="1010" y2="248" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
-
-  <!-- Outer decorative ring -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(66,153,225,0.08)" stroke-width="1" stroke-dasharray="6 4"/>
-  <circle cx="1010" cy="225" r="135" fill="none" stroke="rgba(229,62,62,0.06)" stroke-width="1" stroke-dasharray="3 6"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.75)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(246,173,85,0.70)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(66,153,225,0.65)"/>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.030)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+  
+  <!-- Title Line 1 -->
+  <text x="40" y="185" font-size="46" font-weight="700" font-family="Inter, sans-serif" fill="url(#titleGrad)" letter-spacing="-0.5">
+    Cloud Security
+  </text>
+  
+  <!-- Title Line 2 -->
+  <text x="40" y="245" font-size="46" font-weight="700" font-family="Inter, sans-serif" fill="url(#titleGrad)" letter-spacing="-0.5">
+    8Batch DevSecOps
+  </text>
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Courier New',monospace" font-size="12" fill="rgba(255,200,180,0.90)" text-anchor="middle" letter-spacing="1">NOVEMBER 21, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial Black','Arial',sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Cloud Security 8Batch OT</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial Black','Arial',sans-serif" font-size="40" font-weight="700" fill="rgba(255,255,255,0.92)" letter-spacing="-0.5">DevSecOps → FinOps → Talent Leap</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,190,150,0.80)">Cloud Security Curriculum · Batch 8 · Operational Technology + Growth</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New',monospace" font-size="14" fill="rgba(229,62,62,0.80)" letter-spacing="2">DEVSECOPS / CLOUD SECURITY / FINOPS</text>
-
+  <rect x="40" y="280" width="280" height="38" rx="19" fill="rgba(14, 165, 233, 0.15)" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="305" font-size="13" font-weight="600" font-family="Inter, sans-serif" fill="#0ea5e9">
+    NOVEMBER 21, 2025
+  </text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="url(#tagRed)"/>
-  <text x="140" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,230,220,0.95)" text-anchor="middle" font-weight="600">DevSecOps</text>
-
-  <rect x="214" y="402" width="100" height="36" rx="18" fill="url(#tagAmber)"/>
-  <text x="264" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,240,200,0.95)" text-anchor="middle" font-weight="600">FinOps</text>
-
-  <rect x="328" y="402" width="130" height="36" rx="18" fill="url(#tagBlue)"/>
-  <text x="393" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(200,225,255,0.95)" text-anchor="middle" font-weight="600">OT Security</text>
-
+  <g id="tags">
+    <!-- Tag 1: devsecops -->
+    <rect x="40" y="420" width="110" height="32" rx="16" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d4" stroke-width="1"/>
+    <text x="60" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#06b6d4">devsecops</text>
+    
+    <!-- Tag 2: cloud-security -->
+    <rect x="170" y="420" width="130" height="32" rx="16" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="1"/>
+    <text x="190" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#22c55e">cloud-security</text>
+    
+    <!-- Tag 3: finops -->
+    <rect x="320" y="420" width="95" height="32" rx="16" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1"/>
+    <text x="340" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#a855f7">finops</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New',monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(255,255,255,0.30)" text-anchor="end" letter-spacing="1">devsecops</text>
+  <text x="40" y="595" font-size="12" font-weight="500" font-family="Inter, sans-serif" fill="#666">
+    tech.2twodragon.com
+  </text>
+  
+  <!-- Right side: Illustration (700-1150px) -->
+  <g id="illustration">
+    <!-- Background accent layers -->
+    <circle cx="925" cy="280" r="220" fill="#0ea5e9" opacity="0.06"/>
+    <circle cx="925" cy="280" r="180" fill="#a855f7" opacity="0.04"/>
 
-  <!-- Subtle bottom gradient strip -->
-  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.25)"/>
+    <!-- Cloud Platform (top) -->
+    <g id="cloud-platform">
+      <!-- Main cloud shape with security gradient -->
+      <defs>
+        <radialGradient id="cloudGrad" cx="50%" cy="30%">
+          <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.4" />
+          <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.2" />
+        </radialGradient>
+      </defs>
+      <path d="M 780 140 Q 750 120 730 135 Q 700 110 680 130 Q 660 105 640 120 L 640 200 Q 670 230 730 230 L 1050 230 Q 1080 230 1100 210 L 1100 150 Q 1070 130 1040 145 Q 1010 120 990 135 Q 960 110 940 125 Q 910 100 880 115 Q 850 95 830 110 Z" fill="url(#cloudGrad)" stroke="#06b6d4" stroke-width="1.5" opacity="0.8"/>
+
+      <!-- Lock icon in cloud (security) -->
+      <rect x="850" y="155" width="28" height="32" rx="3" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.9"/>
+      <path d="M 854 165 Q 854 158 860 158 Q 866 158 866 165" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.9"/>
+      <circle cx="860" cy="175" r="2" fill="#22c55e" opacity="0.9"/>
+
+      <!-- Shield badge -->
+      <path d="M 1010 165 L 1030 160 L 1030 180 Q 1030 195 1010 200 Q 990 195 990 180 L 990 160 Z" fill="#f43f5e" opacity="0.7"/>
+    </g>
+
+    <!-- DevSecOps Cycle (middle) -->
+    <g id="devsecops-cycle">
+      <!-- Central hub -->
+      <circle cx="900" cy="310" r="45" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.5"/>
+      <circle cx="900" cy="310" r="30" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.3"/>
+      <text x="880" y="317" font-size="14" font-weight="700" font-family="Inter, sans-serif" fill="#0ea5e9" opacity="0.8">8B</text>
+
+      <!-- Dev segment -->
+      <circle cx="760" cy="280" r="28" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.8"/>
+      <text x="748" y="288" font-size="11" font-weight="600" font-family="Inter, sans-serif" fill="#0ea5e9">Dev</text>
+      <path d="M 780 295 L 855 305" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+      <!-- Security segment -->
+      <circle cx="790" cy="390" r="28" fill="none" stroke="#f43f5e" stroke-width="2" opacity="0.8"/>
+      <text x="775" y="398" font-size="11" font-weight="600" font-family="Inter, sans-serif" fill="#f43f5e">Sec</text>
+      <path d="M 820 370 L 870 330" stroke="#f43f5e" stroke-width="1.5" opacity="0.6"/>
+
+      <!-- Ops segment -->
+      <circle cx="1040" cy="280" r="28" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.8"/>
+      <text x="1030" y="288" font-size="11" font-weight="600" font-family="Inter, sans-serif" fill="#a855f7">Ops</text>
+      <path d="M 1015 300 L 945 310" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+    </g>
+
+    <!-- FinOps Stack (lower left) -->
+    <g id="finops-stack">
+      <!-- Coins/Cost layers -->
+      <ellipse cx="760" cy="450" rx="22" ry="10" fill="#fbbf24" opacity="0.3" stroke="#fbbf24" stroke-width="1"/>
+      <ellipse cx="760" cy="435" rx="22" ry="10" fill="#fbbf24" opacity="0.5" stroke="#fbbf24" stroke-width="1"/>
+      <ellipse cx="760" cy="420" rx="22" ry="10" fill="#fbbf24" opacity="0.7" stroke="#fbbf24" stroke-width="1"/>
+
+      <!-- Dollar sign -->
+      <text x="765" y="427" font-size="16" font-weight="700" font-family="Inter, sans-serif" fill="#fbbf24" opacity="0.8">$</text>
+
+      <!-- Label -->
+      <text x="810" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#fbbf24" opacity="0.9">FinOps</text>
+    </g>
+
+    <!-- Talent Pipeline (lower right) -->
+    <g id="talent-pipeline">
+      <!-- Team members -->
+      <g id="team1">
+        <circle cx="980" cy="435" r="8" fill="#22c55e" opacity="0.9"/>
+        <path d="M 972 450 L 988 450 L 988 460 L 972 460 Z" fill="#22c55e" opacity="0.9"/>
+      </g>
+
+      <g id="team2">
+        <circle cx="1020" cy="450" r="8" fill="#22c55e" opacity="0.7"/>
+        <path d="M 1012 465 L 1028 465 L 1028 475 L 1012 475 Z" fill="#22c55e" opacity="0.7"/>
+      </g>
+
+      <g id="team3">
+        <circle cx="1000" cy="480" r="8" fill="#22c55e" opacity="0.5"/>
+        <path d="M 992 495 L 1008 495 L 1008 505 L 992 505 Z" fill="#22c55e" opacity="0.5"/>
+      </g>
+
+      <!-- Label -->
+      <text x="1020" y="525" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#22c55e" opacity="0.9">Talent</text>
+    </g>
+
+    <!-- Integration connectors -->
+    <line x1="780" y1="460" x2="850" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="850" y1="400" x2="920" y2="360" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="920" y1="360" x2="980" y2="420" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+
+    <!-- Accent elements (8Batch spiral reference) -->
+    <circle cx="730" cy="520" r="4" fill="#0ea5e9" opacity="0.6"/>
+    <circle cx="755" cy="535" r="3" fill="#06b6d4" opacity="0.5"/>
+    <circle cx="785" cy="545" r="3" fill="#0ea5e9" opacity="0.4"/>
+
+    <circle cx="1080" cy="410" r="4" fill="#a855f7" opacity="0.5"/>
+    <circle cx="1100" cy="440" r="3" fill="#f43f5e" opacity="0.4"/>
+    <circle cx="1090" cy="475" r="3" fill="#22c55e" opacity="0.4"/>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0ea5e9" opacity="0.6"/>
+    </marker>
+  </defs>
 </svg>

@@ -1,129 +1,102 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Left side: Title and metadata -->
+  <text x="50" y="185" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">March 2026</text>
+  <text x="50" y="245" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">Security Digest Index</text>
+
+  <!-- Date badge -->
+  <rect x="50" y="280" width="280" height="40" rx="8" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="65" y="306" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">MARCH 30, 2026</text>
+
+  <!-- Tag pills -->
+  <rect x="50" y="420" width="110" height="32" rx="6" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="65" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#60a5fa">Security</text>
+
+  <rect x="175" y="420" width="110" height="32" rx="6" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="190" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#c4b5fd">Vulnerabilities</text>
+
+  <rect x="300" y="420" width="85" height="32" rx="6" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="1"/>
+  <text x="314" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#86efac">Digest</text>
+
+  <!-- Footer -->
+  <text x="50" y="580" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
+
+  <!-- Right side: Illustration for March 2026 Security Digest Monthly Index -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#cc2200"/>
-    </linearGradient>
-    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3322;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:0.15"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:0.1" />
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Illustration: Calendar/Digest with security elements -->
+  <rect x="750" y="80" width="380" height="380" rx="12" fill="url(#grad1)" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Layered document 1 (back) -->
+  <rect x="760" y="100" width="160" height="200" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+  <line x1="775" y1="125" x2="910" y2="125" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="775" y1="140" x2="910" y2="140" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="775" y1="155" x2="900" y2="155" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="775" y1="170" x2="895" y2="170" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <circle cx="795" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="810" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="825" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Layered document 2 (middle) -->
+  <rect x="800" y="130" width="160" height="200" rx="4" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5" opacity="0.8"/>
+  <line x1="815" y1="155" x2="950" y2="155" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <line x1="815" y1="170" x2="950" y2="170" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <line x1="815" y1="185" x2="940" y2="185" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <line x1="815" y1="200" x2="935" y2="200" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <circle cx="835" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="850" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="865" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
 
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,60,30,0.06)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,40,10,0.04)" stroke="rgba(255,80,30,0.08)" stroke-width="1"/>
+  <!-- Layered document 3 (front) with calendar grid -->
+  <rect x="840" y="160" width="160" height="200" rx="4" fill="#1a1f3a" stroke="#22c55e" stroke-width="1.5"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Security Shield + Monthly Index Book -->
-  <!-- Outer shield shape -->
-  <path d="M1010,145 L1110,165 L1110,245 Q1110,310 1010,340 Q910,310 910,245 L910,165 Z"
-        fill="rgba(255,50,20,0.08)" stroke="rgba(255,80,40,0.30)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,162 L1093,178 L1093,247 Q1093,302 1010,325 Q927,302 927,247 L927,178 Z"
-        fill="rgba(255,60,30,0.06)" stroke="rgba(255,100,60,0.22)" stroke-width="1"/>
+  <!-- Calendar grid on document -->
+  <g opacity="0.7">
+    <line x1="855" y1="175" x2="990" y2="175" stroke="#22c55e" stroke-width="1"/>
+    <text x="900" y="190" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#22c55e" text-anchor="middle">MARCH 2026</text>
+    <line x1="855" y1="200" x2="990" y2="200" stroke="rgba(34, 197, 94, 0.3)" stroke-width="0.5"/>
+    <!-- Calendar numbers -->
+    <text x="865" y="218" font-family="monospace" font-size="9" fill="#86efac">1 2 3 4</text>
+    <text x="865" y="233" font-family="monospace" font-size="9" fill="#86efac">5 6 7 8</text>
+    <text x="865" y="248" font-family="monospace" font-size="9" fill="#86efac">9 10 11 12</text>
+    <text x="865" y="263" font-family="monospace" font-size="9" fill="#86efac">13 14 15 16</text>
+    <text x="865" y="278" font-family="monospace" font-size="9" fill="#86efac">17 18 19 20</text>
+  </g>
 
-  <!-- Lock icon inside shield -->
-  <rect x="990" y="222" width="40" height="32" rx="4"
-        fill="rgba(255,120,60,0.12)" stroke="rgba(255,150,80,0.35)" stroke-width="1.5"/>
-  <path d="M998,222 Q998,205 1010,205 Q1022,205 1022,222"
-        fill="none" stroke="rgba(255,150,80,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="237" r="4" fill="rgba(255,180,100,0.50)"/>
-  <rect x="1009" y="237" width="2" height="8" fill="rgba(255,180,100,0.50)"/>
+  <!-- Shield/Lock icon (security element) -->
+  <g transform="translate(1020, 120)">
+    <path d="M 0 -15 L 25 -5 L 25 20 Q 12.5 35 0 40 Q -12.5 35 -25 20 L -25 -5 Z"
+          fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+    <circle cx="0" cy="8" r="6" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.7"/>
+    <rect x="-4" y="8" width="8" height="8" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.7" rx="1"/>
+  </g>
 
-  <!-- Calendar/monthly index rings -->
-  <circle cx="940" cy="180" r="18" fill="rgba(255,80,40,0.08)" stroke="rgba(255,100,60,0.28)" stroke-width="1"/>
-  <text x="940" y="185" font-size="11" fill="rgba(255,150,100,0.70)" text-anchor="middle" font-family="monospace">03</text>
+  <!-- Data points/dots (representing monthly data) -->
+  <circle cx="920" cy="310" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="950" cy="305" r="3" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="980" cy="315" r="3" fill="#22c55e" opacity="0.6"/>
+  <circle cx="940" cy="340" r="3" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="900" cy="335" r="3" fill="#ef4444" opacity="0.6"/>
 
-  <circle cx="1080" cy="180" r="18" fill="rgba(255,80,40,0.08)" stroke="rgba(255,100,60,0.28)" stroke-width="1"/>
-  <text x="1080" y="185" font-size="11" fill="rgba(255,150,100,0.70)" text-anchor="middle" font-family="monospace">26</text>
+  <!-- Connecting lines between data points -->
+  <polyline points="920,310 950,305 980,315" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+  <polyline points="980,315 940,340 900,335" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
 
-  <!-- Radar/scan rings -->
-  <circle cx="1010" cy="145" r="60" fill="none" stroke="rgba(255,60,30,0.10)" stroke-width="1" stroke-dasharray="4 6"/>
-  <circle cx="1010" cy="145" r="80" fill="none" stroke="rgba(255,60,30,0.07)" stroke-width="1" stroke-dasharray="2 8"/>
-
-  <!-- Index lines (book pages metaphor) -->
-  <line x1="920" y1="290" x2="1000" y2="290" stroke="rgba(255,120,60,0.25)" stroke-width="1"/>
-  <line x1="920" y1="300" x2="990" y2="300" stroke="rgba(255,120,60,0.18)" stroke-width="1"/>
-  <line x1="920" y1="310" x2="980" y2="310" stroke="rgba(255,120,60,0.14)" stroke-width="1"/>
-  <line x1="920" y1="320" x2="970" y2="320" stroke="rgba(255,120,60,0.10)" stroke-width="1"/>
-
-  <!-- Bullet dots on index lines -->
-  <circle cx="915" cy="290" r="2.5" fill="rgba(255,160,80,0.50)"/>
-  <circle cx="915" cy="300" r="2.5" fill="rgba(255,160,80,0.40)"/>
-  <circle cx="915" cy="310" r="2.5" fill="rgba(255,160,80,0.30)"/>
-  <circle cx="915" cy="320" r="2.5" fill="rgba(255,160,80,0.20)"/>
-
-  <!-- Corner bracket decorations -->
-  <path d="M885,135 L885,120 L900,120" fill="none" stroke="rgba(255,100,50,0.35)" stroke-width="1.5"/>
-  <path d="M1135,135 L1135,120 L1120,120" fill="none" stroke="rgba(255,100,50,0.35)" stroke-width="1.5"/>
-  <path d="M885,330 L885,345 L900,345" fill="none" stroke="rgba(255,100,50,0.35)" stroke-width="1.5"/>
-  <path d="M1135,330 L1135,345 L1120,345" fill="none" stroke="rgba(255,100,50,0.35)" stroke-width="1.5"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,50,0.60)"/>
-  <circle cx="900" cy="420" r="3" fill="rgba(255,140,60,0.50)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(255,60,40,0.45)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="url(#badge)" stroke="rgba(255,80,40,0.30)" stroke-width="1"/>
-  <text x="95" y="81" font-size="12" font-weight="600" fill="rgba(255,160,120,0.90)" font-family="'Courier New', monospace" letter-spacing="1.5">MARCH 30, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif" letter-spacing="-0.5">March 2026 Security</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif" letter-spacing="-0.5">Digest Monthly Index</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,200,180,0.70)" font-family="'Arial', sans-serif">Security vulnerabilities, patches, AI threats &amp; cloud risks</text>
+  <!-- Index descriptor -->
+  <text x="750" y="500" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#64748b">
+    Monthly security alerts aggregated
+  </text>
+  <text x="750" y="520" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#64748b">
+    and indexed for quick reference
+  </text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#line)" rx="1"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" font-weight="600" fill="rgba(255,120,80,0.80)" font-family="'Courier New', monospace" letter-spacing="2.5">SECURITY / MONTHLY DIGEST / 2026</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,40,40,0.20)" stroke="rgba(255,80,60,0.45)" stroke-width="1"/>
-  <text x="145" y="424" font-size="13" font-weight="600" fill="rgba(255,140,120,0.90)" text-anchor="middle" font-family="'Arial', sans-serif">CVE Roundup</text>
-
-  <rect x="226" y="402" width="138" height="36" rx="18" fill="rgba(200,120,20,0.20)" stroke="rgba(255,160,40,0.45)" stroke-width="1"/>
-  <text x="295" y="424" font-size="13" font-weight="600" fill="rgba(255,200,120,0.90)" text-anchor="middle" font-family="'Arial', sans-serif">Patch Tuesday</text>
-
-  <rect x="380" y="402" width="122" height="36" rx="18" fill="rgba(30,80,200,0.20)" stroke="rgba(80,140,255,0.40)" stroke-width="1"/>
-  <text x="441" y="424" font-size="13" font-weight="600" fill="rgba(140,200,255,0.90)" text-anchor="middle" font-family="'Arial', sans-serif">AI Threats</text>
-
-  <!-- Footer line -->
-  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-  <!-- Footer text -->
-  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.35)" font-family="'Courier New', monospace">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,120,80,0.45)" font-family="'Courier New', monospace" text-anchor="end">SECURITY</text>
+  <line x1="50" y1="370" x2="300" y2="370" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
 </svg>

@@ -1,126 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
+    <linearGradient id="illGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.4"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.4"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="innerShield" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.25"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.1"/>
+    <linearGradient id="illGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Security Vendor Review Icon -->
-  <!-- Outer shield body -->
-  <path d="M1010,130 L1140,165 L1140,260 Q1140,320 1010,355 Q880,320 880,260 L880,165 Z"
-        fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,152 L1122,182 L1122,262 Q1122,308 1010,335 Q898,308 898,262 L898,182 Z"
-        fill="url(#innerShield)" stroke="rgba(255,107,53,0.25)" stroke-width="1"/>
-
-  <!-- Eye shape in shield center (security watch/review) -->
-  <ellipse cx="1010" cy="248" rx="52" ry="30" fill="none" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="248" r="16" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="248" r="7" fill="rgba(255,107,53,0.25)" stroke="rgba(255,150,50,0.45)" stroke-width="1.2"/>
-
-  <!-- Magnifying glass overlay -->
-  <circle cx="1042" cy="222" r="22" fill="none" stroke="rgba(255,180,60,0.3)" stroke-width="2"/>
-  <circle cx="1042" cy="222" r="14" fill="rgba(255,180,60,0.07)" stroke="rgba(255,200,80,0.25)" stroke-width="1"/>
-  <line x1="1058" y1="238" x2="1075" y2="256" stroke="rgba(255,180,60,0.35)" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- Weekly calendar grid inside shield -->
-  <rect x="940" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.3)" stroke-width="0.5"/>
-  <rect x="954" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.35)" stroke="rgba(229,62,62,0.45)" stroke-width="0.5"/>
-  <rect x="968" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.3)" stroke-width="0.5"/>
-  <rect x="982" y="270" width="9" height="9" rx="1" fill="rgba(255,107,53,0.3)" stroke="rgba(255,107,53,0.4)" stroke-width="0.5"/>
-  <rect x="996" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.3)" stroke-width="0.5"/>
-  <rect x="1010" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.3)" stroke-width="0.5"/>
-  <rect x="1024" y="270" width="9" height="9" rx="1" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.3)" stroke-width="0.5"/>
-
-  <!-- Vendor logos placeholder: 3 small hexagons -->
-  <polygon points="958,168 970,161 982,168 982,182 970,189 958,182" fill="rgba(100,200,255,0.1)" stroke="rgba(100,200,255,0.3)" stroke-width="1"/>
-  <polygon points="997,155 1009,148 1021,155 1021,169 1009,176 997,169" fill="rgba(255,200,80,0.1)" stroke="rgba(255,200,80,0.3)" stroke-width="1"/>
-  <polygon points="1036,168 1048,161 1060,168 1060,182 1048,189 1036,182" fill="rgba(160,255,120,0.1)" stroke="rgba(160,255,120,0.3)" stroke-width="1"/>
-
-  <!-- Radiating scan lines -->
-  <line x1="1010" y1="248" x2="955" y2="195" stroke="rgba(229,62,62,0.12)" stroke-width="1"/>
-  <line x1="1010" y1="248" x2="1065" y2="195" stroke="rgba(229,62,62,0.12)" stroke-width="1"/>
-  <line x1="1010" y1="248" x2="880" y2="248" stroke="rgba(229,62,62,0.08)" stroke-width="1"/>
-  <line x1="1010" y1="248" x2="1140" y2="248" stroke="rgba(229,62,62,0.08)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="3" fill="rgba(255,180,50,0.6)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(229,62,62,0.5)"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(229,62,62,0.06)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+  
+  <!-- Illustration section (right side) -->
+  <!-- Background accent shapes -->
+  <circle cx="920" cy="120" r="80" fill="#6366f1" opacity="0.15"/>
+  <circle cx="1050" cy="380" r="100" fill="#3b82f6" opacity="0.1"/>
+  
+  <!-- Weekly calendar indicator -->
+  <g transform="translate(750, 140)">
+    <rect x="0" y="0" width="140" height="140" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2" opacity="0.8"/>
+    <text x="70" y="45" font-size="24" font-weight="bold" fill="#6366f1" text-anchor="middle">WEEKLY</text>
+    <text x="70" y="85" font-size="36" font-weight="bold" fill="#3b82f6" text-anchor="middle">2026</text>
+    <circle cx="35" cy="120" r="5" fill="#10b981"/>
+    <circle cx="70" cy="120" r="5" fill="#10b981"/>
+    <circle cx="105" cy="120" r="5" fill="#10b981"/>
+  </g>
+  
+  <!-- Vendor cards stack -->
+  <g>
+    <!-- Card 1 - Top -->
+    <rect x="760" y="310" width="220" height="95" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5" opacity="0.9"/>
+    <rect x="770" y="318" width="35" height="35" rx="4" fill="url(#illGradient1)" opacity="0.7"/>
+    <circle cx="787" cy="335" r="8" fill="#6366f1" opacity="0.6"/>
+    <text x="815" y="330" font-size="13" font-weight="600" fill="#e2e8f0">Vendor Profile A</text>
+    <text x="815" y="348" font-size="11" fill="#cbd5e1">Security Updates</text>
+    <line x1="770" y1="360" x2="970" y2="360" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+    <text x="815" y="378" font-size="10" fill="#94a3b8">Latest threats analyzed</text>
+  </g>
+  
+  <!-- Card 2 - Middle -->
+  <g>
+    <rect x="800" y="390" width="220" height="95" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.85"/>
+    <rect x="810" y="398" width="35" height="35" rx="4" fill="url(#illGradient2)" opacity="0.7"/>
+    <circle cx="827" cy="415" r="8" fill="#10b981" opacity="0.6"/>
+    <text x="855" y="410" font-size="13" font-weight="600" fill="#e2e8f0">Vendor Profile B</text>
+    <text x="855" y="428" font-size="11" fill="#cbd5e1">CVE Intelligence</text>
+    <line x1="810" y1="440" x2="1010" y2="440" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <text x="855" y="458" font-size="10" fill="#94a3b8">Patch recommendations</text>
+  </g>
+  
+  <!-- Card 3 - Bottom -->
+  <g>
+    <rect x="840" y="470" width="220" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
+    <rect x="850" y="478" width="35" height="35" rx="4" fill="#f59e0b" opacity="0.2"/>
+    <circle cx="867" cy="495" r="8" fill="#f59e0b" opacity="0.6"/>
+    <text x="895" y="490" font-size="13" font-weight="600" fill="#e2e8f0">Vendor Profile C</text>
+    <text x="895" y="508" font-size="11" fill="#cbd5e1">Threat Reports</text>
+    <line x1="850" y1="520" x2="1050" y2="520" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+    <text x="895" y="538" font-size="10" fill="#94a3b8">Weekly summary digest</text>
+  </g>
+  
+  <!-- Magnifying glass review icon -->
+  <g transform="translate(1040, 240)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.7"/>
+    <line x1="22" y1="22" x2="45" y2="45" stroke="#3b82f6" stroke-width="3" opacity="0.7"/>
+    <path d="M -8 -15 Q -12 -8 -10 0" fill="none" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Analysis indicator -->
+  <g transform="translate(1080, 480)">
+    <circle cx="0" cy="0" r="25" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+    <text x="0" y="8" font-size="20" font-weight="bold" fill="#10b981" text-anchor="middle">✓</text>
+  </g>
+  
+  <!-- Left side - Text -->
+  <!-- Title -->
+  <text x="50" y="185" font-size="46" font-weight="700" fill="#ffffff" font-family="sans-serif">Security Vendor</text>
+  <text x="50" y="245" font-size="46" font-weight="700" fill="#6366f1" font-family="sans-serif">Blog Weekly Review</text>
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
-  <text x="200" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(229,62,62,0.9)" text-anchor="middle" letter-spacing="1.5">JANUARY 22, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Security Vendor</text>
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Blog Weekly Review</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Curated insights from top security vendor research</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(229,62,62,0.8)" letter-spacing="3">SECURITY / THREAT INTELLIGENCE</text>
-
+  <rect x="50" y="275" width="280" height="50" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+  <text x="190" y="305" font-size="16" font-weight="600" fill="#3b82f6" text-anchor="middle">JANUARY 22, 2026</text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.45)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(229,62,62,0.95)" text-anchor="middle" letter-spacing="0.8">WEEKLY DIGEST</text>
-
-  <rect x="224" y="402" width="110" height="36" rx="18" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.45)" stroke-width="1"/>
-  <text x="279" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(245,158,11,0.95)" text-anchor="middle" letter-spacing="0.8">VENDOR BLOG</text>
-
-  <rect x="348" y="402" width="100" height="36" rx="18" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.45)" stroke-width="1"/>
-  <text x="398" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(100,170,255,0.95)" text-anchor="middle" letter-spacing="0.8">RESEARCH</text>
-
+  <g>
+    <!-- Tag 1 -->
+    <rect x="50" y="420" width="110" height="38" rx="19" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="105" y="445" font-size="13" font-weight="600" fill="#6366f1" text-anchor="middle">Vulnerabilities</text>
+    
+    <!-- Tag 2 -->
+    <rect x="180" y="420" width="110" height="38" rx="19" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+    <text x="235" y="445" font-size="13" font-weight="600" fill="#10b981" text-anchor="middle">Threat Intel</text>
+    
+    <!-- Tag 3 -->
+    <rect x="310" y="420" width="110" height="38" rx="19" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="365" y="445" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Risk Analysis</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(229,62,62,0.4)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="50" y="595" font-size="13" font-weight="500" fill="#64748b" font-family="monospace">tech.2twodragon.com</text>
 </svg>

@@ -1,152 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="50%" style="stop-color:#dd6b20"/>
-      <stop offset="100%" style="stop-color:#3182ce"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:0.08"/>
-    </linearGradient>
-    <linearGradient id="eyeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#63b3ed;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:0.12"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-  </defs>
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- Left side content background -->
+  <rect x="0" y="0" width="700" height="630" fill="#0f1225" opacity="0.5"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Title line 1 -->
+  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Zscaler SSL Inspection
+  </text>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(229,62,62,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(49,130,206,0.05)" stroke="none"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Zscaler SSL Inspection + AI + Harmful Site Detection -->
-
-  <!-- Outer network ring -->
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(229,62,62,0.18)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="90" fill="none" stroke="rgba(99,179,237,0.15)" stroke-width="1" stroke-dasharray="4 6"/>
-
-  <!-- Central shield (SSL/Zscaler) -->
-  <path d="M1010,150 L1060,170 L1060,215 Q1060,255 1010,270 Q960,255 960,215 L960,170 Z"
-        fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.35)" stroke-width="2"/>
-  <path d="M1010,162 L1048,178 L1048,215 Q1048,247 1010,259 Q972,247 972,215 L972,178 Z"
-        fill="rgba(229,62,62,0.08)" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-
-  <!-- Shield lock icon -->
-  <rect x="998" y="203" width="24" height="20" rx="3" fill="rgba(229,62,62,0.25)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <path d="M1003,203 L1003,197 Q1003,190 1010,190 Q1017,190 1017,197 L1017,203"
-        fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="212" r="3" fill="rgba(255,255,255,0.6)"/>
-
-  <!-- SSL inspection scan lines -->
-  <line x1="960" y1="195" x2="888" y2="165" stroke="rgba(99,179,237,0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <line x1="960" y1="225" x2="880" y2="225" stroke="rgba(99,179,237,0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <line x1="960" y1="255" x2="888" y2="285" stroke="rgba(99,179,237,0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <line x1="1060" y1="195" x2="1132" y2="165" stroke="rgba(99,179,237,0.2)" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <line x1="1060" y1="225" x2="1140" y2="225" stroke="rgba(99,179,237,0.2)" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <line x1="1060" y1="255" x2="1132" y2="285" stroke="rgba(229,62,62,0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
-
-  <!-- AI node top left -->
-  <circle cx="880" cy="158" r="18" fill="rgba(49,130,206,0.12)" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
-  <text x="880" y="163" font-family="monospace" font-size="10" fill="rgba(99,179,237,0.8)" text-anchor="middle">AI</text>
-
-  <!-- Packet nodes -->
-  <circle cx="880" cy="225" r="14" fill="rgba(49,130,206,0.1)" stroke="rgba(99,179,237,0.3)" stroke-width="1.2"/>
-  <text x="880" y="229" font-family="monospace" font-size="8" fill="rgba(99,179,237,0.7)" text-anchor="middle">PKT</text>
-
-  <!-- Harmful node bottom left (red warning) -->
-  <circle cx="888" cy="292" r="16" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.45)" stroke-width="1.5"/>
-  <text x="888" y="297" font-family="monospace" font-size="9" fill="rgba(255,100,100,0.9)" text-anchor="middle">!</text>
-
-  <!-- Sandbox node right -->
-  <rect x="1118" y="210" width="36" height="30" rx="5" fill="rgba(99,179,237,0.1)" stroke="rgba(99,179,237,0.3)" stroke-width="1.2"/>
-  <text x="1136" y="229" font-family="monospace" font-size="8" fill="rgba(99,179,237,0.7)" text-anchor="middle">SBX</text>
-
-  <!-- Ad block node top right -->
-  <circle cx="1132" cy="158" r="16" fill="rgba(221,107,32,0.12)" stroke="rgba(221,107,32,0.35)" stroke-width="1.3"/>
-  <text x="1132" y="163" font-family="monospace" font-size="8" fill="rgba(221,107,32,0.85)" text-anchor="middle">AD</text>
-
-  <!-- Harmful site node bottom right -->
-  <circle cx="1132" cy="292" r="16" fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.35)" stroke-width="1.3"/>
-  <text x="1132" y="297" font-family="monospace" font-size="7" fill="rgba(229,62,62,0.8)" text-anchor="middle">BLK</text>
-
-  <!-- Inspection beam -->
-  <ellipse cx="1010" cy="225" rx="45" ry="10" fill="rgba(99,179,237,0.08)" stroke="rgba(99,179,237,0.2)" stroke-width="1"/>
-
-  <!-- Data flow dots on scan lines -->
-  <circle cx="920" cy="177" r="3" fill="rgba(99,179,237,0.5)"/>
-  <circle cx="905" cy="225" r="3" fill="rgba(99,179,237,0.45)"/>
-  <circle cx="1095" cy="177" r="3" fill="rgba(99,179,237,0.4)"/>
-  <circle cx="1115" cy="225" r="3" fill="rgba(99,179,237,0.4)"/>
-  <circle cx="1098" cy="274" r="3" fill="rgba(229,62,62,0.5)"/>
-  <circle cx="922" cy="274" r="3" fill="rgba(229,62,62,0.5)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(221,107,32,0.65)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(229,62,62,0.55)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <!-- Title line 2 -->
+  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Sandbox Advertisement Harmful
+  </text>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="rgba(229,62,62,0.9)" letter-spacing="1">NOVEMBER 4, 2025</text>
+  <rect x="50" y="270" width="280" height="40" fill="#1a1f3a" rx="6" stroke="#4a5f9f" stroke-width="1"/>
+  <text x="70" y="295" font-family="Arial, sans-serif" font-size="14" fill="#8899dd" font-weight="500">
+    NOVEMBER 4, 2025
+  </text>
 
-  <!-- Title -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Zscaler SSL Inspection Sandbox</text>
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AI Advertisement Harmful Site</text>
+  <!-- Tag pill 1 -->
+  <rect x="50" y="420" width="140" height="36" fill="#1e2a4a" rx="18" stroke="#5a7fcc" stroke-width="1"/>
+  <text x="70" y="443" font-family="Arial, sans-serif" font-size="13" fill="#7fa3ff" font-weight="500">
+    Zscaler Security
+  </text>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.62)">Deep-dive into SSL inspection, AI-driven ad filtering &amp; threat sandboxing</text>
+  <!-- Tag pill 2 -->
+  <rect x="210" y="420" width="110" height="36" fill="#2a1a2a" rx="18" stroke="#8a5f9f" stroke-width="1"/>
+  <text x="227" y="443" font-family="Arial, sans-serif" font-size="13" fill="#d7a3ff" font-weight="500">
+    SSL Inspection
+  </text>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(229,62,62,0.85)" letter-spacing="2">SECURITY / NETWORK INSPECTION</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.45)" stroke-width="1"/>
-  <text x="140" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.95)" text-anchor="middle">Zscaler</text>
-
-  <rect x="216" y="402" width="148" height="36" rx="18" fill="rgba(221,107,32,0.18)" stroke="rgba(221,107,32,0.45)" stroke-width="1"/>
-  <text x="290" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(221,107,32,0.95)" text-anchor="middle">SSL Inspection</text>
-
-  <rect x="380" y="402" width="130" height="36" rx="18" fill="rgba(49,130,206,0.18)" stroke="rgba(99,179,237,0.45)" stroke-width="1"/>
-  <text x="445" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(99,179,237,0.95)" text-anchor="middle">AI Sandbox</text>
+  <!-- Tag pill 3 -->
+  <rect x="340" y="420" width="100" height="36" fill="#2a2a1a" rx="18" stroke="#8a8f5f" stroke-width="1"/>
+  <text x="355" y="443" font-family="Arial, sans-serif" font-size="13" fill="#ffff9f" font-weight="500">
+    Vulnerability
+  </text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.55)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="50" y="600" font-family="Arial, sans-serif" font-size="12" fill="#666899">
+    tech.2twodragon.com
+  </text>
+
+  <!-- Right side illustration - SSL Inspection Sandbox Advertisement Harmful -->
+  <!-- Background gradient effect -->
+  <defs>
+    <linearGradient id="bgGrad" x1="700" y1="0" x2="1200" y2="630">
+      <stop offset="0%" style="stop-color:#0f1225;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sslGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+
+  <rect x="700" y="0" width="500" height="630" fill="url(#bgGrad)"/>
+
+  <!-- SSL Chain/Lock representation at top -->
+  <g id="ssl-chain">
+    <!-- Lock icon with warning -->
+    <rect x="820" y="60" width="60" height="70" fill="none" stroke="#ff6b6b" stroke-width="2" rx="4"/>
+    <circle cx="850" cy="95" r="8" fill="#ff6b6b"/>
+    <path d="M 850 103 L 850 120" stroke="#ff6b6b" stroke-width="2"/>
+
+    <!-- Warning triangle overlay -->
+    <polygon points="920,60 945,120 895,120" fill="#ffcc00" opacity="0.8"/>
+    <text x="918" y="105" font-family="Arial" font-size="24" font-weight="bold" fill="#000">!</text>
+  </g>
+
+  <!-- Sandbox container representation (center) -->
+  <g id="sandbox-container">
+    <!-- Outer sandbox box -->
+    <rect x="750" y="180" width="180" height="160" fill="none" stroke="#4a7f99" stroke-width="2" stroke-dasharray="5,5" rx="6"/>
+
+    <!-- Inner environment -->
+    <rect x="765" y="195" width="150" height="130" fill="#1a3a4a" opacity="0.4" rx="4"/>
+
+    <!-- Process/container circles -->
+    <circle cx="810" cy="230" r="15" fill="none" stroke="#5a9fbb" stroke-width="1.5"/>
+    <circle cx="870" cy="230" r="15" fill="none" stroke="#5a9fbb" stroke-width="1.5"/>
+
+    <circle cx="810" cy="280" r="15" fill="none" stroke="#5a9fbb" stroke-width="1.5"/>
+    <circle cx="870" cy="280" r="15" fill="none" stroke="#5a9fbb" stroke-width="1.5"/>
+
+    <!-- Connection lines between processes -->
+    <line x1="825" y1="230" x2="855" y2="230" stroke="#5a9fbb" stroke-width="1" opacity="0.6"/>
+    <line x1="825" y1="280" x2="855" y2="280" stroke="#5a9fbb" stroke-width="1" opacity="0.6"/>
+    <line x1="810" y1="245" x2="810" y2="265" stroke="#5a9fbb" stroke-width="1" opacity="0.6"/>
+    <line x1="870" y1="245" x2="870" y2="265" stroke="#5a9fbb" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- Advertisement/Deception element -->
+  <g id="advertisement-deception">
+    <!-- Ad banner representation -->
+    <rect x="910" y="190" width="110" height="80" fill="#3a2a1a" stroke="#ffcc00" stroke-width="2" rx="4"/>
+
+    <!-- Ad content lines -->
+    <rect x="920" y="205" width="30" height="4" fill="#ffcc00" opacity="0.7"/>
+    <rect x="920" y="218" width="80" height="3" fill="#ffcccc" opacity="0.6"/>
+    <rect x="920" y="228" width="80" height="3" fill="#ffcccc" opacity="0.6"/>
+    <rect x="920" y="238" width="60" height="3" fill="#ffcccc" opacity="0.6"/>
+
+    <!-- "AD" label -->
+    <text x="950" y="265" font-family="Arial" font-size="16" font-weight="bold" fill="#ffcc00">AD</text>
+  </g>
+
+  <!-- Malicious payload/threat arrows -->
+  <g id="threat-vectors">
+    <!-- Arrow from advertisement to sandbox -->
+    <defs>
+      <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#ff6b6b" />
+      </marker>
+    </defs>
+
+    <path d="M 960 270 Q 920 300 840 310" fill="none" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowRed)" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Bypass/Escape representation (bottom) -->
+  <g id="bypass-escape">
+    <!-- Broken lock -->
+    <g transform="translate(780, 380)">
+      <path d="M -15 -10 L -15 0 L 15 0 L 15 -10" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#ff6b6b" stroke-width="2.5"/>
+      <path d="M -5 5 L 5 15 M 0 5 L 10 15" stroke="#ffcc00" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Escape arrows -->
+    <path d="M 820 420 L 820 480" stroke="#ffcc00" stroke-width="2.5" marker-end="url(#arrowYellow)"/>
+    <path d="M 860 420 L 860 480" stroke="#ffcc00" stroke-width="2.5" marker-end="url(#arrowYellow)"/>
+
+    <defs>
+      <marker id="arrowYellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#ffcc00" />
+      </marker>
+    </defs>
+  </g>
+
+  <!-- Network/Internet representation (lower right) -->
+  <g id="network-escape">
+    <circle cx="950" cy="450" r="30" fill="none" stroke="#ff4444" stroke-width="2" stroke-dasharray="3,3"/>
+
+    <!-- Network nodes -->
+    <circle cx="920" cy="430" r="4" fill="#ff4444"/>
+    <circle cx="980" cy="430" r="4" fill="#ff4444"/>
+    <circle cx="920" cy="470" r="4" fill="#ff4444"/>
+    <circle cx="980" cy="470" r="4" fill="#ff4444"/>
+
+    <!-- Connecting lines -->
+    <line x1="920" y1="430" x2="980" y2="430" stroke="#ff4444" stroke-width="1" opacity="0.6"/>
+    <line x1="920" y1="430" x2="920" y2="470" stroke="#ff4444" stroke-width="1" opacity="0.6"/>
+    <line x1="980" y1="430" x2="980" y2="470" stroke="#ff4444" stroke-width="1" opacity="0.6"/>
+
+    <!-- Outbound threat arrow -->
+    <path d="M 980 450 L 1050 450" stroke="#ff6b6b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  </g>
+
+  <!-- Critical risk indicator (center-right) -->
+  <g id="risk-indicator">
+    <circle cx="920" cy="330" r="25" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+    <text x="907" y="340" font-family="Arial" font-size="28" font-weight="bold" fill="#ff6b6b">!</text>
+  </g>
+
+  <!-- Decorative accent lines -->
+  <line x1="720" y1="50" x2="750" y2="50" stroke="#5a7fcc" stroke-width="1" opacity="0.5"/>
+  <line x1="720" y1="580" x2="750" y2="580" stroke="#8a5f9f" stroke-width="1" opacity="0.5"/>
 </svg>

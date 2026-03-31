@@ -1,161 +1,118 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Subtle gradient overlay for depth -->
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:0.3" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#ff4444"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="100%" style="stop-color:rgba(255,68,68,0)"/>
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:rgba(255,68,68,0.25)"/>
-      <stop offset="100%" style="stop-color:rgba(255,68,68,0.05)"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.18"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.08"/>
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#2255cc;stop-opacity:0.06"/>
-    </linearGradient>
+    <radialGradient id="awsOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:0" />
+    </radialGradient>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Right side illustration: AWS Security Theme -->
+  <g id="illustration">
+    <!-- Large AWS badge/shield background -->
+    <circle cx="920" cy="280" r="160" fill="none" stroke="#FF9900" stroke-width="2" opacity="0.4"/>
+    <circle cx="920" cy="280" r="140" fill="none" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <!-- Central AWS shield with security lock -->
+    <g id="awsShield">
+      <!-- Shield shape -->
+      <path d="M 920 120 L 980 160 L 980 280 Q 920 340 920 340 Q 860 280 860 160 Z"
+            fill="none" stroke="#FF9900" stroke-width="3"/>
+      <path d="M 920 130 L 975 165 L 975 270 Q 920 325 920 325 Q 865 270 865 165 Z"
+            fill="#FF9900" opacity="0.15"/>
+    </g>
 
-  <!-- RIGHT SIDE ILLUSTRATION: AWS Security Architecture -->
-  <!-- Outer ring: represents AWS cloud boundary -->
-  <circle cx="1010" cy="225" r="120" fill="none" stroke="rgba(255,100,50,0.25)" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <circle cx="1010" cy="225" r="95" fill="rgba(255,60,30,0.06)" stroke="rgba(255,80,40,0.2)" stroke-width="1"/>
+    <!-- Central lock symbol -->
+    <g id="securityLock">
+      <!-- Lock body -->
+      <rect x="895" y="240" width="50" height="45" rx="4" fill="#FF9900" opacity="0.9"/>
+      <!-- Lock shackle -->
+      <path d="M 905 240 Q 905 210 920 210 Q 935 210 935 240"
+            fill="none" stroke="#FF9900" stroke-width="4" opacity="0.9"/>
+      <!-- Lock keyhole -->
+      <circle cx="920" cy="265" r="4" fill="#0a0c1a"/>
+    </g>
 
-  <!-- Cloud shape (AWS cloud icon) -->
-  <path d="M960,215 Q960,195 980,195 Q982,180 1000,178 Q1010,165 1025,172 Q1040,162 1055,172 Q1070,168 1072,183 Q1088,185 1088,200 Q1095,205 1092,215 Z" fill="url(#cloudGrad)" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"/>
+    <!-- AWS regions/cloud elements around shield -->
+    <circle cx="780" cy="220" r="35" fill="none" stroke="#00D4FF" stroke-width="2" opacity="0.6"/>
+    <circle cx="780" cy="220" r="30" fill="#00D4FF" opacity="0.08"/>
+    <text x="780" y="228" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+          fill="#00D4FF" text-anchor="middle" opacity="0.8">AWS</text>
 
-  <!-- Central shield (security) -->
-  <path d="M1010,200 L1040,212 L1040,238 Q1040,258 1010,268 Q980,258 980,238 L980,212 Z" fill="url(#shieldGrad)" stroke="rgba(255,100,50,0.35)" stroke-width="1.5"/>
-  <!-- Shield lock icon -->
-  <rect x="1001" y="230" width="18" height="14" rx="2" fill="none" stroke="rgba(255,180,80,0.5)" stroke-width="1.2"/>
-  <path d="M1004,230 Q1004,223 1010,223 Q1016,223 1016,230" fill="none" stroke="rgba(255,180,80,0.5)" stroke-width="1.2"/>
-  <circle cx="1010" cy="237" r="2" fill="rgba(255,180,80,0.6)"/>
+    <circle cx="1050" cy="240" r="35" fill="none" stroke="#44FF00" stroke-width="2" opacity="0.6"/>
+    <circle cx="1050" cy="240" r="30" fill="#44FF00" opacity="0.08"/>
+    <text x="1050" y="248" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+          fill="#44FF00" text-anchor="middle" opacity="0.8">SEC</text>
 
-  <!-- IAM key icon (top left of illustration) -->
-  <g transform="translate(890,145)">
-    <circle cx="0" cy="0" r="16" fill="rgba(255,200,50,0.08)" stroke="rgba(255,200,50,0.3)" stroke-width="1"/>
-    <path d="M-6,-2 Q-6,-8 0,-8 Q6,-8 6,-2 Q6,2 2,4 L4,8 L0,8 L0,6 L-2,6 L-2,4 Q-6,2 -6,-2 Z" fill="none" stroke="rgba(255,200,80,0.5)" stroke-width="1"/>
-    <circle cx="1" cy="-2" r="2" fill="rgba(255,220,80,0.4)"/>
+    <circle cx="800" cy="380" r="35" fill="none" stroke="#9D00FF" stroke-width="2" opacity="0.6"/>
+    <circle cx="800" cy="380" r="30" fill="#9D00FF" opacity="0.08"/>
+    <text x="800" y="388" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+          fill="#9D00FF" text-anchor="middle" opacity="0.8">IAM</text>
+
+    <!-- Week 2 badge -->
+    <circle cx="920" cy="420" r="40" fill="none" stroke="#FF9900" stroke-width="2" opacity="0.7"/>
+    <circle cx="920" cy="420" r="38" fill="#FF9900" opacity="0.12"/>
+    <text x="920" y="415" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+          fill="#FF9900" text-anchor="middle">WEEK</text>
+    <text x="920" y="433" font-family="Arial, sans-serif" font-size="22" font-weight="bold"
+          fill="#FF9900" text-anchor="middle">2</text>
+
+    <!-- Connecting lines/network -->
+    <line x1="815" y1="235" x2="885" y2="190" stroke="#00D4FF" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="955" y1="185" x2="1015" y2="230" stroke="#44FF00" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="900" y1="330" x2="835" y2="360" stroke="#9D00FF" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+
+    <!-- Certification checkmark -->
+    <g opacity="0.8">
+      <circle cx="985" cy="155" r="18" fill="#44FF00" opacity="0.2" stroke="#44FF00" stroke-width="1.5"/>
+      <path d="M 978 157 L 982 161 L 992 150" fill="none" stroke="#44FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
   </g>
 
-  <!-- WAF shield icon (top right) -->
-  <g transform="translate(1120,145)">
-    <circle cx="0" cy="0" r="16" fill="rgba(100,255,150,0.07)" stroke="rgba(100,255,150,0.25)" stroke-width="1"/>
-    <path d="M0,-9 L7,-5 L7,3 Q7,9 0,12 Q-7,9 -7,3 L-7,-5 Z" fill="none" stroke="rgba(100,255,150,0.4)" stroke-width="1.2"/>
-    <line x1="-3" y1="0" x2="3" y2="0" stroke="rgba(100,255,150,0.5)" stroke-width="1"/>
-    <line x1="0" y1="-3" x2="0" y2="3" stroke="rgba(100,255,150,0.5)" stroke-width="1"/>
-  </g>
-
-  <!-- VPC boundary (dashed rect) -->
-  <rect x="890" y="165" width="240" height="120" rx="8" fill="rgba(60,100,255,0.04)" stroke="rgba(80,120,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <!-- VPC label -->
-  <text x="897" y="179" font-family="monospace" font-size="9" fill="rgba(100,160,255,0.45)" letter-spacing="1">VPC</text>
-
-  <!-- EC2 instance boxes inside VPC -->
-  <rect x="905" y="248" width="28" height="22" rx="3" fill="rgba(255,150,50,0.1)" stroke="rgba(255,150,50,0.3)" stroke-width="1"/>
-  <text x="909" y="263" font-family="monospace" font-size="7" fill="rgba(255,170,70,0.55)">EC2</text>
-
-  <rect x="945" y="248" width="28" height="22" rx="3" fill="rgba(255,150,50,0.1)" stroke="rgba(255,150,50,0.3)" stroke-width="1"/>
-  <text x="949" y="263" font-family="monospace" font-size="7" fill="rgba(255,170,70,0.55)">RDS</text>
-
-  <rect x="985" y="248" width="28" height="22" rx="3" fill="rgba(255,150,50,0.1)" stroke="rgba(255,150,50,0.3)" stroke-width="1"/>
-  <text x="988" y="263" font-family="monospace" font-size="7" fill="rgba(255,170,70,0.55)">S3</text>
-
-  <!-- Connection lines between components -->
-  <line x1="1010" y1="268" x2="919" y2="248" stroke="rgba(255,100,50,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="268" x2="959" y2="248" stroke="rgba(255,100,50,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="268" x2="999" y2="248" stroke="rgba(255,100,50,0.2)" stroke-width="1"/>
-
-  <!-- CloudTrail log stream lines -->
-  <g opacity="0.35">
-    <line x1="1065" y1="185" x2="1095" y2="185" stroke="rgba(180,220,255,0.5)" stroke-width="1"/>
-    <line x1="1065" y1="195" x2="1110" y2="195" stroke="rgba(180,220,255,0.4)" stroke-width="1"/>
-    <line x1="1065" y1="205" x2="1100" y2="205" stroke="rgba(180,220,255,0.3)" stroke-width="1"/>
-  </g>
-
-  <!-- Orbit ring around central cluster -->
-  <ellipse cx="1010" cy="225" rx="115" ry="45" fill="none" stroke="rgba(255,80,30,0.1)" stroke-width="1" transform="rotate(-15,1010,225)"/>
-
-  <!-- Small security node dots -->
-  <circle cx="960" cy="155" r="4" fill="rgba(255,80,50,0.25)" stroke="rgba(255,80,50,0.4)" stroke-width="1"/>
-  <circle cx="1060" cy="148" r="4" fill="rgba(100,200,255,0.25)" stroke="rgba(100,200,255,0.4)" stroke-width="1"/>
-  <circle cx="1095" cy="275" r="4" fill="rgba(100,255,150,0.22)" stroke="rgba(100,255,150,0.35)" stroke-width="1"/>
-  <circle cx="925" cy="280" r="4" fill="rgba(255,200,50,0.22)" stroke="rgba(255,200,50,0.35)" stroke-width="1"/>
-
-  <!-- Lines from shield to nodes -->
-  <line x1="1010" y1="200" x2="960" y2="155" stroke="rgba(255,80,50,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="200" x2="1060" y2="148" stroke="rgba(100,200,255,0.15)" stroke-width="1"/>
-  <line x1="1040" y1="250" x2="1095" y2="275" stroke="rgba(100,255,150,0.12)" stroke-width="1"/>
-  <line x1="980" y1="250" x2="925" y2="280" stroke="rgba(255,200,50,0.12)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,160,50,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,80,80,0.5)"/>
-
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <!-- Left side content -->
+  <!-- Title -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold"
+        fill="white" letter-spacing="-1">Cloud Security 8Batch</text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold"
+        fill="#FF9900">2Week AWS Security</text>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="230" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,68,68,0.3)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,180,150,0.85)" letter-spacing="1.5">DECEMBER 5, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Cloud Security 8Batch 2Week</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AWS Security Architecture Core</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="19" fill="rgba(255,200,180,0.7)">IAM · VPC · CloudTrail · Security Hub · GuardDuty</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,120,80,0.65)" letter-spacing="2.5">CLOUD SECURITY &amp; AWS ARCHITECTURE</text>
+  <rect x="60" y="290" width="280" height="50" rx="8" fill="none" stroke="#FF9900" stroke-width="2" opacity="0.6"/>
+  <rect x="60" y="290" width="280" height="50" rx="8" fill="#FF9900" opacity="0.08"/>
+  <text x="200" y="325" font-family="Arial, sans-serif" font-size="18" font-weight="600"
+        fill="#FF9900" text-anchor="middle">DECEMBER 5, 2025</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="118" height="36" rx="18" fill="rgba(220,50,50,0.18)" stroke="rgba(220,80,80,0.35)" stroke-width="1"/>
-  <text x="139" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(255,140,130,0.9)" text-anchor="middle" letter-spacing="0.5">AWS Security</text>
+  <g id="tags">
+    <!-- Tag 1: AWS -->
+    <rect x="60" y="415" width="95" height="40" rx="20" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.7"/>
+    <text x="107" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600"
+          fill="#00D4FF" text-anchor="middle" opacity="0.9">AWS</text>
 
-  <rect x="210" y="402" width="96" height="36" rx="18" fill="rgba(200,120,20,0.18)" stroke="rgba(220,160,50,0.35)" stroke-width="1"/>
-  <text x="258" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(255,200,100,0.9)" text-anchor="middle" letter-spacing="0.5">IAM / VPC</text>
+    <!-- Tag 2: Security -->
+    <rect x="175" y="415" width="120" height="40" rx="20" fill="none" stroke="#44FF00" stroke-width="1.5" opacity="0.7"/>
+    <text x="235" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600"
+          fill="#44FF00" text-anchor="middle" opacity="0.9">Security</text>
 
-  <rect x="318" y="402" width="118" height="36" rx="18" fill="rgba(30,80,200,0.18)" stroke="rgba(80,140,255,0.35)" stroke-width="1"/>
-  <text x="377" y="425" font-family="'Arial', sans-serif" font-size="12" fill="rgba(130,190,255,0.9)" text-anchor="middle" letter-spacing="0.5">CloudTrail</text>
+    <!-- Tag 3: IAM -->
+    <rect x="315" y="415" width="90" height="40" rx="20" fill="none" stroke="#9D00FF" stroke-width="1.5" opacity="0.7"/>
+    <text x="360" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600"
+          fill="#9D00FF" text-anchor="middle" opacity="0.9">IAM</text>
+  </g>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,120,80,0.4)" text-anchor="end" letter-spacing="1">CLOUD</text>
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="500"
+        fill="#888888">tech.2twodragon.com</text>
+
+  <!-- Subtle accent line -->
+  <line x1="60" y1="360" x2="420" y2="360" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
 </svg>

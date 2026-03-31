@@ -2,118 +2,173 @@
   <!-- Dark background -->
   <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Gradient overlays for depth -->
+  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#d32f2f;stop-opacity:0.1" />
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:0.7" />
     </linearGradient>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#00d9ff;stop-opacity:0.1" />
+    <linearGradient id="agentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#44a5a2;stop-opacity:0.8" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <radialGradient id="defendGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:0.1" />
+    </radialGradient>
   </defs>
 
-  <!-- Right side: Agentic Security Illustration -->
-  <!-- Central AI Agent Core (shield) -->
-  <circle cx="900" cy="250" r="70" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.8"/>
-  <circle cx="900" cy="250" r="60" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.5"/>
-
-  <!-- Shield icon in center -->
-  <g transform="translate(900, 250)">
-    <path d="M -25 -20 L 0 -35 L 25 -20 L 25 10 Q 0 35 0 35 Q 0 35 -25 10 Z" fill="#4ecdc4" opacity="0.9"/>
-    <text x="0" y="5" text-anchor="middle" font-size="20" fill="#0a0c1a" font-weight="bold">⚔</text>
-  </g>
-
-  <!-- Attack vectors coming from left (red) -->
-  <!-- Attack vector 1 -->
-  <line x1="750" y1="150" x2="830" y2="210" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
-  <circle cx="750" cy="150" r="8" fill="#ff6b6b" opacity="0.6"/>
-
-  <!-- Attack vector 2 -->
-  <line x1="740" y1="250" x2="830" y2="250" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
-  <circle cx="740" cy="250" r="8" fill="#ff6b6b" opacity="0.6"/>
-
-  <!-- Attack vector 3 -->
-  <line x1="750" y1="350" x2="830" y2="290" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
-  <circle cx="750" cy="350" r="8" fill="#ff6b6b" opacity="0.6"/>
-
-  <!-- Agent network nodes (defense perimeter) -->
-  <!-- Top-right node -->
-  <circle cx="1020" cy="150" r="12" fill="#4ecdc4" opacity="0.8"/>
-  <line x1="900" y1="250" x2="1020" y2="150" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
-
-  <!-- Right node -->
-  <circle cx="1100" cy="250" r="12" fill="#4ecdc4" opacity="0.8"/>
-  <line x1="900" y1="250" x2="1100" y2="250" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
-
-  <!-- Bottom-right node -->
-  <circle cx="1020" cy="350" r="12" fill="#4ecdc4" opacity="0.8"/>
-  <line x1="900" y1="250" x2="1020" y2="350" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
-
-  <!-- Detection nodes (small blue) -->
-  <circle cx="960" cy="160" r="6" fill="#00d9ff" opacity="0.7"/>
-  <circle cx="970" cy="340" r="6" fill="#00d9ff" opacity="0.7"/>
-  <circle cx="1050" cy="200" r="6" fill="#00d9ff" opacity="0.7"/>
-
-  <!-- Threat indicators (pulsing circles) -->
-  <circle cx="750" cy="150" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
-  <circle cx="740" cy="250" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
-  <circle cx="750" cy="350" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
-
-  <!-- Defense layers (concentric circles) -->
-  <circle cx="900" cy="250" r="100" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
-  <circle cx="900" cy="250" r="130" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
-
-  <!-- Threat labels (small text) -->
-  <text x="720" y="130" font-size="11" fill="#ff6b6b" opacity="0.8">INJECTION</text>
-  <text x="680" y="260" font-size="11" fill="#ff6b6b" opacity="0.8">PROMPT</text>
-  <text x="720" y="380" font-size="11" fill="#ff6b6b" opacity="0.8">MODEL</text>
-
-  <!-- Defense labels (small text) -->
-  <text x="1030" y="145" font-size="10" fill="#4ecdc4" opacity="0.8">DETECTION</text>
-  <text x="1110" y="260" font-size="10" fill="#4ecdc4" opacity="0.8">MITIGATION</text>
-  <text x="1030" y="375" font-size="10" fill="#4ecdc4" opacity="0.8">RESPONSE</text>
-
-  <!-- Central process flow indicators -->
-  <path d="M 880 220 Q 900 230 920 220" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
-  <polygon points="920,220 925,217 922,225" fill="#4ecdc4" opacity="0.6"/>
-
-  <path d="M 920 280 Q 900 270 880 280" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
-  <polygon points="880,280 875,283 878,275" fill="#4ecdc4" opacity="0.6"/>
-
-  <!-- Gradient overlay on right -->
-  <rect x="700" y="0" width="500" height="630" fill="url(#blueGrad)"/>
-
-  <!-- Left side: Title and metadata -->
+  <!-- LEFT SIDE: Text content -->
   <!-- Title -->
-  <text x="80" y="185" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">Agentic Security</text>
-  <text x="80" y="245" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">2026 Attack Vectors</text>
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Agentic Security 2026
+  </text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Attack Vectors Defense
+  </text>
 
   <!-- Date badge -->
-  <rect x="80" y="280" width="280" height="38" rx="6" fill="rgba(255, 107, 107, 0.15)" stroke="#ff6b6b" stroke-width="1"/>
-  <text x="90" y="305" font-size="13" fill="#ff6b6b" font-weight="600" font-family="system-ui, -apple-system, sans-serif">FEBRUARY 1, 2026</text>
+  <rect x="60" y="310" width="320" height="50" rx="25" fill="#1a1f3a" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="75" y="341" font-family="Arial, sans-serif" font-size="18" fill="#4ecdc4" font-weight="600">
+    FEBRUARY 1, 2026
+  </text>
 
   <!-- Tag pills -->
-  <!-- Tag 1: Security -->
-  <rect x="80" y="420" width="110" height="32" rx="16" fill="rgba(78, 205, 196, 0.2)" stroke="#4ecdc4" stroke-width="1"/>
-  <text x="135" y="441" text-anchor="middle" font-size="12" fill="#4ecdc4" font-weight="600" font-family="system-ui, -apple-system, sans-serif">SECURITY</text>
+  <g id="tags">
+    <!-- Tag 1 -->
+    <rect x="60" y="420" width="140" height="38" rx="19" fill="#1a2e4a" stroke="#ff6b9d" stroke-width="1.5"/>
+    <text x="130" y="444" font-family="Arial, sans-serif" font-size="13" fill="#ff6b9d" text-anchor="middle" font-weight="600">
+      Agentic AI
+    </text>
 
-  <!-- Tag 2: AI RISKS -->
-  <rect x="200" y="420" width="110" height="32" rx="16" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
-  <text x="255" y="441" text-anchor="middle" font-size="12" fill="#ff6b6b" font-weight="600" font-family="system-us, -apple-system, sans-serif">AI RISKS</text>
+    <!-- Tag 2 -->
+    <rect x="220" y="420" width="130" height="38" rx="19" fill="#1a2e4a" stroke="#4ecdc4" stroke-width="1.5"/>
+    <text x="285" y="444" font-family="Arial, sans-serif" font-size="13" fill="#4ecdc4" text-anchor="middle" font-weight="600">
+      Threats
+    </text>
 
-  <!-- Tag 3: DEFENSE -->
-  <rect x="320" y="420" width="110" height="32" rx="16" fill="rgba(0, 217, 255, 0.2)" stroke="#00d9ff" stroke-width="1"/>
-  <text x="375" y="441" text-anchor="middle" font-size="12" fill="#00d9ff" font-weight="600" font-family="system-ui, -apple-system, sans-serif">DEFENSE</text>
+    <!-- Tag 3 -->
+    <rect x="370" y="420" width="120" height="38" rx="19" fill="#1a2e4a" stroke="#ffd700" stroke-width="1.5"/>
+    <text x="430" y="444" font-family="Arial, sans-serif" font-size="13" fill="#ffd700" text-anchor="middle" font-weight="600">
+      Defense
+    </text>
+  </g>
 
   <!-- Footer -->
-  <text x="80" y="600" font-size="12" fill="rgba(255, 255, 255, 0.5)" font-family="system-ui, -apple-system, sans-serif">tech.2twodragon.com</text>
+  <text x="60" y="590" font-family="Arial, sans-serif" font-size="14" fill="#666" letter-spacing="0.5">
+    tech.2twodragon.com
+  </text>
+
+  <!-- RIGHT SIDE: Illustration -->
+  <g id="illustration">
+    <!-- Background glow effect -->
+    <circle cx="900" cy="280" r="280" fill="url(#defendGradient)" opacity="0.6"/>
+
+    <!-- Central defense ring (outer shield) -->
+    <circle cx="900" cy="280" r="220" fill="none" stroke="#4ecdc4" stroke-width="3" opacity="0.8"/>
+    <circle cx="900" cy="280" r="215" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.4" stroke-dasharray="5,5"/>
+
+    <!-- Attack vectors (incoming threats from left) -->
+    <!-- Threat line 1 -->
+    <line x1="720" y1="120" x2="820" y2="160" stroke="#ff6b9d" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="820,160 832,155 827,168" fill="#ff6b9d"/>
+
+    <!-- Threat line 2 -->
+    <line x1="700" y1="280" x2="810" y2="280" stroke="#ff6b9d" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="810,280 822,275 822,285" fill="#ff6b9d"/>
+
+    <!-- Threat line 3 -->
+    <line x1="720" y1="440" x2="820" y2="400" stroke="#ff6b9d" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="820,400 827,412 832,405" fill="#ff6b9d"/>
+
+    <!-- Threat warning icons (small circles at threat entry) -->
+    <circle cx="720" cy="120" r="8" fill="#ff6b9d" opacity="0.7"/>
+    <circle cx="700" cy="280" r="8" fill="#ff6b9d" opacity="0.7"/>
+    <circle cx="720" cy="440" r="8" fill="#ff6b9d" opacity="0.7"/>
+
+    <!-- Agent nodes within defense (4 agents) -->
+    <!-- Top agent -->
+    <circle cx="880" cy="160" r="22" fill="url(#agentGradient)" opacity="0.9"/>
+    <circle cx="880" cy="160" r="20" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+    <text x="880" y="167" font-family="Arial, sans-serif" font-size="20" fill="#0a0c1a" text-anchor="middle" font-weight="bold">
+      A1
+    </text>
+
+    <!-- Center agent -->
+    <circle cx="900" cy="280" r="24" fill="url(#agentGradient)" opacity="1"/>
+    <circle cx="900" cy="280" r="22" fill="none" stroke="#4ecdc4" stroke-width="2.5"/>
+    <text x="900" y="289" font-family="Arial, sans-serif" font-size="22" fill="#0a0c1a" text-anchor="middle" font-weight="bold">
+      A2
+    </text>
+
+    <!-- Right agent -->
+    <circle cx="950" cy="280" r="20" fill="url(#agentGradient)" opacity="0.85"/>
+    <circle cx="950" cy="280" r="18" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+    <text x="950" y="287" font-family="Arial, sans-serif" font-size="18" fill="#0a0c1a" text-anchor="middle" font-weight="bold">
+      A3
+    </text>
+
+    <!-- Bottom agent -->
+    <circle cx="920" cy="380" r="20" fill="url(#agentGradient)" opacity="0.85"/>
+    <circle cx="920" cy="380" r="18" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+    <text x="920" y="387" font-family="Arial, sans-serif" font-size="18" fill="#0a0c1a" text-anchor="middle" font-weight="bold">
+      A4
+    </text>
+
+    <!-- Agent interconnection lines (cooperation network) -->
+    <line x1="880" y1="180" x2="900" y2="260" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="900" y1="304" x2="920" y2="360" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="900" y1="280" x2="950" y2="280" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+
+    <!-- Defense shield layers (concentric rings) -->
+    <!-- Inner defense ring -->
+    <circle cx="900" cy="280" r="180" fill="none" stroke="#a8edea" stroke-width="2" opacity="0.6"/>
+
+    <!-- Defense points (shield markers) -->
+    <g id="defensePoints">
+      <!-- Top shield -->
+      <polygon points="900,70 920,100 880,100" fill="url(#shieldGradient)"/>
+      <circle cx="900" cy="85" r="4" fill="#ffd700" opacity="0.9"/>
+
+      <!-- Right shield -->
+      <polygon points="1030,280 1000,300 1000,260" fill="url(#shieldGradient)"/>
+      <circle cx="1015" cy="280" r="4" fill="#ffd700" opacity="0.9"/>
+
+      <!-- Bottom shield -->
+      <polygon points="900,490 880,460 920,460" fill="url(#shieldGradient)"/>
+      <circle cx="900" cy="475" r="4" fill="#ffd700" opacity="0.9"/>
+
+      <!-- Left shield -->
+      <polygon points="770,280 800,260 800,300" fill="url(#shieldGradient)"/>
+      <circle cx="785" cy="280" r="4" fill="#ffd700" opacity="0.9"/>
+    </g>
+
+    <!-- Lock/Security symbols at defense points -->
+    <g id="locks">
+      <!-- Top lock -->
+      <circle cx="900" cy="120" r="5" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.7"/>
+      <rect x="895" y="126" width="10" height="8" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.7"/>
+
+      <!-- Right lock -->
+      <circle cx="980" cy="280" r="5" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.7"/>
+      <rect x="975" y="286" width="10" height="8" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.7"/>
+
+      <!-- Bottom lock -->
+      <circle cx="900" cy="440" r="5" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.7"/>
+      <rect x="895" y="446" width="10" height="8" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.7"/>
+    </g>
+
+    <!-- Attack reflection/deflection effect -->
+    <line x1="825" y1="165" x2="875" y2="155" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="810" y1="280" x2="820" y2="270" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="825" y1="395" x2="875" y2="405" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2"/>
+
+    <!-- Cyber threat indicators (binary/network style) -->
+    <text x="720" y="135" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.6">
+      THREAT
+    </text>
+    <text x="975" y="325" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.6">
+      SECURE
+    </text>
+  </g>
 </svg>

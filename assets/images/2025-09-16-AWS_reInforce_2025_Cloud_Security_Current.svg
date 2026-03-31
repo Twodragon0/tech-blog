@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Left side content area -->
+  <g id="left-content">
+    <!-- Title line 1 -->
+    <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">AWS reInforce 2025</text>
+
+    <!-- Title line 2 -->
+    <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">Cloud Security Current</text>
+
+    <!-- Date badge -->
+    <rect x="60" y="280" width="280" height="40" rx="8" fill="#FF9900" opacity="0.15" stroke="#FF9900" stroke-width="1.5"/>
+    <text x="75" y="305" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#FF9900">SEPTEMBER 16, 2025</text>
+
+    <!-- Tag pills -->
+    <g id="tags">
+      <!-- Tag 1: cloud -->
+      <rect x="60" y="420" width="80" height="28" rx="14" fill="#FF9900" opacity="0.2" stroke="#FF9900" stroke-width="1"/>
+      <text x="70" y="440" font-family="Arial, sans-serif" font-size="12" fill="#FF9900">cloud</text>
+
+      <!-- Tag 2: security -->
+      <rect x="160" y="420" width="100" height="28" rx="14" fill="#FF9900" opacity="0.2" stroke="#FF9900" stroke-width="1"/>
+      <text x="172" y="440" font-family="Arial, sans-serif" font-size="12" fill="#FF9900">security</text>
+
+      <!-- Tag 3: aws -->
+      <rect x="280" y="420" width="70" height="28" rx="14" fill="#FF9900" opacity="0.2" stroke="#FF9900" stroke-width="1"/>
+      <text x="295" y="440" font-family="Arial, sans-serif" font-size="12" fill="#FF9900">aws</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="60" y="595" font-family="Arial, sans-serif" font-size="12" fill="#888888">tech.2twodragon.com</text>
+  </g>
+
+  <!-- Right side illustration: AWS reInforce 2025 Cloud Security -->
+  <g id="illustration" transform="translate(750, 0)">
+    <!-- Background glow for illustration area -->
+    <circle cx="175" cy="315" r="280" fill="#FF9900" opacity="0.08"/>
+
+    <!-- Large shield in center (security theme) -->
+    <path d="M 175 80 L 290 140 L 290 280 Q 290 350 175 400 Q 60 350 60 280 L 60 140 Z" fill="none" stroke="#FF9900" stroke-width="2.5"/>
+
+    <!-- Inner shield accent -->
+    <path d="M 175 100 L 275 150 L 275 280 Q 275 340 175 385 Q 85 340 85 280 L 85 150 Z" fill="#FF9900" opacity="0.12"/>
+
+    <!-- Cloud shapes inside shield (AWS cloud) -->
+    <g opacity="0.8">
+      <!-- Upper cloud -->
+      <path d="M 130 160 Q 130 145 145 145 Q 155 135 170 140 Q 185 125 200 140 Q 215 135 225 150 Q 225 165 210 170 L 130 170 Z" fill="#FF9900" opacity="0.6"/>
+
+      <!-- Lower cloud -->
+      <path d="M 120 240 Q 120 225 138 225 Q 150 210 170 218 Q 190 200 210 220 Q 228 215 238 230 Q 238 250 220 258 L 120 258 Z" fill="#FF9900" opacity="0.5"/>
+    </g>
+
+    <!-- Lock icon in center (security focus) -->
+    <circle cx="175" cy="260" r="20" fill="none" stroke="#FF9900" stroke-width="2"/>
+    <path d="M 160 260 L 160 250 Q 160 240 170 240 Q 180 240 180 250 L 180 260" fill="none" stroke="#FF9900" stroke-width="2"/>
+    <circle cx="175" cy="270" r="3" fill="#FF9900"/>
+
+    <!-- Data flow lines (representing cloud security architecture) -->
+    <g stroke="#FF9900" stroke-width="1.5" opacity="0.6">
+      <!-- Left flow -->
+      <path d="M 80 200 Q 100 220 140 240" fill="none" stroke-dasharray="3,3"/>
+      <!-- Right flow -->
+      <path d="M 270 200 Q 250 220 210 240" fill="none" stroke-dasharray="3,3"/>
+    </g>
+
+    <!-- Corner accent points (reInforce conference markers) -->
+    <circle cx="65" cy="95" r="4" fill="#FF9900" opacity="0.8"/>
+    <circle cx="285" cy="95" r="4" fill="#FF9900" opacity="0.8"/>
+    <circle cx="65" cy="420" r="4" fill="#FF9900" opacity="0.8"/>
+    <circle cx="285" cy="420" r="4" fill="#FF9900" opacity="0.8"/>
+
+    <!-- Connecting lines between corners -->
+    <line x1="65" y1="95" x2="285" y2="95" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
+    <line x1="65" y1="420" x2="285" y2="420" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
+    <line x1="65" y1="95" x2="65" y2="420" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
+    <line x1="285" y1="95" x2="285" y2="420" stroke="#FF9900" stroke-width="1" opacity="0.3"/>
+
+    <!-- AWS reInforce 2025 text accent in illustration -->
+    <text x="175" y="500" font-family="Arial, sans-serif" font-size="11" fill="#FF9900" opacity="0.6" text-anchor="middle">reInforce 2025</text>
+  </g>
+</svg>

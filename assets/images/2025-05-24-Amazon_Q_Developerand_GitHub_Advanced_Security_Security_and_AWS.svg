@@ -1,122 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b35"/>
-      <stop offset="50%" style="stop-color:#e63946"/>
-      <stop offset="100%" style="stop-color:#6c2ebf"/>
-    </linearGradient>
-    <linearGradient id="lineAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#6c2ebf;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#6c2ebf;stop-opacity:0.08"/>
-    </linearGradient>
-    <linearGradient id="octGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e63946;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0.06"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: AWS + GitHub Advanced Security icon -->
-  <!-- Outer shield shape (AWS-style) -->
-  <path d="M1010,135 L1110,160 L1110,270 Q1110,310 1010,330 Q910,310 910,270 L910,160 Z" fill="url(#shieldGrad)" stroke="rgba(255,107,53,0.3)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,155 L1090,175 L1090,265 Q1090,295 1010,312 Q930,295 930,265 L930,175 Z" fill="none" stroke="rgba(255,107,53,0.2)" stroke-width="1"/>
-
-  <!-- GitHub Octocat silhouette hint: circular head -->
-  <circle cx="1010" cy="215" r="38" fill="url(#octGrad)" stroke="rgba(230,57,70,0.35)" stroke-width="1.5"/>
-  <!-- Octocat ears -->
-  <path d="M985,192 Q978,180 972,178 Q980,182 982,192 Z" fill="rgba(230,57,70,0.2)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
-  <path d="M1035,192 Q1042,180 1048,178 Q1040,182 1038,192 Z" fill="rgba(230,57,70,0.2)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
-  <!-- Octocat eyes -->
-  <circle cx="998" cy="212" r="5" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-  <circle cx="1022" cy="212" r="5" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-  <!-- Tentacle arms -->
-  <path d="M975,230 Q960,245 955,265 Q958,258 965,252 Q970,268 968,282" fill="none" stroke="rgba(230,57,70,0.3)" stroke-width="2"/>
-  <path d="M1045,230 Q1060,245 1065,265 Q1062,258 1055,252 Q1050,268 1052,282" fill="none" stroke="rgba(230,57,70,0.3)" stroke-width="2"/>
-  <path d="M988,248 Q984,268 982,285 Q988,272 992,285" fill="none" stroke="rgba(230,57,70,0.25)" stroke-width="1.5"/>
-  <path d="M1032,248 Q1036,268 1038,285 Q1032,272 1028,285" fill="none" stroke="rgba(230,57,70,0.25)" stroke-width="1.5"/>
-
-  <!-- AWS smile arc (Amazon logo style) -->
-  <path d="M965,295 Q1010,318 1055,295" fill="none" stroke="rgba(255,153,0,0.5)" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M1050,291 L1055,295 L1048,297" fill="none" stroke="rgba(255,153,0,0.5)" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Lock icon overlay (security) -->
-  <rect x="994" y="222" width="32" height="24" rx="3" fill="rgba(108,46,191,0.15)" stroke="rgba(108,46,191,0.4)" stroke-width="1.5"/>
-  <path d="M1000,222 L1000,215 Q1010,208 1020,215 L1020,222" fill="none" stroke="rgba(108,46,191,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="233" r="4" fill="rgba(108,46,191,0.5)" stroke="rgba(108,46,191,0.6)" stroke-width="1"/>
-
-  <!-- Orbit rings -->
-  <ellipse cx="1010" cy="230" rx="75" ry="22" fill="none" stroke="rgba(255,107,53,0.12)" stroke-width="1" transform="rotate(-15,1010,230)"/>
-  <ellipse cx="1010" cy="230" rx="90" ry="28" fill="none" stroke="rgba(108,46,191,0.1)" stroke-width="1" transform="rotate(20,1010,230)"/>
-
-  <!-- Code brackets hint -->
-  <text x="890" y="175" font-family="monospace" font-size="28" fill="rgba(255,107,53,0.2)">&lt;/&gt;</text>
-  <text x="1090" y="310" font-family="monospace" font-size="22" fill="rgba(108,46,191,0.2)">{}</text>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(255,107,53,0.6)"/>
-  <circle cx="900" cy="420" r="5" fill="rgba(230,57,70,0.5)"/>
-  <circle cx="860" cy="440" r="5" fill="rgba(255,153,0,0.5)"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left side content -->
+  <text x="40" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Amazon Developer And</text>
+  <text x="40" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">GitHub Advanced Security</text>
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,107,53,0.15)" stroke="rgba(255,107,53,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.75)" text-anchor="middle" letter-spacing="2">MAY 24, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Amazon DeveloperAnd GitHub</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Advanced Security Security AWS</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">DevSecOps · Cloud Security · Developer Tools</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#lineAccent)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,107,53,0.8)" letter-spacing="3">DEVSECOPS</text>
-
+  <rect x="40" y="280" width="220" height="44" rx="22" fill="#1e2240" stroke="#4f7cff" stroke-width="2"/>
+  <text x="130" y="306" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a0aff9" text-anchor="middle">MAY 24, 2025</text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(230,57,70,0.18)" stroke="rgba(230,57,70,0.4)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(230,57,70,0.9)" text-anchor="middle">GitHub Security</text>
-
-  <rect x="225" y="402" width="110" height="36" rx="18" fill="rgba(255,153,0,0.15)" stroke="rgba(255,153,0,0.4)" stroke-width="1"/>
-  <text x="280" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,153,0,0.9)" text-anchor="middle">AWS Security</text>
-
-  <rect x="350" y="402" width="120" height="36" rx="18" fill="rgba(108,46,191,0.18)" stroke="rgba(108,46,191,0.4)" stroke-width="1"/>
-  <text x="410" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(167,130,255,0.9)" text-anchor="middle">Code Scanning</text>
-
+  <g id="tags">
+    <!-- Tag 1: security -->
+    <rect x="40" y="415" width="110" height="40" rx="20" fill="#1a3a4d" stroke="#00d9ff" stroke-width="1.5"/>
+    <text x="95" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d9ff" text-anchor="middle">Security</text>
+    
+    <!-- Tag 2: devsecops -->
+    <rect x="165" y="415" width="130" height="40" rx="20" fill="#2d1a3a" stroke="#ff6b9d" stroke-width="1.5"/>
+    <text x="232" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ff6b9d" text-anchor="middle">DevSecOps</text>
+    
+    <!-- Tag 3: automation -->
+    <rect x="310" y="415" width="130" height="40" rx="20" fill="#1a3a1a" stroke="#4fff6b" stroke-width="1.5"/>
+    <text x="375" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4fff6b" text-anchor="middle">Automation</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(255,107,53,0.4)" text-anchor="end" letter-spacing="2">DEVSECOPS</text>
+  <text x="40" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#6b7389">tech.2twodragon.com</text>
+  
+  <!-- Right side illustration -->
+  <g id="illustration">
+    <!-- Background glow circles -->
+    <circle cx="900" cy="200" r="120" fill="#4f7cff" opacity="0.08"/>
+    <circle cx="1050" cy="350" r="100" fill="#ff6b9d" opacity="0.08"/>
+    
+    <!-- Amazon shield/badge -->
+    <g id="amazon-shield">
+      <path d="M 800 120 L 900 90 L 950 120 L 950 240 Q 900 280 800 280 Q 700 280 750 240 Z" fill="none" stroke="#ff9900" stroke-width="2.5" stroke-linejoin="round"/>
+      <text x="875" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#ff9900" text-anchor="middle">AWS</text>
+    </g>
+    
+    <!-- GitHub octagon code symbol -->
+    <g id="github-element" transform="translate(1020, 140)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#6bff00" stroke-width="2.5"/>
+      <!-- Stylized code brackets -->
+      <path d="M -20 -15 L -30 0 L -20 15" fill="none" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 20 -15 L 30 0 L 20 15" fill="none" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="-5" y1="-20" x2="5" y2="20" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Security scanning layers -->
+    <g id="scan-layers">
+      <!-- Outer ring -->
+      <circle cx="900" cy="420" r="70" fill="none" stroke="#00d9ff" stroke-width="2" stroke-dasharray="8,4"/>
+      <!-- Middle ring -->
+      <circle cx="900" cy="420" r="55" fill="none" stroke="#4f7cff" stroke-width="1.5" opacity="0.6"/>
+      <!-- Inner ring with checkmark -->
+      <circle cx="900" cy="420" r="40" fill="none" stroke="#4fff6b" stroke-width="2"/>
+      <!-- Checkmark -->
+      <path d="M 885 420 L 895 430 L 915 410" fill="none" stroke="#4fff6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Data flow arrows -->
+    <g id="flow-arrows">
+      <!-- Curved arrow from shield to scanner -->
+      <path d="M 950 230 Q 975 310 930 380" fill="none" stroke="#a0aff9" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+      <polygon points="930,380 925,368 938,375" fill="#a0aff9" opacity="0.7"/>
+      
+      <!-- Curved arrow from code to scanner -->
+      <path d="M 1020 185 Q 995 310 915 400" fill="none" stroke="#a0aff9" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+      <polygon points="915,400 905,395 912,408" fill="#a0aff9" opacity="0.7"/>
+    </g>
+    
+    <!-- Integration nodes -->
+    <g id="nodes">
+      <!-- Node 1: Code scanning -->
+      <circle cx="750" cy="380" r="20" fill="#1e2240" stroke="#00d9ff" stroke-width="2"/>
+      <circle cx="750" cy="380" r="12" fill="#00d9ff" opacity="0.3"/>
+      
+      <!-- Node 2: Policy checks -->
+      <circle cx="1000" cy="300" r="20" fill="#1e2240" stroke="#ff6b9d" stroke-width="2"/>
+      <circle cx="1000" cy="300" r="12" fill="#ff6b9d" opacity="0.3"/>
+      
+      <!-- Node 3: Compliance -->
+      <circle cx="1080" cy="480" r="20" fill="#1e2240" stroke="#4fff6b" stroke-width="2"/>
+      <circle cx="1080" cy="480" r="12" fill="#4fff6b" opacity="0.3"/>
+    </g>
+    
+    <!-- Connection lines between nodes -->
+    <line x1="770" y1="395" x2="985" y2="320" stroke="#4f7cff" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,4"/>
+    <line x1="920" y1="410" x2="1065" y2="495" stroke="#4f7cff" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,4"/>
+  </g>
 </svg>

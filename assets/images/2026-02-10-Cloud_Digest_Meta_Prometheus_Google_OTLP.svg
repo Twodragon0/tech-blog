@@ -1,0 +1,174 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="grad-metric" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-prom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7b00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff5500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-telemetry" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc66;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow-metric">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Diagonal accent line -->
+  <line x1="650" y1="0" x2="750" y2="630" stroke="#1a3a4a" stroke-width="2" opacity="0.5"/>
+
+  <!-- Left side: Title and metadata -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">
+    Cloud Digest Meta
+  </text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">
+    Prometheus Google OTLP
+  </text>
+
+  <!-- Date badge -->
+  <rect x="60" y="290" width="280" height="50" fill="#1a3a4a" rx="8" ry="8"/>
+  <text x="80" y="322" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d4ff">
+    FEBRUARY 10, 2026
+  </text>
+
+  <!-- Tag pills -->
+  <g>
+    <!-- Tag 1: MONITORING -->
+    <rect x="60" y="420" width="130" height="36" fill="#0f2a3a" rx="18" ry="18"/>
+    <text x="85" y="445" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4ff">
+      MONITORING
+    </text>
+
+    <!-- Tag 2: PROMETHEUS -->
+    <rect x="210" y="420" width="130" height="36" fill="#2a1f0f" rx="18" ry="18"/>
+    <text x="230" y="445" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff7b00">
+      PROMETHEUS
+    </text>
+
+    <!-- Tag 3: OTLP -->
+    <rect x="360" y="420" width="100" height="36" fill="#0f2a1a" rx="18" ry="18"/>
+    <text x="380" y="445" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00ff88">
+      OTLP
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="595" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+    tech.2twodragon.com
+  </text>
+
+  <!-- RIGHT SIDE: ILLUSTRATION -->
+
+  <!-- Background panel for illustration -->
+  <rect x="700" y="40" width="450" height="550" fill="#0f1a2a" rx="12" ry="12" opacity="0.6"/>
+
+  <!-- Central metrics graph -->
+  <g id="metrics-graph">
+    <!-- Graph background -->
+    <rect x="750" y="100" width="340" height="180" fill="#1a2a3a" rx="6" ry="6"/>
+
+    <!-- Grid lines -->
+    <line x1="750" y1="140" x2="1090" y2="140" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+    <line x1="750" y1="180" x2="1090" y2="180" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+    <line x1="810" y1="100" x2="810" y2="280" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+    <line x1="870" y1="100" x2="870" y2="280" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+    <line x1="930" y1="100" x2="930" y2="280" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+    <line x1="990" y1="100" x2="990" y2="280" stroke="#2a4a6a" stroke-width="1" opacity="0.3"/>
+
+    <!-- Metric line 1 (blue) -->
+    <polyline points="760,200 800,160 840,180 880,130 920,150 960,110 1000,140 1040,100 1080,130"
+              fill="none" stroke="url(#grad-metric)" stroke-width="3" filter="url(#glow-metric)"/>
+
+    <!-- Metric line 2 (orange) -->
+    <polyline points="760,220 800,190 840,210 880,170 920,190 960,160 1000,185 1040,150 1080,180"
+              fill="none" stroke="url(#grad-prom)" stroke-width="2" opacity="0.8"/>
+
+    <!-- Data points -->
+    <circle cx="760" cy="200" r="3" fill="#00d4ff"/>
+    <circle cx="880" cy="130" r="3" fill="#00d4ff"/>
+    <circle cx="1000" cy="140" r="3" fill="#00d4ff"/>
+    <circle cx="1080" cy="130" r="3" fill="#00d4ff"/>
+  </g>
+
+  <!-- Prometheus scrape targets (circular nodes) -->
+  <g id="prometheus-targets">
+    <!-- Target 1 -->
+    <circle cx="780" cy="350" r="28" fill="none" stroke="url(#grad-prom)" stroke-width="2"/>
+    <circle cx="780" cy="350" r="22" fill="#1a0f00" opacity="0.6"/>
+    <text x="780" y="355" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff7b00" font-weight="bold">
+      API
+    </text>
+
+    <!-- Target 2 -->
+    <circle cx="900" cy="320" r="28" fill="none" stroke="url(#grad-prom)" stroke-width="2"/>
+    <circle cx="900" cy="320" r="22" fill="#1a0f00" opacity="0.6"/>
+    <text x="900" y="325" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff7b00" font-weight="bold">
+      DB
+    </text>
+
+    <!-- Target 3 -->
+    <circle cx="1020" cy="350" r="28" fill="none" stroke="url(#grad-prom)" stroke-width="2"/>
+    <circle cx="1020" cy="350" r="22" fill="#1a0f00" opacity="0.6"/>
+    <text x="1020" y="355" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff7b00" font-weight="bold">
+      SVC
+    </text>
+  </g>
+
+  <!-- Data flow arrows -->
+  <g id="data-flow" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)">
+    <defs>
+      <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#00ff88"/>
+      </marker>
+    </defs>
+    <!-- Flows from targets to central collection -->
+    <path d="M 808 375 L 880 330" stroke-dasharray="5,5" opacity="0.8"/>
+    <path d="M 900 292 L 900 280" stroke-dasharray="5,5" opacity="0.8"/>
+    <path d="M 992 375 L 920 330" stroke-dasharray="5,5" opacity="0.8"/>
+  </g>
+
+  <!-- OTLP Collector box -->
+  <g id="otlp-collector">
+    <rect x="820" y="420" width="160" height="90" fill="#0f2a1a" stroke="url(#grad-telemetry)" stroke-width="2" rx="6" ry="6"/>
+    <text x="900" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00ff88">
+      OTLP Collector
+    </text>
+    <line x1="830" y1="455" x2="970" y2="455" stroke="#00ff88" stroke-width="1" opacity="0.5"/>
+    <text x="900" y="475" text-anchor="middle" font-family="monospace" font-size="11" fill="#00cc66">
+      Metrics | Traces | Logs
+    </text>
+  </g>
+
+  <!-- Cloud export -->
+  <g id="cloud-export">
+    <path d="M 770 530 Q 780 510 800 520 Q 820 500 840 510 Q 850 490 870 510 Q 880 495 900 510 Q 920 490 940 510"
+          fill="none" stroke="#0099ff" stroke-width="2.5"/>
+    <text x="850" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0099ff" font-weight="bold">
+      Google Cloud Export
+    </text>
+  </g>
+
+  <!-- Connection lines from collector to cloud -->
+  <g stroke="#0099ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.7">
+    <line x1="850" y1="510" x2="820" y2="530"/>
+    <line x1="900" y1="510" x2="900" y2="535"/>
+    <line x1="950" y1="510" x2="980" y2="530"/>
+  </g>
+
+  <!-- Accent decorative elements -->
+  <circle cx="750" cy="80" r="4" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="1100" cy="120" r="3" fill="#ff7b00" opacity="0.5"/>
+  <circle cx="780" cy="520" r="2.5" fill="#00ff88" opacity="0.7"/>
+  <circle cx="1050" cy="500" r="2" fill="#0099ff" opacity="0.6"/>
+
+</svg>

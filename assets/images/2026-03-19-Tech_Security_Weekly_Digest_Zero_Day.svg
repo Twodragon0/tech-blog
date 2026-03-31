@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Left side: Text content -->
+  <!-- Title Line 1 -->
+  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Tech Security Weekly
+  </text>
+
+  <!-- Title Line 2 -->
+  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Digest Zero Day
+  </text>
+
+  <!-- Date Badge -->
+  <g>
+    <rect x="50" y="310" width="280" height="50" rx="8" fill="#1a1f3a" stroke="#4a5f8f" stroke-width="2"/>
+    <text x="140" y="342" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#64b5f6" text-anchor="middle">
+      MARCH 19, 2026
+    </text>
+  </g>
+
+  <!-- Tag Pills -->
+  <!-- Tag 1: Security -->
+  <g>
+    <rect x="50" y="420" width="110" height="40" rx="20" fill="#c41c3b" opacity="0.85"/>
+    <text x="105" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">
+      Security
+    </text>
+  </g>
+
+  <!-- Tag 2: Zero Day -->
+  <g>
+    <rect x="190" y="420" width="110" height="40" rx="20" fill="#ff6b35" opacity="0.85"/>
+    <text x="245" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">
+      Zero Day
+    </text>
+  </g>
+
+  <!-- Tag 3: Vulnerability -->
+  <g>
+    <rect x="330" y="420" width="130" height="40" rx="20" fill="#ffa500" opacity="0.85"/>
+    <text x="395" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">
+      Vulnerability
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="50" y="590" font-family="Arial, sans-serif" font-size="16" fill="#64b5f6" letter-spacing="1">
+    tech.2twodragon.com
+  </text>
+
+  <!-- Right side: Zero-Day Illustration -->
+  <!-- Background glow circle -->
+  <circle cx="925" cy="315" r="200" fill="#c41c3b" opacity="0.08"/>
+  <circle cx="925" cy="315" r="160" fill="#ff6b35" opacity="0.06"/>
+
+  <!-- Shield base (outer) -->
+  <path d="M 925 140 L 1000 180 L 1000 340 Q 925 400 850 340 L 850 180 Z" fill="#1a3a52" stroke="#4a7f9f" stroke-width="3"/>
+
+  <!-- Shield inner (cracked) -->
+  <path d="M 925 155 L 990 190 L 990 340 Q 925 385 860 340 L 860 190 Z" fill="#0f5a8f" stroke="#2a8f9f" stroke-width="2"/>
+
+  <!-- Shield crack effect (breaking glass) -->
+  <g stroke="#ff4444" stroke-width="3" fill="none" opacity="0.9">
+    <line x1="925" y1="155" x2="920" y2="280"/>
+    <line x1="920" y1="280" x2="950" y2="320"/>
+    <line x1="920" y1="280" x2="880" y2="310"/>
+    <line x1="925" y1="155" x2="970" y2="200"/>
+    <line x1="970" y1="200" x2="960" y2="260"/>
+  </g>
+
+  <!-- Shield crack splinters -->
+  <g stroke="#ff6b35" stroke-width="2" fill="none" opacity="0.7">
+    <line x1="880" y1="220" x2="865" y2="235"/>
+    <line x1="970" y1="260" x2="990" y2="270"/>
+    <line x1="950" y1="320" x2="970" y2="335"/>
+  </g>
+
+  <!-- Breach/glow effect with red alert rays -->
+  <g stroke="#ff4444" stroke-width="2" fill="none" opacity="0.8">
+    <line x1="925" y1="280" x2="925" y2="180"/>
+    <line x1="925" y1="280" x2="1010" y2="280"/>
+    <line x1="925" y1="280" x2="840" y2="280"/>
+    <line x1="925" y1="280" x2="970" y2="235"/>
+    <line x1="925" y1="280" x2="880" y2="325"/>
+  </g>
+
+  <!-- Vulnerability indicator (3 red circles) -->
+  <circle cx="895" cy="250" r="6" fill="#ff4444" opacity="0.9"/>
+  <circle cx="955" cy="270" r="6" fill="#ff4444" opacity="0.9"/>
+  <circle cx="920" cy="320" r="6" fill="#ff4444" opacity="0.9"/>
+
+  <!-- Code snippet representation (0-day concept) -->
+  <g opacity="0.7">
+    <rect x="800" y="390" width="250" height="120" rx="6" fill="#0d1b2a" stroke="#2a5a7f" stroke-width="1"/>
+
+    <!-- Code lines -->
+    <text x="815" y="410" font-family="monospace" font-size="12" fill="#4a9f6f">
+      &lt;unpatched&gt;
+    </text>
+    <text x="815" y="430" font-family="monospace" font-size="12" fill="#ff6b35">
+      vulnerability: critical
+    </text>
+    <text x="815" y="450" font-family="monospace" font-size="12" fill="#ff6b35">
+      zero_day: TRUE
+    </text>
+    <text x="815" y="470" font-family="monospace" font-size="12" fill="#c41c3b">
+      breach_risk: IMMINENT
+    </text>
+    <text x="815" y="490" font-family="monospace" font-size="12" fill="#4a9f6f">
+      &lt;/unpatched&gt;
+    </text>
+  </g>
+
+  <!-- Warning indicator -->
+  <g>
+    <circle cx="1050" cy="180" r="20" fill="#ff4444" opacity="0.9"/>
+    <text x="1050" y="190" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">
+      !
+    </text>
+  </g>
+</svg>

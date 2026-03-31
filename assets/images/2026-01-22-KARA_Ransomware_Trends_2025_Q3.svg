@@ -1,147 +1,149 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="redOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff3b3b"/>
-      <stop offset="100%" stop-color="#ff6b00"/>
+    <linearGradient id="purpleRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#cc2244;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#aa0033;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="pill1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff3b3b" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#ff3b3b" stop-opacity="0.1"/>
+    <linearGradient id="glowBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3388ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00ccff;stop-opacity:0.6" />
     </linearGradient>
-    <linearGradient id="pill2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ffaa00" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#ffaa00" stop-opacity="0.1"/>
-    </linearGradient>
-    <linearGradient id="pill3" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82ff" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#3b82ff" stop-opacity="0.1"/>
-    </linearGradient>
-    <linearGradient id="iconGlow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff3b3b" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff6b00" stop-opacity="0.1"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softglow">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,59,59,0.04)" stroke="rgba(255,59,59,0.06)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,107,0,0.05)" stroke="rgba(255,107,0,0.08)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware shield / lock icon with threat rings -->
-  <!-- Outer threat ring -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(255,59,59,0.18)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="95" fill="rgba(255,30,30,0.06)" stroke="rgba(255,80,80,0.22)" stroke-width="1"/>
-
-  <!-- Shield body -->
-  <path d="M1010,130 L1075,162 L1075,225 Q1075,278 1010,310 Q945,278 945,225 L945,162 Z" fill="rgba(180,30,30,0.10)" stroke="rgba(255,80,80,0.30)" stroke-width="1.5"/>
-
-  <!-- Shield inner fill -->
-  <path d="M1010,148 L1063,174 L1063,225 Q1063,268 1010,292 Q957,268 957,225 L957,174 Z" fill="rgba(255,59,59,0.08)" stroke="rgba(255,100,100,0.20)" stroke-width="1"/>
-
-  <!-- Lock body on shield -->
-  <rect x="992" y="208" width="36" height="28" rx="4" fill="rgba(255,120,50,0.13)" stroke="rgba(255,140,60,0.35)" stroke-width="1.5"/>
-  <!-- Lock shackle -->
-  <path d="M999,208 L999,198 Q999,186 1010,186 Q1021,186 1021,198 L1021,208" fill="none" stroke="rgba(255,140,60,0.40)" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Lock keyhole -->
-  <circle cx="1010" cy="220" r="4" fill="rgba(255,160,80,0.35)"/>
-  <rect x="1008" y="220" width="4" height="8" rx="2" fill="rgba(255,160,80,0.30)"/>
-
-  <!-- Threat data lines radiating outward -->
-  <line x1="1010" y1="130" x2="1010" y2="105" stroke="rgba(255,59,59,0.20)" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="1075" y1="162" x2="1098" y2="148" stroke="rgba(255,59,59,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="1075" y1="225" x2="1108" y2="225" stroke="rgba(255,59,59,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="945" y1="162" x2="922" y2="148" stroke="rgba(255,59,59,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="945" y1="225" x2="912" y2="225" stroke="rgba(255,59,59,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-
-  <!-- Threat nodes at line ends -->
-  <circle cx="1010" cy="102" r="4" fill="rgba(255,59,59,0.30)" stroke="rgba(255,100,100,0.50)" stroke-width="1"/>
-  <circle cx="1101" cy="145" r="3" fill="rgba(255,107,0,0.30)" stroke="rgba(255,140,60,0.50)" stroke-width="1"/>
-  <circle cx="1111" cy="225" r="3" fill="rgba(255,59,59,0.25)" stroke="rgba(255,100,100,0.45)" stroke-width="1"/>
-  <circle cx="919" cy="145" r="3" fill="rgba(255,107,0,0.30)" stroke="rgba(255,140,60,0.50)" stroke-width="1"/>
-  <circle cx="909" cy="225" r="3" fill="rgba(255,59,59,0.25)" stroke="rgba(255,100,100,0.45)" stroke-width="1"/>
-
-  <!-- Binary text decorative -->
-  <text x="920" y="318" font-size="9" fill="rgba(255,80,80,0.18)" font-family="monospace">01001011 01000001 01010010</text>
-  <text x="935" y="330" font-size="9" fill="rgba(255,107,0,0.14)" font-family="monospace">10101010 01010101</text>
-
-  <!-- Hexagon data badge top right -->
-  <polygon points="1120,138 1140,149 1140,171 1120,182 1100,171 1100,149" fill="rgba(255,59,59,0.08)" stroke="rgba(255,80,80,0.22)" stroke-width="1"/>
-  <text x="1120" y="163" text-anchor="middle" font-size="10" fill="rgba(255,120,80,0.50)" font-family="monospace" font-weight="700">Q3</text>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(255,59,59,0.55)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,107,0,0.50)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(255,59,59,0.40)" filter="url(#glow)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,59,59,0.12)" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <text x="190" y="81" text-anchor="middle" font-size="13" fill="rgba(255,160,120,0.90)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600" letter-spacing="0.5">JANUARY 22, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="-0.5">KARA Ransomware Trends Report</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="-0.5">
-    <tspan fill="#ff6b6b">2025 Q3</tspan><tspan fill="white"> SK Shieldus</tspan>
+  <!-- LEFT SIDE: Text Content -->
+  <!-- Title Line 1 -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    KARA Ransomware
   </text>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,200,180,0.72)" font-family="'Segoe UI',Arial,sans-serif">Annual Threat Intelligence Report — Ransomware &amp; Extortion Analysis</text>
+  <!-- Title Line 2 -->
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Trends Report 2025
+  </text>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Date Badge -->
+  <rect x="60" y="270" width="280" height="40" rx="8" fill="#ff4444" opacity="0.2" stroke="#ff4444" stroke-width="2"/>
+  <text x="75" y="298" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff8800">
+    JANUARY 22, 2026
+  </text>
 
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,140,100,0.70)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600" letter-spacing="2">SECURITY / THREAT INTELLIGENCE / RANSOMWARE</text>
+  <!-- Tags -->
+  <!-- Tag 1 -->
+  <rect x="60" y="420" width="110" height="32" rx="16" fill="#ff4444" opacity="0.15" stroke="#ff4444" stroke-width="1.5"/>
+  <text x="75" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff8800">
+    Ransomware
+  </text>
 
-  <!-- Tag pills -->
-  <!-- Pill 1: Ransomware -->
-  <rect x="80" y="402" width="148" height="36" rx="18" fill="url(#pill1)" stroke="rgba(255,59,59,0.35)" stroke-width="1"/>
-  <text x="154" y="425" text-anchor="middle" font-size="13" fill="rgba(255,140,120,0.90)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600">Ransomware</text>
+  <!-- Tag 2 -->
+  <rect x="180" y="420" width="90" height="32" rx="16" fill="#3388ff" opacity="0.15" stroke="#3388ff" stroke-width="1.5"/>
+  <text x="195" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00ccff">
+    Security
+  </text>
 
-  <!-- Pill 2: KARA Report -->
-  <rect x="240" y="402" width="140" height="36" rx="18" fill="url(#pill2)" stroke="rgba(255,170,0,0.35)" stroke-width="1"/>
-  <text x="310" y="425" text-anchor="middle" font-size="13" fill="rgba(255,200,100,0.90)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600">KARA Report</text>
+  <!-- Tag 3 -->
+  <rect x="280" y="420" width="80" height="32" rx="16" fill="#cc2244" opacity="0.15" stroke="#cc2244" stroke-width="1.5"/>
+  <text x="295" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff6688">
+    Threats
+  </text>
 
-  <!-- Pill 3: SK Shieldus -->
-  <rect x="392" y="402" width="138" height="36" rx="18" fill="url(#pill3)" stroke="rgba(59,130,255,0.35)" stroke-width="1"/>
-  <text x="461" y="425" text-anchor="middle" font-size="13" fill="rgba(120,180,255,0.90)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600">SK Shieldus</text>
+  <!-- Footer -->
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="12" fill="#666666">
+    tech.2twodragon.com
+  </text>
 
-  <!-- Footer line -->
-  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <!-- RIGHT SIDE: Illustration for KARA Ransomware -->
+  <!-- Background accent circle for illustration area -->
+  <circle cx="900" cy="300" r="220" fill="#ff4444" opacity="0.05"/>
 
-  <!-- Footer text left -->
-  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.35)" font-family="'Segoe UI',Arial,sans-serif">tech.2twodragon.com</text>
+  <!-- Central Shield with lock -->
+  <g transform="translate(900, 280)">
+    <!-- Shield outline -->
+    <path d="M -80 -90 L -80 -20 Q -80 40 0 80 Q 80 40 80 -20 L 80 -90 Z" fill="none" stroke="#ff4444" stroke-width="3" opacity="0.8"/>
 
-  <!-- Footer text right -->
-  <text x="1120" y="545" text-anchor="end" font-size="13" fill="rgba(255,140,100,0.40)" font-family="'Segoe UI',Arial,sans-serif" font-weight="600">SECURITY</text>
+    <!-- Shield fill (darker) -->
+    <path d="M -75 -85 L -75 -20 Q -75 35 0 75 Q 75 35 75 -20 L 75 -85 Z" fill="#ff4444" opacity="0.1"/>
+
+    <!-- Lock icon inside shield -->
+    <g transform="translate(0, 0)">
+      <!-- Lock body -->
+      <rect x="-28" y="-5" width="56" height="45" rx="6" fill="none" stroke="#ff8800" stroke-width="2.5"/>
+
+      <!-- Lock shackle (curved top) -->
+      <path d="M -18 -5 Q -18 -35 0 -40 Q 18 -35 18 -5" fill="none" stroke="#ff8800" stroke-width="2.5" stroke-linecap="round"/>
+
+      <!-- Lock keyhole circle -->
+      <circle cx="0" cy="12" r="6" fill="none" stroke="#ff8800" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Threat indicator - upward trend lines (showing growth) -->
+  <g transform="translate(750, 380)">
+    <!-- Line 1 -->
+    <line x1="0" y1="40" x2="20" y2="20" stroke="#ff4444" stroke-width="2.5" opacity="0.8"/>
+    <!-- Line 2 -->
+    <line x1="25" y1="35" x2="45" y2="10" stroke="#ff8800" stroke-width="2.5" opacity="0.8"/>
+    <!-- Line 3 -->
+    <line x1="50" y1="30" x2="70" y2="0" stroke="#ff6688" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Arrow at top -->
+    <polygon points="70,0 65,-8 75,-5" fill="#ff4444" opacity="0.9"/>
+  </g>
+
+  <!-- Data corruption symbols (broken/fragmented) -->
+  <g transform="translate(1050, 200)">
+    <!-- Fragment 1 -->
+    <rect x="0" y="0" width="25" height="25" fill="#ff4444" opacity="0.4" transform="rotate(-15)"/>
+    <!-- Fragment 2 -->
+    <rect x="30" y="10" width="20" height="20" fill="#ff8800" opacity="0.5" transform="rotate(25)"/>
+    <!-- Fragment 3 -->
+    <rect x="15" y="40" width="22" height="22" fill="#ff6688" opacity="0.4" transform="rotate(45)"/>
+  </g>
+
+  <!-- Network/connection nodes showing attack vectors -->
+  <g stroke="#3388ff" stroke-width="1.5" opacity="0.6">
+    <!-- Node connections -->
+    <circle cx="750" cy="150" r="8" fill="none"/>
+    <circle cx="850" cy="140" r="8" fill="none"/>
+    <circle cx="950" cy="160" r="8" fill="none"/>
+
+    <!-- Connection lines -->
+    <line x1="750" y1="150" x2="850" y2="140"/>
+    <line x1="850" y1="140" x2="950" y2="160"/>
+    <line x1="750" y1="150" x2="950" y2="160"/>
+  </g>
+
+  <!-- Encrypted data symbol (chain links) -->
+  <g transform="translate(800, 480)">
+    <!-- Link 1 -->
+    <rect x="0" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
+    <!-- Link 2 -->
+    <rect x="14" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
+    <!-- Link 3 -->
+    <rect x="28" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- Warning pulse (concentric circles) -->
+  <g transform="translate(1000, 450)" opacity="0.7">
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#ff4444" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="8" fill="#ff4444" opacity="0.6"/>
+  </g>
+
+  <!-- Binary code scattered (showing data breach) -->
+  <g font-family="monospace" font-size="10" fill="#ff8800" opacity="0.5">
+    <text x="780" y="520">1011010</text>
+    <text x="920" y="535">0110110</text>
+    <text x="1020" y="500">1101001</text>
+  </g>
+
+  <!-- Glow effect for shield -->
+  <circle cx="900" cy="280" r="95" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.3" filter="blur(3)"/>
 </svg>

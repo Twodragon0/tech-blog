@@ -1,127 +1,158 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Gradient definition for illustration accent -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e05c5c"/>
-      <stop offset="50%" style="stop-color:#c084fc"/>
-      <stop offset="100%" style="stop-color:#60a5fa"/>
+    <linearGradient id="orchestrateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4d94;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e05c5c"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e05c5c;stop-opacity:0.25"/>
-      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:0.1"/>
+    <linearGradient id="executeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8338ec;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a86ff;stop-opacity:1" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Claude + Code + OpenCode symbol -->
-  <!-- Outer ring representing orchestration -->
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(192,132,252,0.25)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="88" fill="rgba(192,132,252,0.06)" stroke="rgba(192,132,252,0.2)" stroke-width="1"/>
-
-  <!-- Inner hexagon representing structure/best practices -->
-  <polygon points="1010,148 1068,181 1068,269 1010,302 952,269 952,181" fill="rgba(96,165,250,0.07)" stroke="rgba(96,165,250,0.3)" stroke-width="1.5"/>
-
-  <!-- Center node: AI brain -->
-  <circle cx="1010" cy="225" r="38" fill="rgba(224,92,92,0.12)" stroke="rgba(224,92,92,0.35)" stroke-width="2"/>
-  <circle cx="1010" cy="225" r="22" fill="rgba(224,92,92,0.15)" stroke="rgba(224,92,92,0.4)" stroke-width="1.5"/>
-
-  <!-- Central Claude logo-like C shape -->
-  <path d="M1023,213 A18,18 0 1,0 1023,237" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Radial connector lines from center to hex vertices -->
-  <line x1="1010" y1="225" x2="1010" y2="148" stroke="rgba(192,132,252,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="1068" y2="181" stroke="rgba(96,165,250,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="1068" y2="269" stroke="rgba(96,165,250,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="1010" y2="302" stroke="rgba(192,132,252,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="952" y2="269" stroke="rgba(224,92,92,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="952" y2="181" stroke="rgba(224,92,92,0.2)" stroke-width="1"/>
-
-  <!-- Vertex dots -->
-  <circle cx="1010" cy="148" r="5" fill="rgba(192,132,252,0.5)" stroke="rgba(192,132,252,0.8)" stroke-width="1"/>
-  <circle cx="1068" cy="181" r="5" fill="rgba(96,165,250,0.5)" stroke="rgba(96,165,250,0.8)" stroke-width="1"/>
-  <circle cx="1068" cy="269" r="5" fill="rgba(96,165,250,0.5)" stroke="rgba(96,165,250,0.8)" stroke-width="1"/>
-  <circle cx="1010" cy="302" r="5" fill="rgba(192,132,252,0.5)" stroke="rgba(192,132,252,0.8)" stroke-width="1"/>
-  <circle cx="952" cy="269" r="5" fill="rgba(224,92,92,0.5)" stroke="rgba(224,92,92,0.8)" stroke-width="1"/>
-  <circle cx="952" cy="181" r="5" fill="rgba(224,92,92,0.5)" stroke="rgba(224,92,92,0.8)" stroke-width="1"/>
-
-  <!-- Code brackets decorative -->
-  <text x="885" y="200" font-size="42" fill="rgba(96,165,250,0.18)" font-family="monospace" font-weight="700">&lt;</text>
-  <text x="1110" y="260" font-size="42" fill="rgba(96,165,250,0.18)" font-family="monospace" font-weight="700">/&gt;</text>
-
-  <!-- Floating small squares representing best practice items -->
-  <rect x="880" y="130" width="14" height="14" rx="2" fill="rgba(224,92,92,0.12)" stroke="rgba(224,92,92,0.3)" stroke-width="1" transform="rotate(15,887,137)"/>
-  <rect x="1115" y="140" width="10" height="10" rx="2" fill="rgba(192,132,252,0.12)" stroke="rgba(192,132,252,0.3)" stroke-width="1" transform="rotate(-10,1120,145)"/>
-  <rect x="895" y="300" width="12" height="12" rx="2" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.3)" stroke-width="1" transform="rotate(20,901,306)"/>
-  <rect x="1120" y="295" width="10" height="10" rx="2" fill="rgba(224,92,92,0.12)" stroke="rgba(224,92,92,0.3)" stroke-width="1"/>
-
-  <!-- Orbit dots rotating around outer ring -->
-  <circle cx="1010" cy="115" r="4" fill="rgba(255,255,255,0.35)"/>
-  <circle cx="1105" cy="170" r="3" fill="rgba(192,132,252,0.5)"/>
-  <circle cx="915" cy="280" r="3" fill="rgba(96,165,250,0.5)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(224,92,92,0.6)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(251,191,36,0.6)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(96,165,250,0.6)"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(192,132,252,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(96,165,250,0.04)" stroke="none"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(224,92,92,0.3)" stroke-width="1"/>
-  <text x="95" y="81" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.75)" letter-spacing="1">FEBRUARY 25, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Claude Code</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">OpenCode Best Practices</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">DevOps · Automation · Multi-Agent Workflows</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgba(224,92,92,0.85)" letter-spacing="2.5" font-weight="600">DEVOPS / DEVELOPER TOOLS</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(224,92,92,0.15)" stroke="rgba(224,92,92,0.4)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.85)" text-anchor="middle" font-weight="500">Claude Code</text>
-
-  <rect x="225" y="402" width="115" height="36" rx="18" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
-  <text x="282" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.85)" text-anchor="middle" font-weight="500">OpenCode</text>
-
-  <rect x="354" y="402" width="130" height="36" rx="18" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.35)" stroke-width="1"/>
-  <text x="419" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.85)" text-anchor="middle" font-weight="500">Best Practices</text>
-
+  
+  <!-- LEFT SIDE: Text Content -->
+  
+  <!-- Title Line 1 -->
+  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff">
+    Claude Code OpenCode
+  </text>
+  
+  <!-- Title Line 2 -->
+  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff">
+    Best Practices
+  </text>
+  
+  <!-- Date Badge -->
+  <g>
+    <rect x="50" y="270" width="280" height="40" rx="6" fill="rgba(0, 217, 255, 0.1)" stroke="#00d9ff" stroke-width="1"/>
+    <text x="70" y="296" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d9ff">
+      FEBRUARY 25, 2026
+    </text>
+  </g>
+  
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1: Orchestration -->
+    <rect x="50" y="420" width="120" height="32" rx="16" fill="rgba(255, 77, 148, 0.15)" stroke="#ff4d94" stroke-width="1"/>
+    <text x="65" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ff4d94">
+      Orchestration
+    </text>
+    
+    <!-- Tag 2: Delegation -->
+    <rect x="190" y="420" width="100" height="32" rx="16" fill="rgba(51, 56, 236, 0.15)" stroke="#8338ec" stroke-width="1"/>
+    <text x="205" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#8338ec">
+      Delegation
+    </text>
+    
+    <!-- Tag 3: Multi-Agent -->
+    <rect x="310" y="420" width="110" height="32" rx="16" fill="rgba(0, 153, 255, 0.15)" stroke="#3a86ff" stroke-width="1"/>
+    <text x="325" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#3a86ff">
+      Multi-Agent
+    </text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="1">DEVOPS</text>
+  <text x="50" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#666688">
+    tech.2twodragon.com
+  </text>
+  
+  <!-- RIGHT SIDE: Illustration for Claude Code OpenCode Best Practices -->
+  
+  <!-- Central Conductor Node -->
+  <circle cx="925" cy="315" r="35" fill="url(#agentGrad)" opacity="0.9"/>
+  <circle cx="925" cy="315" r="35" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.5"/>
+  <text x="916" y="322" font-family="monospace" font-size="18" font-weight="700" fill="#0a0c1a">◆</text>
+  
+  <!-- Agent Nodes Around Conductor -->
+  <!-- Explore Agent (top-left) -->
+  <circle cx="800" cy="200" r="22" fill="rgba(0, 217, 255, 0.8)"/>
+  <circle cx="800" cy="200" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6"/>
+  <text x="792" y="207" font-family="monospace" font-size="12" font-weight="700" fill="#0a0c1a">⊙</text>
+  
+  <!-- Executor Agent (right) -->
+  <circle cx="1050" cy="315" r="22" fill="url(#executeGrad)" opacity="0.9"/>
+  <circle cx="1050" cy="315" r="22" fill="none" stroke="#8338ec" stroke-width="2" opacity="0.6"/>
+  <text x="1042" y="322" font-family="monospace" font-size="12" font-weight="700" fill="#0a0c1a">▶</text>
+  
+  <!-- Architect Agent (top-right) -->
+  <circle cx="1000" cy="180" r="22" fill="rgba(0, 217, 255, 0.7)"/>
+  <circle cx="1000" cy="180" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6"/>
+  <text x="992" y="187" font-family="monospace" font-size="12" font-weight="700" fill="#0a0c1a">⬗</text>
+  
+  <!-- Reviewer Agent (bottom-right) -->
+  <circle cx="1000" cy="450" r="22" fill="url(#orchestrateGrad)" opacity="0.8"/>
+  <circle cx="1000" cy="450" r="22" fill="none" stroke="#ff4d94" stroke-width="2" opacity="0.6"/>
+  <text x="992" y="457" font-family="monospace" font-size="12" font-weight="700" fill="#0a0c1a">✓</text>
+  
+  <!-- Planner Agent (bottom-left) -->
+  <circle cx="800" cy="430" r="22" fill="rgba(0, 217, 255, 0.6)"/>
+  <circle cx="800" cy="430" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6"/>
+  <text x="792" y="437" font-family="monospace" font-size="12" font-weight="700" fill="#0a0c1a">◉</text>
+  
+  <!-- Connection lines from Conductor to Agents -->
+  <!-- Line to Explore -->
+  <line x1="902" y1="295" x2="815" y2="220" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  
+  <!-- Line to Executor -->
+  <line x1="960" y1="315" x2="1028" y2="315" stroke="#8338ec" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Line to Architect -->
+  <line x1="950" y1="292" x2="985" y2="198" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  
+  <!-- Line to Reviewer -->
+  <line x1="950" y1="340" x2="985" y2="432" stroke="#ff4d94" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  
+  <!-- Line to Planner -->
+  <line x1="902" y1="335" x2="815" y2="410" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3"/>
+  
+  <!-- Cross-agent communication lines (lighter) -->
+  <line x1="815" y1="215" x2="985" y2="198" stroke="#3a86ff" stroke-width="1" opacity="0.2" stroke-dasharray="4,4"/>
+  <line x1="1050" y1="295" x2="1000" y2="172" stroke="#3a86ff" stroke-width="1" opacity="0.2" stroke-dasharray="4,4"/>
+  
+  <!-- Data flow indicators -->
+  <path d="M 935 282 L 945 275" stroke="#00d9ff" stroke-width="2" fill="none" marker-end="url(#arrowblue)" opacity="0.5"/>
+  <path d="M 960 325 L 1020 325" stroke="#8338ec" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M 940 345 L 930 400" stroke="#ff4d94" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00d9ff" />
+    </marker>
+  </defs>
+  
+  <!-- Workflow visualization elements -->
+  <!-- Task queue representation -->
+  <rect x="750" y="520" width="14" height="80" rx="2" fill="rgba(0, 217, 255, 0.2)" stroke="#00d9ff" stroke-width="1"/>
+  <rect x="770" y="520" width="14" height="60" rx="2" fill="rgba(51, 56, 236, 0.2)" stroke="#8338ec" stroke-width="1"/>
+  <rect x="790" y="520" width="14" height="70" rx="2" fill="rgba(255, 77, 148, 0.2)" stroke="#ff4d94" stroke-width="1"/>
+  
+  <!-- Parallel execution indicator -->
+  <text x="760" y="615" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888899" font-weight="500">
+    Parallel Execution
+  </text>
+  
+  <!-- Skill/Mode indicators (small dots) -->
+  <circle cx="850" cy="535" r="3" fill="#00d9ff" opacity="0.7"/>
+  <circle cx="865" cy="535" r="3" fill="#8338ec" opacity="0.7"/>
+  <circle cx="880" cy="535" r="3" fill="#ff4d94" opacity="0.7"/>
+  
+  <!-- Delegation flow text -->
+  <text x="920" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
+    Orchestrate
+  </text>
+  <text x="1000" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
+    Delegate
+  </text>
+  <text x="1060" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
+    Verify
+  </text>
 </svg>

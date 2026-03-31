@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient overlay (subtle) -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="certGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- LEFT SIDE CONTENT -->
+  <!-- Title line 1 -->
+  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">2025 ISMS</text>
+  <!-- Title line 2 -->
+  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">AWS Environment Mgmt</text>
+
+  <!-- Date badge -->
+  <rect x="50" y="290" width="280" height="40" rx="6" fill="rgba(0, 217, 255, 0.15)" stroke="#00d9ff" stroke-width="1.5"/>
+  <text x="70" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#00d9ff">JANUARY 14, 2026</text>
+
+  <!-- Tag pills -->
+  <g id="tags">
+    <!-- Tag 1: ISMS -->
+    <rect x="50" y="420" width="100" height="32" rx="16" fill="rgba(100, 180, 255, 0.2)" stroke="#64b4ff" stroke-width="1"/>
+    <text x="100" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#64b4ff" text-anchor="middle">ISMS</text>
+
+    <!-- Tag 2: AWS -->
+    <rect x="170" y="420" width="100" height="32" rx="16" fill="rgba(255, 153, 0, 0.2)" stroke="#ff9900" stroke-width="1"/>
+    <text x="220" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ff9900" text-anchor="middle">AWS</text>
+
+    <!-- Tag 3: Security -->
+    <rect x="290" y="420" width="120" height="32" rx="16" fill="rgba(76, 175, 80, 0.2)" stroke="#4caf50" stroke-width="1"/>
+    <text x="350" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4caf50" text-anchor="middle">Security</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="50" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="rgba(255, 255, 255, 0.5)">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE ILLUSTRATION -->
+  <!-- Background glow -->
+  <circle cx="900" cy="250" r="200" fill="rgba(0, 217, 255, 0.08)"/>
+  <circle cx="950" cy="350" r="150" fill="rgba(100, 180, 255, 0.06)"/>
+
+  <!-- Shield base (ISMS certification symbol) -->
+  <path d="M 850 180 L 920 150 L 990 180 L 990 280 Q 920 340 920 360 Q 920 340 850 280 Z" fill="none" stroke="#00d9ff" stroke-width="2.5"/>
+
+  <!-- Shield accent -->
+  <path d="M 860 200 L 920 175 L 980 200 L 980 270 Q 920 320 920 335 Q 920 320 860 270 Z" fill="url(#certGrad)" opacity="0.15"/>
+
+  <!-- Checkmark inside shield -->
+  <path d="M 900 240 L 912 255 L 935 225" fill="none" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- AWS Cloud layers (left cloud) -->
+  <ellipse cx="750" cy="320" rx="70" ry="50" fill="none" stroke="#ff9900" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="720" cy="340" rx="50" ry="40" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="780" cy="340" rx="55" ry="42" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- AWS instances/services (right cloud) -->
+  <ellipse cx="1000" cy="320" rx="65" ry="48" fill="none" stroke="#ff9900" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="970" cy="340" rx="48" ry="38" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="1025" cy="340" rx="50" ry="40" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Connecting arrows (environment management flow) -->
+  <line x1="820" y1="330" x2="960" y2="330" stroke="#64b4ff" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64b4ff"/>
+    </marker>
+  </defs>
+
+  <!-- Compliance badges (vertical stack) -->
+  <!-- Badge 1 -->
+  <circle cx="750" cy="420" r="20" fill="none" stroke="#4caf50" stroke-width="2" opacity="0.8"/>
+  <path d="M 742 420 L 748 428 L 760 415" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Badge 2 -->
+  <circle cx="850" cy="450" r="20" fill="none" stroke="#4caf50" stroke-width="2" opacity="0.8"/>
+  <path d="M 842 450 L 848 458 L 860 445" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Badge 3 -->
+  <circle cx="950" cy="430" r="20" fill="none" stroke="#4caf50" stroke-width="2" opacity="0.8"/>
+  <path d="M 942 430 L 948 438 L 960 425" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Environment control nodes -->
+  <circle cx="700" cy="500" r="12" fill="rgba(100, 180, 255, 0.4)" stroke="#64b4ff" stroke-width="1.5"/>
+  <circle cx="800" cy="520" r="12" fill="rgba(100, 180, 255, 0.4)" stroke="#64b4ff" stroke-width="1.5"/>
+  <circle cx="900" cy="515" r="12" fill="rgba(100, 180, 255, 0.4)" stroke="#64b4ff" stroke-width="1.5"/>
+  <circle cx="1000" cy="505" r="12" fill="rgba(100, 180, 255, 0.4)" stroke="#64b4ff" stroke-width="1.5"/>
+
+  <!-- Connecting lines for nodes -->
+  <line x1="712" y1="496" x2="788" y2="516" stroke="#64b4ff" stroke-width="1" opacity="0.4"/>
+  <line x1="812" y1="518" x2="888" y2="513" stroke="#64b4ff" stroke-width="1" opacity="0.4"/>
+  <line x1="912" y1="513" x2="988" y2="503" stroke="#64b4ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Security locks (management aspects) -->
+  <g id="lock1">
+    <rect x="1060" y="280" width="16" height="20" rx="2" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+    <path d="M 1064 280 Q 1064 275 1068 275 Q 1072 275 1072 280" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+    <circle cx="1068" cy="290" r="1.5" fill="#00ff88"/>
+  </g>
+
+  <g id="lock2">
+    <rect x="1085" y="300" width="16" height="20" rx="2" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+    <path d="M 1089 300 Q 1089 295 1093 295 Q 1097 295 1097 300" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+    <circle cx="1093" cy="310" r="1.5" fill="#00ff88"/>
+  </g>
+
+  <!-- Certification ribbon accent -->
+  <path d="M 920 140 Q 940 135 950 155 Q 945 165 925 162" fill="rgba(0, 217, 255, 0.2)" stroke="#00d9ff" stroke-width="1.5"/>
+
+  <!-- Glow effects -->
+  <circle cx="920" cy="360" r="40" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.2" stroke-dasharray="2,4"/>
+  <circle cx="920" cy="360" r="55" fill="none" stroke="#64b4ff" stroke-width="0.5" opacity="0.15" stroke-dasharray="3,5"/>
+</svg>

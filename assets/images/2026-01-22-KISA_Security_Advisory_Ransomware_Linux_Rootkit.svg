@@ -1,136 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Subtle gradient overlay -->
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:0.3" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="50%" stop-color="#ff8800"/>
-      <stop offset="100%" stop-color="#cc0000"/>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:0.8" />
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff4444" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#880000" stop-opacity="0.06"/>
-    </linearGradient>
-    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff6600" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff0044" stop-opacity="0.1"/>
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a52;stop-opacity:0.9" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Security Shield with Ransomware/Rootkit detection theme -->
-  <!-- Outer ring -->
-  <circle cx="1010" cy="225" r="120" fill="none" stroke="url(#ringGrad)" stroke-width="1.5" opacity="0.35"/>
-  <circle cx="1010" cy="225" r="100" fill="none" stroke="rgba(255,100,0,0.2)" stroke-width="1" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="80" fill="none" stroke="rgba(255,50,50,0.15)" stroke-width="1" stroke-dasharray="4 6"/>
-
-  <!-- Shield body -->
-  <path d="M1010,140 L1068,165 L1068,215 Q1068,265 1010,295 Q952,265 952,215 L952,165 Z" fill="url(#shieldGrad)" stroke="rgba(255,80,80,0.35)" stroke-width="1.5"/>
-  <!-- Shield inner -->
-  <path d="M1010,155 L1055,175 L1055,215 Q1055,252 1010,272 Q965,252 965,215 L965,175 Z" fill="rgba(255,40,40,0.07)" stroke="rgba(255,120,50,0.25)" stroke-width="1"/>
-
-  <!-- Lock icon inside shield -->
-  <rect x="993" y="205" width="34" height="28" rx="3" fill="rgba(255,80,80,0.12)" stroke="rgba(255,100,100,0.4)" stroke-width="1.5"/>
-  <path d="M1000,205 Q1000,192 1010,192 Q1020,192 1020,205" fill="none" stroke="rgba(255,120,80,0.5)" stroke-width="2"/>
-  <circle cx="1010" cy="218" r="4" fill="rgba(255,150,100,0.5)"/>
-
-  <!-- Rootkit detection lines radiating from shield -->
-  <line x1="1010" y1="140" x2="1010" y2="118" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <line x1="1068" y1="165" x2="1088" y2="152" stroke="rgba(255,80,80,0.25)" stroke-width="1.5"/>
-  <line x1="1068" y1="215" x2="1090" y2="215" stroke="rgba(255,100,50,0.25)" stroke-width="1.5"/>
-  <line x1="952" y1="165" x2="932" y2="152" stroke="rgba(255,80,80,0.25)" stroke-width="1.5"/>
-  <line x1="952" y1="215" x2="930" y2="215" stroke="rgba(255,100,50,0.25)" stroke-width="1.5"/>
-
-  <!-- Scan lines (rootkit detection) -->
-  <line x1="880" y1="185" x2="1140" y2="185" stroke="rgba(255,60,60,0.08)" stroke-width="1"/>
-  <line x1="880" y1="200" x2="1140" y2="200" stroke="rgba(255,60,60,0.06)" stroke-width="1"/>
-  <line x1="880" y1="250" x2="1140" y2="250" stroke="rgba(255,60,60,0.08)" stroke-width="1"/>
-
-  <!-- Ransomware warning triangles around shield -->
-  <polygon points="890,145 905,170 875,170" fill="rgba(255,140,0,0.1)" stroke="rgba(255,140,0,0.3)" stroke-width="1.2"/>
-  <text x="890" y="165" font-size="11" fill="rgba(255,180,0,0.6)" text-anchor="middle" font-weight="bold">!</text>
-
-  <polygon points="1130,145 1145,170 1115,170" fill="rgba(255,80,80,0.1)" stroke="rgba(255,80,80,0.3)" stroke-width="1.2"/>
-  <text x="1130" y="165" font-size="11" fill="rgba(255,120,100,0.6)" text-anchor="middle" font-weight="bold">!</text>
-
-  <!-- Linux terminal nodes -->
-  <rect x="885" y="285" width="68" height="36" rx="4" fill="rgba(0,200,100,0.06)" stroke="rgba(0,200,100,0.2)" stroke-width="1"/>
-  <text x="895" y="300" font-size="8" fill="rgba(0,220,120,0.5)" font-family="monospace">$ lsmod</text>
-  <text x="895" y="313" font-size="8" fill="rgba(0,200,100,0.4)" font-family="monospace">rootkit?</text>
-
-  <rect x="1047" y="285" width="68" height="36" rx="4" fill="rgba(255,80,80,0.06)" stroke="rgba(255,80,80,0.2)" stroke-width="1"/>
-  <text x="1057" y="300" font-size="8" fill="rgba(255,120,100,0.5)" font-family="monospace">ALERT:</text>
-  <text x="1057" y="313" font-size="8" fill="rgba(255,100,80,0.4)" font-family="monospace">detected</text>
-
-  <!-- Connection lines from nodes to shield bottom -->
-  <line x1="919" y1="285" x2="980" y2="295" stroke="rgba(0,200,100,0.15)" stroke-width="1"/>
-  <line x1="1081" y1="285" x2="1040" y2="295" stroke="rgba(255,80,80,0.15)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="#ff4444" opacity="0.7"/>
-  <circle cx="900" cy="420" r="3" fill="#ff8800" opacity="0.6"/>
-  <circle cx="860" cy="440" r="5" fill="#ff2222" opacity="0.5"/>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,60,60,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,80,40,0.05)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-size="12" fill="rgba(255,180,150,0.9)" text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="1">JANUARY 22, 2026</text>
-
+  
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- LEFT SIDE: Title and metadata -->
   <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">KISA Security Advisory Ransomware</text>
-
+  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">
+    KISA Security Advisory
+  </text>
+  
   <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">Prevention Linux Rootkit Detection</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(200,160,150,0.85)" font-family="Arial, sans-serif">Korean Internet Security Agency advisory on ransomware defense and Linux rootkit mitigation</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,120,100,0.8)" font-family="Arial, sans-serif" letter-spacing="3" text-transform="uppercase">SECURITY / INCIDENT RESPONSE</text>
-
+  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">
+    Ransomware Prevention Linux
+  </text>
+  
+  <!-- Date badge -->
+  <rect x="50" y="280" width="280" height="40" rx="8" fill="#ff6b6b" opacity="0.15" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="70" y="307" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ff9999">
+    JANUARY 22, 2026
+  </text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,40,40,0.2)" stroke="rgba(255,80,80,0.4)" stroke-width="1"/>
-  <text x="145" y="425" font-size="13" fill="rgba(255,140,120,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">Ransomware</text>
-
-  <rect x="224" y="402" width="110" height="36" rx="18" fill="rgba(200,120,0,0.2)" stroke="rgba(255,160,0,0.4)" stroke-width="1"/>
-  <text x="279" y="425" font-size="13" fill="rgba(255,200,100,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">Linux Rootkit</text>
-
-  <rect x="348" y="402" width="80" height="36" rx="18" fill="rgba(40,80,200,0.2)" stroke="rgba(80,120,255,0.4)" stroke-width="1"/>
-  <text x="388" y="425" font-size="13" fill="rgba(140,180,255,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">KISA</text>
-
-  <!-- Divider line footer -->
-  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
+  <!-- Tag 1: Security -->
+  <rect x="50" y="420" width="110" height="32" rx="16" fill="#00d9ff" opacity="0.15" stroke="#00d9ff" stroke-width="1"/>
+  <text x="105" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#00d9ff" text-anchor="middle">
+    Security
+  </text>
+  
+  <!-- Tag 2: Ransomware -->
+  <rect x="175" y="420" width="120" height="32" rx="16" fill="#ff6b6b" opacity="0.15" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="235" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#ff9999" text-anchor="middle">
+    Ransomware
+  </text>
+  
+  <!-- Tag 3: Linux -->
+  <rect x="310" y="420" width="95" height="32" rx="16" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1"/>
+  <text x="357" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#c9b3ff" text-anchor="middle">
+    Linux
+  </text>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-size="14" fill="rgba(255,255,255,0.3)" font-family="Arial, sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="14" fill="rgba(255,100,80,0.4)" font-family="Arial, sans-serif" text-anchor="end" letter-spacing="2">SECURITY</text>
+  <text x="50" y="595" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#888">
+    tech.2twodragon.com
+  </text>
+  
+  <!-- RIGHT SIDE: Illustration -->
+  <!-- Background accent circles for depth -->
+  <circle cx="850" cy="200" r="120" fill="#00d9ff" opacity="0.05"/>
+  <circle cx="950" cy="350" r="100" fill="#ff6b6b" opacity="0.05"/>
+  
+  <!-- Main shield with warning -->
+  <g>
+    <!-- Shield outer -->
+    <path d="M 900 150 L 920 170 L 920 310 Q 900 350 850 370 Q 800 350 780 310 L 780 170 L 800 150 Z" 
+          fill="url(#shieldGrad)" stroke="#00d9ff" stroke-width="2" opacity="0.9"/>
+    
+    <!-- Shield inner pattern -->
+    <path d="M 905 160 L 915 170 L 915 300 Q 900 335 850 355 Q 805 335 785 300 L 785 170 L 795 160 Z" 
+          fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+  </g>
+  
+  <!-- Large padlock in center-right -->
+  <g>
+    <!-- Lock body -->
+    <rect x="920" y="280" width="80" height="100" rx="8" fill="url(#lockGrad)" stroke="#ff6b6b" stroke-width="2"/>
+    
+    <!-- Lock shackle (top curve) -->
+    <path d="M 935 280 Q 935 220 960 220 Q 985 220 985 280" 
+          fill="none" stroke="url(#lockGrad)" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Keyhole circle -->
+    <circle cx="960" cy="330" r="8" fill="#0a0c1a"/>
+    <circle cx="960" cy="330" r="12" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.6"/>
+  </g>
+  
+  <!-- Linux penguin (Tux) head outline -->
+  <g>
+    <!-- Penguin head -->
+    <ellipse cx="780" cy="200" rx="30" ry="35" fill="#a78bfa" opacity="0.8" stroke="#c9b3ff" stroke-width="1.5"/>
+    
+    <!-- Penguin eyes -->
+    <circle cx="775" cy="190" r="4" fill="#0a0c1a"/>
+    <circle cx="785" cy="190" r="4" fill="#0a0c1a"/>
+    
+    <!-- Penguin beak -->
+    <polygon points="780,200 785,200 782,210" fill="#ffb366"/>
+  </g>
+  
+  <!-- Data/file protection elements (stacked papers with lock) -->
+  <g>
+    <!-- File 1 -->
+    <rect x="710" y="350" width="50" height="65" rx="4" fill="#00d9ff" opacity="0.2" stroke="#00d9ff" stroke-width="1.5" transform="rotate(-12 735 382)"/>
+    
+    <!-- File 2 -->
+    <rect x="720" y="350" width="50" height="65" rx="4" fill="#00d9ff" opacity="0.4" stroke="#00d9ff" stroke-width="1.5" transform="rotate(-6 745 382)"/>
+    
+    <!-- File 3 -->
+    <rect x="730" y="350" width="50" height="65" rx="4" fill="#00d9ff" opacity="0.6" stroke="#00d9ff" stroke-width="1.5"/>
+    
+    <!-- Small lock over files -->
+    <rect x="748" y="365" width="18" height="22" rx="2" fill="#ff6b6b" stroke="#ff6b6b" stroke-width="1" opacity="0.8"/>
+    <path d="M 752 365 Q 752 360 756 360 Q 760 360 760 365" fill="none" stroke="#ff6b6b" stroke-width="1.5" opacity="0.8"/>
+  </g>
+  
+  <!-- Network/security connections (lines) -->
+  <g stroke="#00d9ff" stroke-width="1" opacity="0.4" stroke-dasharray="2,4">
+    <!-- Connection 1 -->
+    <line x1="810" y1="230" x2="880" y2="250"/>
+    <!-- Connection 2 -->
+    <line x1="810" y1="280" x2="900" y2="300"/>
+    <!-- Connection 3 -->
+    <line x1="800" y1="320" x2="920" y2="340"/>
+  </g>
+  
+  <!-- Warning indicator (triangle) -->
+  <g>
+    <polygon points="1000,150 1020,200 980,200" fill="#ff6b6b" opacity="0.2" stroke="#ff6b6b" stroke-width="1.5"/>
+    <text x="1000" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#ff9999" text-anchor="middle">!</text>
+  </g>
+  
+  <!-- Accent line separators -->
+  <line x1="680" y1="100" x2="680" y2="530" stroke="#00d9ff" stroke-width="1" opacity="0.2"/>
 </svg>
