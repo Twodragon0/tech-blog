@@ -146,35 +146,47 @@ def build_prompt(post: dict, filepath: Path = None) -> str:
     line1 = ' '.join(words_list[:mid])
     line2 = ' '.join(words_list[mid:])
 
-    return f"""Create an SVG (1200x630) for a blog post about "{topic_str}".
+    return f"""Write an SVG file to {IMAGES_DIR}/{os.path.splitext(post['filename'])[0]}.svg (1200x630) for "{topic_str}".
 
-RIGHT SIDE (x=650-1150, y=80-550) should contain a DETAILED VISUAL SCENE with recognizable icons:
-- {visual_desc}
-- Data flow arrows connecting these elements
-- Warning triangles or alert indicators
+Modern glassmorphism design inspired by Figma/Dribbble 2026 trends:
+- Dark navy bg #0f172a with subtle dot grid pattern and ambient glow orbs
+- RIGHT SIDE: 2-3 frosted glass cards (rx=16, translucent fill, gradient border glow) containing:
+  - {visual_desc}
+  - Cards overlap slightly for depth, floating particles between them
+- LEFT SIDE: category pill at top, title "{line1}" and "{line2}" (font-size 42, white, bold), thin gradient accent line, 3 rounded tag chips, date "{date}", footer tech.2twodragon.com
+- Gradient accents: blue #3b82f6 + coral #f43f5e
+- SVG filters for glass blur and glow effects
 
-Use semi-transparent fills (0.03-0.12) and thin strokes (0.15-0.35). Dark background #0a0c1a. Colors: red #ef4444, orange #f59e0b, blue #3b82f6 at low opacity.
-
-LEFT SIDE: title "{line1}" at y=185 and "{line2}" at y=245 (font-size 44, white bold). Date "{date}" badge at (80,60). 3 tag pills at y=430. Footer tech.2twodragon.com at y=555.
-
-All text English. Output ONLY SVG XML."""
+All text English only. Make it visually stunning."""
 
 
-def run_claude(prompt: str) -> str:
-    """Run Claude CLI and extract SVG."""
+def run_claude(prompt: str, expected_path: str = '') -> str:
+    """Run Claude CLI. It may write file directly or return SVG in stdout."""
     try:
         result = subprocess.run(
-            ['claude', '-p', prompt, '--output-format', 'text', '--model', 'haiku'],
-            capture_output=True, text=True, timeout=150
+            ['claude', '-p', prompt],
+            capture_output=True, text=True, timeout=180
         )
+        # Check if Claude wrote the file directly
+        if expected_path and os.path.exists(expected_path):
+            with open(expected_path) as f:
+                svg = f.read()
+            if '<svg' in svg:
+                return svg
+
+        # Otherwise extract from stdout
         output = result.stdout
-        # Clean terminal escape sequences
         output = re.sub(r'\x1b[^a-zA-Z]*[a-zA-Z]', '', output)
         output = re.sub(r'\x1b\][^\x07\x1b]*[\x07\x1b]?', '', output)
-        # Extract SVG
         m = re.search(r'(<svg[\s\S]*?</svg>)', output)
         return m.group(1) if m else ''
     except Exception as e:
+        # Check if file was created despite timeout
+        if expected_path and os.path.exists(expected_path):
+            with open(expected_path) as f:
+                svg = f.read()
+            if '<svg' in svg:
+                return svg
         print(f"    Claude error: {e}", file=sys.stderr)
         return ''
 
@@ -263,7 +275,11 @@ def main():
         print(f"  Title: {en_title}")
 
         prompt = build_prompt(post, post_path)
-        svg_content = generate(prompt)
+        expected = str(svg_file)
+        if args.engine == 'claude':
+            svg_content = run_claude(prompt, expected)
+        else:
+            svg_content = generate(prompt)
 
         if svg_content:
             svg_content = fix_svg(svg_content)
