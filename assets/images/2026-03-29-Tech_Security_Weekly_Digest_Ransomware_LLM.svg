@@ -23,7 +23,7 @@
   <!-- Main title -->
   <text x="60" y="220" class="title-text" font-size="44">Tech Security</text>
   <text x="60" y="280" class="title-text" font-size="44">Weekly Digest</text>
-  <text x="60" y="340" class="title-text" font-size="38" fill="#ef4444">Ransomware & LLM</text>
+  <text x="60" y="340" class="title-text" font-size="38" fill="#ef4444">Ransomware &amp; LLM</text>
 
   <!-- Tag pills -->
   <g id="tag1">
