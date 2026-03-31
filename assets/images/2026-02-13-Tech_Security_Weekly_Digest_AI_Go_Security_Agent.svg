@@ -1,34 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.25" />
-      <stop offset="100%" style="stop-color:#cc2222;stop-opacity:0.15" />
+    <linearGradient id="goBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00acd7;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#007d9c;stop-opacity:0.1"/>
     </linearGradient>
-    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.25" />
-      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.15" />
-    </linearGradient>
-    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.25" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:0.15" />
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:0.05"/>
     </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
   <!-- Grid lines horizontal -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
@@ -38,95 +34,106 @@
 
   <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: AI Security Agent with Go language shield -->
-  <!-- Outer shield body -->
-  <path d="M1010,135 L1095,165 L1095,245 Q1095,300 1010,320 Q925,300 925,245 L925,165 Z"
-        fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,155 L1080,178 L1080,245 Q1080,288 1010,305 Q940,288 940,245 L940,178 Z"
-        fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
-
-  <!-- Go language "G" glyph hint inside shield -->
-  <circle cx="1010" cy="237" r="42" fill="none" stroke="rgba(0,173,216,0.22)" stroke-width="2"/>
-  <path d="M975,237 A35,35 0 1,1 1010,272" fill="none" stroke="rgba(0,173,216,0.35)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="1010" y1="237" x2="1035" y2="237" stroke="rgba(0,173,216,0.35)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="1010" y1="237" x2="1010" y2="258" stroke="rgba(0,173,216,0.28)" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- AI neural nodes radiating from shield -->
-  <circle cx="1010" cy="135" r="6" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.35)" stroke-width="1.5"/>
-  <circle cx="1095" cy="165" r="5" fill="rgba(255,136,0,0.12)" stroke="rgba(255,136,0,0.35)" stroke-width="1.5"/>
-  <circle cx="1095" cy="245" r="5" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-  <circle cx="925" cy="165" r="5" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.30)" stroke-width="1.5"/>
-  <circle cx="925" cy="245" r="5" fill="rgba(255,136,0,0.12)" stroke="rgba(255,136,0,0.30)" stroke-width="1.5"/>
-  <circle cx="1010" cy="320" r="6" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-
+  <!-- RIGHT SIDE ILLUSTRATION: AI Security Agent + Go Gopher + Shield -->
   <!-- Outer orbit ring -->
-  <ellipse cx="1010" cy="230" rx="110" ry="98" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="6,4"/>
+  <circle cx="1010" cy="225" r="130" fill="none" stroke="rgba(0,172,215,0.22)" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- Mid orbit ring -->
+  <circle cx="1010" cy="225" r="95" fill="none" stroke="rgba(239,68,68,0.18)" stroke-width="1" stroke-dasharray="4 6"/>
+  <!-- Inner orbit ring -->
+  <circle cx="1010" cy="225" r="60" fill="none" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
 
-  <!-- AI agent circuit lines -->
-  <line x1="880" y1="170" x2="925" y2="165" stroke="rgba(255,68,68,0.20)" stroke-width="1"/>
-  <line x1="880" y1="200" x2="925" y2="245" stroke="rgba(255,136,0,0.18)" stroke-width="1"/>
-  <line x1="880" y1="260" x2="925" y2="245" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
-  <line x1="1095" y1="165" x2="1140" y2="155" stroke="rgba(255,68,68,0.18)" stroke-width="1"/>
-  <line x1="1095" y1="245" x2="1140" y2="260" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
-  <line x1="1010" y1="320" x2="1010" y2="340" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
+  <!-- Central shield body -->
+  <path d="M1010,148 L1060,168 L1060,218 Q1060,258 1010,278 Q960,258 960,218 L960,168 Z"
+        fill="url(#shieldGrad)" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Shield inner glow -->
+  <path d="M1010,160 L1050,176 L1050,218 Q1050,248 1010,264 Q970,248 970,218 L970,176 Z"
+        fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+  <!-- Shield checkmark/lock icon -->
+  <path d="M998,218 L1006,226 L1022,208" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Agent eye / scan reticle -->
-  <circle cx="1010" cy="237" r="58" fill="none" stroke="rgba(255,68,68,0.08)" stroke-width="1" stroke-dasharray="3,5"/>
-  <circle cx="1010" cy="237" r="72" fill="none" stroke="rgba(59,130,246,0.06)" stroke-width="1" stroke-dasharray="4,6"/>
+  <!-- Go language hexagon badge -->
+  <polygon points="1010,155 1022,161.5 1022,174.5 1010,181 998,174.5 998,161.5"
+           fill="url(#goBadge)" stroke="rgba(0,172,215,0.5)" stroke-width="1.2"/>
+  <text x="1010" y="172" text-anchor="middle" font-size="9" font-weight="700" fill="rgba(0,172,215,0.9)" font-family="monospace">Go</text>
 
-  <!-- Small data dots around shield -->
-  <circle cx="960" cy="148" r="3" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.30)" stroke-width="1"/>
-  <circle cx="1060" cy="145" r="2.5" fill="rgba(255,136,0,0.15)" stroke="rgba(255,136,0,0.30)" stroke-width="1"/>
-  <circle cx="950" cy="310" r="2.5" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.30)" stroke-width="1"/>
-  <circle cx="1070" cy="308" r="3" fill="rgba(0,173,216,0.15)" stroke="rgba(0,173,216,0.30)" stroke-width="1"/>
+  <!-- AI neural nodes on orbit -->
+  <circle cx="1105" cy="200" r="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.45)" stroke-width="1.2"/>
+  <circle cx="915" cy="250" r="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.45)" stroke-width="1.2"/>
+  <circle cx="1010" cy="95" r="10" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.45)" stroke-width="1.2"/>
+  <circle cx="1090" cy="310" r="8" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <circle cx="930" cy="140" r="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+
+  <!-- Connection lines from shield to nodes -->
+  <line x1="1058" y1="182" x2="1098" y2="204" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+  <line x1="962" y1="230" x2="922" y2="247" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+  <line x1="1010" y1="148" x2="1010" y2="105" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <line x1="1055" y1="260" x2="1083" y2="305" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+  <line x1="965" y1="175" x2="937" y2="147" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+
+  <!-- Agent scanning lines -->
+  <line x1="880" y1="225" x2="1140" y2="225" stroke="rgba(0,172,215,0.08)" stroke-width="1"/>
+  <line x1="1010" y1="130" x2="1010" y2="320" stroke="rgba(0,172,215,0.08)" stroke-width="1"/>
+
+  <!-- Weekly digest data bars (mini chart) -->
+  <rect x="890" y="295" width="8" height="30" rx="2" fill="rgba(59,130,246,0.25)" stroke="rgba(59,130,246,0.4)" stroke-width="0.8"/>
+  <rect x="903" y="285" width="8" height="40" rx="2" fill="rgba(245,158,11,0.25)" stroke="rgba(245,158,11,0.4)" stroke-width="0.8"/>
+  <rect x="916" y="300" width="8" height="25" rx="2" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.4)" stroke-width="0.8"/>
+  <rect x="929" y="290" width="8" height="35" rx="2" fill="rgba(59,130,246,0.25)" stroke="rgba(59,130,246,0.4)" stroke-width="0.8"/>
+  <rect x="942" y="282" width="8" height="43" rx="2" fill="rgba(16,185,129,0.25)" stroke="rgba(16,185,129,0.4)" stroke-width="0.8"/>
+
+  <!-- Floating AI bracket decorations -->
+  <path d="M895,145 L880,145 L880,305 L895,305" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
+  <path d="M1125,145 L1140,145 L1140,305 L1125,305" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.55)" stroke="rgba(255,68,68,0.80)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="3.5" fill="rgba(255,136,0,0.50)" stroke="rgba(255,136,0,0.75)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(59,130,246,0.50)" stroke="rgba(59,130,246,0.75)" stroke-width="1"/>
+  <circle cx="870" cy="400" r="5" fill="rgba(239,68,68,0.7)"/>
+  <circle cx="900" cy="420" r="5" fill="rgba(245,158,11,0.7)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(59,130,246,0.7)"/>
 
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
 
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.30)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New',monospace" font-size="12" font-weight="600" fill="rgba(255,120,120,0.90)" letter-spacing="1">FEBRUARY 13, 2026</text>
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+  <text x="190" y="81" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(239,68,68,0.9)" letter-spacing="1">FEBRUARY 13, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AI Go Security Agent</text>
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">AI Go Security Agent</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(180,200,255,0.70)">Weekly roundup: AI threats, Go security, agent defense strategies</text>
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly curated intelligence · AI-powered threat analysis · Go security tooling</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial',sans-serif" font-size="14" font-weight="600" fill="rgba(255,68,68,0.80)" letter-spacing="2">SECURITY / AI / GO LANGUAGE</text>
+  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(239,68,68,0.8)" letter-spacing="2">SECURITY · AI · GO LANGUAGE</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="118" height="36" rx="18" fill="url(#tagRed)" stroke="rgba(255,68,68,0.35)" stroke-width="1"/>
-  <text x="139" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,120,0.95)" text-anchor="middle">AI Security</text>
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="145" y="425" text-anchor="middle" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(239,68,68,0.95)">AI Security</text>
 
-  <rect x="212" y="402" width="108" height="36" rx="18" fill="url(#tagAmber)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
-  <text x="266" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(251,191,36,0.95)" text-anchor="middle">Go Lang</text>
+  <rect x="225" y="402" width="120" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="285" y="425" text-anchor="middle" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.95)">Go Agent</text>
 
-  <rect x="334" y="402" width="128" height="36" rx="18" fill="url(#tagBlue)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
-  <text x="398" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(147,197,253,0.95)" text-anchor="middle">Threat Intel</text>
+  <rect x="360" y="402" width="140" height="36" rx="18" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="430" y="425" text-anchor="middle" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(59,130,246,0.95)">DevSecOps</text>
 
-  <!-- Footer -->
-  <text x="80" y="545" font-family="'Arial',sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial',sans-serif" font-size="14" font-weight="600" fill="rgba(255,68,68,0.55)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <!-- Footer separator -->
+  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+  <!-- Footer text -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
+  <text x="1120" y="545" text-anchor="end" font-family="'Courier New', monospace" font-size="13" fill="rgba(239,68,68,0.45)">SECURITY</text>
 </svg>

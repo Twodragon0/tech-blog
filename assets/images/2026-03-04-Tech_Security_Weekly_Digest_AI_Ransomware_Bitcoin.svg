@@ -1,145 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient overlays for depth -->
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0.8" />
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#ffcc00"/>
+    <radialGradient id="bitcoinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#f7931a;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#f7931a;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dd0000;stop-opacity:0.8" />
     </linearGradient>
-    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="pillRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#cc2200"/>
-      <stop offset="100%" style="stop-color:#ff4422"/>
-    </linearGradient>
-    <linearGradient id="pillAmber" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#995500"/>
-      <stop offset="100%" style="stop-color:#cc8800"/>
-    </linearGradient>
-    <linearGradient id="pillBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#003388"/>
-      <stop offset="100%" style="stop-color:#1155cc"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION (x=700-1150) -->
+  <circle cx="950" cy="150" r="120" fill="#1a3a52" opacity="0.4"/>
+  <circle cx="800" cy="450" r="100" fill="#2d1a3a" opacity="0.3"/>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Bitcoin coin (left, larger) -->
+  <g transform="translate(820, 280)">
+    <circle cx="0" cy="0" r="65" fill="#f7931a" opacity="0.9"/>
+    <circle cx="0" cy="0" r="63" fill="#ffa500"/>
+    <circle cx="0" cy="0" r="70" fill="url(#bitcoinGlow)"/>
+    <text x="0" y="8" font-size="48" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">₿</text>
+    <circle cx="0" cy="0" r="63" fill="none" stroke="#f0a000" stroke-width="2" opacity="0.6"/>
+  </g>
 
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,80,20,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,140,0,0.05)" stroke-width="1"/>
+  <!-- Padlock (right, threat indicator) -->
+  <g transform="translate(1050, 240)">
+    <rect x="-35" y="0" width="70" height="50" rx="8" fill="#d32f2f" opacity="0.95"/>
+    <circle cx="-15" cy="25" r="8" fill="#b71c1c"/>
+    <circle cx="15" cy="25" r="8" fill="#b71c1c"/>
+    <path d="M -25 0 Q -25 -40 0 -45 Q 25 -40 25 0" stroke="#ff6b6b" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="25" r="6" fill="#fff" opacity="0.3"/>
+  </g>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Bitcoin + Ransomware + AI lock cluster -->
-  <!-- Outer shield shape -->
-  <path d="M1010,140 L1080,165 L1080,230 Q1080,280 1010,305 Q940,280 940,230 L940,165 Z"
-        fill="rgba(255,60,20,0.08)" stroke="rgba(255,100,40,0.3)" stroke-width="1.5"/>
-  <!-- Shield inner glow ring -->
-  <path d="M1010,155 L1068,176 L1068,228 Q1068,272 1010,293 Q952,272 952,228 L952,176 Z"
-        fill="none" stroke="rgba(255,180,60,0.18)" stroke-width="1"/>
+  <!-- Chain links (threat connection) -->
+  <g stroke="url(#chainGrad)" stroke-width="4" fill="none" stroke-linecap="round">
+    <circle cx="920" cy="360" r="12"/>
+    <line x1="932" y1="360" x2="960" y2="380"/>
+    <circle cx="975" cy="395" r="12"/>
+    <line x1="987" y1="395" x2="1020" y2="330"/>
+  </g>
 
-  <!-- Bitcoin symbol circle -->
-  <circle cx="1010" cy="225" r="42" fill="rgba(255,180,0,0.07)" stroke="rgba(255,180,0,0.28)" stroke-width="1.5"/>
-  <circle cx="1010" cy="225" r="30" fill="rgba(255,140,0,0.06)" stroke="rgba(255,140,0,0.18)" stroke-width="1"/>
-  <!-- Bitcoin B strokes -->
-  <line x1="1000" y1="207" x2="1000" y2="243" stroke="rgba(255,200,60,0.55)" stroke-width="2.5"/>
-  <path d="M1000,207 Q1022,207 1022,216 Q1022,225 1000,225" fill="none" stroke="rgba(255,200,60,0.5)" stroke-width="2"/>
-  <path d="M1000,225 Q1024,225 1024,234 Q1024,243 1000,243" fill="none" stroke="rgba(255,200,60,0.5)" stroke-width="2"/>
-  <line x1="997" y1="204" x2="1003" y2="204" stroke="rgba(255,200,60,0.4)" stroke-width="1.5"/>
-  <line x1="997" y1="246" x2="1003" y2="246" stroke="rgba(255,200,60,0.4)" stroke-width="1.5"/>
+  <!-- Digital threat hexagons -->
+  <g fill="none" stroke="#ff6b6b" stroke-width="1.5" opacity="0.7">
+    <polygon points="920,160 935,152 950,160 950,176 935,184 920,176"/>
+    <polygon points="1080,380 1095,372 1110,380 1110,396 1095,404 1080,396"/>
+    <line x1="945" y1="170" x2="1075" y2="390" stroke="#ff6b6b" opacity="0.4"/>
+  </g>
 
-  <!-- AI neural nodes orbiting the shield -->
-  <circle cx="940" cy="175" r="8" fill="rgba(80,160,255,0.1)" stroke="rgba(80,160,255,0.35)" stroke-width="1.2"/>
-  <circle cx="1080" cy="175" r="8" fill="rgba(80,160,255,0.1)" stroke="rgba(80,160,255,0.35)" stroke-width="1.2"/>
-  <circle cx="940" cy="275" r="8" fill="rgba(80,160,255,0.1)" stroke="rgba(80,160,255,0.35)" stroke-width="1.2"/>
-  <circle cx="1080" cy="275" r="8" fill="rgba(80,160,255,0.1)" stroke="rgba(80,160,255,0.35)" stroke-width="1.2"/>
-  <circle cx="960" cy="140" r="5" fill="rgba(80,255,180,0.12)" stroke="rgba(80,255,180,0.3)" stroke-width="1"/>
-  <circle cx="1060" cy="140" r="5" fill="rgba(80,255,180,0.12)" stroke="rgba(80,255,180,0.3)" stroke-width="1"/>
-  <circle cx="960" cy="310" r="5" fill="rgba(80,255,180,0.12)" stroke="rgba(80,255,180,0.3)" stroke-width="1"/>
-  <circle cx="1060" cy="310" r="5" fill="rgba(80,255,180,0.12)" stroke="rgba(80,255,180,0.3)" stroke-width="1"/>
+  <!-- Warning indicators -->
+  <g transform="translate(760, 420)">
+    <polygon points="0,-15 15,10 -15,10" fill="#ffcc00" opacity="0.8"/>
+    <text x="0" y="2" font-size="16" font-weight="bold" fill="#000" text-anchor="middle">!</text>
+  </g>
 
-  <!-- Neural connection lines -->
-  <line x1="940" y1="175" x2="952" y2="176" stroke="rgba(80,160,255,0.2)" stroke-width="1"/>
-  <line x1="1068" y1="176" x2="1080" y2="175" stroke="rgba(80,160,255,0.2)" stroke-width="1"/>
-  <line x1="940" y1="275" x2="952" y2="272" stroke="rgba(80,160,255,0.2)" stroke-width="1"/>
-  <line x1="1068" y1="272" x2="1080" y2="275" stroke="rgba(80,160,255,0.2)" stroke-width="1"/>
-  <line x1="960" y1="140" x2="968" y2="155" stroke="rgba(80,255,180,0.15)" stroke-width="1"/>
-  <line x1="1060" y1="140" x2="1052" y2="155" stroke="rgba(80,255,180,0.15)" stroke-width="1"/>
-  <line x1="960" y1="310" x2="968" y2="295" stroke="rgba(80,255,180,0.15)" stroke-width="1"/>
-  <line x1="1060" y1="310" x2="1052" y2="295" stroke="rgba(80,255,180,0.15)" stroke-width="1"/>
+  <g transform="translate(1110, 150)">
+    <polygon points="0,-12 12,8 -12,8" fill="#ffcc00" opacity="0.6"/>
+    <text x="0" y="1" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">!</text>
+  </g>
 
-  <!-- Ransomware lock icon above shield -->
-  <rect x="998" y="148" width="24" height="18" rx="3" fill="rgba(255,60,40,0.12)" stroke="rgba(255,80,60,0.38)" stroke-width="1.2"/>
-  <path d="M1003,148 Q1003,140 1010,140 Q1017,140 1017,148" fill="none" stroke="rgba(255,80,60,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="157" r="2.5" fill="rgba(255,100,60,0.5)"/>
-  <line x1="1010" y1="159" x2="1010" y2="163" stroke="rgba(255,100,60,0.45)" stroke-width="1.5"/>
+  <!-- Data streams -->
+  <g stroke="#00ff88" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="5,5">
+    <path d="M 750 350 Q 850 300 920 280" stroke-linecap="round"/>
+    <path d="M 850 450 Q 950 400 1050 350" stroke-linecap="round"/>
+  </g>
 
-  <!-- Scan/pulse rings around illustration -->
-  <circle cx="1010" cy="225" r="65" fill="none" stroke="rgba(255,80,20,0.07)" stroke-width="1" stroke-dasharray="4,6"/>
-  <circle cx="1010" cy="225" r="85" fill="none" stroke="rgba(255,120,40,0.05)" stroke-width="1" stroke-dasharray="3,8"/>
+  <!-- Security shield -->
+  <g transform="translate(1020, 480)">
+    <path d="M 0 0 L 25 -25 L 25 15 Q 25 30 0 40 Q -25 30 -25 15 L -25 -25 Z" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.6"/>
+    <text x="0" y="8" font-size="18" font-weight="bold" fill="#00ff88" text-anchor="middle">✓</text>
+  </g>
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="#ff4422" opacity="0.85" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="3" fill="#ff8800" opacity="0.75" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3.5" fill="#ffcc00" opacity="0.7" filter="url(#glow)"/>
+  <!-- Blockchain blocks -->
+  <g fill="#1a5f7a" opacity="0.7">
+    <rect x="780" y="520" width="28" height="28" rx="2"/>
+    <rect x="813" y="520" width="28" height="28" rx="2" fill="#0d3d52"/>
+    <rect x="846" y="520" width="28" height="28" rx="2"/>
+  </g>
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
+  <!-- LEFT SIDE CONTENT -->
+  <text x="60" y="185" font-size="46" font-weight="bold" fill="#ffffff" font-family="Arial">
+    Tech Security Weekly
+  </text>
+
+  <text x="60" y="245" font-size="46" font-weight="bold" fill="#ffffff" font-family="Arial">
+    Digest: Ransomware &amp; Bitcoin
+  </text>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,80,30,0.18)" stroke="rgba(255,100,40,0.35)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Courier New', monospace" font-size="13" font-weight="600" fill="rgba(255,180,100,0.9)" text-anchor="middle" letter-spacing="1">MARCH 4, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Tech Security Weekly</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Digest AI Ransomware</text>
-
-  <!-- Title line 3 if needed -->
-  <text x="80" y="295" font-family="'Arial', sans-serif" font-size="38" font-weight="700" fill="rgba(255,200,80,0.9)">Bitcoin</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="335" font-family="'Arial', sans-serif" font-size="19" fill="rgba(200,200,220,0.72)">Weekly threat intelligence: AI-driven attacks, ransomware, and crypto risks</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="355" width="420" height="3" rx="1.5" fill="url(#lineGrad)"/>
-
-  <!-- Category label -->
-  <text x="80" y="385" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(255,120,60,0.85)" letter-spacing="2">SECURITY / THREAT INTELLIGENCE / 2026</text>
+  <rect x="60" y="275" width="200" height="40" rx="6" fill="#d32f2f" opacity="0.9"/>
+  <text x="160" y="302" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="Arial">
+    MARCH 4, 2026
+  </text>
 
   <!-- Tag pills -->
-  <rect x="80" y="405" width="130" height="36" rx="18" fill="url(#pillRed)" opacity="0.88"/>
-  <text x="145" y="428" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">RANSOMWARE</text>
+  <rect x="60" y="420" width="110" height="32" rx="16" fill="#1a5f7a" opacity="0.8" stroke="#00ff88" stroke-width="1.5"/>
+  <text x="115" y="442" font-size="14" fill="#00ff88" text-anchor="middle" font-family="Arial">Security</text>
 
-  <rect x="224" y="405" width="118" height="36" rx="18" fill="url(#pillAmber)" opacity="0.88"/>
-  <text x="283" y="428" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">BITCOIN</text>
+  <rect x="180" y="420" width="120" height="32" rx="16" fill="#5f1a1a" opacity="0.8" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="240" y="442" font-size="14" fill="#ff6b6b" text-anchor="middle" font-family="Arial">Ransomware</text>
 
-  <rect x="356" y="405" width="96" height="36" rx="18" fill="url(#pillBlue)" opacity="0.88"/>
-  <text x="404" y="428" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">AI THREAT</text>
+  <rect x="310" y="420" width="100" height="32" rx="16" fill="#3a2a1a" opacity="0.8" stroke="#ffcc00" stroke-width="1.5"/>
+  <text x="360" y="442" font-size="14" fill="#ffcc00" text-anchor="middle" font-family="Arial">Threats</text>
 
   <!-- Footer -->
-  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(180,180,210,0.55)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,100,40,0.6)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="60" y="605" font-size="14" fill="#888888" font-family="Arial">
+    tech.2twodragon.com
+  </text>
 </svg>

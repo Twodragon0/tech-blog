@@ -1,40 +1,142 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026 DevSecOps : roadmap.sh</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e53e3e"/>
+      <stop offset="50%" stop-color="#f6ad55"/>
+      <stop offset="100%" stop-color="#4299e1"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e53e3e"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e53e3e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#e53e3e" stop-opacity="0.05"/>
+    </linearGradient>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#a78bfa" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#6d28d9" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#a78bfa" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-    <circle cx="-60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <line x1="-38" y1="0" x2="-22" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <line x1="22" y1="0" x2="38" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <polygon points="-25,-4 -18,0 -25,4" fill="#a78bfa"/>
-    <polygon points="35,-4 42,0 35,4" fill="#a78bfa"/>
-    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
-    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2026 DevSecOps : roadmap.sh</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">DevSecOps</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#a78bfa" opacity="0.25" stroke="#a78bfa" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- RIGHT SIDE ILLUSTRATION: DevSecOps Roadmap icon -->
+  <!-- Central roadmap node hub -->
+  <circle cx="1010" cy="225" r="70" fill="rgba(229,62,62,0.07)" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
+  <circle cx="1010" cy="225" r="50" fill="rgba(229,62,62,0.09)" stroke="rgba(229,62,62,0.25)" stroke-width="1"/>
+  <circle cx="1010" cy="225" r="30" fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
+
+  <!-- Roadmap path lines emanating from center -->
+  <!-- Top path -->
+  <line x1="1010" y1="195" x2="1010" y2="148" stroke="rgba(246,173,85,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1010" cy="140" r="10" fill="rgba(246,173,85,0.1)" stroke="rgba(246,173,85,0.4)" stroke-width="1.5"/>
+  <text x="1010" y="144" font-family="monospace" font-size="10" fill="rgba(246,173,85,0.7)" text-anchor="middle">SEC</text>
+
+  <!-- Top-right path -->
+  <line x1="1031" y1="204" x2="1068" y2="167" stroke="rgba(66,153,225,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1076" cy="159" r="10" fill="rgba(66,153,225,0.1)" stroke="rgba(66,153,225,0.4)" stroke-width="1.5"/>
+  <text x="1076" y="163" font-family="monospace" font-size="9" fill="rgba(66,153,225,0.7)" text-anchor="middle">DEV</text>
+
+  <!-- Right path -->
+  <line x1="1040" y1="225" x2="1087" y2="225" stroke="rgba(72,187,120,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1097" cy="225" r="10" fill="rgba(72,187,120,0.1)" stroke="rgba(72,187,120,0.4)" stroke-width="1.5"/>
+  <text x="1097" y="229" font-family="monospace" font-size="9" fill="rgba(72,187,120,0.7)" text-anchor="middle">OPS</text>
+
+  <!-- Bottom-right path -->
+  <line x1="1031" y1="246" x2="1068" y2="283" stroke="rgba(159,122,234,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1076" cy="291" r="10" fill="rgba(159,122,234,0.1)" stroke="rgba(159,122,234,0.4)" stroke-width="1.5"/>
+  <text x="1076" y="295" font-family="monospace" font-size="9" fill="rgba(159,122,234,0.7)" text-anchor="middle">CI</text>
+
+  <!-- Bottom path -->
+  <line x1="1010" y1="255" x2="1010" y2="302" stroke="rgba(229,62,62,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1010" cy="312" r="10" fill="rgba(229,62,62,0.1)" stroke="rgba(229,62,62,0.4)" stroke-width="1.5"/>
+  <text x="1010" y="316" font-family="monospace" font-size="9" fill="rgba(229,62,62,0.7)" text-anchor="middle">IAC</text>
+
+  <!-- Bottom-left path -->
+  <line x1="989" y1="246" x2="952" y2="283" stroke="rgba(246,173,85,0.3)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="944" cy="291" r="10" fill="rgba(246,173,85,0.08)" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
+  <text x="944" y="295" font-family="monospace" font-size="8" fill="rgba(246,173,85,0.6)" text-anchor="middle">SCA</text>
+
+  <!-- Left path -->
+  <line x1="980" y1="225" x2="933" y2="225" stroke="rgba(66,153,225,0.3)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="923" cy="225" r="10" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.35)" stroke-width="1.5"/>
+  <text x="923" y="229" font-family="monospace" font-size="8" fill="rgba(66,153,225,0.6)" text-anchor="middle">CD</text>
+
+  <!-- Top-left path -->
+  <line x1="989" y1="204" x2="952" y2="167" stroke="rgba(72,187,120,0.3)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="944" cy="159" r="10" fill="rgba(72,187,120,0.08)" stroke="rgba(72,187,120,0.35)" stroke-width="1.5"/>
+  <text x="944" y="163" font-family="monospace" font-size="8" fill="rgba(72,187,120,0.6)" text-anchor="middle">GIT</text>
+
+  <!-- Center icon: shield with merge arrows -->
+  <path d="M1000,215 L1010,210 L1020,215 L1020,228 Q1010,234 1000,228 Z" fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.6)" stroke-width="1.5"/>
+  <!-- roadmap.sh logo hint: small dot path inside -->
+  <circle cx="1010" cy="222" r="3" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="1005" cy="225" r="2" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="1015" cy="225" r="2" fill="rgba(255,255,255,0.3)"/>
+
+  <!-- Outer orbit ring -->
+  <circle cx="1010" cy="225" r="92" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- Year badge on illustration -->
+  <rect x="970" y="130" width="80" height="22" rx="11" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
+  <text x="1010" y="145" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.7)" text-anchor="middle">2026</text>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.7)"/>
+  <circle cx="900" cy="420" r="3" fill="rgba(246,173,85,0.6)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(66,153,225,0.5)"/>
+
+  <!-- Background ambient circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(229,62,62,0.03)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(229,62,62,0.04)" stroke="none"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeBg)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
+  <text x="94" y="81" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(229,62,62,0.9)" letter-spacing="1">JANUARY 10, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="white">2026 DevSecOps</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="white">Roadmap roadmap.sh</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Developer Security Operations Career Path &amp; Skill Guide</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="rgba(229,62,62,0.8)" letter-spacing="2">DEVSECOPS · CAREER · ROADMAP</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.9)" text-anchor="middle">Security</text>
+
+  <rect x="224" y="402" width="140" height="36" rx="18" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.4)" stroke-width="1"/>
+  <text x="294" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="rgba(246,173,85,0.9)" text-anchor="middle">roadmap.sh</text>
+
+  <rect x="378" y="402" width="110" height="36" rx="18" fill="rgba(66,153,225,0.12)" stroke="rgba(66,153,225,0.4)" stroke-width="1"/>
+  <text x="433" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="rgba(66,153,225,0.9)" text-anchor="middle">DevOps</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.5)" text-anchor="end" letter-spacing="1">DEVSECOPS</text>
 </svg>

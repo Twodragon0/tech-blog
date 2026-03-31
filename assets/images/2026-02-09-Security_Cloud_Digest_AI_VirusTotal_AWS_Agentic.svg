@@ -1,136 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:0.1"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff3b3b"/>
-      <stop offset="100%" stop-color="#ff6b35"/>
+    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4d4d;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0.4"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff3b3b"/>
-      <stop offset="60%" stop-color="#ff6b35"/>
-      <stop offset="100%" stop-color="transparent"/>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#00cc66;stop-opacity:0.3"/>
     </linearGradient>
-    <linearGradient id="dateBadge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff3b3b" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#ff6b35" stop-opacity="0.10"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid horizontal lines -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid vertical lines -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Cloud Shield with AI/Virus scan motif -->
-  <!-- Outer cloud shape -->
-  <ellipse cx="1010" cy="200" rx="130" ry="90" fill="rgba(255,59,59,0.06)" stroke="rgba(255,80,80,0.22)" stroke-width="1.5"/>
-  <ellipse cx="960" cy="220" rx="75" ry="55" fill="rgba(255,59,59,0.05)" stroke="rgba(255,80,80,0.18)" stroke-width="1"/>
-  <ellipse cx="1065" cy="218" rx="70" ry="52" fill="rgba(255,80,40,0.05)" stroke="rgba(255,100,50,0.18)" stroke-width="1"/>
-  <!-- Cloud base rect -->
-  <rect x="905" y="215" width="210" height="55" rx="8" fill="rgba(255,59,59,0.06)" stroke="rgba(255,80,80,0.15)" stroke-width="1"/>
-
-  <!-- Shield body -->
-  <path d="M1010,135 L1065,160 L1065,215 Q1065,260 1010,285 Q955,260 955,215 L955,160 Z" fill="rgba(255,59,59,0.08)" stroke="rgba(255,80,80,0.30)" stroke-width="2"/>
-  <!-- Shield inner highlight -->
-  <path d="M1010,150 L1052,170 L1052,213 Q1052,248 1010,268 Q968,248 968,213 L968,170 Z" fill="rgba(255,59,59,0.05)" stroke="rgba(255,120,80,0.20)" stroke-width="1"/>
-
-  <!-- Virus/scan lines inside shield -->
-  <line x1="985" y1="195" x2="1035" y2="195" stroke="rgba(255,100,80,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="985" y1="207" x2="1035" y2="207" stroke="rgba(255,100,80,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="985" y1="219" x2="1035" y2="219" stroke="rgba(255,100,80,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="985" y1="231" x2="1035" y2="231" stroke="rgba(255,100,80,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
-
-  <!-- Scan crosshair center -->
-  <circle cx="1010" cy="213" r="18" fill="none" stroke="rgba(255,80,80,0.30)" stroke-width="1.5"/>
-  <circle cx="1010" cy="213" r="8" fill="rgba(255,59,59,0.12)" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <circle cx="1010" cy="213" r="3" fill="rgba(255,80,80,0.50)"/>
-  <line x1="992" y1="213" x2="1002" y2="213" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="1018" y1="213" x2="1028" y2="213" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="1010" y1="195" x2="1010" y2="205" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="1010" y1="221" x2="1010" y2="231" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-
-  <!-- AWS hexagon -->
-  <polygon points="1085,148 1100,139 1115,148 1115,166 1100,175 1085,166" fill="rgba(255,153,51,0.08)" stroke="rgba(255,153,51,0.28)" stroke-width="1.5"/>
-  <text x="1100" y="161" font-family="monospace" font-size="9" fill="rgba(255,153,51,0.55)" text-anchor="middle">AWS</text>
-
-  <!-- AI node cluster -->
-  <circle cx="925" cy="160" r="18" fill="rgba(59,130,246,0.07)" stroke="rgba(100,160,255,0.28)" stroke-width="1.5"/>
-  <circle cx="925" cy="160" r="8" fill="rgba(59,130,246,0.10)" stroke="rgba(100,160,255,0.35)" stroke-width="1"/>
-  <line x1="925" y1="142" x2="925" y2="152" stroke="rgba(100,160,255,0.30)" stroke-width="1"/>
-  <line x1="925" y1="168" x2="925" y2="178" stroke="rgba(100,160,255,0.30)" stroke-width="1"/>
-  <line x1="907" y1="160" x2="917" y2="160" stroke="rgba(100,160,255,0.30)" stroke-width="1"/>
-  <line x1="933" y1="160" x2="943" y2="160" stroke="rgba(100,160,255,0.30)" stroke-width="1"/>
-  <text x="925" y="197" font-family="monospace" font-size="8" fill="rgba(100,160,255,0.45)" text-anchor="middle">AI</text>
-
-  <!-- VirusTotal pill -->
-  <rect x="960" y="288" width="100" height="22" rx="11" fill="rgba(255,59,59,0.08)" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <text x="1010" y="304" font-family="monospace" font-size="8.5" fill="rgba(255,120,100,0.65)" text-anchor="middle">VirusTotal</text>
-
-  <!-- Agentic connector lines -->
-  <line x1="943" y1="160" x2="955" y2="165" stroke="rgba(100,160,255,0.18)" stroke-width="1" stroke-dasharray="3,2"/>
-  <line x1="1065" y1="175" x2="1085" y2="155" stroke="rgba(255,153,51,0.18)" stroke-width="1" stroke-dasharray="3,2"/>
-
-  <!-- Orbit ring around shield -->
-  <ellipse cx="1010" cy="213" rx="70" ry="35" fill="none" stroke="rgba(255,80,80,0.10)" stroke-width="1" stroke-dasharray="6,4"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="#ff3b3b" opacity="0.75"/>
-  <circle cx="900" cy="420" r="3" fill="#ff6b35" opacity="0.60"/>
-  <circle cx="860" cy="440" r="3.5" fill="#ff3b3b" opacity="0.50"/>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,59,59,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,59,59,0.05)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,59,59,0.25)" stroke-width="1"/>
-  <text x="92" y="81" font-family="'Courier New',monospace" font-size="12" fill="rgba(255,140,120,0.90)" letter-spacing="1.5">FEBRUARY 9, 2026</text>
-
+  
+  <!-- Right side illustration area (x=700-1150) -->
+  
+  <!-- Central cloud security core -->
+  <g id="cloudCore" filter="url(#glow)">
+    <!-- Main cloud shape -->
+    <path d="M 850 150 Q 950 140 990 200 Q 1000 240 980 270 Q 1020 290 1000 340 Q 950 360 900 350 Q 870 380 820 370 Q 780 390 750 360 Q 730 310 740 260 Q 710 240 730 190 Q 770 150 850 150" 
+          fill="url(#cloudGrad)" stroke="#00d4ff" stroke-width="2" opacity="0.9"/>
+  </g>
+  
+  <!-- VirusTotal threat scanner nodes -->
+  <g id="threatScanner">
+    <!-- Scanning circles (threat detection) -->
+    <circle cx="900" cy="240" r="80" fill="none" stroke="#ff4d4d" stroke-width="2" opacity="0.4"/>
+    <circle cx="900" cy="240" r="60" fill="none" stroke="#ff6666" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="900" cy="240" r="40" fill="none" stroke="#ff8888" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Threat indicators (red dots for detected threats) -->
+    <circle cx="890" cy="200" r="4" fill="#ff4d4d" filter="url(#glow)"/>
+    <circle cx="930" cy="210" r="3" fill="#ff6666" filter="url(#glow)"/>
+    <circle cx="920" cy="280" r="4" fill="#ff5555" filter="url(#glow)"/>
+    <circle cx="870" cy="270" r="3" fill="#ff7777" filter="url(#glow)"/>
+  </g>
+  
+  <!-- AWS infrastructure nodes -->
+  <g id="awsNodes">
+    <!-- Node 1: Region connection -->
+    <rect x="750" y="180" width="30" height="30" rx="4" fill="#FF9900" opacity="0.7" stroke="#FFB84D" stroke-width="1.5"/>
+    <text x="765" y="200" font-size="16" font-weight="bold" fill="white" text-anchor="middle">A</text>
+    
+    <!-- Node 2: Database -->
+    <circle cx="1040" cy="220" r="18" fill="#527FFF" opacity="0.7" stroke="#7B9FFF" stroke-width="1.5"/>
+    <text x="1040" y="228" font-size="12" font-weight="bold" fill="white" text-anchor="middle">DB</text>
+    
+    <!-- Node 3: Security service -->
+    <rect x="780" y="330" width="35" height="35" rx="4" fill="#FF9900" opacity="0.6" stroke="#FFB84D" stroke-width="1.5" transform="rotate(45 797.5 347.5)"/>
+    
+    <!-- Connection lines -->
+    <line x1="780" y1="195" x2="830" y2="230" stroke="#FF9900" stroke-width="1.5" opacity="0.5" stroke-dasharray="3,3"/>
+    <line x1="920" y1="200" x2="1022" y2="220" stroke="#527FFF" stroke-width="1.5" opacity="0.5" stroke-dasharray="3,3"/>
+  </g>
+  
+  <!-- AI Agent automation elements -->
+  <g id="aiAgents" filter="url(#glow)">
+    <!-- Agent neural network pattern -->
+    <circle cx="760" cy="300" r="8" fill="#00ff88" opacity="0.8"/>
+    <circle cx="820" cy="320" r="8" fill="#00ff88" opacity="0.7"/>
+    <circle cx="880" cy="310" r="8" fill="#00ff88" opacity="0.8"/>
+    <circle cx="940" cy="330" r="8" fill="#00ff88" opacity="0.7"/>
+    <circle cx="1000" cy="300" r="8" fill="#00ff88" opacity="0.8"/>
+    
+    <!-- Agent connections -->
+    <line x1="760" y1="300" x2="820" y2="320" stroke="#00ff88" stroke-width="1" opacity="0.4"/>
+    <line x1="820" y1="320" x2="880" y2="310" stroke="#00ff88" stroke-width="1" opacity="0.4"/>
+    <line x1="880" y1="310" x2="940" y2="330" stroke="#00ff88" stroke-width="1" opacity="0.4"/>
+    <line x1="940" y1="330" x2="1000" y2="300" stroke="#00ff88" stroke-width="1" opacity="0.4"/>
+  </g>
+  
+  <!-- Data flow visualization -->
+  <g id="dataFlow" opacity="0.5">
+    <!-- Animated data stream indicators -->
+    <line x1="720" y1="250" x2="780" y2="250" stroke="#00d4ff" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="900" y1="180" x2="920" y2="140" stroke="#ff4d4d" stroke-width="1" stroke-dasharray="4,4"/>
+  </g>
+  
+  <!-- Shield symbol for security -->
+  <g id="securityShield">
+    <path d="M 1060 160 L 1100 160 L 1100 210 Q 1100 250 1080 270 Q 1060 250 1060 210 Z" 
+          fill="none" stroke="#00ff88" stroke-width="2" opacity="0.6"/>
+    <text x="1080" y="215" font-size="20" font-weight="bold" fill="#00ff88" text-anchor="middle" opacity="0.7">✓</text>
+  </g>
+  
+  <!-- Left side: Title and metadata -->
+  
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Security Cloud Digest</text>
-
+  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Security Cloud Digest
+  </text>
+  
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AI VirusTotal AWS Agentic</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(255,180,160,0.75)">Threat Intelligence  |  Cloud Security  |  AI-Driven Defense</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New',monospace" font-size="14" fill="rgba(255,100,80,0.70)" letter-spacing="2.5">SECURITY / CLOUD / DEVOPS</text>
-
+  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    VirusTotal AWS Agentic
+  </text>
+  
+  <!-- Date badge -->
+  <g id="dateBadge">
+    <rect x="50" y="280" width="280" height="50" rx="8" fill="#1a2a3a" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+    <text x="190" y="315" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#00d4ff" text-anchor="middle">
+      FEBRUARY 9, 2026
+    </text>
+  </g>
+  
   <!-- Tag pills -->
-  <!-- Red: Security -->
-  <rect x="80" y="400" width="130" height="36" rx="18" fill="rgba(255,59,59,0.15)" stroke="rgba(255,80,80,0.35)" stroke-width="1"/>
-  <text x="145" y="423" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(255,140,120,0.90)" text-anchor="middle">VirusTotal</text>
-
-  <!-- Amber: Cloud -->
-  <rect x="225" y="400" width="110" height="36" rx="18" fill="rgba(255,153,51,0.13)" stroke="rgba(255,153,51,0.32)" stroke-width="1"/>
-  <text x="280" y="423" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(255,190,100,0.88)" text-anchor="middle">AWS Cloud</text>
-
-  <!-- Blue: AI -->
-  <rect x="350" y="400" width="120" height="36" rx="18" fill="rgba(59,130,246,0.13)" stroke="rgba(100,160,255,0.32)" stroke-width="1"/>
-  <text x="410" y="423" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(130,180,255,0.88)" text-anchor="middle">AI Agentic</text>
-
+  <g id="tags">
+    <!-- Tag 1: security -->
+    <rect x="50" y="420" width="100" height="36" rx="18" fill="#ff4d4d" opacity="0.3" stroke="#ff4d4d" stroke-width="1"/>
+    <text x="100" y="443" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff4d4d" text-anchor="middle">
+      security
+    </text>
+    
+    <!-- Tag 2: cloud -->
+    <rect x="170" y="420" width="100" height="36" rx="18" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="1"/>
+    <text x="220" y="443" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4ff" text-anchor="middle">
+      cloud
+    </text>
+    
+    <!-- Tag 3: ai -->
+    <rect x="290" y="420" width="100" height="36" rx="18" fill="#00ff88" opacity="0.3" stroke="#00ff88" stroke-width="1"/>
+    <text x="340" y="443" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00ff88" text-anchor="middle">
+      ai agents
+    </text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(255,255,255,0.30)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(255,100,80,0.35)" text-anchor="end">SECURITY</text>
+  <text x="50" y="600" font-family="Arial, sans-serif" font-size="14" fill="#666666">
+    tech.2twodragon.com
+  </text>
 </svg>

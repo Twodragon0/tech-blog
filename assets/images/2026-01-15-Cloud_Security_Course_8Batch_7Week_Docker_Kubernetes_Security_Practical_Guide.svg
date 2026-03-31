@@ -1,37 +1,138 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>8 7 : Docker &amp;amp; Kubernetes</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#f6ad55;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.05"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">8 7 : Docker &amp; Kubernetes</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Kubernetes | Docker</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Docker + Kubernetes + Cloud Security -->
+
+  <!-- Outer cloud shield shape -->
+  <ellipse cx="1010" cy="200" rx="120" ry="70" fill="rgba(229,62,62,0.07)" stroke="rgba(229,62,62,0.25)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="220" rx="75" ry="55" fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
+  <ellipse cx="1065" cy="215" rx="70" ry="50" fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
+
+  <!-- Shield body -->
+  <path d="M1010,140 L1060,160 L1060,210 Q1060,245 1010,265 Q960,245 960,210 L960,160 Z" fill="rgba(229,62,62,0.10)" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
+  <!-- Shield inner -->
+  <path d="M1010,155 L1048,172 L1048,212 Q1048,240 1010,255 Q972,240 972,212 L972,172 Z" fill="rgba(229,62,62,0.08)" stroke="rgba(229,62,62,0.25)" stroke-width="1"/>
+  <!-- Lock icon inside shield -->
+  <rect x="996" y="200" width="28" height="22" rx="3" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.5)" stroke-width="1.2"/>
+  <path d="M1002,200 Q1002,190 1010,190 Q1018,190 1018,200" fill="none" stroke="rgba(229,62,62,0.55)" stroke-width="1.5"/>
+  <circle cx="1010" cy="210" r="3" fill="rgba(229,62,62,0.7)"/>
+  <line x1="1010" y1="213" x2="1010" y2="218" stroke="rgba(229,62,62,0.7)" stroke-width="1.5"/>
+
+  <!-- Kubernetes hexagon cluster -->
+  <polygon points="1090,280 1110,268 1130,280 1130,304 1110,316 1090,304" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.3)" stroke-width="1.2"/>
+  <polygon points="1055,295 1075,283 1095,295 1095,319 1075,331 1055,319" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.35)" stroke-width="1.2"/>
+  <polygon points="1090,313 1110,301 1130,313 1130,337 1110,349 1090,337" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.3)" stroke-width="1.2"/>
+  <!-- K8s center wheel -->
+  <circle cx="1075" cy="307" r="8" fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.45)" stroke-width="1"/>
+  <circle cx="1075" cy="307" r="3" fill="rgba(66,153,225,0.35)"/>
+  <line x1="1075" y1="299" x2="1075" y2="303" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1075" y1="311" x2="1075" y2="315" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1067" y1="307" x2="1071" y2="307" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1079" y1="307" x2="1083" y2="307" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1069.3" y1="301.3" x2="1072.1" y2="304.1" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1077.9" y1="309.9" x2="1080.7" y2="312.7" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1080.7" y1="301.3" x2="1077.9" y2="304.1" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+  <line x1="1072.1" y1="309.9" x2="1069.3" y2="312.7" stroke="rgba(66,153,225,0.5)" stroke-width="1"/>
+
+  <!-- Docker whale icon (abstract) -->
+  <rect x="890" y="280" width="60" height="38" rx="8" fill="rgba(246,173,85,0.08)" stroke="rgba(246,173,85,0.28)" stroke-width="1.2"/>
+  <rect x="898" y="270" width="10" height="12" rx="2" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.3)" stroke-width="1"/>
+  <rect x="912" y="265" width="10" height="17" rx="2" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.3)" stroke-width="1"/>
+  <rect x="926" y="270" width="10" height="12" rx="2" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.3)" stroke-width="1"/>
+  <rect x="940" y="274" width="10" height="8" rx="2" fill="rgba(246,173,85,0.10)" stroke="rgba(246,173,85,0.25)" stroke-width="1"/>
+  <!-- Docker containers -->
+  <rect x="896" y="284" width="12" height="10" rx="1" fill="rgba(246,173,85,0.2)" stroke="rgba(246,173,85,0.4)" stroke-width="0.8"/>
+  <rect x="912" y="284" width="12" height="10" rx="1" fill="rgba(246,173,85,0.2)" stroke="rgba(246,173,85,0.4)" stroke-width="0.8"/>
+  <rect x="928" y="284" width="12" height="10" rx="1" fill="rgba(246,173,85,0.2)" stroke="rgba(246,173,85,0.4)" stroke-width="0.8"/>
+  <!-- whale tail -->
+  <path d="M946,296 Q965,290 960,310" fill="rgba(246,173,85,0.08)" stroke="rgba(246,173,85,0.28)" stroke-width="1"/>
+
+  <!-- Connecting lines between elements -->
+  <line x1="950" y1="220" x2="910" y2="275" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="1060" y1="220" x2="1060" y2="278" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="950" y1="300" x2="1055" y2="305" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- Orbiting dots around shield -->
+  <circle cx="880" cy="175" r="3" fill="rgba(229,62,62,0.4)"/>
+  <circle cx="1080" cy="150" r="2.5" fill="rgba(66,153,225,0.4)"/>
+  <circle cx="1140" cy="195" r="2" fill="rgba(246,173,85,0.4)"/>
+  <circle cx="1100" cy="260" r="2.5" fill="rgba(229,62,62,0.3)"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.55)"/>
+  <circle cx="900" cy="420" r="3.5" fill="rgba(246,173,85,0.5)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(66,153,225,0.5)"/>
+
+  <!-- Background subtle circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(229,62,62,0.05)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
+  <text x="94" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(229,62,62,0.9)" letter-spacing="1.5">JANUARY 15, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Cloud Security Course 8Batch</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">7Week Docker Kubernetes Security</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.6)" letter-spacing="0.3">Practical container security training — securing workloads end-to-end</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(229,62,62,0.8)" letter-spacing="3">SECURITY / DEVSECOPS / TRAINING</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
+  <text x="135" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.9)" text-anchor="middle">Docker</text>
+
+  <rect x="204" y="402" width="130" height="36" rx="18" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.35)" stroke-width="1"/>
+  <text x="269" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(246,173,85,0.9)" text-anchor="middle">Kubernetes</text>
+
+  <rect x="348" y="402" width="130" height="36" rx="18" fill="rgba(66,153,225,0.12)" stroke="rgba(66,153,225,0.35)" stroke-width="1"/>
+  <text x="413" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(66,153,225,0.9)" text-anchor="middle">Cloud Security</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(229,62,62,0.45)" text-anchor="end" letter-spacing="2">SECURITY</text>
 </svg>

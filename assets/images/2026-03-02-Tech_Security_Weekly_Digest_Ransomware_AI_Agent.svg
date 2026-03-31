@@ -1,137 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left Side: Text Content -->
+  <text x="40" y="185" font-family="Inter, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly</text>
+  <text x="40" y="245" font-family="Inter, sans-serif" font-size="46" font-weight="700" fill="white">Digest Ransomware Agent</text>
+  
+  <!-- Date Badge -->
+  <rect x="40" y="270" width="280" height="40" rx="8" fill="#1a1f3a"/>
+  <text x="55" y="297" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#64b5f6">📅 MARCH 2, 2026</text>
+  
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1: Security -->
+    <rect x="40" y="420" width="100" height="32" rx="16" fill="#c62828"/>
+    <text x="90" y="441" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle">security</text>
+    
+    <!-- Tag 2: Ransomware -->
+    <rect x="155" y="420" width="120" height="32" rx="16" fill="#d32f2f"/>
+    <text x="215" y="441" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle">ransomware</text>
+    
+    <!-- Tag 3: Threat -->
+    <rect x="290" y="420" width="90" height="32" rx="16" fill="#ff6f00"/>
+    <text x="335" y="441" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle">threat</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="40" y="590" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#64b5f6">tech.2twodragon.com</text>
+  
+  <!-- Right Side: Ransomware Agent Illustration -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="threatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b"/>
-      <stop offset="50%" style="stop-color:#ff6b00"/>
-      <stop offset="100%" style="stop-color:#c0392b"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3b3b"/>
-      <stop offset="100%" style="stop-color:rgba(255,59,59,0)"/>
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:rgba(255,59,59,0.3)"/>
-      <stop offset="100%" style="stop-color:rgba(255,59,59,0.05)"/>
-    </linearGradient>
-    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:0.05"/>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:0.8" />
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware + AI Agent Lock -->
-  <!-- Outer warning ring -->
-  <circle cx="1010" cy="225" r="130" fill="none" stroke="rgba(255,59,59,0.25)" stroke-width="2" stroke-dasharray="8 6"/>
-  <circle cx="1010" cy="225" r="110" fill="rgba(255,20,20,0.06)" stroke="rgba(255,80,0,0.2)" stroke-width="1.5"/>
-
-  <!-- Central lock body -->
-  <rect x="965" y="215" width="90" height="70" rx="8" fill="rgba(255,59,59,0.1)" stroke="rgba(255,59,59,0.35)" stroke-width="2"/>
-  <!-- Lock shackle -->
-  <path d="M980 215 Q980 170 1010 170 Q1040 170 1040 215" fill="none" stroke="rgba(255,59,59,0.4)" stroke-width="3" stroke-linecap="round"/>
-  <!-- Lock keyhole -->
-  <circle cx="1010" cy="245" r="10" fill="rgba(255,59,59,0.3)" stroke="rgba(255,100,0,0.5)" stroke-width="1.5"/>
-  <rect x="1006" y="252" width="8" height="18" rx="2" fill="rgba(255,59,59,0.3)" stroke="rgba(255,100,0,0.4)" stroke-width="1"/>
-
-  <!-- AI neural nodes around the lock -->
-  <circle cx="910" cy="160" r="14" fill="rgba(255,120,0,0.1)" stroke="rgba(255,120,0,0.35)" stroke-width="1.5"/>
-  <circle cx="910" cy="160" r="6" fill="rgba(255,120,0,0.2)"/>
-  <circle cx="1110" cy="155" r="14" fill="rgba(255,59,59,0.1)" stroke="rgba(255,59,59,0.3)" stroke-width="1.5"/>
-  <circle cx="1110" cy="155" r="6" fill="rgba(255,59,59,0.2)"/>
-  <circle cx="880" cy="260" r="12" fill="rgba(200,50,50,0.1)" stroke="rgba(200,50,50,0.3)" stroke-width="1.5"/>
-  <circle cx="880" cy="260" r="5" fill="rgba(200,50,50,0.2)"/>
-  <circle cx="1140" cy="270" r="12" fill="rgba(255,80,0,0.1)" stroke="rgba(255,80,0,0.3)" stroke-width="1.5"/>
-  <circle cx="1140" cy="270" r="5" fill="rgba(255,80,0,0.2)"/>
-  <circle cx="940" cy="310" r="10" fill="rgba(255,59,59,0.1)" stroke="rgba(255,59,59,0.25)" stroke-width="1.5"/>
-  <circle cx="1080" cy="315" r="10" fill="rgba(255,100,0,0.1)" stroke="rgba(255,100,0,0.25)" stroke-width="1.5"/>
-
-  <!-- Neural connections -->
-  <line x1="910" y1="160" x2="965" y2="215" stroke="rgba(255,100,0,0.2)" stroke-width="1"/>
-  <line x1="1110" y1="155" x2="1055" y2="215" stroke="rgba(255,59,59,0.2)" stroke-width="1"/>
-  <line x1="880" y1="260" x2="965" y2="250" stroke="rgba(200,50,50,0.2)" stroke-width="1"/>
-  <line x1="1140" y1="270" x2="1055" y2="252" stroke="rgba(255,80,0,0.2)" stroke-width="1"/>
-  <line x1="940" y1="310" x2="975" y2="285" stroke="rgba(255,59,59,0.15)" stroke-width="1"/>
-  <line x1="1080" y1="315" x2="1045" y2="285" stroke="rgba(255,100,0,0.15)" stroke-width="1"/>
-  <line x1="910" y1="160" x2="1110" y2="155" stroke="rgba(255,80,0,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-
-  <!-- Agent circuit lines -->
-  <path d="M895 190 L870 200 L855 225 L870 250 L895 260" fill="none" stroke="rgba(255,59,59,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
-  <path d="M1125 185 L1148 200 L1160 225 L1148 250 L1125 265" fill="none" stroke="rgba(255,80,0,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
-
-  <!-- Ransomware warning triangles -->
-  <polygon points="1010,135 1030,165 990,165" fill="rgba(255,59,59,0.08)" stroke="rgba(255,59,59,0.3)" stroke-width="1.5"/>
-  <text x="1010" y="160" font-size="14" fill="rgba(255,59,59,0.6)" text-anchor="middle" font-weight="700">!</text>
-
-  <!-- Scan lines effect -->
-  <path d="M890 130 L1130 130" stroke="rgba(255,59,59,0.08)" stroke-width="1"/>
-  <path d="M880 145 L1140 145" stroke="rgba(255,59,59,0.06)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(255,59,59,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,120,0,0.6)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(255,59,59,0.5)"/>
-
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,30,30,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,30,30,0.05)" stroke="none"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,59,59,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-size="12" fill="rgba(255,180,180,0.9)" text-anchor="middle" font-family="monospace" letter-spacing="1">MARCH 2, 2026</text>
-
-  <!-- Title lines -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif" letter-spacing="-0.5">Tech Security Weekly</text>
-  <text x="80" y="245" font-size="40" font-weight="700" font-family="Arial, sans-serif" letter-spacing="-0.5">
-    <tspan fill="#ff5a5a">Digest</tspan><tspan fill="white"> Ransomware AI</tspan>
-  </text>
-  <text x="80" y="293" font-size="40" font-weight="700" fill="white" font-family="Arial, sans-serif" letter-spacing="-0.5">Agent</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="330" font-size="19" fill="rgba(255,200,200,0.7)" font-family="Arial, sans-serif">Weekly roundup of critical security threats, ransomware trends &amp; AI-driven attacks</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="350" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="390" font-size="14" fill="rgba(255,120,120,0.8)" font-family="Arial, sans-serif" letter-spacing="3" font-weight="600">SECURITY / THREAT INTELLIGENCE</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="412" width="130" height="36" rx="18" fill="rgba(255,59,59,0.18)" stroke="rgba(255,59,59,0.4)" stroke-width="1"/>
-  <text x="145" y="435" font-size="13" fill="rgba(255,180,180,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">RANSOMWARE</text>
-
-  <rect x="225" y="412" width="110" height="36" rx="18" fill="rgba(255,140,0,0.15)" stroke="rgba(255,140,0,0.35)" stroke-width="1"/>
-  <text x="280" y="435" font-size="13" fill="rgba(255,200,150,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">AI AGENT</text>
-
-  <rect x="350" y="412" width="110" height="36" rx="18" fill="rgba(60,120,255,0.15)" stroke="rgba(60,120,255,0.35)" stroke-width="1"/>
-  <text x="405" y="435" font-size="13" fill="rgba(160,200,255,0.95)" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600">WEEKLY</text>
-
-  <!-- Footer -->
-  <line x1="0" y1="515" x2="1200" y2="515" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-  <text x="80" y="545" font-size="14" fill="rgba(255,255,255,0.35)" font-family="Arial, sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,100,100,0.45)" font-family="Arial, sans-serif" text-anchor="end" letter-spacing="1">SECURITY</text>
+  
+  <!-- Central Threat Core - Hexagon with pulsing elements -->
+  <g filter="url(#glow)">
+    <!-- Outer threat ring -->
+    <circle cx="920" cy="315" r="120" fill="none" stroke="url(#threatGradient)" stroke-width="2" opacity="0.6"/>
+    <circle cx="920" cy="315" r="100" fill="none" stroke="#ff6666" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Central malicious core -->
+    <polygon points="920,220 980,250 980,310 920,340 860,310 860,250" fill="none" stroke="url(#threatGradient)" stroke-width="2.5"/>
+    <circle cx="920" cy="295" r="35" fill="url(#threatGradient)" opacity="0.3"/>
+    <circle cx="920" cy="295" r="25" fill="#ff4444" opacity="0.5"/>
+    <circle cx="920" cy="295" r="12" fill="#ff0000"/>
+  </g>
+  
+  <!-- Binary/Code Streams representing ransomware payload -->
+  <g font-family="monospace" font-size="11" fill="url(#codeGradient)" opacity="0.7">
+    <text x="750" y="180">101011010</text>
+    <text x="1000" y="200">1010101</text>
+    <text x="750" y="450">110101010</text>
+    <text x="1020" y="480">101011</text>
+  </g>
+  
+  <!-- Lock chains showing encryption/control -->
+  <g stroke="#ff6666" stroke-width="2" fill="none">
+    <!-- Left chain -->
+    <path d="M 820 260 L 780 280" stroke="#ff8888"/>
+    <circle cx="780" cy="280" r="8" fill="none" stroke="#ff8888" stroke-width="1.5"/>
+    <path d="M 780 288 L 780 310" stroke="#ff8888"/>
+    
+    <!-- Right chain -->
+    <path d="M 1020 260 L 1060 280" stroke="#ff8888"/>
+    <circle cx="1060" cy="280" r="8" fill="none" stroke="#ff8888" stroke-width="1.5"/>
+    <path d="M 1060 288 L 1060 310" stroke="#ff8888"/>
+  </g>
+  
+  <!-- Network nodes/agent connections -->
+  <g>
+    <!-- Top left node -->
+    <circle cx="800" cy="150" r="12" fill="#0066ff" opacity="0.8"/>
+    <line x1="800" y1="162" x2="880" y2="240" stroke="#0066ff" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Top right node -->
+    <circle cx="1040" cy="150" r="12" fill="#0066ff" opacity="0.8"/>
+    <line x1="1040" y1="162" x2="960" y2="240" stroke="#0066ff" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Bottom left node -->
+    <circle cx="780" cy="480" r="12" fill="#ff6600" opacity="0.8"/>
+    <line x1="800" y1="468" x2="880" y2="350" stroke="#ff6600" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Bottom right node -->
+    <circle cx="1060" cy="480" r="12" fill="#ff6600" opacity="0.8"/>
+    <line x1="1040" y1="468" x2="960" y2="350" stroke="#ff6600" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  
+  <!-- Warning triangles for threat indicators -->
+  <g>
+    <polygon points="750,100 760,120 740,120" fill="#ff6600"/>
+    <text x="748" y="115" font-size="8" fill="#ff6600" font-weight="bold">!</text>
+    
+    <polygon points="1080,120 1090,140 1070,140" fill="#ff6600"/>
+    <text x="1078" y="135" font-size="8" fill="#ff6600" font-weight="bold">!</text>
+  </g>
+  
+  <!-- Encryption lock symbol -->
+  <g>
+    <rect x="905" y="305" width="30" height="25" rx="3" fill="none" stroke="#ff4444" stroke-width="2"/>
+    <path d="M 915 305 Q 915 295 920 295 Q 925 295 925 305" fill="none" stroke="#ff4444" stroke-width="2"/>
+    <circle cx="920" cy="318" r="2" fill="#ff4444"/>
+  </g>
+  
+  <!-- Threat intensity waves -->
+  <g stroke="#ff6666" stroke-width="1" fill="none" opacity="0.4">
+    <path d="M 700 315 Q 720 300 740 315"/>
+    <path d="M 1100 315 Q 1080 330 1060 315"/>
+  </g>
 </svg>

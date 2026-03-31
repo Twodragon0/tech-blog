@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient overlays for depth -->
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#d32f2f;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#00d9ff;stop-opacity:0.1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Right side: Agentic Security Illustration -->
+  <!-- Central AI Agent Core (shield) -->
+  <circle cx="900" cy="250" r="70" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.8"/>
+  <circle cx="900" cy="250" r="60" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Shield icon in center -->
+  <g transform="translate(900, 250)">
+    <path d="M -25 -20 L 0 -35 L 25 -20 L 25 10 Q 0 35 0 35 Q 0 35 -25 10 Z" fill="#4ecdc4" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" font-size="20" fill="#0a0c1a" font-weight="bold">⚔</text>
+  </g>
+
+  <!-- Attack vectors coming from left (red) -->
+  <!-- Attack vector 1 -->
+  <line x1="750" y1="150" x2="830" y2="210" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
+  <circle cx="750" cy="150" r="8" fill="#ff6b6b" opacity="0.6"/>
+
+  <!-- Attack vector 2 -->
+  <line x1="740" y1="250" x2="830" y2="250" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
+  <circle cx="740" cy="250" r="8" fill="#ff6b6b" opacity="0.6"/>
+
+  <!-- Attack vector 3 -->
+  <line x1="750" y1="350" x2="830" y2="290" stroke="#ff6b6b" stroke-width="2" opacity="0.8" stroke-dasharray="5,5"/>
+  <circle cx="750" cy="350" r="8" fill="#ff6b6b" opacity="0.6"/>
+
+  <!-- Agent network nodes (defense perimeter) -->
+  <!-- Top-right node -->
+  <circle cx="1020" cy="150" r="12" fill="#4ecdc4" opacity="0.8"/>
+  <line x1="900" y1="250" x2="1020" y2="150" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+
+  <!-- Right node -->
+  <circle cx="1100" cy="250" r="12" fill="#4ecdc4" opacity="0.8"/>
+  <line x1="900" y1="250" x2="1100" y2="250" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+
+  <!-- Bottom-right node -->
+  <circle cx="1020" cy="350" r="12" fill="#4ecdc4" opacity="0.8"/>
+  <line x1="900" y1="250" x2="1020" y2="350" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+
+  <!-- Detection nodes (small blue) -->
+  <circle cx="960" cy="160" r="6" fill="#00d9ff" opacity="0.7"/>
+  <circle cx="970" cy="340" r="6" fill="#00d9ff" opacity="0.7"/>
+  <circle cx="1050" cy="200" r="6" fill="#00d9ff" opacity="0.7"/>
+
+  <!-- Threat indicators (pulsing circles) -->
+  <circle cx="750" cy="150" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
+  <circle cx="740" cy="250" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
+  <circle cx="750" cy="350" r="20" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
+
+  <!-- Defense layers (concentric circles) -->
+  <circle cx="900" cy="250" r="100" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+  <circle cx="900" cy="250" r="130" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
+
+  <!-- Threat labels (small text) -->
+  <text x="720" y="130" font-size="11" fill="#ff6b6b" opacity="0.8">INJECTION</text>
+  <text x="680" y="260" font-size="11" fill="#ff6b6b" opacity="0.8">PROMPT</text>
+  <text x="720" y="380" font-size="11" fill="#ff6b6b" opacity="0.8">MODEL</text>
+
+  <!-- Defense labels (small text) -->
+  <text x="1030" y="145" font-size="10" fill="#4ecdc4" opacity="0.8">DETECTION</text>
+  <text x="1110" y="260" font-size="10" fill="#4ecdc4" opacity="0.8">MITIGATION</text>
+  <text x="1030" y="375" font-size="10" fill="#4ecdc4" opacity="0.8">RESPONSE</text>
+
+  <!-- Central process flow indicators -->
+  <path d="M 880 220 Q 900 230 920 220" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="920,220 925,217 922,225" fill="#4ecdc4" opacity="0.6"/>
+
+  <path d="M 920 280 Q 900 270 880 280" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="880,280 875,283 878,275" fill="#4ecdc4" opacity="0.6"/>
+
+  <!-- Gradient overlay on right -->
+  <rect x="700" y="0" width="500" height="630" fill="url(#blueGrad)"/>
+
+  <!-- Left side: Title and metadata -->
+  <!-- Title -->
+  <text x="80" y="185" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">Agentic Security</text>
+  <text x="80" y="245" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">2026 Attack Vectors</text>
+
+  <!-- Date badge -->
+  <rect x="80" y="280" width="280" height="38" rx="6" fill="rgba(255, 107, 107, 0.15)" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="90" y="305" font-size="13" fill="#ff6b6b" font-weight="600" font-family="system-ui, -apple-system, sans-serif">FEBRUARY 1, 2026</text>
+
+  <!-- Tag pills -->
+  <!-- Tag 1: Security -->
+  <rect x="80" y="420" width="110" height="32" rx="16" fill="rgba(78, 205, 196, 0.2)" stroke="#4ecdc4" stroke-width="1"/>
+  <text x="135" y="441" text-anchor="middle" font-size="12" fill="#4ecdc4" font-weight="600" font-family="system-ui, -apple-system, sans-serif">SECURITY</text>
+
+  <!-- Tag 2: AI RISKS -->
+  <rect x="200" y="420" width="110" height="32" rx="16" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="255" y="441" text-anchor="middle" font-size="12" fill="#ff6b6b" font-weight="600" font-family="system-us, -apple-system, sans-serif">AI RISKS</text>
+
+  <!-- Tag 3: DEFENSE -->
+  <rect x="320" y="420" width="110" height="32" rx="16" fill="rgba(0, 217, 255, 0.2)" stroke="#00d9ff" stroke-width="1"/>
+  <text x="375" y="441" text-anchor="middle" font-size="12" fill="#00d9ff" font-weight="600" font-family="system-ui, -apple-system, sans-serif">DEFENSE</text>
+
+  <!-- Footer -->
+  <text x="80" y="600" font-size="12" fill="rgba(255, 255, 255, 0.5)" font-family="system-ui, -apple-system, sans-serif">tech.2twodragon.com</text>
+</svg>

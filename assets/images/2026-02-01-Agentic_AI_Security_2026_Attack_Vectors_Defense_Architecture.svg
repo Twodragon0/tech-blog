@@ -1,37 +1,170 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff6600;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:0.08"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cfff;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#0055ff;stop-opacity:0.08"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- 1. Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- 2. Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI 2026</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- 3. RIGHT SIDE ILLUSTRATION: Agentic AI Security Defense Architecture -->
+  <!-- Outer defensive ring -->
+  <circle cx="1010" cy="225" r="118" fill="none" stroke="rgba(255,34,68,0.28)" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <circle cx="1010" cy="225" r="100" fill="rgba(255,34,68,0.06)" stroke="rgba(255,34,68,0.20)" stroke-width="1"/>
+
+  <!-- Central AI core hexagon -->
+  <polygon points="1010,158 1062,190 1062,254 1010,286 958,254 958,190"
+    fill="url(#shieldGrad)" stroke="rgba(170,0,255,0.35)" stroke-width="1.5"/>
+  <polygon points="1010,173 1049,196 1049,242 1010,265 971,242 971,196"
+    fill="rgba(170,0,255,0.09)" stroke="rgba(170,0,255,0.22)" stroke-width="1"/>
+
+  <!-- Inner core glow -->
+  <circle cx="1010" cy="222" r="32" fill="rgba(255,34,68,0.12)" stroke="rgba(255,34,68,0.35)" stroke-width="1.5" filter="url(#glow)"/>
+  <circle cx="1010" cy="222" r="18" fill="rgba(255,100,0,0.18)" stroke="rgba(255,100,0,0.45)" stroke-width="1"/>
+  <!-- AI symbol inside core -->
+  <text x="1010" y="229" font-family="monospace" font-size="15" fill="rgba(255,200,200,0.7)" text-anchor="middle" font-weight="700">AI</text>
+
+  <!-- Attack vector arrows (incoming threats) -->
+  <!-- Arrow 1: top-left -->
+  <line x1="900" y1="148" x2="968" y2="185" stroke="rgba(255,34,68,0.38)" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="968,185 956,176 963,192" fill="rgba(255,34,68,0.5)"/>
+  <!-- Arrow 2: top-right -->
+  <line x1="1118" y1="152" x2="1052" y2="188" stroke="rgba(255,100,0,0.38)" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="1052,188 1064,179 1057,195" fill="rgba(255,100,0,0.5)"/>
+  <!-- Arrow 3: left -->
+  <line x1="878" y1="225" x2="948" y2="222" stroke="rgba(255,34,68,0.30)" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="948,222 936,215 936,229" fill="rgba(255,34,68,0.45)"/>
+  <!-- Arrow 4: right -->
+  <line x1="1142" y1="225" x2="1072" y2="222" stroke="rgba(255,80,0,0.30)" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="1072,222 1084,215 1084,229" fill="rgba(255,80,0,0.45)"/>
+  <!-- Arrow 5: bottom -->
+  <line x1="1010" y1="315" x2="1010" y2="296" stroke="rgba(255,34,68,0.30)" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="1010,296 1003,308 1017,308" fill="rgba(255,34,68,0.45)"/>
+
+  <!-- Defense shield arcs -->
+  <path d="M 958,190 A 80,80 0 0,1 1062,190" fill="none" stroke="rgba(0,207,255,0.32)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 958,254 A 80,80 0 0,0 1062,254" fill="none" stroke="rgba(0,150,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Satellite agent nodes -->
+  <!-- Node 1: top -->
+  <circle cx="1010" cy="140" r="12" fill="url(#nodeGrad)" stroke="rgba(0,207,255,0.40)" stroke-width="1.5"/>
+  <circle cx="1010" cy="140" r="5" fill="rgba(0,207,255,0.55)"/>
+  <!-- Node 2: right -->
+  <circle cx="1098" cy="222" r="12" fill="url(#nodeGrad)" stroke="rgba(0,207,255,0.35)" stroke-width="1.5"/>
+  <circle cx="1098" cy="222" r="5" fill="rgba(0,207,255,0.50)"/>
+  <!-- Node 3: bottom-left -->
+  <circle cx="950" cy="295" r="12" fill="url(#nodeGrad)" stroke="rgba(170,0,255,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="295" r="5" fill="rgba(170,0,255,0.55)"/>
+  <!-- Node 4: bottom-right -->
+  <circle cx="1070" cy="295" r="12" fill="url(#nodeGrad)" stroke="rgba(170,0,255,0.35)" stroke-width="1.5"/>
+  <circle cx="1070" cy="295" r="5" fill="rgba(170,0,255,0.50)"/>
+
+  <!-- Connection lines between nodes and core -->
+  <line x1="1010" y1="152" x2="1010" y2="173" stroke="rgba(0,207,255,0.25)" stroke-width="1"/>
+  <line x1="1087" y1="222" x2="1072" y2="222" stroke="rgba(0,207,255,0.22)" stroke-width="1"/>
+  <line x1="956" y1="284" x2="968" y2="266" stroke="rgba(170,0,255,0.22)" stroke-width="1"/>
+  <line x1="1064" y1="284" x2="1052" y2="266" stroke="rgba(170,0,255,0.22)" stroke-width="1"/>
+
+  <!-- Outer threat indicators -->
+  <rect x="886" y="138" width="22" height="18" rx="2" fill="rgba(255,34,68,0.12)" stroke="rgba(255,34,68,0.35)" stroke-width="1"/>
+  <text x="897" y="151" font-family="monospace" font-size="8" fill="rgba(255,100,100,0.75)" text-anchor="middle">XSS</text>
+  <rect x="1106" y="142" width="28" height="18" rx="2" fill="rgba(255,100,0,0.12)" stroke="rgba(255,100,0,0.35)" stroke-width="1"/>
+  <text x="1120" y="155" font-family="monospace" font-size="8" fill="rgba(255,160,80,0.75)" text-anchor="middle">SQLI</text>
+  <rect x="857" y="216" width="28" height="18" rx="2" fill="rgba(255,34,68,0.10)" stroke="rgba(255,34,68,0.30)" stroke-width="1"/>
+  <text x="871" y="229" font-family="monospace" font-size="8" fill="rgba(255,100,100,0.70)" text-anchor="middle">CSRF</text>
+  <rect x="1128" y="216" width="26" height="18" rx="2" fill="rgba(255,80,0,0.10)" stroke="rgba(255,80,0,0.28)" stroke-width="1"/>
+  <text x="1141" y="229" font-family="monospace" font-size="8" fill="rgba(255,140,60,0.70)" text-anchor="middle">RCE</text>
+
+  <!-- Scanning pulse ring animation suggestion via opacity layers -->
+  <circle cx="1010" cy="222" r="60" fill="none" stroke="rgba(255,34,68,0.08)" stroke-width="8"/>
+  <circle cx="1010" cy="222" r="75" fill="none" stroke="rgba(255,34,68,0.05)" stroke-width="4"/>
+
+  <!-- 4. Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="rgba(255,34,68,0.75)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.70)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="6" fill="rgba(255,34,68,0.60)" filter="url(#glow)"/>
+
+  <!-- 5. Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,34,68,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(170,0,255,0.04)" stroke="none"/>
+
+  <!-- 6. Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- 7. Date badge -->
+  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(255,34,68,0.15)" stroke="rgba(255,34,68,0.35)" stroke-width="1"/>
+  <text x="185" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,180,180,0.90)" text-anchor="middle" letter-spacing="1">FEBRUARY 1, 2026</text>
+
+  <!-- 8. Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Agentic AI Security 2026</text>
+
+  <!-- 9. Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.92)" letter-spacing="-0.5">Attack Vectors Defense</text>
+  <text x="80" y="292" font-family="'Arial', 'Helvetica', sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Architecture</text>
+
+  <!-- 10. Subtitle -->
+  <text x="80" y="340" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,160,160,0.75)">Comprehensive threat modeling and defense strategies for autonomous AI agents</text>
+
+  <!-- 11. Accent line -->
+  <rect x="80" y="358" width="420" height="3" rx="2" fill="url(#accentLine)"/>
+
+  <!-- 12. Category label -->
+  <text x="80" y="390" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" fill="rgba(255,100,100,0.70)" letter-spacing="3" text-transform="uppercase">SECURITY / AGENTIC AI / DEVSECOPS</text>
+
+  <!-- 13. Three tag pills -->
+  <rect x="80" y="410" width="120" height="36" rx="18" fill="rgba(255,34,68,0.18)" stroke="rgba(255,34,68,0.45)" stroke-width="1"/>
+  <text x="140" y="433" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(255,160,160,0.95)" text-anchor="middle" font-weight="600">Attack Vectors</text>
+
+  <rect x="214" y="410" width="138" height="36" rx="18" fill="rgba(255,140,0,0.16)" stroke="rgba(255,140,0,0.40)" stroke-width="1"/>
+  <text x="283" y="433" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(255,200,120,0.95)" text-anchor="middle" font-weight="600">Zero Trust AI</text>
+
+  <rect x="366" y="410" width="148" height="36" rx="18" fill="rgba(0,150,255,0.14)" stroke="rgba(0,180,255,0.38)" stroke-width="1"/>
+  <text x="440" y="433" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(120,210,255,0.95)" text-anchor="middle" font-weight="600">Agent Hardening</text>
+
+  <!-- 14. Footer -->
+  <text x="80" y="575" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="575" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(255,100,100,0.45)" text-anchor="end" letter-spacing="2">SECURITY</text>
 </svg>

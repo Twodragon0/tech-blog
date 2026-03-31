@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#cc0044;stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:#ff3333"/>
+      <stop offset="50%" style="stop-color:#ff6600"/>
+      <stop offset="100%" style="stop-color:#cc0033"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#ff3333"/>
+      <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
-    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#ff2222;stop-opacity:0.3"/>
       <stop offset="100%" style="stop-color:#880000;stop-opacity:0.1"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="softglow">
+    <filter id="subtleGlow">
       <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
       <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
@@ -30,122 +30,113 @@
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Grid horizontal lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- Grid lines vertical -->
+  <!-- Grid vertical lines -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,40,40,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,60,60,0.05)" stroke="none"/>
+  <!-- RIGHT SIDE ILLUSTRATION: SolarWinds / UNC3886 / LLM Attack icon -->
+  <!-- Outer orbit ring - supply chain breach -->
+  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(255,60,60,0.25)" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <circle cx="1010" cy="225" r="90" fill="rgba(255,30,30,0.06)" stroke="rgba(255,80,80,0.2)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: SolarWinds breach + LLM attack theme -->
-  <!-- Outer shield outline -->
-  <path d="M1010,140 L1100,165 L1100,255 Q1100,310 1010,330 Q920,310 920,255 L920,165 Z"
-        fill="rgba(255,40,40,0.07)" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <!-- Shield inner -->
-  <path d="M1010,158 L1086,178 L1086,252 Q1086,296 1010,312 Q934,296 934,252 L934,178 Z"
-        fill="rgba(180,20,20,0.08)" stroke="rgba(255,100,100,0.2)" stroke-width="1"/>
+  <!-- Solar wind rays emanating from center -->
+  <line x1="1010" y1="135" x2="1010" y2="115" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="1078" y1="157" x2="1093" y2="142" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="1100" y1="225" x2="1120" y2="225" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="1078" y1="293" x2="1093" y2="308" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="1010" y1="315" x2="1010" y2="335" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="942" y1="293" x2="927" y2="308" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="920" y1="225" x2="900" y2="225" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+  <line x1="942" y1="157" x2="927" y2="142" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
 
-  <!-- Cracked shield fracture lines -->
-  <line x1="1010" y1="158" x2="980" y2="230" stroke="rgba(255,60,60,0.35)" stroke-width="1.5"/>
-  <line x1="980" y1="230" x2="1010" y2="245" stroke="rgba(255,60,60,0.35)" stroke-width="1.5"/>
-  <line x1="1010" y1="158" x2="1030" y2="210" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <line x1="1030" y1="210" x2="1055" y2="240" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
+  <!-- Core: Compromised supply chain node -->
+  <circle cx="1010" cy="225" r="52" fill="rgba(180,20,20,0.12)" stroke="rgba(255,50,50,0.35)" stroke-width="2"/>
+  <circle cx="1010" cy="225" r="36" fill="rgba(255,30,30,0.09)" stroke="rgba(255,100,100,0.25)" stroke-width="1.5"/>
 
-  <!-- LLM neural network nodes overlaid -->
-  <circle cx="1010" cy="200" r="14" fill="rgba(255,120,40,0.12)" stroke="rgba(255,140,60,0.35)" stroke-width="1.5"/>
-  <circle cx="970" cy="240" r="10" fill="rgba(255,60,60,0.10)" stroke="rgba(255,80,80,0.30)" stroke-width="1.2"/>
-  <circle cx="1050" cy="240" r="10" fill="rgba(255,60,60,0.10)" stroke="rgba(255,80,80,0.30)" stroke-width="1.2"/>
-  <circle cx="990" cy="275" r="8" fill="rgba(180,40,200,0.10)" stroke="rgba(200,80,220,0.28)" stroke-width="1"/>
-  <circle cx="1030" cy="275" r="8" fill="rgba(180,40,200,0.10)" stroke="rgba(200,80,220,0.28)" stroke-width="1"/>
-  <circle cx="1010" cy="295" r="11" fill="rgba(255,40,40,0.13)" stroke="rgba(255,60,60,0.35)" stroke-width="1.5"/>
+  <!-- Inner broken shield shape -->
+  <path d="M1010,192 L1032,202 L1032,222 Q1032,238 1010,248 Q988,238 988,222 L988,202 Z" fill="rgba(255,50,50,0.1)" stroke="rgba(255,80,80,0.35)" stroke-width="1.5"/>
+  <!-- Shield crack -->
+  <path d="M1010,200 L1007,215 L1013,220 L1009,240" fill="none" stroke="rgba(255,200,0,0.6)" stroke-width="2" filter="url(#glow)"/>
 
-  <!-- Neural connections -->
-  <line x1="1010" y1="214" x2="970" y2="230" stroke="rgba(255,120,80,0.22)" stroke-width="1"/>
-  <line x1="1010" y1="214" x2="1050" y2="230" stroke="rgba(255,120,80,0.22)" stroke-width="1"/>
-  <line x1="970" y1="250" x2="990" y2="267" stroke="rgba(200,80,220,0.20)" stroke-width="1"/>
-  <line x1="970" y1="250" x2="1030" y2="267" stroke="rgba(200,80,220,0.18)" stroke-width="1"/>
-  <line x1="1050" y1="250" x2="990" y2="267" stroke="rgba(200,80,220,0.18)" stroke-width="1"/>
-  <line x1="1050" y1="250" x2="1030" y2="267" stroke="rgba(200,80,220,0.20)" stroke-width="1"/>
-  <line x1="990" y1="283" x2="1010" y2="284" stroke="rgba(255,60,60,0.22)" stroke-width="1"/>
-  <line x1="1030" y1="283" x2="1010" y2="284" stroke="rgba(255,60,60,0.22)" stroke-width="1"/>
+  <!-- LLM attack nodes: neural-like connections -->
+  <circle cx="955" cy="175" r="14" fill="rgba(120,0,255,0.1)" stroke="rgba(160,80,255,0.3)" stroke-width="1.5"/>
+  <circle cx="1065" cy="175" r="14" fill="rgba(120,0,255,0.1)" stroke="rgba(160,80,255,0.3)" stroke-width="1.5"/>
+  <circle cx="955" cy="275" r="14" fill="rgba(120,0,255,0.1)" stroke="rgba(160,80,255,0.3)" stroke-width="1.5"/>
+  <circle cx="1065" cy="275" r="14" fill="rgba(120,0,255,0.1)" stroke="rgba(160,80,255,0.3)" stroke-width="1.5"/>
+  <!-- LLM node inner dots -->
+  <circle cx="955" cy="175" r="4" fill="rgba(180,100,255,0.4)"/>
+  <circle cx="1065" cy="175" r="4" fill="rgba(180,100,255,0.4)"/>
+  <circle cx="955" cy="275" r="4" fill="rgba(180,100,255,0.4)"/>
+  <circle cx="1065" cy="275" r="4" fill="rgba(180,100,255,0.4)"/>
 
-  <!-- Malware propagation arrows -->
-  <path d="M1075,170 L1090,165 L1085,178 Z" fill="rgba(255,80,40,0.30)"/>
-  <path d="M920,170 L905,165 L910,178 Z" fill="rgba(255,80,40,0.30)"/>
+  <!-- Connection lines from LLM nodes to core -->
+  <line x1="965" y1="182" x2="988" y2="205" stroke="rgba(160,80,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1055" y1="182" x2="1032" y2="205" stroke="rgba(160,80,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="965" y1="268" x2="988" y2="242" stroke="rgba(160,80,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1055" y1="268" x2="1032" y2="242" stroke="rgba(160,80,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <!-- Hexagonal tech decoration around shield -->
-  <polygon points="1010,130 1022,137 1022,151 1010,158 998,151 998,137"
-           fill="rgba(255,60,60,0.06)" stroke="rgba(255,80,80,0.22)" stroke-width="1"/>
-  <polygon points="1110,200 1122,207 1122,221 1110,228 1098,221 1098,207"
-           fill="rgba(255,120,40,0.06)" stroke="rgba(255,140,60,0.20)" stroke-width="1"/>
-  <polygon points="908,200 920,207 920,221 908,228 896,221 896,207"
-           fill="rgba(200,40,200,0.06)" stroke="rgba(220,60,220,0.20)" stroke-width="1"/>
+  <!-- UNC3886 threat actor hex markers -->
+  <polygon points="885,195 895,188 905,195 905,208 895,215 885,208" fill="rgba(255,80,0,0.08)" stroke="rgba(255,100,0,0.3)" stroke-width="1.5"/>
+  <polygon points="1115,195 1125,188 1135,195 1135,208 1125,215 1115,208" fill="rgba(255,80,0,0.08)" stroke="rgba(255,100,0,0.3)" stroke-width="1.5"/>
+  <polygon points="1000,130 1010,123 1020,130 1020,143 1010,150 1000,143" fill="rgba(255,30,30,0.1)" stroke="rgba(255,60,60,0.3)" stroke-width="1.5"/>
 
-  <!-- Binary data streams (attack vectors) -->
-  <text x="890" y="145" font-family="monospace" font-size="9" fill="rgba(255,80,80,0.25)">01001101</text>
-  <text x="1070" y="320" font-family="monospace" font-size="9" fill="rgba(255,100,40,0.22)">10110010</text>
-  <text x="885" y="310" font-family="monospace" font-size="8" fill="rgba(200,80,200,0.20)">11001011</text>
+  <!-- Data exfil arrows -->
+  <path d="M1120,215 L1145,225 L1120,235" fill="none" stroke="rgba(255,60,60,0.35)" stroke-width="2"/>
+  <line x1="1105" y1="225" x2="1143" y2="225" stroke="rgba(255,60,60,0.35)" stroke-width="2"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,40,0.7)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.6)" filter="url(#glow)"/>
+  <circle cx="870" cy="400" r="5" fill="rgba(255,60,60,0.8)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.7)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="3.5" fill="rgba(255,60,60,0.6)" filter="url(#glow)"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,30,30,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,50,50,0.06)" stroke="none"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="230" height="32" rx="4" fill="rgba(255,40,40,0.15)" stroke="rgba(255,60,60,0.35)" stroke-width="1"/>
-  <text x="195" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,150,150,0.9)" text-anchor="middle" letter-spacing="1.5">FEBRUARY 10, 2026</text>
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,50,50,0.3)" stroke-width="1"/>
+  <text x="92" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,120,120,0.9)" letter-spacing="1">FEBRUARY 10, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="white" letter-spacing="-0.5">Security Digest SolarWinds</text>
+  <text x="80" y="185" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white">Security Digest SolarWinds</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="white" letter-spacing="-0.5">UNC3886 LLM Attack</text>
+  <text x="80" y="245" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="rgba(255,100,100,1)">UNC3886 LLM Attack</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19"
-        fill="rgba(255,180,180,0.75)">Advanced threat intelligence · Espionage &amp; supply chain risk</text>
+  <text x="80" y="300" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" fill="rgba(200,200,220,0.75)">Advanced Threat Intelligence &amp; Supply Chain Exploitation</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600"
-        fill="rgba(255,120,120,0.65)" letter-spacing="2.5">SECURITY / THREAT INTELLIGENCE</text>
+  <text x="80" y="370" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgba(255,80,80,0.85)" letter-spacing="3" font-weight="600">SECURITY / THREAT INTELLIGENCE</text>
 
   <!-- Tag pills -->
-  <!-- Red pill: SolarWinds -->
-  <rect x="80" y="402" width="148" height="36" rx="18" fill="rgba(200,30,30,0.25)" stroke="rgba(255,60,60,0.45)" stroke-width="1"/>
-  <text x="154" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,160,160,0.95)" text-anchor="middle">SolarWinds</text>
+  <!-- Red: SolarWinds -->
+  <rect x="80" y="400" width="148" height="36" rx="18" fill="rgba(200,20,20,0.25)" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
+  <text x="154" y="423" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,120,120,0.95)" text-anchor="middle" font-weight="600">SolarWinds</text>
 
-  <!-- Amber pill: UNC3886 -->
-  <rect x="244" y="402" width="130" height="36" rx="18" fill="rgba(180,90,0,0.25)" stroke="rgba(255,160,40,0.45)" stroke-width="1"/>
-  <text x="309" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,200,120,0.95)" text-anchor="middle">UNC3886</text>
+  <!-- Amber: UNC3886 -->
+  <rect x="244" y="400" width="130" height="36" rx="18" fill="rgba(180,80,0,0.25)" stroke="rgba(255,140,0,0.4)" stroke-width="1"/>
+  <text x="309" y="423" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,180,60,0.95)" text-anchor="middle" font-weight="600">UNC3886</text>
 
-  <!-- Blue pill: LLM Attack -->
-  <rect x="390" y="402" width="130" height="36" rx="18" fill="rgba(20,60,180,0.25)" stroke="rgba(60,120,255,0.45)" stroke-width="1"/>
-  <text x="455" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(140,180,255,0.95)" text-anchor="middle">LLM Attack</text>
+  <!-- Blue: LLM Attack -->
+  <rect x="390" y="400" width="130" height="36" rx="18" fill="rgba(30,60,180,0.25)" stroke="rgba(80,140,255,0.4)" stroke-width="1"/>
+  <text x="455" y="423" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(120,180,255,0.95)" text-anchor="middle" font-weight="600">LLM Attack</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14"
-        fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13"
-        fill="rgba(255,120,120,0.40)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,80,80,0.45)" text-anchor="end" letter-spacing="2">SECURITY</text>
 </svg>

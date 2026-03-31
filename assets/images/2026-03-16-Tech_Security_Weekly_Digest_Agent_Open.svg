@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1c2a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc66;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="feedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4500;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Left side: Title and text -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">
+    Tech Security Weekly
+  </text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">
+    Digest Agent Open
+  </text>
+
+  <!-- Date badge -->
+  <rect x="80" y="290" width="280" height="50" rx="8" fill="rgba(0, 217, 255, 0.15)" stroke="#00d9ff" stroke-width="2"/>
+  <text x="100" y="325" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d9ff">
+    MARCH 16, 2026
+  </text>
+
+  <!-- Tag pills -->
+  <g id="tag1">
+    <rect x="80" y="420" width="140" height="42" rx="21" fill="rgba(0, 255, 136, 0.2)" stroke="#00ff88" stroke-width="1.5"/>
+    <text x="150" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00ff88" text-anchor="middle">
+      Security
+    </text>
+  </g>
+
+  <g id="tag2">
+    <rect x="240" y="420" width="100" height="42" rx="21" fill="rgba(255, 107, 53, 0.2)" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="290" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b35" text-anchor="middle">
+      Agent
+    </text>
+  </g>
+
+  <g id="tag3">
+    <rect x="360" y="420" width="130" height="42" rx="21" fill="rgba(100, 200, 255, 0.2)" stroke="#64c8ff" stroke-width="1.5"/>
+    <text x="425" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#64c8ff" text-anchor="middle">
+      Automation
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="14" fill="#888888">
+    tech.2twodragon.com
+  </text>
+
+  <!-- Right side: Illustration for Tech Security Weekly Digest Agent Open -->
+
+  <!-- Feed sources (left side of illustration) -->
+  <!-- Stack of feed papers -->
+  <g id="feeds">
+    <!-- Feed 1 -->
+    <rect x="710" y="200" width="90" height="65" rx="4" fill="rgba(255, 107, 53, 0.3)" stroke="#ff6b35" stroke-width="1.5"/>
+    <line x1="720" y1="215" x2="790" y2="215" stroke="#ff6b35" stroke-width="1"/>
+    <line x1="720" y1="230" x2="785" y2="230" stroke="#ff6b35" stroke-width="1"/>
+    <line x1="720" y1="245" x2="775" y2="245" stroke="#ff6b35" stroke-width="1"/>
+
+    <!-- Feed 2 -->
+    <rect x="720" y="185" width="90" height="65" rx="4" fill="rgba(255, 107, 53, 0.4)" stroke="#ff6b35" stroke-width="1.5"/>
+    <line x1="730" y1="200" x2="800" y2="200" stroke="#ff6b35" stroke-width="1"/>
+    <line x1="730" y1="215" x2="795" y2="215" stroke="#ff6b35" stroke-width="1"/>
+    <line x1="730" y1="230" x2="785" y2="230" stroke="#ff6b35" stroke-width="1"/>
+
+    <!-- Feed 3 -->
+    <rect x="730" y="170" width="90" height="65" rx="4" fill="rgba(255, 107, 53, 0.5)" stroke="#ff6b35" stroke-width="2"/>
+    <line x1="740" y1="185" x2="810" y2="185" stroke="#ff6b35" stroke-width="1.5"/>
+    <line x1="740" y1="200" x2="805" y2="200" stroke="#ff6b35" stroke-width="1.5"/>
+    <line x1="740" y1="215" x2="795" y2="215" stroke="#ff6b35" stroke-width="1.5"/>
+  </g>
+
+  <!-- Flow arrows from feeds to agent -->
+  <g id="arrows" stroke="#ff6b35" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#ff6b35"/>
+      </marker>
+    </defs>
+    <path d="M 800 240 Q 880 280 920 300" opacity="0.7"/>
+    <path d="M 820 180 Q 870 260 930 310" opacity="0.7"/>
+    <path d="M 780 300 Q 860 330 920 340" opacity="0.7"/>
+  </g>
+
+  <!-- Central Agent/AI Icon - Hexagon with glow -->
+  <g id="agent" filter="url(#glow)">
+    <!-- Hexagon -->
+    <polygon points="950,250 1000,280 1000,340 950,370 900,340 900,280" fill="url(#agentGrad)" opacity="0.9"/>
+
+    <!-- Inner circle -->
+    <circle cx="950" cy="310" r="28" fill="#0a0c1a" stroke="#00d9ff" stroke-width="2"/>
+
+    <!-- AI symbol: nested circles with dot -->
+    <circle cx="950" cy="310" r="18" fill="none" stroke="#00d9ff" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="950" cy="310" r="5" fill="#00d9ff"/>
+
+    <!-- Connection points -->
+    <circle cx="950" cy="280" r="3" fill="#00ff88"/>
+    <circle cx="970" cy="295" r="3" fill="#00ff88"/>
+    <circle cx="970" cy="325" r="3" fill="#00ff88"/>
+    <circle cx="950" cy="340" r="3" fill="#00ff88"/>
+    <circle cx="930" cy="325" r="3" fill="#00ff88"/>
+    <circle cx="930" cy="295" r="3" fill="#00ff88"/>
+  </g>
+
+  <!-- Security Shield overlay - right side -->
+  <g id="shield" filter="url(#glow)">
+    <!-- Shield shape -->
+    <path d="M 1050 220 L 1120 220 L 1120 290 Q 1120 360 1085 390 Q 1050 360 1050 290 Z"
+          fill="none" stroke="url(#shieldGrad)" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Shield checkmark -->
+    <g transform="translate(1085, 305)">
+      <path d="M -8 0 L -2 8 L 10 -5"
+            fill="none" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Digest output (bottom right) -->
+  <g id="output">
+    <!-- Output box -->
+    <rect x="950" y="380" width="150" height="80" rx="6" fill="rgba(0, 217, 255, 0.15)" stroke="#00d9ff" stroke-width="2"/>
+
+    <!-- Document lines -->
+    <line x1="965" y1="400" x2="1085" y2="400" stroke="#00d9ff" stroke-width="1.5" opacity="0.7"/>
+    <line x1="965" y1="420" x2="1080" y2="420" stroke="#00d9ff" stroke-width="1.5" opacity="0.7"/>
+    <line x1="965" y1="440" x2="1070" y2="440" stroke="#00d9ff" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- Output label -->
+    <text x="1025" y="470" font-family="Arial, sans-serif" font-size="12" fill="#00d9ff" text-anchor="middle" font-weight="bold">
+      DIGEST
+    </text>
+  </g>
+
+  <!-- Decorative circuit lines -->
+  <g id="circuit" stroke="#00ff88" stroke-width="1" fill="none" opacity="0.4">
+    <path d="M 850 320 Q 900 340 920 300"/>
+    <path d="M 980 370 Q 1000 385 1030 400"/>
+    <circle cx="980" cy="370" r="2" fill="#00ff88"/>
+    <circle cx="1030" cy="400" r="2" fill="#00ff88"/>
+  </g>
+
+  <!-- Accent dots (network nodes) -->
+  <circle cx="880" cy="280" r="2.5" fill="#00d9ff" opacity="0.6"/>
+  <circle cx="1100" cy="350" r="2.5" fill="#ff6b35" opacity="0.6"/>
+  <circle cx="900" cy="340" r="2" fill="#00ff88" opacity="0.5"/>
+</svg>

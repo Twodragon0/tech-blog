@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1d2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="containerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- LEFT SIDE: Text Content -->
+  <!-- Title Line 1 -->
+  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Tech Security Weekly</text>
+  <!-- Title Line 2 -->
+  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Digest Docker Data</text>
+
+  <!-- Date Badge -->
+  <rect x="50" y="275" width="280" height="40" rx="20" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="70" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#94a3b8">FEBRUARY 4, 2026</text>
+
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1: security -->
+    <rect x="50" y="420" width="100" height="28" rx="14" fill="#7c2d12" stroke="#ea580c" stroke-width="1"/>
+    <text x="65" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#fed7aa">security</text>
+
+    <!-- Tag 2: docker -->
+    <rect x="165" y="420" width="90" height="28" rx="14" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1"/>
+    <text x="178" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">docker</text>
+
+    <!-- Tag 3: data -->
+    <rect x="270" y="420" width="80" height="28" rx="14" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+    <text x="283" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#86efac">data</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="50" y="590" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Illustration -->
+  <!-- Background accent for illustration area -->
+  <rect x="700" y="50" width="480" height="530" rx="20" fill="#0f172a" opacity="0.5"/>
+
+  <!-- Layer 1: Data streams (background) -->
+  <line x1="750" y1="100" x2="850" y2="180" stroke="#10b981" stroke-width="2" opacity="0.4"/>
+  <line x1="900" y1="120" x2="950" y2="220" stroke="#10b981" stroke-width="2" opacity="0.4"/>
+  <line x1="1050" y1="110" x2="1100" y2="200" stroke="#10b981" stroke-width="2" opacity="0.4"/>
+
+  <!-- Layer 2: Docker containers (3 containers stacked) -->
+  <!-- Container 1 (bottom, blue) -->
+  <g filter="url(#glow)">
+    <rect x="740" y="380" width="150" height="120" rx="8" fill="url(#containerGrad)" opacity="0.9"/>
+    <!-- Container logo indicator -->
+    <circle cx="768" cy="410" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="796" cy="410" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="824" cy="410" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <!-- Container ports -->
+    <rect x="750" y="445" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="770" y="445" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="790" y="445" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="810" y="445" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <!-- Container label -->
+    <text x="750" y="485" font-family="monospace" font-size="10" font-weight="600" fill="#93c5fd">app-001</text>
+  </g>
+
+  <!-- Container 2 (middle, blue) -->
+  <g filter="url(#glow)">
+    <rect x="920" y="340" width="150" height="120" rx="8" fill="url(#containerGrad)" opacity="0.85"/>
+    <circle cx="948" cy="370" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="976" cy="370" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="1004" cy="370" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <rect x="930" y="405" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="950" y="405" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="970" y="405" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="990" y="405" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <text x="930" y="445" font-family="monospace" font-size="10" font-weight="600" fill="#93c5fd">app-002</text>
+  </g>
+
+  <!-- Container 3 (top, blue) -->
+  <g filter="url(#glow)">
+    <rect x="830" y="240" width="150" height="120" rx="8" fill="url(#containerGrad)" opacity="0.8"/>
+    <circle cx="858" cy="270" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="886" cy="270" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <circle cx="914" cy="270" r="12" fill="#e0f2fe" opacity="0.7"/>
+    <rect x="840" y="305" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="860" y="305" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="880" y="305" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="900" y="305" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <text x="840" y="345" font-family="monospace" font-size="10" font-weight="600" fill="#93c5fd">app-003</text>
+  </g>
+
+  <!-- Layer 3: Data volume (green) -->
+  <g filter="url(#glow)">
+    <rect x="1000" y="450" width="120" height="100" rx="6" fill="url(#dataGrad)" opacity="0.85"/>
+    <!-- Data indicator bars -->
+    <rect x="1015" y="470" width="8" height="20" fill="#d1fae5" opacity="0.8"/>
+    <rect x="1032" y="470" width="8" height="35" fill="#d1fae5" opacity="0.8"/>
+    <rect x="1049" y="470" width="8" height="28" fill="#d1fae5" opacity="0.8"/>
+    <rect x="1066" y="470" width="8" height="32" fill="#d1fae5" opacity="0.8"/>
+    <rect x="1083" y="470" width="8" height="25" fill="#d1fae5" opacity="0.8"/>
+    <!-- Volume label -->
+    <text x="1015" y="525" font-family="monospace" font-size="10" font-weight="600" fill="#a7f3d0">volume-001</text>
+  </g>
+
+  <!-- Layer 4: Security lock (orange, top right) -->
+  <g filter="url(#glow)">
+    <circle cx="1080" cy="130" r="35" fill="url(#lockGrad)" opacity="0.9"/>
+    <!-- Lock shape -->
+    <rect x="1065" y="115" width="30" height="25" rx="4" fill="#fcd34d" opacity="0.9"/>
+    <circle cx="1080" cy="108" r="10" fill="none" stroke="#fcd34d" stroke-width="3" opacity="0.9"/>
+    <!-- Lock shackle indicator -->
+    <path d="M 1070 125 Q 1070 110 1080 108 Q 1090 110 1090 125" fill="none" stroke="#fcd34d" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- Layer 5: Network connections (lines connecting containers) -->
+  <line x1="900" y1="400" x2="920" y2="370" stroke="#60a5fa" stroke-width="2" opacity="0.5" stroke-dasharray="4,4"/>
+  <line x1="880" y1="300" x2="900" y2="310" stroke="#60a5fa" stroke-width="2" opacity="0.5" stroke-dasharray="4,4"/>
+  <line x1="850" y1="380" x2="1000" y2="450" stroke="#10b981" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Layer 6: Data flow indicators -->
+  <circle cx="920" cy="320" r="4" fill="#10b981" opacity="0.7"/>
+  <circle cx="945" cy="340" r="4" fill="#10b981" opacity="0.7"/>
+  <circle cx="970" cy="360" r="4" fill="#10b981" opacity="0.7"/>
+
+  <!-- Layer 7: Shield accent (security) -->
+  <g opacity="0.6">
+    <path d="M 750 150 L 780 135 L 790 165 L 770 180 Z" fill="#f59e0b" opacity="0.4"/>
+  </g>
+
+  <!-- Top accent line -->
+  <line x1="700" y1="60" x2="1180" y2="60" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+</svg>

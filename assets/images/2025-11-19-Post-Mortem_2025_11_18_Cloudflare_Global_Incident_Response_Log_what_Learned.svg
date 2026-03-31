@@ -1,37 +1,151 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>[Post-Mortem] 2025 11 18 Cloudflare</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2200;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="cfOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f6821f;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#e8401c;stop-opacity:0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#f87171" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#b91c1c" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#f87171" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#f87171" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#f87171" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">[Post-Mortem] 2025 11 18 Cloudflare</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Cloud</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f87171" text-anchor="middle">INCIDENT</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#f87171" opacity="0.25" stroke="#f87171" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Background circles - subtle -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,68,0,0.04)" stroke="rgba(255,100,0,0.06)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,68,0,0.05)" stroke="rgba(255,120,0,0.08)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Cloudflare Global Outage Icon -->
+  <!-- Globe/Earth base -->
+  <circle cx="1010" cy="220" r="110" fill="rgba(255,100,30,0.07)" stroke="rgba(255,140,60,0.25)" stroke-width="1.5"/>
+  <circle cx="1010" cy="220" r="85" fill="rgba(255,80,20,0.06)" stroke="rgba(255,120,40,0.20)" stroke-width="1"/>
+
+  <!-- Globe meridian lines -->
+  <ellipse cx="1010" cy="220" rx="110" ry="35" fill="none" stroke="rgba(255,130,50,0.15)" stroke-width="1"/>
+  <ellipse cx="1010" cy="220" rx="110" ry="70" fill="none" stroke="rgba(255,130,50,0.12)" stroke-width="1"/>
+  <line x1="1010" y1="110" x2="1010" y2="330" stroke="rgba(255,130,50,0.15)" stroke-width="1"/>
+  <line x1="900" y1="220" x2="1120" y2="220" stroke="rgba(255,130,50,0.15)" stroke-width="1"/>
+
+  <!-- Cloudflare logo-like flame/cloud shape (simplified) -->
+  <path d="M980,195 Q990,180 1005,182 Q1008,170 1022,172 Q1035,165 1042,178 Q1055,175 1058,188 Q1065,190 1062,202 Q1058,210 1048,208 L985,208 Q975,208 975,200 Z" fill="rgba(246,130,31,0.35)" stroke="rgba(246,130,31,0.6)" stroke-width="1.5"/>
+  <!-- Cloud bottom layer -->
+  <path d="M988,205 Q995,196 1007,198 Q1010,188 1021,190 Q1032,184 1038,196 Q1048,194 1050,205 L990,205 Z" fill="rgba(246,130,31,0.25)" stroke="rgba(246,130,31,0.4)" stroke-width="1"/>
+
+  <!-- Warning triangle overlay -->
+  <polygon points="1010,135 960,245 1060,245" fill="rgba(255,40,0,0.08)" stroke="rgba(255,60,0,0.30)" stroke-width="2"/>
+  <line x1="1010" y1="160" x2="1010" y2="215" stroke="rgba(255,60,0,0.50)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="1010" cy="228" r="3" fill="rgba(255,60,0,0.70)"/>
+
+  <!-- Network disruption lines -->
+  <line x1="920" y1="155" x2="950" y2="185" stroke="rgba(255,80,0,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1100" y1="160" x2="1070" y2="188" stroke="rgba(255,80,0,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1110" y1="260" x2="1080" y2="248" stroke="rgba(255,80,0,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="915" y1="255" x2="945" y2="244" stroke="rgba(255,80,0,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Node dots on disruption lines -->
+  <circle cx="920" cy="155" r="3" fill="rgba(255,100,0,0.40)" stroke="rgba(255,140,0,0.50)" stroke-width="1"/>
+  <circle cx="1100" cy="160" r="3" fill="rgba(255,100,0,0.40)" stroke="rgba(255,140,0,0.50)" stroke-width="1"/>
+  <circle cx="1110" cy="260" r="3" fill="rgba(255,100,0,0.35)" stroke="rgba(255,140,0,0.45)" stroke-width="1"/>
+  <circle cx="915" cy="255" r="3" fill="rgba(255,100,0,0.35)" stroke="rgba(255,140,0,0.45)" stroke-width="1"/>
+
+  <!-- Broken connection X marks -->
+  <line x1="933" y1="168" x2="940" y2="175" stroke="rgba(255,40,0,0.50)" stroke-width="1.5"/>
+  <line x1="940" y1="168" x2="933" y2="175" stroke="rgba(255,40,0,0.50)" stroke-width="1.5"/>
+  <line x1="1085" y1="172" x2="1092" y2="179" stroke="rgba(255,40,0,0.50)" stroke-width="1.5"/>
+  <line x1="1092" y1="172" x2="1085" y2="179" stroke="rgba(255,40,0,0.50)" stroke-width="1.5"/>
+
+  <!-- Pulse rings around globe center -->
+  <circle cx="1010" cy="220" r="95" fill="none" stroke="rgba(255,80,0,0.08)" stroke-width="1" stroke-dasharray="6,4"/>
+  <circle cx="1010" cy="220" r="115" fill="none" stroke="rgba(255,60,0,0.06)" stroke-width="1" stroke-dasharray="8,6"/>
+
+  <!-- Status indicator bars (downtime chart) -->
+  <rect x="888" y="310" width="8" height="20" rx="2" fill="rgba(255,60,0,0.60)"/>
+  <rect x="900" y="318" width="8" height="12" rx="2" fill="rgba(255,100,0,0.50)"/>
+  <rect x="912" y="312" width="8" height="18" rx="2" fill="rgba(255,60,0,0.55)"/>
+  <rect x="924" y="315" width="8" height="15" rx="2" fill="rgba(255,80,0,0.45)"/>
+  <rect x="936" y="310" width="8" height="20" rx="2" fill="rgba(255,60,0,0.60)"/>
+  <rect x="948" y="320" width="8" height="10" rx="2" fill="rgba(255,120,0,0.40)"/>
+  <rect x="960" y="313" width="8" height="17" rx="2" fill="rgba(255,60,0,0.55)"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,80,0,0.70)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,120,0,0.60)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,60,0,0.65)" filter="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,68,0,0.15)" stroke="rgba(255,100,0,0.35)" stroke-width="1"/>
+  <text x="92" y="81" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(255,140,60,0.90)" letter-spacing="1.5">NOVEMBER 19, 2025</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700" fill="white">Post Mortem 2025 11</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700" fill="white">18 Cloudflare Global</text>
+
+  <!-- Title line 3 continuation -->
+  <text x="80" y="295" font-family="'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.92)">Incident</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="340" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="rgba(255,180,100,0.80)">Root Cause Analysis · BGP Misconfiguration · Global CDN Impact</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="358" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="390" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="rgba(255,120,60,0.75)" letter-spacing="2.5">INCIDENT · CLOUDFLARE · POST-MORTEM</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="408" width="110" height="36" rx="18" fill="rgba(220,30,30,0.20)" stroke="rgba(255,60,60,0.40)" stroke-width="1"/>
+  <text x="135" y="431" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(255,130,130,0.90)" text-anchor="middle">OUTAGE</text>
+
+  <rect x="202" y="408" width="130" height="36" rx="18" fill="rgba(200,100,0,0.20)" stroke="rgba(255,160,0,0.40)" stroke-width="1"/>
+  <text x="267" y="431" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(255,190,80,0.90)" text-anchor="middle">BGP ROUTING</text>
+
+  <rect x="344" y="408" width="140" height="36" rx="18" fill="rgba(20,80,200,0.20)" stroke="rgba(60,140,255,0.40)" stroke-width="1"/>
+  <text x="414" y="431" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(120,190,255,0.90)" text-anchor="middle">CLOUDFLARE</text>
+
+  <!-- Separator line footer -->
+  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end">INCIDENT</text>
 </svg>

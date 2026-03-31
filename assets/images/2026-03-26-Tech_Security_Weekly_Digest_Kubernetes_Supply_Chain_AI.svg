@@ -1,155 +1,160 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Gradient Overlay (subtle) -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d2e;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0" />
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed"/>
-      <stop offset="50%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#f59e0b"/>
-    </linearGradient>
-    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.05"/>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- LEFT SIDE: Content Area (0-700px) -->
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Title -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Tech Security Weekly
+  </text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">
+    Kubernetes Supply
+  </text>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Kubernetes + Supply Chain + AI -->
-  <!-- Outer orbit ring (Kubernetes wheel) -->
-  <circle cx="1010" cy="225" r="105" fill="none" stroke="rgba(124,58,237,0.25)" stroke-width="1.5" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="80" fill="url(#hexGrad)" stroke="rgba(124,58,237,0.35)" stroke-width="1"/>
+  <!-- Date Badge -->
+  <rect x="60" y="280" width="280" height="50" rx="8" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
+  <text x="75" y="312" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#00d4ff">
+    MARCH 26, 2026
+  </text>
 
-  <!-- Kubernetes hexagon center -->
-  <polygon points="1010,168 1057,196 1057,254 1010,282 963,254 963,196" fill="rgba(124,58,237,0.10)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
-  <polygon points="1010,183 1042,201 1042,249 1010,267 978,249 978,201" fill="rgba(124,58,237,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+  <!-- Tag Pills -->
+  <rect x="60" y="420" width="110" height="36" rx="18" fill="#1a2d3a" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="75" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#00d4ff">
+    Kubernetes
+  </text>
 
-  <!-- K8s steering wheel spokes -->
-  <line x1="1010" y1="168" x2="1010" y2="145" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
-  <line x1="1057" y1="196" x2="1076" y2="185" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
-  <line x1="1057" y1="254" x2="1076" y2="265" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
-  <line x1="1010" y1="282" x2="1010" y2="305" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
-  <line x1="963" y1="254" x2="944" y2="265" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
-  <line x1="963" y1="196" x2="944" y2="185" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <rect x="190" y="420" width="100" height="36" rx="18" fill="#1a3a2d" stroke="#00b366" stroke-width="1.5"/>
+  <text x="205" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#00b366">
+    Supply Chain
+  </text>
 
-  <!-- K8s orbital nodes (pods) -->
-  <circle cx="1010" cy="138" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
-  <circle cx="1083" cy="179" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
-  <circle cx="1083" cy="271" r="8" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.5)" stroke-width="1.5"/>
-  <circle cx="1010" cy="312" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
-  <circle cx="937" cy="271" r="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.5)" stroke-width="1.5"/>
-  <circle cx="937" cy="179" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
-
-  <!-- K8s center hub -->
-  <circle cx="1010" cy="225" r="22" fill="rgba(124,58,237,0.18)" stroke="rgba(139,92,246,0.6)" stroke-width="2"/>
-  <text x="1010" y="231" text-anchor="middle" font-size="18" fill="rgba(139,92,246,0.9)" font-weight="bold" font-family="monospace">K8</text>
-
-  <!-- Supply Chain: chain links on the left of K8s icon -->
-  <!-- Chain link 1 -->
-  <rect x="878" y="175" width="30" height="20" rx="10" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
-  <rect x="882" y="179" width="22" height="12" rx="6" fill="none" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
-  <!-- Connector -->
-  <line x1="908" y1="185" x2="920" y2="185" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
-  <!-- Chain link 2 -->
-  <rect x="890" y="210" width="30" height="20" rx="10" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
-  <line x1="910" y1="185" x2="900" y2="210" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
-  <!-- Chain link 3 -->
-  <rect x="870" y="245" width="30" height="20" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
-  <line x1="905" y1="220" x2="883" y2="245" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
-  <!-- Broken link indicator -->
-  <line x1="876" y1="255" x2="872" y2="268" stroke="rgba(239,68,68,0.5)" stroke-width="2" stroke-dasharray="3 2"/>
-  <circle cx="870" cy="272" r="4" fill="rgba(239,68,68,0.5)"/>
-
-  <!-- AI node: neural net pattern bottom-right of K8s -->
-  <circle cx="1080" cy="320" r="28" fill="url(#chainGrad)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
-  <circle cx="1062" cy="310" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
-  <circle cx="1080" cy="305" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
-  <circle cx="1098" cy="310" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
-  <circle cx="1068" cy="325" r="5" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
-  <circle cx="1092" cy="325" r="5" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
-  <circle cx="1080" cy="338" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
-  <line x1="1062" y1="310" x2="1080" y2="305" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
-  <line x1="1080" y1="305" x2="1098" y2="310" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
-  <line x1="1062" y1="310" x2="1068" y2="325" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
-  <line x1="1080" y1="305" x2="1068" y2="325" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
-  <line x1="1080" y1="305" x2="1092" y2="325" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
-  <line x1="1098" y1="310" x2="1092" y2="325" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
-  <line x1="1068" y1="325" x2="1080" y2="338" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-  <line x1="1092" y1="325" x2="1080" y2="338" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-
-  <!-- Connecting line from K8s to AI node -->
-  <line x1="1050" y1="268" x2="1068" y2="308" stroke="rgba(6,182,212,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-
-  <!-- Shield overlay (security) -->
-  <path d="M 950 130 L 950 130 L 975 118 L 1000 130 L 1000 160 Q 1000 178 975 188 Q 950 178 950 160 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
-  <path d="M 958 140 L 958 140 L 975 132 L 992 140 L 992 162 Q 992 173 975 180 Q 958 173 958 162 Z" fill="rgba(239,68,68,0.04)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
-  <text x="975" y="162" text-anchor="middle" font-size="14" fill="rgba(239,68,68,0.7)" font-family="monospace" font-weight="bold">!</text>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(239,68,68,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.6)"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(239,68,68,0.5)"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.35)" stroke-width="1"/>
-  <text x="180" y="81" text-anchor="middle" font-size="12" fill="rgba(167,139,250,0.9)" font-family="'Courier New', monospace" letter-spacing="1">MARCH 26, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif">Kubernetes Supply Chain AI</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(203,213,225,0.75)" font-family="'Arial', sans-serif">Security intelligence for cloud-native &amp; AI-driven environments</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#lineGrad)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(139,92,246,0.85)" font-family="'Courier New', monospace" letter-spacing="2" text-transform="uppercase">SECURITY / CLOUD-NATIVE / AI</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="140" height="36" rx="18" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
-  <text x="150" y="425" text-anchor="middle" font-size="13" fill="rgba(252,165,165,0.9)" font-family="'Arial', sans-serif" font-weight="600">Supply Chain</text>
-
-  <rect x="234" y="402" width="136" height="36" rx="18" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="302" y="425" text-anchor="middle" font-size="13" fill="rgba(253,211,77,0.9)" font-family="'Arial', sans-serif" font-weight="600">Kubernetes</text>
-
-  <rect x="384" y="402" width="112" height="36" rx="18" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <text x="440" y="425" text-anchor="middle" font-size="13" fill="rgba(147,197,253,0.9)" font-family="'Arial', sans-serif" font-weight="600">AI Security</text>
+  <rect x="310" y="420" width="90" height="36" rx="18" fill="#3a1a1a" stroke="#ff6b5b" stroke-width="1.5"/>
+  <text x="325" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#ff6b5b">
+    Security
+  </text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-size="13" fill="rgba(148,163,184,0.6)" font-family="'Courier New', monospace">tech.2twodragon.com</text>
-  <text x="1120" y="545" text-anchor="end" font-size="13" fill="rgba(148,163,184,0.5)" font-family="'Courier New', monospace">security</text>
+  <text x="60" y="595" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#666666">
+    tech.2twodragon.com
+  </text>
+
+  <!-- RIGHT SIDE: Kubernetes Supply Chain Security Illustration (700-1150px) -->
+
+  <!-- Background accent strip -->
+  <rect x="700" y="0" width="500" height="630" fill="#0d1628" opacity="0.6"/>
+
+  <!-- Shield background (security concept) -->
+  <g transform="translate(925, 180)">
+    <!-- Shield outline -->
+    <path d="M 0 0 L 60 0 L 60 80 Q 30 110 0 130 Q -30 110 -60 80 L -60 0 Z"
+          fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- Container Pods (Kubernetes concept) -->
+  <!-- Top left container -->
+  <rect x="740" y="120" width="70" height="70" rx="8" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="760" cy="140" r="3" fill="#00d4ff"/>
+  <circle cx="760" cy="155" r="3" fill="#00d4ff"/>
+  <circle cx="760" cy="170" r="3" fill="#00d4ff"/>
+  <text x="745" y="180" font-family="monospace" font-size="10" fill="#00d4ff" opacity="0.8">POD-1</text>
+
+  <!-- Top middle container -->
+  <rect x="850" y="100" width="70" height="70" rx="8" fill="#1a3a4a" stroke="#00b366" stroke-width="2"/>
+  <circle cx="870" cy="120" r="3" fill="#00b366"/>
+  <circle cx="870" cy="135" r="3" fill="#00b366"/>
+  <circle cx="870" cy="150" r="3" fill="#00b366"/>
+  <text x="855" y="160" font-family="monospace" font-size="10" fill="#00b366" opacity="0.8">POD-2</text>
+
+  <!-- Top right container -->
+  <rect x="960" y="120" width="70" height="70" rx="8" fill="#1a3a4a" stroke="#ff9d5c" stroke-width="2"/>
+  <circle cx="980" cy="140" r="3" fill="#ff9d5c"/>
+  <circle cx="980" cy="155" r="3" fill="#ff9d5c"/>
+  <circle cx="980" cy="170" r="3" fill="#ff9d5c"/>
+  <text x="965" y="180" font-family="monospace" font-size="10" fill="#ff9d5c" opacity="0.8">POD-3</text>
+
+  <!-- Connection lines (supply chain flow) -->
+  <line x1="810" y1="155" x2="850" y2="135" stroke="#00d4ff" stroke-width="1.5" opacity="0.6" stroke-dasharray="4,4"/>
+  <line x1="920" y1="135" x2="960" y2="155" stroke="#00b366" stroke-width="1.5" opacity="0.6" stroke-dasharray="4,4"/>
+
+  <!-- Registry/Source (supply chain origin) -->
+  <circle cx="925" cy="280" r="50" fill="none" stroke="#ff6b5b" stroke-width="2"/>
+  <text x="910" y="285" font-family="Arial, sans-serif" font-size="12" fill="#ff6b5b" font-weight="600">REGISTRY</text>
+
+  <!-- Hash/Signature indicator (integrity) -->
+  <rect x="920" y="340" width="110" height="50" rx="6" fill="#1a3a2d" stroke="#00b366" stroke-width="2"/>
+  <text x="930" y="360" font-family="monospace" font-size="10" fill="#00b366">SHA256:a3b2</text>
+  <text x="930" y="378" font-family="monospace" font-size="10" fill="#00b366">c1d4e5f6g7</text>
+
+  <!-- Trust chain (supply chain integrity) -->
+  <!-- Checkmarks indicating verified stages -->
+  <g transform="translate(780, 380)">
+    <circle cx="0" cy="0" r="16" fill="#1a3a2d" stroke="#00b366" stroke-width="2"/>
+    <path d="M -8 0 L -2 6 L 8 -4" stroke="#00b366" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(850, 380)">
+    <circle cx="0" cy="0" r="16" fill="#1a3a2d" stroke="#00b366" stroke-width="2"/>
+    <path d="M -8 0 L -2 6 L 8 -4" stroke="#00b366" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(920, 380)">
+    <circle cx="0" cy="0" r="16" fill="#1a3a4a" stroke="#ffc107" stroke-width="2"/>
+    <path d="M -8 0 L -2 6 L 8 -4" stroke="#ffc107" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Labels for trust chain -->
+  <text x="775" y="415" font-family="Arial, sans-serif" font-size="10" fill="#888888">Source</text>
+  <text x="840" y="415" font-family="Arial, sans-serif" font-size="10" fill="#888888">Build</text>
+  <text x="910" y="415" font-family="Arial, sans-serif" font-size="10" fill="#888888">Scan</text>
+
+  <!-- Deployment nodes (bottom) -->
+  <rect x="760" y="470" width="55" height="55" rx="6" fill="#1a3a4a" stroke="#00d4ff" stroke-width="1.5"/>
+  <path d="M 780 490 L 780 510 M 770 500 L 790 500" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="762" y="540" font-family="Arial, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Node-1</text>
+
+  <rect x="845" y="470" width="55" height="55" rx="6" fill="#1a3a4a" stroke="#00b366" stroke-width="1.5"/>
+  <path d="M 865 490 L 865 510 M 855 500 L 875 500" stroke="#00b366" stroke-width="1.5"/>
+  <text x="847" y="540" font-family="Arial, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Node-2</text>
+
+  <rect x="930" y="470" width="55" height="55" rx="6" fill="#1a3a4a" stroke="#ff9d5c" stroke-width="1.5"/>
+  <path d="M 950 490 L 950 510 M 940 500 L 960 500" stroke="#ff9d5c" stroke-width="1.5"/>
+  <text x="932" y="540" font-family="Arial, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Node-3</text>
+
+  <!-- Connecting lines to nodes -->
+  <line x1="787" y1="195" x2="787" y2="470" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+  <line x1="872" y1="170" x2="872" y2="470" stroke="#00b366" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+  <line x1="995" y1="195" x2="957" y2="470" stroke="#ff9d5c" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+
+  <!-- Supply chain lock/protection badge -->
+  <g transform="translate(1050, 250)">
+    <rect x="-28" y="-28" width="56" height="56" rx="8" fill="#3a1a1a" stroke="#ff6b5b" stroke-width="2"/>
+    <path d="M -12 -8 L -12 -16 Q 0 -22 12 -16 L 12 -8 M -12 -8 L -12 8 Q 0 14 12 8 L 12 -8 M -4 0 L 4 0"
+          stroke="#ff6b5b" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Supply chain verification status -->
+  <text x="1045" y="320" font-family="Arial, sans-serif" font-size="11" fill="#ff6b5b" font-weight="600" text-anchor="middle">SECURE</text>
+
+  <!-- Accent dots -->
+  <circle cx="750" cy="580" r="4" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="780" cy="595" r="3" fill="#00b366" opacity="0.5"/>
+  <circle cx="810" cy="585" r="2.5" fill="#ff9d5c" opacity="0.5"/>
+  <circle cx="1080" cy="580" r="4" fill="#ff6b5b" opacity="0.5"/>
+  <circle cx="1050" cy="595" r="3" fill="#ffc107" opacity="0.5"/>
+  <circle cx="1020" cy="585" r="2.5" fill="#00d4ff" opacity="0.5"/>
 </svg>

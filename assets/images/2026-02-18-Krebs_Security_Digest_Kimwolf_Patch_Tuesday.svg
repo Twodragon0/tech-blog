@@ -1,128 +1,106 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="50%" style="stop-color:#ff6b35"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.3"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="wolfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.06"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Shield with wolf/patch motif -->
-  <!-- Outer shield -->
-  <path d="M1010,135 L1130,165 L1130,255 Q1130,305 1010,330 Q890,305 890,255 L890,165 Z"
-        fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,155 L1110,180 L1110,255 Q1110,295 1010,315 Q910,295 910,255 L910,180 Z"
-        fill="none" stroke="rgba(255,107,53,0.25)" stroke-width="1"/>
-
-  <!-- Patch grid overlay on shield -->
-  <rect x="955" y="205" width="30" height="30" rx="3" fill="rgba(229,62,62,0.10)" stroke="rgba(229,62,62,0.30)" stroke-width="1"/>
-  <rect x="995" y="205" width="30" height="30" rx="3" fill="rgba(229,62,62,0.14)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <rect x="1035" y="205" width="30" height="30" rx="3" fill="rgba(229,62,62,0.08)" stroke="rgba(229,62,62,0.25)" stroke-width="1"/>
-  <rect x="955" y="245" width="30" height="30" rx="3" fill="rgba(255,107,53,0.12)" stroke="rgba(255,107,53,0.30)" stroke-width="1"/>
-  <rect x="995" y="245" width="30" height="30" rx="3" fill="rgba(255,107,53,0.06)" stroke="rgba(255,107,53,0.22)" stroke-width="1"/>
-  <rect x="1035" y="245" width="30" height="30" rx="3" fill="rgba(229,62,62,0.10)" stroke="rgba(229,62,62,0.28)" stroke-width="1"/>
-
-  <!-- Checkmark on center patch -->
-  <path d="M1002,257 L1008,264 L1022,250" stroke="rgba(229,62,62,0.6)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Wolf silhouette overlay -->
-  <!-- Wolf head outline (stylized) -->
-  <path d="M980,175 L985,160 L995,168 L1005,155 L1015,168 L1025,160 L1030,175 L1028,185 Q1020,195 1010,196 Q1000,195 992,185 Z"
-        fill="url(#wolfGrad)" stroke="rgba(255,107,53,0.35)" stroke-width="1.2"/>
-  <!-- Wolf ears -->
-  <polygon points="985,160 988,145 998,162" fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.30)" stroke-width="1"/>
-  <polygon points="1025,160 1022,145 1012,162" fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.30)" stroke-width="1"/>
-  <!-- Wolf eyes -->
-  <circle cx="1001" cy="178" r="3" fill="rgba(229,62,62,0.50)" stroke="rgba(229,62,62,0.7)" stroke-width="0.8"/>
-  <circle cx="1019" cy="178" r="3" fill="rgba(229,62,62,0.50)" stroke="rgba(229,62,62,0.7)" stroke-width="0.8"/>
-  <!-- Wolf snout -->
-  <ellipse cx="1010" cy="188" rx="6" ry="4" fill="rgba(255,107,53,0.15)" stroke="rgba(255,107,53,0.30)" stroke-width="0.8"/>
-  <circle cx="1010" cy="187" r="1.5" fill="rgba(229,62,62,0.5)"/>
-
-  <!-- Orbit ring around shield -->
-  <ellipse cx="1010" cy="232" rx="135" ry="110" fill="none" stroke="rgba(229,62,62,0.08)" stroke-width="1" stroke-dasharray="6,4"/>
-  <ellipse cx="1010" cy="232" rx="155" ry="128" fill="none" stroke="rgba(255,107,53,0.05)" stroke-width="1" stroke-dasharray="3,6"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.7)"/>
-  <circle cx="870" cy="400" r="9" fill="none" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,107,53,0.6)"/>
-  <circle cx="900" cy="420" r="8" fill="none" stroke="rgba(255,107,53,0.25)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(229,62,62,0.5)"/>
-  <circle cx="860" cy="440" r="7" fill="none" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(229,62,62,0.06)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left side: Text content -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Krebs Security Digest
+  </text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Kimwolf Patch Tuesday
+  </text>
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.40)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(229,62,62,0.9)" text-anchor="middle" letter-spacing="1.5">FEBRUARY 18, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="white">Krebs Security Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)">Kimwolf Patch Tuesday</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Critical vulnerability disclosures, patch analysis, and threat intelligence</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="rgba(229,62,62,0.85)" letter-spacing="2.5">SECURITY / PATCH MANAGEMENT / THREAT INTEL</text>
-
+  <rect x="60" y="280" width="280" height="50" rx="4" fill="#d32f2f" opacity="0.15" stroke="#d32f2f" stroke-width="2"/>
+  <text x="75" y="312" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6b6b">
+    FEBRUARY 18, 2026
+  </text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="140" height="36" rx="18" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.50)" stroke-width="1"/>
-  <text x="150" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(229,100,100,1)" text-anchor="middle" letter-spacing="0.5">Patch Tuesday</text>
-
-  <rect x="234" y="402" width="130" height="36" rx="18" fill="rgba(255,152,0,0.15)" stroke="rgba(255,152,0,0.45)" stroke-width="1"/>
-  <text x="299" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,50,1)" text-anchor="middle" letter-spacing="0.5">CVE Analysis</text>
-
-  <rect x="378" y="402" width="130" height="36" rx="18" fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.40)" stroke-width="1"/>
-  <text x="443" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(100,180,240,1)" text-anchor="middle" letter-spacing="0.5">KrebsOnSec</text>
-
-  <!-- Footer -->
-  <text x="80" y="545" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="rgba(255,255,255,0.30)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="rgba(229,62,62,0.45)" text-anchor="end" letter-spacing="1">SECURITY</text>
-
-  <!-- Bottom separator -->
-  <rect x="80" y="560" width="1040" height="1" fill="rgba(255,255,255,0.06)"/>
+  <g>
+    <!-- Tag 1: Security -->
+    <rect x="60" y="420" width="110" height="36" rx="18" fill="#1a3a52" stroke="#00a8ff" stroke-width="1.5"/>
+    <text x="115" y="443" font-family="Arial, sans-serif" font-size="14" fill="#00a8ff" text-anchor="middle" font-weight="500">
+      Security
+    </text>
+    
+    <!-- Tag 2: Patch -->
+    <rect x="185" y="420" width="100" height="36" rx="18" fill="#3a2a1a" stroke="#ff9500" stroke-width="1.5"/>
+    <text x="235" y="443" font-family="Arial, sans-serif" font-size="14" fill="#ff9500" text-anchor="middle" font-weight="500">
+      Patch
+    </text>
+    
+    <!-- Tag 3: Threat -->
+    <rect x="300" y="420" width="100" height="36" rx="18" fill="#4a1a1a" stroke="#ff4444" stroke-width="1.5"/>
+    <text x="350" y="443" font-family="Arial, sans-serif" font-size="14" fill="#ff4444" text-anchor="middle" font-weight="500">
+      Threat
+    </text>
+  </g>
+  
+  <!-- Right side: Illustration -->
+  <!-- Large shield with warning stripes -->
+  <path d="M 850 180 L 920 180 L 920 300 Q 920 380 850 420 Q 780 380 780 300 L 780 180 Z" 
+        fill="#ff6b6b" opacity="0.15" stroke="#ff6b6b" stroke-width="2"/>
+  
+  <!-- Shield inner gradient effect -->
+  <path d="M 855 195 L 915 195 L 915 295 Q 915 365 850 400 Q 785 365 785 295 L 785 195 Z" 
+        fill="none" stroke="#ff9500" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Warning exclamation mark in shield -->
+  <text x="850" y="290" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#ff6b6b" text-anchor="middle">
+    !
+  </text>
+  
+  <!-- Patch elements around shield -->
+  <g opacity="0.8">
+    <!-- Patch 1 (top left) -->
+    <rect x="750" y="150" width="35" height="35" rx="2" fill="#00a8ff" stroke="#00d4ff" stroke-width="1.5"/>
+    <circle cx="767.5" cy="167.5" r="3" fill="#00d4ff"/>
+    <line x1="760" y1="167.5" x2="775" y2="167.5" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="767.5" y1="160" x2="767.5" y2="175" stroke="#00d4ff" stroke-width="1"/>
+    
+    <!-- Patch 2 (top right) -->
+    <rect x="950" y="165" width="35" height="35" rx="2" fill="#ffb300" stroke="#ffc75f" stroke-width="1.5"/>
+    <circle cx="967.5" cy="182.5" r="3" fill="#ffc75f"/>
+    <line x1="960" y1="182.5" x2="975" y2="182.5" stroke="#ffc75f" stroke-width="1"/>
+    <line x1="967.5" y1="175" x2="967.5" y2="190" stroke="#ffc75f" stroke-width="1"/>
+    
+    <!-- Patch 3 (bottom left) -->
+    <rect x="720" y="350" width="35" height="35" rx="2" fill="#76ff03" stroke="#b2ff59" stroke-width="1.5"/>
+    <circle cx="737.5" cy="367.5" r="3" fill="#b2ff59"/>
+    <line x1="730" y1="367.5" x2="745" y2="367.5" stroke="#b2ff59" stroke-width="1"/>
+    <line x1="737.5" y1="360" x2="737.5" y2="375" stroke="#b2ff59" stroke-width="1"/>
+    
+    <!-- Patch 4 (right) -->
+    <rect x="965" y="340" width="35" height="35" rx="2" fill="#ff6b6b" stroke="#ff9999" stroke-width="1.5"/>
+    <circle cx="982.5" cy="357.5" r="3" fill="#ff9999"/>
+    <line x1="975" y1="357.5" x2="990" y2="357.5" stroke="#ff9999" stroke-width="1"/>
+    <line x1="982.5" y1="350" x2="982.5" y2="365" stroke="#ff9999" stroke-width="1"/>
+  </g>
+  
+  <!-- Network/threat nodes -->
+  <g opacity="0.7" stroke="#00a8ff" stroke-width="1" fill="none">
+    <!-- Connection lines -->
+    <line x1="800" y1="250" x2="740" y2="200"/>
+    <line x1="900" y1="250" x2="960" y2="200"/>
+    <line x1="850" y1="420" x2="780" y2="480"/>
+    <line x1="850" y1="420" x2="920" y2="480"/>
+  </g>
+  
+  <!-- Threat indicator nodes -->
+  <circle cx="740" cy="200" r="6" fill="#d32f2f" opacity="0.8"/>
+  <circle cx="960" cy="200" r="6" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="780" cy="480" r="5" fill="#ff9500" opacity="0.8"/>
+  <circle cx="920" cy="480" r="5" fill="#ff9500" opacity="0.7"/>
+  
+  <!-- Checkmark overlay (patch applied indicator) -->
+  <g opacity="0.6">
+    <circle cx="1000" cy="400" r="25" fill="none" stroke="#76ff03" stroke-width="2"/>
+    <polyline points="995,405 1000,410 1010,395" fill="none" stroke="#76ff03" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Bottom footer -->
+  <text x="1140" y="610" font-family="Arial, sans-serif" font-size="14" fill="#666666" text-anchor="end">
+    tech.2twodragon.com
+  </text>
 </svg>

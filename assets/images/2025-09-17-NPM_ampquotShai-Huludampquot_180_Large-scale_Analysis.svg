@@ -1,37 +1,164 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>NPM &amp;quot;Shai-Hulud&amp;quot</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3333"/>
+      <stop offset="50%" style="stop-color:#ff6600"/>
+      <stop offset="100%" style="stop-color:#cc0000"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3333"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#cc2200;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#880000;stop-opacity:0.4"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#f87171" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#b91c1c" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#f87171" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#f87171" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#f87171" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">NPM &quot;Shai-Hulud&quot;</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#f87171" text-anchor="middle">INCIDENT</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#f87171" opacity="0.25" stroke="#f87171" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- RIGHT SIDE ILLUSTRATION: Shai Hulud Worm + NPM Self-Replication Network -->
+
+  <!-- Worm body segments - serpentine path representing Shai Hulud sandworm -->
+  <path d="M 920 145 C 940 140, 980 155, 1000 170 C 1020 185, 1010 210, 1030 225 C 1050 240, 1090 235, 1110 255 C 1130 275, 1120 305, 1100 320 C 1080 335, 1050 330, 1030 315" 
+        stroke="rgba(255,80,30,0.35)" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M 920 145 C 940 140, 980 155, 1000 170 C 1020 185, 1010 210, 1030 225 C 1050 240, 1090 235, 1110 255 C 1130 275, 1120 305, 1100 320 C 1080 335, 1050 330, 1030 315" 
+        stroke="rgba(255,120,40,0.20)" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <path d="M 920 145 C 940 140, 980 155, 1000 170 C 1020 185, 1010 210, 1030 225 C 1050 240, 1090 235, 1110 255 C 1130 275, 1120 305, 1100 320 C 1080 335, 1050 330, 1030 315" 
+        stroke="rgba(255,60,20,0.10)" stroke-width="42" fill="none" stroke-linecap="round"/>
+
+  <!-- Worm head -->
+  <ellipse cx="918" cy="145" rx="22" ry="16" fill="rgba(220,50,20,0.18)" stroke="rgba(255,80,30,0.45)" stroke-width="2"/>
+  <ellipse cx="918" cy="145" rx="13" ry="9" fill="rgba(255,100,40,0.25)" stroke="rgba(255,130,60,0.5)" stroke-width="1.5"/>
+  <!-- Worm eyes -->
+  <circle cx="911" cy="141" r="3" fill="rgba(255,200,50,0.7)" stroke="rgba(255,220,80,0.9)" stroke-width="1"/>
+  <circle cx="924" cy="141" r="3" fill="rgba(255,200,50,0.7)" stroke="rgba(255,220,80,0.9)" stroke-width="1"/>
+  <!-- Worm mouth -->
+  <path d="M 910 150 Q 918 156 926 150" stroke="rgba(255,80,30,0.8)" stroke-width="1.5" fill="none"/>
+
+  <!-- Worm body segment rings -->
+  <ellipse cx="960" cy="158" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-15,960,158)"/>
+  <ellipse cx="998" cy="178" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-30,998,178)"/>
+  <ellipse cx="1022" cy="210" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-60,1022,210)"/>
+  <ellipse cx="1045" cy="242" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-80,1045,242)"/>
+  <ellipse cx="1095" cy="258" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-70,1095,258)"/>
+  <ellipse cx="1112" cy="288" rx="8" ry="12" fill="none" stroke="rgba(255,90,30,0.25)" stroke-width="2" transform="rotate(-100,1112,288)"/>
+
+  <!-- NPM Package nodes spreading from worm (self-replication) -->
+  <!-- Node 1: Central infected package -->
+  <rect x="862" y="168" width="50" height="50" rx="6" fill="rgba(200,20,20,0.12)" stroke="rgba(255,60,40,0.4)" stroke-width="1.5"/>
+  <rect x="868" y="174" width="38" height="38" rx="3" fill="rgba(255,40,20,0.08)" stroke="rgba(255,80,50,0.25)" stroke-width="1"/>
+  <text x="887" y="197" font-family="monospace" font-size="10" fill="rgba(255,100,60,0.9)" text-anchor="middle">npm</text>
+  <text x="887" y="210" font-family="monospace" font-size="7" fill="rgba(255,80,50,0.7)" text-anchor="middle">pkg</text>
+
+  <!-- Node 2: Replicated package top-right -->
+  <rect x="1060" y="135" width="44" height="44" rx="5" fill="rgba(200,20,20,0.10)" stroke="rgba(255,60,40,0.35)" stroke-width="1.5"/>
+  <text x="1082" y="162" font-family="monospace" font-size="9" fill="rgba(255,100,60,0.85)" text-anchor="middle">npm</text>
+  <!-- Connecting line from worm to node 2 -->
+  <line x1="1010" y1="158" x2="1060" y2="155" stroke="rgba(255,60,20,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Node 3: Replicated package bottom -->
+  <rect x="870" y="285" width="44" height="44" rx="5" fill="rgba(180,20,20,0.10)" stroke="rgba(255,60,40,0.30)" stroke-width="1.5"/>
+  <text x="892" y="311" font-family="monospace" font-size="9" fill="rgba(255,100,60,0.80)" text-anchor="middle">npm</text>
+  <line x1="892" y1="218" x2="892" y2="285" stroke="rgba(255,60,20,0.22)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Node 4: Replicated bottom-right -->
+  <rect x="1068" y="308" width="40" height="40" rx="5" fill="rgba(180,20,20,0.09)" stroke="rgba(255,60,40,0.28)" stroke-width="1.5"/>
+  <text x="1088" y="333" font-family="monospace" font-size="9" fill="rgba(255,100,60,0.75)" text-anchor="middle">npm</text>
+  <line x1="1040" y1="318" x2="1068" y2="325" stroke="rgba(255,60,20,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Replication arrows -->
+  <path d="M 912 218 L 905 255 L 915 250" stroke="rgba(255,80,30,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 1082 179 L 1082 295 L 1075 290" stroke="rgba(255,80,30,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+
+  <!-- Virus spread particles -->
+  <circle cx="950" cy="135" r="3.5" fill="rgba(255,80,30,0.30)" stroke="rgba(255,120,50,0.5)" stroke-width="1"/>
+  <circle cx="975" cy="148" r="2.5" fill="rgba(255,80,30,0.25)" stroke="rgba(255,120,50,0.4)" stroke-width="1"/>
+  <circle cx="848" cy="195" r="3" fill="rgba(255,80,30,0.28)" stroke="rgba(255,120,50,0.45)" stroke-width="1"/>
+  <circle cx="1055" cy="175" r="2.5" fill="rgba(255,80,30,0.22)" stroke="rgba(255,120,50,0.35)" stroke-width="1"/>
+  <circle cx="1130" cy="240" r="3" fill="rgba(255,80,30,0.22)" stroke="rgba(255,120,50,0.35)" stroke-width="1"/>
+  <circle cx="860" cy="270" r="2" fill="rgba(255,80,30,0.20)" stroke="rgba(255,120,50,0.30)" stroke-width="1"/>
+  <circle cx="1045" cy="300" r="2.5" fill="rgba(255,80,30,0.20)" stroke="rgba(255,120,50,0.30)" stroke-width="1"/>
+
+  <!-- Registry icon (top-right corner decoration) -->
+  <rect x="1110" y="148" width="30" height="22" rx="3" fill="rgba(200,50,20,0.10)" stroke="rgba(255,80,40,0.25)" stroke-width="1"/>
+  <line x1="1115" y1="156" x2="1135" y2="156" stroke="rgba(255,80,40,0.4)" stroke-width="1"/>
+  <line x1="1115" y1="161" x2="1132" y2="161" stroke="rgba(255,80,40,0.3)" stroke-width="1"/>
+  <line x1="1115" y1="166" x2="1128" y2="166" stroke="rgba(255,80,40,0.25)" stroke-width="1"/>
+
+  <!-- Small worm offspring -->
+  <path d="M 845 230 C 850 225, 860 230, 858 240 C 856 250, 845 248, 843 255" 
+        stroke="rgba(255,70,30,0.28)" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 845 230 C 850 225, 860 230, 858 240 C 856 250, 845 248, 843 255" 
+        stroke="rgba(255,100,40,0.12)" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <circle cx="844" cy="228" r="5" fill="rgba(220,50,20,0.18)" stroke="rgba(255,80,30,0.45)" stroke-width="1.2"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,60,30,0.55)" stroke="rgba(255,100,50,0.7)" stroke-width="1"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,80,40,0.5)" stroke="rgba(255,120,60,0.65)" stroke-width="1"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,50,25,0.48)" stroke="rgba(255,90,45,0.62)" stroke-width="1"/>
+
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,40,20,0.04)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,40,20,0.06)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)"/>
+  <text x="180" y="81" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="rgba(255,200,180,0.95)" text-anchor="middle" letter-spacing="1">SEPTEMBER 17, 2025</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">NPM &quot;Shai Hulud&quot; Self</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Replication Worm Attack</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(220,180,160,0.80)">Supply chain worm exploiting NPM registry propagation</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,100,70,0.85)" letter-spacing="2">INCIDENT RESPONSE</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(200,30,20,0.22)" stroke="rgba(255,60,40,0.45)" stroke-width="1.5"/>
+  <text x="140" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,140,110,0.95)" text-anchor="middle">Supply Chain</text>
+
+  <rect x="214" y="402" width="110" height="36" rx="18" fill="rgba(180,90,0,0.22)" stroke="rgba(255,150,30,0.40)" stroke-width="1.5"/>
+  <text x="269" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,190,90,0.92)" text-anchor="middle">NPM Worm</text>
+
+  <rect x="338" y="402" width="104" height="36" rx="18" fill="rgba(20,60,180,0.22)" stroke="rgba(60,120,255,0.38)" stroke-width="1.5"/>
+  <text x="390" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(120,180,255,0.90)" text-anchor="middle">Malware</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,100,70,0.45)" text-anchor="end">INCIDENT</text>
 </svg>

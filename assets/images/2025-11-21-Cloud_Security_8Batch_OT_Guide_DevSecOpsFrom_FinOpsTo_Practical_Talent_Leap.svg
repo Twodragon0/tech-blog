@@ -1,40 +1,148 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>8 OT</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="50%" style="stop-color:#f6ad55"/>
+      <stop offset="100%" style="stop-color:#4299e1"/>
+    </linearGradient>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c53030;stop-opacity:0.85"/>
+      <stop offset="100%" style="stop-color:#9b2c2c;stop-opacity:0.85"/>
+    </linearGradient>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b7791f;stop-opacity:0.85"/>
+      <stop offset="100%" style="stop-color:#975a16;stop-opacity:0.85"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2b6cb0;stop-opacity:0.85"/>
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:0.85"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="60%" style="stop-color:#f6ad55"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#a78bfa" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#6d28d9" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#a78bfa" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <circle cx="-60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <line x1="-38" y1="0" x2="-22" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <line x1="22" y1="0" x2="38" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <polygon points="-25,-4 -18,0 -25,4" fill="#a78bfa"/>
-    <polygon points="35,-4 42,0 35,4" fill="#a78bfa"/>
-    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
-    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">8 OT</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">DevSecOps</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#a78bfa" opacity="0.25" stroke="#a78bfa" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Cloud Security + DevSecOps + FinOps + Talent Leap -->
+  <!-- Central cloud shape -->
+  <ellipse cx="1010" cy="210" rx="90" ry="55" fill="rgba(66,153,225,0.10)" stroke="rgba(66,153,225,0.30)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="230" rx="55" ry="38" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.22)" stroke-width="1"/>
+  <ellipse cx="1060" cy="228" rx="55" ry="38" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.22)" stroke-width="1"/>
+  <rect x="920" y="230" width="180" height="45" rx="4" fill="rgba(66,153,225,0.07)" stroke="none"/>
+
+  <!-- Shield overlay (security) -->
+  <polygon points="1010,148 1055,168 1055,205 1010,230 965,205 965,168" fill="rgba(229,62,62,0.09)" stroke="rgba(229,62,62,0.32)" stroke-width="1.5"/>
+  <polygon points="1010,160 1047,177 1047,208 1010,228 973,208 973,177" fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.20)" stroke-width="1"/>
+  <!-- Checkmark inside shield -->
+  <polyline points="994,193 1006,207 1030,178" fill="none" stroke="rgba(229,62,62,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- FinOps: coin/dollar ring -->
+  <circle cx="1010" cy="188" r="16" fill="none" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
+  <circle cx="1010" cy="188" r="10" fill="rgba(246,173,85,0.10)" stroke="rgba(246,173,85,0.25)" stroke-width="1"/>
+  <text x="1010" y="193" font-family="monospace" font-size="11" fill="rgba(246,173,85,0.55)" text-anchor="middle" font-weight="bold">$</text>
+
+  <!-- DevSecOps: gear rings -->
+  <circle cx="890" cy="170" r="32" fill="none" stroke="rgba(154,230,180,0.18)" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <circle cx="890" cy="170" r="22" fill="rgba(154,230,180,0.07)" stroke="rgba(154,230,180,0.25)" stroke-width="1"/>
+  <!-- Gear teeth simplified -->
+  <rect x="886" y="136" width="8" height="10" rx="2" fill="rgba(154,230,180,0.20)"/>
+  <rect x="886" y="194" width="8" height="10" rx="2" fill="rgba(154,230,180,0.20)"/>
+  <rect x="856" y="166" width="10" height="8" rx="2" fill="rgba(154,230,180,0.20)"/>
+  <rect x="914" y="166" width="10" height="8" rx="2" fill="rgba(154,230,180,0.20)"/>
+  <circle cx="890" cy="170" r="10" fill="rgba(154,230,180,0.12)" stroke="rgba(154,230,180,0.30)" stroke-width="1"/>
+
+  <!-- Talent Leap: upward arrow / person silhouette -->
+  <circle cx="1100" cy="170" r="14" fill="rgba(160,118,249,0.12)" stroke="rgba(160,118,249,0.32)" stroke-width="1.5"/>
+  <!-- Arrow up -->
+  <line x1="1100" y1="185" x2="1100" y2="158" stroke="rgba(160,118,249,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="1092,166 1100,155 1108,166" fill="none" stroke="rgba(160,118,249,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Leap trajectory arc -->
+  <path d="M1078,220 Q1100,185 1122,220" fill="none" stroke="rgba(160,118,249,0.28)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <!-- OT/ICS honeycomb hexagons -->
+  <polygon points="950,290 970,278 990,290 990,314 970,326 950,314" fill="rgba(246,173,85,0.07)" stroke="rgba(246,173,85,0.28)" stroke-width="1.2"/>
+  <polygon points="988,290 1008,278 1028,290 1028,314 1008,326 988,314" fill="rgba(246,173,85,0.06)" stroke="rgba(246,173,85,0.22)" stroke-width="1"/>
+  <polygon points="1026,290 1046,278 1066,290 1066,314 1046,326 1026,314" fill="rgba(246,173,85,0.05)" stroke="rgba(246,173,85,0.18)" stroke-width="1"/>
+  <!-- OT label inside hex -->
+  <text x="969" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.60)" text-anchor="middle" font-weight="bold">OT</text>
+  <text x="1007" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.50)" text-anchor="middle">ICS</text>
+  <text x="1045" y="307" font-family="monospace" font-size="9" fill="rgba(246,173,85,0.40)" text-anchor="middle">SCA</text>
+
+  <!-- Connecting lines between elements -->
+  <line x1="912" y1="170" x2="963" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="1057" y1="170" x2="1086" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="970" y1="278" x2="970" y2="248" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="1010" y1="278" x2="1010" y2="248" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- Outer decorative ring -->
+  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(66,153,225,0.08)" stroke-width="1" stroke-dasharray="6 4"/>
+  <circle cx="1010" cy="225" r="135" fill="none" stroke="rgba(229,62,62,0.06)" stroke-width="1" stroke-dasharray="3 6"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.75)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(246,173,85,0.70)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(66,153,225,0.65)"/>
+
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.030)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
+  <text x="190" y="81" font-family="'Courier New',monospace" font-size="12" fill="rgba(255,200,180,0.90)" text-anchor="middle" letter-spacing="1">NOVEMBER 21, 2025</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial Black','Arial',sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Cloud Security 8Batch OT</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial Black','Arial',sans-serif" font-size="40" font-weight="700" fill="rgba(255,255,255,0.92)" letter-spacing="-0.5">DevSecOps → FinOps → Talent Leap</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19" fill="rgba(255,190,150,0.80)">Cloud Security Curriculum · Batch 8 · Operational Technology + Growth</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Courier New',monospace" font-size="14" fill="rgba(229,62,62,0.80)" letter-spacing="2">DEVSECOPS / CLOUD SECURITY / FINOPS</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="url(#tagRed)"/>
+  <text x="140" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,230,220,0.95)" text-anchor="middle" font-weight="600">DevSecOps</text>
+
+  <rect x="214" y="402" width="100" height="36" rx="18" fill="url(#tagAmber)"/>
+  <text x="264" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,240,200,0.95)" text-anchor="middle" font-weight="600">FinOps</text>
+
+  <rect x="328" y="402" width="130" height="36" rx="18" fill="url(#tagBlue)"/>
+  <text x="393" y="425" font-family="Arial,sans-serif" font-size="13" fill="rgba(200,225,255,0.95)" text-anchor="middle" font-weight="600">OT Security</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New',monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(255,255,255,0.30)" text-anchor="end" letter-spacing="1">devsecops</text>
+
+  <!-- Subtle bottom gradient strip -->
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.25)"/>
 </svg>

@@ -1,37 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>8 8 : CI/CD Kubernetes</title>
+<svg viewBox="0 0 1200 630" width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#f6ad55;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c53030;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b7791f;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#d69e2e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2b6cb0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:1"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid horizontal lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">8 8 : CI/CD Kubernetes</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Kubernetes | CI/CD</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid vertical lines -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Kubernetes + CI/CD + Cloud Security -->
+  <!-- Outer cloud shape -->
+  <ellipse cx="1010" cy="195" rx="100" ry="60" fill="rgba(66,153,225,0.07)" stroke="rgba(66,153,225,0.25)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="210" rx="65" ry="42" fill="rgba(66,153,225,0.06)" stroke="rgba(66,153,225,0.2)" stroke-width="1"/>
+  <ellipse cx="1060" cy="215" rx="55" ry="38" fill="rgba(66,153,225,0.06)" stroke="rgba(66,153,225,0.2)" stroke-width="1"/>
+
+  <!-- Kubernetes hexagon wheel -->
+  <polygon points="1010,140 1048,162 1048,206 1010,228 972,206 972,162" fill="rgba(99,179,237,0.08)" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <!-- Inner hexagon -->
+  <polygon points="1010,158 1031,170 1031,194 1010,206 989,194 989,170" fill="rgba(99,179,237,0.10)" stroke="rgba(99,179,237,0.30)" stroke-width="1"/>
+  <!-- Center circle -->
+  <circle cx="1010" cy="184" r="14" fill="rgba(99,179,237,0.15)" stroke="rgba(99,179,237,0.45)" stroke-width="1.5"/>
+  <!-- Kubernetes spokes -->
+  <line x1="1010" y1="158" x2="1010" y2="170" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <line x1="1031" y1="170" x2="1021" y2="177" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <line x1="1031" y1="194" x2="1021" y2="187" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <line x1="1010" y1="206" x2="1010" y2="198" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <line x1="989" y1="194" x2="999" y2="187" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <line x1="989" y1="170" x2="999" y2="177" stroke="rgba(99,179,237,0.35)" stroke-width="1.5"/>
+  <!-- Spoke dots -->
+  <circle cx="1010" cy="154" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+  <circle cx="1035" cy="167" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+  <circle cx="1035" cy="199" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+  <circle cx="1010" cy="212" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+  <circle cx="985" cy="199" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+  <circle cx="985" cy="167" r="3" fill="rgba(99,179,237,0.5)" stroke="rgba(99,179,237,0.6)" stroke-width="1"/>
+
+  <!-- CI/CD pipeline arrow chain -->
+  <rect x="890" y="255" width="44" height="26" rx="5" fill="rgba(229,62,62,0.09)" stroke="rgba(229,62,62,0.30)" stroke-width="1.2"/>
+  <text x="912" y="272" font-size="9" font-family="monospace" fill="rgba(229,62,62,0.7)" text-anchor="middle">CI</text>
+  <line x1="934" y1="268" x2="950" y2="268" stroke="rgba(246,173,85,0.45)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="950" y="255" width="50" height="26" rx="5" fill="rgba(246,173,85,0.09)" stroke="rgba(246,173,85,0.30)" stroke-width="1.2"/>
+  <text x="975" y="272" font-size="9" font-family="monospace" fill="rgba(246,173,85,0.7)" text-anchor="middle">BUILD</text>
+  <line x1="1000" y1="268" x2="1018" y2="268" stroke="rgba(246,173,85,0.45)" stroke-width="1.5"/>
+  <polygon points="1014,263 1022,268 1014,273" fill="rgba(246,173,85,0.5)"/>
+  <rect x="1018" y="255" width="44" height="26" rx="5" fill="rgba(72,187,120,0.09)" stroke="rgba(72,187,120,0.30)" stroke-width="1.2"/>
+  <text x="1040" y="272" font-size="9" font-family="monospace" fill="rgba(72,187,120,0.7)" text-anchor="middle">CD</text>
+  <line x1="1062" y1="268" x2="1082" y2="268" stroke="rgba(66,153,225,0.45)" stroke-width="1.5"/>
+  <polygon points="1078,263 1086,268 1078,273" fill="rgba(66,153,225,0.5)"/>
+  <rect x="1082" y="255" width="54" height="26" rx="5" fill="rgba(66,153,225,0.09)" stroke="rgba(66,153,225,0.30)" stroke-width="1.2"/>
+  <text x="1109" y="272" font-size="9" font-family="monospace" fill="rgba(66,153,225,0.7)" text-anchor="middle">DEPLOY</text>
+
+  <!-- Shield icon for security -->
+  <path d="M955,130 L955,118 L945,114 L935,118 L935,130 L945,140 Z" fill="rgba(229,62,62,0.10)" stroke="rgba(229,62,62,0.35)" stroke-width="1.2"/>
+  <path d="M943,124 L944,128 L949,121" fill="none" stroke="rgba(229,62,62,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lock icon -->
+  <rect x="1075" y="148" width="20" height="16" rx="3" fill="rgba(246,173,85,0.10)" stroke="rgba(246,173,85,0.35)" stroke-width="1.2"/>
+  <path d="M1079,148 L1079,143 Q1079,138 1085,138 Q1091,138 1091,143 L1091,148" fill="none" stroke="rgba(246,173,85,0.40)" stroke-width="1.2"/>
+  <circle cx="1085" cy="156" r="2.5" fill="rgba(246,173,85,0.5)"/>
+
+  <!-- Pod squares (Kubernetes pods) -->
+  <rect x="885" y="302" width="22" height="22" rx="3" fill="rgba(72,187,120,0.08)" stroke="rgba(72,187,120,0.28)" stroke-width="1"/>
+  <rect x="912" y="302" width="22" height="22" rx="3" fill="rgba(72,187,120,0.08)" stroke="rgba(72,187,120,0.28)" stroke-width="1"/>
+  <rect x="939" y="302" width="22" height="22" rx="3" fill="rgba(72,187,120,0.06)" stroke="rgba(72,187,120,0.22)" stroke-width="1"/>
+  <rect x="885" y="328" width="22" height="22" rx="3" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.28)" stroke-width="1"/>
+  <rect x="912" y="328" width="22" height="22" rx="3" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.28)" stroke-width="1"/>
+  <rect x="939" y="328" width="22" height="22" rx="3" fill="rgba(66,153,225,0.06)" stroke="rgba(66,153,225,0.22)" stroke-width="1"/>
+  <!-- Pod labels -->
+  <text x="896" y="316" font-size="7" font-family="monospace" fill="rgba(72,187,120,0.55)" text-anchor="middle">P1</text>
+  <text x="923" y="316" font-size="7" font-family="monospace" fill="rgba(72,187,120,0.55)" text-anchor="middle">P2</text>
+  <text x="950" y="316" font-size="7" font-family="monospace" fill="rgba(72,187,120,0.40)" text-anchor="middle">P3</text>
+  <text x="896" y="342" font-size="7" font-family="monospace" fill="rgba(66,153,225,0.55)" text-anchor="middle">P4</text>
+  <text x="923" y="342" font-size="7" font-family="monospace" fill="rgba(66,153,225,0.55)" text-anchor="middle">P5</text>
+  <text x="950" y="342" font-size="7" font-family="monospace" fill="rgba(66,153,225,0.40)" text-anchor="middle">P6</text>
+  <!-- Namespace border around pods -->
+  <rect x="879" y="296" width="90" height="62" rx="6" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.7)"/>
+  <circle cx="900" cy="420" r="5" fill="rgba(246,173,85,0.7)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(229,62,62,0.5)"/>
+
+  <!-- Background subtle circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
+  <text x="180" y="81" font-size="12" font-family="Arial, sans-serif" font-weight="600" fill="rgba(255,255,255,0.75)" text-anchor="middle" letter-spacing="1">JANUARY 22, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-size="46" font-weight="700" font-family="Arial, sans-serif" fill="white">Cloud Security Course 8Batch</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-size="46" font-weight="700" font-family="Arial, sans-serif" fill="white">8Week CI CD Kubernetes</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.55)">Hands-on pipeline security, container hardening and cluster governance</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="2" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-size="14" font-family="Arial, sans-serif" font-weight="600" fill="rgba(229,62,62,0.85)" letter-spacing="2">SECURITY / DEVSECOPS / KUBERNETES</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="url(#tagRed)"/>
+  <text x="135" y="425" font-size="13" font-family="Arial, sans-serif" font-weight="600" fill="white" text-anchor="middle">CI/CD Security</text>
+
+  <rect x="202" y="402" width="120" height="36" rx="18" fill="url(#tagAmber)"/>
+  <text x="262" y="425" font-size="13" font-family="Arial, sans-serif" font-weight="600" fill="white" text-anchor="middle">Kubernetes</text>
+
+  <rect x="334" y="402" width="128" height="36" rx="18" fill="url(#tagBlue)"/>
+  <text x="398" y="425" font-size="13" font-family="Arial, sans-serif" font-weight="600" fill="white" text-anchor="middle">Cloud Security</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-size="14" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="14" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.30)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

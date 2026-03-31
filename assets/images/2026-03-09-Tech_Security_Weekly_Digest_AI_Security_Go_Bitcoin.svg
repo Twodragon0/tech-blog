@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="50%" style="stop-color:#f6ad55"/>
-      <stop offset="100%" style="stop-color:#3182ce"/>
+      <stop offset="0%" style="stop-color:#e53935;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#f57c00;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="100%" style="stop-color:rgba(229,62,62,0)"/>
+      <stop offset="0%" style="stop-color:#e53935;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e53935;stop-opacity:0"/>
     </linearGradient>
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:0.08"/>
+      <stop offset="0%" style="stop-color:#e53935;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:0.08"/>
     </linearGradient>
-    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f6ad55;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0.1"/>
+    <linearGradient id="bitcoinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f57c00;stop-opacity:0.14"/>
+      <stop offset="100%" style="stop-color:#ffd54f;stop-opacity:0.06"/>
     </linearGradient>
   </defs>
 
@@ -38,122 +38,114 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Shield with AI circuit + Bitcoin symbol -->
 
-  <!-- RIGHT SIDE ILLUSTRATION: AI + Security Shield + Bitcoin + Go gopher -->
+  <!-- Outer orbit ring -->
+  <ellipse cx="1010" cy="225" rx="130" ry="130" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="6 4"/>
 
-  <!-- Outer hex shield glow -->
-  <polygon points="1010,135 1095,180 1095,270 1010,315 925,270 925,180"
-    fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.25)" stroke-width="1.5"/>
+  <!-- Shield body -->
+  <path d="M1010,140 L1075,165 L1075,220 Q1075,270 1010,300 Q945,270 945,220 L945,165 Z"
+        fill="url(#shieldGrad)" stroke="rgba(229,57,53,0.32)" stroke-width="1.5"/>
 
-  <!-- Inner shield body -->
-  <polygon points="1010,150 1080,190 1080,260 1010,300 940,260 940,190"
-    fill="rgba(229,62,62,0.07)" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
+  <!-- Shield inner highlight -->
+  <path d="M1010,155 L1062,175 L1062,218 Q1062,258 1010,283 Q958,258 958,218 L958,175 Z"
+        fill="none" stroke="rgba(229,57,53,0.18)" stroke-width="1"/>
 
-  <!-- Shield core -->
-  <polygon points="1010,168 1063,198 1063,252 1010,282 957,252 957,198"
-    fill="rgba(229,62,62,0.1)" stroke="rgba(255,100,100,0.35)" stroke-width="1.5"/>
+  <!-- AI circuit nodes inside shield -->
+  <circle cx="1010" cy="205" r="14" fill="rgba(229,57,53,0.12)" stroke="rgba(229,57,53,0.45)" stroke-width="1.5"/>
+  <circle cx="1010" cy="205" r="7" fill="rgba(229,57,53,0.25)" stroke="rgba(229,57,53,0.6)" stroke-width="1"/>
 
-  <!-- Bitcoin symbol inside shield -->
-  <circle cx="1010" cy="225" r="28" fill="rgba(246,173,85,0.1)" stroke="rgba(246,173,85,0.4)" stroke-width="1.5"/>
-  <text x="1010" y="233" text-anchor="middle" font-size="28" font-weight="700"
-    fill="rgba(246,173,85,0.75)" font-family="Arial, sans-serif">₿</text>
+  <!-- Circuit lines from center -->
+  <line x1="996" y1="205" x2="978" y2="205" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
+  <line x1="1024" y1="205" x2="1042" y2="205" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
+  <line x1="1010" y1="191" x2="1010" y2="173" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
+  <line x1="1010" y1="219" x2="1010" y2="245" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
 
-  <!-- AI neural dots around shield -->
-  <circle cx="1010" cy="132" r="5" fill="rgba(49,130,206,0.5)" stroke="rgba(49,130,206,0.7)" stroke-width="1"/>
-  <circle cx="1097" cy="176" r="4" fill="rgba(49,130,206,0.4)" stroke="rgba(49,130,206,0.6)" stroke-width="1"/>
-  <circle cx="1097" cy="274" r="4" fill="rgba(229,62,62,0.4)" stroke="rgba(229,62,62,0.6)" stroke-width="1"/>
-  <circle cx="1010" cy="318" r="5" fill="rgba(229,62,62,0.5)" stroke="rgba(229,62,62,0.7)" stroke-width="1"/>
-  <circle cx="923" cy="274" r="4" fill="rgba(246,173,85,0.4)" stroke="rgba(246,173,85,0.6)" stroke-width="1"/>
-  <circle cx="923" cy="176" r="4" fill="rgba(246,173,85,0.4)" stroke="rgba(246,173,85,0.6)" stroke-width="1"/>
+  <!-- Circuit node dots -->
+  <circle cx="978" cy="205" r="3.5" fill="rgba(229,57,53,0.5)" stroke="rgba(229,57,53,0.7)" stroke-width="1"/>
+  <circle cx="1042" cy="205" r="3.5" fill="rgba(229,57,53,0.5)" stroke="rgba(229,57,53,0.7)" stroke-width="1"/>
+  <circle cx="1010" cy="173" r="3.5" fill="rgba(229,57,53,0.5)" stroke="rgba(229,57,53,0.7)" stroke-width="1"/>
+  <circle cx="1010" cy="245" r="3.5" fill="rgba(229,57,53,0.5)" stroke="rgba(229,57,53,0.7)" stroke-width="1"/>
 
-  <!-- Neural connection lines -->
-  <line x1="1010" y1="132" x2="1097" y2="176" stroke="rgba(49,130,206,0.2)" stroke-width="1"/>
-  <line x1="1097" y1="176" x2="1097" y2="274" stroke="rgba(49,130,206,0.15)" stroke-width="1"/>
-  <line x1="1097" y1="274" x2="1010" y2="318" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-  <line x1="1010" y1="318" x2="923" y2="274" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-  <line x1="923" y1="274" x2="923" y2="176" stroke="rgba(246,173,85,0.15)" stroke-width="1"/>
-  <line x1="923" y1="176" x2="1010" y2="132" stroke="rgba(246,173,85,0.2)" stroke-width="1"/>
+  <!-- Bitcoin symbol floating near shield - right side -->
+  <circle cx="1095" cy="175" r="28" fill="url(#bitcoinGrad)" stroke="rgba(245,124,0,0.35)" stroke-width="1.5"/>
+  <circle cx="1095" cy="175" r="20" fill="none" stroke="rgba(245,124,0,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- B letter for Bitcoin -->
+  <text x="1087" y="182" font-size="22" font-weight="700" fill="rgba(245,124,0,0.65)" font-family="Arial, sans-serif">B</text>
 
-  <!-- Go lang gopher eye indicators top right -->
-  <circle cx="1140" cy="148" r="16" fill="rgba(0,173,216,0.08)" stroke="rgba(0,173,216,0.3)" stroke-width="1.5"/>
-  <circle cx="1140" cy="148" r="8" fill="rgba(0,173,216,0.12)" stroke="rgba(0,173,216,0.4)" stroke-width="1"/>
-  <circle cx="1140" cy="148" r="3" fill="rgba(0,173,216,0.6)"/>
+  <!-- Go gopher-like hexagon badge -->
+  <polygon points="945,155 960,147 975,155 975,171 960,179 945,171"
+           fill="rgba(0,173,181,0.1)" stroke="rgba(0,173,181,0.38)" stroke-width="1.5"/>
+  <text x="951" y="167" font-size="11" font-weight="700" fill="rgba(0,173,181,0.65)" font-family="Arial, sans-serif">Go</text>
 
-  <circle cx="1110" cy="160" r="11" fill="rgba(0,173,216,0.06)" stroke="rgba(0,173,216,0.25)" stroke-width="1"/>
-  <circle cx="1110" cy="160" r="5" fill="rgba(0,173,216,0.1)" stroke="rgba(0,173,216,0.35)" stroke-width="1"/>
-  <circle cx="1110" cy="160" r="2" fill="rgba(0,173,216,0.55)"/>
+  <!-- AI label hexagon -->
+  <polygon points="1040,148 1055,140 1070,148 1070,164 1055,172 1040,164"
+           fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.38)" stroke-width="1.5"/>
+  <text x="1047" y="160" font-size="11" font-weight="700" fill="rgba(100,149,237,0.65)" font-family="Arial, sans-serif">AI</text>
 
-  <!-- Go text label -->
-  <rect x="1118" y="175" width="38" height="18" rx="3"
-    fill="rgba(0,173,216,0.12)" stroke="rgba(0,173,216,0.3)" stroke-width="1"/>
-  <text x="1137" y="188" text-anchor="middle" font-size="11" font-weight="700"
-    fill="rgba(0,173,216,0.8)" font-family="Arial, sans-serif">Go</text>
+  <!-- Scan lines emanating from shield -->
+  <line x1="1075" y1="165" x2="1105" y2="148" stroke="rgba(229,57,53,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="1075" y1="220" x2="1110" y2="230" stroke="rgba(229,57,53,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="945" y1="165" x2="918" y2="148" stroke="rgba(229,57,53,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
 
-  <!-- AI scan lines across shield -->
-  <line x1="945" y1="205" x2="1075" y2="205" stroke="rgba(49,130,206,0.2)" stroke-width="0.8" stroke-dasharray="4,3"/>
-  <line x1="945" y1="245" x2="1075" y2="245" stroke="rgba(49,130,206,0.15)" stroke-width="0.8" stroke-dasharray="4,3"/>
+  <!-- Small binary dots decoration -->
+  <circle cx="895" cy="155" r="2" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="905" cy="148" r="1.5" fill="rgba(255,255,255,0.09)"/>
+  <circle cx="900" cy="165" r="2.5" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1115" cy="210" r="2" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1125" cy="200" r="1.5" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1120" cy="225" r="2" fill="rgba(255,255,255,0.09)"/>
 
-  <!-- Corner security brackets -->
-  <path d="M890,130 L890,115 L905,115" fill="none" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
-  <path d="M1150,130 L1150,115 L1135,115" fill="none" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
-  <path d="M890,320 L890,335 L905,335" fill="none" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
-  <path d="M1150,320 L1150,335 L1135,335" fill="none" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
+  <!-- Data flow dots along bottom of illustration -->
+  <circle cx="950" cy="315" r="2" fill="rgba(229,57,53,0.3)"/>
+  <circle cx="975" cy="310" r="1.5" fill="rgba(229,57,53,0.2)"/>
+  <circle cx="1000" cy="318" r="2" fill="rgba(245,124,0,0.3)"/>
+  <circle cx="1025" cy="308" r="1.5" fill="rgba(245,124,0,0.2)"/>
+  <circle cx="1050" cy="316" r="2" fill="rgba(100,149,237,0.3)"/>
+  <circle cx="1075" cy="310" r="1.5" fill="rgba(100,149,237,0.2)"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(246,173,85,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(49,130,206,0.7)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(229,57,53,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,124,0,0.6)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(100,149,237,0.6)"/>
+
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4"
-    fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-  <text x="180" y="81" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1.5"
-    fill="rgba(229,62,62,0.9)" font-family="Arial, sans-serif">MARCH 9, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(229,57,53,0.15)" stroke="rgba(229,57,53,0.35)" stroke-width="1"/>
+  <text x="92" y="81" font-size="13" font-weight="600" fill="rgba(229,57,53,0.9)" font-family="Arial, sans-serif" letter-spacing="1.5">MARCH 9, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white"
-    font-family="Arial, sans-serif" letter-spacing="-0.5">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700"
-    fill="rgba(246,173,85,0.95)" font-family="Arial, sans-serif" letter-spacing="-0.5">AI Security Go Bitcoin</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">AI Security Go Bitcoin</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.55)"
-    font-family="Arial, sans-serif">Curated threat intelligence &amp; developer security updates</text>
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.55)" font-family="Arial, sans-serif">Weekly digest covering AI security, Go vulnerabilities &amp; Bitcoin threats</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-size="14" letter-spacing="3" font-weight="600"
-    fill="rgba(229,62,62,0.7)" font-family="Arial, sans-serif">SECURITY / WEEKLY DIGEST</text>
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.4)" font-family="Arial, sans-serif" letter-spacing="2" font-weight="600">SECURITY / THREAT INTELLIGENCE / WEEKLY DIGEST</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18"
-    fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-  <text x="140" y="425" text-anchor="middle" font-size="13" font-weight="600"
-    fill="rgba(229,62,62,0.9)" font-family="Arial, sans-serif">AI Security</text>
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(229,57,53,0.18)" stroke="rgba(229,57,53,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-size="13" font-weight="600" fill="rgba(229,57,53,0.9)" font-family="Arial, sans-serif" text-anchor="middle">AI Security</text>
 
-  <rect x="214" y="402" width="110" height="36" rx="18"
-    fill="rgba(246,173,85,0.15)" stroke="rgba(246,173,85,0.4)" stroke-width="1"/>
-  <text x="269" y="425" text-anchor="middle" font-size="13" font-weight="600"
-    fill="rgba(246,173,85,0.9)" font-family="Arial, sans-serif">Bitcoin</text>
+  <rect x="224" y="402" width="110" height="36" rx="18" fill="rgba(245,124,0,0.15)" stroke="rgba(245,124,0,0.38)" stroke-width="1"/>
+  <text x="279" y="425" font-size="13" font-weight="600" fill="rgba(245,124,0,0.9)" font-family="Arial, sans-serif" text-anchor="middle">Bitcoin</text>
 
-  <rect x="338" y="402" width="90" height="36" rx="18"
-    fill="rgba(0,173,216,0.15)" stroke="rgba(0,173,216,0.4)" stroke-width="1"/>
-  <text x="383" y="425" text-anchor="middle" font-size="13" font-weight="600"
-    fill="rgba(0,173,216,0.9)" font-family="Arial, sans-serif">Go Lang</text>
+  <rect x="348" y="402" width="90" height="36" rx="18" fill="rgba(100,149,237,0.15)" stroke="rgba(100,149,237,0.38)" stroke-width="1"/>
+  <text x="393" y="425" font-size="13" font-weight="600" fill="rgba(100,149,237,0.9)" font-family="Arial, sans-serif" text-anchor="middle">Go Lang</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.35)"
-    font-family="Arial, sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" text-anchor="end" font-size="13" fill="rgba(255,255,255,0.3)"
-    font-family="Arial, sans-serif">security</text>
+  <text x="80" y="545" font-size="14" fill="rgba(255,255,255,0.3)" font-family="Arial, sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="14" fill="rgba(255,255,255,0.3)" font-family="Arial, sans-serif" text-anchor="end">SECURITY</text>
 </svg>

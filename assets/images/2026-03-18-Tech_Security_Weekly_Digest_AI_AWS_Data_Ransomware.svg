@@ -1,149 +1,134 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="50%" stop-color="#ff8800"/>
-      <stop offset="100%" stop-color="#cc2200"/>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff8c00;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="100%" stop-color="transparent"/>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="badgeBg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff4444" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff8800" stop-opacity="0.15"/>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:0.06"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fa3e0;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#1a6ebd;stop-opacity:0.05"/>
+    </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Grid horizontal lines -->
+  <!-- Grid lines horizontal -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- Grid vertical lines -->
+  <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware/AI/AWS/Security composite icon -->
+  <!-- RIGHT SIDE ILLUSTRATION: Shield + Cloud + Lock + Data Breach -->
   <!-- Outer shield shape -->
-  <path d="M1010,140 L1100,170 L1100,250 Q1100,310 1010,340 Q920,310 920,250 L920,170 Z"
-        fill="rgba(255,68,68,0.08)" stroke="rgba(255,68,68,0.35)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,158 L1085,183 L1085,248 Q1085,298 1010,322 Q935,298 935,248 L935,183 Z"
-        fill="rgba(255,100,50,0.06)" stroke="rgba(255,120,50,0.25)" stroke-width="1"/>
+  <path d="M1010,140 L1130,165 L1130,245 Q1130,310 1010,335 Q890,310 890,245 L890,165 Z"
+        fill="url(#shieldGrad)" stroke="rgba(255,59,59,0.3)" stroke-width="1.5"/>
+  <!-- Shield inner -->
+  <path d="M1010,158 L1112,179 L1112,245 Q1112,300 1010,320 Q908,300 908,245 L908,179 Z"
+        fill="none" stroke="rgba(255,59,59,0.15)" stroke-width="1"/>
 
-  <!-- AI neural network nodes inside shield -->
-  <circle cx="1010" cy="220" r="14" fill="rgba(255,150,50,0.12)" stroke="rgba(255,150,50,0.4)" stroke-width="1.5"/>
-  <circle cx="975" cy="255" r="9" fill="rgba(255,80,80,0.10)" stroke="rgba(255,80,80,0.35)" stroke-width="1"/>
-  <circle cx="1045" cy="255" r="9" fill="rgba(255,80,80,0.10)" stroke="rgba(255,80,80,0.35)" stroke-width="1"/>
-  <circle cx="990" cy="285" r="7" fill="rgba(100,180,255,0.10)" stroke="rgba(100,180,255,0.30)" stroke-width="1"/>
-  <circle cx="1030" cy="285" r="7" fill="rgba(100,180,255,0.10)" stroke="rgba(100,180,255,0.30)" stroke-width="1"/>
-  <circle cx="1010" cy="300" r="6" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.35)" stroke-width="1"/>
+  <!-- AWS Cloud shape inside shield -->
+  <ellipse cx="1010" cy="248" rx="62" ry="36" fill="url(#cloudGrad)" stroke="rgba(79,163,224,0.35)" stroke-width="1.5"/>
+  <ellipse cx="980" cy="238" rx="30" ry="22" fill="rgba(79,163,224,0.08)" stroke="rgba(79,163,224,0.25)" stroke-width="1"/>
+  <ellipse cx="1042" cy="236" rx="26" ry="20" fill="rgba(79,163,224,0.08)" stroke="rgba(79,163,224,0.22)" stroke-width="1"/>
 
-  <!-- Neural connections -->
-  <line x1="1010" y1="220" x2="975" y2="255" stroke="rgba(255,120,80,0.3)" stroke-width="1"/>
-  <line x1="1010" y1="220" x2="1045" y2="255" stroke="rgba(255,120,80,0.3)" stroke-width="1"/>
-  <line x1="975" y1="255" x2="990" y2="285" stroke="rgba(100,180,255,0.25)" stroke-width="1"/>
-  <line x1="975" y1="255" x2="1030" y2="285" stroke="rgba(100,180,255,0.20)" stroke-width="1"/>
-  <line x1="1045" y1="255" x2="990" y2="285" stroke="rgba(100,180,255,0.20)" stroke-width="1"/>
-  <line x1="1045" y1="255" x2="1030" y2="285" stroke="rgba(100,180,255,0.25)" stroke-width="1"/>
-  <line x1="990" y1="285" x2="1010" y2="300" stroke="rgba(255,68,68,0.25)" stroke-width="1"/>
-  <line x1="1030" y1="285" x2="1010" y2="300" stroke="rgba(255,68,68,0.25)" stroke-width="1"/>
+  <!-- Lock body on top of cloud -->
+  <rect x="997" y="215" width="26" height="20" rx="3" fill="rgba(255,140,0,0.12)" stroke="rgba(255,140,0,0.4)" stroke-width="1.5"/>
+  <path d="M1003,215 Q1003,204 1010,204 Q1017,204 1017,215" fill="none" stroke="rgba(255,140,0,0.4)" stroke-width="1.5"/>
+  <circle cx="1010" cy="226" r="3" fill="rgba(255,140,0,0.5)"/>
 
-  <!-- Lock icon atop shield -->
-  <rect x="997" y="175" width="26" height="22" rx="3"
-        fill="rgba(255,200,50,0.10)" stroke="rgba(255,200,50,0.45)" stroke-width="1.5"/>
-  <path d="M1003,175 Q1003,163 1010,163 Q1017,163 1017,175"
-        fill="none" stroke="rgba(255,200,50,0.45)" stroke-width="1.5"/>
-  <circle cx="1010" cy="186" r="3.5" fill="rgba(255,200,50,0.5)"/>
+  <!-- Ransomware warning triangles -->
+  <polygon points="940,290 960,258 980,290" fill="rgba(255,59,59,0.08)" stroke="rgba(255,59,59,0.35)" stroke-width="1.5"/>
+  <text x="960" y="284" font-size="10" fill="rgba(255,59,59,0.6)" text-anchor="middle" font-family="monospace">!</text>
 
-  <!-- AWS cloud shape (right of shield) -->
-  <path d="M1075,150 Q1075,138 1085,138 Q1087,130 1098,132 Q1104,125 1114,130 Q1124,128 1126,138 Q1135,140 1133,150 Z"
-        fill="rgba(255,153,0,0.09)" stroke="rgba(255,153,0,0.30)" stroke-width="1"/>
+  <polygon points="1040,292 1060,260 1080,292" fill="rgba(255,140,0,0.08)" stroke="rgba(255,140,0,0.3)" stroke-width="1.5"/>
+  <text x="1060" y="286" font-size="10" fill="rgba(255,140,0,0.55)" text-anchor="middle" font-family="monospace">!</text>
 
-  <!-- Data stream lines (left of shield) -->
-  <line x1="880" y1="195" x2="918" y2="210" stroke="rgba(100,200,255,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="880" y1="215" x2="918" y2="225" stroke="rgba(100,200,255,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="880" y1="235" x2="918" y2="240" stroke="rgba(255,100,100,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="880" y1="255" x2="918" y2="258" stroke="rgba(255,100,100,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- AI neural nodes -->
+  <circle cx="1095" cy="175" r="8" fill="rgba(180,100,255,0.1)" stroke="rgba(180,100,255,0.35)" stroke-width="1"/>
+  <circle cx="1115" cy="200" r="5" fill="rgba(180,100,255,0.08)" stroke="rgba(180,100,255,0.25)" stroke-width="1"/>
+  <circle cx="1095" cy="225" r="6" fill="rgba(180,100,255,0.08)" stroke="rgba(180,100,255,0.28)" stroke-width="1"/>
+  <line x1="1095" y1="175" x2="1115" y2="200" stroke="rgba(180,100,255,0.2)" stroke-width="1"/>
+  <line x1="1115" y1="200" x2="1095" y2="225" stroke="rgba(180,100,255,0.2)" stroke-width="1"/>
+  <line x1="1095" y1="175" x2="1095" y2="225" stroke="rgba(180,100,255,0.15)" stroke-width="1"/>
 
-  <!-- Ransomware skull hint: X eyes in a circle -->
-  <circle cx="960" cy="165" r="18" fill="rgba(200,30,30,0.07)" stroke="rgba(200,30,30,0.25)" stroke-width="1"/>
-  <line x1="953" y1="158" x2="959" y2="164" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="959" y1="158" x2="953" y2="164" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="963" y1="158" x2="969" y2="164" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <line x1="969" y1="158" x2="963" y2="164" stroke="rgba(255,80,80,0.40)" stroke-width="1.5"/>
-  <path d="M952,170 Q960,175 968,170" fill="none" stroke="rgba(255,80,80,0.35)" stroke-width="1.2"/>
+  <!-- Data flow lines -->
+  <line x1="900" y1="155" x2="960" y2="195" stroke="rgba(255,59,59,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1060" y1="155" x2="1010" y2="195" stroke="rgba(79,163,224,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Scanning beam effect -->
+  <line x1="890" y1="238" x2="1130" y2="238" stroke="rgba(255,59,59,0.07)" stroke-width="8"/>
+  <line x1="890" y1="238" x2="1130" y2="238" stroke="rgba(255,59,59,0.12)" stroke-width="1"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.7)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,80,80,0.55)" filter="url(#glow)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(255,59,59,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.65)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,59,59,0.5)"/>
 
   <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,59,59,0.04)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,59,59,0.05)" stroke-width="1"/>
 
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeBg)" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <text x="180" y="81" font-family="monospace,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,160,100,0.95)" text-anchor="middle" letter-spacing="1">MARCH 18, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,59,59,0.15)" stroke="rgba(255,59,59,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-size="12" fill="rgba(255,180,180,0.9)" text-anchor="middle" font-family="'Courier New',monospace" letter-spacing="1">MARCH 18, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700"
-        fill="white" opacity="0.97">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Helvetica Neue',Arial,sans-serif">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700"
-        fill="rgba(255,120,80,0.95)">AI AWS Data Ransomware</text>
+  <text x="80" y="245" font-size="46" font-weight="700" font-family="'Helvetica Neue',Arial,sans-serif">
+    <tspan fill="#ff5555">AI</tspan>
+    <tspan fill="white"> </tspan>
+    <tspan fill="#4fa3e0">AWS</tspan>
+    <tspan fill="white"> </tspan>
+    <tspan fill="#aaaaaa">Data</tspan>
+    <tspan fill="white"> </tspan>
+    <tspan fill="#ff8c00">Ransomware</tspan>
+  </text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19"
-        fill="rgba(255,255,255,0.55)">Weekly intelligence briefing · Security Category</text>
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.55)" font-family="'Helvetica Neue',Arial,sans-serif">Weekly threat intelligence · AI attacks · Cloud security · Data breach</text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="600"
-        fill="rgba(255,120,80,0.75)" letter-spacing="2">SECURITY · THREAT INTELLIGENCE · CLOUD</text>
+  <text x="80" y="370" font-size="14" fill="rgba(255,100,100,0.8)" font-family="'Courier New',monospace" letter-spacing="3" text-transform="uppercase">SECURITY / THREAT INTELLIGENCE</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18"
-        fill="rgba(220,40,40,0.18)" stroke="rgba(255,80,80,0.35)" stroke-width="1"/>
-  <text x="135" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,100,100,0.95)" text-anchor="middle">Ransomware</text>
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(255,59,59,0.18)" stroke="rgba(255,59,59,0.4)" stroke-width="1"/>
+  <text x="140" y="425" font-size="13" fill="rgba(255,130,130,0.95)" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="600">Ransomware</text>
 
-  <rect x="204" y="402" width="88" height="36" rx="18"
-        fill="rgba(200,120,0,0.18)" stroke="rgba(255,170,0,0.35)" stroke-width="1"/>
-  <text x="248" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,185,50,0.95)" text-anchor="middle">AWS Cloud</text>
+  <rect x="214" y="402" width="100" height="36" rx="18" fill="rgba(255,140,0,0.15)" stroke="rgba(255,140,0,0.38)" stroke-width="1"/>
+  <text x="264" y="425" font-size="13" fill="rgba(255,180,80,0.95)" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="600">AWS Cloud</text>
 
-  <rect x="306" y="402" width="80" height="36" rx="18"
-        fill="rgba(20,80,200,0.18)" stroke="rgba(80,150,255,0.35)" stroke-width="1"/>
-  <text x="346" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(100,180,255,0.95)" text-anchor="middle">AI Threat</text>
+  <rect x="328" y="402" width="80" height="36" rx="18" fill="rgba(79,163,224,0.15)" stroke="rgba(79,163,224,0.35)" stroke-width="1"/>
+  <text x="368" y="425" font-size="13" fill="rgba(100,180,240,0.95)" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="600">AI Sec</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="monospace,sans-serif" font-size="13"
-        fill="rgba(255,255,255,0.30)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="13"
-        fill="rgba(255,120,80,0.35)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.3)" font-family="'Courier New',monospace">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,100,100,0.35)" font-family="'Courier New',monospace" text-anchor="end">SECURITY</text>
 </svg>

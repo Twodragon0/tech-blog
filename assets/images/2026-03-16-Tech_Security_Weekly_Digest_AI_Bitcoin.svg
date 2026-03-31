@@ -1,30 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="50%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#6366f1"/>
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ef4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:transparent"/>
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="btcGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3"/>
+    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.25"/>
       <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.1"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
 
   <!-- Background -->
@@ -42,97 +34,89 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- Background circles -->
+  <!-- Background circles (subtle) -->
   <circle cx="1050" cy="450" r="200" fill="rgba(245,158,11,0.04)" stroke="rgba(245,158,11,0.06)" stroke-width="1"/>
   <circle cx="1050" cy="450" r="140" fill="rgba(239,68,68,0.05)" stroke="rgba(239,68,68,0.08)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Bitcoin + AI + Security Shield -->
-  <!-- Outer hexagonal shield -->
-  <polygon points="1010,135 1090,178 1090,264 1010,307 930,264 930,178" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
-  <!-- Inner hexagonal shield -->
-  <polygon points="1010,155 1075,191 1075,261 1010,297 945,261 945,191" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION: AI + Bitcoin + Shield hybrid icon -->
+  <!-- Outer hexagon shield (security) -->
+  <polygon points="1010,138 1070,162 1090,220 1060,278 1000,298 940,274 920,216 950,158" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <!-- Inner hexagon -->
+  <polygon points="1010,158 1056,176 1072,220 1048,264 1002,278 956,260 940,216 964,172" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
 
-  <!-- Bitcoin symbol in center -->
-  <!-- B letter paths for Bitcoin -->
-  <circle cx="1010" cy="224" r="42" fill="url(#btcGlow)" stroke="rgba(245,158,11,0.35)" stroke-width="2"/>
-  <circle cx="1010" cy="224" r="32" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
-  <!-- Bitcoin B -->
-  <text x="998" y="236" font-family="Arial Black, sans-serif" font-size="34" font-weight="900" fill="rgba(245,158,11,0.7)" filter="url(#glow)">B</text>
-  <!-- Bitcoin tick marks -->
-  <line x1="1005" y1="202" x2="1005" y2="196" stroke="rgba(245,158,11,0.6)" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="1015" y1="202" x2="1015" y2="196" stroke="rgba(245,158,11,0.6)" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="1005" y1="252" x2="1005" y2="246" stroke="rgba(245,158,11,0.6)" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="1015" y1="252" x2="1015" y2="246" stroke="rgba(245,158,11,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Bitcoin symbol inside shield -->
+  <circle cx="1005" cy="220" r="38" fill="rgba(245,158,11,0.10)" stroke="rgba(245,158,11,0.35)" stroke-width="1.5"/>
+  <!-- Bitcoin B shape (paths) -->
+  <path d="M993,202 L993,238 M993,202 L1007,202 Q1016,202 1016,210 Q1016,218 1007,218 L993,218 M993,218 L1010,218 Q1020,218 1020,227 Q1020,238 1010,238 L993,238" fill="none" stroke="rgba(245,158,11,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="988" y1="198" x2="988" y2="242" stroke="rgba(245,158,11,0.5)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="1000" y1="196" x2="1000" y2="200" stroke="rgba(245,158,11,0.5)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="1000" y1="240" x2="1000" y2="244" stroke="rgba(245,158,11,0.5)" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- AI neural nodes around the shield -->
-  <circle cx="880" cy="155" r="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
-  <circle cx="1140" cy="155" r="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
-  <circle cx="880" cy="295" r="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
-  <circle cx="1140" cy="295" r="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
-  <circle cx="885" cy="225" r="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
-  <circle cx="1135" cy="225" r="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
-  <circle cx="1010" cy="130" r="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
-  <circle cx="1010" cy="320" r="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <!-- AI neural network nodes around the shield -->
+  <circle cx="880" cy="165" r="10" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+  <circle cx="920" cy="130" r="7" fill="rgba(139,92,246,0.10)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <circle cx="1090" cy="155" r="9" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.4)" stroke-width="1.5"/>
+  <circle cx="1130" cy="190" r="6" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <circle cx="895" cy="290" r="8" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.35)" stroke-width="1.5"/>
+  <circle cx="860" cy="255" r="5" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+  <circle cx="1115" cy="280" r="9" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <circle cx="1140" cy="240" r="6" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
 
-  <!-- Neural connection lines -->
-  <line x1="880" y1="155" x2="930" y2="178" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1140" y1="155" x2="1090" y2="178" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="880" y1="295" x2="930" y2="264" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1140" y1="295" x2="1090" y2="264" stroke="rgba(99,102,241,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="885" y1="225" x2="930" y2="221" stroke="rgba(99,102,241,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
-  <line x1="1135" y1="225" x2="1090" y2="221" stroke="rgba(99,102,241,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
-  <line x1="1010" y1="130" x2="1010" y2="155" stroke="rgba(99,102,241,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
-  <line x1="1010" y1="320" x2="1010" y2="297" stroke="rgba(99,102,241,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
+  <!-- Neural network edges -->
+  <line x1="880" y1="165" x2="920" y2="158" stroke="rgba(139,92,246,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="920" y1="130" x2="950" y2="158" stroke="rgba(139,92,246,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="880" y1="165" x2="920" y2="216" stroke="rgba(139,92,246,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
+  <line x1="1090" y1="155" x2="1070" y2="162" stroke="rgba(59,130,246,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1130" y1="190" x2="1090" y2="216" stroke="rgba(59,130,246,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="895" y1="290" x2="920" y2="274" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="860" y1="255" x2="895" y2="290" stroke="rgba(16,185,129,0.15)" stroke-width="1" stroke-dasharray="2,4"/>
+  <line x1="1115" y1="280" x2="1060" y2="278" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1140" y1="240" x2="1090" y2="216" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
 
-  <!-- Orbit rings for Bitcoin -->
-  <ellipse cx="1010" cy="224" rx="65" ry="20" fill="none" stroke="rgba(245,158,11,0.12)" stroke-width="1" transform="rotate(-30,1010,224)"/>
-  <ellipse cx="1010" cy="224" rx="65" ry="20" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="1" transform="rotate(30,1010,224)"/>
-
-  <!-- Decorative data blocks -->
-  <rect x="890" y="340" width="60" height="8" rx="2" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
-  <rect x="960" y="340" width="40" height="8" rx="2" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
-  <rect x="1010" y="340" width="50" height="8" rx="2" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
-  <rect x="1070" y="340" width="35" height="8" rx="2" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
-  <rect x="1115" y="340" width="45" height="8" rx="2" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.15)" stroke-width="1"/>
+  <!-- Small circuit traces -->
+  <rect x="870" y="310" width="40" height="2" rx="1" fill="rgba(245,158,11,0.15)"/>
+  <rect x="910" y="306" width="2" height="10" rx="1" fill="rgba(245,158,11,0.15)"/>
+  <rect x="1095" y="310" width="40" height="2" rx="1" fill="rgba(59,130,246,0.15)"/>
+  <rect x="1095" y="302" width="2" height="12" rx="1" fill="rgba(59,130,246,0.15)"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(239,68,68,0.5)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.5)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(99,102,241,0.5)" filter="url(#glow)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.6)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.6)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(139,92,246,0.6)"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-  <text x="94" y="81" font-family="'Courier New', monospace" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" letter-spacing="1">MARCH 16, 2026</text>
+  <rect x="80" y="60" width="210" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+  <text x="96" y="81" font-family="'Courier New', monospace" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" letter-spacing="1.5">MARCH 16, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly</text>
+  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="white">Digest AI Bitcoin</text>
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="rgba(245,158,11,0.95)" letter-spacing="-0.5">Digest AI Bitcoin</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Threat Intelligence · AI Security · Blockchain Risks</text>
+  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Security · Artificial Intelligence · Cryptocurrency</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="rgba(245,158,11,0.75)" letter-spacing="2">SECURITY · WEEKLY DIGEST</text>
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(245,158,11,0.7)" letter-spacing="3">SECURITY / AI / BLOCKCHAIN</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
-  <text x="135" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(239,68,68,0.9)" text-anchor="middle">AI Threats</text>
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(239,68,68,0.9)" text-anchor="middle" letter-spacing="0.5">THREAT INTEL</text>
 
-  <rect x="204" y="402" width="120" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="264" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle">Bitcoin Risk</text>
+  <rect x="224" y="402" width="120" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="284" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle" letter-spacing="0.5">BITCOIN</text>
 
-  <rect x="338" y="402" width="128" height="36" rx="18" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="1"/>
-  <text x="402" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(99,102,241,0.9)" text-anchor="middle">Crypto Security</text>
+  <rect x="358" y="402" width="100" height="36" rx="18" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="408" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(59,130,246,0.9)" text-anchor="middle" letter-spacing="0.5">AI SEC</text>
 
   <!-- Footer -->
   <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.4)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

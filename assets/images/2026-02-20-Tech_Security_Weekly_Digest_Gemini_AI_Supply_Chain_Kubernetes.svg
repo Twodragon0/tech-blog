@@ -5,22 +5,30 @@
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4f8ef7"/>
-      <stop offset="50%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#ef4444"/>
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="50%" style="stop-color:#9b59b6"/>
+      <stop offset="100%" style="stop-color:#3498db"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4f8ef7"/>
-      <stop offset="100%" style="stop-color:rgba(79,142,247,0)"/>
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="gemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4f8ef7;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.08"/>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7b1e1e"/>
+      <stop offset="100%" style="stop-color:#a83232"/>
     </linearGradient>
-    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.1"/>
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7a4a00"/>
+      <stop offset="100%" style="stop-color:#a86400"/>
     </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a2a5a"/>
+      <stop offset="100%" style="stop-color:#1a3e82"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <!-- Background -->
@@ -38,108 +46,111 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Gemini AI + Supply Chain -->
-  <!-- Outer orbital ring -->
-  <ellipse cx="1010" cy="225" rx="130" ry="130" fill="none" stroke="rgba(79,142,247,0.22)" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Gemini AI Supply Chain Security Icon -->
+  <!-- Outer shield shape -->
+  <path d="M1010,135 L1120,160 L1120,255 Q1120,310 1010,330 Q900,310 900,255 L900,160 Z"
+        fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.25)" stroke-width="1.5"/>
+  <!-- Inner shield -->
+  <path d="M1010,155 L1100,175 L1100,255 Q1100,298 1010,315 Q920,298 920,255 L920,175 Z"
+        fill="rgba(155,89,182,0.07)" stroke="rgba(155,89,182,0.2)" stroke-width="1"/>
 
-  <!-- Inner orbital ring -->
-  <ellipse cx="1010" cy="225" rx="90" ry="90" fill="none" stroke="rgba(168,85,247,0.28)" stroke-width="1" stroke-dasharray="4 3"/>
+  <!-- Gemini twin-star symbol (two overlapping diamond shapes) -->
+  <polygon points="1010,178 1030,215 1010,252 990,215"
+           fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+  <polygon points="1010,188 1040,215 1010,242 980,215"
+           fill="rgba(155,89,182,0.08)" stroke="rgba(155,89,182,0.3)" stroke-width="1.5"/>
 
-  <!-- Gemini core - dual teardrop shape -->
-  <path d="M1010,165 C1045,165 1070,193 1070,225 C1070,257 1045,285 1010,285 C975,285 950,257 950,225 C950,193 975,165 1010,165 Z" fill="url(#gemGrad)" stroke="rgba(79,142,247,0.35)" stroke-width="1.5"/>
-  <!-- Inner gemini twin shape -->
-  <path d="M1010,185 C1030,185 1048,203 1048,225 C1048,247 1030,265 1010,265 C990,265 972,247 972,225 C972,203 990,185 1010,185 Z" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.3)" stroke-width="1"/>
-  <!-- Gemini twin arc - left -->
-  <path d="M1010,205 C1000,205 992,213 992,225 C992,237 1000,245 1010,245" fill="none" stroke="rgba(79,142,247,0.5)" stroke-width="2"/>
-  <!-- Gemini twin arc - right -->
-  <path d="M1010,205 C1020,205 1028,213 1028,225 C1028,237 1020,245 1010,245" fill="none" stroke="rgba(168,85,247,0.5)" stroke-width="2"/>
+  <!-- AI neural nodes -->
+  <circle cx="970" cy="195" r="7" fill="rgba(52,152,219,0.12)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+  <circle cx="1050" cy="195" r="7" fill="rgba(52,152,219,0.12)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+  <circle cx="960" cy="245" r="6" fill="rgba(155,89,182,0.12)" stroke="rgba(155,89,182,0.4)" stroke-width="1.5"/>
+  <circle cx="1060" cy="245" r="6" fill="rgba(155,89,182,0.12)" stroke="rgba(155,89,182,0.4)" stroke-width="1.5"/>
+  <circle cx="1010" cy="275" r="8" fill="rgba(229,62,62,0.1)" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
 
-  <!-- Supply chain nodes around the orbit -->
-  <!-- Node 1 - top -->
-  <circle cx="1010" cy="135" r="10" fill="rgba(79,142,247,0.15)" stroke="rgba(79,142,247,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="135" r="5" fill="rgba(79,142,247,0.3)"/>
-  <!-- Node 2 - right -->
-  <circle cx="1100" cy="225" r="10" fill="rgba(168,85,247,0.15)" stroke="rgba(168,85,247,0.4)" stroke-width="1.5"/>
-  <circle cx="1100" cy="225" r="5" fill="rgba(168,85,247,0.3)"/>
-  <!-- Node 3 - bottom -->
-  <circle cx="1010" cy="315" r="10" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
-  <circle cx="1010" cy="315" r="5" fill="rgba(239,68,68,0.3)"/>
-  <!-- Node 4 - left -->
-  <circle cx="920" cy="225" r="10" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
-  <circle cx="920" cy="225" r="5" fill="rgba(245,158,11,0.3)"/>
-  <!-- Node 5 - top-right diagonal -->
-  <circle cx="1072" cy="163" r="8" fill="rgba(79,142,247,0.12)" stroke="rgba(79,142,247,0.3)" stroke-width="1"/>
-  <!-- Node 6 - bottom-left diagonal -->
-  <circle cx="948" cy="287" r="8" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+  <!-- Neural connection lines -->
+  <line x1="970" y1="195" x2="1010" y2="215" stroke="rgba(52,152,219,0.25)" stroke-width="1"/>
+  <line x1="1050" y1="195" x2="1010" y2="215" stroke="rgba(52,152,219,0.25)" stroke-width="1"/>
+  <line x1="960" y1="245" x2="1010" y2="215" stroke="rgba(155,89,182,0.25)" stroke-width="1"/>
+  <line x1="1060" y1="245" x2="1010" y2="215" stroke="rgba(155,89,182,0.25)" stroke-width="1"/>
+  <line x1="960" y1="245" x2="1010" y2="275" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
+  <line x1="1060" y1="245" x2="1010" y2="275" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
 
-  <!-- Supply chain connecting links (chain links) -->
-  <line x1="1010" y1="145" x2="1010" y2="175" stroke="rgba(79,142,247,0.25)" stroke-width="1.5" stroke-dasharray="3 2"/>
-  <line x1="1090" y1="225" x2="1058" y2="225" stroke="rgba(168,85,247,0.25)" stroke-width="1.5" stroke-dasharray="3 2"/>
-  <line x1="1010" y1="305" x2="1010" y2="275" stroke="rgba(239,68,68,0.25)" stroke-width="1.5" stroke-dasharray="3 2"/>
-  <line x1="930" y1="225" x2="962" y2="225" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="3 2"/>
-  <line x1="1065" y1="170" x2="1046" y2="190" stroke="rgba(79,142,247,0.2)" stroke-width="1" stroke-dasharray="2 2"/>
-  <line x1="955" y1="280" x2="974" y2="260" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="2 2"/>
+  <!-- Supply chain link rings -->
+  <circle cx="935" cy="165" r="14" fill="none" stroke="rgba(255,165,0,0.2)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="910" cy="165" r="14" fill="none" stroke="rgba(255,165,0,0.2)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1085" cy="165" r="14" fill="none" stroke="rgba(255,165,0,0.2)" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1110" cy="165" r="14" fill="none" stroke="rgba(255,165,0,0.2)" stroke-width="2" stroke-dasharray="4,3"/>
 
-  <!-- Supply chain outer box (blockchain-like) -->
-  <rect x="880" y="130" width="90" height="38" rx="4" fill="url(#chainGrad)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
-  <rect x="1050" y="130" width="90" height="38" rx="4" fill="url(#chainGrad)" stroke="rgba(79,142,247,0.25)" stroke-width="1"/>
-  <rect x="880" y="282" width="90" height="38" rx="4" fill="url(#chainGrad)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
-  <rect x="1050" y="282" width="90" height="38" rx="4" fill="url(#chainGrad)" stroke="rgba(168,85,247,0.25)" stroke-width="1"/>
+  <!-- Orbit rings around center -->
+  <ellipse cx="1010" cy="230" rx="75" ry="55" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5,4"/>
+  <ellipse cx="1010" cy="230" rx="55" ry="38" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,5"/>
 
-  <!-- Chain link connectors between boxes -->
-  <line x1="970" y1="149" x2="1050" y2="149" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="970" y1="301" x2="1050" y2="301" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="925" y1="168" x2="925" y2="282" stroke="rgba(245,158,11,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="1095" y1="168" x2="1095" y2="282" stroke="rgba(79,142,247,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+  <!-- Data packets on orbit -->
+  <rect x="1078" y="210" width="8" height="8" rx="2"
+        fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.4)" stroke-width="1" transform="rotate(15,1082,214)"/>
+  <rect x="932" y="245" width="8" height="8" rx="2"
+        fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1" transform="rotate(-20,936,249)"/>
 
-  <!-- AI signal lines from core -->
-  <line x1="1010" y1="225" x2="925" y2="149" stroke="rgba(168,85,247,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="1095" y2="149" stroke="rgba(79,142,247,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="925" y2="301" stroke="rgba(239,68,68,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="225" x2="1095" y2="301" stroke="rgba(168,85,247,0.15)" stroke-width="1"/>
+  <!-- Weekly digest lines (document icon) -->
+  <rect x="990" y="285" width="40" height="30" rx="3"
+        fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="996" y1="293" x2="1024" y2="293" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <line x1="996" y1="299" x2="1024" y2="299" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="996" y1="305" x2="1016" y2="305" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(79,142,247,0.7)"/>
+  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.7)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,165,0,0.6)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(52,152,219,0.6)" filter="url(#glow)"/>
 
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Background subtle circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(229,62,62,0.03)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(155,89,182,0.04)" stroke="none"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(79,142,247,0.15)" stroke="rgba(79,142,247,0.3)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(79,142,247,0.9)" text-anchor="middle" letter-spacing="1">FEBRUARY 20, 2026</text>
+  <rect x="80" y="60" width="220" height="32" rx="4"
+        fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
+  <text x="93" y="81" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(229,100,100,0.95)" letter-spacing="1">FEBRUARY 20, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-family="'Segoe UI',Arial,sans-serif" font-size="46" font-weight="700"
+        fill="white">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Gemini AI Supply Chain</text>
+  <text x="80" y="245" font-family="'Segoe UI',Arial,sans-serif" font-size="46" font-weight="700"
+        fill="rgba(229,130,130,0.95)">Gemini AI Supply Chain</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Security Intelligence &amp; Threat Analysis | DevSecOps</text>
+  <text x="80" y="300" font-family="'Segoe UI',Arial,sans-serif" font-size="19"
+        fill="rgba(180,160,220,0.8)">Security | Threat Intelligence | DevSecOps</text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY / AI / SUPPLY CHAIN</text>
+  <text x="80" y="370" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="600"
+        fill="rgba(200,180,240,0.6)" letter-spacing="2">WEEKLY SECURITY INTELLIGENCE BRIEFING</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
-  <text x="140" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(239,68,68,0.9)" text-anchor="middle">Gemini AI</text>
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="url(#tagRed)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,160,160,0.95)" text-anchor="middle">AI SECURITY</text>
 
-  <rect x="214" y="402" width="140" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="284" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle">Supply Chain</text>
+  <rect x="224" y="402" width="150" height="36" rx="18" fill="url(#tagAmber)" stroke="rgba(255,165,0,0.4)" stroke-width="1"/>
+  <text x="299" y="425" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,200,100,0.95)" text-anchor="middle">SUPPLY CHAIN</text>
 
-  <rect x="368" y="402" width="110" height="36" rx="18" fill="rgba(79,142,247,0.18)" stroke="rgba(79,142,247,0.4)" stroke-width="1"/>
-  <text x="423" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(79,142,247,0.9)" text-anchor="middle">Threat Intel</text>
+  <rect x="388" y="402" width="120" height="36" rx="18" fill="url(#tagBlue)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
+  <text x="448" y="425" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(120,190,255,0.95)" text-anchor="middle">GEMINI AI</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)" text-anchor="end">SECURITY</text>
+  <text x="80" y="545" font-family="'Segoe UI',Arial,sans-serif" font-size="14"
+        fill="rgba(150,130,180,0.55)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Segoe UI',Arial,sans-serif" font-size="14"
+        fill="rgba(150,130,180,0.55)" text-anchor="end">SECURITY</text>
 </svg>

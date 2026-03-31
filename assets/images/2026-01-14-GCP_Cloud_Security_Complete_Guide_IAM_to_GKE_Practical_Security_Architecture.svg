@@ -1,37 +1,174 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>GCP : IAM GKE</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ea4335;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbc04;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea4335;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#34a853;stop-opacity:0.08" />
+    </linearGradient>
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea4335;stop-opacity:0.10" />
+      <stop offset="100%" style="stop-color:#fbbc04;stop-opacity:0.06" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">GCP : IAM GKE</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">GCP</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: GCP IAM + GKE Security Architecture -->
+  <!-- Outer orbit ring -->
+  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(66,133,244,0.25)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Middle orbit ring -->
+  <circle cx="1010" cy="225" r="75" fill="none" stroke="rgba(52,168,83,0.20)" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- Central GCP Shield shape -->
+  <path d="M1010,148 L1060,170 L1060,220 Q1060,260 1010,275 Q960,260 960,220 L960,170 Z"
+        fill="url(#shieldGrad)" stroke="rgba(66,133,244,0.35)" stroke-width="1.5"/>
+  <!-- Shield inner glow -->
+  <path d="M1010,158 L1050,177 L1050,218 Q1050,252 1010,265 Q970,252 970,218 L970,177 Z"
+        fill="rgba(66,133,244,0.07)" stroke="rgba(66,133,244,0.20)" stroke-width="1"/>
+  <!-- Lock icon inside shield -->
+  <rect x="997" y="207" width="26" height="22" rx="3" fill="rgba(66,133,244,0.30)" stroke="rgba(66,133,244,0.55)" stroke-width="1.5"/>
+  <path d="M1003,207 L1003,200 Q1003,193 1010,193 Q1017,193 1017,200 L1017,207"
+        fill="none" stroke="rgba(66,133,244,0.55)" stroke-width="1.8"/>
+  <circle cx="1010" cy="218" r="3" fill="rgba(255,255,255,0.5)"/>
+
+  <!-- GKE Kubernetes hexagon -->
+  <polygon points="880,148 906,134 932,148 932,175 906,189 880,175"
+           fill="url(#hexGrad)" stroke="rgba(234,67,53,0.35)" stroke-width="1.5"/>
+  <polygon points="880,152 904,139 928,152 928,171 904,184 880,171"
+           fill="rgba(234,67,53,0.06)" stroke="rgba(234,67,53,0.20)" stroke-width="1"/>
+  <!-- K8s wheel inside hex -->
+  <circle cx="906" cy="161" r="10" fill="none" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <circle cx="906" cy="161" r="3.5" fill="rgba(234,67,53,0.40)"/>
+  <line x1="906" y1="151" x2="906" y2="155" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="906" y1="167" x2="906" y2="171" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="896" y1="161" x2="900" y2="161" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="912" y1="161" x2="916" y2="161" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="899" y1="154" x2="902" y2="157" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="910" y1="165" x2="913" y2="168" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="913" y1="154" x2="910" y2="157" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <line x1="902" y1="165" x2="899" y2="168" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+
+  <!-- IAM key icon top right -->
+  <circle cx="1110" cy="155" r="16" fill="rgba(251,188,4,0.10)" stroke="rgba(251,188,4,0.35)" stroke-width="1.5"/>
+  <circle cx="1110" cy="155" r="8" fill="rgba(251,188,4,0.12)" stroke="rgba(251,188,4,0.30)" stroke-width="1"/>
+  <!-- Key teeth -->
+  <line x1="1118" y1="155" x2="1128" y2="155" stroke="rgba(251,188,4,0.45)" stroke-width="2"/>
+  <line x1="1124" y1="155" x2="1124" y2="160" stroke="rgba(251,188,4,0.40)" stroke-width="1.5"/>
+  <line x1="1128" y1="155" x2="1128" y2="160" stroke="rgba(251,188,4,0.40)" stroke-width="1.5"/>
+
+  <!-- Connection lines from shield to satellites -->
+  <line x1="960" y1="185" x2="932" y2="165" stroke="rgba(66,133,244,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1060" y1="185" x2="1094" y2="163" stroke="rgba(251,188,4,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- IAM policy node bottom left of illustration -->
+  <rect x="870" y="270" width="72" height="38" rx="6"
+        fill="rgba(52,168,83,0.10)" stroke="rgba(52,168,83,0.30)" stroke-width="1.2"/>
+  <text x="906" y="285" font-family="monospace" font-size="8" fill="rgba(52,168,83,0.80)" text-anchor="middle">IAM</text>
+  <text x="906" y="298" font-family="monospace" font-size="7" fill="rgba(52,168,83,0.60)" text-anchor="middle">POLICY</text>
+
+  <!-- RBAC node bottom right -->
+  <rect x="1068" y="270" width="72" height="38" rx="6"
+        fill="rgba(66,133,244,0.10)" stroke="rgba(66,133,244,0.30)" stroke-width="1.2"/>
+  <text x="1104" y="285" font-family="monospace" font-size="8" fill="rgba(66,133,244,0.80)" text-anchor="middle">RBAC</text>
+  <text x="1104" y="298" font-family="monospace" font-size="7" fill="rgba(66,133,244,0.60)" text-anchor="middle">BINDING</text>
+
+  <!-- Connection to shield bottom -->
+  <line x1="942" y1="270" x2="985" y2="275" stroke="rgba(52,168,83,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1068" y1="275" x2="1035" y2="275" stroke="rgba(66,133,244,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Workload Identity arrow node -->
+  <rect x="945" y="315" width="130" height="30" rx="5"
+        fill="rgba(251,188,4,0.08)" stroke="rgba(251,188,4,0.25)" stroke-width="1"/>
+  <text x="1010" y="334" font-family="monospace" font-size="8" fill="rgba(251,188,4,0.70)" text-anchor="middle">WORKLOAD IDENTITY</text>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(234,67,53,0.75)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(251,188,4,0.75)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(52,168,83,0.75)" filter="url(#glow)"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4"
+        fill="rgba(66,133,244,0.15)" stroke="rgba(66,133,244,0.35)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12"
+        fill="rgba(66,133,244,0.95)" text-anchor="middle" letter-spacing="1">JANUARY 14, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46"
+        font-weight="700" fill="white">GCP Cloud Security</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="36"
+        font-weight="700" fill="rgba(255,255,255,0.88)">IAM + GKE Security Architecture</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19"
+        fill="rgba(255,255,255,0.55)">Identity, Access Control &amp; Workload Security on GCP</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14"
+        fill="rgba(66,133,244,0.80)" letter-spacing="2">SECURITY / CLOUD / GCP</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="110" height="36" rx="18"
+        fill="rgba(234,67,53,0.18)" stroke="rgba(234,67,53,0.45)" stroke-width="1.2"/>
+  <text x="135" y="425" font-family="'Arial', sans-serif" font-size="12"
+        fill="rgba(234,67,53,0.95)" text-anchor="middle" font-weight="600">IAM Policy</text>
+
+  <rect x="205" y="402" width="110" height="36" rx="18"
+        fill="rgba(251,188,4,0.18)" stroke="rgba(251,188,4,0.45)" stroke-width="1.2"/>
+  <text x="260" y="425" font-family="'Arial', sans-serif" font-size="12"
+        fill="rgba(251,188,4,0.95)" text-anchor="middle" font-weight="600">GKE Security</text>
+
+  <rect x="330" y="402" width="140" height="36" rx="18"
+        fill="rgba(66,133,244,0.18)" stroke="rgba(66,133,244,0.45)" stroke-width="1.2"/>
+  <text x="400" y="425" font-family="'Arial', sans-serif" font-size="12"
+        fill="rgba(66,133,244,0.95)" text-anchor="middle" font-weight="600">Workload Identity</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13"
+        fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13"
+        fill="rgba(66,133,244,0.50)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

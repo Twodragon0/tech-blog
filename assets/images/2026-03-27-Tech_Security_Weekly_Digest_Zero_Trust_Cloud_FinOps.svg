@@ -1,119 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1123;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#e84c4c"/>
-      <stop offset="50%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#e84c4c"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
-    <linearGradient id="pill1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#e84c4c" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#e84c4c" stop-opacity="0.1"/>
-    </linearGradient>
-    <linearGradient id="pill2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
-    </linearGradient>
-    <linearGradient id="pill3" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Left Section - Text Content -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Tech Security Weekly
+  </text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
+    Digest: Zero Trust
+  </text>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Date Badge -->
+  <rect x="60" y="275" width="280" height="40" rx="20" fill="#1a2340" stroke="#00d4ff" stroke-width="2"/>
+  <text x="170" y="302" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d4ff" text-anchor="middle">
+    MARCH 27, 2026
+  </text>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Zero Trust Shield + Cloud + FinOps -->
-  <!-- Outer hexagon representing zero trust perimeter -->
-  <polygon points="1010,140 1090,183 1090,268 1010,312 930,268 930,183" fill="rgba(232,76,76,0.06)" stroke="rgba(232,76,76,0.25)" stroke-width="1.5"/>
-  <!-- Inner hexagon -->
-  <polygon points="1010,165 1070,198 1070,265 1010,298 950,265 950,198" fill="rgba(168,85,247,0.07)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
-  <!-- Core shield shape -->
-  <path d="M1010,185 L1048,203 L1048,245 Q1048,268 1010,280 Q972,268 972,245 L972,203 Z" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <!-- Shield inner checkmark / lock -->
-  <rect x="997" y="230" width="26" height="22" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
-  <path d="M1004,222 Q1004,215 1010,215 Q1016,215 1016,222 L1016,230 L1004,230 Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-  <circle cx="1010" cy="240" r="3" fill="rgba(255,255,255,0.5)"/>
-  <!-- Cloud shape top right -->
-  <ellipse cx="1095" cy="160" rx="32" ry="20" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
-  <ellipse cx="1072" cy="168" rx="22" ry="16" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
-  <ellipse cx="1112" cy="168" rx="18" ry="13" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
-  <rect x="1058" y="168" width="62" height="14" rx="2" fill="rgba(59,130,246,0.06)" stroke="none"/>
-  <!-- FinOps coin symbol bottom -->
-  <circle cx="940" cy="300" r="24" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.28)" stroke-width="1.5"/>
-  <circle cx="940" cy="300" r="16" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
-  <text x="940" y="305" font-size="14" font-weight="700" fill="rgba(245,158,11,0.55)" text-anchor="middle" font-family="monospace">$</text>
-  <!-- Connecting lines between elements -->
-  <line x1="1010" y1="185" x2="1072" y2="168" stroke="rgba(168,85,247,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="972" y1="245" x2="940" y2="300" stroke="rgba(245,158,11,0.12)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="1048" y1="245" x2="1095" y2="185" stroke="rgba(59,130,246,0.12)" stroke-width="1" stroke-dasharray="4,3"/>
-  <!-- Orbit dots -->
-  <circle cx="930" cy="155" r="3" fill="rgba(232,76,76,0.4)"/>
-  <circle cx="1085" cy="290" r="3" fill="rgba(168,85,247,0.4)"/>
-  <circle cx="960" cy="140" r="2" fill="rgba(59,130,246,0.35)"/>
-  <circle cx="1100" cy="250" r="2" fill="rgba(245,158,11,0.35)"/>
+  <!-- Tag Pills -->
+  <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a3a3a" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="105" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4ff" text-anchor="middle">
+    Security
+  </text>
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(232,76,76,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.6)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(59,130,246,0.65)"/>
+  <rect x="165" y="420" width="90" height="32" rx="16" fill="#3a1a2a" stroke="#ff6b9d" stroke-width="1.5"/>
+  <text x="210" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff6b9d" text-anchor="middle">
+    Zero Trust
+  </text>
 
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(232,76,76,0.12)" stroke="rgba(232,76,76,0.3)" stroke-width="1"/>
-  <text x="185" y="81" font-size="12" font-weight="600" fill="rgba(232,76,76,0.9)" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="1.5">MARCH 27, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif" letter-spacing="-0.5">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)" font-family="'Arial', sans-serif" letter-spacing="-0.5">Zero Trust Cloud FinOps</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.5)" font-family="'Arial', sans-serif">Weekly roundup of Zero Trust, Cloud Security, and FinOps insights</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.35)" font-family="'Courier New', monospace" letter-spacing="2.5">CATEGORY: SECURITY / DEVSECOPS / CLOUD</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="url(#pill1)" stroke="rgba(232,76,76,0.4)" stroke-width="1"/>
-  <text x="145" y="425" font-size="13" font-weight="600" fill="rgba(232,76,76,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">Zero Trust</text>
-
-  <rect x="224" y="402" width="130" height="36" rx="18" fill="url(#pill2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="289" y="425" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">FinOps</text>
-
-  <rect x="368" y="402" width="130" height="36" rx="18" fill="url(#pill3)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <text x="433" y="425" font-size="13" font-weight="600" fill="rgba(59,130,246,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">Cloud Sec</text>
+  <rect x="270" y="420" width="70" height="32" rx="16" fill="#2a2a1a" stroke="#ffa500" stroke-width="1.5"/>
+  <text x="305" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffa500" text-anchor="middle">
+    Policy
+  </text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.25)" font-family="'Courier New', monospace" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.25)" font-family="'Courier New', monospace" text-anchor="end" letter-spacing="0.5">security</text>
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    tech.2twodragon.com
+  </text>
+
+  <!-- Right Section - Zero Trust Illustration -->
+  <!-- Central Identity Node -->
+  <circle cx="925" cy="315" r="45" fill="none" stroke="#00d4ff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="925" cy="315" r="35" fill="#001a33" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="925" y="325" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#00d4ff" text-anchor="middle">
+    ID
+  </text>
+
+  <!-- Verification Rings (Concentric) -->
+  <circle cx="925" cy="315" r="70" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.4" stroke-dasharray="5,5"/>
+  <circle cx="925" cy="315" r="95" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+
+  <!-- Top Device/User -->
+  <rect x="895" y="110" width="60" height="70" rx="8" fill="#1a2a3a" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="925" cy="135" r="12" fill="#00d4ff"/>
+  <line x1="915" y1="160" x2="935" y2="160" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="915" y1="170" x2="935" y2="170" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Connection from User to ID (Verified) -->
+  <line x1="925" y1="180" x2="925" y2="270" stroke="#00d4ff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="925" cy="210" r="8" fill="#00d4ff"/>
+
+  <!-- Left Resource -->
+  <rect x="765" y="280" width="65" height="70" rx="8" fill="#1a3a1a" stroke="#00ff88" stroke-width="2"/>
+  <circle cx="797.5" cy="310" r="10" fill="#00ff88"/>
+  <path d="M 797.5 330 L 802 340 L 793 340 Z" fill="#00ff88"/>
+
+  <!-- Connection Left (Verified) -->
+  <line x1="830" y1="315" x2="880" y2="315" stroke="#00ff88" stroke-width="2.5"/>
+  <circle cx="855" cy="315" r="6" fill="#00ff88"/>
+
+  <!-- Right Service -->
+  <rect x="1020" y="280" width="65" height="70" rx="8" fill="#3a1a1a" stroke="#ff6b9d" stroke-width="2"/>
+  <rect x="1033" y="303" width="38" height="24" fill="#ff6b9d"/>
+  <circle cx="1052" cy="315" r="4" fill="#1a1a1a"/>
+
+  <!-- Connection Right (Verified) -->
+  <line x1="970" y1="315" x2="1020" y2="315" stroke="#ff6b9d" stroke-width="2.5"/>
+  <circle cx="995" cy="315" r="6" fill="#ff6b9d"/>
+
+  <!-- Bottom Network/Policy -->
+  <g>
+    <rect x="885" y="450" width="80" height="55" rx="6" fill="#2a1a3a" stroke="#9d4edd" stroke-width="2"/>
+    <circle cx="910" cy="465" r="6" fill="#9d4edd"/>
+    <circle cx="935" cy="475" r="6" fill="#9d4edd"/>
+    <circle cx="955" cy="460" r="5" fill="#9d4edd"/>
+    <path d="M 910 471 L 935 481" stroke="#9d4edd" stroke-width="1" opacity="0.6"/>
+    <path d="M 935 481 L 955 466" stroke="#9d4edd" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- Connection Down (Policy Enforcement) -->
+  <line x1="925" y1="360" x2="925" y2="450" stroke="#9d4edd" stroke-width="2" stroke-dasharray="4,4"/>
+  <circle cx="925" cy="400" r="5" fill="#9d4edd"/>
+
+  <!-- Shield Icons (Trust Verification Points) -->
+  <!-- Top Right Shield -->
+  <path d="M 1000 180 L 1020 200 L 1020 240 Q 1010 250 1000 245 Q 990 250 980 240 L 980 200 Z" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+  <text x="1000" y="225" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4ff" text-anchor="middle" opacity="0.8">✓</text>
+
+  <!-- Bottom Left Shield -->
+  <path d="M 800 420 L 815 440 L 815 475 Q 807.5 485 800 480 Q 792.5 485 785 475 L 785 440 Z" fill="none" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+  <text x="800" y="460" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00ff88" text-anchor="middle" opacity="0.8">✓</text>
+
+  <!-- Bottom Right Shield -->
+  <path d="M 1050 420 L 1065 440 L 1065 475 Q 1057.5 485 1050 480 Q 1042.5 485 1035 475 L 1035 440 Z" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+  <text x="1050" y="460" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b9d" text-anchor="middle" opacity="0.8">✓</text>
+
+  <!-- Lock Icon (Security) -->
+  <g opacity="0.8">
+    <rect x="1090" y="220" width="28" height="30" rx="3" fill="none" stroke="#ffa500" stroke-width="1.5"/>
+    <path d="M 1096 220 L 1096 210 Q 1096 200 1104 200 Q 1112 200 1112 210 L 1112 220" fill="none" stroke="#ffa500" stroke-width="1.5"/>
+    <circle cx="1104" cy="235" r="2" fill="#ffa500"/>
+  </g>
 </svg>

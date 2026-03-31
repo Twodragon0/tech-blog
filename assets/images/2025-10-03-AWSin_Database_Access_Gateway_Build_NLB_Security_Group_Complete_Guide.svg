@@ -1,38 +1,140 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:0.08" />
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#44aaff;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#0055cc;stop-opacity:0.06" />
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#34d399" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#059669" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#34d399" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
-    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Security | AWS</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">CLOUD</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: AWS NLB + Database Gateway Architecture -->
+  <!-- Background circles (subtle) -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.012)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.018)" stroke="none"/>
+
+  <!-- Outer security group ring -->
+  <circle cx="1010" cy="225" r="145" fill="none" stroke="rgba(255,100,100,0.25)" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <circle cx="1010" cy="225" r="130" fill="rgba(255,80,80,0.05)" stroke="rgba(255,80,80,0.15)" stroke-width="1"/>
+
+  <!-- NLB Load Balancer - hexagon shape in center -->
+  <polygon points="1010,130 1060,158 1060,215 1010,243 960,215 960,158" fill="url(#shieldGrad)" stroke="rgba(255,160,50,0.35)" stroke-width="1.5"/>
+  <polygon points="1010,142 1050,165 1050,210 1010,233 970,210 970,165" fill="rgba(255,140,30,0.08)" stroke="rgba(255,140,30,0.22)" stroke-width="1"/>
+  <!-- NLB label lines -->
+  <line x1="990" y1="180" x2="1030" y2="180" stroke="rgba(255,160,50,0.5)" stroke-width="1.5"/>
+  <line x1="985" y1="190" x2="1035" y2="190" stroke="rgba(255,160,50,0.4)" stroke-width="1.2"/>
+  <line x1="990" y1="200" x2="1030" y2="200" stroke="rgba(255,160,50,0.5)" stroke-width="1.5"/>
+  <!-- NLB center dot -->
+  <circle cx="1010" cy="187" r="5" fill="rgba(255,160,50,0.55)" stroke="rgba(255,200,80,0.4)" stroke-width="1"/>
+
+  <!-- Gateway connector lines from NLB outward -->
+  <line x1="1010" y1="243" x2="1010" y2="290" stroke="rgba(68,136,255,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="960" y1="215" x2="900" y2="255" stroke="rgba(68,136,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1060" y1="215" x2="1120" y2="255" stroke="rgba(68,136,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Database cylinder left -->
+  <ellipse cx="900" cy="268" rx="28" ry="10" fill="url(#dbGrad)" stroke="rgba(68,180,255,0.35)" stroke-width="1.2"/>
+  <rect x="872" y="268" width="56" height="36" fill="rgba(30,80,180,0.08)" stroke="rgba(68,180,255,0.25)" stroke-width="1.2"/>
+  <ellipse cx="900" cy="304" rx="28" ry="10" fill="rgba(30,80,180,0.1)" stroke="rgba(68,180,255,0.3)" stroke-width="1.2"/>
+  <!-- DB stripes -->
+  <line x1="872" y1="278" x2="928" y2="278" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="872" y1="288" x2="928" y2="288" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="872" y1="298" x2="928" y2="298" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+
+  <!-- Database cylinder center -->
+  <ellipse cx="1010" cy="300" rx="28" ry="10" fill="url(#dbGrad)" stroke="rgba(68,180,255,0.35)" stroke-width="1.2"/>
+  <rect x="982" y="300" width="56" height="36" fill="rgba(30,80,180,0.08)" stroke="rgba(68,180,255,0.25)" stroke-width="1.2"/>
+  <ellipse cx="1010" cy="336" rx="28" ry="10" fill="rgba(30,80,180,0.1)" stroke="rgba(68,180,255,0.3)" stroke-width="1.2"/>
+  <line x1="982" y1="310" x2="1038" y2="310" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="982" y1="320" x2="1038" y2="320" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="982" y1="330" x2="1038" y2="330" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+
+  <!-- Database cylinder right -->
+  <ellipse cx="1120" cy="268" rx="28" ry="10" fill="url(#dbGrad)" stroke="rgba(68,180,255,0.35)" stroke-width="1.2"/>
+  <rect x="1092" y="268" width="56" height="36" fill="rgba(30,80,180,0.08)" stroke="rgba(68,180,255,0.25)" stroke-width="1.2"/>
+  <ellipse cx="1120" cy="304" rx="28" ry="10" fill="rgba(30,80,180,0.1)" stroke="rgba(68,180,255,0.3)" stroke-width="1.2"/>
+  <line x1="1092" y1="278" x2="1148" y2="278" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="1092" y1="288" x2="1148" y2="288" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+  <line x1="1092" y1="298" x2="1148" y2="298" stroke="rgba(68,180,255,0.2)" stroke-width="0.8"/>
+
+  <!-- Shield security overlay on entire illustration -->
+  <path d="M1010,140 L1075,165 L1075,230 Q1075,290 1010,320 Q945,290 945,230 L945,165 Z" fill="rgba(255,80,80,0.04)" stroke="rgba(255,80,80,0.18)" stroke-width="1" stroke-dasharray="6,3"/>
+
+  <!-- Inbound traffic arrow from left -->
+  <path d="M880,185 L940,185" stroke="rgba(100,255,120,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowGreen)"/>
+  <polygon points="940,182 950,185 940,188" fill="rgba(100,255,120,0.45)"/>
+
+  <!-- AWS cloud tag top-right -->
+  <rect x="955" y="138" width="50" height="16" rx="3" fill="rgba(255,160,50,0.12)" stroke="rgba(255,160,50,0.3)" stroke-width="0.8"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="rgba(255,80,80,0.75)" />
+  <circle cx="900" cy="420" r="4" fill="rgba(255,160,50,0.65)" />
+  <circle cx="860" cy="440" r="3.5" fill="rgba(68,136,255,0.70)" />
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,80,80,0.12)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
+  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,120,120,0.9)" letter-spacing="1.5">OCTOBER 3, 2025</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">AWSIn Database Access Gateway</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Build NLB Security Group</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(180,200,255,0.75)">Network Load Balancer · Private Subnet · Access Control</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="1.5"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" fill="rgba(150,170,220,0.65)" letter-spacing="2.5" font-weight="600">CLOUD INFRASTRUCTURE · AWS · NETWORKING</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="403" width="110" height="36" rx="18" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.35)" stroke-width="1"/>
+  <text x="135" y="426" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(255,120,120,0.9)" text-anchor="middle" font-weight="600">NLB Gateway</text>
+
+  <rect x="206" y="403" width="120" height="36" rx="18" fill="rgba(255,140,30,0.15)" stroke="rgba(255,140,30,0.35)" stroke-width="1"/>
+  <text x="266" y="426" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(255,180,80,0.9)" text-anchor="middle" font-weight="600">Security Group</text>
+
+  <rect x="342" y="403" width="110" height="36" rx="18" fill="rgba(50,100,255,0.15)" stroke="rgba(80,140,255,0.35)" stroke-width="1"/>
+  <text x="397" y="426" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(120,170,255,0.9)" text-anchor="middle" font-weight="600">RDS Access</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" fill="rgba(150,170,220,0.5)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" fill="rgba(150,170,220,0.45)" text-anchor="end" letter-spacing="1.5" font-weight="600">CLOUD</text>
 </svg>

@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- Left side: Title and metadata -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">Tech Security Weekly</text>
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">Digest CVE Patch</text>
+
+  <!-- Date badge -->
+  <rect x="60" y="275" width="280" height="45" rx="8" fill="#ff6b6b" opacity="0.15"/>
+  <text x="75" y="305" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#ff6b6b">MARCH 22, 2026</text>
+
+  <!-- Tag pills -->
+  <rect x="60" y="420" width="100" height="40" rx="20" fill="#4ecdc4" opacity="0.2"/>
+  <text x="110" y="446" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4ecdc4" text-anchor="middle">CVE</text>
+
+  <rect x="180" y="420" width="130" height="40" rx="20" fill="#95e1d3" opacity="0.2"/>
+  <text x="245" y="446" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#95e1d3" text-anchor="middle">Vulnerabilities</text>
+
+  <rect x="330" y="420" width="110" height="40" rx="20" fill="#ffd93d" opacity="0.2"/>
+  <text x="385" y="446" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#ffd93d" text-anchor="middle">Patch Fix</text>
+
+  <!-- Footer -->
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" fill="#666666">tech.2twodragon.com</text>
+
+  <!-- Right side: Unique illustration for CVE Patch -->
+
+  <!-- Shield base (main security symbol) -->
+  <g>
+    <!-- Large shield outline -->
+    <path d="M 850 180 L 950 180 L 950 320 Q 950 380 900 410 Q 850 440 850 410 L 850 180"
+          fill="none" stroke="#4ecdc4" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- Shield fill gradient effect with circles -->
+    <circle cx="900" cy="280" r="45" fill="#4ecdc4" opacity="0.15"/>
+    <circle cx="900" cy="280" r="35" fill="#4ecdc4" opacity="0.25"/>
+    <circle cx="900" cy="280" r="25" fill="#4ecdc4" opacity="0.35"/>
+  </g>
+
+  <!-- Patch/Bandage symbol (on shield) -->
+  <g>
+    <!-- Patch rectangle -->
+    <rect x="875" y="255" width="50" height="50" rx="4" fill="#ff6b6b" opacity="0.9"/>
+    <!-- Cross on patch (bandage symbol) -->
+    <rect x="895" y="265" width="10" height="30" fill="#ffffff"/>
+    <rect x="880" y="280" width="40" height="10" fill="#ffffff"/>
+  </g>
+
+  <!-- Bug/Vulnerability symbols being fixed -->
+  <!-- Bug 1 (left) -->
+  <g>
+    <circle cx="750" cy="250" r="12" fill="#ff6b6b" opacity="0.6"/>
+    <line x1="745" y1="240" x2="740" y2="225" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+    <line x1="755" y1="240" x2="760" y2="225" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+    <line x1="740" y1="255" x2="720" y2="260" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+    <line x1="760" y1="255" x2="780" y2="260" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+    <!-- Strike through (fixed) -->
+    <line x1="735" y1="245" x2="765" y2="255" stroke="#4ecdc4" stroke-width="2"/>
+  </g>
+
+  <!-- Bug 2 (lower left) -->
+  <g>
+    <circle cx="740" cy="340" r="10" fill="#ff6b6b" opacity="0.6"/>
+    <line x1="735" y1="332" x2="732" y2="318" stroke="#ff6b6b" stroke-width="1.5" opacity="0.6"/>
+    <line x1="745" y1="332" x2="748" y2="318" stroke="#ff6b6b" stroke-width="1.5" opacity="0.6"/>
+    <!-- Strike through (fixed) -->
+    <line x1="728" y1="335" x2="752" y2="345" stroke="#4ecdc4" stroke-width="2"/>
+  </g>
+
+  <!-- Weekly calendar symbol -->
+  <g>
+    <!-- Calendar grid -->
+    <rect x="1000" y="220" width="90" height="90" rx="4" fill="none" stroke="#95e1d3" stroke-width="2" opacity="0.8"/>
+    <!-- Calendar header (day area) -->
+    <rect x="1000" y="220" width="90" height="18" fill="#95e1d3" opacity="0.2"/>
+    <!-- Grid lines for dates -->
+    <line x1="1000" y1="238" x2="1090" y2="238" stroke="#95e1d3" stroke-width="1" opacity="0.5"/>
+    <line x1="1000" y1="256" x2="1090" y2="256" stroke="#95e1d3" stroke-width="1" opacity="0.5"/>
+    <line x1="1000" y1="274" x2="1090" y2="274" stroke="#95e1d3" stroke-width="1" opacity="0.5"/>
+    <!-- Week indicator -->
+    <circle cx="1015" cy="245" r="3" fill="#ffd93d"/>
+    <circle cx="1035" cy="245" r="3" fill="#ffd93d"/>
+    <circle cx="1055" cy="245" r="3" fill="#ffd93d"/>
+    <circle cx="1075" cy="245" r="3" fill="#ffd93d"/>
+  </g>
+
+  <!-- Lock symbol (security) -->
+  <g>
+    <!-- Lock body -->
+    <rect x="1020" y="345" width="50" height="45" rx="3" fill="none" stroke="#ffd93d" stroke-width="2"/>
+    <!-- Lock shackle (top) -->
+    <path d="M 1028 345 Q 1028 320 1045 320 Q 1062 320 1062 345"
+          fill="none" stroke="#ffd93d" stroke-width="2"/>
+    <!-- Lock keyhole -->
+    <circle cx="1045" cy="362" r="4" fill="none" stroke="#ffd93d" stroke-width="1.5"/>
+  </g>
+
+  <!-- Connection lines showing update/flow -->
+  <g opacity="0.4">
+    <path d="M 850 300 Q 800 290 750 270" fill="none" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="5,5"/>
+    <path d="M 850 320 Q 800 330 740 340" fill="none" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Checkmark (patches applied) -->
+  <g>
+    <circle cx="980" cy="440" r="25" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+    <path d="M 970 440 L 978 448 L 990 432" fill="none" stroke="#4ecdc4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Accent dots -->
+  <circle cx="720" cy="200" r="4" fill="#95e1d3" opacity="0.5"/>
+  <circle cx="1080" cy="480" r="3" fill="#ffd93d" opacity="0.5"/>
+  <circle cx="730" cy="500" r="3" fill="#4ecdc4" opacity="0.4"/>
+</svg>

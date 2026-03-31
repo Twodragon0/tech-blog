@@ -5,21 +5,25 @@
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#cc00ff"/>
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="50%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#dd6b20"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="100%" style="stop-color:transparent"/>
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="100%" style="stop-color:rgba(229,62,62,0)"/>
     </linearGradient>
-    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.05"/>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#9b2335;stop-opacity:0.06"/>
+    </linearGradient>
+    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0.05"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
@@ -38,91 +42,125 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware Lock + AI Neural Shield -->
-  <!-- Outer shield shape -->
-  <path d="M1010,140 L1110,170 L1110,260 Q1110,310 1010,340 Q910,310 910,260 L910,170 Z"
-        fill="rgba(255,60,60,0.07)" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <!-- Inner shield -->
-  <path d="M1010,160 L1095,185 L1095,258 Q1095,298 1010,322 Q925,298 925,258 L925,185 Z"
-        fill="rgba(255,40,40,0.06)" stroke="rgba(255,100,100,0.2)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Shield with ransomware/AI lock motif -->
+  <!-- Outer shield body -->
+  <path d="M1010,135 L1130,160 L1130,255 Q1130,315 1010,345 Q890,315 890,255 L890,160 Z"
+        fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.22)" stroke-width="1.5"/>
 
-  <!-- Lock body -->
-  <rect x="982" y="230" width="56" height="44" rx="6"
-        fill="rgba(255,80,40,0.12)" stroke="rgba(255,120,60,0.35)" stroke-width="1.5"/>
+  <!-- Inner shield layer -->
+  <path d="M1010,152 L1112,173 L1112,254 Q1112,305 1010,331 Q908,305 908,254 L908,173 Z"
+        fill="none" stroke="rgba(229,62,62,0.12)" stroke-width="1"/>
+
+  <!-- Lock body - outer -->
+  <rect x="975" y="220" width="70" height="58" rx="6"
+        fill="rgba(229,62,62,0.10)" stroke="rgba(255,80,80,0.35)" stroke-width="1.5"/>
+
   <!-- Lock shackle -->
-  <path d="M993,230 L993,214 Q993,200 1010,200 Q1027,200 1027,214 L1027,230"
-        fill="none" stroke="rgba(255,120,60,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M990,220 L990,200 Q990,178 1010,178 Q1030,178 1030,200 L1030,220"
+        fill="none" stroke="rgba(255,100,100,0.38)" stroke-width="2.5" stroke-linecap="round"/>
+
   <!-- Lock keyhole -->
-  <circle cx="1010" cy="250" r="7" fill="rgba(255,60,40,0.2)" stroke="rgba(255,100,60,0.4)" stroke-width="1.5"/>
-  <rect x="1007" y="254" width="6" height="10" rx="2" fill="rgba(255,60,40,0.2)" stroke="rgba(255,100,60,0.4)" stroke-width="1.5"/>
+  <circle cx="1010" cy="245" r="8" fill="rgba(229,62,62,0.20)" stroke="rgba(255,80,80,0.40)" stroke-width="1.2"/>
+  <rect x="1006" y="250" width="8" height="13" rx="2" fill="rgba(229,62,62,0.18)" stroke="rgba(255,80,80,0.30)" stroke-width="1"/>
 
-  <!-- AI Neural nodes around shield -->
-  <circle cx="960" cy="200" r="6" fill="rgba(180,100,255,0.15)" stroke="rgba(180,120,255,0.35)" stroke-width="1.5"/>
-  <circle cx="1060" cy="195" r="6" fill="rgba(180,100,255,0.15)" stroke="rgba(180,120,255,0.35)" stroke-width="1.5"/>
-  <circle cx="940" cy="280" r="5" fill="rgba(100,160,255,0.12)" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"/>
-  <circle cx="1080" cy="275" r="5" fill="rgba(100,160,255,0.12)" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"/>
-  <circle cx="980" cy="325" r="5" fill="rgba(255,160,60,0.12)" stroke="rgba(255,180,80,0.3)" stroke-width="1.5"/>
-  <circle cx="1040" cy="328" r="5" fill="rgba(255,160,60,0.12)" stroke="rgba(255,180,80,0.3)" stroke-width="1.5"/>
-  <!-- Neural connection lines -->
-  <line x1="960" y1="200" x2="1060" y2="195" stroke="rgba(180,120,255,0.2)" stroke-width="1"/>
-  <line x1="960" y1="200" x2="940" y2="280" stroke="rgba(180,120,255,0.15)" stroke-width="1"/>
-  <line x1="1060" y1="195" x2="1080" y2="275" stroke="rgba(180,120,255,0.15)" stroke-width="1"/>
-  <line x1="940" y1="280" x2="980" y2="325" stroke="rgba(100,180,255,0.2)" stroke-width="1"/>
-  <line x1="1080" y1="275" x2="1040" y2="328" stroke="rgba(100,180,255,0.2)" stroke-width="1"/>
-  <line x1="960" y1="200" x2="910" y2="215" stroke="rgba(180,120,255,0.12)" stroke-width="1"/>
-  <line x1="1060" y1="195" x2="1110" y2="210" stroke="rgba(180,120,255,0.12)" stroke-width="1"/>
+  <!-- Ransomware binary pattern around lock -->
+  <text x="895" y="185" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.18)">01001101</text>
+  <text x="895" y="196" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.12)">10110100</text>
+  <text x="895" y="207" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.15)">00110111</text>
+  <text x="1075" y="185" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.15)">11001010</text>
+  <text x="1075" y="196" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.10)">01010101</text>
+  <text x="1075" y="207" font-family="monospace" font-size="8" fill="rgba(255,80,80,0.13)">10100011</text>
 
-  <!-- Patch binary hex text decoration -->
-  <text x="895" y="165" font-family="monospace" font-size="10" fill="rgba(255,120,60,0.25)">0xCVE</text>
-  <text x="1065" y="160" font-family="monospace" font-size="10" fill="rgba(100,200,255,0.2)">PATCH</text>
-  <text x="890" y="310" font-family="monospace" font-size="9" fill="rgba(180,120,255,0.2)">AI::SEC</text>
-  <text x="1060" y="315" font-family="monospace" font-size="9" fill="rgba(255,200,80,0.2)">ALERT</text>
+  <!-- AI neural nodes around shield -->
+  <circle cx="900" cy="230" r="5" fill="rgba(255,140,0,0.12)" stroke="rgba(255,140,0,0.30)" stroke-width="1"/>
+  <circle cx="1120" cy="225" r="5" fill="rgba(255,140,0,0.12)" stroke="rgba(255,140,0,0.30)" stroke-width="1"/>
+  <circle cx="930" cy="310" r="4" fill="rgba(255,140,0,0.10)" stroke="rgba(255,140,0,0.25)" stroke-width="1"/>
+  <circle cx="1090" cy="315" r="4" fill="rgba(255,140,0,0.10)" stroke="rgba(255,140,0,0.25)" stroke-width="1"/>
+  <circle cx="1010" cy="340" r="4" fill="rgba(255,80,80,0.12)" stroke="rgba(255,80,80,0.28)" stroke-width="1"/>
 
-  <!-- Rotating outer ring segments -->
-  <circle cx="1010" cy="240" r="88" fill="none" stroke="rgba(255,80,80,0.08)" stroke-width="1" stroke-dasharray="12 8"/>
-  <circle cx="1010" cy="240" r="108" fill="none" stroke="rgba(180,100,255,0.06)" stroke-width="1" stroke-dasharray="6 14"/>
+  <!-- Neural connections -->
+  <line x1="900" y1="230" x2="1010" y2="152" stroke="rgba(255,140,0,0.10)" stroke-width="1"/>
+  <line x1="1120" y1="225" x2="1010" y2="152" stroke="rgba(255,140,0,0.10)" stroke-width="1"/>
+  <line x1="900" y1="230" x2="930" y2="310" stroke="rgba(255,140,0,0.08)" stroke-width="1"/>
+  <line x1="1120" y1="225" x2="1090" y2="315" stroke="rgba(255,140,0,0.08)" stroke-width="1"/>
+  <line x1="930" y1="310" x2="1010" y2="340" stroke="rgba(255,80,80,0.08)" stroke-width="1"/>
+  <line x1="1090" y1="315" x2="1010" y2="340" stroke="rgba(255,80,80,0.08)" stroke-width="1"/>
+
+  <!-- Patch badge top-right of shield -->
+  <rect x="1065" y="148" width="52" height="20" rx="4"
+        fill="rgba(56,161,105,0.12)" stroke="rgba(56,161,105,0.28)" stroke-width="1"/>
+  <text x="1091" y="162" font-family="Arial,sans-serif" font-size="9" font-weight="700"
+        fill="rgba(56,200,120,0.60)" text-anchor="middle">PATCH</text>
+
+  <!-- Warning triangle icon below shield -->
+  <polygon points="1010,362 985,400 1035,400"
+           fill="rgba(229,62,62,0.08)" stroke="rgba(229,62,62,0.25)" stroke-width="1.2"/>
+  <text x="1010" y="394" font-family="Arial,sans-serif" font-size="11" font-weight="900"
+        fill="rgba(229,62,62,0.40)" text-anchor="middle">!</text>
+
+  <!-- Scan lines across shield -->
+  <line x1="890" y1="220" x2="1130" y2="220" stroke="rgba(229,62,62,0.06)" stroke-width="1"/>
+  <line x1="890" y1="240" x2="1130" y2="240" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
+  <line x1="890" y1="260" x2="1130" y2="260" stroke="rgba(229,62,62,0.06)" stroke-width="1"/>
+  <line x1="890" y1="280" x2="1130" y2="280" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
+  <line x1="890" y1="300" x2="1130" y2="300" stroke="rgba(229,62,62,0.06)" stroke-width="1"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.6)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,160,40,0.5)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(100,180,255,0.5)" filter="url(#glow)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.55)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(229,62,62,0.40)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(229,62,62,0.30)"/>
 
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,40,40,0.04)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(180,60,255,0.05)"/>
+  <!-- Background large circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Courier New',monospace" font-size="12" fill="rgba(255,150,100,0.9)" text-anchor="middle" letter-spacing="1">FEBRUARY 11, 2026</text>
+  <rect x="80" y="60" width="210" height="32" rx="4"
+        fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.30)" stroke-width="1"/>
+  <text x="185" y="81" font-family="Arial,sans-serif" font-size="12" font-weight="600"
+        fill="rgba(255,120,120,0.85)" text-anchor="middle" letter-spacing="1">FEBRUARY 11, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700"
+        fill="white" opacity="0.95">Tech Security Weekly Digest</text>
+
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)" letter-spacing="-0.5">Security Ransomware Patch AI</text>
+  <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700"
+        fill="rgba(229,100,100,0.92)">Security Ransomware Patch AI</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(255,160,100,0.75)">Weekly intelligence brief covering threats, patches &amp; AI defenses</text>
+  <text x="80" y="300" font-family="Arial,sans-serif" font-size="19"
+        fill="rgba(255,255,255,0.50)">Weekly digest covering security threats, ransomware trends &amp; AI patch intelligence</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial',sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="3" text-transform="uppercase">SECURITY / THREAT INTELLIGENCE</text>
+  <text x="80" y="370" font-family="Arial,sans-serif" font-size="14" font-weight="600"
+        fill="rgba(229,62,62,0.75)" letter-spacing="2">SECURITY / DEVSECOPS / THREAT INTELLIGENCE</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,40,40,0.18)" stroke="rgba(255,80,80,0.4)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,120,100,0.95)" text-anchor="middle" font-weight="600">RANSOMWARE</text>
+  <rect x="80" y="402" width="130" height="36" rx="18"
+        fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.38)" stroke-width="1"/>
+  <text x="145" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,110,110,0.90)" text-anchor="middle">Ransomware</text>
 
-  <rect x="225" y="402" width="110" height="36" rx="18" fill="rgba(220,140,20,0.18)" stroke="rgba(255,180,40,0.4)" stroke-width="1"/>
-  <text x="280" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,200,80,0.95)" text-anchor="middle" font-weight="600">PATCH CVE</text>
+  <rect x="224" y="402" width="110" height="36" rx="18"
+        fill="rgba(214,158,46,0.15)" stroke="rgba(214,158,46,0.35)" stroke-width="1"/>
+  <text x="279" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(240,190,80,0.88)" text-anchor="middle">Patch Mgmt</text>
 
-  <rect x="350" y="402" width="90" height="36" rx="18" fill="rgba(40,100,220,0.18)" stroke="rgba(80,150,255,0.4)" stroke-width="1"/>
-  <text x="395" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(100,180,255,0.95)" text-anchor="middle" font-weight="600">AI SEC</text>
+  <rect x="348" y="402" width="90" height="36" rx="18"
+        fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.32)" stroke-width="1"/>
+  <text x="393" y="425" font-family="Arial,sans-serif" font-size="13" font-weight="600"
+        fill="rgba(110,180,255,0.88)" text-anchor="middle">AI SecOps</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Arial',sans-serif" font-size="14" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,255,255,0.25)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-family="Arial,sans-serif" font-size="14"
+        fill="rgba(255,255,255,0.30)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial,sans-serif" font-size="14"
+        fill="rgba(229,62,62,0.45)" text-anchor="end">SECURITY</text>
 </svg>

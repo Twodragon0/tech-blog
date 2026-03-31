@@ -1,165 +1,111 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ed8936;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9b2335;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ed8936;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="rustGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ce422b;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#7b2d1e;stop-opacity:0.06" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.12" />
-      <stop offset="100%" style="stop-color:#9b2335;stop-opacity:0.06" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Rust + AI + Security threat icon -->
-  <!-- Outer shield shape -->
-  <path d="M1010,140 L1130,170 L1130,270 Q1130,330 1010,360 Q890,330 890,270 L890,170 Z"
-        fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
-
-  <!-- Inner shield layer -->
-  <path d="M1010,158 L1112,183 L1112,268 Q1112,318 1010,344 Q908,318 908,268 L908,183 Z"
-        fill="none" stroke="rgba(229,62,62,0.18)" stroke-width="1"/>
-
-  <!-- Rust gear symbol - outer ring -->
-  <circle cx="1010" cy="250" r="62" fill="none" stroke="rgba(206,66,43,0.35)" stroke-width="2"/>
-  <circle cx="1010" cy="250" r="52" fill="url(#rustGrad)" stroke="rgba(206,66,43,0.22)" stroke-width="1.5"/>
-
-  <!-- Rust gear teeth -->
-  <g stroke="rgba(206,66,43,0.4)" stroke-width="2" fill="none">
-    <line x1="1010" y1="185" x2="1010" y2="175"/>
-    <line x1="1010" y1="325" x2="1010" y2="315"/>
-    <line x1="945" y1="250" x2="935" y2="250"/>
-    <line x1="1085" y1="250" x2="1075" y2="250"/>
-    <line x1="963" y1="203" x2="956" y2="196"/>
-    <line x1="1064" y1="304" x2="1057" y2="297"/>
-    <line x1="963" y1="297" x2="956" y2="304"/>
-    <line x1="1064" y1="196" x2="1057" y2="203"/>
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Left Side Content -->
+  <!-- Title -->
+  <text x="60" y="185" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">Tech Security Weekly</text>
+  <text x="60" y="245" font-size="46" font-weight="bold" fill="white" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-1">Digest Data Rust</text>
+  
+  <!-- Date Badge -->
+  <rect x="60" y="280" width="220" height="36" fill="#1a1d2e" rx="4" stroke="#4a5f8f" stroke-width="1"/>
+  <text x="75" y="304" font-size="14" font-weight="600" fill="#8fa3d0" font-family="system-ui, -apple-system, sans-serif">FEBRUARY 21, 2026</text>
+  
+  <!-- Tag Pills -->
+  <g id="tags">
+    <!-- Tag 1: Security -->
+    <rect x="60" y="420" width="110" height="32" fill="#2a3a5a" rx="16" stroke="#6b8fcf" stroke-width="1"/>
+    <text x="115" y="442" font-size="13" font-weight="500" fill="#8fa3d0" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">security</text>
+    
+    <!-- Tag 2: Rust -->
+    <rect x="185" y="420" width="90" height="32" fill="#3a2a1a" rx="16" stroke="#b87533" stroke-width="1"/>
+    <text x="230" y="442" font-size="13" font-weight="500" fill="#d4804f" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">rust</text>
+    
+    <!-- Tag 3: Data -->
+    <rect x="290" y="420" width="80" height="32" fill="#2a3a2a" rx="16" stroke="#6ba86b" stroke-width="1"/>
+    <text x="330" y="442" font-size="13" font-weight="500" fill="#8fc48f" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">data</text>
   </g>
-
-  <!-- AI neural nodes inside gear -->
-  <circle cx="1010" cy="250" r="18" fill="rgba(229,62,62,0.12)" stroke="rgba(229,62,62,0.4)" stroke-width="1.5"/>
-  <circle cx="990" cy="232" r="7" fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.5)" stroke-width="1"/>
-  <circle cx="1030" cy="232" r="7" fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.5)" stroke-width="1"/>
-  <circle cx="990" cy="268" r="7" fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.5)" stroke-width="1"/>
-  <circle cx="1030" cy="268" r="7" fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.5)" stroke-width="1"/>
-
-  <!-- Neural connections -->
-  <line x1="990" y1="232" x2="1030" y2="232" stroke="rgba(237,137,54,0.3)" stroke-width="1"/>
-  <line x1="990" y1="268" x2="1030" y2="268" stroke="rgba(237,137,54,0.3)" stroke-width="1"/>
-  <line x1="990" y1="232" x2="990" y2="268" stroke="rgba(237,137,54,0.3)" stroke-width="1"/>
-  <line x1="1030" y1="232" x2="1030" y2="268" stroke="rgba(237,137,54,0.3)" stroke-width="1"/>
-  <line x1="990" y1="232" x2="1010" y2="250" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <line x1="1030" y1="232" x2="1010" y2="250" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <line x1="990" y1="268" x2="1010" y2="250" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <line x1="1030" y1="268" x2="1010" y2="250" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-
-  <!-- Threat arrow pointing at shield -->
-  <path d="M870,230 L895,250 L870,270 L878,250 Z"
-        fill="rgba(229,62,62,0.2)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-
-  <!-- Data stream lines (threat vector) -->
-  <line x1="860" y1="215" x2="890" y2="215" stroke="rgba(229,62,62,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="855" y1="225" x2="888" y2="225" stroke="rgba(229,62,62,0.13)" stroke-width="1" stroke-dasharray="3,4"/>
-  <line x1="860" y1="275" x2="890" y2="275" stroke="rgba(229,62,62,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="855" y1="285" x2="888" y2="285" stroke="rgba(229,62,62,0.13)" stroke-width="1" stroke-dasharray="3,4"/>
-
-  <!-- Decorative corner bracket top-right -->
-  <path d="M1095,145 L1140,145 L1140,190" fill="none" stroke="rgba(229,62,62,0.2)" stroke-width="1.5"/>
-  <!-- Decorative corner bracket bottom-left of illustration -->
-  <path d="M885,355 L885,380 L910,380" fill="none" stroke="rgba(237,137,54,0.2)" stroke-width="1.5"/>
-
-  <!-- Small binary/hex decorative text -->
-  <text x="893" y="155" font-family="monospace" font-size="9" fill="rgba(206,66,43,0.25)">0xDEAD</text>
-  <text x="1075" y="375" font-family="monospace" font-size="9" fill="rgba(237,137,54,0.22)">0xFF2B</text>
-  <text x="890" y="320" font-family="monospace" font-size="8" fill="rgba(229,62,62,0.2)">THREAT</text>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(237,137,54,0.6)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(229,62,62,0.5)"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(229,62,62,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(229,62,62,0.05)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.35)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600"
-        fill="rgba(229,120,100,0.95)" text-anchor="middle" letter-spacing="1.5">FEBRUARY 21, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700"
-        fill="white">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700"
-        fill="rgba(229,62,62,0.95)">Data Rust AI Threat</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19"
-        fill="rgba(255,255,255,0.55)">Security Intelligence · Rust Vulnerabilities · AI-Driven Threats</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600"
-        fill="rgba(229,62,62,0.8)" letter-spacing="2.5">SECURITY</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.45)" stroke-width="1"/>
-  <text x="140" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(229,100,100,0.95)" text-anchor="middle">Rust CVE</text>
-
-  <rect x="216" y="402" width="130" height="36" rx="18" fill="rgba(237,137,54,0.18)" stroke="rgba(237,137,54,0.45)" stroke-width="1"/>
-  <text x="281" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(237,160,80,0.95)" text-anchor="middle">AI Threat</text>
-
-  <rect x="362" y="402" width="140" height="36" rx="18" fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.4)" stroke-width="1"/>
-  <text x="432" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="rgba(100,180,240,0.95)" text-anchor="middle">Data Security</text>
-
+  
   <!-- Footer -->
-  <line x1="80" y1="510" x2="1120" y2="510" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <text x="80" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14"
-        fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14"
-        fill="rgba(229,62,62,0.5)" text-anchor="end">SECURITY</text>
+  <text x="60" y="600" font-size="12" fill="#6b7a9e" font-family="system-ui, -apple-system, sans-serif">tech.2twodragon.com</text>
+  
+  <!-- Right Side Illustration: Security + Rust + Data -->
+  <!-- Background accent -->
+  <rect x="700" y="0" width="500" height="630" fill="#0f1420" opacity="0.6"/>
+  
+  <!-- Decorative gradient overlay circles -->
+  <defs>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4a7fff;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#4a7fff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#d4804f;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#d4804f;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6ba86b;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#4a7fff;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background glows -->
+  <circle cx="850" cy="150" r="120" fill="url(#glow1)"/>
+  <circle cx="1000" cy="400" r="100" fill="url(#glow2)"/>
+  
+  <!-- Central Security Shield with Rust Crab Icon -->
+  <g id="main-shield">
+    <!-- Shield base -->
+    <path d="M 900 120 L 950 140 L 960 220 Q 960 280 900 320 Q 840 280 840 220 L 850 140 Z" fill="#2a3a5a" stroke="#6b8fcf" stroke-width="2"/>
+    
+    <!-- Lock inside shield -->
+    <rect x="880" y="180" width="40" height="35" fill="#4a7fff" rx="3" opacity="0.8"/>
+    <circle cx="900" cy="195" r="8" fill="#0a0c1a" stroke="#6b8fcf" stroke-width="1.5"/>
+    <rect x="895" y="205" width="10" height="15" fill="#4a7fff"/>
+  </g>
+  
+  <!-- Rust-inspired elements on left -->
+  <!-- Crab claw shapes -->
+  <g id="rust-crab" transform="translate(750, 280)">
+    <!-- Left claw -->
+    <path d="M 0 0 Q -30 -20 -40 -35" fill="none" stroke="#d4804f" stroke-width="3" stroke-linecap="round"/>
+    <!-- Right claw -->
+    <path d="M 0 0 Q 30 -20 40 -35" fill="none" stroke="#d4804f" stroke-width="3" stroke-linecap="round"/>
+    <!-- Body -->
+    <circle cx="0" cy="0" r="12" fill="#b87533"/>
+  </g>
+  
+  <!-- Data network visualization -->
+  <g id="data-network" opacity="0.7">
+    <!-- Data nodes -->
+    <circle cx="800" cy="480" r="6" fill="#6ba86b" stroke="#8fc48f" stroke-width="1"/>
+    <circle cx="870" cy="520" r="6" fill="#6ba86b" stroke="#8fc48f" stroke-width="1"/>
+    <circle cx="930" cy="480" r="6" fill="#6ba86b" stroke="#8fc48f" stroke-width="1"/>
+    <circle cx="1000" cy="540" r="6" fill="#6ba86b" stroke="#8fc48f" stroke-width="1"/>
+    
+    <!-- Connection lines -->
+    <line x1="800" y1="480" x2="870" y2="520" stroke="#6ba86b" stroke-width="1.5" opacity="0.6"/>
+    <line x1="870" y1="520" x2="930" y2="480" stroke="#6ba86b" stroke-width="1.5" opacity="0.6"/>
+    <line x1="930" y1="480" x2="1000" y2="540" stroke="#6ba86b" stroke-width="1.5" opacity="0.6"/>
+    <line x1="800" y1="480" x2="930" y2="480" stroke="#6ba86b" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  
+  <!-- Database cylinder for data representation -->
+  <g id="database" transform="translate(1050, 380)">
+    <!-- Top ellipse -->
+    <ellipse cx="0" cy="0" rx="22" ry="8" fill="#4a7fff" opacity="0.6" stroke="#6b8fcf" stroke-width="1"/>
+    <!-- Main body -->
+    <rect x="-22" y="0" width="44" height="50" fill="#2a3a5a" stroke="#6b8fcf" stroke-width="1"/>
+    <!-- Bottom ellipse -->
+    <ellipse cx="0" cy="50" rx="22" ry="8" fill="#1a2a4a" stroke="#6b8fcf" stroke-width="1"/>
+    <!-- Data bars inside -->
+    <rect x="-16" y="10" width="32" height="3" fill="#4a7fff" opacity="0.7"/>
+    <rect x="-16" y="18" width="32" height="3" fill="#4a7fff" opacity="0.7"/>
+    <rect x="-16" y="26" width="32" height="3" fill="#4a7fff" opacity="0.7"/>
+    <rect x="-16" y="34" width="32" height="3" fill="#4a7fff" opacity="0.7"/>
+  </g>
+  
+  <!-- Accent lines for visual flow -->
+  <line x1="700" y1="50" x2="1150" y2="50" stroke="#6b8fcf" stroke-width="1" opacity="0.3"/>
+  <line x1="700" y1="630" x2="1150" y2="630" stroke="#6b8fcf" stroke-width="1" opacity="0.3"/>
 </svg>

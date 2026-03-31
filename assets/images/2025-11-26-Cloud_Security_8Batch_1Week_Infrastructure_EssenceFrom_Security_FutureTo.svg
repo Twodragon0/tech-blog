@@ -1,38 +1,153 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>8 1</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e53935"/>
+      <stop offset="100%" stop-color="#ff6f00"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e53935"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e53935" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff6f00" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e53935" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff6f00" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42a5f5" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1565c0" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef5350" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b71c1c" stop-opacity="0.10"/>
+    </linearGradient>
+    <filter id="blur1">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#34d399" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#059669" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#34d399" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
-    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
-    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">8 1</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Tech | Blog | Update</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">CLOUD</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Background ambient circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(229,57,53,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(229,57,53,0.06)" stroke="none"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Cloud Infrastructure + Security Shield -->
+  <!-- Outer cloud shape -->
+  <ellipse cx="1010" cy="190" rx="88" ry="52" fill="url(#cloudGrad)" stroke="rgba(66,165,245,0.30)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="205" rx="52" ry="38" fill="url(#cloudGrad)" stroke="rgba(66,165,245,0.22)" stroke-width="1"/>
+  <ellipse cx="1070" cy="208" rx="46" ry="32" fill="url(#cloudGrad)" stroke="rgba(66,165,245,0.22)" stroke-width="1"/>
+  <rect x="930" y="205" width="158" height="34" rx="4" fill="url(#cloudGrad)" stroke="none"/>
+
+  <!-- Cloud inner grid (infrastructure nodes) -->
+  <circle cx="970" cy="190" r="7" fill="rgba(66,165,245,0.25)" stroke="rgba(66,165,245,0.5)" stroke-width="1.2"/>
+  <circle cx="1010" cy="183" r="7" fill="rgba(66,165,245,0.25)" stroke="rgba(66,165,245,0.5)" stroke-width="1.2"/>
+  <circle cx="1050" cy="190" r="7" fill="rgba(66,165,245,0.25)" stroke="rgba(66,165,245,0.5)" stroke-width="1.2"/>
+  <line x1="977" y1="190" x2="1003" y2="183" stroke="rgba(66,165,245,0.35)" stroke-width="1"/>
+  <line x1="1017" y1="183" x2="1043" y2="190" stroke="rgba(66,165,245,0.35)" stroke-width="1"/>
+
+  <!-- Server rack below cloud -->
+  <rect x="940" y="248" width="140" height="60" rx="6" fill="rgba(66,165,245,0.07)" stroke="rgba(66,165,245,0.20)" stroke-width="1.2"/>
+  <rect x="950" y="256" width="120" height="14" rx="3" fill="rgba(66,165,245,0.10)" stroke="rgba(66,165,245,0.25)" stroke-width="0.8"/>
+  <rect x="950" y="275" width="120" height="14" rx="3" fill="rgba(66,165,245,0.10)" stroke="rgba(66,165,245,0.25)" stroke-width="0.8"/>
+  <rect x="950" y="294" width="120" height="8" rx="2" fill="rgba(66,165,245,0.08)" stroke="rgba(66,165,245,0.18)" stroke-width="0.8"/>
+  <!-- Server dots -->
+  <circle cx="960" cy="263" r="3" fill="rgba(102,255,102,0.6)"/>
+  <circle cx="969" cy="263" r="3" fill="rgba(66,165,245,0.6)"/>
+  <circle cx="960" cy="282" r="3" fill="rgba(255,167,38,0.6)"/>
+  <circle cx="969" cy="282" r="3" fill="rgba(66,165,245,0.6)"/>
+
+  <!-- Security shield (center-right, overlapping cloud and rack) -->
+  <path d="M1010,155 L1040,168 L1040,200 Q1040,222 1010,232 Q980,222 980,200 L980,168 Z" fill="url(#shieldGrad)" stroke="rgba(239,83,80,0.40)" stroke-width="1.8"/>
+  <!-- Shield check mark -->
+  <polyline points="998,193 1007,204 1025,182" fill="none" stroke="rgba(239,83,80,0.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shield glow -->
+  <path d="M1010,155 L1040,168 L1040,200 Q1040,222 1010,232 Q980,222 980,200 L980,168 Z" fill="none" stroke="rgba(239,83,80,0.15)" stroke-width="4" filter="url(#blur1)"/>
+
+  <!-- Key icon -->
+  <circle cx="898" cy="175" r="14" fill="none" stroke="rgba(255,167,38,0.35)" stroke-width="1.5"/>
+  <circle cx="898" cy="175" r="8" fill="rgba(255,167,38,0.10)" stroke="rgba(255,167,38,0.35)" stroke-width="1"/>
+  <rect x="908" y="172" width="24" height="5" rx="2" fill="rgba(255,167,38,0.18)" stroke="rgba(255,167,38,0.35)" stroke-width="1"/>
+  <rect x="926" y="177" width="5" height="7" rx="1" fill="rgba(255,167,38,0.18)" stroke="rgba(255,167,38,0.30)" stroke-width="0.8"/>
+  <rect x="919" y="177" width="4" height="5" rx="1" fill="rgba(255,167,38,0.18)" stroke="rgba(255,167,38,0.30)" stroke-width="0.8"/>
+
+  <!-- Hexagon network node (top right) -->
+  <polygon points="1100,140 1120,151 1120,173 1100,184 1080,173 1080,151" fill="rgba(149,117,205,0.09)" stroke="rgba(149,117,205,0.30)" stroke-width="1.3"/>
+  <circle cx="1100" cy="162" r="6" fill="rgba(149,117,205,0.20)" stroke="rgba(149,117,205,0.45)" stroke-width="1"/>
+  <line x1="1080" y1="162" x2="1040" y2="190" stroke="rgba(149,117,205,0.18)" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="1100" y1="140" x2="1050" y2="155" stroke="rgba(149,117,205,0.14)" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- Orbit ring around shield -->
+  <ellipse cx="1010" cy="195" rx="50" ry="20" fill="none" stroke="rgba(66,165,245,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+  <ellipse cx="1010" cy="195" rx="68" ry="28" fill="none" stroke="rgba(239,83,80,0.08)" stroke-width="1" stroke-dasharray="6,6"/>
+
+  <!-- Connecting lines from cloud to rack -->
+  <line x1="970" y1="238" x2="965" y2="248" stroke="rgba(66,165,245,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="1010" y1="240" x2="1010" y2="248" stroke="rgba(66,165,245,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="1050" y1="238" x2="1055" y2="248" stroke="rgba(66,165,245,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- Alert/scan arc bottom right -->
+  <path d="M950,318 A80,80 0 0,1 1090,318" fill="none" stroke="rgba(239,83,80,0.18)" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <path d="M965,318 A65,65 0 0,1 1075,318" fill="none" stroke="rgba(66,165,245,0.12)" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="#e53935" opacity="0.75"/>
+  <circle cx="900" cy="420" r="4" fill="#ff6f00" opacity="0.65"/>
+  <circle cx="860" cy="440" r="4" fill="#42a5f5" opacity="0.60"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeBg)" stroke="rgba(229,57,53,0.25)" stroke-width="1"/>
+  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,255,255,0.75)" letter-spacing="1">NOVEMBER 26, 2025</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">Cloud Security 8Batch 1Week</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="34" font-weight="700" fill="rgba(255,255,255,0.90)">Infrastructure EssenceFrom Security FutureTo</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Cloud Infrastructure Security Foundations &amp; Future Architecture</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(229,57,53,0.85)" letter-spacing="2">CLOUD SECURITY · INFRASTRUCTURE · DEVSECOPS</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(229,57,53,0.18)" stroke="rgba(229,57,53,0.35)" stroke-width="1"/>
+  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(229,57,53,0.90)" text-anchor="middle">Cloud Security</text>
+
+  <rect x="224" y="402" width="130" height="36" rx="18" fill="rgba(255,111,0,0.15)" stroke="rgba(255,111,0,0.32)" stroke-width="1"/>
+  <text x="289" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,167,38,0.90)" text-anchor="middle">Infrastructure</text>
+
+  <rect x="368" y="402" width="130" height="36" rx="18" fill="rgba(66,165,245,0.15)" stroke="rgba(66,165,245,0.32)" stroke-width="1"/>
+  <text x="433" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(100,181,246,0.90)" text-anchor="middle">AWS · GCP · Azure</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(229,57,53,0.50)" text-anchor="end" letter-spacing="1">CLOUD</text>
 </svg>

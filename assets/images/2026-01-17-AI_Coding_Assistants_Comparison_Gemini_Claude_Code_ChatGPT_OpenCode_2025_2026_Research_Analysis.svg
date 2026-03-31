@@ -1,43 +1,146 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="50%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="50%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#34a853;stop-opacity:0.15"/>
+    </linearGradient>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.15"/>
+    </linearGradient>
+    <linearGradient id="gptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.15"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#22d3ee" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#0891b2" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <circle r="14" fill="#22d3ee" opacity="0.3"/>
-    <circle r="6" fill="#22d3ee" opacity="0.6"/>
-    <line x1="-30" y1="-25" x2="-10" y2="-8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="30" y1="-25" x2="10" y2="-8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="-30" y1="25" x2="-10" y2="8" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="30" y1="25" x2="10" y2="8" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="-30" cy="-25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="30" cy="-25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="-30" cy="25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle cx="30" cy="25" r="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <line x1="-30" y1="-17" x2="-30" y2="17" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
-    <line x1="30" y1="-17" x2="30" y2="17" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#22d3ee" text-anchor="middle">AI/ML</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#22d3ee" opacity="0.25" stroke="#22d3ee" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: AI Assistants Comparison Visual -->
+  <!-- Outer ring: Gemini -->
+  <circle cx="1010" cy="225" r="110" fill="url(#geminiGrad)" stroke="rgba(66,133,244,0.35)" stroke-width="1.5"/>
+  <!-- Outer ring: Claude -->
+  <circle cx="1010" cy="225" r="80" fill="url(#claudeGrad)" stroke="rgba(124,58,237,0.35)" stroke-width="1.5"/>
+  <!-- Outer ring: GPT -->
+  <circle cx="1010" cy="225" r="50" fill="url(#gptGrad)" stroke="rgba(16,185,129,0.35)" stroke-width="1.5"/>
+  <!-- Center core -->
+  <circle cx="1010" cy="225" r="22" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Core symbol: asterisk/star for AI -->
+  <line x1="1010" y1="213" x2="1010" y2="237" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="998" y1="220" x2="1022" y2="230" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="998" y1="230" x2="1022" y2="220" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Gemini diamond shape (top) -->
+  <polygon points="1010,115 1028,135 1010,155 992,135" fill="rgba(66,133,244,0.12)" stroke="rgba(66,133,244,0.4)" stroke-width="1.5"/>
+  <text x="1010" y="140" font-family="monospace" font-size="10" fill="rgba(66,133,244,0.9)" text-anchor="middle">G</text>
+
+  <!-- Claude hexagon (right) -->
+  <polygon points="1103,215 1110,225 1103,235 1089,235 1082,225 1089,215" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.4)" stroke-width="1.5"/>
+  <text x="1096" y="229" font-family="monospace" font-size="10" fill="rgba(124,58,237,0.9)" text-anchor="middle">C</text>
+
+  <!-- GPT circle (bottom) -->
+  <circle cx="1010" cy="295" r="14" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+  <text x="1010" y="299" font-family="monospace" font-size="10" fill="rgba(16,185,129,0.9)" text-anchor="middle">GPT</text>
+
+  <!-- Claude left shape -->
+  <polygon points="917,215 910,225 917,235 931,235 938,225 931,215" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.3)" stroke-width="1.5"/>
+
+  <!-- Connector lines from center -->
+  <line x1="1010" y1="203" x2="1010" y2="155" stroke="rgba(66,133,244,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1028" y1="218" x2="1082" y2="222" stroke="rgba(124,58,237,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="1010" y1="247" x2="1010" y2="281" stroke="rgba(16,185,129,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="992" y1="218" x2="938" y2="222" stroke="rgba(124,58,237,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Floating code brackets -->
+  <text x="880" y="160" font-family="monospace" font-size="28" fill="rgba(255,255,255,0.06)" font-weight="bold">&lt;/&gt;</text>
+  <text x="1100" y="310" font-family="monospace" font-size="20" fill="rgba(255,255,255,0.06)" font-weight="bold">{}</text>
+  <text x="880" y="310" font-family="monospace" font-size="16" fill="rgba(255,255,255,0.05)" font-weight="bold">⌘</text>
+
+  <!-- Orbit arc indicators -->
+  <path d="M 1010 125 A 100 100 0 0 1 1110 225" fill="none" stroke="rgba(66,133,244,0.15)" stroke-width="1" stroke-dasharray="5,8"/>
+  <path d="M 1010 325 A 100 100 0 0 1 910 225" fill="none" stroke="rgba(16,185,129,0.15)" stroke-width="1" stroke-dasharray="5,8"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.7)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(59,130,246,0.7)"/>
+
+  <!-- Background large circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="rgba(200,180,255,0.9)" text-anchor="middle" letter-spacing="1.5">JANUARY 17, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">AI Coding Assistants Comparison</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Gemini · Claude Code · ChatGPT</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(180,160,255,0.85)">Performance, Features &amp; Developer Experience — 2026 Edition</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="2" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(180,160,255,0.7)" letter-spacing="2">CATEGORY: AI / DEVELOPER TOOLS</text>
+
+  <!-- Tag pills -->
+  <!-- Gemini tag (blue) -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(66,133,244,0.15)" stroke="rgba(66,133,244,0.45)" stroke-width="1.5"/>
+  <text x="145" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(147,197,253,0.95)" text-anchor="middle" font-weight="600">Gemini</text>
+
+  <!-- Claude tag (purple) -->
+  <rect x="228" y="402" width="150" height="36" rx="18" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.45)" stroke-width="1.5"/>
+  <text x="303" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(196,181,253,0.95)" text-anchor="middle" font-weight="600">Claude Code</text>
+
+  <!-- ChatGPT tag (green) -->
+  <rect x="396" y="402" width="130" height="36" rx="18" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.45)" stroke-width="1.5"/>
+  <text x="461" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(110,231,183,0.95)" text-anchor="middle" font-weight="600">ChatGPT</text>
+
+  <!-- Footer separator -->
+  <line x1="80" y1="530" x2="1120" y2="530" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Footer left -->
+  <text x="80" y="555" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(160,140,220,0.6)" letter-spacing="0.5">tech.2twodragon.com</text>
+
+  <!-- Footer right -->
+  <text x="1120" y="555" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(160,140,220,0.6)" text-anchor="end" letter-spacing="1">AI</text>
 </svg>
