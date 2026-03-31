@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#1a1030"/>
+    </linearGradient>
+    <linearGradient id="warn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#e63946"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#e63946;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="0" x2="1200" y2="630"/>
+    <line x1="200" y1="0" x2="1200" y2="500"/>
+    <line x1="400" y1="0" x2="1200" y2="400"/>
+    <line x1="0" y1="200" x2="800" y2="630"/>
+    <line x1="0" y1="400" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="1200" y2="300"/>
+  </g>
+
+  <!-- Glow behind warning icon -->
+  <circle cx="950" cy="300" r="200" fill="url(#glow)"/>
+
+  <!-- Warning Triangle Icon -->
+  <g transform="translate(950, 300)">
+    <!-- Outer triangle -->
+    <polygon points="0,-120 110,70 -110,70" fill="none" stroke="url(#warn)" stroke-width="4" opacity="0.8"/>
+    <!-- Inner triangle -->
+    <polygon points="0,-85 78,50 -78,50" fill="none" stroke="url(#warn)" stroke-width="2.5" opacity="0.5"/>
+    <!-- Exclamation mark -->
+    <rect x="-6" y="-45" width="12" height="50" rx="4" fill="url(#warn)" opacity="0.9"/>
+    <circle cx="0" cy="28" r="8" fill="url(#warn)" opacity="0.9"/>
+    <!-- Pulsing ring -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#ff6b35" stroke-width="1" opacity="0.2">
+      <animate attributeName="r" values="140;160;140" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Title Line 1 -->
+  <text x="80" y="250" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
+    Ransomware AI, LLM Jailbreak,
+  </text>
+
+  <!-- Title Line 2 -->
+  <text x="80" y="320" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
+    K8s Supply Chain
+  </text>
+
+  <!-- Accent line -->
+  <rect x="80" y="350" width="120" height="4" rx="2" fill="url(#warn)"/>
+
+  <!-- Tag Pills -->
+  <g transform="translate(80, 400)">
+    <!-- Tag 1: Ransomware -->
+    <rect x="0" y="0" width="160" height="38" rx="19" fill="#e63946" fill-opacity="0.15" stroke="#e63946" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="80" y="25" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#e63946" text-anchor="middle">Ransomware</text>
+
+    <!-- Tag 2: AI Security -->
+    <rect x="180" y="0" width="150" height="38" rx="19" fill="#ff6b35" fill-opacity="0.15" stroke="#ff6b35" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="255" y="25" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ff6b35" text-anchor="middle">AI Security</text>
+
+    <!-- Tag 3: Supply Chain -->
+    <rect x="350" y="0" width="160" height="38" rx="19" fill="#7b68ee" fill-opacity="0.15" stroke="#7b68ee" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="430" y="25" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#7b68ee" text-anchor="middle">Supply Chain</text>
+  </g>
+
+  <!-- Bottom border accent -->
+  <rect x="0" y="624" width="1200" height="6" fill="url(#warn)" opacity="0.6"/>
+</svg>

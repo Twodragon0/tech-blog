@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="100%" stop-color="#ff8c00"/>
+    </linearGradient>
+    <linearGradient id="iconGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4444" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff8c00" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff4444" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid lines -->
+  <line x1="300" y1="0" x2="300" y2="630" stroke="#ffffff" stroke-opacity="0.03"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#ffffff" stroke-opacity="0.04"/>
+  <line x1="900" y1="0" x2="900" y2="630" stroke="#ffffff" stroke-opacity="0.03"/>
+  <line x1="1100" y1="0" x2="1100" y2="630" stroke="#ffffff" stroke-opacity="0.03"/>
+  <line x1="0" y1="158" x2="1200" y2="158" stroke="#ffffff" stroke-opacity="0.03"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#ffffff" stroke-opacity="0.04"/>
+  <line x1="0" y1="473" x2="1200" y2="473" stroke="#ffffff" stroke-opacity="0.03"/>
+  <line x1="0" y1="550" x2="1200" y2="550" stroke="#ffffff" stroke-opacity="0.03"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Right side decorative icon: AI Agent + Shield + Container -->
+  <g transform="translate(1010, 210)">
+    <!-- Outer shield shape -->
+    <path d="M0,-90 L70,-60 L70,30 Q70,80 0,100 Q-70,80 -70,30 L-70,-60 Z" fill="url(#shieldGrad)" stroke="#ff4444" stroke-opacity="0.3" stroke-width="1.5"/>
+    <!-- Inner shield highlight -->
+    <path d="M0,-70 L50,-46 L50,20 Q50,60 0,76 Q-50,60 -50,20 L-50,-46 Z" fill="none" stroke="#ff6b6b" stroke-opacity="0.15" stroke-width="1"/>
+
+    <!-- AI brain/circuit node -->
+    <circle cx="0" cy="-20" r="22" fill="#ff8c00" fill-opacity="0.08" stroke="#ff8c00" stroke-opacity="0.35" stroke-width="1.2"/>
+    <circle cx="0" cy="-20" r="8" fill="#ff8c00" fill-opacity="0.12" stroke="#ff8c00" stroke-opacity="0.4" stroke-width="1"/>
+    <!-- Circuit lines from brain -->
+    <line x1="22" y1="-20" x2="40" y2="-20" stroke="#ff8c00" stroke-opacity="0.25" stroke-width="1"/>
+    <line x1="-22" y1="-20" x2="-40" y2="-20" stroke="#ff8c00" stroke-opacity="0.25" stroke-width="1"/>
+    <line x1="0" y1="-42" x2="0" y2="-58" stroke="#ff8c00" stroke-opacity="0.25" stroke-width="1"/>
+    <circle cx="40" cy="-20" r="3" fill="#ff8c00" fill-opacity="0.2"/>
+    <circle cx="-40" cy="-20" r="3" fill="#ff8c00" fill-opacity="0.2"/>
+    <circle cx="0" cy="-58" r="3" fill="#ff8c00" fill-opacity="0.2"/>
+
+    <!-- Container/box below -->
+    <rect x="-18" y="20" width="36" height="28" rx="3" fill="#4ecdc4" fill-opacity="0.08" stroke="#4ecdc4" stroke-opacity="0.3" stroke-width="1"/>
+    <line x1="-12" y1="28" x2="12" y2="28" stroke="#4ecdc4" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="-12" y1="35" x2="12" y2="35" stroke="#4ecdc4" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- Zero-day lightning bolt -->
+    <path d="M30,-55 L22,-38 L30,-40 L20,-22" fill="none" stroke="#ffd93d" stroke-opacity="0.35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Supply chain links -->
+    <ellipse cx="-30" cy="55" rx="10" ry="7" fill="none" stroke="#ff6b6b" stroke-opacity="0.2" stroke-width="1.2"/>
+    <ellipse cx="-12" cy="55" rx="10" ry="7" fill="none" stroke="#ff6b6b" stroke-opacity="0.2" stroke-width="1.2"/>
+    <ellipse cx="6" cy="55" rx="10" ry="7" fill="none" stroke="#ff6b6b" stroke-opacity="0.15" stroke-width="1"/>
+  </g>
+
+  <!-- Date badge -->
+  <rect x="80" y="48" width="200" height="32" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="180" y="70" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6" text-anchor="middle" font-weight="500" letter-spacing="1.5">MARCH 28, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Inter, system-ui, sans-serif" font-size="46" fill="#ffffff" font-weight="700" letter-spacing="-0.5">AI Agent Security, Cloud</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Inter, system-ui, sans-serif" font-size="46" fill="#ffffff" font-weight="700" letter-spacing="-0.5">Zero-Day &amp; Supply Chain</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Inter, system-ui, sans-serif" font-size="19" fill="#ffffff" fill-opacity="0.45" font-weight="400">Weekly Security Digest — Threats, Vulnerabilities &amp; Defense Strategies</text>
+
+  <!-- Keyword tag pills -->
+  <g transform="translate(80, 420)">
+    <!-- Tag 1: AI Agent -->
+    <rect x="0" y="-18" width="130" height="36" rx="18" fill="#ff4444" fill-opacity="0.12" stroke="#ff4444" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="65" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#ff6b6b" text-anchor="middle" font-weight="500">AI Agent</text>
+
+    <!-- Tag 2: Cloud Zero-Day -->
+    <rect x="148" y="-18" width="165" height="36" rx="18" fill="#4ecdc4" fill-opacity="0.12" stroke="#4ecdc4" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="230" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#4ecdc4" text-anchor="middle" font-weight="500">Cloud Zero-Day</text>
+
+    <!-- Tag 3: Supply Chain -->
+    <rect x="331" y="-18" width="150" height="36" rx="18" fill="#ffd93d" fill-opacity="0.12" stroke="#ffd93d" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="406" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#ffd93d" text-anchor="middle" font-weight="500">Supply Chain</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.25" font-weight="400">tech.2twodragon.com</text>
+
+  <!-- Bottom accent line -->
+  <rect x="80" y="570" width="120" height="2" rx="1" fill="url(#accent)" opacity="0.3"/>
+</svg>

@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff6600;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4466;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:0.13"/>
+      <stop offset="100%" style="stop-color:#3300aa;stop-opacity:0.08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- 2. Grid: 4 horizontal + 4 vertical -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- 3. RIGHT SIDE ILLUSTRATION (x=880-1140, y=130-320) -->
+
+  <!-- Shield outer body -->
+  <path d="M1010,138 L1118,172 L1118,252 Q1118,322 1010,346 Q902,322 902,252 L902,172 Z"
+        fill="url(#shieldGrad)" stroke="rgba(255,55,80,0.28)" stroke-width="1.5"/>
+  <!-- Shield inner ring -->
+  <path d="M1010,158 L1100,188 L1100,253 Q1100,312 1010,330 Q920,312 920,253 L920,188 Z"
+        fill="none" stroke="rgba(255,80,100,0.15)" stroke-width="1"/>
+
+  <!-- Ransomware warning triangle at top of shield -->
+  <polygon points="1010,148 1036,193 984,193"
+           fill="rgba(255,30,55,0.09)" stroke="rgba(255,50,80,0.35)" stroke-width="1.5"/>
+  <text x="1010" y="185" font-family="Arial, sans-serif" font-size="18" font-weight="900"
+        fill="rgba(255,60,90,0.65)" text-anchor="middle">!</text>
+
+  <!-- K8s Wheel (center of shield) -->
+  <circle cx="1010" cy="248" r="20" fill="rgba(50,170,255,0.10)" stroke="rgba(50,170,255,0.40)" stroke-width="1.5"/>
+  <text x="1010" y="253" font-family="Arial, sans-serif" font-size="11" font-weight="700"
+        fill="rgba(50,170,255,0.65)" text-anchor="middle">K8s</text>
+  <!-- 6 spokes with endpoint nodes -->
+  <line x1="1010" y1="228" x2="1010" y2="210" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="1010" cy="206" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+  <line x1="1027" y1="238" x2="1042" y2="229" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="1046" cy="227" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+  <line x1="1027" y1="258" x2="1042" y2="267" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="1046" cy="269" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+  <line x1="1010" y1="268" x2="1010" y2="286" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="1010" cy="290" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+  <line x1="993" y1="258" x2="978" y2="267" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="974" cy="269" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+  <line x1="993" y1="238" x2="978" y2="229" stroke="rgba(50,170,255,0.30)" stroke-width="1.5"/>
+  <circle cx="974" cy="227" r="5" fill="rgba(50,170,255,0.15)" stroke="rgba(50,170,255,0.45)" stroke-width="1"/>
+
+  <!-- LLM Neural Network (upper-left zone of illustration) -->
+  <circle cx="932" cy="198" r="6" fill="rgba(255,175,45,0.12)" stroke="rgba(255,175,45,0.38)" stroke-width="1"/>
+  <circle cx="932" cy="220" r="6" fill="rgba(255,175,45,0.12)" stroke="rgba(255,175,45,0.38)" stroke-width="1"/>
+  <circle cx="932" cy="242" r="6" fill="rgba(255,175,45,0.12)" stroke="rgba(255,175,45,0.38)" stroke-width="1"/>
+  <circle cx="958" cy="207" r="6" fill="rgba(255,175,45,0.12)" stroke="rgba(255,175,45,0.38)" stroke-width="1"/>
+  <circle cx="958" cy="232" r="6" fill="rgba(255,175,45,0.12)" stroke="rgba(255,175,45,0.38)" stroke-width="1"/>
+  <circle cx="984" cy="219" r="7" fill="rgba(255,175,45,0.16)" stroke="rgba(255,175,45,0.50)" stroke-width="1.5"/>
+  <line x1="938" y1="198" x2="952" y2="207" stroke="rgba(255,175,45,0.18)" stroke-width="0.8"/>
+  <line x1="938" y1="198" x2="952" y2="232" stroke="rgba(255,175,45,0.10)" stroke-width="0.8"/>
+  <line x1="938" y1="220" x2="952" y2="207" stroke="rgba(255,175,45,0.14)" stroke-width="0.8"/>
+  <line x1="938" y1="220" x2="952" y2="232" stroke="rgba(255,175,45,0.18)" stroke-width="0.8"/>
+  <line x1="938" y1="242" x2="952" y2="207" stroke="rgba(255,175,45,0.10)" stroke-width="0.8"/>
+  <line x1="938" y1="242" x2="952" y2="232" stroke="rgba(255,175,45,0.14)" stroke-width="0.8"/>
+  <line x1="964" y1="207" x2="977" y2="219" stroke="rgba(255,175,45,0.22)" stroke-width="0.8"/>
+  <line x1="964" y1="232" x2="977" y2="219" stroke="rgba(255,175,45,0.22)" stroke-width="0.8"/>
+  <text x="958" y="254" font-family="Arial, sans-serif" font-size="9" font-weight="600"
+        fill="rgba(255,175,45,0.45)" text-anchor="middle">LLM</text>
+
+  <!-- Supply chain links (bottom area of shield) -->
+  <rect x="922" y="302" width="26" height="15" rx="7" fill="none" stroke="rgba(90,210,140,0.28)" stroke-width="1.5"/>
+  <rect x="939" y="306" width="26" height="15" rx="7" fill="none" stroke="rgba(90,210,140,0.26)" stroke-width="1.5"/>
+  <rect x="956" y="302" width="26" height="15" rx="7" fill="none" stroke="rgba(90,210,140,0.26)" stroke-width="1.5"/>
+  <rect x="973" y="306" width="26" height="15" rx="7" fill="none" stroke="rgba(90,210,140,0.22)" stroke-width="1.5"/>
+  <rect x="990" y="302" width="26" height="15" rx="7" fill="none" stroke="rgba(90,210,140,0.20)" stroke-width="1.5"/>
+  <text x="1003" y="332" font-family="Arial, sans-serif" font-size="9" font-weight="600"
+        fill="rgba(90,210,140,0.38)" text-anchor="middle">SUPPLY CHAIN</text>
+
+  <!-- Decorative circuit traces -->
+  <path d="M882,150 L898,150 L898,168 L916,168" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="1"/>
+  <path d="M882,172 L894,172 L894,188 L910,188" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <circle cx="882" cy="150" r="2.5" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="916" cy="168" r="2.5" fill="rgba(255,255,255,0.10)"/>
+  <circle cx="882" cy="172" r="2.5" fill="rgba(255,255,255,0.09)"/>
+  <circle cx="910" cy="188" r="2.5" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Lock icon at shield base -->
+  <rect x="1001" y="332" width="18" height="14" rx="2"
+        fill="rgba(255,55,80,0.10)" stroke="rgba(255,55,80,0.32)" stroke-width="1"/>
+  <path d="M1005,332 Q1005,325 1010,325 Q1015,325 1015,332"
+        fill="none" stroke="rgba(255,55,80,0.32)" stroke-width="1"/>
+  <circle cx="1010" cy="339" r="2" fill="rgba(255,55,80,0.45)"/>
+
+  <!-- 4. Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,50,80,0.72)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,145,45,0.62)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(255,50,80,0.50)"/>
+
+  <!-- 5. Background circles (subtle) -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,30,50,0.03)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,30,50,0.04)"/>
+
+  <!-- 6. Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
+
+  <!-- 7. Date badge -->
+  <rect x="80" y="60" width="210" height="32" rx="4"
+        fill="rgba(255,50,80,0.15)" stroke="rgba(255,50,80,0.32)" stroke-width="1"/>
+  <text x="185" y="81" font-family="Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,110,130,0.92)" text-anchor="middle" letter-spacing="1.2">MARCH 29, 2026</text>
+
+  <!-- 8. Title line 1 -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+
+  <!-- 9. Title line 2 -->
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700"
+        fill="rgba(255,80,100,0.92)">Ransomware LLM K8s Supply</text>
+
+  <!-- 10. Subtitle -->
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19"
+        fill="rgba(255,255,255,0.52)">Weekly threat intelligence and security analysis</text>
+
+  <!-- 11. Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#lineGrad)" rx="1"/>
+
+  <!-- 12. Category label -->
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14"
+        fill="rgba(255,255,255,0.33)" letter-spacing="3">SECURITY / THREAT INTELLIGENCE</text>
+
+  <!-- 13. Three tag pills -->
+  <rect x="80" y="402" width="168" height="36" rx="18"
+        fill="rgba(215,30,58,0.20)" stroke="rgba(215,30,58,0.52)" stroke-width="1"/>
+  <text x="164" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,105,125,0.96)" text-anchor="middle" letter-spacing="1">RANSOMWARE</text>
+  <rect x="262" y="402" width="164" height="36" rx="18"
+        fill="rgba(195,130,18,0.20)" stroke="rgba(195,130,18,0.46)" stroke-width="1"/>
+  <text x="344" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,188,58,0.96)" text-anchor="middle" letter-spacing="1">LLM SECURITY</text>
+  <rect x="440" y="402" width="148" height="36" rx="18"
+        fill="rgba(38,100,215,0.20)" stroke="rgba(38,100,215,0.46)" stroke-width="1"/>
+  <text x="514" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(80,162,255,0.96)" text-anchor="middle" letter-spacing="1">K8s SUPPLY</text>
+
+  <!-- 14. Footer -->
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14"
+        fill="rgba(255,255,255,0.28)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="14"
+        fill="rgba(255,255,255,0.24)" text-anchor="end">SECURITY</text>
+</svg>
