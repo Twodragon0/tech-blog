@@ -1,0 +1,136 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1d2e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- LEFT SIDE: Content -->
+  <!-- Date Badge -->
+  <rect x="50" y="40" width="280" height="50" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="190" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">FEBRUARY 13, 2026</text>
+
+  <!-- Main Title -->
+  <text x="60" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="white" letter-spacing="-1">Tech Security</text>
+  <text x="60" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="white" letter-spacing="-1">Weekly Digest</text>
+  <text x="60" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#3b82f6" letter-spacing="-1">Security Agent</text>
+
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1 -->
+    <rect x="60" y="410" width="140" height="36" rx="18" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+    <text x="130" y="433" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#3b82f6" text-anchor="middle">AI Security</text>
+
+    <!-- Tag 2 -->
+    <rect x="220" y="410" width="120" height="36" rx="18" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+    <text x="280" y="433" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#f59e0b" text-anchor="middle">DevSecOps</text>
+
+    <!-- Tag 3 -->
+    <rect x="360" y="410" width="130" height="36" rx="18" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1"/>
+    <text x="425" y="433" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#ef4444" text-anchor="middle">Compliance</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="575" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#6b7280">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual Elements (x=650-1150, y=80-550) -->
+
+  <!-- Background glow circles -->
+  <circle cx="900" cy="250" r="200" fill="#3b82f6" opacity="0.03"/>
+  <circle cx="950" cy="300" r="150" fill="#ef4444" opacity="0.03"/>
+
+  <!-- Brain Silhouette with Neural Lines -->
+  <g filter="url(#glow)">
+    <!-- Brain outline -->
+    <path d="M 750 180 Q 720 150 700 180 Q 680 210 690 250 Q 680 290 710 320 Q 740 340 770 340 Q 800 340 830 320 Q 860 290 850 250 Q 860 210 840 180 Q 820 150 800 180 Z"
+          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
+
+    <!-- Neural circuit lines -->
+    <line x1="750" y1="200" x2="800" y2="220" stroke="#3b82f6" stroke-width="0.8" opacity="0.15"/>
+    <line x1="730" y1="240" x2="790" y2="260" stroke="#3b82f6" stroke-width="0.8" opacity="0.15"/>
+    <line x1="760" y1="280" x2="820" y2="300" stroke="#3b82f6" stroke-width="0.8" opacity="0.15"/>
+    <line x1="740" y1="260" x2="800" y2="290" stroke="#3b82f6" stroke-width="0.8" opacity="0.12"/>
+
+    <!-- Neural nodes -->
+    <circle cx="750" cy="200" r="3" fill="#3b82f6" opacity="0.25"/>
+    <circle cx="800" cy="220" r="3" fill="#3b82f6" opacity="0.25"/>
+    <circle cx="730" cy="240" r="3" fill="#3b82f6" opacity="0.25"/>
+    <circle cx="790" cy="260" r="3" fill="#3b82f6" opacity="0.25"/>
+  </g>
+
+  <!-- Shield with Checkmark (Security) -->
+  <g filter="url(#glow)">
+    <!-- Shield outline -->
+    <path d="M 950 140 L 1000 160 L 1000 260 Q 1000 300 975 320 Q 950 300 950 260 L 950 160 Z"
+          fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/>
+
+    <!-- Checkmark inside shield -->
+    <path d="M 965 250 L 975 260 L 995 240"
+          fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+  </g>
+
+  <!-- Data Flow Arrows -->
+  <!-- Arrow 1: Brain to Shield -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.25"/>
+    </marker>
+  </defs>
+
+  <path d="M 830 240 Q 880 240 950 220" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.18" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+
+  <!-- Arrow 2: Shield to Alert -->
+  <path d="M 975 320 Q 1000 360 1030 390" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.18" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+
+  <!-- Warning Triangles / Alert Indicators -->
+  <!-- Alert Triangle 1 -->
+  <g filter="url(#glow)">
+    <polygon points="1040,380 1055,420 1025,420" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="1040" y="410" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.3">!</text>
+  </g>
+
+  <!-- Alert Triangle 2 -->
+  <g filter="url(#glow)">
+    <polygon points="1090,360 1105,400 1075,400" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="1090" y="390" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.3">!</text>
+  </g>
+
+  <!-- Additional Circuit Elements -->
+  <!-- Hexagon Network Node 1 -->
+  <g opacity="0.08" stroke="#3b82f6" stroke-width="1" fill="none">
+    <path d="M 850 320 L 860 330 L 850 340 L 840 340 L 830 330 L 840 320 Z"/>
+  </g>
+
+  <!-- Hexagon Network Node 2 -->
+  <g opacity="0.08" stroke="#f59e0b" stroke-width="1" fill="none">
+    <path d="M 1000 380 L 1010 390 L 1000 400 L 990 400 L 980 390 L 990 380 Z"/>
+  </g>
+
+  <!-- Connecting pulse lines -->
+  <line x1="870" y1="330" x2="930" y2="360" stroke="#3b82f6" stroke-width="0.8" opacity="0.12"/>
+  <line x1="920" y1="300" x2="980" y2="350" stroke="#f59e0b" stroke-width="0.8" opacity="0.12"/>
+
+  <!-- Data Streaming Indicator -->
+  <g opacity="0.15">
+    <circle cx="880" cy="270" r="8" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    <circle cx="880" cy="270" r="14" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.6"/>
+  </g>
+
+  <!-- Lock icon (Security emphasis) -->
+  <g opacity="0.12">
+    <rect x="1010" y="280" width="20" height="24" rx="2" fill="none" stroke="#ef4444" stroke-width="1.2"/>
+    <path d="M 1014 280 L 1014 270 Q 1014 264 1020 264 Q 1026 264 1026 270 L 1026 280" fill="none" stroke="#ef4444" stroke-width="1.2"/>
+    <circle cx="1020" cy="290" r="1.5" fill="#ef4444"/>
+  </g>
+</svg>

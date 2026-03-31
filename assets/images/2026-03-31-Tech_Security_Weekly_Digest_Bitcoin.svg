@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- LEFT SIDE CONTENT -->
+  <!-- Date badge -->
+  <rect x="60" y="45" width="160" height="34" rx="4" fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="140" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">MARCH 16, 2026</text>
+
+  <!-- Main title -->
+  <text x="60" y="210" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Tech Security</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="270" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Weekly Digest Bitcoin</text>
+
+  <!-- Tag pills -->
+  <rect x="60" y="420" width="100" height="28" rx="14" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.2"/>
+  <text x="110" y="439" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">Blockchain</text>
+
+  <rect x="175" y="420" width="85" height="28" rx="14" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="0.2"/>
+  <text x="217" y="439" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Crypto</text>
+
+  <rect x="275" y="420" width="90" height="28" rx="14" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="320" y="439" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
+
+  <!-- Footer -->
+  <text x="60" y="575" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE VISUAL SCENE -->
+  <!-- Chain links (blockchain representation) -->
+  <circle cx="700" cy="140" r="14" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.25"/>
+  <circle cx="755" cy="140" r="14" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.25"/>
+  <circle cx="810" cy="140" r="14" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.25"/>
+  <circle cx="865" cy="140" r="14" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.25"/>
+
+  <!-- Chain link connectors -->
+  <line x1="714" y1="140" x2="741" y2="140" stroke="#3b82f6" stroke-width="0.25" opacity="0.12"/>
+  <line x1="769" y1="140" x2="796" y2="140" stroke="#3b82f6" stroke-width="0.25" opacity="0.12"/>
+  <line x1="824" y1="140" x2="851" y2="140" stroke="#3b82f6" stroke-width="0.25" opacity="0.12"/>
+
+  <!-- Bitcoin coin symbol (large) -->
+  <circle cx="940" cy="150" r="28" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.3"/>
+  <path d="M 940 130 L 945 138 L 935 138 Z M 940 170 L 945 162 L 935 162 Z M 925 150 L 933 155 L 933 145 Z M 955 150 L 947 155 L 947 145 Z" fill="none" stroke="#f59e0b" stroke-width="0.35" opacity="0.12"/>
+  <text x="940" y="158" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#f59e0b" opacity="0.15" text-anchor="middle">₿</text>
+
+  <!-- Shield with checkmark (security/compliance) -->
+  <g transform="translate(770, 310)">
+    <!-- Shield shape -->
+    <path d="M 0 0 L 35 12 L 35 50 Q 0 68 -35 50 L -35 12 Z" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3"/>
+    <!-- Checkmark inside shield -->
+    <path d="M -10 35 L 0 45 L 20 25" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Data flow arrows from chain to shield -->
+  <defs>
+    <marker id="arrowblue" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6" opacity="0.15"/>
+    </marker>
+    <marker id="arroworange" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f59e0b" opacity="0.15"/>
+    </marker>
+    <marker id="arrowred" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" opacity="0.15"/>
+    </marker>
+  </defs>
+
+  <!-- Arrow from chain to shield -->
+  <path d="M 820 155 Q 800 220 770 285" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.12" marker-end="url(#arrowblue)"/>
+
+  <!-- Arrow from bitcoin to shield -->
+  <path d="M 915 180 Q 860 250 800 290" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.12" marker-end="url(#arroworange)"/>
+
+  <!-- Warning triangle indicators -->
+  <g transform="translate(920, 240)">
+    <polygon points="0,-13 14,13 -14,13" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="0" y="4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" opacity="0.12" text-anchor="middle">!</text>
+  </g>
+
+  <g transform="translate(1020, 320)">
+    <polygon points="0,-11 12,11 -12,11" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="0" y="3" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b" opacity="0.12" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Compliance lock icon -->
+  <g transform="translate(860, 450)">
+    <rect x="-16" y="-6" width="32" height="20" rx="2" fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.12"/>
+    <circle cx="0" cy="-2" r="6" fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.12"/>
+    <path d="M -2 4 L 0 8 L 2 4" fill="none" stroke="#3b82f6" stroke-width="0.35" opacity="0.12" stroke-linecap="round"/>
+  </g>
+
+  <!-- Additional blockchain elements -->
+  <circle cx="690" cy="380" r="11" fill="#f59e0b" opacity="0.07" stroke="#f59e0b" stroke-width="0.2"/>
+  <text x="690" y="387" font-family="Arial, sans-serif" font-size="14" fill="#f59e0b" opacity="0.12" text-anchor="middle">₿</text>
+
+  <circle cx="1060" cy="220" r="9" fill="#3b82f6" opacity="0.07" stroke="#3b82f6" stroke-width="0.2"/>
+  <path d="M 1060 215 L 1063 220 L 1060 225 L 1057 220 Z" fill="#3b82f6" opacity="0.12"/>
+
+  <!-- Data nodes at bottom right -->
+  <circle cx="950" cy="500" r="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.2"/>
+  <circle cx="1050" cy="480" r="8" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.2"/>
+
+  <!-- Connecting arrow from shield to bottom elements -->
+  <path d="M 800 360 Q 900 420 940 490" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.12" marker-end="url(#arrowred)"/>
+
+</svg>

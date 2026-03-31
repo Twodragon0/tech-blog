@@ -1,129 +1,97 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#4488ff"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="cloudGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.08"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: AI Cloud Zero Day Shield -->
-  <!-- Outer shield ring -->
-  <circle cx="1010" cy="225" r="110" fill="rgba(68,136,255,0.06)" stroke="rgba(68,136,255,0.25)" stroke-width="1.5"/>
-  <!-- Inner shield ring -->
-  <circle cx="1010" cy="225" r="82" fill="rgba(255,68,68,0.07)" stroke="rgba(255,68,68,0.2)" stroke-width="1"/>
-
-  <!-- Cloud shape (AI Cloud) -->
-  <path d="M960,215 Q955,195 970,190 Q975,175 992,178 Q998,165 1015,168 Q1030,162 1038,175 Q1055,172 1058,188 Q1070,192 1065,208 Q1068,220 1055,222 Q970,222 960,215 Z"
-        fill="rgba(68,136,255,0.12)" stroke="rgba(68,136,255,0.35)" stroke-width="1.5"/>
-
-  <!-- Zero-Day burst lines -->
-  <line x1="1010" y1="140" x2="1010" y2="152" stroke="rgba(255,136,0,0.3)" stroke-width="2"/>
-  <line x1="1010" y1="298" x2="1010" y2="310" stroke="rgba(255,136,0,0.3)" stroke-width="2"/>
-  <line x1="900" y1="225" x2="912" y2="225" stroke="rgba(255,136,0,0.3)" stroke-width="2"/>
-  <line x1="1108" y1="225" x2="1120" y2="225" stroke="rgba(255,136,0,0.3)" stroke-width="2"/>
-  <line x1="922" y1="157" x2="930" y2="165" stroke="rgba(255,68,68,0.25)" stroke-width="1.5"/>
-  <line x1="1090" y1="285" x2="1098" y2="293" stroke="rgba(255,68,68,0.25)" stroke-width="1.5"/>
-  <line x1="1090" y1="157" x2="1098" y2="165" stroke="rgba(255,68,68,0.25)" stroke-width="1.5"/>
-  <line x1="922" y1="285" x2="930" y2="293" stroke="rgba(255,68,68,0.25)" stroke-width="1.5"/>
-
-  <!-- Shield body -->
-  <path d="M1010,250 L985,262 L985,282 Q985,308 1010,318 Q1035,308 1035,282 L1035,262 Z"
-        fill="rgba(255,68,68,0.1)" stroke="rgba(255,68,68,0.35)" stroke-width="1.5"/>
-
-  <!-- Checkmark / lock in shield -->
-  <path d="M1000,283 L1007,291 L1022,272" fill="none" stroke="rgba(255,200,100,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- AI circuit nodes -->
-  <circle cx="968" cy="255" r="5" fill="rgba(68,136,255,0.15)" stroke="rgba(68,136,255,0.4)" stroke-width="1.5"/>
-  <circle cx="1052" cy="255" r="5" fill="rgba(68,136,255,0.15)" stroke="rgba(68,136,255,0.4)" stroke-width="1.5"/>
-  <circle cx="968" cy="255" r="2" fill="rgba(68,136,255,0.6)"/>
-  <circle cx="1052" cy="255" r="2" fill="rgba(68,136,255,0.6)"/>
-  <line x1="968" y1="255" x2="985" y2="265" stroke="rgba(68,136,255,0.2)" stroke-width="1"/>
-  <line x1="1052" y1="255" x2="1035" y2="265" stroke="rgba(68,136,255,0.2)" stroke-width="1"/>
-
-  <!-- Orbit ring around illustration -->
-  <ellipse cx="1010" cy="225" rx="118" ry="40" fill="none" stroke="rgba(255,136,0,0.08)" stroke-width="1" stroke-dasharray="4,6"/>
-
-  <!-- Decorative corner hexagon fragments -->
-  <polygon points="880,145 895,135 910,145 910,165 895,175 880,165" fill="rgba(68,136,255,0.06)" stroke="rgba(68,136,255,0.2)" stroke-width="1"/>
-  <polygon points="1110,290 1125,280 1140,290 1140,310 1125,320 1110,310" fill="rgba(255,68,68,0.06)" stroke="rgba(255,68,68,0.2)" stroke-width="1"/>
-
-  <!-- Small data point dots around illustration -->
-  <circle cx="890" cy="190" r="2.5" fill="rgba(68,136,255,0.4)"/>
-  <circle cx="1130" cy="170" r="2" fill="rgba(255,136,0,0.5)"/>
-  <circle cx="1125" cy="245" r="2.5" fill="rgba(255,68,68,0.4)"/>
-  <circle cx="895" cy="270" r="2" fill="rgba(68,255,136,0.4)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,136,0,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(68,136,255,0.7)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- LEFT SIDE CONTENT -->
+  
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,100,100,0.9)" text-anchor="middle" letter-spacing="1">MARCH 28, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="rgba(255,120,80,0.95)" letter-spacing="-0.5">AI Cloud Zero Day</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(180,190,220,0.75)">Threat Intelligence · Cloud Security · AI Risk Roundup</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(255,68,68,0.8)" letter-spacing="3">SECURITY / WEEKLY DIGEST</text>
-
+  <rect x="50" y="40" width="180" height="40" rx="6" fill="#ef4444" opacity="0.08"/>
+  <rect x="50" y="40" width="180" height="40" rx="6" fill="none" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="140" y="63" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">MARCH 28, 2026</text>
+  
+  <!-- Main title -->
+  <text x="60" y="210" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">Tech Security</text>
+  <text x="60" y="270" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">Digest Cloud Zero</text>
+  
   <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1"/>
-  <text x="140" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(255,120,120,0.9)" text-anchor="middle" letter-spacing="0.5">ZERO-DAY</text>
-
-  <rect x="216" y="402" width="110" height="36" rx="18" fill="rgba(255,136,0,0.15)" stroke="rgba(255,136,0,0.4)" stroke-width="1"/>
-  <text x="271" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(255,180,80,0.9)" text-anchor="middle" letter-spacing="0.5">AI CLOUD</text>
-
-  <rect x="342" y="402" width="118" height="36" rx="18" fill="rgba(68,136,255,0.15)" stroke="rgba(68,136,255,0.4)" stroke-width="1"/>
-  <text x="401" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(100,170,255,0.9)" text-anchor="middle" letter-spacing="0.5">DEVSECOPS</text>
-
+  <g id="tags">
+    <!-- Tag 1: Cloud -->
+    <rect x="60" y="420" width="100" height="32" rx="16" fill="#3b82f6" opacity="0.1"/>
+    <rect x="60" y="420" width="100" height="32" rx="16" fill="none" stroke="#3b82f6" stroke-width="0.25"/>
+    <text x="110" y="441" font-family="Arial, sans-serif" font-size="13" fill="#3b82f6" text-anchor="middle">Cloud</text>
+    
+    <!-- Tag 2: Security -->
+    <rect x="180" y="420" width="110" height="32" rx="16" fill="#ef4444" opacity="0.1"/>
+    <rect x="180" y="420" width="110" height="32" rx="16" fill="none" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="235" y="441" font-family="Arial, sans-serif" font-size="13" fill="#ef4444" text-anchor="middle">Security</text>
+    
+    <!-- Tag 3: Weekly -->
+    <rect x="310" y="420" width="100" height="32" rx="16" fill="#f59e0b" opacity="0.1"/>
+    <rect x="310" y="420" width="100" height="32" rx="16" fill="none" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="360" y="441" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b" text-anchor="middle">Weekly</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="0.5">SECURITY</text>
+  <text x="60" y="575" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" opacity="0.6">tech.2twodragon.com</text>
+  
+  <!-- RIGHT SIDE VISUAL SCENE -->
+  
+  <!-- Background accent circles -->
+  <circle cx="900" cy="150" r="120" fill="#3b82f6" opacity="0.04"/>
+  <circle cx="1050" cy="400" r="100" fill="#ef4444" opacity="0.04"/>
+  
+  <!-- Cloud infrastructure icon -->
+  <g id="cloud-icon" opacity="0.12">
+    <path d="M 750 180 Q 730 160 710 160 Q 700 140 680 140 Q 660 140 650 160 Q 630 160 620 180 L 900 180 Q 920 160 940 160 Q 960 160 970 180 Z" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.3"/>
+  </g>
+  
+  <!-- Simplified cloud shape -->
+  <ellipse cx="800" cy="200" rx="100" ry="60" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25"/>
+  <ellipse cx="750" cy="210" rx="50" ry="40" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25"/>
+  <ellipse cx="850" cy="210" rx="60" ry="45" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25"/>
+  
+  <!-- Shield icon -->
+  <g id="shield">
+    <path d="M 950 250 L 950 320 Q 950 380 1000 420 Q 1050 380 1050 320 L 1050 250 Z" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.3"/>
+    <!-- Checkmark inside shield -->
+    <path d="M 975 340 L 995 360 L 1025 320" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- Data flow arrows from cloud -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.5"/>
+    </marker>
+  </defs>
+  
+  <path d="M 880 240 Q 920 270 960 280" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.4" marker-end="url(#arrowhead)"/>
+  <path d="M 870 260 Q 910 300 940 330" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.4" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data flow circles (network nodes) -->
+  <circle cx="820" cy="320" r="8" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="0.25"/>
+  <circle cx="1000" cy="280" r="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="0.25"/>
+  <circle cx="900" cy="380" r="7" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="0.25"/>
+  
+  <!-- Warning triangles (alert indicators) -->
+  <g id="alert1">
+    <polygon points="700,480 710,450 720,480" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="735" y="473" font-family="Arial, sans-serif" font-size="11" fill="#ef4444" opacity="0.7">Alert</text>
+  </g>
+  
+  <g id="alert2">
+    <polygon points="1080,320 1090,290 1100,320" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="1110" y="313" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" opacity="0.7">Monitor</text>
+  </g>
+  
+  <!-- Horizontal divider line -->
+  <line x1="630" y1="80" x2="630" y2="550" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
+  
+  <!-- Data packets (small rectangles along arrows) -->
+  <rect x="890" y="255" width="6" height="6" fill="#3b82f6" opacity="0.15"/>
+  <rect x="920" y="285" width="6" height="6" fill="#f59e0b" opacity="0.15"/>
+  <rect x="950" y="310" width="6" height="6" fill="#ef4444" opacity="0.15"/>
+  
+  <!-- Additional connecting lines -->
+  <path d="M 820 280 L 900 300" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.25" stroke-dasharray="2,2"/>
+  <path d="M 900 300 L 950 330" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.25" stroke-dasharray="2,2"/>
 </svg>

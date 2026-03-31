@@ -1,102 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Dark background -->
+  <!-- Background -->
   <rect width="1200" height="630" fill="#0a0c1a"/>
-
-  <!-- Left side: Title and metadata -->
-  <text x="50" y="185" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">March 2026</text>
-  <text x="50" y="245" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">Security Digest Index</text>
-
-  <!-- Date badge -->
-  <rect x="50" y="280" width="280" height="40" rx="8" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="1.5"/>
-  <text x="65" y="306" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">MARCH 30, 2026</text>
-
-  <!-- Tag pills -->
-  <rect x="50" y="420" width="110" height="32" rx="6" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1"/>
-  <text x="65" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#60a5fa">Security</text>
-
-  <rect x="175" y="420" width="110" height="32" rx="6" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="190" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#c4b5fd">Vulnerabilities</text>
-
-  <rect x="300" y="420" width="85" height="32" rx="6" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="1"/>
-  <text x="314" y="441" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#86efac">Digest</text>
-
-  <!-- Footer -->
-  <text x="50" y="580" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
-
-  <!-- Right side: Illustration for March 2026 Security Digest Monthly Index -->
+  
+  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:0.1" />
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.03"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.04"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.05"/>
     </linearGradient>
   </defs>
-
-  <!-- Illustration: Calendar/Digest with security elements -->
-  <rect x="750" y="80" width="380" height="380" rx="12" fill="url(#grad1)" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1"/>
-
-  <!-- Layered document 1 (back) -->
-  <rect x="760" y="100" width="160" height="200" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
-  <line x1="775" y1="125" x2="910" y2="125" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-  <line x1="775" y1="140" x2="910" y2="140" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-  <line x1="775" y1="155" x2="900" y2="155" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-  <line x1="775" y1="170" x2="895" y2="170" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
-  <circle cx="795" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="810" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="825" cy="193" r="3" fill="#3b82f6" opacity="0.6"/>
-
-  <!-- Layered document 2 (middle) -->
-  <rect x="800" y="130" width="160" height="200" rx="4" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5" opacity="0.8"/>
-  <line x1="815" y1="155" x2="950" y2="155" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
-  <line x1="815" y1="170" x2="950" y2="170" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
-  <line x1="815" y1="185" x2="940" y2="185" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
-  <line x1="815" y1="200" x2="935" y2="200" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
-  <circle cx="835" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
-  <circle cx="850" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
-  <circle cx="865" cy="223" r="3" fill="#8b5cf6" opacity="0.6"/>
-
-  <!-- Layered document 3 (front) with calendar grid -->
-  <rect x="840" y="160" width="160" height="200" rx="4" fill="#1a1f3a" stroke="#22c55e" stroke-width="1.5"/>
-
-  <!-- Calendar grid on document -->
+  
+  <!-- RIGHT SIDE: Detailed Visual Scene (x=650-1150, y=80-550) -->
+  
+  <!-- Decorative background shapes -->
+  <circle cx="900" cy="150" r="120" fill="url(#blueGrad)" stroke="#3b82f6" stroke-width="0.5" opacity="0.6"/>
+  <rect x="750" y="280" width="180" height="180" fill="url(#orangeGrad)" stroke="#f59e0b" stroke-width="0.3" opacity="0.5" rx="8"/>
+  
+  <!-- Large Shield Icon -->
+  <g transform="translate(900, 250)">
+    <!-- Shield shape -->
+    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.9"/>
+    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="#3b82f6" opacity="0.06"/>
+    
+    <!-- Checkmark inside shield -->
+    <path d="M -20 0 L -5 15 L 25 -10" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <!-- Arrow from left to shield -->
   <g opacity="0.7">
-    <line x1="855" y1="175" x2="990" y2="175" stroke="#22c55e" stroke-width="1"/>
-    <text x="900" y="190" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#22c55e" text-anchor="middle">MARCH 2026</text>
-    <line x1="855" y1="200" x2="990" y2="200" stroke="rgba(34, 197, 94, 0.3)" stroke-width="0.5"/>
-    <!-- Calendar numbers -->
-    <text x="865" y="218" font-family="monospace" font-size="9" fill="#86efac">1 2 3 4</text>
-    <text x="865" y="233" font-family="monospace" font-size="9" fill="#86efac">5 6 7 8</text>
-    <text x="865" y="248" font-family="monospace" font-size="9" fill="#86efac">9 10 11 12</text>
-    <text x="865" y="263" font-family="monospace" font-size="9" fill="#86efac">13 14 15 16</text>
-    <text x="865" y="278" font-family="monospace" font-size="9" fill="#86efac">17 18 19 20</text>
+    <line x1="680" y1="250" x2="800" y2="250" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3"/>
+    <polygon points="810,250 800,245 800,255" fill="#3b82f6" opacity="0.8"/>
   </g>
-
-  <!-- Shield/Lock icon (security element) -->
-  <g transform="translate(1020, 120)">
-    <path d="M 0 -15 L 25 -5 L 25 20 Q 12.5 35 0 40 Q -12.5 35 -25 20 L -25 -5 Z"
-          fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
-    <circle cx="0" cy="8" r="6" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.7"/>
-    <rect x="-4" y="8" width="8" height="8" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.7" rx="1"/>
+  
+  <!-- Arrow downward -->
+  <g opacity="0.65">
+    <line x1="900" y1="320" x2="900" y2="400" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
+    <polygon points="900,410 895,400 905,400" fill="#f59e0b" opacity="0.8"/>
   </g>
-
-  <!-- Data points/dots (representing monthly data) -->
-  <circle cx="920" cy="310" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="950" cy="305" r="3" fill="#8b5cf6" opacity="0.6"/>
-  <circle cx="980" cy="315" r="3" fill="#22c55e" opacity="0.6"/>
-  <circle cx="940" cy="340" r="3" fill="#fbbf24" opacity="0.6"/>
-  <circle cx="900" cy="335" r="3" fill="#ef4444" opacity="0.6"/>
-
-  <!-- Connecting lines between data points -->
-  <polyline points="920,310 950,305 980,315" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
-  <polyline points="980,315 940,340 900,335" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
-
-  <!-- Index descriptor -->
-  <text x="750" y="500" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#64748b">
-    Monthly security alerts aggregated
-  </text>
-  <text x="750" y="520" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#64748b">
-    and indexed for quick reference
-  </text>
-
-  <!-- Accent line -->
-  <line x1="50" y1="370" x2="300" y2="370" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Arrow right -->
+  <g opacity="0.6">
+    <line x1="780" y1="420" x2="950" y2="420" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="5,4"/>
+    <polygon points="965,420 950,415 950,425" fill="#ef4444" opacity="0.8"/>
+  </g>
+  
+  <!-- Warning Triangle Icons -->
+  <!-- Top warning -->
+  <g transform="translate(750, 150)">
+    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#ef4444" stroke-width="1.3" opacity="0.7"/>
+    <circle cx="0" cy="8" r="2" fill="#ef4444" opacity="0.8"/>
+  </g>
+  
+  <!-- Middle warning -->
+  <g transform="translate(1050, 280)">
+    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.7"/>
+    <circle cx="0" cy="8" r="2" fill="#f59e0b" opacity="0.8"/>
+  </g>
+  
+  <!-- Bottom warning -->
+  <g transform="translate(820, 480)">
+    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#3b82f6" stroke-width="1.3" opacity="0.6"/>
+    <circle cx="0" cy="8" r="2" fill="#3b82f6" opacity="0.7"/>
+  </g>
+  
+  <!-- Network nodes -->
+  <circle cx="700" cy="380" r="8" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.6"/>
+  <circle cx="1000" cy="350" r="6" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="950" cy="480" r="7" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.55"/>
+  
+  <!-- LEFT SIDE: Text Content -->
+  
+  <!-- Date Badge -->
+  <rect x="40" y="40" width="200" height="50" fill="none" stroke="#3b82f6" stroke-width="0.8" rx="6" opacity="0.5"/>
+  <text x="140" y="75" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#3b82f6" opacity="0.9">MARCH 30, 2026</text>
+  
+  <!-- Title -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" opacity="0.95">March 2026 Security</text>
+  
+  <!-- Subtitle -->
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" opacity="0.95">Digest Monthly Index</text>
+  
+  <!-- Tag Pills -->
+  <!-- Tag 1 -->
+  <rect x="80" y="410" width="110" height="32" fill="none" stroke="#ef4444" stroke-width="0.7" rx="16" opacity="0.6"/>
+  <text x="135" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#ef4444" opacity="0.8">THREATS</text>
+  
+  <!-- Tag 2 -->
+  <rect x="210" y="410" width="110" height="32" fill="none" stroke="#f59e0b" stroke-width="0.7" rx="16" opacity="0.6"/>
+  <text x="265" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f59e0b" opacity="0.8">ANALYSIS</text>
+  
+  <!-- Tag 3 -->
+  <rect x="340" y="410" width="110" height="32" fill="none" stroke="#3b82f6" stroke-width="0.7" rx="16" opacity="0.6"/>
+  <text x="395" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#3b82f6" opacity="0.8">DIGEST</text>
+  
+  <!-- Footer -->
+  <text x="80" y="555" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">tech.2twodragon.com</text>
 </svg>

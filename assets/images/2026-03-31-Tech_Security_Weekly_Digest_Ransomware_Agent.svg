@@ -1,0 +1,145 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1425;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- LEFT SIDE CONTENT -->
+  <!-- Date Badge -->
+  <rect x="60" y="50" width="180" height="40" rx="6" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="150" y="74" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">MARCH 2, 2026</text>
+
+  <!-- Main Title -->
+  <text x="80" y="215" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">Tech Security</text>
+  <text x="80" y="275" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">Weekly Digest</text>
+  <text x="80" y="335" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ef4444">Ransomware Agent</text>
+
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1 -->
+    <rect x="80" y="425" width="140" height="32" rx="16" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="150" y="447" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">Ransomware</text>
+
+    <!-- Tag 2 -->
+    <rect x="240" y="425" width="120" height="32" rx="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="300" y="447" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold">AI/LLM</text>
+
+    <!-- Tag 3 -->
+    <rect x="380" y="425" width="100" height="32" rx="16" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="430" y="447" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold">Security</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="575" font-family="Arial, sans-serif" font-size="12" fill="#999999">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE VISUAL SCENE -->
+  <!-- Warning Triangle 1 (top) -->
+  <g opacity="0.08">
+    <polygon points="850,120 870,170 830,170" fill="#ef4444" stroke="#ef4444" stroke-width="0.3"/>
+  </g>
+
+  <!-- Warning Triangle 2 (middle-right) -->
+  <g opacity="0.1">
+    <polygon points="1050,250 1080,320 1020,320" fill="#ef4444" stroke="#ef4444" stroke-width="0.3"/>
+  </g>
+
+  <!-- Padlock with Chains (left-center of right side) -->
+  <g filter="url(#glow)">
+    <!-- Chain link 1 -->
+    <circle cx="750" cy="180" r="18" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.12"/>
+    <!-- Chain link 2 -->
+    <circle cx="800" cy="160" r="18" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.10"/>
+
+    <!-- Padlock body -->
+    <rect x="820" y="260" width="80" height="100" rx="8" fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="2"/>
+    <!-- Padlock shackle -->
+    <path d="M 840 260 Q 840 180 900 180 Q 920 180 920 260" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.12"/>
+    <!-- Keyhole -->
+    <circle cx="860" cy="295" r="8" fill="#0a0c1a" stroke="#ef4444" stroke-width="1.5" opacity="0.11"/>
+  </g>
+
+  <!-- Brain with Circuits (center-top of right side) -->
+  <g filter="url(#glow)">
+    <!-- Brain outline -->
+    <ellipse cx="950" cy="220" rx="50" ry="55" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Brain contours -->
+    <path d="M 920 200 Q 910 220 920 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.10"/>
+    <path d="M 980 200 Q 990 220 980 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.10"/>
+    <!-- Circuit lines -->
+    <path d="M 920 190 L 880 160 L 870 180" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.11"/>
+    <path d="M 980 190 L 1020 160 L 1030 180" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.11"/>
+    <!-- Circuit nodes -->
+    <circle cx="880" cy="160" r="5" fill="#f59e0b" opacity="0.12"/>
+    <circle cx="1020" cy="160" r="5" fill="#f59e0b" opacity="0.12"/>
+    <circle cx="950" cy="140" r="5" fill="#f59e0b" opacity="0.11"/>
+  </g>
+
+  <!-- Shield with Checkmark (center-right) -->
+  <g filter="url(#glow)">
+    <!-- Shield body -->
+    <path d="M 1000 300 L 1050 280 L 1050 380 Q 1050 430 1000 460 Q 950 430 950 380 L 950 280 Z" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Checkmark -->
+    <path d="M 985 380 L 1000 395 L 1025 360" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" opacity="0.12"/>
+  </g>
+
+  <!-- Data Flow Arrows -->
+  <!-- Arrow from padlock to brain -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.12"/>
+    </marker>
+  </defs>
+
+  <path d="M 900 290 Q 920 270 940 240" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.10" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow from brain to shield -->
+  <path d="M 990 260 Q 1000 280 1000 310" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.10" marker-end="url(#arrowhead)"/>
+
+  <!-- Data flow dots -->
+  <circle cx="915" cy="275" r="3" fill="#3b82f6" opacity="0.11"/>
+  <circle cx="925" cy="265" r="3" fill="#3b82f6" opacity="0.10"/>
+  <circle cx="970" cy="280" r="3" fill="#f59e0b" opacity="0.10"/>
+  <circle cx="985" cy="290" r="3" fill="#f59e0b" opacity="0.11"/>
+
+  <!-- Alert Indicator (bottom-right) -->
+  <g opacity="0.09">
+    <circle cx="1070" cy="480" r="25" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <path d="M 1070 465 L 1070 480 M 1070 495 L 1070 500" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Additional circuit elements -->
+  <g opacity="0.07">
+    <!-- Top-right circuit -->
+    <circle cx="1100" cy="150" r="6" fill="#3b82f6"/>
+    <path d="M 1050 180 L 1100 150" stroke="#3b82f6" stroke-width="1.5"/>
+    <!-- Bottom-left circuit -->
+    <circle cx="750" cy="500" r="6" fill="#f59e0b"/>
+    <path d="M 800 450 L 750 500" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+
+  <!-- Subtle grid pattern for tech feel -->
+  <g stroke="#3b82f6" stroke-width="0.5" opacity="0.03">
+    <line x1="700" y1="100" x2="1150" y2="100"/>
+    <line x1="700" y1="150" x2="1150" y2="150"/>
+    <line x1="700" y1="200" x2="1150" y2="200"/>
+    <line x1="700" y1="250" x2="1150" y2="250"/>
+    <line x1="700" y1="300" x2="1150" y2="300"/>
+    <line x1="700" y1="350" x2="1150" y2="350"/>
+    <line x1="700" y1="400" x2="1150" y2="400"/>
+    <line x1="700" y1="450" x2="1150" y2="450"/>
+    <line x1="700" y1="500" x2="1150" y2="500"/>
+    <line x1="700" y1="550" x2="1150" y2="550"/>
+  </g>
+</svg>

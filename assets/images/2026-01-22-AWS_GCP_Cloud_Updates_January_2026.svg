@@ -1,140 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff6b35"/>
-      <stop offset="50%" stop-color="#f7931e"/>
-      <stop offset="100%" stop-color="#ff4757"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff6b35"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff9500" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ff4757" stop-opacity="0.06"/>
-    </linearGradient>
-    <linearGradient id="gcpGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4285f4" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#34a853" stop-opacity="0.06"/>
-    </linearGradient>
-  </defs>
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,100,50,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,100,50,0.06)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: AWS + GCP Cloud + EC2 G7e GPU Instance -->
-  <!-- Outer cloud shape (AWS) -->
-  <ellipse cx="1010" cy="200" rx="110" ry="65" fill="url(#cloudGrad)" stroke="rgba(255,149,0,0.3)" stroke-width="1.5"/>
-  <ellipse cx="960" cy="218" rx="55" ry="40" fill="url(#cloudGrad)" stroke="rgba(255,149,0,0.25)" stroke-width="1"/>
-  <ellipse cx="1065" cy="215" rx="50" ry="38" fill="url(#cloudGrad)" stroke="rgba(255,149,0,0.25)" stroke-width="1"/>
-
-  <!-- GCP cloud shape -->
-  <ellipse cx="1000" cy="270" rx="95" ry="55" fill="url(#gcpGrad)" stroke="rgba(66,133,244,0.3)" stroke-width="1.5"/>
-  <ellipse cx="945" cy="285" rx="48" ry="35" fill="url(#gcpGrad)" stroke="rgba(66,133,244,0.22)" stroke-width="1"/>
-  <ellipse cx="1058" cy="282" rx="45" ry="33" fill="url(#gcpGrad)" stroke="rgba(52,168,83,0.22)" stroke-width="1"/>
-
-  <!-- EC2 instance icon (server rack) -->
-  <rect x="950" y="155" width="120" height="22" rx="3" fill="rgba(255,149,0,0.08)" stroke="rgba(255,149,0,0.35)" stroke-width="1"/>
-  <rect x="950" y="183" width="120" height="22" rx="3" fill="rgba(255,149,0,0.08)" stroke="rgba(255,149,0,0.35)" stroke-width="1"/>
-  <rect x="950" y="211" width="120" height="22" rx="3" fill="rgba(255,149,0,0.06)" stroke="rgba(255,149,0,0.25)" stroke-width="1"/>
-
-  <!-- Server rack lights -->
-  <circle cx="962" cy="166" r="4" fill="rgba(52,168,83,0.6)" stroke="rgba(52,168,83,0.9)" stroke-width="0.5"/>
-  <circle cx="975" cy="166" r="4" fill="rgba(66,133,244,0.6)" stroke="rgba(66,133,244,0.9)" stroke-width="0.5"/>
-  <circle cx="962" cy="194" r="4" fill="rgba(255,149,0,0.7)" stroke="rgba(255,149,0,0.9)" stroke-width="0.5"/>
-  <circle cx="975" cy="194" r="4" fill="rgba(52,168,83,0.6)" stroke="rgba(52,168,83,0.9)" stroke-width="0.5"/>
-
-  <!-- GPU chip (G7e) representation -->
-  <rect x="935" y="248" width="150" height="100" rx="8" fill="rgba(66,133,244,0.07)" stroke="rgba(66,133,244,0.28)" stroke-width="1.5"/>
-  <rect x="950" y="262" width="120" height="72" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.2)" stroke-width="1"/>
-  <!-- GPU cores grid -->
-  <rect x="958" y="270" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="976" y="270" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="994" y="270" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="1012" y="270" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="1030" y="270" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="1048" y="270" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-
-  <rect x="958" y="289" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="976" y="289" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="994" y="289" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="1012" y="289" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="1030" y="289" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="1048" y="289" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-
-  <rect x="958" y="308" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="976" y="308" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="994" y="308" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-  <rect x="1012" y="308" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="1030" y="308" width="14" height="14" rx="2" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.4)" stroke-width="0.8"/>
-  <rect x="1048" y="308" width="14" height="14" rx="2" fill="rgba(255,149,0,0.25)" stroke="rgba(255,149,0,0.5)" stroke-width="0.8"/>
-
-  <!-- G7e label on chip -->
-  <text x="1010" y="340" font-family="monospace" font-size="11" font-weight="700" fill="rgba(255,149,0,0.7)" text-anchor="middle">G7e</text>
-
-  <!-- Connecting lines (cloud to server) -->
-  <line x1="1000" y1="240" x2="1000" y2="248" stroke="rgba(66,133,244,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
-  <line x1="960" y1="233" x2="955" y2="248" stroke="rgba(255,149,0,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-  <line x1="1048" y1="230" x2="1055" y2="248" stroke="rgba(52,168,83,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(255,107,53,0.7)" stroke="rgba(255,107,53,0.9)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="5" fill="rgba(247,147,30,0.7)" stroke="rgba(247,147,30,0.9)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="5" fill="rgba(255,71,87,0.7)" stroke="rgba(255,71,87,0.9)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- LEFT SIDE CONTENT -->
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,107,53,0.15)" stroke="rgba(255,107,53,0.4)" stroke-width="1"/>
-  <text x="180" y="81" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,149,0,0.9)" text-anchor="middle" letter-spacing="1">JANUARY 22, 2026</text>
+  <rect x="60" y="45" width="220" height="40" rx="20" fill="#1f2937" stroke="#3b82f6" stroke-width="1.5" opacity="0.8"/>
+  <text x="170" y="70" font-family="system-ui, -apple-system" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">JANUARY 22, 2026</text>
 
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">AWS GCP Cloud Updates</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">January 2026 EC2 G7e</text>
+  <!-- Title -->
+  <text x="80" y="195" font-family="system-ui, -apple-system" font-size="48" font-weight="700" fill="#ffffff">AWS GCP Cloud</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Cloud infrastructure updates: GPU instances, region expansions</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,149,0,0.8)" letter-spacing="2">CLOUD INFRASTRUCTURE</text>
+  <text x="80" y="260" font-family="system-ui, -apple-system" font-size="48" font-weight="700" fill="#ffffff">Updates January 2026</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(255,71,87,0.15)" stroke="rgba(255,71,87,0.4)" stroke-width="1"/>
-  <text x="135" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,100,100,0.9)" text-anchor="middle">AWS EC2</text>
+  <rect x="80" y="420" width="110" height="32" rx="16" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="135" y="442" font-family="system-ui, -apple-system" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">Cloud Security</text>
 
-  <rect x="202" y="402" width="96" height="36" rx="18" fill="rgba(247,147,30,0.15)" stroke="rgba(247,147,30,0.4)" stroke-width="1"/>
-  <text x="250" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,50,0.9)" text-anchor="middle">GCP</text>
+  <rect x="210" y="420" width="100" height="32" rx="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="260" y="442" font-family="system-ui, -apple-system" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Infrastructure</text>
 
-  <rect x="310" y="402" width="110" height="36" rx="18" fill="rgba(66,133,244,0.15)" stroke="rgba(66,133,244,0.4)" stroke-width="1"/>
-  <text x="365" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(100,160,255,0.9)" text-anchor="middle">GPU G7e</text>
+  <rect x="330" y="420" width="85" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="372.5" y="442" font-family="system-ui, -apple-system" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">AWS/GCP</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" text-anchor="end">cloud</text>
+  <text x="80" y="565" font-family="system-ui, -apple-system" font-size="13" font-weight="500" fill="#6b7280">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE VISUAL SCENE -->
+
+  <!-- Cloud shape (AWS) -->
+  <g opacity="0.1">
+    <ellipse cx="750" cy="140" rx="75" ry="45" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.3"/>
+    <ellipse cx="820" cy="160" rx="60" ry="40" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.3"/>
+    <ellipse cx="680" cy="160" rx="55" ry="38" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.3"/>
+    <rect x="650" y="150" width="200" height="50" fill="#3b82f6"/>
+  </g>
+
+  <!-- Cloud shape (GCP) -->
+  <g opacity="0.1">
+    <ellipse cx="1050" cy="140" rx="75" ry="45" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.3"/>
+    <ellipse cx="1120" cy="160" rx="60" ry="40" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.3"/>
+    <ellipse cx="980" cy="160" rx="55" ry="38" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.3"/>
+    <rect x="950" y="150" width="200" height="50" fill="#f59e0b"/>
+  </g>
+
+  <!-- Data flow arrows -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.4"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.4"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.4"/>
+    </marker>
+  </defs>
+
+  <!-- Arrow AWS to center -->
+  <path d="M 780 210 Q 820 260 850 300" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.3" marker-end="url(#arrowblue)"/>
+
+  <!-- Arrow GCP to center -->
+  <path d="M 1080 210 Q 1040 260 950 300" stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.3" marker-end="url(#arroworange)"/>
+
+  <!-- Central server/database -->
+  <g opacity="0.12">
+    <rect x="900" y="280" width="90" height="110" rx="4" fill="#3b82f6" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="920" y="295" width="50" height="15" fill="#1f2937" opacity="0.6"/>
+    <rect x="920" y="320" width="50" height="15" fill="#1f2937" opacity="0.6"/>
+    <rect x="920" y="345" width="50" height="15" fill="#1f2937" opacity="0.6"/>
+    <rect x="920" y="370" width="50" height="15" fill="#1f2937" opacity="0.6"/>
+  </g>
+
+  <!-- Data flow between servers -->
+  <path d="M 850 330 L 900 330" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.25" marker-end="url(#arrowblue)"/>
+  <path d="M 990 330 L 1040 330" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.25" marker-end="url(#arroworange)"/>
+
+  <!-- Warning triangle -->
+  <g opacity="0.15">
+    <polygon points="1100,100 1130,160 1070,160" fill="none" stroke="#ef4444" stroke-width="2.2"/>
+    <text x="1100" y="145" font-family="Arial" font-size="24" font-weight="bold" fill="#ef4444" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Alert indicator circle -->
+  <circle cx="710" cy="470" r="35" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.2"/>
+  <circle cx="710" cy="470" r="28" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.15"/>
+  <circle cx="710" cy="470" r="8" fill="#ef4444" opacity="0.3"/>
+
+  <!-- Update indicator -->
+  <g opacity="0.15">
+    <rect x="1020" y="400" width="100" height="80" rx="6" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.8"/>
+    <text x="1070" y="425" font-family="system-ui, -apple-system" font-size="11" font-weight="600" fill="#f59e0b" text-anchor="middle">UPDATES</text>
+    <text x="1070" y="450" font-family="system-ui, -apple-system" font-size="10" font-weight="500" fill="#f59e0b" text-anchor="middle">New</text>
+    <text x="1070" y="468" font-family="system-ui, -apple-system" font-size="10" font-weight="500" fill="#f59e0b" text-anchor="middle">Features</text>
+  </g>
+
+  <!-- Security shield -->
+  <g opacity="0.12">
+    <rect x="680" y="380" width="60" height="75" rx="4" fill="#ef4444" stroke="#ef4444" stroke-width="1.8"/>
+    <path d="M 700 390 L 715 400 L 710 415" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="710" cy="395" r="3" fill="#ef4444"/>
+  </g>
+
+  <!-- Data nodes network -->
+  <circle cx="820" cy="500" r="6" fill="#3b82f6" opacity="0.2"/>
+  <circle cx="880" cy="520" r="6" fill="#f59e0b" opacity="0.2"/>
+  <circle cx="940" cy="510" r="6" fill="#ef4444" opacity="0.15"/>
+
+  <!-- Connecting lines -->
+  <line x1="820" y1="500" x2="880" y2="520" stroke="#3b82f6" stroke-width="1.5" opacity="0.15"/>
+  <line x1="880" y1="520" x2="940" y2="510" stroke="#f59e0b" stroke-width="1.5" opacity="0.15"/>
+  <line x1="820" y1="500" x2="940" y2="510" stroke="#ef4444" stroke-width="1.2" opacity="0.1"/>
+
+  <!-- Accent line -->
+  <line x1="650" y1="380" x2="1150" y2="380" stroke="#3b82f6" stroke-width="0.8" opacity="0.08"/>
 </svg>

@@ -1,95 +1,139 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <!-- Dark background -->
   <rect width="1200" height="630" fill="#0a0c1a"/>
   
-  <!-- Left side content -->
-  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" line-height="1.2">Coding Assistants</text>
-  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" line-height="1.2">Comparison Guide</text>
+  <!-- LEFT SIDE: Title and Content -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">
+    Coding Assistants
+  </text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">
+    Comparison
+  </text>
+  <text x="80" y="310" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="#3b82f6" opacity="0.8">
+    Gemini Claude Code
+  </text>
   
   <!-- Date badge -->
-  <rect x="50" y="280" width="240" height="36" rx="6" fill="#1a1f3a" stroke="#4f46e5" stroke-width="1"/>
-  <text x="130" y="303" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#a78bfa" text-anchor="middle">JANUARY 17, 2026</text>
+  <rect x="60" y="40" width="220" height="40" rx="8" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="85" y="65" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" letter-spacing="1">
+    JANUARY 17, 2026
+  </text>
   
-  <!-- Tag pills -->
-  <g id="tags">
-    <!-- Tag 1: AI -->
-    <rect x="50" y="420" width="70" height="32" rx="16" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-    <text x="85" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#60a5fa" text-anchor="middle">AI</text>
+  <!-- Tag pills at y=430 -->
+  <g>
+    <!-- Tag 1 -->
+    <rect x="80" y="420" width="130" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="100" y="442" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" font-weight="600">
+      AI Tools
+    </text>
     
-    <!-- Tag 2: Tools -->
-    <rect x="140" y="420" width="100" height="32" rx="16" fill="#2d3748" stroke="#9f7aea" stroke-width="1"/>
-    <text x="190" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#d6bcfa" text-anchor="middle">Tools</text>
+    <!-- Tag 2 -->
+    <rect x="230" y="420" width="130" height="32" rx="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="250" y="442" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" font-weight="600">
+      Development
+    </text>
     
-    <!-- Tag 3: Developer -->
-    <rect x="260" y="420" width="130" height="32" rx="16" fill="#1f3a3a" stroke="#14b8a6" stroke-width="1"/>
-    <text x="325" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#5eead4" text-anchor="middle">Developer</text>
-  </g>
-  
-  <!-- Right side: Illustration for Coding Assistants -->
-  <g id="illustration">
-    <!-- Background accent -->
-    <circle cx="950" cy="180" r="120" fill="#1a3a4f" opacity="0.3"/>
-    <circle cx="1000" cy="380" r="100" fill="#2a1f3a" opacity="0.3"/>
-    
-    <!-- Left AI Assistant Box (Gemini) -->
-    <rect x="730" y="200" width="140" height="180" rx="12" fill="#1a2a4a" stroke="#10b981" stroke-width="2"/>
-    <circle cx="800" cy="230" r="20" fill="#10b981" opacity="0.2"/>
-    <text x="800" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#10b981" text-anchor="middle">Gemini</text>
-    
-    <!-- Gemini features -->
-    <rect x="740" y="280" width="120" height="4" rx="2" fill="#10b981" opacity="0.4"/>
-    <rect x="740" y="295" width="100" height="4" rx="2" fill="#10b981" opacity="0.3"/>
-    <rect x="740" y="310" width="110" height="4" rx="2" fill="#10b981" opacity="0.35"/>
-    <rect x="740" y="325" width="90" height="4" rx="2" fill="#10b981" opacity="0.3"/>
-    
-    <!-- Right AI Assistant Box (Claude Code) -->
-    <rect x="890" y="200" width="140" height="180" rx="12" fill="#1a2a4a" stroke="#8b5cf6" stroke-width="2"/>
-    <circle cx="960" cy="230" r="20" fill="#8b5cf6" opacity="0.2"/>
-    <text x="960" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#a78bfa" text-anchor="middle">Claude Code</text>
-    
-    <!-- Claude Code features -->
-    <rect x="900" y="280" width="120" height="4" rx="2" fill="#a78bfa" opacity="0.4"/>
-    <rect x="900" y="295" width="105" height="4" rx="2" fill="#a78bfa" opacity="0.3"/>
-    <rect x="900" y="310" width="115" height="4" rx="2" fill="#a78bfa" opacity="0.35"/>
-    <rect x="900" y="325" width="95" height="4" rx="2" fill="#a78bfa" opacity="0.3"/>
-    
-    <!-- Comparison arrow -->
-    <line x1="870" y1="290" x2="890" y2="290" stroke="#4f46e5" stroke-width="2"/>
-    <polygon points="890,290 880,285 880,295" fill="#4f46e5"/>
-    <line x1="870" y1="290" x2="870" y2="300" stroke="#4f46e5" stroke-width="1" stroke-dasharray="2,2"/>
-    
-    <!-- Code elements (bottom) -->
-    <g id="code-elements">
-      <!-- Code bracket 1 -->
-      <path d="M 750 440 L 760 430 L 760 450" stroke="#3b82f6" stroke-width="2" fill="none"/>
-      <text x="770" y="445" font-family="monospace" font-size="12" fill="#60a5fa" opacity="0.8">async</text>
-      
-      <!-- Code bracket 2 -->
-      <path d="M 880 440 L 890 430 L 890 450" stroke="#8b5cf6" stroke-width="2" fill="none"/>
-      <text x="900" y="445" font-family="monospace" font-size="12" fill="#a78bfa" opacity="0.8">await</text>
-      
-      <!-- Code bracket 3 -->
-      <path d="M 1010 440 L 1020 430 L 1020 450" stroke="#10b981" stroke-width="2" fill="none"/>
-      <text x="1030" y="445" font-family="monospace" font-size="12" fill="#5eead4" opacity="0.8">return</text>
-    </g>
-    
-    <!-- Stats/Metrics -->
-    <g id="metrics">
-      <!-- Metric bars -->
-      <text x="730" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280">Speed</text>
-      <rect x="730" y="525" width="80" height="6" rx="3" fill="#1e293b"/>
-      <rect x="730" y="525" width="60" height="6" rx="3" fill="#3b82f6"/>
-      
-      <text x="830" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280">Accuracy</text>
-      <rect x="830" y="525" width="80" height="6" rx="3" fill="#1e293b"/>
-      <rect x="830" y="525" width="70" height="6" rx="3" fill="#8b5cf6"/>
-      
-      <text x="930" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280">Features</text>
-      <rect x="930" y="525" width="80" height="6" rx="3" fill="#1e293b"/>
-      <rect x="930" y="525" width="65" height="6" rx="3" fill="#10b981"/>
-    </g>
+    <!-- Tag 3 -->
+    <rect x="380" y="420" width="130" height="32" rx="16" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="400" y="442" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" font-weight="600">
+      Comparison
+    </text>
   </g>
   
   <!-- Footer -->
-  <text x="1150" y="610" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280" text-anchor="end">tech.2twodragon.com</text>
+  <text x="80" y="555" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">
+    tech.2twodragon.com
+  </text>
+  
+  <!-- RIGHT SIDE: Visual Scene with AI/Neural Concepts -->
+  <g>
+    <!-- Brain silhouette with circuits -->
+    <!-- Brain outline -->
+    <ellipse cx="850" cy="240" rx="95" ry="110" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
+    
+    <!-- Brain lobes detail -->
+    <circle cx="800" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="900" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <ellipse cx="850" cy="280" rx="60" ry="50" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    
+    <!-- Neural connections/circuits -->
+    <line x1="750" y1="200" x2="800" y2="220" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    <line x1="800" y1="220" x2="850" y2="200" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    <line x1="850" y1="200" x2="900" y2="220" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    <line x1="900" y1="220" x2="950" y2="200" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Vertical neural paths -->
+    <line x1="820" y1="240" x2="810" y2="310" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
+    <line x1="850" y1="240" x2="850" y2="330" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
+    <line x1="880" y1="240" x2="890" y2="310" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- Circuit nodes -->
+    <circle cx="750" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="800" cy="220" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="850" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="900" cy="220" r="4" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="950" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
+    
+    <!-- Data flow arrows coming from brain -->
+    <defs>
+      <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.6"/>
+      </marker>
+      <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.6"/>
+      </marker>
+      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.6"/>
+      </marker>
+    </defs>
+    
+    <!-- Right arrow (Output/Results) -->
+    <line x1="960" y1="240" x2="1050" y2="240" stroke="#f59e0b" stroke-width="2" opacity="0.6" marker-end="url(#arrowOrange)"/>
+    
+    <!-- Lower right arrow -->
+    <line x1="930" y1="290" x2="1040" y2="360" stroke="#3b82f6" stroke-width="2" opacity="0.5" marker-end="url(#arrowBlue)"/>
+    
+    <!-- Upper right arrow -->
+    <line x1="930" y1="190" x2="1040" y2="120" stroke="#ef4444" stroke-width="2" opacity="0.5" marker-end="url(#arrowRed)"/>
+    
+    <!-- Data packets along arrows -->
+    <circle cx="1000" cy="235" r="3" fill="#f59e0b" opacity="0.7"/>
+    <circle cx="980" cy="245" r="2.5" fill="#f59e0b" opacity="0.5"/>
+    
+    <!-- Warning/Alert triangles -->
+    <!-- Triangle 1 (Top right) -->
+    <polygon points="1080,100 1095,130 1065,130" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <text x="1078" y="122" font-family="Arial, sans-serif" font-size="20" fill="#ef4444" opacity="0.5" font-weight="bold">!</text>
+    
+    <!-- Triangle 2 (Right) -->
+    <polygon points="1070,360 1085,390 1055,390" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+    <text x="1068" y="382" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" opacity="0.4" font-weight="bold">!</text>
+    
+    <!-- Processing indicators -->
+    <!-- Hexagon shapes for processing nodes -->
+    <g transform="translate(700, 350)">
+      <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
+    </g>
+    
+    <g transform="translate(1000, 450)">
+      <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    </g>
+    
+    <!-- Connecting line between processing nodes -->
+    <line x1="710" y1="360" x2="990" y2="445" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    
+    <!-- Energy pulses on neural lines -->
+    <circle cx="835" cy="300" r="3" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="865" cy="300" r="2.5" fill="#f59e0b" opacity="0.4"/>
+    
+    <!-- Top section glow -->
+    <ellipse cx="850" cy="150" rx="120" ry="80" fill="#3b82f6" opacity="0.04"/>
+    
+    <!-- Right section glow -->
+    <ellipse cx="1050" cy="280" rx="100" ry="120" fill="#f59e0b" opacity="0.05"/>
+  </g>
+  
+  <!-- Subtle grid lines for design depth -->
+  <line x1="650" y1="80" x2="650" y2="550" stroke="white" stroke-width="0.5" opacity="0.05"/>
+  <line x1="650" y1="315" x2="1150" y2="315" stroke="white" stroke-width="0.5" opacity="0.05"/>
 </svg>

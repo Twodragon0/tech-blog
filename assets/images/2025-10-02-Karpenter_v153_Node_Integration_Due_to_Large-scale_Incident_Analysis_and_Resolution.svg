@@ -1,140 +1,117 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#cc0000"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#cc2222;stop-opacity:0.7"/>
-      <stop offset="100%" style="stop-color:#441111;stop-opacity:0.5"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(200,30,30,0.04)" stroke="rgba(255,80,80,0.06)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(200,30,30,0.05)" stroke="rgba(255,80,80,0.08)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Karpenter Incident - Node cluster with warning/failure state -->
-  <!-- Central cluster hub (Karpenter controller) -->
-  <circle cx="1010" cy="220" r="52" fill="rgba(220,50,50,0.08)" stroke="rgba(255,80,80,0.35)" stroke-width="2"/>
-  <circle cx="1010" cy="220" r="38" fill="rgba(180,30,30,0.1)" stroke="rgba(255,100,100,0.25)" stroke-width="1.5"/>
-  <circle cx="1010" cy="220" r="22" fill="rgba(255,60,60,0.12)" stroke="rgba(255,120,120,0.3)" stroke-width="1"/>
-
-  <!-- K symbol inside hub -->
-  <text x="1010" y="228" font-size="22" font-weight="700" fill="rgba(255,120,120,0.6)" text-anchor="middle" font-family="monospace">K</text>
-
-  <!-- Node satellites (failed/degraded nodes) -->
-  <!-- Node 1 - top left (failed) -->
-  <rect x="880" y="130" width="56" height="44" rx="6" fill="rgba(255,40,40,0.09)" stroke="rgba(255,80,80,0.32)" stroke-width="1.5"/>
-  <rect x="886" y="136" width="44" height="32" rx="3" fill="rgba(200,30,30,0.08)" stroke="rgba(255,100,100,0.2)" stroke-width="1"/>
-  <line x1="908" y1="152" x2="918" y2="152" stroke="rgba(255,80,80,0.4)" stroke-width="2"/>
-  <line x1="913" y1="147" x2="913" y2="157" stroke="rgba(255,80,80,0.4)" stroke-width="2"/>
-
-  <!-- Node 2 - top right (degraded) -->
-  <rect x="1080" y="130" width="56" height="44" rx="6" fill="rgba(255,140,0,0.08)" stroke="rgba(255,160,30,0.3)" stroke-width="1.5"/>
-  <rect x="1086" y="136" width="44" height="32" rx="3" fill="rgba(200,100,0,0.07)" stroke="rgba(255,160,30,0.18)" stroke-width="1"/>
-  <circle cx="1108" cy="152" r="5" fill="rgba(255,160,30,0.3)" stroke="rgba(255,180,50,0.4)" stroke-width="1"/>
-
-  <!-- Node 3 - bottom left (offline) -->
-  <rect x="880" y="285" width="56" height="44" rx="6" fill="rgba(100,100,255,0.07)" stroke="rgba(120,120,255,0.28)" stroke-width="1.5"/>
-  <rect x="886" y="291" width="44" height="32" rx="3" fill="rgba(80,80,200,0.06)" stroke="rgba(120,120,255,0.16)" stroke-width="1"/>
-  <line x1="900" y1="307" x2="920" y2="307" stroke="rgba(120,150,255,0.35)" stroke-width="2"/>
-
-  <!-- Node 4 - bottom right (pending) -->
-  <rect x="1080" y="285" width="56" height="44" rx="6" fill="rgba(255,40,40,0.09)" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <rect x="1086" y="291" width="44" height="32" rx="3" fill="rgba(200,30,30,0.07)" stroke="rgba(255,100,100,0.18)" stroke-width="1"/>
-  <!-- X mark for failed node -->
-  <line x1="1100" y1="301" x2="1114" y2="313" stroke="rgba(255,80,80,0.45)" stroke-width="2"/>
-  <line x1="1114" y1="301" x2="1100" y2="313" stroke="rgba(255,80,80,0.45)" stroke-width="2"/>
-
-  <!-- Connection lines from hub to nodes -->
-  <line x1="976" y1="196" x2="936" y2="174" stroke="rgba(255,80,80,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="1044" y1="196" x2="1094" y2="174" stroke="rgba(255,160,30,0.18)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="976" y1="244" x2="936" y2="285" stroke="rgba(100,100,255,0.18)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="1044" y1="244" x2="1094" y2="285" stroke="rgba(255,80,80,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/>
-
-  <!-- Warning triangle above hub -->
-  <polygon points="1010,148 996,172 1024,172" fill="rgba(255,180,0,0.1)" stroke="rgba(255,200,30,0.38)" stroke-width="1.5"/>
-  <text x="1010" y="167" font-size="12" font-weight="700" fill="rgba(255,200,30,0.55)" text-anchor="middle">!</text>
-
-  <!-- v153 version label -->
-  <rect x="978" y="255" width="64" height="20" rx="4" fill="rgba(255,80,80,0.12)" stroke="rgba(255,100,100,0.3)" stroke-width="1"/>
-  <text x="1010" y="269" font-size="10" fill="rgba(255,140,140,0.7)" text-anchor="middle" font-family="monospace">v1.5.3</text>
-
-  <!-- Pulse ring around hub (incident indicator) -->
-  <circle cx="1010" cy="220" r="65" fill="none" stroke="rgba(255,60,60,0.12)" stroke-width="1" stroke-dasharray="6,4"/>
-  <circle cx="1010" cy="220" r="78" fill="none" stroke="rgba(255,60,60,0.07)" stroke-width="1" stroke-dasharray="8,6"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.6)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="3" fill="rgba(255,140,30,0.55)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(255,60,60,0.5)" filter="url(#glow)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="url(#dateBadge)"/>
-  <text x="185" y="81" font-size="12" font-weight="600" fill="rgba(255,180,180,0.9)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="1">OCTOBER 2, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI',Arial,sans-serif">Karpenter v153 Node Integration</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI',Arial,sans-serif">Due Large scale Incident</text>
-
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- LEFT SIDE -->
+  <!-- Date Badge -->
+  <rect x="55" y="45" width="170" height="35" rx="4" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
+  <text x="140" y="67" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.8">OCTOBER 2, 2025</text>
+  
+  <!-- Main Title -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Karpenter v153 Node</text>
+  
   <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(200,150,150,0.85)" font-family="'Segoe UI',Arial,sans-serif">Kubernetes autoscaler failure — root cause analysis &amp; response</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,100,100,0.75)" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="2" font-weight="600">INCIDENT REPORT · CLOUD INFRASTRUCTURE</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="400" width="108" height="36" rx="18" fill="rgba(200,30,30,0.22)" stroke="rgba(255,80,80,0.4)" stroke-width="1"/>
-  <text x="134" y="423" font-size="13" font-weight="600" fill="rgba(255,140,140,0.9)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">Karpenter</text>
-
-  <rect x="202" y="400" width="100" height="36" rx="18" fill="rgba(200,100,0,0.22)" stroke="rgba(255,160,30,0.4)" stroke-width="1"/>
-  <text x="252" y="423" font-size="13" font-weight="600" fill="rgba(255,190,100,0.9)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">Kubernetes</text>
-
-  <rect x="316" y="400" width="90" height="36" rx="18" fill="rgba(30,60,200,0.22)" stroke="rgba(80,120,255,0.4)" stroke-width="1"/>
-  <text x="361" y="423" font-size="13" font-weight="600" fill="rgba(140,180,255,0.9)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">AWS EKS</text>
-
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Integration Due Large</text>
+  
+  <!-- Tag Pills -->
+  <g id="tags">
+    <!-- Tag 1 -->
+    <rect x="80" y="425" width="90" height="28" rx="14" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1"/>
+    <text x="125" y="444" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle">Kubernetes</text>
+    
+    <!-- Tag 2 -->
+    <rect x="185" y="425" width="75" height="28" rx="14" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
+    <text x="222.5" y="444" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle">DevOps</text>
+    
+    <!-- Tag 3 -->
+    <rect x="275" y="425" width="85" height="28" rx="14" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
+    <text x="317.5" y="444" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">Scaling</text>
+  </g>
+  
   <!-- Footer -->
-  <text x="80" y="545" font-size="14" fill="rgba(255,255,255,0.35)" font-family="'Segoe UI',Arial,sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,100,100,0.4)" font-family="'Segoe UI',Arial,sans-serif" text-anchor="end" letter-spacing="1">INCIDENT</text>
+  <text x="80" y="555" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">tech.2twodragon.com</text>
+  
+  <!-- RIGHT SIDE - Detailed Visual Scene -->
+  <!-- Shield with Lock -->
+  <g id="shield-lock" transform="translate(800, 200)">
+    <!-- Shield background -->
+    <path d="M 0 -60 L -50 -30 L -50 40 Q 0 80 50 40 L 50 -30 Z" fill="#ef4444" opacity="0.06" stroke="#ef4444" stroke-width="2"/>
+    
+    <!-- Lock icon inside shield -->
+    <rect x="-20" y="-10" width="40" height="35" rx="3" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+    <path d="M -15 -10 Q -15 -25 0 -25 Q 15 -25 15 -10" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+    <circle cx="0" cy="12" r="3" fill="#ef4444" opacity="0.7"/>
+  </g>
+  
+  <!-- Circuit Patterns -->
+  <g id="circuits" opacity="0.5">
+    <!-- Horizontal circuit line 1 -->
+    <line x1="700" y1="120" x2="950" y2="120" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="700" cy="120" r="4" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="825" cy="120" r="3" fill="#3b82f6" opacity="0.4"/>
+    <circle cx="950" cy="120" r="4" fill="#3b82f6" opacity="0.6"/>
+    
+    <!-- Vertical circuit line -->
+    <line x1="825" y1="120" x2="825" y2="280" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="825" cy="200" r="3" fill="#3b82f6" opacity="0.4"/>
+    
+    <!-- Horizontal circuit line 2 -->
+    <line x1="700" y1="280" x2="950" y2="280" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="700" cy="280" r="4" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="950" cy="280" r="4" fill="#3b82f6" opacity="0.6"/>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <defs>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.6"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.6"/>
+    </marker>
+  </defs>
+  
+  <!-- Arrow 1: flowing right -->
+  <line x1="680" y1="150" x2="1050" y2="150" stroke="#f59e0b" stroke-width="2" opacity="0.5" marker-end="url(#arrowhead-orange)"/>
+  
+  <!-- Arrow 2: flowing down-right -->
+  <path d="M 900 280 Q 950 320 1020 380" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead-red)"/>
+  
+  <!-- Arrow 3: flowing left -->
+  <line x1="1050" y1="420" x2="680" y2="420" stroke="#3b82f6" stroke-width="2" opacity="0.5" marker-end="url(#arrowhead-orange)" marker-start="url(#arrowhead-red)"/>
+  
+  <!-- Warning Triangles / Alert Indicators -->
+  <g id="warnings">
+    <!-- Warning 1 - Top right -->
+    <polygon points="1080,100 1100,140 1060,140" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="1080" y="128" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.7">!</text>
+    
+    <!-- Warning 2 - Middle right -->
+    <polygon points="1100,250 1120,290 1080,290" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1100" y="278" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.7">!</text>
+    
+    <!-- Warning 3 - Bottom -->
+    <polygon points="750,480 770,520 730,520" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="750" y="508" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6" text-anchor="middle" opacity="0.7">⚠</text>
+  </g>
+  
+  <!-- Node/Server Icon -->
+  <g id="nodes" opacity="0.6">
+    <!-- Node 1 -->
+    <rect x="950" y="480" width="35" height="35" rx="2" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="959" cy="490" r="2" fill="#3b82f6"/>
+    <circle cx="975" cy="490" r="2" fill="#3b82f6"/>
+    <circle cx="959" cy="505" r="2" fill="#3b82f6"/>
+    <circle cx="975" cy="505" r="2" fill="#3b82f6"/>
+    
+    <!-- Node 2 -->
+    <rect x="700" y="480" width="35" height="35" rx="2" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="709" cy="490" r="2" fill="#ef4444"/>
+    <circle cx="725" cy="490" r="2" fill="#ef4444"/>
+    <circle cx="709" cy="505" r="2" fill="#ef4444"/>
+    <circle cx="725" cy="505" r="2" fill="#ef4444"/>
+  </g>
+  
+  <!-- Accent Lines -->
+  <line x1="650" y1="0" x2="650" y2="630" stroke="#f59e0b" stroke-width="1" opacity="0.15"/>
 </svg>

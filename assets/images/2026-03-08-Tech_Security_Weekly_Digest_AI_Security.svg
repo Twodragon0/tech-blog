@@ -1,142 +1,107 @@
-<svg viewBox="0 0 1200 630" width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff3366"/>
-      <stop offset="50%" stop-color="#cc2255"/>
-      <stop offset="100%" stop-color="#660022"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff3366"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
-    <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff3366" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#ff3366" stop-opacity="0.05"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff3366" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#cc2255" stop-opacity="0.06"/>
-    </linearGradient>
-    <linearGradient id="circleGlow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff3366" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#ff3366" stop-opacity="0.02"/>
-    </linearGradient>
-  </defs>
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- LEFT SIDE: Text Content -->
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Date Badge -->
+  <rect x="50" y="40" width="240" height="50" rx="25" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="170" y="72" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">MARCH 8, 2026</text>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Main Title: "Tech Security" -->
+  <text x="60" y="200" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">Tech Security</text>
 
-  <!-- Background decorative circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,51,102,0.05)" stroke-width="1.5"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,51,102,0.06)" stroke-width="1"/>
+  <!-- Subtitle: "Weekly Digest Security" -->
+  <text x="60" y="270" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">Weekly Digest</text>
+  <text x="60" y="320" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">Security</text>
 
-  <!-- RIGHT SIDE ILLUSTRATION: AI Security Brain + Shield Icon -->
-  <!-- Outer ring - neural network orbit -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(255,51,102,0.22)" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <circle cx="1010" cy="225" r="85" fill="none" stroke="rgba(200,100,150,0.15)" stroke-width="1" stroke-dasharray="3 6"/>
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1: DevSecOps -->
+    <rect x="60" y="410" width="120" height="40" rx="20" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="120" y="436" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">DevSecOps</text>
 
-  <!-- Shield base shape -->
-  <path d="M1010,135 L1085,165 L1085,235 Q1085,295 1010,325 Q935,295 935,235 L935,165 Z" fill="url(#shieldGrad)" stroke="rgba(255,51,102,0.32)" stroke-width="1.8"/>
+    <!-- Tag 2: Security -->
+    <rect x="200" y="410" width="100" height="40" rx="20" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="250" y="436" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">Security</text>
 
-  <!-- Inner shield highlight -->
-  <path d="M1010,152 L1072,176 L1072,236 Q1072,284 1010,308 Q948,284 948,236 L948,176 Z" fill="rgba(255,51,102,0.06)" stroke="rgba(255,100,150,0.2)" stroke-width="1"/>
-
-  <!-- AI circuit brain inside shield -->
-  <!-- Central core -->
-  <circle cx="1010" cy="228" r="22" fill="rgba(255,51,102,0.13)" stroke="rgba(255,51,102,0.45)" stroke-width="1.8"/>
-  <circle cx="1010" cy="228" r="12" fill="rgba(255,51,102,0.18)" stroke="rgba(255,51,102,0.5)" stroke-width="1.2"/>
-  <circle cx="1010" cy="228" r="4" fill="rgba(255,51,102,0.6)"/>
-
-  <!-- Neural branches from core -->
-  <line x1="1010" y1="206" x2="1010" y2="185" stroke="rgba(255,51,102,0.38)" stroke-width="1.5"/>
-  <line x1="1010" y1="250" x2="1010" y2="270" stroke="rgba(255,51,102,0.38)" stroke-width="1.5"/>
-  <line x1="988" y1="228" x2="968" y2="228" stroke="rgba(255,51,102,0.38)" stroke-width="1.5"/>
-  <line x1="1032" y1="228" x2="1052" y2="228" stroke="rgba(255,51,102,0.38)" stroke-width="1.5"/>
-  <line x1="994" y1="212" x2="978" y2="196" stroke="rgba(255,51,102,0.28)" stroke-width="1.2"/>
-  <line x1="1026" y1="212" x2="1042" y2="196" stroke="rgba(255,51,102,0.28)" stroke-width="1.2"/>
-  <line x1="994" y1="244" x2="978" y2="260" stroke="rgba(255,51,102,0.28)" stroke-width="1.2"/>
-  <line x1="1026" y1="244" x2="1042" y2="260" stroke="rgba(255,51,102,0.28)" stroke-width="1.2"/>
-
-  <!-- Neural nodes -->
-  <circle cx="1010" cy="185" r="5" fill="rgba(255,51,102,0.4)" stroke="rgba(255,51,102,0.6)" stroke-width="1"/>
-  <circle cx="1010" cy="270" r="5" fill="rgba(255,51,102,0.4)" stroke="rgba(255,51,102,0.6)" stroke-width="1"/>
-  <circle cx="968" cy="228" r="5" fill="rgba(255,51,102,0.4)" stroke="rgba(255,51,102,0.6)" stroke-width="1"/>
-  <circle cx="1052" cy="228" r="5" fill="rgba(255,51,102,0.4)" stroke="rgba(255,51,102,0.6)" stroke-width="1"/>
-  <circle cx="978" cy="196" r="4" fill="rgba(255,100,150,0.35)" stroke="rgba(255,51,102,0.5)" stroke-width="1"/>
-  <circle cx="1042" cy="196" r="4" fill="rgba(255,100,150,0.35)" stroke="rgba(255,51,102,0.5)" stroke-width="1"/>
-  <circle cx="978" cy="260" r="4" fill="rgba(255,100,150,0.35)" stroke="rgba(255,51,102,0.5)" stroke-width="1"/>
-  <circle cx="1042" cy="260" r="4" fill="rgba(255,100,150,0.35)" stroke="rgba(255,51,102,0.5)" stroke-width="1"/>
-
-  <!-- Lock icon at bottom of shield -->
-  <rect x="996" y="282" width="28" height="20" rx="3" fill="rgba(255,51,102,0.2)" stroke="rgba(255,51,102,0.45)" stroke-width="1.5"/>
-  <path d="M1001,282 L1001,275 Q1001,268 1010,268 Q1019,268 1019,275 L1019,282" fill="none" stroke="rgba(255,51,102,0.5)" stroke-width="1.8"/>
-  <circle cx="1010" cy="292" r="3.5" fill="rgba(255,51,102,0.7)"/>
-
-  <!-- Orbiting data points -->
-  <circle cx="895" cy="225" r="6" fill="rgba(255,51,102,0.3)" stroke="rgba(255,51,102,0.5)" stroke-width="1"/>
-  <circle cx="1010" cy="110" r="5" fill="rgba(200,100,180,0.3)" stroke="rgba(200,100,180,0.5)" stroke-width="1"/>
-  <circle cx="1125" cy="225" r="6" fill="rgba(255,51,102,0.25)" stroke="rgba(255,51,102,0.4)" stroke-width="1"/>
-  <circle cx="1010" cy="340" r="5" fill="rgba(200,100,180,0.3)" stroke="rgba(200,100,180,0.5)" stroke-width="1"/>
-
-  <!-- Orbit connecting arcs -->
-  <path d="M895,219 Q900,165 950,145" fill="none" stroke="rgba(255,51,102,0.15)" stroke-width="1"/>
-  <path d="M1070,145 Q1120,165 1125,219" fill="none" stroke="rgba(255,51,102,0.15)" stroke-width="1"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,51,102,0.55)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,180,80,0.55)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(80,160,255,0.55)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,51,102,0.3)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,51,102,0.9)" letter-spacing="1.5">MARCH 8, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white">Digest AI Security</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(200,160,175,0.85)">Weekly threat intelligence &amp; AI-driven security analysis</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" font-weight="600" fill="rgba(255,51,102,0.75)" letter-spacing="2.5">SECURITY / AI / THREAT-INTELLIGENCE</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(255,51,102,0.18)" stroke="rgba(255,51,102,0.4)" stroke-width="1"/>
-  <text x="137" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(255,100,130,0.95)" text-anchor="middle">AI Security</text>
-
-  <rect x="210" y="402" width="110" height="36" rx="18" fill="rgba(255,160,50,0.15)" stroke="rgba(255,160,50,0.38)" stroke-width="1"/>
-  <text x="265" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,80,0.95)" text-anchor="middle">Threat Intel</text>
-
-  <rect x="335" y="402" width="105" height="36" rx="18" fill="rgba(60,140,255,0.15)" stroke="rgba(60,140,255,0.35)" stroke-width="1"/>
-  <text x="387" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(100,170,255,0.95)" text-anchor="middle">DevSecOps</text>
+    <!-- Tag 3: Cloud -->
+    <rect x="320" y="410" width="90" height="40" rx="20" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="365" y="436" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">Cloud</text>
+  </g>
 
   <!-- Footer -->
-  <line x1="0" y1="510" x2="1200" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(255,51,102,0.5)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="60" y="580" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.6">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual Scene (x=650-1150, y=80-550) -->
+
+  <!-- Shield with Checkmark (Center element) -->
+  <g>
+    <!-- Shield outline -->
+    <path d="M 900 120 L 850 150 L 850 280 C 850 360 900 420 900 420 C 900 420 950 360 950 280 L 950 150 Z"
+          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Checkmark inside shield -->
+    <path d="M 880 300 L 895 320 L 920 280"
+          fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  </g>
+
+  <!-- Data Flow Arrows (Left side of shield) -->
+  <g opacity="0.6">
+    <!-- Arrow 1: Blue -->
+    <line x1="700" y1="200" x2="820" y2="220" stroke="#3b82f6" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="820,220 815,215 818,225" fill="#3b82f6" opacity="0.7"/>
+
+    <!-- Arrow 2: Orange -->
+    <line x1="710" y1="280" x2="830" y2="280" stroke="#f59e0b" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="830,280 825,275 825,285" fill="#f59e0b" opacity="0.7"/>
+
+    <!-- Arrow 3: Red -->
+    <line x1="700" y1="360" x2="820" y2="340" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
+    <polygon points="820,340 815,345 818,335" fill="#ef4444" opacity="0.7"/>
+  </g>
+
+  <!-- Warning Triangles (Right side) -->
+  <g opacity="0.7">
+    <!-- Triangle 1: Top right -->
+    <polygon points="1000,140 1020,180 980,180" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="1000" y="170" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444" opacity="0.8" text-anchor="middle">!</text>
+
+    <!-- Triangle 2: Bottom right -->
+    <polygon points="1080,380 1100,420 1060,420" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1080" y="410" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" opacity="0.8" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Network/Connection Nodes -->
+  <g opacity="0.5">
+    <!-- Node 1: Top left -->
+    <circle cx="720" cy="150" r="12" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+
+    <!-- Node 2: Left center -->
+    <circle cx="710" cy="280" r="12" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <!-- Node 3: Bottom left -->
+    <circle cx="720" cy="400" r="12" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- Node 4: Right side -->
+    <circle cx="1000" cy="300" r="12" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+  </g>
+
+  <!-- Data Lock Icon (Bottom right) -->
+  <g opacity="0.6">
+    <!-- Lock body -->
+    <rect x="1000" y="460" width="50" height="40" rx="5" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Lock shackle -->
+    <path d="M 1015 460 Q 1015 440 1035 440 Q 1055 440 1055 460"
+          fill="none" stroke="#ef4444" stroke-width="2" opacity="0.8"/>
+  </g>
+
+  <!-- Decorative Grid Lines -->
+  <g opacity="0.03">
+    <line x1="650" y1="80" x2="650" y2="550" stroke="#3b82f6" stroke-width="1"/>
+    <line x1="800" y1="80" x2="800" y2="550" stroke="#3b82f6" stroke-width="1"/>
+    <line x1="950" y1="80" x2="950" y2="550" stroke="#3b82f6" stroke-width="1"/>
+    <line x1="1100" y1="80" x2="1100" y2="550" stroke="#3b82f6" stroke-width="1"/>
+  </g>
 </svg>

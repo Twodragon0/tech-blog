@@ -1,150 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Date badge -->
+  <rect x="50" y="45" width="180" height="40" rx="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="140" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">JANUARY 31, 2026</text>
+  
+  <!-- Left side: Title -->
+  <text x="80" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="bold" fill="white">Tech Security</text>
+  <text x="80" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="bold" fill="white">Weekly Digest</text>
+  <text x="80" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#f59e0b">ShinyHunters</text>
+  <text x="80" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#f59e0b">Vishing</text>
+  
+  <!-- Tag pills at y=430 -->
+  <g>
+    <!-- Tag 1: Security -->
+    <rect x="80" y="415" width="110" height="32" rx="16" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8"/>
+    <text x="135" y="437" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#3b82f6" text-anchor="middle">Security</text>
+    
+    <!-- Tag 2: Threat -->
+    <rect x="200" y="415" width="100" height="32" rx="16" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.8"/>
+    <text x="250" y="437" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#ef4444" text-anchor="middle">Threat</text>
+    
+    <!-- Tag 3: Phishing -->
+    <rect x="310" y="415" width="120" height="32" rx="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="0.8"/>
+    <text x="370" y="437" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#f59e0b" text-anchor="middle">Phishing</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="80" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">tech.2twodragon.com</text>
+  
+  <!-- RIGHT SIDE: Visual scene -->
+  <!-- Shield with checkmark (main element) -->
+  <g opacity="0.9">
+    <!-- Shield background -->
+    <path d="M 850 120 L 950 120 L 950 240 Q 900 300 850 320 Q 800 300 800 240 Z" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+    <path d="M 850 120 L 950 120 L 950 240 Q 900 300 850 320 Q 800 300 800 240 Z" fill="#3b82f6" opacity="0.08"/>
+    
+    <!-- Checkmark -->
+    <path d="M 830 220 L 870 260 L 920 180" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+  
+  <!-- Warning triangle (top right) -->
+  <g opacity="0.8">
+    <polygon points="1000,130 1050,200 950,200" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.4"/>
+    <text x="1000" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#ef4444" opacity="0.4" text-anchor="middle">⚠</text>
+  </g>
+  
+  <!-- Data flow arrows -->
+  <!-- Arrow 1: Left to center -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3c3c;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3c3c;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3c3c;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3c3c;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0.05"/>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#3b82f6" opacity="0.3"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#f59e0b" opacity="0.3"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#ef4444" opacity="0.3"/>
+    </marker>
+  </defs>
+  
+  <!-- Flow arrows -->
+  <line x1="700" y1="240" x2="780" y2="220" stroke="#3b82f6" stroke-width="0.8" opacity="0.25" marker-end="url(#arrowblue)" stroke-dasharray="3,2"/>
+  <line x1="720" y1="300" x2="800" y2="280" stroke="#f59e0b" stroke-width="0.8" opacity="0.25" marker-end="url(#arroworange)" stroke-dasharray="3,2"/>
+  <line x1="710" y1="360" x2="820" y2="340" stroke="#ef4444" stroke-width="0.8" opacity="0.2" marker-end="url(#arrowred)" stroke-dasharray="3,2"/>
+  
+  <!-- Network nodes (representing threats/data) -->
+  <!-- Node 1: Blue circle (center-left) -->
+  <circle cx="680" cy="240" r="20" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.5"/>
+  <circle cx="680" cy="240" r="14" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.3"/>
+  
+  <!-- Node 2: Orange circle (center) -->
+  <circle cx="720" cy="310" r="18" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.5"/>
+  <circle cx="720" cy="310" r="12" fill="none" stroke="#f59e0b" stroke-width="0.3" opacity="0.3"/>
+  
+  <!-- Node 3: Red circle (left-bottom) -->
+  <circle cx="690" cy="370" r="16" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.5"/>
+  <circle cx="690" cy="370" r="10" fill="none" stroke="#ef4444" stroke-width="0.3" opacity="0.3"/>
+  
+  <!-- Shield elements on right -->
+  <!-- Small shield accent (upper right) -->
+  <path d="M 1050 280 L 1100 280 L 1100 340 Q 1075 365 1050 375 Q 1025 365 1025 340 Z" fill="none" stroke="#3b82f6" stroke-width="0.4" opacity="0.2"/>
+  
+  <!-- Lock icon (bottom right) -->
+  <g opacity="0.6">
+    <rect x="1040" y="420" width="40" height="35" rx="3" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
+    <path d="M 1050 420 Q 1050 410 1060 410 Q 1070 410 1070 420" fill="none" stroke="#3b82f6" stroke-width="0.4" opacity="0.25"/>
+    <circle cx="1060" cy="433" r="3" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.25"/>
+  </g>
+  
+  <!-- Central highlight accent -->
+  <circle cx="900" cy="280" r="45" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.15" stroke-dasharray="4,2"/>
+  
+  <!-- Connecting lines between elements -->
+  <line x1="850" y1="200" x2="920" y2="260" stroke="#3b82f6" stroke-width="0.3" opacity="0.15"/>
+  <line x1="950" y1="260" x2="1000" y2="200" stroke="#ef4444" stroke-width="0.3" opacity="0.12"/>
+  <line x1="920" y1="320" x2="1040" y2="420" stroke="#3b82f6" stroke-width="0.3" opacity="0.12"/>
+  
+  <!-- Subtle gradient overlay effect (top right corner) -->
+  <rect x="900" y="80" width="250" height="150" fill="url(#gradient1)" opacity="0.3"/>
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: ShinyHunters + Vishing + Chrome Extension themed icon -->
-  <!-- Background glow for illustration area -->
-  <ellipse cx="1010" cy="225" rx="160" ry="130" fill="rgba(255,60,60,0.04)"/>
-
-  <!-- Outer shield outline - ShinyHunters themed -->
-  <path d="M1010,135 L1090,165 L1090,235 Q1090,295 1010,325 Q930,295 930,235 L930,165 Z"
-        fill="url(#shieldGrad)" stroke="rgba(255,60,60,0.35)" stroke-width="1.5"/>
-
-  <!-- Inner shield -->
-  <path d="M1010,152 L1075,177 L1075,237 Q1075,287 1010,308 Q945,287 945,237 L945,177 Z"
-        fill="rgba(255,60,60,0.07)" stroke="rgba(255,100,60,0.25)" stroke-width="1"/>
-
-  <!-- Shield core glow -->
-  <path d="M1010,168 L1060,188 L1060,238 Q1060,278 1010,294 Q960,278 960,238 L960,188 Z"
-        fill="rgba(255,60,60,0.09)" stroke="rgba(255,60,60,0.2)" stroke-width="0.8"/>
-
-  <!-- Skull/hacker icon inside shield - ShinyHunters motif -->
-  <!-- Skull head circle -->
-  <circle cx="1010" cy="218" r="28" fill="rgba(255,80,40,0.12)" stroke="rgba(255,60,60,0.4)" stroke-width="1.5"/>
-  <!-- Skull eye sockets -->
-  <circle cx="1000" cy="215" r="7" fill="rgba(255,60,60,0.25)" stroke="rgba(255,60,60,0.5)" stroke-width="1"/>
-  <circle cx="1020" cy="215" r="7" fill="rgba(255,60,60,0.25)" stroke="rgba(255,60,60,0.5)" stroke-width="1"/>
-  <!-- Skull nose -->
-  <path d="M1007,224 L1010,228 L1013,224" fill="rgba(255,80,40,0.3)" stroke="rgba(255,60,60,0.4)" stroke-width="0.8"/>
-  <!-- Skull jaw -->
-  <rect x="997" y="230" width="26" height="9" rx="2" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.35)" stroke-width="1"/>
-  <!-- Jaw teeth -->
-  <line x1="1004" y1="230" x2="1004" y2="239" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
-  <line x1="1010" y1="230" x2="1010" y2="239" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
-  <line x1="1016" y1="230" x2="1016" y2="239" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
-
-  <!-- Vishing phone waves emanating from shield - left side -->
-  <path d="M922,210 Q908,225 922,240" fill="none" stroke="rgba(255,140,60,0.3)" stroke-width="1.5"/>
-  <path d="M912,200 Q890,225 912,250" fill="none" stroke="rgba(255,140,60,0.2)" stroke-width="1.2"/>
-  <path d="M902,190 Q872,225 902,260" fill="none" stroke="rgba(255,140,60,0.12)" stroke-width="1"/>
-
-  <!-- Chrome extension icon - right side of shield (puzzle piece style) -->
-  <rect x="1098" y="188" width="40" height="40" rx="6" fill="rgba(100,180,255,0.1)" stroke="rgba(100,180,255,0.3)" stroke-width="1.5"/>
-  <!-- Puzzle notch top -->
-  <path d="M1110,188 L1110,180 Q1118,175 1126,180 L1126,188" fill="rgba(100,180,255,0.15)" stroke="rgba(100,180,255,0.3)" stroke-width="1"/>
-  <!-- Puzzle notch right -->
-  <path d="M1138,200 L1146,200 Q1151,208 1146,216 L1138,216" fill="rgba(100,180,255,0.15)" stroke="rgba(100,180,255,0.3)" stroke-width="1"/>
-  <!-- Chrome circle inside puzzle -->
-  <circle cx="1118" cy="208" r="10" fill="none" stroke="rgba(100,180,255,0.4)" stroke-width="1.5"/>
-  <circle cx="1118" cy="208" r="4" fill="rgba(100,180,255,0.2)" stroke="rgba(100,180,255,0.5)" stroke-width="1"/>
-  <!-- Chrome extension dividers -->
-  <line x1="1118" y1="198" x2="1118" y2="208" stroke="rgba(100,180,255,0.35)" stroke-width="1"/>
-  <line x1="1109" y1="213" x2="1118" y2="208" stroke="rgba(100,180,255,0.35)" stroke-width="1"/>
-  <line x1="1127" y1="213" x2="1118" y2="208" stroke="rgba(100,180,255,0.35)" stroke-width="1"/>
-
-  <!-- Data breach lines - circuit pattern below shield -->
-  <line x1="970" y1="330" x2="970" y2="350" stroke="rgba(255,60,60,0.2)" stroke-width="1"/>
-  <line x1="970" y1="350" x2="1050" y2="350" stroke="rgba(255,60,60,0.2)" stroke-width="1"/>
-  <line x1="1050" y1="350" x2="1050" y2="330" stroke="rgba(255,60,60,0.2)" stroke-width="1"/>
-  <circle cx="970" cy="330" r="3" fill="rgba(255,60,60,0.4)"/>
-  <circle cx="1050" cy="330" r="3" fill="rgba(255,60,60,0.4)"/>
-  <circle cx="1010" cy="350" r="2.5" fill="rgba(255,100,60,0.5)"/>
-
-  <!-- Orbiting dots around shield -->
-  <circle cx="1085" cy="155" r="3" fill="rgba(255,80,40,0.5)" stroke="rgba(255,60,60,0.6)" stroke-width="0.5"/>
-  <circle cx="935" cy="175" r="2.5" fill="rgba(255,140,60,0.4)" stroke="rgba(255,140,60,0.5)" stroke-width="0.5"/>
-  <circle cx="940" cy="300" r="2" fill="rgba(255,60,60,0.35)"/>
-  <circle cx="1080" cy="310" r="2.5" fill="rgba(100,180,255,0.4)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.6)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,60,0.5)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.4)"/>
-
-  <!-- Background circles subtle -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,60,60,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,60,60,0.06)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Courier New',monospace" font-size="12" font-weight="600" fill="rgba(255,120,100,0.95)" text-anchor="middle" letter-spacing="1.5">JANUARY 31, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="36" font-weight="700" fill="rgba(255,120,100,0.95)">ShinyHunters Vishing Chrome Ext</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" font-weight="400">Threat intelligence, voice phishing campaigns, and browser-based attack vectors</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial',sans-serif" font-size="14" fill="rgba(255,100,80,0.75)" font-weight="600" letter-spacing="2.5">SECURITY / THREAT INTELLIGENCE / WEEKLY DIGEST</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.5)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,120,100,0.95)" font-weight="600" text-anchor="middle">ShinyHunters</text>
-
-  <rect x="225" y="402" width="100" height="36" rx="18" fill="rgba(217,119,6,0.2)" stroke="rgba(245,158,11,0.5)" stroke-width="1"/>
-  <text x="275" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,200,100,0.95)" font-weight="600" text-anchor="middle">Vishing</text>
-
-  <rect x="340" y="402" width="155" height="36" rx="18" fill="rgba(37,99,235,0.2)" stroke="rgba(96,165,250,0.5)" stroke-width="1"/>
-  <text x="418" y="425" font-family="'Arial',sans-serif" font-size="13" fill="rgba(147,197,253,0.95)" font-weight="600" text-anchor="middle">Chrome Extension</text>
-
-  <!-- Footer -->
-  <line x1="0" y1="510" x2="1200" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-  <text x="80" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(255,255,255,0.3)" font-weight="400">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial',sans-serif" font-size="13" fill="rgba(255,80,60,0.4)" font-weight="600" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

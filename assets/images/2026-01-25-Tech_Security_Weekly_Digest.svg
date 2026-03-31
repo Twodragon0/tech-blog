@@ -1,161 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ed8936;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4299e1;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(229,62,62,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(229,62,62,0.06)" stroke="none"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: VMware vCenter + Fortinet + SSO Security Shield Complex -->
-  <!-- Outer ring - Shield frame -->
-  <circle cx="1010" cy="225" r="115" fill="rgba(229,62,62,0.06)" stroke="rgba(229,62,62,0.25)" stroke-width="1.5"/>
-  <circle cx="1010" cy="225" r="95" fill="rgba(10,12,26,0.4)" stroke="rgba(237,137,54,0.2)" stroke-width="1"/>
-
-  <!-- Shield body -->
-  <path d="M1010,140 L1065,165 L1065,220 Q1065,270 1010,295 Q955,270 955,220 L955,165 Z"
-        fill="rgba(229,62,62,0.08)" stroke="rgba(229,62,62,0.35)" stroke-width="2"/>
-  <!-- Shield inner -->
-  <path d="M1010,158 L1052,178 L1052,220 Q1052,258 1010,276 Q968,258 968,220 L968,178 Z"
-        fill="rgba(229,62,62,0.06)" stroke="rgba(237,137,54,0.3)" stroke-width="1"/>
-
-  <!-- Lock icon inside shield -->
-  <rect x="996" y="205" width="28" height="22" rx="3"
-        fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.45)" stroke-width="1.5"/>
-  <path d="M1002,205 L1002,198 Q1002,190 1010,190 Q1018,190 1018,198 L1018,205"
-        fill="none" stroke="rgba(237,137,54,0.5)" stroke-width="2"/>
-  <circle cx="1010" cy="216" r="3.5" fill="rgba(237,137,54,0.7)"/>
-  <line x1="1010" y1="219" x2="1010" y2="225" stroke="rgba(237,137,54,0.6)" stroke-width="1.5"/>
-
-  <!-- SSO nodes - three interconnected circles -->
-  <circle cx="1010" cy="345" r="18" fill="rgba(66,153,225,0.1)" stroke="rgba(66,153,225,0.4)" stroke-width="1.5"/>
-  <circle cx="975" cy="345" r="14" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.3)" stroke-width="1"/>
-  <circle cx="1045" cy="345" r="14" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.3)" stroke-width="1"/>
-  <line x1="989" y1="345" x2="992" y2="345" stroke="rgba(66,153,225,0.4)" stroke-width="1.5"/>
-  <line x1="1028" y1="345" x2="1031" y2="345" stroke="rgba(66,153,225,0.4)" stroke-width="1.5"/>
-  <line x1="1010" y1="327" x2="1010" y2="298" stroke="rgba(66,153,225,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
-
-  <!-- Fortinet triangle motif (left side) -->
-  <polygon points="880,155 920,230 840,230"
-           fill="rgba(229,62,62,0.07)" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
-  <polygon points="880,168 910,220 850,220"
-           fill="rgba(229,62,62,0.05)" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-  <line x1="880" y1="175" x2="880" y2="215" stroke="rgba(229,62,62,0.35)" stroke-width="1.5"/>
-
-  <!-- VMware vCenter server rack icon (right side) -->
-  <rect x="1100" y="150" width="45" height="60" rx="3"
-        fill="rgba(104,211,145,0.07)" stroke="rgba(104,211,145,0.25)" stroke-width="1.5"/>
-  <rect x="1104" y="155" width="37" height="8" rx="1"
-        fill="rgba(104,211,145,0.1)" stroke="rgba(104,211,145,0.2)" stroke-width="1"/>
-  <rect x="1104" y="167" width="37" height="8" rx="1"
-        fill="rgba(104,211,145,0.1)" stroke="rgba(104,211,145,0.2)" stroke-width="1"/>
-  <rect x="1104" y="179" width="37" height="8" rx="1"
-        fill="rgba(104,211,145,0.1)" stroke="rgba(104,211,145,0.2)" stroke-width="1"/>
-  <circle cx="1136" cy="159" r="2" fill="rgba(104,211,145,0.6)"/>
-  <circle cx="1136" cy="171" r="2" fill="rgba(237,137,54,0.6)"/>
-  <circle cx="1136" cy="183" r="2" fill="rgba(104,211,145,0.6)"/>
-
-  <!-- Connection lines between components -->
-  <line x1="920" y1="192" x2="955" y2="210" stroke="rgba(229,62,62,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="1065" y1="192" x2="1100" y2="175" stroke="rgba(104,211,145,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
-
-  <!-- Orbit dots around main shield -->
-  <circle cx="1010" cy="105" r="4" fill="rgba(229,62,62,0.5)" stroke="rgba(229,62,62,0.7)" stroke-width="1"/>
-  <circle cx="1118" cy="190" r="3.5" fill="rgba(237,137,54,0.5)" stroke="rgba(237,137,54,0.7)" stroke-width="1"/>
-  <circle cx="902" cy="190" r="3.5" fill="rgba(66,153,225,0.5)" stroke="rgba(66,153,225,0.7)" stroke-width="1"/>
-
-  <!-- Scanning arcs -->
-  <path d="M960,130 Q930,165 940,210" fill="none" stroke="rgba(229,62,62,0.15)" stroke-width="1" stroke-dasharray="6,6"/>
-  <path d="M1060,130 Q1090,165 1080,210" fill="none" stroke="rgba(66,153,225,0.15)" stroke-width="1" stroke-dasharray="6,6"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(229,62,62,0.7)" stroke="rgba(229,62,62,0.9)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(237,137,54,0.6)" stroke="rgba(237,137,54,0.8)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(66,153,225,0.5)" stroke="rgba(66,153,225,0.7)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4"
-        fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-  <text x="190" y="81" font-family="'Courier New',monospace" font-size="12" font-weight="600"
-        fill="rgba(229,62,62,0.9)" text-anchor="middle" letter-spacing="2">JANUARY 25, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700"
-        fill="white" opacity="0.95">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700"
-        fill="white" opacity="0.95">VMware vCenter Fortinet SSO</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19"
-        fill="rgba(255,255,255,0.55)">Critical vulnerabilities and enterprise security updates</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New',monospace" font-size="14" font-weight="600"
-        fill="rgba(229,62,62,0.8)" letter-spacing="3">SECURITY / VULNERABILITY INTEL</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18"
-        fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.45)" stroke-width="1.5"/>
-  <text x="140" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600"
-        fill="rgba(229,62,62,0.95)" text-anchor="middle">VMware CVE</text>
-
-  <rect x="214" y="402" width="120" height="36" rx="18"
-        fill="rgba(237,137,54,0.15)" stroke="rgba(237,137,54,0.45)" stroke-width="1.5"/>
-  <text x="274" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600"
-        fill="rgba(237,137,54,0.95)" text-anchor="middle">Fortinet SSO</text>
-
-  <rect x="348" y="402" width="120" height="36" rx="18"
-        fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.45)" stroke-width="1.5"/>
-  <text x="408" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600"
-        fill="rgba(66,153,225,0.95)" text-anchor="middle">vCenter Auth</text>
-
-  <!-- Footer line -->
-  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-
-  <!-- Footer text left -->
-  <text x="80" y="545" font-family="'Courier New',monospace" font-size="13"
-        fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-
-  <!-- Footer text right -->
-  <text x="1120" y="545" font-family="'Courier New',monospace" font-size="13"
-        fill="rgba(229,62,62,0.45)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <!-- Date Badge -->
+  <rect x="60" y="50" width="180" height="36" rx="6" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
+  <text x="150" y="72" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">JANUARY 25, 2026</text>
+  
+  <!-- LEFT SIDE TEXT -->
+  <!-- Main Title -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Tech Security</text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Digest VMware vCenter</text>
+  
+  <!-- Tag Pills -->
+  <rect x="80" y="430" width="120" height="32" rx="16" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="140" y="451" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Security</text>
+  
+  <rect x="220" y="430" width="100" height="32" rx="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="270" y="451" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">VMware</text>
+  
+  <rect x="340" y="430" width="110" height="32" rx="16" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="395" y="451" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">vCenter</text>
+  
+  <!-- Footer -->
+  <text x="80" y="555" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="white" opacity="0.7">tech.2twodragon.com</text>
+  
+  <!-- RIGHT SIDE VISUAL ELEMENTS -->
+  <!-- Shield with checkmark (large) -->
+  <g opacity="0.12">
+    <path d="M 900 120 L 950 140 L 950 240 Q 950 290 900 310 Q 850 290 850 240 L 850 140 Z" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.3"/>
+  </g>
+  
+  <!-- Checkmark inside shield -->
+  <g opacity="0.25">
+    <path d="M 880 240 L 895 255 L 920 220" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Warning Triangle 1 -->
+  <g opacity="0.1">
+    <polygon points="750,180 770,140 790,180" fill="#ef4444" stroke="#ef4444" stroke-width="0.25"/>
+    <line x1="770" y1="160" x2="770" y2="170" stroke="#ef4444" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="770" cy="176" r="0.8" fill="#ef4444" opacity="0.4"/>
+  </g>
+  
+  <!-- Warning Triangle 2 -->
+  <g opacity="0.1">
+    <polygon points="1050,200 1070,160 1090,200" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.25"/>
+    <line x1="1070" y1="175" x2="1070" y2="185" stroke="#f59e0b" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="1070" cy="191" r="0.8" fill="#f59e0b" opacity="0.4"/>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <!-- Arrow 1: Left to Shield -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.15"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.15"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.15"/>
+    </marker>
+  </defs>
+  
+  <path d="M 700 200 Q 800 180 850 180" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.12" marker-end="url(#arrowBlue)"/>
+  
+  <!-- Arrow 2: Shield to right warning -->
+  <path d="M 950 220 Q 1000 220 1050 220" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.12" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Arrow 3: Down from shield -->
+  <path d="M 900 310 Q 900 380 900 450" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.12" marker-end="url(#arrowRed)"/>
+  
+  <!-- Data nodes/circles -->
+  <circle cx="680" cy="200" r="8" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.5"/>
+  <circle cx="1080" cy="350" r="8" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.5"/>
+  <circle cx="900" cy="480" r="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.5"/>
+  
+  <!-- Threat indicator dots (connecting pattern) -->
+  <circle cx="760" cy="300" r="3" fill="#ef4444" opacity="0.06"/>
+  <circle cx="800" cy="330" r="3" fill="#ef4444" opacity="0.06"/>
+  <circle cx="840" cy="360" r="3" fill="#ef4444" opacity="0.06"/>
+  
+  <!-- Interconnecting lines (threat network) -->
+  <line x1="760" y1="300" x2="800" y2="330" stroke="#ef4444" stroke-width="0.8" opacity="0.06"/>
+  <line x1="800" y1="330" x2="840" y2="360" stroke="#ef4444" stroke-width="0.8" opacity="0.06"/>
+  <line x1="840" y1="360" x2="900" y2="400" stroke="#ef4444" stroke-width="0.8" opacity="0.06"/>
+  
+  <!-- Lock icon element (security indicator) -->
+  <g opacity="0.1">
+    <rect x="1020" y="420" width="24" height="28" rx="3" fill="none" stroke="#3b82f6" stroke-width="0.5"/>
+    <path d="M 1024 420 L 1024 414 Q 1024 410 1028 410 Q 1032 410 1032 414 L 1032 420" fill="none" stroke="#3b82f6" stroke-width="0.5"/>
+    <circle cx="1028" cy="426" r="2" fill="none" stroke="#3b82f6" stroke-width="0.3"/>
+  </g>
+  
+  <!-- Highlight accent line on right -->
+  <line x1="1140" y1="100" x2="1140" y2="550" stroke="#f59e0b" stroke-width="0.8" opacity="0.08"/>
 </svg>

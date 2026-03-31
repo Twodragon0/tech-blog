@@ -1,190 +1,167 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#111430"/>
-    </linearGradient>
-    <linearGradient id="ransomGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff4444"/>
-      <stop offset="100%" stop-color="#991111"/>
-    </linearGradient>
-    <linearGradient id="llmGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00d4ff"/>
-      <stop offset="100%" stop-color="#0066cc"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#22cc88"/>
-      <stop offset="100%" stop-color="#117744"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <clipPath id="shieldClip">
-      <path d="M925,120 L1020,155 L1020,250 Q1020,310 925,340 Q830,310 830,250 L830,155 Z"/>
-    </clipPath>
+    <style>
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 700; fill: white; letter-spacing: -0.5px; }
+      .date-badge { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; font-size: 11px; fill: #f59e0b; text-transform: uppercase; }
+      .tag-pill { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 500; font-size: 12px; fill: white; }
+      .footer-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 500; font-size: 13px; fill: #9ca3af; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="rgba(245, 158, 11, 0.4)"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.03)" stroke-width="0.5"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
 
-  <!-- Subtle grid pattern -->
-  <g opacity="0.04" stroke="#ffffff" stroke-width="0.5">
-    <line x1="700" y1="0" x2="700" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="900" y1="0" x2="900" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
-    <line x1="1100" y1="0" x2="1100" y2="630"/>
-    <line x1="700" y1="100" x2="1200" y2="100"/>
-    <line x1="700" y1="200" x2="1200" y2="200"/>
-    <line x1="700" y1="300" x2="1200" y2="300"/>
-    <line x1="700" y1="400" x2="1200" y2="400"/>
-    <line x1="700" y1="500" x2="1200" y2="500"/>
-  </g>
+  <!-- LEFT SIDE: Text Content -->
+  <text x="80" y="60" class="date-badge">MARCH 29, 2026</text>
 
-  <!-- === RIGHT SIDE ILLUSTRATION: Ransomware + LLM Theme === -->
-
-  <!-- Background glow effects -->
-  <circle cx="925" cy="280" r="180" fill="#ff4444" opacity="0.03" filter="url(#softGlow)"/>
-  <circle cx="850" cy="400" r="120" fill="#00d4ff" opacity="0.04" filter="url(#softGlow)"/>
-
-  <!-- Shield outline (security) -->
-  <path d="M925,105 L1035,145 L1035,260 Q1035,330 925,365 Q815,330 815,260 L815,145 Z" fill="none" stroke="#22cc88" stroke-width="2" opacity="0.3"/>
-  <path d="M925,120 L1020,155 L1020,250 Q1020,310 925,340 Q830,310 830,250 L830,155 Z" fill="url(#shieldGrad)" opacity="0.08"/>
-
-  <!-- Ransomware lock icon inside shield -->
-  <rect x="900" y="185" width="50" height="40" rx="5" fill="none" stroke="url(#ransomGrad)" stroke-width="2.5" filter="url(#glow)"/>
-  <path d="M910,185 L910,170 Q910,155 925,155 Q940,155 940,170 L940,185" fill="none" stroke="#ff6666" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="925" cy="205" r="5" fill="#ff4444" filter="url(#glow)"/>
-  <line x1="925" y1="210" x2="925" y2="218" stroke="#ff4444" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Encryption pattern radiating from lock -->
-  <g opacity="0.5" font-family="monospace" font-size="9" fill="#ff6666">
-    <text x="960" y="195">0xA3F</text>
-    <text x="962" y="210">ENC</text>
-    <text x="960" y="225">0xD7</text>
-    <text x="855" y="200">RSA</text>
-    <text x="850" y="215">2048</text>
-    <text x="855" y="230">AES</text>
-  </g>
-
-  <!-- Ransomware warning triangles -->
-  <g filter="url(#glow)">
-    <polygon points="780,140 795,115 810,140" fill="none" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
-    <text x="795" y="137" font-family="Arial,sans-serif" font-size="12" fill="#ff4444" text-anchor="middle" font-weight="bold" opacity="0.6">!</text>
-  </g>
-  <g filter="url(#glow)">
-    <polygon points="1050,170 1065,145 1080,170" fill="none" stroke="#ff4444" stroke-width="1.5" opacity="0.5"/>
-    <text x="1065" y="167" font-family="Arial,sans-serif" font-size="12" fill="#ff4444" text-anchor="middle" font-weight="bold" opacity="0.5">!</text>
-  </g>
-
-  <!-- LLM Neural Network nodes -->
-  <g filter="url(#glow)">
-    <!-- Layer 1 -->
-    <circle cx="790" cy="380" r="8" fill="url(#llmGrad)" opacity="0.7"/>
-    <circle cx="790" cy="420" r="8" fill="url(#llmGrad)" opacity="0.7"/>
-    <circle cx="790" cy="460" r="8" fill="url(#llmGrad)" opacity="0.7"/>
-    <circle cx="790" cy="500" r="8" fill="url(#llmGrad)" opacity="0.5"/>
-    <!-- Layer 2 -->
-    <circle cx="870" cy="395" r="9" fill="url(#llmGrad)" opacity="0.8"/>
-    <circle cx="870" cy="445" r="9" fill="url(#llmGrad)" opacity="0.8"/>
-    <circle cx="870" cy="495" r="9" fill="url(#llmGrad)" opacity="0.6"/>
-    <!-- Layer 3 -->
-    <circle cx="950" cy="410" r="10" fill="url(#llmGrad)" opacity="0.9"/>
-    <circle cx="950" cy="470" r="10" fill="url(#llmGrad)" opacity="0.9"/>
-    <!-- Output -->
-    <circle cx="1030" cy="440" r="11" fill="#00d4ff" opacity="0.9"/>
-  </g>
-
-  <!-- Neural connections -->
-  <g stroke="#00d4ff" stroke-width="0.8" opacity="0.25">
-    <!-- L1 to L2 -->
-    <line x1="798" y1="380" x2="861" y2="395"/>
-    <line x1="798" y1="380" x2="861" y2="445"/>
-    <line x1="798" y1="420" x2="861" y2="395"/>
-    <line x1="798" y1="420" x2="861" y2="445"/>
-    <line x1="798" y1="420" x2="861" y2="495"/>
-    <line x1="798" y1="460" x2="861" y2="445"/>
-    <line x1="798" y1="460" x2="861" y2="495"/>
-    <line x1="798" y1="500" x2="861" y2="495"/>
-    <!-- L2 to L3 -->
-    <line x1="879" y1="395" x2="940" y2="410"/>
-    <line x1="879" y1="395" x2="940" y2="470"/>
-    <line x1="879" y1="445" x2="940" y2="410"/>
-    <line x1="879" y1="445" x2="940" y2="470"/>
-    <line x1="879" y1="495" x2="940" y2="470"/>
-    <!-- L3 to Output -->
-    <line x1="960" y1="410" x2="1019" y2="440"/>
-    <line x1="960" y1="470" x2="1019" y2="440"/>
-  </g>
-
-  <!-- LLM label -->
-  <text x="1030" y="420" font-family="Arial,sans-serif" font-size="10" fill="#00d4ff" text-anchor="middle" opacity="0.7">LLM</text>
-
-  <!-- Data flow particles -->
-  <circle cx="835" cy="408" r="2" fill="#00ffcc" opacity="0.6">
-    <animate attributeName="cx" values="798;861" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="380;395" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="910" cy="430" r="2" fill="#00ffcc" opacity="0.5">
-    <animate attributeName="cx" values="879;940" dur="1.8s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="445;410" dur="1.8s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Connection line between ransomware and LLM sections -->
-  <path d="M925,340 Q925,360 870,395" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.15" stroke-dasharray="4,4"/>
-  <path d="M925,340 Q960,370 950,410" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.15" stroke-dasharray="4,4"/>
-
-  <!-- Binary/threat data streams -->
-  <g font-family="monospace" font-size="8" fill="#22cc88" opacity="0.2">
-    <text x="1070" y="260">01101</text>
-    <text x="1080" y="280">THREAT</text>
-    <text x="1070" y="300">10010</text>
-    <text x="1080" y="320">DETECT</text>
-    <text x="1070" y="340">11001</text>
-    <text x="1090" y="480">SCAN</text>
-    <text x="1085" y="500">0xFF</text>
-  </g>
-
-  <!-- Scanning line animation -->
-  <line x1="750" y1="350" x2="1150" y2="350" stroke="#22cc88" stroke-width="0.5" opacity="0.2"/>
-
-  <!-- Divider -->
-  <line x1="680" y1="80" x2="680" y2="550" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
-
-  <!-- === LEFT SIDE: Text Content === -->
-
-  <!-- Category label -->
-  <rect x="60" y="100" width="90" height="26" rx="13" fill="#ff4444" opacity="0.15"/>
-  <text x="105" y="118" font-family="Arial,sans-serif" font-size="12" fill="#ff6666" text-anchor="middle" font-weight="600" letter-spacing="1">SECURITY</text>
-
-  <!-- Title -->
-  <text x="60" y="185" font-family="Arial,sans-serif" font-size="46" fill="#ffffff" font-weight="bold">Tech Security</text>
-  <text x="60" y="245" font-family="Arial,sans-serif" font-size="46" fill="#ffffff" font-weight="bold">Weekly Digest</text>
-
-  <!-- Subtitle -->
-  <text x="60" y="290" font-family="Arial,sans-serif" font-size="22" fill="#aaaacc" font-weight="300">Ransomware and LLM Threats</text>
-
-  <!-- Date badge -->
-  <rect x="60" y="330" width="200" height="34" rx="17" fill="#ffffff" opacity="0.06"/>
-  <rect x="60" y="330" width="200" height="34" rx="17" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.15"/>
-  <text x="160" y="352" font-family="Arial,sans-serif" font-size="13" fill="#ccccee" text-anchor="middle" letter-spacing="2">MARCH 29, 2026</text>
+  <!-- Main title -->
+  <text x="60" y="220" class="title-text" font-size="44">Tech Security</text>
+  <text x="60" y="280" class="title-text" font-size="44">Weekly Digest</text>
+  <text x="60" y="340" class="title-text" font-size="38" fill="#ef4444">Ransomware & LLM</text>
 
   <!-- Tag pills -->
-  <rect x="60" y="405" width="120" height="30" rx="15" fill="#ff4444" opacity="0.12"/>
-  <text x="120" y="425" font-family="Arial,sans-serif" font-size="12" fill="#ff6666" text-anchor="middle" font-weight="500">Ransomware</text>
+  <g id="tag1">
+    <rect x="60" y="410" width="140" height="36" rx="18" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1"/>
+    <text x="130" y="433" class="tag-pill" text-anchor="middle">Ransomware</text>
+  </g>
 
-  <rect x="195" y="405" width="70" height="30" rx="15" fill="#00d4ff" opacity="0.12"/>
-  <text x="230" y="425" font-family="Arial,sans-serif" font-size="12" fill="#44ddff" text-anchor="middle" font-weight="500">LLM</text>
+  <g id="tag2">
+    <rect x="210" y="410" width="120" height="36" rx="18" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="270" y="433" class="tag-pill" text-anchor="middle">AI/LLM</text>
+  </g>
 
-  <rect x="280" y="405" width="130" height="30" rx="15" fill="#22cc88" opacity="0.12"/>
-  <text x="345" y="425" font-family="Arial,sans-serif" font-size="12" fill="#44ddaa" text-anchor="middle" font-weight="500">Threat Intel</text>
+  <g id="tag3">
+    <rect x="340" y="410" width="140" height="36" rx="18" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="410" y="433" class="tag-pill" text-anchor="middle">Security</text>
+  </g>
 
   <!-- Footer -->
-  <line x1="60" y1="560" x2="620" y2="560" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
-  <text x="60" y="590" font-family="Arial,sans-serif" font-size="14" fill="#666688" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="60" y="575" class="footer-text">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual Scene -->
+
+  <!-- Background accent circle for visual balance -->
+  <circle cx="900" cy="300" r="180" fill="rgba(59, 130, 246, 0.05)" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
+
+  <!-- PADLOCK with chains (left element, ransomware symbol) -->
+  <g id="padlock">
+    <!-- Chains above lock -->
+    <g stroke="rgba(239, 68, 68, 0.35)" stroke-width="2.5" fill="none">
+      <!-- Left chain -->
+      <circle cx="720" cy="150" r="12" opacity="0.8"/>
+      <circle cx="720" cy="130" r="12" opacity="0.8"/>
+      <line x1="720" y1="162" x2="720" y2="220"/>
+      <!-- Right chain -->
+      <circle cx="790" cy="150" r="12" opacity="0.8"/>
+      <circle cx="790" cy="130" r="12" opacity="0.8"/>
+      <line x1="790" y1="162" x2="790" y2="220"/>
+    </g>
+
+    <!-- Padlock body -->
+    <g fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="2.5">
+      <!-- Shackle (curved top) -->
+      <path d="M 720 220 Q 720 170 755 170 Q 790 170 790 220" fill="none"/>
+      <!-- Lock body -->
+      <rect x="710" y="220" width="80" height="70" rx="5"/>
+    </g>
+
+    <!-- Keyhole detail -->
+    <circle cx="750" cy="260" r="6" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="750" cy="270" r="4" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="1"/>
+  </g>
+
+  <!-- BRAIN with neural lines (center element, AI/LLM symbol) -->
+  <g id="brain">
+    <!-- Brain silhouette -->
+    <g fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="2.5">
+      <ellipse cx="900" cy="280" rx="45" ry="55"/>
+      <!-- Brain ridges (bumps) -->
+      <path d="M 870 250 Q 860 240 870 230" fill="none"/>
+      <path d="M 900 220 Q 910 210 920 220" fill="none"/>
+      <path d="M 930 245 Q 945 235 950 250" fill="none"/>
+      <path d="M 920 310 Q 935 320 930 335" fill="none"/>
+      <path d="M 870 320 Q 860 330 870 340" fill="none"/>
+    </g>
+
+    <!-- Neural connections inside -->
+    <g stroke="rgba(59, 130, 246, 0.25)" stroke-width="1.5" fill="none">
+      <circle cx="880" cy="270" r="8" opacity="0.6"/>
+      <circle cx="910" cy="265" r="6" opacity="0.6"/>
+      <circle cx="920" cy="295" r="7" opacity="0.6"/>
+      <circle cx="885" cy="305" r="6" opacity="0.6"/>
+      <line x1="880" y1="270" x2="910" y2="265"/>
+      <line x1="910" y1="265" x2="920" y2="295"/>
+      <line x1="920" y1="295" x2="885" y2="305"/>
+      <line x1="885" y1="305" x2="880" y2="270"/>
+      <line x1="910" y1="265" x2="885" y2="305"/>
+    </g>
+  </g>
+
+  <!-- SHIELD with checkmark (right element, security/compliance symbol) -->
+  <g id="shield">
+    <!-- Shield outline -->
+    <g fill="rgba(34, 197, 94, 0.08)" stroke="#3b82f6" stroke-width="2.5">
+      <path d="M 1060 140 L 1060 240 Q 1060 290 1095 330 Q 1130 290 1130 240 L 1130 140 Z"/>
+    </g>
+
+    <!-- Checkmark inside shield -->
+    <g stroke="rgba(34, 197, 94, 0.5)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="1080,250 1095,270 1115,220"/>
+    </g>
+
+    <!-- Shield accent glow -->
+    <path d="M 1060 140 L 1060 240 Q 1060 290 1095 330 Q 1130 290 1130 240 L 1130 140 Z" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1"/>
+  </g>
+
+  <!-- DATA FLOW ARROWS -->
+  <g stroke="rgba(245, 158, 11, 0.3)" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <!-- Padlock → Brain -->
+    <path d="M 800 260 Q 840 250 860 270"/>
+    <!-- Brain → Shield -->
+    <path d="M 945 290 Q 990 300 1040 290"/>
+    <!-- Shield → Padlock (feedback loop) -->
+    <path d="M 1070 190 Q 900 150 800 200"/>
+  </g>
+
+  <!-- WARNING TRIANGLES / ALERT INDICATORS -->
+  <g id="warning-signs">
+    <!-- Top-left warning -->
+    <g opacity="0.7">
+      <polygon points="680,110 700,80 720,110" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1.5"/>
+      <line x1="700" y1="90" x2="700" y2="100" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
+      <circle cx="700" cy="107" r="1.5" fill="rgba(239, 68, 68, 0.5)"/>
+    </g>
+
+    <!-- Top-right warning -->
+    <g opacity="0.7">
+      <polygon points="1020,120 1040,90 1060,120" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1.5"/>
+      <line x1="1040" y1="100" x2="1040" y2="110" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
+      <circle cx="1040" cy="117" r="1.5" fill="rgba(239, 68, 68, 0.5)"/>
+    </g>
+
+    <!-- Bottom warning -->
+    <g opacity="0.7">
+      <polygon points="850,480 870,450 890,480" fill="none" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1.5"/>
+      <line x1="870" y1="460" x2="870" y2="470" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1"/>
+      <circle cx="870" cy="477" r="1.5" fill="rgba(245, 158, 11, 0.5)"/>
+    </g>
+  </g>
+
+  <!-- Decorative data particles -->
+  <g fill="rgba(59, 130, 246, 0.15)" opacity="0.6">
+    <circle cx="720" cy="360" r="3"/>
+    <circle cx="800" cy="400" r="2.5"/>
+    <circle cx="920" cy="350" r="2.5"/>
+    <circle cx="1050" cy="380" r="3"/>
+    <circle cx="880" cy="420" r="2"/>
+  </g>
+
+  <!-- Subtle grid pattern in background right -->
+  <rect x="650" y="80" width="500" height="470" fill="url(#grid)" opacity="0.5"/>
 </svg>

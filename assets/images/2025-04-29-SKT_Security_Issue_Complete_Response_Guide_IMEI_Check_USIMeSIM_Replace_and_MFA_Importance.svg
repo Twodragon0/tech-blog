@@ -1,141 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1119;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3b3b"/>
-      <stop offset="50%" style="stop-color:#ff6b35"/>
-      <stop offset="100%" style="stop-color:#c0392b"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff3b3b;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="simGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.06"/>
-    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
+  
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Shield with IMEI/USIM elements -->
-  <!-- Outer glow ring -->
-  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(255,60,60,0.08)" stroke-width="2"/>
-  <circle cx="1010" cy="225" r="95" fill="none" stroke="rgba(255,60,60,0.12)" stroke-width="1.5"/>
-
-  <!-- Main Shield shape -->
-  <path d="M1010,130 L1080,155 L1080,215 Q1080,265 1010,295 Q940,265 940,215 L940,155 Z"
-        fill="url(#shieldGrad)" stroke="rgba(255,80,80,0.35)" stroke-width="1.5"/>
-
-  <!-- Shield inner border -->
-  <path d="M1010,145 L1068,166 L1068,215 Q1068,256 1010,280 Q952,256 952,215 L952,166 Z"
-        fill="none" stroke="rgba(255,100,100,0.2)" stroke-width="1"/>
-
-  <!-- Shield crack / alert indicator -->
-  <path d="M1010,168 L1022,195 L1005,195 L1020,230" fill="none" stroke="rgba(255,200,50,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- USIM Card representation -->
-  <rect x="954" y="175" width="48" height="36" rx="4" fill="url(#simGrad)" stroke="rgba(100,160,255,0.3)" stroke-width="1.2"/>
-  <!-- SIM chip cutout -->
-  <rect x="962" y="183" width="10" height="8" rx="1" fill="rgba(100,160,255,0.18)" stroke="rgba(100,160,255,0.25)" stroke-width="0.8"/>
-  <!-- SIM contact lines -->
-  <line x1="977" y1="185" x2="994" y2="185" stroke="rgba(100,160,255,0.2)" stroke-width="1"/>
-  <line x1="977" y1="190" x2="994" y2="190" stroke="rgba(100,160,255,0.2)" stroke-width="1"/>
-  <line x1="977" y1="195" x2="994" y2="195" stroke="rgba(100,160,255,0.2)" stroke-width="1"/>
-  <line x1="962" y1="196" x2="994" y2="196" stroke="rgba(100,160,255,0.15)" stroke-width="0.8"/>
-
-  <!-- eSIM symbol (chip) -->
-  <rect x="1016" y="175" width="42" height="36" rx="4" fill="rgba(80,200,120,0.09)" stroke="rgba(80,200,120,0.28)" stroke-width="1.2"/>
-  <rect x="1024" y="183" width="26" height="20" rx="2" fill="rgba(80,200,120,0.14)" stroke="rgba(80,200,120,0.2)" stroke-width="0.8"/>
-  <!-- eSIM inner grid -->
-  <line x1="1030" y1="183" x2="1030" y2="203" stroke="rgba(80,200,120,0.18)" stroke-width="0.7"/>
-  <line x1="1036" y1="183" x2="1036" y2="203" stroke="rgba(80,200,120,0.18)" stroke-width="0.7"/>
-  <line x1="1042" y1="183" x2="1042" y2="203" stroke="rgba(80,200,120,0.18)" stroke-width="0.7"/>
-  <line x1="1024" y1="189" x2="1050" y2="189" stroke="rgba(80,200,120,0.18)" stroke-width="0.7"/>
-  <line x1="1024" y1="196" x2="1050" y2="196" stroke="rgba(80,200,120,0.18)" stroke-width="0.7"/>
-
-  <!-- IMEI number representation -->
-  <text x="954" y="228" font-family="monospace" font-size="7.5" fill="rgba(255,220,100,0.45)" letter-spacing="1">IMEI: 35●●●●●●●●●●●●</text>
-
-  <!-- Lock icon at shield bottom -->
-  <rect x="1000" y="245" width="20" height="16" rx="2" fill="rgba(255,180,50,0.12)" stroke="rgba(255,180,50,0.3)" stroke-width="1"/>
-  <path d="M1005,245 L1005,240 Q1010,235 1015,240 L1015,245" fill="none" stroke="rgba(255,180,50,0.35)" stroke-width="1.2"/>
-  <circle cx="1010" cy="252" r="2" fill="rgba(255,180,50,0.4)"/>
-
-  <!-- Decorative scan lines around shield -->
-  <line x1="880" y1="155" x2="930" y2="155" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
-  <line x1="880" y1="163" x2="920" y2="163" stroke="rgba(255,60,60,0.1)" stroke-width="0.8"/>
-  <line x1="1090" y1="155" x2="1140" y2="155" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
-  <line x1="1100" y1="163" x2="1140" y2="163" stroke="rgba(255,60,60,0.1)" stroke-width="0.8"/>
-
-  <!-- Corner brackets -->
-  <path d="M890,140 L890,130 L900,130" fill="none" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <path d="M1120,140 L1120,130 L1110,130" fill="none" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <path d="M890,310 L890,320 L900,320" fill="none" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-  <path d="M1120,310 L1120,320 L1110,320" fill="none" stroke="rgba(255,80,80,0.3)" stroke-width="1.5"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.55)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,160,50,0.55)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.35)"/>
-
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(255,60,60,0.12)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
-  <text x="93" y="81" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,140,130,0.9)" letter-spacing="1">APRIL 29, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">SKT Security Issue Response</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">IMEI Check USIM/eSIM Replace</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(200,180,180,0.75)">How to verify your IMEI and replace USIM/eSIM after SKT breach</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="1"/>
-
-  <!-- Category label -->
-  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" fill="rgba(255,100,100,0.7)" letter-spacing="2">SECURITY / INCIDENT RESPONSE / TELECOM</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="400" width="115" height="36" rx="18" fill="rgba(220,38,38,0.18)" stroke="rgba(255,80,80,0.35)" stroke-width="1"/>
-  <text x="137" y="423" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,130,130,0.9)" text-anchor="middle">SKT Breach</text>
-
-  <rect x="210" y="400" width="120" height="36" rx="18" fill="rgba(180,110,0,0.18)" stroke="rgba(255,180,50,0.35)" stroke-width="1"/>
-  <text x="270" y="423" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,200,100,0.9)" text-anchor="middle">IMEI Check</text>
-
-  <rect x="345" y="400" width="130" height="36" rx="18" fill="rgba(29,78,216,0.18)" stroke="rgba(100,150,255,0.35)" stroke-width="1"/>
-  <text x="410" y="423" font-family="'Arial', sans-serif" font-size="13" fill="rgba(130,180,255,0.9)" text-anchor="middle">USIM Replace</text>
-
-  <!-- Footer -->
-  <text x="80" y="545" font-family="'Arial', sans-serif" font-size="14" fill="rgba(255,255,255,0.3)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="14" fill="rgba(255,100,100,0.35)" text-anchor="end">SECURITY</text>
+  
+  <!-- LEFT SIDE: TEXT CONTENT -->
+  <g>
+    <!-- Date Badge -->
+    <rect x="45" y="45" width="180" height="40" rx="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="135" y="70" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">APRIL 29, 2025</text>
+    
+    <!-- Main Title -->
+    <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ffffff">SKT Security</text>
+    <text x="80" y="235" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ffffff">Issue Response</text>
+    <text x="80" y="285" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ffffff" opacity="0.9">IMEI Check</text>
+    
+    <!-- Tag Pills -->
+    <g>
+      <rect x="50" y="410" width="130" height="35" rx="17" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="115" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Mobile Security</text>
+      
+      <rect x="195" y="410" width="110" height="35" rx="17" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="250" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Compliance</text>
+      
+      <rect x="320" y="410" width="100" height="35" rx="17" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="370" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Response</text>
+    </g>
+    
+    <!-- Footer -->
+    <text x="80" y="555" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" opacity="0.5">tech.2twodragon.com</text>
+  </g>
+  
+  <!-- RIGHT SIDE: SECURITY VISUAL SCENE -->
+  <g>
+    <!-- Background accent -->
+    <circle cx="900" cy="280" r="180" fill="#3b82f6" opacity="0.04"/>
+    <circle cx="1000" cy="350" r="120" fill="#ef4444" opacity="0.03"/>
+    
+    <!-- Central Shield with Checkmark -->
+    <g filter="url(#glow)">
+      <path d="M 950 150 L 1000 180 L 1000 320 C 1000 380 950 420 950 420 C 950 420 900 380 900 320 L 900 180 Z" 
+            fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="2.5"/>
+      
+      <!-- Checkmark inside shield -->
+      <g>
+        <polyline points="940,310 955,325 970,295" 
+                  fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    
+    <!-- IMEI Device Icon (top right) -->
+    <g>
+      <rect x="1050" y="120" width="80" height="140" rx="8" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle cx="1090" cy="135" r="3" fill="#f59e0b" opacity="0.6"/>
+      <rect x="1065" y="155" width="50" height="80" rx="4" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
+      <text x="1090" y="210" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" opacity="0.8" text-anchor="middle" font-weight="bold">IMEI</text>
+    </g>
+    
+    <!-- Warning Triangle (left of shield) -->
+    <g>
+      <polygon points="750,200 770,260 730,260" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="2"/>
+      <text x="750" y="242" font-family="Arial, sans-serif" font-size="28" fill="#ef4444" opacity="0.7" text-anchor="middle" font-weight="bold">!</text>
+    </g>
+    
+    <!-- Data Flow Arrows -->
+    <g stroke="#3b82f6" stroke-width="1.8" fill="none" opacity="0.5">
+      <!-- Arrow from warning to shield -->
+      <path d="M 780 240 Q 850 240 880 260" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+      <polygon points="885,265 880,255 888,260" fill="#3b82f6" opacity="0.5"/>
+      
+      <!-- Arrow from shield to device -->
+      <path d="M 1010 280 Q 1040 280 1045 220" stroke-linecap="round"/>
+      <polygon points="1050,215 1045,225 1040,220" fill="#3b82f6" opacity="0.5"/>
+      
+      <!-- Arrow down from shield -->
+      <path d="M 950 430 L 950 490" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" opacity="0.4"/>
+      <polygon points="950,495 945,485 955,485" fill="#f59e0b" opacity="0.4"/>
+    </g>
+    
+    <!-- Lock Icon (bottom right) -->
+    <g opacity="0.6">
+      <rect x="1050" y="480" width="60" height="45" rx="6" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="1080" cy="490" r="6" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+      <path d="M 1074 496 L 1074 505 L 1086 505 L 1086 496" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="1080" cy="500" r="2" fill="#3b82f6" opacity="0.7"/>
+    </g>
+    
+    <!-- Server/Database Icon (bottom left of scene) -->
+    <g opacity="0.5">
+      <rect x="700" y="480" width="50" height="12" rx="3" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+      <rect x="700" y="500" width="50" height="12" rx="3" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+      <rect x="700" y="520" width="50" height="12" rx="3" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="745" cy="480" r="3" fill="#f59e0b" opacity="0.7"/>
+      <circle cx="745" cy="500" r="3" fill="#f59e0b" opacity="0.7"/>
+    </g>
+    
+    <!-- Alert Indicator Pulse -->
+    <circle cx="750" cy="200" r="3" fill="#ef4444" opacity="0.8"/>
+    <circle cx="750" cy="200" r="8" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Decorative corner lines -->
+  <line x1="650" y1="80" x2="650" y2="550" stroke="#3b82f6" stroke-width="0.5" opacity="0.15"/>
+  <line x1="650" y1="80" x2="1150" y2="80" stroke="#f59e0b" stroke-width="0.5" opacity="0.1"/>
+  <line x1="650" y1="550" x2="1150" y2="550" stroke="#ef4444" stroke-width="0.5" opacity="0.1"/>
 </svg>

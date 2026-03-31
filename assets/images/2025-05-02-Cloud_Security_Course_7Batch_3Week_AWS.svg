@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- LEFT SIDE: Text Content -->
+
+  <!-- Date Badge -->
+  <rect x="60" y="45" width="140" height="36" rx="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="130" y="68" font-family="system-ui, -apple-system" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">MAY 2, 2025</text>
+
+  <!-- Main Title: Cloud Security Course -->
+  <text x="70" y="215" font-family="system-ui, -apple-system" font-size="44" font-weight="700" fill="white">Cloud Security</text>
+  <text x="70" y="260" font-family="system-ui, -apple-system" font-size="44" font-weight="700" fill="white">Course</text>
+
+  <!-- Subtitle: 7Batch 3Week AWS -->
+  <text x="70" y="325" font-family="system-ui, -apple-system" font-size="40" font-weight="600" fill="#3b82f6">7Batch 3Week AWS</text>
+
+  <!-- Tag Pills -->
+  <g>
+    <!-- Tag 1: Security -->
+    <rect x="70" y="410" width="110" height="32" rx="16" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="125" y="432" font-family="system-ui, -apple-system" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
+
+    <!-- Tag 2: AWS -->
+    <rect x="195" y="410" width="85" height="32" rx="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="237" y="432" font-family="system-ui, -apple-system" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">AWS</text>
+
+    <!-- Tag 3: Cloud -->
+    <rect x="295" y="410" width="95" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="342" y="432" font-family="system-ui, -apple-system" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Cloud</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="575" font-family="system-ui, -apple-system" font-size="13" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual Scene -->
+
+  <!-- Decorative background circles -->
+  <circle cx="920" cy="150" r="80" fill="#3b82f6" opacity="0.05"/>
+  <circle cx="1050" cy="320" r="100" fill="#ef4444" opacity="0.05"/>
+
+  <!-- Cloud Shape (top-left of right section) -->
+  <g>
+    <path d="M 750 180 Q 750 160 770 160 Q 780 140 800 140 Q 820 140 825 160 Q 845 160 850 180 Q 845 200 825 200 L 750 200 Q 740 200 740 190 Z"
+          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Cloud highlights -->
+    <circle cx="770" cy="170" r="3" fill="#3b82f6" opacity="0.4"/>
+    <circle cx="810" cy="160" r="3" fill="#3b82f6" opacity="0.4"/>
+  </g>
+
+  <!-- Large Shield (center-right) -->
+  <g>
+    <!-- Shield body -->
+    <path d="M 900 200 L 900 240 Q 900 300 950 340 Q 1000 300 1000 240 L 1000 200 Z"
+          fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="2.5"/>
+    <!-- Checkmark inside shield -->
+    <polyline points="920,280 940,300 980,260" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  </g>
+
+  <!-- Data Flow Arrows (connecting cloud to shield) -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.5"/>
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.5"/>
+    </marker>
+  </defs>
+
+  <!-- Arrow 1: Cloud to Shield (top) -->
+  <path d="M 850 180 Q 870 180 900 200"
+        fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow 2: Shield to Cloud (bottom) -->
+  <path d="M 900 240 Q 880 260 850 280"
+        fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4" marker-end="url(#arrowhead-orange)"/>
+
+  <!-- Arrow 3: Cloud downward -->
+  <path d="M 800 200 L 800 260"
+        fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3" marker-end="url(#arrowhead)"/>
+
+  <!-- Warning Triangles (alert indicators) -->
+  <g>
+    <!-- Triangle 1 (top-right) -->
+    <polygon points="1050,120 1070,160 1030,160" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="1050" y="145" font-family="system-ui" font-size="20" font-weight="bold" fill="#ef4444" opacity="0.5" text-anchor="middle">!</text>
+
+    <!-- Triangle 2 (bottom-right) -->
+    <polygon points="1080,440 1100,480 1060,480" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1080" y="465" font-family="system-ui" font-size="20" font-weight="bold" fill="#f59e0b" opacity="0.5" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Data packets / dots flowing through arrows -->
+  <g opacity="0.6">
+    <circle cx="870" cy="185" r="2" fill="#3b82f6"/>
+    <circle cx="880" cy="192" r="2" fill="#3b82f6"/>
+    <circle cx="890" cy="210" r="2" fill="#f59e0b"/>
+    <circle cx="875" cy="250" r="2" fill="#f59e0b"/>
+    <circle cx="800" cy="225" r="2" fill="#3b82f6"/>
+    <circle cx="800" cy="240" r="2" fill="#3b82f6"/>
+  </g>
+
+  <!-- Compliance checkmark elements -->
+  <g opacity="0.4">
+    <circle cx="1020" cy="180" r="1.5" fill="#3b82f6"/>
+    <circle cx="1010" cy="320" r="1.5" fill="#3b82f6"/>
+    <circle cx="1040" cy="350" r="1.5" fill="#ef4444"/>
+  </g>
+
+  <!-- Accent line (decorative) -->
+  <line x1="650" y1="0" x2="650" y2="630" stroke="#3b82f6" stroke-width="1" opacity="0.1"/>
+</svg>

@@ -1,0 +1,98 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- RIGHT SIDE: Visual Scene (x=650-1150, y=80-550) -->
+
+  <!-- Cloud shape with soft glow -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Cloud shape -->
+  <g filter="url(#glow)">
+    <!-- Cloud outline -->
+    <path d="M 820 200 C 800 180 770 180 755 200 C 740 185 710 185 700 205 C 680 190 650 200 650 230 C 650 260 670 280 700 280 L 1100 280 C 1120 280 1140 260 1140 240 C 1140 220 1125 200 1105 195 C 1095 175 1075 165 1050 165 C 1025 165 1005 175 995 195 C 975 180 950 170 925 170 C 900 170 880 185 870 205 C 850 190 830 185 820 200 Z" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" stroke-opacity="0.15"/>
+  </g>
+
+  <!-- Data flow arrows from cloud downward -->
+  <line x1="800" y1="290" x2="800" y2="340" stroke="#f59e0b" stroke-width="0.3" opacity="0.12" stroke-dasharray="2,2"/>
+  <polygon points="800,350 795,340 805,340" fill="#f59e0b" opacity="0.12"/>
+
+  <line x1="900" y1="290" x2="900" y2="340" stroke="#3b82f6" stroke-width="0.3" opacity="0.12" stroke-dasharray="2,2"/>
+  <polygon points="900,350 895,340 905,340" fill="#3b82f6" opacity="0.12"/>
+
+  <line x1="1000" y1="290" x2="1000" y2="340" stroke="#ef4444" stroke-width="0.3" opacity="0.12" stroke-dasharray="2,2"/>
+  <polygon points="1000,350 995,340 1005,340" fill="#ef4444" opacity="0.12"/>
+
+  <!-- Large shield with checkmark -->
+  <g>
+    <!-- Shield outline -->
+    <path d="M 900 350 L 800 350 L 800 420 Q 800 480 900 510 Q 1000 480 1000 420 L 1000 350 Z" fill="#3b82f6" opacity="0.10" stroke="#3b82f6" stroke-width="0.35" stroke-opacity="0.15"/>
+
+    <!-- Checkmark inside shield -->
+    <polyline points="860,450 885,470 935,410" fill="none" stroke="#10b981" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+  </g>
+
+  <!-- Warning triangles (top corners) -->
+  <g>
+    <!-- Top-left warning -->
+    <polygon points="700,120 720,100 740,120" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.25" stroke-opacity="0.12"/>
+    <text x="720" y="122" font-size="16" fill="#ef4444" opacity="0.12" text-anchor="middle" font-weight="bold">!</text>
+
+    <!-- Top-right warning -->
+    <polygon points="1080,110 1100,90 1120,110" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25" stroke-opacity="0.12"/>
+    <text x="1100" y="112" font-size="16" fill="#f59e0b" opacity="0.12" text-anchor="middle" font-weight="bold">!</text>
+  </g>
+
+  <!-- Horizontal data flow arrows -->
+  <line x1="750" y1="250" x2="650" y2="250" stroke="#3b82f6" stroke-width="0.3" opacity="0.10" stroke-dasharray="2,2"/>
+  <polygon points="640,250 650,245 650,255" fill="#3b82f6" opacity="0.10"/>
+
+  <line x1="1050" y1="250" x2="1150" y2="250" stroke="#ef4444" stroke-width="0.3" opacity="0.10" stroke-dasharray="2,2"/>
+  <polygon points="1160,250 1150,245 1150,255" fill="#ef4444" opacity="0.10"/>
+
+  <!-- Alert indicators (small circles) -->
+  <circle cx="720" cy="380" r="8" fill="none" stroke="#ef4444" stroke-width="0.3" opacity="0.10"/>
+  <circle cx="720" cy="380" r="5" fill="#ef4444" opacity="0.08"/>
+
+  <circle cx="1070" cy="280" r="8" fill="none" stroke="#f59e0b" stroke-width="0.3" opacity="0.10"/>
+  <circle cx="1070" cy="280" r="5" fill="#f59e0b" opacity="0.08"/>
+
+  <!-- Connection lines between elements -->
+  <path d="M 850 350 Q 875 320 920 290" fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.08" stroke-dasharray="3,2"/>
+  <path d="M 950 350 Q 925 320 880 290" fill="none" stroke="#ef4444" stroke-width="0.25" opacity="0.08" stroke-dasharray="3,2"/>
+
+  <!-- LEFT SIDE: Text Elements -->
+
+  <!-- Date badge (top-left) -->
+  <rect x="50" y="45" width="160" height="30" rx="15" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.3" stroke-opacity="0.15"/>
+  <text x="130" y="66" font-size="12" font-weight="bold" fill="#ffffff" opacity="0.9" text-anchor="middle" font-family="Arial, sans-serif">MARCH 28, 2026</text>
+
+  <!-- Main title -->
+  <text x="50" y="185" font-size="44" font-weight="bold" fill="#ffffff" font-family="Arial, sans-serif" letter-spacing="-0.5">Tech Security</text>
+  <text x="50" y="245" font-size="44" font-weight="bold" fill="#ffffff" font-family="Arial, sans-serif" letter-spacing="-0.5">Weekly Digest</text>
+  <text x="50" y="305" font-size="44" font-weight="bold" fill="#3b82f6" opacity="0.9" font-family="Arial, sans-serif" letter-spacing="-0.5">Cloud Zero</text>
+
+  <!-- Tag pills (y=430) -->
+  <rect x="50" y="415" width="90" height="28" rx="14" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.25" stroke-opacity="0.12"/>
+  <text x="95" y="436" font-size="11" font-weight="bold" fill="#ef4444" opacity="0.8" text-anchor="middle" font-family="Arial, sans-serif">Security</text>
+
+  <rect x="155" y="415" width="80" height="28" rx="14" fill="#3b82f6" opacity="0.10" stroke="#3b82f6" stroke-width="0.25" stroke-opacity="0.12"/>
+  <text x="195" y="436" font-size="11" font-weight="bold" fill="#3b82f6" opacity="0.8" text-anchor="middle" font-family="Arial, sans-serif">Cloud</text>
+
+  <rect x="250" y="415" width="100" height="28" rx="14" fill="#f59e0b" opacity="0.10" stroke="#f59e0b" stroke-width="0.25" stroke-opacity="0.12"/>
+  <text x="300" y="436" font-size="11" font-weight="bold" fill="#f59e0b" opacity="0.8" text-anchor="middle" font-family="Arial, sans-serif">Zero Trust</text>
+
+  <!-- Footer -->
+  <text x="50" y="555" font-size="12" fill="#ffffff" opacity="0.5" font-family="Arial, sans-serif">tech.2twodragon.com</text>
+
+  <!-- Subtle accent line -->
+  <line x1="50" y1="360" x2="600" y2="360" stroke="#3b82f6" stroke-width="0.2" opacity="0.06"/>
+</svg>

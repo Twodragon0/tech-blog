@@ -1,94 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <!-- Dark background -->
   <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Left side content -->
-  <text x="40" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Amazon Developer And</text>
-  <text x="40" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">GitHub Advanced Security</text>
-  
+
+  <!-- LEFT SIDE: Text and metadata -->
   <!-- Date badge -->
-  <rect x="40" y="280" width="220" height="44" rx="22" fill="#1e2240" stroke="#4f7cff" stroke-width="2"/>
-  <text x="130" y="306" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a0aff9" text-anchor="middle">MAY 24, 2025</text>
-  
+  <rect x="60" y="45" width="160" height="40" rx="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
+  <text x="140" y="67" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">MAY 24, 2025</text>
+
+  <!-- Main title -->
+  <text x="80" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#ffffff">Amazon Developer</text>
+  <text x="80" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#ffffff">And GitHub</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Advanced Security</text>
+  <text x="80" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Solutions</text>
+
   <!-- Tag pills -->
-  <g id="tags">
-    <!-- Tag 1: security -->
-    <rect x="40" y="415" width="110" height="40" rx="20" fill="#1a3a4d" stroke="#00d9ff" stroke-width="1.5"/>
-    <text x="95" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d9ff" text-anchor="middle">Security</text>
-    
-    <!-- Tag 2: devsecops -->
-    <rect x="165" y="415" width="130" height="40" rx="20" fill="#2d1a3a" stroke="#ff6b9d" stroke-width="1.5"/>
-    <text x="232" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ff6b9d" text-anchor="middle">DevSecOps</text>
-    
-    <!-- Tag 3: automation -->
-    <rect x="310" y="415" width="130" height="40" rx="20" fill="#1a3a1a" stroke="#4fff6b" stroke-width="1.5"/>
-    <text x="375" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4fff6b" text-anchor="middle">Automation</text>
-  </g>
-  
+  <rect x="80" y="420" width="110" height="36" rx="18" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.5"/>
+  <text x="135" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">DevSecOps</text>
+
+  <rect x="210" y="420" width="110" height="36" rx="18" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
+  <text x="265" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Security</text>
+
+  <rect x="340" y="420" width="110" height="36" rx="18" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="395" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">GitHub</text>
+
   <!-- Footer -->
-  <text x="40" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#6b7389">tech.2twodragon.com</text>
-  
-  <!-- Right side illustration -->
-  <g id="illustration">
-    <!-- Background glow circles -->
-    <circle cx="900" cy="200" r="120" fill="#4f7cff" opacity="0.08"/>
-    <circle cx="1050" cy="350" r="100" fill="#ff6b9d" opacity="0.08"/>
-    
-    <!-- Amazon shield/badge -->
-    <g id="amazon-shield">
-      <path d="M 800 120 L 900 90 L 950 120 L 950 240 Q 900 280 800 280 Q 700 280 750 240 Z" fill="none" stroke="#ff9900" stroke-width="2.5" stroke-linejoin="round"/>
-      <text x="875" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#ff9900" text-anchor="middle">AWS</text>
+  <text x="600" y="595" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#ffffff" opacity="0.6" text-anchor="middle">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual elements -->
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Large shield with checkmark (center-right) -->
+  <g transform="translate(900, 200)">
+    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="0.35" opacity="0.9"/>
+    <g stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4">
+      <polyline points="-20,0 -5,15 20,-10"/>
     </g>
-    
-    <!-- GitHub octagon code symbol -->
-    <g id="github-element" transform="translate(1020, 140)">
-      <circle cx="0" cy="0" r="45" fill="none" stroke="#6bff00" stroke-width="2.5"/>
-      <!-- Stylized code brackets -->
-      <path d="M -20 -15 L -30 0 L -20 15" fill="none" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M 20 -15 L 30 0 L 20 15" fill="none" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="-5" y1="-20" x2="5" y2="20" stroke="#6bff00" stroke-width="2.5" stroke-linecap="round"/>
-    </g>
-    
-    <!-- Security scanning layers -->
-    <g id="scan-layers">
-      <!-- Outer ring -->
-      <circle cx="900" cy="420" r="70" fill="none" stroke="#00d9ff" stroke-width="2" stroke-dasharray="8,4"/>
-      <!-- Middle ring -->
-      <circle cx="900" cy="420" r="55" fill="none" stroke="#4f7cff" stroke-width="1.5" opacity="0.6"/>
-      <!-- Inner ring with checkmark -->
-      <circle cx="900" cy="420" r="40" fill="none" stroke="#4fff6b" stroke-width="2"/>
-      <!-- Checkmark -->
-      <path d="M 885 420 L 895 430 L 915 410" fill="none" stroke="#4fff6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    
-    <!-- Data flow arrows -->
-    <g id="flow-arrows">
-      <!-- Curved arrow from shield to scanner -->
-      <path d="M 950 230 Q 975 310 930 380" fill="none" stroke="#a0aff9" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
-      <polygon points="930,380 925,368 938,375" fill="#a0aff9" opacity="0.7"/>
-      
-      <!-- Curved arrow from code to scanner -->
-      <path d="M 1020 185 Q 995 310 915 400" fill="none" stroke="#a0aff9" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
-      <polygon points="915,400 905,395 912,408" fill="#a0aff9" opacity="0.7"/>
-    </g>
-    
-    <!-- Integration nodes -->
-    <g id="nodes">
-      <!-- Node 1: Code scanning -->
-      <circle cx="750" cy="380" r="20" fill="#1e2240" stroke="#00d9ff" stroke-width="2"/>
-      <circle cx="750" cy="380" r="12" fill="#00d9ff" opacity="0.3"/>
-      
-      <!-- Node 2: Policy checks -->
-      <circle cx="1000" cy="300" r="20" fill="#1e2240" stroke="#ff6b9d" stroke-width="2"/>
-      <circle cx="1000" cy="300" r="12" fill="#ff6b9d" opacity="0.3"/>
-      
-      <!-- Node 3: Compliance -->
-      <circle cx="1080" cy="480" r="20" fill="#1e2240" stroke="#4fff6b" stroke-width="2"/>
-      <circle cx="1080" cy="480" r="12" fill="#4fff6b" opacity="0.3"/>
-    </g>
-    
-    <!-- Connection lines between nodes -->
-    <line x1="770" y1="395" x2="985" y2="320" stroke="#4f7cff" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,4"/>
-    <line x1="920" y1="410" x2="1065" y2="495" stroke="#4f7cff" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,4"/>
   </g>
+
+  <!-- Data flow arrows -->
+  <g opacity="0.3">
+    <path d="M 700 130 Q 800 120 880 180" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <polygon points="880,180 875,170 885,172" fill="#f59e0b"/>
+  </g>
+
+  <g opacity="0.3">
+    <path d="M 700 450 Q 800 440 880 380" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <polygon points="880,380 885,388 875,382" fill="#3b82f6"/>
+  </g>
+
+  <g opacity="0.3">
+    <path d="M 950 140 Q 1020 120 1080 100" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <polygon points="1080,100 1085,110 1075,107" fill="#ef4444"/>
+  </g>
+
+  <!-- Warning triangles -->
+  <g transform="translate(1080, 120)" opacity="0.3">
+    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">!</text>
+  </g>
+
+  <g transform="translate(1050, 480)" opacity="0.3">
+    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#f59e0b" stroke-width="1"/>
+    <text x="0" y="4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle">!</text>
+  </g>
+
+  <!-- Lock icon -->
+  <g transform="translate(750, 320)" opacity="0.25">
+    <rect x="-12" y="-8" width="24" height="20" rx="2" fill="none" stroke="#3b82f6" stroke-width="0.8"/>
+    <path d="M -8 -8 L -8 -14 Q 0 -20 8 -14 L 8 -8" fill="none" stroke="#3b82f6" stroke-width="0.8"/>
+    <circle cx="0" cy="2" r="2" fill="#3b82f6" opacity="0.6"/>
+  </g>
+
+  <!-- Scanning lines effect -->
+  <g opacity="0.15" stroke="#3b82f6" stroke-width="0.5">
+    <line x1="700" y1="200" x2="1100" y2="200"/>
+    <line x1="700" y1="240" x2="1100" y2="240"/>
+    <line x1="700" y1="280" x2="1100" y2="280"/>
+    <line x1="700" y1="320" x2="1100" y2="320"/>
+    <line x1="700" y1="360" x2="1100" y2="360"/>
+    <line x1="700" y1="400" x2="1100" y2="400"/>
+  </g>
+
+  <!-- Decorative circles for connection points -->
+  <circle cx="700" cy="180" r="3" fill="#f59e0b" opacity="0.3"/>
+  <circle cx="700" cy="420" r="3" fill="#3b82f6" opacity="0.3"/>
+  <circle cx="950" cy="280" r="3" fill="#ef4444" opacity="0.3"/>
 </svg>

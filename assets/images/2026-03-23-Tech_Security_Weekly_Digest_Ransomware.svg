@@ -1,165 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- LEFT SIDE: Text and badges -->
+
+  <!-- Date badge at (80, 60) -->
+  <rect x="65" y="45" width="170" height="32" rx="16" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="150" y="67" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">MARCH 23, 2026</text>
+
+  <!-- Main title: "Tech Security" at y=185 -->
+  <text x="60" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" letter-spacing="-1">Tech Security</text>
+
+  <!-- Subtitle: "Weekly Digest Ransomware" at y=245 -->
+  <text x="60" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" letter-spacing="-1">Weekly Digest</text>
+  <text x="60" y="295" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ef4444" letter-spacing="-1">Ransomware</text>
+
+  <!-- Tag pills at y=430 -->
+  <g id="tags">
+    <!-- Tag 1: Security -->
+    <rect x="60" y="415" width="95" height="26" rx="13" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.8"/>
+    <text x="107" y="434" font-family="Arial, sans-serif" font-size="11" font-weight="500" fill="#3b82f6" text-anchor="middle">Security</text>
+
+    <!-- Tag 2: Ransomware -->
+    <rect x="175" y="415" width="110" height="26" rx="13" fill="#f59e0b" opacity="0.09" stroke="#f59e0b" stroke-width="0.8"/>
+    <text x="230" y="434" font-family="Arial, sans-serif" font-size="11" font-weight="500" fill="#f59e0b" text-anchor="middle">Ransomware</text>
+
+    <!-- Tag 3: Threats -->
+    <rect x="305" y="415" width="85" height="26" rx="13" fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="0.8"/>
+    <text x="347" y="434" font-family="Arial, sans-serif" font-size="11" font-weight="500" fill="#ef4444" text-anchor="middle">Threats</text>
+  </g>
+
+  <!-- Footer: tech.2twodragon.com at y=555 -->
+  <text x="60" y="555" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" font-weight="500">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual scene (x=650-1150, y=80-550) -->
+
+  <!-- Padlock with chains (ransomware indicator) -->
+  <!-- Padlock body -->
+  <rect x="710" y="220" width="70" height="80" rx="6" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="1.8"/>
+  <!-- Padlock shackle (arc) -->
+  <path d="M 728 220 Q 728 170 745 160 Q 762 160 790 160 Q 818 160 835 170 Q 852 180 852 220"
+        fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.35"/>
+  <!-- Padlock keyhole -->
+  <circle cx="745" cy="255" r="5" fill="#ef4444" opacity="0.12"/>
+
+  <!-- Chain links around padlock -->
+  <g stroke="#ef4444" stroke-width="1.5" opacity="0.20" fill="none" stroke-linecap="round">
+    <path d="M 680 240 Q 660 240 650 260"/>
+    <path d="M 880 240 Q 900 240 910 260"/>
+    <path d="M 680 290 Q 660 290 650 310"/>
+    <path d="M 880 290 Q 900 290 910 310"/>
+  </g>
+
+  <!-- Shield with checkmark (security/compliance) -->
+  <!-- Shield shape -->
+  <path d="M 980 140 L 1030 120 L 1080 140 L 1080 210 Q 1030 255 980 275 Q 930 255 930 210 Z"
+        fill="#3b82f6" opacity="0.10" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Checkmark inside shield -->
+  <path d="M 955 220 L 985 245 L 1035 190"
+        fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.32"/>
+
+  <!-- Warning triangles (alert indicators) -->
+  <!-- Triangle 1 (top right) -->
+  <polygon points="1080,110 1110,165 1050,165" fill="#f59e0b" opacity="0.09" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="1080" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f59e0b" opacity="0.35" text-anchor="middle">!</text>
+
+  <!-- Triangle 2 (bottom left) -->
+  <polygon points="720,400 750,455 690,455" fill="#f59e0b" opacity="0.09" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="720" y="440" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f59e0b" opacity="0.35" text-anchor="middle">!</text>
+
+  <!-- Data flow arrows connecting elements -->
+  <!-- Arrow 1: From padlock to shield (left to right) -->
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:0.25" />
-      <stop offset="100%" style="stop-color:#ff4400;stop-opacity:0.1" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.20"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.20"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.20"/>
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <path d="M 800 260 Q 880 240 930 210"
+        fill="none" stroke="#3b82f6" stroke-width="1.8" opacity="0.18" stroke-dasharray="6,4" marker-end="url(#arrowBlue)"/>
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <!-- Arrow 2: From shield back to padlock (right to left) -->
+  <path d="M 930 260 Q 880 290 800 310"
+        fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.18" stroke-dasharray="6,4" marker-end="url(#arrowRed)"/>
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Arrow 3: Downward from center -->
+  <path d="M 900 330 L 900 380"
+        fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.18" stroke-dasharray="6,4" marker-end="url(#arrowOrange)"/>
 
-  <!-- Background circles (subtle) -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,30,60,0.04)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,50,80,0.06)" stroke="none"/>
+  <!-- Connection nodes/dots -->
+  <circle cx="800" cy="260" r="4" fill="#3b82f6" opacity="0.15"/>
+  <circle cx="950" cy="230" r="4" fill="#3b82f6" opacity="0.15"/>
+  <circle cx="900" cy="330" r="4" fill="#f59e0b" opacity="0.15"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware Lock/Skull themed icon -->
-  <!-- Outer hex ring -->
-  <polygon points="1010,140 1090,155 1120,225 1090,295 1010,310 940,295 910,225 940,155"
-           fill="rgba(255,30,60,0.07)" stroke="rgba(255,80,80,0.25)" stroke-width="1.5"/>
-  <!-- Inner hex -->
-  <polygon points="1010,170 1068,181 1090,225 1068,269 1010,280 952,269 930,225 952,181"
-           fill="rgba(180,20,40,0.09)" stroke="rgba(255,60,60,0.3)" stroke-width="1"/>
+  <!-- Alert/threat indicator waves (ripple effect) -->
+  <g opacity="0.08" stroke="#ef4444" stroke-width="0.9" fill="none">
+    <circle cx="680" cy="330" r="18"/>
+    <circle cx="680" cy="330" r="28"/>
+    <circle cx="680" cy="330" r="38"/>
+  </g>
 
-  <!-- Lock body -->
-  <rect x="980" y="210" width="60" height="48" rx="6"
-        fill="rgba(255,40,60,0.12)" stroke="rgba(255,80,100,0.4)" stroke-width="2"/>
-  <!-- Lock shackle -->
-  <path d="M993,210 Q993,185 1010,185 Q1027,185 1027,210"
-        fill="none" stroke="rgba(255,80,100,0.4)" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Lock keyhole -->
-  <circle cx="1010" cy="228" r="7" fill="rgba(255,30,50,0.4)" stroke="rgba(255,100,120,0.5)" stroke-width="1.5"/>
-  <rect x="1007" y="228" width="6" height="12" rx="2" fill="rgba(255,30,50,0.4)"/>
+  <!-- Encrypted/secured indicator box -->
+  <rect x="1040" y="360" width="70" height="38" rx="4" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.15"/>
+  <text x="1075" y="385" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3b82f6" opacity="0.25" text-anchor="middle">SECURE</text>
 
-  <!-- Radiating threat lines from lock -->
-  <line x1="1010" y1="148" x2="1010" y2="162" stroke="rgba(255,60,80,0.35)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="1010" y1="298" x2="1010" y2="284" stroke="rgba(255,60,80,0.35)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="916" y1="225" x2="930" y2="225" stroke="rgba(255,60,80,0.3)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="1104" y1="225" x2="1090" y2="225" stroke="rgba(255,60,80,0.3)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="935" y1="161" x2="945" y2="171" stroke="rgba(255,60,80,0.25)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="1085" y1="161" x2="1075" y2="171" stroke="rgba(255,60,80,0.25)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="935" y1="289" x2="945" y2="279" stroke="rgba(255,60,80,0.25)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="1085" y1="289" x2="1075" y2="279" stroke="rgba(255,60,80,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Data packet indicators (small circles flowing) -->
+  <g fill="#3b82f6" opacity="0.10">
+    <circle cx="770" cy="280" r="3.5"/>
+    <circle cx="840" cy="255" r="3"/>
+    <circle cx="910" cy="280" r="3.5"/>
+  </g>
 
-  <!-- Orbit ring 1 -->
-  <ellipse cx="1010" cy="225" rx="90" ry="55"
-           fill="none" stroke="rgba(255,60,80,0.1)" stroke-width="1" stroke-dasharray="4,6"/>
-  <!-- Orbit ring 2 -->
-  <ellipse cx="1010" cy="225" rx="60" ry="35"
-           fill="none" stroke="rgba(255,80,100,0.12)" stroke-width="1" stroke-dasharray="3,5"/>
-
-  <!-- Small threat dots orbiting -->
-  <circle cx="920" cy="205" r="4" fill="rgba(255,80,80,0.3)" stroke="rgba(255,120,120,0.4)" stroke-width="1"/>
-  <circle cx="1100" cy="245" r="4" fill="rgba(255,80,80,0.3)" stroke="rgba(255,120,120,0.4)" stroke-width="1"/>
-  <circle cx="970" cy="165" r="3" fill="rgba(255,100,60,0.35)" stroke="rgba(255,140,80,0.4)" stroke-width="1"/>
-  <circle cx="1058" cy="278" r="3" fill="rgba(255,100,60,0.35)" stroke="rgba(255,140,80,0.4)" stroke-width="1"/>
-
-  <!-- Bitcoin ransom symbol (small, top right of lock area) -->
-  <text x="1065" y="208" font-size="18" font-family="monospace" fill="rgba(255,180,50,0.4)" font-weight="700">₿</text>
-
-  <!-- Code/encrypt lines below lock -->
-  <rect x="950" y="278" width="30" height="3" rx="1.5" fill="rgba(255,80,80,0.2)"/>
-  <rect x="986" y="278" width="18" height="3" rx="1.5" fill="rgba(255,80,80,0.15)"/>
-  <rect x="1010" y="278" width="22" height="3" rx="1.5" fill="rgba(255,80,80,0.18)"/>
-  <rect x="950" y="285" width="22" height="3" rx="1.5" fill="rgba(255,80,80,0.12)"/>
-  <rect x="978" y="285" width="34" height="3" rx="1.5" fill="rgba(255,80,80,0.16)"/>
-
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,40,0.7)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.6)" filter="url(#glow)"/>
-
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,60,80,0.25)" stroke-width="1"/>
-  <text x="96" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600"
-        fill="rgba(255,120,130,0.95)" letter-spacing="1.5">MARCH 23, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial Black', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="white" letter-spacing="-0.5">Tech Security</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial Black', Arial, sans-serif" font-size="46" font-weight="700"
-        fill="white" letter-spacing="-0.5">Weekly Digest</text>
-
-  <!-- Title line 3: Ransomware highlighted -->
-  <text x="80" y="297" font-family="'Arial Black', Arial, sans-serif" font-size="38" font-weight="700"
-        fill="rgba(255,60,80,0.95)">Ransomware</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="338" font-family="Arial, sans-serif" font-size="16"
-        fill="rgba(200,180,180,0.75)">Security threats, CVEs, incident analysis &amp; defense strategies</text>
-
-  <!-- Accent line -->
-  <rect x="80" y="358" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- Category label -->
-  <text x="80" y="392" font-family="Arial, sans-serif" font-size="13" font-weight="600"
-        fill="rgba(255,80,80,0.8)" letter-spacing="3">SECURITY INTELLIGENCE</text>
-
-  <!-- Tag pills -->
-  <!-- Ransomware pill (red) -->
-  <rect x="80" y="408" width="130" height="34" rx="17" fill="rgba(255,30,50,0.18)" stroke="rgba(255,60,80,0.4)" stroke-width="1"/>
-  <text x="145" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="600"
-        fill="rgba(255,120,130,0.95)" text-anchor="middle" letter-spacing="0.5">RANSOMWARE</text>
-
-  <!-- Threat Intel pill (amber) -->
-  <rect x="222" y="408" width="130" height="34" rx="17" fill="rgba(255,160,30,0.14)" stroke="rgba(255,180,50,0.35)" stroke-width="1"/>
-  <text x="287" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="600"
-        fill="rgba(255,200,80,0.9)" text-anchor="middle" letter-spacing="0.5">THREAT INTEL</text>
-
-  <!-- CVE Analysis pill (blue) -->
-  <rect x="364" y="408" width="130" height="34" rx="17" fill="rgba(40,120,255,0.14)" stroke="rgba(80,150,255,0.35)" stroke-width="1"/>
-  <text x="429" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="600"
-        fill="rgba(120,180,255,0.9)" text-anchor="middle" letter-spacing="0.5">CVE ANALYSIS</text>
-
-  <!-- Separator line -->
-  <line x1="80" y1="525" x2="1120" y2="525" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-
-  <!-- Footer -->
-  <text x="80" y="553" font-family="'Courier New', monospace" font-size="13"
-        fill="rgba(180,160,160,0.55)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="553" font-family="Arial, sans-serif" font-size="12" font-weight="600"
-        fill="rgba(255,80,80,0.5)" text-anchor="end" letter-spacing="2">SECURITY</text>
+  <!-- Threat indicator bars -->
+  <g fill="#ef4444" opacity="0.08">
+    <rect x="700" y="500" width="5" height="15"/>
+    <rect x="715" y="495" width="5" height="20"/>
+    <rect x="730" y="490" width="5" height="25"/>
+  </g>
 </svg>

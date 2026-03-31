@@ -1,0 +1,150 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0c1a"/>
+
+  <!-- LEFT SIDE TEXT CONTENT -->
+
+  <!-- Date badge -->
+  <rect x="60" y="50" width="200" height="40" rx="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="160" y="73" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">JANUARY 14, 2026</text>
+
+  <!-- Main title -->
+  <text x="80" y="210" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">AWS Cloud</text>
+  <text x="80" y="260" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Security</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="320" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#3b82f6">IAM • EKS • Security</text>
+
+  <!-- Tag pills -->
+  <g>
+    <!-- Tag 1: Security -->
+    <rect x="60" y="420" width="90" height="32" rx="16" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.25"/>
+    <text x="105" y="441" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6" text-anchor="middle">Security</text>
+
+    <!-- Tag 2: AWS -->
+    <rect x="165" y="420" width="70" height="32" rx="16" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="0.25"/>
+    <text x="200" y="441" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b" text-anchor="middle">AWS</text>
+
+    <!-- Tag 3: Cloud -->
+    <rect x="250" y="420" width="80" height="32" rx="16" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.25"/>
+    <text x="290" y="441" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">Cloud</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="570" font-family="Arial, sans-serif" font-size="13" fill="#666666">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE VISUAL ELEMENTS (x=650-1150, y=80-550) -->
+
+  <!-- Cloud shape with subtle glow -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Cloud icon -->
+  <g filter="url(#glow)">
+    <path d="M 750 180 Q 720 160 695 160 Q 680 140 660 140 Q 640 140 630 155 Q 610 145 590 145 Q 560 145 550 170 Q 540 165 530 165 Q 500 165 490 195 L 490 210 Q 490 240 520 240 L 800 240 Q 830 240 830 210 L 830 195 Q 830 160 800 160 Q 790 160 775 180"
+          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.3"/>
+  </g>
+
+  <!-- Data flow arrows going into cloud -->
+  <g stroke="#3b82f6" stroke-width="0.25" opacity="0.12" fill="none" stroke-linecap="round">
+    <!-- Arrow 1 -->
+    <path d="M 720 280 Q 730 250 740 210"/>
+    <polygon points="740,210 737,220 743,217" fill="#3b82f6" opacity="0.12"/>
+
+    <!-- Arrow 2 -->
+    <path d="M 780 290 Q 780 260 780 240"/>
+    <polygon points="780,240 777,250 783,250" fill="#3b82f6" opacity="0.12"/>
+
+    <!-- Arrow 3 -->
+    <path d="M 840 280 Q 830 250 820 210"/>
+    <polygon points="820,210 823,220 817,217" fill="#3b82f6" opacity="0.12"/>
+  </g>
+
+  <!-- Shield icon with checkmark -->
+  <g>
+    <!-- Shield outline -->
+    <path d="M 900 280 L 900 320 Q 900 380 950 410 Q 1000 380 1000 320 L 1000 280 Z"
+          fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3"/>
+
+    <!-- Checkmark inside shield -->
+    <g stroke="#ef4444" stroke-width="0.35" opacity="0.12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 935 350 L 950 365 L 975 330"/>
+    </g>
+  </g>
+
+  <!-- Warning triangles -->
+  <g>
+    <!-- Warning 1 (top-right) -->
+    <path d="M 1000 120 L 1020 160 L 980 160 Z"
+          fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25"/>
+    <circle cx="1000" cy="145" r="1.5" fill="#f59e0b" opacity="0.15"/>
+
+    <!-- Warning 2 (right) -->
+    <path d="M 1080 280 L 1100 320 L 1060 320 Z"
+          fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.25"/>
+    <circle cx="1080" cy="305" r="1.5" fill="#ef4444" opacity="0.15"/>
+  </g>
+
+  <!-- Data flow arrows connecting elements -->
+  <g stroke="#3b82f6" stroke-width="0.2" opacity="0.1" fill="none" stroke-linecap="round">
+    <!-- Connection from shield to warning -->
+    <path d="M 1000 410 Q 1040 420 1080 360"/>
+
+    <!-- Horizontal flow arrows -->
+    <path d="M 820 300 L 870 300"/>
+    <polygon points="870,300 860,297 863,303" fill="#3b82f6" opacity="0.1"/>
+
+    <path d="M 1000 330 L 1050 330"/>
+    <polygon points="1050,330 1040,327 1043,333" fill="#3b82f6" opacity="0.1"/>
+  </g>
+
+  <!-- Vertical data flow indicators -->
+  <g stroke="#f59e0b" stroke-width="0.2" opacity="0.08" fill="none" stroke-linecap="round">
+    <path d="M 700 240 L 700 280"/>
+    <path d="M 800 240 L 800 280"/>
+    <path d="M 900 240 L 900 280"/>
+  </g>
+
+  <!-- Lock icon accent -->
+  <g>
+    <rect x="1020" y="450" width="40" height="50" rx="4"
+          fill="#3b82f6" opacity="0.06" stroke="#3b82f6" stroke-width="0.25"/>
+    <circle cx="1040" cy="460" r="8"
+            fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.1"/>
+    <path d="M 1035 470 L 1045 470"
+          stroke="#3b82f6" stroke-width="0.25" opacity="0.1"/>
+  </g>
+
+  <!-- Network nodes indicator -->
+  <g>
+    <!-- Node 1 -->
+    <circle cx="720" cy="350" r="6" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.2"/>
+
+    <!-- Node 2 -->
+    <circle cx="800" cy="380" r="6" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.2"/>
+
+    <!-- Node 3 -->
+    <circle cx="880" cy="350" r="6" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.2"/>
+
+    <!-- Connection lines -->
+    <g stroke="#3b82f6" stroke-width="0.15" opacity="0.06" fill="none">
+      <path d="M 720 350 L 800 380"/>
+      <path d="M 800 380 L 880 350"/>
+      <path d="M 880 350 L 720 350"/>
+    </g>
+  </g>
+
+  <!-- Decorative security elements -->
+  <g stroke="#ef4444" stroke-width="0.2" opacity="0.05" fill="none">
+    <!-- Circular scan pattern -->
+    <circle cx="750" cy="450" r="30"/>
+    <circle cx="750" cy="450" r="45"/>
+  </g>
+</svg>

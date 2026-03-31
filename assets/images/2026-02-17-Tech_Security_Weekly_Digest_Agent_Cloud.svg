@@ -1,0 +1,133 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f111f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Date Badge -->
+  <rect x="80" y="50" width="180" height="40" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="170" y="73" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">FEBRUARY 17, 2026</text>
+
+  <!-- LEFT SIDE: Title and Content -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Tech Security</text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Weekly Digest</text>
+  <text x="80" y="295" font-family="Arial, sans-serif" font-size="28" font-weight="600" fill="#f59e0b" opacity="0.9">Agent Cloud</text>
+
+  <!-- Tag Pills -->
+  <rect x="80" y="420" width="110" height="32" rx="16" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.2"/>
+  <text x="135" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#3b82f6" text-anchor="middle">AI Security</text>
+
+  <rect x="210" y="420" width="110" height="32" rx="16" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.2"/>
+  <text x="265" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#ef4444" text-anchor="middle">Cloud Risk</text>
+
+  <rect x="340" y="420" width="110" height="32" rx="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.2"/>
+  <text x="395" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#f59e0b" text-anchor="middle">Compliance</text>
+
+  <!-- Footer -->
+  <text x="80" y="570" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="white" opacity="0.7">tech.2twodragon.com</text>
+
+  <!-- RIGHT SIDE: Visual Scene -->
+  <!-- Background container -->
+  <rect x="650" y="80" width="500" height="470" rx="12" fill="#1a1f3a" opacity="0.04" stroke="#3b82f6" stroke-width="0.15"/>
+
+  <!-- Brain Icon with Neural Network -->
+  <g filter="url(#glow)">
+    <!-- Brain outline -->
+    <ellipse cx="800" cy="180" rx="55" ry="70" fill="none" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
+
+    <!-- Brain lobes (simplified silhouette) -->
+    <path d="M 770 140 Q 760 120 770 100 Q 780 90 800 85 Q 820 90 830 100 Q 840 120 830 140" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.25"/>
+    <path d="M 750 180 Q 740 170 745 150 Q 760 145 775 155" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.25"/>
+    <path d="M 850 180 Q 860 170 855 150 Q 840 145 825 155" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.25"/>
+
+    <!-- Neural connections (circuit lines) -->
+    <line x1="775" y1="120" x2="820" y2="140" stroke="#f59e0b" stroke-width="0.2" opacity="0.08"/>
+    <line x1="800" y1="100" x2="800" y2="160" stroke="#f59e0b" stroke-width="0.2" opacity="0.08"/>
+    <line x1="770" y1="160" x2="830" y2="160" stroke="#f59e0b" stroke-width="0.2" opacity="0.08"/>
+    <circle cx="775" cy="120" r="2.5" fill="#f59e0b" opacity="0.12"/>
+    <circle cx="820" cy="140" r="2.5" fill="#f59e0b" opacity="0.12"/>
+    <circle cx="800" cy="100" r="2.5" fill="#f59e0b" opacity="0.12"/>
+  </g>
+
+  <!-- Cloud Shape with Data Flow -->
+  <g filter="url(#glow)">
+    <!-- Cloud outline -->
+    <path d="M 950 250 Q 920 240 920 220 Q 920 200 940 195 Q 950 180 970 180 Q 985 180 1000 190 Q 1010 185 1020 190 Q 1030 195 1030 210 Q 1050 210 1050 230 Q 1050 255 1020 265 Z"
+          fill="#3b82f6" opacity="0.06" stroke="#3b82f6" stroke-width="0.25"/>
+
+    <!-- Data flow arrows inside cloud -->
+    <path d="M 930 225 L 950 225" stroke="#3b82f6" stroke-width="0.2" opacity="0.1" marker-end="url(#arrowBlue)"/>
+    <path d="M 960 215 L 980 215" stroke="#3b82f6" stroke-width="0.2" opacity="0.1" marker-end="url(#arrowBlue)"/>
+    <path d="M 1000 235 L 1020 235" stroke="#3b82f6" stroke-width="0.2" opacity="0.1" marker-end="url(#arrowBlue)"/>
+
+    <!-- Data packets (small circles) -->
+    <circle cx="935" cy="225" r="1.5" fill="#3b82f6" opacity="0.1"/>
+    <circle cx="965" cy="215" r="1.5" fill="#3b82f6" opacity="0.1"/>
+    <circle cx="1005" cy="235" r="1.5" fill="#3b82f6" opacity="0.1"/>
+  </g>
+
+  <!-- Shield with Checkmark (Security) -->
+  <g filter="url(#glow)">
+    <!-- Shield shape -->
+    <path d="M 800 320 L 760 340 L 760 380 Q 760 420 800 445 Q 840 420 840 380 L 840 340 Z"
+          fill="#ef4444" opacity="0.06" stroke="#ef4444" stroke-width="0.3"/>
+
+    <!-- Checkmark inside shield -->
+    <path d="M 775 380 L 790 395 L 820 360"
+          fill="none" stroke="#ef4444" stroke-width="0.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+  </g>
+
+  <!-- Warning Triangle Indicators -->
+  <g filter="url(#glow)">
+    <!-- Triangle 1 (top right) -->
+    <polygon points="950,130 960,110 970,130" fill="none" stroke="#ef4444" stroke-width="0.25" opacity="0.08"/>
+    <circle cx="960" cy="120" r="1.5" fill="#ef4444" opacity="0.1"/>
+
+    <!-- Triangle 2 (bottom) -->
+    <polygon points="920,420 935,395 950,420" fill="none" stroke="#ef4444" stroke-width="0.25" opacity="0.08"/>
+    <circle cx="935" cy="407" r="1.5" fill="#ef4444" opacity="0.1"/>
+  </g>
+
+  <!-- Data Flow Arrows connecting elements -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#3b82f6" opacity="0.1"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#f59e0b" opacity="0.1"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#ef4444" opacity="0.1"/>
+    </marker>
+  </defs>
+
+  <!-- Connection: Brain to Cloud -->
+  <path d="M 855 190 Q 900 200 920 220" stroke="#f59e0b" stroke-width="0.25" fill="none" opacity="0.08" marker-end="url(#arrowOrange)"/>
+
+  <!-- Connection: Cloud to Shield -->
+  <path d="M 970 265 Q 900 290 840 320" stroke="#3b82f6" stroke-width="0.25" fill="none" opacity="0.08" marker-end="url(#arrowBlue)"/>
+
+  <!-- Connection: Shield back to Brain -->
+  <path d="M 770 360 Q 750 280 765 220" stroke="#ef4444" stroke-width="0.25" fill="none" opacity="0.08" marker-end="url(#arrowRed)"/>
+
+  <!-- Central sync indicator -->
+  <circle cx="890" cy="280" r="8" fill="none" stroke="#3b82f6" stroke-width="0.15" opacity="0.08"/>
+  <circle cx="890" cy="280" r="12" fill="none" stroke="#3b82f6" stroke-width="0.15" opacity="0.05"/>
+
+  <!-- Additional data flow dots along connections -->
+  <circle cx="875" cy="205" r="1" fill="#f59e0b" opacity="0.08"/>
+  <circle cx="910" cy="240" r="1" fill="#3b82f6" opacity="0.08"/>
+  <circle cx="870" cy="340" r="1" fill="#ef4444" opacity="0.08"/>
+</svg>
