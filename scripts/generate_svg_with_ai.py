@@ -103,15 +103,61 @@ def build_prompt(post: dict, filepath: Path = None) -> str:
     if filepath and filepath.exists():
         body_preview = read_post_content(filepath)
 
-    # Extract key English terms only
     keywords = [w for w in en_title.split() if len(w) > 2][:6]
     topic_str = ' '.join(keywords)
 
-    return f"""SVG 1200x630 for "{topic_str}" ({date}, {cat}).
+    # Build visual element descriptions based on keywords
+    visuals = []
+    kw_lower = ' '.join(keywords).lower()
+    if any(w in kw_lower for w in ['ransomware', 'malware', 'threat']):
+        visuals.append('A padlock with chains (ransomware/malware)')
+    if any(w in kw_lower for w in ['ai', 'llm', 'agent', 'gpt', 'claude']):
+        visuals.append('A brain silhouette with circuit/neural lines (AI/LLM)')
+    if any(w in kw_lower for w in ['kubernetes', 'k8s', 'docker', 'container']):
+        visuals.append('Hexagonal pods connected by lines (Kubernetes)')
+    if any(w in kw_lower for w in ['cloud', 'aws', 'gcp', 'azure']):
+        visuals.append('Cloud shape with data flow arrows (cloud infrastructure)')
+    if any(w in kw_lower for w in ['supply chain', 'supply', 'sbom']):
+        visuals.append('A broken chain link (supply chain attack)')
+    if any(w in kw_lower for w in ['cve', 'vulnerability', 'patch', 'zero-day', 'zero day']):
+        visuals.append('A shield with a crack/warning symbol (vulnerability)')
+    if any(w in kw_lower for w in ['bitcoin', 'blockchain', 'crypto']):
+        visuals.append('Chain links and coin symbols (blockchain)')
+    if any(w in kw_lower for w in ['finops', 'cost', 'billing']):
+        visuals.append('Dollar sign in dashboard gauges (FinOps)')
+    if any(w in kw_lower for w in ['devops', 'ci/cd', 'pipeline', 'devsecops']):
+        visuals.append('Pipeline arrows with gear icons (DevOps/CI-CD)')
+    if any(w in kw_lower for w in ['zero trust', 'ztna', 'network']):
+        visuals.append('Network nodes with dashed trust boundaries')
+    if any(w in kw_lower for w in ['security', 'isms', 'compliance']):
+        visuals.append('A large shield with checkmark (security/compliance)')
+    if any(w in kw_lower for w in ['data', 'breach', 'leak']):
+        visuals.append('Database cylinder with warning icons (data breach)')
+    if any(w in kw_lower for w in ['botnet', 'ddos']):
+        visuals.append('Multiple connected bot nodes attacking a server')
+    if not visuals:
+        visuals.append('A shield with lock and circuit patterns (tech security)')
 
-Dark bg #0a0c1a. Right side (x=700-1150): unique illustration for {topic_str} using layered SVG shapes. Left side: title "{topic_str}" in 2 lines (y=185,245 font-size 46 white), date badge "{date}", 3 tag pills at y=420, footer tech.2twodragon.com.
+    visual_desc = '\n- '.join(visuals[:5])
 
-Make the illustration SPECIFIC to {topic_str} - not generic. All text English. Output ONLY SVG XML."""
+    # Split title for 2 lines
+    words_list = topic_str.split()
+    mid = len(words_list) // 2 or 1
+    line1 = ' '.join(words_list[:mid])
+    line2 = ' '.join(words_list[mid:])
+
+    return f"""Create an SVG (1200x630) for a blog post about "{topic_str}".
+
+RIGHT SIDE (x=650-1150, y=80-550) should contain a DETAILED VISUAL SCENE with recognizable icons:
+- {visual_desc}
+- Data flow arrows connecting these elements
+- Warning triangles or alert indicators
+
+Use semi-transparent fills (0.03-0.12) and thin strokes (0.15-0.35). Dark background #0a0c1a. Colors: red #ef4444, orange #f59e0b, blue #3b82f6 at low opacity.
+
+LEFT SIDE: title "{line1}" at y=185 and "{line2}" at y=245 (font-size 44, white bold). Date "{date}" badge at (80,60). 3 tag pills at y=430. Footer tech.2twodragon.com at y=555.
+
+All text English. Output ONLY SVG XML."""
 
 
 def run_claude(prompt: str) -> str:
@@ -119,7 +165,7 @@ def run_claude(prompt: str) -> str:
     try:
         result = subprocess.run(
             ['claude', '-p', prompt, '--output-format', 'text', '--model', 'haiku'],
-            capture_output=True, text=True, timeout=90
+            capture_output=True, text=True, timeout=150
         )
         output = result.stdout
         # Clean terminal escape sequences
