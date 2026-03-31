@@ -1,38 +1,130 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="55%" stop-color="#151b32"/>
-      <stop offset="100%" stop-color="#181024"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
-    </filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7931a"/>
+      <stop offset="100%" stop-color="#e84142"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f7931a"/>
+      <stop offset="100%" stop-color="#e84142" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e84142" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#c0392b" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f7931a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#e67e22" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3498db" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#2980b9" stop-opacity="0.7"/>
+    </linearGradient>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="350" cy="170" r="180" fill="#8b5cf6" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="850" cy="140" r="160" fill="#22d3ee" opacity="0.12" filter="url(#glow)"/>
-  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">BLOCKCHAIN  AI/ML</tspan></text>
-  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
 
-  <g transform="translate(350 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#8b5cf6" stroke-width="2.5"/>
-    <ellipse cx="-10" cy="-6" rx="14" ry="10" fill="none" stroke="#8b5cf6" stroke-width="2.5" transform="rotate(-30 -10 -6)"/><ellipse cx="10" cy="6" rx="14" ry="10" fill="none" stroke="#8b5cf6" stroke-width="2.5" transform="rotate(-30 10 6)"/><circle cx="-18" cy="18" r="3" fill="#8b5cf6" opacity="0.6"/><circle cx="18" cy="-18" r="3" fill="#8b5cf6" opacity="0.6"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <g transform="translate(850 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
-    <circle r="14" fill="none" stroke="#22d3ee" stroke-width="2"/><circle r="6" fill="#22d3ee" opacity="0.4"/><line x1="-20" y1="-14" x2="-8" y2="-6" stroke="#22d3ee" stroke-width="1.5"/><line x1="20" y1="-14" x2="8" y2="-6" stroke="#22d3ee" stroke-width="1.5"/><line x1="-20" y1="14" x2="-8" y2="6" stroke="#22d3ee" stroke-width="1.5"/><line x1="20" y1="14" x2="8" y2="6" stroke="#22d3ee" stroke-width="1.5"/><circle cx="-20" cy="-14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="20" cy="-14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="-20" cy="14" r="4" fill="#22d3ee" opacity="0.5"/><circle cx="20" cy="14" r="4" fill="#22d3ee" opacity="0.5"/>
-  </g>
+  <!-- RIGHT SIDE ILLUSTRATION: Bitcoin / Blockchain Icon -->
+  <!-- Hexagonal blockchain nodes -->
+  <polygon points="1010,145 1040,162 1040,196 1010,213 980,196 980,162" fill="rgba(247,147,26,0.08)" stroke="rgba(247,147,26,0.35)" stroke-width="1.5"/>
+  <polygon points="1010,155 1032,168 1032,193 1010,206 988,193 988,168" fill="rgba(247,147,26,0.06)" stroke="rgba(247,147,26,0.2)" stroke-width="1"/>
 
-  <text font-family="Arial, sans-serif" font-size="16" font-weight="700"><tspan x="350" y="448" fill="#8b5cf6" text-anchor="middle">BLOCKCHAIN</tspan><tspan x="850" y="448" fill="#22d3ee" text-anchor="middle">AI/ML</tspan></text>
-  <circle cx="600" cy="340" r="4" fill="#475569"/>
+  <polygon points="1090,175 1120,192 1120,226 1090,243 1060,226 1060,192" fill="rgba(232,65,66,0.08)" stroke="rgba(232,65,66,0.35)" stroke-width="1.5"/>
+  <polygon points="1090,185 1112,198 1112,223 1090,236 1068,223 1068,198" fill="rgba(232,65,66,0.06)" stroke="rgba(232,65,66,0.2)" stroke-width="1"/>
 
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">March 30, 2026</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
+  <polygon points="930,185 960,202 960,236 930,253 900,236 900,202" fill="rgba(52,152,219,0.08)" stroke="rgba(52,152,219,0.35)" stroke-width="1.5"/>
+  <polygon points="930,195 952,208 952,233 930,246 908,233 908,208" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1"/>
+
+  <polygon points="1010,235 1040,252 1040,286 1010,303 980,286 980,252" fill="rgba(247,147,26,0.1)" stroke="rgba(247,147,26,0.4)" stroke-width="1.5"/>
+  <polygon points="1010,245 1032,258 1032,283 1010,296 988,283 988,258" fill="rgba(247,147,26,0.07)" stroke="rgba(247,147,26,0.25)" stroke-width="1"/>
+
+  <!-- Blockchain connecting lines -->
+  <line x1="980" y1="196" x2="960" y2="202" stroke="rgba(247,147,26,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1040" y1="196" x2="1060" y2="192" stroke="rgba(232,65,66,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="980" y1="252" x2="960" y2="236" stroke="rgba(52,152,219,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1040" y1="252" x2="1060" y2="226" stroke="rgba(232,65,66,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1010" y1="213" x2="1010" y2="235" stroke="rgba(247,147,26,0.3)" stroke-width="1.5"/>
+
+  <!-- Bitcoin symbol in center hex -->
+  <text x="1010" y="188" font-size="22" font-weight="700" fill="rgba(247,147,26,0.7)" text-anchor="middle" font-family="monospace">₿</text>
+
+  <!-- Bithumb-style exchange icon: candlestick bars -->
+  <rect x="885" y="270" width="8" height="30" rx="2" fill="rgba(52,219,100,0.3)" stroke="rgba(52,219,100,0.5)" stroke-width="1"/>
+  <rect x="900" y="255" width="8" height="45" rx="2" fill="rgba(52,219,100,0.3)" stroke="rgba(52,219,100,0.5)" stroke-width="1"/>
+  <rect x="915" y="263" width="8" height="37" rx="2" fill="rgba(232,65,66,0.3)" stroke="rgba(232,65,66,0.5)" stroke-width="1"/>
+  <rect x="930" y="248" width="8" height="52" rx="2" fill="rgba(52,219,100,0.3)" stroke="rgba(52,219,100,0.5)" stroke-width="1"/>
+  <rect x="945" y="258" width="8" height="42" rx="2" fill="rgba(232,65,66,0.3)" stroke="rgba(232,65,66,0.5)" stroke-width="1"/>
+  <!-- Wick lines -->
+  <line x1="889" y1="265" x2="889" y2="305" stroke="rgba(52,219,100,0.4)" stroke-width="1"/>
+  <line x1="904" y1="248" x2="904" y2="305" stroke="rgba(52,219,100,0.4)" stroke-width="1"/>
+  <line x1="919" y1="256" x2="919" y2="308" stroke="rgba(232,65,66,0.4)" stroke-width="1"/>
+  <line x1="934" y1="242" x2="934" y2="308" stroke="rgba(52,219,100,0.4)" stroke-width="1"/>
+  <line x1="949" y1="250" x2="949" y2="308" stroke="rgba(232,65,66,0.4)" stroke-width="1"/>
+
+  <!-- Price trend line overlay -->
+  <polyline points="885,295 900,275 915,282 930,260 945,268 1000,245 1060,230 1120,220" fill="none" stroke="rgba(247,147,26,0.4)" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Outer glow ring for main hex -->
+  <circle cx="1010" cy="179" r="45" fill="none" stroke="rgba(247,147,26,0.12)" stroke-width="2"/>
+  <circle cx="1010" cy="179" r="55" fill="none" stroke="rgba(247,147,26,0.06)" stroke-width="1.5"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="5" fill="#f7931a" opacity="0.85"/>
+  <circle cx="900" cy="420" r="4" fill="#e84142" opacity="0.75"/>
+  <circle cx="860" cy="440" r="3.5" fill="#3498db" opacity="0.7"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(247,147,26,0.04)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(247,147,26,0.06)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(247,147,26,0.15)" stroke="rgba(247,147,26,0.3)" stroke-width="1"/>
+  <text x="190" y="81" font-size="13" font-weight="600" fill="rgba(247,147,26,0.9)" text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="1.5">FEBRUARY 9, 2026</text>
+
+  <!-- Title lines -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">Blockchain Tech</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="Arial, sans-serif">Digest Bithumb Bitcoin</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="Arial, sans-serif">Crypto markets, exchange news &amp; DevSecOps insights</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-size="14" font-weight="600" fill="rgba(247,147,26,0.8)" font-family="Arial, sans-serif" letter-spacing="2.5">DEVSECOPS / BLOCKCHAIN / FINTECH</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="url(#tagRed)"/>
+  <text x="140" y="425" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">Bitcoin</text>
+
+  <rect x="215" y="402" width="110" height="36" rx="18" fill="url(#tagAmber)"/>
+  <text x="270" y="425" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">Bithumb</text>
+
+  <rect x="340" y="402" width="130" height="36" rx="18" fill="url(#tagBlue)"/>
+  <text x="405" y="425" font-size="13" font-weight="600" fill="white" text-anchor="middle" font-family="Arial, sans-serif">Blockchain</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-size="14" fill="rgba(255,255,255,0.4)" font-family="Arial, sans-serif">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(247,147,26,0.5)" text-anchor="end" font-family="Arial, sans-serif" letter-spacing="1">DEVSECOPS</text>
 </svg>

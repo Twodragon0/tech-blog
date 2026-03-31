@@ -1,37 +1,135 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI + EKS Flyte + Docker</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e53e3e"/>
+      <stop offset="100%" stop-color="#3182ce"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e53e3e"/>
+      <stop offset="100%" stop-color="#3182ce" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tagRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c53030"/>
+      <stop offset="100%" stop-color="#9b2c2c"/>
+    </linearGradient>
+    <linearGradient id="tagAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b7791f"/>
+      <stop offset="100%" stop-color="#975a16"/>
+    </linearGradient>
+    <linearGradient id="tagBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2b6cb0"/>
+      <stop offset="100%" stop-color="#2c5282"/>
+    </linearGradient>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#60a5fa" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#1d4ed8" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#60a5fa" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#60a5fa" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#60a5fa" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#60a5fa" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#60a5fa" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI + EKS Flyte + Docker</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | Cloud | Docker</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#60a5fa" text-anchor="middle">TECH</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#60a5fa" opacity="0.25" stroke="#60a5fa" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- RIGHT SIDE ILLUSTRATION: AI + Data + Cloud concept -->
+  <!-- Cloud base shape -->
+  <ellipse cx="1010" cy="260" rx="110" ry="60" fill="rgba(49,130,206,0.08)" stroke="rgba(99,179,237,0.25)" stroke-width="1.5"/>
+  <ellipse cx="960" cy="240" rx="70" ry="50" fill="rgba(49,130,206,0.07)" stroke="rgba(99,179,237,0.22)" stroke-width="1.2"/>
+  <ellipse cx="1060" cy="235" rx="65" ry="48" fill="rgba(49,130,206,0.07)" stroke="rgba(99,179,237,0.2)" stroke-width="1.2"/>
+  <ellipse cx="1010" cy="220" rx="80" ry="55" fill="rgba(49,130,206,0.09)" stroke="rgba(99,179,237,0.28)" stroke-width="1.5"/>
+
+  <!-- Data streams falling from cloud -->
+  <line x1="970" y1="275" x2="960" y2="340" stroke="rgba(99,179,237,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1000" y1="285" x2="995" y2="355" stroke="rgba(99,179,237,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1030" y1="283" x2="1028" y2="348" stroke="rgba(99,179,237,0.28)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="1055" y1="272" x2="1060" y2="338" stroke="rgba(99,179,237,0.22)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- AI neural nodes -->
+  <circle cx="955" cy="175" r="18" fill="rgba(229,62,62,0.1)" stroke="rgba(252,129,129,0.35)" stroke-width="1.5"/>
+  <circle cx="1010" cy="155" r="22" fill="rgba(229,62,62,0.12)" stroke="rgba(252,129,129,0.4)" stroke-width="2"/>
+  <circle cx="1068" cy="168" r="16" fill="rgba(229,62,62,0.1)" stroke="rgba(252,129,129,0.3)" stroke-width="1.5"/>
+  <circle cx="1100" cy="195" r="14" fill="rgba(229,62,62,0.08)" stroke="rgba(252,129,129,0.28)" stroke-width="1.2"/>
+  <circle cx="925" cy="200" r="13" fill="rgba(229,62,62,0.08)" stroke="rgba(252,129,129,0.28)" stroke-width="1.2"/>
+
+  <!-- Neural connections -->
+  <line x1="955" y1="175" x2="1010" y2="155" stroke="rgba(252,129,129,0.2)" stroke-width="1"/>
+  <line x1="1010" y1="155" x2="1068" y2="168" stroke="rgba(252,129,129,0.2)" stroke-width="1"/>
+  <line x1="1068" y1="168" x2="1100" y2="195" stroke="rgba(252,129,129,0.18)" stroke-width="1"/>
+  <line x1="925" y1="200" x2="955" y2="175" stroke="rgba(252,129,129,0.18)" stroke-width="1"/>
+  <line x1="955" y1="175" x2="1068" y2="168" stroke="rgba(252,129,129,0.1)" stroke-width="0.8"/>
+  <line x1="1010" y1="155" x2="1100" y2="195" stroke="rgba(252,129,129,0.1)" stroke-width="0.8"/>
+
+  <!-- Central AI icon (hexagon) -->
+  <polygon points="1010,130 1030,142 1030,166 1010,178 990,166 990,142" fill="rgba(229,62,62,0.12)" stroke="rgba(252,129,129,0.38)" stroke-width="1.8"/>
+  <text x="1010" y="160" font-family="monospace" font-size="13" font-weight="700" fill="rgba(252,129,129,0.7)" text-anchor="middle">AI</text>
+
+  <!-- Data cylinders (database) -->
+  <ellipse cx="900" cy="310" rx="32" ry="9" fill="rgba(72,187,120,0.08)" stroke="rgba(72,187,120,0.3)" stroke-width="1.2"/>
+  <rect x="868" y="310" width="64" height="28" fill="rgba(72,187,120,0.06)" stroke="rgba(72,187,120,0.25)" stroke-width="1"/>
+  <ellipse cx="900" cy="338" rx="32" ry="9" fill="rgba(72,187,120,0.07)" stroke="rgba(72,187,120,0.28)" stroke-width="1.2"/>
+  <ellipse cx="900" cy="310" rx="32" ry="9" fill="rgba(72,187,120,0.1)" stroke="rgba(72,187,120,0.32)" stroke-width="1.2"/>
+  <!-- Stack line detail -->
+  <line x1="868" y1="322" x2="932" y2="322" stroke="rgba(72,187,120,0.15)" stroke-width="0.8"/>
+
+  <!-- Orbiting data points around cloud -->
+  <circle cx="1115" cy="230" r="5" fill="rgba(214,158,46,0.4)" stroke="rgba(246,224,94,0.5)" stroke-width="1"/>
+  <circle cx="885" cy="155" r="4" fill="rgba(214,158,46,0.35)" stroke="rgba(246,224,94,0.45)" stroke-width="1"/>
+  <circle cx="1125" cy="270" r="3.5" fill="rgba(99,179,237,0.4)" stroke="rgba(144,205,244,0.5)" stroke-width="1"/>
+  <circle cx="880" cy="300" r="4" fill="rgba(99,179,237,0.35)" stroke="rgba(144,205,244,0.45)" stroke-width="1"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(252,129,129,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(246,224,94,0.6)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(99,179,237,0.65)"/>
+
+  <!-- Background ambient circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.015)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
+  <text x="190" y="81" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="rgba(252,129,129,0.9)" text-anchor="middle" letter-spacing="1.5">FEBRUARY 20, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Blog Weekly</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Digest AI Data Cloud</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Security &amp; Cloud Intelligence Roundup</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(252,129,129,0.8)" letter-spacing="2">SECURITY / AI / CLOUD</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="url(#tagRed)"/>
+  <text x="135" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.9)" text-anchor="middle">AI Security</text>
+
+  <rect x="204" y="402" width="104" height="36" rx="18" fill="url(#tagAmber)"/>
+  <text x="256" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.9)" text-anchor="middle">Data Cloud</text>
+
+  <rect x="322" y="402" width="104" height="36" rx="18" fill="url(#tagBlue)"/>
+  <text x="374" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.9)" text-anchor="middle">Weekly Digest</text>
+
+  <!-- Footer -->
+  <line x1="0" y1="510" x2="1200" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(252,129,129,0.5)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

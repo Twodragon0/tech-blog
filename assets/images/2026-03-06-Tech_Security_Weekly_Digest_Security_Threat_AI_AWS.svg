@@ -1,37 +1,123 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>CVE-2026-20122 Cisco + AWS</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53935"/>
+      <stop offset="50%" style="stop-color:#ff6f00"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53935"/>
+      <stop offset="100%" style="stop-color:rgba(229,57,53,0)"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53935;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:0.08"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#29b6f6;stop-opacity:0.10"/>
+      <stop offset="100%" style="stop-color:#0d47a1;stop-opacity:0.06"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">CVE-2026-20122 Cisco + AWS</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AI | AWS | CVE</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(229,57,53,0.04)" stroke="rgba(229,57,53,0.06)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(21,101,192,0.05)" stroke="rgba(21,101,192,0.08)" stroke-width="1"/>
+
+  <!-- RIGHT SIDE ILLUSTRATION: Shield + AI Brain + AWS Cloud Composite Icon -->
+  <!-- Outer shield body -->
+  <path d="M1010 138 L1110 160 L1110 245 Q1110 300 1010 330 Q910 300 910 245 L910 160 Z"
+        fill="url(#shieldGrad)" stroke="rgba(229,57,53,0.35)" stroke-width="1.5"/>
+  <!-- Shield inner ring -->
+  <path d="M1010 155 L1098 174 L1098 248 Q1098 295 1010 320 Q922 295 922 248 L922 174 Z"
+        fill="none" stroke="rgba(229,57,53,0.18)" stroke-width="1"/>
+
+  <!-- AWS Cloud shape inside shield -->
+  <ellipse cx="1010" cy="225" rx="52" ry="28" fill="url(#cloudGrad)" stroke="rgba(41,182,246,0.30)" stroke-width="1.2"/>
+  <ellipse cx="985" cy="220" rx="28" ry="22" fill="rgba(41,182,246,0.07)" stroke="rgba(41,182,246,0.22)" stroke-width="1"/>
+  <ellipse cx="1035" cy="218" rx="24" ry="19" fill="rgba(41,182,246,0.07)" stroke="rgba(41,182,246,0.22)" stroke-width="1"/>
+
+  <!-- AI neural nodes on shield -->
+  <circle cx="1010" cy="195" r="7" fill="rgba(255,111,0,0.15)" stroke="rgba(255,111,0,0.40)" stroke-width="1.2"/>
+  <circle cx="975" cy="215" r="5" fill="rgba(255,111,0,0.12)" stroke="rgba(255,111,0,0.35)" stroke-width="1"/>
+  <circle cx="1045" cy="215" r="5" fill="rgba(255,111,0,0.12)" stroke="rgba(255,111,0,0.35)" stroke-width="1"/>
+  <circle cx="990" cy="248" r="5" fill="rgba(255,111,0,0.10)" stroke="rgba(255,111,0,0.30)" stroke-width="1"/>
+  <circle cx="1030" cy="248" r="5" fill="rgba(255,111,0,0.10)" stroke="rgba(255,111,0,0.30)" stroke-width="1"/>
+  <!-- Neural connections -->
+  <line x1="1010" y1="195" x2="975" y2="215" stroke="rgba(255,111,0,0.25)" stroke-width="0.8"/>
+  <line x1="1010" y1="195" x2="1045" y2="215" stroke="rgba(255,111,0,0.25)" stroke-width="0.8"/>
+  <line x1="975" y1="215" x2="990" y2="248" stroke="rgba(255,111,0,0.20)" stroke-width="0.8"/>
+  <line x1="1045" y1="215" x2="1030" y2="248" stroke="rgba(255,111,0,0.20)" stroke-width="0.8"/>
+  <line x1="990" y1="248" x2="1030" y2="248" stroke="rgba(255,111,0,0.18)" stroke-width="0.8"/>
+
+  <!-- Threat radar arc elements -->
+  <path d="M 900 140 A 145 145 0 0 1 1120 140" fill="none" stroke="rgba(229,57,53,0.12)" stroke-width="1" stroke-dasharray="4 6"/>
+  <path d="M 915 140 A 120 120 0 0 1 1105 140" fill="none" stroke="rgba(229,57,53,0.09)" stroke-width="1" stroke-dasharray="3 7"/>
+
+  <!-- Threat indicator ticks -->
+  <line x1="920" y1="170" x2="910" y2="162" stroke="rgba(229,57,53,0.30)" stroke-width="1.2"/>
+  <line x1="1100" y1="170" x2="1110" y2="162" stroke="rgba(229,57,53,0.30)" stroke-width="1.2"/>
+
+  <!-- Lock icon at shield bottom -->
+  <rect x="1002" y="286" width="16" height="13" rx="2" fill="rgba(229,57,53,0.12)" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
+  <path d="M1005 286 Q1005 278 1010 278 Q1015 278 1015 286" fill="none" stroke="rgba(229,57,53,0.38)" stroke-width="1.2"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(229,57,53,0.70)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,111,0,0.70)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(21,101,192,0.70)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(229,57,53,0.15)" stroke="rgba(229,57,53,0.35)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(229,57,53,0.90)" text-anchor="middle" letter-spacing="1.5">MARCH 6, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Tech Security Weekly Digest</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Security Threat AI AWS</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly roundup: AI threats, AWS vulnerabilities, and cloud security</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" fill="rgba(229,57,53,0.80)" letter-spacing="3" text-transform="uppercase">SECURITY / DEVSECOPS / CLOUD</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(229,57,53,0.18)" stroke="rgba(229,57,53,0.40)" stroke-width="1"/>
+  <text x="140" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(229,57,53,0.95)" text-anchor="middle">#ThreatIntel</text>
+
+  <rect x="214" y="402" width="100" height="36" rx="18" fill="rgba(255,111,0,0.15)" stroke="rgba(255,111,0,0.38)" stroke-width="1"/>
+  <text x="264" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,140,0,0.95)" text-anchor="middle">#AI Security</text>
+
+  <rect x="328" y="402" width="88" height="36" rx="18" fill="rgba(21,101,192,0.18)" stroke="rgba(41,182,246,0.38)" stroke-width="1"/>
+  <text x="372" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(41,182,246,0.95)" text-anchor="middle">#AWS CVE</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.30)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.28)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

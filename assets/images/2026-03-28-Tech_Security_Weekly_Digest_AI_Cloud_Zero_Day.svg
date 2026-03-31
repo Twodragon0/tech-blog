@@ -5,25 +5,17 @@
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff8800"/>
-      <stop offset="100%" style="stop-color:#4488ff"/>
+      <stop offset="0%" style="stop-color:#ff3b3b"/>
+      <stop offset="50%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="0%" style="stop-color:#ff3b3b"/>
       <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#00ccff;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.10"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="zeroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff0044;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#880022;stop-opacity:0.06"/>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3b3b;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
     </linearGradient>
   </defs>
 
@@ -38,113 +30,109 @@
 
   <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: AI + Cloud + Zero Day security icon -->
+  <!-- Background circles (subtle) -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(168,85,247,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,59,59,0.05)" stroke="none"/>
 
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,68,68,0.03)" stroke="rgba(255,68,68,0.06)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(68,136,255,0.03)" stroke="rgba(68,136,255,0.07)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION: AI Cloud with Zero Day Shield -->
+  <!-- Outer cloud ring -->
+  <ellipse cx="1010" cy="215" rx="115" ry="75" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
+  <ellipse cx="1010" cy="215" rx="90" ry="55" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
 
-  <!-- Cloud shape (main cloud) -->
-  <ellipse cx="1010" cy="210" rx="80" ry="48" fill="url(#cloudGrad)" stroke="rgba(68,200,255,0.30)" stroke-width="1.5"/>
-  <ellipse cx="960" cy="228" rx="48" ry="34" fill="url(#cloudGrad)" stroke="rgba(68,200,255,0.25)" stroke-width="1.2"/>
-  <ellipse cx="1060" cy="225" rx="44" ry="30" fill="url(#cloudGrad)" stroke="rgba(68,200,255,0.25)" stroke-width="1.2"/>
-  <rect x="930" y="228" width="156" height="30" rx="4" fill="url(#cloudGrad)" stroke="none"/>
+  <!-- Cloud bumps -->
+  <circle cx="955" cy="200" r="35" fill="rgba(59,130,246,0.09)" stroke="rgba(59,130,246,0.22)" stroke-width="1.2"/>
+  <circle cx="990" cy="182" r="28" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.24)" stroke-width="1"/>
+  <circle cx="1035" cy="175" r="32" fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.26)" stroke-width="1.2"/>
+  <circle cx="1075" cy="188" r="26" fill="rgba(59,130,246,0.09)" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
+  <circle cx="1100" cy="207" r="22" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.20)" stroke-width="1"/>
 
-  <!-- Shield overlay on cloud -->
-  <path d="M1005 185 L1025 192 L1025 215 Q1015 225 1005 228 Q995 225 985 215 L985 192 Z" fill="url(#shieldGrad)" stroke="rgba(255,136,0,0.35)" stroke-width="1.5"/>
-  <path d="M1005 195 L1018 200 L1018 216 Q1011 222 1005 224 Q999 222 992 216 L992 200 Z" fill="rgba(255,136,0,0.08)" stroke="rgba(255,200,0,0.30)" stroke-width="1"/>
+  <!-- Central AI brain node inside cloud -->
+  <circle cx="1010" cy="215" r="38" fill="rgba(168,85,247,0.10)" stroke="rgba(168,85,247,0.30)" stroke-width="1.5"/>
+  <circle cx="1010" cy="215" r="24" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.35)" stroke-width="1.5"/>
 
-  <!-- Lock icon inside shield -->
-  <rect x="1001" y="206" width="8" height="7" rx="1" fill="rgba(255,200,50,0.50)" stroke="rgba(255,220,80,0.60)" stroke-width="0.8"/>
-  <path d="M1003 206 Q1003 202 1005 202 Q1007 202 1007 206" fill="none" stroke="rgba(255,220,80,0.60)" stroke-width="1"/>
+  <!-- AI neural spokes -->
+  <line x1="1010" y1="191" x2="1010" y2="177" stroke="rgba(168,85,247,0.3)" stroke-width="1.5"/>
+  <line x1="1010" y1="239" x2="1010" y2="253" stroke="rgba(168,85,247,0.3)" stroke-width="1.5"/>
+  <line x1="986" y1="215" x2="972" y2="215" stroke="rgba(168,85,247,0.3)" stroke-width="1.5"/>
+  <line x1="1034" y1="215" x2="1048" y2="215" stroke="rgba(168,85,247,0.3)" stroke-width="1.5"/>
+  <line x1="993" y1="198" x2="983" y2="188" stroke="rgba(168,85,247,0.25)" stroke-width="1.2"/>
+  <line x1="1027" y1="198" x2="1037" y2="188" stroke="rgba(168,85,247,0.25)" stroke-width="1.2"/>
+  <line x1="993" y1="232" x2="983" y2="242" stroke="rgba(168,85,247,0.25)" stroke-width="1.2"/>
+  <line x1="1027" y1="232" x2="1037" y2="242" stroke="rgba(168,85,247,0.25)" stroke-width="1.2"/>
 
-  <!-- AI neural network nodes around the cloud -->
-  <circle cx="890" cy="155" r="10" fill="rgba(68,136,255,0.12)" stroke="rgba(68,136,255,0.40)" stroke-width="1.5"/>
-  <circle cx="1130" cy="160" r="10" fill="rgba(68,136,255,0.12)" stroke="rgba(68,136,255,0.40)" stroke-width="1.5"/>
-  <circle cx="880" cy="270" r="8" fill="rgba(68,136,255,0.10)" stroke="rgba(68,136,255,0.35)" stroke-width="1.2"/>
-  <circle cx="1140" cy="260" r="8" fill="rgba(68,136,255,0.10)" stroke="rgba(68,136,255,0.35)" stroke-width="1.2"/>
-  <circle cx="940" cy="145" r="6" fill="rgba(0,200,255,0.10)" stroke="rgba(0,200,255,0.30)" stroke-width="1"/>
-  <circle cx="1070" cy="148" r="6" fill="rgba(0,200,255,0.10)" stroke="rgba(0,200,255,0.30)" stroke-width="1"/>
-  <circle cx="920" cy="300" r="6" fill="rgba(0,200,255,0.09)" stroke="rgba(0,200,255,0.28)" stroke-width="1"/>
-  <circle cx="1100" cy="295" r="6" fill="rgba(0,200,255,0.09)" stroke="rgba(0,200,255,0.28)" stroke-width="1"/>
+  <!-- Neural endpoint nodes -->
+  <circle cx="1010" cy="173" r="4" fill="rgba(168,85,247,0.5)" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+  <circle cx="1010" cy="257" r="4" fill="rgba(168,85,247,0.5)" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+  <circle cx="968" cy="215" r="4" fill="rgba(168,85,247,0.5)" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+  <circle cx="1052" cy="215" r="4" fill="rgba(168,85,247,0.5)" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+  <circle cx="979" cy="185" r="3.5" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.55)" stroke-width="1"/>
+  <circle cx="1041" cy="185" r="3.5" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.55)" stroke-width="1"/>
+  <circle cx="979" cy="245" r="3.5" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.55)" stroke-width="1"/>
+  <circle cx="1041" cy="245" r="3.5" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.55)" stroke-width="1"/>
 
-  <!-- Neural connections -->
-  <line x1="890" y1="155" x2="940" y2="145" stroke="rgba(68,136,255,0.20)" stroke-width="1"/>
-  <line x1="940" y1="145" x2="960" y2="180" stroke="rgba(68,136,255,0.18)" stroke-width="1"/>
-  <line x1="1070" y1="148" x2="1130" y2="160" stroke="rgba(68,136,255,0.20)" stroke-width="1"/>
-  <line x1="1060" y1="195" x2="1070" y2="148" stroke="rgba(68,136,255,0.16)" stroke-width="1"/>
-  <line x1="880" y1="270" x2="920" y2="300" stroke="rgba(68,136,255,0.18)" stroke-width="1"/>
-  <line x1="880" y1="270" x2="930" y2="258" stroke="rgba(68,136,255,0.16)" stroke-width="1"/>
-  <line x1="1140" y1="260" x2="1100" y2="295" stroke="rgba(68,136,255,0.18)" stroke-width="1"/>
-  <line x1="1140" y1="260" x2="1086" y2="255" stroke="rgba(68,136,255,0.16)" stroke-width="1"/>
-  <line x1="890" y1="155" x2="880" y2="270" stroke="rgba(68,136,255,0.12)" stroke-width="0.8"/>
-  <line x1="1130" y1="160" x2="1140" y2="260" stroke="rgba(68,136,255,0.12)" stroke-width="0.8"/>
+  <!-- Zero Day shield below cloud -->
+  <polygon points="1010,278 1055,295 1055,330 1010,348 965,330 965,295" fill="rgba(255,59,59,0.09)" stroke="rgba(255,59,59,0.32)" stroke-width="1.5"/>
+  <polygon points="1010,285 1048,299 1048,328 1010,343 972,328 972,299" fill="rgba(255,59,59,0.07)" stroke="rgba(255,59,59,0.22)" stroke-width="1"/>
 
-  <!-- Zero-Day burst/explosion symbol -->
-  <circle cx="1005" cy="310" r="28" fill="url(#zeroGrad)" stroke="rgba(255,0,68,0.35)" stroke-width="1.5"/>
-  <circle cx="1005" cy="310" r="18" fill="rgba(255,0,44,0.10)" stroke="rgba(255,50,80,0.40)" stroke-width="1.2"/>
-  <!-- 0-day text -->
-  <text x="1005" y="316" font-family="monospace" font-size="14" font-weight="700" fill="rgba(255,80,80,0.75)" text-anchor="middle">0-DAY</text>
+  <!-- Zero Day icon inside shield: exclamation cross -->
+  <line x1="1010" y1="302" x2="1010" y2="322" stroke="rgba(255,100,100,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="1000" y1="312" x2="1020" y2="312" stroke="rgba(255,100,100,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="1010" cy="334" r="2" fill="rgba(255,100,100,0.7)"/>
 
-  <!-- Burst rays around 0-day -->
-  <line x1="1005" y1="278" x2="1005" y2="270" stroke="rgba(255,50,50,0.30)" stroke-width="2"/>
-  <line x1="1005" y1="342" x2="1005" y2="350" stroke="rgba(255,50,50,0.30)" stroke-width="2"/>
-  <line x1="973" y1="310" x2="965" y2="310" stroke="rgba(255,50,50,0.30)" stroke-width="2"/>
-  <line x1="1037" y1="310" x2="1045" y2="310" stroke="rgba(255,50,50,0.30)" stroke-width="2"/>
-  <line x1="982" y1="287" x2="976" y2="281" stroke="rgba(255,50,50,0.22)" stroke-width="1.5"/>
-  <line x1="1028" y1="287" x2="1034" y2="281" stroke="rgba(255,50,50,0.22)" stroke-width="1.5"/>
-  <line x1="982" y1="333" x2="976" y2="339" stroke="rgba(255,50,50,0.22)" stroke-width="1.5"/>
-  <line x1="1028" y1="333" x2="1034" y2="339" stroke="rgba(255,50,50,0.22)" stroke-width="1.5"/>
+  <!-- Connection lines from shield to cloud -->
+  <line x1="1010" y1="253" x2="1010" y2="278" stroke="rgba(255,59,59,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
 
-  <!-- Connection line from cloud to 0-day -->
-  <line x1="1005" y1="258" x2="1005" y2="282" stroke="rgba(255,100,50,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- Data stream dots right side -->
+  <circle cx="1110" cy="155" r="2.5" fill="rgba(59,130,246,0.4)"/>
+  <circle cx="1125" cy="170" r="2" fill="rgba(59,130,246,0.3)"/>
+  <circle cx="1135" cy="155" r="2" fill="rgba(99,102,241,0.35)"/>
+  <circle cx="1115" cy="140" r="1.5" fill="rgba(59,130,246,0.25)"/>
 
-  <!-- Scan/radar ring around illustration center -->
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(68,136,255,0.06)" stroke-width="1" stroke-dasharray="6,8"/>
-  <circle cx="1010" cy="225" r="145" fill="none" stroke="rgba(255,68,68,0.05)" stroke-width="1" stroke-dasharray="4,10"/>
+  <!-- Orbit ring around central illustration -->
+  <ellipse cx="1010" cy="215" rx="130" ry="100" fill="none" stroke="rgba(99,102,241,0.10)" stroke-width="1" stroke-dasharray="4,6"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.80)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,136,0,0.80)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,68,68,0.60)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(255,59,59,0.7)"/>
+  <circle cx="900" cy="420" r="3.5" fill="rgba(255,165,0,0.6)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(255,59,59,0.5)"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.35)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,120,100,0.90)" text-anchor="middle" letter-spacing="1.5">MARCH 28, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(255,59,59,0.3)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(255,180,180,0.9)" text-anchor="middle" letter-spacing="1.5">MARCH 28, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">AI Cloud Zero Day</text>
+  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">AI Cloud Zero Day</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(200,180,180,0.75)">AI-powered threats, cloud vulnerabilities and critical zero-day analysis</text>
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(200,200,220,0.75)">Security threats, AI vulnerabilities &amp; cloud exploits</text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(255,100,100,0.70)" letter-spacing="2.5">SECURITY / WEEKLY DIGEST</text>
+  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(255,100,100,0.8)" letter-spacing="2">SECURITY / CLOUD / AI</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(255,50,50,0.18)" stroke="rgba(255,80,80,0.40)" stroke-width="1"/>
-  <text x="135" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(255,120,120,0.90)" text-anchor="middle">Zero-Day</text>
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(255,59,59,0.18)" stroke="rgba(255,59,59,0.45)" stroke-width="1"/>
+  <text x="135" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,120,0.95)" text-anchor="middle">ZERO-DAY</text>
 
-  <rect x="205" y="402" width="100" height="36" rx="18" fill="rgba(255,136,0,0.18)" stroke="rgba(255,160,0,0.40)" stroke-width="1"/>
-  <text x="255" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(255,180,80,0.90)" text-anchor="middle">AI Threat</text>
+  <rect x="204" y="402" width="100" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.45)" stroke-width="1"/>
+  <text x="254" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,190,80,0.95)" text-anchor="middle">AI THREAT</text>
 
-  <rect x="320" y="402" width="110" height="36" rx="18" fill="rgba(68,136,255,0.18)" stroke="rgba(100,160,255,0.40)" stroke-width="1"/>
-  <text x="375" y="425" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="rgba(120,180,255,0.90)" text-anchor="middle">Cloud Risk</text>
+  <rect x="318" y="402" width="110" height="36" rx="18" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.45)" stroke-width="1"/>
+  <text x="373" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(100,170,255,0.95)" text-anchor="middle">CLOUD CVE</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(180,160,160,0.50)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(180,160,160,0.50)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,100,100,0.45)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

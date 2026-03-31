@@ -4,27 +4,23 @@
       <stop offset="0%" style="stop-color:#0a0c1a"/>
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="50%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#ef4444"/>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="50%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="100%" style="stop-color:transparent"/>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1e1b4b"/>
-      <stop offset="100%" style="stop-color:#2d1b4e"/>
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.06"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.05"/>
+    </linearGradient>
   </defs>
 
   <!-- Background -->
@@ -42,90 +38,118 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(99,102,241,0.06)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(168,85,247,0.07)" stroke-width="1"/>
-
   <!-- RIGHT SIDE ILLUSTRATION: Kubernetes + Supply Chain + AI -->
-  <!-- Kubernetes hexagon cluster -->
-  <g transform="translate(1010, 225)">
-    <!-- Central Kubernetes wheel -->
-    <circle cx="0" cy="0" r="72" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.30)" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="48" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
-    <circle cx="0" cy="0" r="22" fill="rgba(168,85,247,0.13)" stroke="rgba(168,85,247,0.35)" stroke-width="1.5"/>
-    <!-- Kubernetes spokes (7 spokes) -->
-    <line x1="0" y1="-48" x2="0" y2="-22" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="45.8" y1="-14.8" x2="20.9" y2="-6.8" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="28.3" y1="38.8" x2="12.9" y2="17.7" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="-28.3" y1="38.8" x2="-12.9" y2="17.7" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="-45.8" y1="-14.8" x2="-20.9" y2="-6.8" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="0" y1="48" x2="0" y2="22" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <line x1="45.8" y1="14.8" x2="20.9" y2="6.8" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <!-- Pod circles on outer ring -->
-    <circle cx="0" cy="-72" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <circle cx="62.3" cy="-36" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <circle cx="62.3" cy="36" r="9" fill="rgba(168,85,247,0.15)" stroke="rgba(168,85,247,0.35)" stroke-width="1.5"/>
-    <circle cx="0" cy="72" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <circle cx="-62.3" cy="36" r="9" fill="rgba(168,85,247,0.15)" stroke="rgba(168,85,247,0.35)" stroke-width="1.5"/>
-    <circle cx="-62.3" cy="-36" r="9" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.40)" stroke-width="1.5"/>
-    <!-- Supply chain nodes -->
-    <circle cx="115" cy="-55" r="14" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.30)" stroke-width="1"/>
-    <line x1="72" y1="-36" x2="102" y2="-50" stroke="rgba(239,68,68,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-    <circle cx="120" cy="60" r="14" fill="rgba(245,158,11,0.10)" stroke="rgba(245,158,11,0.30)" stroke-width="1"/>
-    <line x1="72" y1="36" x2="107" y2="54" stroke="rgba(245,158,11,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-    <circle cx="-115" cy="-55" r="14" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.28)" stroke-width="1"/>
-    <line x1="-72" y1="-36" x2="-102" y2="-50" stroke="rgba(16,185,129,0.22)" stroke-width="1" stroke-dasharray="3,2"/>
-    <!-- AI neural net overlay (top right) -->
-    <circle cx="95" cy="-110" r="7" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.35)" stroke-width="1"/>
-    <circle cx="118" cy="-90" r="7" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.35)" stroke-width="1"/>
-    <circle cx="106" cy="-70" r="7" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.35)" stroke-width="1"/>
-    <line x1="95" y1="-110" x2="118" y2="-90" stroke="rgba(168,85,247,0.22)" stroke-width="1"/>
-    <line x1="118" y1="-90" x2="106" y2="-70" stroke="rgba(168,85,247,0.22)" stroke-width="1"/>
-    <line x1="95" y1="-110" x2="106" y2="-70" stroke="rgba(168,85,247,0.18)" stroke-width="1"/>
-    <!-- Shield overlay (supply chain security) -->
-    <path d="M -10 -12 L 0 -16 L 10 -12 L 10 -3 Q 10 4 0 8 Q -10 4 -10 -3 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <!-- Center dot -->
-    <circle cx="0" cy="0" r="5" fill="rgba(168,85,247,0.55)" filter="url(#glow)"/>
-  </g>
+  <!-- Outer orbit ring (Kubernetes wheel) -->
+  <circle cx="1010" cy="225" r="105" fill="none" stroke="rgba(124,58,237,0.25)" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <circle cx="1010" cy="225" r="80" fill="url(#hexGrad)" stroke="rgba(124,58,237,0.35)" stroke-width="1"/>
+
+  <!-- Kubernetes hexagon center -->
+  <polygon points="1010,168 1057,196 1057,254 1010,282 963,254 963,196" fill="rgba(124,58,237,0.10)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+  <polygon points="1010,183 1042,201 1042,249 1010,267 978,249 978,201" fill="rgba(124,58,237,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+
+  <!-- K8s steering wheel spokes -->
+  <line x1="1010" y1="168" x2="1010" y2="145" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <line x1="1057" y1="196" x2="1076" y2="185" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <line x1="1057" y1="254" x2="1076" y2="265" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <line x1="1010" y1="282" x2="1010" y2="305" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <line x1="963" y1="254" x2="944" y2="265" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+  <line x1="963" y1="196" x2="944" y2="185" stroke="rgba(139,92,246,0.35)" stroke-width="2"/>
+
+  <!-- K8s orbital nodes (pods) -->
+  <circle cx="1010" cy="138" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+  <circle cx="1083" cy="179" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+  <circle cx="1083" cy="271" r="8" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.5)" stroke-width="1.5"/>
+  <circle cx="1010" cy="312" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+  <circle cx="937" cy="271" r="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.5)" stroke-width="1.5"/>
+  <circle cx="937" cy="179" r="8" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+
+  <!-- K8s center hub -->
+  <circle cx="1010" cy="225" r="22" fill="rgba(124,58,237,0.18)" stroke="rgba(139,92,246,0.6)" stroke-width="2"/>
+  <text x="1010" y="231" text-anchor="middle" font-size="18" fill="rgba(139,92,246,0.9)" font-weight="bold" font-family="monospace">K8</text>
+
+  <!-- Supply Chain: chain links on the left of K8s icon -->
+  <!-- Chain link 1 -->
+  <rect x="878" y="175" width="30" height="20" rx="10" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <rect x="882" y="179" width="22" height="12" rx="6" fill="none" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+  <!-- Connector -->
+  <line x1="908" y1="185" x2="920" y2="185" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <!-- Chain link 2 -->
+  <rect x="890" y="210" width="30" height="20" rx="10" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <line x1="910" y1="185" x2="900" y2="210" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
+  <!-- Chain link 3 -->
+  <rect x="870" y="245" width="30" height="20" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
+  <line x1="905" y1="220" x2="883" y2="245" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
+  <!-- Broken link indicator -->
+  <line x1="876" y1="255" x2="872" y2="268" stroke="rgba(239,68,68,0.5)" stroke-width="2" stroke-dasharray="3 2"/>
+  <circle cx="870" cy="272" r="4" fill="rgba(239,68,68,0.5)"/>
+
+  <!-- AI node: neural net pattern bottom-right of K8s -->
+  <circle cx="1080" cy="320" r="28" fill="url(#chainGrad)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <circle cx="1062" cy="310" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
+  <circle cx="1080" cy="305" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
+  <circle cx="1098" cy="310" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
+  <circle cx="1068" cy="325" r="5" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+  <circle cx="1092" cy="325" r="5" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+  <circle cx="1080" cy="338" r="5" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.5)" stroke-width="1"/>
+  <line x1="1062" y1="310" x2="1080" y2="305" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+  <line x1="1080" y1="305" x2="1098" y2="310" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+  <line x1="1062" y1="310" x2="1068" y2="325" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+  <line x1="1080" y1="305" x2="1068" y2="325" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+  <line x1="1080" y1="305" x2="1092" y2="325" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+  <line x1="1098" y1="310" x2="1092" y2="325" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+  <line x1="1068" y1="325" x2="1080" y2="338" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <line x1="1092" y1="325" x2="1080" y2="338" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+
+  <!-- Connecting line from K8s to AI node -->
+  <line x1="1050" y1="268" x2="1068" y2="308" stroke="rgba(6,182,212,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Shield overlay (security) -->
+  <path d="M 950 130 L 950 130 L 975 118 L 1000 130 L 1000 160 Q 1000 178 975 188 Q 950 178 950 160 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
+  <path d="M 958 140 L 958 140 L 975 132 L 992 140 L 992 162 Q 992 173 975 180 Q 958 173 958 162 Z" fill="rgba(239,68,68,0.04)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+  <text x="975" y="162" text-anchor="middle" font-size="14" fill="rgba(239,68,68,0.7)" font-family="monospace" font-weight="bold">!</text>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.75)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.75)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(99,102,241,0.75)" filter="url(#glow)"/>
+  <circle cx="870" cy="400" r="5" fill="rgba(239,68,68,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.6)"/>
+  <circle cx="860" cy="440" r="3" fill="rgba(239,68,68,0.5)"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
 
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#badgeGrad)" stroke="rgba(99,102,241,0.35)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(168,85,247,0.90)" text-anchor="middle" letter-spacing="1.5">MARCH 26, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.35)" stroke-width="1"/>
+  <text x="180" y="81" text-anchor="middle" font-size="12" fill="rgba(167,139,250,0.9)" font-family="'Courier New', monospace" letter-spacing="1">MARCH 26, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Kubernetes Supply Chain AI</text>
+  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif">Kubernetes Supply Chain AI</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(196,181,253,0.80)">Cluster security, dependency risks &amp; AI-driven threats</text>
+  <text x="80" y="300" font-size="19" fill="rgba(203,213,225,0.75)" font-family="'Arial', sans-serif">Security intelligence for cloud-native &amp; AI-driven environments</text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#lineGrad)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(99,102,241,0.90)" letter-spacing="2">SECURITY · DEVOPS · AI</text>
+  <text x="80" y="370" font-size="14" fill="rgba(139,92,246,0.85)" font-family="'Courier New', monospace" letter-spacing="2" text-transform="uppercase">SECURITY / CLOUD-NATIVE / AI</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.40)" stroke-width="1"/>
-  <text x="145" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(252,165,165,0.95)" text-anchor="middle">Kubernetes</text>
+  <rect x="80" y="402" width="140" height="36" rx="18" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="150" y="425" text-anchor="middle" font-size="13" fill="rgba(252,165,165,0.9)" font-family="'Arial', sans-serif" font-weight="600">Supply Chain</text>
 
-  <rect x="225" y="402" width="140" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.40)" stroke-width="1"/>
-  <text x="295" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(253,230,138,0.95)" text-anchor="middle">Supply Chain</text>
+  <rect x="234" y="402" width="136" height="36" rx="18" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="302" y="425" text-anchor="middle" font-size="13" fill="rgba(253,211,77,0.9)" font-family="'Arial', sans-serif" font-weight="600">Kubernetes</text>
 
-  <rect x="380" y="402" width="110" height="36" rx="18" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.40)" stroke-width="1"/>
-  <text x="435" y="425" font-family="'Arial', 'Helvetica', sans-serif" font-size="13" font-weight="600" fill="rgba(196,181,253,0.95)" text-anchor="middle">AI Threat</text>
+  <rect x="384" y="402" width="112" height="36" rx="18" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="440" y="425" text-anchor="middle" font-size="13" fill="rgba(147,197,253,0.9)" font-family="'Arial', sans-serif" font-weight="600">AI Security</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end" letter-spacing="0.5">SECURITY</text>
+  <text x="80" y="545" font-size="13" fill="rgba(148,163,184,0.6)" font-family="'Courier New', monospace">tech.2twodragon.com</text>
+  <text x="1120" y="545" text-anchor="end" font-size="13" fill="rgba(148,163,184,0.5)" font-family="'Courier New', monospace">security</text>
 </svg>

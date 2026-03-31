@@ -1,130 +1,119 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#00c6ff"/>
-      <stop offset="50%" style="stop-color:#7b2fff"/>
-      <stop offset="100%" style="stop-color:#ff4040"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e84c4c"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00c6ff"/>
-      <stop offset="100%" style="stop-color:#7b2fff;stop-opacity:0"/>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e84c4c"/>
+      <stop offset="100%" stop-color="transparent"/>
     </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00c6ff;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#7b2fff;stop-opacity:0.08"/>
+    <linearGradient id="pill1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e84c4c" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#e84c4c" stop-opacity="0.1"/>
     </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#00c6ff;stop-opacity:0.06"/>
+    <linearGradient id="pill2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="pill3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
     </linearGradient>
   </defs>
 
-  <!-- 1. Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- 2. Grid lines -->
+  <!-- Grid lines horizontal -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- 3. RIGHT SIDE ILLUSTRATION: Zero Trust + Cloud + FinOps -->
-  <!-- Outer orbit ring -->
-  <circle cx="1010" cy="225" r="118" fill="none" stroke="rgba(0,198,255,0.22)" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <!-- Mid orbit ring -->
-  <circle cx="1010" cy="225" r="82" fill="none" stroke="rgba(123,47,255,0.2)" stroke-width="1" stroke-dasharray="4 6"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Zero Trust Shield + Cloud + FinOps -->
+  <!-- Outer hexagon representing zero trust perimeter -->
+  <polygon points="1010,140 1090,183 1090,268 1010,312 930,268 930,183" fill="rgba(232,76,76,0.06)" stroke="rgba(232,76,76,0.25)" stroke-width="1.5"/>
+  <!-- Inner hexagon -->
+  <polygon points="1010,165 1070,198 1070,265 1010,298 950,265 950,198" fill="rgba(168,85,247,0.07)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+  <!-- Core shield shape -->
+  <path d="M1010,185 L1048,203 L1048,245 Q1048,268 1010,280 Q972,268 972,245 L972,203 Z" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
+  <!-- Shield inner checkmark / lock -->
+  <rect x="997" y="230" width="26" height="22" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+  <path d="M1004,222 Q1004,215 1010,215 Q1016,215 1016,222 L1016,230 L1004,230 Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <circle cx="1010" cy="240" r="3" fill="rgba(255,255,255,0.5)"/>
+  <!-- Cloud shape top right -->
+  <ellipse cx="1095" cy="160" rx="32" ry="20" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
+  <ellipse cx="1072" cy="168" rx="22" ry="16" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
+  <ellipse cx="1112" cy="168" rx="18" ry="13" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.18)" stroke-width="1"/>
+  <rect x="1058" y="168" width="62" height="14" rx="2" fill="rgba(59,130,246,0.06)" stroke="none"/>
+  <!-- FinOps coin symbol bottom -->
+  <circle cx="940" cy="300" r="24" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.28)" stroke-width="1.5"/>
+  <circle cx="940" cy="300" r="16" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+  <text x="940" y="305" font-size="14" font-weight="700" fill="rgba(245,158,11,0.55)" text-anchor="middle" font-family="monospace">$</text>
+  <!-- Connecting lines between elements -->
+  <line x1="1010" y1="185" x2="1072" y2="168" stroke="rgba(168,85,247,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="972" y1="245" x2="940" y2="300" stroke="rgba(245,158,11,0.12)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1048" y1="245" x2="1095" y2="185" stroke="rgba(59,130,246,0.12)" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Orbit dots -->
+  <circle cx="930" cy="155" r="3" fill="rgba(232,76,76,0.4)"/>
+  <circle cx="1085" cy="290" r="3" fill="rgba(168,85,247,0.4)"/>
+  <circle cx="960" cy="140" r="2" fill="rgba(59,130,246,0.35)"/>
+  <circle cx="1100" cy="250" r="2" fill="rgba(245,158,11,0.35)"/>
 
-  <!-- Central shield (Zero Trust) -->
-  <path d="M1010,148 L1060,168 L1060,218 Q1060,258 1010,278 Q960,258 960,218 L960,168 Z" fill="url(#shieldGrad)" stroke="rgba(0,198,255,0.35)" stroke-width="1.5"/>
-  <!-- Shield inner glow -->
-  <path d="M1010,162 L1048,178 L1048,218 Q1048,248 1010,264 Q972,248 972,218 L972,178 Z" fill="none" stroke="rgba(0,198,255,0.15)" stroke-width="1"/>
-  <!-- Lock body on shield -->
-  <rect x="999" y="208" width="22" height="18" rx="3" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <path d="M1004,208 L1004,201 Q1004,193 1010,193 Q1016,193 1016,201 L1016,208" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="217" r="2.5" fill="rgba(255,255,255,0.5)"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(232,76,76,0.7)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.6)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(59,130,246,0.65)"/>
 
-  <!-- Cloud shape (top right of shield) -->
-  <path d="M1072,158 Q1072,148 1083,148 Q1086,138 1096,140 Q1100,130 1112,134 Q1122,134 1122,144 Q1130,146 1128,156 Z" fill="url(#cloudGrad)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-  <!-- Cloud inner detail -->
-  <path d="M1080,152 Q1085,148 1092,150 Q1096,144 1104,147 Q1110,144 1114,150 Q1120,151 1118,156 Z" fill="none" stroke="rgba(0,198,255,0.2)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- FinOps coin (bottom right) -->
-  <circle cx="1068" cy="290" r="22" fill="rgba(255,180,0,0.08)" stroke="rgba(255,180,0,0.35)" stroke-width="1.5"/>
-  <circle cx="1068" cy="290" r="16" fill="none" stroke="rgba(255,180,0,0.2)" stroke-width="1"/>
-  <text x="1068" y="295" font-family="monospace" font-size="14" fill="rgba(255,200,0,0.7)" text-anchor="middle" font-weight="700">$</text>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
 
-  <!-- Data nodes orbiting -->
-  <circle cx="1010" cy="143" r="7" fill="rgba(0,198,255,0.12)" stroke="rgba(0,198,255,0.45)" stroke-width="1.5"/>
-  <circle cx="1093" cy="186" r="6" fill="rgba(123,47,255,0.12)" stroke="rgba(123,47,255,0.45)" stroke-width="1.5"/>
-  <circle cx="927" cy="186" r="6" fill="rgba(123,47,255,0.12)" stroke="rgba(123,47,255,0.45)" stroke-width="1.5"/>
-  <circle cx="927" cy="264" r="5" fill="rgba(0,198,255,0.1)" stroke="rgba(0,198,255,0.35)" stroke-width="1"/>
-  <circle cx="1010" cy="307" r="5" fill="rgba(255,100,100,0.1)" stroke="rgba(255,100,100,0.35)" stroke-width="1"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="210" height="32" rx="4" fill="rgba(232,76,76,0.12)" stroke="rgba(232,76,76,0.3)" stroke-width="1"/>
+  <text x="185" y="81" font-size="12" font-weight="600" fill="rgba(232,76,76,0.9)" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="1.5">MARCH 27, 2026</text>
 
-  <!-- Connection lines between nodes -->
-  <line x1="1010" y1="148" x2="1060" y2="168" stroke="rgba(0,198,255,0.15)" stroke-width="1"/>
-  <line x1="1093" y1="186" x2="1060" y2="168" stroke="rgba(123,47,255,0.15)" stroke-width="1"/>
-  <line x1="927" y1="186" x2="960" y2="168" stroke="rgba(123,47,255,0.15)" stroke-width="1"/>
-  <line x1="927" y1="264" x2="960" y2="218" stroke="rgba(0,198,255,0.12)" stroke-width="1"/>
-  <line x1="1068" y1="268" x2="1060" y2="236" stroke="rgba(255,180,0,0.15)" stroke-width="1"/>
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Arial', sans-serif" letter-spacing="-0.5">Tech Security Weekly Digest</text>
 
-  <!-- Scattered binary dots -->
-  <circle cx="895" cy="148" r="2" fill="rgba(0,198,255,0.3)"/>
-  <circle cx="908" cy="160" r="1.5" fill="rgba(123,47,255,0.3)"/>
-  <circle cx="1115" cy="200" r="2" fill="rgba(0,198,255,0.25)"/>
-  <circle cx="1128" cy="175" r="1.5" fill="rgba(255,180,0,0.3)"/>
-  <circle cx="885" cy="300" r="2" fill="rgba(123,47,255,0.25)"/>
-  <circle cx="1130" cy="310" r="1.5" fill="rgba(0,198,255,0.2)"/>
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)" font-family="'Arial', sans-serif" letter-spacing="-0.5">Zero Trust Cloud FinOps</text>
 
-  <!-- 4. Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,80,0.7)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,160,0,0.7)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(0,198,255,0.6)"/>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.5)" font-family="'Arial', sans-serif">Weekly roundup of Zero Trust, Cloud Security, and FinOps insights</text>
 
-  <!-- 5. Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(123,47,255,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(123,47,255,0.03)" stroke="rgba(0,198,255,0.05)" stroke-width="1"/>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
-  <!-- 6. Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.35)" font-family="'Courier New', monospace" letter-spacing="2.5">CATEGORY: SECURITY / DEVSECOPS / CLOUD</text>
 
-  <!-- 7. Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(0,198,255,0.12)" stroke="rgba(0,198,255,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-family="'Courier New', monospace" font-size="13" fill="rgba(0,198,255,0.9)" text-anchor="middle" letter-spacing="1">MARCH 27, 2026</text>
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="url(#pill1)" stroke="rgba(232,76,76,0.4)" stroke-width="1"/>
+  <text x="145" y="425" font-size="13" font-weight="600" fill="rgba(232,76,76,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">Zero Trust</text>
 
-  <!-- 8. Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+  <rect x="224" y="402" width="130" height="36" rx="18" fill="url(#pill2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="289" y="425" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">FinOps</text>
 
-  <!-- 9. Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white">Zero Trust Cloud FinOps</text>
+  <rect x="368" y="402" width="130" height="36" rx="18" fill="url(#pill3)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="433" y="425" font-size="13" font-weight="600" fill="rgba(59,130,246,0.9)" text-anchor="middle" font-family="'Arial', sans-serif">Cloud Sec</text>
 
-  <!-- 10. Subtitle -->
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Security Architecture · Cloud Governance · Cost Optimization</text>
-
-  <!-- 11. Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
-
-  <!-- 12. Category label -->
-  <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" fill="rgba(0,198,255,0.7)" letter-spacing="3" font-weight="600">SECURITY · DEVSECOPS · CLOUD</text>
-
-  <!-- 13. Tag pills -->
-  <rect x="80" y="402" width="148" height="36" rx="18" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.4)" stroke-width="1"/>
-  <text x="154" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,100,100,0.9)" text-anchor="middle" font-weight="600">Zero Trust</text>
-
-  <rect x="244" y="402" width="130" height="36" rx="18" fill="rgba(255,160,0,0.15)" stroke="rgba(255,160,0,0.4)" stroke-width="1"/>
-  <text x="309" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,180,0,0.9)" text-anchor="middle" font-weight="600">Cloud FinOps</text>
-
-  <rect x="390" y="402" width="118" height="36" rx="18" fill="rgba(0,198,255,0.15)" stroke="rgba(0,198,255,0.4)" stroke-width="1"/>
-  <text x="449" y="425" font-family="'Arial', sans-serif" font-size="13" fill="rgba(0,198,255,0.9)" text-anchor="middle" font-weight="600">Governance</text>
-
-  <!-- 14. Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Arial', sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="2">SECURITY</text>
+  <!-- Footer -->
+  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.25)" font-family="'Courier New', monospace" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.25)" font-family="'Courier New', monospace" text-anchor="end" letter-spacing="0.5">security</text>
 </svg>

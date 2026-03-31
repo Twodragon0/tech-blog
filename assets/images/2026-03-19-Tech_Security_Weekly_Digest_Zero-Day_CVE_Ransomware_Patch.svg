@@ -5,14 +5,30 @@
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3030"/>
-      <stop offset="50%" style="stop-color:#ff6600"/>
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="50%" style="stop-color:#ff8800"/>
       <stop offset="100%" style="stop-color:#cc0000"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff3030;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff3030;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
+    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff2200;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#880000;stop-opacity:0.06"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:0.08"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <!-- Background -->
@@ -30,97 +46,125 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Shield with skull and lock for Zero-Day/CVE/Ransomware -->
+  <!-- RIGHT SIDE ILLUSTRATION: Zero-Day / CVE / Ransomware security icon -->
   <!-- Outer shield -->
-  <path d="M1010,135 L1115,175 L1115,255 Q1115,305 1010,330 Q905,305 905,255 L905,175 Z"
-        fill="rgba(255,30,30,0.06)" stroke="rgba(255,60,60,0.25)" stroke-width="1.5"/>
-  <!-- Shield inner border -->
-  <path d="M1010,150 L1100,185 L1100,255 Q1100,295 1010,316 Q920,295 920,255 L920,185 Z"
-        fill="none" stroke="rgba(255,80,80,0.15)" stroke-width="1"/>
+  <path d="M1010,135 L1110,165 L1110,255 C1110,305 1010,335 1010,335 C1010,335 910,305 910,255 L910,165 Z"
+        fill="url(#shieldGrad)" stroke="rgba(255,80,50,0.35)" stroke-width="1.5"/>
 
-  <!-- Skull circle face -->
-  <circle cx="1010" cy="225" r="48" fill="rgba(200,20,20,0.10)" stroke="rgba(255,60,60,0.30)" stroke-width="1.5"/>
-  <!-- Skull eyes -->
-  <ellipse cx="995" cy="218" rx="8" ry="10" fill="rgba(255,40,40,0.30)" stroke="rgba(255,80,80,0.50)" stroke-width="1"/>
-  <ellipse cx="1025" cy="218" rx="8" ry="10" fill="rgba(255,40,40,0.30)" stroke="rgba(255,80,80,0.50)" stroke-width="1"/>
-  <!-- Skull nose -->
-  <path d="M1010,230 L1006,240 L1014,240 Z" fill="rgba(255,60,60,0.35)" stroke="rgba(255,100,100,0.40)" stroke-width="0.8"/>
-  <!-- Skull teeth -->
-  <path d="M998,246 L998,254 L1003,254 L1003,246" fill="rgba(255,60,60,0.25)" stroke="rgba(255,80,80,0.40)" stroke-width="0.8"/>
-  <path d="M1006,246 L1006,256 L1012,256 L1012,246" fill="rgba(255,60,60,0.25)" stroke="rgba(255,80,80,0.40)" stroke-width="0.8"/>
-  <path d="M1014,246 L1014,254 L1019,254 L1019,246" fill="rgba(255,60,60,0.25)" stroke="rgba(255,80,80,0.40)" stroke-width="0.8"/>
-  <line x1="996" y1="246" x2="1022" y2="246" stroke="rgba(255,80,80,0.40)" stroke-width="0.8"/>
+  <!-- Shield inner layer -->
+  <path d="M1010,158 L1090,182 L1090,255 C1090,292 1010,315 1010,315 C1010,315 930,292 930,255 L930,182 Z"
+        fill="rgba(255,50,30,0.07)" stroke="rgba(255,100,60,0.25)" stroke-width="1"/>
 
-  <!-- Padlock body -->
-  <rect x="1060" y="248" width="42" height="32" rx="5" fill="rgba(255,100,20,0.10)" stroke="rgba(255,130,30,0.35)" stroke-width="1.5"/>
-  <!-- Padlock shackle -->
-  <path d="M1068,248 L1068,238 Q1068,226 1081,226 Q1094,226 1094,238 L1094,248"
-        fill="none" stroke="rgba(255,130,30,0.35)" stroke-width="2"/>
-  <!-- Padlock keyhole -->
-  <circle cx="1081" cy="262" r="5" fill="rgba(255,130,30,0.30)" stroke="rgba(255,150,50,0.45)" stroke-width="1"/>
-  <rect x="1079" y="264" width="4" height="7" rx="1" fill="rgba(255,130,30,0.30)"/>
+  <!-- Lock body -->
+  <rect x="984" y="230" width="52" height="42" rx="5"
+        fill="rgba(255,80,50,0.15)" stroke="rgba(255,100,60,0.40)" stroke-width="1.5"/>
 
-  <!-- CVE hex badge -->
-  <polygon points="952,160 965,152 978,160 978,176 965,184 952,176"
-           fill="rgba(200,50,255,0.08)" stroke="rgba(200,80,255,0.30)" stroke-width="1.2"/>
-  <text x="965" y="172" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(210,100,255,0.75)">CVE</text>
+  <!-- Lock shackle -->
+  <path d="M993,230 L993,215 C993,202 1027,202 1027,215 L1027,230"
+        fill="none" stroke="rgba(255,100,60,0.40)" stroke-width="2.5" stroke-linecap="round"/>
 
-  <!-- Zero-day burst rays -->
-  <line x1="1010" y1="135" x2="1010" y2="118" stroke="rgba(255,60,60,0.20)" stroke-width="1"/>
-  <line x1="1060" y1="148" x2="1075" y2="135" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
-  <line x1="960" y1="148" x2="945" y2="135" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
+  <!-- Lock keyhole -->
+  <circle cx="1010" cy="247" r="6" fill="none" stroke="rgba(255,150,80,0.50)" stroke-width="1.5"/>
+  <rect x="1007" y="248" width="6" height="10" rx="2" fill="rgba(255,150,80,0.30)"/>
 
-  <!-- Decorative code/binary text -->
-  <text x="902" y="148" font-family="monospace" font-size="8" fill="rgba(255,50,50,0.18)">0xDEAD</text>
-  <text x="1080" y="338" font-family="monospace" font-size="8" fill="rgba(255,80,30,0.18)">ENC</text>
-  <text x="905" y="310" font-family="monospace" font-size="8" fill="rgba(255,50,50,0.15)">PAYLOAD</text>
+  <!-- Warning triangle (zero-day alert) -->
+  <polygon points="1010,148 1027,178 993,178"
+           fill="rgba(255,150,0,0.12)" stroke="rgba(255,180,0,0.38)" stroke-width="1.5"/>
+  <text x="1010" y="173" font-size="13" font-weight="900" fill="rgba(255,200,0,0.65)"
+        text-anchor="middle" font-family="monospace">!</text>
 
-  <!-- Scanning lines across illustration -->
-  <rect x="880" y="200" width="260" height="1" fill="rgba(255,60,60,0.12)"/>
-  <rect x="880" y="270" width="260" height="1" fill="rgba(255,60,60,0.08)"/>
+  <!-- CVE binary scatter dots -->
+  <circle cx="920" cy="155" r="3" fill="rgba(255,80,50,0.25)"/>
+  <circle cx="932" cy="145" r="2" fill="rgba(255,120,60,0.20)"/>
+  <circle cx="944" cy="158" r="2.5" fill="rgba(255,80,50,0.18)"/>
+  <circle cx="1075" cy="152" r="3" fill="rgba(255,80,50,0.22)"/>
+  <circle cx="1088" cy="145" r="2" fill="rgba(255,120,60,0.20)"/>
+  <circle cx="1063" cy="160" r="2.5" fill="rgba(255,80,50,0.18)"/>
+
+  <!-- Ransomware chain links left -->
+  <path d="M885,200 C875,195 875,185 885,180 L900,175 C910,170 910,160 900,155"
+        fill="none" stroke="rgba(255,60,30,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="893" cy="190" r="5" fill="rgba(255,60,30,0.12)" stroke="rgba(255,80,50,0.30)" stroke-width="1.2"/>
+
+  <!-- Ransomware chain links right -->
+  <path d="M1135,200 C1145,195 1145,185 1135,180 L1120,175 C1110,170 1110,160 1120,155"
+        fill="none" stroke="rgba(255,60,30,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1127" cy="190" r="5" fill="rgba(255,60,30,0.12)" stroke="rgba(255,80,50,0.30)" stroke-width="1.2"/>
+
+  <!-- Scanning line effect -->
+  <line x1="910" y1="280" x2="1110" y2="280" stroke="rgba(255,80,50,0.18)" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="910" y1="295" x2="1110" y2="295" stroke="rgba(255,80,50,0.10)" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="910" y1="310" x2="1110" y2="310" stroke="rgba(255,80,50,0.07)" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- Target crosshair rings behind shield -->
+  <circle cx="1010" cy="235" r="90" fill="none" stroke="rgba(255,50,30,0.06)" stroke-width="1" stroke-dasharray="3,8"/>
+  <circle cx="1010" cy="235" r="115" fill="none" stroke="rgba(255,50,30,0.04)" stroke-width="1" stroke-dasharray="2,10"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.70)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,140,0,0.70)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.50)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(255,80,50,0.55)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="3" fill="rgba(255,140,30,0.55)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="3.5" fill="rgba(255,60,30,0.50)" filter="url(#glow)"/>
 
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,30,30,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,30,30,0.06)" stroke-width="1"/>
+  <!-- Background large circles -->
+  <circle cx="1050" cy="450" r="200" fill="url(#glowRed)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(180,20,10,0.06)" stroke="none"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,40,40,0.15)" stroke="rgba(255,60,60,0.30)" stroke-width="1"/>
-  <text x="180" y="81" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,120,0.90)" letter-spacing="1.5">MARCH 19, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4"
+        fill="rgba(255,60,40,0.18)" stroke="rgba(255,80,50,0.40)" stroke-width="1"/>
+  <text x="180" y="81" font-size="12" font-weight="600" fill="rgba(255,160,120,0.90)"
+        text-anchor="middle" font-family="'Courier New',monospace" letter-spacing="1.5">MARCH 19, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-size="46" font-weight="700" fill="white"
+        font-family="'Arial',sans-serif" letter-spacing="-0.5">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="rgba(255,90,90,1.0)">Zero Day CVE Ransomware</text>
+  <text x="80" y="245" font-size="46" font-weight="700"
+        font-family="'Arial',sans-serif" letter-spacing="-0.5">
+    <tspan fill="#ff5533">Zero Day</tspan>
+    <tspan fill="white"> CVE Ransomware</tspan>
+  </text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(200,180,180,0.75)">Critical vulnerabilities, exploit patches &amp; ransomware threats</text>
+  <text x="80" y="300" font-size="19" fill="rgba(255,180,150,0.75)"
+        font-family="'Arial',sans-serif" font-weight="400">
+    Critical vulnerability intelligence and threat analysis
+  </text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2"/>
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,100,100,0.70)" letter-spacing="2.5">SECURITY / THREAT INTELLIGENCE</text>
+  <text x="80" y="370" font-size="14" font-weight="600" fill="rgba(255,100,70,0.80)"
+        font-family="'Arial',sans-serif" letter-spacing="3">SECURITY / THREAT INTELLIGENCE</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(220,30,30,0.20)" stroke="rgba(255,60,60,0.40)" stroke-width="1"/>
-  <text x="137" y="425" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,110,110,0.95)">Zero-Day</text>
+  <!-- Zero-Day pill -->
+  <rect x="80" y="402" width="130" height="36" rx="18"
+        fill="rgba(200,30,20,0.28)" stroke="rgba(255,80,60,0.55)" stroke-width="1.2"/>
+  <text x="145" y="425" font-size="13" font-weight="600" fill="rgba(255,130,110,0.95)"
+        text-anchor="middle" font-family="'Arial',sans-serif">Zero-Day</text>
 
-  <rect x="207" y="402" width="100" height="36" rx="18" fill="rgba(200,120,0,0.20)" stroke="rgba(255,160,30,0.40)" stroke-width="1"/>
-  <text x="257" y="425" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,60,0.95)">CVE Patch</text>
+  <!-- CVE pill -->
+  <rect x="224" y="402" width="110" height="36" rx="18"
+        fill="rgba(180,100,0,0.28)" stroke="rgba(255,160,30,0.55)" stroke-width="1.2"/>
+  <text x="279" y="425" font-size="13" font-weight="600" fill="rgba(255,190,80,0.95)"
+        text-anchor="middle" font-family="'Arial',sans-serif">CVE Alert</text>
 
-  <rect x="319" y="402" width="115" height="36" rx="18" fill="rgba(30,80,200,0.20)" stroke="rgba(60,130,255,0.40)" stroke-width="1"/>
-  <text x="376" y="425" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(100,170,255,0.95)">Ransomware</text>
+  <!-- Ransomware pill -->
+  <rect x="348" y="402" width="140" height="36" rx="18"
+        fill="rgba(20,50,180,0.28)" stroke="rgba(60,120,255,0.55)" stroke-width="1.2"/>
+  <text x="418" y="425" font-size="13" font-weight="600" fill="rgba(110,170,255,0.95)"
+        text-anchor="middle" font-family="'Arial',sans-serif">Ransomware</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(180,150,150,0.50)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" text-anchor="end" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,100,100,0.50)" letter-spacing="1">SECURITY</text>
+  <line x1="0" y1="505" x2="1200" y2="505" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="80" y="545" font-size="13" fill="rgba(255,150,120,0.55)"
+        font-family="'Courier New',monospace" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-size="13" fill="rgba(255,150,120,0.55)"
+        font-family="'Arial',sans-serif" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

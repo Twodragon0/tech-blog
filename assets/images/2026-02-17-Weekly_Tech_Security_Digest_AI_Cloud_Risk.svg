@@ -1,46 +1,136 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="55%" stop-color="#151b32"/>
-      <stop offset="100%" stop-color="#181024"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f4a261;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#457b9d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#457b9d;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="cloudGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#457b9d;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#1d3557;stop-opacity:0.06" />
+    </linearGradient>
+    <linearGradient id="shieldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#c1121f;stop-opacity:0.04" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="170" r="180" fill="#f97316" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="600" cy="140" r="160" fill="#14b8a6" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="950" cy="220" r="170" fill="#3b82f6" opacity="0.12" filter="url(#glow)"/>
-  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">DEVOPS  FINOPS  CLOUD</tspan></text>
-  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
 
-  <g transform="translate(250 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
-    <path d="M-16 0 A16 16 0 0 1 16 0" fill="none" stroke="#f97316" stroke-width="2.5"/><path d="M16 0 A16 16 0 0 1 -16 0" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="4 3"/><polygon points="16,-4 22,0 16,4" fill="#f97316"/><polygon points="-16,4 -22,0 -16,-4" fill="#f97316"/>
-  </g>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <g transform="translate(600 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#14b8a6" stroke-width="2.5"/>
-    <circle r="22" fill="none" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6 4"/><path d="M2,-16 v4 c-7,1 -12,5 -12,10 c0,6 5,9 12,10 v7 c-4,-1 -8,-3 -11,-5 l-2,3 c3,3 8,5 13,6 v4 h3 v-4 c8,-1 13,-5 13,-11 c0,-6 -5,-9 -13,-10 v-7 c3,1 7,2 10,4 l2,-3 c-3,-3 -7,-5 -12,-5 v-4 z" fill="#14b8a6"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
+  <!-- Background subtle circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <g transform="translate(950 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5"/>
-    <ellipse cx="0" cy="4" rx="22" ry="14" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="-8" cy="-4" r="10" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="8" cy="-6" r="12" fill="none" stroke="#3b82f6" stroke-width="2"/>
-  </g>
+  <!-- RIGHT SIDE ILLUSTRATION: AI Cloud Risk / Shield Icon -->
+  <!-- Outer orbit ring -->
+  <ellipse cx="1010" cy="225" rx="145" ry="95" fill="none" stroke="rgba(69,123,157,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Inner orbit ring -->
+  <ellipse cx="1010" cy="225" rx="95" ry="62" fill="none" stroke="rgba(230,57,70,0.22)" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <text font-family="Arial, sans-serif" font-size="16" font-weight="700"><tspan x="250" y="448" fill="#f97316" text-anchor="middle">DEVOPS</tspan><tspan x="600" y="448" fill="#14b8a6" text-anchor="middle">FINOPS</tspan><tspan x="950" y="448" fill="#3b82f6" text-anchor="middle">CLOUD</tspan></text>
-  <circle cx="425" cy="340" r="4" fill="#475569"/>
-  <circle cx="775" cy="340" r="4" fill="#475569"/>
+  <!-- Cloud shape base -->
+  <path d="M940,215 Q935,190 955,185 Q960,165 985,168 Q995,152 1018,158 Q1042,148 1055,165 Q1075,162 1080,182 Q1095,185 1092,205 Q1095,222 1075,225 L955,225 Q938,228 940,215 Z" fill="url(#cloudGlow)" stroke="rgba(69,123,157,0.35)" stroke-width="1.5"/>
+  <!-- Cloud inner highlight -->
+  <path d="M950,210 Q946,192 963,188 Q968,172 988,175 Q998,160 1018,166 Q1040,155 1052,170 Q1068,167 1072,185 Q1084,188 1080,205 L960,208 Z" fill="rgba(69,123,157,0.07)" stroke="none"/>
 
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">March 30, 2026</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
+  <!-- Shield main body -->
+  <path d="M1010,248 L975,262 L975,295 Q975,325 1010,342 Q1045,325 1045,295 L1045,262 Z" fill="url(#shieldGlow)" stroke="rgba(230,57,70,0.38)" stroke-width="2"/>
+  <!-- Shield inner -->
+  <path d="M1010,258 L982,270 L982,295 Q982,318 1010,332 Q1038,318 1038,295 L1038,270 Z" fill="rgba(230,57,70,0.08)" stroke="rgba(230,57,70,0.2)" stroke-width="1"/>
+  <!-- Shield checkmark / lock icon -->
+  <path d="M1000,293 L1007,302 L1022,283" fill="none" stroke="rgba(230,57,70,0.65)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- AI circuit nodes -->
+  <circle cx="880" cy="175" r="6" fill="rgba(244,162,97,0.12)" stroke="rgba(244,162,97,0.4)" stroke-width="1.5"/>
+  <circle cx="1140" cy="175" r="6" fill="rgba(244,162,97,0.12)" stroke="rgba(244,162,97,0.4)" stroke-width="1.5"/>
+  <circle cx="880" cy="295" r="5" fill="rgba(69,123,157,0.1)" stroke="rgba(69,123,157,0.35)" stroke-width="1.5"/>
+  <circle cx="1140" cy="295" r="5" fill="rgba(69,123,157,0.1)" stroke="rgba(69,123,157,0.35)" stroke-width="1.5"/>
+  <circle cx="910" cy="135" r="4" fill="rgba(230,57,70,0.1)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
+  <circle cx="1110" cy="135" r="4" fill="rgba(230,57,70,0.1)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
+
+  <!-- AI circuit connecting lines -->
+  <line x1="880" y1="175" x2="940" y2="195" stroke="rgba(244,162,97,0.2)" stroke-width="1"/>
+  <line x1="1140" y1="175" x2="1080" y2="195" stroke="rgba(244,162,97,0.2)" stroke-width="1"/>
+  <line x1="880" y1="295" x2="975" y2="280" stroke="rgba(69,123,157,0.2)" stroke-width="1"/>
+  <line x1="1140" y1="295" x2="1045" y2="280" stroke="rgba(69,123,157,0.2)" stroke-width="1"/>
+  <line x1="910" y1="135" x2="975" y2="162" stroke="rgba(230,57,70,0.18)" stroke-width="1"/>
+  <line x1="1110" y1="135" x2="1050" y2="162" stroke="rgba(230,57,70,0.18)" stroke-width="1"/>
+
+  <!-- Orbiting dot - AI node -->
+  <circle cx="1010" cy="130" r="7" fill="rgba(244,162,97,0.15)" stroke="rgba(244,162,97,0.5)" stroke-width="1.5" filter="url(#glow)"/>
+  <circle cx="915" cy="258" r="5" fill="rgba(69,123,157,0.12)" stroke="rgba(69,123,157,0.45)" stroke-width="1.5"/>
+  <circle cx="1108" cy="258" r="5" fill="rgba(69,123,157,0.12)" stroke="rgba(69,123,157,0.45)" stroke-width="1.5"/>
+
+  <!-- Risk triangle overlay -->
+  <polygon points="1010,145 995,175 1025,175" fill="rgba(230,57,70,0.06)" stroke="rgba(230,57,70,0.28)" stroke-width="1.5"/>
+  <line x1="1010" y1="152" x2="1010" y2="167" stroke="rgba(230,57,70,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="1010" cy="171" r="1.5" fill="rgba(230,57,70,0.7)"/>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(230,57,70,0.7)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="3" fill="rgba(244,162,97,0.6)"/>
+  <circle cx="860" cy="440" r="3.5" fill="rgba(69,123,157,0.65)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="230" height="32" rx="4" fill="rgba(230,57,70,0.15)" stroke="rgba(230,57,70,0.3)" stroke-width="1"/>
+  <text x="95" y="81" font-family="'Courier New', Courier, monospace" font-size="12" font-weight="600" fill="rgba(230,57,70,0.9)" letter-spacing="1.5">FEBRUARY 17, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Weekly Tech Security</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Digest AI Cloud Risk</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Threat Intelligence · Cloud Exposure · AI Risk Analysis</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.38)" letter-spacing="3">SECURITY / DEVSECOPS / WEEKLY DIGEST</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(230,57,70,0.18)" stroke="rgba(230,57,70,0.4)" stroke-width="1"/>
+  <text x="135" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(230,57,70,0.95)" text-anchor="middle">#AI Risk</text>
+
+  <rect x="204" y="402" width="130" height="36" rx="18" fill="rgba(244,162,97,0.15)" stroke="rgba(244,162,97,0.38)" stroke-width="1"/>
+  <text x="269" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(244,162,97,0.95)" text-anchor="middle">#Cloud Security</text>
+
+  <rect x="348" y="402" width="120" height="36" rx="18" fill="rgba(69,123,157,0.18)" stroke="rgba(69,123,157,0.4)" stroke-width="1"/>
+  <text x="408" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(69,123,157,0.95)" text-anchor="middle">#Threat Intel</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="'Courier New', Courier, monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.25)" text-anchor="end" letter-spacing="1">SECURITY</text>
 </svg>

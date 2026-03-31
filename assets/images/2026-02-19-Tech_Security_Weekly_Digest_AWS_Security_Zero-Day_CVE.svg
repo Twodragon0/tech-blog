@@ -1,37 +1,125 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS , Zero-Day , CVE-2026-2329</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0e1a"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0f0a1e"/>
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sg"><feGaussianBlur stdDeviation="30"/></filter>
-    <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/></filter>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="50%" style="stop-color:#ff8800"/>
+      <stop offset="100%" style="stop-color:#4488ff"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="250" cy="250" r="220" fill="#ef4444" opacity="0.06" filter="url(#sg)"/>
-  <circle cx="950" cy="400" r="200" fill="#991b1b" opacity="0.04" filter="url(#sg)"/>
 
-  <!-- Central illustration -->
-  <g transform="translate(600,280)" filter="url(#shadow)">
-    <circle r="80" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  <!-- Grid lines horizontal -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-  </g>
+  <!-- Grid lines vertical -->
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS , Zero-Day , CVE-2026-2329</text>
-  <text x="600" y="515" font-family="Arial,sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">AWS | Zero-Day | CVE</text>
-  <text x="110" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">SECURITY</text>
-  <rect x="40" y="22" width="140" height="32" rx="16" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
-  <text x="1090" y="44" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">March 30, 2026</text>
-  <rect x="1020" y="22" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- RIGHT SIDE ILLUSTRATION: AWS Shield + Zero Day Exploit Symbol -->
+  <!-- Outer AWS cloud shape -->
+  <path d="M960,145 C940,130 910,128 895,145 C880,135 858,138 850,158 C835,158 825,170 830,185 L960,185 Z" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.35)" stroke-width="1.5"/>
+  <path d="M1040,155 C1025,138 998,136 985,155 C970,143 945,147 940,168 C922,168 912,182 917,198 L1060,198 Z" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.3)" stroke-width="1.5"/>
+  <path d="M1120,148 C1105,132 1080,130 1068,148 C1054,138 1032,142 1028,160 C1012,160 1003,173 1007,186 L1130,186 Z" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1.2"/>
+
+  <!-- AWS shield main -->
+  <path d="M1010,205 L980,218 L980,255 C980,278 993,298 1010,308 C1027,298 1040,278 1040,255 L1040,218 Z" fill="rgba(255,68,68,0.08)" stroke="rgba(255,68,68,0.35)" stroke-width="2"/>
+  <!-- Shield inner detail -->
+  <path d="M1010,218 L993,227 L993,254 C993,270 1000,284 1010,292 C1020,284 1027,270 1027,254 L1027,227 Z" fill="rgba(255,68,68,0.06)" stroke="rgba(255,136,0,0.3)" stroke-width="1.5"/>
+  <!-- Zero day burst -->
+  <circle cx="1010" cy="258" r="12" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.5)" stroke-width="1.5"/>
+  <text x="1010" y="263" font-family="monospace" font-size="11" font-weight="700" fill="rgba(255,68,68,0.8)" text-anchor="middle">0</text>
+
+  <!-- Lock icon below shield -->
+  <rect x="1000" y="320" width="20" height="16" rx="2" fill="rgba(68,136,255,0.08)" stroke="rgba(68,136,255,0.4)" stroke-width="1.5"/>
+  <path d="M1004,320 L1004,313 C1004,308 1016,308 1016,313 L1016,320" fill="none" stroke="rgba(68,136,255,0.4)" stroke-width="1.5"/>
+  <circle cx="1010" cy="328" r="2.5" fill="rgba(68,136,255,0.5)"/>
+
+  <!-- Exploit arrows / attack vectors -->
+  <line x1="888" y1="230" x2="940" y2="240" stroke="rgba(255,68,68,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="940,237 948,240 940,243" fill="rgba(255,68,68,0.4)"/>
+  <line x1="1075" y1="235" x2="1125" y2="228" stroke="rgba(255,68,68,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="1125,225 1133,228 1125,231" fill="rgba(255,68,68,0.35)"/>
+
+  <!-- CVE indicator nodes -->
+  <circle cx="878" cy="235" r="8" fill="rgba(255,68,68,0.1)" stroke="rgba(255,68,68,0.4)" stroke-width="1.5"/>
+  <text x="878" y="239" font-family="monospace" font-size="7" fill="rgba(255,68,68,0.7)" text-anchor="middle">CVE</text>
+  <circle cx="1138" cy="228" r="8" fill="rgba(255,136,0,0.1)" stroke="rgba(255,136,0,0.4)" stroke-width="1.5"/>
+  <text x="1138" y="232" font-family="monospace" font-size="7" fill="rgba(255,136,0,0.7)" text-anchor="middle">CVE</text>
+
+  <!-- Scan lines decorative -->
+  <line x1="880" y1="270" x2="1140" y2="270" stroke="rgba(68,136,255,0.08)" stroke-width="1"/>
+  <line x1="880" y1="280" x2="1140" y2="280" stroke="rgba(68,136,255,0.06)" stroke-width="1"/>
+  <line x1="880" y1="290" x2="1140" y2="290" stroke="rgba(68,136,255,0.05)" stroke-width="1"/>
+
+  <!-- Binary decorative text -->
+  <text x="890" y="306" font-family="monospace" font-size="8" fill="rgba(68,136,255,0.18)">01001010 11001010</text>
+  <text x="890" y="316" font-family="monospace" font-size="8" fill="rgba(68,136,255,0.13)">10110101 00110011</text>
+
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.7)" filter="url(#glow)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,136,0,0.7)" filter="url(#glow)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(68,136,255,0.7)" filter="url(#glow)"/>
+
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Date badge -->
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1"/>
+  <text x="190" y="81" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.85)" text-anchor="middle" letter-spacing="1">FEBRUARY 19, 2026</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
+
+  <!-- Title line 2 -->
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="rgba(255,100,100,0.95)">AWS Security Zero Day</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Critical vulnerabilities, cloud attack vectors &amp; patch intelligence</text>
+
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#line)"/>
+
+  <!-- Category label -->
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,68,68,0.7)" letter-spacing="3">SECURITY / CLOUD / AWS / ZERO-DAY</text>
+
+  <!-- Tag pills -->
+  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(255,68,68,0.18)" stroke="rgba(255,68,68,0.45)" stroke-width="1.5"/>
+  <text x="137" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,120,0.95)" text-anchor="middle">AWS Security</text>
+
+  <rect x="210" y="402" width="100" height="36" rx="18" fill="rgba(255,136,0,0.18)" stroke="rgba(255,136,0,0.45)" stroke-width="1.5"/>
+  <text x="260" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,80,0.95)" text-anchor="middle">Zero Day</text>
+
+  <rect x="325" y="402" width="115" height="36" rx="18" fill="rgba(68,136,255,0.18)" stroke="rgba(68,136,255,0.45)" stroke-width="1.5"/>
+  <text x="382" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(100,180,255,0.95)" text-anchor="middle">Vulnerability</text>
+
+  <!-- Footer -->
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" text-anchor="end">SECURITY</text>
 </svg>

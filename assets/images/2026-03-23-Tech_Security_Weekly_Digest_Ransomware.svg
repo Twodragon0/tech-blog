@@ -5,28 +5,25 @@
       <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="50%" style="stop-color:#ff6600"/>
+      <stop offset="0%" style="stop-color:#ff3c3c"/>
+      <stop offset="50%" style="stop-color:#ff6b1a"/>
       <stop offset="100%" style="stop-color:#cc0000"/>
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444"/>
-      <stop offset="100%" style="stop-color:transparent"/>
+      <stop offset="0%" style="stop-color:#ff3c3c"/>
+      <stop offset="100%" style="stop-color:rgba(255,60,60,0)"/>
     </linearGradient>
-    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff3333;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#aa0000;stop-opacity:0.06"/>
+    <linearGradient id="lockBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3c3c;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#8b0000;stop-opacity:0.10"/>
     </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:0.05"/>
+    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b1a;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:0.10"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
@@ -45,96 +42,130 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: Ransomware Lock + Chains -->
-  <!-- Outer warning ring -->
-  <circle cx="1010" cy="225" r="115" fill="url(#lockGrad)" stroke="rgba(255,60,60,0.25)" stroke-width="1.5"/>
-  <circle cx="1010" cy="225" r="90" fill="none" stroke="rgba(255,80,30,0.2)" stroke-width="1" stroke-dasharray="8,4"/>
-  <circle cx="1010" cy="225" r="68" fill="url(#shieldGrad)" stroke="rgba(255,100,50,0.3)" stroke-width="1.5"/>
+  <!-- RIGHT SIDE ILLUSTRATION: Ransomware lock &amp; chain icon -->
+  <!-- Background subtle glow circle -->
+  <circle cx="1010" cy="225" r="120" fill="rgba(180,0,0,0.06)" stroke="rgba(255,60,60,0.08)" stroke-width="1"/>
 
-  <!-- Lock body (padlock shape) -->
-  <rect x="975" y="220" width="70" height="55" rx="6" fill="rgba(200,30,30,0.12)" stroke="rgba(255,80,80,0.35)" stroke-width="2"/>
+  <!-- Chain links - decorative rings around lock -->
+  <ellipse cx="930" cy="170" rx="22" ry="14" fill="none" stroke="rgba(255,107,26,0.30)" stroke-width="3" transform="rotate(-30,930,170)"/>
+  <ellipse cx="905" cy="185" rx="22" ry="14" fill="none" stroke="rgba(255,107,26,0.25)" stroke-width="3" transform="rotate(-30,905,185)"/>
+  <ellipse cx="1090" cy="165" rx="22" ry="14" fill="none" stroke="rgba(255,107,26,0.30)" stroke-width="3" transform="rotate(30,1090,165)"/>
+  <ellipse cx="1115" cy="183" rx="22" ry="14" fill="none" stroke="rgba(255,107,26,0.25)" stroke-width="3" transform="rotate(30,1115,183)"/>
+  <ellipse cx="945" cy="295" rx="22" ry="14" fill="none" stroke="rgba(200,0,0,0.28)" stroke-width="3" transform="rotate(20,945,295)"/>
+  <ellipse cx="920" cy="312" rx="22" ry="14" fill="none" stroke="rgba(200,0,0,0.22)" stroke-width="3" transform="rotate(20,920,312)"/>
+  <ellipse cx="1075" cy="295" rx="22" ry="14" fill="none" stroke="rgba(200,0,0,0.28)" stroke-width="3" transform="rotate(-20,1075,295)"/>
+  <ellipse cx="1100" cy="312" rx="22" ry="14" fill="none" stroke="rgba(200,0,0,0.22)" stroke-width="3" transform="rotate(-20,1100,312)"/>
+
   <!-- Lock shackle (arch) -->
-  <path d="M988,220 L988,198 Q988,178 1010,178 Q1032,178 1032,198 L1032,220" fill="none" stroke="rgba(255,100,80,0.4)" stroke-width="3" stroke-linecap="round"/>
-  <!-- Lock keyhole -->
-  <circle cx="1010" cy="242" r="8" fill="rgba(255,60,60,0.18)" stroke="rgba(255,100,80,0.5)" stroke-width="1.5"/>
-  <rect x="1006" y="248" width="8" height="14" rx="3" fill="rgba(255,60,60,0.15)" stroke="rgba(255,100,80,0.4)" stroke-width="1.5"/>
+  <path d="M 963 222 L 963 195 Q 963 155 1010 155 Q 1057 155 1057 195 L 1057 222"
+        fill="none"
+        stroke="rgba(255,60,60,0.38)"
+        stroke-width="18"
+        stroke-linecap="round"/>
+  <path d="M 963 222 L 963 195 Q 963 155 1010 155 Q 1057 155 1057 195 L 1057 222"
+        fill="none"
+        stroke="rgba(255,100,100,0.15)"
+        stroke-width="28"
+        stroke-linecap="round"/>
 
-  <!-- Chain links radiating outward -->
-  <!-- Chain top-left -->
-  <ellipse cx="955" cy="168" rx="12" ry="7" fill="none" stroke="rgba(255,120,50,0.3)" stroke-width="2" transform="rotate(-40,955,168)"/>
-  <ellipse cx="935" cy="150" rx="12" ry="7" fill="none" stroke="rgba(255,120,50,0.25)" stroke-width="2" transform="rotate(-40,935,150)"/>
-  <ellipse cx="915" cy="132" rx="12" ry="7" fill="none" stroke="rgba(255,120,50,0.18)" stroke-width="2" transform="rotate(-40,915,132)"/>
+  <!-- Lock body -->
+  <rect x="938" y="218" width="144" height="108" rx="14"
+        fill="url(#lockBody)"
+        stroke="rgba(255,60,60,0.38)"
+        stroke-width="2.5"/>
+  <rect x="938" y="218" width="144" height="108" rx="14"
+        fill="rgba(255,30,30,0.05)"
+        stroke="rgba(255,80,80,0.12)"
+        stroke-width="8"/>
 
-  <!-- Chain top-right -->
-  <ellipse cx="1068" cy="168" rx="12" ry="7" fill="none" stroke="rgba(255,80,80,0.3)" stroke-width="2" transform="rotate(40,1068,168)"/>
-  <ellipse cx="1090" cy="148" rx="12" ry="7" fill="none" stroke="rgba(255,80,80,0.25)" stroke-width="2" transform="rotate(40,1090,148)"/>
-  <ellipse cx="1112" cy="130" rx="12" ry="7" fill="none" stroke="rgba(255,80,80,0.18)" stroke-width="2" transform="rotate(40,1112,130)"/>
+  <!-- Keyhole circle -->
+  <circle cx="1010" cy="258" r="18"
+          fill="rgba(255,60,60,0.13)"
+          stroke="rgba(255,60,60,0.40)"
+          stroke-width="2.5"/>
 
-  <!-- Chain bottom-left -->
-  <ellipse cx="955" cy="285" rx="12" ry="7" fill="none" stroke="rgba(255,60,120,0.28)" stroke-width="2" transform="rotate(40,955,285)"/>
-  <ellipse cx="935" cy="305" rx="12" ry="7" fill="none" stroke="rgba(255,60,120,0.2)" stroke-width="2" transform="rotate(40,935,305)"/>
+  <!-- Keyhole slot -->
+  <rect x="1005" y="260" width="10" height="22" rx="5"
+        fill="rgba(255,60,60,0.25)"
+        stroke="rgba(255,60,60,0.35)"
+        stroke-width="1"/>
 
-  <!-- Chain bottom-right -->
-  <ellipse cx="1068" cy="285" rx="12" ry="7" fill="none" stroke="rgba(200,50,80,0.28)" stroke-width="2" transform="rotate(-40,1068,285)"/>
-  <ellipse cx="1090" cy="305" rx="12" ry="7" fill="none" stroke="rgba(200,50,80,0.2)" stroke-width="2" transform="rotate(-40,1090,305)"/>
+  <!-- Dollar/crypto symbol inside lock - ransom indicator -->
+  <text x="1010" y="266" font-family="monospace" font-size="22" font-weight="900"
+        fill="rgba(255,80,80,0.45)"
+        text-anchor="middle">$</text>
 
-  <!-- Ransom $ symbol overlay -->
-  <text x="1010" y="210" font-size="28" font-weight="700" fill="rgba(255,80,80,0.22)" text-anchor="middle" font-family="monospace">$</text>
+  <!-- Skull-like dots for ransomware threat indicator -->
+  <circle cx="970" cy="248" r="5" fill="rgba(255,60,60,0.22)" stroke="rgba(255,60,60,0.40)" stroke-width="1"/>
+  <circle cx="1050" cy="248" r="5" fill="rgba(255,60,60,0.22)" stroke="rgba(255,60,60,0.40)" stroke-width="1"/>
 
-  <!-- Binary stream decorations -->
-  <text x="880" y="155" font-size="9" fill="rgba(255,80,80,0.18)" font-family="monospace">10110100</text>
-  <text x="1070" y="310" font-size="9" fill="rgba(255,100,60,0.15)" font-family="monospace">01101011</text>
-  <text x="885" y="310" font-size="9" fill="rgba(255,80,80,0.12)" font-family="monospace">11001001</text>
-  <text x="1065" y="155" font-size="9" fill="rgba(255,100,60,0.15)" font-family="monospace">00110111</text>
+  <!-- Binary code strips - ransomware encryption hint -->
+  <text x="890" y="155" font-family="monospace" font-size="10" fill="rgba(255,60,60,0.20)">10110101</text>
+  <text x="1070" y="155" font-family="monospace" font-size="10" fill="rgba(255,60,60,0.20)">01101001</text>
+  <text x="880" y="348" font-family="monospace" font-size="10" fill="rgba(255,107,26,0.18)">11001010</text>
+  <text x="1065" y="348" font-family="monospace" font-size="10" fill="rgba(255,107,26,0.18)">00110110</text>
 
-  <!-- Threat vectors small triangles -->
-  <polygon points="925,185 935,165 945,185" fill="rgba(255,60,60,0.1)" stroke="rgba(255,80,80,0.25)" stroke-width="1"/>
-  <polygon points="1075,185 1085,165 1095,185" fill="rgba(255,80,40,0.1)" stroke="rgba(255,100,50,0.25)" stroke-width="1"/>
-  <polygon points="925,255 935,275 945,255" fill="rgba(255,60,60,0.08)" stroke="rgba(255,80,80,0.2)" stroke-width="1"/>
-  <polygon points="1075,255 1085,275 1095,255" fill="rgba(255,80,40,0.08)" stroke="rgba(255,100,50,0.2)" stroke-width="1"/>
+  <!-- Diagonal warning lines top-right corner -->
+  <line x1="1140" y1="130" x2="1160" y2="150" stroke="rgba(255,60,60,0.15)" stroke-width="2"/>
+  <line x1="1155" y1="130" x2="1175" y2="150" stroke="rgba(255,60,60,0.10)" stroke-width="2"/>
+  <line x1="1125" y1="130" x2="1145" y2="150" stroke="rgba(255,60,60,0.10)" stroke-width="2"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.7)" filter="url(#glow)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,120,30,0.7)" filter="url(#glow)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.5)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(255,60,60,0.55)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(255,107,26,0.55)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(200,0,0,0.50)"/>
 
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,40,40,0.04)" stroke-width="1"/>
+  <!-- Background circles subtle -->
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,60,60,0.04)" stroke-width="1"/>
   <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,60,60,0.05)" stroke-width="1"/>
 
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,60,60,0.15)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
-  <text x="180" y="81" font-size="12" font-weight="600" fill="rgba(255,150,150,0.9)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="1">MARCH 23, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.30)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,120,120,0.90)" text-anchor="middle" letter-spacing="1.5">MARCH 23, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI',Arial,sans-serif">Tech Security</text>
+  <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
+        fill="white">Tech Security</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI',Arial,sans-serif">Weekly Digest</text>
+  <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700"
+        fill="white">Weekly Digest</text>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19" fill="rgba(255,150,120,0.85)" font-family="'Segoe UI',Arial,sans-serif">Ransomware Threats &amp; Incident Analysis — Security</text>
+  <!-- Title line 3: Ransomware highlighted -->
+  <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700"
+        fill="rgba(255,80,80,0.95)">Ransomware</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,120,100,0.75)" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="2" font-weight="600">RANSOMWARE · THREAT INTELLIGENCE · INCIDENT RESPONSE</text>
+  <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600"
+        fill="rgba(255,180,100,0.80)" letter-spacing="2.5">SECURITY / THREAT INTEL / WEEKLY DIGEST</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="400" width="130" height="36" rx="18" fill="rgba(200,30,30,0.25)" stroke="rgba(255,80,80,0.4)" stroke-width="1"/>
-  <text x="145" y="423" font-size="13" font-weight="600" fill="rgba(255,140,140,0.95)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">Ransomware</text>
+  <!-- Ransomware pill (red) -->
+  <rect x="80" y="402" width="140" height="36" rx="18" fill="rgba(220,30,30,0.18)" stroke="rgba(220,30,30,0.45)" stroke-width="1.2"/>
+  <text x="150" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,100,100,0.95)" text-anchor="middle">Ransomware</text>
 
-  <rect x="224" y="400" width="120" height="36" rx="18" fill="rgba(200,100,0,0.25)" stroke="rgba(255,160,50,0.4)" stroke-width="1"/>
-  <text x="284" y="423" font-size="13" font-weight="600" fill="rgba(255,190,100,0.95)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">Encryption</text>
+  <!-- Malware pill (amber) -->
+  <rect x="235" y="402" width="120" height="36" rx="18" fill="rgba(200,100,0,0.18)" stroke="rgba(220,140,0,0.45)" stroke-width="1.2"/>
+  <text x="295" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,190,60,0.95)" text-anchor="middle">Malware</text>
 
-  <rect x="358" y="400" width="110" height="36" rx="18" fill="rgba(30,60,180,0.25)" stroke="rgba(80,130,255,0.4)" stroke-width="1"/>
-  <text x="413" y="423" font-size="13" font-weight="600" fill="rgba(140,180,255,0.95)" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">Recovery</text>
+  <!-- Crypto pill (blue) -->
+  <rect x="370" y="402" width="130" height="36" rx="18" fill="rgba(30,80,200,0.18)" stroke="rgba(60,120,255,0.45)" stroke-width="1.2"/>
+  <text x="435" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(100,160,255,0.95)" text-anchor="middle">Encryption</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-size="13" fill="rgba(255,255,255,0.35)" font-family="'Segoe UI',Arial,sans-serif">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" fill="rgba(255,120,100,0.4)" text-anchor="end" font-family="'Segoe UI',Arial,sans-serif" letter-spacing="1">SECURITY</text>
+  <line x1="0" y1="510" x2="1200" y2="510" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14"
+        fill="rgba(255,255,255,0.45)">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600"
+        fill="rgba(255,80,80,0.55)" text-anchor="end" letter-spacing="1.5">SECURITY</text>
 </svg>

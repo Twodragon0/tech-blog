@@ -1,29 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#ef4444"/>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e05252"/>
+      <stop offset="50%" style="stop-color:#7b52e0"/>
+      <stop offset="100%" style="stop-color:#52a0e0"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="transparent"/>
+    <linearGradient id="lineAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e05252;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7b52e0;stop-opacity:0"/>
     </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.05"/>
-    </linearGradient>
-    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#52a0e0;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#7b52e0;stop-opacity:0.04"/>
     </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
   <!-- Grid lines horizontal -->
   <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
@@ -37,98 +34,91 @@
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
 
-  <!-- RIGHT SIDE ILLUSTRATION: AI Agent + Open Source symbol -->
-  <!-- Outer orbital ring -->
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(124,58,237,0.25)" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <!-- Inner orbital ring -->
-  <circle cx="1010" cy="225" r="75" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="4 6"/>
-  <!-- Core node - AI agent brain -->
-  <circle cx="1010" cy="225" r="44" fill="rgba(124,58,237,0.10)" stroke="rgba(124,58,237,0.35)" stroke-width="1.5"/>
-  <circle cx="1010" cy="225" r="30" fill="rgba(124,58,237,0.08)" stroke="rgba(124,58,237,0.25)" stroke-width="1"/>
+  <!-- RIGHT SIDE ILLUSTRATION: AI Agent / Open Source Network Icon -->
+  <!-- Outer ring representing open source ecosystem -->
+  <circle cx="1010" cy="225" r="115" fill="none" stroke="rgba(82,160,224,0.22)" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <circle cx="1010" cy="225" r="85" fill="rgba(82,160,224,0.06)" stroke="rgba(123,82,224,0.30)" stroke-width="1.5"/>
 
-  <!-- Neural network lines from core -->
-  <line x1="1010" y1="181" x2="1010" y2="150" stroke="rgba(124,58,237,0.3)" stroke-width="1.2"/>
-  <line x1="1010" y1="269" x2="1010" y2="300" stroke="rgba(124,58,237,0.3)" stroke-width="1.2"/>
-  <line x1="966" y1="225" x2="935" y2="225" stroke="rgba(239,68,68,0.28)" stroke-width="1.2"/>
-  <line x1="1054" y1="225" x2="1085" y2="225" stroke="rgba(239,68,68,0.28)" stroke-width="1.2"/>
-  <line x1="979" y1="194" x2="957" y2="172" stroke="rgba(124,58,237,0.22)" stroke-width="1"/>
-  <line x1="1041" y1="194" x2="1063" y2="172" stroke="rgba(124,58,237,0.22)" stroke-width="1"/>
-  <line x1="979" y1="256" x2="957" y2="278" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
-  <line x1="1041" y1="256" x2="1063" y2="278" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+  <!-- Central AI core -->
+  <circle cx="1010" cy="225" r="38" fill="rgba(123,82,224,0.13)" stroke="rgba(123,82,224,0.45)" stroke-width="2"/>
+  <circle cx="1010" cy="225" r="20" fill="rgba(224,82,82,0.10)" stroke="rgba(224,82,82,0.40)" stroke-width="1.5"/>
 
-  <!-- Satellite nodes on outer ring -->
-  <circle cx="1010" cy="115" r="9" fill="rgba(124,58,237,0.13)" stroke="rgba(124,58,237,0.4)" stroke-width="1.3"/>
-  <circle cx="1010" cy="335" r="9" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.38)" stroke-width="1.3"/>
-  <circle cx="900" cy="225" r="9" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.38)" stroke-width="1.3"/>
-  <circle cx="1120" cy="225" r="9" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.38)" stroke-width="1.3"/>
-  <circle cx="932" cy="147" r="7" fill="rgba(124,58,237,0.10)" stroke="rgba(124,58,237,0.32)" stroke-width="1"/>
-  <circle cx="1088" cy="147" r="7" fill="rgba(124,58,237,0.10)" stroke="rgba(124,58,237,0.32)" stroke-width="1"/>
-  <circle cx="932" cy="303" r="7" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.30)" stroke-width="1"/>
-  <circle cx="1088" cy="303" r="7" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.30)" stroke-width="1"/>
+  <!-- Agent nodes on orbit -->
+  <circle cx="1010" cy="140" r="10" fill="rgba(82,160,224,0.12)" stroke="rgba(82,160,224,0.45)" stroke-width="1.5"/>
+  <circle cx="1095" cy="225" r="10" fill="rgba(82,200,120,0.12)" stroke="rgba(82,200,120,0.45)" stroke-width="1.5"/>
+  <circle cx="1010" cy="310" r="10" fill="rgba(224,180,82,0.12)" stroke="rgba(224,180,82,0.45)" stroke-width="1.5"/>
+  <circle cx="925" cy="225" r="10" fill="rgba(200,82,180,0.12)" stroke="rgba(200,82,180,0.40)" stroke-width="1.5"/>
 
-  <!-- Open source "fork" symbol inside core -->
-  <circle cx="1010" cy="212" r="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
-  <circle cx="998" cy="238" r="4" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
-  <circle cx="1022" cy="238" r="4" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
-  <line x1="1010" y1="216" x2="1010" y2="222" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-  <line x1="1010" y1="222" x2="998" y2="234" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-  <line x1="1010" y1="222" x2="1022" y2="234" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+  <!-- Diagonal agent nodes -->
+  <circle cx="1073" cy="162" r="7" fill="rgba(82,160,224,0.10)" stroke="rgba(82,160,224,0.35)" stroke-width="1.2"/>
+  <circle cx="1073" cy="288" r="7" fill="rgba(82,200,120,0.10)" stroke="rgba(82,200,120,0.35)" stroke-width="1.2"/>
+  <circle cx="947" cy="288" r="7" fill="rgba(224,180,82,0.10)" stroke="rgba(224,180,82,0.35)" stroke-width="1.2"/>
+  <circle cx="947" cy="162" r="7" fill="rgba(200,82,180,0.10)" stroke="rgba(200,82,180,0.32)" stroke-width="1.2"/>
 
-  <!-- Hexagonal shield overlay -->
-  <polygon points="1010,140 1055,167 1055,221 1010,248 965,221 965,167" fill="rgba(124,58,237,0.06)" stroke="rgba(124,58,237,0.15)" stroke-width="1"/>
+  <!-- Connection lines from center to nodes -->
+  <line x1="1010" y1="187" x2="1010" y2="150" stroke="rgba(82,160,224,0.28)" stroke-width="1"/>
+  <line x1="1037" y1="210" x2="1085" y2="225" stroke="rgba(82,200,120,0.28)" stroke-width="1"/>
+  <line x1="1010" y1="263" x2="1010" y2="300" stroke="rgba(224,180,82,0.28)" stroke-width="1"/>
+  <line x1="983" y1="210" x2="935" y2="225" stroke="rgba(200,82,180,0.28)" stroke-width="1"/>
+  <line x1="1028" y1="200" x2="1068" y2="165" stroke="rgba(82,160,224,0.20)" stroke-width="1"/>
+  <line x1="1028" y1="250" x2="1068" y2="285" stroke="rgba(82,200,120,0.20)" stroke-width="1"/>
+  <line x1="992" y1="250" x2="952" y2="285" stroke="rgba(224,180,82,0.20)" stroke-width="1"/>
+  <line x1="992" y1="200" x2="952" y2="165" stroke="rgba(200,82,180,0.18)" stroke-width="1"/>
 
-  <!-- Floating data particles -->
-  <rect x="878" y="136" width="5" height="5" rx="1" fill="rgba(124,58,237,0.2)" transform="rotate(20,880.5,138.5)"/>
-  <rect x="1130" y="158" width="4" height="4" rx="1" fill="rgba(239,68,68,0.18)" transform="rotate(35,1132,160)"/>
-  <rect x="885" y="300" width="6" height="6" rx="1" fill="rgba(96,165,250,0.15)" transform="rotate(15,888,303)"/>
-  <rect x="1125" y="290" width="5" height="5" rx="1" fill="rgba(124,58,237,0.18)" transform="rotate(45,1127.5,292.5)"/>
-  <circle cx="890" cy="170" r="3" fill="rgba(96,165,250,0.15)"/>
-  <circle cx="1135" cy="200" r="2.5" fill="rgba(239,68,68,0.2)"/>
-  <circle cx="892" cy="268" r="3" fill="rgba(124,58,237,0.18)"/>
-  <circle cx="1130" cy="255" r="2" fill="rgba(96,165,250,0.18)"/>
+  <!-- Shield overlay for security theme -->
+  <path d="M1010 193 L1032 202 L1032 224 Q1032 238 1010 246 Q988 238 988 224 L988 202 Z" fill="rgba(224,82,82,0.07)" stroke="rgba(224,82,82,0.28)" stroke-width="1.2"/>
+
+  <!-- Outer decorative hex outline -->
+  <polygon points="1010,136 1082,178 1082,272 1010,314 938,272 938,178" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3 5"/>
+
+  <!-- Data flow dots on orbit ring -->
+  <circle cx="1067" cy="149" r="2.5" fill="rgba(82,160,224,0.55)"/>
+  <circle cx="1095" cy="187" r="2.5" fill="rgba(123,82,224,0.55)"/>
+  <circle cx="955" cy="295" r="2.5" fill="rgba(224,180,82,0.55)"/>
+  <circle cx="928" cy="258" r="2.5" fill="rgba(200,82,180,0.55)"/>
 
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(239,68,68,0.55)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(251,191,36,0.5)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(239,68,68,0.4)"/>
+  <circle cx="870" cy="400" r="4" fill="rgba(224,82,82,0.70)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(224,160,82,0.70)"/>
+  <circle cx="860" cy="440" r="4" fill="rgba(82,160,224,0.70)"/>
 
-  <!-- Background decorative circles bottom right -->
-  <circle cx="1050" cy="450" r="200" fill="url(#glow1)" stroke="none"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(124,58,237,0.04)" stroke="rgba(124,58,237,0.06)" stroke-width="1"/>
+  <!-- Background ambient circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(123,82,224,0.04)" stroke="none"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(82,160,224,0.05)" stroke="none"/>
 
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentGrad)"/>
 
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
-  <text x="95" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(167,139,250,0.95)" letter-spacing="1.5">MARCH 16, 2026</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(224,82,82,0.15)" stroke="rgba(224,82,82,0.35)" stroke-width="1"/>
+  <text x="180" y="81" font-family="'Courier New',monospace" font-size="12" font-weight="600" fill="rgba(224,120,120,0.95)" text-anchor="middle" letter-spacing="1.5">MARCH 16, 2026</text>
 
   <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Tech Security Weekly Digest</text>
+  <text x="80" y="185" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Tech Security Weekly Digest</text>
 
   <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Arial', 'Helvetica', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AI Agent Open Source</text>
+  <text x="80" y="245" font-family="'Arial',sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">AI Agent Open Source</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica', sans-serif" font-size="19" fill="rgba(196,181,253,0.75)">Security Intelligence · AI Agents · Open Source Ecosystem</text>
+  <text x="80" y="300" font-family="'Arial',sans-serif" font-size="19" fill="rgba(180,180,210,0.80)">Weekly curated insights on AI agents, open source security tools &amp; threats</text>
 
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+  <rect x="80" y="325" width="420" height="3" fill="url(#lineAccent)" rx="2"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" font-weight="600" fill="rgba(167,139,250,0.7)" letter-spacing="2.5">CATEGORY: SECURITY &amp; AI INTELLIGENCE</text>
+  <text x="80" y="370" font-family="'Courier New',monospace" font-size="14" font-weight="600" fill="rgba(224,82,82,0.85)" letter-spacing="2">SECURITY / AI / OPEN SOURCE</text>
 
   <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)" stroke-width="1.2"/>
-  <text x="145" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(252,165,165,0.95)" text-anchor="middle">AI Agents</text>
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(224,82,82,0.15)" stroke="rgba(224,82,82,0.40)" stroke-width="1"/>
+  <text x="140" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(224,120,120,0.95)" text-anchor="middle">AI Agent</text>
 
-  <rect x="224" y="402" width="148" height="36" rx="18" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.38)" stroke-width="1.2"/>
-  <text x="298" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(253,230,138,0.95)" text-anchor="middle">Open Source</text>
+  <rect x="214" y="402" width="130" height="36" rx="18" fill="rgba(224,160,82,0.15)" stroke="rgba(224,160,82,0.40)" stroke-width="1"/>
+  <text x="279" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(224,190,120,0.95)" text-anchor="middle">Open Source</text>
 
-  <rect x="386" y="402" width="148" height="36" rx="18" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.35)" stroke-width="1.2"/>
-  <text x="460" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(147,197,253,0.95)" text-anchor="middle">Threat Intel</text>
+  <rect x="358" y="402" width="110" height="36" rx="18" fill="rgba(82,160,224,0.15)" stroke="rgba(82,160,224,0.40)" stroke-width="1"/>
+  <text x="413" y="425" font-family="'Arial',sans-serif" font-size="13" font-weight="600" fill="rgba(120,180,224,0.95)" text-anchor="middle">Security</text>
 
   <!-- Footer -->
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(167,139,250,0.5)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(167,139,250,0.45)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <text x="80" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(150,150,180,0.60)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="'Courier New',monospace" font-size="13" fill="rgba(150,150,180,0.60)" text-anchor="end" letter-spacing="0.5">SECURITY</text>
 </svg>
