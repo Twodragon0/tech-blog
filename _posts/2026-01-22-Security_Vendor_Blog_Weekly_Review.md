@@ -258,6 +258,7 @@ Splunk SPL:
 ```spl
 index=dns
 query IN ("*.devtunnels.ms", "*.vscode.dev", "global.rel.tunnels.api.visualstudio.com")
+
 | stats count, values(src_ip) as source_ips by query
 | where count > 10  # 10회 이상 질의 시 조사
 ```

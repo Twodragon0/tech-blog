@@ -130,8 +130,10 @@ toc: true
 ```spl
 # Splunk SPL (Kubernetes + Network Flow Data)
 index=k8s_network OR index=firewall
+
 | search src_pod_namespace=* dest_port IN (4444, 5555, 8888, 9000, 9999)
   OR dest_domain IN ("*.tor2web.org", "*.onion.to", "*.pastebin.com")
+
 | stats sum(bytes_out) as total_bytes, dc(dest_ip) as unique_destinations by src_pod_name, src_namespace
 | where total_bytes > 104857600 OR unique_destinations > 50
 | eval severity="HIGH - Potential C2 Communication"

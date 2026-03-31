@@ -109,8 +109,10 @@ Splunk SPL - WHD 웹 셸/RCE 탐지:
 
 ```spl
 index=windows EventCode=4688
+
 | search (ParentImage="*w3wp.exe*" OR ParentImage="*tomcat*" OR ParentImage="*java*")
   AND (Image="*powershell.exe*" OR Image="*cmd.exe*" OR Image="*bitsadmin.exe*")
+
 | eval severity="CRITICAL", threat="SolarWinds WHD RCE - Web Shell Activity"
 | stats count by Computer, User, ParentImage, Image, CommandLine, _time
 | table _time, Computer, User, ParentImage, Image, CommandLine, severity, threat

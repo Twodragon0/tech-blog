@@ -382,6 +382,7 @@ T월드 앱 → 보안 설정 → IMEI 변경 알림 활성화
 
 ```spl
 index=telecom sourcetype=sim_events
+
 | stats count by customer_id event_type
 | where event_type="SIM_SWAP" AND count > 1
 ```
@@ -541,12 +542,14 @@ SKT USIM 유출 사태는 단순한 개인정보 유출을 넘어, 우리의 디
 
 Splunk - SIM Swap Real-time Alert:
 index=telecom sourcetype=sim_events
+
 | stats count by customer_id, event_time
 | where count > 1 AND event_time > relative_time(now(), "-1h")
 | join customer_id [
     search index=banking sourcetype=transactions
     | where amount > 1000000 AND transaction_time > relative_time(now(), "-2h")
 ]
+
 | eval risk="CRITICAL"
 | table customer_id, sim_activation_count, transaction_amount, risk
 
@@ -559,6 +562,7 @@ let user_locations =
               Lat1=toreal(Location1.latitude),
               Lon1=toreal(Location1.longitude);
 user_locations
+
 | join kind=inner (user_locations) on UserPrincipalName
 | where TimeGenerated > TimeGenerated1
 | extend DistanceKm=geo_distance_2points(Lon1, Lat1, Lon, Lat)

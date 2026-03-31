@@ -557,6 +557,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 - 두 도구 모두 도입: 61.7% (29개사)
 
 산업별 도입 비율:
+
 | 산업 | Amazon Q | GHAS | 복합 도입 | 평균 투자액 (연간) |
 |------|----------|------|----------|------------------|
 | 금융 | 91.7% | 100% | 91.7% | 8,200만 원 |
@@ -567,6 +568,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 ### 3.3 ROI 분석 (200인 규모 기업 기준)
 
 초기 투자 비용:
+
 | 항목 | 비용 | 비고 |
 |------|------|------|
 | Amazon Q Developer Pro | 2,400만 원/년 | $19/사용자/월 × 100명 |
@@ -575,6 +577,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 | 총 초기 비용 | 9,600만 원/년 | - |
 
 절감 효과 (연간):
+
 | 항목 | 절감액 | 계산 근거 |
 |------|--------|----------|
 | 보안 사고 비용 감소 | 4.2억 원 | 평균 사고 비용 5억 × 감소율 82.9% |
@@ -601,6 +604,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 #### 7.1.3 비정상 CodeQL 스캔 실패 패턴
 ```spl
 index=github sourcetype=github:actions workflow_name="CodeQL"
+
 | where conclusion="failure"
 | stats count by repository, workflow_name, run_number
 | where count > 3

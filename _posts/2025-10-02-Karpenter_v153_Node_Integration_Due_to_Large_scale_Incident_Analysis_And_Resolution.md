@@ -381,6 +381,7 @@ Splunk Query:
 
 ```spl
 index=kubernetes sourcetype=k8s:events
+
 | search reason="Killing" OR reason="NodeNotReady"
 | timechart span=1m count by reason
 | where count > 5

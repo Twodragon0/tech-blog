@@ -321,6 +321,7 @@ JWT 서명 알고리즘별 위험도:
 ```bash
 # Splunk - Detect JWT Token Anomalies
 index=web sourcetype=access_combined
+
 | rex field=_raw "Bearer (?<jwt_token>[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)"
 | eval jwt_header=base64decode(replace(mvindex(split(jwt_token,"."),0),"-_","+/"))
 | where jwt_header LIKE "%none%" OR jwt_header LIKE "%HS256%"

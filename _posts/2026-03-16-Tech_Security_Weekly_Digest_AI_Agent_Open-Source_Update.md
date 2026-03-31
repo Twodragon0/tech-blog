@@ -113,6 +113,7 @@ AI 에이전트 보안을 위한 오픈소스 레드팀링 플레이그라운드
 ```splunk
 index=security sourcetype=ai_agent_logs
 (action="prompt_injection" OR action="guardrail_bypass" OR action="unauthorized_tool_call")
+
 | stats count by agent_name, user_id, action
 | where count > 2
 ```

@@ -401,6 +401,7 @@ Splunk 검색 쿼리(SPL) 예시:
 
 ```splunk
 index=kandji sourcetype="kandji:audit"
+
 | stats count by action, device_name, user_email
 | where count > 5
 | sort -count

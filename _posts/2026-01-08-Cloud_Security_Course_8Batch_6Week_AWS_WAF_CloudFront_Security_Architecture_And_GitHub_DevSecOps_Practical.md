@@ -245,6 +245,7 @@ toc: true
 ```sql
 -- AWS CloudWatch Insights
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
+
 | filter httpRequest.httpMethod = "POST"
 | filter httpRequest.uri like /upload|attach|file/
 | filter httpRequest.headers.0.value like /php|jsp|asp|exe|sh/
@@ -260,6 +261,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 ```sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
+
 | search request_uri IN ("/.env", "/config.php", "/.git/config", "/wp-config.php", "/robots.txt", "/sitemap.xml")
 | stats count, values(request_uri) as probed_paths by src_ip
 | where count > 5
@@ -273,6 +275,7 @@ index=waf sourcetype=aws:waf
 ```sql
 -- AWS CloudWatch Insights
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
+
 | filter httpRequest.headers.0.name = "Referer"
 | parse httpRequest.headers.0.value /(?<referer_domain>[a-z0-9\-]+\.[a-z]{2,})/
 | filter referer_domain != "your-domain.com"

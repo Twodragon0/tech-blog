@@ -134,6 +134,7 @@ index=endpoint sourcetype=sysmon
 (EventCode=1 AND (CommandLine="*vssadmin*delete*" OR CommandLine="*wmic*shadowcopy*" OR CommandLine="*bcdedit*/set*recoveryenabled*no*"))
 OR (EventCode=11 AND TargetFilename="*.blackfield")
 OR (EventCode=1 AND CommandLine="*-enc*" AND ParentImage="*\\powershell.exe")
+
 | stats count values(CommandLine) as commands by Computer, User
 | where count > 2
 ```

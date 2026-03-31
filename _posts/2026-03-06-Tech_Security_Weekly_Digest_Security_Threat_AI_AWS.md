@@ -131,6 +131,7 @@ SD-WAN Manager는 대규모 WAN 인프라의 중앙 관리 플랫폼으로, 이 
 ```splunk
 index=network sourcetype=cisco:sdwan
 ("file overwrite" OR "unauthorized write" OR "vManage" OR "SD-WAN Manager")
+
 | stats count by src_ip, user, dest_path
 | where count > 3
 | lookup threat_intel src_ip OUTPUT threat_group

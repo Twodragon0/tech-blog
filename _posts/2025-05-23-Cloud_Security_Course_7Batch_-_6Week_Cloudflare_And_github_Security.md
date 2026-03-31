@@ -442,6 +442,7 @@ AWS CloudWatch Logs Insights를 활용한 WAF 공격 탐지 쿼리입니다:
 ```sql
 -- AWS WAF 차단된 요청 분석 (CloudWatch Logs Insights)
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, action
+
 | filter action = "BLOCK"
 | stats count(*) as blocked_count by httpRequest.clientIp
 | sort blocked_count desc

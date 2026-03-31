@@ -123,6 +123,7 @@ Splunk — SMB 기반 Lateral Movement 탐지:
 ```splunk
 index=windows sourcetype=WinEventLog:Security EventCode IN (4624, 4625, 4648)
   Logon_Type IN (3, 10)
+
 | stats dc(ComputerName) AS target_count, count AS attempt_count
     BY SubjectUserName, _time span=10m
 | where target_count > 5 OR attempt_count > 20
@@ -134,9 +135,11 @@ Microsoft Sentinel (KQL) — 서비스 계정 대화형 로그인 탐지:
 
 ```kql
 SigninLogs
+
 | where UserType == "ServicePrincipal"
   and AuthenticationMethodsUsed has "password"
   and ResultType == 0
+
 | summarize LoginCount = count(), Locations = make_set(Location)
     by UserPrincipalName, bin(TimeGenerated, 1h)
 | where LoginCount > 3 or array_length(Locations) > 1

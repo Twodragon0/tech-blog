@@ -30,6 +30,9 @@ incremental: false  # Disable incremental build for Vercel (full rebuild)
 kramdown:
   auto_ids: true
   header_offset: 0
+  typographic_symbols:
+    mdash: ---
+    ndash: --
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:

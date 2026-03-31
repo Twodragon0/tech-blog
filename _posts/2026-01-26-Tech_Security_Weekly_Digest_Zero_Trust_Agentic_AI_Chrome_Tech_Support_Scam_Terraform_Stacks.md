@@ -118,6 +118,7 @@ toc: true
 
 ```kql
 ApiManagementGatewayLogs
+
 | where OperationId == "chat-completion"
 | extend ResponseLength = toint(Properties.response.length)
 | summarize AvgLength=avg(ResponseLength), MaxLength=max(ResponseLength) by CallerIPAddress, bin(TimeGenerated, 5m)
@@ -131,6 +132,7 @@ ApiManagementGatewayLogs
 
 ```spl
 index=llm_api sourcetype=api:request
+
 | rex field=prompt "(?<korean_injection>무시하|잊어버리|새로운 지시|관리자 모드|시스템 프롬프트)"
 | where isnotnull(korean_injection)
 | eval prompt_length=len(prompt)
@@ -157,6 +159,7 @@ index=llm_api sourcetype=api:request
 - 주요 클라우드: AWS(45%), Azure(28%), 네이버 클라우드(12%), NHN(8%), 기타(7%)
 
 한국 특화 클라우드 이슈:
+
 | 이슈 | 설명 | 영향도 |
 |------|------|--------|
 | 데이터 주권 | 개인정보는 국내 리전 저장 의무 | 🔴 높음 |

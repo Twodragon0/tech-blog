@@ -354,11 +354,13 @@ Splunk SPL 쿼리 (IAM 권한 상승 탐지):
 ```spl
 index=gcp_audit sourcetype="google:gcp:audit"
 protoPayload.serviceName="iam.googleapis.com"
+
 | eval method=case(
     protoPayload.methodName="google.iam.admin.v1.CreateServiceAccountKey", "key_created",
     protoPayload.methodName="SetIamPolicy", "policy_changed",
     1=1, "other"
   )
+
 | transaction protoPayload.authenticationInfo.principalEmail maxspan=5m
 | where mvcount(method) >= 2 AND mvfind(method, "key_created") >= 0 AND mvfind(method, "policy_changed") >= 0
 | table _time, protoPayload.authenticationInfo.principalEmail, protoPayload.resourceName, method
@@ -375,6 +377,7 @@ Splunk SPL 쿼리:
 index=gcp_audit sourcetype="google:gcp:audit"
 protoPayload.serviceName="storage.googleapis.com"
 protoPayload.methodName="storage.objects.get"
+
 | stats count as download_count, dc(protoPayload.resourceName) as unique_files by protoPayload.authenticationInfo.principalEmail, _time
 | where download_count > 100 OR unique_files > 50
 | table _time, protoPayload.authenticationInfo.principalEmail, download_count, unique_files
@@ -422,6 +425,7 @@ Splunk SPL 쿼리:
 
 ```spl
 index=gcp_cloudsql sourcetype="google:gcp:cloudsql:mysql"
+
 | eval hour=strftime(_time, "%H")
 | where (hour >= "22" OR hour <= "06") AND source_ip!="10.0.0.0/8"
 | stats count by user, source_ip, database, _time
@@ -435,6 +439,7 @@ Azure Sentinel KQL 쿼리:
 
 ```kql
 GCPCloudSQLLogs
+
 | where QueryText contains "UNION" or QueryText contains "OR 1=1" or QueryText contains "DROP TABLE"
 | where QueryText !contains "/* Legitimate App Query */"
 | project TimeGenerated, User, SourceIP, Database, QueryText
@@ -449,6 +454,7 @@ Splunk SPL 쿼리:
 
 ```spl
 index=gcp_vpc sourcetype="google:gcp:vpc:flowlogs"
+
 | stats sum(bytes_sent) as total_bytes_sent by src_ip, dest_ip, _time
 | where total_bytes_sent > 1000000000
 | eval GB_sent=round(total_bytes_sent/1073741824, 2)
@@ -488,6 +494,7 @@ Splunk SPL 쿼리:
 ```spl
 index=gcp_gke sourcetype="google:gcp:gke:audit"
 responseStatus.code=403
+
 | stats count by user.username, verb, objectRef.resource, _time
 | where count > 10
 | table _time, user.username, verb, objectRef.resource, count
@@ -499,6 +506,7 @@ Azure Sentinel KQL 쿼리:
 
 ```kql
 GCPAuditLogs
+
 | where ServiceName == "cloudkms.googleapis.com"
 | where MethodName in ("Decrypt", "Encrypt", "AsymmetricDecrypt")
 | where AuthorizationInfo has "PERMISSION_DENIED"
