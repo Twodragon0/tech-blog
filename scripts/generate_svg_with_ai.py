@@ -76,49 +76,50 @@ def parse_post(filepath: Path) -> dict:
     return result
 
 
-def build_prompt(post: dict) -> str:
-    """Build SVG generation prompt for Claude CLI."""
+def read_post_content(filepath: Path) -> str:
+    """Read first 500 chars of post body (after front matter) for context."""
+    content = filepath.read_text(encoding='utf-8')
+    m = re.match(r'^---\n.*?\n---\n(.*)', content, re.DOTALL)
+    if m:
+        body = m.group(1).strip()
+        body = re.sub(r'\{%.*?%\}', '', body)  # Remove Liquid tags
+        body = re.sub(r'!\[.*?\]\(.*?\)', '', body)  # Remove images
+        body = re.sub(r'```[\s\S]*?```', '', body)  # Remove code blocks
+        body = re.sub(r'[#*>\-|]', '', body)  # Remove markdown
+        body = ' '.join(body.split())[:500]
+        return body
+    return ''
+
+
+def build_prompt(post: dict, filepath: Path = None) -> str:
+    """Build content-aware SVG generation prompt."""
     en_title = extract_english_title(post['title'], post['filename'])
     date = format_date(post['date'])
     cat = post['categories'][0] if post['categories'] else 'security'
+    excerpt = post.get('excerpt', '')
 
-    # Split title into 2 lines
-    words = en_title.split()
-    mid = len(words) // 2
-    line1 = ' '.join(words[:mid]) if mid > 0 else en_title
-    line2 = ' '.join(words[mid:]) if mid > 0 else ''
+    # Read actual post content for richer context
+    body_preview = ''
+    if filepath and filepath.exists():
+        body_preview = read_post_content(filepath)
 
-    return f"""Generate an SVG image (viewBox="0 0 1200 630" width="1200" height="630") for a tech blog post.
+    # Extract key English terms only
+    keywords = [w for w in en_title.split() if len(w) > 2][:6]
+    topic_str = ' '.join(keywords)
 
-Topic: {en_title}
-Date: {date}
-Category: {cat}
+    return f"""SVG 1200x630 for "{topic_str}" ({date}, {cat}).
 
-Structure (follow exactly):
-1. Dark gradient background: <rect fill with linearGradient from #0a0c1a to #1a0a0a>
-2. Grid: 4 horizontal lines at y=105,210,315,420 + 4 vertical at x=240,480,720,960 (stroke rgba white 0.03-0.04)
-3. RIGHT SIDE ILLUSTRATION (x=880-1140, y=130-320): Create a UNIQUE decorative icon using SVG shapes (circles, paths, rects, polygons) that visually represents "{en_title}". Use semi-transparent fills (opacity 0.06-0.15) and strokes (opacity 0.2-0.4). This is the most important part - make it distinctive and recognizable.
-4. Alert dots: 3 small circles at (870,400), (900,420), (860,440)
-5. Background circles: 2 at (1050,450) r=200 and r=140, very subtle
-6. Left accent bar: rect x=0 y=0 width=6 height=630, gradient fill
-7. Date badge: rect at (80,60) width=200 height=32 rx=4 + text "{date}"
-8. Title line 1: <text x="80" y="185" font-size="46" font-weight="700" fill="white">{line1}</text>
-9. Title line 2: <text x="80" y="245" font-size="46" font-weight="700" fill="white">{line2}</text>
-10. Subtitle: <text x="80" y="300" font-size="19"> with category info
-11. Accent line: rect at y=325 width=420 height=3
-12. Category label: text at y=370, font-size 14, uppercase
-13. Three tag pills at y=420: rx=18 height=36, different colors (red/amber/blue)
-14. Footer: text "tech.2twodragon.com" at (80,545), category at (1120,545)
+Dark bg #0a0c1a. Right side (x=700-1150): unique illustration for {topic_str} using layered SVG shapes. Left side: title "{topic_str}" in 2 lines (y=185,245 font-size 46 white), date badge "{date}", 3 tag pills at y=420, footer tech.2twodragon.com.
 
-ALL text must be English only. Output ONLY the raw SVG XML, no markdown, no explanation."""
+Make the illustration SPECIFIC to {topic_str} - not generic. All text English. Output ONLY SVG XML."""
 
 
 def run_claude(prompt: str) -> str:
     """Run Claude CLI and extract SVG."""
     try:
         result = subprocess.run(
-            ['claude', '-p', prompt, '--output-format', 'text', '--model', 'sonnet'],
-            capture_output=True, text=True, timeout=180
+            ['claude', '-p', prompt, '--output-format', 'text', '--model', 'haiku'],
+            capture_output=True, text=True, timeout=90
         )
         output = result.stdout
         # Clean terminal escape sequences
@@ -215,7 +216,7 @@ def main():
         print(f"Processing: {post_path.name}")
         print(f"  Title: {en_title}")
 
-        prompt = build_prompt(post)
+        prompt = build_prompt(post, post_path)
         svg_content = generate(prompt)
 
         if svg_content:
