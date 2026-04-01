@@ -1,107 +1,189 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Gradient definitions -->
   <defs>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.03"/>
+    <!-- Glass blur filter -->
+    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0"/>
+    </filter>
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <!-- Gradient accents -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
     </linearGradient>
-    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.1"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.04"/>
+    <!-- Card border gradients -->
+    <linearGradient id="cardBorder1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6"/>
     </linearGradient>
-    <linearGradient id="orangeGrad" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.05"/>
+    <linearGradient id="cardBorder2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5"/>
     </linearGradient>
+    <linearGradient id="cardFill1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="cardFill2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#162033" stop-opacity="0.4"/>
+    </linearGradient>
+    <!-- Shield gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <!-- Orb radial gradients -->
+    <radialGradient id="orbBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCoral" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Dot pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.08"/>
+    </pattern>
   </defs>
-  
-  <!-- RIGHT SIDE: Detailed Visual Scene (x=650-1150, y=80-550) -->
-  
-  <!-- Decorative background shapes -->
-  <circle cx="900" cy="150" r="120" fill="url(#blueGrad)" stroke="#3b82f6" stroke-width="0.5" opacity="0.6"/>
-  <rect x="750" y="280" width="180" height="180" fill="url(#orangeGrad)" stroke="#f59e0b" stroke-width="0.3" opacity="0.5" rx="8"/>
-  
-  <!-- Large Shield Icon -->
-  <g transform="translate(900, 250)">
-    <!-- Shield shape -->
-    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.9"/>
-    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="#3b82f6" opacity="0.06"/>
-    
-    <!-- Checkmark inside shield -->
-    <path d="M -20 0 L -5 15 L 25 -10" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- Dot grid overlay -->
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
+
+  <!-- Ambient glow orbs -->
+  <ellipse cx="180" cy="200" rx="250" ry="200" fill="url(#orbBlue)"/>
+  <ellipse cx="950" cy="450" rx="300" ry="250" fill="url(#orbCoral)"/>
+  <ellipse cx="700" cy="100" rx="200" ry="180" fill="url(#orbPurple)"/>
+  <ellipse cx="400" cy="550" rx="220" ry="150" fill="url(#orbBlue)" opacity="0.5"/>
+
+  <!-- ==================== RIGHT SIDE: Glass Cards ==================== -->
+
+  <!-- Card 3 (back, most offset) -->
+  <g filter="url(#cardShadow)" opacity="0.7">
+    <rect x="770" y="130" width="340" height="400" rx="16" ry="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1"/>
   </g>
-  
-  <!-- Data Flow Arrows -->
-  <!-- Arrow from left to shield -->
-  <g opacity="0.7">
-    <line x1="680" y1="250" x2="800" y2="250" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3"/>
-    <polygon points="810,250 800,245 800,255" fill="#3b82f6" opacity="0.8"/>
+
+  <!-- Card 2 (middle) -->
+  <g filter="url(#cardShadow)" opacity="0.85">
+    <rect x="740" y="110" width="340" height="400" rx="16" ry="16" fill="url(#cardFill2)" stroke="url(#cardBorder1)" stroke-width="1.2"/>
+    <!-- Subtle inner content lines -->
+    <rect x="770" y="200" width="180" height="8" rx="4" fill="#ffffff" opacity="0.06"/>
+    <rect x="770" y="220" width="140" height="8" rx="4" fill="#ffffff" opacity="0.04"/>
+    <rect x="770" y="240" width="200" height="8" rx="4" fill="#ffffff" opacity="0.05"/>
+    <rect x="770" y="340" width="160" height="8" rx="4" fill="#ffffff" opacity="0.04"/>
+    <rect x="770" y="360" width="120" height="8" rx="4" fill="#ffffff" opacity="0.03"/>
   </g>
-  
-  <!-- Arrow downward -->
-  <g opacity="0.65">
-    <line x1="900" y1="320" x2="900" y2="400" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
-    <polygon points="900,410 895,400 905,400" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- Card 1 (front, main) -->
+  <g filter="url(#cardShadow)">
+    <rect x="710" y="90" width="340" height="420" rx="16" ry="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5"/>
+    <!-- Glass highlight -->
+    <rect x="710" y="90" width="340" height="60" rx="16" ry="16" fill="#ffffff" opacity="0.03"/>
+
+    <!-- Shield icon -->
+    <g transform="translate(830, 180)">
+      <!-- Shield shape -->
+      <path d="M50 10 L90 30 L90 70 Q90 110 50 130 Q10 110 10 70 L10 30 Z" fill="url(#shieldGrad)" opacity="0.9" filter="url(#glow)"/>
+      <!-- Shield inner highlight -->
+      <path d="M50 20 L80 36 L80 68 Q80 100 50 116 Q20 100 20 68 L20 36 Z" fill="#ffffff" opacity="0.1"/>
+      <!-- Checkmark -->
+      <polyline points="32,70 46,86 70,54" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Card content lines -->
+    <rect x="740" y="330" width="200" height="10" rx="5" fill="#ffffff" opacity="0.08"/>
+    <rect x="740" y="352" width="160" height="10" rx="5" fill="#ffffff" opacity="0.05"/>
+    <rect x="740" y="374" width="240" height="10" rx="5" fill="#ffffff" opacity="0.06"/>
+    <rect x="740" y="396" width="120" height="10" rx="5" fill="#ffffff" opacity="0.04"/>
+
+    <!-- Mini badges on card -->
+    <rect x="740" y="430" width="80" height="28" rx="14" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="780" y="449" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="600">VERIFIED</text>
+
+    <rect x="830" y="430" width="80" height="28" rx="14" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="870" y="449" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">SECURE</text>
   </g>
-  
-  <!-- Arrow right -->
-  <g opacity="0.6">
-    <line x1="780" y1="420" x2="950" y2="420" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="5,4"/>
-    <polygon points="965,420 950,415 950,425" fill="#ef4444" opacity="0.8"/>
-  </g>
-  
-  <!-- Warning Triangle Icons -->
-  <!-- Top warning -->
-  <g transform="translate(750, 150)">
-    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#ef4444" stroke-width="1.3" opacity="0.7"/>
-    <circle cx="0" cy="8" r="2" fill="#ef4444" opacity="0.8"/>
-  </g>
-  
-  <!-- Middle warning -->
-  <g transform="translate(1050, 280)">
-    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.7"/>
-    <circle cx="0" cy="8" r="2" fill="#f59e0b" opacity="0.8"/>
-  </g>
-  
-  <!-- Bottom warning -->
-  <g transform="translate(820, 480)">
-    <path d="M 0 -20 L 20 15 L -20 15 Z" fill="none" stroke="#3b82f6" stroke-width="1.3" opacity="0.6"/>
-    <circle cx="0" cy="8" r="2" fill="#3b82f6" opacity="0.7"/>
-  </g>
-  
-  <!-- Network nodes -->
-  <circle cx="700" cy="380" r="8" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.6"/>
-  <circle cx="1000" cy="350" r="6" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.5"/>
-  <circle cx="950" cy="480" r="7" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.55"/>
-  
-  <!-- LEFT SIDE: Text Content -->
-  
-  <!-- Date Badge -->
-  <rect x="40" y="40" width="200" height="50" fill="none" stroke="#3b82f6" stroke-width="0.8" rx="6" opacity="0.5"/>
-  <text x="140" y="75" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#3b82f6" opacity="0.9">MARCH 30, 2026</text>
-  
+
+  <!-- Floating particles between cards -->
+  <circle cx="720" cy="250" r="2.5" fill="#3b82f6" opacity="0.6">
+    <animate attributeName="cy" values="250;240;250" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1060" cy="200" r="2" fill="#f43f5e" opacity="0.5">
+    <animate attributeName="cy" values="200;210;200" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="760" cy="400" r="1.8" fill="#8b5cf6" opacity="0.5">
+    <animate attributeName="cy" values="400;390;400" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1080" cy="350" r="2.2" fill="#3b82f6" opacity="0.4">
+    <animate attributeName="cy" values="350;360;350" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="690" cy="160" r="1.5" fill="#f43f5e" opacity="0.4">
+    <animate attributeName="cx" values="690;695;690" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1000" cy="480" r="2" fill="#8b5cf6" opacity="0.3">
+    <animate attributeName="cy" values="480;470;480" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ==================== LEFT SIDE: Text Content ==================== -->
+
+  <!-- Category pill -->
+  <rect x="60" y="120" width="160" height="34" rx="17" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="140" y="142" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle" font-weight="600" letter-spacing="1.5">MONTHLY DIGEST</text>
+
   <!-- Title -->
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" opacity="0.95">March 2026 Security</text>
-  
+  <text x="60" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="44" fill="#ffffff" font-weight="800" letter-spacing="-0.5">March 2026 Security</text>
+  <text x="60" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="44" fill="#ffffff" font-weight="800" letter-spacing="-0.5">Digest Monthly Index</text>
+
+  <!-- Gradient accent line -->
+  <rect x="60" y="300" width="200" height="3" rx="1.5" fill="url(#accentGrad)"/>
+
   <!-- Subtitle -->
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" opacity="0.95">Digest Monthly Index</text>
-  
-  <!-- Tag Pills -->
-  <!-- Tag 1 -->
-  <rect x="80" y="410" width="110" height="32" fill="none" stroke="#ef4444" stroke-width="0.7" rx="16" opacity="0.6"/>
-  <text x="135" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#ef4444" opacity="0.8">THREATS</text>
-  
-  <!-- Tag 2 -->
-  <rect x="210" y="410" width="110" height="32" fill="none" stroke="#f59e0b" stroke-width="0.7" rx="16" opacity="0.6"/>
-  <text x="265" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f59e0b" opacity="0.8">ANALYSIS</text>
-  
-  <!-- Tag 3 -->
-  <rect x="340" y="410" width="110" height="32" fill="none" stroke="#3b82f6" stroke-width="0.7" rx="16" opacity="0.6"/>
-  <text x="395" y="432" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#3b82f6" opacity="0.8">DIGEST</text>
-  
+  <text x="60" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8" font-weight="400">Comprehensive security roundup covering</text>
+  <text x="60" y="362" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8" font-weight="400">threats, vulnerabilities, and key updates</text>
+
+  <!-- Tag chips -->
+  <g>
+    <rect x="60" y="395" width="110" height="32" rx="16" fill="#f43f5e" opacity="0.12" stroke="#f43f5e" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="115" y="416" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#fb7185" text-anchor="middle" font-weight="600">Threat Intel</text>
+
+    <rect x="182" y="395" width="130" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="247" y="416" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle" font-weight="600">Vulnerabilities</text>
+
+    <rect x="324" y="395" width="120" height="32" rx="16" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="384" y="416" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle" font-weight="600">Cloud Security</text>
+  </g>
+
+  <!-- Date -->
+  <text x="60" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b" font-weight="500" letter-spacing="2">MARCH 30, 2026</text>
+
+  <!-- Footer divider -->
+  <line x1="60" y1="530" x2="620" y2="530" stroke="#1e293b" stroke-width="1"/>
+
   <!-- Footer -->
-  <text x="80" y="555" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">tech.2twodragon.com</text>
+  <text x="60" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#475569" font-weight="500">tech.2twodragon.com</text>
+
+  <!-- Decorative dots in footer -->
+  <circle cx="280" cy="556" r="2" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="292" cy="556" r="2" fill="#8b5cf6" opacity="0.4"/>
+  <circle cx="304" cy="556" r="2" fill="#f43f5e" opacity="0.4"/>
 </svg>

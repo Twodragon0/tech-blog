@@ -1,125 +1,181 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <filter id="glass" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0" result="glassBg"/>
+      <feMerge><feMergeNode in="glassBg"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="sg"/>
+      <feMerge><feMergeNode in="sg"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="borderGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="borderGrad2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="orbBlue" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCoral" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbPurple" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="0.8" fill="#ffffff" opacity="0.06"/>
+    </pattern>
+  </defs>
+
   <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Divider line -->
-  <line x1="650" y1="0" x2="650" y2="630" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
-  
-  <!-- LEFT SIDE -->
-  
-  <!-- Date Badge -->
-  <g>
-    <rect x="50" y="40" width="180" height="50" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="140" y="72" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">MARCH 9, 2026</text>
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
+
+  <!-- Ambient glow orbs -->
+  <ellipse cx="180" cy="300" rx="220" ry="200" fill="url(#orbBlue)" filter="url(#bigGlow)"/>
+  <ellipse cx="900" cy="150" rx="180" ry="160" fill="url(#orbCoral)" filter="url(#bigGlow)"/>
+  <ellipse cx="750" cy="500" rx="200" ry="180" fill="url(#orbPurple)" filter="url(#bigGlow)"/>
+  <ellipse cx="1050" cy="400" rx="150" ry="140" fill="url(#orbBlue)" filter="url(#bigGlow)" opacity="0.5"/>
+
+  <!-- === RIGHT SIDE: Glass Cards === -->
+
+  <!-- Card 3 (back) - Chain links -->
+  <g opacity="0.85">
+    <rect x="900" y="120" width="240" height="280" rx="16" fill="#1e293b" fill-opacity="0.4" stroke="url(#borderGrad2)" stroke-width="1"/>
+    <rect x="900" y="120" width="240" height="280" rx="16" fill="#ffffff" fill-opacity="0.04"/>
+    <!-- Chain links pattern -->
+    <g transform="translate(980, 200)" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.8" filter="url(#softGlow)">
+      <ellipse cx="0" cy="0" rx="18" ry="12"/>
+      <ellipse cx="28" cy="0" rx="18" ry="12"/>
+      <ellipse cx="14" cy="30" rx="18" ry="12"/>
+      <ellipse cx="42" cy="30" rx="18" ry="12"/>
+      <ellipse cx="28" cy="60" rx="18" ry="12"/>
+      <ellipse cx="56" cy="60" rx="18" ry="12"/>
+    </g>
+    <circle cx="920" cy="370" r="3" fill="#3b82f6" opacity="0.4"/>
+    <circle cx="1110" cy="150" r="2" fill="#f43f5e" opacity="0.3"/>
   </g>
-  
-  <!-- Main Title -->
-  <text x="80" y="210" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" letter-spacing="-1">Tech Security</text>
-  <text x="80" y="270" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" letter-spacing="-1">Weekly Digest</text>
-  <text x="80" y="320" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#f59e0b" letter-spacing="-1">Security Bitcoin</text>
-  
-  <!-- Tag Pills -->
-  <g>
-    <rect x="80" y="410" width="110" height="38" rx="19" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="135" y="433" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Blockchain</text>
-    
-    <rect x="210" y="410" width="100" height="38" rx="19" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="260" y="433" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
-    
-    <rect x="330" y="410" width="90" height="38" rx="19" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.2"/>
-    <text x="375" y="433" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Bitcoin</text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="80" y="570" font-family="Arial, sans-serif" font-size="14" fill="#666" font-weight="500">tech.2twodragon.com</text>
-  
-  <!-- RIGHT SIDE -->
-  
-  <!-- Background accent circles -->
-  <circle cx="780" cy="200" r="140" fill="#3b82f6" opacity="0.04"/>
-  <circle cx="1050" cy="380" r="120" fill="#ef4444" opacity="0.04"/>
-  
-  <!-- Chain Links (Blockchain) -->
-  <g stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.25">
-    <circle cx="710" cy="150" r="18"/>
-    <circle cx="710" cy="220" r="18"/>
-    <circle cx="710" cy="290" r="18"/>
-    <line x1="710" y1="168" x2="710" y2="202"/>
-    <line x1="710" y1="238" x2="710" y2="272"/>
-  </g>
-  
-  <!-- Bitcoin/Coin Symbols -->
-  <g>
-    <!-- Large coin (center-right) -->
-    <circle cx="900" cy="200" r="35" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2.2"/>
-    <circle cx="900" cy="200" r="28" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.15"/>
-    <text x="900" y="210" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#f59e0b" opacity="0.25" text-anchor="middle">฿</text>
-    
-    <!-- Small coin (top-right) -->
-    <circle cx="1000" cy="130" r="20" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="1000" y="137" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" opacity="0.2" text-anchor="middle">฿</text>
-  </g>
-  
-  <!-- Shield with Checkmark (Security/Compliance) -->
-  <g>
-    <!-- Shield background -->
-    <path d="M 820 280 L 820 340 Q 820 400 880 420 Q 940 400 940 340 L 940 280 Z" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="2.5"/>
-    
-    <!-- Checkmark inside shield -->
-    <g stroke="#3b82f6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.28">
-      <polyline points="840,340 865,365 915,310"/>
+
+  <!-- Card 1 (middle) - Shield with checkmark -->
+  <g opacity="0.9">
+    <rect x="680" y="80" width="260" height="320" rx="16" fill="#1e293b" fill-opacity="0.5" stroke="url(#borderGrad1)" stroke-width="1.5"/>
+    <rect x="680" y="80" width="260" height="320" rx="16" fill="#ffffff" fill-opacity="0.05"/>
+    <!-- Large Shield -->
+    <g transform="translate(810, 220)" filter="url(#glow)">
+      <path d="M0-70 L55-50 L55 10 C55 55 0 85 0 85 C0 85 -55 55 -55 10 L-55-50 Z" fill="url(#shieldGrad)" fill-opacity="0.25" stroke="#3b82f6" stroke-width="2"/>
+      <path d="M0-55 L42-38 L42 8 C42 42 0 66 0 66 C0 66 -42 42 -42 8 L-42-38 Z" fill="url(#shieldGrad)" fill-opacity="0.15"/>
+      <!-- Checkmark -->
+      <path d="M-20 0 L-6 14 L22-14" stroke="#22d3ee" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+    </g>
+    <!-- Lock icon -->
+    <g transform="translate(780, 340)" opacity="0.5">
+      <rect x="-8" y="0" width="16" height="12" rx="2" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      <path d="M-5 0 L-5-5 C-5-10 5-10 5-5 L5 0" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
     </g>
   </g>
-  
-  <!-- Data Flow Arrows -->
-  <defs>
-    <marker id="arrowhead1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.2"/>
-    </marker>
-    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.2"/>
-    </marker>
-  </defs>
-  
-  <!-- Data flow arrow 1 (blue) -->
-  <path d="M 750 180 Q 820 160 880 190" fill="none" stroke="#3b82f6" stroke-width="2.2" opacity="0.18" marker-end="url(#arrowhead1)"/>
-  
-  <!-- Data flow arrow 2 (red) -->
-  <path d="M 920 240 Q 960 280 1000 320" fill="none" stroke="#ef4444" stroke-width="2.2" opacity="0.18" marker-end="url(#arrowhead2)"/>
-  
-  <!-- Data flow arrow 3 (orange) -->
-  <path d="M 780 320 Q 850 340 920 360" fill="none" stroke="#f59e0b" stroke-width="2.2" opacity="0.16" marker-end="url(#arrowhead1)"/>
-  
-  <!-- Warning Triangles (Alert Indicators) -->
-  <g>
-    <!-- Top-right warning triangle -->
-    <path d="M 1070 120 L 1100 170 L 1040 170 Z" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.8"/>
-    <text x="1070" y="158" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ef4444" opacity="0.22" text-anchor="middle">!</text>
-    
-    <!-- Bottom-left warning triangle -->
-    <path d="M 760 420 L 790 470 L 730 470 Z" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.8"/>
-    <text x="760" y="458" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f59e0b" opacity="0.22" text-anchor="middle">!</text>
+
+  <!-- Card 2 (front) - Bitcoin coin -->
+  <g opacity="0.92">
+    <rect x="780" y="200" width="260" height="320" rx="16" fill="#1e293b" fill-opacity="0.55" stroke="url(#borderGrad1)" stroke-width="1.5"/>
+    <rect x="780" y="200" width="260" height="320" rx="16" fill="#ffffff" fill-opacity="0.06"/>
+    <!-- Bitcoin coin -->
+    <g transform="translate(910, 340)">
+      <circle r="48" fill="url(#coinGrad)" fill-opacity="0.15" stroke="#fbbf24" stroke-width="2" filter="url(#softGlow)"/>
+      <circle r="38" fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.4"/>
+      <!-- B symbol -->
+      <text x="0" y="14" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#fbbf24" filter="url(#softGlow)">B</text>
+      <line x1="-4" y1="-22" x2="-4" y2="24" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
+      <line x1="4" y1="-22" x2="4" y2="24" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
+    </g>
+    <!-- Upward trend line -->
+    <g transform="translate(820, 430)" stroke="#22d3ee" stroke-width="1.5" fill="none" opacity="0.5">
+      <polyline points="0,30 20,20 40,25 60,10 80,15 100,0"/>
+      <polygon points="97,-3 103,-3 100,-8" fill="#22d3ee"/>
+    </g>
   </g>
-  
-  <!-- Network nodes and connections -->
-  <g>
-    <!-- Left node -->
-    <circle cx="730" cy="350" r="14" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="2"/>
-    
-    <!-- Center node -->
-    <circle cx="880" cy="380" r="16" fill="#ef4444" opacity="0.11" stroke="#ef4444" stroke-width="2"/>
-    
-    <!-- Right node -->
-    <circle cx="1010" cy="400" r="14" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="2"/>
-    
-    <!-- Connection lines -->
-    <line x1="744" y1="355" x2="864" y2="375" stroke="#3b82f6" stroke-width="1.5" opacity="0.12"/>
-    <line x1="896" y1="385" x2="996" y2="400" stroke="#ef4444" stroke-width="1.5" opacity="0.12"/>
+
+  <!-- Floating particles between cards -->
+  <circle cx="760" cy="180" r="2" fill="#3b82f6" opacity="0.6">
+    <animate attributeName="cy" values="180;170;180" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="870" cy="420" r="1.5" fill="#f43f5e" opacity="0.5">
+    <animate attributeName="cy" values="420;410;420" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="950" cy="110" r="2.5" fill="#8b5cf6" opacity="0.4">
+    <animate attributeName="cy" values="110;100;110" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="350" r="1.8" fill="#22d3ee" opacity="0.5">
+    <animate attributeName="cy" values="350;340;350" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1080" cy="300" r="2" fill="#fbbf24" opacity="0.4">
+    <animate attributeName="cy" values="300;290;300" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="830" cy="90" r="1.2" fill="#3b82f6" opacity="0.3">
+    <animate attributeName="cx" values="830;840;830" dur="5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- === LEFT SIDE: Text Content === -->
+
+  <!-- Category pill -->
+  <rect x="60" y="100" width="160" height="32" rx="16" fill="url(#accentGrad)" fill-opacity="0.2" stroke="url(#accentGrad)" stroke-width="1"/>
+  <text x="140" y="121" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#f43f5e" letter-spacing="1.5">WEEKLY DIGEST</text>
+
+  <!-- Title -->
+  <text x="60" y="195" font-family="Inter, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Tech Security</text>
+  <text x="60" y="248" font-family="Inter, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Weekly</text>
+  <text x="60" y="310" font-family="Inter, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#94a3b8">Digest Security</text>
+  <text x="60" y="355" font-family="Inter, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#94a3b8">Bitcoin</text>
+
+  <!-- Gradient accent line -->
+  <rect x="60" y="380" width="120" height="3" rx="1.5" fill="url(#accentGrad)" filter="url(#softGlow)"/>
+
+  <!-- Tag chips -->
+  <g font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="500">
+    <rect x="60" y="405" width="85" height="28" rx="14" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="102" y="423" text-anchor="middle" fill="#60a5fa">Security</text>
+
+    <rect x="155" y="405" width="85" height="28" rx="14" fill="#f43f5e" fill-opacity="0.15" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="197" y="423" text-anchor="middle" fill="#fb7185">Bitcoin</text>
+
+    <rect x="250" y="405" width="100" height="28" rx="14" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="300" y="423" text-anchor="middle" fill="#a78bfa">Blockchain</text>
   </g>
-  
-  <!-- Top accent line -->
-  <line x1="680" y1="85" x2="1120" y2="85" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
-  
-  <!-- Bottom accent line -->
-  <line x1="700" y1="540" x2="1100" y2="540" stroke="#f59e0b" stroke-width="1" opacity="0.12"/>
+
+  <!-- Date -->
+  <text x="60" y="480" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="2">MARCH 9, 2026</text>
+
+  <!-- Footer -->
+  <line x1="60" y1="560" x2="580" y2="560" stroke="#1e293b" stroke-width="1"/>
+  <text x="60" y="585" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
+
+  <!-- Decorative corner element -->
+  <circle cx="1160" cy="590" r="20" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="1160" cy="590" r="10" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
 </svg>

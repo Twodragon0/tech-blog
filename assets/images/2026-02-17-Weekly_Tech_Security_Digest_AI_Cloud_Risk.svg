@@ -1,114 +1,186 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <filter id="glassBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="particleGlow">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#131d35"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="cardBorder3" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <radialGradient id="orbBlue" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCoral" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbPurple" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="0.8" fill="#334155" opacity="0.4"/>
+    </pattern>
+  </defs>
 
-  <!-- Date Badge (Top Left) -->
-  <rect x="50" y="40" width="220" height="50" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="160" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">FEBRUARY 17, 2026</text>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <!-- LEFT SIDE - Title Section -->
-  <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="white">Weekly Tech Security</text>
-  <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="white">Digest Cloud Risk</text>
+  <!-- Ambient glow orbs -->
+  <ellipse cx="200" cy="500" rx="280" ry="220" fill="url(#orbBlue)" filter="url(#glassBlur)"/>
+  <ellipse cx="900" cy="120" rx="250" ry="200" fill="url(#orbCoral)" filter="url(#glassBlur)"/>
+  <ellipse cx="700" cy="450" rx="200" ry="180" fill="url(#orbPurple)" filter="url(#glassBlur)"/>
+  <ellipse cx="1050" cy="550" rx="180" ry="140" fill="url(#orbBlue)" filter="url(#glassBlur)"/>
 
-  <!-- RIGHT SIDE - Visual Elements -->
+  <!-- ===== RIGHT SIDE: Glass Cards ===== -->
 
-  <!-- Background accent circle for visual area -->
-  <circle cx="920" cy="280" r="280" fill="#3b82f6" opacity="0.04"/>
+  <!-- Card 1: Cloud with data flow -->
+  <g filter="url(#cardShadow)">
+    <rect x="640" y="60" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.45" stroke="url(#cardBorder1)" stroke-width="1.5"/>
+    <rect x="640" y="60" width="280" height="220" rx="16" fill="white" fill-opacity="0.04"/>
+  </g>
+  <!-- Cloud icon -->
+  <g transform="translate(730, 110)">
+    <path d="M80 90 C80 90 20 90 20 65 C20 45 35 35 52 35 C55 15 75 5 95 12 C115 5 135 20 135 42 C155 42 165 58 155 72 C155 90 135 90 135 90 Z" fill="url(#cloudGrad)" opacity="0.85"/>
+    <path d="M80 90 C80 90 20 90 20 65 C20 45 35 35 52 35 C55 15 75 5 95 12 C115 5 135 20 135 42 C155 42 165 58 155 72 C155 90 135 90 135 90 Z" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+    <!-- Data flow arrows -->
+    <g stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.9">
+      <line x1="50" y1="95" x2="50" y2="130"/>
+      <polyline points="43,122 50,132 57,122"/>
+      <line x1="90" y1="130" x2="90" y2="95"/>
+      <polyline points="83,103 90,93 97,103"/>
+      <line x1="120" y1="95" x2="120" y2="130"/>
+      <polyline points="113,122 120,132 127,122"/>
+    </g>
+  </g>
+  <text x="780" y="235" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle" opacity="0.7">CLOUD INFRASTRUCTURE</text>
 
-  <!-- Shield Shape with Checkmark -->
+  <!-- Card 2: Shield with checkmark (overlapping) -->
+  <g filter="url(#cardShadow)">
+    <rect x="720" y="180" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.5" stroke="url(#cardBorder2)" stroke-width="1.5"/>
+    <rect x="720" y="180" width="280" height="220" rx="16" fill="white" fill-opacity="0.04"/>
+  </g>
+  <!-- Shield icon -->
+  <g transform="translate(810, 210)">
+    <path d="M50 5 L95 22 L95 60 C95 90 75 110 50 120 C25 110 5 90 5 60 L5 22 Z" fill="url(#shieldGrad)" opacity="0.85"/>
+    <path d="M50 5 L95 22 L95 60 C95 90 75 110 50 120 C25 110 5 90 5 60 L5 22 Z" fill="none" stroke="white" stroke-width="1.2" opacity="0.35"/>
+    <!-- Checkmark -->
+    <polyline points="28,62 44,78 72,42" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+  </g>
+  <text x="860" y="360" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle" opacity="0.7">SECURITY COMPLIANCE</text>
+
+  <!-- Card 3: Risk gauge -->
+  <g filter="url(#cardShadow)">
+    <rect x="860" y="320" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.42" stroke="url(#cardBorder3)" stroke-width="1.5"/>
+    <rect x="860" y="320" width="280" height="220" rx="16" fill="white" fill-opacity="0.04"/>
+  </g>
+  <!-- Risk gauge icon -->
+  <g transform="translate(945, 355)">
+    <path d="M5 80 A55 55 0 0 1 115 80" fill="none" stroke="#1e293b" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+    <path d="M5 80 A55 55 0 0 1 75 28" fill="none" stroke="url(#accentLine)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <!-- Needle -->
+    <line x1="60" y1="80" x2="42" y2="38" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="60" cy="80" r="6" fill="white" opacity="0.9"/>
+    <circle cx="60" cy="80" r="3" fill="#f43f5e"/>
+    <!-- Scale labels -->
+    <text x="0" y="100" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" font-weight="500">LOW</text>
+    <text x="50" y="18" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" font-weight="500" text-anchor="middle">MED</text>
+    <text x="105" y="100" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" font-weight="500">HIGH</text>
+  </g>
+  <text x="1000" y="500" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle" opacity="0.7">RISK ASSESSMENT</text>
+
+  <!-- Floating particles between cards -->
+  <g filter="url(#particleGlow)">
+    <circle cx="700" cy="160" r="2.5" fill="#3b82f6" opacity="0.7"/>
+    <circle cx="750" cy="290" r="2" fill="#f43f5e" opacity="0.6"/>
+    <circle cx="850" cy="310" r="3" fill="#a855f7" opacity="0.5"/>
+    <circle cx="920" cy="200" r="2" fill="#60a5fa" opacity="0.6"/>
+    <circle cx="1100" cy="310" r="2.5" fill="#f43f5e" opacity="0.5"/>
+    <circle cx="680" cy="380" r="1.8" fill="#3b82f6" opacity="0.55"/>
+    <circle cx="1140" cy="450" r="2" fill="#a855f7" opacity="0.45"/>
+    <circle cx="780" cy="420" r="1.5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="950" cy="555" r="2" fill="#3b82f6" opacity="0.4"/>
+  </g>
+
+  <!-- ===== LEFT SIDE: Text Content ===== -->
+
+  <!-- Category pill -->
+  <rect x="60" y="80" width="156" height="32" rx="16" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="138" y="101" fill="#60a5fa" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1.5">WEEKLY DIGEST</text>
+
+  <!-- Title -->
+  <text x="60" y="190" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly Tech Security</text>
+  <text x="60" y="245" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Digest Cloud Risk</text>
+
+  <!-- Gradient accent line -->
+  <rect x="60" y="268" width="200" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Subtitle -->
+  <text x="60" y="310" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400">Cloud security trends, threat intelligence</text>
+  <text x="60" y="334" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400">and risk analysis for the modern enterprise</text>
+
+  <!-- Tag chips -->
   <g>
-    <!-- Shield outline -->
-    <path d="M 750 150 L 820 150 L 820 240 Q 820 280 785 300 Q 750 280 750 240 Z"
-          fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="2.5"/>
+    <rect x="60" y="370" width="110" height="30" rx="15" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="115" y="390" fill="#60a5fa" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Cloud Security</text>
 
-    <!-- Checkmark inside shield -->
-    <path d="M 765 240 L 780 255 L 805 225"
-          fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    <rect x="182" y="370" width="120" height="30" rx="15" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="242" y="390" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Risk Analysis</text>
+
+    <rect x="314" y="370" width="130" height="30" rx="15" fill="#a855f7" fill-opacity="0.12" stroke="#a855f7" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="379" y="390" fill="#c084fc" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Threat Intel</text>
   </g>
 
-  <!-- Cloud Shape with Data Flow -->
-  <g>
-    <!-- Cloud outline -->
-    <path d="M 920 140 Q 920 120 940 120 Q 955 120 960 105 Q 980 105 985 125 Q 1005 125 1005 145 Q 1005 155 990 160 L 880 160 Q 875 150 880 140 Q 890 130 920 140"
-          fill="#f59e0b" opacity="0.10" stroke="#f59e0b" stroke-width="2.5"/>
-
-    <!-- Data flow arrows from cloud -->
-    <defs>
-      <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.7"/>
-      </marker>
-      <marker id="arroworange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.7"/>
-      </marker>
-    </defs>
-
-    <!-- Arrow down-left from cloud to shield -->
-    <path d="M 920 160 Q 880 190 820 240"
-          fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowblue)"/>
-
-    <!-- Arrow down-right from cloud -->
-    <path d="M 960 160 L 980 220"
-          fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.6" marker-end="url(#arroworange)"/>
-
-    <!-- Arrow from shield to cloud (bidirectional) -->
-    <path d="M 820 240 Q 860 200 920 160"
-          fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.4" stroke-dasharray="5,5"/>
-  </g>
-
-  <!-- Data Center/Server Icon -->
-  <g>
-    <!-- Server stack on right side -->
-    <rect x="1000" y="200" width="80" height="20" rx="3" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="1000" y="230" width="80" height="20" rx="3" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="1000" y="260" width="80" height="20" rx="3" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-
-    <!-- Connection lines -->
-    <path d="M 980 210 L 1000 210" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-    <path d="M 980 240 L 1000 240" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
-    <path d="M 980 270 L 1000 270" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
-  </g>
-
-  <!-- Warning/Alert Triangles (scattered) -->
-  <g opacity="0.7">
-    <!-- Top-left warning -->
-    <path d="M 710 120 L 730 160 L 690 160 Z" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="710" cy="145" r="2.5" fill="#ef4444"/>
-
-    <!-- Bottom-left warning -->
-    <path d="M 870 310 L 885 335 L 855 335 Z" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round"/>
-    <circle cx="870" cy="322" r="2" fill="#f59e0b"/>
-
-    <!-- Right-side warning -->
-    <path d="M 1040 150 L 1055 175 L 1025 175 Z" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="1040" cy="162" r="2.5" fill="#ef4444"/>
-  </g>
-
-  <!-- Network/Data Flow Lines (additional detail) -->
-  <g stroke="#3b82f6" stroke-width="1.5" opacity="0.25">
-    <path d="M 750 280 L 920 280"/>
-    <path d="M 760 200 L 900 220"/>
-    <path d="M 780 320 L 950 350"/>
-  </g>
-
-  <!-- Tag Pills (at y=430) -->
-  <g>
-    <!-- Tag 1: Cloud -->
-    <rect x="60" y="410" width="100" height="40" rx="20" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="110" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3b82f6" text-anchor="middle">Cloud Risk</text>
-
-    <!-- Tag 2: Security -->
-    <rect x="180" y="410" width="100" height="40" rx="20" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="230" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
-
-    <!-- Tag 3: DevSecOps -->
-    <rect x="300" y="410" width="130" height="40" rx="20" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="365" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#f59e0b" text-anchor="middle">DevSecOps</text>
-  </g>
+  <!-- Date -->
+  <text x="60" y="460" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="2">FEBRUARY 17, 2026</text>
 
   <!-- Footer -->
-  <text x="60" y="555" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="white" opacity="0.6">tech.2twodragon.com</text>
+  <line x1="0" y1="580" x2="1200" y2="580" stroke="#1e293b" stroke-width="1"/>
+  <text x="60" y="608" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
 
-  <!-- Decorative corner accent -->
-  <circle cx="1180" cy="30" r="40" fill="#3b82f6" opacity="0.06"/>
-  <circle cx="40" cy="600" r="50" fill="#f59e0b" opacity="0.05"/>
+  <!-- Footer accent dot -->
+  <circle cx="1140" cy="604" r="4" fill="url(#accentLine)"/>
 </svg>
