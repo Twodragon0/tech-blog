@@ -55,7 +55,7 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | Microsoft Security B | AI 에이전트 프레임워크에서 발견된 권한 탈취 취약점 분석 및 방어 가이드 | 🔴 Critical |
+| 🔒 **Security** | Microsoft Security Blog | AI 에이전트 프레임워크에서 발견된 권한 탈취 취약점 분석 및 방어 가이드 | 🔴 Critical |
 | 🔒 **Security** | The Hacker News | AWS ECS Zero-Day 컨테이너 탈출 취약점으로 호스트 노드 전체 장악 가능 | 🔴 Critical |
 | 🔒 **Security** | The Hacker News | Harbor 레지스트리 악성 이미지 주입을 통한 공급망 공격 캠페인 발견 | 🟠 High |
 | 🤖 **AI/ML** | Google DeepMind Blog | Gemini 2.5 Pro의 코드 에이전트 보안 샌드박싱 기술 공개 | 🟠 High |
