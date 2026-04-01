@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-03-31T01:30:10.621989+00:00",
+  "updated_at": "2026-04-01T01:51:40.808441+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/ai-flaws-in-amazon-bedrock-langsmith.html",
-      "title": "AI Flaws in Amazon Bedrock, LangSmith, and SGLang Enable Data Exfiltration and R",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-completes-the-second-gdv-community-audit-with-participant-insurers-in-germany/",
-      "title": "AWS completes the second GDV community audit with participant insurers in German",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/leaknet-ransomware-uses-clickfix-via.html",
-      "title": "LeakNet Ransomware Uses ClickFix via Hacked Sites, Deploys Deno In-Memory Loader",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/ai-is-everywhere-but-cisos-are-still.html",
-      "title": "AI is Everywhere, But CISOs are Still Securing It with Yesterday's Skills and To",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/konni-deploys-endrat-through-spear.html",
-      "title": "Konni Deploys EndRAT Through Phishing, Uses KakaoTalk to Propagate Malware",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/",
-      "title": "Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta’s Ads Ra",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-cloudxr-apple-vision-pro/",
-      "title": "More Than Meets the Eye: NVIDIA RTX-Accelerated Computers Now Connect Directly t",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/correcting-the-record-on-palantir-in-australia-e1d4184c0777?source=rss----3c87dc14372f---4",
-      "title": "Correcting the Record on Palantir in Australia",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/telecom-ai-grids-inference/",
-      "title": "NVIDIA, Telecom Leaders Build AI Grids to Optimize Inference on Distributed Netw",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/personal-intelligence-expansion/",
-      "title": "Bringing the power of Personal Intelligence to more people",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/multi-cluster-gke-inference-gateway-helps-scale-ai-workloads/",
-      "title": "Introducing multi-cluster GKE Inference Gateway: Scale AI workloads around the w",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/rt-assistant-a-realtime-multiagent-voice-bot-using-dotnet-and-open-ai-api/",
-      "title": "RT.Assistant: A Multi-Agent Voice Bot Using .NET and OpenAI",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/17/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-kyvernocon/",
-      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: KyvernoCon",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/17/when-kubernetes-restarts-your-pod-and-when-it-doesnt/",
-      "title": "When Kubernetes restarts your pod — And when it doesn’t",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/conference/jack-mallers-confirmed-as-a-bitcoin-2026-speaker",
-      "title": "Jack Mallers Confirmed As A Bitcoin 2026 Speaker",
-      "published_date": "2026-03-18",
-      "expires_at": "2026-03-25T01:13:50.101374+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/ofac-sanctions-dprk-it-worker-network.html",
       "title": "OFAC Sanctions DPRK IT Worker Network Funding WMD Programs Through Fake Remote J",
@@ -810,6 +720,96 @@
       "title": "Amazon Aurora PostgreSQL에서 Amazon Bedrock으로 벡터 임베딩 생성 자동화",
       "published_date": "2026-03-31",
       "expires_at": "2026-04-07T01:30:10.621875+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/android-developer-verification-rollout.html",
+      "title": "Android Developer Verification Rollout Begins Ahead of September Enforcement",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/trueconf-zero-day-exploited-in-attacks.html",
+      "title": "TrueConf Zero-Day Exploited in Attacks on Southeast Asian Government Networks",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/new-compliance-guide-available-iso-iec-270012022-on-aws-compliance-guide/",
+      "title": "New compliance guide available: ISO/IEC 27001:2022 on AWS",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/vertex-ai-vulnerability-exposes-google.html",
+      "title": "Vertex AI Vulnerability Exposes Google Cloud Data and Private Artifacts",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/the-ai-arms-race-why-unified-exposure.html",
+      "title": "The AI Arms Race – Why Unified Exposure Management Is Becoming a Boardroom Prior",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
+      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Sc",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
+      "title": "Build with Veo 3.1 Lite, our most cost-effective video generation model",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/energy-efficiency-ai-factories-grid/",
+      "title": "Efficiency at Scale: NVIDIA, Energy Leaders Accelerating Power‑Flexible AI Facto",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://openai.com/index/accelerating-the-next-phase-ai",
+      "title": "Accelerating the next phase of AI",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-reliable-ai-agents-with-amazon-bedrock-agentcore-evaluations/",
+      "title": "Build reliable AI agents with Amazon Bedrock AgentCore Evaluations",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/customers-see-real-world-success-with-multi-model-spanner/",
+      "title": "Real-world success with Spanner’s fully interoperable multi-model database",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/spanners-multi-model-advantage-for-agentic-ai/",
+      "title": "Spanner's multi-model advantage for the era of agentic AI",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/new-gke-active-buffer-minimizes-scale-out-latency/",
+      "title": "Uplevel your workload scaling performance with GKE active buffer",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/sustainability/ai-tools-for-sustainable-infrastructure-and-reporting/",
+      "title": "How AI-powered tools are driving the next wave of sustainable infrastructure and",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/north-korea-threat-actor-targets-axios-npm-package/",
+      "title": "North Korea-Nexus Threat Actor Compromises Widely Used Axios NPM Package in Supp",
+      "published_date": "2026-04-01",
+      "expires_at": "2026-04-08T01:51:40.808340+00:00"
     }
   ]
 }
