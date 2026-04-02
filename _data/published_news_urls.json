@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-01T01:51:40.808441+00:00",
+  "updated_at": "2026-04-02T01:26:49.884436+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/ofac-sanctions-dprk-it-worker-network.html",
-      "title": "OFAC Sanctions DPRK IT Worker Network Funding WMD Programs Through Fake Remote J",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/interlock-ransomware-exploits-cisco-fmc.html",
-      "title": "Interlock Ransomware Exploits Cisco FMC Zero-Day CVE-2026-20131 for Root Access",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html",
-      "title": "Critical Unpatched Telnetd Flaw (CVE-2026-32746) Enables Unauthenticated Root RC",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/claude-code-security-and-magecart.html",
-      "title": "Claude Code Security and Magecart: Getting the Threat Model Right",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/9-critical-ip-kvm-flaws-enable.html",
-      "title": "9 Critical IP KVM Flaws Enable Unauthenticated Root Access Across Four Vendors",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/03/18/ml-applications/friend-bubbles-enhancing-social-discovery-on-facebook-reels/",
-      "title": "Friend Bubbles: Enhancing Social Discovery on Facebook Reels",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/build-robots-with-ai/",
-      "title": "From Simulation to Production: How to Build Robots With AI",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/kick-off-nova-customization-experiments-using-nova-forge-sdk/",
-      "title": "Kick off Nova customization experiments using Nova Forge SDK",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-nova-forge-sdk-a-seamless-way-to-customize-nova-models-for-enterprise-ai/",
-      "title": "Introducing Nova Forge SDK, a seamless way to customize Nova models for enterpri",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-for-production-a-practical-guide-to-strands-evals/",
-      "title": "Evaluating AI agents for production: A practical guide to Strands Evals",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/building-distributed-ai-agents/",
-      "title": "Building Distributed AI Agents",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/memorystore-for-valkey-9-0-is-now-ga/",
-      "title": "Next-gen caching with Memorystore for Valkey 9.0, now GA",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/cloudsql-read-pools-support-autoscaling/",
-      "title": "Streamline read scalability with Cloud SQL autoscaling read pools",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/darksword-ios-exploit-chain/",
-      "title": "The Proliferation of DarkSword: iOS Exploit Chain Adopted by Multiple Threat Act",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/build-a-multi-agent-system-for-expert-content-with-google-adk-mcp-and-cloud-run-part-1/",
-      "title": "Build a Multi-Agent System for Expert Content with Google ADK, MCP and Cloud Run",
-      "published_date": "2026-03-19",
-      "expires_at": "2026-03-26T01:26:25.509118+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/speagle-malware-hijacks-cobra-docguard.html",
       "title": "Speagle Malware Hijacks Cobra DocGuard to Steal Data via Compromised Servers",
@@ -810,6 +720,96 @@
       "title": "North Korea-Nexus Threat Actor Compromises Widely Used Axios NPM Package in Supp",
       "published_date": "2026-04-01",
       "expires_at": "2026-04-08T01:51:40.808340+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/cert-ua-impersonation-campaign-spread.html",
+      "title": "CERT-UA Impersonation Campaign Spread AGEWHEEZE Malware to 1 Million Emails",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/",
+      "title": "Mitigating the Axios npm supply chain compromise",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/microsoft-warns-of-whatsapp-delivered.html",
+      "title": "Microsoft Warns of WhatsApp-Delivered VBS Malware Hijacking Windows via UAC Bypa",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/block-prompt-not-work-end-of-doctor-no.html",
+      "title": "Block the Prompt, Not the Work: The End of \"Doctor No\"",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/casbaneiro-phishing-targets-latin.html",
+      "title": "Casbaneiro Phishing Targets Latin America and Europe Using Dynamic PDF Lures",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/earth/satellite-imagery-brazilian-deforestation/",
+      "title": "We’re creating a new satellite imagery map to help protect Brazil’s forests.",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
+      "title": "The latest AI news we announced in March 2026",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gradient-labs",
+      "title": "Gradient Labs gives every bank customer an AI account manager",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/automating-competitive-price-intelligence-with-amazon-nova-act/",
+      "title": "Automating competitive price intelligence with Amazon Nova Act",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/Hcompany/holo3",
+      "title": "Holo3: Breaking the Computer Use Frontier",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/infrastructure/your-guide-to-infrastructure-and-gke-sessions-at-cloud-next26/",
+      "title": "Top Infrastructure and GKE Sessions at Cloud Next '26",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/unifying-real-time-and-async-inference-with-gke-inference-gateway/",
+      "title": "Run real-time and async inference on the same infrastructure with GKE Inference ",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/announcing-managed-daemon-support-for-amazon-ecs-managed-instances/",
+      "title": "Announcing managed daemon support for Amazon ECS Managed Instances",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/building-graphrag-with-neptune-analytics-from-existing-java-code/",
+      "title": "기존 개발 코드(Java)로 Amazon Neptune Analytics GraphRAG 구현하기",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/practical-design-lessons-from-the-deep-insight-arch/",
+      "title": "프로덕션 Multi-Agent 시스템이 해결해야 할 5가지 문제 – Deep Insight 아키텍처로 배우는 실전 설계",
+      "published_date": "2026-04-02",
+      "expires_at": "2026-04-09T01:26:49.884326+00:00"
     }
   ]
 }
