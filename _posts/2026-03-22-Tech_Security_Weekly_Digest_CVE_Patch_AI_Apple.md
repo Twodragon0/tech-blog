@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "FBI Signal 피싱, Oracle RCE, Trivy 공급망 47개 npm 감염"
+title: "Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격"
 date: 2026-03-22 10:22:54 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI, Apple]
-excerpt: "FBI의 러시아 해커 Signal·WhatsApp 피싱 경고, Oracle Identity Manager 미인증 RCE 취약점, Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파 등 2026년 03월 22일 주요 보안 뉴스 15건과 DevSecOps 대응 우선순위를 정리합니다."
-description: "2026년 03월 22일 보안 뉴스 요약. The Hacker News 등 15건을 분석하고 FBI Signal 피싱 경고, Oracle Identity Manager RCE 패치, Trivy 공급망 공격 등 DevSecOps 대응 포인트를 정리합니다."
+excerpt: "Signal 및 WhatsApp 표적 피싱, Oracle Identity Manager RCE, Trivy CanisterWorm 공급망 확산과 Apple KEV 패치 이슈를 중심으로 2026년 03월 22일 보안 대응 우선순위를 정리합니다."
+description: "2026년 03월 22일 보안 뉴스 요약. Signal 및 WhatsApp 표적 피싱, Oracle Identity Manager RCE, Trivy CanisterWorm 공급망 공격, Apple KEV 패치 이슈를 DevSecOps 관점에서 분석합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.svg
-image_alt: "FBI Signal phishing alert, Oracle RCE patch, and Trivy supply chain attack digest"
+image_alt: "Signal phishing, Oracle identity RCE, and Trivy supply chain worm digest"
 toc: true
 ---
 
 {% include ai-summary-card.html
-  title='FBI 러시아 해커 피싱 경고, Oracle CVE-2026-21992 패치, Trivy 공급망 공격'
+  title='Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">CVE</span>
@@ -107,9 +107,12 @@ DevSecOps 관점에서 이 공격은 다음과 같은 심각한 영향을 시사
 *   **보안 인식 교육의 중요성 재확인:** 기술적 통제만으로는 이러한 표적형 피싱을 완전히 차단하기 어려우므로, 지속적이고 실제 공격 시나리오를 반영한 보안 인식 교육이 최후의 보루가 됩니다.
 
 ## 3. 대응 체크리스트
-- **고위험군 사용자에 대한 보호 강화:** 정보 보호 정책을 검토하여, 외부 메신저를 통한 업무 기밀 정보 공유를 제한하거나 관리된 엔터프라이즈 메신저로 전환을 검토합니다. 외부 협업이 불가피한 고위험 임직원에 대해서는 하드웨어 보안 키(WebAuthn/FIDO2) 기반의 2단계 인증(2FA) 사용을 의무화합니다.
-- **표적형 피싱 시뮬레이션 교육 강화:** 일반적 피싱이 아닌, 신뢰할 수 있는 동료나 업무 파트너를 사칭하고 시의성 높은 주제를 활용한 정교한 시나리오 기반의 훈련을 정기적으로 실시하고, 결과를 분석하여 취약 부서/개인을 대상으로 맞춤형 교육을 제공합니다.
-- **사고 대응 계획에 '개인 계정 침해' 시나리오 추가:** 조직의 공식 자산이 아닌 직원의 개인 메신저 계정 침해가 회사에 미치는 영향을 평가하고, 내부 보고 절차, 법무팀 협의 프로세스, PR 대응 방안 등을 사고 대응 계획(IRP)에 명시적으로 포함 및 테스트합니다.
+- [ ] **고위험군 사용자에 대한 보호 강화:** 정보 보호 정책을 검토하여, 외부 메신저를 통한 업무 기밀 정보 공유를 제한하거나 관리된 엔터프라이즈 메신저로 전환을 검토합니다. 외부 협업이 불가피한 고위험 임직원에 대해서는 하드웨어 보안 키(WebAuthn/FIDO2) 기반의 2단계 인증(2FA) 사용을 의무화합니다.
+- [ ] **표적형 피싱 시뮬레이션 교육 강화:** 일반적 피싱이 아닌, 신뢰할 수 있는 동료나 업무 파트너를 사칭하고 시의성 높은 주제를 활용한 정교한 시나리오 기반의 훈련을 정기적으로 실시하고, 결과를 분석하여 취약 부서/개인을 대상으로 맞춤형 교육을 제공합니다.
+- [ ] **사고 대응 계획에 '개인 계정 침해' 시나리오 추가:** 조직의 공식 자산이 아닌 직원의 개인 메신저 계정 침해가 회사에 미치는 영향을 평가하고, 내부 보고 절차, 법무팀 협의 프로세스, PR 대응 방안 등을 사고 대응 계획(IRP)에 명시적으로 포함 및 테스트합니다.
+- [ ] **공급망 탐지 범위 확장**: Trivy, npm, CI/CD 러너 로그를 연계해 태그 변조와 비정상 패키지 배포 징후를 조기 탐지합니다.
+
+
 ---
 
 ### 1.2 Oracle, Identity Manager에서 인증되지 않은 RCE를 가능하게 하는 치명적 CVE-2026-21992 패치
@@ -175,6 +178,8 @@ DevSecOps 실무자에게 이 공격은 **이중의 위험**을 제기합니다.
 - **행위 기반 탐지 강화**: 네트워크 트래픽에서 ICP 캐니스터 또는 기타 비정상적인 외부 프로토콜에 대한 아웃바운드 연결 시도를 탐지하는 규칙을 추가하고, CI/CD 환경 내부에서의 **비정상적인 패키지 설치 또는 자가 전파 시도**를 로깅 및 경고한다.
 - **종속성 최소화 및 고정**: 패키지 종속성을 최소화하고, **정확한 버전(lock 파일)을 고정**하여 예기치 않은 업데이트로 인한 감염을 방지한다. 모든 업데이트는 검증 후 단계적으로 진행한다.
 - **사고 대응 계획 점검**: 공급망 공격을 특별히 고려한
+
+> 📌 **관련 보도**: [Trivy CI/CD 침해·Critical Langflow RCE·Google 사이드로딩 차단](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) | [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/)
 
 ---
 

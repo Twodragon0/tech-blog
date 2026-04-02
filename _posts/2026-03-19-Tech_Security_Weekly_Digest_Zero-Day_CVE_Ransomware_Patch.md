@@ -4,8 +4,8 @@ title: "북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE"
 date: 2026-03-19 10:23:34 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, Ransomware, Patch]
-excerpt: "북한 IT 노동자 제재 및 사이버 위협, Cisco FMC 제로데이(CVE-2026-20158) 패치, GNU InetUtils Telnetd 미인증 루트 RCE(CVE-2026-32746) 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고 DevSecOps 대응 우선순위를 제시합니다."
-description: "2026년 03월 19일 보안 뉴스 요약. 북한 IT 노동자 제재, Cisco FMC CVE-2026-20131, Telnetd CVE-2026-32746와 분산 AI 에이전트 운영 리스크를 DevSecOps 관점에서 분석합니다."
+excerpt: "북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE와 분산 AI 에이전트 운영 리스크를 중심으로 2026년 03월 19일 보안 대응 우선순위를 정리합니다."
+description: "2026년 03월 19일 보안 뉴스 요약. 북한 IT 노동자 제재, Cisco FMC CVE-2026-20131, Telnetd CVE-2026-32746, 분산 AI 에이전트 운영 리스크를 DevSecOps 관점에서 분석합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, Ransomware]
 author: Twodragon
 comments: true

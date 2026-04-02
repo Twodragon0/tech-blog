@@ -1,116 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.4"/>
-    </marker>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="bg19" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f18"/>
+      <stop offset="100%" stop-color="#121a2c"/>
+    </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  <rect width="1200" height="630" fill="url(#bg19)"/>
 
-  <!-- LEFT SIDE -->
-  <!-- Date Badge -->
-  <g>
-    <rect x="50" y="40" width="210" height="48" rx="10" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.25"/>
-    <text x="155" y="73" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">MARCH 19, 2026</text>
+  <text x="60" y="72" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">Control Plane Under Pressure</text>
+  <text x="60" y="106" fill="#94a3b8" font-size="18" font-family="Georgia, serif">Mar 19</text>
+
+  <line x1="300" y1="315" x2="540" y2="315" stroke="#f59e0b" stroke-width="4" stroke-dasharray="10 8"/>
+  <line x1="660" y1="315" x2="900" y2="315" stroke="#8b5cf6" stroke-width="4" stroke-dasharray="10 8"/>
+
+  <g transform="translate(140,220)">
+    <rect x="0" y="0" width="180" height="190" rx="22" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+    <path d="M90 34 L132 52 L132 96 C132 124 112 146 90 156 C68 146 48 124 48 96 L48 52 Z" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="90" y1="60" x2="90" y2="102" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="72" y1="82" x2="108" y2="82" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="90" y="166" text-anchor="middle" fill="#f59e0b" font-size="16" font-family="Arial, sans-serif" font-weight="700">CISCO FMC</text>
+    <text x="90" y="188" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial, sans-serif">Zero-day access</text>
   </g>
 
-  <!-- Main Title -->
-  <text x="75" y="215" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff">Tech Security</text>
-  <text x="75" y="275" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff">Weekly Digest</text>
-  <text x="75" y="335" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ef4444">Zero Day</text>
-
-  <!-- Tag Pills -->
-  <g>
-    <rect x="75" y="410" width="125" height="38" rx="22" fill="#3b82f6" opacity="0.10" stroke="#3b82f6" stroke-width="0.25"/>
-    <text x="137" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Security</text>
-
-    <rect x="220" y="410" width="125" height="38" rx="22" fill="#f59e0b" opacity="0.10" stroke="#f59e0b" stroke-width="0.25"/>
-    <text x="282" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Threats</text>
-
-    <rect x="365" y="410" width="125" height="38" rx="22" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.25"/>
-    <text x="427" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Vulnerabilities</text>
+  <g transform="translate(510,205)">
+    <circle cx="90" cy="110" r="96" fill="#0f172a" stroke="#ef4444" stroke-width="3"/>
+    <rect x="42" y="74" width="96" height="62" rx="10" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <path d="M58 106 L76 106 L68 97 M76 106 L68 115" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="88" y1="113" x2="120" y2="113" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="90" y="226" text-anchor="middle" fill="#ef4444" font-size="17" font-family="Arial, sans-serif" font-weight="700">TELNETD RCE</text>
+    <text x="90" y="248" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial, sans-serif">Unauth root path</text>
   </g>
 
-  <!-- Footer -->
-  <text x="75" y="575" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" opacity="0.65">tech.2twodragon.com</text>
-
-  <!-- RIGHT SIDE - Detailed Visual Scene -->
-
-  <!-- Vulnerable Shield (Cracked) - Left position -->
-  <g transform="translate(750, 215)">
-    <!-- Outer shield shape with crack indication -->
-    <path d="M -45,-55 L 45,-55 L 45,5 Q 0,70 0,70 Q 0,70 -45,5 Z" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3" filter="url(#glow)"/>
-
-    <!-- Crack lines -->
-    <line x1="-8" y1="-45" x2="15" y2="35" stroke="#ef4444" stroke-width="0.35" opacity="0.35"/>
-    <line x1="8" y1="-35" x2="-5" y2="25" stroke="#ef4444" stroke-width="0.25" opacity="0.25"/>
-    <line x1="0" y1="-20" x2="12" y2="15" stroke="#ef4444" stroke-width="0.20" opacity="0.20"/>
-
-    <!-- Warning indicator -->
-    <circle cx="0" cy="8" r="20" fill="none" stroke="#ef4444" stroke-width="0.35" opacity="0.40"/>
-    <text x="0" y="15" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.35">!</text>
+  <g transform="translate(880,220)">
+    <rect x="0" y="0" width="180" height="190" rx="22" fill="#0f172a" stroke="#8b5cf6" stroke-width="3"/>
+    <line x1="90" y1="46" x2="90" y2="108" stroke="#8b5cf6" stroke-width="2.5"/>
+    <line x1="56" y1="56" x2="124" y2="56" stroke="#8b5cf6" stroke-width="2.5"/>
+    <path d="M56 56 L44 82 L68 82 Z" fill="none" stroke="#8b5cf6" stroke-width="2.5"/>
+    <path d="M124 56 L112 82 L136 82 Z" fill="none" stroke="#8b5cf6" stroke-width="2.5"/>
+    <text x="90" y="166" text-anchor="middle" fill="#8b5cf6" font-size="16" font-family="Arial, sans-serif" font-weight="700">DPRK SANCTIONS</text>
+    <text x="90" y="188" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial, sans-serif">Remote worker risk</text>
   </g>
-
-  <!-- Secure Shield (Checkmark) - Right position -->
-  <g transform="translate(980, 190)">
-    <!-- Large shield with checkmark -->
-    <path d="M -55,-65 L 55,-65 L 55,15 Q 0,85 0,85 Q 0,85 -55,15 Z" fill="#3b82f6" opacity="0.09" stroke="#3b82f6" stroke-width="0.35" filter="url(#glow)"/>
-
-    <!-- Checkmark circle background -->
-    <circle cx="0" cy="12" r="25" fill="none" stroke="#3b82f6" stroke-width="0.30" opacity="0.45"/>
-
-    <!-- Checkmark -->
-    <path d="M -15,8 L -3,20 L 20,-8" stroke="#3b82f6" stroke-width="0.40" fill="none" opacity="0.50" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-
-  <!-- Data Flow Arrows -->
-  <g>
-    <!-- Primary flow arrow -->
-    <path d="M 810,250 Q 870,225 930,200" stroke="#f59e0b" stroke-width="0.30" fill="none" opacity="0.35" marker-end="url(#arrowhead)" stroke-linecap="round"/>
-
-    <!-- Secondary flows -->
-    <line x1="920" y1="130" x2="920" y2="150" stroke="#3b82f6" stroke-width="0.25" opacity="0.25"/>
-    <line x1="920" y1="400" x2="920" y2="420" stroke="#3b82f6" stroke-width="0.25" opacity="0.25"/>
-  </g>
-
-  <!-- Warning Triangles - Alert indicators -->
-  <g>
-    <!-- Top alert -->
-    <polygon points="920,110 928,140 912,140" fill="#ef4444" opacity="0.11" stroke="#ef4444" stroke-width="0.25"/>
-    <text x="920" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle" opacity="0.35">⚠</text>
-
-    <!-- Bottom alert -->
-    <polygon points="920,430 928,460 912,460" fill="#f59e0b" opacity="0.11" stroke="#f59e0b" stroke-width="0.25"/>
-    <text x="920" y="450" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.35">⚠</text>
-  </g>
-
-  <!-- Network Connection Points -->
-  <g fill="#3b82f6" opacity="0.30">
-    <circle cx="680" cy="190" r="3.5"/>
-    <circle cx="1050" cy="280" r="3.5"/>
-    <circle cx="740" cy="370" r="3.5"/>
-    <circle cx="1030" cy="420" r="3.5"/>
-  </g>
-
-  <!-- Connection Lines -->
-  <g stroke="#3b82f6" stroke-width="0.20" opacity="0.15" fill="none" stroke-dasharray="3,3">
-    <line x1="680" y1="190" x2="750" y2="280"/>
-    <line x1="1050" y1="280" x2="1030" y2="420"/>
-  </g>
-
-  <!-- Data Stream Indicators - flowing arrows -->
-  <g stroke="#f59e0b" stroke-width="0.20" opacity="0.20" fill="none">
-    <path d="M 820,240 L 835,230" stroke-linecap="round"/>
-    <path d="M 840,235 L 855,225" stroke-linecap="round"/>
-    <path d="M 860,230 L 875,220" stroke-linecap="round"/>
-  </g>
-
 </svg>

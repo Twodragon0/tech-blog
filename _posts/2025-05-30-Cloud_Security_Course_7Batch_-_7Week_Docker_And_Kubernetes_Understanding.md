@@ -12,7 +12,6 @@ tags:
 - K8s
 - Cloud-Security
 - DevSecOps
-keywords: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
 excerpt: "클라우드 시큐리티 과정 7기 7주차 핵심 정리. Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안 도구(Trivy, Falco) 활용법, 2025년 최신 업데이트까지 실무 중심으로 학습합니다."
 description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
   Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
@@ -343,45 +342,60 @@ kubectl create secret generic db-credentials \
 
 #### External Secrets Operator
 
-> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
+> 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.[AWS WAF]
+        ALB[Application LB]
+    end
 
-<details>
-<summary>Kubernetes 보안 아키텍처 다이어그램 (click to expand)</summary>
+    subgraph "Kubernetes Cluster"
+        subgraph "Control Plane"
+            API[API Server<br/>+Audit Logging]
+            ETCD[etcd<br/>Encrypted]
+            ADMISSION[Admission Controllers<br/>- OPA/Gatekeeper<br/>- Pod Security]
+        end
 
-```text
-[AWS WAF] --> ALB[Application LB]
+        subgraph "Security Layer"
+            FALCO[Falco<br/>Runtime Detection]
+            TRIVY[Trivy Scanner]
+            NETPOL[Network Policies]
+        end
 
-Kubernetes Cluster:
-  Control Plane:
-    API Server (+Audit Logging)
-    etcd (Encrypted)
-    Admission Controllers (OPA/Gatekeeper, Pod Security)
+        subgraph "Worker Nodes"
+            subgraph "Pod Security"
+                POD1[Pod: Frontend<br/>- User Namespaces<br/>- Seccomp<br/>- AppArmor]
+                POD2[Pod: Backend<br/>- Non-root<br/>- Read-only FS<br/>- Drop Capabilities]
+            end
+        end
 
-  Security Layer:
-    Falco (Runtime Detection)
-    Trivy Scanner
-    Network Policies
+        subgraph "Secret Management"
+            ESO[External Secrets<br/>Operator]
+            VAULT[HashiCorp Vault /<br/>AWS Secrets Manager]
+        end
+    end
 
-  Worker Nodes:
-    Pod: Frontend (User Namespaces, Seccomp, AppArmor)
-    Pod: Backend (Non-root, Read-only FS, Drop Capabilities)
+    USER |HTTPS| WAF
+    WAF |Filtered| ALB
+    ALB |mTLS| API
 
-  Secret Management:
-    External Secrets Operator --> HashiCorp Vault / AWS Secrets Manager
+    ATTACKER -.->|Blocked| WAF
+    ATTACKER -.->|Detected| FALCO
 
-Flow:
-  USER --HTTPS--> WAF --Filtered--> ALB --mTLS--> API
-  ATTACKER --Blocked--> WAF
-  ATTACKER --Detected--> Falco
-  API --> Admission --> Pod Validate/Mutate
-  Trivy --> Pod Scan
-  Network Policies --> Pod Enforce
-  ESO --> Vault --> Pod Inject
-  Falco --> Pod Monitor
-  API --Encrypted--> etcd
-```
+    API  ADMISSION
+    ADMISSION |Validate/Mutate| POD1
+    ADMISSION |Validate/Mutate| POD2
 
-</details>
+    TRIVY |Scan| POD1
+    TRIVY |Scan| POD2
+
+    NETPOL |Enforce| POD1
+    NETPOL |Enforce| POD2
+
+    ESO |Fetch| VAULT
+    VAULT |Inject| POD2
+
+    FALCO |Monitor| POD1
+    FALCO |Monitor| POD2
+
+    API |Encrypted| ETCD
 
 
 #### Falco 이벤트 상관 분석
@@ -397,26 +411,19 @@ cat /var/log/falco/events.txt | \
 
 #### kubectl 기반 네트워크 분석
 
-> ```bash
-> # 1. Service 없이 직접 통신하는 Pod 탐지...
-> ```
-
 ### 4.2 Secret 접근 이상 탐지
 
-> ```bash
-> # 1. Secret 접근 Audit Log 분석...
-> ```
-> ```bash
-> # 1. Pod 상태 확인...
-> ```
+핵심 점검 흐름만 유지하고, 긴 명령 묶음은 공식 문서와 교육 자료로 대체합니다.
 
-> ```bash
-> # 1. 현재 적용된 Network Policy 확인...
-> ```
+- Service 우회 통신 여부 확인
+- Secret 접근 관련 Audit Log 우선 점검
+- Pod 상태, Network Policy, ImagePullBackOff 이벤트를 순서대로 확인
 
-> ```bash
-> # 1. ImagePullBackOff 이벤트 확인...
-> ```
+<!-- Full troubleshooting commands were intentionally omitted for readability. Reference:
+https://kubernetes.io/docs/tasks/debug/
+https://kubernetes.io/docs/concepts/services-networking/network-policies/
+https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+-->
 
 
 ## 4. 종합 레퍼런스
@@ -508,7 +515,5 @@ cat /var/log/falco/events.txt | \
 - [Aqua Security Trivy](https://aquasecurity.github.io/trivy/)
 - [MITRE ATT&CK for Containers](https://attack.mitre.org/matrices/enterprise/containers/)
 - [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
-
-```text
 
 ```

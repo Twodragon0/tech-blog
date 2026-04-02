@@ -11,7 +11,7 @@ description: "2026년 2월 14일 보안 주간 다이제스트: Microsoft 6건 Z
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
-image_alt: "주간 보안 다이제스트 2026년 2월 14일 Microsoft Zero Day Apple Ivanti EPMM"
+image_alt: "Microsoft zero day, Apple patch, and Ivanti EPMM attack digest"
 toc: true
 ---
 {% capture ai_categories_html %}
@@ -520,4 +520,3 @@ Flow 블록체인에서 $3.9M 규모의 익스플로잇이 발생했으며, 이�
 
 
 ---
-

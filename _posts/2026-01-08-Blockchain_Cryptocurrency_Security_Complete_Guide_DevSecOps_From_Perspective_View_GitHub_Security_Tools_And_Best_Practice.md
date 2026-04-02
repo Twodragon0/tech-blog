@@ -28,7 +28,6 @@ tags:
 - Mythril
 - Securify
 - CI-CD
-keywords: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps]
 title: '블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
 toc: true
 ---
@@ -302,43 +301,20 @@ contract SecureContract is AccessControl {
 
 예시:
 
-<details>
-<summary>Solidity 긴급 중지 메커니즘 스마트 컨트랙트 예시 (click to expand)</summary>
-
 ```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "@openzeppelin/contracts/security/Pausable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-
 contract FailSafeVault is Pausable, Ownable {
-    mapping(address => uint256) public balances;
-
-    // 긴급 중지 시 출금 불가
-    function deposit() external payable whenNotPaused {
-        balances[msg.sender] += msg.value;
-    }
-
-    function withdraw(uint256 amount) external whenNotPaused {
-        require(balances[msg.sender] >= amount, "Insufficient balance");
-        balances[msg.sender] -= amount;
-        (bool success, ) = msg.sender.call{value: amount}("");
-        require(success, "Transfer failed");
-    }
-
-    // 관리자만 긴급 중지 가능
-    function emergencyPause() external onlyOwner {
-        _pause();
-    }
-
-    function resume() external onlyOwner {
-        _unpause();
-    }
+    function deposit() external payable whenNotPaused { ... }
+    function emergencyPause() external onlyOwner { _pause(); }
 }
 ```
 
-</details>
+전체 예시는 OpenZeppelin의 `Pausable`/`Ownable` 조합 패턴과 함께 검토하는 편이 좋습니다.
+
+<!-- Full sample intentionally shortened for readability.
+Reference:
+https://docs.openzeppelin.com/contracts/4.x/api/security
+https://docs.openzeppelin.com/contracts/4.x/access-control
+-->
 
 ### 4.3 보안 체크리스트
 

@@ -9,7 +9,7 @@ description: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886
   안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
 excerpt: "SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보 작전, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격 등 2026-02-10 핵심 보안 위협을 기술·경영진 관점으로 분석한 다이제스트입니다."
 image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg
-image_alt: 보안 다이제스트 2026년 2월 10일 SolarWinds RCE UNC3886 LLM 공격
+image_alt: SolarWinds RCE, UNC3886 telecom espionage, and LLM safety digest
 layout: post
 tags:
 - Security-Digest

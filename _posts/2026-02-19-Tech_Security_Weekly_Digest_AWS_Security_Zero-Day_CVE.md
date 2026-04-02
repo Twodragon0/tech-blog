@@ -11,7 +11,7 @@ description: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE.svg
-image_alt: "기술 보안 주간 다이제스트 2026년 2월 19일 AWS 보안 Zero-Day"
+image_alt: "AWS security update, zero day response, and CVE review digest"
 toc: true
 ---
 {% include ai-summary-card.html

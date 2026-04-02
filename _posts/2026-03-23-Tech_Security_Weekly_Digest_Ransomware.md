@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, SK쉴더스 EQST 보안 리포트"
+title: "Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트"
 date: 2026-03-23 10:23:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
-excerpt: "Gentlemen 랜섬웨어 확산 위협과 Sinobi-Lynx 연계 분석, 제로트러스트 보안전략 가시성 분석(Visibility Analytics), SK쉴더스 EQST 통합 보안 리포트 등 2026년 03월 23일 주요 보안/기술 뉴스 15건의 위협 분석과 대응 우선순위를 정리합니다."
-description: "2026년 03월 23일 보안 뉴스 요약. SK쉴더스 보안 리포트 등 15건을 분석하고 Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, EQST 통합 리포트 등 DevSecOps 대응 포인트를 정리합니다."
+excerpt: "Gentlemen 랜섬웨어 확산 리포트, 제로트러스트 가시성 분석, SK쉴더스 EQST 통합 인사이트를 중심으로 2026년 03월 23일 보안 대응 우선순위를 정리합니다."
+description: "2026년 03월 23일 보안 뉴스 요약. Gentlemen 랜섬웨어 동향, 제로트러스트 가시성 전략, SK쉴더스 EQST 인사이트와 함께 복구·탐지·가시성 강화를 DevSecOps 관점에서 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-23-Tech_Security_Weekly_Digest_Ransomware.svg
-image_alt: "Keep up with Ransomware, Special Report 12, SK EQST insight 12 security digest overview"
+image_alt: "Gentlemen ransomware, zero trust visibility, and EQST threat insight digest"
 toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Gentlemen 랜섬웨어 위협, 제로트러스트 보안전략, SK쉴더스 EQST 보안 리포트'
+  title='Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">Ransomware</span>

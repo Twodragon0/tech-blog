@@ -9,7 +9,7 @@ date: 2026-02-01 10:00:00 +0900
 description: '2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure...'
 excerpt: "AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, - 2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic"
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
-image_alt: Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis
+image_alt: OpenSSL zero day, OWASP agentic AI, and Fortinet patch digest
 layout: post
 tags:
 - Security-Weekly
@@ -301,4 +301,3 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 
 ---
-
