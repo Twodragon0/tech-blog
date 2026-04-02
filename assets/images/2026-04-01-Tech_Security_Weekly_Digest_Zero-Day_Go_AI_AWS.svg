@@ -1,208 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest - TrueConf Zero-Day, APT, AWS Compliance</title>
   <defs>
     <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
     <filter id="orbGlow">
-      <feGaussianBlur stdDeviation="40"/>
+      <feGaussianBlur stdDeviation="40" />
     </filter>
     <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
     </filter>
     <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
     <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="50%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
     <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1" />
     </linearGradient>
     <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15" />
     </linearGradient>
     <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1"/>
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1" />
     </linearGradient>
     <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5"/>
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
     </linearGradient>
     <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65"/>
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45"/>
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
     </linearGradient>
     <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5"/>
+      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
     </pattern>
     <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#991b1b"/>
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#991b1b" />
     </linearGradient>
     <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#0891b2"/>
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0891b2" />
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+  
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dots)" />
 
-  <!-- Ambient glow orbs -->
-  <circle cx="750" cy="150" r="180" fill="#8b5cf6" opacity="0.07" filter="url(#orbGlow)"/>
-  <circle cx="1000" cy="450" r="150" fill="#dc2626" opacity="0.06" filter="url(#orbGlow)"/>
-  <circle cx="200" cy="500" r="120" fill="#06b6d4" opacity="0.05" filter="url(#orbGlow)"/>
-  <circle cx="600" cy="350" r="100" fill="#3b82f6" opacity="0.04" filter="url(#orbGlow)"/>
+  
+  <circle cx="750" cy="150" r="180" fill="#8b5cf6" opacity="0.07" filter="url(#orbGlow)" />
+  <circle cx="1000" cy="450" r="150" fill="#dc2626" opacity="0.06" filter="url(#orbGlow)" />
+  <circle cx="200" cy="500" r="120" fill="#06b6d4" opacity="0.05" filter="url(#orbGlow)" />
+  <circle cx="600" cy="350" r="100" fill="#3b82f6" opacity="0.04" filter="url(#orbGlow)" />
 
-  <!-- ==================== RIGHT SIDE: Glass Cards ==================== -->
+  
 
-  <!-- Card 3 (back) - AWS Cloud Compliance -->
+  
   <g transform="translate(830, 60)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5"/>
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03"/>
+    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
     <g transform="translate(105, 20)">
-      <!-- Cloud icon with checkmark -->
-      <path d="M30 65 C10 65 0 55 0 42 C0 30 8 22 20 20 C24 8 38 0 55 0 C72 0 84 10 88 22 C98 24 105 33 105 44 C105 57 95 65 80 65 Z" fill="url(#cloudGrad)" opacity="0.25" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.7"/>
-      <!-- Checkmark -->
-      <path d="M35 40 L48 53 L72 28" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-      <!-- ISO badge -->
-      <rect x="25" y="70" width="55" height="18" rx="4" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4"/>
-      <text x="52" y="83" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="9" font-weight="700">ISO 27001</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#06b6d4" opacity="0.8"/>
-    <circle cx="145" cy="200" r="3" fill="#22c55e" opacity="0.6"/>
-    <circle cx="160" cy="200" r="3" fill="#06b6d4" opacity="0.4"/>
+      
+      <path d="M30 65 C10 65 0 55 0 42 C0 30 8 22 20 20 C24 8 38 0 55 0 C72 0 84 10 88 22 C98 24 105 33 105 44 C105 57 95 65 80 65 Z" fill="url(#cloudGrad)" opacity="0.25" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.7" />
+      
+      <path d="M35 40 L48 53 L72 28" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+      
+      <rect x="25" y="70" width="55" height="18" rx="4" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4" />
+      </g>
+    <circle cx="130" cy="200" r="3" fill="#06b6d4" opacity="0.8" />
+    <circle cx="145" cy="200" r="3" fill="#22c55e" opacity="0.6" />
+    <circle cx="160" cy="200" r="3" fill="#06b6d4" opacity="0.4" />
   </g>
 
-  <!-- Card 2 (middle) - APT / Southeast Asia Target -->
+  
   <g transform="translate(720, 190)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5"/>
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03"/>
+    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
     <g transform="translate(100, 20)">
-      <!-- Crosshair / Target icon -->
-      <circle cx="55" cy="50" r="35" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.7"/>
-      <circle cx="55" cy="50" r="22" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="55" cy="50" r="8" fill="#8b5cf6" opacity="0.3"/>
-      <circle cx="55" cy="50" r="3" fill="#8b5cf6" opacity="0.8"/>
-      <line x1="55" y1="10" x2="55" y2="30" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
-      <line x1="55" y1="70" x2="55" y2="90" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
-      <line x1="15" y1="50" x2="35" y2="50" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
-      <line x1="75" y1="50" x2="95" y2="50" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
-      <!-- Connection nodes -->
-      <circle cx="25" cy="25" r="4" fill="#a78bfa" opacity="0.5"/>
-      <circle cx="85" cy="25" r="4" fill="#a78bfa" opacity="0.5"/>
-      <circle cx="25" cy="75" r="3" fill="#8b5cf6" opacity="0.4"/>
-      <circle cx="85" cy="75" r="3" fill="#8b5cf6" opacity="0.4"/>
-      <line x1="25" y1="25" x2="40" y2="38" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/>
-      <line x1="85" y1="25" x2="70" y2="38" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/>
+      
+      <circle cx="55" cy="50" r="35" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.7" />
+      <circle cx="55" cy="50" r="22" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5" />
+      <circle cx="55" cy="50" r="8" fill="#8b5cf6" opacity="0.3" />
+      <circle cx="55" cy="50" r="3" fill="#8b5cf6" opacity="0.8" />
+      <line x1="55" y1="10" x2="55" y2="30" stroke="#a78bfa" stroke-width="1.5" opacity="0.6" />
+      <line x1="55" y1="70" x2="55" y2="90" stroke="#a78bfa" stroke-width="1.5" opacity="0.6" />
+      <line x1="15" y1="50" x2="35" y2="50" stroke="#a78bfa" stroke-width="1.5" opacity="0.6" />
+      <line x1="75" y1="50" x2="95" y2="50" stroke="#a78bfa" stroke-width="1.5" opacity="0.6" />
+      
+      <circle cx="25" cy="25" r="4" fill="#a78bfa" opacity="0.5" />
+      <circle cx="85" cy="25" r="4" fill="#a78bfa" opacity="0.5" />
+      <circle cx="25" cy="75" r="3" fill="#8b5cf6" opacity="0.4" />
+      <circle cx="85" cy="75" r="3" fill="#8b5cf6" opacity="0.4" />
+      <line x1="25" y1="25" x2="40" y2="38" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="3 3" />
+      <line x1="85" y1="25" x2="70" y2="38" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="3 3" />
     </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b"/>
-    <rect x="40" y="192" width="175" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7"/>
+    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
+    <rect x="40" y="192" width="175" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
   </g>
 
-  <!-- Card 1 (front) - TrueConf Zero-Day -->
+  
   <g transform="translate(660, 340)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5"/>
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03"/>
+    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
+    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
     <g transform="translate(110, 15)">
-      <!-- Broken shield icon (zero-day) -->
-      <path d="M50 5 L90 22 L90 55 C90 82 70 98 50 108 C30 98 10 82 10 55 L10 22 Z" fill="url(#shieldGrad)" opacity="0.25" stroke="#dc2626" stroke-width="2" stroke-opacity="0.8"/>
-      <path d="M50 10 L85 25 L85 55 C85 78 68 92 50 102 C32 92 15 78 15 55 L15 25 Z" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.3"/>
-      <!-- Lightning bolt (zero-day exploit) -->
-      <path d="M55 25 L40 55 L52 55 L45 85 L70 48 L56 48 Z" fill="#fbbf24" opacity="0.9"/>
-      <!-- 0-DAY text -->
-      <rect x="18" y="90" width="65" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4"/>
-      <text x="50" y="103" text-anchor="middle" fill="#f87171" font-family="monospace" font-size="10" font-weight="700">0-DAY</text>
-    </g>
+      
+      <path d="M50 5 L90 22 L90 55 C90 82 70 98 50 108 C30 98 10 82 10 55 L10 22 Z" fill="url(#shieldGrad)" opacity="0.25" stroke="#dc2626" stroke-width="2" stroke-opacity="0.8" />
+      <path d="M50 10 L85 25 L85 55 C85 78 68 92 50 102 C32 92 15 78 15 55 L15 25 Z" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.3" />
+      
+      <path d="M55 25 L40 55 L52 55 L45 85 L70 48 L56 48 Z" fill="#fbbf24" opacity="0.9" />
+      
+      <rect x="18" y="90" width="65" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
+      </g>
     <g transform="translate(40, 195)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8"/>
+      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
       <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
       </circle>
-      <text x="32" y="18" fill="#f87171" font-family="monospace" font-size="11" font-weight="600">TRUECONF CVE</text>
-    </g>
+      </g>
   </g>
 
-  <!-- Floating particles -->
+  
   <circle cx="720" cy="280" r="2" fill="#8b5cf6" opacity="0.5">
-    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite" />
   </circle>
   <circle cx="830" cy="330" r="1.5" fill="#dc2626" opacity="0.4">
-    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="1050" cy="300" r="2" fill="#06b6d4" opacity="0.5">
-    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="690" cy="200" r="1.5" fill="#8b5cf6" opacity="0.3">
-    <animate attributeName="cy" values="200;192;200" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="200;192;200" dur="2.8s" repeatCount="indefinite" />
   </circle>
   <circle cx="1100" cy="180" r="1" fill="#dc2626" opacity="0.4">
-    <animate attributeName="cy" values="180;172;180" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="180;172;180" dur="2s" repeatCount="indefinite" />
   </circle>
   <circle cx="950" cy="130" r="1.5" fill="#06b6d4" opacity="0.35">
-    <animate attributeName="cx" values="950;958;950" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="950;958;950" dur="4s" repeatCount="indefinite" />
   </circle>
 
-  <!-- ==================== LEFT SIDE: Text Content ==================== -->
+  
 
-  <!-- Category pill -->
+  
   <g transform="translate(60, 80)">
-    <rect width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+    <rect width="160" height="32" rx="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4" />
     <text x="80" y="21" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
   </g>
 
-  <!-- Title -->
+  
   <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
   <text x="60" y="225" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
   <text x="60" y="290" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">Zero-Day APT</text>
   <text x="60" y="335" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">AWS Compliance</text>
 
-  <!-- Gradient accent line -->
-  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)"/>
+  
+  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
 
-  <!-- Tag chips -->
+  
   <g transform="translate(60, 385)">
-    <rect width="90" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35"/>
+    <rect width="90" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
     <text x="45" y="20" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Zero-Day</text>
     <g transform="translate(100, 0)">
-      <rect width="60" height="30" rx="15" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.35"/>
-      <text x="30" y="20" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">APT</text>
-    </g>
+      <rect width="60" height="30" rx="15" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.35" />
+      </g>
     <g transform="translate(170, 0)">
-      <rect width="65" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35"/>
+      <rect width="65" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35" />
       <text x="33" y="20" text-anchor="middle" fill="#22d3ee" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">AWS</text>
     </g>
     <g transform="translate(245, 0)">
-      <rect width="85" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35"/>
+      <rect width="85" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
       <text x="43" y="20" text-anchor="middle" fill="#60a5fa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Security</text>
     </g>
   </g>
 
-  <!-- Date -->
+  
   <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">APRIL 01, 2026</text>
 
-  <!-- Footer -->
+  
   <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8"/>
+    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
     <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
   </g>
 
-  <!-- Border frame -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1"/>
+  
+  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
 </svg>
