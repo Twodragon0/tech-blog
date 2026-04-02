@@ -140,7 +140,7 @@
   <text x="80" y="245" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">AI Blockchain Digest</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Security &amp; Intelligence Roundup — Curated Weekly</text>
+  <text x="80" y="300" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)" letter-spacing="0.3">Security &amp; Intelligence Roundup - Curated Weekly</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>

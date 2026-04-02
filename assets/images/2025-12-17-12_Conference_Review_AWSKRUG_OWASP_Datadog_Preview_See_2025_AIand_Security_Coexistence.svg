@@ -115,13 +115,13 @@
   <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">OWASP Datadog Preview See</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(200,200,230,0.75)">Cloud Security Conferences — AWS, OWASP, Datadog Insights</text>
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(200,200,230,0.75)">Cloud Security Conferences - AWS, OWASP, Datadog Insights</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,136,0,0.85)" letter-spacing="2">CLOUD SECURITY · CONFERENCE REVIEW</text>
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,136,0,0.85)" letter-spacing="2">CLOUD SECURITY - CONFERENCE REVIEW</text>
 
   <!-- Tag pills -->
   <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(255,68,68,0.18)" stroke="rgba(255,68,68,0.45)" stroke-width="1.5"/>

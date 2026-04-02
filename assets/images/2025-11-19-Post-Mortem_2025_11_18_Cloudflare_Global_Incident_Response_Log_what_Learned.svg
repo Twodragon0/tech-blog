@@ -125,13 +125,13 @@
   <text x="80" y="295" font-family="'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.92)">Incident</text>
 
   <!-- Subtitle -->
-  <text x="80" y="340" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="rgba(255,180,100,0.80)">Root Cause Analysis · BGP Misconfiguration · Global CDN Impact</text>
+  <text x="80" y="340" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="rgba(255,180,100,0.80)">Root Cause Analysis - BGP Misconfiguration - Global CDN Impact</text>
 
   <!-- Accent line -->
   <rect x="80" y="358" width="420" height="3" rx="1" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="390" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="rgba(255,120,60,0.75)" letter-spacing="2.5">INCIDENT · CLOUDFLARE · POST-MORTEM</text>
+  <text x="80" y="390" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="rgba(255,120,60,0.75)" letter-spacing="2.5">INCIDENT - CLOUDFLARE - POST-MORTEM</text>
 
   <!-- Tag pills -->
   <rect x="80" y="408" width="110" height="36" rx="18" fill="rgba(220,30,30,0.20)" stroke="rgba(255,60,60,0.40)" stroke-width="1"/>

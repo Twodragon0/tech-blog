@@ -125,7 +125,7 @@
   <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">5Week AWS Control TowerSCP</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,180,120,0.82)">AWS Control Tower · Service Control Policies · Organizational Units</text>
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,180,120,0.82)">AWS Control Tower - Service Control Policies - Organizational Units</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>

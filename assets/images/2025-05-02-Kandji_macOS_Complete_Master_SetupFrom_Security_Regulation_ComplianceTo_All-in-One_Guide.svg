@@ -88,7 +88,7 @@
   <circle cx="1010" cy="317" r="2" fill="rgba(232,48,74,0.55)"/>
 
   <!-- MDM label -->
-  <text x="985" y="342" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.22)" text-anchor="middle" letter-spacing="2">MDM · COMPLIANCE</text>
+  <text x="985" y="342" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.22)" text-anchor="middle" letter-spacing="2">MDM - COMPLIANCE</text>
 
   <!-- Kandji label arc simulation via straight text -->
   <text x="1010" y="145" font-family="'Courier New',monospace" font-size="9" fill="rgba(232,48,74,0.45)" text-anchor="middle" letter-spacing="3">KANDJI</text>

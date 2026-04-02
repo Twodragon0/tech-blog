@@ -78,7 +78,7 @@
   <text x="80" y="245" font-family="Inter, system-ui, sans-serif" font-size="46" fill="#ffffff" font-weight="700" letter-spacing="-0.5">Zero-Day &amp; Supply Chain</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Inter, system-ui, sans-serif" font-size="19" fill="#ffffff" fill-opacity="0.45" font-weight="400">Weekly Security Digest — Threats, Vulnerabilities &amp; Defense Strategies</text>
+  <text x="80" y="300" font-family="Inter, system-ui, sans-serif" font-size="19" fill="#ffffff" fill-opacity="0.45" font-weight="400">Weekly Security Digest - Threats, Vulnerabilities &amp; Defense Strategies</text>
 
   <!-- Keyword tag pills -->
   <g transform="translate(80, 420)">

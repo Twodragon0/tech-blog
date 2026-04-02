@@ -115,7 +115,7 @@
   <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">7Week Docker Kubernetes Security</text>
 
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.6)" letter-spacing="0.3">Practical container security training — securing workloads end-to-end</text>
+  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.6)" letter-spacing="0.3">Practical container security training - securing workloads end-to-end</text>
 
   <!-- Accent line -->
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>

@@ -112,7 +112,7 @@
   <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Category label -->
-  <text x="80" y="370" font-size="14" fill="rgba(255,100,80,0.80)" font-family="Arial, sans-serif" font-weight="600" letter-spacing="2">CLOUD SECURITY · DEVSECOPS · AWS</text>
+  <text x="80" y="370" font-size="14" fill="rgba(255,100,80,0.80)" font-family="Arial, sans-serif" font-weight="600" letter-spacing="2">CLOUD SECURITY - DEVSECOPS - AWS</text>
 
   <!-- Tag pills -->
   <rect x="80" y="402" width="108" height="36" rx="18" fill="rgba(220,40,40,0.20)" stroke="rgba(220,60,60,0.45)" stroke-width="1"/>

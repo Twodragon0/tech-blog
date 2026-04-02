@@ -116,7 +116,7 @@
   <text x="80" y="295" font-size="38" font-weight="700" fill="rgba(255,160,80,0.92)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.3">Current &amp; Future</text>
 
   <!-- Subtitle -->
-  <text x="80" y="330" font-size="19" fill="rgba(200,200,200,0.75)" font-family="'Segoe UI', Arial, sans-serif">Cloud Security Conference — Annual AWS Security Summit</text>
+  <text x="80" y="330" font-size="19" fill="rgba(200,200,200,0.75)" font-family="'Segoe UI', Arial, sans-serif">Cloud Security Conference - Annual AWS Security Summit</text>
 
   <!-- Accent line -->
   <rect x="80" y="350" width="420" height="3" rx="1" fill="url(#accentLine)"/>

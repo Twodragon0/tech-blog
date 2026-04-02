@@ -32,7 +32,7 @@
   <!-- Date badge -->
   <rect x="80" y="290" width="280" height="50" rx="8" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2"/>
   <text x="100" y="322" font-family="Arial, sans-serif" font-size="16" fill="#00d4ff" font-weight="500">
-    DECEMBER 19, 2025 • WEEK 4
+    DECEMBER 19, 2025 - WEEK 4
   </text>
 
   <!-- Tag pills -->
