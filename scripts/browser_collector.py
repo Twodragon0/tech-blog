@@ -260,6 +260,14 @@ def scrape(
     else:
         connect_code = "const browser = await chromium.launch();"
 
+    def _js_escape(s):
+        """Escape a string for safe embedding in a JS single-quoted literal."""
+        return s.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r")
+
+    safe_url = _js_escape(url)
+    safe_selector = _js_escape(selector)
+    safe_output = _js_escape(output)
+
     script = f"""
 import {{ chromium }} from 'playwright';
 import {{ writeFileSync }} from 'fs';
@@ -268,24 +276,24 @@ import {{ writeFileSync }} from 'fs';
   {connect_code}
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto('{url}', {{ waitUntil: 'networkidle', timeout: 60000 }});
+  await page.goto('{safe_url}', {{ waitUntil: 'networkidle', timeout: 60000 }});
 
-  const elements = await page.$$eval('{selector}', els => els.map(el => ({{
+  const elements = await page.$$eval('{safe_selector}', els => els.map(el => ({{
     text: el.textContent?.trim(),
     href: el.getAttribute('href') || null,
     html: el.innerHTML?.substring(0, 500)
   }})));
 
   const result = {{
-    url: '{url}',
-    selector: '{selector}',
+    url: '{safe_url}',
+    selector: '{safe_selector}',
     timestamp: new Date().toISOString(),
     count: elements.length,
     items: elements
   }};
 
-  writeFileSync('{output}', JSON.stringify(result, null, 2));
-  console.log(JSON.stringify({{ status: 'ok', count: elements.length, path: '{output}' }}));
+  writeFileSync('{safe_output}', JSON.stringify(result, null, 2));
+  console.log(JSON.stringify({{ status: 'ok', count: elements.length, path: '{safe_output}' }}));
   await browser.close();
 }})();
 """

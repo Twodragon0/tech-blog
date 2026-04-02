@@ -146,7 +146,7 @@ export default async function handler(req, res) {
   
   // OPTIONS 요청 처리 (CORS preflight) - 빠른 응답
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    return res.status(204).end();
   }
   
   // Origin 검증 (POST 요청 시)

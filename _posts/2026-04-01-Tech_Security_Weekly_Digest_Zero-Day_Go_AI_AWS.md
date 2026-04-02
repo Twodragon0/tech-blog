@@ -4,7 +4,7 @@ title: "Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에
 date: 2026-04-01 10:48:40 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Go, AI, AWS]
-excerpt: "Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드를 중심으로 2026년 04월 01일 주요 보안/기술 뉴스 30건과 대응 우선순위를 정리합니다."
+excerpt: "Android Developer 보안 업데이트, TrueConf 제로데이 취약점, 동남아시아 정부 대상 APT 공격, AWS 규정 준수 가이드를 중심으로 2026년 04월 01일 주요 보안/기술 뉴스 30건과 DevSecOps 대응 우선순위를 정리합니다."
 description: "2026년 04월 01일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 30건을 분석하고 Android Developer, TrueConf 제로데이, 동남아시아 정부 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Go, AI]
 author: Twodragon
@@ -58,7 +58,7 @@ toc: true
 | 🔒 **Security** | The Hacker News | Android Developer Verification, 9월 시행 앞두고 단계적 도입 시작 | 🔴 Critical |
 | 🔒 **Security** | The Hacker News | TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용 | 🔴 Critical |
 | 🔒 **Security** | AWS Security Blog | AWS에서 제공하는 새로운 규정 준수 가이드: ISO/IEC 27001:2022 | 🟡 Medium |
-| 🤖 **AI/ML** | Meta Engineering Blo | Meta Adaptive Ranking Model: LLM 규모 광고 모델 서빙을 위한 추론 확장 곡선 극복 | 🟡 Medium |
+| 🤖 **AI/ML** | Meta Engineering Blog | Meta Adaptive Ranking Model: LLM 규모 광고 모델 서빙을 위한 추론 확장 곡선 극복 | 🟡 Medium |
 | 🤖 **AI/ML** | Google AI Blog | Veo 3.1 Lite로 구축하세요, 가장 비용 효율적인 비디오 생성 모델 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | 효율성 확장: NVIDIA와 에너지 선도 기업들이 전력망 강화를 위한 유연 AI 팩토리 가속화 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | Spanner의 완전한 상호운용성 멀티모델 데이터베이스로 실현한 현실 세계의 성공 | 🟡 Medium |

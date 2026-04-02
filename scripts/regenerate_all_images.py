@@ -15,7 +15,8 @@ try:
     import frontmatter
 except ImportError:
     print("Installing python-frontmatter...")
-    os.system(f"{sys.executable} -m pip install python-frontmatter")
+    import subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "python-frontmatter"])
     import frontmatter
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
