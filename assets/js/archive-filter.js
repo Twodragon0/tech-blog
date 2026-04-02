@@ -68,4 +68,38 @@
       applyFilters();
     }, 200);
   });
+
+  // Keyboard shortcut: "/" focuses search, Escape clears and blurs
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput.blur();
+      searchInput.value = '';
+      currentSearch = '';
+      applyFilters();
+    }
+  });
+
+  // Hide kbd hint when input is focused
+  var kbdHint = document.querySelector('.search-kbd');
+  if (kbdHint) {
+    searchInput.addEventListener('focus', function () { kbdHint.style.display = 'none'; });
+    searchInput.addEventListener('blur', function () {
+      if (!searchInput.value) kbdHint.style.display = '';
+    });
+  }
+
+  // Smooth scroll for year header anchors
+  document.querySelectorAll('a[href^="#year-"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var target = document.getElementById(this.getAttribute('href').slice(1));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 })();

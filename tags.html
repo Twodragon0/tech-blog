@@ -4,8 +4,51 @@ title: Tags
 description: 태그별로 정리된 포스트를 확인하세요
 permalink: /tags/
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Tags",
+  "description": "태그별로 정리된 포스트를 확인하세요",
+  "url": "{{ site.url }}/tags/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
 <div class="tags-page">
   {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq | sort_natural %}
+
+  <!-- Hero Section -->
+  <header class="tags-hero" role="banner">
+    <h2 class="tags-hero-title">Tags</h2>
+    <p class="tags-hero-desc">관심 있는 태그를 클릭하여 관련 포스트를 확인하세요</p>
+  </header>
+
+  <!-- Stats Bar -->
+  <div class="tags-stats">
+    <div class="tags-stat">
+      <span class="tags-stat-number">{{ all_tags.size }}</span>
+      <span class="tags-stat-label">Tags</span>
+    </div>
+    <div class="tags-stat">
+      <span class="tags-stat-number">{{ site.posts.size }}</span>
+      <span class="tags-stat-label">Posts</span>
+    </div>
+  </div>
+
+  <!-- Search Toolbar -->
+  <div class="tags-toolbar">
+    <div class="tags-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="tag-search" placeholder="Search tags..." aria-label="태그 검색" autocomplete="off">
+    </div>
+  </div>
 
   <!-- Tag Cloud -->
   <div class="tag-cloud">
@@ -37,7 +80,39 @@ permalink: /tags/
       </li>
       {% endfor %}
     </ul>
+    <a href="#" class="tag-section-top" aria-label="맨 위로 이동">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+      Top
+    </a>
   </section>
   {% endif %}
   {% endfor %}
 </div>
+
+<script>
+(function() {
+  'use strict';
+  var input = document.getElementById('tag-search');
+  if (!input) return;
+  var tags = document.querySelectorAll('.tag-cloud .tag');
+  var sections = document.querySelectorAll('.tag-section');
+  var timer;
+  input.addEventListener('input', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      var q = input.value.toLowerCase().trim();
+      tags.forEach(function(tag) {
+        var name = tag.textContent.toLowerCase();
+        tag.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
+      });
+      sections.forEach(function(sec) {
+        var header = sec.querySelector('.tag-section-header');
+        var name = header ? header.textContent.toLowerCase() : '';
+        sec.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
+      });
+    }, 200);
+  });
+})();
+</script>

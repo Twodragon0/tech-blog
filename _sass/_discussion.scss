@@ -33,10 +33,34 @@
   background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), var(--color-bg-secondary));
 }
 
+.discussion-hero-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+[data-theme="dark"] .discussion-hero-badge {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(167, 139, 250, 0.15));
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #60a5fa;
+}
+
 .discussion-hero-title {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--spacing-md);
   position: relative;
 }
@@ -112,6 +136,39 @@
 .discussion-category-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
+}
+
+.discussion-category-card[data-category="general"]:hover {
+  border-top-color: #3b82f6;
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+}
+
+.discussion-category-card[data-category="qa"]:hover {
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.15);
+}
+
+.discussion-category-card[data-category="ideas"]:hover {
+  box-shadow: 0 12px 32px rgba(245, 158, 11, 0.15);
+}
+
+.discussion-category-card[data-category="show"]:hover {
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.15);
+}
+
+[data-theme="dark"] .discussion-category-card[data-category="general"]:hover {
+  box-shadow: 0 12px 32px rgba(96, 165, 250, 0.2);
+}
+
+[data-theme="dark"] .discussion-category-card[data-category="qa"]:hover {
+  box-shadow: 0 12px 32px rgba(52, 211, 153, 0.2);
+}
+
+[data-theme="dark"] .discussion-category-card[data-category="ideas"]:hover {
+  box-shadow: 0 12px 32px rgba(251, 191, 36, 0.2);
+}
+
+[data-theme="dark"] .discussion-category-card[data-category="show"]:hover {
+  box-shadow: 0 12px 32px rgba(167, 139, 250, 0.2);
 }
 
 .discussion-category-card.card::before {
@@ -497,6 +554,10 @@
   .discussion-hero {
     padding: var(--spacing-xl) var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
+  }
+
+  .discussion-hero-badge {
+    font-size: 0.65rem;
   }
 
   .discussion-hero-title {

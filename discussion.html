@@ -4,9 +4,24 @@ title: Discussion
 description: 자유롭게 의견을 나누고 질문하세요
 permalink: /discussion/
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Community Discussion",
+  "description": "자유롭게 의견을 나누고 질문하세요",
+  "url": "{{ site.url }}/discussion/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
 <div class="discussion-page">
   <!-- Hero Section -->
   <header class="discussion-hero" role="banner">
+    <div class="discussion-hero-badge">Community</div>
     <h2 class="discussion-hero-title">Community Discussion</h2>
     <p class="discussion-hero-desc">
       DevSecOps, 클라우드 보안, 쿠버네티스 등 기술 주제에 대해 자유롭게 의견을 나누고 질문하세요.
@@ -37,7 +52,7 @@ permalink: /discussion/
           </svg>
           <h3>General</h3>
         </div>
-        <p class="discussion-category-desc">일반적인 대화와 커뮤니티 소통</p>
+        <p class="discussion-category-desc">일반적인 기술 토론, 커리어 이야기, 커뮤니티 소통의 장</p>
       </a>
 
       <a href="https://github.com/{{ site.giscus.repo }}/discussions/categories/q-a" target="_blank" rel="noopener noreferrer" class="card discussion-category-card" data-category="qa" aria-label="Q&A - 기술적인 질문과 답변">
@@ -49,7 +64,7 @@ permalink: /discussion/
           </svg>
           <h3>Q&amp;A</h3>
         </div>
-        <p class="discussion-category-desc">기술적인 질문과 답변</p>
+        <p class="discussion-category-desc">기술적인 질문과 답변 — DevSecOps, 클라우드, 보안 전반</p>
       </a>
 
       <a href="https://github.com/{{ site.giscus.repo }}/discussions/categories/ideas" target="_blank" rel="noopener noreferrer" class="card discussion-category-card" data-category="ideas" aria-label="Ideas - 새로운 아이디어와 제안">
@@ -59,7 +74,7 @@ permalink: /discussion/
           </svg>
           <h3>Ideas</h3>
         </div>
-        <p class="discussion-category-desc">새로운 아이디어와 제안</p>
+        <p class="discussion-category-desc">블로그 주제 제안, 새로운 기술 트렌드, 개선 아이디어</p>
       </a>
 
       <a href="https://github.com/{{ site.giscus.repo }}/discussions/categories/show-and-tell" target="_blank" rel="noopener noreferrer" class="card discussion-category-card" data-category="show" aria-label="Show and Tell - 프로젝트와 성과 공유">
@@ -69,7 +84,7 @@ permalink: /discussion/
           </svg>
           <h3>Show and Tell</h3>
         </div>
-        <p class="discussion-category-desc">프로젝트와 성과 공유</p>
+        <p class="discussion-category-desc">개인 프로젝트, 학습 성과, 유용한 도구 공유</p>
       </a>
     </div>
   </section>
@@ -156,48 +171,43 @@ permalink: /discussion/
 
   <!-- Community Stats -->
   <section aria-labelledby="discussion-stats-heading">
-    <h2 id="discussion-stats-heading" class="discussion-section-title">Community</h2>
+    <h2 id="discussion-stats-heading" class="discussion-section-title">Blog Community</h2>
     <div class="discussion-stats">
       <div class="discussion-stat-card">
         <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
         </svg>
-        <div class="discussion-stat-number">50+</div>
-        <div class="discussion-stat-label">참여자</div>
+        <div class="discussion-stat-number">{{ site.posts.size }}</div>
+        <div class="discussion-stat-label">포스트</div>
+      </div>
+      <div class="discussion-stat-card">
+        <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+        <div class="discussion-stat-number">{% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq %}{{ all_tags.size }}</div>
+        <div class="discussion-stat-label">태그</div>
+      </div>
+      <div class="discussion-stat-card">
+        <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <div class="discussion-stat-number">{{ site.category_list | size }}</div>
+        <div class="discussion-stat-label">카테고리</div>
       </div>
       <div class="discussion-stat-card">
         <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        <div class="discussion-stat-number">120+</div>
-        <div class="discussion-stat-label">토론</div>
-      </div>
-      <div class="discussion-stat-card">
-        <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-        <div class="discussion-stat-number">85+</div>
-        <div class="discussion-stat-label">답변 완료</div>
-      </div>
-      <div class="discussion-stat-card">
-        <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-        <div class="discussion-stat-number">30+</div>
-        <div class="discussion-stat-label">프로젝트 공유</div>
+        <div class="discussion-stat-number">Giscus</div>
+        <div class="discussion-stat-label">댓글 시스템</div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="discussion-cta" aria-labelledby="discussion-cta-heading">
-    <h2 id="discussion-cta-heading" class="discussion-cta-title">커뮤니티에 참여하세요</h2>
-    <p class="discussion-cta-desc">GitHub Discussions에서 다른 개발자들과 함께 지식을 나누고 성장하세요.</p>
+    <h2 id="discussion-cta-heading" class="discussion-cta-title">함께 성장하는 커뮤니티</h2>
+    <p class="discussion-cta-desc">보안과 DevOps에 관심 있는 개발자들과 함께 지식을 나누고 성장하세요.</p>
     <a href="https://github.com/{{ site.giscus.repo }}/discussions" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large" aria-label="GitHub Discussions 페이지로 이동">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="btn-icon" aria-hidden="true">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
