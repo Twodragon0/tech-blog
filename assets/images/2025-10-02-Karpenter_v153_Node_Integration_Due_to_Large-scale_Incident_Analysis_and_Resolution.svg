@@ -1,4 +1,5 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <title>Karpenter v153 Node Integration Due to Large-scale Incident Analysis and Resolution</title>
   <defs><linearGradient id="bgK" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0a1a"/><stop offset="100%" stop-color="#17152c"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#bgK)"/>
   <text x="60" y="72" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">Karpenter Upgrade Incident Loop</text>

@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
+  <title>AWS Cloud Security IAM From EKS To Security</title>
   <!-- Dark background -->
   <rect width="1200" height="630" fill="#0a0c1a"/>
 
