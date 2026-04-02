@@ -5,43 +5,28 @@ date: 2026-03-30 09:00:00 +0900
 categories: [security, devsecops]
 tags: [monthly-index, security-news, weekly-digest, 2026]
 excerpt: "2026년 3월 한 달간 발행된 보안 주간 다이제스트의 종합 인덱스입니다. 주요 보안 위협, CVE, 클라우드 보안, AI 보안, DevSecOps 업데이트를 주차별로 정리합니다."
-description: "2026년 3월 보안 다이제스트 월간 인덱스입니다. 랜섬웨어, AI 에이전트 보안, 공급망 공격, 클라우드 취약점, DevSecOps 운영 우선순위를 주차별로 빠르게 확인할 수 있습니다."
-keywords: [monthly-index, security-news, weekly-digest, 2026, ai-security, supply-chain, cloud-security]
-author: Twodragon
-comments: true
 image: /assets/images/2026-03-30-March_2026_Security_Digest_Monthly_Index.svg
-image_alt: "March 2026 security digest monthly index cover"
-toc: true
 ---
 
 {% include ai-summary-card.html
   title='2026년 3월 보안 다이제스트 월간 인덱스'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Monthly-Index</span>
-      <span class="tag">Security-News</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">Cloud-Security</span>
+  tags_html='<span class="tag">monthly-index</span>
+      <span class="tag">security-news</span>
+      <span class="tag">weekly-digest</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>AI Security</strong>: AI 에이전트 권한 탈취, LLM 탈옥, 코드 에이전트 보안 이슈가 월간 핵심 위협으로 부상했습니다.</li>
-      <li><strong>Supply Chain</strong>: Trivy 침해, Helm 차트 변조, LiteLLM 백도어 등 공급망 공격이 연쇄적으로 이어졌습니다.</li>
-      <li><strong>Cloud Native</strong>: Kubernetes RBAC, GKE 보안, IAM Zero Trust, FinOps 보안 통합 흐름이 강화되었습니다.</li>'
-  period='2026년 03월 월간 인덱스'
+  highlights_html='<li><strong>월간 종합</strong>: 2026년 3월 발행 보안 다이제스트 핵심 이슈 인덱싱</li>
+      <li><strong>위협 동향</strong>: 랜섬웨어, 공급망, AI 에이전트 보안 위협 집중 정리</li>
+      <li><strong>운영 포인트</strong>: CVE 패치와 클라우드·Kubernetes 대응 우선순위 확인</li>'
+  period='2026년 3월 월간 인덱스'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
+
+---
 
 ## 개요
 
 2026년 3월 한 달간 발행된 보안 주간 다이제스트를 종합 정리합니다. 총 27개의 다이제스트 포스트를 통해 랜섬웨어 진화, AI 에이전트 보안 위협, 공급망 공격, 클라우드 취약점, DevSecOps 모범 사례 등 핵심 보안 트렌드를 다뤘습니다.
-
-## 월간 우선순위 브리핑
-
-| 우선순위 | 핵심 주제 | 대표 포스트 | 이번 달 바로 할 일 |
-|----------|-----------|-------------|--------------------|
-| P0 | AI 에이전트/LLM 보안 | [3월 28일](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/), [3월 29일](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) | 에이전트 권한 감사, 프롬프트 인젝션 방어, 다단계 탈옥 테스트 추가 |
-| P0 | 공급망 공격 대응 | [3월 21일](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/), [3월 22일](/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/), [3월 26일](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) | 서명 검증, SBOM 점검, CI/CD 토큰 로테이션 |
-| P1 | 클라우드/Kubernetes 보안 | [3월 18일](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/), [3월 27일](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) | IAM/Workload Identity 점검, 런타임 탐지, 네트워크 정책 검토 |
-| P1 | 랜섬웨어 및 침해 대응 | [3월 23일](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/), [3월 29일](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) | 백업 복구 훈련, EDR 룰 튜닝, 침해 지표 헌팅 |
 
 ---
 
@@ -100,14 +85,6 @@ toc: true
 
 ---
 
-## 추천 읽기 순서
-
-1. **운영 우선순위부터 확인**: [3월 29일 다이제스트](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/)와 [3월 28일 다이제스트](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/)를 먼저 읽고 이번 주 P0 항목을 정리합니다.
-2. **공급망 리스크 흐름 파악**: [3월 21일](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/), [3월 22일](/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/), [3월 25일](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/)를 연속해서 보면 Trivy 관련 후속 이슈를 빠르게 연결할 수 있습니다.
-3. **클라우드 네이티브 보안만 추적**: [3월 18일](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/), [3월 26일](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/), [3월 27일](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) 순서로 읽으면 IAM, Kubernetes, FinOps 연결 고리를 확인할 수 있습니다.
-
----
-
 ## 월간 주요 트렌드
 
 - **AI 에이전트 보안 위협 급증**: AI 코드 에이전트와 LLM 기반 도구의 보안 취약점(프롬프트 인젝션, 샌드박스 우회, DNS 유출)이 3월 내내 반복적으로 등장했으며, Bedrock 멀티에이전트 보안 아키텍처와 레드팀 오픈소스 도구에 대한 관심이 높아졌습니다.
@@ -118,15 +95,6 @@ toc: true
 
 ---
 
-## 이번 달 액션 체크리스트
-
-- [ ] AI 에이전트 및 LLM 서비스의 도구 호출 권한과 세션 격리 정책을 재점검합니다.
-- [ ] CI/CD, Helm 차트, 컨테이너 이미지에 대한 서명 검증과 SBOM 모니터링을 강화합니다.
-- [ ] Kubernetes 및 클라우드 런타임 환경에서 네트워크 정책, IAM, 런타임 탐지 구성을 재검토합니다.
-- [ ] 랜섬웨어 복구 훈련과 자격 증명 로테이션을 월간 운영 일정에 포함합니다.
-
----
-
 ## 통계
 
 - **총 발행 포스트**: 27개
@@ -134,8 +102,3 @@ toc: true
 - **주요 키워드**: 랜섬웨어, AI 에이전트 보안, 공급망 공격, 제로데이, Kubernetes, AWS IAM, DevSecOps, 제로트러스트, LLM 보안, 암호화폐 침해
 - **주요 위협 행위자**: Gentlemen 랜섬웨어, GlassWorm, LeakNet, 북한 IT 노동자
 - **주요 CVE/취약점**: CVE-2026-20122 (Cisco), Oracle RCE, Chrome 제로데이, Cisco FMC 제로데이, Telnetd 루트 RCE, Langflow RCE
-
-## 다음 단계
-
-- 4월 초에는 [3월 31일 다이제스트](/posts/2026/03/31/Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT/)와 이후 발행분을 월간 인덱스에 연결해 월말-월초 위협 흐름을 이어서 추적합니다.
-- 월간 인덱스는 신규 팀원 온보딩용 큐레이션 페이지로도 활용할 수 있으므로, 분기별 대표 포스트 링크를 별도 섹션으로 축적하는 것을 권장합니다.

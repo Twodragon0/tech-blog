@@ -1,42 +1,214 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg28" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#08101d"/>
-      <stop offset="100%" stop-color="#16112a"/>
-    </linearGradient>
-    <linearGradient id="line28" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#38bdf8"/>
+    <!-- Glass blur filter -->
+    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0"/>
+    </filter>
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Soft glow for icons -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <!-- Gradient accents -->
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
       <stop offset="100%" stop-color="#f43f5e"/>
     </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(59,130,246,0.6)"/>
+      <stop offset="100%" stop-color="rgba(244,63,94,0.1)"/>
+    </linearGradient>
+    <linearGradient id="cardBorder2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(244,63,94,0.5)"/>
+      <stop offset="100%" stop-color="rgba(59,130,246,0.1)"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <radialGradient id="orbBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCoral" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Dot pattern -->
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="rgba(148,163,184,0.15)"/>
+    </pattern>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg28)"/>
-  <circle cx="940" cy="170" r="120" fill="#38bdf8" opacity="0.10"/>
-  <circle cx="1040" cy="420" r="150" fill="#8b5cf6" opacity="0.10"/>
-  <circle cx="260" cy="520" r="140" fill="#f43f5e" opacity="0.08"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
 
-  <text x="60" y="74" fill="#cbd5e1" font-size="28" font-family="Georgia, serif">Mar 28, 2026</text>
-  <text x="60" y="180" fill="#ffffff" font-size="48" font-family="Arial, sans-serif" font-weight="700">AI Agent Security</text>
-  <text x="60" y="238" fill="#e2e8f0" font-size="44" font-family="Arial, sans-serif" font-weight="700">Cloud Zero-Day</text>
-  <rect x="60" y="260" width="210" height="4" rx="2" fill="url(#line28)"/>
+  <!-- Ambient glow orbs -->
+  <ellipse cx="900" cy="200" rx="250" ry="200" fill="url(#orbBlue)"/>
+  <ellipse cx="350" cy="500" rx="200" ry="180" fill="url(#orbCoral)"/>
+  <ellipse cx="700" cy="400" rx="180" ry="160" fill="url(#orbPurple)"/>
+  <ellipse cx="1050" cy="520" rx="150" ry="130" fill="url(#orbBlue)"/>
 
-  <rect x="60" y="308" width="110" height="34" rx="17" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="115" y="330" text-anchor="middle" fill="#7dd3fc" font-size="13" font-family="Arial, sans-serif" font-weight="700">AI</text>
-  <rect x="184" y="308" width="130" height="34" rx="17" fill="#0f172a" stroke="#f43f5e" stroke-width="1.5"/>
-  <text x="249" y="330" text-anchor="middle" fill="#fda4af" font-size="13" font-family="Arial, sans-serif" font-weight="700">ZERO-DAY</text>
-  <rect x="328" y="308" width="130" height="34" rx="17" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="393" y="330" text-anchor="middle" fill="#c4b5fd" font-size="13" font-family="Arial, sans-serif" font-weight="700">CLOUD</text>
+  <!-- ===== LEFT SIDE: Text Content ===== -->
 
-  <g transform="translate(740,140)">
-    <rect x="0" y="0" width="320" height="300" rx="24" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
-    <path d="M86 170 C86 128 118 96 158 96 C190 96 216 114 226 142 C254 142 276 164 276 192 C276 219 255 240 226 240 H116 C84 240 60 217 60 190 C60 170 70 155 86 170 Z" fill="#38bdf8" opacity="0.88"/>
-    <path d="M182 136 L198 120 L214 136" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="198" y1="122" x2="198" y2="172" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-    <path d="M118 188 L134 204 L164 172" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-    <path d="M118 188 L134 204 L164 172" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="92" y="42" width="136" height="26" rx="13" fill="#111827" stroke="#38bdf8" stroke-width="1.2"/>
-    <rect x="92" y="250" width="136" height="26" rx="13" fill="#111827" stroke="#f43f5e" stroke-width="1.2"/>
+  <!-- Category pill -->
+  <rect x="60" y="80" width="160" height="34" rx="17" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+  <text x="140" y="102" font-family="'SF Pro Display',system-ui,sans-serif" font-size="13" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1.5">WEEKLY DIGEST</text>
+
+  <!-- Title -->
+  <text x="60" y="180" font-family="'SF Pro Display',system-ui,sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Tech Security Weekly</text>
+  <text x="60" y="235" font-family="'SF Pro Display',system-ui,sans-serif" font-size="44" font-weight="800" fill="url(#accentGrad)" letter-spacing="-0.5">Digest Cloud Zero</text>
+
+  <!-- Gradient accent line -->
+  <rect x="60" y="258" width="180" height="3" rx="1.5" fill="url(#accentLine)"/>
+
+  <!-- Subtitle -->
+  <text x="60" y="300" font-family="'SF Pro Display',system-ui,sans-serif" font-size="16" fill="rgba(148,163,184,0.9)" font-weight="400">Cloud Security and Zero-Day Analysis</text>
+
+  <!-- Tag chips -->
+  <g transform="translate(60, 340)">
+    <rect x="0" y="0" width="95" height="30" rx="15" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+
+    <rect x="105" y="0" width="95" height="30" rx="15" fill="rgba(244,63,94,0.12)" stroke="rgba(244,63,94,0.3)" stroke-width="1"/>
+
+    <rect x="210" y="0" width="95" height="30" rx="15" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
   </g>
 
-  <text x="60" y="578" fill="#64748b" font-size="14" font-family="Arial, sans-serif">tech.2twodragon.com</text>
+  <!-- Date -->
+  <text x="60" y="430" font-family="'SF Pro Display',system-ui,sans-serif" font-size="14" font-weight="600" fill="rgba(148,163,184,0.7)" letter-spacing="2">MARCH 28, 2026</text>
+
+  <!-- Footer -->
+  <line x1="60" y1="560" x2="480" y2="560" stroke="rgba(148,163,184,0.1)" stroke-width="1"/>
+  <text x="60" y="585" font-family="'SF Pro Display',system-ui,sans-serif" font-size="13" fill="rgba(148,163,184,0.5)" font-weight="400">tech.2twodragon.com</text>
+
+  <!-- ===== RIGHT SIDE: Glass Cards ===== -->
+
+  <!-- Card 1: Cloud with data flow (back, tilted) -->
+  <g transform="translate(640, 60) rotate(3, 200, 180)" filter="url(#cardShadow)">
+    <rect width="400" height="340" rx="16" fill="rgba(15,23,42,0.5)" filter="url(#glassBlur)"/>
+    <rect width="400" height="340" rx="16" fill="rgba(30,41,59,0.4)"/>
+    <rect width="400" height="340" rx="16" fill="none" stroke="url(#cardBorder1)" stroke-width="1.5"/>
+    <!-- Inner subtle shine -->
+    <rect x="1" y="1" width="398" height="80" rx="16" fill="rgba(255,255,255,0.03)"/>
+
+    <!-- Cloud icon -->
+    <g transform="translate(200, 130)" filter="url(#softGlow)">
+      <!-- Cloud shape -->
+      <path d="M-55,20 C-55,-15 -30,-40 0,-40 C25,-40 45,-22 50,-5 C70,-5 85,10 85,30 C85,50 70,60 55,60 L-40,60 C-60,60 -75,45 -75,28 C-75,12 -65,5 -55,20Z" fill="url(#cloudGrad)" opacity="0.9"/>
+      <!-- Data flow arrows -->
+      <g stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7">
+        <!-- Arrow down into cloud -->
+        <line x1="0" y1="-60" x2="0" y2="-42"/>
+        <polyline points="-6,-48 0,-42 6,-48"/>
+        <!-- Arrow up from cloud -->
+        <line x1="-30" y1="62" x2="-30" y2="80"/>
+        <polyline points="-36,74 -30,80 -24,74"/>
+        <!-- Arrow right from cloud -->
+        <line x1="87" y1="30" x2="105" y2="30"/>
+        <polyline points="99,24 105,30 99,36"/>
+      </g>
+      <!-- Data dots flowing -->
+      <circle cx="0" cy="-55" r="3" fill="#60a5fa" opacity="0.9"/>
+      <circle cx="-30" cy="85" r="3" fill="#60a5fa" opacity="0.9"/>
+      <circle cx="110" cy="30" r="3" fill="#60a5fa" opacity="0.9"/>
+      <!-- Server nodes inside cloud -->
+      <rect x="-25" y="10" width="12" height="16" rx="2" fill="rgba(255,255,255,0.3)"/>
+      <rect x="-5" y="10" width="12" height="16" rx="2" fill="rgba(255,255,255,0.3)"/>
+      <rect x="15" y="10" width="12" height="16" rx="2" fill="rgba(255,255,255,0.3)"/>
+      <!-- Connection lines between servers -->
+      <line x1="-13" y1="18" x2="-7" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="7" y1="18" x2="13" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    </g>
+
+    <!-- Card label -->
+    <text x="200" y="294" font-family="'SF Pro Display',system-ui,sans-serif" font-size="14" font-weight="600" fill="rgba(148,163,184,0.8)" text-anchor="middle" letter-spacing="1">CLOUD INFRASTRUCTURE</text>
+  </g>
+
+  <!-- Card 2: Shield with checkmark (front, overlapping) -->
+  <g transform="translate(680, 230) rotate(-2, 200, 180)" filter="url(#cardShadow)">
+    <rect width="400" height="340" rx="16" fill="rgba(15,23,42,0.6)" filter="url(#glassBlur)"/>
+    <rect width="400" height="340" rx="16" fill="rgba(30,41,59,0.5)"/>
+    <rect width="400" height="340" rx="16" fill="none" stroke="url(#cardBorder2)" stroke-width="1.5"/>
+    <!-- Inner subtle shine -->
+    <rect x="1" y="1" width="398" height="80" rx="16" fill="rgba(255,255,255,0.03)"/>
+
+    <!-- Large Shield with checkmark -->
+    <g transform="translate(200, 140)" filter="url(#softGlow)">
+      <!-- Shield outer glow -->
+      <path d="M0,-70 L60,-45 L60,15 C60,55 30,80 0,95 C-30,80 -60,55 -60,15 L-60,-45Z" fill="rgba(59,130,246,0.15)"/>
+      <!-- Shield body -->
+      <path d="M0,-60 L50,-38 L50,12 C50,47 25,68 0,80 C-25,68 -50,47 -50,12 L-50,-38Z" fill="url(#shieldGrad)" opacity="0.9"/>
+      <!-- Shield inner highlight -->
+      <path d="M0,-50 L40,-32 L40,8 C40,38 20,56 0,66 C-20,56 -40,38 -40,8 L-40,-32Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <!-- Checkmark -->
+      <polyline points="-20,5 -5,22 25,-15" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Lock icon below shield -->
+      <g transform="translate(0, 60)" opacity="0.6">
+        <rect x="-8" y="0" width="16" height="12" rx="2" fill="#94a3b8"/>
+        <path d="M-5,0 L-5,-5 C-5,-9 5,-9 5,-5 L5,0" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- Card label -->
+    <text x="200" y="294" font-family="'SF Pro Display',system-ui,sans-serif" font-size="14" font-weight="600" fill="rgba(148,163,184,0.8)" text-anchor="middle" letter-spacing="1">SECURITY COMPLIANCE</text>
+  </g>
+
+  <!-- Floating particles between cards -->
+  <g opacity="0.6">
+    <circle cx="720" cy="250" r="2" fill="#3b82f6">
+      <animate attributeName="cy" values="250;240;250" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="850" cy="220" r="1.5" fill="#f43f5e">
+      <animate attributeName="cy" values="220;210;220" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="280" r="2.5" fill="#8b5cf6">
+      <animate attributeName="cy" values="280;268;280" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="780" cy="380" r="1.8" fill="#60a5fa">
+      <animate attributeName="cy" values="380;370;380" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="950" cy="350" r="2" fill="#f43f5e">
+      <animate attributeName="cy" values="350;340;350" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1080" cy="420" r="1.5" fill="#3b82f6">
+      <animate attributeName="cy" values="420;410;420" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="680" cy="450" r="2" fill="#a78bfa">
+      <animate attributeName="cy" values="450;440;450" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Decorative corner elements -->
+  <rect x="1140" y="20" width="40" height="2" rx="1" fill="rgba(59,130,246,0.3)"/>
+  <rect x="1178" y="20" width="2" height="40" rx="1" fill="rgba(59,130,246,0.3)"/>
+  <rect x="20" y="588" width="2" height="30" rx="1" fill="rgba(244,63,94,0.2)"/>
+  <rect x="20" y="616" width="30" height="2" rx="1" fill="rgba(244,63,94,0.2)"/>
 </svg>
