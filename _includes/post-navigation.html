@@ -1,0 +1,32 @@
+{% comment %} 이전/다음 포스트 네비게이션 {% endcomment %}
+{% if page.previous or page.next %}
+<nav class="post-navigation" aria-label="Post navigation">
+  <div class="post-nav-inner">
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev" rel="prev">
+      <span class="post-nav-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Previous
+      </span>
+      <span class="post-nav-title">{{ page.previous.title | escape | truncate: 60 }}</span>
+      <time class="post-nav-date" datetime="{{ page.previous.date | date_to_xmlschema }}">{{ page.previous.date | date: "%Y. %m. %d" }}</time>
+    </a>
+    {% else %}
+    <span class="post-nav-link post-nav-placeholder"></span>
+    {% endif %}
+
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next" rel="next">
+      <span class="post-nav-label">
+        Next
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <span class="post-nav-title">{{ page.next.title | escape | truncate: 60 }}</span>
+      <time class="post-nav-date" datetime="{{ page.next.date | date_to_xmlschema }}">{{ page.next.date | date: "%Y. %m. %d" }}</time>
+    </a>
+    {% else %}
+    <span class="post-nav-link post-nav-placeholder"></span>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}
