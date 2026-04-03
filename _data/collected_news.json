@@ -1,6 +1,6 @@
 {
-  "collected_at": "2026-04-03T01:26:39.603973+00:00",
-  "total_items": 119,
+  "collected_at": "2026-04-03T05:56:20.417226+00:00",
+  "total_items": 176,
   "items": [
     {
       "id": "0a36ef1a88bb",
@@ -19,6 +19,151 @@
       "image": "https://www.rust-lang.org/static/images/rust-social-wide.jpg"
     },
     {
+      "id": "bdd1c18f8ae8",
+      "title": "Lectric heads north – Canadians get access to the US’s best-selling e-bikes",
+      "url": "https://electrek.co/2026/04/02/lectric-heads-north-canadians-get-access-to-the-uss-best-selling-e-bikes/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-03T05:27:44+00:00",
+      "summary": "Lectric eBikes is officially rolling into Canada , setting the stage to shape the future of cycling north of the border. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Micah Toll",
+      "priority": 2,
+      "image": "https://electrek.co/wp-content/uploads/sites/3/2025/05/lectric-xp4-e-bike-header.jpg?quality=82&strip=all&w=1600"
+    },
+    {
+      "id": "9f10c6212ee4",
+      "title": "Tokenization makes finance more efficient but introduces risks: IMF",
+      "url": "https://cointelegraph.com/news/imf-tokenization-improves-finance-but-introduces-other-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T05:13:42+01:00",
+      "summary": "The IMF said tokenization could improve cross-border payments and financial inclusion in emerging economies but cited concerns over volatility and the “erosion of monetary sovereignty.”",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjIyYjAtYmI0ZC03NWY4LWFkZDctMzkxMDhmZjc1MDczLmpwZw==.jpg"
+    },
+    {
+      "id": "e3a572115e86",
+      "title": "Stablecoins flip automated clearing house volume in February",
+      "url": "https://cointelegraph.com/news/stablecoins-flip-ach-monthly-volume-in-february?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T05:08:43+01:00",
+      "summary": "Stablecoin monthly transaction volume hit $7.2 trillion in February, surpassing the $6.8 trillion processed by the Automated Clearing House network.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Brian Quarmby",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU3YmUtOTYwZS03OWU1LWI3ODktYjE0ZTE3ZDU5YWNiLmpwZw==.jpg"
+    },
+    {
+      "id": "0f1a784eaef0",
+      "title": "Circle to launch cirBTC wrapped Bitcoin, challenging BitGo and Coinbase",
+      "url": "https://cointelegraph.com/news/circle-launch-cirbtc-wrapped-bitcoin-token-targeting-institutional-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T04:45:59+01:00",
+      "summary": "Circle, known for issuing stablecoins including USDC and EURC, is expanding into the Bitcoin space, targeting institutional users.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDUxMDQtZjYxZS03YjVhLTlhOTktMTFhOTFjZDNmZTJiLmpwZw==.jpg"
+    },
+    {
+      "id": "dd67fc144e99",
+      "title": "Bitcoin miner Riot sold 3,778 BTC during Q1 amid broader market pressure",
+      "url": "https://cointelegraph.com/news/riot-sells-3778-bitcoin-miners-shift-strategy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T04:19:07+01:00",
+      "summary": "Arkham also flagged a 500 Bitcoin outflow from Riot on Thursday, while MARA Holdings, Genius Group and Nakamoto Holdings sold a combined 15,501 Bitcoin in the last week.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Stephen Katte",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjE5YjYtMzQ2MS03MGQ2LWFlMmItZmVjZTE0NDJmZTlmLmpwZw==.jpg"
+    },
+    {
+      "id": "1dad0caed72b",
+      "title": "5년 동안 못 푼 배민 다국어 숙제, AI와 함께 한 달 만에 끝내기",
+      "url": "https://techblog.woowahan.com/26162/",
+      "source": "woowahan_tech",
+      "source_name": "우아한형제들 기술 블로그",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T02:30:41+00:00",
+      "summary": "들어가며 한국을 찾는 외국인이 연간 약 2천만 명을 넘어선 지금, 배민 앱은 이들을 위해 준비되어 있었을까? 메뉴를 주문하려면 우선 가게 이름과 메뉴명을 읽을 수 있어야 합니다. 하지만 한국어만 제공되는 배민 앱에서 외국인이 경험하는 첫 번째 장벽이 바로 여기 있었습니다. 배민은 이 문제를 알고 있었고, 5년 전부터 해결하려 해왔습니다. 그리고 매년 멈췄습니다. 2026년 1월, 우리는 다시 […] The post 5년 동안 못 푼 배민 다국어 숙제, AI와 함께 한 달 만에 끝내기 first appeared on 우아한형제들 기술블로그 .",
+      "content": "들어가며 한국을 찾는 외국인이 연간 약 2천만 명을 넘어선 지금, 배민 앱은 이들을 위해 준비되어 있었을까? 메뉴를 주문하려면 우선 가게 이름과 메뉴명을 읽을 수 있어야 합니다. 하지만 한국어만 제공되는 배민 앱에서 외국인이 경험하는 첫 번째 장벽이 바로 여기 있었습니다. 배민은 이 문제를 알고 있었고, 5년 전부터 해결하려 해왔습니다. 그리고 매년 멈췄습니다. 2026년 1월, 우리는 다시 시작했고 이번엔 달랐습니다. 이 글에서는 5년 동안 해결되지 않았던 배민 다국어 과제가 어떤 배경과 제약 속에서 반복적으로 중단되었는지, 그리고 AI를 활용해 어떻게 한 달 만에 구현까지 이어질 수 있었는지를 ‘AI 기반 구축TF’의 TPM과 푸드 담당 서버 개발자 관점에서 다룹니다. ‘AI 기반 구축 TF’는 기술을 통해 실행의 속도를 가속화하고, 제약으로 인해 시도하지 못했던 일들이 지속적으로 실현될 수 있는 환경을 구축하기 위해 신설된 조직이다.",
+      "tags": [
+        "AI",
+        "Culture",
+        "PM",
+        "LLM"
+      ],
+      "author": "양주미",
+      "priority": 2,
+      "image": "https://techblog.woowahan.com/wp-content/uploads/2025/07/우아한테크-기술블로그-배너.png"
+    },
+    {
+      "id": "4e977113103e",
+      "title": "Big Tech firms back new x402 Foundation to advance agentic AI adoption",
+      "url": "https://cointelegraph.com/news/big-tech-companies-join-x402-protocol-agentic-ai?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T02:26:34+01:00",
+      "summary": "The x402 protocol won't be owned by a single entity, with the Linux Foundation serving as the agentic AI protocol’s “neutral, non-profit home,” Coinbase said.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2,
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDUwZjItM2FiYi03ZmY4LTk1YzAtOGVmZTAzNDlmZTI5LmpwZw==.jpg"
+    },
+    {
+      "id": "94e6f3612d93",
+      "title": "Post Mortem: axios NPM supply chain compromise",
+      "url": "https://github.com/axios/axios/issues/10636",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-03T00:00:19+00:00",
+      "summary": "Article URL: https://github.com/axios/axios/issues/10636 Comments URL: https://news.ycombinator.com/item?id=47621792 Points: 66 # Comments: 37",
+      "content": "",
+      "tags": [],
+      "author": "Kyro38",
+      "priority": 2,
+      "image": ""
+    },
+    {
       "id": "9608146fe628",
       "title": "New Bitcoin price lows on the table until $76K becomes support",
       "url": "https://cointelegraph.com/news/new-bitcoin-price-lows-on-the-table-until-76k-becomes-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -35,6 +180,54 @@
       "author": "Cointelegraph by Antonio Oliveira",
       "priority": 2,
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjM1ZDItMWRkZS03NGQxLTlmOWYtMjY1ZWVjNDU0ZTBiLmpwZw==.jpg"
+    },
+    {
+      "id": "303426870f54",
+      "title": "Tor Alva: The Tallest 3D-Printed Building in the World",
+      "url": "https://cacm.acm.org/blogcacm/tor-alva-the-tallest-3d-printed-building-in-the-world/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T23:26:01+00:00",
+      "summary": "Article URL: https://cacm.acm.org/blogcacm/tor-alva-the-tallest-3d-printed-building-in-the-world/ Comments URL: https://news.ycombinator.com/item?id=47621518 Points: 20 # Comments: 4",
+      "content": "",
+      "tags": [],
+      "author": "sohkamyung",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "4b397aefb0a1",
+      "title": "A Few Good Magazines From the 70s and 80s",
+      "url": "https://www.bi6.us/CO/MG.HTML",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T23:17:26+00:00",
+      "summary": "Article URL: https://www.bi6.us/CO/MG.HTML Comments URL: https://news.ycombinator.com/item?id=47621448 Points: 48 # Comments: 14",
+      "content": "",
+      "tags": [],
+      "author": "OhMeadhbh",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "b5ba81fd68e3",
+      "title": "Show HN: Made a little Artemis II tracker",
+      "url": "https://artemis-ii-tracker.com/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T23:16:05+00:00",
+      "summary": "Made a little Artemis II tracker for anyone else who is unnecessarily invested in this mission: https://artemis-ii-tracker.com/ For those of us who apparently need a dedicated place to monitor this mission instead of behaving like well-adjusted people. Comments URL: https://news.ycombinator.com/item?id=47621438 Points: 70 # Comments: 29",
+      "content": "",
+      "tags": [],
+      "author": "codingmoh",
+      "priority": 2,
+      "image": ""
     },
     {
       "id": "78f7a83e386d",
@@ -95,6 +288,59 @@
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDUwMTMtZWFhYy03N2FmLTk4NzctYWIyOTQ2YjBmNjY1LmpwZw==.jpg"
     },
     {
+      "id": "b7fa6d00e7b3",
+      "title": "Memo: A language that remembers only the last 12 lines of code",
+      "url": "https://danieltemkin.com/Esolangs/Memo/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T22:21:24+00:00",
+      "summary": "Article URL: https://danieltemkin.com/Esolangs/Memo/ Comments URL: https://news.ycombinator.com/item?id=47620933 Points: 39 # Comments: 17",
+      "content": "",
+      "tags": [],
+      "author": "notem",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "fb0bc2cc7d62",
+      "title": "ParadeDB (YC S23) Is Hiring Database Internal Engineers (Rust)",
+      "url": "https://paradedb.notion.site/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T22:13:03+00:00",
+      "summary": "Article URL: https://paradedb.notion.site/ Comments URL: https://news.ycombinator.com/item?id=47620857 Points: 0 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "philippemnoel",
+      "priority": 2,
+      "image": "https://www.notion.so/images/meta/default.png"
+    },
+    {
+      "id": "7a1d9a83ab49",
+      "title": "Smarter Live Streaming at Scale: Rolling Out VBR for All Netflix Live Events",
+      "url": "https://netflixtechblog.com/smarter-live-streaming-at-scale-rolling-out-vbr-for-all-netflix-live-events-c8f833b238cc?source=rss----2615bd06b42e---4",
+      "source": "netflix_tech",
+      "source_name": "Netflix Tech Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-04-02T21:46:27+00:00",
+      "summary": "By Renata Teixeira, Zhi Li, Reenal Mahajan, and Wei Wei On January 26, 2026, we flipped an important switch for Live at Netflix: all Live events are now encoded using VBR (Variable Bitrate) instead of CBR (Constant Bitrate) . It sounds like a small configuration change, but it required us to revisit some of the foundational assumptions behind how we deliver Live video at global scale.",
+      "content": "By Renata Teixeira, Zhi Li, Reenal Mahajan, and Wei Wei On January 26, 2026, we flipped an important switch for Live at Netflix: all Live events are now encoded using VBR (Variable Bitrate) instead of CBR (Constant Bitrate) . It sounds like a small configuration change, but it required us to revisit some of the foundational assumptions behind how we deliver Live video at global scale.",
+      "tags": [
+        "encoding",
+        "content-delivery-platform",
+        "adaptive-bitrate",
+        "live-streaming"
+      ],
+      "author": "Netflix Technology Blog",
+      "priority": 2,
+      "image": "https://cdn-images-1.medium.com/max/1024/1*_MoqLhu01wArcD1n58SZyg.png"
+    },
+    {
       "id": "a3ee668ae93e",
       "title": "Polymarket expands into equities and commodities with Pyth price feeds",
       "url": "https://cointelegraph.com/news/polymarket-expands-into-equities-and-commodities-with-pyth-price-feeds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -111,6 +357,28 @@
       "author": "Cointelegraph by Nate Kostar",
       "priority": 2,
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YWU1MWMtYzgwNC03NWE3LTgyNDUtY2QxNGY5ZjI5MzYy.jpg"
+    },
+    {
+      "id": "d56c579a47d8",
+      "title": "Telehealth giant Hims & Hers says its customer support system was hacked",
+      "url": "https://techcrunch.com/2026/04/02/telehealth-giant-hims-hers-says-its-customer-support-system-was-hacked/",
+      "source": "techcrunch_security",
+      "source_name": "TechCrunch Security",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T21:26:48+00:00",
+      "summary": "The U.S. telehealth giant says hackers stole customer support ticket data over the course of several days in February.",
+      "content": "",
+      "tags": [
+        "Security",
+        "cyberattack",
+        "cybersecurity",
+        "Hims & Hers",
+        "telehealth"
+      ],
+      "author": "Zack Whittaker",
+      "priority": 2,
+      "image": "https://techcrunch.com/wp-content/uploads/2025/05/IMG_3413.jpg?resize=1200,630"
     },
     {
       "id": "f4e8d85be36a",
@@ -167,6 +435,38 @@
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjI1NTMtMjZiZi03MzIxLTg1NGQtYmQ2ZDA0NDk1YmE3LmpwZw==.jpg"
     },
     {
+      "id": "c7b38ae66668",
+      "title": "Geopolitics, AI, and Cybersecurity: Insights From RSAC 2026",
+      "url": "https://www.darkreading.com/cybersecurity-operations/geopolitics-ai-cybersecurity-insights-rsac-2026",
+      "source": "darkreading",
+      "source_name": "Dark Reading",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T21:14:27+00:00",
+      "summary": "AI-driven threats, global leadership shifts, and the future of cybersecurity in a rapidly evolving landscape were among the discussions at RSAC 2026 Conference.",
+      "content": "",
+      "tags": [],
+      "author": "Becky Bracken, Kristina Beek",
+      "priority": 2,
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt52c682d1b06fcea2/69cc3ebb4642d5670041150e/quantum_computing1800_jvphoto_alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale"
+    },
+    {
+      "id": "1d19ecd5e882",
+      "title": "Not Toying Around: Hasbro Attack May Take 'Weeks' to Remediate",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/toying-around-hasbro-attack-remediate",
+      "source": "darkreading",
+      "source_name": "Dark Reading",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T20:28:36+00:00",
+      "summary": "The company's 8-K filing notes \"unauthorized access\" and that it's activated business continuity plans and taken some systems offline.",
+      "content": "",
+      "tags": [],
+      "author": "Nate Nelson",
+      "priority": 2,
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb4eb373845e02c10/69cec4d10268bec52dd83c55/Operation-Kerry_Taylor-Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale"
+    },
+    {
       "id": "3cbdc324a17c",
       "title": "Ether at risk of new 2026 lows if bulls fail to turn $2.4K into support",
       "url": "https://cointelegraph.com/news/ether-at-risk-of-new-2026-lows-if-bulls-fail-to-turn-dollar2-4k-into-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -205,6 +505,108 @@
       "author": "Fred Lambert",
       "priority": 2,
       "image": "https://electrek.co/wp-content/uploads/sites/3/2026/02/Stellantis-EV-costs-China-2.jpeg?quality=82&strip=all&w=1400"
+    },
+    {
+      "id": "f30d0ca3d193",
+      "title": "Security Bosses Are All-In on AI. Here's Why",
+      "url": "https://www.darkreading.com/cybersecurity-operations/security-bosses-all-in-ai",
+      "source": "darkreading",
+      "source_name": "Dark Reading",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T19:12:45+00:00",
+      "summary": "CISOs are bullish on AI and have big plans to roll out future tools. We talk to Reddit CISO Frederick Lee and leading analyst Dave Gruber about how AI is working out in the real world, as well as its future promise.",
+      "content": "",
+      "tags": [],
+      "author": "Dark Reading Staff",
+      "priority": 2,
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?width=1280&auto=webp&quality=80&disable=upscale"
+    },
+    {
+      "id": "a337ab5af6c9",
+      "title": "Zep AI Is Hiring – Building the Agent Context Layer (YC W24)",
+      "url": "https://www.ycombinator.com/companies/zep-ai/jobs",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T18:50:45+00:00",
+      "summary": "Article URL: https://www.ycombinator.com/companies/zep-ai/jobs Comments URL: https://news.ycombinator.com/item?id=47618602 Points: 0 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "roseway4",
+      "priority": 2,
+      "image": "https://bookface-images.s3.amazonaws.com/logos/a5f4989742560bd0715218257a7c7ea7f73ab700.png?1712364271"
+    },
+    {
+      "id": "9032859e4336",
+      "title": "Tailscale's new macOS home",
+      "url": "https://tailscale.com/blog/macos-notch-escape",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T18:22:03+00:00",
+      "summary": "Article URL: https://tailscale.com/blog/macos-notch-escape Comments URL: https://news.ycombinator.com/item?id=47618189 Points: 392 # Comments: 192",
+      "content": "",
+      "tags": [],
+      "author": "tosh",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "b40066ebb3c8",
+      "title": "George Goble has died",
+      "url": "https://www.legacy.com/us/obituaries/wlfi/name/george-goble-obituary?id=61144779",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T18:21:08+00:00",
+      "summary": "https://en.wikipedia.org/wiki/George_H._Goble Comments URL: https://news.ycombinator.com/item?id=47618176 Points: 132 # Comments: 25",
+      "content": "",
+      "tags": [],
+      "author": "finaard",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "f9da1e8ecd78",
+      "title": "Cursor 3",
+      "url": "https://cursor.com/blog/cursor-3",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T18:13:41+00:00",
+      "summary": "Article URL: https://cursor.com/blog/cursor-3 Comments URL: https://news.ycombinator.com/item?id=47618084 Points: 346 # Comments: 287",
+      "content": "",
+      "tags": [],
+      "author": "adamfeldman",
+      "priority": 2,
+      "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/og/opengraph-new-cursor-no-text-1-.png"
+    },
+    {
+      "id": "6eafd03da18f",
+      "title": "Critical Vulnerability in Claude Code Emerges Days After Source Leak",
+      "url": "https://www.securityweek.com/critical-vulnerability-in-claude-code-emerges-days-after-source-leak/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T18:00:55+00:00",
+      "summary": "Within days of each other, Anthropic first leaked the source code to Claude Code, and then a critical vulnerability was found by Adversa AI. The post Critical Vulnerability in Claude Code Emerges Days After Source Leak appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Artificial Intelligence",
+        "Vulnerabilities",
+        "AI",
+        "Anthropic",
+        "Claude Code"
+      ],
+      "author": "Kevin Townsend",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2025/11/Claude-AI.jpeg"
     },
     {
       "id": "6d25da273cc7",
@@ -279,6 +681,38 @@
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDRmMmQtNDNmMi03ZjE5LWFlMWUtMDM1YWUzYjkyZGNiLmpwZw==.jpg"
     },
     {
+      "id": "48d8aa4d81c2",
+      "title": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
+      "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T17:29:03+00:00",
+      "summary": "Article URL: https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html Comments URL: https://news.ycombinator.com/item?id=47617415 Points: 209 # Comments: 87",
+      "content": "",
+      "tags": [],
+      "author": "sedev",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "26a54ec58f99",
+      "title": "OpenAI Acquires TBPN",
+      "url": "https://openai.com/index/openai-acquires-tbpn/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T17:26:49+00:00",
+      "summary": "Article URL: https://openai.com/index/openai-acquires-tbpn/ Comments URL: https://news.ycombinator.com/item?id=47617376 Points: 182 # Comments: 152",
+      "content": "",
+      "tags": [],
+      "author": "surprisetalk",
+      "priority": 2,
+      "image": "https://images.ctfassets.net/kftzwdyauwt9/1r6GrogaVsLY9VGAL871G6/9319636f74fa5a4d16d391476a6f85f1/Frame-1.png?w=1600&h=900&fit=fill"
+    },
+    {
       "id": "7423387c76c1",
       "title": "Mercedes confirms steer-by-wire for 2026 EQS with questionable steering wheel",
       "url": "https://electrek.co/2026/04/02/mercedes-steer-by-wire-yoke-steering-wheel-eqs-2026/",
@@ -338,6 +772,26 @@
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDRlZTUtNDNlMy03OThkLTkwYTMtM2JmZDU3ZmRiZTg0LmpwZw==.jpg"
     },
     {
+      "id": "72aca98f9199",
+      "title": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
+      "url": "https://arstechnica.com/security/2026/04/new-rowhammer-attacks-give-complete-control-of-machines-running-nvidia-gpus/",
+      "source": "arstechnica",
+      "source_name": "Ars Technica",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T17:00:11+00:00",
+      "summary": "Both GDDRHammer and GeForge hammer GPU memory in ways that compromise the CPU.",
+      "content": "The cost of high-performance GPUs, typically $8,000 or more, means they are frequently shared among dozens of users in cloud environments. Two new attacks demonstrate how a malicious user can gain full root control of a host machine by performing novel Rowhammer attacks on high-performance GPU cards made by Nvidia. The attacks exploit memory hardware’s increasing susceptibility to bit flips, in which 0s stored in memory switch to 1s and vice versa.",
+      "tags": [
+        "Biz & IT",
+        "Features",
+        "Security"
+      ],
+      "author": "Dan Goodin",
+      "priority": 2,
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security-500x500.jpg"
+    },
+    {
       "id": "f79cb4e4cc1b",
       "title": "Bitcoin holders face $600B in unrealized losses as BTC price slips to $66K",
       "url": "https://cointelegraph.com/news/bitcoin-holders-face-600b-unrealized-losses-btc-price-66k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -354,6 +808,82 @@
       "author": "Cointelegraph by Nancy Lubale",
       "priority": 2,
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2Q4NDYtZTY5Zi03MjFlLWFiNWItYTk5NzljODhlOTljLmpwZw==.jpg"
+    },
+    {
+      "id": "df0b6bc29da2",
+      "title": "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web",
+      "url": "https://techcrunch.com/2026/04/02/canadian-money-transfer-app-duc-expose-drivers-licenses-passports-amazon-server/",
+      "source": "techcrunch_security",
+      "source_name": "TechCrunch Security",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T16:29:35+00:00",
+      "summary": "An exposed Amazon-hosted server allowed anyone to access reams of customer data without needing a password.",
+      "content": "",
+      "tags": [
+        "Fintech",
+        "Security",
+        "Canada",
+        "Exclusive",
+        "cybersecurity"
+      ],
+      "author": "Zack Whittaker",
+      "priority": 2,
+      "image": "https://techcrunch.com/wp-content/uploads/2024/07/money-firehose.jpg?resize=1200,675"
+    },
+    {
+      "id": "e6ac0bfa9814",
+      "title": "Apple Rolls Out DarkSword Exploit Protection to More Devices",
+      "url": "https://www.securityweek.com/apple-rolls-out-darksword-exploit-protection-to-more-devices/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T16:18:07+00:00",
+      "summary": "The DarkSword exploit kit has been used by both state-sponsored hackers and commercial spyware vendors. The post Apple Rolls Out DarkSword Exploit Protection to More Devices appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Mobile & Wireless",
+        "Vulnerabilities",
+        "Apple",
+        "DarkSword",
+        "exploit kit"
+      ],
+      "author": "Eduard Kovacs",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2023/11/iOS-security-vulnerabilities.jpg"
+    },
+    {
+      "id": "617a86dfc115",
+      "title": "Google releases Gemma 4 open models",
+      "url": "https://deepmind.google/models/gemma/gemma-4/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T16:10:54+00:00",
+      "summary": "Article URL: https://deepmind.google/models/gemma/gemma-4/ Comments URL: https://news.ycombinator.com/item?id=47616361 Points: 1291 # Comments: 382",
+      "content": "",
+      "tags": [],
+      "author": "jeffmcjunkin",
+      "priority": 2,
+      "image": ""
+    },
+    {
+      "id": "233a498d6a8d",
+      "title": "Decisions that eroded trust in Azure – by a former Azure Core engineer",
+      "url": "https://isolveproblems.substack.com/p/how-microsoft-vaporized-a-trillion",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T16:00:27+00:00",
+      "summary": "Article URL: https://isolveproblems.substack.com/p/how-microsoft-vaporized-a-trillion Comments URL: https://news.ycombinator.com/item?id=47616242 Points: 542 # Comments: 196",
+      "content": "",
+      "tags": [],
+      "author": "axelriet",
+      "priority": 2,
+      "image": "https://substackcdn.com/image/fetch/$s_!S3iD!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fisolveproblems.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D1728210229%26version%3D9"
     },
     {
       "id": "f76f79d23fcb",
@@ -412,6 +942,22 @@
       "image": ""
     },
     {
+      "id": "9c5023d2a622",
+      "title": "RSAC 2026: AI Dominates, But Community Remains Key to Security",
+      "url": "https://www.darkreading.com/cybersecurity-operations/rsac-2026-ai-dominates-community",
+      "source": "darkreading",
+      "source_name": "Dark Reading",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T15:56:32+00:00",
+      "summary": "As AI took center stage at this year's conference, experts debated automation, oversight and the evolving role of human intelligence in cybersecurity — despite the US government's notable absence.",
+      "content": "",
+      "tags": [],
+      "author": "Kristina Beek, Rob Wright",
+      "priority": 2,
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt7c4a998794182807/69cdf0ad19dc583a4e26ec0f/conference1800_sebastien_bonaime_alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale"
+    },
+    {
       "id": "806869931c07",
       "title": "Bitcoin hits weekly low on oil fears as analyst teases $10K BTC price target",
       "url": "https://cointelegraph.com/news/bitcoin-weekly-low-oil-fears-analyst-teases-10k-btc-price-target?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -428,6 +974,28 @@
       "author": "Cointelegraph by William Suberg",
       "priority": 2,
       "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YjhmMmItODg3Yy03NjBkLTk3OTUtMTRhMzEwYThjZDM1LmpwZw==.jpg"
+    },
+    {
+      "id": "bd1ed40e0ca3",
+      "title": "ICE says it bought Paragon’s spyware to use in drug trafficking cases",
+      "url": "https://techcrunch.com/2026/04/02/ice-says-it-bought-paragons-spyware-to-use-in-drug-trafficking-cases/",
+      "source": "techcrunch_security",
+      "source_name": "TechCrunch Security",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T15:39:51+00:00",
+      "summary": "The acting director of U.S. Immigration and Customs Enforcement told lawmakers that the use of Paragon spyware is necessary to counter terrorists’ “thriving exploitation of encrypted communications platforms.”",
+      "content": "",
+      "tags": [
+        "Security",
+        "cybersecurity",
+        "DHS",
+        "Homeland Security Investigations",
+        "HSI"
+      ],
+      "author": "Lorenzo Franceschi-Bicchierai",
+      "priority": 2,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/ice-dhs-hsi-agents.jpg?resize=1200,845"
     },
     {
       "id": "a61dbf6f7fb2",
@@ -466,58 +1034,57 @@
       "image": "https://electrek.co/wp-content/uploads/sites/3/2025/05/2026-Toyota-bZ-EV.jpeg?quality=82&strip=all&w=1400"
     },
     {
-      "id": "939c42329217",
-      "title": "'Memecoin messiah' lost $60M trading mostly SPX6900: He's still not selling",
-      "url": "https://cointelegraph.com/news/memecoin-messiah-lost-60m-trading-spx6900-giga-hes-still-not-selling?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
+      "id": "386f982c6d11",
+      "title": "Artemis computer running two instances of MS outlook; they can't figure out why",
+      "url": "https://bsky.app/profile/nikigrayson.com/post/3miik2wzosk25",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
       "language": "en",
-      "published": "2026-04-02T15:14:23+01:00",
-      "summary": "Trader Murad Mahmudov may lose another $1.56 million if its top bet, SPX6900, drops another 20% in the coming weeks.",
+      "published": "2026-04-02T15:08:45+00:00",
+      "summary": "Article URL: https://bsky.app/profile/nikigrayson.com/post/3miik2wzosk25 Comments URL: https://news.ycombinator.com/item?id=47615490 Points: 361 # Comments: 276",
       "content": "",
-      "tags": [
-        "Markets"
-      ],
-      "author": "Cointelegraph by Yashu Gola",
+      "tags": [],
+      "author": "mooreds",
       "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDRlMzktNjQ3OC03Y2RmLThjYWItNTk0ZTg2ZDkyZDkxLmpwZw==.jpg"
+      "image": ""
     },
     {
-      "id": "f83c8932a887",
-      "title": "Ex-Fidelity staff target retail investors with onchain gold arbitrage product",
-      "url": "https://cointelegraph.com/news/ex-fidelity-team-targets-retail-investors-onchain-gold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
+      "id": "fa697378e34b",
+      "title": "Cybersecurity M&A Roundup: 38 Deals Announced in March 2026",
+      "url": "https://www.securityweek.com/cybersecurity-ma-roundup-38-deals-announced-in-march-2026/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
       "language": "en",
-      "published": "2026-04-02T15:14:20+01:00",
-      "summary": "Altura, a DeFi protocol led by former Fidelity and PwC staff, is pitching retail investors an onchain gold arbitrage vault targeting 20% yields as bullion trades near record highs.",
+      "published": "2026-04-02T14:30:00+00:00",
+      "summary": "Significant cybersecurity M&A deals announced by Airbus, Cellebrite, Databricks, Quantum eMotion, Rapid7, and OpenAI. The post Cybersecurity M&A Roundup: 38 Deals Announced in March 2026 appeared first on SecurityWeek .",
       "content": "",
       "tags": [
-        "Latest News"
+        "M&A Tracker",
+        "Acquisitions",
+        "Featured",
+        "M&A"
       ],
-      "author": "Cointelegraph by Christina Comben",
+      "author": "Eduard Kovacs",
       "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmJjNjItZmUwNS03NjBlLWI5ZjUtZjhlMWFiMzQyYWNkLmpwZw==.jpg"
+      "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-mergers-and-acquisitions.jpeg"
     },
     {
-      "id": "1eeef40ac743",
-      "title": "Wallet in Telegram launches perpetual futures trading with Lighter",
-      "url": "https://cointelegraph.com/news/wallet-in-telegram-perpetual-future-lighter-dex?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
+      "id": "1258bb9a359e",
+      "title": "Qwen3.6-Plus: Towards real world agents",
+      "url": "https://qwen.ai/blog?id=qwen3.6",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
       "language": "en",
-      "published": "2026-04-02T14:35:38+01:00",
-      "summary": "Wallet in Telegram rolls out perpetual futures via Lighter DEX, enabling leveraged trading on crypto, stocks and commodities directly inside the messaging app.",
+      "published": "2026-04-02T14:28:52+00:00",
+      "summary": "Article URL: https://qwen.ai/blog?id=qwen3.6 Comments URL: https://news.ycombinator.com/item?id=47615002 Points: 477 # Comments: 168",
       "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Helen Partz",
+      "tags": [],
+      "author": "pretext",
       "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDRlMDktMWYwMy03OWU0LTg2YjktYzYzYmEyMWVmODY3LmpwZw==.jpg"
+      "image": ""
     },
     {
       "id": "7b79a99ce353",
@@ -536,42 +1103,6 @@
       "author": "Mandiant",
       "priority": 2,
       "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/vsphere-brickstorm-fig1.max-1000x1000.jpg"
-    },
-    {
-      "id": "2f8f0fdbc2af",
-      "title": "Riot wallet outflow adds to selling wave among listed Bitcoin miners",
-      "url": "https://cointelegraph.com/news/onchain-data-flags-fresh-riot-500-btc-sale?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-04-02T13:55:44+01:00",
-      "summary": "Arkham data linked a 500 BTC outflow to Riot Platforms, worth roughly $34 million, as Bitcoin miners and treasury companies navigate listing pressures and volatile market conditions.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Christina Comben",
-      "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDRlMGItZWM2ZS03OWM2LWFhYWEtMWQxYzU3YjZiYzc0LmpwZw==.jpg"
-    },
-    {
-      "id": "32a01dcf7ad4",
-      "title": "Canada’s bid to ban crypto donations highlights transparency issue",
-      "url": "https://cointelegraph.com/news/canada-ban-crypto-donations-transparency-issue?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-04-02T13:49:29+01:00",
-      "summary": "A new bill in Canada would ban crypto donations to political parties, a move which election overseers have supported in past recommendations to Parliament.",
-      "content": "",
-      "tags": [
-        "Features"
-      ],
-      "author": "Cointelegraph by Aaron Wood",
-      "priority": 2,
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU0YWYtZDk1ZC03NWM5LWJhOTgtMzdiM2U0NDQ4ZTRjLmpwZw==.jpg"
     },
     {
       "id": "37f2946754e0",
@@ -610,6 +1141,22 @@
       "image": ""
     },
     {
+      "id": "805e95ed11b6",
+      "title": "LinkedIn is searching your browser extensions",
+      "url": "https://browsergate.eu/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T13:09:09+00:00",
+      "summary": "Article URL: https://browsergate.eu/ Comments URL: https://news.ycombinator.com/item?id=47613981 Points: 1627 # Comments: 693",
+      "content": "",
+      "tags": [],
+      "author": "digitalWestie",
+      "priority": 2,
+      "image": ""
+    },
+    {
       "id": "529082f708f9",
       "title": "Tesla (TSLA) Q1 2026 deliveries miss expectations at 358,000, builds 50,000 excess vehicles",
       "url": "https://electrek.co/2026/04/02/tesla-tsla-q1-2026-delivery-results-misses-expectations/",
@@ -628,6 +1175,43 @@
       "author": "Fred Lambert",
       "priority": 2,
       "image": "https://electrek.co/wp-content/uploads/sites/3/2025/04/Tesla-family-hero.png?w=1600"
+    },
+    {
+      "id": "f82c168d9bc3",
+      "title": "Bank Trojan 'Casbaneiro' Worms Through Latin America",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/bank-trojan-casbaneiro-worms-latin-america",
+      "source": "darkreading",
+      "source_name": "Dark Reading",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T13:00:00+00:00",
+      "summary": "Augmented Marauder's multipronged banking-Trojan cyber campaigns are targeting Spanish speakers, evading detection, and replicating rapidly.",
+      "content": "",
+      "tags": [],
+      "author": "Nate Nelson",
+      "priority": 2,
+      "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt16cb4a90b4357a88/69cd468c610d0ab0477bd007/Worm_carnival_ride-Hugo_Oliveira-Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale"
+    },
+    {
+      "id": "610b4720835a",
+      "title": "Cisco Patches Critical and High-Severity Vulnerabilities",
+      "url": "https://www.securityweek.com/cisco-patches-critical-and-high-severity-vulnerabilities/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T12:34:10+00:00",
+      "summary": "The bugs could lead to authentication bypass, remote code execution, information disclosure, and privilege escalation. The post Cisco Patches Critical and High-Severity Vulnerabilities appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Vulnerabilities",
+        "Cisco",
+        "patches",
+        "vulnerability"
+      ],
+      "author": "Ionut Arghire",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
     },
     {
       "id": "5afdb5d7a5cb",
@@ -666,6 +1250,59 @@
       "image": "https://electrek.co/wp-content/uploads/sites/3/2026/04/candela-p-12-business-header.jpg?quality=82&strip=all&w=1600"
     },
     {
+      "id": "727351a11ce4",
+      "title": "250,000 Affected by Data Breach at Nacogdoches Memorial Hospital",
+      "url": "https://www.securityweek.com/250000-affected-by-data-breach-at-nacogdoches-memorial-hospital/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T11:57:17+00:00",
+      "summary": "In January 2026, a threat actor hacked the hospital’s internal network and stole personal and health information. The post 250,000 Affected by Data Breach at Nacogdoches Memorial Hospital appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Data Breaches",
+        "data breach",
+        "healthcare",
+        "NMH"
+      ],
+      "author": "Ionut Arghire",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
+    },
+    {
+      "id": "d9bfb7e26190",
+      "title": "Inside Nepal's Fake Rescue Racket",
+      "url": "https://kathmandupost.com/money/2026/03/27/inside-nepal-s-fake-rescue-racket",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T11:40:41+00:00",
+      "summary": "Article URL: https://kathmandupost.com/money/2026/03/27/inside-nepal-s-fake-rescue-racket Comments URL: https://news.ycombinator.com/item?id=47613078 Points: 275 # Comments: 118",
+      "content": "",
+      "tags": [],
+      "author": "lode",
+      "priority": 2,
+      "image": "https://assets-cdn.kathmandupost.com/uploads/source/news/2026/money/1280522ManojPhoto2-1774616809.jpg"
+    },
+    {
+      "id": "e467e77f15aa",
+      "title": "Lemonade by AMD: a fast and open source local LLM server using GPU and NPU",
+      "url": "https://lemonade-server.ai",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T11:04:51+00:00",
+      "summary": "Article URL: https://lemonade-server.ai Comments URL: https://news.ycombinator.com/item?id=47612724 Points: 478 # Comments: 106",
+      "content": "",
+      "tags": [],
+      "author": "AbuAssar",
+      "priority": 2,
+      "image": ""
+    },
+    {
       "id": "77b21697521e",
       "title": "Uber expands EV grant nationwide, offering drivers up to $6,500 in incentives",
       "url": "https://electrek.co/2026/04/02/uber-expands-ev-grant-nationwide-driver-incentives/",
@@ -684,6 +1321,65 @@
       "image": "https://electrek.co/wp-content/uploads/sites/3/2025/10/Uber-electric-logo.jpg?quality=82&strip=all&w=1400"
     },
     {
+      "id": "1d0dcf3844df",
+      "title": "Sweden goes back to basics, swapping screens for books in the classroom",
+      "url": "https://undark.org/2026/04/01/sweden-schools-books/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T10:50:00+00:00",
+      "summary": "Article URL: https://undark.org/2026/04/01/sweden-schools-books/ Comments URL: https://news.ycombinator.com/item?id=47612601 Points: 787 # Comments: 391",
+      "content": "",
+      "tags": [],
+      "author": "novaRom",
+      "priority": 2,
+      "image": "https://undark.org/wp-content/uploads/2026/04/GettyImages-1781953068_crop.jpg"
+    },
+    {
+      "id": "dbbcfde74f88",
+      "title": "Mercor Hit by LiteLLM Supply Chain Attack",
+      "url": "https://www.securityweek.com/mercor-hit-by-litellm-supply-chain-attack/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T10:42:05+00:00",
+      "summary": "The AI recruiting firm is investigating the incident as Lapsus$ claimed the theft of 4TB of Mercor data. The post Mercor Hit by LiteLLM Supply Chain Attack appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Supply Chain Security",
+        "AI",
+        "data breach",
+        "Featured",
+        "LiteLLM"
+      ],
+      "author": "Ionut Arghire",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2026/04/mercor.jpeg"
+    },
+    {
+      "id": "0bae70455b22",
+      "title": "Sophisticated CrystalX RAT Emerges",
+      "url": "https://www.securityweek.com/sophisticated-crystalx-rat-emerges/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T09:51:07+00:00",
+      "summary": "The malware can spy on victims, steal their information, and make configuration changes on devices. The post Sophisticated CrystalX RAT Emerges appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Malware & Threats",
+        "CrystalX",
+        "malware",
+        "RAT"
+      ],
+      "author": "Ionut Arghire",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2025/11/malware.jpeg"
+    },
+    {
       "id": "f62f7a1526cf",
       "title": "GitOps policy-as-code: Securing Kubernetes with Argo CD and Kyverno",
       "url": "https://www.cncf.io/blog/2026/04/02/gitops-policy-as-code-securing-kubernetes-with-argo-cd-and-kyverno/",
@@ -700,6 +1396,203 @@
       "author": "Albena Galabova, Igtix",
       "priority": 2,
       "image": "https://www.cncf.io/wp-content/uploads/2026/04/Bloomberg-3.png"
+    },
+    {
+      "id": "c18e3d18888c",
+      "title": "Variance Raises $21.5M for Compliance Investigation Platform Powered by AI Agents",
+      "url": "https://www.securityweek.com/variance-raises-21-5m-for-compliance-investigation-platform-powered-by-ai-agents/",
+      "source": "securityweek",
+      "source_name": "SecurityWeek",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T08:01:49+00:00",
+      "summary": "Variance has raised a total of $26 million in funding and the latest investment will fuel platform growth. The post Variance Raises $21.5M for Compliance Investigation Platform Powered by AI Agents appeared first on SecurityWeek .",
+      "content": "",
+      "tags": [
+        "Cybersecurity Funding",
+        "AI",
+        "funding",
+        "Variance"
+      ],
+      "author": "SecurityWeek News",
+      "priority": 2,
+      "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
+    },
+    {
+      "id": "9749272e98bd",
+      "title": "Google Gemma 4 공개: 경량 오픈 모델의 새로운 기준, 이제 스마트폰까지",
+      "url": "https://news.hada.io/topic?id=28160",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T13:56:55+09:00",
+      "summary": "Google Gemma 4 공개: 경량 오픈 모델의 새로운 기준 Google이 새로운 오픈 모델 시리즈 Gemma 4를 공개했습니다. 이번 버전은 기존 Gemma 계열의 철학을 유지하면서도, 더 높은 성능과 다양한 실행 환경을 목표로 설계된 것이 특징입니다. 특히 데이터센터부터 스마트폰까지 폭넓은 환경에서 실행 가능하도록",
+      "content": "Google Gemma 4 공개: 경량 오픈 모델의 새로운 기준 Google이 새로운 오픈 모델 시리즈 Gemma 4를 공개했습니다. 이번 버전은 기존 Gemma 계열의 철학을 유지하면서도, 더 높은 성능과 다양한 실행 환경을 목표로 설계된 것이 특징입니다. 특히 데이터센터부터 스마트폰까지 폭넓은 환경에서 실행 가능하도록",
+      "tags": [],
+      "author": "princox",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28160"
+    },
+    {
+      "id": "b5018ac3a2b6",
+      "title": "marmonitor - tmux 상태바에서 AI 코딩 에이전트 세션을 실시간 추적",
+      "url": "https://news.hada.io/topic?id=28159",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T13:54:39+09:00",
+      "summary": "tmux에서 여러 AI 코딩 에이전트를 동시에 실행할 때, 각 세션의 상태를 확인하려면 pane을 하나씩 전환해야 함. marmonitor는 tmux 상태바에 1 ⏳Cl my-project allow 와 같은 형태로 전체 세션 상태를 표시해서 pane 전환 없이 현황을 파악할 수 있게 해주는 도구. 에이전트별",
+      "content": "tmux에서 여러 AI 코딩 에이전트를 동시에 실행할 때, 각 세션의 상태를 확인하려면 pane을 하나씩 전환해야 함. marmonitor는 tmux 상태바에 1 ⏳Cl my-project allow 와 같은 형태로 전체 세션 상태를 표시해서 pane 전환 없이 현황을 파악할 수 있게 해주는 도구. 에이전트별",
+      "tags": [],
+      "author": "slidingv",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28159"
+    },
+    {
+      "id": "4c8191677002",
+      "title": "Claude Dispatch와 인터페이스의 힘 | Ethan Mollick",
+      "url": "https://news.hada.io/topic?id=28158",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T12:46:07+09:00",
+      "summary": "한 줄 요약 : AI의 진짜 게임 체인저는 더 똑똑한 모델이 아니라, 더 나은 인터페이스 이며, Claude Dispatch는 그 방향을 보여주는 대표적인 사례. AI 모델 자체는 이미 매우 강력하지만, 인터페이스(사용자가 AI와 상호작용하는 방식) 가 제대",
+      "content": "한 줄 요약 : AI의 진짜 게임 체인저는 더 똑똑한 모델이 아니라, 더 나은 인터페이스 이며, Claude Dispatch는 그 방향을 보여주는 대표적인 사례. AI 모델 자체는 이미 매우 강력하지만, 인터페이스(사용자가 AI와 상호작용하는 방식) 가 제대",
+      "tags": [],
+      "author": "davespark",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28158"
+    },
+    {
+      "id": "7899f4f84067",
+      "title": "r/programming, LLM 프로그래밍 관련 모든 논의 금지",
+      "url": "https://news.hada.io/topic?id=28156",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:57:10+09:00",
+      "summary": "Reddit의 r/programming 운영진이 LLM 관련 포스트·기사·영상 전체 를 2~4주간 금지하는 시범 정책을 4월부터 시행하며, 커뮤니티의 고품질 기술 토론 공간 회복을 목표로 함 LLM 관련 콘텐츠가 다른 주제를 압도 할 만큼 대량으로 게시되어 왔으며...",
+      "content": "Reddit의 r/programming 운영진이 LLM 관련 포스트·기사·영상 전체 를 2~4주간 금지하는 시범 정책을 4월부터 시행하며, 커뮤니티의 고품질 기술 토론 공간 회복을 목표로 함 LLM 관련 콘텐츠가 다른 주제를 압도 할 만큼 대량으로 게시되어 왔으며...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28156"
+    },
+    {
+      "id": "4bd5669176a0",
+      "title": "Claude Code 유출 사건",
+      "url": "https://news.hada.io/topic?id=28155",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:56:19+09:00",
+      "summary": "Claude Code의 소스 코드 유출 은 코드 품질보다 제품-시장 적합성 이 성공을 좌우함을 보여준 사례임 Anthropic은 코드 자체보다 관찰 시스템과 자가 치유 메커니즘 을 중시하며, 빠른 개발 주기를 유지함 사용자에게 중요한 것은 코드의...",
+      "content": "Claude Code의 소스 코드 유출 은 코드 품질보다 제품-시장 적합성 이 성공을 좌우함을 보여준 사례임 Anthropic은 코드 자체보다 관찰 시스템과 자가 치유 메커니즘 을 중시하며, 빠른 개발 주기를 유지함 사용자에게 중요한 것은 코드의...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28155"
+    },
+    {
+      "id": "21150ad3a522",
+      "title": "Show GN: Claude Clipboard Cleaner - Claude Code 터미널 출력 복사 시 공백 자동 정리 macOS 앱",
+      "url": "https://news.hada.io/topic?id=28154",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:38:50+09:00",
+      "summary": "❯ 클로드야 긱뉴스에 올릴 설명을 적어줘. ⦁ 제목 - Show GN: Claude Clipboard Cleaner - Claude Code 터미널 출력 복사 시 공백 자동 정리 macOS 앱 Claude Code 터미널에서 코드를 복사해서 에디터나 Slack에 붙여넣으면, 앞에 2칸 공백이랑 뒤쪽 trailing space가 같이 딸려옵니다.",
+      "content": "❯ 클로드야 긱뉴스에 올릴 설명을 적어줘. ⦁ 제목 - Show GN: Claude Clipboard Cleaner - Claude Code 터미널 출력 복사 시 공백 자동 정리 macOS 앱 Claude Code 터미널에서 코드를 복사해서 에디터나 Slack에 붙여넣으면, 앞에 2칸 공백이랑 뒤쪽 trailing space가 같이 딸려옵니다.",
+      "tags": [],
+      "author": "esc5221",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28154"
+    },
+    {
+      "id": "65da41d06853",
+      "title": "Tailscale의 새로운 macOS 홈",
+      "url": "https://news.hada.io/topic?id=28153",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:19:21+09:00",
+      "summary": "MacBook 노치 디자인 으로 인해 메뉴 막대 아이콘이 가려지는 문제를 해결하기 위해 Tailscale 이 새로운 macOS용 윈도우형 인터페이스 를 도입함 초기에는 아이콘이 노치 뒤로 숨겨질 때 팝업 알림 을 띄우는 임시 대응을 사용했으...",
+      "content": "MacBook 노치 디자인 으로 인해 메뉴 막대 아이콘이 가려지는 문제를 해결하기 위해 Tailscale 이 새로운 macOS용 윈도우형 인터페이스 를 도입함 초기에는 아이콘이 노치 뒤로 숨겨질 때 팝업 알림 을 띄우는 임시 대응을 사용했으...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28153"
+    },
+    {
+      "id": "6dda16745961",
+      "title": "Azure 신뢰를 무너뜨린 결정들 – 전직 Azure Core 엔지니어의 기록",
+      "url": "https://news.hada.io/topic?id=28152",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:18:18+09:00",
+      "summary": "Microsoft Azure Core 내부의 비현실적 의사결정 이 누적되며 기술적 혼란과 신뢰 붕괴로 이어진 과정을 전직 엔지니어가 상세히 서술 하드웨어 제약을 무시한 Windows 기능 포팅 계획 과 173개의 관리 에이전트 난립 이 대표적 문제로 지적됨 ...",
+      "content": "Microsoft Azure Core 내부의 비현실적 의사결정 이 누적되며 기술적 혼란과 신뢰 붕괴로 이어진 과정을 전직 엔지니어가 상세히 서술 하드웨어 제약을 무시한 Windows 기능 포팅 계획 과 173개의 관리 에이전트 난립 이 대표적 문제로 지적됨 ...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28152"
+    },
+    {
+      "id": "17d1a71b5b99",
+      "title": "Cursor 3 공개",
+      "url": "https://news.hada.io/topic?id=28151",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T11:11:00+09:00",
+      "summary": "에이전트 중심 개발 환경 으로 전환되는 흐름 속에서, Cursor는 이를 통합 관리할 수 있는 새로운 워크스페이스를 제시함 멀티 리포지토리 구조 와 로컬·클라우드 에이전트 전환 기능을 통해 복잡한 협업 과정을 단일 인터페이스에서 처리 가능...",
+      "content": "에이전트 중심 개발 환경 으로 전환되는 흐름 속에서, Cursor는 이를 통합 관리할 수 있는 새로운 워크스페이스를 제시함 멀티 리포지토리 구조 와 로컬·클라우드 에이전트 전환 기능을 통해 복잡한 협업 과정을 단일 인터페이스에서 처리 가능...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28151"
+    },
+    {
+      "id": "f76ba50989a5",
+      "title": "Show GN: Whispree - 한국어 개발자를 위한 STT + LLM 교정 음성 입력 macOS 앱",
+      "url": "https://news.hada.io/topic?id=28150",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T10:47:42+09:00",
+      "summary": "개발 좋아하는 대학생입니다. AI한테 뭔가 시킬 때마다 타이핑이 병목이라 음성 입력을 찾아봤는데, 처음에 Superwhisper를 썼었습니다. 나름 나쁘지 않았는데, 한국어 전용이 아니다 보니까 단어를 계속 틀리더라구요. \"GitHub에 PR 올려놨어\"라고 하면 → '깃펍 펄 올렸어' 같은 식으로 전사",
+      "content": "개발 좋아하는 대학생입니다. AI한테 뭔가 시킬 때마다 타이핑이 병목이라 음성 입력을 찾아봤는데, 처음에 Superwhisper를 썼었습니다. 나름 나쁘지 않았는데, 한국어 전용이 아니다 보니까 단어를 계속 틀리더라구요. \"GitHub에 PR 올려놨어\"라고 하면 → '깃펍 펄 올렸어' 같은 식으로 전사",
+      "tags": [],
+      "author": "arsture",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28150"
+    },
+    {
+      "id": "592e473ccd04",
+      "title": "Github, Copilot SDK Preview 공개",
+      "url": "https://news.hada.io/topic?id=28149",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-04-03T10:17:11+09:00",
+      "summary": "GitHub Copilot SDK가 퍼블릭 프리뷰로 공개됐습니다. GitHub Copilot 클라우드 에이전트와 Copilot CLI에서 쓰이는 동일한 에이전트 런타임을 SDK로 꺼내, 자체 앱·워크플로·플랫폼에 Copilot의 에이전틱 기능을 직접 임베드할 수 있게 한 것이 핵심입니다. 지원 언어: Node.js/TypeScript, Pyt",
+      "content": "GitHub Copilot SDK가 퍼블릭 프리뷰로 공개됐습니다. GitHub Copilot 클라우드 에이전트와 Copilot CLI에서 쓰이는 동일한 에이전트 런타임을 SDK로 꺼내, 자체 앱·워크플로·플랫폼에 Copilot의 에이전틱 기능을 직접 임베드할 수 있게 한 것이 핵심입니다. 지원 언어: Node.js/TypeScript, Pyt",
+      "tags": [],
+      "author": "safethecode",
+      "priority": 1,
+      "image": "https://social.news.hada.io/topic/28149"
     },
     {
       "id": "da2cc79ff7ef",
@@ -774,8 +1667,8 @@
       "category": "tech",
       "language": "ko",
       "published": "2026-04-03T09:47:14+09:00",
-      "summary": "Steam 플랫폼에서 리눅스 이용 비율 이 3월 기준 5%를 넘어섬 이는 Valve의 Steam Hardware & Software Survey 통계에 기반한 수치임 리눅스 게이밍의 성장은 Steam Deck 과 Proton 호환성 향상 의...",
-      "content": "Steam 플랫폼에서 리눅스 이용 비율 이 3월 기준 5%를 넘어섬 이는 Valve의 Steam Hardware & Software Survey 통계에 기반한 수치임 리눅스 게이밍의 성장은 Steam Deck 과 Proton 호환성 향상 의...",
+      "summary": "Steam Linux 이용률이 역대 최고치인 5.33% 를 기록하며 처음으로 5% 선을 돌파했으며, 이는 macOS 점유율(2.35%)의 두 배를 넘는 수치 3월 한 달 사이 3.1%포인트 급등 하며 Steam 조사 역사상 Linux 기준 가장 큰 폭의 단기 상승 이 급등의 일부는",
+      "content": "Steam Linux 이용률이 역대 최고치인 5.33% 를 기록하며 처음으로 5% 선을 돌파했으며, 이는 macOS 점유율(2.35%)의 두 배를 넘는 수치 3월 한 달 사이 3.1%포인트 급등 하며 Steam 조사 역사상 Linux 기준 가장 큰 폭의 단기 상승 이 급등의 일부는",
       "tags": [],
       "author": "neo",
       "priority": 1,
@@ -846,134 +1739,6 @@
       "image": "https://social.news.hada.io/topic/28138"
     },
     {
-      "id": "b74ae36b4c76",
-      "title": "OCaml 컴파일러용 새로운 C++ 백엔드",
-      "url": "https://news.hada.io/topic?id=28137",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T08:41:16+09:00",
-      "summary": "OCaml 컴파일러에 C++ 코드 생성을 지원하는 새로운 백엔드 가 제안되어, 기존 C 기반 백엔드의 한계를 보완 변환된 코드는 순수 함수형 스타일 로 작성되며, 가변 상태나 표준 라이브러리 사용 없이 List 모듈 일부를 재구현 실행에는",
-      "content": "OCaml 컴파일러에 C++ 코드 생성을 지원하는 새로운 백엔드 가 제안되어, 기존 C 기반 백엔드의 한계를 보완 변환된 코드는 순수 함수형 스타일 로 작성되며, 가변 상태나 표준 라이브러리 사용 없이 List 모듈 일부를 재구현 실행에는",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28137"
-    },
-    {
-      "id": "89ba19064e61",
-      "title": "화이트하우스 공식 앱의 네트워크 트래픽을 가로채 분석한 결과",
-      "url": "https://news.hada.io/topic?id=28136",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T08:38:16+09:00",
-      "summary": "화이트하우스 iOS 앱의 실제 HTTPS 트래픽을 MITM 프록시로 캡처 해 어떤 서버와 데이터를 주고받는지 분석함 앱은 whitehouse.gov 외에도 Elfsight, OneSignal, YouTube, Google DoubleClick, Facebook, Twitter 등 31개 제3자 호스트 와 통신함...",
-      "content": "화이트하우스 iOS 앱의 실제 HTTPS 트래픽을 MITM 프록시로 캡처 해 어떤 서버와 데이터를 주고받는지 분석함 앱은 whitehouse.gov 외에도 Elfsight, OneSignal, YouTube, Google DoubleClick, Facebook, Twitter 등 31개 제3자 호스트 와 통신함...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28136"
-    },
-    {
-      "id": "8386653c1495",
-      "title": "네안데르탈인은 35만 년 동안 벼랑 끝에서 생존했다",
-      "url": "https://news.hada.io/topic?id=28135",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T08:35:16+09:00",
-      "summary": "약 40만~4만5천 년 전 , 네안데르탈인은 유라시아 전역에서 사냥과 도구 제작을 하며 살았으나 소규모·고립된 집단 구조 로 인해 불안정한 생존을 이어감 고대 DNA 분석 결과, 이들은 근친 교배를 반복하며 유전적 다양성 감소와 유해 돌연...",
-      "content": "약 40만~4만5천 년 전 , 네안데르탈인은 유라시아 전역에서 사냥과 도구 제작을 하며 살았으나 소규모·고립된 집단 구조 로 인해 불안정한 생존을 이어감 고대 DNA 분석 결과, 이들은 근친 교배를 반복하며 유전적 다양성 감소와 유해 돌연...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28135"
-    },
-    {
-      "id": "b66a21128344",
-      "title": "Show GN: 내 클로드를 소크라테스로 만들어봅시다",
-      "url": "https://news.hada.io/topic?id=28134",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T07:58:20+09:00",
-      "summary": "\"절대 정답을 알려주지 마!\" AI와 함께 공부하면서, 제일 아쉬웠던 점은 AI가 정답을 다 알려주는 바람에 아이디어를 스스로 떠올리는 힘을 키우기가 어려웠다는 점입니다. 그래서 절대 정답을 알려주지 않으면서, 문답법으로 아이디어를 떠올리도록 유도하는 소크라테스 스킬을",
-      "content": "\"절대 정답을 알려주지 마!\" AI와 함께 공부하면서, 제일 아쉬웠던 점은 AI가 정답을 다 알려주는 바람에 아이디어를 스스로 떠올리는 힘을 키우기가 어려웠다는 점입니다. 그래서 절대 정답을 알려주지 않으면서, 문답법으로 아이디어를 떠올리도록 유도하는 소크라테스 스킬을",
-      "tags": [],
-      "author": "remocode",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28134"
-    },
-    {
-      "id": "1a2d179de2c2",
-      "title": "BGP는 아직 안전하지 않은가",
-      "url": "https://news.hada.io/topic?id=28133",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T05:33:11+09:00",
-      "summary": "인터넷의 핵심 라우팅 프로토콜인 BGP(Border Gateway Protocol) 은 경로 선택 기능을 담당하지만 보안 검증 기능이 내장되어 있지 않음 이로 인해 잘못된 경로 정보가 전파되면 트래픽 탈취나 대규모 장애 가 발생할 수 있으며, 이를 방지하기 위...",
-      "content": "인터넷의 핵심 라우팅 프로토콜인 BGP(Border Gateway Protocol) 은 경로 선택 기능을 담당하지만 보안 검증 기능이 내장되어 있지 않음 이로 인해 잘못된 경로 정보가 전파되면 트래픽 탈취나 대규모 장애 가 발생할 수 있으며, 이를 방지하기 위...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28133"
-    },
-    {
-      "id": "602b3e3beae8",
-      "title": "미국, ‘국가안보’ 이유로 멕시코만 석유 산업에 멸종위기종 보호 의무 면제",
-      "url": "https://news.hada.io/topic?id=28132",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T04:33:33+09:00",
-      "summary": "트럼프 행정부의 고위 위원회가 멕시코만 석유·가스 산업을 멸종위기종보호법 적용 대상에서 면제 하기로 만장일치 결정 이로 인해 Rice’s 고래, 바다거북 등 멸종위기 해양동물 보호 조치 가 해제되며, 국방장관이 “국가 안보”를 이유로 회의를 소집 환...",
-      "content": "트럼프 행정부의 고위 위원회가 멕시코만 석유·가스 산업을 멸종위기종보호법 적용 대상에서 면제 하기로 만장일치 결정 이로 인해 Rice’s 고래, 바다거북 등 멸종위기 해양동물 보호 조치 가 해제되며, 국방장관이 “국가 안보”를 이유로 회의를 소집 환...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28132"
-    },
-    {
-      "id": "8b3553300b56",
-      "title": "FreeBSD 원격 커널 RCE(CVE-2026-4747)로 root 쉘 획득",
-      "url": "https://news.hada.io/topic?id=28130",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T01:36:55+09:00",
-      "summary": "FreeBSD의 kgssapi.ko 모듈 에서 RPCSEC_GSS 인증 처리 중 스택 버퍼 오버플로 가 발생해 원격 코드 실행 가능 svc_rpc_gss_validate() 함수가 경계 검사 없이 자격 증명 데이터를 복사 하면서 반환 주소까지 덮어씀 공격자는...",
-      "content": "FreeBSD의 kgssapi.ko 모듈 에서 RPCSEC_GSS 인증 처리 중 스택 버퍼 오버플로 가 발생해 원격 코드 실행 가능 svc_rpc_gss_validate() 함수가 경계 검사 없이 자격 증명 데이터를 복사 하면서 반환 주소까지 덮어씀 공격자는...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28130"
-    },
-    {
-      "id": "647bcc5ff303",
-      "title": "아르테미스 II 발사: 네 명의 우주비행사, 10일간의 달 궤도 임무 시작",
-      "url": "https://news.hada.io/topic?id=28129",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T01:33:55+09:00",
-      "summary": "NASA 가 유인 달 탐사 프로그램의 일환으로 Artemis II 를 발사해, 4명의 우주비행사가 10일간의 cislunar 비행 을 시작함 이번 임무는 Orion 우주선의 생명 유지 및 의료 시스템 검증 을 목표로 하며, 인류 최초로 여성과...",
-      "content": "NASA 가 유인 달 탐사 프로그램의 일환으로 Artemis II 를 발사해, 4명의 우주비행사가 10일간의 cislunar 비행 을 시작함 이번 임무는 Orion 우주선의 생명 유지 및 의료 시스템 검증 을 목표로 하며, 인류 최초로 여성과...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28129"
-    },
-    {
       "id": "d0ed6df94fc7",
       "title": "World Monitor - Real-Time Global Intelligence Dashboard",
       "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
@@ -981,7 +1746,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-04-03T01:25:14.883781+00:00",
+      "published": "2026-04-03T05:53:54.844743+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view.",
       "tags": [
@@ -996,6 +1761,26 @@
       "image": "https://www.worldmonitor.app/favico/og-image.png"
     },
     {
+      "id": "0853ac52a4f5",
+      "title": "Bitcoin heads into holiday weekend exposed as ETF and CME flows go offline",
+      "url": "https://www.coindesk.com/markets/2026/04/03/bitcoin-heads-into-holiday-weekend-exposed-as-etf-and-cme-flows-go-offline",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-04-03T04:15:49+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "News"
+      ],
+      "author": "Sam Reynolds",
+      "priority": 1,
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/bfb4779e9245468a88a2a948bb0e1677ae7e7858-3840x2160.png?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
+    },
+    {
       "id": "d6c518109767",
       "title": "토스가 디자인 직무를 2개로 줄인 이유",
       "url": "https://toss.tech/article/Designer",
@@ -1005,11 +1790,11 @@
       "language": "ko",
       "published": "2026-04-03T01:17:00+00:00",
       "summary": "6개 직무를 Visual Designer, Product Designer 2개로 통합한 이유를 들려드려요.",
-      "content": "26년 4월 1일, 토스 디자인챕터에 큰 변화가 있었어요. 기존 6개의 디자인 직무가 2개로 통합 된거예요.",
+      "content": "26년 4월 1일, 토스 디자인 챕터에 큰 변화가 있었어요. 기존 6개의 디자인 직무가 2개로 통합 된거예요.",
       "tags": [],
       "author": "",
       "priority": 1,
-      "image": ""
+      "image": "https://static.toss.im/photos/Designer_techblog.jpg"
     },
     {
       "id": "ab129496053e",
@@ -1026,22 +1811,6 @@
       "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1,
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8T48UROZtSjRXtkxVcNT2VmXbB1texWQPAqLbm06uwmJ8VsYFb_HeXOnZx9uz9QL-LB3aWdwcLm9TbuRler7w7jjXJlL_tQweQualaW4XEVav7Ysulqx_CJyc9a0P1dO1a69W_eQhroxV1LA_p5VB9T38Xubc3zXHgwd-4sAAc2whuv4ElnC5WtFSn7SH/s1600/nextjs.jpg"
-    },
-    {
-      "id": "82ae8188aff8",
-      "title": "Chrome이 yt-dlp 다운로드 시 '의심스러운 다운로드' 경고 표시",
-      "url": "https://news.hada.io/topic?id=28128",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-03T00:33:08+09:00",
-      "summary": "크롬 브라우저가 yt-dlp 실행 파일을 다운로드할 때 차단 또는 경고 메시지 를 표시하는 사례가 보고됨 경고 문구는 “ suspicious download ”로 나타나며, 사용자가 경고를 무시하고 수동으로 허용해야 파일을 받을 수 있음 yt-dlp는 YouTube 등 다...",
-      "content": "크롬 브라우저가 yt-dlp 실행 파일을 다운로드할 때 차단 또는 경고 메시지 를 표시하는 사례가 보고됨 경고 문구는 “ suspicious download ”로 나타나며, 사용자가 경고를 무시하고 수동으로 허용해야 파일을 받을 수 있음 yt-dlp는 YouTube 등 다...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28128"
     },
     {
       "id": "8a7076bcae67",
@@ -1061,22 +1830,6 @@
       "author": "Nikhilesh De",
       "priority": 1,
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/9531668508ae01b61e4837135a32d2fe51214a75-6000x4000.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
-    },
-    {
-      "id": "6d9a77fb063e",
-      "title": "SpaceX, 기업공개(IPO) 신청",
-      "url": "https://news.hada.io/topic?id=28127",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-02T23:33:17+09:00",
-      "summary": "일론 머스크의 로켓·위성 기업 SpaceX가 비공개 방식으로 IPO 서류를 제출, 월가 역사상 손꼽히는 대형 상장 이 될 가능성이 제기됨 6월 상장을 목표로 500억~750억 달러 조달 을 추진 중이며, 기업가치는 1조 달러 이상으로 자체 평가 IPO 자금은 궤도 AI ...",
-      "content": "일론 머스크의 로켓·위성 기업 SpaceX가 비공개 방식으로 IPO 서류를 제출, 월가 역사상 손꼽히는 대형 상장 이 될 가능성이 제기됨 6월 상장을 목표로 500억~750억 달러 조달 을 추진 중이며, 기업가치는 1조 달러 이상으로 자체 평가 IPO 자금은 궤도 AI ...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28127"
     },
     {
       "id": "643704cc376f",
@@ -1101,22 +1854,6 @@
       "image": "https://bitcoinmagazine.com/wp-content/uploads/2026/04/NAKAMOTO_Day3_1230_How_Real_is_the_Quantum_Threat_1x1-1.png"
     },
     {
-      "id": "40c141e594f3",
-      "title": "앤스로픽(Anthropic)의 수익성, 김밥천국 보다 안 좋다",
-      "url": "https://news.hada.io/topic?id=28125",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-04-02T22:25:14+09:00",
-      "summary": "IT 스타트업들은 초반에는 이익을 내지 못하지만, 임계점에 도달하면 폭발적인 수익 성장을 낼 것으로 기대 받음 매출에 따라 선형 증가하는 비용, 즉 변동비가 낮기 때문 음식점의 재료비는 매출에 비례해 증가하지만 개발자의 인건비나 컴퓨팅 비용은 그렇지 않음 모...",
-      "content": "IT 스타트업들은 초반에는 이익을 내지 못하지만, 임계점에 도달하면 폭발적인 수익 성장을 낼 것으로 기대 받음 매출에 따라 선형 증가하는 비용, 즉 변동비가 낮기 때문 음식점의 재료비는 매출에 비례해 증가하지만 개발자의 인건비나 컴퓨팅 비용은 그렇지 않음 모...",
-      "tags": [],
-      "author": "computerphilosopher",
-      "priority": 1,
-      "image": "https://social.news.hada.io/topic/28125"
-    },
-    {
       "id": "0455cf8e2d53",
       "title": "Crypto market structure bill release pushed back as industries view revised stablecoin yield compromise this week",
       "url": "https://www.coindesk.com/policy/2026/04/02/crypto-market-structure-bill-release-pushed-back-as-industries-view-revised-stablecoin-yield-compromise-this-week",
@@ -1134,6 +1871,25 @@
       "author": "Nikhilesh De",
       "priority": 1,
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/442c151878a896570ef9c97dd4ceed9b4d0d4571-6000x3376.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
+    },
+    {
+      "id": "95af0f0c50b7",
+      "title": "Copilot SDK in public preview",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T21:26:37+00:00",
+      "summary": "The GitHub Copilot SDK is now available in public preview. This gives you the building blocks to embed Copilot’s agentic capabilities directly into your own applications, workflows, and platform services.… The post Copilot SDK in public preview appeared first on The GitHub Blog .",
+      "content": "The GitHub Copilot SDK is now available in public preview. This gives you the building blocks to embed Copilot’s agentic capabilities directly into your own applications, workflows, and platform services. The Copilot SDK exposes the same production-tested agent runtime that powers GitHub Copilot cloud agent and Copilot CLI. Instead of building your own AI orchestration layer, you get tool invocation, streaming, file operations, and multi-turn sessions out of the box.",
+      "tags": [
+        "Release",
+        "copilot"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/04/SDK_Header_02.jpg"
     },
     {
       "id": "9e2e604df0c3",
@@ -1332,6 +2088,27 @@
       "image": ""
     },
     {
+      "id": "e0a5b2716426",
+      "title": "Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-usage-metrics-now-includes-per-user-github-copilot-cli-activity-in-organization-reports",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T17:27:35+00:00",
+      "summary": "Following our enterprise-level, user-level, and organization-level CLI metrics releases, we’re completing coverage with per-user CLI breakdowns in organization reports. Organization admins can now see which individual users are active on… The post Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports appeared first on The GitHub Blog .",
+      "content": "Following our enterprise-level , user-level , and organization-level CLI metrics releases, we’re completing coverage with per-user CLI breakdowns in organization reports. Organization admins can now see which individual users are active on the CLI and view their usage details in both 1-day and 28-day reports. This includes: Whether each user has CLI activity ( used_cli ). Per-user CLI session and request counts. Token usage totals, including average tokens per request.",
+      "tags": [
+        "Improvement",
+        "account management",
+        "copilot",
+        "enterprise management tools"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/04/572309918-28c08aff-fa76-46e2-a6d1-9964ad8e87c9.jpeg"
+    },
+    {
       "id": "55dcc5a53e62",
       "title": "Researchers Uncover Mining Operation Using ISO Lures to Spread RATs and Crypto Miners",
       "url": "https://thehackernews.com/2026/04/researchers-uncover-mining-operation.html",
@@ -1348,6 +2125,47 @@
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpKoZinOy6MS9s0nTi1TV12H46KUmgkxu0kGinPE7yyq7Vpo9lmmcz30e5ve0yCk2T0ETCedeV6aXs0iEjI1rOykcXwBPa2a11yb75bjgjad7WKkKgsUAv0lO1tuZ8vVnYZtuiUHKqwM6Z6bxGtheJIhuWW5W6lKjo0FaHZf7ewPO_SFuKAjPKMh_sqDB2/s1600/monero.jpg"
     },
     {
+      "id": "38f998e87590",
+      "title": "GitHub Actions: Early April 2026 updates",
+      "url": "https://github.blog/changelog/2026-04-02-github-actions-early-april-2026-updates",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T17:11:45+00:00",
+      "summary": "This month, GitHub Actions adds entrypoint and command overrides for service containers and new security features including OIDC custom properties and VNET failover. Customizing entrypoints for service containers Many GitHub… The post GitHub Actions: Early April 2026 updates appeared first on The GitHub Blog .",
+      "content": "This month, GitHub Actions adds entrypoint and command overrides for service containers and new security features including OIDC custom properties and VNET failover. Customizing entrypoints for service containers Many GitHub Actions users have been frustrated that you cannot override the entrypoint or commands on service containers , creating many different workarounds to resolve these issues.",
+      "tags": [
+        "Improvement",
+        "actions"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/04/572059449-51abd40f-1cf4-4ce7-bcbb-8e6702706e55.jpg"
+    },
+    {
+      "id": "90330f396674",
+      "title": "My Journey to Airbnb — Jonathan Woodard",
+      "url": "https://medium.com/airbnb-engineering/my-journey-to-airbnb-jonathan-woodard-7efae28d7fa9?source=rss----53c7c27702d5---4",
+      "source": "airbnb_engineering",
+      "source_name": "Airbnb Engineering",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-04-02T17:01:06+00:00",
+      "summary": "Jonathan Woodard knows defense. After playing professional football as a defensive end for six years, Jonathan knew he wanted a career where he could always face new challenges, learn new skills, and continue to thrive in high-paced environments. After discovering a passion for programming, Jonathan joined Airbnb’s Connect Engineering Apprenticeship program and excelled; now, we’re lucky to have him on our Secure Development Engineering team. Here’s his story.",
+      "content": "Jonathan Woodard knows defense. After playing professional football as a defensive end for six years, Jonathan knew he wanted a career where he could always face new challenges, learn new skills, and continue to thrive in high-paced environments. After discovering a passion for programming, Jonathan joined Airbnb’s Connect Engineering Apprenticeship program and excelled; now, we’re lucky to have him on our Secure Development Engineering team. Here’s his story.",
+      "tags": [
+        "people",
+        "engineering",
+        "technology",
+        "cloud-security",
+        "software-engineering"
+      ],
+      "author": "AirbnbEng",
+      "priority": 1,
+      "image": "https://cdn-images-1.medium.com/max/1024/1*tvm81QJzJmsOHuiGKuPGSQ.png"
+    },
+    {
       "id": "2437bc2ab513",
       "title": "The State of Trusted Open Source Report",
       "url": "https://thehackernews.com/2026/04/the-state-of-trusted-open-source-report.html",
@@ -1362,6 +2180,25 @@
       "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1,
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5yI578d17vaAxuCMW2SLrz3ibI4ibSfdDCfum-B3VZ0Ukyd79Eue2VR8ofUCBpISSXsL8biYdRFyuMm78T6PTU7U1w_6jJK3qV7ohPRSt3NGDTtAkseitLCaEZVHqcVIhFZABPlyAP8KPV-JMlnlq42Flgl7lB2Rs5hkIQYVYtc0Z15Yd0WKaYSu7CLM/s1600/devsecops.jpg"
+    },
+    {
+      "id": "0bb3e54f3296",
+      "title": "Claude Code leak used to push infostealer malware on GitHub",
+      "url": "https://www.bleepingcomputer.com/news/security/claude-code-leak-used-to-push-infostealer-malware-on-github/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T16:30:55-04:00",
+      "summary": "Threat actors are exploiting the recent Claude Code source code leak by using fake GitHub repositories to deliver Vidar information-stealing malware. [...]",
+      "content": "",
+      "tags": [
+        "Security",
+        "Artificial Intelligence"
+      ],
+      "author": "Bill Toulas",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2026/03/25/GitHub.jpg"
     },
     {
       "id": "0a29326ac2c1",
@@ -1662,6 +2499,44 @@
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/ccb0a7f8972de23193d198e8aacaf34f5df00b00-1920x1440.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
     },
     {
+      "id": "24fe0207b6f9",
+      "title": "Drift loses $280 million North Korean hackers seize Security Council powers",
+      "url": "https://www.bleepingcomputer.com/news/security/drift-loses-280-million-north-korean-hackers-seize-security-council-powers/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T15:03:39-04:00",
+      "summary": "The Drift Protocol lost at least $280 million after a threat actor took control of its Security Council administrative powers in a planned, sophisticated operation. [...]",
+      "content": "",
+      "tags": [
+        "Security",
+        "CryptoCurrency"
+      ],
+      "author": "Bill Toulas",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2026/03/31/cryptocurrency.jpg"
+    },
+    {
+      "id": "e8bbca54ec17",
+      "title": "GitHub Copilot in Visual Studio — March update",
+      "url": "https://github.blog/changelog/2026-04-02-github-copilot-in-visual-studio-march-update",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T15:00:31+00:00",
+      "summary": "March 2026 brought a major step forward for GitHub Copilot extensibility in Visual Studio, with custom agents, agent skills, and new tools that make the agent smarter and more capable.… The post GitHub Copilot in Visual Studio — March update appeared first on The GitHub Blog .",
+      "content": "March 2026 brought a major step forward for GitHub Copilot extensibility in Visual Studio, with custom agents, agent skills, and new tools that make the agent smarter and more capable. Highlights Here’s what’s new with GitHub Copilot in the March update of Visual Studio 2026: Build your own custom agents : Define specialized Copilot agents as .agent.md files in your repository.",
+      "tags": [
+        "Release",
+        "copilot"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg"
+    },
+    {
       "id": "a708ad7a6a07",
       "title": "Crypto for Advisors: Crypto custody’s evolution",
       "url": "https://www.coindesk.com/coindesk-indices/2026/04/01/crypto-for-advisors-crypto-custody-s-evolution",
@@ -1682,6 +2557,28 @@
       "author": "Paul Frost-Smith",
       "priority": 1,
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/6ff294d2535cf05ce9094ae6e96e140848553f8b-5680x3776.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
+    },
+    {
+      "id": "68e59e6930a7",
+      "title": "BreachForums, 데이터 유출 사건 (“Doomsday The Story of James”) 분석 보고서",
+      "url": "https://asec.ahnlab.com/ko/93167/",
+      "source": "ahnlab_asec",
+      "source_name": "안랩 ASEC 블로그",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-04-02T15:00:00+00:00",
+      "summary": "서론: BreachForums란 무엇인가? BreachForums의 정체 BreachForums는 해커들이 기업이나 정부 기관에서 탈취한 개인정보(이메일, 비밀번호, 신용카드 정보 등)를 사고파는 범죄 시장이다. 수십만 명의 회원이 활동하는 대형 온라인 커뮤니티로, 유출된 데이터베이스가 게시되고 거래되는 플랫폼이자 해킹 기술과 악성코드, 사이버 범죄 노하우가 공유되는 공간이다. 보안 전문가와 법 집행 기관이 주시하는 감시 대상 1순위이기도 하다. 중요성 전 세계 주요 기업의 […]",
+      "content": "",
+      "tags": [
+        "다크웹",
+        "Private",
+        "BreachForums",
+        "DarkWeb",
+        "DeepWeb"
+      ],
+      "author": "ATCP",
+      "priority": 1,
+      "image": "https://asec.ahnlab.com/wp-content/uploads/2026/04/K8Q2dS6Uveczd2iM7ByfvOlixeaif7al1ld1onLc.webp"
     },
     {
       "id": "d4b4cb798dc4",
@@ -1746,6 +2643,27 @@
       "author": "Micah Zimmerman",
       "priority": 1,
       "image": "https://bitcoinmagazine.com/wp-content/uploads/2026/04/Bitcoin-Treasuries-Are-Cracking-as-Public-Companies-Turn-into-Sellers.jpg"
+    },
+    {
+      "id": "40f68cdea635",
+      "title": "The Security tab is now Security & quality",
+      "url": "https://github.blog/changelog/2026-04-02-the-security-tab-is-now-security-quality",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T13:57:45+00:00",
+      "summary": "The top-level Security tab across repositories, organizations, and enterprises has been renamed to Security & quality on github.com. This change restructures the navigation to colocate code quality findings alongside security… The post The Security tab is now Security & quality appeared first on The GitHub Blog .",
+      "content": "The top-level Security tab across repositories, organizations, and enterprises has been renamed to Security & quality on github.com. This change restructures the navigation to colocate code quality findings alongside security alerts, making it easier to triage all code-related issues from a single place. What’s changed The Security tab is now Security & quality at the repository, organization, and enterprise levels.",
+      "tags": [
+        "Improvement",
+        "application security",
+        "enterprise management tools",
+        "platform governance"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/04/572135053-27649c54-e5b8-4dee-965b-cf538281ece7.jpg"
     },
     {
       "id": "752d0428909b",
@@ -1850,7 +2768,7 @@
         "AI/ML",
         "Amazon Machine Learning"
       ],
-      "author": "Evandro Franco",
+      "author": "Kosti Vasilakakis",
       "priority": 1,
       "image": ""
     },
@@ -1875,6 +2793,44 @@
       "author": "CoinDesk Indices",
       "priority": 1,
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/db1344ed6cec9512d6cb0be07dccbe719a07fff0-480x360.png?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
+    },
+    {
+      "id": "c8459ceb1a80",
+      "title": "Improved search for GitHub Issues is now generally available",
+      "url": "https://github.blog/changelog/2026-04-02-improved-search-for-github-issues-is-now-generally-available",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T13:11:31+00:00",
+      "summary": "Finding the right issue just got easier. First introduced in public preview in January and expanded to the Issues dashboard in February, improved search for GitHub Issues is now generally… The post Improved search for GitHub Issues is now generally available appeared first on The GitHub Blog .",
+      "content": "Finding the right issue just got easier. First introduced in public preview in January and expanded to the Issues dashboard in February , improved search for GitHub Issues is now generally available. By indexing issue titles and bodies, this search lets you find issues by meaning, not just keywords. Since public preview, the results have spoken for themselves.",
+      "tags": [
+        "Improvement",
+        "projects &amp; issues"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/03/568490577-67a1dfb8-d876-4d51-9cd4-54a73fb90b6d.jpg"
+    },
+    {
+      "id": "26d2ac3e78f5",
+      "title": "Copilot organization custom instructions are generally available",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-organization-custom-instructions-are-generally-available",
+      "source": "github_changelog",
+      "source_name": "GitHub Changelog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-04-02T13:03:32+00:00",
+      "summary": "Organization custom instructions for GitHub Copilot, first introduced in April 2025, are now generally available. With organization custom instructions, Copilot Business and Copilot Enterprise organization administrators can set default instructions… The post Copilot organization custom instructions are generally available appeared first on The GitHub Blog .",
+      "content": "Organization custom instructions for GitHub Copilot, first introduced in April 2025 , are now generally available. With organization custom instructions, Copilot Business and Copilot Enterprise organization administrators can set default instructions that guide Copilot’s behavior across all repositories in their organization.",
+      "tags": [
+        "Improvement",
+        "copilot"
+      ],
+      "author": "Allison",
+      "priority": 1,
+      "image": "https://github.blog/wp-content/uploads/2026/04/572677531-cfdf4f07-d114-4890-a5b6-f29375dea4fe.jpeg"
     },
     {
       "id": "4ca064e38cb9",
@@ -2098,6 +3054,24 @@
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/e5fe8b0c690d6a048d76daba3573aeabcd11328a-1280x909.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
     },
     {
+      "id": "eddbd9bb19ac",
+      "title": "Residential proxies evaded IP reputation checks in 78% of 4B sessions",
+      "url": "https://www.bleepingcomputer.com/news/security/residential-proxies-evaded-ip-reputation-checks-in-78-percent-of-4b-sessions/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T11:21:02-04:00",
+      "summary": "Researchers warn that residential proxies used to route malicious traffic are a big problem for IP reputation systems, as there is no clear distinction between attackers and legitimate users. [...]",
+      "content": "",
+      "tags": [
+        "Security"
+      ],
+      "author": "Bill Toulas",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2026/01/29/internet.jpg"
+    },
+    {
       "id": "82d78c0cc5e8",
       "title": "Audit admin keys, not just code, expert says after $200 million Drift exploit",
       "url": "https://www.coindesk.com/daybook-us/2026/04/02/audit-admin-keys-not-just-code-expert-says-after-usd200-million-drift-exploit-crypto-daybook-americas",
@@ -2153,27 +3127,25 @@
       ],
       "author": "",
       "priority": 1,
-      "image": ""
+      "image": "https://images.ctfassets.net/kftzwdyauwt9/1r6GrogaVsLY9VGAL871G6/9319636f74fa5a4d16d391476a6f85f1/Frame-1.png?w=1600&h=900&fit=fill"
     },
     {
-      "id": "f5ecf09e0a3f",
-      "title": "Crypto markets tumble as oil surges and traders pile into bearish bets: Crypto Markets Today",
-      "url": "https://www.coindesk.com/markets/2026/04/02/crypto-markets-tumble-as-oil-surges-and-traders-pile-into-bearish-bets-crypto-markets-today",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
+      "id": "b486be5c5b29",
+      "title": "Adversaries Exploit Vacant Homes to Intercept Mail in Hybrid Cybercrime",
+      "url": "https://www.bleepingcomputer.com/news/security/adversaries-exploit-vacant-homes-to-intercept-mail-in-hybrid-cybercrime/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
       "language": "en",
-      "published": "2026-04-02T10:30:00+00:00",
-      "summary": "",
+      "published": "2026-04-02T10:01:11-04:00",
+      "summary": "Threat actors are exploiting vacant homes as \"drop addresses\" to intercept mail and enable fraud. Flare shows how postal services and fake identities are abused to turn mail into a fraud vector. [...]",
       "content": "",
       "tags": [
-        "Markets",
-        "Crypto Markets Today",
-        "News"
+        "Security"
       ],
-      "author": "Omkar Godbole",
+      "author": "Sponsored by Flare",
       "priority": 1,
-      "image": "https://cdn.sanity.io/images/s3y3vcno/production/12b18d3c2474bb9720395e6d763a5878168ee717-1280x724.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip"
+      "image": "https://www.bleepstatic.com/content/posts/2026/03/31/flare-header-mailbox.jpg"
     },
     {
       "id": "c32a08ac79ed",
@@ -2191,7 +3163,61 @@
       ],
       "author": "",
       "priority": 1,
-      "image": ""
+      "image": "https://images.ctfassets.net/kftzwdyauwt9/3eC7r4XbfcRRygMKKbcr4p/8ae6d08d1d96945c8cf2035bcb76424d/Frame__2_.png?w=1600&h=900&fit=fill"
+    },
+    {
+      "id": "1476b0999912",
+      "title": "New Progress ShareFile flaws can be chained in pre-auth RCE attacks",
+      "url": "https://www.bleepingcomputer.com/news/security/new-progress-sharefile-flaws-can-be-chained-in-pre-auth-rce-attacks/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T09:33:11-04:00",
+      "summary": "Two vulnerabilities in Progress ShareFile, an enterprise-grade secure file transfer solution, can be chained to enable unauthenticated file exfiltration from affected environments. [...]",
+      "content": "",
+      "tags": [
+        "Security"
+      ],
+      "author": "Bill Toulas",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2023/09/28/Progress_headpic.jpg"
+    },
+    {
+      "id": "8bb7a2e1a5f6",
+      "title": "Medtech giant Stryker fully operational after data-wiping attack",
+      "url": "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-fully-operational-after-data-wiping-attack/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T09:28:39-04:00",
+      "summary": "Stryker Corporation, one of the world's leading medical technology companies, says it's fully operational three weeks after many of its systems were wiped out in a cyberattack claimed by the Iranian-linked Handala hacktivist group. [...]",
+      "content": "",
+      "tags": [
+        "Security"
+      ],
+      "author": "Sergiu Gatlan",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2026/04/02/Stryker.jpg"
+    },
+    {
+      "id": "56f349187b5a",
+      "title": "Critical Cisco IMC auth bypass gives attackers Admin access",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-cisco-imc-auth-bypass-gives-attackers-admin-access/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T07:01:14-04:00",
+      "summary": "Cisco has patched several critical and high-severity vulnerabilities, including an Integrated Management Controller (IMC) authentication bypass that enables attackers to gain Admin access. [...]",
+      "content": "",
+      "tags": [
+        "Security"
+      ],
+      "author": "Sergiu Gatlan",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2024/07/17/Cisco.jpg"
     },
     {
       "id": "1d03a3c03418",
@@ -2216,20 +3242,40 @@
       "image": ""
     },
     {
-      "id": "32d9acb31c49",
-      "title": "You Patched LiteLLM, But Do You Know Your AI Blast Radius?",
-      "url": "https://snyk.io/blog/litellm-ai-blast-radius/",
-      "source": "snyk",
-      "source_name": "Snyk Blog",
-      "category": "devsecops",
+      "id": "d57a8895b71e",
+      "title": "Microsoft links Classic Outlook issue to email delivery problems",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-links-classic-outlook-bug-to-email-delivery-issues/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
       "language": "en",
-      "published": "2026-04-02T04:00:00+00:00",
-      "summary": "The LiteLLM compromise showed AI risk extends beyond dependencies. Use Evo AI-SPM to map your full AI blast radius, securing connected models, tools, and agent workflows.1",
+      "published": "2026-04-02T05:12:12-04:00",
+      "summary": "Microsoft is investigating a known issue that prevents some Classic Outlook users from sending emails via Outlook.com. [...]",
       "content": "",
-      "tags": [],
-      "author": "",
+      "tags": [
+        "Microsoft"
+      ],
+      "author": "Sergiu Gatlan",
       "priority": 1,
-      "image": "https://res.cloudinary.com/snyk/image/upload/v1671633727/wordpress-sync/Feature-5FoCS1.jpg"
+      "image": "https://www.bleepstatic.com/content/hl-images/2024/11/01/Outlook.jpg"
+    },
+    {
+      "id": "ba327e8d4dbd",
+      "title": "Over 14,000 F5 BIG-IP APM instances still exposed to RCE attacks",
+      "url": "https://www.bleepingcomputer.com/news/security/over-14-000-f5-big-ip-apm-instances-still-exposed-to-rce-attacks/",
+      "source": "bleepingcomputer",
+      "source_name": "BleepingComputer",
+      "category": "security",
+      "language": "en",
+      "published": "2026-04-02T04:25:50-04:00",
+      "summary": "Internet security watchdog Shadowserver has found over 14,000 BIG-IP APM instances exposed online amid ongoing attacks exploiting a critical-severity remote code execution (RCE) vulnerability. [...]",
+      "content": "",
+      "tags": [
+        "Security"
+      ],
+      "author": "Sergiu Gatlan",
+      "priority": 1,
+      "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/F5-headpic.jpg"
     }
   ]
 }
