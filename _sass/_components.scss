@@ -172,14 +172,56 @@
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-sm);
   background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary));
+  position: relative;
+}
+
+/* Skeleton loading animation */
+.post-card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .post-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-slow), opacity 0.3s ease;
   border-radius: var(--border-radius-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* Hide shimmer once image loads */
+.post-card-image:has(img.loaded)::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dark mode shimmer */
+[data-theme="dark"] .post-card-image::before {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
 @media (prefers-color-scheme: light) {
@@ -187,6 +229,26 @@
   :not([data-theme="dark"]) .post-card-image {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
+}
+
+/* Gradient overlay on image for better text readability */
+.post-card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.15), transparent);
+  z-index: 3;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.post-card:hover .post-card-image::after {
+  opacity: 1;
 }
 
 .post-card:hover .post-card-image img {
@@ -274,6 +336,7 @@ div.post-card-excerpt {
   font-size: 0.75rem;
   color: var(--color-text-tertiary);
   font-weight: var(--font-weight-medium);
+  letter-spacing: 0.01em;
 }
 
 .excerpt-highlights {
@@ -285,6 +348,23 @@ div.post-card-excerpt {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Read more indicator */
+.post-card-content::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  margin-top: var(--spacing-sm);
+  transition: width var(--transition-base);
+  opacity: 0.6;
+}
+
+.post-card:hover .post-card-content::after {
+  width: 48px;
+  opacity: 1;
 }
 
 .post-card-tags {

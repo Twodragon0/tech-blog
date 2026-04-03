@@ -23,6 +23,9 @@ def convert_svg_image_to_png(page)
   image = page.data["image"]
   return unless image.is_a?(String) && image.end_with?(".svg")
 
+  # Preserve original SVG path for fallback
+  page.data["image_svg"] = image
+
   source_dir = page.site.source
   png_path = image.sub(/\.svg\z/, ".png")
   og_png_path = image.sub(/\.svg\z/, "_og.png")
