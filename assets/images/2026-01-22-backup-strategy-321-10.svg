@@ -1,61 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>backup-strategy-321-10</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1520"/>
-      <stop offset="100%" style="stop-color:#152535"/>
+      <stop offset="0%" style="stop-color:#0a1520" />
+      <stop offset="100%" style="stop-color:#152535" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#27ae60"/>
-      <stop offset="100%" style="stop-color:#3498db"/>
+      <stop offset="0%" style="stop-color:#27ae60" />
+      <stop offset="100%" style="stop-color:#3498db" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(39,174,96,0.06)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(52,152,219,0.07)"/>
-  <!-- Storage stack: disk icon -->
-  <ellipse cx="970" cy="215" rx="70" ry="20" fill="none" stroke="#27ae60" stroke-width="2.5" opacity="0.8"/>
-  <rect x="900" y="215" width="140" height="40" fill="none" stroke="#27ae60" stroke-width="2.5" opacity="0.8"/>
-  <ellipse cx="970" cy="255" rx="70" ry="20" fill="none" stroke="#27ae60" stroke-width="2" opacity="0.6"/>
-  <text x="970" y="240" font-family="Arial,sans-serif" font-size="11" fill="#27ae60" text-anchor="middle" opacity="0.8">PRIMARY DISK</text>
-  <!-- Cloud icon -->
-  <ellipse cx="970" cy="320" rx="65" ry="38" fill="none" stroke="#3498db" stroke-width="2.5" opacity="0.8"/>
-  <ellipse cx="935" cy="332" rx="32" ry="28" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5"/>
-  <ellipse cx="1008" cy="335" rx="28" ry="24" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5"/>
-  <text x="970" y="323" font-family="Arial,sans-serif" font-size="11" fill="#3498db" text-anchor="middle" opacity="0.8">CLOUD</text>
-  <!-- Tape icon -->
-  <rect x="906" y="390" width="128" height="72" rx="5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
-  <circle cx="944" cy="426" r="18" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-  <circle cx="996" cy="426" r="18" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-  <line x1="962" y1="426" x2="978" y2="426" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-  <text x="970" y="476" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">TAPE / OFFLINE</text>
-  <!-- Numbers 3-2-1 -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(39,174,96,0.06)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(52,152,219,0.07)" />
+  
+  <ellipse cx="970" cy="215" rx="70" ry="20" fill="none" stroke="#27ae60" stroke-width="2.5" opacity="0.8" />
+  <rect x="900" y="215" width="140" height="40" fill="none" stroke="#27ae60" stroke-width="2.5" opacity="0.8" />
+  <ellipse cx="970" cy="255" rx="70" ry="20" fill="none" stroke="#27ae60" stroke-width="2" opacity="0.6" />
+  <ellipse cx="970" cy="320" rx="65" ry="38" fill="none" stroke="#3498db" stroke-width="2.5" opacity="0.8" />
+  <ellipse cx="935" cy="332" rx="32" ry="28" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5" />
+  <ellipse cx="1008" cy="335" rx="28" ry="24" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5" />
+  <rect x="906" y="390" width="128" height="72" rx="5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" />
+  <circle cx="944" cy="426" r="18" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+  <circle cx="996" cy="426" r="18" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+  <line x1="962" y1="426" x2="978" y2="426" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
   <text x="1090" y="248" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="rgba(39,174,96,0.35)">3</text>
   <text x="1090" y="348" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="rgba(52,152,219,0.35)">2</text>
   <text x="1090" y="455" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="rgba(255,255,255,0.25)">1</text>
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1" />
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#27ae60" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>
   <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Backup Strategy</text>
   <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">3-2-1-1-0 Rule</text>
   <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">3 copies, 2 media types, 1 offsite, 1 offline, 0 errors</text>
-  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)"/>
+  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)" />
   <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(39,174,96,0.8)" letter-spacing="3">DATA PROTECTION</text>
-  <rect x="80" y="400" width="105" height="28" rx="14" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
-  <text x="132" y="419" font-family="Arial,sans-serif" font-size="13" fill="#27ae60" text-anchor="middle">Backup 321</text>
-  <rect x="197" y="400" width="135" height="28" rx="14" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
-  <text x="264" y="419" font-family="Arial,sans-serif" font-size="13" fill="#3498db" text-anchor="middle">Data Protection</text>
-  <rect x="344" y="400" width="90" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="389" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Strategy</text>
-  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)"/>
+  <rect x="80" y="400" width="105" height="28" rx="14" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1" />
+  <rect x="197" y="400" width="135" height="28" rx="14" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.4)" stroke-width="1" />
+  <rect x="344" y="400" width="90" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
   <text x="1120" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="end">DevSecOps</text>
 </svg>

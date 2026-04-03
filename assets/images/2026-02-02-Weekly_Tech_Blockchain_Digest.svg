@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Weekly Tech Blockchain Digest</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- Gradient defs -->
+  
   <defs>
     <linearGradient id="chainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
@@ -19,119 +20,112 @@
     </linearGradient>
   </defs>
 
-  <!-- Left side: Title and metadata -->
+  
   <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Weekly Tech</text>
   <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Blockchain Digest</text>
 
-  <!-- Date badge -->
-  <rect x="60" y="310" width="280" height="50" fill="rgba(99, 102, 241, 0.15)" rx="8" stroke="#6366f1" stroke-width="2"/>
+  
+  <rect x="60" y="310" width="280" height="50" fill="rgba(99, 102, 241, 0.15)" rx="8" stroke="#6366f1" stroke-width="2" />
   <text x="75" y="342" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#a5b4fc">FEBRUARY 2, 2026</text>
 
-  <!-- Tag pills -->
+  
   <g>
-    <!-- Tag 1: Security -->
-    <rect x="60" y="420" width="100" height="35" fill="rgba(236, 72, 153, 0.2)" rx="18" stroke="#ec4899" stroke-width="1.5"/>
+    
+    <rect x="60" y="420" width="100" height="35" fill="rgba(236, 72, 153, 0.2)" rx="18" stroke="#ec4899" stroke-width="1.5" />
     <text x="110" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f472b6" text-anchor="middle">Security</text>
 
-    <!-- Tag 2: Blockchain -->
-    <rect x="180" y="420" width="105" height="35" fill="rgba(99, 102, 241, 0.2)" rx="18" stroke="#6366f1" stroke-width="1.5"/>
+    
+    <rect x="180" y="420" width="105" height="35" fill="rgba(99, 102, 241, 0.2)" rx="18" stroke="#6366f1" stroke-width="1.5" />
     <text x="232" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#a5b4fc" text-anchor="middle">Blockchain</text>
 
-    <!-- Tag 3: Digest -->
-    <rect x="305" y="420" width="80" height="35" fill="rgba(16, 185, 129, 0.2)" rx="18" stroke="#10b981" stroke-width="1.5"/>
+    
+    <rect x="305" y="420" width="80" height="35" fill="rgba(16, 185, 129, 0.2)" rx="18" stroke="#10b981" stroke-width="1.5" />
     <text x="345" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#6ee7b7" text-anchor="middle">Digest</text>
   </g>
 
-  <!-- Footer -->
+  
   <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" fill="#64748b">tech.2twodragon.com</text>
 
-  <!-- Right side: Blockchain illustration (x=700-1150, y=100-560) -->
+  
 
-  <!-- Central lock (security focal point) -->
+  
   <g transform="translate(925, 210)">
-    <!-- Lock body -->
-    <rect x="-35" y="-10" width="70" height="75" fill="none" stroke="url(#lockGradient)" stroke-width="3" rx="8"/>
-    <!-- Lock shackle -->
-    <path d="M -25 -10 Q -25 -50 0 -55 Q 25 -50 25 -10" fill="none" stroke="url(#lockGradient)" stroke-width="3" stroke-linecap="round"/>
-    <!-- Lock keyhole -->
-    <circle cx="0" cy="25" r="8" fill="none" stroke="url(#lockGradient)" stroke-width="2"/>
+    
+    <rect x="-35" y="-10" width="70" height="75" fill="none" stroke="url(#lockGradient)" stroke-width="3" rx="8" />
+    
+    <path d="M -25 -10 Q -25 -50 0 -55 Q 25 -50 25 -10" fill="none" stroke="url(#lockGradient)" stroke-width="3" stroke-linecap="round" />
+    
+    <circle cx="0" cy="25" r="8" fill="none" stroke="url(#lockGradient)" stroke-width="2" />
   </g>
 
-  <!-- Blockchain chain links (animated concept) -->
+  
   <g stroke="url(#chainGradient)" stroke-width="2.5" fill="none">
-    <!-- Link 1 (top-left) -->
-    <rect x="730" y="120" width="45" height="45" rx="6"/>
-    <!-- Link 2 -->
-    <rect x="800" y="120" width="45" height="45" rx="6"/>
-    <!-- Link 3 -->
-    <rect x="870" y="120" width="45" height="45" rx="6"/>
-    <!-- Link 4 -->
-    <rect x="940" y="120" width="45" height="45" rx="6"/>
+    
+    <rect x="730" y="120" width="45" height="45" rx="6" />
+    
+    <rect x="800" y="120" width="45" height="45" rx="6" />
+    
+    <rect x="870" y="120" width="45" height="45" rx="6" />
+    
+    <rect x="940" y="120" width="45" height="45" rx="6" />
 
-    <!-- Connecting lines -->
-    <line x1="775" y1="145" x2="800" y2="145" stroke-width="2"/>
-    <line x1="845" y1="145" x2="870" y2="145" stroke-width="2"/>
-    <line x1="915" y1="145" x2="940" y2="145" stroke-width="2"/>
+    
+    <line x1="775" y1="145" x2="800" y2="145" stroke-width="2" />
+    <line x1="845" y1="145" x2="870" y2="145" stroke-width="2" />
+    <line x1="915" y1="145" x2="940" y2="145" stroke-width="2" />
   </g>
 
-  <!-- Distributed nodes (network concept) -->
+  
   <g>
-    <!-- Node 1 (left) -->
-    <circle cx="760" cy="350" r="24" fill="url(#nodeGradient)" opacity="0.8"/>
-    <circle cx="760" cy="350" r="18" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
-    <text x="760" y="357" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">N1</text>
+    
+    <circle cx="760" cy="350" r="24" fill="url(#nodeGradient)" opacity="0.8" />
+    <circle cx="760" cy="350" r="18" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+    <circle cx="925" cy="320" r="28" fill="url(#nodeGradient)" opacity="0.9" />
+    <circle cx="925" cy="320" r="22" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+    <circle cx="1080" cy="350" r="24" fill="url(#nodeGradient)" opacity="0.8" />
+    <circle cx="1080" cy="350" r="18" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+    </g>
 
-    <!-- Node 2 (center) -->
-    <circle cx="925" cy="320" r="28" fill="url(#nodeGradient)" opacity="0.9"/>
-    <circle cx="925" cy="320" r="22" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
-    <text x="925" y="328" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">N2</text>
-
-    <!-- Node 3 (right) -->
-    <circle cx="1080" cy="350" r="24" fill="url(#nodeGradient)" opacity="0.8"/>
-    <circle cx="1080" cy="350" r="18" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
-    <text x="1080" y="357" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">N3</text>
-  </g>
-
-  <!-- Connection lines between nodes -->
+  
   <g stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.5" fill="none">
-    <line x1="782" y1="348" x2="903" y2="330"/>
-    <line x1="947" y1="330" x2="1058" y2="348"/>
-    <line x1="760" y1="374" x2="925" y2="348"/>
-    <line x1="925" y1="348" x2="1080" y2="374"/>
+    <line x1="782" y1="348" x2="903" y2="330" />
+    <line x1="947" y1="330" x2="1058" y2="348" />
+    <line x1="760" y1="374" x2="925" y2="348" />
+    <line x1="925" y1="348" x2="1080" y2="374" />
   </g>
 
-  <!-- Security shield elements -->
+  
   <g transform="translate(925, 480)">
-    <!-- Shield outline -->
-    <path d="M 0 0 L -30 15 L -30 45 Q 0 60 30 45 L 30 15 Z" fill="none" stroke="url(#lockGradient)" stroke-width="2.5"/>
-    <!-- Shield checkmark -->
+    
+    <path d="M 0 0 L -30 15 L -30 45 Q 0 60 30 45 L 30 15 Z" fill="none" stroke="url(#lockGradient)" stroke-width="2.5" />
+    
     <g stroke="url(#lockGradient)" stroke-width="2.5" stroke-linecap="round" fill="none">
-      <path d="M -8 25 L 2 35 L 18 20"/>
+      <path d="M -8 25 L 2 35 L 18 20" />
     </g>
   </g>
 
-  <!-- Data flow indicators (arrows) -->
+  
   <g stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round">
-    <!-- Arrow 1: down from chains -->
-    <path d="M 760 190 L 760 280"/>
-    <polygon points="760,290 755,280 765,280" fill="#3b82f6" opacity="0.6"/>
+    
+    <path d="M 760 190 L 760 280" />
+    <polygon points="760,290 755,280 765,280" fill="#3b82f6" opacity="0.6" />
 
-    <!-- Arrow 2: down from center -->
-    <path d="M 925 190 L 925 260"/>
-    <polygon points="925,270 920,260 930,260" fill="#3b82f6" opacity="0.6"/>
+    
+    <path d="M 925 190 L 925 260" />
+    <polygon points="925,270 920,260 930,260" fill="#3b82f6" opacity="0.6" />
 
-    <!-- Arrow 3: down from right -->
-    <path d="M 1020 190 L 1000 280"/>
-    <polygon points="1000,290 995,280 1005,280" fill="#3b82f6" opacity="0.6"/>
+    
+    <path d="M 1020 190 L 1000 280" />
+    <polygon points="1000,290 995,280 1005,280" fill="#3b82f6" opacity="0.6" />
   </g>
 
-  <!-- Decorative hash symbols -->
+  
   <g fill="#6366f1" opacity="0.3" font-family="monospace" font-size="10">
     <text x="720" y="520">0x7a9e...</text>
     <text x="850" y="520">0xb2d1...</text>
     <text x="1020" y="520">0xc5f8...</text>
   </g>
 
-  <!-- Subtle accent line -->
-  <line x1="680" y1="0" x2="680" y2="630" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+  
+  <line x1="680" y1="0" x2="680" y2="630" stroke="#6366f1" stroke-width="1" opacity="0.2" />
 </svg>

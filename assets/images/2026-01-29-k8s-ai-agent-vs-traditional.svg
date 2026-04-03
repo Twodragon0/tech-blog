@@ -1,95 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>k8s-ai-agent-vs-traditional</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1a20"/>
-      <stop offset="100%" style="stop-color:#153040"/>
+      <stop offset="0%" style="stop-color:#0a1a20" />
+      <stop offset="100%" style="stop-color:#153040" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#326ce5"/>
-      <stop offset="100%" style="stop-color:#9b59b6"/>
+      <stop offset="0%" style="stop-color:#326ce5" />
+      <stop offset="100%" style="stop-color:#9b59b6" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- VS divider line -->
-  <line x1="975" y1="125" x2="975" y2="468" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <rect x="960" y="286" width="30" height="20" rx="4" fill="rgba(255,255,255,0.08)"/>
-  <text x="975" y="300" font-size="11" fill="rgba(255,255,255,0.35)" font-family="sans-serif" text-anchor="middle">VS</text>
-  <!-- Left cluster label -->
-  <text x="870" y="140" font-size="11" fill="rgba(50,108,229,0.7)" font-family="monospace" text-anchor="middle" letter-spacing="1">TRADITIONAL</text>
-  <!-- K8s hexagon traditional -->
-  <polygon points="870,158 898,173 898,203 870,218 842,203 842,173" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="2"/>
-  <text x="870" y="195" font-size="10" fill="#326ce5" font-family="monospace" text-anchor="middle">kubectl</text>
-  <!-- Manual pods -->
-  <rect x="840" y="228" width="60" height="18" rx="3" fill="rgba(50,108,229,0.18)" stroke="#326ce5" stroke-width="1"/>
-  <text x="870" y="241" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">pod-1</text>
-  <rect x="840" y="252" width="60" height="18" rx="3" fill="rgba(50,108,229,0.14)" stroke="#326ce5" stroke-width="1"/>
-  <text x="870" y="265" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">pod-2</text>
-  <rect x="840" y="276" width="60" height="18" rx="3" fill="rgba(50,108,229,0.10)" stroke="#326ce5" stroke-width="1" stroke-dasharray="3,2"/>
-  <text x="870" y="289" font-size="9" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">manual...</text>
-  <!-- Human operator stick figure -->
-  <circle cx="870" cy="328" r="13" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <line x1="870" y1="341" x2="870" y2="370" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <line x1="848" y1="352" x2="892" y2="352" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <line x1="870" y1="370" x2="852" y2="392" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <line x1="870" y1="370" x2="888" y2="392" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-  <text x="870" y="412" font-size="9" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">Human Ops</text>
-  <!-- Right cluster label -->
-  <text x="1090" y="140" font-size="11" fill="rgba(155,89,182,0.7)" font-family="monospace" text-anchor="middle" letter-spacing="1">AI AGENT</text>
-  <!-- K8s hexagon AI -->
-  <polygon points="1090,158 1118,173 1118,203 1090,218 1062,203 1062,173" fill="rgba(155,89,182,0.15)" stroke="#9b59b6" stroke-width="2"/>
-  <text x="1090" y="192" font-size="9" fill="#9b59b6" font-family="monospace" text-anchor="middle">operator</text>
-  <!-- AI managed pods with capabilities -->
-  <rect x="1060" y="228" width="60" height="18" rx="3" fill="rgba(155,89,182,0.18)" stroke="#9b59b6" stroke-width="1"/>
-  <text x="1090" y="241" font-size="8" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">auto-scale</text>
-  <rect x="1060" y="252" width="60" height="18" rx="3" fill="rgba(155,89,182,0.15)" stroke="#9b59b6" stroke-width="1"/>
-  <text x="1090" y="265" font-size="8" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">self-heal</text>
-  <rect x="1060" y="276" width="60" height="18" rx="3" fill="rgba(155,89,182,0.12)" stroke="#9b59b6" stroke-width="1"/>
-  <text x="1090" y="289" font-size="8" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle">optimize</text>
-  <!-- AI brain neuron illustration -->
-  <ellipse cx="1090" cy="345" rx="24" ry="19" fill="none" stroke="#9b59b6" stroke-width="1.5" opacity="0.85"/>
-  <circle cx="1078" cy="339" r="3.5" fill="#9b59b6" opacity="0.8"/>
-  <circle cx="1095" cy="335" r="3" fill="#9b59b6" opacity="0.75"/>
-  <circle cx="1103" cy="347" r="3.5" fill="#9b59b6" opacity="0.8"/>
-  <circle cx="1082" cy="354" r="3" fill="#9b59b6" opacity="0.75"/>
-  <line x1="1078" y1="339" x2="1095" y2="335" stroke="#9b59b6" stroke-width="1" opacity="0.55"/>
-  <line x1="1095" y1="335" x2="1103" y2="347" stroke="#9b59b6" stroke-width="1" opacity="0.55"/>
-  <line x1="1103" y1="347" x2="1082" y2="354" stroke="#9b59b6" stroke-width="1" opacity="0.55"/>
-  <line x1="1082" y1="354" x2="1078" y2="339" stroke="#9b59b6" stroke-width="1" opacity="0.55"/>
-  <text x="1090" y="384" font-size="9" fill="rgba(155,89,182,0.7)" font-family="monospace" text-anchor="middle">AI Agent</text>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(50,108,229,0.25)" stroke="rgba(50,108,229,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  <line x1="975" y1="125" x2="975" y2="468" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="6,4" />
+  <rect x="960" y="286" width="30" height="20" rx="4" fill="rgba(255,255,255,0.08)" />
+  <polygon points="870,158 898,173 898,203 870,218 842,203 842,173" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="2" />
+  <rect x="840" y="228" width="60" height="18" rx="3" fill="rgba(50,108,229,0.18)" stroke="#326ce5" stroke-width="1" />
+  <rect x="840" y="252" width="60" height="18" rx="3" fill="rgba(50,108,229,0.14)" stroke="#326ce5" stroke-width="1" />
+  <rect x="840" y="276" width="60" height="18" rx="3" fill="rgba(50,108,229,0.10)" stroke="#326ce5" stroke-width="1" stroke-dasharray="3,2" />
+  <circle cx="870" cy="328" r="13" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />
+  <line x1="870" y1="341" x2="870" y2="370" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />
+  <line x1="848" y1="352" x2="892" y2="352" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />
+  <line x1="870" y1="370" x2="852" y2="392" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />
+  <line x1="870" y1="370" x2="888" y2="392" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />
+  <polygon points="1090,158 1118,173 1118,203 1090,218 1062,203 1062,173" fill="rgba(155,89,182,0.15)" stroke="#9b59b6" stroke-width="2" />
+  <rect x="1060" y="228" width="60" height="18" rx="3" fill="rgba(155,89,182,0.18)" stroke="#9b59b6" stroke-width="1" />
+  <rect x="1060" y="252" width="60" height="18" rx="3" fill="rgba(155,89,182,0.15)" stroke="#9b59b6" stroke-width="1" />
+  <rect x="1060" y="276" width="60" height="18" rx="3" fill="rgba(155,89,182,0.12)" stroke="#9b59b6" stroke-width="1" />
+  <ellipse cx="1090" cy="345" rx="24" ry="19" fill="none" stroke="#9b59b6" stroke-width="1.5" opacity="0.85" />
+  <circle cx="1078" cy="339" r="3.5" fill="#9b59b6" opacity="0.8" />
+  <circle cx="1095" cy="335" r="3" fill="#9b59b6" opacity="0.75" />
+  <circle cx="1103" cy="347" r="3.5" fill="#9b59b6" opacity="0.8" />
+  <circle cx="1082" cy="354" r="3" fill="#9b59b6" opacity="0.75" />
+  <line x1="1078" y1="339" x2="1095" y2="335" stroke="#9b59b6" stroke-width="1" opacity="0.55" />
+  <line x1="1095" y1="335" x2="1103" y2="347" stroke="#9b59b6" stroke-width="1" opacity="0.55" />
+  <line x1="1103" y1="347" x2="1082" y2="354" stroke="#9b59b6" stroke-width="1" opacity="0.55" />
+  <line x1="1082" y1="354" x2="1078" y2="339" stroke="#9b59b6" stroke-width="1" opacity="0.55" />
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(50,108,229,0.25)" stroke="rgba(50,108,229,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Kubernetes AI Agent</text>
   <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">vs Traditional Approach</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Comparing AI-driven K8s operators with manual cluster management</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">K8S AI COMPARISON</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(50,108,229,0.25)" stroke="rgba(50,108,229,0.5)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(50,108,229,0.25)" stroke="rgba(50,108,229,0.5)" stroke-width="1" />
   <text x="135" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">K8s Agent</text>
-  <rect x="206" y="402" width="120" height="36" rx="18" fill="rgba(155,89,182,0.2)" stroke="rgba(155,89,182,0.45)" stroke-width="1"/>
+  <rect x="206" y="402" width="120" height="36" rx="18" fill="rgba(155,89,182,0.2)" stroke="rgba(155,89,182,0.45)" stroke-width="1" />
   <text x="266" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI vs Manual</text>
-  <rect x="342" y="402" width="120" height="36" rx="18" fill="rgba(50,108,229,0.2)" stroke="rgba(50,108,229,0.4)" stroke-width="1"/>
+  <rect x="342" y="402" width="120" height="36" rx="18" fill="rgba(50,108,229,0.2)" stroke="rgba(50,108,229,0.4)" stroke-width="1" />
   <text x="402" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Comparison</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

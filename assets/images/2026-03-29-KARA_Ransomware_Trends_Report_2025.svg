@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>KARA Ransomware Trends Report 2025</title>
   <defs>
@@ -11,155 +12,153 @@
     </style>
   </defs>
 
-  <!-- Dark Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- LEFT SIDE CONTENT -->
-  <!-- Date Badge -->
-  <rect x="60" y="50" width="160" height="32" rx="4" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+  
+  
+  <rect x="60" y="50" width="160" height="32" rx="4" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1" />
   <text x="140" y="71" class="date-text" text-anchor="middle">JANUARY 22, 2026</text>
 
-  <!-- Main Title -->
+  
   <text x="60" y="210" class="title-text" font-size="44">KARA Ransomware</text>
   <text x="60" y="265" class="title-text" font-size="44">Trends Report</text>
 
-  <!-- Subtitle -->
+  
   <text x="60" y="330" class="subtitle-text" font-size="36" fill="#f59e0b">2025 Shieldus</text>
 
-  <!-- Tags -->
+  
   <g>
-    <!-- Tag 1 -->
-    <rect x="60" y="420" width="110" height="28" rx="14" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5"/>
+    
+    <rect x="60" y="420" width="110" height="28" rx="14" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5" />
     <text x="115" y="440" class="tag-text" text-anchor="middle">Ransomware</text>
 
-    <!-- Tag 2 -->
-    <rect x="180" y="420" width="100" height="28" rx="14" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
+    
+    <rect x="180" y="420" width="100" height="28" rx="14" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5" />
     <text x="230" y="440" class="tag-text" text-anchor="middle">Threat</text>
 
-    <!-- Tag 3 -->
-    <rect x="290" y="420" width="90" height="28" rx="14" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.5"/>
+    
+    <rect x="290" y="420" width="90" height="28" rx="14" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.5" />
     <text x="335" y="440" class="tag-text" text-anchor="middle">Security</text>
   </g>
 
-  <!-- Footer -->
+  
   <text x="60" y="560" class="footer-text">tech.2twodragon.com</text>
 
-  <!-- RIGHT SIDE VISUAL SCENE -->
-  <!-- Background subtle grid -->
+  
+  
   <defs>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.2" opacity="0.08"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.2" opacity="0.08" />
     </pattern>
   </defs>
-  <rect x="650" y="80" width="500" height="470" fill="url(#grid)"/>
+  <rect x="650" y="80" width="500" height="470" fill="url(#grid)" />
 
-  <!-- Central Padlock with Chains (Ransomware Symbol) -->
-  <!-- Padlock body -->
-  <rect x="850" y="240" width="100" height="120" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3"/>
+  
+  
+  <rect x="850" y="240" width="100" height="120" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3" />
 
-  <!-- Padlock shackle (U-shaped top) -->
-  <path d="M 880 240 Q 880 190 900 190 Q 920 190 920 240" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+  
+  <path d="M 880 240 Q 880 190 900 190 Q 920 190 920 240" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.9" />
 
-  <!-- Padlock keyhole -->
-  <circle cx="900" cy="285" r="8" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.9"/>
-  <circle cx="900" cy="285" r="4" fill="#ef4444" opacity="0.4"/>
+  
+  <circle cx="900" cy="285" r="8" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.9" />
+  <circle cx="900" cy="285" r="4" fill="#ef4444" opacity="0.4" />
 
-  <!-- Chains attached to padlock -->
-  <!-- Left chain -->
-  <path d="M 870 260 Q 820 260 800 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
-  <circle cx="835" cy="260" r="3" fill="#f59e0b" opacity="0.6"/>
-  <circle cx="805" cy="250" r="3" fill="#f59e0b" opacity="0.6"/>
+  
+  
+  <path d="M 870 260 Q 820 260 800 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.8" />
+  <circle cx="835" cy="260" r="3" fill="#f59e0b" opacity="0.6" />
+  <circle cx="805" cy="250" r="3" fill="#f59e0b" opacity="0.6" />
 
-  <!-- Right chain -->
-  <path d="M 930 260 Q 980 260 1000 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
-  <circle cx="955" cy="260" r="3" fill="#f59e0b" opacity="0.6"/>
-  <circle cx="985" cy="250" r="3" fill="#f59e0b" opacity="0.6"/>
+  
+  <path d="M 930 260 Q 980 260 1000 240" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.8" />
+  <circle cx="955" cy="260" r="3" fill="#f59e0b" opacity="0.6" />
+  <circle cx="985" cy="250" r="3" fill="#f59e0b" opacity="0.6" />
 
-  <!-- Data Flow Arrows -->
-  <!-- Incoming threat arrow -->
+  
+  
   <defs>
     <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.7"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.7" />
     </marker>
     <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.7"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.7" />
     </marker>
     <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.7"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.7" />
     </marker>
   </defs>
 
-  <!-- Top-left threat arrow -->
-  <path d="M 700 130 Q 750 150 820 200" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-red)" stroke-dasharray="4,2"/>
+  
+  <path d="M 700 130 Q 750 150 820 200" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-red)" stroke-dasharray="4,2" />
 
-  <!-- Top-right threat arrow -->
-  <path d="M 1000 140 Q 950 160 930 210" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-red)" stroke-dasharray="4,2"/>
+  
+  <path d="M 1000 140 Q 950 160 930 210" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-red)" stroke-dasharray="4,2" />
 
-  <!-- Bottom data exfiltration arrow -->
-  <path d="M 900 360 Q 870 400 750 450" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-orange)" stroke-dasharray="4,2"/>
+  
+  <path d="M 900 360 Q 870 400 750 450" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-orange)" stroke-dasharray="4,2" />
 
-  <!-- Right-side encryption arrow -->
-  <path d="M 920 310 Q 1000 320 1050 340" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-blue)"/>
+  
+  <path d="M 920 310 Q 1000 320 1050 340" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.6" marker-end="url(#arrowhead-blue)" />
 
-  <!-- Warning Triangles -->
-  <!-- Top-left warning -->
+  
+  
   <g opacity="0.7">
-    <polygon points="750,140 770,100 790,140" fill="none" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="770" y="125" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle">!</text>
-  </g>
+    <polygon points="750,140 770,100 790,140" fill="none" stroke="#ef4444" stroke-width="1.2" />
+    </g>
 
-  <!-- Top-right warning -->
+  
   <g opacity="0.7">
-    <polygon points="1030,150 1050,110 1070,150" fill="none" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="1050" y="135" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle">!</text>
-  </g>
+    <polygon points="1030,150 1050,110 1070,150" fill="none" stroke="#ef4444" stroke-width="1.2" />
+    </g>
 
-  <!-- Bottom warning -->
+  
   <g opacity="0.6">
-    <polygon points="680,480 700,440 720,480" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+    <polygon points="680,480 700,440 720,480" fill="none" stroke="#f59e0b" stroke-width="1.2" />
     <text x="700" y="465" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle">!</text>
   </g>
 
-  <!-- Data Blocks (representing encrypted files) -->
-  <!-- Block 1 -->
-  <rect x="750" y="320" width="35" height="35" rx="2" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8"/>
-  <line x1="760" y1="327" x2="775" y2="327" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
-  <line x1="760" y1="335" x2="775" y2="335" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
-  <line x1="760" y1="343" x2="775" y2="343" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
+  
+  
+  <rect x="750" y="320" width="35" height="35" rx="2" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8" />
+  <line x1="760" y1="327" x2="775" y2="327" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
+  <line x1="760" y1="335" x2="775" y2="335" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
+  <line x1="760" y1="343" x2="775" y2="343" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
 
-  <!-- Block 2 -->
-  <rect x="1020" y="280" width="35" height="35" rx="2" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8"/>
-  <line x1="1030" y1="287" x2="1045" y2="287" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
-  <line x1="1030" y1="295" x2="1045" y2="295" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
-  <line x1="1030" y1="303" x2="1045" y2="303" stroke="#3b82f6" stroke-width="0.5" opacity="0.5"/>
+  
+  <rect x="1020" y="280" width="35" height="35" rx="2" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8" />
+  <line x1="1030" y1="287" x2="1045" y2="287" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
+  <line x1="1030" y1="295" x2="1045" y2="295" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
+  <line x1="1030" y1="303" x2="1045" y2="303" stroke="#3b82f6" stroke-width="0.5" opacity="0.5" />
 
-  <!-- Shield Icon (Protection) -->
-  <path d="M 1080 170 L 1080 210 Q 1080 240 1100 260 Q 1120 240 1120 210 L 1120 170 Z" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.7"/>
-  <circle cx="1100" cy="210" r="4" fill="#3b82f6" opacity="0.5"/>
+  
+  <path d="M 1080 170 L 1080 210 Q 1080 240 1100 260 Q 1120 240 1120 210 L 1120 170 Z" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.7" />
+  <circle cx="1100" cy="210" r="4" fill="#3b82f6" opacity="0.5" />
 
-  <!-- Network nodes -->
-  <!-- Node 1 (top) -->
-  <circle cx="800" cy="200" r="5" fill="#ef4444" opacity="0.4"/>
-  <circle cx="800" cy="200" r="2" fill="#ef4444" opacity="0.8"/>
+  
+  
+  <circle cx="800" cy="200" r="5" fill="#ef4444" opacity="0.4" />
+  <circle cx="800" cy="200" r="2" fill="#ef4444" opacity="0.8" />
 
-  <!-- Node 2 (right) -->
-  <circle cx="1050" cy="260" r="5" fill="#f59e0b" opacity="0.4"/>
-  <circle cx="1050" cy="260" r="2" fill="#f59e0b" opacity="0.8"/>
+  
+  <circle cx="1050" cy="260" r="5" fill="#f59e0b" opacity="0.4" />
+  <circle cx="1050" cy="260" r="2" fill="#f59e0b" opacity="0.8" />
 
-  <!-- Node 3 (left-bottom) -->
-  <circle cx="720" cy="400" r="5" fill="#3b82f6" opacity="0.4"/>
-  <circle cx="720" cy="400" r="2" fill="#3b82f6" opacity="0.8"/>
+  
+  <circle cx="720" cy="400" r="5" fill="#3b82f6" opacity="0.4" />
+  <circle cx="720" cy="400" r="2" fill="#3b82f6" opacity="0.8" />
 
-  <!-- Connecting lines between nodes (network visualization) -->
-  <line x1="800" y1="200" x2="1050" y2="260" stroke="#f59e0b" stroke-width="0.5" opacity="0.25"/>
-  <line x1="800" y1="200" x2="720" y2="400" stroke="#ef4444" stroke-width="0.5" opacity="0.25"/>
-  <line x1="1050" y1="260" x2="720" y2="400" stroke="#3b82f6" stroke-width="0.5" opacity="0.25"/>
+  
+  <line x1="800" y1="200" x2="1050" y2="260" stroke="#f59e0b" stroke-width="0.5" opacity="0.25" />
+  <line x1="800" y1="200" x2="720" y2="400" stroke="#ef4444" stroke-width="0.5" opacity="0.25" />
+  <line x1="1050" y1="260" x2="720" y2="400" stroke="#3b82f6" stroke-width="0.5" opacity="0.25" />
 
-  <!-- Threat intensity indicator (bars) -->
+  
   <g opacity="0.5">
-    <rect x="680" y="510" width="8" height="25" fill="#ef4444" opacity="0.6"/>
-    <rect x="695" y="495" width="8" height="40" fill="#ef4444" opacity="0.6"/>
-    <rect x="710" y="475" width="8" height="60" fill="#ef4444" opacity="0.6"/>
+    <rect x="680" y="510" width="8" height="25" fill="#ef4444" opacity="0.6" />
+    <rect x="695" y="495" width="8" height="40" fill="#ef4444" opacity="0.6" />
+    <rect x="710" y="475" width="8" height="60" fill="#ef4444" opacity="0.6" />
     <text x="695" y="565" font-size="10" fill="#94a3b8" text-anchor="middle">Threat Level</text>
   </g>
 </svg>

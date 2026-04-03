@@ -1,108 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <title>Content Creator Workflow Blog Video</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- LEFT SIDE -->
-  <!-- Date Badge -->
-  <rect x="50" y="40" width="200" height="50" rx="8" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.5"/>
+  
+  
+  <rect x="50" y="40" width="200" height="50" rx="8" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.5" />
   <text x="150" y="72" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">FEBRUARY 5, 2026</text>
 
-  <!-- Main Title -->
+  
   <text x="80" y="210" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Content Creator</text>
   <text x="80" y="265" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">Workflow</text>
 
-  <!-- Subtitle -->
+  
   <text x="80" y="335" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="#3b82f6">2026 Blog Video</text>
 
-  <!-- Tag Pills at y=430 -->
-  <rect x="80" y="410" width="140" height="40" rx="20" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1.5"/>
+  
+  <rect x="80" y="410" width="140" height="40" rx="20" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1.5" />
   <text x="150" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">Content Strategy</text>
 
-  <rect x="240" y="410" width="120" height="40" rx="20" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="240" y="410" width="120" height="40" rx="20" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.5" />
   <text x="300" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Automation</text>
 
-  <rect x="380" y="410" width="100" height="40" rx="20" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="380" y="410" width="100" height="40" rx="20" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5" />
   <text x="430" y="437" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">Security</text>
 
-  <!-- Footer -->
+  
   <text x="80" y="570" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255, 255, 255, 0.6)">tech.2twodragon.com</text>
 
-  <!-- RIGHT SIDE - Technical Scene -->
-  <!-- Shield with lock (main security element) -->
+  
+  
   <g>
-    <!-- Shield outline -->
-    <path d="M 800 120 L 950 120 L 950 240 Q 950 300 875 340 Q 800 300 800 240 Z" fill="rgba(59, 130, 246, 0.08)" stroke="#3b82f6" stroke-width="2"/>
+    
+    <path d="M 800 120 L 950 120 L 950 240 Q 950 300 875 340 Q 800 300 800 240 Z" fill="rgba(59, 130, 246, 0.08)" stroke="#3b82f6" stroke-width="2" />
 
-    <!-- Lock icon inside shield -->
-    <rect x="840" y="180" width="40" height="50" rx="4" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
-    <path d="M 852 180 Q 852 170 862 170 Q 872 170 872 180" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
-    <circle cx="862" cy="210" r="3" fill="#3b82f6" opacity="0.6"/>
+    
+    <rect x="840" y="180" width="40" height="50" rx="4" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6" />
+    <path d="M 852 180 Q 852 170 862 170 Q 872 170 872 180" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6" />
+    <circle cx="862" cy="210" r="3" fill="#3b82f6" opacity="0.6" />
 
-    <!-- Circuit pattern lines -->
-    <line x1="920" y1="150" x2="980" y2="150" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
-    <circle cx="980" cy="150" r="3" fill="#3b82f6" opacity="0.4"/>
-    <line x1="980" y1="150" x2="980" y2="200" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
-    <circle cx="980" cy="200" r="3" fill="#3b82f6" opacity="0.4"/>
-    <line x1="980" y1="200" x2="920" y2="200" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+    
+    <line x1="920" y1="150" x2="980" y2="150" stroke="#3b82f6" stroke-width="1" opacity="0.4" />
+    <circle cx="980" cy="150" r="3" fill="#3b82f6" opacity="0.4" />
+    <line x1="980" y1="150" x2="980" y2="200" stroke="#3b82f6" stroke-width="1" opacity="0.4" />
+    <circle cx="980" cy="200" r="3" fill="#3b82f6" opacity="0.4" />
+    <line x1="980" y1="200" x2="920" y2="200" stroke="#3b82f6" stroke-width="1" opacity="0.4" />
   </g>
 
-  <!-- Data flow arrows and connections -->
-  <!-- Arrow 1: flowing right -->
+  
+  
   <defs>
     <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.5"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.5" />
     </marker>
     <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.5"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.5" />
     </marker>
     <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.5"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.5" />
     </marker>
   </defs>
 
-  <!-- Top data flow -->
-  <path d="M 750 140 Q 800 130 850 140" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.4" marker-end="url(#arrowhead-blue)"/>
+  
+  <path d="M 750 140 Q 800 130 850 140" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.4" marker-end="url(#arrowhead-blue)" />
 
-  <!-- Processing node with warning -->
-  <circle cx="1050" cy="180" r="35" fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="1050" y="188" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Process</text>
-
-  <!-- Warning triangle -->
+  
+  <circle cx="1050" cy="180" r="35" fill="rgba(245, 158, 11, 0.08)" stroke="#f59e0b" stroke-width="1.5" />
   <g>
-    <polygon points="1050,210 1065,245 1035,245" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="1050" y="237" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444" text-anchor="middle">⚠</text>
-  </g>
+    <polygon points="1050,210 1065,245 1035,245" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="1.5" />
+    </g>
 
-  <!-- Middle flow arrow -->
-  <path d="M 750 280 L 1020 280" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.3" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  
+  <path d="M 750 280 L 1020 280" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.3" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)" />
 
-  <!-- Data nodes with connections -->
-  <!-- Node 1 -->
-  <circle cx="720" cy="320" r="28" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="720" y="326" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3b82f6" text-anchor="middle">Data</text>
+  
+  
+  <circle cx="720" cy="320" r="28" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="1.5" />
+  <circle cx="850" cy="380" r="28" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="1.5" />
+  <circle cx="1000" cy="330" r="28" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.5" />
+  <path d="M 745 340 Q 790 360 825 372" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.35" marker-end="url(#arrowhead-blue)" />
+  <path d="M 875 360 Q 930 345 975 335" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.35" marker-end="url(#arrowhead-orange)" />
 
-  <!-- Node 2 -->
-  <circle cx="850" cy="380" r="28" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="850" y="386" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b" text-anchor="middle">Secure</text>
-
-  <!-- Node 3 -->
-  <circle cx="1000" cy="330" r="28" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="1000" y="336" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">Verify</text>
-
-  <!-- Connecting flow arrows -->
-  <path d="M 745 340 Q 790 360 825 372" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.35" marker-end="url(#arrowhead-blue)"/>
-  <path d="M 875 360 Q 930 345 975 335" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.35" marker-end="url(#arrowhead-orange)"/>
-
-  <!-- Bottom alert indicator -->
-  <rect x="700" y="450" width="360" height="60" rx="6" fill="rgba(239, 68, 68, 0.06)" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
-  <circle cx="730" cy="482" r="6" fill="#ef4444" opacity="0.6"/>
+  
+  <rect x="700" y="450" width="360" height="60" rx="6" fill="rgba(239, 68, 68, 0.06)" stroke="#ef4444" stroke-width="1.5" opacity="0.5" />
+  <circle cx="730" cy="482" r="6" fill="#ef4444" opacity="0.6" />
   <text x="750" y="480" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444" opacity="0.7">Security Alert Monitor Active</text>
   <text x="750" y="500" font-family="Arial, sans-serif" font-size="10" fill="rgba(239, 68, 68, 0.6)">Real-time threat detection and workflow optimization</text>
 
-  <!-- Decorative circuit elements -->
-  <circle cx="780" cy="100" r="4" fill="#3b82f6" opacity="0.3"/>
-  <line x1="784" y1="100" x2="810" y2="100" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
-  <circle cx="1100" cy="520" r="5" fill="#f59e0b" opacity="0.25"/>
-  <line x1="1095" y1="520" x2="1070" y2="520" stroke="#f59e0b" stroke-width="1" opacity="0.15"/>
+  
+  <circle cx="780" cy="100" r="4" fill="#3b82f6" opacity="0.3" />
+  <line x1="784" y1="100" x2="810" y2="100" stroke="#3b82f6" stroke-width="1" opacity="0.2" />
+  <circle cx="1100" cy="520" r="5" fill="#f59e0b" opacity="0.25" />
+  <line x1="1095" y1="520" x2="1070" y2="520" stroke="#f59e0b" stroke-width="1" opacity="0.15" />
 </svg>

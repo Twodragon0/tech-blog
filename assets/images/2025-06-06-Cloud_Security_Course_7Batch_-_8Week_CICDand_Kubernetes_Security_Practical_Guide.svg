@@ -1,169 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Cloud Security Course 7Batch - 8Week CICDand Kubernetes Security Practical Guide</title>
-  <!-- Dark Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- Gradient Overlay -->
+  
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
 
-  <!-- Right Side Illustration (x=700-1150) -->
-  <!-- Kubernetes Cluster Container -->
+  
+  
   <g id="k8s-cluster">
-    <!-- Outer Ring (Kubernetes) -->
-    <circle cx="950" cy="280" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
-    <circle cx="950" cy="280" r="145" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+    
+    <circle cx="950" cy="280" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6" />
+    <circle cx="950" cy="280" r="145" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5" />
 
-    <!-- Central Control Plane -->
-    <rect x="915" y="245" width="70" height="70" fill="#00d4ff" opacity="0.2" rx="8"/>
-    <rect x="915" y="245" width="70" height="70" fill="none" stroke="#00d4ff" stroke-width="2" rx="8"/>
+    
+    <rect x="915" y="245" width="70" height="70" fill="#00d4ff" opacity="0.2" rx="8" />
+    <rect x="915" y="245" width="70" height="70" fill="none" stroke="#00d4ff" stroke-width="2" rx="8" />
     <text x="950" y="290" font-family="monospace" font-size="24" fill="#00d4ff" text-anchor="middle" font-weight="bold">K8s</text>
 
-    <!-- Worker Nodes (3 containers) -->
-    <!-- Node 1 (Top Left) -->
+    
+    
     <g id="node1">
-      <circle cx="820" cy="180" r="35" fill="#ff6b6b" opacity="0.15"/>
-      <circle cx="820" cy="180" r="35" fill="none" stroke="#ff6b6b" stroke-width="2"/>
-      <rect x="805" y="165" width="30" height="30" fill="#ff6b6b" opacity="0.2" rx="4"/>
-      <rect x="805" y="165" width="30" height="30" fill="none" stroke="#ff6b6b" stroke-width="1.5" rx="4"/>
+      <circle cx="820" cy="180" r="35" fill="#ff6b6b" opacity="0.15" />
+      <circle cx="820" cy="180" r="35" fill="none" stroke="#ff6b6b" stroke-width="2" />
+      <rect x="805" y="165" width="30" height="30" fill="#ff6b6b" opacity="0.2" rx="4" />
+      <rect x="805" y="165" width="30" height="30" fill="none" stroke="#ff6b6b" stroke-width="1.5" rx="4" />
     </g>
 
-    <!-- Node 2 (Bottom Left) -->
+    
     <g id="node2">
-      <circle cx="820" cy="380" r="35" fill="#4ecdc4" opacity="0.15"/>
-      <circle cx="820" cy="380" r="35" fill="none" stroke="#4ecdc4" stroke-width="2"/>
-      <rect x="805" y="365" width="30" height="30" fill="#4ecdc4" opacity="0.2" rx="4"/>
-      <rect x="805" y="365" width="30" height="30" fill="none" stroke="#4ecdc4" stroke-width="1.5" rx="4"/>
+      <circle cx="820" cy="380" r="35" fill="#4ecdc4" opacity="0.15" />
+      <circle cx="820" cy="380" r="35" fill="none" stroke="#4ecdc4" stroke-width="2" />
+      <rect x="805" y="365" width="30" height="30" fill="#4ecdc4" opacity="0.2" rx="4" />
+      <rect x="805" y="365" width="30" height="30" fill="none" stroke="#4ecdc4" stroke-width="1.5" rx="4" />
     </g>
 
-    <!-- Node 3 (Right) -->
+    
     <g id="node3">
-      <circle cx="1080" cy="280" r="35" fill="#ffd93d" opacity="0.15"/>
-      <circle cx="1080" cy="280" r="35" fill="none" stroke="#ffd93d" stroke-width="2"/>
-      <rect x="1065" y="265" width="30" height="30" fill="#ffd93d" opacity="0.2" rx="4"/>
-      <rect x="1065" y="265" width="30" height="30" fill="none" stroke="#ffd93d" stroke-width="1.5" rx="4"/>
+      <circle cx="1080" cy="280" r="35" fill="#ffd93d" opacity="0.15" />
+      <circle cx="1080" cy="280" r="35" fill="none" stroke="#ffd93d" stroke-width="2" />
+      <rect x="1065" y="265" width="30" height="30" fill="#ffd93d" opacity="0.2" rx="4" />
+      <rect x="1065" y="265" width="30" height="30" fill="none" stroke="#ffd93d" stroke-width="1.5" rx="4" />
     </g>
 
-    <!-- Connection Lines -->
-    <line x1="880" y1="200" x2="920" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
-    <line x1="880" y1="360" x2="920" y2="300" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
-    <line x1="1045" y1="280" x2="985" y2="280" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    
+    <line x1="880" y1="200" x2="920" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
+    <line x1="880" y1="360" x2="920" y2="300" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
+    <line x1="1045" y1="280" x2="985" y2="280" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
   </g>
 
-  <!-- CI/CD Pipeline (Left of K8s) -->
+  
   <g id="cicd-pipeline">
-    <!-- Pipeline stages -->
+    
     <g id="stage1">
-      <rect x="710" y="150" width="50" height="50" fill="#6366f1" opacity="0.3" rx="6"/>
-      <rect x="710" y="150" width="50" height="50" fill="none" stroke="#6366f1" stroke-width="2" rx="6"/>
-      <text x="735" y="182" font-family="monospace" font-size="11" fill="#6366f1" text-anchor="middle" font-weight="bold">BUILD</text>
-    </g>
+      <rect x="710" y="150" width="50" height="50" fill="#6366f1" opacity="0.3" rx="6" />
+      <rect x="710" y="150" width="50" height="50" fill="none" stroke="#6366f1" stroke-width="2" rx="6" />
+      </g>
 
-    <!-- Arrow 1 -->
-    <path d="M 770 175 L 795 175" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.6"/>
-    <polygon points="795,175 785,170 785,180" fill="#6366f1" opacity="0.6"/>
+    
+    <path d="M 770 175 L 795 175" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.6" />
+    <polygon points="795,175 785,170 785,180" fill="#6366f1" opacity="0.6" />
 
     <g id="stage2">
-      <rect x="800" y="150" width="50" height="50" fill="#8b5cf6" opacity="0.3" rx="6"/>
-      <rect x="800" y="150" width="50" height="50" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6"/>
-      <text x="825" y="182" font-family="monospace" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">TEST</text>
-    </g>
+      <rect x="800" y="150" width="50" height="50" fill="#8b5cf6" opacity="0.3" rx="6" />
+      <rect x="800" y="150" width="50" height="50" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6" />
+      </g>
 
-    <!-- Arrow 2 -->
-    <path d="M 860 175 L 885 175" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.6"/>
-    <polygon points="885,175 875,170 875,180" fill="#8b5cf6" opacity="0.6"/>
+    
+    <path d="M 860 175 L 885 175" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.6" />
+    <polygon points="885,175 875,170 875,180" fill="#8b5cf6" opacity="0.6" />
 
     <g id="stage3">
-      <rect x="890" y="150" width="50" height="50" fill="#ec4899" opacity="0.3" rx="6"/>
-      <rect x="890" y="150" width="50" height="50" fill="none" stroke="#ec4899" stroke-width="2" rx="6"/>
-      <text x="915" y="182" font-family="monospace" font-size="11" fill="#ec4899" text-anchor="middle" font-weight="bold">DEPLOY</text>
-    </g>
+      <rect x="890" y="150" width="50" height="50" fill="#ec4899" opacity="0.3" rx="6" />
+      <rect x="890" y="150" width="50" height="50" fill="none" stroke="#ec4899" stroke-width="2" rx="6" />
+      </g>
   </g>
 
-  <!-- Security Shields -->
+  
   <g id="security-shields">
-    <!-- Shield 1 (Network Security) -->
+    
     <g id="shield1" transform="translate(750, 380)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
-      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#10b981" text-anchor="middle" font-weight="bold">NET</text>
-    </g>
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2" />
+      </g>
 
-    <!-- Shield 2 (Image Security) -->
+    
     <g id="shield2" transform="translate(900, 420)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2" />
       <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold">IMG</text>
     </g>
 
-    <!-- Shield 3 (Pod Security) -->
+    
     <g id="shield3" transform="translate(1050, 380)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="2"/>
+      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="2" />
       <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">POD</text>
     </g>
   </g>
 
-  <!-- Locks -->
+  
   <g id="security-locks">
-    <!-- Lock 1 -->
+    
     <g transform="translate(730, 280)">
-      <circle cx="0" cy="0" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
-      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#00d4ff" stroke-width="1.5" rx="2"/>
-      <circle cx="0" cy="5" r="2" fill="#00d4ff"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#00d4ff" stroke-width="1.5" rx="2" />
+      <circle cx="0" cy="5" r="2" fill="#00d4ff" />
     </g>
 
-    <!-- Lock 2 -->
+    
     <g transform="translate(1120, 320)">
-      <circle cx="0" cy="0" r="10" fill="none" stroke="#10b981" stroke-width="1.5"/>
-      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#10b981" stroke-width="1.5" rx="2"/>
-      <circle cx="0" cy="5" r="2" fill="#10b981"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#10b981" stroke-width="1.5" />
+      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#10b981" stroke-width="1.5" rx="2" />
+      <circle cx="0" cy="5" r="2" fill="#10b981" />
     </g>
   </g>
 
-  <!-- Left Side Content -->
-  <!-- Title -->
+  
+  
   <text x="60" y="185" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Cloud Security</text>
   <text x="60" y="245" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Course 8Week CI/CD</text>
 
-  <!-- Date Badge -->
+  
   <g id="date-badge">
-    <rect x="60" y="275" width="220" height="45" fill="#00d4ff" opacity="0.15" rx="25"/>
-    <rect x="60" y="275" width="220" height="45" fill="none" stroke="#00d4ff" stroke-width="2" rx="25"/>
-    <circle cx="85" cy="297.5" r="6" fill="#00d4ff"/>
+    <rect x="60" y="275" width="220" height="45" fill="#00d4ff" opacity="0.15" rx="25" />
+    <rect x="60" y="275" width="220" height="45" fill="none" stroke="#00d4ff" stroke-width="2" rx="25" />
+    <circle cx="85" cy="297.5" r="6" fill="#00d4ff" />
     <text x="100" y="305" font-family="monospace" font-size="16" font-weight="600" fill="#00d4ff">JUNE 6, 2025</text>
   </g>
 
-  <!-- Tag Pills -->
-  <!-- Tag 1 -->
+  
+  
   <g id="tag1">
-    <rect x="60" y="420" width="110" height="35" fill="#6366f1" opacity="0.2" rx="18"/>
-    <rect x="60" y="420" width="110" height="35" fill="none" stroke="#6366f1" stroke-width="1.5" rx="18"/>
+    <rect x="60" y="420" width="110" height="35" fill="#6366f1" opacity="0.2" rx="18" />
+    <rect x="60" y="420" width="110" height="35" fill="none" stroke="#6366f1" stroke-width="1.5" rx="18" />
     <text x="115" y="443" font-family="sans-serif" font-size="13" fill="#6366f1" text-anchor="middle" font-weight="600">Kubernetes</text>
   </g>
 
-  <!-- Tag 2 -->
+  
   <g id="tag2">
-    <rect x="185" y="420" width="95" height="35" fill="#8b5cf6" opacity="0.2" rx="18"/>
-    <rect x="185" y="420" width="95" height="35" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="18"/>
+    <rect x="185" y="420" width="95" height="35" fill="#8b5cf6" opacity="0.2" rx="18" />
+    <rect x="185" y="420" width="95" height="35" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="18" />
     <text x="232.5" y="443" font-family="sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="600">CI/CD</text>
   </g>
 
-  <!-- Tag 3 -->
+  
   <g id="tag3">
-    <rect x="300" y="420" width="110" height="35" fill="#ec4899" opacity="0.2" rx="18"/>
-    <rect x="300" y="420" width="110" height="35" fill="none" stroke="#ec4899" stroke-width="1.5" rx="18"/>
+    <rect x="300" y="420" width="110" height="35" fill="#ec4899" opacity="0.2" rx="18" />
+    <rect x="300" y="420" width="110" height="35" fill="none" stroke="#ec4899" stroke-width="1.5" rx="18" />
     <text x="355" y="443" font-family="sans-serif" font-size="13" fill="#ec4899" text-anchor="middle" font-weight="600">Security</text>
   </g>
 
-  <!-- Footer -->
+  
   <text x="60" y="595" font-family="monospace" font-size="12" fill="#ffffff" opacity="0.7">tech.2twodragon.com</text>
 
-  <!-- Decorative Elements -->
-  <!-- Subtle dots -->
-  <circle cx="400" cy="100" r="2" fill="#00d4ff" opacity="0.3"/>
-  <circle cx="500" cy="500" r="2" fill="#6366f1" opacity="0.3"/>
-  <circle cx="150" cy="500" r="2" fill="#8b5cf6" opacity="0.3"/>
+  
+  
+  <circle cx="400" cy="100" r="2" fill="#00d4ff" opacity="0.3" />
+  <circle cx="500" cy="500" r="2" fill="#6366f1" opacity="0.3" />
+  <circle cx="150" cy="500" r="2" fill="#8b5cf6" opacity="0.3" />
 </svg>

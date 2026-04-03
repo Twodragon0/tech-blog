@@ -1,124 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
   <title>Cloud Security Course 7Batch - 9Week DevSecOps Integration</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
   
-  <!-- Left Section -->
+  <rect width="1200" height="630" fill="#0a0c1a" />
+  
+  
   <g id="left-content">
-    <!-- Title Line 1 -->
+    
     <text x="40" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">Cloud Security Course</text>
     
-    <!-- Title Line 2 -->
+    
     <text x="40" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">7Batch 9Week DevSecOps</text>
     
-    <!-- Date Badge -->
-    <rect x="40" y="280" width="200" height="40" rx="6" fill="#1a1f3a" stroke="#4a7c59" stroke-width="2"/>
+    
+    <rect x="40" y="280" width="200" height="40" rx="6" fill="#1a1f3a" stroke="#4a7c59" stroke-width="2" />
     <text x="140" y="306" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7dd3c0" text-anchor="middle">JUNE 13, 2025</text>
     
-    <!-- Tag Pills -->
-    <!-- Tag 1 -->
-    <rect x="40" y="420" width="140" height="32" rx="16" fill="#1f3a2f" stroke="#4a7c59" stroke-width="1.5"/>
+    
+    
+    <rect x="40" y="420" width="140" height="32" rx="16" fill="#1f3a2f" stroke="#4a7c59" stroke-width="1.5" />
     <text x="110" y="441" font-family="Arial, sans-serif" font-size="13" fill="#7dd3c0" text-anchor="middle" font-weight="600">Cloud Security</text>
     
-    <!-- Tag 2 -->
-    <rect x="195" y="420" width="110" height="32" rx="16" fill="#2a1f3a" stroke="#6a4a7c" stroke-width="1.5"/>
+    
+    <rect x="195" y="420" width="110" height="32" rx="16" fill="#2a1f3a" stroke="#6a4a7c" stroke-width="1.5" />
     <text x="250" y="441" font-family="Arial, sans-serif" font-size="13" fill="#b47dd3" text-anchor="middle" font-weight="600">DevSecOps</text>
     
-    <!-- Tag 3 -->
-    <rect x="320" y="420" width="105" height="32" rx="16" fill="#1f2f3a" stroke="#4a6a7c" stroke-width="1.5"/>
+    
+    <rect x="320" y="420" width="105" height="32" rx="16" fill="#1f2f3a" stroke="#4a6a7c" stroke-width="1.5" />
     <text x="372.5" y="441" font-family="Arial, sans-serif" font-size="13" fill="#7dadd3" text-anchor="middle" font-weight="600">9 Week Path</text>
     
-    <!-- Footer -->
+    
     <text x="40" y="600" font-family="Arial, sans-serif" font-size="14" fill="#6a8f9c">tech.2twodragon.com</text>
   </g>
   
-  <!-- Right Section - Illustration: DevSecOps Integration Pipeline -->
+  
   <g id="right-illustration">
-    <!-- Background gradient accent -->
-    <circle cx="925" cy="315" r="250" fill="#1a2f4a" opacity="0.25"/>
+    
+    <circle cx="925" cy="315" r="250" fill="#1a2f4a" opacity="0.25" />
 
-    <!-- Pipeline Flow Header -->
+    
     <text x="880" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4fc3f7" text-anchor="middle" opacity="0.8">CI/CD + Security Pipeline</text>
 
-    <!-- Stage 1: Code/Commit -->
-    <circle cx="760" cy="180" r="28" fill="none" stroke="#4fc3f7" stroke-width="2"/>
-    <text x="760" y="188" font-family="Arial, sans-serif" font-size="16" fill="#4fc3f7" text-anchor="middle" font-weight="bold">&lt;&gt;</text>
-    <text x="760" y="230" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Code</text>
+    
+    <circle cx="760" cy="180" r="28" fill="none" stroke="#4fc3f7" stroke-width="2" />
+    <line x1="788" y1="180" x2="828" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6" />
+    <polygon points="835,180 828,175 828,185" fill="#4fc3f7" opacity="0.6" />
 
-    <!-- Arrow 1 -->
-    <line x1="788" y1="180" x2="828" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6"/>
-    <polygon points="835,180 828,175 828,185" fill="#4fc3f7" opacity="0.6"/>
+    
+    <circle cx="880" cy="180" r="28" fill="none" stroke="#ff6b6b" stroke-width="2" />
+    <line x1="908" y1="180" x2="948" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6" />
+    <polygon points="955,180 948,175 948,185" fill="#4fc3f7" opacity="0.6" />
 
-    <!-- Stage 2: SAST Scan -->
-    <circle cx="880" cy="180" r="28" fill="none" stroke="#ff6b6b" stroke-width="2"/>
-    <text x="880" y="190" font-family="Arial, sans-serif" font-size="16" fill="#ff6b6b" text-anchor="middle" font-weight="bold">🔍</text>
-    <text x="880" y="230" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">SAST</text>
+    
+    <circle cx="1000" cy="180" r="28" fill="none" stroke="#ffd54f" stroke-width="2" />
+    <line x1="1000" y1="208" x2="1000" y2="248" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
+    <polygon points="1000,255 995,248 1005,248" fill="#4fc3f7" opacity="0.4" />
 
-    <!-- Arrow 2 -->
-    <line x1="908" y1="180" x2="948" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6"/>
-    <polygon points="955,180 948,175 948,185" fill="#4fc3f7" opacity="0.6"/>
+    
+    <circle cx="1000" cy="310" r="28" fill="none" stroke="#81c784" stroke-width="2" />
+    <line x1="972" y1="310" x2="912" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
+    <polygon points="905,310 912,305 912,315" fill="#4fc3f7" opacity="0.4" />
 
-    <!-- Stage 3: Build/Package -->
-    <circle cx="1000" cy="180" r="28" fill="none" stroke="#ffd54f" stroke-width="2"/>
-    <text x="1000" y="190" font-family="Arial, sans-serif" font-size="16" fill="#ffd54f" text-anchor="middle" font-weight="bold">⚙</text>
-    <text x="1000" y="230" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Build</text>
+    
+    <circle cx="880" cy="310" r="28" fill="none" stroke="#ba68c8" stroke-width="2" />
+    <line x1="852" y1="310" x2="792" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
+    <polygon points="785,310 792,305 792,315" fill="#4fc3f7" opacity="0.4" />
 
-    <!-- Vertical Flow Down -->
-    <line x1="1000" y1="208" x2="1000" y2="248" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4"/>
-    <polygon points="1000,255 995,248 1005,248" fill="#4fc3f7" opacity="0.4"/>
+    
+    <circle cx="760" cy="310" r="28" fill="none" stroke="#7dd3c0" stroke-width="2" />
+    <line x1="760" y1="338" x2="760" y2="378" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
+    <polygon points="760,385 755,378 765,378" fill="#4fc3f7" opacity="0.4" />
 
-    <!-- Stage 4: Container Security -->
-    <circle cx="1000" cy="310" r="28" fill="none" stroke="#81c784" stroke-width="2"/>
-    <text x="1000" y="320" font-family="Arial, sans-serif" font-size="16" fill="#81c784" text-anchor="middle" font-weight="bold">📦</text>
-    <text x="1000" y="360" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Container</text>
-
-    <!-- Horizontal Flow -->
-    <line x1="972" y1="310" x2="912" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4"/>
-    <polygon points="905,310 912,305 912,315" fill="#4fc3f7" opacity="0.4"/>
-
-    <!-- Stage 5: DAST/Runtime Test -->
-    <circle cx="880" cy="310" r="28" fill="none" stroke="#ba68c8" stroke-width="2"/>
-    <text x="880" y="320" font-family="Arial, sans-serif" font-size="16" fill="#ba68c8" text-anchor="middle" font-weight="bold">🧪</text>
-    <text x="880" y="360" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">DAST</text>
-
-    <!-- Horizontal Flow -->
-    <line x1="852" y1="310" x2="792" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4"/>
-    <polygon points="785,310 792,305 792,315" fill="#4fc3f7" opacity="0.4"/>
-
-    <!-- Stage 6: Compliance Check -->
-    <circle cx="760" cy="310" r="28" fill="none" stroke="#7dd3c0" stroke-width="2"/>
-    <text x="760" y="320" font-family="Arial, sans-serif" font-size="16" fill="#7dd3c0" text-anchor="middle" font-weight="bold">✓</text>
-    <text x="760" y="360" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Compliance</text>
-
-    <!-- Vertical Flow Down -->
-    <line x1="760" y1="338" x2="760" y2="378" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4"/>
-    <polygon points="760,385 755,378 765,378" fill="#4fc3f7" opacity="0.4"/>
-
-    <!-- Stage 7: Deploy/Release -->
-    <circle cx="760" cy="440" r="28" fill="none" stroke="#4fc3f7" stroke-width="2"/>
-    <text x="760" y="450" font-family="Arial, sans-serif" font-size="16" fill="#4fc3f7" text-anchor="middle" font-weight="bold">☁</text>
-    <text x="760" y="490" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Deploy</text>
-
-    <!-- Central Orchestration Hub -->
-    <circle cx="880" cy="440" r="35" fill="#1e3a5f" opacity="0.5" stroke="#4fc3f7" stroke-width="2" stroke-dasharray="6,3"/>
-    <text x="880" y="450" font-family="Arial, sans-serif" font-size="18" fill="#4fc3f7" text-anchor="middle" font-weight="bold">🤖</text>
+    
+    <circle cx="760" cy="440" r="28" fill="none" stroke="#4fc3f7" stroke-width="2" />
+    <circle cx="880" cy="440" r="35" fill="#1e3a5f" opacity="0.5" stroke="#4fc3f7" stroke-width="2" stroke-dasharray="6,3" />
     <text x="880" y="495" font-family="Arial, sans-serif" font-size="10" fill="#4fc3f7" text-anchor="middle" font-weight="600">Automation</text>
 
-    <!-- Integration Lines from Hub to all stages -->
-    <line x1="845" y1="410" x2="788" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
-    <line x1="880" y1="405" x2="880" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
-    <line x1="915" y1="410" x2="972" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
-    <line x1="845" y1="475" x2="788" y2="468" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
-    <line x1="915" y1="475" x2="1012" y2="338" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
+    
+    <line x1="845" y1="410" x2="788" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
+    <line x1="880" y1="405" x2="880" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
+    <line x1="915" y1="410" x2="972" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
+    <line x1="845" y1="475" x2="788" y2="468" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
+    <line x1="915" y1="475" x2="1012" y2="338" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
 
-    <!-- Security Integration Badge -->
-    <rect x="720" y="535" width="320" height="32" rx="5" fill="#1a2847" opacity="0.7" stroke="#4fc3f7" stroke-width="1"/>
+    
+    <rect x="720" y="535" width="320" height="32" rx="5" fill="#1a2847" opacity="0.7" stroke="#4fc3f7" stroke-width="1" />
     <text x="880" y="556" font-family="Arial, sans-serif" font-size="11" fill="#4fc3f7" text-anchor="middle" font-weight="600">Security Integrated at Every Stage</text>
 
-    <!-- Decorative dots for visual interest -->
-    <circle cx="750" cy="120" r="2" fill="#4fc3f7" opacity="0.4"/>
-    <circle cx="1040" cy="220" r="2" fill="#81c784" opacity="0.4"/>
-    <circle cx="920" cy="380" r="2" fill="#ba68c8" opacity="0.4"/>
-    <circle cx="760" cy="520" r="2" fill="#7dd3c0" opacity="0.4"/>
+    
+    <circle cx="750" cy="120" r="2" fill="#4fc3f7" opacity="0.4" />
+    <circle cx="1040" cy="220" r="2" fill="#81c784" opacity="0.4" />
+    <circle cx="920" cy="380" r="2" fill="#ba68c8" opacity="0.4" />
+    <circle cx="760" cy="520" r="2" fill="#7dd3c0" opacity="0.4" />
   </g>
 </svg>

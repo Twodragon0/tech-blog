@@ -1,9 +1,10 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
   <title>AI vs Claude Code AI Coding Assistant Comparison</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
   
-  <!-- Gradient overlay for visual interest -->
+  <rect width="1200" height="630" fill="#0a0c1a" />
+  
+  
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1e3f;stop-opacity:0.3" />
@@ -15,124 +16,107 @@
     </linearGradient>
   </defs>
   
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
   
-  <!-- Left side content -->
   
-  <!-- Title line 1 -->
+  
+  
   <text x="50" y="185" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
     Claude Code
   </text>
   
-  <!-- Title line 2 -->
+  
   <text x="50" y="245" font-family="Inter, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
     Coding Assistant Comparison
   </text>
   
-  <!-- Date badge -->
-  <rect x="50" y="285" width="220" height="36" rx="8" fill="rgba(0, 217, 255, 0.1)" stroke="#00d9ff" stroke-width="1"/>
+  
+  <rect x="50" y="285" width="220" height="36" rx="8" fill="rgba(0, 217, 255, 0.1)" stroke="#00d9ff" stroke-width="1" />
   <text x="65" y="308" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#00d9ff" text-transform="uppercase" letter-spacing="0.5">
     FEBRUARY 4, 2026
   </text>
   
-  <!-- Tag pills -->
-  <!-- Tag 1 -->
-  <rect x="50" y="420" width="95" height="28" rx="14" fill="rgba(100, 255, 200, 0.15)" stroke="#64ffc8" stroke-width="1"/>
-  <text x="68" y="439" font-family="Inter, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64ffc8">
-    AI Tools
-  </text>
   
-  <!-- Tag 2 -->
-  <rect x="160" y="420" width="95" height="28" rx="14" fill="rgba(255, 179, 102, 0.15)" stroke="#ffb366" stroke-width="1"/>
-  <text x="178" y="439" font-family="Inter, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#ffb366">
-    VS Code
-  </text>
   
-  <!-- Tag 3 -->
-  <rect x="270" y="420" width="95" height="28" rx="14" fill="rgba(150, 100, 255, 0.15)" stroke="#9664ff" stroke-width="1"/>
-  <text x="288" y="439" font-family="Inter, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#9664ff">
-    Development
-  </text>
+  <rect x="50" y="420" width="95" height="28" rx="14" fill="rgba(100, 255, 200, 0.15)" stroke="#64ffc8" stroke-width="1" />
+  <rect x="160" y="420" width="95" height="28" rx="14" fill="rgba(255, 179, 102, 0.15)" stroke="#ffb366" stroke-width="1" />
+  <rect x="270" y="420" width="95" height="28" rx="14" fill="rgba(150, 100, 255, 0.15)" stroke="#9664ff" stroke-width="1" />
+  <circle cx="950" cy="280" r="180" fill="rgba(0, 217, 255, 0.05)" stroke="rgba(0, 217, 255, 0.1)" stroke-width="1" />
   
-  <!-- Right side illustration -->
   
-  <!-- Background circle accent -->
-  <circle cx="950" cy="280" r="180" fill="rgba(0, 217, 255, 0.05)" stroke="rgba(0, 217, 255, 0.1)" stroke-width="1"/>
-  
-  <!-- Left assistant card -->
-  <rect x="720" y="160" width="90" height="140" rx="8" fill="rgba(100, 100, 150, 0.2)" stroke="rgba(150, 150, 200, 0.4)" stroke-width="1"/>
-  <circle cx="765" cy="190" r="20" fill="#9664ff"/>
+  <rect x="720" y="160" width="90" height="140" rx="8" fill="rgba(100, 100, 150, 0.2)" stroke="rgba(150, 150, 200, 0.4)" stroke-width="1" />
+  <circle cx="765" cy="190" r="20" fill="#9664ff" />
   <text x="765" y="250" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#b8a8ff" text-anchor="middle">
     GPT-4
   </text>
   
-  <!-- Center assistant card (Claude Code - highlighted) -->
-  <rect x="840" y="120" width="100" height="160" rx="8" fill="rgba(0, 217, 255, 0.15)" stroke="url(#accentGradient)" stroke-width="2"/>
-  <circle cx="890" cy="160" r="24" fill="url(#accentGradient)"/>
-  <polygon points="885,155 895,155 890,165" fill="#0a0c1a"/>
+  
+  <rect x="840" y="120" width="100" height="160" rx="8" fill="rgba(0, 217, 255, 0.15)" stroke="url(#accentGradient)" stroke-width="2" />
+  <circle cx="890" cy="160" r="24" fill="url(#accentGradient)" />
+  <polygon points="885,155 895,155 890,165" fill="#0a0c1a" />
   <text x="890" y="310" font-family="Inter, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#00d9ff" text-anchor="middle">
     Claude Code
   </text>
   
-  <!-- Right assistant card -->
-  <rect x="970" y="180" width="90" height="120" rx="8" fill="rgba(100, 100, 150, 0.2)" stroke="rgba(150, 150, 200, 0.4)" stroke-width="1"/>
-  <circle cx="1015" cy="210" r="18" fill="#ff9d00"/>
+  
+  <rect x="970" y="180" width="90" height="120" rx="8" fill="rgba(100, 100, 150, 0.2)" stroke="rgba(150, 150, 200, 0.4)" stroke-width="1" />
+  <circle cx="1015" cy="210" r="18" fill="#ff9d00" />
   <text x="1015" y="260" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#ffb366" text-anchor="middle">
     Cursor AI
   </text>
   
-  <!-- Connection lines from center -->
-  <line x1="890" y1="280" x2="765" y2="300" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" stroke-dasharray="2,2"/>
-  <line x1="890" y1="280" x2="1015" y2="300" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" stroke-dasharray="2,2"/>
   
-  <!-- Feature badges -->
-  <!-- Badge 1: Multi-Agent -->
+  <line x1="890" y1="280" x2="765" y2="300" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+  <line x1="890" y1="280" x2="1015" y2="300" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+  
+  
+  
   <g>
-    <rect x="730" y="330" width="70" height="24" rx="4" fill="rgba(0, 217, 255, 0.1)" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1"/>
+    <rect x="730" y="330" width="70" height="24" rx="4" fill="rgba(0, 217, 255, 0.1)" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" />
     <text x="765" y="346" font-family="Inter, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#00d9ff" text-anchor="middle">
       Multi-Agent
     </text>
   </g>
   
-  <!-- Badge 2: Native IDE -->
+  
   <g>
-    <rect x="820" y="330" width="70" height="24" rx="4" fill="rgba(0, 217, 255, 0.1)" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1"/>
+    <rect x="820" y="330" width="70" height="24" rx="4" fill="rgba(0, 217, 255, 0.1)" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1" />
     <text x="855" y="346" font-family="Inter, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#00d9ff" text-anchor="middle">
       Native IDE
     </text>
   </g>
   
-  <!-- Badge 3: Real-time -->
+  
   <g>
-    <rect x="910" y="330" width="70" height="24" rx="4" fill="rgba(100, 255, 200, 0.1)" stroke="rgba(100, 255, 200, 0.3)" stroke-width="1"/>
+    <rect x="910" y="330" width="70" height="24" rx="4" fill="rgba(100, 255, 200, 0.1)" stroke="rgba(100, 255, 200, 0.3)" stroke-width="1" />
     <text x="945" y="346" font-family="Inter, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64ffc8" text-anchor="middle">
       Real-time
     </text>
   </g>
   
-  <!-- Capability dots -->
+  
   <g>
-    <circle cx="780" cy="390" r="3" fill="#00d9ff" opacity="0.6"/>
-    <circle cx="800" cy="385" r="3" fill="#00d9ff" opacity="0.4"/>
-    <circle cx="820" cy="388" r="3" fill="#00d9ff" opacity="0.5"/>
+    <circle cx="780" cy="390" r="3" fill="#00d9ff" opacity="0.6" />
+    <circle cx="800" cy="385" r="3" fill="#00d9ff" opacity="0.4" />
+    <circle cx="820" cy="388" r="3" fill="#00d9ff" opacity="0.5" />
   </g>
   
   <g>
-    <circle cx="900" cy="380" r="4" fill="#00d9ff"/>
-    <circle cx="920" cy="375" r="3" fill="#00d9ff" opacity="0.7"/>
-    <circle cx="940" cy="385" r="3" fill="#00d9ff" opacity="0.5"/>
+    <circle cx="900" cy="380" r="4" fill="#00d9ff" />
+    <circle cx="920" cy="375" r="3" fill="#00d9ff" opacity="0.7" />
+    <circle cx="940" cy="385" r="3" fill="#00d9ff" opacity="0.5" />
   </g>
   
   <g>
-    <circle cx="1000" cy="395" r="3" fill="#64ffc8" opacity="0.5"/>
-    <circle cx="1020" cy="388" r="3" fill="#64ffc8" opacity="0.4"/>
-    <circle cx="1040" cy="392" r="3" fill="#64ffc8" opacity="0.6"/>
+    <circle cx="1000" cy="395" r="3" fill="#64ffc8" opacity="0.5" />
+    <circle cx="1020" cy="388" r="3" fill="#64ffc8" opacity="0.4" />
+    <circle cx="1040" cy="392" r="3" fill="#64ffc8" opacity="0.6" />
   </g>
   
-  <!-- Bottom accent line -->
-  <line x1="700" y1="470" x2="1100" y2="470" stroke="rgba(0, 217, 255, 0.2)" stroke-width="1"/>
   
-  <!-- Footer -->
+  <line x1="700" y1="470" x2="1100" y2="470" stroke="rgba(0, 217, 255, 0.2)" stroke-width="1" />
+  
+  
   <text x="1150" y="615" font-family="Inter, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#666666" text-anchor="end">
     tech.2twodragon.com
   </text>

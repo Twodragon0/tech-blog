@@ -1,145 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>DevOps Blockchain Digest CNCF Chainalysis Bitcoin</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0c1a"/>
-      <stop offset="100%" stop-color="#1a0a0a"/>
+      <stop offset="0%" stop-color="#0a0c1a" />
+      <stop offset="100%" stop-color="#1a0a0a" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="50%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
     </linearGradient>
     <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1" />
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <rect width="1200" height="630" fill="url(#bg)" />
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
 
-  <!-- RIGHT SIDE ILLUSTRATION: Blockchain + CNCF + DevOps chain links -->
-  <!-- Central Blockchain hex structure -->
-  <polygon points="1010,160 1055,185 1055,235 1010,260 965,235 965,185" fill="none" stroke="rgba(249,115,22,0.35)" stroke-width="2" opacity="0.9"/>
-  <polygon points="1010,172 1047,193 1047,235 1010,256 973,235 973,193" fill="rgba(249,115,22,0.07)" stroke="rgba(249,115,22,0.2)" stroke-width="1"/>
+  
+  
+  <polygon points="1010,160 1055,185 1055,235 1010,260 965,235 965,185" fill="none" stroke="rgba(249,115,22,0.35)" stroke-width="2" opacity="0.9" />
+  <polygon points="1010,172 1047,193 1047,235 1010,256 973,235 973,193" fill="rgba(249,115,22,0.07)" stroke="rgba(249,115,22,0.2)" stroke-width="1" />
 
-  <!-- Inner hex -->
-  <polygon points="1010,188 1035,202 1035,230 1010,244 985,230 985,202" fill="rgba(249,115,22,0.1)" stroke="rgba(249,115,22,0.3)" stroke-width="1.5"/>
+  
+  <polygon points="1010,188 1035,202 1035,230 1010,244 985,230 985,202" fill="rgba(249,115,22,0.1)" stroke="rgba(249,115,22,0.3)" stroke-width="1.5" />
 
-  <!-- Bitcoin symbol circle -->
-  <circle cx="1010" cy="216" r="18" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.4)" stroke-width="1.5"/>
-  <text x="1010" y="222" font-family="monospace" font-size="18" font-weight="700" fill="rgba(249,115,22,0.7)" text-anchor="middle">₿</text>
+  
+  <circle cx="1010" cy="216" r="18" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.4)" stroke-width="1.5" />
+  <rect x="888" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" />
+  <rect x="898" y="211" width="20" height="10" rx="5" fill="rgba(59,130,246,0.08)" />
 
-  <!-- Chain links left -->
-  <rect x="888" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <rect x="898" y="211" width="20" height="10" rx="5" fill="rgba(59,130,246,0.08)"/>
+  <rect x="920" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.25)" stroke-width="1.5" />
+  <line x1="928" y1="216" x2="960" y2="216" stroke="rgba(59,130,246,0.25)" stroke-width="1.5" />
 
-  <rect x="920" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
-  <line x1="928" y1="216" x2="960" y2="216" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
+  
+  <rect x="1058" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" />
+  <rect x="1068" y="211" width="20" height="10" rx="5" fill="rgba(59,130,246,0.08)" />
+  <line x1="1060" y1="216" x2="1058" y2="216" stroke="rgba(59,130,246,0.25)" stroke-width="1.5" />
 
-  <!-- Chain links right -->
-  <rect x="1058" y="207" width="40" height="18" rx="9" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-  <rect x="1068" y="211" width="20" height="10" rx="5" fill="rgba(59,130,246,0.08)"/>
-  <line x1="1060" y1="216" x2="1058" y2="216" stroke="rgba(59,130,246,0.25)" stroke-width="1.5"/>
+  
+  <rect x="1001" y="130" width="18" height="40" rx="9" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5" />
+  <rect x="1005" y="140" width="10" height="20" rx="5" fill="rgba(139,92,246,0.08)" />
+  <line x1="1010" y1="170" x2="1010" y2="160" stroke="rgba(139,92,246,0.25)" stroke-width="1.5" />
 
-  <!-- Chain links top -->
-  <rect x="1001" y="130" width="18" height="40" rx="9" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
-  <rect x="1005" y="140" width="10" height="20" rx="5" fill="rgba(139,92,246,0.08)"/>
-  <line x1="1010" y1="170" x2="1010" y2="160" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+  
+  <rect x="1001" y="262" width="18" height="40" rx="9" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5" />
+  <rect x="1005" y="272" width="10" height="20" rx="5" fill="rgba(139,92,246,0.07)" />
+  <line x1="1010" y1="260" x2="1010" y2="262" stroke="rgba(139,92,246,0.25)" stroke-width="1.5" />
 
-  <!-- Chain links bottom -->
-  <rect x="1001" y="262" width="18" height="40" rx="9" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
-  <rect x="1005" y="272" width="10" height="20" rx="5" fill="rgba(139,92,246,0.07)"/>
-  <line x1="1010" y1="260" x2="1010" y2="262" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+  
+  <circle cx="1010" cy="216" r="65" fill="none" stroke="rgba(59,130,246,0.12)" stroke-width="1" stroke-dasharray="4 6" />
+  <circle cx="1010" cy="216" r="85" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="1" stroke-dasharray="2 8" />
 
-  <!-- CNCF cloud-native orbital ring -->
-  <circle cx="1010" cy="216" r="65" fill="none" stroke="rgba(59,130,246,0.12)" stroke-width="1" stroke-dasharray="4 6"/>
-  <circle cx="1010" cy="216" r="85" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="1" stroke-dasharray="2 8"/>
+  
+  <circle cx="1075" cy="216" r="6" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1" />
+  <circle cx="945" cy="216" r="6" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1" />
+  <circle cx="1010" cy="151" r="6" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1" />
+  <circle cx="1010" cy="281" r="6" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1" />
 
-  <!-- Satellite nodes on orbital -->
-  <circle cx="1075" cy="216" r="6" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <circle cx="945" cy="216" r="6" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
-  <circle cx="1010" cy="151" r="6" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
-  <circle cx="1010" cy="281" r="6" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  
+  <line x1="1010" y1="216" x2="1075" y2="216" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+  <line x1="1010" y1="216" x2="945" y2="216" stroke="rgba(59,130,246,0.15)" stroke-width="1" />
+  <line x1="1010" y1="216" x2="1010" y2="151" stroke="rgba(139,92,246,0.15)" stroke-width="1" />
+  <line x1="1010" y1="216" x2="1010" y2="281" stroke="rgba(139,92,246,0.15)" stroke-width="1" />
 
-  <!-- CNCF kubernetes-like spokes -->
-  <line x1="1010" y1="216" x2="1075" y2="216" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="216" x2="945" y2="216" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="216" x2="1010" y2="151" stroke="rgba(139,92,246,0.15)" stroke-width="1"/>
-  <line x1="1010" y1="216" x2="1010" y2="281" stroke="rgba(139,92,246,0.15)" stroke-width="1"/>
+  
+  <path d="M 960 310 Q 990 290 1010 310 Q 1030 330 1060 310" fill="none" stroke="rgba(249,115,22,0.2)" stroke-width="1.5" />
+  <path d="M 960 310 Q 930 330 960 350 Q 990 370 1010 350 Q 1030 330 1060 350 Q 1090 370 1060 310" fill="none" stroke="rgba(249,115,22,0.15)" stroke-width="1" stroke-dasharray="3 4" />
 
-  <!-- DevOps infinity loop hint -->
-  <path d="M 960 310 Q 990 290 1010 310 Q 1030 330 1060 310" fill="none" stroke="rgba(249,115,22,0.2)" stroke-width="1.5"/>
-  <path d="M 960 310 Q 930 330 960 350 Q 990 370 1010 350 Q 1030 330 1060 350 Q 1090 370 1060 310" fill="none" stroke="rgba(249,115,22,0.15)" stroke-width="1" stroke-dasharray="3 4"/>
+  
+  <line x1="880" y1="150" x2="960" y2="185" stroke="rgba(249,115,22,0.15)" stroke-width="1" stroke-dasharray="3 5" />
+  <line x1="1140" y1="150" x2="1060" y2="185" stroke="rgba(59,130,246,0.15)" stroke-width="1" stroke-dasharray="3 5" />
+  <circle cx="880" cy="150" r="4" fill="rgba(249,115,22,0.25)" stroke="rgba(249,115,22,0.35)" stroke-width="1" />
+  <circle cx="1140" cy="150" r="4" fill="rgba(59,130,246,0.25)" stroke="rgba(59,130,246,0.35)" stroke-width="1" />
 
-  <!-- Chainalysis data flow lines -->
-  <line x1="880" y1="150" x2="960" y2="185" stroke="rgba(249,115,22,0.15)" stroke-width="1" stroke-dasharray="3 5"/>
-  <line x1="1140" y1="150" x2="1060" y2="185" stroke="rgba(59,130,246,0.15)" stroke-width="1" stroke-dasharray="3 5"/>
-  <circle cx="880" cy="150" r="4" fill="rgba(249,115,22,0.25)" stroke="rgba(249,115,22,0.35)" stroke-width="1"/>
-  <circle cx="1140" cy="150" r="4" fill="rgba(59,130,246,0.25)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  
+  <circle cx="870" cy="400" r="4" fill="rgba(249,115,22,0.6)" />
+  <circle cx="900" cy="420" r="4" fill="rgba(59,130,246,0.6)" />
+  <circle cx="860" cy="440" r="4" fill="rgba(139,92,246,0.6)" />
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(249,115,22,0.6)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(59,130,246,0.6)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(139,92,246,0.6)"/>
+  
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(249,115,22,0.04)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(249,115,22,0.03)" />
 
-  <!-- Background ambient circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(249,115,22,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(249,115,22,0.03)"/>
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#badge)" stroke="rgba(249,115,22,0.2)" stroke-width="1"/>
+  
+  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#badge)" stroke="rgba(249,115,22,0.2)" stroke-width="1" />
   <text x="190" y="81" font-family="'Courier New', monospace" font-size="12" font-weight="600" fill="rgba(249,115,22,0.9)" text-anchor="middle" letter-spacing="1">FEBRUARY 10, 2026</text>
 
-  <!-- Title line 1 -->
+  
   <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">DevOps Blockchain Digest</text>
 
-  <!-- Title line 2 -->
+  
   <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.95">CNCF Chainalysis Bitcoin</text>
 
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly digest: cloud-native, blockchain &amp; security insights</text>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+  
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)" />
 
-  <!-- Category label -->
+  
   <text x="80" y="370" font-family="'Arial', sans-serif" font-size="14" font-weight="600" fill="rgba(249,115,22,0.8)" letter-spacing="2">DEVOPS / BLOCKCHAIN / SECURITY</text>
 
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.35)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.35)" stroke-width="1" />
   <text x="135" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(249,115,22,0.9)" text-anchor="middle">#CNCF</text>
 
-  <rect x="204" y="402" width="130" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <rect x="204" y="402" width="130" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1" />
   <text x="269" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(245,158,11,0.9)" text-anchor="middle">#Blockchain</text>
 
-  <rect x="348" y="402" width="120" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <rect x="348" y="402" width="120" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1" />
   <text x="408" y="425" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(59,130,246,0.9)" text-anchor="middle">#Bitcoin</text>
 
-  <!-- Footer divider -->
-  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
 
-  <!-- Footer text -->
+  
   <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(249,115,22,0.45)" text-anchor="end">DEVOPS</text>
 </svg>

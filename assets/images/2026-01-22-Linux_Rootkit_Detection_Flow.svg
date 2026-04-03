@@ -1,62 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Linux Rootkit Detection Flow</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0a1a"/>
-      <stop offset="100%" style="stop-color:#1a1530"/>
+      <stop offset="0%" style="stop-color:#0f0a1a" />
+      <stop offset="100%" style="stop-color:#1a1530" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#6c5ce7"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+      <stop offset="0%" style="stop-color:#6c5ce7" />
+      <stop offset="100%" style="stop-color:#e74c3c" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(108,92,231,0.06)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(231,76,60,0.06)"/>
-  <!-- Linux penguin outline -->
-  <ellipse cx="900" cy="290" rx="50" ry="60" fill="none" stroke="rgba(108,92,231,0.5)" stroke-width="2"/>
-  <ellipse cx="900" cy="260" rx="30" ry="35" fill="none" stroke="rgba(108,92,231,0.5)" stroke-width="2"/>
-  <circle cx="890" cy="255" r="5" fill="rgba(108,92,231,0.6)"/>
-  <circle cx="910" cy="255" r="5" fill="rgba(108,92,231,0.6)"/>
-  <!-- Magnifier glass -->
-  <circle cx="1040" cy="310" r="50" fill="none" stroke="#6c5ce7" stroke-width="3" opacity="0.8"/>
-  <line x1="1078" y1="348" x2="1110" y2="380" stroke="#6c5ce7" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-  <!-- Detection flow arrows -->
-  <path d="M955 290 Q990 290 990 310" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="987,315 993,305 999,315" fill="rgba(231,76,60,0.5)"/>
-  <!-- Alert -->
-  <polygon points="1040,260 1058,290 1022,290" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.7"/>
-  <text x="1040" y="283" font-family="Arial,sans-serif" font-size="11" fill="#e74c3c" text-anchor="middle" font-weight="700">!</text>
-  <!-- Kernel layers -->
-  <rect x="830" y="380" width="140" height="22" rx="3" fill="rgba(108,92,231,0.12)" stroke="rgba(108,92,231,0.3)" stroke-width="1"/>
-  <text x="900" y="395" font-family="Arial,sans-serif" font-size="9" fill="rgba(108,92,231,0.7)" text-anchor="middle">USERSPACE</text>
-  <rect x="830" y="406" width="140" height="22" rx="3" fill="rgba(108,92,231,0.18)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
-  <text x="900" y="421" font-family="Arial,sans-serif" font-size="9" fill="rgba(108,92,231,0.8)" text-anchor="middle">KERNEL</text>
-  <rect x="830" y="432" width="140" height="22" rx="3" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
-  <text x="900" y="447" font-family="Arial,sans-serif" font-size="9" fill="rgba(231,76,60,0.8)" text-anchor="middle">ROOTKIT</text>
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(108,92,231,0.06)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(231,76,60,0.06)" />
+  
+  <ellipse cx="900" cy="290" rx="50" ry="60" fill="none" stroke="rgba(108,92,231,0.5)" stroke-width="2" />
+  <ellipse cx="900" cy="260" rx="30" ry="35" fill="none" stroke="rgba(108,92,231,0.5)" stroke-width="2" />
+  <circle cx="890" cy="255" r="5" fill="rgba(108,92,231,0.6)" />
+  <circle cx="910" cy="255" r="5" fill="rgba(108,92,231,0.6)" />
+  
+  <circle cx="1040" cy="310" r="50" fill="none" stroke="#6c5ce7" stroke-width="3" opacity="0.8" />
+  <line x1="1078" y1="348" x2="1110" y2="380" stroke="#6c5ce7" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+  
+  <path d="M955 290 Q990 290 990 310" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="2" stroke-dasharray="5,3" />
+  <polygon points="987,315 993,305 999,315" fill="rgba(231,76,60,0.5)" />
+  
+  <polygon points="1040,260 1058,290 1022,290" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.7" />
+  <rect x="830" y="380" width="140" height="22" rx="3" fill="rgba(108,92,231,0.12)" stroke="rgba(108,92,231,0.3)" stroke-width="1" />
+  <rect x="830" y="406" width="140" height="22" rx="3" fill="rgba(108,92,231,0.18)" stroke="rgba(108,92,231,0.4)" stroke-width="1" />
+  <rect x="830" y="432" width="140" height="22" rx="3" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1" />
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1" />
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#6c5ce7" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>
   <text x="80" y="185" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Linux Rootkit</text>
   <text x="80" y="245" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Detection Flow</text>
   <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">Kernel-level threat detection techniques and forensic analysis</text>
-  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)"/>
+  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)" />
   <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(108,92,231,0.8)" letter-spacing="3">THREAT DETECTION</text>
-  <rect x="80" y="400" width="80" height="28" rx="14" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
+  <rect x="80" y="400" width="80" height="28" rx="14" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1" />
   <text x="120" y="419" font-family="Arial,sans-serif" font-size="13" fill="#e74c3c" text-anchor="middle">Rootkit</text>
-  <rect x="172" y="400" width="65" height="28" rx="14" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+  <rect x="172" y="400" width="65" height="28" rx="14" fill="rgba(108,92,231,0.15)" stroke="rgba(108,92,231,0.4)" stroke-width="1" />
   <text x="204" y="419" font-family="Arial,sans-serif" font-size="13" fill="#6c5ce7" text-anchor="middle">Linux</text>
-  <rect x="249" y="400" width="95" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <rect x="249" y="400" width="95" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
   <text x="296" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Detection</text>
-  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)"/>
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
   <text x="1120" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="end">DevSecOps</text>
 </svg>

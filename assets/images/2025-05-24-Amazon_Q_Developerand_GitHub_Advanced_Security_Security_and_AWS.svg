@@ -1,97 +1,97 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
   <title>Amazon Q Developerand GitHub Advanced Security Security and AWS</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- LEFT SIDE: Text and metadata -->
-  <!-- Date badge -->
-  <rect x="60" y="45" width="160" height="40" rx="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
+  
+  
+  <rect x="60" y="45" width="160" height="40" rx="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1" />
   <text x="140" y="67" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">MAY 24, 2025</text>
 
-  <!-- Main title -->
+  
   <text x="80" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#ffffff">Amazon Developer</text>
   <text x="80" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#ffffff">And GitHub</text>
 
-  <!-- Subtitle -->
+  
   <text x="80" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Advanced Security</text>
   <text x="80" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Solutions</text>
 
-  <!-- Tag pills -->
-  <rect x="80" y="420" width="110" height="36" rx="18" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.5"/>
+  
+  <rect x="80" y="420" width="110" height="36" rx="18" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.5" />
   <text x="135" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle">DevSecOps</text>
 
-  <rect x="210" y="420" width="110" height="36" rx="18" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
+  <rect x="210" y="420" width="110" height="36" rx="18" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5" />
   <text x="265" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">Security</text>
 
-  <rect x="340" y="420" width="110" height="36" rx="18" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5"/>
+  <rect x="340" y="420" width="110" height="36" rx="18" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5" />
   <text x="395" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle">GitHub</text>
 
-  <!-- Footer -->
+  
   <text x="600" y="595" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#ffffff" opacity="0.6" text-anchor="middle">tech.2twodragon.com</text>
 
-  <!-- RIGHT SIDE: Visual elements -->
-  <!-- Gradient definitions -->
+  
+  
   <defs>
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.08"/>
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.08" />
     </linearGradient>
   </defs>
 
-  <!-- Large shield with checkmark (center-right) -->
+  
   <g transform="translate(900, 200)">
-    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="0.35" opacity="0.9"/>
+    <path d="M 0 -60 L 50 -40 L 50 20 Q 0 70 -50 20 L -50 -40 Z" fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="0.35" opacity="0.9" />
     <g stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4">
-      <polyline points="-20,0 -5,15 20,-10"/>
+      <polyline points="-20,0 -5,15 20,-10" />
     </g>
   </g>
 
-  <!-- Data flow arrows -->
+  
   <g opacity="0.3">
-    <path d="M 700 130 Q 800 120 880 180" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <polygon points="880,180 875,170 885,172" fill="#f59e0b"/>
+    <path d="M 700 130 Q 800 120 880 180" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <polygon points="880,180 875,170 885,172" fill="#f59e0b" />
   </g>
 
   <g opacity="0.3">
-    <path d="M 700 450 Q 800 440 880 380" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <polygon points="880,380 885,388 875,382" fill="#3b82f6"/>
+    <path d="M 700 450 Q 800 440 880 380" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <polygon points="880,380 885,388 875,382" fill="#3b82f6" />
   </g>
 
   <g opacity="0.3">
-    <path d="M 950 140 Q 1020 120 1080 100" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <polygon points="1080,100 1085,110 1075,107" fill="#ef4444"/>
+    <path d="M 950 140 Q 1020 120 1080 100" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <polygon points="1080,100 1085,110 1075,107" fill="#ef4444" />
   </g>
 
-  <!-- Warning triangles -->
+  
   <g transform="translate(1080, 120)" opacity="0.3">
-    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#ef4444" stroke-width="1"/>
-    <text x="0" y="4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">!</text>
-  </g>
+    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#ef4444" stroke-width="1" />
+    </g>
 
   <g transform="translate(1050, 480)" opacity="0.3">
-    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#f59e0b" stroke-width="1"/>
+    <polygon points="0,-18 16,12 -16,12" fill="none" stroke="#f59e0b" stroke-width="1" />
     <text x="0" y="4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle">!</text>
   </g>
 
-  <!-- Lock icon -->
+  
   <g transform="translate(750, 320)" opacity="0.25">
-    <rect x="-12" y="-8" width="24" height="20" rx="2" fill="none" stroke="#3b82f6" stroke-width="0.8"/>
-    <path d="M -8 -8 L -8 -14 Q 0 -20 8 -14 L 8 -8" fill="none" stroke="#3b82f6" stroke-width="0.8"/>
-    <circle cx="0" cy="2" r="2" fill="#3b82f6" opacity="0.6"/>
+    <rect x="-12" y="-8" width="24" height="20" rx="2" fill="none" stroke="#3b82f6" stroke-width="0.8" />
+    <path d="M -8 -8 L -8 -14 Q 0 -20 8 -14 L 8 -8" fill="none" stroke="#3b82f6" stroke-width="0.8" />
+    <circle cx="0" cy="2" r="2" fill="#3b82f6" opacity="0.6" />
   </g>
 
-  <!-- Scanning lines effect -->
+  
   <g opacity="0.15" stroke="#3b82f6" stroke-width="0.5">
-    <line x1="700" y1="200" x2="1100" y2="200"/>
-    <line x1="700" y1="240" x2="1100" y2="240"/>
-    <line x1="700" y1="280" x2="1100" y2="280"/>
-    <line x1="700" y1="320" x2="1100" y2="320"/>
-    <line x1="700" y1="360" x2="1100" y2="360"/>
-    <line x1="700" y1="400" x2="1100" y2="400"/>
+    <line x1="700" y1="200" x2="1100" y2="200" />
+    <line x1="700" y1="240" x2="1100" y2="240" />
+    <line x1="700" y1="280" x2="1100" y2="280" />
+    <line x1="700" y1="320" x2="1100" y2="320" />
+    <line x1="700" y1="360" x2="1100" y2="360" />
+    <line x1="700" y1="400" x2="1100" y2="400" />
   </g>
 
-  <!-- Decorative circles for connection points -->
-  <circle cx="700" cy="180" r="3" fill="#f59e0b" opacity="0.3"/>
-  <circle cx="700" cy="420" r="3" fill="#3b82f6" opacity="0.3"/>
-  <circle cx="950" cy="280" r="3" fill="#ef4444" opacity="0.3"/>
+  
+  <circle cx="700" cy="180" r="3" fill="#f59e0b" opacity="0.3" />
+  <circle cx="700" cy="420" r="3" fill="#3b82f6" opacity="0.3" />
+  <circle cx="950" cy="280" r="3" fill="#ef4444" opacity="0.3" />
 </svg>

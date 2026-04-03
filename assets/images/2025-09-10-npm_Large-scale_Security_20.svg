@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>npm Large-scale Security 20</title>
   <defs>
@@ -19,183 +20,152 @@
       <stop offset="100%" style="stop-color:#880000;stop-opacity:0.05" />
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
     <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="8" result="coloredBlur" />
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
   </defs>
 
-  <!-- Background -->
+  
   <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-  <!-- Grid: horizontal lines -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <!-- Grid: vertical lines -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
 
-  <!-- RIGHT SIDE ILLUSTRATION: npm package infiltration scene -->
-  <!-- Outer hex ring -->
-  <polygon points="1010,130 1100,180 1100,280 1010,330 920,280 920,180"
-           fill="rgba(255,40,0,0.06)" stroke="rgba(255,80,40,0.25)" stroke-width="1.5"/>
-  <polygon points="1010,148 1085,193 1085,268 1010,313 935,268 935,193"
-           fill="rgba(200,30,0,0.07)" stroke="rgba(255,60,30,0.2)" stroke-width="1"/>
+  
+  
+  <polygon points="1010,130 1100,180 1100,280 1010,330 920,280 920,180" fill="rgba(255,40,0,0.06)" stroke="rgba(255,80,40,0.25)" stroke-width="1.5" />
+  <polygon points="1010,148 1085,193 1085,268 1010,313 935,268 935,193" fill="rgba(200,30,0,0.07)" stroke="rgba(255,60,30,0.2)" stroke-width="1" />
 
-  <!-- npm box icon (center) -->
-  <rect x="965" y="198" width="90" height="64" rx="4"
-        fill="rgba(204,0,0,0.12)" stroke="rgba(255,50,50,0.35)" stroke-width="2"/>
-  <!-- npm letters inside box -->
-  <rect x="973" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
-  <rect x="995" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
-  <rect x="1017" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1"/>
-  <!-- Inner rect (npm logo style) -->
-  <rect x="989" y="222" width="16" height="32" rx="1" fill="rgba(20,10,15,0.6)"/>
+  
+  <rect x="965" y="198" width="90" height="64" rx="4" fill="rgba(204,0,0,0.12)" stroke="rgba(255,50,50,0.35)" stroke-width="2" />
+  
+  <rect x="973" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1" />
+  <rect x="995" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1" />
+  <rect x="1017" y="206" width="16" height="48" rx="2" fill="rgba(255,60,60,0.18)" stroke="rgba(255,80,80,0.3)" stroke-width="1" />
+  
+  <rect x="989" y="222" width="16" height="32" rx="1" fill="rgba(20,10,15,0.6)" />
 
-  <!-- Virus/malware nodes radiating outward -->
-  <!-- Node 1 top-left -->
-  <circle cx="930" cy="158" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5"/>
-  <line x1="944" y1="165" x2="965" y2="210" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <circle cx="930" cy="158" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1"/>
-  <!-- skull cross inside node 1 -->
-  <line x1="926" y1="154" x2="934" y2="162" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
-  <line x1="934" y1="154" x2="926" y2="162" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
+  
+  
+  <circle cx="930" cy="158" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5" />
+  <line x1="944" y1="165" x2="965" y2="210" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3" />
+  <circle cx="930" cy="158" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1" />
+  
+  <line x1="926" y1="154" x2="934" y2="162" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
+  <line x1="934" y1="154" x2="926" y2="162" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
 
-  <!-- Node 2 top-right -->
-  <circle cx="1095" cy="155" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5"/>
-  <line x1="1082" y1="162" x2="1055" y2="210" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <circle cx="1095" cy="155" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1"/>
-  <line x1="1091" y1="151" x2="1099" y2="159" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
-  <line x1="1099" y1="151" x2="1091" y2="159" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
+  
+  <circle cx="1095" cy="155" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5" />
+  <line x1="1082" y1="162" x2="1055" y2="210" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3" />
+  <circle cx="1095" cy="155" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1" />
+  <line x1="1091" y1="151" x2="1099" y2="159" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
+  <line x1="1099" y1="151" x2="1091" y2="159" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
 
-  <!-- Node 3 bottom-left -->
-  <circle cx="915" cy="295" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5"/>
-  <line x1="929" y1="292" x2="965" y2="262" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <circle cx="915" cy="295" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1"/>
-  <line x1="911" y1="291" x2="919" y2="299" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
-  <line x1="919" y1="291" x2="911" y2="299" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
+  
+  <circle cx="915" cy="295" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5" />
+  <line x1="929" y1="292" x2="965" y2="262" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3" />
+  <circle cx="915" cy="295" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1" />
+  <line x1="911" y1="291" x2="919" y2="299" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
+  <line x1="919" y1="291" x2="911" y2="299" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
 
-  <!-- Node 4 bottom-right -->
-  <circle cx="1105" cy="300" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5"/>
-  <line x1="1092" y1="296" x2="1055" y2="262" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <circle cx="1105" cy="300" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1"/>
-  <line x1="1101" y1="296" x2="1109" y2="304" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
-  <line x1="1109" y1="296" x2="1101" y2="304" stroke="rgba(255,80,60,0.5)" stroke-width="1.5"/>
+  
+  <circle cx="1105" cy="300" r="14" fill="rgba(255,30,0,0.1)" stroke="rgba(255,60,30,0.3)" stroke-width="1.5" />
+  <line x1="1092" y1="296" x2="1055" y2="262" stroke="rgba(255,50,30,0.2)" stroke-width="1" stroke-dasharray="4,3" />
+  <circle cx="1105" cy="300" r="5" fill="rgba(255,80,50,0.25)" stroke="rgba(255,100,70,0.4)" stroke-width="1" />
+  <line x1="1101" y1="296" x2="1109" y2="304" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
+  <line x1="1109" y1="296" x2="1101" y2="304" stroke="rgba(255,80,60,0.5)" stroke-width="1.5" />
 
-  <!-- Node 5 top-center -->
-  <circle cx="1010" cy="138" r="11" fill="rgba(255,100,0,0.1)" stroke="rgba(255,140,40,0.3)" stroke-width="1.5"/>
-  <line x1="1010" y1="149" x2="1010" y2="198" stroke="rgba(255,120,40,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <circle cx="1010" cy="138" r="4" fill="rgba(255,140,50,0.25)" stroke="rgba(255,160,70,0.4)" stroke-width="1"/>
+  
+  <circle cx="1010" cy="138" r="11" fill="rgba(255,100,0,0.1)" stroke="rgba(255,140,40,0.3)" stroke-width="1.5" />
+  <line x1="1010" y1="149" x2="1010" y2="198" stroke="rgba(255,120,40,0.2)" stroke-width="1" stroke-dasharray="3,3" />
+  <circle cx="1010" cy="138" r="4" fill="rgba(255,140,50,0.25)" stroke="rgba(255,160,70,0.4)" stroke-width="1" />
 
-  <!-- Download arrow (malicious download indicator) -->
-  <path d="M980,290 L1040,290 L1040,298 L1055,280 L1040,262 L1040,270 L980,270 Z"
-        fill="rgba(255,60,30,0.08)" stroke="rgba(255,80,50,0.22)" stroke-width="1.5"/>
-  <!-- Arrow down -->
-  <path d="M1010,306 L1003,316 L1017,316 Z"
-        fill="rgba(255,80,50,0.3)" stroke="rgba(255,100,60,0.4)" stroke-width="1"/>
-  <line x1="1010" y1="298" x2="1010" y2="316" stroke="rgba(255,80,50,0.3)" stroke-width="2"/>
+  
+  <path d="M980,290 L1040,290 L1040,298 L1055,280 L1040,262 L1040,270 L980,270 Z" fill="rgba(255,60,30,0.08)" stroke="rgba(255,80,50,0.22)" stroke-width="1.5" />
+  
+  <path d="M1010,306 L1003,316 L1017,316 Z" fill="rgba(255,80,50,0.3)" stroke="rgba(255,100,60,0.4)" stroke-width="1" />
+  <line x1="1010" y1="298" x2="1010" y2="316" stroke="rgba(255,80,50,0.3)" stroke-width="2" />
 
-  <!-- Circular scan lines around npm box -->
-  <circle cx="1010" cy="230" r="55" fill="none" stroke="rgba(255,50,30,0.08)" stroke-width="1" stroke-dasharray="6,4"/>
-  <circle cx="1010" cy="230" r="72" fill="none" stroke="rgba(255,40,20,0.06)" stroke-width="1" stroke-dasharray="8,6"/>
+  
+  <circle cx="1010" cy="230" r="55" fill="none" stroke="rgba(255,50,30,0.08)" stroke-width="1" stroke-dasharray="6,4" />
+  <circle cx="1010" cy="230" r="72" fill="none" stroke="rgba(255,40,20,0.06)" stroke-width="1" stroke-dasharray="8,6" />
 
-  <!-- Alert warning triangle top of box -->
-  <polygon points="1010,185 1000,200 1020,200"
-           fill="rgba(255,180,0,0.15)" stroke="rgba(255,200,0,0.35)" stroke-width="1.5"/>
-  <text x="1010" y="198" text-anchor="middle" font-size="9" fill="rgba(255,200,0,0.7)" font-family="monospace" font-weight="bold">!</text>
+  
+  <polygon points="1010,185 1000,200 1020,200" fill="rgba(255,180,0,0.15)" stroke="rgba(255,200,0,0.35)" stroke-width="1.5" />
+  <circle cx="870" cy="400" r="4" fill="rgba(255,80,60,0.6)" />
+  <circle cx="900" cy="420" r="4" fill="rgba(255,120,40,0.5)" />
+  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.55)" />
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,60,0.6)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(255,120,40,0.5)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.55)"/>
+  
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,40,20,0.04)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,40,20,0.06)" stroke-width="1" />
 
-  <!-- Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,40,20,0.04)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,40,20,0.06)" stroke-width="1"/>
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
+  
+  <circle cx="1010" cy="230" r="180" fill="url(#glowRed)" opacity="0.4" />
 
-  <!-- Subtle red glow region right -->
-  <circle cx="1010" cy="230" r="180" fill="url(#glowRed)" opacity="0.4"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="230" height="32" rx="4"
-        fill="rgba(255,40,20,0.12)" stroke="rgba(255,60,40,0.3)" stroke-width="1"/>
+  
+  <rect x="80" y="60" width="230" height="32" rx="4" fill="rgba(255,40,20,0.12)" stroke="rgba(255,60,40,0.3)" stroke-width="1" />
   <text x="95" y="81" font-size="12" font-family="'Courier New', monospace" fill="rgba(255,120,100,0.85)" letter-spacing="1">SEPTEMBER 10, 2025</text>
 
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-size="46" font-weight="700"
-        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
-        fill="white" letter-spacing="-0.5">npm Ecosystem Large scale</text>
+  
+  <text x="80" y="185" font-size="46" font-weight="700" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" fill="white" letter-spacing="-0.5">npm Ecosystem Large scale</text>
 
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-size="46" font-weight="700"
-        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
-        fill="white" letter-spacing="-0.5">Security Breach 20 Download</text>
+  
+  <text x="80" y="245" font-size="46" font-weight="700" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" fill="white" letter-spacing="-0.5">Security Breach 20 Download</text>
 
-  <!-- Subtitle -->
-  <text x="80" y="300" font-size="19"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        fill="rgba(220,180,170,0.75)">Supply chain attack targeting millions of package consumers</text>
+  
+  <text x="80" y="300" font-size="19" font-family="'Helvetica Neue', Arial, sans-serif" fill="rgba(220,180,170,0.75)">Supply chain attack targeting millions of package consumers</text>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)"/>
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" />
 
-  <!-- Category label -->
-  <text x="80" y="370" font-size="14"
-        font-family="'Courier New', monospace"
-        fill="rgba(255,100,80,0.7)" letter-spacing="3">INCIDENT RESPONSE &amp; ANALYSIS</text>
+  
+  <text x="80" y="370" font-size="14" font-family="'Courier New', monospace" fill="rgba(255,100,80,0.7)" letter-spacing="3">INCIDENT RESPONSE &amp; ANALYSIS</text>
 
-  <!-- Tag pills -->
-  <!-- Red pill: Supply Chain -->
-  <rect x="80" y="402" width="148" height="36" rx="18"
-        fill="rgba(200,30,20,0.18)" stroke="rgba(255,60,50,0.35)" stroke-width="1.5"/>
-  <text x="154" y="425" text-anchor="middle" font-size="13"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        fill="rgba(255,140,120,0.9)" font-weight="600">Supply Chain</text>
+  
+  
+  <rect x="80" y="402" width="148" height="36" rx="18" fill="rgba(200,30,20,0.18)" stroke="rgba(255,60,50,0.35)" stroke-width="1.5" />
+  <text x="154" y="425" text-anchor="middle" font-size="13" font-family="'Helvetica Neue', Arial, sans-serif" fill="rgba(255,140,120,0.9)" font-weight="600">Supply Chain</text>
 
-  <!-- Amber pill: Malware -->
-  <rect x="242" y="402" width="120" height="36" rx="18"
-        fill="rgba(180,100,0,0.18)" stroke="rgba(255,160,40,0.3)" stroke-width="1.5"/>
-  <text x="302" y="425" text-anchor="middle" font-size="13"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        fill="rgba(255,190,80,0.9)" font-weight="600">Malware</text>
+  
+  <rect x="242" y="402" width="120" height="36" rx="18" fill="rgba(180,100,0,0.18)" stroke="rgba(255,160,40,0.3)" stroke-width="1.5" />
+  <text x="302" y="425" text-anchor="middle" font-size="13" font-family="'Helvetica Neue', Arial, sans-serif" fill="rgba(255,190,80,0.9)" font-weight="600">Malware</text>
 
-  <!-- Blue pill: npm Registry -->
-  <rect x="376" y="402" width="136" height="36" rx="18"
-        fill="rgba(20,60,180,0.18)" stroke="rgba(60,120,255,0.3)" stroke-width="1.5"/>
-  <text x="444" y="425" text-anchor="middle" font-size="13"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        fill="rgba(120,180,255,0.9)" font-weight="600">npm Registry</text>
+  
+  <rect x="376" y="402" width="136" height="36" rx="18" fill="rgba(20,60,180,0.18)" stroke="rgba(60,120,255,0.3)" stroke-width="1.5" />
+  <text x="444" y="425" text-anchor="middle" font-size="13" font-family="'Helvetica Neue', Arial, sans-serif" fill="rgba(120,180,255,0.9)" font-weight="600">npm Registry</text>
 
-  <!-- Footer -->
-  <text x="80" y="545" font-size="13"
-        font-family="'Courier New', monospace"
-        fill="rgba(180,140,130,0.5)" letter-spacing="0.5">tech.2twodragon.com</text>
-  <text x="1120" y="545" text-anchor="end" font-size="13"
-        font-family="'Courier New', monospace"
-        fill="rgba(255,80,60,0.45)" letter-spacing="1">INCIDENT</text>
+  
+  <text x="80" y="545" font-size="13" font-family="'Courier New', monospace" fill="rgba(180,140,130,0.5)" letter-spacing="0.5">tech.2twodragon.com</text>
+  <text x="1120" y="545" text-anchor="end" font-size="13" font-family="'Courier New', monospace" fill="rgba(255,80,60,0.45)" letter-spacing="1">INCIDENT</text>
 
-  <!-- Decorative bottom scanline -->
-  <rect x="0" y="570" width="1200" height="1" fill="rgba(255,255,255,0.04)"/>
-  <rect x="0" y="572" width="1200" height="1" fill="rgba(255,255,255,0.02)"/>
+  
+  <rect x="0" y="570" width="1200" height="1" fill="rgba(255,255,255,0.04)" />
+  <rect x="0" y="572" width="1200" height="1" fill="rgba(255,255,255,0.02)" />
 
-  <!-- Subtle noise lines left side decoration -->
-  <line x1="30" y1="340" x2="60" y2="340" stroke="rgba(255,80,60,0.2)" stroke-width="1"/>
-  <line x1="30" y1="350" x2="50" y2="350" stroke="rgba(255,80,60,0.12)" stroke-width="1"/>
-  <line x1="30" y1="360" x2="55" y2="360" stroke="rgba(255,80,60,0.16)" stroke-width="1"/>
+  
+  <line x1="30" y1="340" x2="60" y2="340" stroke="rgba(255,80,60,0.2)" stroke-width="1" />
+  <line x1="30" y1="350" x2="50" y2="350" stroke="rgba(255,80,60,0.12)" stroke-width="1" />
+  <line x1="30" y1="360" x2="55" y2="360" stroke="rgba(255,80,60,0.16)" stroke-width="1" />
 </svg>

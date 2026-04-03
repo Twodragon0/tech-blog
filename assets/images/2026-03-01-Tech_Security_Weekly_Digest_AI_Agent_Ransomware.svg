@@ -1,9 +1,10 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <title>Tech Security Weekly Digest AI Agent Ransomware</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+  
+  <rect width="1200" height="630" fill="#0a0c1a" />
 
-  <!-- Gradient definitions -->
+  
   <defs>
     <linearGradient id="threatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff3333;stop-opacity:1" />
@@ -19,7 +20,7 @@
     </radialGradient>
   </defs>
 
-  <!-- Left side: Text content -->
+  
   <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
     Tech Security Weekly
   </text>
@@ -27,103 +28,102 @@
     Digest Agent Ransomware
   </text>
 
-  <!-- Date badge -->
-  <rect x="60" y="295" width="280" height="45" rx="8" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2"/>
+  
+  <rect x="60" y="295" width="280" height="45" rx="8" fill="#1a1f3a" stroke="#00d4ff" stroke-width="2" />
   <text x="170" y="325" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#00d4ff" text-anchor="middle">
     MARCH 1, 2026
   </text>
 
-  <!-- Tag pills -->
+  
   <g id="tag-pills">
-    <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a1f3a" stroke="#ff6b35" stroke-width="1.5"/>
+    <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a1f3a" stroke="#ff6b35" stroke-width="1.5" />
     <text x="105" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff6b35" text-anchor="middle">SECURITY</text>
-    <rect x="170" y="420" width="75" height="32" rx="16" fill="#1a1f3a" stroke="#ff3333" stroke-width="1.5"/>
+    <rect x="170" y="420" width="75" height="32" rx="16" fill="#1a1f3a" stroke="#ff3333" stroke-width="1.5" />
     <text x="207.5" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff3333" text-anchor="middle">THREAT</text>
-    <rect x="265" y="420" width="60" height="32" rx="16" fill="#1a1f3a" stroke="#00d4ff" stroke-width="1.5"/>
+    <rect x="265" y="420" width="60" height="32" rx="16" fill="#1a1f3a" stroke="#00d4ff" stroke-width="1.5" />
     <text x="295" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4ff" text-anchor="middle">AI</text>
   </g>
 
-  <!-- Footer -->
+  
   <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" fill="#666666">
     tech.2twodragon.com
   </text>
 
-  <!-- RIGHT SIDE: Illustration -->
-  <circle cx="920" cy="280" r="200" fill="url(#glowGradient)"/>
+  
+  <circle cx="920" cy="280" r="200" fill="url(#glowGradient)" />
 
-  <!-- AI Agent -->
+  
   <g id="ai-agent">
-    <path d="M 750 200 L 800 150 L 850 160 L 870 220 L 850 280 L 800 300 L 750 280 Z" fill="url(#agentGradient)" opacity="0.9"/>
-    <line x1="760" y1="200" x2="790" y2="240" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
-    <line x1="800" y1="160" x2="830" y2="210" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
-    <line x1="850" y1="200" x2="820" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
-    <circle cx="760" cy="200" r="4" fill="#00d4ff"/>
-    <circle cx="800" cy="160" r="4" fill="#00d4ff"/>
-    <circle cx="850" cy="160" r="4" fill="#00d4ff"/>
-    <circle cx="870" cy="220" r="4" fill="#00d4ff"/>
-    <circle cx="820" cy="250" r="4" fill="#00d4ff"/>
-    <circle cx="785" cy="210" r="8" fill="none" stroke="#00d4ff" stroke-width="2"/>
-    <circle cx="785" cy="210" r="4" fill="#00d4ff" opacity="0.5"/>
+    <path d="M 750 200 L 800 150 L 850 160 L 870 220 L 850 280 L 800 300 L 750 280 Z" fill="url(#agentGradient)" opacity="0.9" />
+    <line x1="760" y1="200" x2="790" y2="240" stroke="#00d4ff" stroke-width="2" opacity="0.6" />
+    <line x1="800" y1="160" x2="830" y2="210" stroke="#00d4ff" stroke-width="2" opacity="0.6" />
+    <line x1="850" y1="200" x2="820" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.6" />
+    <circle cx="760" cy="200" r="4" fill="#00d4ff" />
+    <circle cx="800" cy="160" r="4" fill="#00d4ff" />
+    <circle cx="850" cy="160" r="4" fill="#00d4ff" />
+    <circle cx="870" cy="220" r="4" fill="#00d4ff" />
+    <circle cx="820" cy="250" r="4" fill="#00d4ff" />
+    <circle cx="785" cy="210" r="8" fill="none" stroke="#00d4ff" stroke-width="2" />
+    <circle cx="785" cy="210" r="4" fill="#00d4ff" opacity="0.5" />
   </g>
 
-  <!-- Ransomware Lock -->
+  
   <g id="ransomware-lock">
-    <rect x="900" y="220" width="80" height="100" rx="8" fill="none" stroke="#ff3333" stroke-width="3"/>
-    <path d="M 920 220 Q 920 150 980 150 Q 1000 150 1000 170" fill="none" stroke="#ff3333" stroke-width="4"/>
-    <circle cx="940" cy="270" r="6" fill="none" stroke="#ff3333" stroke-width="2"/>
-    <text x="965" y="290" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ff3333">!</text>
-    <rect x="900" y="220" width="80" height="100" rx="8" fill="none" stroke="#ff6b35" stroke-width="1" opacity="0.5"/>
+    <rect x="900" y="220" width="80" height="100" rx="8" fill="none" stroke="#ff3333" stroke-width="3" />
+    <path d="M 920 220 Q 920 150 980 150 Q 1000 150 1000 170" fill="none" stroke="#ff3333" stroke-width="4" />
+    <circle cx="940" cy="270" r="6" fill="none" stroke="#ff3333" stroke-width="2" />
+    <rect x="900" y="220" width="80" height="100" rx="8" fill="none" stroke="#ff6b35" stroke-width="1" opacity="0.5" />
   </g>
 
-  <!-- Threat arrows -->
+  
   <g id="threat-arrows">
-    <line x1="820" y1="280" x2="880" y2="350" stroke="#ff6b35" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-    <line x1="850" y1="320" x2="930" y2="320" stroke="#ff3333" stroke-width="2.5" marker-end="url(#arrowhead-red)"/>
+    <line x1="820" y1="280" x2="880" y2="350" stroke="#ff6b35" stroke-width="2.5" marker-end="url(#arrowhead)" />
+    <line x1="850" y1="320" x2="930" y2="320" stroke="#ff3333" stroke-width="2.5" marker-end="url(#arrowhead-red)" />
   </g>
 
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ff6b35"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#ff6b35" />
     </marker>
     <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ff3333"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#ff3333" />
     </marker>
   </defs>
 
-  <!-- Encrypted data -->
+  
   <g id="encrypted-data">
-    <rect x="920" y="380" width="50" height="50" rx="4" fill="none" stroke="#ff6b35" stroke-width="2"/>
+    <rect x="920" y="380" width="50" height="50" rx="4" fill="none" stroke="#ff6b35" stroke-width="2" />
     <text x="945" y="415" font-family="monospace" font-size="16" font-weight="bold" fill="#ff6b35" text-anchor="middle">FILE</text>
-    <rect x="1000" y="380" width="50" height="50" rx="4" fill="none" stroke="#ff3333" stroke-width="2"/>
+    <rect x="1000" y="380" width="50" height="50" rx="4" fill="none" stroke="#ff3333" stroke-width="2" />
     <text x="1025" y="415" font-family="monospace" font-size="16" font-weight="bold" fill="#ff3333" text-anchor="middle">DATA</text>
     <g opacity="0.7">
-      <path d="M 935 375 Q 935 370 940 370 Q 945 370 945 375" fill="none" stroke="#ff6b35" stroke-width="1.5"/>
-      <circle cx="940" cy="378" r="1.5" fill="#ff6b35"/>
+      <path d="M 935 375 Q 935 370 940 370 Q 945 370 945 375" fill="none" stroke="#ff6b35" stroke-width="1.5" />
+      <circle cx="940" cy="378" r="1.5" fill="#ff6b35" />
     </g>
     <g opacity="0.7">
-      <path d="M 1015 375 Q 1015 370 1020 370 Q 1025 370 1025 375" fill="none" stroke="#ff3333" stroke-width="1.5"/>
-      <circle cx="1020" cy="378" r="1.5" fill="#ff3333"/>
+      <path d="M 1015 375 Q 1015 370 1020 370 Q 1025 370 1025 375" fill="none" stroke="#ff3333" stroke-width="1.5" />
+      <circle cx="1020" cy="378" r="1.5" fill="#ff3333" />
     </g>
   </g>
 
-  <!-- Network connections -->
+  
   <g id="network-threat" opacity="0.6">
-    <line x1="850" y1="180" x2="920" y2="220" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="870" y1="240" x2="930" y2="280" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="880" y1="300" x2="950" y2="350" stroke="#ff6b35" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="850" y1="180" x2="920" y2="220" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,4" />
+    <line x1="870" y1="240" x2="930" y2="280" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,4" />
+    <line x1="880" y1="300" x2="950" y2="350" stroke="#ff6b35" stroke-width="1" stroke-dasharray="4,4" />
   </g>
 
-  <!-- Warning badge -->
+  
   <g id="warning-badge">
-    <circle cx="920" cy="320" r="35" fill="none" stroke="#ff3333" stroke-width="2"/>
+    <circle cx="920" cy="320" r="35" fill="none" stroke="#ff3333" stroke-width="2" />
     <text x="920" y="330" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ff3333" text-anchor="middle">⚠</text>
   </g>
 
-  <!-- Scan lines -->
+  
   <g id="scan-lines" opacity="0.3">
-    <line x1="750" y1="240" x2="1100" y2="240" stroke="#00d4ff" stroke-width="1"/>
-    <line x1="750" y1="280" x2="1100" y2="280" stroke="#00d4ff" stroke-width="1"/>
-    <line x1="750" y1="320" x2="1100" y2="320" stroke="#00d4ff" stroke-width="1"/>
-    <line x1="750" y1="360" x2="1100" y2="360" stroke="#ff3333" stroke-width="1"/>
+    <line x1="750" y1="240" x2="1100" y2="240" stroke="#00d4ff" stroke-width="1" />
+    <line x1="750" y1="280" x2="1100" y2="280" stroke="#00d4ff" stroke-width="1" />
+    <line x1="750" y1="320" x2="1100" y2="320" stroke="#00d4ff" stroke-width="1" />
+    <line x1="750" y1="360" x2="1100" y2="360" stroke="#ff3333" stroke-width="1" />
   </g>
 </svg>

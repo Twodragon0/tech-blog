@@ -1,89 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Python-Pipeline-Architecture</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1a1a"/>
-      <stop offset="100%" style="stop-color:#153030"/>
+      <stop offset="0%" style="stop-color:#0a1a1a" />
+      <stop offset="100%" style="stop-color:#153030" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#306998"/>
-      <stop offset="100%" style="stop-color:#ffd43b"/>
+      <stop offset="0%" style="stop-color:#306998" />
+      <stop offset="100%" style="stop-color:#ffd43b" />
     </linearGradient>
     <marker id="pipearrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#306998"/>
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#306998" />
     </marker>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Python snake icon (simplified) -->
-  <path d="M 795 150 Q 795 130 815 130 L 860 130 Q 880 130 880 150 L 880 175 Q 880 185 870 185 L 845 185 L 845 195 Q 845 205 855 205 L 900 205 Q 920 205 920 225 L 920 250 Q 920 270 900 270 L 855 270 Q 835 270 835 250 L 835 225 L 810 225 Q 795 225 795 210 Z" fill="rgba(48,105,152,0.25)" stroke="#306998" stroke-width="2"/>
-  <path d="M 920 270 Q 920 290 900 290 L 855 290 Q 835 290 835 310 L 835 335 Q 835 355 855 355 L 900 355 Q 920 355 920 370 L 920 385 Q 920 400 905 400 L 860 400 Q 840 400 840 385 L 840 360" fill="rgba(255,212,59,0.2)" stroke="#ffd43b" stroke-width="2"/>
-  <!-- Python eye dots -->
-  <circle cx="870" cy="148" r="5" fill="#ffd43b"/>
-  <circle cx="862" cy="292" r="5" fill="#306998"/>
-  <!-- Pipeline stages flowing right -->
-  <!-- Stage 1: Ingest -->
-  <rect x="960" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2"/>
-  <text x="1007" y="170" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="700">INGEST</text>
-  <text x="1007" y="185" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">pandas / API</text>
-  <!-- Arrow 1 -->
-  <line x1="1055" y1="173" x2="1070" y2="173" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)"/>
-  <!-- Stage 2: Transform -->
-  <rect x="1070" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.18)" stroke="#306998" stroke-width="2"/>
-  <text x="1117" y="170" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="700">TRANSFORM</text>
-  <text x="1117" y="185" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">spark / dask</text>
-  <!-- Stage 3: Model -->
-  <rect x="960" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.15)" stroke="#ffd43b" stroke-width="2"/>
-  <text x="1007" y="250" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="700">MODEL</text>
-  <text x="1007" y="265" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">sklearn / torch</text>
-  <!-- Vertical arrow from transform down -->
-  <line x1="1117" y1="198" x2="1117" y2="225" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)"/>
-  <!-- Stage 4: Validate -->
-  <rect x="1070" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.12)" stroke="#ffd43b" stroke-width="2"/>
-  <text x="1117" y="250" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="700">VALIDATE</text>
-  <text x="1117" y="265" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">great_expect</text>
-  <!-- Left arrow from validate to model -->
-  <line x1="1070" y1="253" x2="1055" y2="253" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)"/>
-  <!-- Stage 5: Serve -->
-  <rect x="960" y="308" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2"/>
-  <text x="1007" y="330" font-size="11" fill="rgba(255,255,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="700">SERVE</text>
-  <text x="1007" y="345" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">FastAPI / Flask</text>
-  <!-- Arrow from model down -->
-  <line x1="1007" y1="278" x2="1007" y2="308" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)"/>
-  <!-- Data flow indicator -->
-  <text x="960" y="390" font-size="9" fill="rgba(48,105,152,0.6)" font-family="monospace">airflow / prefect orchestration</text>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(48,105,152,0.25)" stroke="rgba(48,105,152,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  <path d="M 795 150 Q 795 130 815 130 L 860 130 Q 880 130 880 150 L 880 175 Q 880 185 870 185 L 845 185 L 845 195 Q 845 205 855 205 L 900 205 Q 920 205 920 225 L 920 250 Q 920 270 900 270 L 855 270 Q 835 270 835 250 L 835 225 L 810 225 Q 795 225 795 210 Z" fill="rgba(48,105,152,0.25)" stroke="#306998" stroke-width="2" />
+  <path d="M 920 270 Q 920 290 900 290 L 855 290 Q 835 290 835 310 L 835 335 Q 835 355 855 355 L 900 355 Q 920 355 920 370 L 920 385 Q 920 400 905 400 L 860 400 Q 840 400 840 385 L 840 360" fill="rgba(255,212,59,0.2)" stroke="#ffd43b" stroke-width="2" />
+  
+  <circle cx="870" cy="148" r="5" fill="#ffd43b" />
+  <circle cx="862" cy="292" r="5" fill="#306998" />
+  
+  
+  <rect x="960" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2" />
+  <line x1="1055" y1="173" x2="1070" y2="173" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)" />
+  
+  <rect x="1070" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.18)" stroke="#306998" stroke-width="2" />
+  <rect x="960" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.15)" stroke="#ffd43b" stroke-width="2" />
+  <line x1="1117" y1="198" x2="1117" y2="225" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)" />
+  
+  <rect x="1070" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.12)" stroke="#ffd43b" stroke-width="2" />
+  <line x1="1070" y1="253" x2="1055" y2="253" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)" />
+  
+  <rect x="960" y="308" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2" />
+  <line x1="1007" y1="278" x2="1007" y2="308" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)" />
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(48,105,152,0.25)" stroke="rgba(48,105,152,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">FEBRUARY 5, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Python Pipeline</text>
   <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Architecture</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">End-to-end Python data pipeline from ingestion to serving with orchestration</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">PIPELINE ARCHITECTURE</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(48,105,152,0.25)" stroke="rgba(48,105,152,0.5)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(48,105,152,0.25)" stroke="rgba(48,105,152,0.5)" stroke-width="1" />
   <text x="125" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Python</text>
-  <rect x="186" y="402" width="95" height="36" rx="18" fill="rgba(255,212,59,0.2)" stroke="rgba(255,212,59,0.45)" stroke-width="1"/>
+  <rect x="186" y="402" width="95" height="36" rx="18" fill="rgba(255,212,59,0.2)" stroke="rgba(255,212,59,0.45)" stroke-width="1" />
   <text x="233" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Pipeline</text>
-  <rect x="297" y="402" width="120" height="36" rx="18" fill="rgba(48,105,152,0.2)" stroke="rgba(48,105,152,0.4)" stroke-width="1"/>
+  <rect x="297" y="402" width="120" height="36" rx="18" fill="rgba(48,105,152,0.2)" stroke="rgba(48,105,152,0.4)" stroke-width="1" />
   <text x="357" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Architecture</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,134 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Cloud Security Course 7Batch - 3Week AWS Security and Finops</title>
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0" />
     </linearGradient>
     <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#0044cc;stop-opacity:0.06"/>
+      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0044cc;stop-opacity:0.06" />
     </linearGradient>
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:0.2"/>
-      <stop offset="100%" style="stop-color:#ff2200;stop-opacity:0.08"/>
+      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ff2200;stop-opacity:0.08" />
     </linearGradient>
     <linearGradient id="coinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.18"/>
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.07"/>
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.07" />
     </linearGradient>
   </defs>
 
-  <!-- 1. Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-  <!-- 2. Grid lines -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
 
-  <!-- 3. RIGHT SIDE ILLUSTRATION -->
-  <!-- Cloud shape (AWS-style) -->
-  <ellipse cx="1010" cy="220" rx="90" ry="55" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.3)" stroke-width="1.5"/>
-  <ellipse cx="960" cy="235" rx="55" ry="38" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1.5"/>
-  <ellipse cx="1065" cy="235" rx="50" ry="35" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1.5"/>
-  <rect x="905" y="250" width="170" height="30" rx="4" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.2)" stroke-width="1"/>
-  <!-- Cloud inner glow dots -->
-  <circle cx="975" cy="218" r="5" fill="rgba(68,136,255,0.4)" stroke="none"/>
-  <circle cx="1010" cy="208" r="6" fill="rgba(68,136,255,0.35)" stroke="none"/>
-  <circle cx="1045" cy="216" r="5" fill="rgba(68,136,255,0.4)" stroke="none"/>
+  
+  
+  <ellipse cx="1010" cy="220" rx="90" ry="55" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.3)" stroke-width="1.5" />
+  <ellipse cx="960" cy="235" rx="55" ry="38" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1.5" />
+  <ellipse cx="1065" cy="235" rx="50" ry="35" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1.5" />
+  <rect x="905" y="250" width="170" height="30" rx="4" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.2)" stroke-width="1" />
+  
+  <circle cx="975" cy="218" r="5" fill="rgba(68,136,255,0.4)" stroke="none" />
+  <circle cx="1010" cy="208" r="6" fill="rgba(68,136,255,0.35)" stroke="none" />
+  <circle cx="1045" cy="216" r="5" fill="rgba(68,136,255,0.4)" stroke="none" />
 
-  <!-- Shield (Security) -->
-  <polygon points="1010,148 1075,172 1075,215 1010,248 945,215 945,172" fill="url(#shieldGrad)" stroke="rgba(255,102,0,0.35)" stroke-width="2"/>
-  <polygon points="1010,160 1063,180 1063,213 1010,238 957,213 957,180" fill="none" stroke="rgba(255,102,0,0.2)" stroke-width="1.5"/>
-  <!-- Lock icon inside shield -->
-  <rect x="993" y="193" width="34" height="26" rx="4" fill="none" stroke="rgba(255,140,0,0.5)" stroke-width="2"/>
-  <path d="M1000 193 Q1000 178 1010 178 Q1020 178 1020 193" fill="none" stroke="rgba(255,140,0,0.5)" stroke-width="2"/>
-  <circle cx="1010" cy="204" r="4" fill="rgba(255,140,0,0.6)" stroke="none"/>
-  <rect x="1008" y="205" width="4" height="7" rx="1" fill="rgba(255,140,0,0.6)" stroke="none"/>
+  
+  <polygon points="1010,148 1075,172 1075,215 1010,248 945,215 945,172" fill="url(#shieldGrad)" stroke="rgba(255,102,0,0.35)" stroke-width="2" />
+  <polygon points="1010,160 1063,180 1063,213 1010,238 957,213 957,180" fill="none" stroke="rgba(255,102,0,0.2)" stroke-width="1.5" />
+  
+  <rect x="993" y="193" width="34" height="26" rx="4" fill="none" stroke="rgba(255,140,0,0.5)" stroke-width="2" />
+  <path d="M1000 193 Q1000 178 1010 178 Q1020 178 1020 193" fill="none" stroke="rgba(255,140,0,0.5)" stroke-width="2" />
+  <circle cx="1010" cy="204" r="4" fill="rgba(255,140,0,0.6)" stroke="none" />
+  <rect x="1008" y="205" width="4" height="7" rx="1" fill="rgba(255,140,0,0.6)" stroke="none" />
 
-  <!-- FinOps coins -->
-  <ellipse cx="930" cy="300" rx="28" ry="10" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.35)" stroke-width="1.5"/>
-  <rect x="902" y="283" width="56" height="17" rx="2" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.3)" stroke-width="1.5"/>
-  <ellipse cx="930" cy="283" rx="28" ry="10" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.4)" stroke-width="1.5"/>
-  <text x="924" y="287" font-family="monospace" font-size="11" fill="rgba(255,215,0,0.7)" font-weight="bold">$</text>
+  
+  <ellipse cx="930" cy="300" rx="28" ry="10" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.35)" stroke-width="1.5" />
+  <rect x="902" y="283" width="56" height="17" rx="2" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.3)" stroke-width="1.5" />
+  <ellipse cx="930" cy="283" rx="28" ry="10" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.4)" stroke-width="1.5" />
+  <ellipse cx="1090" cy="310" rx="24" ry="9" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.3)" stroke-width="1.5" />
+  <rect x="1066" y="295" width="48" height="15" rx="2" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.25)" stroke-width="1.5" />
+  <ellipse cx="1090" cy="295" rx="24" ry="9" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.35)" stroke-width="1.5" />
+  <polygon points="880,155 895,145 910,155 910,175 895,185 880,175" fill="rgba(255,153,0,0.1)" stroke="rgba(255,153,0,0.35)" stroke-width="1.5" />
+  <polygon points="1120,155 1135,145 1150,155 1150,175 1135,185 1120,175" fill="rgba(68,136,255,0.1)" stroke="rgba(68,136,255,0.35)" stroke-width="1.5" />
+  <line x1="910" y1="165" x2="945" y2="192" stroke="rgba(255,153,0,0.2)" stroke-width="1" stroke-dasharray="4,3" />
+  <line x1="1075" y1="192" x2="1120" y2="165" stroke="rgba(68,136,255,0.2)" stroke-width="1" stroke-dasharray="4,3" />
 
-  <ellipse cx="1090" cy="310" rx="24" ry="9" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.3)" stroke-width="1.5"/>
-  <rect x="1066" y="295" width="48" height="15" rx="2" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.25)" stroke-width="1.5"/>
-  <ellipse cx="1090" cy="295" rx="24" ry="9" fill="url(#coinGrad)" stroke="rgba(255,215,0,0.35)" stroke-width="1.5"/>
-  <text x="1085" y="299" font-family="monospace" font-size="10" fill="rgba(255,215,0,0.65)" font-weight="bold">$</text>
+  
+  <path d="M 885 330 L 910 310 L 935 320 L 960 295 L 985 305 L 1010 280" fill="none" stroke="rgba(0,255,136,0.35)" stroke-width="2" stroke-dasharray="5,3" />
+  <polygon points="1005,273 1015,283 1010,280" fill="rgba(0,255,136,0.5)" stroke="none" />
 
-  <!-- AWS-style hexagon nodes -->
-  <polygon points="880,155 895,145 910,155 910,175 895,185 880,175" fill="rgba(255,153,0,0.1)" stroke="rgba(255,153,0,0.35)" stroke-width="1.5"/>
-  <text x="889" y="165" font-family="monospace" font-size="8" fill="rgba(255,153,0,0.7)">EC2</text>
+  
+  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.8)" stroke="rgba(255,68,68,0.4)" stroke-width="1" />
+  <circle cx="900" cy="420" r="3.5" fill="rgba(255,170,0,0.8)" stroke="rgba(255,170,0,0.4)" stroke-width="1" />
+  <circle cx="860" cy="440" r="3" fill="rgba(68,136,255,0.8)" stroke="rgba(68,136,255,0.4)" stroke-width="1" />
 
-  <polygon points="1120,155 1135,145 1150,155 1150,175 1135,185 1120,175" fill="rgba(68,136,255,0.1)" stroke="rgba(68,136,255,0.35)" stroke-width="1.5"/>
-  <text x="1126" y="165" font-family="monospace" font-size="8" fill="rgba(68,136,255,0.7)">IAM</text>
+  
+  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
 
-  <!-- Connecting lines between nodes -->
-  <line x1="910" y1="165" x2="945" y2="192" stroke="rgba(255,153,0,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="1075" y1="192" x2="1120" y2="165" stroke="rgba(68,136,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
 
-  <!-- Cost trend arrow -->
-  <path d="M 885 330 L 910 310 L 935 320 L 960 295 L 985 305 L 1010 280" fill="none" stroke="rgba(0,255,136,0.35)" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="1005,273 1015,283 1010,280" fill="rgba(0,255,136,0.5)" stroke="none"/>
-
-  <!-- 4. Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.8)" stroke="rgba(255,68,68,0.4)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="3.5" fill="rgba(255,170,0,0.8)" stroke="rgba(255,170,0,0.4)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(68,136,255,0.8)" stroke="rgba(68,136,255,0.4)" stroke-width="1"/>
-
-  <!-- 5. Background circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- 6. Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- 7. Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1"/>
+  
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1" />
   <text x="180" y="81" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,100,100,0.95)" text-anchor="middle" letter-spacing="1">MAY 2, 2025</text>
 
-  <!-- 8. Title line 1 -->
+  
   <text x="80" y="185" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white">Cloud Security Course 7Batch</text>
 
-  <!-- 9. Title line 2 -->
+  
   <text x="80" y="245" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="46" font-weight="700" fill="white">3Week AWS Security Finops</text>
 
-  <!-- 10. Subtitle -->
+  
   <text x="80" y="300" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="19" fill="rgba(180,200,255,0.75)">AWS Security Architecture - FinOps Cost Optimization - IAM &amp; GuardDuty</text>
 
-  <!-- 11. Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
+  
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)" />
 
-  <!-- 12. Category label -->
+  
   <text x="80" y="370" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="14" fill="rgba(255,136,0,0.85)" letter-spacing="2" font-weight="600">CLOUD SECURITY - BATCH 7 - WEEK 3</text>
 
-  <!-- 13. Three tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1" />
   <text x="145" y="425" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="13" fill="rgba(255,120,120,0.95)" text-anchor="middle" font-weight="600">AWS Security</text>
 
-  <rect x="225" y="402" width="120" height="36" rx="18" fill="rgba(255,170,0,0.15)" stroke="rgba(255,170,0,0.4)" stroke-width="1"/>
+  <rect x="225" y="402" width="120" height="36" rx="18" fill="rgba(255,170,0,0.15)" stroke="rgba(255,170,0,0.4)" stroke-width="1" />
   <text x="285" y="425" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="13" fill="rgba(255,200,80,0.95)" text-anchor="middle" font-weight="600">FinOps</text>
 
-  <rect x="360" y="402" width="130" height="36" rx="18" fill="rgba(68,136,255,0.15)" stroke="rgba(68,136,255,0.4)" stroke-width="1"/>
+  <rect x="360" y="402" width="130" height="36" rx="18" fill="rgba(68,136,255,0.15)" stroke="rgba(68,136,255,0.4)" stroke-width="1" />
   <text x="425" y="425" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="13" fill="rgba(100,160,255,0.95)" text-anchor="middle" font-weight="600">GuardDuty</text>
 
-  <!-- 14. Footer -->
+  
   <text x="80" y="545" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="1">cloud</text>
 </svg>

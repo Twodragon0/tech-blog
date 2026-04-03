@@ -1,179 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Krebs Security Digest Kimwolf Patch Tuesday</title>
   <defs>
     <filter id="glass-blur">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
     </filter>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <filter id="soft-glow">
-      <feGaussianBlur stdDeviation="20"/>
+      <feGaussianBlur stdDeviation="20" />
     </filter>
     <filter id="card-shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#3b82f6" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#3b82f6" flood-opacity="0.25" />
     </filter>
     <linearGradient id="accent-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#f43f5e"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#f43f5e" />
     </linearGradient>
     <linearGradient id="card-border1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2" />
     </linearGradient>
     <linearGradient id="card-border2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
     </linearGradient>
     <linearGradient id="card-border3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.4"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.4" />
     </linearGradient>
     <linearGradient id="shield-grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#1d4ed8"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
     </linearGradient>
     <linearGradient id="shield-warn-grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f43f5e"/>
-      <stop offset="100%" stop-color="#be123c"/>
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
     </linearGradient>
     <radialGradient id="orb1" cx="0.3" cy="0.4">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="orb2" cx="0.8" cy="0.7">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="orb3" cx="0.6" cy="0.2">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
     </radialGradient>
     <pattern id="dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.8" fill="#ffffff" opacity="0.06"/>
+      <circle cx="12" cy="12" r="0.8" fill="#ffffff" opacity="0.06" />
     </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a"/>
-  <rect width="1200" height="630" fill="url(#dot-grid)"/>
+  
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dot-grid)" />
 
-  <!-- Ambient glow orbs -->
-  <ellipse cx="300" cy="250" rx="350" ry="300" fill="url(#orb1)"/>
-  <ellipse cx="950" cy="450" rx="300" ry="250" fill="url(#orb2)"/>
-  <ellipse cx="700" cy="120" rx="250" ry="200" fill="url(#orb3)"/>
+  
+  <ellipse cx="300" cy="250" rx="350" ry="300" fill="url(#orb1)" />
+  <ellipse cx="950" cy="450" rx="300" ry="250" fill="url(#orb2)" />
+  <ellipse cx="700" cy="120" rx="250" ry="200" fill="url(#orb3)" />
 
-  <!-- RIGHT SIDE: Glass Cards -->
+  
 
-  <!-- Card 3 (back, bottom) - Compliance Shield -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="850" y="340" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.45"/>
-    <rect x="850" y="340" width="280" height="220" rx="16" fill="none" stroke="url(#card-border3)" stroke-width="1.5"/>
-    <!-- Large shield with checkmark -->
+    <rect x="850" y="340" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.45" />
+    <rect x="850" y="340" width="280" height="220" rx="16" fill="none" stroke="url(#card-border3)" stroke-width="1.5" />
+    
     <g transform="translate(950, 400)">
-      <path d="M40 0 C40 0 80 10 80 10 L80 50 C80 80 40 100 40 100 C40 100 0 80 0 50 L0 10 Z" fill="url(#shield-grad)" opacity="0.9"/>
-      <path d="M40 5 C40 5 75 14 75 14 L75 48 C75 75 40 94 40 94 C40 94 5 75 5 48 L5 14 Z" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
-      <polyline points="22,48 36,62 58,34" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M40 0 C40 0 80 10 80 10 L80 50 C80 80 40 100 40 100 C40 100 0 80 0 50 L0 10 Z" fill="url(#shield-grad)" opacity="0.9" />
+      <path d="M40 5 C40 5 75 14 75 14 L75 48 C75 75 40 94 40 94 C40 94 5 75 5 48 L5 14 Z" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3" />
+      <polyline points="22,48 36,62 58,34" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
     </g>
-    <text x="990" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle" letter-spacing="1">COMPLIANCE</text>
-  </g>
+    </g>
 
-  <!-- Card 2 (middle) - Vulnerability Shield -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="740" y="180" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.5"/>
-    <rect x="740" y="180" width="280" height="220" rx="16" fill="none" stroke="url(#card-border2)" stroke-width="1.5"/>
-    <!-- Cracked shield with warning -->
+    <rect x="740" y="180" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.5" />
+    <rect x="740" y="180" width="280" height="220" rx="16" fill="none" stroke="url(#card-border2)" stroke-width="1.5" />
+    
     <g transform="translate(838, 220)">
-      <path d="M42 0 C42 0 84 10 84 10 L84 52 C84 84 42 105 42 105 C42 105 0 84 0 52 L0 10 Z" fill="url(#shield-warn-grad)" opacity="0.85"/>
-      <path d="M42 5 C42 5 79 14 79 14 L79 50 C79 79 42 99 42 99 C42 99 5 79 5 50 L5 14 Z" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.25"/>
-      <!-- Lightning crack -->
-      <polyline points="42,18 38,38 48,48 36,65 42,80" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- Warning triangle -->
+      <path d="M42 0 C42 0 84 10 84 10 L84 52 C84 84 42 105 42 105 C42 105 0 84 0 52 L0 10 Z" fill="url(#shield-warn-grad)" opacity="0.85" />
+      <path d="M42 5 C42 5 79 14 79 14 L79 50 C79 79 42 99 42 99 C42 99 5 79 5 50 L5 14 Z" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.25" />
+      
+      <polyline points="42,18 38,38 48,48 36,65 42,80" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+      
       <g transform="translate(22, 30)">
-        <polygon points="20,0 40,35 0,35" fill="#fbbf24" opacity="0.9"/>
-        <text x="20" y="28" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#0f172a" text-anchor="middle">!</text>
-      </g>
+        <polygon points="20,0 40,35 0,35" fill="#fbbf24" opacity="0.9" />
+        </g>
     </g>
     <text x="880" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle" letter-spacing="1">VULNERABILITY</text>
   </g>
 
-  <!-- Card 1 (front, top) - Patch Tuesday -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="660" y="60" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.55"/>
-    <rect x="660" y="60" width="280" height="220" rx="16" fill="none" stroke="url(#card-border1)" stroke-width="1.5"/>
-    <!-- Document with patch checkmark -->
+    <rect x="660" y="60" width="280" height="220" rx="16" fill="#1e293b" fill-opacity="0.55" />
+    <rect x="660" y="60" width="280" height="220" rx="16" fill="none" stroke="url(#card-border1)" stroke-width="1.5" />
+    
     <g transform="translate(758, 95)">
-      <rect x="5" y="5" width="70" height="90" rx="8" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.7"/>
-      <line x1="20" y1="30" x2="60" y2="30" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
-      <line x1="20" y1="42" x2="55" y2="42" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
-      <line x1="20" y1="54" x2="50" y2="54" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
-      <line x1="20" y1="66" x2="45" y2="66" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
-      <!-- Patch overlay badge -->
-      <circle cx="58" cy="72" r="18" fill="#3b82f6" opacity="0.9"/>
-      <polyline points="50,72 56,78 68,64" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="5" y="5" width="70" height="90" rx="8" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.7" />
+      <line x1="20" y1="30" x2="60" y2="30" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+      <line x1="20" y1="42" x2="55" y2="42" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+      <line x1="20" y1="54" x2="50" y2="54" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+      <line x1="20" y1="66" x2="45" y2="66" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+      
+      <circle cx="58" cy="72" r="18" fill="#3b82f6" opacity="0.9" />
+      <polyline points="50,72 56,78 68,64" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     </g>
     <text x="800" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle" letter-spacing="1">PATCH TUESDAY</text>
   </g>
 
-  <!-- Floating particles between cards -->
+  
   <circle cx="720" cy="310" r="2" fill="#3b82f6" opacity="0.5">
-    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" />
   </circle>
   <circle cx="830" cy="170" r="1.5" fill="#f43f5e" opacity="0.4">
-    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" />
   </circle>
   <circle cx="940" cy="330" r="2.5" fill="#8b5cf6" opacity="0.35">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="680" cy="450" r="1.8" fill="#3b82f6" opacity="0.3">
-    <animate attributeName="opacity" values="0.15;0.45;0.15" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.45;0.15" dur="5s" repeatCount="indefinite" />
   </circle>
   <circle cx="1050" cy="250" r="2" fill="#f43f5e" opacity="0.3">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="770" cy="420" r="1.5" fill="#8b5cf6" opacity="0.25">
-    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.8s" repeatCount="indefinite" />
   </circle>
 
-  <!-- LEFT SIDE: Text Content -->
+  
 
-  <!-- Category pill -->
-  <rect x="60" y="80" width="140" height="32" rx="16" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1"/>
+  
+  <rect x="60" y="80" width="140" height="32" rx="16" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1" />
   <text x="130" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1.5">SECURITY</text>
 
-  <!-- Title -->
+  
   <text x="60" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Krebs Security</text>
   <text x="60" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Digest</text>
   <text x="60" y="295" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="700" fill="url(#accent-grad)">Kimwolf Patch</text>
   <text x="60" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="700" fill="url(#accent-grad)">Tuesday</text>
 
-  <!-- Gradient accent line -->
-  <rect x="60" y="375" width="160" height="3" rx="1.5" fill="url(#accent-grad)" opacity="0.8"/>
+  
+  <rect x="60" y="375" width="160" height="3" rx="1.5" fill="url(#accent-grad)" opacity="0.8" />
 
-  <!-- Tag chips -->
+  
   <g>
-    <rect x="60" y="400" width="100" height="28" rx="14" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="110" y="419" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fb7185" text-anchor="middle">Vulnerability</text>
-  </g>
+    <rect x="60" y="400" width="100" height="28" rx="14" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1" />
+    </g>
   <g>
-    <rect x="172" y="400" width="110" height="28" rx="14" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="227" y="419" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#60a5fa" text-anchor="middle">Patch Tuesday</text>
-  </g>
+    <rect x="172" y="400" width="110" height="28" rx="14" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1" />
+    </g>
   <g>
-    <rect x="294" y="400" width="95" height="28" rx="14" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="294" y="400" width="95" height="28" rx="14" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1" />
     <text x="341" y="419" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#a78bfa" text-anchor="middle">Compliance</text>
   </g>
 
-  <!-- Date -->
+  
   <text x="60" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#64748b" letter-spacing="2">FEBRUARY 18, 2026</text>
 
-  <!-- Footer -->
-  <line x1="60" y1="560" x2="540" y2="560" stroke="#1e293b" stroke-width="1"/>
+  
+  <line x1="60" y1="560" x2="540" y2="560" stroke="#1e293b" stroke-width="1" />
   <text x="60" y="585" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
 
-  <!-- Subtle decorative accents -->
-  <circle cx="1150" cy="590" r="60" fill="#3b82f6" opacity="0.04"/>
-  <circle cx="1150" cy="590" r="30" fill="#f43f5e" opacity="0.03"/>
+  
+  <circle cx="1150" cy="590" r="60" fill="#3b82f6" opacity="0.04" />
+  <circle cx="1150" cy="590" r="30" fill="#f43f5e" opacity="0.03" />
 </svg>

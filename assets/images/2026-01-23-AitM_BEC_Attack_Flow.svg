@@ -1,68 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>AitM BEC Attack Flow</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0f0a"/>
-      <stop offset="100%" style="stop-color:#2d1a10"/>
+      <stop offset="0%" style="stop-color:#1a0f0a" />
+      <stop offset="100%" style="stop-color:#2d1a10" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#d35400"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+      <stop offset="0%" style="stop-color:#d35400" />
+      <stop offset="100%" style="stop-color:#e74c3c" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(211,84,0,0.07)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(231,76,60,0.06)"/>
-  <!-- Victim left -->
-  <circle cx="820" cy="290" r="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-  <text x="820" y="294" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle">USER</text>
-  <!-- AitM middle -->
-  <circle cx="970" cy="290" r="32" fill="rgba(211,84,0,0.25)" stroke="#d35400" stroke-width="2.5"/>
-  <text x="970" y="286" font-family="Arial,sans-serif" font-size="9" fill="#d35400" text-anchor="middle" font-weight="700">AitM</text>
-  <text x="970" y="300" font-family="Arial,sans-serif" font-size="8" fill="#d35400" text-anchor="middle">PROXY</text>
-  <!-- Service right -->
-  <circle cx="1120" cy="290" r="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
-  <text x="1120" y="294" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle">O365</text>
-  <!-- Flow arrows -->
-  <path d="M848,280 L938,280" fill="none" stroke="rgba(211,84,0,0.7)" stroke-width="2"/>
-  <polygon points="935,276 943,280 935,284" fill="rgba(211,84,0,0.7)"/>
-  <path d="M1002,280 L1092,280" fill="none" stroke="rgba(231,76,60,0.6)" stroke-width="2"/>
-  <polygon points="1089,276 1097,280 1089,284" fill="rgba(231,76,60,0.6)"/>
-  <!-- Return arrows (session cookie) -->
-  <path d="M1092,300 L1002,300" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <polygon points="1005,296 997,300 1005,304" fill="rgba(231,76,60,0.5)"/>
-  <path d="M938,300 L848,300" fill="none" stroke="rgba(211,84,0,0.5)" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <polygon points="851,296 843,300 851,304" fill="rgba(211,84,0,0.5)"/>
-  <!-- BEC arrow downward -->
-  <path d="M970,322 L970,380" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="2"/>
-  <polygon points="966,377 970,385 974,377" fill="rgba(231,76,60,0.5)"/>
-  <rect x="920" y="385" width="100" height="30" rx="4" fill="rgba(231,76,60,0.12)" stroke="rgba(231,76,60,0.4)" stroke-width="1.5"/>
-  <text x="970" y="404" font-family="Arial,sans-serif" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="700">BEC WIRE TRANSFER</text>
-  <!-- Session cookie label -->
-  <text x="970" y="270" font-family="Arial,sans-serif" font-size="9" fill="rgba(211,84,0,0.7)" text-anchor="middle">session token theft</text>
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(211,84,0,0.07)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(231,76,60,0.06)" />
+  
+  <circle cx="820" cy="290" r="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+  <circle cx="970" cy="290" r="32" fill="rgba(211,84,0,0.25)" stroke="#d35400" stroke-width="2.5" />
+  <circle cx="1120" cy="290" r="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2" />
+  <path d="M848,280 L938,280" fill="none" stroke="rgba(211,84,0,0.7)" stroke-width="2" />
+  <polygon points="935,276 943,280 935,284" fill="rgba(211,84,0,0.7)" />
+  <path d="M1002,280 L1092,280" fill="none" stroke="rgba(231,76,60,0.6)" stroke-width="2" />
+  <polygon points="1089,276 1097,280 1089,284" fill="rgba(231,76,60,0.6)" />
+  
+  <path d="M1092,300 L1002,300" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="5,3" />
+  <polygon points="1005,296 997,300 1005,304" fill="rgba(231,76,60,0.5)" />
+  <path d="M938,300 L848,300" fill="none" stroke="rgba(211,84,0,0.5)" stroke-width="1.5" stroke-dasharray="5,3" />
+  <polygon points="851,296 843,300 851,304" fill="rgba(211,84,0,0.5)" />
+  
+  <path d="M970,322 L970,380" fill="none" stroke="rgba(231,76,60,0.5)" stroke-width="2" />
+  <polygon points="966,377 970,385 974,377" fill="rgba(231,76,60,0.5)" />
+  <rect x="920" y="385" width="100" height="30" rx="4" fill="rgba(231,76,60,0.12)" stroke="rgba(231,76,60,0.4)" stroke-width="1.5" />
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1" />
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#d35400" text-anchor="middle" letter-spacing="2">JANUARY 23, 2026</text>
   <text x="80" y="185" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#ffffff">AitM and BEC</text>
   <text x="80" y="245" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#ffffff">Attack Flow Analysis</text>
   <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">Adversary-in-the-Middle phishing and session token theft</text>
-  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)"/>
+  <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)" />
   <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(211,84,0,0.8)" letter-spacing="3">ATTACK ANALYSIS</text>
-  <rect x="80" y="400" width="105" height="28" rx="14" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1"/>
+  <rect x="80" y="400" width="105" height="28" rx="14" fill="rgba(211,84,0,0.15)" stroke="rgba(211,84,0,0.4)" stroke-width="1" />
   <text x="132" y="419" font-family="Arial,sans-serif" font-size="13" fill="#d35400" text-anchor="middle">AitM Attack</text>
-  <rect x="197" y="400" width="60" height="28" rx="14" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
+  <rect x="197" y="400" width="60" height="28" rx="14" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1" />
   <text x="227" y="419" font-family="Arial,sans-serif" font-size="13" fill="#e74c3c" text-anchor="middle">BEC</text>
-  <rect x="269" y="400" width="80" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <rect x="269" y="400" width="80" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
   <text x="309" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Phishing</text>
-  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)"/>
+  <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">tech.2twodragon.com</text>
   <text x="1120" y="615" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="end">DevSecOps</text>
 </svg>

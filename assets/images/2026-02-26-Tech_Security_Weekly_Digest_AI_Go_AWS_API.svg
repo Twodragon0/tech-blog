@@ -1,187 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Go AWS API</title>
   <defs>
     <filter id="glass-blur">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
     </filter>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <filter id="soft-glow">
-      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feGaussianBlur stdDeviation="20" result="blur" />
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
     <filter id="card-shadow">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#3b82f6" flood-opacity="0.15"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#3b82f6" flood-opacity="0.15" />
     </filter>
     <linearGradient id="accent-line" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#f43f5e"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#f43f5e" />
     </linearGradient>
     <linearGradient id="card-border1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2" />
     </linearGradient>
     <linearGradient id="card-border2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15" />
     </linearGradient>
     <linearGradient id="card-border3" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3" />
     </linearGradient>
     <linearGradient id="shield-grad" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#2563eb"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2563eb" />
     </linearGradient>
     <linearGradient id="cloud-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#60a5fa"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#3b82f6" />
     </linearGradient>
     <radialGradient id="orb1" cx="0.3" cy="0.4">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="orb2" cx="0.7" cy="0.6">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="orb3" cx="0.8" cy="0.2">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
     </radialGradient>
     <pattern id="dot-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.07"/>
+      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.07" />
     </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a"/>
-  <rect width="1200" height="630" fill="url(#dot-grid)"/>
+  
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dot-grid)" />
 
-  <!-- Ambient glow orbs -->
-  <ellipse cx="200" cy="250" rx="300" ry="280" fill="url(#orb1)"/>
-  <ellipse cx="900" cy="400" rx="350" ry="300" fill="url(#orb2)"/>
-  <ellipse cx="950" cy="120" rx="250" ry="200" fill="url(#orb3)"/>
+  
+  <ellipse cx="200" cy="250" rx="300" ry="280" fill="url(#orb1)" />
+  <ellipse cx="900" cy="400" rx="350" ry="300" fill="url(#orb2)" />
+  <ellipse cx="950" cy="120" rx="250" ry="200" fill="url(#orb3)" />
 
-  <!-- === LEFT SIDE: Text Content === -->
+  
 
-  <!-- Category pill -->
-  <rect x="70" y="100" width="160" height="34" rx="17" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="1"/>
+  
+  <rect x="70" y="100" width="160" height="34" rx="17" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="1" />
   <text x="150" y="122" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#60a5fa" letter-spacing="1.5">WEEKLY DIGEST</text>
 
-  <!-- Title -->
+  
   <text x="70" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Tech Security Weekly</text>
   <text x="70" y="258" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Digest AWS API</text>
 
-  <!-- Gradient accent line -->
-  <rect x="70" y="280" width="180" height="3" rx="1.5" fill="url(#accent-line)"/>
+  
+  <rect x="70" y="280" width="180" height="3" rx="1.5" fill="url(#accent-line)" />
 
-  <!-- Tag chips -->
-  <rect x="70" y="310" width="72" height="30" rx="15" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="1"/>
+  
+  <rect x="70" y="310" width="72" height="30" rx="15" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="1" />
   <text x="106" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#fb7185">AWS</text>
 
-  <rect x="154" y="310" width="60" height="30" rx="15" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="154" y="310" width="60" height="30" rx="15" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1" />
   <text x="184" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#60a5fa">API</text>
 
-  <rect x="226" y="310" width="90" height="30" rx="15" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="226" y="310" width="90" height="30" rx="15" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1" />
   <text x="271" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#a78bfa">Security</text>
 
-  <!-- Date -->
+  
   <text x="70" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="2">FEBRUARY 26, 2026</text>
 
-  <!-- Footer -->
-  <line x1="70" y1="545" x2="450" y2="545" stroke="#334155" stroke-width="1"/>
+  
+  <line x1="70" y1="545" x2="450" y2="545" stroke="#334155" stroke-width="1" />
   <text x="70" y="575" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
 
-  <!-- === RIGHT SIDE: Glass Cards === -->
+  
 
-  <!-- Card 3 (back, lowest) - API data flow -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="720" y="340" width="260" height="200" rx="16" fill="#1e293b" fill-opacity="0.5"/>
-    <rect x="720" y="340" width="260" height="200" rx="16" fill="none" stroke="url(#card-border3)" stroke-width="1.5"/>
-    <!-- Data flow lines -->
-    <line x1="760" y1="400" x2="810" y2="420" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3"/>
-    <line x1="810" y1="420" x2="860" y2="405" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3"/>
-    <line x1="860" y1="405" x2="920" y2="430" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3"/>
-    <!-- Data points -->
-    <circle cx="760" cy="400" r="3" fill="#3b82f6" opacity="0.7"/>
-    <circle cx="810" cy="420" r="3" fill="#60a5fa" opacity="0.8"/>
-    <circle cx="860" cy="405" r="3" fill="#3b82f6" opacity="0.7"/>
-    <circle cx="920" cy="430" r="3" fill="#60a5fa" opacity="0.8"/>
-    <!-- API endpoint text -->
-    <text x="760" y="480" font-family="monospace" font-size="11" fill="#60a5fa" opacity="0.6">GET /api/v2/data</text>
+    <rect x="720" y="340" width="260" height="200" rx="16" fill="#1e293b" fill-opacity="0.5" />
+    <rect x="720" y="340" width="260" height="200" rx="16" fill="none" stroke="url(#card-border3)" stroke-width="1.5" />
+    
+    <line x1="760" y1="400" x2="810" y2="420" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3" />
+    <line x1="810" y1="420" x2="860" y2="405" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3" />
+    <line x1="860" y1="405" x2="920" y2="430" stroke="#60a5fa" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,3" />
+    
+    <circle cx="760" cy="400" r="3" fill="#3b82f6" opacity="0.7" />
+    <circle cx="810" cy="420" r="3" fill="#60a5fa" opacity="0.8" />
+    <circle cx="860" cy="405" r="3" fill="#3b82f6" opacity="0.7" />
+    <circle cx="920" cy="430" r="3" fill="#60a5fa" opacity="0.8" />
+    
     <text x="760" y="498" font-family="monospace" font-size="11" fill="#34d399" opacity="0.5">200 OK  12ms</text>
   </g>
 
-  <!-- Card 2 (middle) - Cloud infrastructure -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="640" y="180" width="300" height="220" rx="16" fill="#1e293b" fill-opacity="0.6"/>
-    <rect x="640" y="180" width="300" height="220" rx="16" fill="none" stroke="url(#card-border2)" stroke-width="1.5"/>
-    <!-- Cloud shape -->
+    <rect x="640" y="180" width="300" height="220" rx="16" fill="#1e293b" fill-opacity="0.6" />
+    <rect x="640" y="180" width="300" height="220" rx="16" fill="none" stroke="url(#card-border2)" stroke-width="1.5" />
+    
     <g transform="translate(720, 250)">
-      <ellipse cx="60" cy="30" rx="55" ry="32" fill="none" stroke="url(#cloud-grad)" stroke-width="2" opacity="0.8"/>
-      <ellipse cx="30" cy="35" rx="30" ry="22" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.5"/>
-      <ellipse cx="90" cy="35" rx="28" ry="20" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.5"/>
-      <!-- Data flow arrows down from cloud -->
-      <line x1="40" y1="55" x2="40" y2="85" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
-      <polygon points="34,80 40,90 46,80" fill="#3b82f6" opacity="0.6"/>
-      <line x1="60" y1="58" x2="60" y2="88" stroke="#60a5fa" stroke-width="1.5" opacity="0.5"/>
-      <polygon points="54,83 60,93 66,83" fill="#60a5fa" opacity="0.5"/>
-      <line x1="80" y1="55" x2="80" y2="85" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
-      <polygon points="74,80 80,90 86,80" fill="#3b82f6" opacity="0.6"/>
-      <!-- Server boxes -->
-      <rect x="25" y="92" width="30" height="18" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.7"/>
-      <rect x="65" y="92" width="30" height="18" rx="3" fill="#1e293b" stroke="#60a5fa" stroke-width="1" opacity="0.7"/>
-      <!-- Dots in servers -->
-      <circle cx="35" cy="101" r="2" fill="#3b82f6" opacity="0.8"/>
-      <circle cx="42" cy="101" r="2" fill="#3b82f6" opacity="0.5"/>
-      <circle cx="75" cy="101" r="2" fill="#60a5fa" opacity="0.8"/>
-      <circle cx="82" cy="101" r="2" fill="#60a5fa" opacity="0.5"/>
+      <ellipse cx="60" cy="30" rx="55" ry="32" fill="none" stroke="url(#cloud-grad)" stroke-width="2" opacity="0.8" />
+      <ellipse cx="30" cy="35" rx="30" ry="22" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.5" />
+      <ellipse cx="90" cy="35" rx="28" ry="20" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.5" />
+      
+      <line x1="40" y1="55" x2="40" y2="85" stroke="#3b82f6" stroke-width="1.5" opacity="0.6" />
+      <polygon points="34,80 40,90 46,80" fill="#3b82f6" opacity="0.6" />
+      <line x1="60" y1="58" x2="60" y2="88" stroke="#60a5fa" stroke-width="1.5" opacity="0.5" />
+      <polygon points="54,83 60,93 66,83" fill="#60a5fa" opacity="0.5" />
+      <line x1="80" y1="55" x2="80" y2="85" stroke="#3b82f6" stroke-width="1.5" opacity="0.6" />
+      <polygon points="74,80 80,90 86,80" fill="#3b82f6" opacity="0.6" />
+      
+      <rect x="25" y="92" width="30" height="18" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.7" />
+      <rect x="65" y="92" width="30" height="18" rx="3" fill="#1e293b" stroke="#60a5fa" stroke-width="1" opacity="0.7" />
+      
+      <circle cx="35" cy="101" r="2" fill="#3b82f6" opacity="0.8" />
+      <circle cx="42" cy="101" r="2" fill="#3b82f6" opacity="0.5" />
+      <circle cx="75" cy="101" r="2" fill="#60a5fa" opacity="0.8" />
+      <circle cx="82" cy="101" r="2" fill="#60a5fa" opacity="0.5" />
     </g>
     <text x="660" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="1">CLOUD INFRASTRUCTURE</text>
   </g>
 
-  <!-- Card 1 (front, top) - Shield with checkmark -->
+  
   <g filter="url(#card-shadow)">
-    <rect x="830" y="80" width="280" height="260" rx="16" fill="#1e293b" fill-opacity="0.7"/>
-    <rect x="830" y="80" width="280" height="260" rx="16" fill="none" stroke="url(#card-border1)" stroke-width="1.5"/>
-    <!-- Large shield -->
+    <rect x="830" y="80" width="280" height="260" rx="16" fill="#1e293b" fill-opacity="0.7" />
+    <rect x="830" y="80" width="280" height="260" rx="16" fill="none" stroke="url(#card-border1)" stroke-width="1.5" />
+    
     <g transform="translate(910, 120)" filter="url(#soft-glow)">
-      <path d="M60 0 L120 25 L120 75 C120 120 60 155 60 155 C60 155 0 120 0 75 L0 25 Z" fill="url(#shield-grad)" fill-opacity="0.2" stroke="url(#shield-grad)" stroke-width="2"/>
-      <!-- Inner shield glow -->
-      <path d="M60 12 L110 33 L110 73 C110 110 60 140 60 140 C60 140 10 110 10 73 L10 33 Z" fill="#3b82f6" fill-opacity="0.08"/>
-      <!-- Checkmark -->
-      <polyline points="38,78 55,98 88,58" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M60 0 L120 25 L120 75 C120 120 60 155 60 155 C60 155 0 120 0 75 L0 25 Z" fill="url(#shield-grad)" fill-opacity="0.2" stroke="url(#shield-grad)" stroke-width="2" />
+      
+      <path d="M60 12 L110 33 L110 73 C110 110 60 140 60 140 C60 140 10 110 10 73 L10 33 Z" fill="#3b82f6" fill-opacity="0.08" />
+      
+      <polyline points="38,78 55,98 88,58" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
     </g>
-    <text x="970" y="305" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="1">SECURITY VERIFIED</text>
-  </g>
+    </g>
 
-  <!-- Floating particles between cards -->
+  
   <circle cx="680" cy="160" r="2" fill="#3b82f6" opacity="0.5">
-    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" />
   </circle>
   <circle cx="820" cy="350" r="1.5" fill="#f43f5e" opacity="0.4">
-    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" />
   </circle>
   <circle cx="950" cy="360" r="2" fill="#8b5cf6" opacity="0.4">
-    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="1050" cy="150" r="1.5" fill="#60a5fa" opacity="0.3">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.8s" repeatCount="indefinite" />
   </circle>
   <circle cx="750" cy="450" r="2" fill="#3b82f6" opacity="0.35">
-    <animate attributeName="opacity" values="0.2;0.55;0.2" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.55;0.2" dur="3.2s" repeatCount="indefinite" />
   </circle>
   <circle cx="630" cy="300" r="1.5" fill="#f43f5e" opacity="0.3">
-    <animate attributeName="opacity" values="0.15;0.45;0.15" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.45;0.15" dur="4.2s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Top/bottom edge accent -->
-  <rect x="0" y="0" width="1200" height="2" fill="url(#accent-line)" opacity="0.3"/>
-  <rect x="0" y="628" width="1200" height="2" fill="url(#accent-line)" opacity="0.15"/>
+  
+  <rect x="0" y="0" width="1200" height="2" fill="url(#accent-line)" opacity="0.3" />
+  <rect x="0" y="628" width="1200" height="2" fill="url(#accent-line)" opacity="0.15" />
 </svg>

@@ -1,77 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>ot-energy-security-gaps</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1500"/>
-      <stop offset="100%" style="stop-color:#2d2500"/>
+      <stop offset="0%" style="stop-color:#1a1500" />
+      <stop offset="100%" style="stop-color:#2d2500" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f1c40f"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+      <stop offset="0%" style="stop-color:#f1c40f" />
+      <stop offset="100%" style="stop-color:#e74c3c" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Power plant / energy facility illustration -->
-  <!-- Main building -->
-  <rect x="820" y="280" width="140" height="120" rx="4" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="2"/>
-  <!-- Chimney stacks -->
-  <rect x="835" y="240" width="22" height="42" rx="2" fill="rgba(241,196,15,0.2)" stroke="#f1c40f" stroke-width="1.5"/>
-  <rect x="870" y="255" width="22" height="28" rx="2" fill="rgba(241,196,15,0.15)" stroke="#f1c40f" stroke-width="1.5"/>
-  <rect x="908" y="248" width="22" height="34" rx="2" fill="rgba(241,196,15,0.18)" stroke="#f1c40f" stroke-width="1.5"/>
-  <!-- Cooling tower shape -->
-  <path d="M 960 270 Q 948 300 953 340 L 985 340 Q 990 300 978 270 Z" fill="rgba(241,196,15,0.1)" stroke="#f1c40f" stroke-width="1.5"/>
-  <!-- Security gap cracks -->
-  <!-- Gap 1: large crack on left wall -->
-  <polyline points="820,310 808,322 818,334 806,348" fill="none" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
-  <!-- Gap 2: crack on roof -->
-  <polyline points="855,280 862,268 872,276 882,264" fill="none" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
-  <!-- Gap 3: breach indicator on right side -->
-  <polyline points="960,315 972,305 968,320 982,310" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Warning triangle -->
-  <polygon points="890,150 870,185 910,185" fill="none" stroke="#f1c40f" stroke-width="2.5" opacity="0.9"/>
-  <text x="890" y="181" font-size="16" fill="#f1c40f" font-family="sans-serif" text-anchor="middle">!</text>
-  <!-- Power lines -->
-  <line x1="1000" y1="290" x2="1050" y2="270" stroke="rgba(241,196,15,0.4)" stroke-width="1.5"/>
-  <line x1="1050" y1="270" x2="1100" y2="285" stroke="rgba(241,196,15,0.4)" stroke-width="1.5"/>
-  <line x1="1050" y1="270" x2="1048" y2="310" stroke="rgba(241,196,15,0.3)" stroke-width="1.5"/>
-  <!-- OT/ICS label -->
-  <rect x="820" y="410" width="60" height="22" rx="3" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
-  <text x="850" y="425" font-size="9" fill="rgba(241,196,15,0.8)" font-family="monospace" text-anchor="middle">SCADA</text>
-  <rect x="890" y="410" width="50" height="22" rx="3" fill="rgba(241,196,15,0.12)" stroke="rgba(241,196,15,0.35)" stroke-width="1"/>
-  <text x="915" y="425" font-size="9" fill="rgba(241,196,15,0.7)" font-family="monospace" text-anchor="middle">PLC</text>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  
+  <rect x="820" y="280" width="140" height="120" rx="4" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="2" />
+  
+  <rect x="835" y="240" width="22" height="42" rx="2" fill="rgba(241,196,15,0.2)" stroke="#f1c40f" stroke-width="1.5" />
+  <rect x="870" y="255" width="22" height="28" rx="2" fill="rgba(241,196,15,0.15)" stroke="#f1c40f" stroke-width="1.5" />
+  <rect x="908" y="248" width="22" height="34" rx="2" fill="rgba(241,196,15,0.18)" stroke="#f1c40f" stroke-width="1.5" />
+  
+  <path d="M 960 270 Q 948 300 953 340 L 985 340 Q 990 300 978 270 Z" fill="rgba(241,196,15,0.1)" stroke="#f1c40f" stroke-width="1.5" />
+  
+  
+  <polyline points="820,310 808,322 818,334 806,348" fill="none" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" />
+  
+  <polyline points="855,280 862,268 872,276 882,264" fill="none" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" />
+  
+  <polyline points="960,315 972,305 968,320 982,310" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round" />
+  
+  <polygon points="890,150 870,185 910,185" fill="none" stroke="#f1c40f" stroke-width="2.5" opacity="0.9" />
+  <line x1="1000" y1="290" x2="1050" y2="270" stroke="rgba(241,196,15,0.4)" stroke-width="1.5" />
+  <line x1="1050" y1="270" x2="1100" y2="285" stroke="rgba(241,196,15,0.4)" stroke-width="1.5" />
+  <line x1="1050" y1="270" x2="1048" y2="310" stroke="rgba(241,196,15,0.3)" stroke-width="1.5" />
+  
+  <rect x="820" y="410" width="60" height="22" rx="3" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1" />
+  <rect x="890" y="410" width="50" height="22" rx="3" fill="rgba(241,196,15,0.12)" stroke="rgba(241,196,15,0.35)" stroke-width="1" />
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">OT Energy Sector</text>
   <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Security Gaps</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Critical security vulnerabilities in OT/ICS energy infrastructure systems</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">OT SECURITY</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.45)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="115" height="36" rx="18" fill="rgba(241,196,15,0.2)" stroke="rgba(241,196,15,0.45)" stroke-width="1" />
   <text x="137" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">OT Security</text>
-  <rect x="211" y="402" width="90" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
+  <rect x="211" y="402" width="90" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1" />
   <text x="256" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Energy</text>
-  <rect x="317" y="402" width="135" height="36" rx="18" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1"/>
+  <rect x="317" y="402" width="135" height="36" rx="18" fill="rgba(241,196,15,0.15)" stroke="rgba(241,196,15,0.4)" stroke-width="1" />
   <text x="384" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Security Gaps</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

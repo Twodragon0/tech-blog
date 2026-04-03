@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Cloud Security Course 8Batch 8Week CI CD Kubernetes Security Practical Guide</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
   
-  <!-- Subtle gradient overlay for depth -->
+  <rect width="1200" height="630" fill="#0a0c1a" />
+  
+  
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
@@ -14,103 +15,97 @@
       <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
   
-  <!-- LEFT SIDE: Title and metadata -->
+  
   <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">Cloud Security Course</text>
   <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">8Batch 8Week Kubernetes</text>
   
-  <!-- Date badge -->
-  <rect x="60" y="310" width="280" height="45" rx="6" fill="#1a1d3a" stroke="#00d9ff" stroke-width="2"/>
+  
+  <rect x="60" y="310" width="280" height="45" rx="6" fill="#1a1d3a" stroke="#00d9ff" stroke-width="2" />
   <text x="80" y="338" font-family="Arial, sans-serif" font-size="16" fill="#00d9ff" font-weight="bold">📅 JANUARY 22, 2026</text>
   
-  <!-- Tag pills -->
-  <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a3a4d" stroke="#00d9ff" stroke-width="1.5"/>
+  
+  <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a3a4d" stroke="#00d9ff" stroke-width="1.5" />
   <text x="105" y="441" font-family="Arial, sans-serif" font-size="13" fill="#00d9ff" text-anchor="middle" font-weight="bold">Security</text>
   
-  <rect x="170" y="420" width="90" height="32" rx="16" fill="#2d1a4d" stroke="#9d4dff" stroke-width="1.5"/>
+  <rect x="170" y="420" width="90" height="32" rx="16" fill="#2d1a4d" stroke="#9d4dff" stroke-width="1.5" />
   <text x="215" y="441" font-family="Arial, sans-serif" font-size="13" fill="#9d4dff" text-anchor="middle" font-weight="bold">Kubernetes</text>
   
-  <rect x="280" y="420" width="60" height="32" rx="16" fill="#1a3a2d" stroke="#00d9a8" stroke-width="1.5"/>
+  <rect x="280" y="420" width="60" height="32" rx="16" fill="#1a3a2d" stroke="#00d9a8" stroke-width="1.5" />
   <text x="310" y="441" font-family="Arial, sans-serif" font-size="13" fill="#00d9a8" text-anchor="middle" font-weight="bold">Cloud</text>
   
-  <!-- Footer -->
+  
   <text x="60" y="590" font-family="Arial, sans-serif" font-size="14" fill="#666666">tech.2twodragon.com</text>
   
-  <!-- RIGHT SIDE: Kubernetes Security Illustration -->
-  <!-- Background container for illustration area -->
-  <rect x="700" y="50" width="450" height="530" rx="8" fill="none"/>
   
-  <!-- Kubernetes cluster/orchestration visual -->
-  <!-- Central control plane sphere -->
-  <circle cx="925" cy="140" r="35" fill="none" stroke="#00d9ff" stroke-width="2"/>
-  <circle cx="925" cy="140" r="28" fill="none" stroke="#0099ff" stroke-width="1.5" opacity="0.6"/>
-  <circle cx="925" cy="140" r="20" fill="#0099ff" opacity="0.3"/>
+  
+  <rect x="700" y="50" width="450" height="530" rx="8" fill="none" />
+  
+  
+  
+  <circle cx="925" cy="140" r="35" fill="none" stroke="#00d9ff" stroke-width="2" />
+  <circle cx="925" cy="140" r="28" fill="none" stroke="#0099ff" stroke-width="1.5" opacity="0.6" />
+  <circle cx="925" cy="140" r="20" fill="#0099ff" opacity="0.3" />
   <text x="925" y="145" font-family="Arial, sans-serif" font-size="18" fill="#00d9ff" text-anchor="middle" font-weight="bold">K8s</text>
   
-  <!-- Worker nodes as containers -->
-  <!-- Left container -->
-  <rect x="750" y="240" width="80" height="100" rx="4" fill="none" stroke="#9d4dff" stroke-width="2"/>
-  <rect x="758" y="248" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2"/>
-  <rect x="758" y="278" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2"/>
-  <rect x="758" y="308" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2"/>
-  <line x1="790" y1="240" x2="790" y2="340" stroke="#9d4dff" stroke-width="1" opacity="0.5"/>
-  <text x="790" y="375" font-family="Arial, sans-serif" font-size="11" fill="#9d4dff" text-anchor="middle">Node 1</text>
   
-  <!-- Middle container -->
-  <rect x="870" y="240" width="80" height="100" rx="4" fill="none" stroke="#00d9a8" stroke-width="2"/>
-  <rect x="878" y="248" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2"/>
-  <rect x="878" y="278" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2"/>
-  <rect x="878" y="308" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2"/>
-  <line x1="910" y1="240" x2="910" y2="340" stroke="#00d9a8" stroke-width="1" opacity="0.5"/>
-  <text x="910" y="375" font-family="Arial, sans-serif" font-size="11" fill="#00d9a8" text-anchor="middle">Node 2</text>
   
-  <!-- Right container -->
-  <rect x="990" y="240" width="80" height="100" rx="4" fill="none" stroke="#ff6b9d" stroke-width="2"/>
-  <rect x="998" y="248" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2"/>
-  <rect x="998" y="278" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2"/>
-  <rect x="998" y="308" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2"/>
-  <line x1="1030" y1="240" x2="1030" y2="340" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+  <rect x="750" y="240" width="80" height="100" rx="4" fill="none" stroke="#9d4dff" stroke-width="2" />
+  <rect x="758" y="248" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2" />
+  <rect x="758" y="278" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2" />
+  <rect x="758" y="308" width="64" height="20" rx="2" fill="#9d4dff" opacity="0.2" />
+  <line x1="790" y1="240" x2="790" y2="340" stroke="#9d4dff" stroke-width="1" opacity="0.5" />
+  <rect x="870" y="240" width="80" height="100" rx="4" fill="none" stroke="#00d9a8" stroke-width="2" />
+  <rect x="878" y="248" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2" />
+  <rect x="878" y="278" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2" />
+  <rect x="878" y="308" width="64" height="20" rx="2" fill="#00d9a8" opacity="0.2" />
+  <line x1="910" y1="240" x2="910" y2="340" stroke="#00d9a8" stroke-width="1" opacity="0.5" />
+  <rect x="990" y="240" width="80" height="100" rx="4" fill="none" stroke="#ff6b9d" stroke-width="2" />
+  <rect x="998" y="248" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2" />
+  <rect x="998" y="278" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2" />
+  <rect x="998" y="308" width="64" height="20" rx="2" fill="#ff6b9d" opacity="0.2" />
+  <line x1="1030" y1="240" x2="1030" y2="340" stroke="#ff6b9d" stroke-width="1" opacity="0.5" />
   <text x="1030" y="375" font-family="Arial, sans-serif" font-size="11" fill="#ff6b9d" text-anchor="middle">Node 3</text>
   
-  <!-- Connection lines from control plane to nodes -->
-  <line x1="900" y1="170" x2="790" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
-  <line x1="925" y1="175" x2="910" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
-  <line x1="950" y1="170" x2="1030" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
   
-  <!-- Security lock shields -->
-  <!-- Shield 1 (top) -->
-  <path d="M 925 80 L 920 95 L 915 110 Q 915 120 925 125 Q 935 120 935 110 L 930 95 Z" fill="#ff6b9d" opacity="0.4" stroke="#ff6b9d" stroke-width="1.5"/>
+  <line x1="900" y1="170" x2="790" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6" />
+  <line x1="925" y1="175" x2="910" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6" />
+  <line x1="950" y1="170" x2="1030" y2="240" stroke="#00d9ff" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6" />
   
-  <!-- Shield 2 (bottom left) -->
-  <path d="M 780 400 L 775 410 L 770 420 Q 770 427 780 430 Q 790 427 790 420 L 785 410 Z" fill="#00d9a8" opacity="0.3" stroke="#00d9a8" stroke-width="1"/>
   
-  <!-- Shield 3 (bottom right) -->
-  <path d="M 1070 400 L 1065 410 L 1060 420 Q 1060 427 1070 430 Q 1080 427 1080 420 L 1075 410 Z" fill="#ff6b9d" opacity="0.3" stroke="#ff6b9d" stroke-width="1"/>
   
-  <!-- Network security visualization -->
-  <!-- Firewall lines -->
-  <line x1="710" y1="480" x2="1100" y2="480" stroke="#ff6b9d" stroke-width="2" opacity="0.6"/>
-  <line x1="720" y1="485" x2="1090" y2="485" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+  <path d="M 925 80 L 920 95 L 915 110 Q 915 120 925 125 Q 935 120 935 110 L 930 95 Z" fill="#ff6b9d" opacity="0.4" stroke="#ff6b9d" stroke-width="1.5" />
+  
+  
+  <path d="M 780 400 L 775 410 L 770 420 Q 770 427 780 430 Q 790 427 790 420 L 785 410 Z" fill="#00d9a8" opacity="0.3" stroke="#00d9a8" stroke-width="1" />
+  
+  
+  <path d="M 1070 400 L 1065 410 L 1060 420 Q 1060 427 1070 430 Q 1080 427 1080 420 L 1075 410 Z" fill="#ff6b9d" opacity="0.3" stroke="#ff6b9d" stroke-width="1" />
+  
+  
+  
+  <line x1="710" y1="480" x2="1100" y2="480" stroke="#ff6b9d" stroke-width="2" opacity="0.6" />
+  <line x1="720" y1="485" x2="1090" y2="485" stroke="#ff6b9d" stroke-width="1" opacity="0.3" />
   <text x="855" y="510" font-family="Arial, sans-serif" font-size="12" fill="#ff6b9d" text-anchor="middle" opacity="0.7">Network Security Policy</text>
   
-  <!-- Pod indicators (small circles within containers) -->
-  <!-- Node 1 pods -->
-  <circle cx="770" cy="265" r="4" fill="#9d4dff" opacity="0.7"/>
-  <circle cx="800" cy="280" r="4" fill="#9d4dff" opacity="0.7"/>
-  <circle cx="770" cy="310" r="4" fill="#9d4dff" opacity="0.7"/>
   
-  <!-- Node 2 pods -->
-  <circle cx="890" cy="265" r="4" fill="#00d9a8" opacity="0.7"/>
-  <circle cx="920" cy="280" r="4" fill="#00d9a8" opacity="0.7"/>
-  <circle cx="890" cy="310" r="4" fill="#00d9a8" opacity="0.7"/>
   
-  <!-- Node 3 pods -->
-  <circle cx="1010" cy="265" r="4" fill="#ff6b9d" opacity="0.7"/>
-  <circle cx="1040" cy="280" r="4" fill="#ff6b9d" opacity="0.7"/>
-  <circle cx="1010" cy="310" r="4" fill="#ff6b9d" opacity="0.7"/>
+  <circle cx="770" cy="265" r="4" fill="#9d4dff" opacity="0.7" />
+  <circle cx="800" cy="280" r="4" fill="#9d4dff" opacity="0.7" />
+  <circle cx="770" cy="310" r="4" fill="#9d4dff" opacity="0.7" />
   
-  <!-- Accent decoration lines -->
-  <line x1="700" y1="60" x2="720" y2="60" stroke="#00d9ff" stroke-width="3" opacity="0.6"/>
-  <line x1="1150" y1="560" x2="1100" y2="560" stroke="#9d4dff" stroke-width="2" opacity="0.5"/>
+  
+  <circle cx="890" cy="265" r="4" fill="#00d9a8" opacity="0.7" />
+  <circle cx="920" cy="280" r="4" fill="#00d9a8" opacity="0.7" />
+  <circle cx="890" cy="310" r="4" fill="#00d9a8" opacity="0.7" />
+  
+  
+  <circle cx="1010" cy="265" r="4" fill="#ff6b9d" opacity="0.7" />
+  <circle cx="1040" cy="280" r="4" fill="#ff6b9d" opacity="0.7" />
+  <circle cx="1010" cy="310" r="4" fill="#ff6b9d" opacity="0.7" />
+  
+  
+  <line x1="700" y1="60" x2="720" y2="60" stroke="#00d9ff" stroke-width="3" opacity="0.6" />
+  <line x1="1150" y1="560" x2="1100" y2="560" stroke="#9d4dff" stroke-width="2" opacity="0.5" />
 </svg>

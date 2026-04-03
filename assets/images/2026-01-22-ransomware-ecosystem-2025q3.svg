@@ -1,78 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>ransomware-ecosystem-2025q3</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#150a1a"/>
-      <stop offset="100%" style="stop-color:#2a1530"/>
+      <stop offset="0%" style="stop-color:#150a1a" />
+      <stop offset="100%" style="stop-color:#2a1530" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8e44ad"/>
-      <stop offset="100%" style="stop-color:#e74c3c"/>
+      <stop offset="0%" style="stop-color:#8e44ad" />
+      <stop offset="100%" style="stop-color:#e74c3c" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Hub and spoke threat network -->
-  <circle cx="960" cy="280" r="40" fill="rgba(142,68,173,0.3)" stroke="#8e44ad" stroke-width="2.5"/>
-  <circle cx="960" cy="280" r="24" fill="rgba(142,68,173,0.45)"/>
-  <text x="960" y="284" font-size="9" fill="rgba(255,255,255,0.8)" font-family="monospace" text-anchor="middle">RaaS</text>
-  <!-- 6 spoke nodes -->
-  <circle cx="870" cy="175" r="24" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5"/>
-  <circle cx="1065" cy="168" r="20" fill="rgba(142,68,173,0.25)" stroke="#8e44ad" stroke-width="1.5"/>
-  <circle cx="1108" cy="292" r="22" fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.5"/>
-  <circle cx="1050" cy="388" r="20" fill="rgba(142,68,173,0.2)" stroke="#8e44ad" stroke-width="1.5"/>
-  <circle cx="865" cy="392" r="24" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5"/>
-  <circle cx="788" cy="278" r="20" fill="rgba(142,68,173,0.2)" stroke="#8e44ad" stroke-width="1.5"/>
-  <!-- Spokes -->
-  <line x1="960" y1="280" x2="870" y2="175" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="280" x2="1065" y2="168" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="280" x2="1108" y2="292" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="280" x2="1050" y2="388" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="280" x2="865" y2="392" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="280" x2="788" y2="278" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <!-- Secondary edges -->
-  <line x1="870" y1="175" x2="1065" y2="168" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-  <line x1="1108" y1="292" x2="1050" y2="388" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-  <line x1="865" y1="392" x2="788" y2="278" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-  <!-- Node labels -->
-  <text x="870" y="172" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">LockBit</text>
-  <text x="1065" y="164" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">ALPHV</text>
-  <text x="1118" y="288" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">Cl0p</text>
-  <text x="1055" y="403" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">Play</text>
-  <text x="858" y="408" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">BianLian</text>
-  <text x="776" y="294" font-size="9" fill="rgba(255,255,255,0.65)" font-family="monospace" text-anchor="middle">Akira</text>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  <circle cx="960" cy="280" r="40" fill="rgba(142,68,173,0.3)" stroke="#8e44ad" stroke-width="2.5" />
+  <circle cx="960" cy="280" r="24" fill="rgba(142,68,173,0.45)" />
+  <circle cx="870" cy="175" r="24" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5" />
+  <circle cx="1065" cy="168" r="20" fill="rgba(142,68,173,0.25)" stroke="#8e44ad" stroke-width="1.5" />
+  <circle cx="1108" cy="292" r="22" fill="rgba(231,76,60,0.2)" stroke="#e74c3c" stroke-width="1.5" />
+  <circle cx="1050" cy="388" r="20" fill="rgba(142,68,173,0.2)" stroke="#8e44ad" stroke-width="1.5" />
+  <circle cx="865" cy="392" r="24" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1.5" />
+  <circle cx="788" cy="278" r="20" fill="rgba(142,68,173,0.2)" stroke="#8e44ad" stroke-width="1.5" />
+  
+  <line x1="960" y1="280" x2="870" y2="175" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="280" x2="1065" y2="168" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="280" x2="1108" y2="292" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="280" x2="1050" y2="388" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="280" x2="865" y2="392" stroke="rgba(142,68,173,0.55)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="280" x2="788" y2="278" stroke="rgba(231,76,60,0.5)" stroke-width="1.5" stroke-dasharray="4,3" />
+  
+  <line x1="870" y1="175" x2="1065" y2="168" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  <line x1="1108" y1="292" x2="1050" y2="388" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  <line x1="865" y1="392" x2="788" y2="278" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 22, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="sans-serif">Ransomware Ecosystem</text>
   <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="sans-serif">2025 Q3 Analysis</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Threat group mapping, RaaS proliferation and Q3 attack pattern analysis</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">THREAT INTELLIGENCE</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.5)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(142,68,173,0.25)" stroke="rgba(142,68,173,0.5)" stroke-width="1" />
   <text x="140" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ransomware</text>
-  <rect x="216" y="402" width="110" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1"/>
+  <rect x="216" y="402" width="110" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1" />
   <text x="271" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ecosystem</text>
-  <rect x="342" y="402" width="100" height="36" rx="18" fill="rgba(142,68,173,0.2)" stroke="rgba(142,68,173,0.4)" stroke-width="1"/>
+  <rect x="342" y="402" width="100" height="36" rx="18" fill="rgba(142,68,173,0.2)" stroke="rgba(142,68,173,0.4)" stroke-width="1" />
   <text x="392" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Q3 2025</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

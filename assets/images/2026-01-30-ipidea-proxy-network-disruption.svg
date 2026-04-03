@@ -1,82 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>ipidea-proxy-network-disruption</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1520"/>
-      <stop offset="100%" style="stop-color:#152535"/>
+      <stop offset="0%" style="stop-color:#0a1520" />
+      <stop offset="100%" style="stop-color:#152535" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3498db"/>
-      <stop offset="100%" style="stop-color:#e67e22"/>
+      <stop offset="0%" style="stop-color:#3498db" />
+      <stop offset="100%" style="stop-color:#e67e22" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
-  <!-- Proxy network nodes with disruption -->
-  <!-- Central proxy hub -->
-  <circle cx="960" cy="270" r="36" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="2.5"/>
-  <text x="960" y="267" font-size="9" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">IPIDEA</text>
-  <text x="960" y="279" font-size="9" fill="rgba(255,255,255,0.75)" font-family="monospace" text-anchor="middle">PROXY</text>
-  <!-- Proxy node cluster (functioning - blue) -->
-  <circle cx="870" cy="178" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5"/>
-  <text x="870" y="182" font-size="8" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">Node A</text>
-  <circle cx="1060" cy="172" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5"/>
-  <text x="1060" y="176" font-size="8" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">Node B</text>
-  <circle cx="790" cy="275" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5"/>
-  <text x="790" y="279" font-size="8" fill="rgba(255,255,255,0.6)" font-family="monospace" text-anchor="middle">Node C</text>
-  <!-- Disrupted nodes (orange/red) -->
-  <circle cx="1110" cy="278" r="20" fill="rgba(230,126,34,0.2)" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="1110" y="282" font-size="8" fill="rgba(255,180,80,0.7)" font-family="monospace" text-anchor="middle">Node D</text>
-  <!-- X mark on disrupted node -->
-  <line x1="1100" y1="268" x2="1120" y2="288" stroke="#e67e22" stroke-width="2"/>
-  <line x1="1120" y1="268" x2="1100" y2="288" stroke="#e67e22" stroke-width="2"/>
-  <circle cx="1055" cy="375" r="20" fill="rgba(230,126,34,0.2)" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="1055" y="379" font-size="8" fill="rgba(255,180,80,0.7)" font-family="monospace" text-anchor="middle">Node E</text>
-  <line x1="1045" y1="365" x2="1065" y2="385" stroke="#e67e22" stroke-width="2"/>
-  <line x1="1065" y1="365" x2="1045" y2="385" stroke="#e67e22" stroke-width="2"/>
-  <circle cx="870" cy="372" r="20" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1" stroke-dasharray="3,2"/>
-  <text x="870" y="376" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Node F</text>
-  <!-- Connections -->
-  <line x1="960" y1="270" x2="870" y2="178" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
-  <line x1="960" y1="270" x2="1060" y2="172" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
-  <line x1="960" y1="270" x2="790" y2="275" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
-  <line x1="960" y1="270" x2="1110" y2="278" stroke="rgba(230,126,34,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="270" x2="1055" y2="375" stroke="rgba(230,126,34,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="960" y1="270" x2="870" y2="372" stroke="rgba(52,152,219,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
-  <!-- Lightning disruption bolt -->
-  <polygon points="942,145 930,172 946,168 934,196 958,162 942,166" fill="#e67e22" opacity="0.85"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
-  <!-- Date badge -->
-  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(52,152,219,0.25)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
+  
+  
+  <circle cx="960" cy="270" r="36" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="2.5" />
+  <circle cx="870" cy="178" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5" />
+  <circle cx="1060" cy="172" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5" />
+  <circle cx="790" cy="275" r="20" fill="rgba(52,152,219,0.2)" stroke="#3498db" stroke-width="1.5" />
+  <circle cx="1110" cy="278" r="20" fill="rgba(230,126,34,0.2)" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="1100" y1="268" x2="1120" y2="288" stroke="#e67e22" stroke-width="2" />
+  <line x1="1120" y1="268" x2="1100" y2="288" stroke="#e67e22" stroke-width="2" />
+  <circle cx="1055" cy="375" r="20" fill="rgba(230,126,34,0.2)" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="1045" y1="365" x2="1065" y2="385" stroke="#e67e22" stroke-width="2" />
+  <line x1="1065" y1="365" x2="1045" y2="385" stroke="#e67e22" stroke-width="2" />
+  <circle cx="870" cy="372" r="20" fill="rgba(52,152,219,0.15)" stroke="#3498db" stroke-width="1" stroke-dasharray="3,2" />
+  <line x1="960" y1="270" x2="870" y2="178" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" />
+  <line x1="960" y1="270" x2="1060" y2="172" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" />
+  <line x1="960" y1="270" x2="790" y2="275" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" />
+  <line x1="960" y1="270" x2="1110" y2="278" stroke="rgba(230,126,34,0.4)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="270" x2="1055" y2="375" stroke="rgba(230,126,34,0.4)" stroke-width="1.5" stroke-dasharray="4,3" />
+  <line x1="960" y1="270" x2="870" y2="372" stroke="rgba(52,152,219,0.25)" stroke-width="1" stroke-dasharray="3,3" />
+  
+  <polygon points="942,145 930,172 946,168 934,196 958,162 942,166" fill="#e67e22" opacity="0.85" />
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
+  
+  <rect x="80" y="60" width="240" height="32" rx="6" fill="rgba(52,152,219,0.25)" stroke="rgba(52,152,219,0.4)" stroke-width="1" />
   <text x="200" y="81" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle" letter-spacing="1">JANUARY 30, 2026</text>
-  <!-- Title -->
+  
   <text x="80" y="185" font-size="42" font-weight="700" fill="white" font-family="sans-serif">IPIDEA Proxy Network</text>
   <text x="80" y="245" font-size="42" font-weight="700" fill="white" font-family="sans-serif">Disruption Analysis</text>
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-size="19" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Analysis of IPIDEA residential proxy service disruption and network impact</text>
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Category -->
+  
+  <rect x="80" y="325" width="420" height="3" fill="url(#accent)" rx="2" />
+  
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">NETWORK ANALYSIS</text>
-  <!-- Pill tags -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(52,152,219,0.25)" stroke="rgba(52,152,219,0.5)" stroke-width="1"/>
+  
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(52,152,219,0.25)" stroke="rgba(52,152,219,0.5)" stroke-width="1" />
   <text x="145" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">IPIDEA Proxy</text>
-  <rect x="226" y="402" width="100" height="36" rx="18" fill="rgba(230,126,34,0.2)" stroke="rgba(230,126,34,0.45)" stroke-width="1"/>
+  <rect x="226" y="402" width="100" height="36" rx="18" fill="rgba(230,126,34,0.2)" stroke="rgba(230,126,34,0.45)" stroke-width="1" />
   <text x="276" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Network</text>
-  <rect x="342" y="402" width="115" height="36" rx="18" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1"/>
+  <rect x="342" y="402" width="115" height="36" rx="18" fill="rgba(52,152,219,0.2)" stroke="rgba(52,152,219,0.4)" stroke-width="1" />
   <text x="399" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Disruption</text>
-  <!-- Bottom bar -->
-  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)"/>
+  
+  <rect x="0" y="520" width="1200" height="110" fill="rgba(0,0,0,0.3)" />
   <text x="80" y="545" font-size="15" fill="rgba(255,255,255,0.5)" font-family="sans-serif">tech.2twodragon.com</text>
   <text x="1120" y="545" font-size="13" fill="rgba(255,255,255,0.4)" font-family="sans-serif" text-anchor="end">DevSecOps</text>
 </svg>

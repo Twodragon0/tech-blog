@@ -1,122 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Ransomware Bitcoin</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
   
-  <!-- Gradient overlay for right side -->
+  <rect width="1200" height="630" fill="#0a0c1a" />
+  
+  
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.03"/>
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.03"/>
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.03" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.03" />
     </linearGradient>
   </defs>
   
-  <rect x="650" y="0" width="550" height="630" fill="url(#bgGrad)"/>
+  <rect x="650" y="0" width="550" height="630" fill="url(#bgGrad)" />
   
-  <!-- LEFT SIDE: Date Badge -->
-  <rect x="60" y="50" width="160" height="40" rx="20" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+  
+  <rect x="60" y="50" width="160" height="40" rx="20" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5" />
   <text x="140" y="72" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle" font-family="Arial, sans-serif">MARCH 4, 2026</text>
   
-  <!-- LEFT SIDE: Main Title -->
+  
   <text x="80" y="210" font-size="52" font-weight="bold" fill="#ffffff" font-family="Arial, sans-serif">Tech Security</text>
   <text x="80" y="270" font-size="52" font-weight="bold" fill="#ffffff" font-family="Arial, sans-serif">Weekly Digest</text>
   
-  <!-- LEFT SIDE: Subtitle -->
+  
   <text x="80" y="330" font-size="44" font-weight="bold" fill="#f59e0b" font-family="Arial, sans-serif">Ransomware Bitcoin</text>
   
-  <!-- LEFT SIDE: Tag Pills -->
-  <rect x="80" y="400" width="110" height="36" rx="18" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.5"/>
+  
+  <rect x="80" y="400" width="110" height="36" rx="18" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.5" />
   <text x="135" y="422" font-size="13" font-weight="600" fill="#ef4444" text-anchor="middle" font-family="Arial, sans-serif">Ransomware</text>
   
-  <rect x="210" y="400" width="95" height="36" rx="18" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="210" y="400" width="95" height="36" rx="18" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1.5" />
   <text x="257" y="422" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle" font-family="Arial, sans-serif">Blockchain</text>
   
-  <rect x="325" y="400" width="85" height="36" rx="18" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="325" y="400" width="85" height="36" rx="18" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5" />
   <text x="367" y="422" font-size="13" font-weight="600" fill="#3b82f6" text-anchor="middle" font-family="Arial, sans-serif">Security</text>
   
-  <!-- LEFT SIDE: Footer -->
+  
   <text x="80" y="570" font-size="16" fill="#ffffff" opacity="0.7" font-family="Arial, sans-serif">tech.2twodragon.com</text>
   
-  <!-- RIGHT SIDE: Visual Elements -->
   
-  <!-- Data Flow Arrow 1 (left to right) -->
-  <line x1="700" y1="180" x2="800" y2="180" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
-  <polygon points="810,180 800,175 800,185" fill="#3b82f6" opacity="0.3"/>
   
-  <!-- Data Flow Arrow 2 (curved) -->
-  <path d="M 700 400 Q 750 350 800 300" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.3"/>
-  <polygon points="810,290 815,303 798,308" fill="#ef4444" opacity="0.3"/>
   
-  <!-- Warning Triangle 1 (top left of right side) -->
-  <polygon points="700,120 720,160 680,160" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="700" cy="140" r="4" fill="#f59e0b" opacity="0.3"/>
+  <line x1="700" y1="180" x2="800" y2="180" stroke="#3b82f6" stroke-width="2" opacity="0.3" />
+  <polygon points="810,180 800,175 800,185" fill="#3b82f6" opacity="0.3" />
   
-  <!-- Warning Triangle 2 (bottom right) -->
-  <polygon points="1050,500 1070,540 1030,540" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="1050" cy="520" r="3" fill="#ef4444" opacity="0.3"/>
   
-  <!-- Padlock (main element - center right) -->
-  <!-- Padlock body -->
-  <rect x="820" y="260" width="60" height="70" rx="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.4"/>
-  <!-- Padlock shackle -->
-  <path d="M 835 260 Q 835 220 850 220 Q 865 220 865 260" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.4"/>
-  <!-- Padlock keyhole -->
-  <circle cx="850" cy="290" r="5" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+  <path d="M 700 400 Q 750 350 800 300" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.3" />
+  <polygon points="810,290 815,303 798,308" fill="#ef4444" opacity="0.3" />
   
-  <!-- Chains (left of padlock) -->
+  
+  <polygon points="700,120 720,160 680,160" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5" />
+  <circle cx="700" cy="140" r="4" fill="#f59e0b" opacity="0.3" />
+  
+  
+  <polygon points="1050,500 1070,540 1030,540" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5" />
+  <circle cx="1050" cy="520" r="3" fill="#ef4444" opacity="0.3" />
+  
+  
+  
+  <rect x="820" y="260" width="60" height="70" rx="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.4" />
+  
+  <path d="M 835 260 Q 835 220 850 220 Q 865 220 865 260" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.4" />
+  
+  <circle cx="850" cy="290" r="5" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4" />
+  
+  
   <g opacity="0.35">
-    <circle cx="760" cy="240" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <circle cx="780" cy="255" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <circle cx="800" cy="270" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <line x1="760" y1="240" x2="780" y2="255" stroke="#ef4444" stroke-width="1.5"/>
-    <line x1="780" y1="255" x2="800" y2="270" stroke="#ef4444" stroke-width="1.5"/>
-    <line x1="800" y1="270" x2="820" y2="275" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="760" cy="240" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <circle cx="780" cy="255" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <circle cx="800" cy="270" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <line x1="760" y1="240" x2="780" y2="255" stroke="#ef4444" stroke-width="1.5" />
+    <line x1="780" y1="255" x2="800" y2="270" stroke="#ef4444" stroke-width="1.5" />
+    <line x1="800" y1="270" x2="820" y2="275" stroke="#ef4444" stroke-width="1.5" />
   </g>
   
-  <!-- Chains (right of padlock) -->
+  
   <g opacity="0.35">
-    <circle cx="930" cy="280" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <circle cx="950" cy="295" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <circle cx="970" cy="310" r="8" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <line x1="930" y1="280" x2="950" y2="295" stroke="#ef4444" stroke-width="1.5"/>
-    <line x1="950" y1="295" x2="970" y2="310" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="930" cy="280" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <circle cx="950" cy="295" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <circle cx="970" cy="310" r="8" fill="none" stroke="#ef4444" stroke-width="1.8" />
+    <line x1="930" y1="280" x2="950" y2="295" stroke="#ef4444" stroke-width="1.5" />
+    <line x1="950" y1="295" x2="970" y2="310" stroke="#ef4444" stroke-width="1.5" />
   </g>
   
-  <!-- Coins (blockchain/bitcoin symbol) -->
-  <!-- Coin 1 (left) -->
-  <circle cx="720" cy="380" r="18" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.35"/>
-  <circle cx="720" cy="380" r="12" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.25"/>
+  
+  
+  <circle cx="720" cy="380" r="18" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.35" />
+  <circle cx="720" cy="380" r="12" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.25" />
   <text x="720" y="388" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.4">₿</text>
   
-  <!-- Coin 2 (center) -->
-  <circle cx="850" cy="420" r="20" fill="none" stroke="#f59e0b" stroke-width="2.2" opacity="0.35"/>
-  <circle cx="850" cy="420" r="13" fill="none" stroke="#f59e0b" stroke-width="1.6" opacity="0.25"/>
+  
+  <circle cx="850" cy="420" r="20" fill="none" stroke="#f59e0b" stroke-width="2.2" opacity="0.35" />
+  <circle cx="850" cy="420" r="13" fill="none" stroke="#f59e0b" stroke-width="1.6" opacity="0.25" />
   <text x="850" y="430" font-size="22" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.4">₿</text>
   
-  <!-- Coin 3 (right) -->
-  <circle cx="1000" cy="380" r="16" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.35"/>
-  <circle cx="1000" cy="380" r="11" fill="none" stroke="#f59e0b" stroke-width="1.4" opacity="0.25"/>
-  <text x="1000" y="387" font-size="18" font-weight="bold" fill="#f59e0b" text-anchor="middle" opacity="0.4">₿</text>
   
-  <!-- Shield with checkmark (top right background) -->
-  <!-- Shield outline -->
-  <path d="M 950 120 L 1020 120 L 1020 180 Q 1020 220 985 240 Q 950 220 950 180 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.35"/>
-  <!-- Shield fill -->
-  <path d="M 950 120 L 1020 120 L 1020 180 Q 1020 220 985 240 Q 950 220 950 180 Z" fill="#3b82f6" opacity="0.05"/>
-  <!-- Checkmark -->
-  <path d="M 965 180 L 980 195 L 1000 165" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="1000" cy="380" r="16" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.35" />
+  <circle cx="1000" cy="380" r="11" fill="none" stroke="#f59e0b" stroke-width="1.4" opacity="0.25" />
+  <path d="M 950 120 L 1020 120 L 1020 180 Q 1020 220 985 240 Q 950 220 950 180 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.35" />
   
-  <!-- Security indicator lines -->
-  <line x1="1080" y1="160" x2="1120" y2="160" stroke="#3b82f6" stroke-width="1.5" opacity="0.25"/>
-  <line x1="1080" y1="180" x2="1120" y2="180" stroke="#3b82f6" stroke-width="1.5" opacity="0.25"/>
-  <line x1="1080" y1="200" x2="1120" y2="200" stroke="#3b82f6" stroke-width="1.5" opacity="0.25"/>
+  <path d="M 950 120 L 1020 120 L 1020 180 Q 1020 220 985 240 Q 950 220 950 180 Z" fill="#3b82f6" opacity="0.05" />
   
-  <!-- Data nodes (small circles connecting elements) -->
-  <circle cx="760" cy="320" r="5" fill="#3b82f6" opacity="0.25"/>
-  <circle cx="900" cy="350" r="5" fill="#ef4444" opacity="0.25"/>
-  <circle cx="1050" cy="300" r="5" fill="#f59e0b" opacity="0.25"/>
+  <path d="M 965 180 L 980 195 L 1000 165" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
   
-  <!-- Connecting lines between data nodes -->
-  <line x1="760" y1="320" x2="850" y2="340" stroke="#3b82f6" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
-  <line x1="850" y1="340" x2="950" y2="320" stroke="#f59e0b" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
+  
+  <line x1="1080" y1="160" x2="1120" y2="160" stroke="#3b82f6" stroke-width="1.5" opacity="0.25" />
+  <line x1="1080" y1="180" x2="1120" y2="180" stroke="#3b82f6" stroke-width="1.5" opacity="0.25" />
+  <line x1="1080" y1="200" x2="1120" y2="200" stroke="#3b82f6" stroke-width="1.5" opacity="0.25" />
+  
+  
+  <circle cx="760" cy="320" r="5" fill="#3b82f6" opacity="0.25" />
+  <circle cx="900" cy="350" r="5" fill="#ef4444" opacity="0.25" />
+  <circle cx="1050" cy="300" r="5" fill="#f59e0b" opacity="0.25" />
+  
+  
+  <line x1="760" y1="320" x2="850" y2="340" stroke="#3b82f6" stroke-width="1" opacity="0.2" stroke-dasharray="3,3" />
+  <line x1="850" y1="340" x2="950" y2="320" stroke="#f59e0b" stroke-width="1" opacity="0.2" stroke-dasharray="3,3" />
 </svg>

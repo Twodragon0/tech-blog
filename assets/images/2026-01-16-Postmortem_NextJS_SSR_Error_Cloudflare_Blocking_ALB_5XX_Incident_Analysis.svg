@@ -1,140 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Postmortem NextJS SSR Error Cloudflare Blocking ALB 5XX Incident Analysis</title>
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#f97316;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.4"/>
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.4" />
     </linearGradient>
     <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0" />
     </linearGradient>
     <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.05"/>
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.05" />
     </linearGradient>
     <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0" />
     </linearGradient>
     <filter id="blur1">
-      <feGaussianBlur stdDeviation="18"/>
+      <feGaussianBlur stdDeviation="18" />
     </filter>
     <filter id="blur2">
-      <feGaussianBlur stdDeviation="10"/>
+      <feGaussianBlur stdDeviation="10" />
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
 
-  <!-- Grid lines vertical -->
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
 
-  <!-- Background glow circles -->
-  <circle cx="1050" cy="450" r="200" fill="url(#glowRed)" filter="url(#blur1)"/>
-  <circle cx="1050" cy="450" r="140" fill="rgba(239,68,68,0.04)" filter="url(#blur2)"/>
+  
+  <circle cx="1050" cy="450" r="200" fill="url(#glowRed)" filter="url(#blur1)" />
+  <circle cx="1050" cy="450" r="140" fill="rgba(239,68,68,0.04)" filter="url(#blur2)" />
 
-  <!-- RIGHT SIDE ILLUSTRATION: Postmortem / Incident / CloudFlare + ALB + SSR Error -->
-  <!-- Outer warning ring -->
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(239,68,68,0.22)" stroke-width="2" stroke-dasharray="8 4"/>
-  <circle cx="1010" cy="225" r="90" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.18)" stroke-width="1.5"/>
+  
+  
+  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(239,68,68,0.22)" stroke-width="2" stroke-dasharray="8 4" />
+  <circle cx="1010" cy="225" r="90" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.18)" stroke-width="1.5" />
 
-  <!-- Cloud shape (Cloudflare icon) -->
-  <ellipse cx="1010" cy="215" rx="52" ry="28" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.30)" stroke-width="1.5"/>
-  <ellipse cx="986" cy="222" rx="22" ry="16" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.25)" stroke-width="1.2"/>
-  <ellipse cx="1033" cy="219" rx="18" ry="13" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.25)" stroke-width="1.2"/>
-  <rect x="975" y="228" width="70" height="12" rx="6" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.20)" stroke-width="1"/>
+  
+  <ellipse cx="1010" cy="215" rx="52" ry="28" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.30)" stroke-width="1.5" />
+  <ellipse cx="986" cy="222" rx="22" ry="16" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.25)" stroke-width="1.2" />
+  <ellipse cx="1033" cy="219" rx="18" ry="13" fill="rgba(249,115,22,0.10)" stroke="rgba(249,115,22,0.25)" stroke-width="1.2" />
+  <rect x="975" y="228" width="70" height="12" rx="6" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.20)" stroke-width="1" />
 
-  <!-- Load balancer (ALB) - hexagon shaped node below cloud -->
-  <polygon points="1010,258 1030,270 1030,294 1010,306 990,294 990,270" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5"/>
-  <text x="1010" y="287" font-family="monospace" font-size="9" fill="rgba(59,130,246,0.75)" text-anchor="middle" font-weight="700">ALB</text>
+  
+  <polygon points="1010,258 1030,270 1030,294 1010,306 990,294 990,270" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.35)" stroke-width="1.5" />
+  <line x1="1010" y1="240" x2="1010" y2="258" stroke="rgba(249,115,22,0.35)" stroke-width="1.5" stroke-dasharray="3 2" />
 
-  <!-- Connection lines: cloud to ALB -->
-  <line x1="1010" y1="240" x2="1010" y2="258" stroke="rgba(249,115,22,0.35)" stroke-width="1.5" stroke-dasharray="3 2"/>
+  
+  <rect x="1046" y="270" width="48" height="26" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.40)" stroke-width="1.5" />
+  <line x1="1030" y1="282" x2="1046" y2="282" stroke="rgba(239,68,68,0.35)" stroke-width="1.5" stroke-dasharray="2 2" />
 
-  <!-- 5XX error block on right of ALB -->
-  <rect x="1046" y="270" width="48" height="26" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.40)" stroke-width="1.5"/>
-  <text x="1070" y="287" font-family="monospace" font-size="10" fill="rgba(239,68,68,0.90)" text-anchor="middle" font-weight="700">5XX</text>
-  <line x1="1030" y1="282" x2="1046" y2="282" stroke="rgba(239,68,68,0.35)" stroke-width="1.5" stroke-dasharray="2 2"/>
+  
+  <polygon points="965,294 953,315 977,315" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.30)" stroke-width="1.3" />
+  <line x1="990" y1="294" x2="977" y2="306" stroke="rgba(255,255,255,0.25)" stroke-width="1.3" stroke-dasharray="3 2" />
 
-  <!-- Next.js SSR node (triangle = lambda/SSR) -->
-  <polygon points="965,294 953,315 977,315" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.30)" stroke-width="1.3"/>
-  <text x="965" y="311" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.65)" text-anchor="middle">SSR</text>
-  <line x1="990" y1="294" x2="977" y2="306" stroke="rgba(255,255,255,0.25)" stroke-width="1.3" stroke-dasharray="3 2"/>
+  
+  <polygon points="1010,148 1035,188 985,188" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.45)" stroke-width="2" />
+  <line x1="1010" y1="160" x2="1010" y2="176" stroke="rgba(239,68,68,0.80)" stroke-width="2" stroke-linecap="round" />
+  <circle cx="1010" cy="182" r="2" fill="rgba(239,68,68,0.90)" />
 
-  <!-- Warning triangle (postmortem indicator) -->
-  <polygon points="1010,148 1035,188 985,188" fill="rgba(239,68,68,0.10)" stroke="rgba(239,68,68,0.45)" stroke-width="2"/>
-  <line x1="1010" y1="160" x2="1010" y2="176" stroke="rgba(239,68,68,0.80)" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="1010" cy="182" r="2" fill="rgba(239,68,68,0.90)"/>
+  
+  <rect x="1058" y="148" width="32" height="40" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.20)" stroke-width="1.2" />
+  <polygon points="1078,148 1090,160 1078,160" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.20)" stroke-width="1" />
+  <line x1="1063" y1="167" x2="1085" y2="167" stroke="rgba(255,255,255,0.20)" stroke-width="1" />
+  <line x1="1063" y1="173" x2="1085" y2="173" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+  <line x1="1063" y1="179" x2="1075" y2="179" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
 
-  <!-- Postmortem doc icon (top-right) -->
-  <rect x="1058" y="148" width="32" height="40" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.20)" stroke-width="1.2"/>
-  <polygon points="1078,148 1090,160 1078,160" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.20)" stroke-width="1"/>
-  <line x1="1063" y1="167" x2="1085" y2="167" stroke="rgba(255,255,255,0.20)" stroke-width="1"/>
-  <line x1="1063" y1="173" x2="1085" y2="173" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1063" y1="179" x2="1075" y2="179" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+  
+  <path d="M955,165 L955,182 Q955,193 965,198 Q975,193 975,182 L975,165 L965,162 Z" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.30)" stroke-width="1.3" />
+  <line x1="958" y1="172" x2="972" y2="186" stroke="rgba(239,68,68,0.55)" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="972" y1="172" x2="958" y2="186" stroke="rgba(239,68,68,0.55)" stroke-width="1.5" stroke-linecap="round" />
 
-  <!-- Blocking shield icon (left) -->
-  <path d="M955,165 L955,182 Q955,193 965,198 Q975,193 975,182 L975,165 L965,162 Z" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.30)" stroke-width="1.3"/>
-  <line x1="958" y1="172" x2="972" y2="186" stroke="rgba(239,68,68,0.55)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="972" y1="172" x2="958" y2="186" stroke="rgba(239,68,68,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <ellipse cx="1010" cy="225" rx="125" ry="115" fill="none" stroke="rgba(239,68,68,0.07)" stroke-width="1" stroke-dasharray="2 6" />
 
-  <!-- Orbital ring around whole icon group -->
-  <ellipse cx="1010" cy="225" rx="125" ry="115" fill="none" stroke="rgba(239,68,68,0.07)" stroke-width="1" stroke-dasharray="2 6"/>
+  
+  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.80)" />
+  <circle cx="900" cy="420" r="3" fill="rgba(249,115,22,0.70)" />
+  <circle cx="860" cy="440" r="3.5" fill="rgba(239,68,68,0.55)" />
 
-  <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(239,68,68,0.80)"/>
-  <circle cx="900" cy="420" r="3" fill="rgba(249,115,22,0.70)"/>
-  <circle cx="860" cy="440" r="3.5" fill="rgba(239,68,68,0.55)"/>
+  
+  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
-  <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+  
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(239,68,68,0.25)" stroke-width="1" />
   <text x="95" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(239,68,68,0.90)" font-weight="600" letter-spacing="1">JANUARY 16, 2026</text>
 
-  <!-- Title line 1 -->
+  
   <text x="80" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Postmortem NextJS SSR Error</text>
 
-  <!-- Title line 2 -->
+  
   <text x="80" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="white" opacity="0.97">Cloudflare Blocking ALB 5XX</text>
 
-  <!-- Subtitle -->
+  
   <text x="80" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Root cause analysis of SSR failures behind Cloudflare and ALB</text>
 
-  <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)"/>
+  
+  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)" />
 
-  <!-- Category label -->
+  
   <text x="80" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(239,68,68,0.80)" font-weight="600" letter-spacing="2">INCIDENT POSTMORTEM</text>
 
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.40)" stroke-width="1.2"/>
+  
+  <rect x="80" y="402" width="130" height="36" rx="18" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.40)" stroke-width="1.2" />
   <text x="145" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(239,68,68,0.95)" text-anchor="middle" font-weight="600">Cloudflare</text>
 
-  <rect x="224" y="402" width="120" height="36" rx="18" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.40)" stroke-width="1.2"/>
+  <rect x="224" y="402" width="120" height="36" rx="18" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.40)" stroke-width="1.2" />
   <text x="284" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(249,115,22,0.95)" text-anchor="middle" font-weight="600">ALB / 5XX</text>
 
-  <rect x="358" y="402" width="120" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.40)" stroke-width="1.2"/>
+  <rect x="358" y="402" width="120" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.40)" stroke-width="1.2" />
   <text x="418" y="425" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(99,179,246,0.95)" text-anchor="middle" font-weight="600">Next.js SSR</text>
 
-  <!-- Footer -->
+  
   <text x="80" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="0.5">tech.2twodragon.com</text>
   <text x="1120" y="545" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="rgba(239,68,68,0.55)" text-anchor="end" letter-spacing="1" font-weight="600">INCIDENT</text>
 </svg>

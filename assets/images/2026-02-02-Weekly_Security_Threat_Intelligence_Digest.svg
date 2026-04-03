@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <title>Weekly Security Threat Intelligence Digest</title>
   <defs>
@@ -6,10 +7,10 @@
       <stop offset="100%" style="stop-color:#151829;stop-opacity:1" />
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
     <radialGradient id="threatGrad" cx="50%" cy="50%" r="50%">
@@ -18,11 +19,11 @@
     </radialGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
 
-  <!-- LEFT SECTION -->
-  <!-- Title -->
+  
+  
   <text x="50" y="185" font-family="Inter, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5px">
     Weekly Security Threat
   </text>
@@ -30,88 +31,78 @@
     Intelligence Digest
   </text>
 
-  <!-- Date Badge -->
-  <rect x="50" y="280" width="280" height="45" rx="6" fill="#1a3a3a" stroke="#00ff88" stroke-width="1.5" opacity="0.6"/>
+  
+  <rect x="50" y="280" width="280" height="45" rx="6" fill="#1a3a3a" stroke="#00ff88" stroke-width="1.5" opacity="0.6" />
   <text x="65" y="308" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#00ff88">
     FEBRUARY 2, 2026
   </text>
 
-  <!-- Tag Pills -->
-  <rect x="50" y="415" width="110" height="36" rx="18" fill="#ff4444" opacity="0.15" stroke="#ff4444" stroke-width="1"/>
-  <text x="65" y="438" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ff6666">security</text>
-
-  <rect x="175" y="415" width="110" height="36" rx="18" fill="#00ccff" opacity="0.15" stroke="#00ccff" stroke-width="1"/>
+  
+  <rect x="50" y="415" width="110" height="36" rx="18" fill="#ff4444" opacity="0.15" stroke="#ff4444" stroke-width="1" />
+  <rect x="175" y="415" width="110" height="36" rx="18" fill="#00ccff" opacity="0.15" stroke="#00ccff" stroke-width="1" />
   <text x="190" y="438" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#00ddff">threats</text>
 
-  <rect x="300" y="415" width="110" height="36" rx="18" fill="#ffaa00" opacity="0.15" stroke="#ffaa00" stroke-width="1"/>
+  <rect x="300" y="415" width="110" height="36" rx="18" fill="#ffaa00" opacity="0.15" stroke="#ffaa00" stroke-width="1" />
   <text x="315" y="438" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffbb33">intel</text>
 
-  <!-- Footer -->
+  
   <text x="50" y="600" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#666699">
     tech.2twodragon.com
   </text>
 
-  <!-- RIGHT SECTION - Threat Intelligence Illustration -->
-  <!-- Global threat map background -->
-  <circle cx="925" cy="200" r="120" fill="none" stroke="#003366" stroke-width="1" opacity="0.4"/>
-  <circle cx="925" cy="200" r="80" fill="none" stroke="#004488" stroke-width="1" opacity="0.5"/>
-  <circle cx="925" cy="200" r="40" fill="none" stroke="#0066aa" stroke-width="1" opacity="0.6"/>
+  
+  
+  <circle cx="925" cy="200" r="120" fill="none" stroke="#003366" stroke-width="1" opacity="0.4" />
+  <circle cx="925" cy="200" r="80" fill="none" stroke="#004488" stroke-width="1" opacity="0.5" />
+  <circle cx="925" cy="200" r="40" fill="none" stroke="#0066aa" stroke-width="1" opacity="0.6" />
 
-  <!-- Threat indicators (red glowing dots) - global distribution -->
-  <circle cx="820" cy="160" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)"/>
-  <circle cx="1020" cy="180" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)"/>
-  <circle cx="900" cy="130" r="9" fill="#ff3333" opacity="0.8" filter="url(#glow)"/>
-  <circle cx="950" cy="260" r="6" fill="#ff6666" opacity="0.5" filter="url(#glow)"/>
-  <circle cx="880" cy="240" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)"/>
-  <circle cx="1000" cy="220" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)"/>
+  
+  <circle cx="820" cy="160" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)" />
+  <circle cx="1020" cy="180" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)" />
+  <circle cx="900" cy="130" r="9" fill="#ff3333" opacity="0.8" filter="url(#glow)" />
+  <circle cx="950" cy="260" r="6" fill="#ff6666" opacity="0.5" filter="url(#glow)" />
+  <circle cx="880" cy="240" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)" />
+  <circle cx="1000" cy="220" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)" />
 
-  <!-- Threat connection lines -->
-  <line x1="820" y1="160" x2="900" y2="130" stroke="#ff4444" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
-  <line x1="900" y1="130" x2="1020" y2="180" stroke="#ff5555" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3"/>
-  <line x1="950" y1="260" x2="880" y2="240" stroke="#ff4444" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3"/>
+  
+  <line x1="820" y1="160" x2="900" y2="130" stroke="#ff4444" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3" />
+  <line x1="900" y1="130" x2="1020" y2="180" stroke="#ff5555" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3" />
+  <line x1="950" y1="260" x2="880" y2="240" stroke="#ff4444" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3" />
 
-  <!-- Intelligence data streams (cyan flowing lines) -->
-  <path d="M 750 280 Q 820 270 880 310" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
-  <path d="M 780 350 Q 850 330 920 380" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
-  <path d="M 1050 320 Q 980 340 920 300" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <path d="M 750 280 Q 820 270 880 310" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round" />
+  <path d="M 780 350 Q 850 330 920 380" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round" />
+  <path d="M 1050 320 Q 980 340 920 300" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round" />
 
-  <!-- Vulnerability score boxes -->
-  <rect x="750" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff8833" stroke-width="1.5" opacity="0.7"/>
-  <text x="758" y="440" font-family="monospace" font-size="11" font-weight="600" fill="#ffaa44">CRITICAL</text>
+  
+  <rect x="750" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff8833" stroke-width="1.5" opacity="0.7" />
   <text x="763" y="458" font-family="monospace" font-size="16" font-weight="700" fill="#ff6633">8.9</text>
 
-  <rect x="830" y="440" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff4444" stroke-width="1.5" opacity="0.7"/>
-  <text x="838" y="460" font-family="monospace" font-size="11" font-weight="600" fill="#ff7777">HIGH</text>
+  <rect x="830" y="440" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff4444" stroke-width="1.5" opacity="0.7" />
   <text x="843" y="478" font-family="monospace" font-size="16" font-weight="700" fill="#ff5555">7.2</text>
 
-  <rect x="910" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#00dd88" stroke-width="1.5" opacity="0.6"/>
-  <text x="918" y="440" font-family="monospace" font-size="11" font-weight="600" fill="#00ff99">MEDIUM</text>
+  <rect x="910" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#00dd88" stroke-width="1.5" opacity="0.6" />
   <text x="923" y="458" font-family="monospace" font-size="16" font-weight="700" fill="#00ee77">5.1</text>
 
-  <!-- Intelligence gateway/hub -->
-  <circle cx="925" cy="520" r="35" fill="#0a3a4a" stroke="#00ddff" stroke-width="2" opacity="0.8"/>
-  <circle cx="925" cy="520" r="25" fill="none" stroke="#00ccff" stroke-width="1" opacity="0.6" stroke-dasharray="2,2"/>
+  
+  <circle cx="925" cy="520" r="35" fill="#0a3a4a" stroke="#00ddff" stroke-width="2" opacity="0.8" />
+  <circle cx="925" cy="520" r="25" fill="none" stroke="#00ccff" stroke-width="1" opacity="0.6" stroke-dasharray="2,2" />
   <text x="913" y="527" font-family="monospace" font-size="13" font-weight="700" fill="#00ffff">INTEL</text>
 
-  <!-- Data flow arrows pointing to hub -->
-  <path d="M 795 485 L 895 530" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
-  <path d="M 870 465 L 910 510" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
-  <path d="M 1000 475 L 950 515" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
+  
+  <path d="M 795 485 L 895 530" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
+  <path d="M 870 465 L 910 510" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
+  <path d="M 1000 475 L 950 515" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
 
-  <!-- Arrow marker definition -->
+  
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#00ccff" opacity="0.7"/>
+      <polygon points="0 0, 10 3, 0 6" fill="#00ccff" opacity="0.7" />
     </marker>
   </defs>
 
-  <!-- Network nodes (threat analysis points) -->
-  <rect x="1040" y="360" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#00ccff" stroke-width="1.5" opacity="0.6"/>
-  <text x="1048" y="392" font-family="monospace" font-size="10" font-weight="600" fill="#00ddff">MALWARE</text>
-
-  <rect x="1040" y="480" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#ff6633" stroke-width="1.5" opacity="0.6"/>
-  <text x="1050" y="512" font-family="monospace" font-size="10" font-weight="600" fill="#ff9944">BREACH</text>
-
-  <!-- Top accent bar -->
-  <line x1="700" y1="85" x2="1150" y2="85" stroke="#ff4444" stroke-width="3" opacity="0.4"/>
+  
+  <rect x="1040" y="360" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#00ccff" stroke-width="1.5" opacity="0.6" />
+  <rect x="1040" y="480" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#ff6633" stroke-width="1.5" opacity="0.6" />
+  <line x1="700" y1="85" x2="1150" y2="85" stroke="#ff4444" stroke-width="3" opacity="0.4" />
 </svg>
