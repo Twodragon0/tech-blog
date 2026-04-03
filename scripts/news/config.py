@@ -126,6 +126,40 @@ SOURCE_PRIORITY = {
     "vercel": 2,
     # Additional security vendors
     "sophos": 2,
+    # AI & LLM (추가)
+    "anthropic": 1,
+    "deepmind": 1,
+    "mistral_ai": 1,
+    "cohere": 2,
+    "stability_ai": 2,
+    "together_ai": 2,
+    "replicate": 2,
+    # 글로벌 테크 블로그 (추가)
+    "uber_engineering": 1,
+    "airbnb_engineering": 1,
+    "linkedin_engineering": 1,
+    "shopify_engineering": 2,
+    "pinterest_engineering": 2,
+    "dropbox_tech": 2,
+    "github_changelog": 1,
+    # GitHub Trending
+    "github_trending": 1,
+    "github_trending_python": 2,
+    "github_trending_go": 2,
+    "github_trending_rust": 2,
+    # 보안 벤더 (추가)
+    "recorded_future": 1,
+    "checkpoint_research": 1,
+    "fortinet_research": 1,
+    "trendmicro_research": 2,
+    # 테크 뉴스 매체 (추가)
+    "techcrunch_security": 2,
+    "arstechnica": 2,
+    "bleepingcomputer": 1,
+    "darkreading": 2,
+    "securityweek": 2,
+    # 한국 (추가)
+    "devocean": 2,
 }
 
 TECH_BLOG_SOURCES = {
@@ -171,6 +205,31 @@ TECH_BLOG_SOURCES = {
     # DevOps/Platform blogs
     "gitlab",
     "vercel",
+    # AI & LLM (추가)
+    "anthropic",
+    "deepmind",
+    "mistral_ai",
+    "cohere",
+    "stability_ai",
+    "together_ai",
+    "replicate",
+    # 글로벌 테크 블로그 (추가)
+    "uber_engineering",
+    "airbnb_engineering",
+    "linkedin_engineering",
+    "shopify_engineering",
+    "pinterest_engineering",
+    "dropbox_tech",
+    "github_changelog",
+    # GitHub Trending
+    "github_trending",
+    "github_trending_python",
+    "github_trending_go",
+    "github_trending_rust",
+    # 테크 뉴스 (추가)
+    "arstechnica",
+    # 한국 (추가)
+    "devocean",
 }
 
 MIN_NEWS_COUNT = 5

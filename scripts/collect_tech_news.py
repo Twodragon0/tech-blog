@@ -852,6 +852,248 @@ NEWS_SOURCES = {
         "language": "ko",
         "priority": 1,
     },
+    # =========================================================================
+    # AI & LLM 주요 소스 (추가)
+    # =========================================================================
+    "anthropic": {
+        "name": "Anthropic Blog",
+        "url": "https://www.anthropic.com/",
+        "feed_url": "https://www.anthropic.com/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    "deepmind": {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/",
+        "feed_url": "https://deepmind.google/blog/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    "mistral_ai": {
+        "name": "Mistral AI Blog",
+        "url": "https://mistral.ai/",
+        "feed_url": "https://mistral.ai/feed/",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    "cohere": {
+        "name": "Cohere Blog",
+        "url": "https://cohere.com/blog",
+        "feed_url": "https://cohere.com/blog/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    "stability_ai": {
+        "name": "Stability AI Blog",
+        "url": "https://stability.ai/blog",
+        "feed_url": "https://stability.ai/blog/feed",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    "together_ai": {
+        "name": "Together AI Blog",
+        "url": "https://www.together.ai/blog",
+        "feed_url": "https://www.together.ai/blog/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    "replicate": {
+        "name": "Replicate Blog",
+        "url": "https://replicate.com/blog",
+        "feed_url": "https://replicate.com/blog/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    # =========================================================================
+    # 글로벌 유명 테크 블로그 (추가)
+    # =========================================================================
+    "uber_engineering": {
+        "name": "Uber Engineering",
+        "url": "https://www.uber.com/blog/engineering/",
+        "feed_url": "https://www.uber.com/blog/engineering/rss/",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    "airbnb_engineering": {
+        "name": "Airbnb Engineering",
+        "url": "https://medium.com/airbnb-engineering",
+        "feed_url": "https://medium.com/feed/airbnb-engineering",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    "linkedin_engineering": {
+        "name": "LinkedIn Engineering",
+        "url": "https://engineering.linkedin.com/",
+        "feed_url": "https://engineering.linkedin.com/blog.rss.html",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    "shopify_engineering": {
+        "name": "Shopify Engineering",
+        "url": "https://shopify.engineering/",
+        "feed_url": "https://shopify.engineering/blog/feed.atom",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    "pinterest_engineering": {
+        "name": "Pinterest Engineering",
+        "url": "https://medium.com/pinterest-engineering",
+        "feed_url": "https://medium.com/feed/pinterest-engineering",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    "dropbox_tech": {
+        "name": "Dropbox Tech Blog",
+        "url": "https://dropbox.tech/",
+        "feed_url": "https://dropbox.tech/feed",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    "github_changelog": {
+        "name": "GitHub Changelog",
+        "url": "https://github.blog/changelog/",
+        "feed_url": "https://github.blog/changelog/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # =========================================================================
+    # GitHub Trending (인기 리포지토리)
+    # =========================================================================
+    "github_trending": {
+        "name": "GitHub Trending",
+        "url": "https://github.com/trending",
+        "feed_url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    "github_trending_python": {
+        "name": "GitHub Trending Python",
+        "url": "https://github.com/trending/python",
+        "feed_url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/python.xml",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    "github_trending_go": {
+        "name": "GitHub Trending Go",
+        "url": "https://github.com/trending/go",
+        "feed_url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/go.xml",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
+    },
+    "github_trending_rust": {
+        "name": "GitHub Trending Rust",
+        "url": "https://github.com/trending/rust",
+        "feed_url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/rust.xml",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # =========================================================================
+    # 보안 벤더 추가
+    # =========================================================================
+    "recorded_future": {
+        "name": "Recorded Future Blog",
+        "url": "https://www.recordedfuture.com/blog",
+        "feed_url": "https://www.recordedfuture.com/feed",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "checkpoint_research": {
+        "name": "Check Point Research",
+        "url": "https://research.checkpoint.com/",
+        "feed_url": "https://research.checkpoint.com/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "fortinet_research": {
+        "name": "Fortinet Threat Research",
+        "url": "https://www.fortinet.com/blog/threat-research",
+        "feed_url": "https://feeds.fortinet.com/fortinet/blog/threat-research",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "trendmicro_research": {
+        "name": "Trend Micro Research",
+        "url": "https://www.trendmicro.com/en_us/research.html",
+        "feed_url": "https://feeds.trendmicro.com/TrendMicroResearch",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # =========================================================================
+    # 테크 뉴스 매체 (추가)
+    # =========================================================================
+    "techcrunch_security": {
+        "name": "TechCrunch Security",
+        "url": "https://techcrunch.com/category/security/",
+        "feed_url": "https://techcrunch.com/category/security/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    "arstechnica": {
+        "name": "Ars Technica",
+        "url": "https://arstechnica.com/",
+        "feed_url": "https://feeds.arstechnica.com/arstechnica/technology-lab",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    "bleepingcomputer": {
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/",
+        "feed_url": "https://www.bleepingcomputer.com/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "darkreading": {
+        "name": "Dark Reading",
+        "url": "https://www.darkreading.com/",
+        "feed_url": "https://www.darkreading.com/rss.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    "securityweek": {
+        "name": "SecurityWeek",
+        "url": "https://www.securityweek.com/",
+        "feed_url": "https://feeds.feedburner.com/securityweek",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # =========================================================================
+    # 한국 테크 블로그 (추가)
+    # =========================================================================
+    "devocean": {
+        "name": "SK Devocean",
+        "url": "https://devocean.sk.com/",
+        "feed_url": "https://devocean.sk.com/blog/rss",
+        "category": "tech",
+        "language": "ko",
+        "priority": 2,
+    },
 }
 
 
