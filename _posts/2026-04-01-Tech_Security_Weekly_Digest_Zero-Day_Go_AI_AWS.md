@@ -96,7 +96,6 @@ toc: true
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical
 
 # Android 개발자 검증 제도 도입에 대한 DevSecOps 실무자 관점 분석
 

@@ -51,5 +51,6 @@
       <span class="news-card__severity news-card__severity--{{ severity_class }}">{{ severity_label }}</span>
     </div>
     <p class="news-card__summary">{{ card_summary }}</p>
+    {% if include.url %}<a class="news-card__link" href="{{ include.url }}" target="_blank" rel="noopener noreferrer">원문 보기 →</a>{% endif %}
   </div>
 </div>

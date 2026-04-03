@@ -415,5 +415,26 @@
     };
 
     document.querySelectorAll('img[data-fallback-src]').forEach(bindImageFallback);
+
+    // News card image fallback via event delegation (CSP-compliant, no inline onerror)
+    document.addEventListener('error', function(e) {
+      var img = e.target;
+      if (img.tagName === 'IMG' && img.closest('.news-card__image')) {
+        var fallback = img.getAttribute('data-fallback');
+        if (fallback && img.getAttribute('src') !== fallback) {
+          img.setAttribute('src', fallback);
+        }
+      }
+    }, true);
+
+    // Mark loaded images to remove skeleton shimmer
+    document.querySelectorAll('.post-card-image img').forEach(function(img) {
+      if (img.complete && img.naturalHeight > 0) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() { this.classList.add('loaded'); });
+        img.addEventListener('error', function() { this.classList.add('loaded'); });
+      }
+    });
   });
 })();
