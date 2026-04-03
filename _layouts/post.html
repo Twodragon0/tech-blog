@@ -88,7 +88,7 @@ layout: default
       <picture>
         <source srcset="{{ avif_path }}" type="image/avif">
         <source srcset="{{ webp_path }}" type="image/webp">
-        <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" data-svg-src="{{ svg_path }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px" onerror="if(this.dataset.svgSrc&&this.src!==this.dataset.svgSrc){var i=this;i.src=i.dataset.svgSrc;i.onerror=function(){i.onerror=null;i.src='/assets/images/og-default.png'}}else{this.onerror=null;this.src='/assets/images/og-default.png'}">
+        <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" data-svg-src="{{ svg_path }}" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
       </picture>
     </div>
     {% endif %}

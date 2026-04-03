@@ -395,16 +395,25 @@
     }
 
     // Unified image fallback via event delegation (CSP-compliant, no inline onerror)
-    // Handles both post-card and news-card images with data-fallback attribute
+    // Supports SVG→PNG→default 3-stage chain via data-svg-src and data-fallback
     document.addEventListener('error', function(e) {
       var img = e.target;
       if (img.tagName !== 'IMG') return;
+      // Stage 1: Try SVG source if available
+      var svgSrc = img.getAttribute('data-svg-src');
+      if (svgSrc && svgSrc !== '' && img.getAttribute('src') !== svgSrc) {
+        img.setAttribute('src', svgSrc);
+        img.removeAttribute('data-svg-src');
+        return;
+      }
+      // Stage 2: Try fallback image
       var fallback = img.getAttribute('data-fallback');
       if (fallback && img.getAttribute('src') !== fallback) {
         img.setAttribute('src', fallback);
+        img.removeAttribute('data-fallback');
         return;
       }
-      // No fallback available - hide wrapper
+      // Stage 3: No fallback available - hide wrapper
       var wrapper = img.closest('.post-card-image');
       if (wrapper) {
         wrapper.style.display = 'none';
@@ -414,9 +423,15 @@
     // Handle images that already failed before JS loaded
     document.querySelectorAll('img[data-fallback]').forEach(function(img) {
       if (img.complete && img.naturalWidth === 0) {
-        var fallback = img.getAttribute('data-fallback');
-        if (fallback && img.getAttribute('src') !== fallback) {
-          img.setAttribute('src', fallback);
+        var svgSrc = img.getAttribute('data-svg-src');
+        if (svgSrc && svgSrc !== '' && img.getAttribute('src') !== svgSrc) {
+          img.setAttribute('src', svgSrc);
+          img.removeAttribute('data-svg-src');
+        } else {
+          var fallback = img.getAttribute('data-fallback');
+          if (fallback && img.getAttribute('src') !== fallback) {
+            img.setAttribute('src', fallback);
+          }
         }
       }
     });
