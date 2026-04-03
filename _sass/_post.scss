@@ -4022,6 +4022,33 @@ ins.adsbygoogle-noablate {
   color: var(--text-muted, #64748b);
 }
 
+/* Dark mode */
+[data-theme="dark"] .post-navigation {
+  border-top-color: #334155;
+}
+
+[data-theme="dark"] .post-nav-link {
+  background: #1e293b;
+  border-color: #334155;
+
+  &:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.15);
+  }
+}
+
+[data-theme="dark"] .post-nav-title {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .post-nav-label {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .post-nav-date {
+  color: #64748b;
+}
+
 @media (max-width: 640px) {
   .post-nav-inner {
     grid-template-columns: 1fr;
