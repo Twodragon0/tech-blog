@@ -1,196 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Agent Open-Source Update</title>
   <defs>
-    <!-- Glass blur filter -->
+    
     <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0" />
     </filter>
-    <!-- Glow filter -->
+    
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="18" result="coloredBlur" />
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
-    <!-- Soft glow for orbs -->
+    
     <filter id="orbGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="40"/>
+      <feGaussianBlur stdDeviation="40" />
     </filter>
-    <!-- Card border glow -->
+    
     <filter id="cardGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feGaussianBlur stdDeviation="6" result="blur" />
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
-    <!-- Particle glow -->
+    
     <filter id="particleGlow" x="-200%" y="-200%" width="500%" height="500%">
-      <feGaussianBlur stdDeviation="3"/>
+      <feGaussianBlur stdDeviation="3" />
     </filter>
-    <!-- Gradients -->
+    
     <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#f43f5e"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#f43f5e" />
     </linearGradient>
     <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6" />
     </linearGradient>
     <linearGradient id="cardBorder2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5"/>
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5" />
     </linearGradient>
     <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#2563eb"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2563eb" />
     </linearGradient>
     <linearGradient id="brainGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f43f5e"/>
-      <stop offset="100%" stop-color="#ec4899"/>
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#ec4899" />
     </linearGradient>
     <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="50%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#f43f5e"/>
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#f43f5e" />
     </linearGradient>
-    <!-- Dot pattern -->
+    
     <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.08"/>
+      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.08" />
     </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a"/>
+  
+  <rect width="1200" height="630" fill="#0f172a" />
 
-  <!-- Dot grid -->
-  <rect width="1200" height="630" fill="url(#dots)"/>
+  
+  <rect width="1200" height="630" fill="url(#dots)" />
 
-  <!-- Ambient glow orbs -->
-  <ellipse cx="180" cy="520" rx="200" ry="180" fill="#3b82f6" opacity="0.07" filter="url(#orbGlow)"/>
-  <ellipse cx="900" cy="120" rx="250" ry="200" fill="#f43f5e" opacity="0.06" filter="url(#orbGlow)"/>
-  <ellipse cx="700" cy="500" rx="180" ry="160" fill="#8b5cf6" opacity="0.05" filter="url(#orbGlow)"/>
-  <ellipse cx="1050" cy="400" rx="160" ry="140" fill="#3b82f6" opacity="0.04" filter="url(#orbGlow)"/>
+  
+  <ellipse cx="180" cy="520" rx="200" ry="180" fill="#3b82f6" opacity="0.07" filter="url(#orbGlow)" />
+  <ellipse cx="900" cy="120" rx="250" ry="200" fill="#f43f5e" opacity="0.06" filter="url(#orbGlow)" />
+  <ellipse cx="700" cy="500" rx="180" ry="160" fill="#8b5cf6" opacity="0.05" filter="url(#orbGlow)" />
+  <ellipse cx="1050" cy="400" rx="160" ry="140" fill="#3b82f6" opacity="0.04" filter="url(#orbGlow)" />
 
-  <!-- === LEFT SIDE: Text Content === -->
+  
 
-  <!-- Category pill -->
-  <rect x="80" y="100" width="180" height="34" rx="17" fill="url(#accentGrad)" opacity="0.9"/>
+  
+  <rect x="80" y="100" width="180" height="34" rx="17" fill="url(#accentGrad)" opacity="0.9" />
   <text x="170" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">WEEKLY DIGEST</text>
 
-  <!-- Title -->
+  
   <text x="80" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Tech Security</text>
   <text x="80" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Weekly</text>
   <text x="80" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="700" fill="url(#accentGrad)" letter-spacing="-0.3">Digest Agent Open</text>
 
-  <!-- Gradient accent line -->
-  <rect x="80" y="345" width="220" height="3" rx="1.5" fill="url(#accentLine)"/>
+  
+  <rect x="80" y="345" width="220" height="3" rx="1.5" fill="url(#accentLine)" />
 
-  <!-- Tag chips -->
-  <rect x="80" y="380" width="88" height="30" rx="15" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1"/>
+  
+  <rect x="80" y="380" width="88" height="30" rx="15" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1" />
   <text x="124" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#60a5fa" text-anchor="middle">AI Agent</text>
 
-  <rect x="178" y="380" width="110" height="30" rx="15" fill="#f43f5e" opacity="0.15" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="178" y="380" width="110" height="30" rx="15" fill="#f43f5e" opacity="0.15" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="1" />
   <text x="233" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#fb7185" text-anchor="middle">Open Source</text>
 
-  <rect x="298" y="380" width="90" height="30" rx="15" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="298" y="380" width="90" height="30" rx="15" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1" />
   <text x="343" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#a78bfa" text-anchor="middle">Security</text>
 
-  <!-- Date -->
+  
   <text x="80" y="465" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="2">MARCH 16, 2026</text>
 
-  <!-- Footer -->
-  <line x1="80" y1="550" x2="450" y2="550" stroke="#334155" stroke-width="1"/>
+  
+  <line x1="80" y1="550" x2="450" y2="550" stroke="#334155" stroke-width="1" />
   <text x="80" y="575" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#64748b" letter-spacing="0.5">tech.2twodragon.com</text>
 
-  <!-- === RIGHT SIDE: Glass Cards === -->
+  
 
-  <!-- Card 1 (back) - Brain/AI card -->
+  
   <g transform="translate(620, 80)">
-    <rect width="320" height="240" rx="16" fill="#1e293b" fill-opacity="0.5" filter="url(#glassBlur)" stroke="url(#cardBorder2)" stroke-width="1.5"/>
-    <rect width="320" height="240" rx="16" fill="#ffffff" fill-opacity="0.04"/>
+    <rect width="320" height="240" rx="16" fill="#1e293b" fill-opacity="0.5" filter="url(#glassBlur)" stroke="url(#cardBorder2)" stroke-width="1.5" />
+    <rect width="320" height="240" rx="16" fill="#ffffff" fill-opacity="0.04" />
 
-    <!-- Brain with circuit lines -->
+    
     <g transform="translate(160, 105)" filter="url(#cardGlow)">
-      <!-- Brain outline -->
-      <path d="M-35 10 C-35-25 -20-45 0-45 C15-45 25-35 28-20 C40-18 48-5 46 12 C50 25 42 38 30 42 C25 50 10 52 0 50 C-12 52 -25 48 -30 40 C-42 36 -48 22 -45 10 C-48-2 -42-15 -35 10Z" fill="none" stroke="url(#brainGrad)" stroke-width="2" opacity="0.9"/>
-      <!-- Neural circuit lines -->
-      <line x1="-20" y1="-20" x2="-5" y2="0" stroke="#f43f5e" stroke-width="1.5" opacity="0.7"/>
-      <line x1="-5" y1="0" x2="15" y2="-15" stroke="#f43f5e" stroke-width="1.5" opacity="0.7"/>
-      <line x1="15" y1="-15" x2="25" y2="5" stroke="#ec4899" stroke-width="1.5" opacity="0.6"/>
-      <line x1="-5" y1="0" x2="-15" y2="20" stroke="#ec4899" stroke-width="1.5" opacity="0.6"/>
-      <line x1="-5" y1="0" x2="10" y2="18" stroke="#f43f5e" stroke-width="1.5" opacity="0.5"/>
-      <line x1="15" y1="-15" x2="-10" y2="-30" stroke="#ec4899" stroke-width="1.2" opacity="0.5"/>
-      <line x1="10" y1="18" x2="25" y2="30" stroke="#f43f5e" stroke-width="1.2" opacity="0.4"/>
-      <!-- Neural nodes -->
-      <circle cx="-20" cy="-20" r="3" fill="#f43f5e" opacity="0.9"/>
-      <circle cx="-5" cy="0" r="4" fill="#ec4899"/>
-      <circle cx="15" cy="-15" r="3" fill="#f43f5e" opacity="0.9"/>
-      <circle cx="25" cy="5" r="2.5" fill="#ec4899" opacity="0.8"/>
-      <circle cx="-15" cy="20" r="2.5" fill="#f43f5e" opacity="0.7"/>
-      <circle cx="10" cy="18" r="3" fill="#ec4899" opacity="0.8"/>
-      <circle cx="-10" cy="-30" r="2" fill="#f43f5e" opacity="0.6"/>
-      <circle cx="25" cy="30" r="2" fill="#ec4899" opacity="0.6"/>
+      
+      <path d="M-35 10 C-35-25 -20-45 0-45 C15-45 25-35 28-20 C40-18 48-5 46 12 C50 25 42 38 30 42 C25 50 10 52 0 50 C-12 52 -25 48 -30 40 C-42 36 -48 22 -45 10 C-48-2 -42-15 -35 10Z" fill="none" stroke="url(#brainGrad)" stroke-width="2" opacity="0.9" />
+      
+      <line x1="-20" y1="-20" x2="-5" y2="0" stroke="#f43f5e" stroke-width="1.5" opacity="0.7" />
+      <line x1="-5" y1="0" x2="15" y2="-15" stroke="#f43f5e" stroke-width="1.5" opacity="0.7" />
+      <line x1="15" y1="-15" x2="25" y2="5" stroke="#ec4899" stroke-width="1.5" opacity="0.6" />
+      <line x1="-5" y1="0" x2="-15" y2="20" stroke="#ec4899" stroke-width="1.5" opacity="0.6" />
+      <line x1="-5" y1="0" x2="10" y2="18" stroke="#f43f5e" stroke-width="1.5" opacity="0.5" />
+      <line x1="15" y1="-15" x2="-10" y2="-30" stroke="#ec4899" stroke-width="1.2" opacity="0.5" />
+      <line x1="10" y1="18" x2="25" y2="30" stroke="#f43f5e" stroke-width="1.2" opacity="0.4" />
+      
+      <circle cx="-20" cy="-20" r="3" fill="#f43f5e" opacity="0.9" />
+      <circle cx="-5" cy="0" r="4" fill="#ec4899" />
+      <circle cx="15" cy="-15" r="3" fill="#f43f5e" opacity="0.9" />
+      <circle cx="25" cy="5" r="2.5" fill="#ec4899" opacity="0.8" />
+      <circle cx="-15" cy="20" r="2.5" fill="#f43f5e" opacity="0.7" />
+      <circle cx="10" cy="18" r="3" fill="#ec4899" opacity="0.8" />
+      <circle cx="-10" cy="-30" r="2" fill="#f43f5e" opacity="0.6" />
+      <circle cx="25" cy="30" r="2" fill="#ec4899" opacity="0.6" />
     </g>
 
-    <!-- Card label -->
+    
     <text x="160" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle" letter-spacing="1">AI / LLM AGENTS</text>
-    <text x="160" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Neural Network Intelligence</text>
-  </g>
-
-  <!-- Card 2 (front, overlapping) - Shield/Security card -->
-  <g transform="translate(700, 270)">
-    <rect width="340" height="260" rx="16" fill="#1e293b" fill-opacity="0.6" filter="url(#glassBlur)" stroke="url(#cardBorder1)" stroke-width="1.5"/>
-    <rect width="340" height="260" rx="16" fill="#ffffff" fill-opacity="0.05"/>
-
-    <!-- Large shield with checkmark -->
-    <g transform="translate(170, 108)" filter="url(#cardGlow)">
-      <!-- Shield body -->
-      <path d="M0-55 L50-35 L50 10 C50 40 25 60 0 72 C-25 60 -50 40 -50 10 L-50-35Z" fill="url(#shieldGrad)" fill-opacity="0.2" stroke="url(#shieldGrad)" stroke-width="2"/>
-      <!-- Inner shield highlight -->
-      <path d="M0-42 L38-26 L38 8 C38 32 19 48 0 57 C-19 48 -38 32 -38 8 L-38-26Z" fill="#3b82f6" fill-opacity="0.1" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
-      <!-- Checkmark -->
-      <path d="M-18 5 L-6 18 L22-12" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- Shield glow ring -->
-      <circle cx="0" cy="8" r="32" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
     </g>
 
-    <!-- Card label -->
-    <text x="170" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle" letter-spacing="1">SECURITY COMPLIANCE</text>
-    <text x="170" y="233" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Verified Protection Standards</text>
-  </g>
+  
+  <g transform="translate(700, 270)">
+    <rect width="340" height="260" rx="16" fill="#1e293b" fill-opacity="0.6" filter="url(#glassBlur)" stroke="url(#cardBorder1)" stroke-width="1.5" />
+    <rect width="340" height="260" rx="16" fill="#ffffff" fill-opacity="0.05" />
 
-  <!-- Floating particles between cards -->
+    
+    <g transform="translate(170, 108)" filter="url(#cardGlow)">
+      
+      <path d="M0-55 L50-35 L50 10 C50 40 25 60 0 72 C-25 60 -50 40 -50 10 L-50-35Z" fill="url(#shieldGrad)" fill-opacity="0.2" stroke="url(#shieldGrad)" stroke-width="2" />
+      
+      <path d="M0-42 L38-26 L38 8 C38 32 19 48 0 57 C-19 48 -38 32 -38 8 L-38-26Z" fill="#3b82f6" fill-opacity="0.1" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4" />
+      
+      <path d="M-18 5 L-6 18 L22-12" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      
+      <circle cx="0" cy="8" r="32" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.3" />
+    </g>
+
+    
+    </g>
+
+  
   <circle cx="680" cy="260" r="2" fill="#3b82f6" opacity="0.8" filter="url(#particleGlow)">
-    <animate attributeName="cy" values="260;250;260" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="260;250;260" dur="3s" repeatCount="indefinite" />
   </circle>
   <circle cx="950" cy="290" r="1.5" fill="#f43f5e" opacity="0.7" filter="url(#particleGlow)">
-    <animate attributeName="cy" values="290;280;290" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="290;280;290" dur="2.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="750" cy="340" r="2.5" fill="#8b5cf6" opacity="0.6" filter="url(#particleGlow)">
-    <animate attributeName="cx" values="750;758;750" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="750;758;750" dur="4s" repeatCount="indefinite" />
   </circle>
   <circle cx="1020" cy="200" r="1.8" fill="#60a5fa" opacity="0.5" filter="url(#particleGlow)">
-    <animate attributeName="cy" values="200;192;200" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="200;192;200" dur="3.5s" repeatCount="indefinite" />
   </circle>
   <circle cx="660" cy="180" r="1.5" fill="#f43f5e" opacity="0.6" filter="url(#particleGlow)">
-    <animate attributeName="cx" values="660;668;660" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="660;668;660" dur="2.8s" repeatCount="indefinite" />
   </circle>
   <circle cx="1080" cy="350" r="2" fill="#3b82f6" opacity="0.5" filter="url(#particleGlow)">
-    <animate attributeName="cy" values="350;342;350" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="350;342;350" dur="3.2s" repeatCount="indefinite" />
   </circle>
   <circle cx="870" cy="150" r="1.2" fill="#a78bfa" opacity="0.7" filter="url(#particleGlow)">
-    <animate attributeName="cy" values="150;143;150" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="150;143;150" dur="2.2s" repeatCount="indefinite" />
   </circle>
   <circle cx="790" cy="520" r="1.8" fill="#ec4899" opacity="0.4" filter="url(#particleGlow)">
-    <animate attributeName="cx" values="790;798;790" dur="3.8s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="790;798;790" dur="3.8s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Decorative floating dots on left side -->
-  <circle cx="500" cy="150" r="1" fill="#3b82f6" opacity="0.4"/>
-  <circle cx="520" cy="400" r="1.2" fill="#f43f5e" opacity="0.3"/>
-  <circle cx="480" cy="500" r="0.8" fill="#8b5cf6" opacity="0.3"/>
+  
+  <circle cx="500" cy="150" r="1" fill="#3b82f6" opacity="0.4" />
+  <circle cx="520" cy="400" r="1.2" fill="#f43f5e" opacity="0.3" />
+  <circle cx="480" cy="500" r="0.8" fill="#8b5cf6" opacity="0.3" />
 </svg>
