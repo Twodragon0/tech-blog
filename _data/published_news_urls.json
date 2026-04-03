@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-02T01:26:49.884436+00:00",
+  "updated_at": "2026-04-03T01:29:22.974810+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/speagle-malware-hijacks-cobra-docguard.html",
-      "title": "Speagle Malware Hijacks Cobra DocGuard to Steal Data via Compromised Servers",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/54-edr-killers-use-byovd-to-exploit-34.html",
-      "title": "54 EDR Killers Use BYOVD to Exploit 34 Signed Vulnerable Drivers and Disable Sec",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/threatsday-bulletin-fortigate-raas.html",
-      "title": "ThreatsDay Bulletin: FortiGate RaaS, Citrix Exploits, MCP Abuse, LiveChat Phish ",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/19/new-tools-and-guidance-announcing-zero-trust-for-ai/",
-      "title": "New tools and guidance: Announcing Zero Trust for AI",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/new-perseus-android-banking-malware.html",
-      "title": "New Perseus Android Banking Malware Monitors Notes Apps to Extract Sensitive Dat",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-virtual-reality-update/",
-      "title": "Smooth Moves: 90 Frames-Per-Second Virtual Reality Arrives on GeForce NOW",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment",
-      "title": "How we monitor internal coding agents for misalignment",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-3-super-on-amazon-bedrock/",
-      "title": "Run NVIDIA Nemotron 3 Super on Amazon Bedrock",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/use-rag-for-video-generation-using-amazon-bedrock-and-amazon-nova-reel/",
-      "title": "Use RAG for video generation using Amazon Bedrock and Amazon Nova Reel",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-v-rag-revolutionizing-ai-powered-video-production-with-retrieval-augmented-generation/",
-      "title": "Introducing V-RAG: revolutionizing AI-powered video production with Retrieval Au",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/20-years-in-the-aws-cloud-how-time-flies/",
-      "title": "20 years in the AWS Cloud – how time flies!",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/accelerating-dotnet-maui-with-ai-agents/",
-      "title": "Accelerating .NET MAUI Development with AI Agents",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/19/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-platform-engineering-day/",
-      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: Platform Engine",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/19/policy-as-code-flexible-kubernetes-governance-with-kyverno/",
-      "title": "Policy-as-Code: Flexible Kubernetes governance with Kyverno",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/north-carolina-propose-bitcoin-reserve",
-      "title": "North Carolina Lawmakers Propose State Bitcoin Reserve",
-      "published_date": "2026-03-20",
-      "expires_at": "2026-03-27T01:21:49.937832+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/trivy-security-scanner-github-actions.html",
       "title": "Trivy Security Scanner GitHub Actions Breached, 75 Tags Hijacked to Steal CI/CD ",
@@ -810,6 +720,96 @@
       "title": "프로덕션 Multi-Agent 시스템이 해결해야 할 5가지 문제 – Deep Insight 아키텍처로 배우는 실전 설계",
       "published_date": "2026-04-02",
       "expires_at": "2026-04-09T01:26:49.884326+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/hackers-exploit-cve-2025-55182-to.html",
+      "title": "Hackers Exploit CVE-2025-55182 to Breach 766 Next.js Hosts, Steal Credentials",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/cisco-patches-98-cvss-imc-and-ssm-flaws.html",
+      "title": "Cisco Patches 9.8 CVSS IMC and SSM Flaws Allowing Remote System Compromise",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+      "title": "Four security principles for agentic AI systems",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-pre-auth-chains.html",
+      "title": "ThreatsDay Bulletin: Pre-Auth Chains, Android Rootkits, CloudTrail Evasion & 10 ",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/researchers-uncover-mining-operation.html",
+      "title": "Researchers Uncover Mining Operation Using ISO Lures to Spread RATs and Crypto M",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/",
+      "title": "KernelEvolve: How Meta’s Ranking Engineer Agent Optimizes AI Infrastructure",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-open-models-google-gemma-4/",
+      "title": "From RTX to Spark: NVIDIA Accelerates Gemma 4 for Local Agentic AI",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/",
+      "title": "New ways to balance cost and reliability in the Gemini API",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/google-vids-updates-lyria-veo/",
+      "title": "Create, edit and share videos at no cost in Google Vids",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-april-2026-games-list/",
+      "title": "Press Start on April: GeForce NOW Brings 10 Games to the Cloud",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/how-honeylove-boosts-product-quality-and-service-efficiency-with-bigquery/",
+      "title": "How Honeylove boosts product quality and service efficiency with BigQuery",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemma-4-available-on-google-cloud/",
+      "title": "Introducing Gemma 4 on Google Cloud: Our most capable open models yet",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/vsphere-brickstorm-defender-guide/",
+      "title": "vSphere and BRICKSTORM Malware: A Defender's Guide",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/activating-your-data-layer-for-production-ready-ai/",
+      "title": "Activating Your Data Layer for Production-Ready AI",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/defending-your-software-supply-chain-what-every-engineering-team-should-do-now/",
+      "title": "Defending Your Software Supply Chain: What Every Engineering Team Should Do Now",
+      "published_date": "2026-04-03",
+      "expires_at": "2026-04-10T01:29:22.974709+00:00"
     }
   ]
 }
