@@ -104,7 +104,7 @@ series_total: 9
 
 > ```json
 > {...
-> ```
+> ```text
 
 
 #### Root 계정 사용 차단
@@ -113,7 +113,7 @@ series_total: 9
 
 > ```json
 > {...
-> ```
+> ```text
 
 
 ## 2. Datadog SIEM
@@ -315,7 +315,7 @@ SCP 적용 예시 - AI 에이전트 리전 제한:
 
 > ```json
 > {...
-> ```
+> ```text
 
 
 ### 7.3 IAM Policy Autopilot
@@ -338,7 +338,7 @@ iam-policy-autopilot analyze --source ./my-app --output policy.json
 
 # 기존 정책과 비교
 iam-policy-autopilot diff --current current-policy.json --recommended policy.json
-```
+```text
 
 SCP와의 연계:
 - Autopilot이 생성한 정책이 SCP와 충돌하는지 자동 검증
@@ -369,7 +369,7 @@ security_hub_integration:
   findings_filter:
     severity: ["CRITICAL", "HIGH", "MEDIUM"]
   sync_interval: 5m
-```
+```text
 
 #### GuardDuty 확장 위협 탐지
 
@@ -403,7 +403,7 @@ Datadog SIEM 연동 탐지 규칙:
 
 > ```json
 > {...
-> ```
+> ```text
 
 
 ### 8.2 태그 강제 정책
@@ -412,26 +412,26 @@ Datadog SIEM 연동 탐지 규칙:
 
 > ```json
 > {...
-> ```
+> ```text
 
 > ```json
 > {...
-> ```
+> ```text
 
 > ```javascript
 > // Cloudflare Workers: Advanced WAF Rules...
-> ```
+> ```text
 
 
 #### Rate Limiting 정교화
 
 > ```yaml
 > # Cloudflare Rate Limiting Rules...
-> ```
+> ```text
 
 > ```javascript
 > // Cloudflare Workers: Bot Detection and Mitigation...
-> ```
+> ```text
 
 > ```yaml
 > # Cloudflare Advanced DDoS Protection...

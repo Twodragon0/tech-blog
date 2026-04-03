@@ -125,7 +125,7 @@ Application: KakaoTalk
 Action: Allow
 SSL Inspection: Bypass
 URL Filtering: Allow
-```
+```text
 
 ```yaml
 # 광고 및 유해 사이트 차단 정책
@@ -136,7 +136,7 @@ Categories:
   - Botnet
 Action: Block
 Logging: Enabled
-```
+```text
 
 ```yaml
 # AI 서비스 접근 정책 예시

@@ -125,7 +125,7 @@ def on_press(key):
 
 listener = keyboard.Listener(on_press=on_press)
 listener.start()
-```
+```text
 
 탐지 방법:
 1. 프로세스 모니터링: Process Explorer로 의심 프로세스 확인
@@ -151,7 +151,7 @@ document.cookie = "sessionid=abc123; path=/";
 
 // 안전한 세션 쿠키 (권장)
 document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=3600";
-```
+```text
 
 방어 기법:
 - 시크릿/프라이빗 모드: 브라우저 종료 시 모든 세션 삭제
@@ -165,7 +165,7 @@ document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; 
 # 공격자가 ARP Spoofing으로 트래픽 가로채기
 arpspoof -i wlan0 -t 192.168.1.100 192.168.1.1
 # 희생자(192.168.1.100)와 게이트웨이(192.168.1.1) 사이 트래픽 중계
-```
+```text
 
 방어 전략:
 - VPN 필수 사용: 모든 트래픽 암호화
@@ -199,7 +199,7 @@ Layer 1: Anti-Phishing Auth (Passkey)
 Layer 2: Multi-Factor Auth (FIDO2/OTP)
 Layer 3: Session Management (Private Browsing)
 Layer 4: Password Manager (Zero Knowledge)
-```
+```text
 
 </details>
 
@@ -222,7 +222,7 @@ Layer 4: Password Manager (Zero Knowledge)
 # Qubes OS에서 일회용 VM 생성
 qvm-run --dispvm firefox https://banking.example.com
 # VM 종료 시 모든 데이터 자동 삭제
-```
+```text
 
 장점:
 - 완벽한 격리: 악성코드가 호스트 시스템에 영향 없음
@@ -348,7 +348,7 @@ Step 1: 보안 설정 접근
 1. https://myaccount.google.com/security 접속
 2. "2단계 인증으로 로그인" 섹션 클릭
 3. "패스키" 항목 선택
-```
+```text
 
 Step 2: 패스키 생성
 ```text
@@ -359,7 +359,7 @@ Step 2: 패스키 생성
    - "보안 키 사용" (YubiKey 등)
 3. 생체 인증 또는 PIN 입력
 4. 패스키 이름 지정 (예: "iPhone 14 Pro")
-```
+```text
 
 Step 3: 백업 패스키 추가 (권장)
 ```text
@@ -367,7 +367,7 @@ Step 3: 백업 패스키 추가 (권장)
    - 주 스마트폰
    - 보조 스마트폰
    - YubiKey (하드웨어 키)
-```
+```text
 
 #### 2.4.2 GitHub에 보안 키 등록
 
@@ -376,7 +376,7 @@ Step 3: 백업 패스키 추가 (권장)
 2. "Two-factor authentication" 섹션에서 "Security keys" 클릭
 3. "Register new security key" 선택
 4. YubiKey 또는 디바이스 생체 인증으로 등록 완료
-```
+```text
 
 ## 3. OTP 및 비밀번호 관리
 

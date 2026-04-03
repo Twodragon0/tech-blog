@@ -143,7 +143,7 @@ AWS Control Tower Components:
 - Landing Zone (Base Environment)
 - SCP (Service Control Policy)
 - Guardrails (Governance Rules)
-```
+```text
 
 </details>
 
@@ -193,7 +193,7 @@ aws cloudtrail lookup-events \
   --start-time $(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ) \
   --query 'Events[*].{Time:EventTime,Event:EventName,Source:EventSource}' \
   --output table
-```
+```text
 
 **2) AWS Config - SCP 위반 또는 비준수 리소스 목록 조회**
 
@@ -203,7 +203,7 @@ aws configservice describe-compliance-by-config-rule \
   --compliance-types NON_COMPLIANT \
   --query 'ComplianceByConfigRules[*].{Rule:ConfigRuleName,Compliance:Compliance.ComplianceType}' \
   --output table
-```
+```text
 
 **3) Control Tower Guardrails - 위반 계정 확인**
 
@@ -213,7 +213,7 @@ aws controltower list-enabled-controls \
   --target-identifier arn:aws:organizations::ACCOUNT_ID:ou/OU_ID \
   --query 'enabledControls[*].{Arn:controlIdentifier,Status:driftStatusSummary.driftStatus}' \
   --output table
-```
+```text
 
 ## 4. ZTNA (Zero Trust Network Access)
 
@@ -250,7 +250,7 @@ Resources:
             Resource:
               - arn:aws:s3:::my-secure-bucket
               - arn:aws:s3:::my-secure-bucket/*
-```
+```text
 
 **Security Group 최소 권한 규칙 예시**
 

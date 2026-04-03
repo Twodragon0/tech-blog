@@ -129,7 +129,7 @@ toc: true
 > 참고: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
 > ```hcl
 > resource "aws_lb" "db_gateway" {...
-> ```
+> ```text
 
 
 ### 1.3 타겟 그룹 설정
@@ -137,7 +137,7 @@ toc: true
 > 참고: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
 > ```hcl
 > resource "aws_lb_target_group" "rds_mysql" {...
-> ```
+> ```text
 
 
 ## 2. Security Group 구성
@@ -153,7 +153,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 > 참고: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
 > ```hcl
 > resource "aws_security_group" "nlb" {...
-> ```
+> ```text
 
 
 ### 2.3 데이터베이스 Security Group
@@ -161,7 +161,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 > 참고: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
 > ```hcl
 > resource "aws_security_group" "database" {...
-> ```
+> ```text
 
 
 ## 3. Zero Trust 아키텍처 구현
@@ -179,7 +179,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 > 참고: AWS 데이터베이스 접근 보안 관련 내용은 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html) 및 [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)를 참조하세요.
 > ```python
 > # 애플리케이션에서 데이터베이스 접근 시...
-> ```
+> ```text
 
 
 ## 모니터링 및 알림
@@ -230,7 +230,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ```text
 ERROR: Connection timed out after 30 seconds
-```
+```text
 
 #### 원인 및 해결 방법
 
@@ -241,7 +241,7 @@ ERROR: Connection timed out after 30 seconds
 aws ec2 describe-security-groups \
   --group-ids sg-xxx \
   --query 'SecurityGroups[*].IpPermissions'
-```
+```text
 
 해결책:
 - 애플리케이션 Security Group이 NLB Security Group에 접근 허용되어 있는지 확인
@@ -253,7 +253,7 @@ aws ec2 describe-security-groups \
 # Target Health 확인
 aws elbv2 describe-target-health \
   --target-group-arn arn:aws:elasticloadbalancing:region:account:targetgroup/xxx
-```
+```text
 
 해결책:
 - RDS 인스턴스가 실행 중인지 확인
@@ -266,7 +266,7 @@ aws elbv2 describe-target-health \
 # Route Table 확인
 aws ec2 describe-route-tables \
   --filters "Name=association.subnet-id,Values=subnet-xxx"
-```
+```text
 
 해결책:
 - Private Subnet의 Route Table에 NAT Gateway 또는 VPC Peering 라우팅이 올바른지 확인
@@ -277,7 +277,7 @@ aws ec2 describe-route-tables \
 
 ```text
 Query execution time: 500ms (expected: <50ms)
-```
+```text
 
 #### 원인 및 해결 방법
 
@@ -288,7 +288,7 @@ Query execution time: 500ms (expected: <50ms)
 aws elbv2 describe-load-balancers \
   --load-balancer-arns arn:aws:elasticloadbalancing:region:account:loadbalancer/net/xxx \
   --query 'LoadBalancers[*].[LoadBalancerArn,CrossZoneLoadBalancingEnabled]'
-```
+```text
 
 해결책:
 - Cross-AZ Load Balancing 비활성화 (비용 vs 가용성 트레이드오프)
@@ -304,7 +304,7 @@ pool = psycopg2.pool.SimpleConnectionPool(1, 20, dsn=DATABASE_URL)
 
 print(f"Active connections: {pool._used}")
 print(f"Available connections: {pool._pool}")
-```
+```text
 
 해결책:
 - RDS Proxy 도입하여 연결 풀링 최적화
@@ -317,7 +317,7 @@ print(f"Available connections: {pool._pool}")
 aws rds describe-db-instances \
   --db-instance-identifier prod-mysql \
   --query 'DBInstances[*].[PerformanceInsightsEnabled,PerformanceInsightsRetentionPeriod]'
-```
+```text
 
 해결책:
 - Performance Insights 활성화하여 병목 쿼리 식별
@@ -329,7 +329,7 @@ aws rds describe-db-instances \
 
 ```yaml
 UnHealthyHostCount: 1/2 targets are unhealthy
-```
+```text
 
 #### 원인 및 해결 방법
 
@@ -341,7 +341,7 @@ aws rds describe-events \
   --source-identifier prod-mysql \
   --source-type db-instance \
   --duration 60
-```
+```text
 
 해결책:
 - RDS 이벤트 로그에서 장애 원인 확인
@@ -354,7 +354,7 @@ aws rds describe-events \
 aws elbv2 describe-target-groups \
   --target-group-arns arn:aws:elasticloadbalancing:region:account:targetgroup/xxx \
   --query 'TargetGroups[*].HealthCheckProtocol'
-```
+```text
 
 해결책:
 - Health Check Interval 및 Threshold 조정
@@ -367,7 +367,7 @@ aws elbv2 describe-target-groups \
 aws logs filter-log-events \
   --log-group-name /aws/vpc/flowlogs \
   --filter-pattern '[version, account, eni, source, destination, srcport, destport="3306", protocol, packets, bytes, windowstart, windowend, action="REJECT", flowlogstatus]'
-```
+```text
 
 해결책:
 - VPC Flow Logs에서 REJECT 패킷 원인 분석
@@ -379,7 +379,7 @@ aws logs filter-log-events \
 
 ```text
 SSL handshake failed: certificate verify failed
-```
+```text
 
 #### 원인 및 해결 방법
 
@@ -390,7 +390,7 @@ SSL handshake failed: certificate verify failed
 aws acm describe-certificate \
   --certificate-arn arn:aws:acm:region:account:certificate/xxx \
   --query 'Certificate.[Status,NotAfter]'
-```
+```text
 
 해결책:
 - ACM 인증서는 자동 갱신됨 (도메인 검증 필요)

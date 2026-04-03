@@ -109,7 +109,7 @@ Docker는 애플리케이션을 컨테이너라는 격리된 환경에서 실행
 > 참고: Docker 기본 명령어 관련 내용은 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://docs.docker.com/compose/)를 참조하세요.
 > ```bash
 > # 이미지 다운로드...
-> ```
+> ```text
 
 
 ### 1.4 Dockerfile 작성 Best Practices
@@ -120,14 +120,14 @@ Docker는 애플리케이션을 컨테이너라는 격리된 환경에서 실행
 
 > ```dockerfile
 > # Build stage...
-> ```
+> ```text
 
 
 #### 보안 강화 Dockerfile 예시
 
 > ```dockerfile
 > # 최소 베이스 이미지 사용...
-> ```
+> ```text
 
 
 ### 1.5 Docker 보안 검증 체크리스트
@@ -189,14 +189,14 @@ Pod를 적절한 Node에 배치하는 역할을 합니다.
 > 참고: Kubernetes Pod 관련 내용은 [Kubernetes Pod 문서](https://kubernetes.io/docs/concepts/workloads/pods/) 및 [Kubernetes 예제](https://kubernetes.io/docs/home/)를 참조하세요.
 > ```yaml
 > apiVersion: v1...
-> ```
+> ```text
 
 
 #### 프로덕션급 Pod 설정 예시
 
 > ```yaml
 > apiVersion: v1...
-> ```
+> ```text
 
 
 #### Deployment
@@ -206,7 +206,7 @@ Pod의 선언적 업데이트를 제공합니다.
 > 참고: Kubernetes Deployment 관련 내용은 [Kubernetes Deployment 문서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) 및 [Kubernetes 예제](https://kubernetes.io/docs/home/)를 참조하세요.
 > ```yaml
 > apiVersion: apps/v1...
-> ```
+> ```text
 
 
 #### 프로덕션급 Deployment 전략
@@ -218,7 +218,7 @@ Pod 집합에 대한 네트워크 서비스를 노출합니다.
 > 참고: Kubernetes Service 관련 내용은 [Kubernetes Service 문서](https://kubernetes.io/docs/concepts/services-networking/service/) 및 [Kubernetes 예제](https://kubernetes.io/docs/home/)를 참조하세요.
 > ```yaml
 > apiVersion: v1...
-> ```
+> ```text
 
 
 #### Service 타입별 사용 사례
@@ -252,7 +252,7 @@ Namespace는 논리적 클러스터 분할을 제공합니다.
  ```bash
  # Trivy를 사용한 이미지 스캔
  trivy image nginx:latest
- ```
+ ```text
 
 3. 이미지 서명 및 검증
  - Docker Content Trust 활성화
@@ -262,7 +262,7 @@ Namespace는 논리적 클러스터 분할을 제공합니다.
 
 > ```yaml
 > apiVersion: ...
-> ```
+> ```text
 
 
 #### Cosign 이미지 서명 및 검증
@@ -272,7 +272,7 @@ Namespace는 논리적 클러스터 분할을 제공합니다.
 > 참고: Kubernetes Security Context 관련 내용은 [Kubernetes Security Context 문서](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 및 [Kubernetes 예제](https://kubernetes.io/docs/home/)를 참조하세요.
 > ```yaml
 > # SecurityContext 설정 예시...
-> ```
+> ```text
 
 
 #### Pod Security Standards
@@ -296,7 +296,7 @@ metadata:
     pod-security.kubernetes.io/enforce: restricted
     pod-security.kubernetes.io/audit: restricted
     pod-security.kubernetes.io/warn: restricted
-```
+```text
 
 #### AppArmor 프로파일 적용
 
@@ -304,7 +304,7 @@ metadata:
 
 > ```yaml
 > apiVersion: v1...
-> ```
+> ```text
 
 
 ### 3.3 네트워크 정책
@@ -321,7 +321,7 @@ spec:
  policyTypes:
  - Ingress
  ingress: []
-```
+```text
 
 #### 계층별 네트워크 정책 예시
 
@@ -338,7 +338,7 @@ kubectl create secret generic db-credentials \
   --from-literal=username=admin \
   --from-literal=password='$tr0ng_p@ssw0rd' \
   --namespace=production
-```
+```text
 
 #### External Secrets Operator
 
@@ -405,7 +405,7 @@ kubectl create secret generic db-credentials \
 cat /var/log/falco/events.txt | \
   grep -E "(Container Drift Detected|Write Below Root|Contact K8S API)" | \
   jq -r '[.time, .rule, .output_fields.container_name, .output_fields.proc_cmdline] | @csv'
-```
+```text
 
 ### 4.1 비정상 네트워크 활동 탐지
 
