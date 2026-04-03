@@ -4,13 +4,14 @@
     {% if post.image and post.image != "" %}
     <div class="post-card-image">
       {% comment %}CLS 최적화: aspect-ratio를 CSS에서 이미 처리하므로 width/height는 생략{% endcomment %}
+      {% comment %}OG format variants (plugin already converts .svg→_og.png){% endcomment %}
       {% assign card_img = post.image | relative_url %}
-      {% assign card_webp = card_img | replace: '_og.png', '_og.webp' %}
-      {% assign card_avif = card_img | replace: '_og.png', '_og.avif' %}
+      {% assign card_webp = card_img | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+      {% assign card_avif = card_img | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
       <picture>
         <source srcset="{{ card_avif }}" type="image/avif">
         <source srcset="{{ card_webp }}" type="image/webp">
-        <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback-src="{{ '/assets/images/og-default.png' | relative_url }}">
+        <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
       </picture>
     </div>
     {% endif %}

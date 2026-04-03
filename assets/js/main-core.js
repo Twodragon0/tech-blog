@@ -394,38 +394,32 @@
       });
     }
 
-    const bindImageFallback = (img) => {
-      if (!img || img.dataset.fallbackBound === '1') {
-        return;
-      }
-
-      img.dataset.fallbackBound = '1';
-      img.addEventListener('error', () => {
-        const fallbackSrc = img.getAttribute('data-fallback-src');
-        if (fallbackSrc && img.getAttribute('src') !== fallbackSrc) {
-          img.setAttribute('src', fallbackSrc);
-          return;
-        }
-
-        const wrapper = img.closest('.post-card-image');
-        if (wrapper) {
-          wrapper.style.display = 'none';
-        }
-      });
-    };
-
-    document.querySelectorAll('img[data-fallback-src]').forEach(bindImageFallback);
-
-    // News card image fallback via event delegation (CSP-compliant, no inline onerror)
+    // Unified image fallback via event delegation (CSP-compliant, no inline onerror)
+    // Handles both post-card and news-card images with data-fallback attribute
     document.addEventListener('error', function(e) {
       var img = e.target;
-      if (img.tagName === 'IMG' && img.closest('.news-card__image')) {
+      if (img.tagName !== 'IMG') return;
+      var fallback = img.getAttribute('data-fallback');
+      if (fallback && img.getAttribute('src') !== fallback) {
+        img.setAttribute('src', fallback);
+        return;
+      }
+      // No fallback available - hide wrapper
+      var wrapper = img.closest('.post-card-image');
+      if (wrapper) {
+        wrapper.style.display = 'none';
+      }
+    }, true);
+
+    // Handle images that already failed before JS loaded
+    document.querySelectorAll('img[data-fallback]').forEach(function(img) {
+      if (img.complete && img.naturalWidth === 0) {
         var fallback = img.getAttribute('data-fallback');
         if (fallback && img.getAttribute('src') !== fallback) {
           img.setAttribute('src', fallback);
         }
       }
-    }, true);
+    });
 
     // Mark loaded images to remove skeleton shimmer
     document.querySelectorAll('.post-card-image img').forEach(function(img) {
