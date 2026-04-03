@@ -121,7 +121,7 @@ index=aws sourcetype=aws:cloudwatch:guardduty
 | where severity >= 7.0
 | stats count by type, severity, resource.instanceDetails.instanceId
 | sort -severity
-```text
+```
 
 #### IAM 비정상 API 호출 탐지
 ```spl
@@ -132,7 +132,7 @@ index=aws sourcetype=aws:cloudtrail
 
 | stats count by userIdentity.arn, eventName, sourceIPAddress
 | where count > 10
-```text
+```
 
 #### S3 Public Access 변경 탐지
 ```spl
@@ -141,7 +141,7 @@ index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPoli
 | eval isPublic=if(match(requestParameters, "AllUsers|AuthenticatedUsers"), "true", "false")
 | where isPublic="true"
 | table _time, userIdentity.arn, eventName, requestParameters.bucketName
-```text
+```
 
 ### Azure Sentinel KQL 쿼리
 
@@ -153,7 +153,7 @@ AWSGuardDuty
 | where TimeGenerated > ago(24h)
 | summarize Count=count() by Type, Severity, ResourceId
 | order by Severity desc
-```text
+```
 
 #### IAM 권한 에스컬레이션 탐지
 ```kql
@@ -163,7 +163,7 @@ AWSCloudTrail
 | where UserAgent !contains "console.amazonaws.com"
 | summarize Count=count() by UserIdentityArn, EventName, SourceIpAddress
 | where Count > 5
-```text
+```
 
 #### S3 대량 다운로드 탐지 (데이터 유출)
 ```kql
@@ -174,7 +174,7 @@ AWSCloudTrail
 | summarize TotalRequests=count(), UniqueObjects=dcount(RequestParameters) by UserIdentityArn, SourceIpAddress
 | where TotalRequests > 1000
 | order by TotalRequests desc
-```text
+```
 
 ## 2. Threat Hunting 쿼리
 
@@ -189,7 +189,7 @@ aws cloudtrail lookup-events \
   --start-time 2025-01-01T00:00:00Z \
   --max-results 50 \
   | jq '.Events[] | select(.Username | test("i-[0-9a-f]+") | not)'
-```text
+```
 
 #### 시나리오 2: 내부자 위협 - 대량 데이터 접근
 
@@ -199,7 +199,7 @@ aws s3api list-objects-v2 \
   --bucket security-logs \
   --prefix cloudtrail/ \
   | jq '.Contents[] | select(.Key | contains("GetObject"))'
-```text
+```
 
 #### 시나리오 3: 암호화폐 채굴 인스턴스 탐지
 

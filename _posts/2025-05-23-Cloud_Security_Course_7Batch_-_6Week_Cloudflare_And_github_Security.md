@@ -112,7 +112,7 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 # AWS WAF 설정 테스트
 # AWS Console에서 WAF 규칙 생성 및 테스트
-```text
+```
 
 #### 실습 시나리오
 
@@ -193,7 +193,7 @@ SQL Injection 차단을 위한 AWS WAF Web ACL 규칙 JSON 예제입니다:
     "MetricName": "SQLInjectionRuleGroup"
   }
 }
-```text
+```
 
 Cloudflare WAF 커스텀 규칙 예제 (API 활용):
 
@@ -219,7 +219,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets" \
       }
     ]
   }'
-```text
+```
 
 #### 2.3.2 Rate Limiting 전략
 
@@ -260,7 +260,7 @@ aws wafv2 create-rule-group \
     }
   ]' \
   --visibility-config SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=GeoBlockRuleGroup
-```text
+```
 
 ## 3. Cloudflare 보안
 
@@ -365,7 +365,7 @@ class SqlInjectionConfig extends TaintTracking::Configuration {
 from SqlInjectionConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
 where config.hasFlowPath(source, sink)
 select sink.getNode(), source, sink, "사용자 입력이 SQL 쿼리에 직접 삽입됩니다."
-```text
+```
 
 #### 4.4.2 GitHub Actions CodeQL 워크플로우
 
@@ -411,7 +411,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{ matrix.language }}"
-```text
+```
 
 ## 5. MITRE ATT&CK 매핑
 
@@ -447,7 +447,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, action
 | stats count(*) as blocked_count by httpRequest.clientIp
 | sort blocked_count desc
 | limit 20
-```text
+```
 
 ```bash
 # AWS CLI: WAF 로그에서 차단된 요청 수 조회
@@ -457,7 +457,7 @@ aws wafv2 get-sampled-requests \
   --scope REGIONAL \
   --time-window StartTime=$(date -d '-1 hour' +%s),EndTime=$(date +%s) \
   --max-items 100
-```text
+```
 
 ### Cloudflare 이상 탐지
 
@@ -476,7 +476,7 @@ curl -s "https://api.cloudflare.com/client/v4/graphql" \
   --data '{
     "query": "{ viewer { zones(filter: {zoneTag: \"{zone_id}\"}) { firewallEventsAdaptive(filter: {datetime_gt: \"2025-05-22T00:00:00Z\"}, limit: 100, orderBy: [datetime_DESC]) { action clientIP clientRequestHTTPHost ruleId } } } }"
   }'
-```text
+```
 
 ### 시크릿 노출 탐지
 
@@ -488,7 +488,7 @@ gitleaks detect --source . --report-format json --report-path gitleaks-report.js
 
 # GitHub CLI로 Secret Scanning 알림 조회
 gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, secret_type}'
-```text
+```
 
 ## 7. 보안 체크리스트
 
@@ -498,26 +498,26 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
   ```bash
   # Web ACL 목록 확인
   aws wafv2 list-web-acls --scope REGIONAL --region ap-northeast-2
-  ```text
+  ```
 - SQL Injection, XSS 차단 규칙 활성화
   ```bash
   # AWS 관리형 규칙 그룹 확인
   aws wafv2 list-available-managed-rule-groups --scope REGIONAL
-  ```text
+  ```
 - Rate Limiting 규칙 설정
 - IP 기반 접근 제어 구성
   ```bash
   # IP Set 생성 (차단 대상 IP 관리)
   aws wafv2 create-ip-set --name "BlockedIPs" --scope REGIONAL \
     --ip-address-version IPV4 --addresses "203.0.113.0/24"
-  ```text
+  ```
 - Geo-blocking 필요 시 적용
 - CloudWatch 로그 및 알림 설정
   ```bash
   # WAF 로깅 활성화 확인
   aws wafv2 get-logging-configuration \
     --resource-arn "arn:aws:wafv2:ap-northeast-2:ACCOUNT_ID:regional/webacl/MyWebACL/ID"
-  ```text
+  ```
 
 ### Cloudflare 보안
 
@@ -534,12 +534,12 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
   ```bash
   # GitHub CLI로 Dependabot 알림 확인
   gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] | {number, state, package: .security_vulnerability.package.name}'
-  ```text
+  ```
 - Code Scanning (CodeQL) 활성화
   ```bash
   # Code Scanning 알림 조회
   gh api repos/{owner}/{repo}/code-scanning/alerts --jq '.[] | {number, state, rule: .rule.id}'
-  ```text
+  ```
 - Secret Scanning 활성화
 - Branch Protection Rules 설정
   ```bash

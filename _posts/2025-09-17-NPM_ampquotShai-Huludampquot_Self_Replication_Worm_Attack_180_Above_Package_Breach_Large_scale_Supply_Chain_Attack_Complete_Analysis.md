@@ -244,7 +244,7 @@ attack:
     - "@nrwl/workspace"
     - "@nx/workspace"
   mitigation: "Nx 팀이 즉각 패키지 제거 및 계정 보안 강화"
-```text
+```
 
 ### 2.5 침해 대응 절차
 
@@ -278,7 +278,7 @@ USER appuser
 # 읽기 전용 파일시스템 권장 (docker run --read-only)
 EXPOSE 3000
 CMD ["node", "index.js"]
-```text
+```
 
 1. 감염된 워크스테이션 격리:
 
@@ -287,7 +287,7 @@ CMD ["node", "index.js"]
 sudo iptables -A OUTPUT -j DROP
 # 또는 VPN 연결 강제 종료
 sudo systemctl stop openvpn
-```text
+```
 
 2. CI/CD 파이프라인 중단:
 
@@ -299,7 +299,7 @@ gh api -X PATCH /repos/OWNER/REPO/actions/permissions \
 # Jenkins job 비활성화
 java -jar jenkins-cli.jar -s http://jenkins:8080/ \
   disable-job "affected-pipeline"
-```text
+```
 
 3. Private NPM Registry 읽기 전용으로 전환:
 
@@ -310,7 +310,7 @@ packages:
     access: $authenticated
     publish: $admin  # 일반 사용자 publish 차단
     proxy: npmjs
-```text
+```
 
 4. NPM 토큰 즉시 재생성:
 
