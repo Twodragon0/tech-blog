@@ -127,7 +127,6 @@ DevSecOps 실무자에게 이 정책은 **앱 출시 프로세스의 변화**를
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-3502
 
 # TrueConf Zero-Day 취약점(CVE-2026-3502) 분석 및 대응 가이드
 

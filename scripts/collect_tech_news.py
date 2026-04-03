@@ -1599,10 +1599,21 @@ def fetch_rss_feed(
     try:
         print(f"  Fetching: {source_config['name']}...")
 
-        # feedparser로 RSS 파싱 (request_headers로 타임아웃 힌트)
-        feed = feedparser.parse(
-            feed_url, request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"}
-        )
+        # requests(certifi 기반 SSL)로 피드 다운로드 후 feedparser로 파싱
+        try:
+            resp = requests.get(
+                feed_url,
+                headers={"User-Agent": "TechBlog-NewsCollector/1.0"},
+                timeout=timeout,
+            )
+            resp.raise_for_status()
+            feed = feedparser.parse(resp.content)
+        except requests.RequestException:
+            # requests 실패 시 feedparser 직접 호출 (fallback)
+            feed = feedparser.parse(
+                feed_url,
+                request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"},
+            )
 
         if feed.bozo and feed.bozo_exception:
             print(f"    Warning: Feed parsing issue - {feed.bozo_exception}")

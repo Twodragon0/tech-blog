@@ -96,7 +96,6 @@ toc: true
   severity="High"
 %}
 
-> 🟠 **심각도**: High | **CVE**: CVE-2025-55182
 
 # CVE-2025-55182(React2Shell) 악용 대규모 자격 증명 탈취 공격 분석
 
@@ -136,7 +135,6 @@ mitre_attack:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-20093
 
 # Cisco IMC 인증 우회 취약점(CVE-2026-20093) 분석
 
