@@ -424,8 +424,23 @@
 
     function stripBrowserTranslationTags(html) {
       if (!html) return html;
+      // Sanitize before assigning to innerHTML to prevent DOM XSS
+      let safeHtml;
+      if (typeof DOMPurify !== 'undefined') {
+        safeHtml = DOMPurify.sanitize(html, {
+          ALLOWED_TAGS: ['p','br','strong','em','a','span','div','ul','ol','li',
+                         'h1','h2','h3','h4','h5','h6','code','pre','blockquote',
+                         'table','thead','tbody','tr','th','td','hr','del','mark',
+                         'font'],
+          ALLOWED_ATTR: ['class','href','target','rel','style'],
+        });
+      } else {
+        // Safe fallback: strip all HTML via DOMParser (no innerHTML on raw input)
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || '';
+      }
       const temp = document.createElement('div');
-      temp.innerHTML = html;
+      temp.innerHTML = safeHtml;
       
       temp.querySelectorAll('font').forEach(font => {
         const parent = font.parentNode;

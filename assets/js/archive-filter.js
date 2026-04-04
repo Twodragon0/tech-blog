@@ -92,6 +92,15 @@
     });
   }
 
+  // Reset button in empty state
+  var resetBtn = document.querySelector('.archive-empty-reset');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      searchInput.dispatchEvent(new Event('input'));
+    });
+  }
+
   // Smooth scroll for year header anchors
   document.querySelectorAll('a[href^="#year-"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
