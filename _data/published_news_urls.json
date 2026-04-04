@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-03T01:29:22.974810+00:00",
+  "updated_at": "2026-04-04T01:23:49.546708+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/trivy-security-scanner-github-actions.html",
-      "title": "Trivy Security Scanner GitHub Actions Breached, 75 Tags Hijacked to Steal CI/CD ",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html",
-      "title": "Critical Langflow Flaw CVE-2026-33017 Triggers Attacks within 20 Hours of Disclo",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/google-adds-24-hour-wait-for-unverified.html",
-      "title": "Google Adds 24-Hour Wait for Unverified App Sideloading to Reduce Malware and Sc",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/cti-realm-a-new-benchmark-for-end-to-end-detection-rule-generation-with-ai-agents/",
-      "title": "CTI-REALM: A new benchmark for end-to-end detection rule generation with AI agen",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
-      "title": "Secure agentic AI end-to-end",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune",
-      "title": "Build a Domain-Specific Embedding Model in Under a Day",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/ibm-granite/granite-libraries",
-      "title": "What's New in Mellea 0.4.0 + Granite Libraries Release",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/your-merge-forward-guide-to-kubecon-cloudnativecon-amsterdam/",
-      "title": "Your Merge Forward guide to KubeCon + CloudNativeCon Amsterdam",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/crossplane-and-ai-the-case-for-api-first-infrastructure/",
-      "title": "Crossplane and AI: The case for API-first infrastructure",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/kubecon-cloudnativecon-eu-2026-end-user-tab-recommendations-and-tips/",
-      "title": "KubeCon + CloudNativeCon EU 2026: End User TAB recommendations and tips",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/03/20/ingress2gateway-1-0-release/",
-      "title": "Announcing Ingress2Gateway 1.0: Your Path to Gateway API",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/03/20/running-agents-on-kubernetes-with-agent-sandbox/",
-      "title": "Running Agents on Kubernetes with Agent Sandbox",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/white-house-reaches-tentative-crypto",
-      "title": "White House Reaches Tentative Crypto Regulatory Agreement: Report",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/phong-le-calls-morgan-stanleys-bitcoin",
-      "title": "Phong Le Calls Morgan Stanley’s BTC ETF a “Monster Bitcoin” Bet With $160 Billio",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-holds-70000-amid-war",
-      "title": "Bitcoin Price Holds $70,000 as War-Driven Inflation Fears Meet Defensive Market ",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/fbi-warns-russian-hackers-target-signal.html",
       "title": "FBI Warns Russian Hackers Target Signal, WhatsApp in Mass Phishing Attacks",
@@ -810,6 +720,96 @@
       "title": "Defending Your Software Supply Chain: What Every Engineering Team Should Do Now",
       "published_date": "2026-04-03",
       "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+      "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phish",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/microsoft-details-cookie-controlled-php.html",
+      "title": "Microsoft Details Cookie-Controlled PHP Web Shells Persisting via Cron on Linux ",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/linkedin-secretely-scans-for-6-000-plus-chrome-extensions-collects-data/",
+      "title": "LinkedIn secretely scans for 6,000+ Chrome extensions, collects data",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/unc1069-social-engineering-of-axios.html",
+      "title": "UNC1069 Social Engineering of Axios Maintainer Led to npm Supply Chain Attack",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/why-third-party-risk-is-biggest-gap-in.html",
+      "title": "Why Third-Party Risk Is the Biggest Gap in Your Clients' Security Posture",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/the-case-for-envoy-networking-in-the-agentic-ai-era/",
+      "title": "Envoy: A future-ready foundation for agentic AI networking",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/veo-3-1-lite-and-a-new-veo-upscaling-capability-on-vertex-ai/",
+      "title": "Introducing Veo 3.1 Lite and a new Veo upscaling capability on Vertex AI",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-guardrails-supports-cross-account-safeguards-with-centralized-control-and-management/",
+      "title": "Amazon Bedrock Guardrails supports cross-account safeguards with centralized con",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-organization-runner-controls-for-copilot-cloud-agent",
+      "title": "Organization runner controls for Copilot cloud agent",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-gpt-5-1-codex-gpt-5-1-codex-max-and-gpt-5-1-codex-mini-deprecated",
+      "title": "GPT-5.1 Codex, GPT-5.1-Codex-Max, and GPT-5.1-Codex-Mini deprecated",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/engineering/architecture-optimization/the-uphill-climb-of-making-diff-lines-performant/",
+      "title": "The uphill climb of making diff lines performant",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-organization-firewall-settings-for-copilot-cloud-agent",
+      "title": "Organization firewall settings for Copilot cloud agent",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-copilot-cloud-agent-signs-its-commits",
+      "title": "Copilot cloud agent signs its commits",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/charles-schwab-direct-bitcoin-trading",
+      "title": "Charles Schwab Teases Direct Bitcoin Trading With New ‘Schwab Crypto’ Account",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
     }
   ]
 }
