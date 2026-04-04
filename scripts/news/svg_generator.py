@@ -114,12 +114,7 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
     return topics[:4] if topics else ["Security", "Cloud", "DevOps", "AI"]
 
 
-SVG_TEMPLATE_HUB_SPOKE = "hub-spoke"
-SVG_TEMPLATE_TIMELINE = "timeline"
-SVG_TEMPLATE_BEFORE_AFTER = "before-after"
-SVG_MAX_FOCUS_LABELS = 3
-SVG_MAX_LABEL_CHARS = 10
-SVG_MAX_SUBTITLE_CHARS = 32
+# Constants are imported from config; removed duplicate local definitions
 
 
 def _normalize_svg_focus_label(label: str) -> str:
@@ -528,4 +523,3 @@ def generate_svg_image(
             accent, headline, subtitle, date_display, focus_labels
         )
     return _render_hub_spoke_svg(accent, headline, subtitle, date_display, focus_labels)
-
