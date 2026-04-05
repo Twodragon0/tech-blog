@@ -36,7 +36,8 @@
   opacity: 0;
   transform: scale(0.8) translateY(10px);
   overflow: visible;
-  animation: chatToggleAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
+  /* Short delay so deferred chat-page.css can apply before fade-in (was 2s, felt broken) */
+  animation: chatToggleAppear 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 .chat-widget-toggle-visible {

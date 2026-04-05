@@ -78,6 +78,17 @@
   100% { transform: translate(-30px, 20px) scale(1.2); opacity: 0.8; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .tag-cloud::before,
+  .tag-cloud::after {
+    animation: none;
+  }
+
+  .tag-cloud .tag {
+    transition: none;
+  }
+}
+
 [data-theme="dark"] .tag-cloud {
   background:
     linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.1) 35%, rgba(6, 182, 212, 0.08) 65%, rgba(16, 185, 129, 0.1) 100%);
@@ -200,10 +211,35 @@
   box-shadow: 0 3px 12px rgba(139, 92, 246, 0.55);
 }
 
+.tags-empty {
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--border-radius-lg);
+}
+
+[data-theme="dark"] .tags-empty {
+  background: var(--color-bg-tertiary);
+}
+
 /* Tag Section */
 .tag-section {
   margin-bottom: var(--spacing-2xl);
   scroll-margin-top: 90px;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .tag-section {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
 }
 
 .tag-section-header {
@@ -310,6 +346,40 @@
    Tags Hero
    ==================================== */
 
+.tags-hero-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.12));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+[data-theme="dark"] .tags-hero-badge {
+  color: #c4b5fd;
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.tags-panel {
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .tags-panel {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
 .tags-hero {
   text-align: center;
   padding: var(--spacing-3xl) var(--spacing-xl);
@@ -358,6 +428,14 @@
 /* ====================================
    Tags Toolbar / Search
    ==================================== */
+
+.tags-panel .tags-stats {
+  margin-bottom: var(--spacing-lg);
+}
+
+.tags-panel .tags-toolbar {
+  margin-bottom: 0;
+}
 
 .tags-toolbar {
   margin-bottom: var(--spacing-xl);

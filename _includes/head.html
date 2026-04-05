@@ -157,11 +157,94 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
   <script>
     // CSP-safe deferred CSS/font loading (replaces inline onload handlers)
-    var gf=document.getElementById('gfonts');
-    if(gf){gf.addEventListener('load',function(){this.media='all'});}
-    document.querySelectorAll('.deferred-css').forEach(function(el){
-      el.addEventListener('load',function(){this.media='all';});
-    });
+    // NOTE: .deferred-css links are defined *below* this script; query them after DOM is ready.
+    (function () {
+      function setMediaAll(link) {
+        try {
+          link.media = 'all';
+        } catch (e) { /* ignore */ }
+      }
+      function promotePrintStylesheet(el) {
+        if (!el || el.getAttribute('data-media-promoted') === '1') {
+          return;
+        }
+        var m = el.getAttribute('media');
+        if (m !== 'print') {
+          return;
+        }
+        var done = false;
+        function promote() {
+          if (done) {
+            return;
+          }
+          done = true;
+          el.setAttribute('data-media-promoted', '1');
+          setMediaAll(el);
+        }
+        try {
+          if (el.sheet) {
+            promote();
+            return;
+          }
+        } catch (err) {
+          /* cross-origin or not yet available */
+        }
+        el.addEventListener('load', promote);
+        el.addEventListener('error', promote);
+        // Cached stylesheets: sheet may appear after load fires; rAF catches late availability
+        requestAnimationFrame(function () {
+          try {
+            if (el.sheet) {
+              promote();
+            }
+          } catch (e2) { /* ignore */ }
+        });
+        setTimeout(promote, 2500);
+      }
+      function wireDeferredCss() {
+        document.querySelectorAll('link.deferred-css').forEach(promotePrintStylesheet);
+      }
+      function wireGoogleFonts() {
+        var gf = document.getElementById('gfonts');
+        if (!gf || gf.media === 'all') {
+          return;
+        }
+        try {
+          if (gf.sheet) {
+            setMediaAll(gf);
+            return;
+          }
+        } catch (e) { /* ignore */ }
+        gf.addEventListener('load', function () {
+          setMediaAll(this);
+        });
+        requestAnimationFrame(function () {
+          try {
+            if (gf.sheet) {
+              setMediaAll(gf);
+            }
+          } catch (e2) { /* ignore */ }
+        });
+        setTimeout(function () {
+          setMediaAll(gf);
+        }, 2500);
+      }
+      function onReady() {
+        wireGoogleFonts();
+        wireDeferredCss();
+      }
+      var gfEarly = document.getElementById('gfonts');
+      if (gfEarly) {
+        gfEarly.addEventListener('load', function () {
+          setMediaAll(this);
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', onReady);
+      } else {
+        onReady();
+      }
+    })();
   </script>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
@@ -213,6 +296,15 @@
     .post-article { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
     .post-title { font-size: 2rem; font-weight: 700; margin: 1rem 0; line-height: 1.2; }
     .post-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; font-size: 0.875rem; color: var(--color-text-secondary); }
+    /* Chat FAB: fixed slot if chat-page.css is delayed (avoid opacity here so SCSS animation still applies) */
+    #chat-widget-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1051;
+      width: 56px;
+      height: 56px;
+    }
   </style>
   {% endif %}
 
