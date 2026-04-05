@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-04T01:23:49.546708+00:00",
+  "updated_at": "2026-04-05T01:36:25.368672+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/fbi-warns-russian-hackers-target-signal.html",
-      "title": "FBI Warns Russian Hackers Target Signal, WhatsApp in Mass Phishing Attacks",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/oracle-patches-critical-cve-2026-21992.html",
-      "title": "Oracle Patches Critical CVE-2026-21992 Enabling Unauthenticated RCE in Identity ",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/trivy-supply-chain-attack-triggers-self.html",
-      "title": "Trivy Supply Chain Attack Triggers Self-Spreading CanisterWorm Across 47 npm Pac",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/cisa-flags-apple-craft-cms-laravel-bugs.html",
-      "title": "CISA Flags Apple, Craft CMS, Laravel Bugs in KEV, Orders Patching by April 3, 20",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/cftc-staff-clarify-expectations-crypto-collateral?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CFTC staff clarify expectations on using crypto as collateral",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/brazil-finance-minister-shelves-crypto-tax?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Brazil's finance minister shelves crypto tax policy due to election: Report",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/sec-crypto-guidance-final-nail-gensler-era?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "SEC crypto guidance puts the 'final nail' in the Gensler era: Analyst",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ethereum-25-rally-richest-eth-whale-return-profitable?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ethereum eyes 25% rally as richest ETH whales return to 'profitable state'",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/hong-kong-retiree-loses-840k-triple-scam?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Hong Kong retiree loses $840K in triple ‘crypto expert’ scam",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27724",
-      "title": "디자인 프로세스는 죽지 않았다, 압축되었을 뿐",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27723",
-      "title": "아동 보호를 인터넷 접근 통제로 바꾸지 말라",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27722",
-      "title": "시간이 필요한 것들",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27721",
-      "title": "인터넷 아카이브 차단은 AI를 막지 못하지만 웹의 역사 기록을 지워버림",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
     {
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
       "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
@@ -810,6 +720,96 @@
       "title": "Charles Schwab Teases Direct Bitcoin Trading With New ‘Schwab Crypto’ Account",
       "published_date": "2026-04-04",
       "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-the-landing-zone-accelerator-on-aws-universal-configuration-and-lza-compliance-workbook/",
+      "title": "Introducing the Landing Zone Accelerator on AWS Universal Configuration and LZA ",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/axios-npm-hack-used-fake-teams-error-fix-to-hijack-maintainer-account/",
+      "title": "Axios npm hack used fake Teams error fix to hijack maintainer account",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/device-code-phishing-attacks-surge-37x-as-new-kits-spread-online/",
+      "title": "Device code phishing attacks surge 37x as new kits spread online",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/04/04/after-fighting-malware-for-decades-this-cybersecurity-veteran-is-now-hacking-drones/",
+      "title": "After fighting malware for decades, this cybersecurity veteran is now hacking dr",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/european-commission-confirms-data-breach-linked-to-trivy-supply-chain-attack/",
+      "title": "European Commission Confirms Data Breach Linked to Trivy Supply Chain Attack",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/national-robotics-week-2026/",
+      "title": "National Robotics Week — Latest Physical AI Research, Breakthroughs and Resource",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/ai-news-service-using-amazon-bedrock-prompt-engineering-case/",
+      "title": "25년차 기자가 만든 AI 뉴스 서비스: 서울경제신문의 Amazon Bedrock 프롬프트 엔지니어링 실전 사례",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/telegram-durov-iran-ban-backfire?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Telegram founder Pavel Durov says Iranian government's ban backfired",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/jimmy-song-bitcoin-conservative-node-client?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Jimmy Song explains why Bitcoin needs a 'conservative' node client",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/nevada-judge-extends-kalshi-ban-unlicensed-gambling-ruling?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Nevada judge extends ban on Kalshi, rejects event contract defense",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/prediction-markets-testing-legal-limits-asia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Prediction markets are testing legal limits in strict Asian markets",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/polymarket-removes-missing-us-pilot-market-backlash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Polymarket takes down market on missing US pilot after backlash",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28214",
+      "title": "GPU를 직접 설계하며 배우는 인터랙티브 게임 ‘Mvidia’",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28213",
+      "title": "Delve가 Y Combinator 목록에서 삭제됨",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
     }
   ]
 }
