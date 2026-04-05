@@ -3,13 +3,15 @@ layout: page
 title: Archive
 description: 연도별로 정리된 모든 포스트
 permalink: /archive/
+hide_page_header: true
+page_modifier: page--utility
 ---
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Archive",
-  "description": "연도별로 정리된 모든 포스트",
+  "name": "아카이브",
+  "description": "연도·월별로 정리된 블로그 포스트 타임라인",
   "url": "{{ site.url }}/archive/",
   "isPartOf": {
     "@type": "WebSite",
@@ -19,13 +21,21 @@ permalink: /archive/
 }
 </script>
 
-<div class="archive-page">
-  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+<div class="archive-page" id="archive-top">
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
 
   <header class="archive-hero" role="banner">
-    <h2 class="archive-hero-title">Archive</h2>
-    <p class="archive-hero-desc">연도별로 정리된 모든 포스트를 탐색하세요</p>
+    <div class="archive-hero-badge">Timeline</div>
+    <h1 class="archive-hero-title">아카이브</h1>
+    <p class="archive-hero-desc">발행일 순으로 전체 글을 모았습니다. 검색과 카테고리 필터로 원하는 글만 좁혀 보세요. 포커스가 검색창이 아닐 때 <kbd class="archive-kbd-inline">/</kbd> 키로 검색에 바로 포커스할 수 있습니다.</p>
   </header>
+
+  <nav class="archive-year-nav" aria-label="연도로 이동">
+    {% for year in postsByYear %}
+    <a href="#year-{{ year.name }}" class="archive-year-pill">{{ year.name }}</a>
+    {% endfor %}
+    <a href="#archive-top" class="archive-year-pill archive-year-pill--muted">맨 위</a>
+  </nav>
 
   <!-- Archive Toolbar -->
   <div class="archive-toolbar">
@@ -33,11 +43,11 @@ permalink: /archive/
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input type="text" id="archive-search" placeholder="Filter posts..." aria-label="포스트 필터" autocomplete="off">
+      <input type="search" id="archive-search" placeholder="제목으로 필터..." aria-label="포스트 제목 검색" autocomplete="off" enterkeyhint="search">
       <kbd class="search-kbd" aria-hidden="true">/</kbd>
     </div>
-    <div class="archive-filters" role="group" aria-label="Category filter">
-      <button class="archive-filter active" data-filter="all" type="button">All</button>
+    <div class="archive-filters" role="group" aria-label="카테고리 필터">
+      <button class="archive-filter active" data-filter="all" type="button">전체</button>
       {% assign sorted_categories = site.categories | sort %}
       {% for category in sorted_categories %}
         {% assign cat_name = category[0] %}
@@ -52,19 +62,19 @@ permalink: /archive/
   <div class="archive-stats">
     <div class="archive-stat">
       <span class="archive-stat-number" id="archive-visible-count">{{ site.posts.size }}</span>
-      <span class="archive-stat-label">Posts</span>
+      <span class="archive-stat-label">보이는 글</span>
     </div>
     <div class="archive-stat">
       <span class="archive-stat-number">{{ postsByYear.size }}</span>
-      <span class="archive-stat-label">Years</span>
+      <span class="archive-stat-label">연도</span>
     </div>
     <div class="archive-stat">
       <span class="archive-stat-number">{{ site.categories.size }}</span>
-      <span class="archive-stat-label">Categories</span>
+      <span class="archive-stat-label">카테고리</span>
     </div>
     <div class="archive-stat">
       <span class="archive-stat-number">{% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq %}{{ all_tags.size }}</span>
-      <span class="archive-stat-label">Tags</span>
+      <span class="archive-stat-label">태그</span>
     </div>
   </div>
 
@@ -72,7 +82,7 @@ permalink: /archive/
   <section class="archive-year" data-year="{{ year.name }}">
     <h2 id="year-{{ year.name }}" class="archive-year-header">
       <span class="archive-year-name">{{ year.name }}</span>
-      <span class="archive-year-count">{{ year.items.size }} posts</span>
+      <span class="archive-year-count">{{ year.items.size }}개 글</span>
     </h2>
 
     {% assign postsByMonth = year.items | group_by_exp: "post", "post.date | date: '%m'" %}
@@ -119,7 +129,7 @@ permalink: /archive/
       <line x1="8" y1="11" x2="14" y2="11"/>
     </svg>
     <p>검색 결과가 없습니다</p>
-    <button type="button" class="archive-empty-reset">필터 초기화</button>
+    <button type="button" class="archive-empty-reset">검색·필터 모두 초기화</button>
   </div>
 </div>
 

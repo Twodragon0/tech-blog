@@ -7,3 +7,8 @@
 @use "tags";
 @use "archive";
 @use "news-card";
+
+/* Utility pages: hero is the main title; avoid double heading spacing */
+.page--utility .page-content {
+  padding-top: 0;
+}

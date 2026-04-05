@@ -3,13 +3,15 @@ layout: page
 title: Tags
 description: 태그별로 정리된 포스트를 확인하세요
 permalink: /tags/
+hide_page_header: true
+page_modifier: page--utility
 ---
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Tags",
-  "description": "태그별로 정리된 포스트를 확인하세요",
+  "name": "태그",
+  "description": "태그별로 정리된 블로그 포스트 목록",
   "url": "{{ site.url }}/tags/",
   "isPartOf": {
     "@type": "WebSite",
@@ -19,39 +21,44 @@ permalink: /tags/
 }
 </script>
 
-<div class="tags-page">
+<div class="tags-page" id="tags-top">
   {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq | sort_natural %}
 
   <!-- Hero Section -->
   <header class="tags-hero" role="banner">
-    <h2 class="tags-hero-title">Tags</h2>
-    <p class="tags-hero-desc">관심 있는 태그를 클릭하여 관련 포스트를 확인하세요</p>
+    <div class="tags-hero-badge">Browse</div>
+    <h1 class="tags-hero-title">태그</h1>
+    <p class="tags-hero-desc">클라우드, 보안, Kubernetes 등 주제별로 글을 모았습니다. 아래 구름에서 태그를 누르면 해당 섹션으로 스크롤됩니다.</p>
   </header>
 
-  <!-- Stats Bar -->
-  <div class="tags-stats">
-    <div class="tags-stat">
-      <span class="tags-stat-number">{{ all_tags.size }}</span>
-      <span class="tags-stat-label">Tags</span>
+  <div class="tags-panel" aria-label="태그 탐색 도구">
+    <!-- Stats Bar -->
+    <div class="tags-stats">
+      <div class="tags-stat">
+        <span class="tags-stat-number">{{ all_tags.size }}</span>
+        <span class="tags-stat-label">태그</span>
+      </div>
+      <div class="tags-stat">
+        <span class="tags-stat-number">{{ site.posts.size }}</span>
+        <span class="tags-stat-label">포스트</span>
+      </div>
     </div>
-    <div class="tags-stat">
-      <span class="tags-stat-number">{{ site.posts.size }}</span>
-      <span class="tags-stat-label">Posts</span>
+
+    <!-- Search Toolbar -->
+    <div class="tags-toolbar">
+      <div class="tags-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="search" id="tag-search" placeholder="태그 이름으로 필터..." aria-label="태그 검색" autocomplete="off" enterkeyhint="search">
+      </div>
     </div>
   </div>
 
-  <!-- Search Toolbar -->
-  <div class="tags-toolbar">
-    <div class="tags-search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <input type="text" id="tag-search" placeholder="Search tags..." aria-label="태그 검색" autocomplete="off">
-    </div>
-  </div>
+  <p id="tags-search-empty" class="tags-empty" hidden aria-live="polite" aria-hidden="true">입력과 일치하는 태그가 없습니다. 검색어를 줄이거나 지워 보세요.</p>
 
   <!-- Tag Cloud -->
-  <div class="tag-cloud">
+  <div class="tag-cloud" aria-label="태그 목록">
     {% for tag in all_tags %}
     {% assign tag_str = tag | append: "" %}
     {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
@@ -70,7 +77,7 @@ permalink: /tags/
   <section id="{{ tag_str | slugify }}" class="tag-section">
     <div class="tag-section-header">
       <span class="tag">{{ tag_str }}</span>
-      <span class="tag-section-count">{{ tag_posts.size }} posts</span>
+      <span class="tag-section-count">{{ tag_posts.size }}개 글</span>
     </div>
     <ul class="tag-section-list">
       {% for post in tag_posts %}
@@ -80,39 +87,15 @@ permalink: /tags/
       </li>
       {% endfor %}
     </ul>
-    <a href="#" class="tag-section-top" aria-label="맨 위로 이동">
+    <a href="#tags-top" class="tag-section-top" aria-label="태그 페이지 상단으로 이동">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <polyline points="18 15 12 9 6 15"/>
       </svg>
-      Top
+      맨 위로
     </a>
   </section>
   {% endif %}
   {% endfor %}
 </div>
 
-<script>
-(function() {
-  'use strict';
-  var input = document.getElementById('tag-search');
-  if (!input) return;
-  var tags = document.querySelectorAll('.tag-cloud .tag');
-  var sections = document.querySelectorAll('.tag-section');
-  var timer;
-  input.addEventListener('input', function() {
-    clearTimeout(timer);
-    timer = setTimeout(function() {
-      var q = input.value.toLowerCase().trim();
-      tags.forEach(function(tag) {
-        var name = tag.textContent.toLowerCase();
-        tag.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
-      });
-      sections.forEach(function(sec) {
-        var header = sec.querySelector('.tag-section-header');
-        var name = header ? header.textContent.toLowerCase() : '';
-        sec.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
-      });
-    }, 200);
-  });
-})();
-</script>
+<script src="{{ '/assets/js/tags-page.js' | relative_url }}"></script>
