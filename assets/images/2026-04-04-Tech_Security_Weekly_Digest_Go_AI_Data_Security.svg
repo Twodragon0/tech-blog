@@ -1,44 +1,226 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>THREAT SIGNAL MAP</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest - TA416 PlugX, PHP WebShell, Chrome Extensions</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="55%" stop-color="#151b32"/>
-      <stop offset="100%" stop-color="#181024"/>
+    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="orbGlow">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#3b82f6" />
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
-    </filter>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.15" />
+    </linearGradient>
+    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
+    </pattern>
+    <linearGradient id="targetGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="210" cy="170" r="180" fill="#dc2626" opacity="0.14" filter="url(#glow)"/>
-  <circle cx="980" cy="220" r="170" fill="#2563eb" opacity="0.12" filter="url(#glow)"/>
-  <circle cx="930" cy="500" r="180" fill="#f59e0b" opacity="0.1" filter="url(#glow)"/>
-  <text x="90" y="164" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="92" y="204" font-family="Arial, sans-serif" font-size="20" fill="#cbd5e1">K8S  DPRK  AI AGENT</text>
-  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
-  <g transform="translate(250 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
-    <circle cx="-16" cy="-12" r="12" fill="#09261d" stroke="#dc2626" stroke-width="1.5"/><circle cx="16" cy="-12" r="12" fill="#09261d" stroke="#dc2626" stroke-width="1.5"/><circle cx="0" cy="16" r="12" fill="#09261d" stroke="#dc2626" stroke-width="1.5"/><path d="M-8 -6 L8 -6 M-12 2 L0 14 M12 2 L0 14" stroke="#dc2626" stroke-width="1.5"/>
-  </g>
-  <text x="250" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">K8S</text>
 
-  <g transform="translate(600 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#67e8f9" stroke-width="2.5"/>
-    <circle r="18" fill="#67e8f9" opacity="0.18"/><circle r="8" fill="#67e8f9" opacity="0.3"/>
-  </g>
-  <text x="600" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#67e8f9" text-anchor="middle">DPRK</text>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dots)" />
 
-  <g transform="translate(950 340)" filter="url(#shadow)">
-    <circle r="56" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
-    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#f59e0b" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#f59e0b" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#f59e0b" text-anchor="middle">AI</text>
-  </g>
-  <text x="950" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f59e0b" text-anchor="middle">AI AGENT</text>
+  <!-- Orb glows -->
+  <circle cx="770" cy="150" r="185" fill="#7c3aed" opacity="0.07" filter="url(#orbGlow)" />
+  <circle cx="1040" cy="440" r="150" fill="#3b82f6" opacity="0.06" filter="url(#orbGlow)" />
+  <circle cx="190" cy="500" r="120" fill="#6366f1" opacity="0.05" filter="url(#orbGlow)" />
+  <circle cx="610" cy="320" r="100" fill="#7c3aed" opacity="0.04" filter="url(#orbGlow)" />
 
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">April 04, 2026</text>
-  <text x="1110" y="574" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Card 1 (top-right): Browser / Chrome Extension -->
+  <g transform="translate(830, 60)" filter="url(#cardShadow)">
+    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(100, 18)">
+      <!-- Browser window -->
+      <rect x="10" y="10" width="90" height="65" rx="6" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.85" />
+      <!-- Title bar -->
+      <rect x="10" y="10" width="90" height="16" rx="6" fill="#3b82f6" opacity="0.15" />
+      <circle cx="22" cy="18" r="3" fill="#ef4444" opacity="0.7" />
+      <circle cx="32" cy="18" r="3" fill="#fbbf24" opacity="0.7" />
+      <circle cx="42" cy="18" r="3" fill="#22c55e" opacity="0.7" />
+      <!-- Extension puzzle icon -->
+      <g transform="translate(35, 40)">
+        <rect x="0" y="5" width="18" height="18" rx="3" fill="#3b82f6" opacity="0.3" />
+        <rect x="5" y="0" width="8" height="8" rx="2" fill="#3b82f6" opacity="0.5" />
+        <rect x="18" y="10" width="8" height="8" rx="2" fill="#3b82f6" opacity="0.5" />
+      </g>
+      <!-- Eye/scan icon -->
+      <circle cx="55" cy="52" r="8" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.6" />
+      <circle cx="55" cy="52" r="3" fill="#22c55e" opacity="0.5" />
+      <!-- Label -->
+      <rect x="20" y="85" width="68" height="18" rx="4" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4" />
+      <text x="54" y="98" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CHROME</text>
+    </g>
+    <circle cx="130" cy="200" r="3" fill="#3b82f6" opacity="0.8" />
+    <circle cx="145" cy="200" r="3" fill="#22c55e" opacity="0.6" />
+    <circle cx="160" cy="200" r="3" fill="#3b82f6" opacity="0.4" />
+  </g>
+
+  <!-- Card 2 (middle): Terminal / WebShell -->
+  <g transform="translate(720, 190)" filter="url(#cardShadow)">
+    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(95, 18)">
+      <!-- Terminal window -->
+      <rect x="10" y="8" width="100" height="75" rx="6" fill="#0b0f1a" stroke="#7c3aed" stroke-width="2" opacity="0.9" />
+      <!-- Terminal title bar -->
+      <rect x="10" y="8" width="100" height="14" rx="6" fill="#7c3aed" opacity="0.2" />
+      <text x="60" y="19" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8" font-weight="600">shell</text>
+      <!-- Terminal lines -->
+      <text x="18" y="38" fill="#22c55e" font-family="monospace" font-size="9" opacity="0.8">$ crontab -l</text>
+      <text x="18" y="50" fill="#a78bfa" font-family="monospace" font-size="8" opacity="0.6">*/5 * * * * /tmp/.h</text>
+      <text x="18" y="62" fill="#ef4444" font-family="monospace" font-size="9" opacity="0.8">
+        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.2s" repeatCount="indefinite" />
+        _
+      </text>
+      <!-- Skull icon (small) indicating malware -->
+      <circle cx="95" cy="70" r="7" fill="#dc2626" opacity="0.2" />
+      <circle cx="95" cy="70" r="3" fill="#dc2626" opacity="0.5" />
+      <!-- Label -->
+      <rect x="18" y="92" width="78" height="18" rx="4" fill="#7c3aed" opacity="0.2" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4" />
+      <text x="57" y="105" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">WEBSHELL</text>
+    </g>
+    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
+    <rect x="40" y="192" width="170" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
+  </g>
+
+  <!-- Card 3 (bottom): Target / Crosshair (APT) -->
+  <g transform="translate(660, 340)" filter="url(#cardShadow)">
+    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
+    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(110, 15)">
+      <!-- Crosshair / Target -->
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6" />
+      <circle cx="50" cy="50" r="25" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.45" />
+      <circle cx="50" cy="50" r="10" fill="#dc2626" opacity="0.2" />
+      <circle cx="50" cy="50" r="4" fill="#dc2626" opacity="0.7" />
+      <!-- Crosshair lines -->
+      <line x1="50" y1="5" x2="50" y2="25" stroke="#dc2626" stroke-width="2" opacity="0.5" />
+      <line x1="50" y1="75" x2="50" y2="95" stroke="#dc2626" stroke-width="2" opacity="0.5" />
+      <line x1="5" y1="50" x2="25" y2="50" stroke="#dc2626" stroke-width="2" opacity="0.5" />
+      <line x1="75" y1="50" x2="95" y2="50" stroke="#dc2626" stroke-width="2" opacity="0.5" />
+      <!-- Scanning dots -->
+      <circle cx="30" cy="30" r="3" fill="#f87171" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="70" cy="30" r="3" fill="#f87171" opacity="0.4">
+        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.3s" repeatCount="indefinite" />
+      </circle>
+      <!-- Label -->
+      <rect x="15" y="100" width="70" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
+      <text x="50" y="113" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">TA416 APT</text>
+    </g>
+    <g transform="translate(40, 195)">
+      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
+      <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="720" cy="280" r="2" fill="#7c3aed" opacity="0.5">
+    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="835" cy="330" r="1.5" fill="#dc2626" opacity="0.4">
+    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1055" cy="300" r="2" fill="#3b82f6" opacity="0.5">
+    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="695" cy="200" r="1.5" fill="#7c3aed" opacity="0.3">
+    <animate attributeName="cy" values="200;192;200" dur="2.8s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1105" cy="180" r="1" fill="#6366f1" opacity="0.4">
+    <animate attributeName="cy" values="180;172;180" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="950" cy="128" r="1.5" fill="#3b82f6" opacity="0.35">
+    <animate attributeName="cx" values="950;958;950" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Left panel: WEEKLY DIGEST badge -->
+  <g transform="translate(60, 80)">
+    <rect width="160" height="32" rx="16" fill="#7c3aed" opacity="0.15" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4" />
+    <text x="80" y="21" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
+  <text x="60" y="225" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
+  <text x="60" y="290" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">APT Campaign</text>
+  <text x="60" y="335" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">WebShell Cron</text>
+
+  <!-- Accent line -->
+  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
+
+  <!-- Tag pills -->
+  <g transform="translate(60, 385)">
+    <rect width="66" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
+    <text x="33" y="20" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">TA416</text>
+    <g transform="translate(76, 0)">
+      <rect width="66" height="30" rx="15" fill="#7c3aed" opacity="0.12" stroke="#7c3aed" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="33" y="20" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">PlugX</text>
+    </g>
+    <g transform="translate(152, 0)">
+      <rect width="86" height="30" rx="15" fill="#6366f1" opacity="0.12" stroke="#6366f1" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="43" y="20" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">WebShell</text>
+    </g>
+    <g transform="translate(248, 0)">
+      <rect width="76" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="38" y="20" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Chrome</text>
+    </g>
+  </g>
+
+  <!-- Date -->
+  <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">APRIL 04, 2026</text>
+
+  <!-- Footer URL -->
+  <g transform="translate(60, 560)">
+    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
+    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
+  </g>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
 </svg>
