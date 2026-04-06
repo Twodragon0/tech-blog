@@ -16,7 +16,10 @@ try:
 except ImportError:
     print("Installing python-frontmatter...")
     import subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "python-frontmatter"])
+
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", "python-frontmatter"]
+    )
     import frontmatter
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
@@ -62,6 +65,7 @@ def wrap_title(title, max_chars=40):
 
 # ─── VISUAL TEMPLATES ──────────────────────────────────────────────
 
+
 def _svg_header(title, accent="#3b82f6", accent2="#8b5cf6"):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{escape_svg(title)}</title>
@@ -89,8 +93,8 @@ def _svg_footer(title, subtitle, date_str, label, accent="#3b82f6"):
     if len(lines) == 1:
         title_svg = f'  <text x="600" y="505" font-family="Arial,sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{escape_svg(lines[0])}</text>'
     else:
-        title_svg = f'''  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{escape_svg(lines[0])}</text>
-  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{escape_svg(lines[1])}</text>'''
+        title_svg = f"""  <text x="600" y="490" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{escape_svg(lines[0])}</text>
+  <text x="600" y="525" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{escape_svg(lines[1])}</text>"""
 
     return f'''
 {title_svg}
@@ -107,7 +111,9 @@ def _svg_footer(title, subtitle, date_str, label, accent="#3b82f6"):
 def visual_aws_cloud(title, subtitle, date_str, label):
     """AWS/Cloud - Multi-cloud architecture diagram."""
     h = _svg_header(title, "#f59e0b", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Central hub -->
     <circle r="50" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5" filter="url(#shadow)"/>
@@ -142,13 +148,17 @@ def visual_aws_cloud(title, subtitle, date_str, label):
     <circle cx="120" cy="40" r="2" fill="#3b82f6" opacity="0.5"/>
     <circle cx="-150" cy="-20" r="2" fill="#10b981" opacity="0.3"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+    )
 
 
 def visual_kubernetes(title, subtitle, date_str, label):
     """Kubernetes - Pod/container hexagonal cluster."""
     h = _svg_header(title, "#326ce5", "#7c3aed")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- K8s helm wheel -->
     <circle r="100" fill="none" stroke="#326ce5" stroke-width="2" opacity="0.3"/>
@@ -196,13 +206,17 @@ def visual_kubernetes(title, subtitle, date_str, label):
     <text x="-220" y="-20" font-family="Courier New" font-size="11" fill="#475569">kubectl apply -f</text>
     <text x="160" y="-20" font-family="Courier New" font-size="11" fill="#475569">helm upgrade</text>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#326ce5")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#326ce5")
+    )
 
 
 def visual_devsecops(title, subtitle, date_str, label):
     """DevSecOps - Infinity loop pipeline."""
     h = _svg_header(title, "#8b5cf6", "#ec4899")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Infinity loop -->
     <path d="M-180,0 C-180,-90 -60,-90 0,0 C60,90 180,90 180,0 C180,-90 60,-90 0,0 C-60,90 -180,90 -180,0Z"
@@ -241,13 +255,17 @@ def visual_devsecops(title, subtitle, date_str, label):
           fill="#8b5cf6" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
     <text x="0" y="6" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#c4b5fd" text-anchor="middle">SEC</text>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+    )
 
 
 def visual_security_shield(title, subtitle, date_str, label):
     """Security - Advanced shield with layers."""
     h = _svg_header(title, "#ef4444", "#dc2626")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,255)">
     <!-- Outer shield -->
     <path d="M0,-150 C90,-150 150,-100 150,0 C150,90 90,170 0,190 C-90,170 -150,90 -150,0 C-150,-100 -90,-150 0,-150Z"
@@ -272,13 +290,17 @@ def visual_security_shield(title, subtitle, date_str, label):
     <circle cx="-80" cy="100" r="2" fill="#f87171" opacity="0.3"/>
     <circle cx="100" cy="-80" r="2" fill="#ef4444" opacity="0.4"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+    )
 
 
 def visual_ai_neural(title, subtitle, date_str, label):
     """AI/ML - Neural network visualization."""
     h = _svg_header(title, "#22d3ee", "#8b5cf6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Neural network layers -->
     <!-- Input layer -->
@@ -342,13 +364,17 @@ def visual_ai_neural(title, subtitle, date_str, label):
     <text x="-60" y="175" font-family="Courier New" font-size="10" fill="#8b5cf6" text-anchor="middle">HIDDEN</text>
     <text x="220" y="95" font-family="Courier New" font-size="10" fill="#ec4899" text-anchor="middle">OUTPUT</text>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#22d3ee")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#22d3ee")
+    )
 
 
 def visual_blockchain(title, subtitle, date_str, label):
     """Blockchain/Crypto - Chain of blocks."""
     h = _svg_header(title, "#8b5cf6", "#f59e0b")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Block chain -->
     <g filter="url(#shadow)">
@@ -389,13 +415,17 @@ def visual_blockchain(title, subtitle, date_str, label):
       <text x="0" y="4" font-family="Courier New" font-size="8" fill="#4ade80" text-anchor="middle">NEXT</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+    )
 
 
 def visual_tesla_automotive(title, subtitle, date_str, label):
     """Tesla/Automotive - Car with connectivity lines."""
     h = _svg_header(title, "#ef4444", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Car silhouette (simplified top view) -->
     <path d="M-120,-30 C-120,-80 -80,-100 0,-100 C80,-100 120,-80 120,-30 L130,50 C130,80 80,100 0,100 C-80,100 -130,80 -130,50 Z"
@@ -438,13 +468,17 @@ def visual_tesla_automotive(title, subtitle, date_str, label):
       <text x="0" y="4" font-family="Courier New" font-size="9" fill="#67e8f9" text-anchor="middle">LIDAR</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+    )
 
 
 def visual_incident(title, subtitle, date_str, label):
     """Incident/Post-Mortem - Alert timeline."""
     h = _svg_header(title, "#ef4444", "#f59e0b")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,240)">
     <!-- Alert triangle -->
     <path d="M0,-120 L100,-10 L-100,-10 Z" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
@@ -475,13 +509,17 @@ def visual_incident(title, subtitle, date_str, label):
       <text x="0" y="45" font-family="Courier New" font-size="8" fill="#64748b" text-anchor="middle">T+2h</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+    )
 
 
 def visual_npm_supply_chain(title, subtitle, date_str, label):
     """npm/Supply Chain - Package dependency tree with warning."""
     h = _svg_header(title, "#cb3837", "#f59e0b")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- Central package -->
     <g filter="url(#shadow)">
@@ -519,13 +557,17 @@ def visual_npm_supply_chain(title, subtitle, date_str, label):
     <!-- Scan indicator -->
     <circle r="160" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.15" stroke-dasharray="6,8"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#cb3837")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#cb3837")
+    )
 
 
 def visual_email(title, subtitle, date_str, label):
     """Email/DKIM/SPF - Email authentication flow."""
     h = _svg_header(title, "#3b82f6", "#22c55e")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Envelope -->
     <rect x="-100" y="-60" width="200" height="120" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
@@ -554,7 +596,9 @@ def visual_email(title, subtitle, date_str, label):
     <line x1="105" y1="-10" x2="160" y2="-10" stroke="#475569" stroke-width="1.5" opacity="0.5"/>
     <line x1="0" y1="60" x2="0" y2="108" stroke="#475569" stroke-width="1.5" opacity="0.5"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#3b82f6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#3b82f6")
+    )
 
 
 def visual_owasp(title, subtitle, date_str, label):
@@ -577,19 +621,25 @@ def visual_owasp(title, subtitle, date_str, label):
     <rect x="30" y="{y - 10}" width="{w}" height="22" rx="4" fill="{color}" opacity="0.15"/>
     <text x="{35 + w}" y="{y + 5}" font-family="Courier New" font-size="10" fill="{color}">{score}%</text>'''
 
-    return h + f'''
+    return (
+        h
+        + f"""
   <g transform="translate(600,270)">
     {bars}
     <text x="-250" y="-140" font-family="Courier New" font-size="14" font-weight="bold" fill="#f87171">OWASP TOP 10 RISK MATRIX</text>
     <line x1="-250" y1="-120" x2="300" y2="-120" stroke="#334155" stroke-width="1" opacity="0.5"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#ef4444")
+    )
 
 
 def visual_cicd(title, subtitle, date_str, label):
     """CI/CD Pipeline - Stage flow."""
     h = _svg_header(title, "#22c55e", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Pipeline flow -->
     <line x1="-350" y1="0" x2="350" y2="0" stroke="#334155" stroke-width="3" opacity="0.4"/>
@@ -629,13 +679,17 @@ def visual_cicd(title, subtitle, date_str, label):
     <line x1="0" y1="-58" x2="-80" y2="-35" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
     <line x1="0" y1="-58" x2="90" y2="-35" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#22c55e")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#22c55e")
+    )
 
 
 def visual_finops(title, subtitle, date_str, label):
     """FinOps - Cost optimization chart."""
     h = _svg_header(title, "#14b8a6", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Chart area -->
     <line x1="-250" y1="100" x2="250" y2="100" stroke="#334155" stroke-width="1.5"/>
@@ -668,13 +722,17 @@ def visual_finops(title, subtitle, date_str, label):
       <text x="0" y="10" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#2dd4bf" text-anchor="middle">$</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#14b8a6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#14b8a6")
+    )
 
 
 def visual_zscaler_network(title, subtitle, date_str, label):
     """Zscaler/Network Security - Zero Trust network."""
     h = _svg_header(title, "#0ea5e9", "#8b5cf6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Central Zscaler cloud -->
     <ellipse cx="0" cy="0" rx="80" ry="50" fill="#0f172a" stroke="#0ea5e9" stroke-width="2.5" filter="url(#shadow)"/>
@@ -722,13 +780,17 @@ def visual_zscaler_network(title, subtitle, date_str, label):
       <text x="30" y="4" font-family="Courier New" font-size="9" fill="#f87171">BLOCKED</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#0ea5e9")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#0ea5e9")
+    )
 
 
 def visual_isms_compliance(title, subtitle, date_str, label):
     """ISMS-P/Compliance - Certification badge with checklist."""
     h = _svg_header(title, "#22c55e", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- Certificate badge -->
     <circle r="90" fill="#22c55e" opacity="0.06" filter="url(#sg)"/>
@@ -760,13 +822,17 @@ def visual_isms_compliance(title, subtitle, date_str, label):
       <text x="0" y="52" font-family="Courier New" font-size="9" fill="#64748b" text-anchor="middle">ISMS-P Ready</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#22c55e")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#22c55e")
+    )
 
 
 def visual_docker(title, subtitle, date_str, label):
     """Docker/Container - Container stack visualization."""
     h = _svg_header(title, "#2496ed", "#0ea5e9")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- Docker whale simplified -->
     <g transform="translate(0,-40)" opacity="0.6">
@@ -795,13 +861,17 @@ def visual_docker(title, subtitle, date_str, label):
       <text x="0" y="92" font-family="Courier New" font-size="10" fill="#a78bfa" text-anchor="middle">OS / KERNEL</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#2496ed")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#2496ed")
+    )
 
 
 def visual_conference(title, subtitle, date_str, label):
     """Conference/Review - Multi-event presentation."""
     h = _svg_header(title, "#f59e0b", "#8b5cf6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Presentation cards -->
     <g transform="translate(-180,-30)" filter="url(#shadow)">
@@ -834,13 +904,17 @@ def visual_conference(title, subtitle, date_str, label):
       <text x="0" y="40" font-family="Arial,sans-serif" font-size="14" fill="#60a5fa" text-anchor="middle">3</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+    )
 
 
 def visual_ransomware(title, subtitle, date_str, label):
     """Ransomware - Lock with ransom warning."""
     h = _svg_header(title, "#dc2626", "#f59e0b")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- Giant padlock -->
     <rect x="-60" y="-10" width="120" height="90" rx="14" fill="#1e293b" stroke="#dc2626" stroke-width="3" filter="url(#shadow)"/>
@@ -866,13 +940,17 @@ def visual_ransomware(title, subtitle, date_str, label):
       <text x="0" y="4" font-family="Courier New" font-size="12" font-weight="bold" fill="#f87171" text-anchor="middle">THREAT DETECTED - RESPOND NOW</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#dc2626")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#dc2626")
+    )
 
 
 def visual_macos_mdm(title, subtitle, date_str, label):
     """macOS/MDM - Device management dashboard."""
     h = _svg_header(title, "#a855f7", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- MacBook outline -->
     <rect x="-140" y="-100" width="280" height="170" rx="12" fill="#0f172a" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
@@ -903,13 +981,17 @@ def visual_macos_mdm(title, subtitle, date_str, label):
       <text x="0" y="5" font-family="Courier New" font-size="7" fill="#c084fc" text-anchor="middle">iPAD</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#a855f7")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#a855f7")
+    )
 
 
 def visual_cloudflare(title, subtitle, date_str, label):
     """Cloudflare - CDN/WAF node network."""
     h = _svg_header(title, "#f6821f", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Central Cloudflare node -->
     <circle r="50" fill="#0f172a" stroke="#f6821f" stroke-width="2.5" filter="url(#shadow)"/>
@@ -953,13 +1035,17 @@ def visual_cloudflare(title, subtitle, date_str, label):
       <text x="0" y="3" font-family="Courier New" font-size="8" fill="#f6821f" text-anchor="middle">WAF</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#f6821f")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#f6821f")
+    )
 
 
 def visual_ai_coding(title, subtitle, date_str, label):
     """AI Coding Assistant - Code editor with AI suggestions."""
     h = _svg_header(title, "#22d3ee", "#ec4899")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,250)">
     <!-- Code editor window -->
     <rect x="-220" y="-110" width="440" height="260" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
@@ -1013,13 +1099,17 @@ def visual_ai_coding(title, subtitle, date_str, label):
       <text x="0" y="22" font-family="Courier New" font-size="8" fill="#60a5fa" text-anchor="middle">Codex</text>
     </g>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#22d3ee")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#22d3ee")
+    )
 
 
 def visual_roadmap(title, subtitle, date_str, label):
     """Roadmap/Guide - Path with milestones."""
     h = _svg_header(title, "#8b5cf6", "#22c55e")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Winding path -->
     <path d="M-300,80 C-200,80 -180,-20 -80,-20 C20,-20 20,80 120,80 C220,80 220,-20 300,-20"
@@ -1052,7 +1142,9 @@ def visual_roadmap(title, subtitle, date_str, label):
     <!-- Floating icons -->
     <text x="-160" y="-70" font-family="Courier New" font-size="10" fill="#475569">// learning path</text>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#8b5cf6")
+    )
 
 
 def visual_music_creative(title, subtitle, date_str, label):
@@ -1060,6 +1152,7 @@ def visual_music_creative(title, subtitle, date_str, label):
     h = _svg_header(title, "#ec4899", "#8b5cf6")
     bars = ""
     import math
+
     for i in range(40):
         x = -300 + i * 15
         height = 20 + abs(math.sin(i * 0.5)) * 80 + abs(math.cos(i * 0.3)) * 40
@@ -1068,7 +1161,9 @@ def visual_music_creative(title, subtitle, date_str, label):
         color = "#ec4899" if i % 3 == 0 else ("#8b5cf6" if i % 3 == 1 else "#3b82f6")
         bars += f'    <rect x="{x}" y="{y}" width="8" height="{height:.0f}" rx="4" fill="{color}" opacity="{opacity:.2f}"/>\n'
 
-    return h + f'''
+    return (
+        h
+        + f"""
   <g transform="translate(600,260)">
     <!-- Audio waveform -->
 {bars}
@@ -1076,13 +1171,17 @@ def visual_music_creative(title, subtitle, date_str, label):
     <circle r="35" fill="#0f172a" stroke="#ec4899" stroke-width="2.5" filter="url(#shadow)"/>
     <polygon points="-10,-16 -10,16 18,0" fill="#ec4899" opacity="0.8"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#ec4899")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#ec4899")
+    )
 
 
 def visual_karpenter(title, subtitle, date_str, label):
     """Karpenter/Autoscaling - Node scaling visualization."""
     h = _svg_header(title, "#326ce5", "#22c55e")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,255)">
     <!-- Scaling arrow -->
     <path d="M-280,0 L280,0" stroke="#334155" stroke-width="2" opacity="0.4"/>
@@ -1122,13 +1221,17 @@ def visual_karpenter(title, subtitle, date_str, label):
     <text x="0" y="-120" font-family="Courier New" font-size="12" font-weight="bold" fill="#4ade80" text-anchor="middle">KARPENTER AUTO-SCALING</text>
     <path d="M-100,-105 L100,-105" stroke="#22c55e" stroke-width="1" opacity="0.3"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#326ce5")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#326ce5")
+    )
 
 
 def visual_database(title, subtitle, date_str, label):
     """Database/NLB - Database access architecture."""
     h = _svg_header(title, "#f59e0b", "#3b82f6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Database cylinder -->
     <g transform="translate(150,0)" filter="url(#shadow)">
@@ -1157,13 +1260,17 @@ def visual_database(title, subtitle, date_str, label):
     <line x1="-95" y1="0" x2="95" y2="0" stroke="#475569" stroke-width="2" opacity="0.5"/>
     <polygon points="90,-6 100,0 90,6" fill="#475569" opacity="0.6"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#f59e0b")
+    )
 
 
 def visual_generic_tech(title, subtitle, date_str, label):
     """Generic tech - Circuit board pattern."""
     h = _svg_header(title, "#3b82f6", "#8b5cf6")
-    return h + '''
+    return (
+        h
+        + """
   <g transform="translate(600,260)">
     <!-- Circuit board pattern -->
     <g stroke="#3b82f6" stroke-width="1.5" opacity="0.3">
@@ -1197,52 +1304,120 @@ def visual_generic_tech(title, subtitle, date_str, label):
     <circle cx="-60" cy="-40" r="4" fill="#8b5cf6" opacity="0.4"/>
     <circle cx="60" cy="40" r="4" fill="#8b5cf6" opacity="0.4"/>
   </g>
-''' + _svg_footer(title, subtitle, date_str, label, "#3b82f6")
+"""
+        + _svg_footer(title, subtitle, date_str, label, "#3b82f6")
+    )
 
 
 # ─── DIGEST TEMPLATE (THREAT SIGNAL MAP v2) ────────────────────────
 
 # Node icon definitions for digest SVG - larger, more detailed
 DIGEST_ICONS = {
-    "malware": {"label": "MALWARE", "color": "#ef4444",
-        "icon": '<circle r="20" fill="{c}" opacity="0.15"/><circle cx="-14" cy="-10" r="7" fill="{c}" opacity="0.5"/><circle cx="14" cy="10" r="7" fill="{c}" opacity="0.5"/><circle cx="10" cy="-14" r="5" fill="{c}" opacity="0.4"/><circle cx="-10" cy="14" r="4" fill="{c}" opacity="0.3"/><line x1="-14" y1="-10" x2="14" y2="10" stroke="{c}" stroke-width="1" opacity="0.3"/>'},
-    "ransomware": {"label": "RANSOM", "color": "#dc2626",
-        "icon": '<rect x="-24" y="-4" width="48" height="38" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><path d="M-14 -4 v-18 c0-20 28-20 28 0 v18" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="7" fill="{c}"/><rect x="-2" y="20" width="4" height="12" rx="2" fill="{c}"/>'},
-    "zero-day": {"label": "ZERO DAY", "color": "#f97316",
-        "icon": '<rect x="-24" y="-18" width="48" height="36" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><text x="0" y="-2" font-family="Courier New" font-size="14" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="14" font-family="Courier New" font-size="9" fill="{c}" text-anchor="middle" opacity="0.7">0-DAY</text>'},
-    "cloud": {"label": "CLOUD", "color": "#3b82f6",
-        "icon": '<path d="M-20 12 C-34 12 -38 -2 -38 -12 C-38 -24 -28 -32 -16 -32 C-12 -44 0 -50 12 -50 C28 -50 38 -38 38 -30 C48 -30 52 -22 52 -12 C52 -2 48 12 32 12 Z" fill="#0b1628" stroke="{c}" stroke-width="2.5" transform="scale(0.65)"/>'},
-    "ai": {"label": "AI/ML", "color": "#22d3ee",
-        "icon": '<circle r="18" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="8" fill="{c}" opacity="0.35"/><line x1="-24" y1="-16" x2="-10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="24" y1="-16" x2="10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="-24" y1="16" x2="-10" y2="8" stroke="{c}" stroke-width="2"/><line x1="24" y1="16" x2="10" y2="8" stroke="{c}" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="-24" cy="16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="16" r="5" fill="{c}" opacity="0.5"/>'},
-    "kubernetes": {"label": "K8S", "color": "#326ce5",
-        "icon": '<polygon points="0,-24 22,-10 14,20 -14,20 -22,-10" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="7" fill="{c}" opacity="0.35"/><line x1="0" y1="-7" x2="0" y2="-20" stroke="{c}" stroke-width="2"/><line x1="6" y1="4" x2="18" y2="14" stroke="{c}" stroke-width="2"/><line x1="-6" y1="4" x2="-18" y2="14" stroke="{c}" stroke-width="2"/>'},
-    "patch": {"label": "PATCH", "color": "#22c55e",
-        "icon": '<path d="M0,-26 L22,-14 L22,10 C22,24 0,34 0,34 C0,34 -22,24 -22,10 L-22,-14 Z" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-9,2 L-3,10 L12,-8" stroke="{c}" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'},
-    "blockchain": {"label": "CHAIN", "color": "#8b5cf6",
-        "icon": '<rect x="-20" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="4" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="-8" y="4" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><line x1="-4" y1="0" x2="-1" y2="4" stroke="{c}" stroke-width="2"/><line x1="12" y1="0" x2="5" y2="4" stroke="{c}" stroke-width="2"/>'},
-    "botnet": {"label": "BOTNET", "color": "#f59e0b",
-        "icon": '<circle r="10" fill="{c}" opacity="0.25"/><circle cx="-22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="-22" cy="14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="14" r="6" fill="{c}" opacity="0.3"/><line x1="-5" y1="-5" x2="-16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="-5" x2="16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="-5" y1="5" x2="-16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="5" x2="16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/>'},
-    "phishing": {"label": "PHISH", "color": "#ec4899",
-        "icon": '<path d="M-22 -10 L0 14 L22 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-26" y="-18" width="52" height="40" rx="5" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-26" r="4" fill="{c}"/>'},
-    "auth": {"label": "AUTH", "color": "#eab308",
-        "icon": '<rect x="-18" y="-4" width="36" height="28" rx="5" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-10 -4 v-12 c0-14 20-14 20 0 v12" stroke="{c}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="0" cy="10" r="5" fill="{c}"/>'},
-    "devops": {"label": "DEVOPS", "color": "#f97316",
-        "icon": '<path d="M-18 0 A18 18 0 0 1 18 0" fill="none" stroke="{c}" stroke-width="3"/><path d="M18 0 A18 18 0 0 1 -18 0" fill="none" stroke="{c}" stroke-width="3" stroke-dasharray="5 3"/><polygon points="18,-5 25,0 18,5" fill="{c}"/><polygon points="-18,5 -25,0 -18,-5" fill="{c}"/>'},
+    "malware": {
+        "label": "MALWARE",
+        "color": "#ef4444",
+        "icon": '<circle r="20" fill="{c}" opacity="0.15"/><circle cx="-14" cy="-10" r="7" fill="{c}" opacity="0.5"/><circle cx="14" cy="10" r="7" fill="{c}" opacity="0.5"/><circle cx="10" cy="-14" r="5" fill="{c}" opacity="0.4"/><circle cx="-10" cy="14" r="4" fill="{c}" opacity="0.3"/><line x1="-14" y1="-10" x2="14" y2="10" stroke="{c}" stroke-width="1" opacity="0.3"/>',
+    },
+    "ransomware": {
+        "label": "RANSOM",
+        "color": "#dc2626",
+        "icon": '<rect x="-24" y="-4" width="48" height="38" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><path d="M-14 -4 v-18 c0-20 28-20 28 0 v18" stroke="{c}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="0" cy="16" r="7" fill="{c}"/><rect x="-2" y="20" width="4" height="12" rx="2" fill="{c}"/>',
+    },
+    "zero-day": {
+        "label": "ZERO DAY",
+        "color": "#f97316",
+        "icon": '<rect x="-24" y="-18" width="48" height="36" rx="8" fill="#1a1020" stroke="{c}" stroke-width="2.5"/><text x="0" y="-2" font-family="Courier New" font-size="14" font-weight="700" fill="{c}" text-anchor="middle">CVE</text><text x="0" y="14" font-family="Courier New" font-size="9" fill="{c}" text-anchor="middle" opacity="0.7">0-DAY</text>',
+    },
+    "cloud": {
+        "label": "CLOUD",
+        "color": "#3b82f6",
+        "icon": '<path d="M-20 12 C-34 12 -38 -2 -38 -12 C-38 -24 -28 -32 -16 -32 C-12 -44 0 -50 12 -50 C28 -50 38 -38 38 -30 C48 -30 52 -22 52 -12 C52 -2 48 12 32 12 Z" fill="#0b1628" stroke="{c}" stroke-width="2.5" transform="scale(0.65)"/>',
+    },
+    "ai": {
+        "label": "AI/ML",
+        "color": "#22d3ee",
+        "icon": '<circle r="18" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="8" fill="{c}" opacity="0.35"/><line x1="-24" y1="-16" x2="-10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="24" y1="-16" x2="10" y2="-8" stroke="{c}" stroke-width="2"/><line x1="-24" y1="16" x2="-10" y2="8" stroke="{c}" stroke-width="2"/><line x1="24" y1="16" x2="10" y2="8" stroke="{c}" stroke-width="2"/><circle cx="-24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="-16" r="5" fill="{c}" opacity="0.5"/><circle cx="-24" cy="16" r="5" fill="{c}" opacity="0.5"/><circle cx="24" cy="16" r="5" fill="{c}" opacity="0.5"/>',
+    },
+    "kubernetes": {
+        "label": "K8S",
+        "color": "#326ce5",
+        "icon": '<polygon points="0,-24 22,-10 14,20 -14,20 -22,-10" fill="none" stroke="{c}" stroke-width="2.5"/><circle r="7" fill="{c}" opacity="0.35"/><line x1="0" y1="-7" x2="0" y2="-20" stroke="{c}" stroke-width="2"/><line x1="6" y1="4" x2="18" y2="14" stroke="{c}" stroke-width="2"/><line x1="-6" y1="4" x2="-18" y2="14" stroke="{c}" stroke-width="2"/>',
+    },
+    "patch": {
+        "label": "PATCH",
+        "color": "#22c55e",
+        "icon": '<path d="M0,-26 L22,-14 L22,10 C22,24 0,34 0,34 C0,34 -22,24 -22,10 L-22,-14 Z" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-9,2 L-3,10 L12,-8" stroke="{c}" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+    },
+    "blockchain": {
+        "label": "CHAIN",
+        "color": "#8b5cf6",
+        "icon": '<rect x="-20" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="4" y="-16" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><rect x="-8" y="4" width="16" height="16" rx="4" fill="none" stroke="{c}" stroke-width="2"/><line x1="-4" y1="0" x2="-1" y2="4" stroke="{c}" stroke-width="2"/><line x1="12" y1="0" x2="5" y2="4" stroke="{c}" stroke-width="2"/>',
+    },
+    "botnet": {
+        "label": "BOTNET",
+        "color": "#f59e0b",
+        "icon": '<circle r="10" fill="{c}" opacity="0.25"/><circle cx="-22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="-14" r="6" fill="{c}" opacity="0.3"/><circle cx="-22" cy="14" r="6" fill="{c}" opacity="0.3"/><circle cx="22" cy="14" r="6" fill="{c}" opacity="0.3"/><line x1="-5" y1="-5" x2="-16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="-5" x2="16" y2="-11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="-5" y1="5" x2="-16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/><line x1="5" y1="5" x2="16" y2="11" stroke="{c}" stroke-width="1.5" opacity="0.5"/>',
+    },
+    "phishing": {
+        "label": "PHISH",
+        "color": "#ec4899",
+        "icon": '<path d="M-22 -10 L0 14 L22 -10" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round"/><rect x="-26" y="-18" width="52" height="40" rx="5" fill="none" stroke="{c}" stroke-width="2"/><circle cx="0" cy="-26" r="4" fill="{c}"/>',
+    },
+    "auth": {
+        "label": "AUTH",
+        "color": "#eab308",
+        "icon": '<rect x="-18" y="-4" width="36" height="28" rx="5" fill="none" stroke="{c}" stroke-width="2.5"/><path d="M-10 -4 v-12 c0-14 20-14 20 0 v12" stroke="{c}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="0" cy="10" r="5" fill="{c}"/>',
+    },
+    "devops": {
+        "label": "DEVOPS",
+        "color": "#f97316",
+        "icon": '<path d="M-18 0 A18 18 0 0 1 18 0" fill="none" stroke="{c}" stroke-width="3"/><path d="M18 0 A18 18 0 0 1 -18 0" fill="none" stroke="{c}" stroke-width="3" stroke-dasharray="5 3"/><polygon points="18,-5 25,0 18,5" fill="{c}"/><polygon points="-18,5 -25,0 -18,-5" fill="{c}"/>',
+    },
 }
 
 DIGEST_KEYWORD_MAP = {
-    "ransomware": "ransomware", "ransom": "ransomware",
-    "zero-day": "zero-day", "0-day": "zero-day", "cve": "zero-day", "exploit": "zero-day",
-    "malware": "malware", "trojan": "malware", "worm": "malware",
-    "botnet": "botnet", "bot": "botnet", "ddos": "botnet",
-    "blockchain": "blockchain", "bitcoin": "blockchain", "crypto": "blockchain", "defi": "blockchain",
-    "ai": "ai", "llm": "ai", "gpt": "ai", "agent": "ai", "ml": "ai",
-    "cloud": "cloud", "aws": "cloud", "azure": "cloud", "gcp": "cloud",
-    "patch": "patch", "update": "patch", "fix": "patch",
-    "kubernetes": "kubernetes", "k8s": "kubernetes", "docker": "kubernetes", "container": "kubernetes",
-    "phishing": "phishing", "phish": "phishing",
-    "authentication": "auth", "mfa": "auth", "credential": "auth", "zero trust": "auth",
-    "devops": "devops", "devsecops": "devops", "cicd": "devops", "ci/cd": "devops",
+    "ransomware": "ransomware",
+    "ransom": "ransomware",
+    "zero-day": "zero-day",
+    "0-day": "zero-day",
+    "cve": "zero-day",
+    "exploit": "zero-day",
+    "malware": "malware",
+    "trojan": "malware",
+    "worm": "malware",
+    "botnet": "botnet",
+    "bot": "botnet",
+    "ddos": "botnet",
+    "blockchain": "blockchain",
+    "bitcoin": "blockchain",
+    "crypto": "blockchain",
+    "defi": "blockchain",
+    "ai": "ai",
+    "llm": "ai",
+    "gpt": "ai",
+    "agent": "ai",
+    "ml": "ai",
+    "cloud": "cloud",
+    "aws": "cloud",
+    "azure": "cloud",
+    "gcp": "cloud",
+    "patch": "patch",
+    "update": "patch",
+    "fix": "patch",
+    "kubernetes": "kubernetes",
+    "k8s": "kubernetes",
+    "docker": "kubernetes",
+    "container": "kubernetes",
+    "phishing": "phishing",
+    "phish": "phishing",
+    "authentication": "auth",
+    "mfa": "auth",
+    "credential": "auth",
+    "zero trust": "auth",
+    "devops": "devops",
+    "devsecops": "devops",
+    "cicd": "devops",
+    "ci/cd": "devops",
 }
 
 
@@ -1304,7 +1479,7 @@ def visual_digest(title, subtitle, date_str, tags):
         c1 = node_configs[i]["color"]
         c2 = node_configs[i + 1]["color"]
         arrows_svg += f'''  <path d="M{x1} 320 C{mid} 270 {mid} 270 {x2} 320" fill="none" stroke="{c1}" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.5"/>
-  <polygon points="{x2-2},315 {x2+8},320 {x2-2},325" fill="{c2}" opacity="0.6"/>
+  <polygon points="{x2 - 2},315 {x2 + 8},320 {x2 - 2},325" fill="{c2}" opacity="0.6"/>
 '''
 
     # Glow circles behind nodes
@@ -1319,7 +1494,7 @@ def visual_digest(title, subtitle, date_str, tags):
     else:
         title_svg = f'  <text x="600" y="478" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">{escape_svg(title_lines[0])}</text>\n  <text x="600" y="508" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow2)">{escape_svg(title_lines[1])}</text>'
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{escape_svg(title)}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1349,7 +1524,7 @@ def visual_digest(title, subtitle, date_str, tags):
   <rect x="70" y="570" width="1060" height="1.5" fill="#334155" opacity="0.6"/>
   <text x="90" y="600" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">tech.2twodragon.com</text>
   <text x="1110" y="600" font-family="Arial,sans-serif" font-size="13" fill="#64748b" text-anchor="end">Weekly Digest</text>
-</svg>'''
+</svg>"""
 
 
 # ─── TOPIC DETECTION & MAPPING ─────────────────────────────────────
@@ -1358,9 +1533,17 @@ TOPIC_RULES = [
     # (keywords_any, also_requires_any, visual_func)
     # More specific patterns first; also_requires_any uses ANY match (not ALL)
     (["karpenter", "autoscal", "node scaling"], [], visual_karpenter),
-    (["tesla", "fsd", "automotive", "vehicle", "connected car"], [], visual_tesla_automotive),
+    (
+        ["tesla", "fsd", "automotive", "vehicle", "connected car"],
+        [],
+        visual_tesla_automotive,
+    ),
     (["npm", "shai-hulud"], [], visual_npm_supply_chain),
-    (["supply chain", "supply-chain"], ["npm", "package", "dependency"], visual_npm_supply_chain),
+    (
+        ["supply chain", "supply-chain"],
+        ["npm", "package", "dependency"],
+        visual_npm_supply_chain,
+    ),
     (["blockchain", "crypto", "bitcoin", "defi"], [], visual_blockchain),
     (["email", "sendgrid", "spf", "dkim", "dmarc"], [], visual_email),
     (["kandji", "macos", "mdm"], [], visual_macos_mdm),
@@ -1373,7 +1556,18 @@ TOPIC_RULES = [
     (["reinforce"], [], visual_conference),
     (["music", "video generation", "creative ai"], [], visual_music_creative),
     (["roadmap", "learning path", "로드맵"], [], visual_roadmap),
-    (["ai coding", "coding assistant", "claude code", "chatgpt", "copilot", "opencode"], [], visual_ai_coding),
+    (
+        [
+            "ai coding",
+            "coding assistant",
+            "claude code",
+            "chatgpt",
+            "copilot",
+            "opencode",
+        ],
+        [],
+        visual_ai_coding,
+    ),
     (["ai vs", "ai comparison", "코딩 어시스턴트"], [], visual_ai_coding),
     (["owasp"], [], visual_owasp),
     (["isms", "compliance", "certification", "인증"], [], visual_isms_compliance),
@@ -1382,13 +1576,48 @@ TOPIC_RULES = [
     (["finops", "cost optimization", "비용"], [], visual_finops),
     (["docker"], ["kubernetes", "k8s", "container"], visual_docker),
     (["docker"], [], visual_docker),
-    (["kubernetes", "k8s", "k9s", "minikube", "helm", "eks", "gke"], [], visual_kubernetes),
-    (["agentic ai", "agentic-ai", "ai agent", "ai-agent", "llm security", "llm-security", "prompt injection", "prompt-injection"], [], visual_ai_neural),
+    (
+        ["kubernetes", "k8s", "k9s", "minikube", "helm", "eks", "gke"],
+        [],
+        visual_kubernetes,
+    ),
+    (
+        [
+            "agentic ai",
+            "agentic-ai",
+            "ai agent",
+            "ai-agent",
+            "llm security",
+            "llm-security",
+            "prompt injection",
+            "prompt-injection",
+        ],
+        [],
+        visual_ai_neural,
+    ),
     (["ai", "llm", "gpt", "ml", "neural"], [], visual_ai_neural),
-    (["aws", "gcp", "azure", "cloud security", "vpc", "guardduty", "waf", "cloudfront", "cloud update"], [], visual_aws_cloud),
+    (
+        [
+            "aws",
+            "gcp",
+            "azure",
+            "cloud security",
+            "vpc",
+            "guardduty",
+            "waf",
+            "cloudfront",
+            "cloud update",
+        ],
+        [],
+        visual_aws_cloud,
+    ),
     (["control tower", "scp", "governance"], [], visual_aws_cloud),
     (["devsecops", "devops"], [], visual_devsecops),
-    (["security", "vulnerability", "cve", "patch", "threat", "보안"], [], visual_security_shield),
+    (
+        ["security", "vulnerability", "cve", "patch", "threat", "보안"],
+        [],
+        visual_security_shield,
+    ),
 ]
 
 
@@ -1477,7 +1706,9 @@ def process_post(post_path):
     # Use English title for SVG display (from filename or image_alt)
     display_title = post.get("image_alt", "") or title
     # Remove emojis
-    display_title = re.sub(r'[^\x00-\x7F\uAC00-\uD7A3\u3131-\u3163\u3000-\u303f]+', '', display_title).strip()
+    display_title = re.sub(
+        r"[^\x00-\x7F\uAC00-\uD7A3\u3131-\u3163\u3000-\u303f]+", "", display_title
+    ).strip()
 
     is_digest = "Digest" in post_path.name or "Weekly_Digest" in title
 
@@ -1500,8 +1731,13 @@ def process_post(post_path):
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="Regenerate all post SVG images with topic-specific visuals")
-    parser.add_argument("--dry-run", action="store_true", help="Only show what would be generated")
+
+    parser = argparse.ArgumentParser(
+        description="Regenerate all post SVG images with topic-specific visuals"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Only show what would be generated"
+    )
     parser.add_argument("--post", type=str, help="Process a specific post file")
     args = parser.parse_args()
 

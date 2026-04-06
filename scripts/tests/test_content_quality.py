@@ -6,8 +6,8 @@ and _has_batchim functions.
 
 import pytest
 from news.content_generator import (
-    _build_clean_excerpt,
     _build_clean_description,
+    _build_clean_excerpt,
     _build_clean_image_alt,
     _has_batchim,
 )
@@ -37,12 +37,16 @@ class TestBuildCleanExcerpt:
 
     def test_particle_eul_with_batchim(self):
         # "형" has batchim -> "을"
-        result = _build_clean_excerpt("IAM 정책 유형", "2026년 03월 24일", 29, "security")
+        result = _build_clean_excerpt(
+            "IAM 정책 유형", "2026년 03월 24일", 29, "security"
+        )
         assert "유형을 중심으로" in result
 
     def test_particle_reul_without_batchim(self):
         # "해" has no batchim -> "를"
-        result = _build_clean_excerpt("보안 위협 분석, 취약점 대응 요약", "2026년 03월 20일", 24, "security")
+        result = _build_clean_excerpt(
+            "보안 위협 분석, 취약점 대응 요약", "2026년 03월 20일", 24, "security"
+        )
         assert "요약를" not in result
 
     def test_security_mode(self):
@@ -63,7 +67,9 @@ class TestBuildCleanDescription:
         result = _build_clean_description(
             "북한 해커, VS Code 악용, IAM 정책",
             "The Hacker News, AWS Security Blog",
-            "2026년 03월 24일", 29, "security"
+            "2026년 03월 24일",
+            29,
+            "security",
         )
         assert "북한 해커" in result
         assert "VS Code 악용" in result
@@ -72,15 +78,13 @@ class TestBuildCleanDescription:
 
     def test_single_keyword(self):
         result = _build_clean_description(
-            "Ransomware 위협 분석",
-            "SK쉴더스", "2026년 03월 23일", 15, "security"
+            "Ransomware 위협 분석", "SK쉴더스", "2026년 03월 23일", 15, "security"
         )
         assert "Ransomware 위협 분석" in result
 
     def test_tech_mode_description(self):
         result = _build_clean_description(
-            "Kubernetes, Docker, CI/CD",
-            "CNCF Blog", "2026년 03월 21일", 22, "tech"
+            "Kubernetes, Docker, CI/CD", "CNCF Blog", "2026년 03월 21일", 22, "tech"
         )
         assert "개발자 트렌드" in result
 
@@ -92,8 +96,7 @@ class TestBuildCleanDescription:
 
     def test_no_orphaned_commas(self):
         result = _build_clean_description(
-            "A, , B, , C",
-            "Source", "2026년 03월 24일", 5, "security"
+            "A, , B, , C", "Source", "2026년 03월 24일", 5, "security"
         )
         assert ",," not in result
         assert ", ," not in result
@@ -112,6 +115,7 @@ class TestBuildCleanImageAlt:
         assert "VS Code" in result
         # No Korean characters in output
         import re
+
         assert not re.search(r"[가-힣]", result)
 
     def test_tech_mode_suffix(self):
@@ -138,13 +142,16 @@ class TestTitleQualityScore:
     @pytest.fixture
     def score_fn(self):
         from news.content_generator import _title_quality_score
+
         return _title_quality_score
 
     def test_good_title_high_score(self, score_fn):
         assert score_fn("Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어") >= 80
 
     def test_keyword_title_decent_score(self, score_fn):
-        assert score_fn("북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE") >= 60
+        assert (
+            score_fn("북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE") >= 60
+        )
 
     def test_dangling_particle_low_score(self, score_fn):
         title = "Trivy 공급망 침해를 탐지, 조사 및, CI/CD 침해를"
@@ -178,6 +185,7 @@ class TestCheckTableCellTruncation:
     @pytest.fixture
     def check_fn(self):
         from check_posts import check_table_cell_truncation
+
         return check_table_cell_truncation
 
     def test_trailing_comma_detected(self, check_fn):

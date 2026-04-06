@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Upgrade low-quality post thumbnail SVGs with richer visual elements."""
 
+import json
 import os
 import re
-import json
 from datetime import datetime
 
 # Theme definitions with unique visual elements
 THEMES = {
     "vulnerability": {
-        "accent": "#ef4444", "accent2": "#f97316", "bg2": "#1a0a0a",
+        "accent": "#ef4444",
+        "accent2": "#f97316",
+        "bg2": "#1a0a0a",
         "icon": """
     <g transform="translate(600,250)">
       <path d="M0,-130 L110,-85 L110,30 C110,90 55,135 0,160 C-55,135 -110,90 -110,30 L-110,-85 Z" fill="{accent}" opacity="0.12" stroke="{accent}" stroke-width="2"/>
@@ -27,10 +29,17 @@ THEMES = {
       <polygon points="950,450 965,425 980,450" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
       <text x="965" y="446" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
     </g>""",
-        "code_lines": ["CVE-2026-XXXX", "CVSS: 9.8 CRITICAL", "patch --apply fix", "vuln.scan(target)"],
+        "code_lines": [
+            "CVE-2026-XXXX",
+            "CVSS: 9.8 CRITICAL",
+            "patch --apply fix",
+            "vuln.scan(target)",
+        ],
     },
     "ransomware": {
-        "accent": "#ef4444", "accent2": "#dc2626", "bg2": "#1a0505",
+        "accent": "#ef4444",
+        "accent2": "#dc2626",
+        "bg2": "#1a0505",
         "icon": """
     <g transform="translate(600,240)">
       <rect x="-50" y="-40" width="100" height="80" rx="10" fill="#1e293b" stroke="{accent}" stroke-width="2.5"/>
@@ -47,10 +56,17 @@ THEMES = {
       <text x="100" y="430">$$$ RANSOM $$$</text>
       <text x="920" y="450">decrypt.key</text>
     </g>""",
-        "code_lines": ["encrypt(data)", "ransom_note.txt", "bitcoin: bc1q...", "key_exchange()"],
+        "code_lines": [
+            "encrypt(data)",
+            "ransom_note.txt",
+            "bitcoin: bc1q...",
+            "key_exchange()",
+        ],
     },
     "supply_chain": {
-        "accent": "#8b5cf6", "accent2": "#7c3aed", "bg2": "#0a0a1e",
+        "accent": "#8b5cf6",
+        "accent2": "#7c3aed",
+        "bg2": "#0a0a1e",
         "icon": """
     <g transform="translate(600,240)">
       <rect x="-90" y="-30" width="60" height="60" rx="8" fill="#1e293b" stroke="{accent}" stroke-width="2"/>
@@ -70,10 +86,17 @@ THEMES = {
       <circle cx="1000" cy="420" r="4" fill="{accent}"/><circle cx="980" cy="410" r="3" fill="{accent}"/>
       <line x1="1000" y1="420" x2="980" y2="410" stroke="{accent}" stroke-width="1"/>
     </g>""",
-        "code_lines": ["npm install pkg", "pip install lib", "verify(hash)", "dependency.lock"],
+        "code_lines": [
+            "npm install pkg",
+            "pip install lib",
+            "verify(hash)",
+            "dependency.lock",
+        ],
     },
     "ai_security": {
-        "accent": "#3b82f6", "accent2": "#06b6d4", "bg2": "#0a0a1e",
+        "accent": "#3b82f6",
+        "accent2": "#06b6d4",
+        "bg2": "#0a0a1e",
         "icon": """
     <g transform="translate(600,240)">
       <circle cx="0" cy="0" r="60" fill="#1e293b" stroke="{accent}" stroke-width="2.5"/>
@@ -97,10 +120,17 @@ THEMES = {
       <text x="60" y="440">agent.run(task)</text>
       <text x="920" y="430">llm.generate()</text>
     </g>""",
-        "code_lines": ["agent.execute()", "model.eval()", "prompt_inject()", "guardrail.check()"],
+        "code_lines": [
+            "agent.execute()",
+            "model.eval()",
+            "prompt_inject()",
+            "guardrail.check()",
+        ],
     },
     "cloud": {
-        "accent": "#06b6d4", "accent2": "#3b82f6", "bg2": "#0a0a1e",
+        "accent": "#06b6d4",
+        "accent2": "#3b82f6",
+        "bg2": "#0a0a1e",
         "icon": """
     <g transform="translate(600,230)">
       <path d="M-80,20 C-80,-40 -40,-70 10,-70 C30,-70 50,-60 60,-45 C70,-55 90,-55 105,-40 C130,-40 140,-20 140,0 C140,25 125,40 100,40 L-60,40 C-80,40 -100,25 -100,5 C-100,-5 -90,-15 -80,-15 Z" fill="#1e293b" stroke="{accent}" stroke-width="2.5"/>
@@ -116,10 +146,17 @@ THEMES = {
       <rect x="1020" y="400" width="80" height="50" rx="4" fill="none" stroke="{accent2}" stroke-width="1"/>
       <text x="1060" y="430" font-family="Courier New" font-size="9" fill="{accent2}" text-anchor="middle">ap-ne-2</text>
     </g>""",
-        "code_lines": ["aws configure", "kubectl apply", "terraform plan", "cloud.deploy()"],
+        "code_lines": [
+            "aws configure",
+            "kubectl apply",
+            "terraform plan",
+            "cloud.deploy()",
+        ],
     },
     "blockchain": {
-        "accent": "#f59e0b", "accent2": "#f97316", "bg2": "#1a0f00",
+        "accent": "#f59e0b",
+        "accent2": "#f97316",
+        "bg2": "#1a0f00",
         "icon": """
     <g transform="translate(600,240)">
       <rect x="-80" y="-35" width="50" height="50" rx="6" fill="#1e293b" stroke="{accent}" stroke-width="2"/>
@@ -139,10 +176,17 @@ THEMES = {
       <text x="100" y="420" font-family="Courier New" font-size="11" fill="{accent}">block.verify()</text>
       <text x="930" y="440" font-family="Courier New" font-size="11" fill="{accent}">tx.confirm()</text>
     </g>""",
-        "code_lines": ["tx.sign(key)", "block.hash()", "BTC: $71,000", "ledger.verify()"],
+        "code_lines": [
+            "tx.sign(key)",
+            "block.hash()",
+            "BTC: $71,000",
+            "ledger.verify()",
+        ],
     },
     "apt_malware": {
-        "accent": "#ef4444", "accent2": "#8b5cf6", "bg2": "#1a0505",
+        "accent": "#ef4444",
+        "accent2": "#8b5cf6",
+        "bg2": "#1a0505",
         "icon": """
     <g transform="translate(600,240)">
       <circle cx="0" cy="0" r="50" fill="#1e293b" stroke="{accent}" stroke-width="2"/>
@@ -168,10 +212,17 @@ THEMES = {
       <polygon points="1030,160 1045,135 1060,160" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
       <text x="1045" y="156" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
     </g>""",
-        "code_lines": ["C2: connect()", "exfil(data)", "persist(rootkit)", "lateral_move()"],
+        "code_lines": [
+            "C2: connect()",
+            "exfil(data)",
+            "persist(rootkit)",
+            "lateral_move()",
+        ],
     },
     "zero_day": {
-        "accent": "#ef4444", "accent2": "#f59e0b", "bg2": "#1a0808",
+        "accent": "#ef4444",
+        "accent2": "#f59e0b",
+        "bg2": "#1a0808",
         "icon": """
     <g transform="translate(600,240)">
       <rect x="-55" y="-65" width="110" height="110" rx="12" fill="#1e293b" stroke="{accent}" stroke-width="2.5"/>
@@ -190,10 +241,17 @@ THEMES = {
       <polygon points="1050,150 1065,125 1080,150" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
       <text x="1065" y="146" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle">!</text>
     </g>""",
-        "code_lines": ["CVE-2026-XXXX", "exploit(0day)", "patch: PENDING", "alert: CRITICAL"],
+        "code_lines": [
+            "CVE-2026-XXXX",
+            "exploit(0day)",
+            "patch: PENDING",
+            "alert: CRITICAL",
+        ],
     },
     "docker": {
-        "accent": "#06b6d4", "accent2": "#3b82f6", "bg2": "#0a0a1e",
+        "accent": "#06b6d4",
+        "accent2": "#3b82f6",
+        "bg2": "#0a0a1e",
         "icon": """
     <g transform="translate(600,235)">
       <rect x="-80" y="-20" width="160" height="80" rx="10" fill="#1e293b" stroke="{accent}" stroke-width="2.5"/>
@@ -214,10 +272,17 @@ THEMES = {
       <text x="60" y="430">FROM alpine:3.20</text>
       <text x="930" y="450">EXPOSE 8080</text>
     </g>""",
-        "code_lines": ["docker pull img", "container.exec()", "Dockerfile", "compose up -d"],
+        "code_lines": [
+            "docker pull img",
+            "container.exec()",
+            "Dockerfile",
+            "compose up -d",
+        ],
     },
     "phishing": {
-        "accent": "#ef4444", "accent2": "#f59e0b", "bg2": "#1a0808",
+        "accent": "#ef4444",
+        "accent2": "#f59e0b",
+        "bg2": "#1a0808",
         "icon": """
     <g transform="translate(600,230)">
       <path d="M0,-100 L0,-20 C0,10 -25,30 -25,30 C-25,30 0,50 25,30 C25,30 50,10 50,-20 L50,-35" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round"/>
@@ -236,10 +301,17 @@ THEMES = {
       <text x="120" y="440" font-family="Courier New" font-size="10" fill="{accent}">credential.steal</text>
       <text x="920" y="430" font-family="Courier New" font-size="10" fill="{accent}">redirect(evil)</text>
     </g>""",
-        "code_lines": ["phish.send()", "cred.capture()", "vishing_call()", "social_eng()"],
+        "code_lines": [
+            "phish.send()",
+            "cred.capture()",
+            "vishing_call()",
+            "social_eng()",
+        ],
     },
     "code_security": {
-        "accent": "#22c55e", "accent2": "#3b82f6", "bg2": "#0a1a0a",
+        "accent": "#22c55e",
+        "accent2": "#3b82f6",
+        "bg2": "#0a1a0a",
         "icon": """
     <g transform="translate(600,235)">
       <rect x="-80" y="-55" width="160" height="110" rx="10" fill="#1e293b" stroke="{accent}" stroke-width="2"/>
@@ -261,7 +333,12 @@ THEMES = {
       <text x="1040" y="425" font-family="Courier New" font-size="9" fill="#ef4444" text-anchor="middle">api.py</text>
       <text x="1040" y="445" font-family="Courier New" font-size="9" fill="#ef4444" text-anchor="middle">VULN</text>
     </g>""",
-        "code_lines": ["lint --fix", "test --coverage", "audit --strict", "deploy --safe"],
+        "code_lines": [
+            "lint --fix",
+            "test --coverage",
+            "audit --strict",
+            "deploy --safe",
+        ],
     },
 }
 
@@ -552,7 +629,7 @@ def main():
             print(f"  SKIP (not found): {cfg['file']}")
             continue
         svg = generate_svg(cfg)
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, "w", encoding="utf-8") as f:
             f.write(svg)
         updated += 1
         print(f"  UPGRADED: {cfg['file']} ({len(svg)}B, theme={cfg['theme']})")

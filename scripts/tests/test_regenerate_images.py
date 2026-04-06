@@ -9,28 +9,28 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.regenerate_all_images import (
-    escape_svg,
-    truncate,
-    wrap_title,
     detect_topic,
+    escape_svg,
     get_label,
-    visual_generic_tech,
-    visual_kubernetes,
+    truncate,
+    visual_ai_neural,
     visual_aws_cloud,
     visual_blockchain,
-    visual_security_shield,
+    visual_cicd,
     visual_devsecops,
-    visual_ai_neural,
     visual_docker,
     visual_finops,
+    visual_generic_tech,
+    visual_kubernetes,
     visual_ransomware,
-    visual_cicd,
+    visual_security_shield,
+    wrap_title,
 )
-
 
 # ---------------------------------------------------------------------------
 # escape_svg
 # ---------------------------------------------------------------------------
+
 
 class TestEscapeSvg:
     def test_escapes_ampersand(self):
@@ -69,6 +69,7 @@ class TestEscapeSvg:
 # truncate
 # ---------------------------------------------------------------------------
 
+
 class TestTruncate:
     def test_returns_text_unchanged_when_within_limit(self):
         assert truncate("Short title", 48) == "Short title"
@@ -98,6 +99,7 @@ class TestTruncate:
 # ---------------------------------------------------------------------------
 # wrap_title
 # ---------------------------------------------------------------------------
+
 
 class TestWrapTitle:
     def test_short_title_returns_single_line(self):
@@ -132,6 +134,7 @@ class TestWrapTitle:
 # ---------------------------------------------------------------------------
 # get_label
 # ---------------------------------------------------------------------------
+
 
 class TestGetLabel:
     def test_returns_security_label_for_security_category(self):
@@ -176,6 +179,7 @@ class TestGetLabel:
 # ---------------------------------------------------------------------------
 # detect_topic
 # ---------------------------------------------------------------------------
+
 
 class TestDetectTopic:
     def test_kubernetes_keywords_in_title_returns_kubernetes_func(self):
@@ -255,21 +259,25 @@ class TestDetectTopic:
 
     def test_supply_chain_without_npm_does_not_return_npm_func(self):
         from scripts.regenerate_all_images import visual_npm_supply_chain
+
         func = detect_topic("Supply chain attack overview", [], [])
         assert func is not visual_npm_supply_chain
 
     def test_supply_chain_with_npm_returns_npm_func(self):
         from scripts.regenerate_all_images import visual_npm_supply_chain
+
         func = detect_topic("Supply chain attack via npm package", [], [])
         assert func is visual_npm_supply_chain
 
     def test_cloudflare_incident_returns_incident_func(self):
         from scripts.regenerate_all_images import visual_incident
+
         func = detect_topic("Cloudflare outage incident report", [], [])
         assert func is visual_incident
 
     def test_cloudflare_without_incident_returns_cloudflare_func(self):
         from scripts.regenerate_all_images import visual_cloudflare
+
         func = detect_topic("Cloudflare DNS overview", [], [])
         assert func is visual_cloudflare
 

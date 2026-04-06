@@ -40,7 +40,7 @@ def parse_front_matter(content: str) -> dict:
         result["title"] = title_match.group(1).strip()
 
     # date 추출
-    date_match = re.search(r'^date:\s*(\d{4}-\d{2}-\d{2})', fm_text, re.MULTILINE)
+    date_match = re.search(r"^date:\s*(\d{4}-\d{2}-\d{2})", fm_text, re.MULTILINE)
     if date_match:
         result["date"] = date_match.group(1)
 
@@ -86,15 +86,17 @@ def scan_posts(days: int) -> list[dict]:
         title = fm.get("title", path.stem)
         permalink = build_jekyll_permalink(path.name)
 
-        posts.append({
-            "path": path,
-            "filename": path.name,
-            "date": post_date,
-            "date_str": date_str,
-            "title": title,
-            "permalink": permalink,
-            "content": content,
-        })
+        posts.append(
+            {
+                "path": path,
+                "filename": path.name,
+                "date": post_date,
+                "date_str": date_str,
+                "title": title,
+                "permalink": permalink,
+                "content": content,
+            }
+        )
 
     return posts
 
@@ -152,7 +154,7 @@ def find_section_last_content_line(lines: list[str], start: int, end: int) -> in
 def build_cross_ref_line(post: dict) -> str:
     """크로스 레퍼런스 삽입 텍스트 생성"""
     date_display = post["date"].strftime("%Y년 %m월 %d일")
-    return f'> {CROSS_REF_MARKER}: [{post["title"]} ({date_display})]({post["permalink"]})\n'
+    return f"> {CROSS_REF_MARKER}: [{post['title']} ({date_display})]({post['permalink']})\n"
 
 
 def add_cross_references_to_post(
@@ -269,12 +271,18 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    auto_yes = args.yes or os.getenv("TECH_BLOG_AUTO_YES", "") == "1" or os.getenv("CI", "") == "1"
+    auto_yes = (
+        args.yes
+        or os.getenv("TECH_BLOG_AUTO_YES", "") == "1"
+        or os.getenv("CI", "") == "1"
+    )
 
     if args.dry_run:
         print("=== 드라이런 모드: 실제 파일은 변경되지 않습니다 ===\n")
 
-    print(f"포스트 스캔 중... (대상: {'최근 ' + str(args.days) + '일' if args.days > 0 else '전체'})")
+    print(
+        f"포스트 스캔 중... (대상: {'최근 ' + str(args.days) + '일' if args.days > 0 else '전체'})"
+    )
     all_posts = scan_posts(args.days)
     print(f"  총 {len(all_posts)}개 포스트 발견\n")
 
@@ -286,7 +294,9 @@ def main() -> int:
         matched = find_keyword_posts(all_posts, keyword)
 
         if len(matched) < 2:
-            print(f"  → '{keyword}' 포함 포스트가 {len(matched)}개로 크로스 레퍼런스 생성 불가 (최소 2개 필요)\n")
+            print(
+                f"  → '{keyword}' 포함 포스트가 {len(matched)}개로 크로스 레퍼런스 생성 불가 (최소 2개 필요)\n"
+            )
             continue
 
         print(f"  → {len(matched)}개 포스트에서 발견:")
@@ -314,7 +324,9 @@ def main() -> int:
                     print(f"  ✓ {target['filename']}: {count}개 섹션에 레퍼런스 추가")
 
         if not args.dry_run:
-            print(f"\n  키워드 '{keyword}': {modified}개 포스트, {insertions}개 섹션 업데이트\n")
+            print(
+                f"\n  키워드 '{keyword}': {modified}개 포스트, {insertions}개 섹션 업데이트\n"
+            )
         else:
             print(f"\n  키워드 '{keyword}': {insertions}개 섹션에 삽입 예정\n")
 
@@ -324,7 +336,9 @@ def main() -> int:
     if args.dry_run:
         print(f"=== 드라이런 완료: 총 {total_insertions}개 섹션에 삽입 예정 ===")
     else:
-        print(f"=== 완료: 총 {total_modified}개 포스트, {total_insertions}개 섹션 업데이트 ===")
+        print(
+            f"=== 완료: 총 {total_modified}개 포스트, {total_insertions}개 섹션 업데이트 ==="
+        )
 
     return 0
 

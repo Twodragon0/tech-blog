@@ -13,20 +13,20 @@ import os
 import re
 import shutil
 import subprocess
-import xml.etree.ElementTree as ET
-from io import StringIO
 import sys
 import time
+import xml.etree.ElementTree as ET
 from datetime import datetime
+from io import StringIO
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.lib.security import mask_sensitive_info, validate_masked_text
-from scripts.lib.logging_utils import log_message
-
 import frontmatter
 import requests
+
+from scripts.lib.logging_utils import log_message
+from scripts.lib.security import mask_sensitive_info, validate_masked_text
 
 try:
     from PIL import Image
@@ -107,7 +107,6 @@ Style: Clean professional infographic
 """
 
 
-
 def validate_and_fix_svg(svg_content: str) -> str:
     """Validate SVG XML and fix common issues."""
     try:
@@ -115,7 +114,7 @@ def validate_and_fix_svg(svg_content: str) -> str:
         return svg_content  # Already valid
     except ET.ParseError:
         # Fix bare & (not part of existing entities)
-        fixed = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#)', '&amp;', svg_content)
+        fixed = re.sub(r"&(?!amp;|lt;|gt;|quot;|apos;|#)", "&amp;", svg_content)
         try:
             ET.fromstring(fixed)
             return fixed
@@ -209,7 +208,6 @@ def optimize_image(image_path: Path):
         log_message("✅ 이미지 최적화 완료", "SUCCESS")
     except Exception as e:
         log_message(f"❌ 이미지 최적화 실패: {str(e)}", "ERROR")
-
 
 
 def extract_post_info(post_file: Path) -> Dict:
@@ -437,11 +435,17 @@ def generate_image_prompt(post_info: Dict) -> str:
     tags = post_info.get("tags", [])
     # Extract specific terms from tags (CVE IDs, product names, threat names)
     specific_tags = [
-        t for t in tags
+        t
+        for t in tags
         if re.match(r"CVE-\d+", str(t), re.IGNORECASE)
-        or str(t) not in (
-            "Security-Weekly", "DevSecOps", "Cloud-Security",
-            "Weekly-Digest", "2026", "2025",
+        or str(t)
+        not in (
+            "Security-Weekly",
+            "DevSecOps",
+            "Cloud-Security",
+            "Weekly-Digest",
+            "2026",
+            "2025",
         )
     ][:5]
 
@@ -843,21 +847,40 @@ def convert_svg_to_png(svg_path: Path, png_path: Path) -> bool:
             convert_png_to_modern_formats(png_path)
             return True
         except Exception as e:
-            log_message(f"⚠️ cairosvg 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
+            log_message(
+                f"⚠️ cairosvg 변환 실패: {mask_sensitive_info(str(e))}", "WARNING"
+            )
 
     if RSVG_CONVERT_PATH:
         try:
             result = subprocess.run(
-                [RSVG_CONVERT_PATH, "-w", "1200", "-h", "630", str(svg_path), "-o", str(png_path)],
-                capture_output=True, text=True, timeout=30
+                [
+                    RSVG_CONVERT_PATH,
+                    "-w",
+                    "1200",
+                    "-h",
+                    "630",
+                    str(svg_path),
+                    "-o",
+                    str(png_path),
+                ],
+                capture_output=True,
+                text=True,
+                timeout=30,
             )
             if result.returncode == 0:
-                log_message(f"✅ SVG → PNG 변환 완료 (rsvg-convert): {png_path.name}", "SUCCESS")
+                log_message(
+                    f"✅ SVG → PNG 변환 완료 (rsvg-convert): {png_path.name}", "SUCCESS"
+                )
                 convert_png_to_modern_formats(png_path)
                 return True
-            log_message(f"⚠️ rsvg-convert 실패: {mask_sensitive_info(result.stderr)}", "WARNING")
+            log_message(
+                f"⚠️ rsvg-convert 실패: {mask_sensitive_info(result.stderr)}", "WARNING"
+            )
         except Exception as e:
-            log_message(f"⚠️ rsvg-convert 오류: {mask_sensitive_info(str(e))}", "WARNING")
+            log_message(
+                f"⚠️ rsvg-convert 오류: {mask_sensitive_info(str(e))}", "WARNING"
+            )
 
     log_message("⚠️ SVG 변환 불가: cairosvg 또는 rsvg-convert 필요", "WARNING")
     log_message("💡 설치: pip install cairosvg 또는 brew install librsvg", "INFO")
@@ -877,7 +900,9 @@ def convert_png_to_modern_formats(png_path: Path) -> None:
         try:
             result = subprocess.run(
                 [CWEBP_PATH, "-q", "80", "-quiet", str(png_path), "-o", str(webp_path)],
-                capture_output=True, text=True, timeout=30
+                capture_output=True,
+                text=True,
+                timeout=30,
             )
             if result.returncode == 0:
                 log_message(f"✅ PNG → WebP 변환: {webp_path.name}", "SUCCESS")
@@ -889,7 +914,9 @@ def convert_png_to_modern_formats(png_path: Path) -> None:
         try:
             result = subprocess.run(
                 [AVIFENC_PATH, "-s", "6", "-q", "40", str(png_path), str(avif_path)],
-                capture_output=True, text=True, timeout=60
+                capture_output=True,
+                text=True,
+                timeout=60,
             )
             if result.returncode == 0:
                 log_message(f"✅ PNG → AVIF 변환: {avif_path.name}", "SUCCESS")
@@ -1046,14 +1073,14 @@ CATEGORY_SVG_CONFIG = {
 
 # Category-specific central illustration SVG fragments
 _CATEGORY_ILLUSTRATIONS = {
-    "security": '''
+    "security": """
     <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="{accent}" stroke-width="3"/>
     <path d="M-12,2 L-4,12 L16,-10" stroke="{accent}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="-50" cy="-30" r="8" fill="{accent}" opacity="0.3"/>
     <circle cx="50" cy="-30" r="8" fill="{accent}" opacity="0.3"/>
     <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>''',
-    "devsecops": '''
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>""",
+    "devsecops": """
     <circle cx="-60" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
     <circle cx="0" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
     <circle cx="60" cy="0" r="22" fill="none" stroke="{accent}" stroke-width="2.5"/>
@@ -1062,16 +1089,16 @@ _CATEGORY_ILLUSTRATIONS = {
     <polygon points="-25,-4 -18,0 -25,4" fill="{accent}"/>
     <polygon points="35,-4 42,0 35,4" fill="{accent}"/>
     <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
-    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>''',
-    "cloud": '''
+    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>""",
+    "cloud": """
     <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="{accent}" stroke-width="3"/>
     <line x1="-20" y1="30" x2="-20" y2="45" stroke="{accent}" stroke-width="2" opacity="0.5"/>
     <line x1="10" y1="30" x2="10" y2="50" stroke="{accent}" stroke-width="2" opacity="0.5"/>
     <line x1="35" y1="30" x2="35" y2="42" stroke="{accent}" stroke-width="2" opacity="0.5"/>
     <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>
     <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>
-    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>''',
-    "kubernetes": '''
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.5"/>""",
+    "kubernetes": """
     <polygon points="0,-45 40,-20 40,20 0,45 -40,20 -40,-20" fill="none" stroke="{accent}" stroke-width="3"/>
     <circle r="12" fill="{accent}" opacity="0.3"/>
     <line x1="0" y1="-12" x2="0" y2="-38" stroke="{accent}" stroke-width="2"/>
@@ -1079,8 +1106,8 @@ _CATEGORY_ILLUSTRATIONS = {
     <line x1="-10" y1="6" x2="-34" y2="16" stroke="{accent}" stroke-width="2"/>
     <circle cx="0" cy="-38" r="5" fill="{accent}" opacity="0.5"/>
     <circle cx="34" cy="16" r="5" fill="{accent}" opacity="0.5"/>
-    <circle cx="-34" cy="16" r="5" fill="{accent}" opacity="0.5"/>''',
-    "ai": '''
+    <circle cx="-34" cy="16" r="5" fill="{accent}" opacity="0.5"/>""",
+    "ai": """
     <circle r="14" fill="{accent}" opacity="0.3"/>
     <circle r="6" fill="{accent}" opacity="0.6"/>
     <line x1="-30" y1="-25" x2="-10" y2="-8" stroke="{accent}" stroke-width="2"/>
@@ -1092,8 +1119,8 @@ _CATEGORY_ILLUSTRATIONS = {
     <circle cx="-30" cy="25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
     <circle cx="30" cy="25" r="8" fill="none" stroke="{accent}" stroke-width="2"/>
     <line x1="-30" y1="-17" x2="-30" y2="17" stroke="{accent}" stroke-width="1" opacity="0.3"/>
-    <line x1="30" y1="-17" x2="30" y2="17" stroke="{accent}" stroke-width="1" opacity="0.3"/>''',
-    "devops": '''
+    <line x1="30" y1="-17" x2="30" y2="17" stroke="{accent}" stroke-width="1" opacity="0.3"/>""",
+    "devops": """
     <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="{accent}" stroke-width="3"/>
     <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="{accent}" stroke-width="3" stroke-dasharray="5 3"/>
     <polygon points="20,-5 28,0 20,5" fill="{accent}"/>
@@ -1101,22 +1128,22 @@ _CATEGORY_ILLUSTRATIONS = {
     <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
     <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="{accent}" stroke-width="2" opacity="0.5"/>
     <line x1="-35" y1="0" x2="-28" y2="0" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>
-    <line x1="28" y1="0" x2="35" y2="0" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>''',
-    "blockchain": '''
+    <line x1="28" y1="0" x2="35" y2="0" stroke="{accent}" stroke-width="1.5" opacity="0.4"/>""",
+    "blockchain": """
     <rect x="-20" y="-30" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
     <rect x="-20" y="-5" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
     <rect x="-20" y="20" width="40" height="20" rx="4" fill="none" stroke="{accent}" stroke-width="2"/>
     <line x1="0" y1="-10" x2="0" y2="-5" stroke="{accent}" stroke-width="2"/>
     <line x1="0" y1="15" x2="0" y2="20" stroke="{accent}" stroke-width="2"/>
     <line x1="-30" y1="-20" x2="-20" y2="-20" stroke="{accent}" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 2"/>
-    <line x1="20" y1="5" x2="30" y2="5" stroke="{accent}" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 2"/>''',
-    "finops": '''
+    <line x1="20" y1="5" x2="30" y2="5" stroke="{accent}" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 2"/>""",
+    "finops": """
     <circle r="35" fill="none" stroke="{accent}" stroke-width="2.5" stroke-dasharray="8 4"/>
     <text x="0" y="8" font-family="Arial,sans-serif" font-size="32" font-weight="bold" fill="{accent}" text-anchor="middle" opacity="0.8">$</text>
     <line x1="-50" y1="20" x2="-35" y2="-10" stroke="{accent}" stroke-width="2" opacity="0.4"/>
     <line x1="-35" y1="-10" x2="-15" y2="5" stroke="{accent}" stroke-width="2" opacity="0.4"/>
     <line x1="15" y1="-5" x2="35" y2="-20" stroke="{accent}" stroke-width="2" opacity="0.4"/>
-    <line x1="35" y1="-20" x2="50" y2="-15" stroke="{accent}" stroke-width="2" opacity="0.4"/>''',
+    <line x1="35" y1="-20" x2="50" y2="-15" stroke="{accent}" stroke-width="2" opacity="0.4"/>""",
 }
 
 
@@ -1126,7 +1153,11 @@ def _strip_korean(text: str) -> str:
         return ""
     result = []
     for char in text:
-        if "\uac00" <= char <= "\ud7a3" or "\u3131" <= char <= "\u3163" or "\u3165" <= char <= "\u318e":
+        if (
+            "\uac00" <= char <= "\ud7a3"
+            or "\u3131" <= char <= "\u3163"
+            or "\u3165" <= char <= "\u318e"
+        ):
             result.append(" ")
         else:
             result.append(char)
@@ -1171,10 +1202,35 @@ def _truncate_title(title: str, max_len: int = 50) -> str:
 
     # Strategy 2: Extract key technical words (skip filler words)
     skip_words = {
-        "the", "a", "an", "and", "or", "of", "in", "on", "to", "for",
-        "with", "from", "by", "is", "are", "was", "were", "be", "been",
-        "complete", "guide", "practical", "comprehensive", "understanding",
-        "overview", "introduction", "analysis", "perspective", "strategy",
+        "the",
+        "a",
+        "an",
+        "and",
+        "or",
+        "of",
+        "in",
+        "on",
+        "to",
+        "for",
+        "with",
+        "from",
+        "by",
+        "is",
+        "are",
+        "was",
+        "were",
+        "be",
+        "been",
+        "complete",
+        "guide",
+        "practical",
+        "comprehensive",
+        "understanding",
+        "overview",
+        "introduction",
+        "analysis",
+        "perspective",
+        "strategy",
     }
     words = [w for w in title.split() if w.lower() not in skip_words]
     result = ""
@@ -1418,23 +1474,60 @@ _DIGEST_NODE_DEFS = {
 
 # Keyword-to-node mapping for automatic detection
 _DIGEST_KEYWORD_MAP = {
-    "ransomware": "ransomware", "랜섬웨어": "ransomware",
-    "zero-day": "zero-day", "제로데이": "zero-day", "0-day": "zero-day",
-    "malware": "malware", "악성코드": "malware", "trojan": "malware", "트로이목마": "malware",
-    "blockchain": "blockchain", "블록체인": "blockchain", "defi": "blockchain",
-    "crypto": "blockchain", "bitcoin": "blockchain", "비트코인": "blockchain",
-    "ai": "ai", "llm": "ai", "gpt": "ai", "ml": "ai",
-    "cloud": "cloud", "aws": "cloud", "azure": "cloud", "gcp": "cloud", "클라우드": "cloud",
-    "patch": "patch", "패치": "patch",
-    "supply chain": "supply-chain", "공급망": "supply-chain",
-    "authentication": "auth", "인증": "auth", "credential": "auth", "identity": "auth",
-    "zero trust": "auth", "제로트러스트": "auth",
-    "botnet": "malware", "봇넷": "malware", "spyware": "malware",
-    "cve": "zero-day", "exploit": "zero-day", "익스플로잇": "zero-day",
-    "kubernetes": "kubernetes", "k8s": "kubernetes", "컨테이너": "kubernetes",
-    "container": "kubernetes", "docker": "kubernetes", "helm": "kubernetes",
-    "devops": "devops", "devsecops": "devops", "ci/cd": "devops", "pipeline": "devops",
-    "finops": "finops", "cost": "finops", "billing": "finops", "비용": "finops",
+    "ransomware": "ransomware",
+    "랜섬웨어": "ransomware",
+    "zero-day": "zero-day",
+    "제로데이": "zero-day",
+    "0-day": "zero-day",
+    "malware": "malware",
+    "악성코드": "malware",
+    "trojan": "malware",
+    "트로이목마": "malware",
+    "blockchain": "blockchain",
+    "블록체인": "blockchain",
+    "defi": "blockchain",
+    "crypto": "blockchain",
+    "bitcoin": "blockchain",
+    "비트코인": "blockchain",
+    "ai": "ai",
+    "llm": "ai",
+    "gpt": "ai",
+    "ml": "ai",
+    "cloud": "cloud",
+    "aws": "cloud",
+    "azure": "cloud",
+    "gcp": "cloud",
+    "클라우드": "cloud",
+    "patch": "patch",
+    "패치": "patch",
+    "supply chain": "supply-chain",
+    "공급망": "supply-chain",
+    "authentication": "auth",
+    "인증": "auth",
+    "credential": "auth",
+    "identity": "auth",
+    "zero trust": "auth",
+    "제로트러스트": "auth",
+    "botnet": "malware",
+    "봇넷": "malware",
+    "spyware": "malware",
+    "cve": "zero-day",
+    "exploit": "zero-day",
+    "익스플로잇": "zero-day",
+    "kubernetes": "kubernetes",
+    "k8s": "kubernetes",
+    "컨테이너": "kubernetes",
+    "container": "kubernetes",
+    "docker": "kubernetes",
+    "helm": "kubernetes",
+    "devops": "devops",
+    "devsecops": "devops",
+    "ci/cd": "devops",
+    "pipeline": "devops",
+    "finops": "finops",
+    "cost": "finops",
+    "billing": "finops",
+    "비용": "finops",
 }
 
 
@@ -1478,6 +1571,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
         if date_str:
             try:
                 from datetime import datetime as dt
+
                 parsed = dt.strptime(str(date_str)[:10], "%Y-%m-%d")
                 date_display = parsed.strftime("%B %d, %Y")
             except (ValueError, TypeError):
@@ -1507,10 +1601,12 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
 """
 
         # Node labels as single text element with tspans
-        labels_svg = '  <text font-family="Arial, sans-serif" font-size="16" font-weight="700">'
+        labels_svg = (
+            '  <text font-family="Arial, sans-serif" font-size="16" font-weight="700">'
+        )
         for nc, x_pos in zip(node_configs, positions):
             labels_svg += f'<tspan x="{x_pos}" y="448" fill="{nc["color"]}" text-anchor="middle">{nc["label"]}</tspan>'
-        labels_svg += '</text>\n'
+        labels_svg += "</text>\n"
 
         # Connection dots between nodes
         dots_svg = ""
@@ -1527,7 +1623,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
             cy = 340 + dy
             glows += f'  <circle cx="{cx}" cy="{cy}" r="{r}" fill="{nc["color"]}" opacity="0.12" filter="url(#glow)"/>\n'
 
-        svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+        svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1548,7 +1644,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
 {nodes_svg}{labels_svg}{dots_svg}
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
   <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">{date_display}</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
-</svg>'''
+</svg>"""
 
         output_svg = output_path.with_suffix(".svg")
         svg = validate_and_fix_svg(svg)
@@ -1614,7 +1710,9 @@ def process_post(
 
     if not image_generated:
         # Use Digest-style SVG for Weekly Digest posts
-        is_digest = "Digest" in post_file.name or "Weekly_Digest" in post_info.get("title", "")
+        is_digest = "Digest" in post_file.name or "Weekly_Digest" in post_info.get(
+            "title", ""
+        )
         if is_digest:
             log_message("🎨 Digest SVG 이미지 생성 시도...", "INFO")
             image_generated = generate_digest_svg(post_info, output_path)
@@ -1754,8 +1852,9 @@ def main():
         )[: args.recent]
 
     # --webp-only / --avif-only: 기존 PNG에서 변환만 수행
-    if getattr(args, 'webp_only', False) or getattr(args, 'avif_only', False):
+    if getattr(args, "webp_only", False) or getattr(args, "avif_only", False):
         from pathlib import Path as P
+
         pngs = sorted(IMAGES_DIR.glob("*_og.png"))
         converted = 0
         for png in pngs:
@@ -1763,7 +1862,19 @@ def main():
                 webp = png.with_suffix(".webp")
                 if not webp.exists() and CWEBP_PATH:
                     try:
-                        subprocess.run([CWEBP_PATH, "-q", "80", "-quiet", str(png), "-o", str(webp)], capture_output=True, timeout=30)
+                        subprocess.run(
+                            [
+                                CWEBP_PATH,
+                                "-q",
+                                "80",
+                                "-quiet",
+                                str(png),
+                                "-o",
+                                str(webp),
+                            ],
+                            capture_output=True,
+                            timeout=30,
+                        )
                         if webp.exists():
                             converted += 1
                     except Exception:
@@ -1772,7 +1883,11 @@ def main():
                 avif = png.with_suffix(".avif")
                 if not avif.exists() and AVIFENC_PATH:
                     try:
-                        subprocess.run([AVIFENC_PATH, "-s", "6", "-q", "40", str(png), str(avif)], capture_output=True, timeout=60)
+                        subprocess.run(
+                            [AVIFENC_PATH, "-s", "6", "-q", "40", str(png), str(avif)],
+                            capture_output=True,
+                            timeout=60,
+                        )
                         if avif.exists():
                             converted += 1
                     except Exception:

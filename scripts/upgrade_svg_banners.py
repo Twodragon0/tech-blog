@@ -13,14 +13,14 @@ Options:
     --help          Show this help message
 """
 
-import os
-import sys
-import re
-import html
 import argparse
+import html
+import os
+import re
+import sys
 import textwrap
-from pathlib import Path
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -250,17 +250,36 @@ CATEGORY_LABELS = {
 
 # Tags to skip (generic/date-like)
 SKIP_TAGS = {
-    "2024", "2025", "2026", "2027",
-    "weekly-digest", "security-weekly", "weekly",
-    "digest", "tech", "daily", "monthly",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "weekly-digest",
+    "security-weekly",
+    "weekly",
+    "digest",
+    "tech",
+    "daily",
+    "monthly",
 }
 
-_KOREAN_RE = re.compile(r'[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]')
+_KOREAN_RE = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
 
 # Month names for date badge
 MONTHS = [
-    "", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER",
+    "",
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
 ]
 
 
@@ -290,7 +309,7 @@ def parse_front_matter(text: str) -> dict:
                 current_list.append(line[2:].strip().strip("'\""))
             continue
         # Inline list: key: [a, b, c]
-        m = re.match(r'^(\w[\w-]*):\s*\[(.+)\]\s*$', line)
+        m = re.match(r"^(\w[\w-]*):\s*\[(.+)\]\s*$", line)
         if m:
             key = m.group(1)
             values = [v.strip().strip("'\"") for v in m.group(2).split(",")]
@@ -299,7 +318,7 @@ def parse_front_matter(text: str) -> dict:
             current_list = None
             continue
         # Key: value
-        m = re.match(r'^(\w[\w-]*):\s*(.*)', line)
+        m = re.match(r"^(\w[\w-]*):\s*(.*)", line)
         if m:
             key = m.group(1)
             val = m.group(2).strip()
@@ -374,7 +393,16 @@ def resolve_illustration(categories: list[str]) -> str:
 
 
 def resolve_category_label(categories: list[str]) -> str:
-    priority = ["kubernetes", "finops", "incident", "blockchain", "security", "cloud", "devsecops", "devops"]
+    priority = [
+        "kubernetes",
+        "finops",
+        "incident",
+        "blockchain",
+        "security",
+        "cloud",
+        "devsecops",
+        "devops",
+    ]
     for p in priority:
         if p in categories:
             return CATEGORY_LABELS.get(p, "TECH DIGEST")
@@ -400,7 +428,9 @@ def select_tags(tags: list[str]) -> list[str]:
 # ---------------------------------------------------------------------------
 # Title → two English lines
 # ---------------------------------------------------------------------------
-def derive_svg_title(title: str, tags: list[str], md_path: Path) -> tuple[str, str, str]:
+def derive_svg_title(
+    title: str, tags: list[str], md_path: Path
+) -> tuple[str, str, str]:
     """
     Returns (svg_title_attr, line1, line2) all in English.
 
@@ -410,20 +440,22 @@ def derive_svg_title(title: str, tags: list[str], md_path: Path) -> tuple[str, s
     """
 
     def has_korean(s: str) -> bool:
-        return bool(re.search(r'[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]', s))
+        return bool(re.search(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]", s))
 
     if title and not has_korean(title):
         english_title = title
     else:
         # Derive from filename: replace _ and - with spaces, strip date prefix
-        stem = md_path.stem  # e.g. "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day"
+        stem = (
+            md_path.stem
+        )  # e.g. "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day"
         # Remove YYYY-MM-DD- prefix
-        stem = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', stem)
+        stem = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", stem)
         english_title = stem.replace("_", " ").replace("-", " ")
 
     # Sanitise: remove HTML entities and special punctuation
-    english_title = re.sub(r'&[a-z]+;', ' ', english_title)
-    english_title = re.sub(r'["""''`]', '', english_title)
+    english_title = re.sub(r"&[a-z]+;", " ", english_title)
+    english_title = re.sub(r'["""' "`]", "", english_title)
     english_title = english_title.strip()
 
     # Build a short title for the <title> element using first 80 chars
@@ -455,7 +487,7 @@ def derive_svg_title(title: str, tags: list[str], md_path: Path) -> tuple[str, s
 # Date badge text: "2026-03-28 10:00:00 +0900" → "MARCH 28, 2026"
 # ---------------------------------------------------------------------------
 def format_date_badge(date_str: str) -> str:
-    m = re.match(r'(\d{4})-(\d{2})-(\d{2})', date_str)
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", date_str)
     if not m:
         return date_str.upper()[:20]
     year, month, day = int(m.group(1)), int(m.group(2)), int(m.group(3))
@@ -491,8 +523,16 @@ def build_tags_svg(selected: list[str], theme: dict) -> str:
         cx = x + width // 2
         cy = y_rect + 18  # vertical centre of 36-tall pill
         color = theme["tag_colors"][i] if i < len(theme["tag_colors"]) else "#ffffff"
-        bg = theme["tag_bgs"][i] if i < len(theme["tag_bgs"]) else "rgba(255,255,255,0.1)"
-        border = theme["tag_borders"][i] if i < len(theme["tag_borders"]) else "rgba(255,255,255,0.3)"
+        bg = (
+            theme["tag_bgs"][i]
+            if i < len(theme["tag_bgs"])
+            else "rgba(255,255,255,0.1)"
+        )
+        border = (
+            theme["tag_borders"][i]
+            if i < len(theme["tag_borders"])
+            else "rgba(255,255,255,0.3)"
+        )
         # Escape label for XML
         label_escaped = html.escape(label)
         lines.append(
@@ -562,7 +602,7 @@ def generate_svg(meta: dict, md_path: Path) -> str:
   <!-- Left accent bar -->
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="{theme['badge_bg']}" stroke="{theme['badge_border']}" stroke-width="1"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="{theme["badge_bg"]}" stroke="{theme["badge_border"]}" stroke-width="1"/>
   <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">{esc(date_badge)}</text>
   <!-- Main title -->
   <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">{esc(line1)}</text>
@@ -688,7 +728,9 @@ def process_posts(args) -> None:
 
     print()
     if args.dry_run:
-        print(f"Dry-run complete: {would_upgrade} would be upgraded, {skipped} skipped.")
+        print(
+            f"Dry-run complete: {would_upgrade} would be upgraded, {skipped} skipped."
+        )
     else:
         print(f"Done: {upgraded} upgraded, {skipped} skipped, {errors} errors.")
 
@@ -708,10 +750,18 @@ def main() -> None:
               python3 scripts/upgrade_svg_banners.py --force --skip-recent
         """),
     )
-    parser.add_argument("--dry-run", action="store_true", help="List changes without writing files")
-    parser.add_argument("--force", action="store_true", help="Overwrite existing SVG files")
-    parser.add_argument("--skip-recent", action="store_true", help="Skip SVGs modified in last 24 hours")
-    parser.add_argument("--post", metavar="FILE", help="Process only a specific post .md file")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="List changes without writing files"
+    )
+    parser.add_argument(
+        "--force", action="store_true", help="Overwrite existing SVG files"
+    )
+    parser.add_argument(
+        "--skip-recent", action="store_true", help="Skip SVGs modified in last 24 hours"
+    )
+    parser.add_argument(
+        "--post", metavar="FILE", help="Process only a specific post .md file"
+    )
     args = parser.parse_args()
 
     print("SVG Banner Upgrade Script")

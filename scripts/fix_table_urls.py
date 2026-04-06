@@ -33,13 +33,17 @@ def get_label_for_url(url: str) -> str:
         return "DataDog Docs"
     if _domain_matches(domain, "learn.datadoghq.com"):
         return "DataDog Learn"
-    if _domain_matches(domain, "docs.aws.amazon.com") or _domain_matches(domain, "aws.amazon.com"):
+    if _domain_matches(domain, "docs.aws.amazon.com") or _domain_matches(
+        domain, "aws.amazon.com"
+    ):
         return "AWS 문서"
     if _domain_matches(domain, "cloud.google.com"):
         return "GCP 문서"
     if _domain_matches(domain, "azure.microsoft.com"):
         return "Azure 문서"
-    if _domain_matches(domain, "learn.microsoft.com") or _domain_matches(domain, "devblogs.microsoft.com"):
+    if _domain_matches(domain, "learn.microsoft.com") or _domain_matches(
+        domain, "devblogs.microsoft.com"
+    ):
         return "MS 문서"
     if _domain_matches(domain, "github.com"):
         return "GitHub"

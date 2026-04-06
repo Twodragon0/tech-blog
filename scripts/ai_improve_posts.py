@@ -14,10 +14,10 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+import requests
+
 from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
-
-import requests
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 LOG_FILE = Path(__file__).parent.parent / "ai_improvement_log.txt"

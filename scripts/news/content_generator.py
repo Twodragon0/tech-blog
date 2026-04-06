@@ -10,6 +10,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from scripts.news.analyzer import (
+    extract_cve_id,
+    generate_mitre_mapping,
+    generate_risk_scorecard,
+)
 from scripts.news.config import (
     CATEGORY_EMOJI,
     CATEGORY_PRIORITY,
@@ -22,11 +27,6 @@ from scripts.news.enhancer import (
     _gemini_call,
     check_gemini_available,
     enhance_content_with_fallback,
-)
-from scripts.news.analyzer import (
-    extract_cve_id,
-    generate_mitre_mapping,
-    generate_risk_scorecard,
 )
 from scripts.news.svg_generator import (
     _escape_svg_text,
@@ -199,7 +199,9 @@ def _extract_digest_title_phrases(
 
         # Trim dangling Korean particles (cut back to last noun)
         while _DANGLING_SUFFIXES.search(candidate) and len(candidate) > 6:
-            candidate = _DANGLING_SUFFIXES.sub("", candidate).rsplit(" ", 1)[0].rstrip(" ,.")
+            candidate = (
+                _DANGLING_SUFFIXES.sub("", candidate).rsplit(" ", 1)[0].rstrip(" ,.")
+            )
 
         if not candidate or len(candidate) < 4:
             continue
@@ -270,7 +272,9 @@ def _extract_digest_title_labels(
     return normalized_labels[:3]
 
 
-def _build_clean_excerpt(title_keywords: str, date_str: str, total: int, mode: str) -> str:
+def _build_clean_excerpt(
+    title_keywords: str, date_str: str, total: int, mode: str
+) -> str:
     """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 목표"""
     # 조사 보정: 받침 여부에 따라 을/를 선택
     last_char = title_keywords.rstrip()[-1] if title_keywords.rstrip() else ""
@@ -280,7 +284,9 @@ def _build_clean_excerpt(title_keywords: str, date_str: str, total: int, mode: s
     return f"{title_keywords}{particle} 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
 
 
-def _build_clean_description(title_keywords: str, source_list: str, date_str: str, total: int, mode: str) -> str:
+def _build_clean_description(
+    title_keywords: str, source_list: str, date_str: str, total: int, mode: str
+) -> str:
     """품질 검증된 description 생성 - 단어 나열 방지"""
     # title_keywords에서 핵심 구문 3개를 추출하여 자연스러운 문장 구성
     parts = [p.strip() for p in title_keywords.split(",") if p.strip()]
@@ -388,19 +394,13 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
     ):
         title = ", ".join(headline_phrases)
         score = _title_quality_score(title)
-        logging.info(
-            f"[Title QA] score={score} title={title!r}"
-        )
+        logging.info(f"[Title QA] score={score} title={title!r}")
         # Quality gate: reject low-quality titles
         if score < 50:
-            label_title = ", ".join(
-                _extract_digest_title_labels(news_items, mode=mode)
-            )
+            label_title = ", ".join(_extract_digest_title_labels(news_items, mode=mode))
             if label_title:
                 fallback = label_title[:80].rstrip(" ,.")
-                logging.warning(
-                    f"[Title QA] fallback={fallback!r} (score {score}<50)"
-                )
+                logging.warning(f"[Title QA] fallback={fallback!r} (score {score}<50)")
                 return fallback
         if len(title) <= 80:
             return title
@@ -703,13 +703,13 @@ title: "{title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, 'security')}"
-description: "{_build_clean_description(title_keywords, source_list, date_str, total, 'security')}"
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "security")}"
+description: "{_build_clean_description(title_keywords, source_list, date_str, total, "security")}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_build_clean_image_alt(title_keywords, 'security')}"
+image_alt: "{_build_clean_image_alt(title_keywords, "security")}"
 toc: true
 ---
 
@@ -1044,13 +1044,13 @@ title: "기술 블로그 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, 'tech')}"
-description: "{_build_clean_description(title_keywords, source_list, date_str, total, 'tech')}"
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "tech")}"
+description: "{_build_clean_description(title_keywords, source_list, date_str, total, "tech")}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_build_clean_image_alt(title_keywords, 'tech')}"
+image_alt: "{_build_clean_image_alt(title_keywords, "tech")}"
 toc: true
 ---
 
@@ -1847,7 +1847,16 @@ def _truncate_korean_sentence(text: str, max_len: int) -> str:
     clipped = text[:max_len]
     # Find the latest sentence boundary (prefer more text over separator type)
     best_idx, best_len = -1, 0
-    for sep in ["습니다.", "니다.", "했습니다.", "됩니다.", "입니다.", "다.", "됨.", "임."]:
+    for sep in [
+        "습니다.",
+        "니다.",
+        "했습니다.",
+        "됩니다.",
+        "입니다.",
+        "다.",
+        "됨.",
+        "임.",
+    ]:
         idx = clipped.rfind(sep)
         if idx > max_len * 0.4 and idx > best_idx:
             best_idx, best_len = idx, len(sep)
@@ -2541,22 +2550,101 @@ _TREND_KR_MAP = {
 
 # Technical terms to preserve as-is (not translated)
 _TECH_PRESERVE = {
-    "kubernetes", "docker", "aws", "azure", "gcp", "linux", "windows",
-    "android", "ios", "macos", "python", "java", "golang", "rust",
-    "github", "gitlab", "npm", "pip", "helm", "terraform", "ansible",
-    "nginx", "apache", "redis", "mysql", "postgresql", "mongodb",
-    "cve", "rce", "xss", "ssrf", "sqli", "csrf", "idor",
-    "ai", "llm", "gpt", "ml", "api", "sdk", "cli", "vpn", "tls", "ssl",
+    "kubernetes",
+    "docker",
+    "aws",
+    "azure",
+    "gcp",
+    "linux",
+    "windows",
+    "android",
+    "ios",
+    "macos",
+    "python",
+    "java",
+    "golang",
+    "rust",
+    "github",
+    "gitlab",
+    "npm",
+    "pip",
+    "helm",
+    "terraform",
+    "ansible",
+    "nginx",
+    "apache",
+    "redis",
+    "mysql",
+    "postgresql",
+    "mongodb",
+    "cve",
+    "rce",
+    "xss",
+    "ssrf",
+    "sqli",
+    "csrf",
+    "idor",
+    "ai",
+    "llm",
+    "gpt",
+    "ml",
+    "api",
+    "sdk",
+    "cli",
+    "vpn",
+    "tls",
+    "ssl",
     # Security tools & platforms
-    "burp", "nessus", "qualys", "snyk", "sonarqube", "trivy", "grype",
-    "falco", "wazuh", "splunk", "datadog", "grafana", "prometheus",
-    "nmap", "wireshark", "metasploit", "cobalt", "crowdstrike", "sentinel",
-    "owasp", "mitre", "siem", "edr", "xdr", "soar", "cnapp", "cspm",
-    "zscaler", "cloudflare", "paloalto", "fortinet", "checkpoint",
+    "burp",
+    "nessus",
+    "qualys",
+    "snyk",
+    "sonarqube",
+    "trivy",
+    "grype",
+    "falco",
+    "wazuh",
+    "splunk",
+    "datadog",
+    "grafana",
+    "prometheus",
+    "nmap",
+    "wireshark",
+    "metasploit",
+    "cobalt",
+    "crowdstrike",
+    "sentinel",
+    "owasp",
+    "mitre",
+    "siem",
+    "edr",
+    "xdr",
+    "soar",
+    "cnapp",
+    "cspm",
+    "zscaler",
+    "cloudflare",
+    "paloalto",
+    "fortinet",
+    "checkpoint",
     # Additional from THN coverage analysis
-    "cisa", "apple", "google", "microsoft", "samsung", "cisco", "vmware",
-    "chrome", "firefox", "safari", "edge", "outlook", "wordpress",
-    "ivanti", "juniper", "sophos", "zyxel",
+    "cisa",
+    "apple",
+    "google",
+    "microsoft",
+    "samsung",
+    "cisco",
+    "vmware",
+    "chrome",
+    "firefox",
+    "safari",
+    "edge",
+    "outlook",
+    "wordpress",
+    "ivanti",
+    "juniper",
+    "sophos",
+    "zyxel",
 }
 
 
@@ -2567,15 +2655,78 @@ assert len(_TREND_KR_MAP) == len(dict(_TREND_KR_MAP)), (
 
 # Stop words to drop from translated output
 _STOP_WORDS = {
-    "a", "an", "the", "in", "on", "at", "to", "for", "of", "by",
-    "with", "from", "and", "or", "but", "is", "are", "was", "were",
-    "be", "been", "being", "has", "have", "had", "do", "does", "did",
-    "that", "this", "these", "those", "it", "its",
-    "as", "how", "what", "why", "who", "when", "where", "which",
-    "not", "no", "just", "over", "up", "out", "all", "can", "may",
-    "will", "would", "could", "should", "here's", "there's",
-    "more", "most", "very", "also", "than", "then", "so", "if",
-    "about", "into", "after", "before", "between", "under", "above",
+    "a",
+    "an",
+    "the",
+    "in",
+    "on",
+    "at",
+    "to",
+    "for",
+    "of",
+    "by",
+    "with",
+    "from",
+    "and",
+    "or",
+    "but",
+    "is",
+    "are",
+    "was",
+    "were",
+    "be",
+    "been",
+    "being",
+    "has",
+    "have",
+    "had",
+    "do",
+    "does",
+    "did",
+    "that",
+    "this",
+    "these",
+    "those",
+    "it",
+    "its",
+    "as",
+    "how",
+    "what",
+    "why",
+    "who",
+    "when",
+    "where",
+    "which",
+    "not",
+    "no",
+    "just",
+    "over",
+    "up",
+    "out",
+    "all",
+    "can",
+    "may",
+    "will",
+    "would",
+    "could",
+    "should",
+    "here's",
+    "there's",
+    "more",
+    "most",
+    "very",
+    "also",
+    "than",
+    "then",
+    "so",
+    "if",
+    "about",
+    "into",
+    "after",
+    "before",
+    "between",
+    "under",
+    "above",
 }
 
 
@@ -2731,4 +2882,3 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
     content += "\n".join(p2_items[:3]) + "\n"
 
     return content
-

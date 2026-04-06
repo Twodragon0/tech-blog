@@ -19,11 +19,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.lib.security import mask_sensitive_info
-
 import requests
 import yaml
 
+from scripts.lib.security import mask_sensitive_info
 
 
 def safe_print(message: str) -> None:
@@ -99,7 +98,11 @@ def extract_excerpt(content: str, max_length: int = 200) -> str:
             content = truncated[: last_sentence + 1]
         else:
             last_space = truncated.rfind(" ")
-            content = (truncated[:last_space] + "...") if last_space > 0 else (truncated + "...")
+            content = (
+                (truncated[:last_space] + "...")
+                if last_space > 0
+                else (truncated + "...")
+            )
     return content
 
 
@@ -176,7 +179,9 @@ def build_markdown_email(
     Keep it simple: Buttondown handles styling, responsive, dark mode.
     """
     cat_key = str(category).lower() if category else ""
-    cat_label = CATEGORY_LABELS.get(cat_key, str(category).title() if category else "Tech")
+    cat_label = CATEGORY_LABELS.get(
+        cat_key, str(category).title() if category else "Tech"
+    )
 
     parts = []
 

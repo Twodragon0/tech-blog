@@ -12,12 +12,14 @@ Usage:
     python3 scripts/add_missing_tags.py [--dry-run]
 """
 
+import argparse
 import os
 import re
 import sys
-import argparse
 
-POSTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts")
+POSTS_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts"
+)
 
 # Tag generation rules based on keywords
 CATEGORY_TAG_MAP = {
@@ -283,9 +285,9 @@ def process_file(fpath: str, dry_run: bool = False) -> dict:
     new_fm = insert_tags_into_fm(fm, tags)
 
     # Reconstruct the full content
-    bom = content[: bom_len] if bom_len > 0 else ""
+    bom = content[:bom_len] if bom_len > 0 else ""
     stripped = content[bom_len:]
-    new_content = bom + "---" + new_fm + "---" + stripped[fm_end + 3:]
+    new_content = bom + "---" + new_fm + "---" + stripped[fm_end + 3 :]
 
     if not dry_run:
         with open(fpath, "w", encoding="utf-8") as f:
@@ -295,8 +297,12 @@ def process_file(fpath: str, dry_run: bool = False) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Add missing tags: field to Jekyll posts")
-    parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
+    parser = argparse.ArgumentParser(
+        description="Add missing tags: field to Jekyll posts"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Preview changes without writing"
+    )
     parser.add_argument(
         "--posts-dir",
         default=POSTS_DIR,
@@ -334,9 +340,9 @@ def main():
             results["errors"].append({"file": fname, "error": str(e)})
 
     # Report
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("RESULTS SUMMARY")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"  Posts with existing tags:    {len(results['has_tags'])}")
     print(f"  Posts with tags added:       {len(results['added_tags'])}")
     print(f"  Posts with empty tags field: {len(results['empty_tags_needs_fill'])}")
@@ -344,23 +350,27 @@ def main():
     print(f"  Errors:                      {len(results['errors'])}")
 
     if results["added_tags"]:
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         action = "Would add" if args.dry_run else "Added"
         print(f"{action} tags to {len(results['added_tags'])} posts:")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         for r in results["added_tags"]:
             print(f"  {r['file']}")
             print(f"    tags: {r['tags']}")
 
     if results["empty_tags_needs_fill"]:
-        print(f"\n{'='*60}")
-        print(f"WARNING: {len(results['empty_tags_needs_fill'])} posts have empty tags field:")
-        print(f"{'='*60}")
+        print(f"\n{'=' * 60}")
+        print(
+            f"WARNING: {len(results['empty_tags_needs_fill'])} posts have empty tags field:"
+        )
+        print(f"{'=' * 60}")
         for r in results["empty_tags_needs_fill"]:
             print(f"  {r['file']}")
 
     if results["no_front_matter"]:
-        print(f"\nWARNING: {len(results['no_front_matter'])} posts have no front matter:")
+        print(
+            f"\nWARNING: {len(results['no_front_matter'])} posts have no front matter:"
+        )
         for r in results["no_front_matter"]:
             print(f"  {r['file']}")
 
@@ -369,15 +379,15 @@ def main():
         for r in results["errors"]:
             print(f"  {r['file']}: {r['error']}")
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     if results["added_tags"]:
         if args.dry_run:
-            print(f"DRY RUN complete. Run without --dry-run to apply changes.")
+            print("DRY RUN complete. Run without --dry-run to apply changes.")
         else:
             print(f"Successfully added tags to {len(results['added_tags'])} posts.")
     else:
         print("All posts already have tags: field. No changes needed.")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     return 0 if not results["errors"] else 1
 

@@ -31,7 +31,6 @@ from verify_images_unified import (
     process_post_file,
 )
 
-
 # ---------------------------------------------------------------------------
 # has_korean
 # ---------------------------------------------------------------------------
@@ -94,8 +93,7 @@ def test_extract_image_paths_returns_empty_list_for_no_images():
 
 def test_extract_image_paths_deduplicates_repeated_references():
     content = (
-        "---\nimage: /assets/images/same.svg\n---\n"
-        "![img](/assets/images/same.svg)"
+        "---\nimage: /assets/images/same.svg\n---\n![img](/assets/images/same.svg)"
     )
     paths = extract_image_paths(content)
     assert paths.count("same.svg") == 1

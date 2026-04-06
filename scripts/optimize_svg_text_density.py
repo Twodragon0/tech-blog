@@ -40,6 +40,7 @@ def has_korean(text: str) -> bool:
 # 변환 함수들 (regex 기반, SVG 포맷팅 보존)
 # ---------------------------------------------------------------------------
 
+
 def remove_weekly_digest_footer(content: str) -> str:
     """footer의 'Weekly Digest' text 노드 한 줄 제거."""
     # <text ... text-anchor="end">Weekly Digest</text>
@@ -57,13 +58,13 @@ def merge_glow2_two_line_title(content: str) -> str:
     예: "Cloud Security Course 7Batch 4Week: AWS" + "Vulnerabi..." → 합침
     """
     pattern = (
-        r'(<text(?=[^>]*filter="url\(#glow2\)")[^>]*>)'   # group 1: 첫 번째 여는 태그
-        r'([^<]+)'                                          # group 2: 첫 번째 텍스트
-        r'(</text>)'                                        # group 3: 닫는 태그
-        r'(\s*\n\s*)'                                       # group 4: 공백/줄바꿈
+        r'(<text(?=[^>]*filter="url\(#glow2\)")[^>]*>)'  # group 1: 첫 번째 여는 태그
+        r"([^<]+)"  # group 2: 첫 번째 텍스트
+        r"(</text>)"  # group 3: 닫는 태그
+        r"(\s*\n\s*)"  # group 4: 공백/줄바꿈
         r'(?:<text(?=[^>]*filter="url\(#glow2\)")[^>]*>)'  # 두 번째 여는 태그 (버림)
-        r'([^<]+)'                                          # group 5: 두 번째 텍스트
-        r'(?:</text>)'                                      # 두 번째 닫는 태그 (버림)
+        r"([^<]+)"  # group 5: 두 번째 텍스트
+        r"(?:</text>)"  # 두 번째 닫는 태그 (버림)
     )
 
     def replacer(m):
@@ -83,10 +84,10 @@ def merge_threat_signal_subtitle(content: str) -> str:
     """
     pattern = (
         r'(<text )((?:[^>]*? )?)y="90"([^>]*?)>(THREAT SIGNAL MAP)(</text>)'
-        r'(\s*\n\s*)'
+        r"(\s*\n\s*)"
         r'<text ((?:[^>]*? )?)x="(\d+)"((?:[^>]*? )?)y="120"([^>]*?)>'
-        r'([^<]+)'
-        r'</text>'
+        r"([^<]+)"
+        r"</text>"
     )
 
     def replacer(m):
@@ -95,9 +96,9 @@ def merge_threat_signal_subtitle(content: str) -> str:
         sub_x = m.group(8)
         subtitle = m.group(11).strip()
         return (
-            f"{pre}y=\"90\"{post_attrs}>"
+            f'{pre}y="90"{post_attrs}>'
             f"<tspan>THREAT SIGNAL MAP</tspan>"
-            f"<tspan x=\"{sub_x}\" dy=\"30\">{subtitle}</tspan>"
+            f'<tspan x="{sub_x}" dy="30">{subtitle}</tspan>'
             f"</text>"
         )
 
@@ -144,13 +145,13 @@ def merge_glow_two_line_title(content: str) -> str:
     패턴 B 커스텀 SVG의 30px 2줄 타이틀.
     """
     pattern = (
-        r'(<text(?=[^>]*filter="url\(#glow\)")[^>]*>)'   # group 1: 첫 번째 여는 태그
-        r'([^<]+)'                                         # group 2: 첫 번째 텍스트
-        r'(</text>)'                                       # group 3
-        r'(\s*\n\s*)'                                      # group 4: 공백
+        r'(<text(?=[^>]*filter="url\(#glow\)")[^>]*>)'  # group 1: 첫 번째 여는 태그
+        r"([^<]+)"  # group 2: 첫 번째 텍스트
+        r"(</text>)"  # group 3
+        r"(\s*\n\s*)"  # group 4: 공백
         r'(?:<text(?=[^>]*filter="url\(#glow\)")[^>]*>)'  # 두 번째 여는 태그 (버림)
-        r'([^<]+)'                                         # group 5: 두 번째 텍스트
-        r'(?:</text>)'                                     # 두 번째 닫는 태그 (버림)
+        r"([^<]+)"  # group 5: 두 번째 텍스트
+        r"(?:</text>)"  # 두 번째 닫는 태그 (버림)
     )
 
     def replacer(m):
@@ -210,6 +211,7 @@ def remove_duplicate_circle_labels(content: str) -> str:
 # ---------------------------------------------------------------------------
 # 메인 최적화 로직
 # ---------------------------------------------------------------------------
+
 
 def optimize_svg(filepath: Path) -> tuple[int, int, str]:
     """
@@ -295,9 +297,15 @@ def optimize_svg(filepath: Path) -> tuple[int, int, str]:
 # 실행 진입점
 # ---------------------------------------------------------------------------
 
+
 def main():
     parser = argparse.ArgumentParser(description="SVG 텍스트 노드 밀도 최적화")
-    parser.add_argument("--quiet", "-q", action="store_true", help="변경 사항만 출력 (이미 OK/상세 건너뜀)")
+    parser.add_argument(
+        "--quiet",
+        "-q",
+        action="store_true",
+        help="변경 사항만 출력 (이미 OK/상세 건너뜀)",
+    )
     args = parser.parse_args()
     quiet = args.quiet
 

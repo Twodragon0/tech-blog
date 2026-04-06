@@ -15,7 +15,6 @@ from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
 
-
 VALIDATOR = Path(__file__).parent / "validate_post_quality.py"
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 NEWS_DATA = Path(__file__).parent.parent / "_data" / "collected_news.json"
@@ -26,7 +25,7 @@ def generate_trend_coverage() -> str:
     """Analyze _TREND_KR_MAP coverage against collected news data."""
     try:
         sys.path.insert(0, str(Path(__file__).parent))
-        from auto_publish_news import _TREND_KR_MAP, _TECH_PRESERVE, _STOP_WORDS
+        from auto_publish_news import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
     except ImportError:
         return "⚠️ auto_publish_news.py import 실패"
 
@@ -114,11 +113,17 @@ def main() -> None:
 
     current_posts = get_posts_for_month(current_month)
     current_count = len(current_posts)
-    current_scores = run_validator("--summary", *current_posts) if current_posts else "No posts this month"
+    current_scores = (
+        run_validator("--summary", *current_posts)
+        if current_posts
+        else "No posts this month"
+    )
 
     prev_posts = get_posts_for_month(prev_month)
     prev_count = len(prev_posts)
-    prev_scores = run_validator("--summary", *prev_posts) if prev_posts else "No posts last month"
+    prev_scores = (
+        run_validator("--summary", *prev_posts) if prev_posts else "No posts last month"
+    )
 
     # Below 80
     below_80_output = run_validator("--warn-below", "80", "--quiet", *all_posts)

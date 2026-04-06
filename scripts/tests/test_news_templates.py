@@ -4,39 +4,38 @@
 API disabling and path setup are handled by conftest.py.
 """
 
+from datetime import datetime, timedelta, timezone
+
 import pytest
-
-from datetime import datetime, timezone, timedelta
-
 from auto_publish_news import (
+    SVG_TEMPLATE_BEFORE_AFTER,
+    SVG_TEMPLATE_HUB_SPOKE,
+    SVG_TEMPLATE_TIMELINE,
+    _apply_trend_kr_map,
+    _deduplicate_crypto_stories,
+    _escape_svg_text,
+    _extract_key_topics,
+    _extract_meaningful_topics,
+    _extract_trend_keyword,
+    _filter_by_cutoff,
     _generate_ai_analysis_template,
     _generate_contextual_action_point,
     _generate_devops_template,
+    _generate_executive_and_risk_sections,
     _generate_news_specific_checklist,
     _generate_security_analysis_template,
     _generate_security_brief_template,
     _generate_trend_analysis,
-    _extract_trend_keyword,
-    _apply_trend_kr_map,
-    filter_published_urls,
-    _deduplicate_crypto_stories,
-    categorize_news,
-    extract_cve_id,
-    _escape_svg_text,
+    _select_svg_template,
+    _table_summary,
     _to_english_svg_text,
     _truncate_text,
-    _extract_key_topics,
-    _table_summary,
-    _filter_by_cutoff,
-    _select_svg_template,
-    SVG_TEMPLATE_BEFORE_AFTER,
-    SVG_TEMPLATE_HUB_SPOKE,
-    SVG_TEMPLATE_TIMELINE,
-    select_top_news,
+    categorize_news,
+    extract_cve_id,
+    filter_published_urls,
     generate_mitre_mapping,
     generate_risk_scorecard,
-    _extract_meaningful_topics,
-    _generate_executive_and_risk_sections,
+    select_top_news,
 )
 
 # ---------------------------------------------------------------------------
@@ -2619,13 +2618,17 @@ class TestDetectDigestNodes:
     def test_ransomware_detected(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "Gentlemen 랜섬웨어 확산", "tags": ["Ransomware"]})
+        nodes = _detect_digest_nodes(
+            {"title": "Gentlemen 랜섬웨어 확산", "tags": ["Ransomware"]}
+        )
         assert "ransomware" in nodes
 
     def test_zero_day_detected(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "CVE-2026-20131 Zero-Day 취약점", "tags": ["CVE"]})
+        nodes = _detect_digest_nodes(
+            {"title": "CVE-2026-20131 Zero-Day 취약점", "tags": ["CVE"]}
+        )
         assert "zero-day" in nodes
 
     def test_blockchain_from_title(self):
@@ -2643,7 +2646,9 @@ class TestDetectDigestNodes:
     def test_cloud_aws(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "AWS IAM 멀티리전 보안", "tags": ["Cloud-Security"]})
+        nodes = _detect_digest_nodes(
+            {"title": "AWS IAM 멀티리전 보안", "tags": ["Cloud-Security"]}
+        )
         assert "cloud" in nodes
 
     def test_supply_chain(self):
@@ -2655,16 +2660,20 @@ class TestDetectDigestNodes:
     def test_malware_botnet(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "Botnet 악성코드 위협", "tags": ["Malware"]})
+        nodes = _detect_digest_nodes(
+            {"title": "Botnet 악성코드 위협", "tags": ["Malware"]}
+        )
         assert "malware" in nodes
 
     def test_max_three_nodes(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({
-            "title": "Ransomware AI Cloud Zero-Day Blockchain Malware",
-            "tags": ["CVE", "Patch"],
-        })
+        nodes = _detect_digest_nodes(
+            {
+                "title": "Ransomware AI Cloud Zero-Day Blockchain Malware",
+                "tags": ["CVE", "Patch"],
+            }
+        )
         assert len(nodes) <= 3
 
     def test_minimum_two_nodes(self):
@@ -2676,20 +2685,26 @@ class TestDetectDigestNodes:
     def test_no_duplicate_nodes(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({
-            "title": "비트코인 블록체인 crypto DeFi",
-            "tags": ["Blockchain", "Bitcoin"],
-        })
+        nodes = _detect_digest_nodes(
+            {
+                "title": "비트코인 블록체인 crypto DeFi",
+                "tags": ["Blockchain", "Bitcoin"],
+            }
+        )
         assert len(nodes) == len(set(nodes))
 
     def test_patch_from_cve(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "CVE-2026-21992 패치", "tags": ["Patch"]})
+        nodes = _detect_digest_nodes(
+            {"title": "CVE-2026-21992 패치", "tags": ["Patch"]}
+        )
         assert "patch" in nodes
 
     def test_auth_detected(self):
         from generate_post_images import _detect_digest_nodes
 
-        nodes = _detect_digest_nodes({"title": "Identity authentication 인증 위협", "tags": []})
+        nodes = _detect_digest_nodes(
+            {"title": "Identity authentication 인증 위협", "tags": []}
+        )
         assert "auth" in nodes

@@ -12,10 +12,10 @@ import re
 import sys
 from collections import defaultdict
 
-
 # ---------------------------------------------------------------------------
 # Language detection
 # ---------------------------------------------------------------------------
+
 
 def detect_language(lines: list[str]) -> str:
     """Analyze code block lines and return the most appropriate language tag."""
@@ -27,68 +27,146 @@ def detect_language(lines: list[str]) -> str:
 
     # --- Dockerfile ---
     first_nonempty = next((l.strip() for l in lines if l.strip()), "")
-    dockerfile_keywords = {"FROM ", "RUN ", "COPY ", "CMD ", "EXPOSE ", "WORKDIR ",
-                           "ENV ", "ENTRYPOINT ", "ARG ", "LABEL ", "ADD ", "VOLUME ",
-                           "USER ", "HEALTHCHECK ", "SHELL "}
-    dockerfile_hits = sum(1 for l in lines if any(l.strip().startswith(k) for k in dockerfile_keywords))
-    if dockerfile_hits >= 2 or (dockerfile_hits >= 1 and first_nonempty.startswith("FROM ")):
+    dockerfile_keywords = {
+        "FROM ",
+        "RUN ",
+        "COPY ",
+        "CMD ",
+        "EXPOSE ",
+        "WORKDIR ",
+        "ENV ",
+        "ENTRYPOINT ",
+        "ARG ",
+        "LABEL ",
+        "ADD ",
+        "VOLUME ",
+        "USER ",
+        "HEALTHCHECK ",
+        "SHELL ",
+    }
+    dockerfile_hits = sum(
+        1 for l in lines if any(l.strip().startswith(k) for k in dockerfile_keywords)
+    )
+    if dockerfile_hits >= 2 or (
+        dockerfile_hits >= 1 and first_nonempty.startswith("FROM ")
+    ):
         return "dockerfile"
 
     # --- PowerShell ---
     ps_patterns = [
-        r"\bGet-\w+", r"\bSet-\w+", r"\bNew-\w+", r"\bRemove-\w+",
-        r"\$env:", r"-ErrorAction\b", r"\| Where-Object\b",
-        r"\| Select-Object\b", r"\bWrite-Host\b", r"\bInvoke-\w+"
+        r"\bGet-\w+",
+        r"\bSet-\w+",
+        r"\bNew-\w+",
+        r"\bRemove-\w+",
+        r"\$env:",
+        r"-ErrorAction\b",
+        r"\| Where-Object\b",
+        r"\| Select-Object\b",
+        r"\bWrite-Host\b",
+        r"\bInvoke-\w+",
     ]
     if any(re.search(p, text) for p in ps_patterns):
         return "powershell"
 
     # --- Splunk SPL ---
-    splunk_markers = ["sourcetype=", "index=", "| stats ", "| where ", "| table ",
-                      "| rex ", "| search ", "| eval ", "| transaction "]
+    splunk_markers = [
+        "sourcetype=",
+        "index=",
+        "| stats ",
+        "| where ",
+        "| table ",
+        "| rex ",
+        "| search ",
+        "| eval ",
+        "| transaction ",
+    ]
     splunk_hits = sum(1 for m in splunk_markers if m in text)
     if splunk_hits >= 2:
         return "splunk"
 
     # --- KQL (Kusto / Azure) ---
-    kql_tables = ["SecurityEvent", "AzureActivity", "SigninLogs", "AuditLogs",
-                  "CommonSecurityLog", "Heartbeat", "OfficeActivity", "DeviceEvents",
-                  "ThreatIntelligenceIndicator", "AlertEvidence"]
-    kql_ops = ["| project ", "| summarize ", "| extend ", "| where ",
-               "| join ", "| union ", "| render ", "| count"]
+    kql_tables = [
+        "SecurityEvent",
+        "AzureActivity",
+        "SigninLogs",
+        "AuditLogs",
+        "CommonSecurityLog",
+        "Heartbeat",
+        "OfficeActivity",
+        "DeviceEvents",
+        "ThreatIntelligenceIndicator",
+        "AlertEvidence",
+    ]
+    kql_ops = [
+        "| project ",
+        "| summarize ",
+        "| extend ",
+        "| where ",
+        "| join ",
+        "| union ",
+        "| render ",
+        "| count",
+    ]
     kql_table_hit = any(t in text for t in kql_tables)
     kql_op_hits = sum(1 for op in kql_ops if op in text)
     if kql_table_hit and kql_op_hits >= 1:
         return "kql"
 
     # --- SQL ---
-    sql_patterns = [r"\bSELECT\b", r"\bINSERT\b", r"\bUPDATE\b", r"\bDELETE\b",
-                    r"\bCREATE TABLE\b", r"\bALTER TABLE\b", r"\bDROP TABLE\b",
-                    r"\bINNER JOIN\b", r"\bLEFT JOIN\b", r"\bGROUP BY\b"]
+    sql_patterns = [
+        r"\bSELECT\b",
+        r"\bINSERT\b",
+        r"\bUPDATE\b",
+        r"\bDELETE\b",
+        r"\bCREATE TABLE\b",
+        r"\bALTER TABLE\b",
+        r"\bDROP TABLE\b",
+        r"\bINNER JOIN\b",
+        r"\bLEFT JOIN\b",
+        r"\bGROUP BY\b",
+    ]
     sql_hits = sum(1 for p in sql_patterns if re.search(p, text, re.IGNORECASE))
     if sql_hits >= 2:
         return "sql"
 
     # --- HCL / Terraform ---
-    hcl_keywords = ['resource "', 'variable "', 'module "', 'provider "',
-                    'data "', 'output "', 'locals {', 'terraform {']
+    hcl_keywords = [
+        'resource "',
+        'variable "',
+        'module "',
+        'provider "',
+        'data "',
+        'output "',
+        "locals {",
+        "terraform {",
+    ]
     hcl_hits = sum(1 for k in hcl_keywords if k in text)
     if hcl_hits >= 1:
         return "hcl"
 
     # --- NGINX ---
-    nginx_keywords = ["server {", "location ", "proxy_pass ", "add_header ",
-                      "listen ", "server_name ", "root ", "fastcgi_pass "]
+    nginx_keywords = [
+        "server {",
+        "location ",
+        "proxy_pass ",
+        "add_header ",
+        "listen ",
+        "server_name ",
+        "root ",
+        "fastcgi_pass ",
+    ]
     nginx_hits = sum(1 for k in nginx_keywords if k in text)
     if nginx_hits >= 2:
         return "nginx"
 
     # --- JSON ---
     stripped_text = text.strip()
-    if (stripped_text.startswith("{") or stripped_text.startswith("[")) and \
-       re.search(r'"[^"]+"\s*:', text):
+    if (stripped_text.startswith("{") or stripped_text.startswith("[")) and re.search(
+        r'"[^"]+"\s*:', text
+    ):
         try:
             import json
+
             json.loads(text.strip())
             return "json"
         except Exception:
@@ -102,13 +180,13 @@ def detect_language(lines: list[str]) -> str:
         yaml_hits += 3
     for line in lines:
         stripped = line.strip()
-        if re.match(r'^[\w\-]+\s*:\s+\S', stripped):
+        if re.match(r"^[\w\-]+\s*:\s+\S", stripped):
             yaml_hits += 1
-        if re.match(r'^-\s+\w', stripped):
+        if re.match(r"^-\s+\w", stripped):
             yaml_hits += 0.5
     yaml_hits_total = int(yaml_hits)
     # Avoid misidentifying bash variable assignments as yaml
-    bash_assign = sum(1 for l in lines if re.match(r'^\w+=\S', l.strip()))
+    bash_assign = sum(1 for l in lines if re.match(r"^\w+=\S", l.strip()))
     if yaml_hits_total >= 3 and bash_assign < yaml_hits_total:
         return "yaml"
 
@@ -116,15 +194,23 @@ def detect_language(lines: list[str]) -> str:
     xml_hits = 0
     for line in lines:
         stripped = line.strip()
-        if re.match(r'^<[a-zA-Z/!?]', stripped):
+        if re.match(r"^<[a-zA-Z/!?]", stripped):
             xml_hits += 1
     if xml_hits >= 2:
-        if any(kw in joined for kw in ["<!doctype html", "<html", "<body", "<div", "<head"]):
+        if any(
+            kw in joined for kw in ["<!doctype html", "<html", "<body", "<div", "<head"]
+        ):
             return "html"
         return "xml"
 
     # --- Rust ---
-    rust_patterns = [r"\bfn \w+", r"\blet mut\b", r"\bimpl \w+", r"\buse std::", r"\bpub fn\b"]
+    rust_patterns = [
+        r"\bfn \w+",
+        r"\blet mut\b",
+        r"\bimpl \w+",
+        r"\buse std::",
+        r"\bpub fn\b",
+    ]
     if any(re.search(p, text) for p in rust_patterns):
         return "rust"
 
@@ -134,16 +220,27 @@ def detect_language(lines: list[str]) -> str:
         return "go"
 
     # --- Java ---
-    java_patterns = [r"\bpublic class\b", r"\bprivate\b.*\b(void|int|String)\b",
-                     r"\bSystem\.out\b", r"\bimport java\.", r"\bpublic static void main\b"]
+    java_patterns = [
+        r"\bpublic class\b",
+        r"\bprivate\b.*\b(void|int|String)\b",
+        r"\bSystem\.out\b",
+        r"\bimport java\.",
+        r"\bpublic static void main\b",
+    ]
     if any(re.search(p, text) for p in java_patterns):
         return "java"
 
     # --- Python ---
-    py_patterns = [r"^\s*import \w", r"^\s*from \w+ import",
-                   r"^\s*def \w+\s*\(", r"^\s*class \w+.*:",
-                   r"^\s*print\(", r"\bif __name__\s*==\s*['\"]__main__['\"]",
-                   r"^\s*@\w+", r"^\s*async def \w+"]
+    py_patterns = [
+        r"^\s*import \w",
+        r"^\s*from \w+ import",
+        r"^\s*def \w+\s*\(",
+        r"^\s*class \w+.*:",
+        r"^\s*print\(",
+        r"\bif __name__\s*==\s*['\"]__main__['\"]",
+        r"^\s*@\w+",
+        r"^\s*async def \w+",
+    ]
     py_hits = sum(1 for p in py_patterns if re.search(p, text, re.MULTILINE))
     # Python indented function call style
     if py_hits == 0 and re.search(r"^\s{4}\w+\.\w+\(", text, re.MULTILINE):
@@ -155,19 +252,31 @@ def detect_language(lines: list[str]) -> str:
     css_hits = 0
     for line in lines:
         stripped = line.strip()
-        if re.match(r'^[\.\#\w\-\[\]]+\s*\{', stripped):
+        if re.match(r"^[\.\#\w\-\[\]]+\s*\{", stripped):
             css_hits += 1
-        if re.match(r'^\s*(color|margin|padding|display|font|background|border|width|height)\s*:', stripped):
+        if re.match(
+            r"^\s*(color|margin|padding|display|font|background|border|width|height)\s*:",
+            stripped,
+        ):
             css_hits += 1
     if css_hits >= 3:
         return "css"
 
     # --- JavaScript / TypeScript ---
-    js_patterns = [r"\bconst \w+\s*=", r"\blet \w+\s*=", r"\bvar \w+\s*=",
-                   r"\bfunction \w+\s*\(", r"=>", r"\bconsole\.log\(",
-                   r"\bimport \{", r"\bexport (default|const|function|class)\b",
-                   r"\bmodule\.exports\b", r"\basync function\b",
-                   r"\bawait \w+", r"\bnew \w+\("]
+    js_patterns = [
+        r"\bconst \w+\s*=",
+        r"\blet \w+\s*=",
+        r"\bvar \w+\s*=",
+        r"\bfunction \w+\s*\(",
+        r"=>",
+        r"\bconsole\.log\(",
+        r"\bimport \{",
+        r"\bexport (default|const|function|class)\b",
+        r"\bmodule\.exports\b",
+        r"\basync function\b",
+        r"\bawait \w+",
+        r"\bnew \w+\(",
+    ]
     js_hits = sum(1 for p in js_patterns if re.search(p, text))
     if js_hits >= 2:
         return "javascript"
@@ -176,7 +285,7 @@ def detect_language(lines: list[str]) -> str:
     md_hits = 0
     for line in lines:
         stripped = line.strip()
-        if re.match(r'^-\s+\[[ xX]\]', stripped):
+        if re.match(r"^-\s+\[[ xX]\]", stripped):
             md_hits += 2
         if stripped.startswith("| ") and stripped.endswith(" |"):
             md_hits += 1
@@ -185,21 +294,21 @@ def detect_language(lines: list[str]) -> str:
 
     # --- Shell / Bash ---
     bash_indicators = [
-        r"^\s*\$\s+\S",            # $ prompt
-        r"^#!/",                    # shebang
+        r"^\s*\$\s+\S",  # $ prompt
+        r"^#!/",  # shebang
         r"^\s*sudo\s+",
         r"^\s*(apt|apt-get|yum|dnf|brew|pip3?|npm|npx)\s+",
         r"^\s*(docker|kubectl|terraform|helm|git|curl|wget|ssh|scp|rsync)\s+",
         r"^\s*(cd|ls|cat|grep|echo|export|alias|chmod|mkdir|rm|mv|cp)\s+",
         r"^\s*dig\s+",
         r"^\s*openssl\s+",
-        r"\|\s*\w+",                # pipes
-        r"\\\s*$",                  # line continuation
-        r"^\s*#\s+\w",             # comment line
+        r"\|\s*\w+",  # pipes
+        r"\\\s*$",  # line continuation
+        r"^\s*#\s+\w",  # comment line
         r"^\s*(if|for|while|case|do|done|fi|then|else)\b",
-        r"^\s*\w+=\$\(",           # var=$(cmd)
-        r"^\s*\w+=\"",             # var="value"
-        r"^\s*\w+=\`",             # var=`cmd`
+        r"^\s*\w+=\$\(",  # var=$(cmd)
+        r"^\s*\w+=\"",  # var="value"
+        r"^\s*\w+=\`",  # var=`cmd`
     ]
     bash_hits = sum(1 for p in bash_indicators if re.search(p, text, re.MULTILINE))
     if bash_hits >= 1:
@@ -227,6 +336,7 @@ def detect_language(lines: list[str]) -> str:
 # ---------------------------------------------------------------------------
 # File processing
 # ---------------------------------------------------------------------------
+
 
 def process_file(filepath: str) -> dict:
     """Process a single markdown file, tagging bare code blocks in place."""
@@ -305,10 +415,15 @@ def process_file(filepath: str) -> dict:
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main():
-    posts_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts")
-    md_files = sorted(glob.glob(os.path.join(posts_dir, "**", "*.md"), recursive=True) +
-                      glob.glob(os.path.join(posts_dir, "*.md")))
+    posts_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_posts"
+    )
+    md_files = sorted(
+        glob.glob(os.path.join(posts_dir, "**", "*.md"), recursive=True)
+        + glob.glob(os.path.join(posts_dir, "*.md"))
+    )
     # deduplicate
     md_files = sorted(set(md_files))
 
@@ -330,9 +445,9 @@ def main():
                 lang_totals[lang] += n
 
     # --- Report ---
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"  Total code blocks fixed: {total_fixed}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     print("\nBreakdown by language:")
     for lang, n in sorted(lang_totals.items(), key=lambda x: -x[1]):
@@ -343,14 +458,16 @@ def main():
     if text_count:
         print(f"\n  Note: {text_count} block(s) tagged as 'text' (could not classify).")
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Per-file summary (files with changes):")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     for fname, changes in file_report:
         parts = ", ".join(f"{lang}:{n}" for lang, n in sorted(changes.items()))
         print(f"  {fname[:60]:<62} [{parts}]")
 
-    print(f"\nDone. {total_fixed} bare code blocks tagged across {len(file_report)} files.")
+    print(
+        f"\nDone. {total_fixed} bare code blocks tagged across {len(file_report)} files."
+    )
 
 
 if __name__ == "__main__":

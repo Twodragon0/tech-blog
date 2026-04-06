@@ -31,7 +31,9 @@ def generate_risk_scorecard(
         severity = _determine_severity(news)
         score = 9 if severity == "Critical" else 7
         bars = "\u2588" * score + "\u2591" * (10 - score)
-        priority = "[\uc989\uc2dc]" if severity == "Critical" else "[7\uc77c \uc774\ub0b4]"
+        priority = (
+            "[\uc989\uc2dc]" if severity == "Critical" else "[7\uc77c \uc774\ub0b4]"
+        )
 
         scorecard += f"|  {title:<24} {bars}  {score}/10   {priority:<15}     |\n"
 

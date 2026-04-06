@@ -579,6 +579,16 @@
     }
     
     function fixImageUrls() {
+      // Hero image skeleton removal
+      document.querySelectorAll('.post-header .post-image img').forEach(function(img) {
+        if (img.complete && img.naturalHeight > 0) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', function() { this.classList.add('loaded'); });
+          img.addEventListener('error', function() { this.classList.add('loaded'); });
+        }
+      });
+
       const images = document.querySelectorAll('img.post-image, img[src*="assets/images"], img.clickable-image');
       images.forEach(img => {
         const src = img.getAttribute('src');

@@ -26,10 +26,10 @@ import os
 import sys
 from typing import Optional
 
-
 # ---------------------------------------------------------------------------
 # Core analysis
 # ---------------------------------------------------------------------------
+
 
 class FenceState:
     """Stateful parser that tracks code-fence open/close across a file."""
@@ -39,8 +39,8 @@ class FenceState:
         self.frontmatter_dashes: int = 0
         self.in_html_comment: bool = False
         self.in_code_block: bool = False
-        self.open_line: Optional[int] = None   # 1-based line number
-        self.open_lang: str = ""               # language tag on opening fence
+        self.open_line: Optional[int] = None  # 1-based line number
+        self.open_lang: str = ""  # language tag on opening fence
 
     def feed(self, line: str, lineno: int) -> None:
         """Update state for one line (lineno is 1-based)."""
@@ -121,6 +121,7 @@ def analyse_file(filepath: str):
 # Fix
 # ---------------------------------------------------------------------------
 
+
 def fix_file(filepath: str, info: dict, dry_run: bool = False) -> str:
     """
     Append a closing ``` to the file, right after the last content line.
@@ -146,7 +147,7 @@ def fix_file(filepath: str, info: dict, dry_run: bool = False) -> str:
 
     action = (
         f"  Appended closing ``` (block opened at line {info['open_line']}"
-        + (f" with lang '{info['open_lang']}'" if info['open_lang'] else " (bare)")
+        + (f" with lang '{info['open_lang']}'" if info["open_lang"] else " (bare)")
         + ")"
     )
 
@@ -160,6 +161,7 @@ def fix_file(filepath: str, info: dict, dry_run: bool = False) -> str:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main():
     import argparse
@@ -213,7 +215,11 @@ def main():
         print(f"UNCLOSED: {fname}")
         print(
             f"  Block opened at line {info['open_line']}"
-            + (f" (lang: '{info['open_lang']}')" if info['open_lang'] else " (bare, no language tag)")
+            + (
+                f" (lang: '{info['open_lang']}')"
+                if info["open_lang"]
+                else " (bare, no language tag)"
+            )
         )
         print(f"  File has {info['total_lines']} lines total")
 
@@ -227,11 +233,11 @@ def main():
     # Summary
     print("=" * 60)
     if args.dry_run:
-        print(f"DRY RUN complete.")
+        print("DRY RUN complete.")
         print(f"  Files with unclosed code blocks: {len(fixed_files)}")
         print(f"  Files already clean:             {clean_files}")
     else:
-        print(f"Scan complete.")
+        print("Scan complete.")
         print(f"  Files fixed:       {len(fixed_files)}")
         print(f"  Files clean:       {clean_files}")
         print(f"  Total files scanned: {len(md_files)}")

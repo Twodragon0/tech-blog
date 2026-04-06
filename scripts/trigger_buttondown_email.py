@@ -35,7 +35,9 @@ from buttondown_notify import (
 def main():
     parser = argparse.ArgumentParser(description="Trigger Buttondown email for a post")
     parser.add_argument("post_path", help="Path to the blog post file")
-    parser.add_argument("--dry-run", action="store_true", help="Preview without sending")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Preview without sending"
+    )
     parser.add_argument("--yes", "-y", action="store_true", help="Skip confirmation")
     parser.add_argument("--preview-html", help="Save HTML preview to file")
     args = parser.parse_args()
@@ -64,7 +66,9 @@ def main():
 
     post_url = generate_post_url(str(post_file), site_url)
     post_content = get_post_content(str(post_file))
-    subject, body = create_email_content(frontmatter, post_url, post_content, post_file.name)
+    subject, body = create_email_content(
+        frontmatter, post_url, post_content, post_file.name
+    )
 
     print(f"Post: {post_file.name}")
     print(f"Subject: {subject}")

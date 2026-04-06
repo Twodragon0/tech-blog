@@ -16,7 +16,6 @@ import re
 import sys
 from pathlib import Path
 
-
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -35,14 +34,22 @@ TAGS_FIELD = "tags"
 
 # Fields that must never be touched
 PROTECTED_FIELDS = {
-    "image", "title", "tags", "categories", "date",
-    "layout", "author", "comments", "toc",
+    "image",
+    "title",
+    "tags",
+    "categories",
+    "date",
+    "layout",
+    "author",
+    "comments",
+    "toc",
 }
 
 
 # ---------------------------------------------------------------------------
 # Text utilities
 # ---------------------------------------------------------------------------
+
 
 def truncate_at_word(text: str, max_chars: int, suffix: str = "...") -> str:
     """
@@ -93,6 +100,7 @@ def rebuild_scalar(leading: str, inner: str, trailing: str) -> str:
 # Front matter parser (regex-based, preserves formatting)
 # ---------------------------------------------------------------------------
 
+
 def split_front_matter(content: str) -> tuple[str, str, str]:
     """
     Split a Jekyll file into (before_fm, front_matter_body, rest).
@@ -105,7 +113,7 @@ def split_front_matter(content: str) -> tuple[str, str, str]:
     if not match:
         return ("", "", content)
     fm_end = 3 + match.end()
-    return ("---\n", content[3:3 + match.start()], content[fm_end:])
+    return ("---\n", content[3 : 3 + match.start()], content[fm_end:])
 
 
 def front_matter_len(fm_body: str) -> int:
@@ -115,6 +123,7 @@ def front_matter_len(fm_body: str) -> int:
 # ---------------------------------------------------------------------------
 # Field-level trimming on raw YAML text
 # ---------------------------------------------------------------------------
+
 
 def _replace_scalar_field(fm_body: str, field: str, new_value: str) -> str:
     """
@@ -137,16 +146,28 @@ def _replace_scalar_field(fm_body: str, field: str, new_value: str) -> str:
     )
     m = sq_pattern.search(fm_body)
     if m:
-        return fm_body[:m.start()] + m.group(1) + new_value + m.group(3) + fm_body[m.end():]
+        return (
+            fm_body[: m.start()]
+            + m.group(1)
+            + new_value
+            + m.group(3)
+            + fm_body[m.end() :]
+        )
 
     # --- Double-quoted multi-line ---
     dq_pattern = re.compile(
-        r'^(' + re.escape(field) + r':\s*")((?:[^"\\]|\\.)*)("\s*\n)',
+        r"^(" + re.escape(field) + r':\s*")((?:[^"\\]|\\.)*)("\s*\n)',
         re.MULTILINE | re.DOTALL,
     )
     m = dq_pattern.search(fm_body)
     if m:
-        return fm_body[:m.start()] + m.group(1) + new_value + m.group(3) + fm_body[m.end():]
+        return (
+            fm_body[: m.start()]
+            + m.group(1)
+            + new_value
+            + m.group(3)
+            + fm_body[m.end() :]
+        )
 
     # --- Unquoted single-line ---
     uq_pattern = re.compile(
@@ -155,7 +176,13 @@ def _replace_scalar_field(fm_body: str, field: str, new_value: str) -> str:
     )
     m = uq_pattern.search(fm_body)
     if m:
-        return fm_body[:m.start()] + m.group(1) + new_value + m.group(3) + fm_body[m.end():]
+        return (
+            fm_body[: m.start()]
+            + m.group(1)
+            + new_value
+            + m.group(3)
+            + fm_body[m.end() :]
+        )
 
     return fm_body
 
@@ -168,15 +195,17 @@ def _get_scalar_value(fm_body: str, field: str) -> str | None:
     # Single-quoted
     sq = re.search(
         r"^" + re.escape(field) + r":\s*'((?:[^']|'')*?)'\s*$",
-        fm_body, re.MULTILINE | re.DOTALL,
+        fm_body,
+        re.MULTILINE | re.DOTALL,
     )
     if sq:
         return sq.group(1).replace("''", "'")
 
     # Double-quoted
     dq = re.search(
-        r'^' + re.escape(field) + r':\s*"((?:[^"\\]|\\.)*)"\s*$',
-        fm_body, re.MULTILINE | re.DOTALL,
+        r"^" + re.escape(field) + r':\s*"((?:[^"\\]|\\.)*)"\s*$',
+        fm_body,
+        re.MULTILINE | re.DOTALL,
     )
     if dq:
         # Basic unescape
@@ -185,7 +214,8 @@ def _get_scalar_value(fm_body: str, field: str) -> str | None:
     # Unquoted single-line
     uq = re.search(
         r"^" + re.escape(field) + r":\s*(.+?)\s*$",
-        fm_body, re.MULTILINE,
+        fm_body,
+        re.MULTILINE,
     )
     if uq:
         val = uq.group(1).strip()
@@ -215,8 +245,8 @@ def _remove_field(fm_body: str, field: str) -> str:
     #   - lines starting with '- ' (YAML list items directly under the field key)
     # Stop at the next top-level key (not indented, not a list item).
     pattern = re.compile(
-        r"^" + re.escape(field) + r"\s*:.*\n"   # key line
-        r"(?:(?:[ \t]+.*|-[^\n]*)\n)*",          # zero or more continuation / list-item lines
+        r"^" + re.escape(field) + r"\s*:.*\n"  # key line
+        r"(?:(?:[ \t]+.*|-[^\n]*)\n)*",  # zero or more continuation / list-item lines
         re.MULTILINE,
     )
     return pattern.sub("", fm_body)
@@ -226,17 +256,20 @@ def _remove_field(fm_body: str, field: str) -> str:
 # Core processing logic
 # ---------------------------------------------------------------------------
 
+
 def _get_quoting_style(fm_body: str, field: str) -> tuple[str, str]:
     """Return (open_quote, close_quote) used for the field, or ('', '')."""
     sq = re.search(
         r"^" + re.escape(field) + r":\s*'",
-        fm_body, re.MULTILINE,
+        fm_body,
+        re.MULTILINE,
     )
     if sq:
         return ("'", "'")
     dq = re.search(
-        r'^' + re.escape(field) + r':\s*"',
-        fm_body, re.MULTILINE,
+        r"^" + re.escape(field) + r':\s*"',
+        fm_body,
+        re.MULTILINE,
     )
     if dq:
         return ('"', '"')
@@ -278,9 +311,7 @@ def process_front_matter(fm_body: str) -> tuple[str, list[str]]:
 
         new_fm = _replace_scalar_field(new_fm, field, trimmed_yaml)
 
-        changes.append(
-            f"  - {field}: {len(clean_value)} → {len(trimmed)} chars"
-        )
+        changes.append(f"  - {field}: {len(clean_value)} → {len(trimmed)} chars")
 
     # --- Remove keywords if tags field exists ---
     if _field_exists(new_fm, KEYWORDS_FIELD) and _field_exists(new_fm, TAGS_FIELD):
@@ -335,6 +366,7 @@ def process_file(
 # CLI
 # ---------------------------------------------------------------------------
 
+
 def collect_posts(paths: list[str]) -> list[Path]:
     """Resolve file paths, defaulting to all _posts/*.md."""
     if paths:
@@ -357,7 +389,7 @@ def collect_posts(paths: list[str]) -> list[Path]:
         posts_dir = Path.cwd() / "_posts"
 
     if not posts_dir.is_dir():
-        print(f"Error: could not find _posts directory", file=sys.stderr)
+        print("Error: could not find _posts directory", file=sys.stderr)
         sys.exit(1)
 
     return sorted(posts_dir.glob("*.md"))
@@ -416,8 +448,7 @@ def main() -> None:
     # Summary
     mode_label = "would be trimmed" if dry_run else "trimmed"
     print(
-        f"Summary: {total_fixed} posts {mode_label}, "
-        f"saving ~{total_saved} chars total"
+        f"Summary: {total_fixed} posts {mode_label}, saving ~{total_saved} chars total"
     )
 
 

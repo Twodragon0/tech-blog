@@ -36,9 +36,7 @@ def mask_sensitive_info(text: str) -> str:
     # Generic long token patterns (40+ chars)
     masked = re.sub(
         r"[a-zA-Z0-9_-]{40,}",
-        lambda m: m.group()[:8] + "***MASKED***"
-        if len(m.group()) > 40
-        else m.group(),
+        lambda m: m.group()[:8] + "***MASKED***" if len(m.group()) > 40 else m.group(),
         masked,
     )
 

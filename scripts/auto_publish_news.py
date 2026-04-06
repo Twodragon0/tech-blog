@@ -29,8 +29,26 @@ if _PROJECT_ROOT not in sys.path:
 # ---------------------------------------------------------------------------
 import scripts.news.config as _news_config  # noqa: E402
 
+# Re-export analyzer functions
+from scripts.news.analyzer import (  # noqa: E402,F401
+    extract_cve_id,
+    generate_mitre_mapping,
+    generate_risk_scorecard,
+)
+
 # Re-export config constants
 from scripts.news.config import (  # noqa: E402,F401
+    _AI_MODE,
+    _CLAUDE_API_KEY,
+    _CLAUDE_MODEL,
+    _GEMINI_API_KEY,
+    _GEMINI_AVAILABLE,
+    _GEMINI_CALL_TIMEOUT,
+    _GEMINI_CIRCUIT_OPEN,
+    _GEMINI_CONSECUTIVE_FAILURES,
+    _GEMINI_MAX_RETRIES,
+    _OPENAI_API_KEY,
+    _OPENAI_GPT54_MODEL,
     CATEGORY_COLOR,
     CATEGORY_EMOJI,
     CATEGORY_PRIORITY,
@@ -52,31 +70,38 @@ from scripts.news.config import (  # noqa: E402,F401
     SVG_TEMPLATE_HUB_SPOKE,
     SVG_TEMPLATE_TIMELINE,
     TECH_BLOG_SOURCES,
-    _AI_MODE,
-    _CLAUDE_API_KEY,
-    _CLAUDE_MODEL,
-    _GEMINI_API_KEY,
-    _GEMINI_AVAILABLE,
-    _GEMINI_CALL_TIMEOUT,
-    _GEMINI_CIRCUIT_OPEN,
-    _GEMINI_CONSECUTIVE_FAILURES,
-    _GEMINI_MAX_RETRIES,
-    _OPENAI_API_KEY,
     _OPENAI_Codex_MODEL,
-    _OPENAI_GPT54_MODEL,
 )
 
-# Re-export loader functions
-from scripts.news.loader import (  # noqa: E402,F401
-    _deduplicate_crypto_stories,
-    _filter_by_cutoff,
-    categorize_news,
-    filter_and_prioritize_news,
-    filter_published_urls,
-    load_collected_news,
-    load_published_urls,
-    save_published_urls,
-    select_top_news,
+# Re-export content generator functions
+from scripts.news.content_generator import (  # noqa: E402,F401
+    _apply_trend_kr_map,
+    _build_digest_title,
+    _determine_severity,
+    _extract_cve_ids,
+    _extract_digest_title_labels,
+    _extract_digest_title_phrases,
+    _extract_meaningful_topics,
+    _extract_trend_keyword,
+    _generate_ai_analysis_template,
+    _generate_contextual_action_point,
+    _generate_devops_template,
+    _generate_executive_and_risk_sections,
+    _generate_key_points,
+    _generate_news_specific_checklist,
+    _generate_security_analysis_template,
+    _generate_security_brief_template,
+    _generate_tech_trend_analysis,
+    _generate_trend_analysis,
+    _korean_brief_summary,
+    _korean_display_title,
+    _run_post_quality_gate,
+    _table_summary,
+    _translate_to_korean_deepseek,
+    _truncate_korean_sentence,
+    generate_news_section,
+    generate_post_content,
+    generate_tech_blog_content,
 )
 
 # Re-export enhancer functions
@@ -94,42 +119,17 @@ from scripts.news.enhancer import (  # noqa: E402,F401
     enhance_with_openai_gpt54,
 )
 
-# Re-export analyzer functions
-from scripts.news.analyzer import (  # noqa: E402,F401
-    extract_cve_id,
-    generate_mitre_mapping,
-    generate_risk_scorecard,
-)
-
-# Re-export content generator functions
-from scripts.news.content_generator import (  # noqa: E402,F401
-    _apply_trend_kr_map,
-    _build_digest_title,
-    _extract_cve_ids,
-    _extract_digest_title_labels,
-    _extract_digest_title_phrases,
-    _extract_meaningful_topics,
-    _generate_ai_analysis_template,
-    _generate_contextual_action_point,
-    _generate_devops_template,
-    _generate_executive_and_risk_sections,
-    _generate_key_points,
-    _generate_news_specific_checklist,
-    _generate_security_analysis_template,
-    _generate_security_brief_template,
-    _generate_tech_trend_analysis,
-    _generate_trend_analysis,
-    _determine_severity,
-    _extract_trend_keyword,
-    _korean_brief_summary,
-    _korean_display_title,
-    _run_post_quality_gate,
-    _table_summary,
-    _translate_to_korean_deepseek,
-    _truncate_korean_sentence,
-    generate_news_section,
-    generate_post_content,
-    generate_tech_blog_content,
+# Re-export loader functions
+from scripts.news.loader import (  # noqa: E402,F401
+    _deduplicate_crypto_stories,
+    _filter_by_cutoff,
+    categorize_news,
+    filter_and_prioritize_news,
+    filter_published_urls,
+    load_collected_news,
+    load_published_urls,
+    save_published_urls,
+    select_top_news,
 )
 
 # Re-export SVG generator functions
@@ -153,7 +153,6 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
     generate_svg_image,
 )
 
-
 # ---------------------------------------------------------------------------
 # Module-level __setattr__ / __getattr__ to proxy mutable config state.
 #
@@ -161,20 +160,24 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
 # this propagates the write to scripts.news.config so the actual code
 # (which reads from _cfg) picks it up.
 # ---------------------------------------------------------------------------
-_PROXIED_CONFIG_ATTRS = frozenset({
-    "_GEMINI_AVAILABLE",
-    "_GEMINI_CIRCUIT_OPEN",
-    "_GEMINI_CONSECUTIVE_FAILURES",
-    "_AI_MODE",
-    "_GEMINI_API_KEY",
-    "_CLAUDE_API_KEY",
-    "_OPENAI_API_KEY",
-})
+_PROXIED_CONFIG_ATTRS = frozenset(
+    {
+        "_GEMINI_AVAILABLE",
+        "_GEMINI_CIRCUIT_OPEN",
+        "_GEMINI_CONSECUTIVE_FAILURES",
+        "_AI_MODE",
+        "_GEMINI_API_KEY",
+        "_CLAUDE_API_KEY",
+        "_OPENAI_API_KEY",
+    }
+)
 
-_PROXIED_CONFIG_DICTS = frozenset({
-    "KOREAN_TITLE_CACHE",
-    "KOREAN_SUMMARY_CACHE",
-})
+_PROXIED_CONFIG_DICTS = frozenset(
+    {
+        "KOREAN_TITLE_CACHE",
+        "KOREAN_SUMMARY_CACHE",
+    }
+)
 
 _this_module = sys.modules[__name__]
 
@@ -216,6 +219,7 @@ sys.modules[__name__] = _ConfigProxy(_this_module)
 # ---------------------------------------------------------------------------
 # Main function
 # ---------------------------------------------------------------------------
+
 
 def main():
     parser = argparse.ArgumentParser(description="Auto publish news to _posts")
@@ -275,7 +279,9 @@ def main():
     if not gemini_api_key:
         logging.warning("GEMINI_API_KEY not set - API features disabled")
 
-    print(f"\U0001f4f0 Auto Publish News (mode: {args.mode}, ai: {_news_config._AI_MODE})")
+    print(
+        f"\U0001f4f0 Auto Publish News (mode: {args.mode}, ai: {_news_config._AI_MODE})"
+    )
     print("=" * 50)
 
     # Load news
@@ -309,7 +315,9 @@ def main():
     filtered = filter_published_urls(filtered, published_urls)
 
     if len(filtered) < MIN_NEWS_COUNT:
-        print(f"\u26a0\ufe0f Not enough news ({len(filtered)} < {MIN_NEWS_COUNT}). Skipping.")
+        print(
+            f"\u26a0\ufe0f Not enough news ({len(filtered)} < {MIN_NEWS_COUNT}). Skipping."
+        )
         return
 
     categorized = categorize_news(filtered)
@@ -402,7 +410,9 @@ def main():
             print(f"   File: {post_path}")
             return
         else:
-            print(f"\U0001f4dd Overwriting existing post ({existing_size}B \u2192 {new_size}B)")
+            print(
+                f"\U0001f4dd Overwriting existing post ({existing_size}B \u2192 {new_size}B)"
+            )
 
     if args.dry_run:
         print("\n\U0001f4dd [DRY RUN] Would create:")

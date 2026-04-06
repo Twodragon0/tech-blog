@@ -21,7 +21,6 @@ if str(BASE_DIR / "scripts") not in sys.path:
 
 from auto_publish_news import _convert_svg_to_og_png, generate_svg_image
 
-
 TARGET_IMAGES = [
     "2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg",
     "2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg",

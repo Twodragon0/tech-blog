@@ -262,7 +262,12 @@ def scrape(
 
     def _js_escape(s):
         """Escape a string for safe embedding in a JS single-quoted literal."""
-        return s.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r")
+        return (
+            s.replace("\\", "\\\\")
+            .replace("'", "\\'")
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+        )
 
     safe_url = _js_escape(url)
     safe_selector = _js_escape(selector)

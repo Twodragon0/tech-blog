@@ -5,6 +5,7 @@ import glob
 import os
 import sys
 
+
 def main():
     try:
         import cairosvg
@@ -24,7 +25,11 @@ def main():
 
     img_dir = "assets/images"
     svg_files = sorted(glob.glob(os.path.join(img_dir, "*.svg")))
-    svg_files = [f for f in svg_files if not os.path.basename(f).startswith(('section-', 'og-', 'news-'))]
+    svg_files = [
+        f
+        for f in svg_files
+        if not os.path.basename(f).startswith(("section-", "og-", "news-"))
+    ]
 
     converted = errors = 0
     for svg_path in svg_files:
@@ -32,7 +37,9 @@ def main():
         png_path = os.path.join(img_dir, f"{basename}_og.png")
 
         try:
-            cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=1200, output_height=630)
+            cairosvg.svg2png(
+                url=svg_path, write_to=png_path, output_width=1200, output_height=630
+            )
             converted += 1
 
             if Image:
@@ -47,5 +54,5 @@ def main():
     print(f"Converted: {converted}, Errors: {errors}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
