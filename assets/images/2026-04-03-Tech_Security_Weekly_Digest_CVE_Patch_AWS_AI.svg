@@ -1,217 +1,293 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest - CVE-2025-55182, Cisco 9.8 CVSS, Agentic AI Security</title>
   <defs>
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#0d1525"/>
+      <stop offset="100%" style="stop-color:#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7f1d1d;stop-opacity:0.9"/>
+      <stop offset="50%" style="stop-color:#450a0a;stop-opacity:0.95"/>
+      <stop offset="100%" style="stop-color:#1a0505"/>
+    </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.4"/>
+      <stop offset="70%" style="stop-color:#dc2626;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cyanNode" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="60%" style="stop-color:#0891b2;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
+    </radialGradient>
+    <radialGradient id="redNode" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="60%" style="stop-color:#b91c1c;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.3"/>
+    </radialGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e7490;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="50%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="cveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fca5a5"/>
+      <stop offset="100%" style="stop-color:#f87171"/>
+    </linearGradient>
+    <linearGradient id="cyanAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="arcGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.4"/>
+    </linearGradient>
+    <radialGradient id="eyeGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="30%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#0e7490;stop-opacity:0.5"/>
+    </radialGradient>
+    <filter id="coreShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="20" flood-color="#dc2626" flood-opacity="0.6"/>
     </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#22d3ee" flood-opacity="0.8"/>
     </filter>
-    <filter id="orbGlow">
-      <feGaussianBlur stdDeviation="40" />
+    <filter id="redGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#dc2626" flood-opacity="0.9"/>
     </filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.7"/>
     </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626" />
-      <stop offset="100%" stop-color="#f97316" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#dc2626" />
-      <stop offset="50%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#fbbf24" />
-    </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
+    <clipPath id="borderClip">
+      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
+    </clipPath>
     <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
+      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.8"/>
     </pattern>
-    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#dc2626" />
-      <stop offset="100%" stop-color="#991b1b" />
-    </linearGradient>
-    <linearGradient id="brainGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#ea580c" />
-    </linearGradient>
+    <pattern id="hexGrid" x="0" y="0" width="20" height="23" patternUnits="userSpaceOnUse">
+      <polygon points="10,0 20,5.77 20,17.32 10,23.09 0,17.32 0,5.77"
+               fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
+  <!-- BACKGROUND -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <g clip-path="url(#borderClip)">
+    <rect width="1200" height="630" fill="url(#dots)" opacity="0.6"/>
 
-  <!-- Orb glows -->
-  <circle cx="780" cy="140" r="190" fill="#dc2626" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1050" cy="430" r="150" fill="#f97316" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="180" cy="490" r="120" fill="#fbbf24" opacity="0.05" filter="url(#orbGlow)" />
-  <circle cx="600" cy="310" r="100" fill="#dc2626" opacity="0.04" filter="url(#orbGlow)" />
+    <!-- Ambient glow -->
+    <ellipse cx="540" cy="315" rx="280" ry="260" fill="url(#coreGlow)" opacity="0.6"/>
+    <ellipse cx="950" cy="280" rx="220" ry="180" fill="#06b6d4" opacity="0.03"/>
 
-  <!-- Card 1 (top-right): AI Brain / Neural Network -->
-  <g transform="translate(830, 60)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(100, 20)">
-      <!-- Brain outline simplified as neural network nodes -->
-      <circle cx="55" cy="50" r="18" fill="none" stroke="#f97316" stroke-width="2" opacity="0.8" />
-      <circle cx="55" cy="50" r="8" fill="#f97316" opacity="0.2" />
-      <!-- Outer nodes -->
-      <circle cx="20" cy="30" r="6" fill="#f97316" opacity="0.5" />
-      <circle cx="90" cy="30" r="6" fill="#f97316" opacity="0.5" />
-      <circle cx="20" cy="70" r="6" fill="#fbbf24" opacity="0.4" />
-      <circle cx="90" cy="70" r="6" fill="#fbbf24" opacity="0.4" />
-      <circle cx="55" cy="10" r="5" fill="#f97316" opacity="0.45" />
-      <circle cx="55" cy="90" r="5" fill="#f97316" opacity="0.35" />
-      <!-- Connections -->
-      <line x1="26" y1="30" x2="38" y2="40" stroke="#f97316" stroke-width="1.5" opacity="0.5" />
-      <line x1="84" y1="30" x2="72" y2="40" stroke="#f97316" stroke-width="1.5" opacity="0.5" />
-      <line x1="26" y1="70" x2="38" y2="60" stroke="#fbbf24" stroke-width="1.5" opacity="0.4" />
-      <line x1="84" y1="70" x2="72" y2="60" stroke="#fbbf24" stroke-width="1.5" opacity="0.4" />
-      <line x1="55" y1="15" x2="55" y2="32" stroke="#f97316" stroke-width="1.5" opacity="0.5" />
-      <line x1="55" y1="68" x2="55" y2="85" stroke="#f97316" stroke-width="1.5" opacity="0.4" />
-      <!-- AI label box -->
-      <rect x="28" y="100" width="55" height="18" rx="4" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="55" y="113" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">AI AGENT</text>
+    <!-- ORBITAL RINGS -->
+    <circle cx="540" cy="315" r="195" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="4 6" opacity="0.5"/>
+    <circle cx="540" cy="315" r="135" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+    <path d="M 620 135 A 195 195 0 0 1 735 315" fill="none" stroke="url(#arcGrad1)" stroke-width="2" opacity="0.5"/>
+    <path d="M 440 510 A 195 195 0 0 1 345 315" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 5"/>
+
+    <!-- NODE CONNECTION LINES -->
+    <line x1="540" y1="120" x2="540" y2="210" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 4"/>
+    <line x1="710" y1="188" x2="620" y2="248" stroke="#06b6d4" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 4"/>
+    <line x1="720" y1="430" x2="622" y2="370" stroke="#dc2626" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 4"/>
+    <line x1="540" y1="510" x2="540" y2="420" stroke="#dc2626" stroke-width="2" opacity="0.6" stroke-dasharray="3 4"/>
+    <line x1="345" y1="315" x2="418" y2="315" stroke="#f97316" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 4"/>
+    <path d="M 540 120 Q 720 150 710 188" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.2"/>
+    <path d="M 710 430 Q 730 510 540 510" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.2"/>
+
+    <!-- NODE 1: TOP - Cisco -->
+    <g filter="url(#nodeGlow)">
+      <circle cx="540" cy="108" r="28" fill="#0c1a2e" stroke="#06b6d4" stroke-width="2" opacity="0.9"/>
+      <circle cx="540" cy="108" r="28" fill="url(#cyanNode)" opacity="0.2"/>
     </g>
-    <circle cx="130" cy="200" r="3" fill="#f97316" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#fbbf24" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#f97316" opacity="0.4" />
+    <rect x="528" y="100" width="24" height="16" rx="2" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+    <circle cx="534" cy="108" r="2.5" fill="#22d3ee"/>
+    <circle cx="540" cy="108" r="2.5" fill="#22d3ee"/>
+    <circle cx="546" cy="108" r="2.5" fill="#22d3ee"/>
+
+    <!-- NODE 2: TOP-RIGHT - Shield -->
+    <g filter="url(#nodeGlow)">
+      <circle cx="718" cy="183" r="26" fill="#0c1a2e" stroke="#06b6d4" stroke-width="2" opacity="0.9"/>
+      <circle cx="718" cy="183" r="26" fill="url(#cyanNode)" opacity="0.2"/>
+    </g>
+    <path d="M718 171 L730 175 L730 184 Q730 192 718 196 Q706 192 706 184 L706 175 Z" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+
+    <!-- NODE 3: BOTTOM-RIGHT - Exploit -->
+    <g filter="url(#redGlow)">
+      <circle cx="726" cy="438" r="26" fill="#1a0505" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <circle cx="726" cy="438" r="26" fill="url(#redNode)" opacity="0.25"/>
+    </g>
+    <polygon points="726,425 738,447 714,447" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- NODE 4: BOTTOM - CVE -->
+    <g filter="url(#redGlow)">
+      <circle cx="540" cy="518" r="28" fill="#1a0505" stroke="#dc2626" stroke-width="2.5" opacity="0.9"/>
+      <circle cx="540" cy="518" r="28" fill="url(#redNode)" opacity="0.3"/>
+    </g>
+    <text x="540" y="514" font-family="Courier New, monospace" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold">CVE</text>
+
+    <!-- NODE 5: LEFT - AI Agent -->
+    <g filter="url(#nodeGlow)">
+      <circle cx="337" cy="315" r="28" fill="#051520" stroke="#06b6d4" stroke-width="2" opacity="0.9"/>
+      <circle cx="337" cy="315" r="28" fill="url(#cyanNode)" opacity="0.25"/>
+    </g>
+    <ellipse cx="337" cy="312" rx="11" ry="9" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+    <path d="M326 312 Q322 308 325 304" fill="none" stroke="#22d3ee" stroke-width="1.2"/>
+    <path d="M348 312 Q352 308 349 304" fill="none" stroke="#22d3ee" stroke-width="1.2"/>
+    <circle cx="337" cy="312" r="3" fill="#22d3ee" opacity="0.8"/>
+    <text x="337" y="335" font-family="Courier New, monospace" font-size="7" fill="#22d3ee" text-anchor="middle" opacity="0.9">AI AGENT</text>
+
+    <!-- AI SHIELD (right side) -->
+    <polygon points="870,185 940,185 975,245 940,305 870,305 835,245" fill="url(#shieldGrad)" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="870,185 940,185 975,245 940,305 870,305 835,245" fill="url(#hexGrid)" opacity="0.5"/>
+    <polygon points="870,185 940,185 975,245 940,305 870,305 835,245" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
+    <!-- AI Eye -->
+    <circle cx="905" cy="245" r="22" fill="#051520" opacity="0.9"/>
+    <circle cx="905" cy="245" r="18" fill="url(#eyeGrad)" opacity="0.3"/>
+    <circle cx="905" cy="245" r="12" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+    <circle cx="905" cy="245" r="6" fill="#0e7490" opacity="0.9"/>
+    <circle cx="905" cy="245" r="3" fill="#22d3ee"/>
+    <circle cx="908" cy="242" r="1.5" fill="white" opacity="0.8"/>
+    <line x1="883" y1="245" x2="895" y2="245" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    <line x1="915" y1="245" x2="927" y2="245" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    <!-- Lower shield hex -->
+    <polygon points="870,315 940,315 975,375 940,435 870,435 835,375" fill="url(#shieldGrad)" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+    <polygon points="870,315 940,315 975,375 940,435 870,435 835,375" fill="url(#hexGrid)" opacity="0.3"/>
+
+    <!-- CENTRAL FRACTURED CORE -->
+    <circle cx="540" cy="315" r="125" fill="#dc2626" opacity="0.06"/>
+    <circle cx="540" cy="315" r="100" fill="#dc2626" opacity="0.08"/>
+    <polygon points="540,210 625,260 625,360 540,410 455,360 455,260" fill="url(#coreGrad)" stroke="#dc2626" stroke-width="2.5" filter="url(#coreShadow)" opacity="0.95"/>
+    <polygon points="540,218 617,264 617,356 540,402 463,356 463,264" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <polygon points="540,240 600,272 600,338 540,372 480,338 480,272" fill="none" stroke="#7f1d1d" stroke-width="1" opacity="0.6"/>
+    <!-- Core orb -->
+    <circle cx="540" cy="315" r="35" fill="#200505" opacity="0.9"/>
+    <circle cx="540" cy="315" r="30" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="540" cy="315" r="20" fill="#dc2626" opacity="0.3"/>
+    <circle cx="540" cy="315" r="12" fill="#ef4444" opacity="0.5"/>
+    <circle cx="540" cy="315" r="6" fill="#fca5a5" opacity="0.8"/>
+    <!-- Internal circuit lines -->
+    <line x1="540" y1="280" x2="540" y2="300" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <line x1="540" y1="330" x2="540" y2="350" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <line x1="505" y1="315" x2="520" y2="315" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <line x1="560" y1="315" x2="575" y2="315" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+    <line x1="518" y1="293" x2="525" y2="305" stroke="#7f1d1d" stroke-width="1" opacity="0.6"/>
+    <line x1="562" y1="293" x2="555" y2="305" stroke="#7f1d1d" stroke-width="1" opacity="0.6"/>
+    <line x1="518" y1="337" x2="525" y2="325" stroke="#7f1d1d" stroke-width="1" opacity="0.6"/>
+    <line x1="562" y1="337" x2="555" y2="325" stroke="#7f1d1d" stroke-width="1" opacity="0.6"/>
+
+    <!-- DIGITAL LIGHTNING CRACK -->
+    <polyline points="510,215 525,252 508,268 535,290 515,315 542,335 525,358 548,378 540,410" fill="none" stroke="#dc2626" stroke-width="4" stroke-linejoin="round" filter="url(#redGlow)" opacity="0.9"/>
+    <polyline points="510,215 525,252 508,268 535,290 515,315 542,335 525,358 548,378 540,410" fill="none" stroke="#fca5a5" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Branch cracks -->
+    <polyline points="525,252 545,240 560,222" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round" filter="url(#redGlow)" opacity="0.7"/>
+    <polyline points="525,252 545,240 560,222" fill="none" stroke="#fca5a5" stroke-width="1.2" opacity="0.5"/>
+    <polyline points="515,315 495,308 472,320 460,312" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" filter="url(#redGlow)" opacity="0.6"/>
+    <polyline points="542,335 565,342 580,360 600,355" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" filter="url(#redGlow)" opacity="0.6"/>
+    <!-- Micro fragments -->
+    <line x1="508" y1="268" x2="492" y2="258" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+    <line x1="508" y1="268" x2="500" y2="280" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+    <line x1="535" y1="290" x2="555" y2="282" stroke="#ef4444" stroke-width="1.2" opacity="0.4"/>
+    <line x1="548" y1="378" x2="562" y2="390" stroke="#dc2626" stroke-width="1.5" opacity="0.4"/>
+    <line x1="548" y1="378" x2="534" y2="395" stroke="#dc2626" stroke-width="1.2" opacity="0.4"/>
+    <!-- Spark at crack start -->
+    <circle cx="510" cy="215" r="4" fill="#ef4444" opacity="0.9" filter="url(#redGlow)"/>
+    <circle cx="512" cy="210" r="2" fill="#fca5a5" opacity="0.7"/>
+    <circle cx="506" cy="212" r="1.5" fill="#ef4444" opacity="0.6"/>
+    <circle cx="516" cy="208" r="1" fill="#fca5a5" opacity="0.5"/>
+
+    <!-- FLOATING PARTICLES -->
+    <circle cx="180" cy="120" r="2.5" fill="#06b6d4" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="120;112;120" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1040" cy="180" r="2" fill="#ef4444" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90" cy="450" r="3" fill="#06b6d4" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="500" r="2" fill="#22d3ee" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="520" r="1.5" fill="#ef4444" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1020" cy="80" r="2.5" fill="#06b6d4" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Data streams -->
+    <line x1="50" y1="200" x2="120" y2="200" stroke="#06b6d4" stroke-width="1" opacity="0.2"/>
+    <line x1="50" y1="215" x2="95" y2="215" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
+    <line x1="1080" y1="380" x2="1150" y2="380" stroke="#dc2626" stroke-width="1" opacity="0.2"/>
+    <line x1="1095" y1="395" x2="1150" y2="395" stroke="#dc2626" stroke-width="1" opacity="0.15"/>
+
+    <!-- TEXT CONTENT - LEFT COLUMN -->
+    <!-- WEEKLY DIGEST badge -->
+    <rect x="40" y="36" width="148" height="26" rx="4" fill="#1e3a5f" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="114" y="53" font-family="Courier New, monospace" font-size="11" fill="#22d3ee" text-anchor="middle" letter-spacing="2" font-weight="bold">WEEKLY DIGEST</text>
+    <!-- Date -->
+    <text x="40" y="90" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1">APRIL 03, 2026</text>
+
+    <!-- Main title -->
+    <text x="40" y="148" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#titleGrad)" font-weight="700" letter-spacing="-1">Tech Security</text>
+    <text x="40" y="198" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#titleGrad)" font-weight="700" letter-spacing="-1">Weekly</text>
+
+    <!-- Accent divider -->
+    <rect x="40" y="212" width="240" height="2" rx="1" fill="url(#accentGrad)" opacity="0.8"/>
+
+    <!-- Subtitles -->
+    <text x="40" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="url(#accentGrad)" font-weight="600">CVE Exploit</text>
+    <text x="40" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="url(#cyanAccent)" font-weight="600">Cisco Critical</text>
+    <text x="40" y="292" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#94a3b8" font-weight="400">Agentic AI Security</text>
+
+    <!-- CVE PANEL -->
+    <rect x="40" y="320" width="280" height="68" rx="6" fill="#0d1525" stroke="#dc2626" stroke-width="1.5" opacity="0.9"/>
+    <rect x="40" y="320" width="6" height="68" rx="3" fill="#dc2626"/>
+    <text x="58" y="368" font-family="Courier New, monospace" font-size="19" fill="url(#cveGrad)" font-weight="bold" letter-spacing="0.5" filter="url(#textGlow)">CVE-2025-55182</text>
+
+    <!-- CVSS + CRITICAL + CISCO badges -->
+    <rect x="40" y="402" width="100" height="30" rx="5" fill="#7f1d1d" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="90" y="421" font-family="Courier New, monospace" font-size="13" fill="#fca5a5" text-anchor="middle" font-weight="bold">CVSS 9.8</text>
+    <rect x="148" y="402" width="90" height="30" rx="5" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+    <text x="193" y="421" font-family="Courier New, monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold" letter-spacing="1">CRITICAL</text>
+    <rect x="246" y="402" width="74" height="30" rx="5" fill="#051520" stroke="#06b6d4" stroke-width="1"/>
+    <text x="283" y="421" font-family="Courier New, monospace" font-size="11" fill="#22d3ee" text-anchor="middle" letter-spacing="1">CISCO</text>
+
+    <!-- TAG PILLS -->
+    <rect x="40" y="565" width="54" height="24" rx="12" fill="#200505" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="67" y="581" font-family="Courier New, monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">CVE</text>
+    <rect x="102" y="565" width="60" height="24" rx="12" fill="#051520" stroke="#06b6d4" stroke-width="1.2"/>
+    <text x="132" y="581" font-family="Courier New, monospace" font-size="10" fill="#22d3ee" text-anchor="middle">Cisco</text>
+    <rect x="170" y="565" width="78" height="24" rx="12" fill="#051520" stroke="#06b6d4" stroke-width="1.2"/>
+    <text x="209" y="581" font-family="Courier New, monospace" font-size="10" fill="#22d3ee" text-anchor="middle">AI Agent</text>
+    <rect x="256" y="565" width="58" height="24" rx="12" fill="#0c1a0c" stroke="#22c55e" stroke-width="1.2"/>
+    <text x="285" y="581" font-family="Courier New, monospace" font-size="10" fill="#4ade80" text-anchor="middle">Patch</text>
+
+    <!-- FOOTER -->
+    <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
+    <text x="1160" y="622" font-family="Courier New, monospace" font-size="11" fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
+
+    <!-- CRT scan line animation -->
+    <rect width="1200" height="2" x="0" y="0" fill="#06b6d4" opacity="0">
+      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
+    </rect>
   </g>
 
-  <!-- Card 2 (middle): Server / Cisco rack -->
-  <g transform="translate(720, 190)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(100, 18)">
-      <!-- Server rack body -->
-      <rect x="10" y="10" width="90" height="70" rx="6" fill="none" stroke="#f97316" stroke-width="2.5" opacity="0.85" />
-      <!-- Rack units -->
-      <rect x="16" y="18" width="78" height="12" rx="3" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1" stroke-opacity="0.5" />
-      <rect x="16" y="34" width="78" height="12" rx="3" fill="#f97316" opacity="0.1" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <rect x="16" y="50" width="78" height="12" rx="3" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="1" stroke-opacity="0.3" />
-      <!-- Status LEDs -->
-      <circle cx="24" cy="24" r="3" fill="#22c55e" opacity="0.9" />
-      <circle cx="24" cy="40" r="3" fill="#f97316" opacity="0.9" />
-      <circle cx="24" cy="56" r="3" fill="#dc2626" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s" repeatCount="indefinite" />
-      </circle>
-      <!-- CVSS badge -->
-      <rect x="20" y="88" width="68" height="18" rx="4" fill="#dc2626" opacity="0.25" stroke="#dc2626" stroke-width="1" stroke-opacity="0.5" />
-      <text x="54" y="101" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CVSS 9.8</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="190" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Shield with exclamation (CVE) -->
-  <g transform="translate(660, 340)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(110, 15)">
-      <!-- Shield shape -->
-      <path d="M50 5 L90 22 L90 55 C90 82 70 98 50 108 C30 98 10 82 10 55 L10 22 Z" fill="url(#shieldGrad)" opacity="0.25" stroke="#dc2626" stroke-width="2" stroke-opacity="0.85" />
-      <path d="M50 10 L85 25 L85 55 C85 78 68 92 50 102 C32 92 15 78 15 55 L15 25 Z" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.3" />
-      <!-- Exclamation mark -->
-      <rect x="45" y="32" width="10" height="38" rx="5" fill="#fbbf24" opacity="0.9" />
-      <circle cx="50" cy="82" r="6" fill="#fbbf24" opacity="0.9" />
-      <!-- Badge -->
-      <rect x="18" y="92" width="65" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
-      <text x="50" y="105" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CVE-2025</text>
-    </g>
-    <g transform="translate(40, 195)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="720" cy="280" r="2" fill="#dc2626" opacity="0.5">
-    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="840" cy="330" r="1.5" fill="#f97316" opacity="0.4">
-    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1060" cy="300" r="2" fill="#fbbf24" opacity="0.5">
-    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="690" cy="205" r="1.5" fill="#dc2626" opacity="0.3">
-    <animate attributeName="cy" values="205;197;205" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1110" cy="175" r="1" fill="#f97316" opacity="0.4">
-    <animate attributeName="cy" values="175;167;175" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="960" cy="130" r="1.5" fill="#dc2626" opacity="0.35">
-    <animate attributeName="cx" values="960;968;960" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel: WEEKLY DIGEST badge -->
-  <g transform="translate(60, 80)">
-    <rect width="160" height="32" rx="16" fill="#dc2626" opacity="0.15" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
-    <text x="80" y="21" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
-  </g>
-
-  <!-- Main title -->
-  <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
-  <text x="60" y="225" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
-  <text x="60" y="290" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">CVE Exploit</text>
-  <text x="60" y="335" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">Cisco Critical</text>
-
-  <!-- Accent line -->
-  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 385)">
-    <rect width="58" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="29" y="20" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">CVE</text>
-    <g transform="translate(68, 0)">
-      <rect width="66" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="33" y="20" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Cisco</text>
-    </g>
-    <g transform="translate(144, 0)">
-      <rect width="82" height="30" rx="15" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="41" y="20" text-anchor="middle" fill="#fde68a" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">AI Agent</text>
-    </g>
-    <g transform="translate(236, 0)">
-      <rect width="72" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="36" y="20" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Next.js</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">APRIL 03, 2026</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <!-- BORDER FRAME -->
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <!-- Corner accents -->
+  <polyline points="0,25 0,0 25,0" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
+  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
+  <polyline points="0,605 0,630 25,630" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
+  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
 </svg>
