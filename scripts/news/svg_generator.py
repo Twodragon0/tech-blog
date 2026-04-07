@@ -467,6 +467,352 @@ def _render_before_after_svg(
     return svg + _svg_footer(date_display)
 
 
+def _render_fractured_core_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    """Style 0: Fractured Core - Central hexagon with orbiting nodes (red/cyan)."""
+    node_colors = ["#ef4444", "#22d3ee", "#f59e0b"]
+    icons = _svg_icon_templates()
+    # Hexagon points for center shape
+    hex_pts = "600,270 660,300 660,360 600,390 540,360 540,300"
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1030"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="330" r="260" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="330" r="180" fill="#22d3ee" opacity="0.07" filter="url(#glow)"/>
+  <!-- Fractured crack lines from center -->
+  <line x1="600" y1="330" x2="160" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.25"/>
+  <line x1="600" y1="330" x2="1040" y2="110" stroke="#22d3ee" stroke-width="1.5" opacity="0.25"/>
+  <line x1="600" y1="330" x2="600" y2="560" stroke="#f59e0b" stroke-width="1.5" opacity="0.20"/>
+  <!-- Central hexagon -->
+  <polygon points="{hex_pts}" fill="#111827" stroke="{accent}" stroke-width="3" filter="url(#shadow)"/>
+  <polygon points="600,286 634,304 634,342 600,360 566,342 566,304" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="600" y="336" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
+  <!-- Orbit ring -->
+  <circle cx="600" cy="330" r="148" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="8 6" opacity="0.5"/>
+"""
+    orbit_positions = [(452, 210), (748, 210), (600, 478)]
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x, y = orbit_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        svg += f"""  <line x1="600" y1="330" x2="{x}" y2="{y}" stroke="{color}" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
+  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="52" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+    <text x="0" y="82" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  </g>
+"""
+    # WEEKLY DIGEST badge
+    svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
+  <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+    return svg
+
+
+def _render_dossier_strike_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    """Style 1: Dossier Strike - Diagonal split with classified stamp motif (purple/gold)."""
+    icons = _svg_icon_templates()
+    node_colors = ["#a855f7", "#f59e0b", "#22d3ee"]
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Diagonal divider -->
+  <polygon points="0,0 820,0 560,630 0,630" fill="#110d20" opacity="0.7"/>
+  <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
+  <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
+  <!-- Classified stamp rotated -->
+  <g transform="translate(900 310) rotate(-22)">
+    <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
+    <text x="0" y="12" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
+  </g>
+  <!-- Corner bracket marks -->
+  <path d="M70 60 L70 90 L100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M1130 60 L1130 90 L1100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M70 570 L70 540 L100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M1130 570 L1130 540 L1100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <!-- WEEKLY DIGEST badge -->
+  <rect x="90" y="62" width="196" height="32" rx="6" fill="#a855f7" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
+  <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+"""
+    node_positions = [(280, 360), (680, 280), (1000, 420)]
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        svg += f"""  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="{color}" stroke-width="2"/>
+    {icon_svg}
+    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  </g>
+"""
+    svg += f"""  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+    return svg
+
+
+def _render_pipeline_triptych_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    """Style 2: Pipeline Triptych - Three vertical columns (cyan/green/orange)."""
+    col_colors = ["#22d3ee", "#22c55e", "#f97316"]
+    col_x = [260, 600, 940]
+    icons = _svg_icon_templates()
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+"""
+    # Column backgrounds and top connectors
+    for idx, (x, color) in enumerate(zip(col_x, col_colors)):
+        svg += f"""  <rect x="{x - 90}" y="200" width="180" height="300" rx="12" fill="#111827" stroke="{color}" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="{x}" cy="180" r="30" fill="{color}" opacity="0.15" filter="url(#glow)"/>
+  <line x1="{x}" y1="200" x2="{x}" y2="160" stroke="{color}" stroke-width="2" opacity="0.5"/>
+"""
+    # Flow arrows between columns
+    svg += f"""  <path d="M{col_x[0] + 90} 340 L{col_x[1] - 90} 340" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+  <path d="M{col_x[1] + 90} 340 L{col_x[2] - 90} 340" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+"""
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x = col_x[idx]
+        color = col_colors[idx % len(col_colors)]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        svg += f"""  <g transform="translate({x} 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+  </g>
+  <text x="{x}" y="436" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  <rect x="{x - 50}" y="448" width="100" height="4" rx="2" fill="{color}" opacity="0.3"/>
+"""
+    svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
+  <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+    return svg
+
+
+def _render_shattered_vault_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    """Style 3: Shattered Vault - Horizontal split with breach crack (gold/blue)."""
+    icons = _svg_icon_templates()
+    node_colors = ["#f59e0b", "#3b82f6", "#ef4444"]
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#111c35"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Vault door outline -->
+  <rect x="380" y="200" width="440" height="300" rx="16" fill="#111827" stroke="#f59e0b" stroke-width="2.5" filter="url(#shadow)"/>
+  <!-- Vault hinge marks -->
+  <rect x="390" y="230" width="18" height="40" rx="4" fill="#f59e0b" opacity="0.4"/>
+  <rect x="390" y="430" width="18" height="40" rx="4" fill="#f59e0b" opacity="0.4"/>
+  <!-- Breach crack down the middle -->
+  <path d="M600 200 L590 260 L614 310 L588 370 L606 430 L600 500" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Glow behind crack -->
+  <path d="M600 200 L590 260 L614 310 L588 370 L606 430 L600 500" fill="none" stroke="#ef4444" stroke-width="16" stroke-linecap="round" opacity="0.12" filter="url(#glow)"/>
+  <!-- Lock wheel center -->
+  <circle cx="600" cy="350" r="40" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="600" cy="350" r="18" fill="#111827" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="600" cy="350" r="6" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="600" cy="330" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="600" cy="370" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="580" cy="350" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="620" cy="350" r="4" fill="#f59e0b" opacity="0.5"/>
+  <!-- Ambient glows -->
+  <circle cx="240" cy="350" r="180" fill="#f59e0b" opacity="0.07" filter="url(#glow)"/>
+  <circle cx="960" cy="350" r="180" fill="#3b82f6" opacity="0.07" filter="url(#glow)"/>
+"""
+    node_positions = [(200, 350), (600, 490), (1000, 350)]
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        if idx == 1:
+            # Bottom center - below the vault
+            svg += f"""  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="46" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+    <text x="0" y="72" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  </g>
+"""
+        else:
+            svg += f"""  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="52" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+    <text x="0" y="78" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+  </g>
+"""
+    svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
+  <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+    return svg
+
+
+def _render_global_gavel_svg(
+    accent: str,
+    headline: str,
+    subtitle: str,
+    date_display: str,
+    focus_labels: List[str],
+) -> str:
+    """Style 4: Global Gavel - World map grid with depth layers (navy/crimson/silver)."""
+    icons = _svg_icon_templates()
+    node_colors = ["#dc2626", "#e2e8f0", "#3b82f6"]
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{_escape_svg_text(headline)}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1e"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#141030"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Globe grid lines (longitude/latitude) -->
+  <ellipse cx="600" cy="350" rx="300" ry="200" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.6"/>
+  <ellipse cx="600" cy="350" rx="220" ry="200" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.4"/>
+  <ellipse cx="600" cy="350" rx="120" ry="200" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.3"/>
+  <line x1="300" y1="350" x2="900" y2="350" stroke="#1e3a5f" stroke-width="1" opacity="0.6"/>
+  <line x1="300" y1="300" x2="900" y2="300" stroke="#1e3a5f" stroke-width="1" opacity="0.35"/>
+  <line x1="300" y1="400" x2="900" y2="400" stroke="#1e3a5f" stroke-width="1" opacity="0.35"/>
+  <line x1="300" y1="250" x2="900" y2="250" stroke="#1e3a5f" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="450" x2="900" y2="450" stroke="#1e3a5f" stroke-width="1" opacity="0.2"/>
+  <!-- Globe equator highlight -->
+  <ellipse cx="600" cy="350" rx="300" ry="200" fill="none" stroke="#1e3a5f" stroke-width="2" opacity="0.8"/>
+  <!-- Globe fill -->
+  <ellipse cx="600" cy="350" rx="298" ry="198" fill="#0d1b2a" opacity="0.6"/>
+  <!-- Crimson glow center -->
+  <circle cx="600" cy="350" r="220" fill="#dc2626" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="350" r="80" fill="#3b82f6" opacity="0.07" filter="url(#glow)"/>
+  <!-- Gavel handle -->
+  <rect x="660" y="380" width="16" height="110" rx="6" fill="#e2e8f0" opacity="0.25" transform="rotate(40 668 435)"/>
+  <!-- Gavel head -->
+  <rect x="560" y="290" width="90" height="50" rx="8" fill="#e2e8f0" opacity="0.2" transform="rotate(40 605 315)"/>
+  <!-- Impact lines -->
+  <line x1="560" y1="340" x2="510" y2="300" stroke="#dc2626" stroke-width="2" opacity="0.4"/>
+  <line x1="555" y1="355" x2="495" y2="330" stroke="#dc2626" stroke-width="1.5" opacity="0.3"/>
+  <line x1="565" y1="330" x2="520" y2="280" stroke="#dc2626" stroke-width="1" opacity="0.25"/>
+"""
+    node_positions = [(200, 350), (600, 350), (1000, 350)]
+    for idx, label in enumerate(focus_labels[:SVG_MAX_FOCUS_LABELS]):
+        x, y = node_positions[idx]
+        color = node_colors[idx % len(node_colors)]
+        icon_key = _match_svg_icon(label)
+        icon_svg = icons[icon_key].replace("{c}", color)
+        node_y_offset = [460, 490, 460][idx]
+        radius = [52, 58, 52][idx]
+        svg += f"""  <g transform="translate({x} {y})" filter="url(#shadow)">
+    <circle r="{radius}" fill="#0f172a" stroke="{color}" stroke-width="2.5"/>
+    {icon_svg}
+  </g>
+  <text x="{x}" y="{node_y_offset}" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
+"""
+    svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
+  <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+    return svg
+
+
 def _convert_svg_to_og_png(svg_path: Path) -> None:
     """Convert SVG to PNG for Open Graph social media previews using rsvg-convert."""
     import shutil
@@ -495,7 +841,15 @@ def _convert_svg_to_og_png(svg_path: Path) -> None:
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
-    """Generate low-text digest SVG focused on standalone comprehension."""
+    """Generate low-text digest SVG focused on standalone comprehension.
+
+    Layout cycles through 5 visually distinct styles based on day of month (day % 5):
+      0 - Fractured Core: central hexagon with orbiting nodes (red/cyan)
+      1 - Dossier Strike: diagonal split with classified stamp motif (purple/gold)
+      2 - Pipeline Triptych: three vertical columns (cyan/green/orange)
+      3 - Shattered Vault: horizontal split with breach crack (gold/blue)
+      4 - Global Gavel: world map grid with depth layers (navy/crimson/silver)
+    """
 
     date_display = date.strftime("%B %d, %Y")
     focus_labels = _extract_visual_focus_labels(news_items, limit=SVG_MAX_FOCUS_LABELS)
@@ -513,13 +867,15 @@ def generate_svg_image(
     accent = config["icon_color"]
     headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
     subtitle = _compose_svg_subtitle(focus_labels)
-    template = _select_svg_template(news_items, focus_labels)
-    if template == SVG_TEMPLATE_TIMELINE:
-        return _render_timeline_svg(
-            accent, headline, subtitle, date_display, focus_labels
-        )
-    if template == SVG_TEMPLATE_BEFORE_AFTER:
-        return _render_before_after_svg(
-            accent, headline, subtitle, date_display, focus_labels
-        )
-    return _render_hub_spoke_svg(accent, headline, subtitle, date_display, focus_labels)
+
+    layout_index = date.day % 5
+    layout_renderers = [
+        _render_fractured_core_svg,
+        _render_dossier_strike_svg,
+        _render_pipeline_triptych_svg,
+        _render_shattered_vault_svg,
+        _render_global_gavel_svg,
+    ]
+    return layout_renderers[layout_index](
+        accent, headline, subtitle, date_display, focus_labels
+    )
