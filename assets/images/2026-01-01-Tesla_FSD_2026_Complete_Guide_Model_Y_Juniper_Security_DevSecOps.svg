@@ -1,126 +1,102 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>Tesla FSD 2026 Complete Guide Model Y Juniper Security DevSecOps</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>FSD 2026 MODEL Y JUNIPER</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#a78bfa" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#a78bfa" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#6d28d9" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#a78bfa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#a78bfa" opacity="0.28"/>
+  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
+  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
 
-  <!-- LEFT SIDE: Text and Information -->
-  <!-- Date badge -->
-  <rect x="60" y="50" width="180" height="32" rx="16" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1"/>
-  <text x="150" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">JANUARY 1, 2026</text>
+  <g transform="translate(917,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#a78bfa" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-  <!-- Title -->
-  <text x="70" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Tesla FSD 2026</text>
-
-  <!-- Subtitle -->
-  <text x="70" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Model Juniper Security</text>
-
-  <!-- Tag pills -->
-  <g>
-    <!-- Tag 1: Security -->
-    <rect x="70" y="420" width="100" height="28" rx="14" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1"/>
-    <text x="120" y="439" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#3b82f6" text-anchor="middle">Security</text>
-
-    <!-- Tag 2: FSD -->
-    <rect x="180" y="420" width="70" height="28" rx="14" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
-    <text x="215" y="439" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#f59e0b" text-anchor="middle">FSD</text>
-
-    <!-- Tag 3: AI -->
-    <rect x="260" y="420" width="60" height="28" rx="14" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
-    <text x="290" y="439" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#ef4444" text-anchor="middle">AI</text>
+    <circle cx="-60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <circle cx="60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <line x1="-38" y1="0" x2="-22" y2="0" stroke="#a78bfa" stroke-width="2"/>
+    <line x1="22" y1="0" x2="38" y2="0" stroke="#a78bfa" stroke-width="2"/>
+    <polygon points="-25,-4 -18,0 -25,4" fill="#a78bfa"/>
+    <polygon points="35,-4 42,0 35,4" fill="#a78bfa"/>
+    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
   </g>
-
-  <!-- Footer -->
-  <text x="70" y="585" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#666666">tech.2twodragon.com</text>
-
-  <!-- RIGHT SIDE: Security Visual Scene -->
-  <!-- Background circle for visual area -->
-  <circle cx="900" cy="300" r="250" fill="#3b82f6" opacity="0.04" stroke="#3b82f6" stroke-width="0.5"/>
-
-  <!-- Central Shield Icon with Checkmark -->
-  <g>
-    <!-- Shield outline -->
-    <path d="M 880 150 L 920 150 L 920 250 Q 900 280 880 300 Q 860 280 860 250 L 860 150 Z"
-          fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5"/>
-
-    <!-- Checkmark inside shield -->
-    <g>
-      <polyline points="875,260 885,270 905,245"
-                fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-    </g>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
   </g>
-
-  <!-- Top-left data node -->
-  <circle cx="720" cy="140" r="20" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="720" cy="140" r="12" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.4"/>
-
-  <!-- Top-right data node -->
-  <circle cx="1050" cy="140" r="20" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
-  <circle cx="1050" cy="140" r="12" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.4"/>
-
-  <!-- Bottom-left alert indicator -->
-  <g>
-    <!-- Warning triangle -->
-    <polygon points="720,480 705,450 735,450" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="720" y="472" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.5">!</text>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">FSD 2026 MODEL Y</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">JUNIPER</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">LLM / DEVSECOPS / AUTOMATION</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM E119914B001E</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">LLM</text>
   </g>
-
-  <!-- Bottom-right data node -->
-  <circle cx="1050" cy="480" r="20" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1"/>
-  <circle cx="1050" cy="480" r="12" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
-
-  <!-- Data flow arrows -->
-  <!-- Arrow from top-left to shield -->
-  <g>
-    <line x1="735" y1="152" x2="860" y2="180" stroke="#f59e0b" stroke-width="1.2" opacity="0.3"/>
-    <polygon points="860,180 855,177 858,185" fill="#f59e0b" opacity="0.3"/>
+  <g transform="translate(208 474)">
+    <rect width="124" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
   </g>
-
-  <!-- Arrow from top-right to shield -->
-  <g>
-    <line x1="1035" y1="152" x2="920" y2="180" stroke="#ef4444" stroke-width="1.2" opacity="0.3"/>
-    <polygon points="920,180 925,175 917,183" fill="#ef4444" opacity="0.3"/>
+  <g transform="translate(346 474)">
+    <rect width="134" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">AUTOMATION</text>
   </g>
-
-  <!-- Arrow from shield to bottom-right -->
-  <g>
-    <path d="M 900 300 Q 950 380 1050 460" stroke="#3b82f6" stroke-width="1.2" fill="none" opacity="0.3" stroke-dasharray="3,3"/>
-    <polygon points="1050,460 1055,455 1043,462" fill="#3b82f6" opacity="0.3"/>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">DEVSECOPS</text>
   </g>
-
-  <!-- Arrow from alert to shield -->
-  <g>
-    <line x1="720" y1="450" x2="880" y2="300" stroke="#ef4444" stroke-width="1.2" opacity="0.25"/>
-    <polygon points="880,300 882,308 875,302" fill="#ef4444" opacity="0.25"/>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
-
-  <!-- Additional security elements -->
-  <!-- Lock symbol upper right -->
-  <g opacity="0.4">
-    <rect x="1000" y="220" width="28" height="22" rx="3" fill="none" stroke="#3b82f6" stroke-width="1"/>
-    <path d="M 1006 220 L 1006 215 Q 1006 210 1011 210 Q 1016 210 1016 215 L 1016 220"
-          fill="none" stroke="#3b82f6" stroke-width="1"/>
-    <circle cx="1014" cy="231" r="2" fill="#3b82f6"/>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">08</text>
   </g>
-
-  <!-- Data packet icons -->
-  <g opacity="0.35">
-    <rect x="750" y="310" width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="0.8"/>
-    <line x1="750" y1="318" x2="766" y2="318" stroke="#f59e0b" stroke-width="0.8"/>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 08, 2026</text>
   </g>
-
-  <g opacity="0.35">
-    <rect x="1030" y="250" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="0.8"/>
-    <line x1="1030" y1="258" x2="1046" y2="258" stroke="#ef4444" stroke-width="0.8"/>
-  </g>
-
-  <!-- Verification checkmark circles -->
-  <g>
-    <circle cx="800" cy="380" r="18" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.25"/>
-    <polyline points="795,380 800,385 810,375" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-  </g>
-
-  <g>
-    <circle cx="980" cy="350" r="18" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.25"/>
-    <polyline points="975,350 980,355 990,345" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

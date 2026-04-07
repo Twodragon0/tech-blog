@@ -1,115 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
-  <title>Cloud Security Course 7Batch - 7Week Docker and Kubernetes</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>7 7 DOCKER KUBERNETES DEVSECOPS</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#60a5fa" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#60a5fa" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#1d4ed8" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="760" y="116" width="352" height="312" rx="28" fill="url(#panel)" stroke="#60a5fa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="778" y="134" width="316" height="276" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="782" y="136" width="108" height="12" rx="6" fill="#60a5fa" opacity="0.28"/>
+  <rect x="904" y="136" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="988" y="136" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
   
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
-  <g>
-    
-    <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="bold" fill="white">
-      Cloud Security Course
-    </text>
-    
-    <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="bold" fill="white">
-      7Batch 7Week Docker
-    </text>
-    
-    
-    <rect x="60" y="290" width="200" height="40" rx="8" fill="#1e2139" stroke="#4a5f9f" stroke-width="2" />
-    <text x="160" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#9db4ff" text-anchor="middle">
-      MAY 30, 2025
-    </text>
-    
-    
-    <g y="420">
-      <rect x="60" y="420" width="100" height="32" rx="16" fill="#1e3a5f" stroke="#4a9eff" stroke-width="1.5" />
-      <text x="110" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4a9eff" text-anchor="middle">
-        Docker
-      </text>
-      
-      <rect x="170" y="420" width="110" height="32" rx="16" fill="#1e3a5f" stroke="#4a9eff" stroke-width="1.5" />
-      <text x="225" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4a9eff" text-anchor="middle">
-        Kubernetes
-      </text>
-      
-      <rect x="290" y="420" width="100" height="32" rx="16" fill="#1e3a5f" stroke="#4a9eff" stroke-width="1.5" />
-      <text x="340" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4a9eff" text-anchor="middle">
-        Security
-      </text>
-    </g>
-    
-    
-    <text x="60" y="595" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6b7a99">
-      tech.2twodragon.com
-    </text>
+  <path d="M712 178 C780 150 850 150 936 190" fill="none" stroke="#60a5fa" stroke-width="1.3" opacity="0.26"/>
+  <path d="M724 414 C796 438 870 438 948 398" fill="none" stroke="#c084fc" stroke-width="1.2" opacity="0.22"/>
+
+  <g transform="translate(936,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#60a5fa" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#60a5fa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+
+    <polygon points="0,-45 40,-20 40,20 0,45 -40,20 -40,-20" fill="none" stroke="#60a5fa" stroke-width="3"/>
+    <circle r="12" fill="#60a5fa" opacity="0.3"/>
+    <line x1="0" y1="-12" x2="0" y2="-38" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="10" y1="6" x2="34" y2="16" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="-10" y1="6" x2="-34" y2="16" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="0" cy="-38" r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="-34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
   </g>
-  
-  
-  <g>
-    
-    <g>
-      
-      <rect x="750" y="320" width="120" height="100" rx="6" fill="#2563eb" opacity="0.9" stroke="#60a5fa" stroke-width="2" />
-      <text x="810" y="380" font-family="monospace" font-size="16" font-weight="bold" fill="white" text-anchor="middle">
-        App
-      </text>
-      
-      
-      <rect x="775" y="280" width="120" height="100" rx="6" fill="#3b82f6" opacity="0.9" stroke="#93c5fd" stroke-width="2" />
-      <text x="835" y="340" font-family="monospace" font-size="16" font-weight="bold" fill="white" text-anchor="middle">
-        Runtime
-      </text>
-      
-      
-      <rect x="800" y="240" width="120" height="100" rx="6" fill="#60a5fa" opacity="0.9" stroke="#bfdbfe" stroke-width="2" />
-      <text x="860" y="300" font-family="monospace" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">
-        Image
-      </text>
-    </g>
-    
-    
-    <g>
-      
-      <circle cx="920" cy="260" r="35" fill="#10b981" opacity="0.85" stroke="#34d399" stroke-width="2" />
-      <circle cx="920" cy="260" r="25" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5" />
-      <circle cx="1000" cy="320" r="35" fill="#10b981" opacity="0.85" stroke="#34d399" stroke-width="2" />
-      <circle cx="1000" cy="320" r="25" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5" />
-      <circle cx="1000" cy="400" r="35" fill="#10b981" opacity="0.85" stroke="#34d399" stroke-width="2" />
-      <circle cx="1000" cy="400" r="25" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5" />
-      <line x1="950" y1="280" x2="975" y2="305" stroke="#34d399" stroke-width="2" opacity="0.6" />
-      <line x1="955" y1="285" x2="980" y2="375" stroke="#34d399" stroke-width="2" opacity="0.6" />
-      <line x1="1000" y1="355" x2="1000" y2="365" stroke="#34d399" stroke-width="2" opacity="0.6" />
-    </g>
-    
-    
-    <g>
-      
-      <path d="M 920 150 L 950 160 L 950 210 Q 950 240 920 255 Q 890 240 890 210 L 890 160 Z" fill="#f59e0b" opacity="0.9" stroke="#fbbf24" stroke-width="2" />
-      <path d="M 920 165 L 920 235" stroke="#fbbf24" stroke-width="2" />
-      <path d="M 905 200 L 935 200" stroke="#fbbf24" stroke-width="2" />
-    </g>
-    
-    
-    <g stroke="#4a9eff" stroke-width="1.5" opacity="0.4">
-      <line x1="860" y1="340" x2="920" y2="300" />
-      <line x1="900" y1="360" x2="950" y2="330" />
-      <line x1="920" y1="380" x2="980" y2="370" />
-    </g>
-    
-    
-    <g>
-      
-      <circle cx="760" cy="200" r="8" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.7" />
-      <rect x="756" y="206" width="8" height="8" rx="2" fill="#10b981" opacity="0.7" />
-      
-      
-      <circle cx="1050" cy="280" r="8" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.7" />
-      <rect x="1046" y="286" width="8" height="8" rx="2" fill="#10b981" opacity="0.7" />
-      
-      
-      <circle cx="1080" cy="360" r="8" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.7" />
-      <rect x="1076" y="366" width="8" height="8" rx="2" fill="#10b981" opacity="0.7" />
-    </g>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#60a5fa" opacity="0.2" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#60a5fa" text-anchor="middle">KUBERNETES</text>
   </g>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">7 7 DOCKER KUBERNETES</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">DEVSECOPS</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">DEVSECOPS / KUBERNETES / CLOUD</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM EAC79BC955BD</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="124" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
+  </g>
+  <g transform="translate(222 474)">
+    <rect width="134" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">KUBERNETES</text>
+  </g>
+  <g transform="translate(370 474)">
+    <rect width="110" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">KUBERNETES</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">06</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 08, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
