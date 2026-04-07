@@ -236,7 +236,7 @@ jobs:
           github.event.inputs.dry_run != 'true' &&
           steps.check_release.outputs.exists != 'true'
         continue-on-error: true
-        uses: getsentry/action-release@dab6548b3c03c4717878099e43782cf5be654289  # v3
+        uses: getsentry/action-release@5657c9e888b4e2cc85f4d29143ea4131fde4a73a  # v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
