@@ -445,7 +445,7 @@ class TestCheckSvgTextDensity:
         assert issues == []
 
     def test_too_many_text_nodes_flagged(self, tmp_path):
-        texts = "".join(f"<text>Node {i}</text>" for i in range(15))
+        texts = "".join(f"<text>Node {i}</text>" for i in range(25))
         svg = f'<svg xmlns="http://www.w3.org/2000/svg">{texts}</svg>'
         issues = self._make_svg_and_check(tmp_path, svg)
         assert any("text nodes" in i for i in issues)
