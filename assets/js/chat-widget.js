@@ -18,6 +18,14 @@
   let messages = [];
   let sessionId = null;
 
+  // Page context for AI awareness
+  function getPageContext() {
+    const title = document.querySelector('.post-title')?.textContent?.trim() || document.title;
+    const tags = Array.from(document.querySelectorAll('.post-tags .tag, .tag')).map(t => t.textContent.trim()).filter(Boolean).slice(0, 5);
+    const excerpt = document.querySelector('meta[name="description"]')?.content || '';
+    return { title, tags, excerpt: excerpt.substring(0, 200) };
+  }
+
   // Development environment detection (browser-compatible)
   const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
@@ -626,7 +634,8 @@
         body: JSON.stringify({
           message: message,
           sessionId: sessionId,
-          conversationHistory: conversationHistory.length > 0 ? conversationHistory : undefined, // 빈 배열은 전송하지 않음
+          conversationHistory: conversationHistory.length > 0 ? conversationHistory : undefined,
+          pageContext: getPageContext(),
         }),
         signal: (() => {
           if (typeof AbortSignal.timeout === 'function') {
@@ -869,6 +878,19 @@
       // Only close if clicking directly on the window background, not on children
       if (e.target === chatWindow) {
         toggleChat();
+      }
+    });
+  }
+
+  // Suggestion buttons
+  const suggestionsContainer = document.getElementById('chat-suggestions');
+  if (suggestionsContainer) {
+    suggestionsContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chat-suggestion-btn');
+      if (btn && !isLoading) {
+        chatInput.value = btn.textContent;
+        suggestionsContainer.style.display = 'none';
+        handleSubmit(new Event('submit'));
       }
     });
   }

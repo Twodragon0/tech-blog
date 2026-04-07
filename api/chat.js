@@ -160,7 +160,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message, sessionId, conversationHistory } = req.body;
+    const { message, sessionId, conversationHistory, pageContext } = req.body;
 
     // 입력 검증 강화
     if (!message || typeof message !== 'string') {
@@ -310,6 +310,17 @@ export default async function handler(req, res) {
 
     // 시스템 메시지 (Context Caching 최적화: 재사용 가능하도록 일관된 형식 유지)
     // UI/UX: 챗봇 답변이 채팅창에서 가독성 있게 보이도록 포맷 가이드 포함
+    // Build page-aware system prompt
+    let contextHint = '';
+    if (pageContext && typeof pageContext === 'object') {
+      const title = typeof pageContext.title === 'string' ? pageContext.title.substring(0, 100) : '';
+      const tags = Array.isArray(pageContext.tags) ? pageContext.tags.slice(0, 5).join(', ') : '';
+      const excerpt = typeof pageContext.excerpt === 'string' ? pageContext.excerpt.substring(0, 200) : '';
+      if (title) {
+        contextHint = `\n\n[현재 사용자가 읽고 있는 글]\n제목: ${title}${tags ? `\n태그: ${tags}` : ''}${excerpt ? `\n요약: ${excerpt}` : ''}\n이 글과 관련된 질문에 우선 답변하되, 다른 주제도 자유롭게 답변하세요.`;
+      }
+    }
+
     const systemMessage = {
       role: 'system',
       content: `당신은 DevSecOps, 클라우드 보안, 인프라 자동화 전문가입니다. 기술 블로그의 질문에 친절하고 전문적으로 답변해주세요. 한국어로 답변하세요.
@@ -319,7 +330,7 @@ export default async function handler(req, res) {
 - 섹션 구분: ## 소제목, ### 소소제목으로 구분.
 - 한 문단: 3~4문장 이내. 긴 설명은 불릿( - ) 또는 번호( 1. )로 나눠주세요.
 - 코드·명령어: 인라인은 백틱, 여러 줄은 백틱 3개로 코드 블록. 10줄 이내.
-- 핵심은 간결하게, 필요 시 표와 리스트를 활용해 스캔하기 쉽게 작성해주세요.`,
+- 핵심은 간결하게, 필요 시 표와 리스트를 활용해 스캔하기 쉽게 작성해주세요.${contextHint}`,
     };
 
     // 메시지 배열 구성 (Context Caching 최적화: 시스템 메시지 재사용)
