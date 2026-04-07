@@ -1,108 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Weekly Security Threat Intelligence Digest</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#151829;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <radialGradient id="threatGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:0.2" />
-    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  
-  <text x="50" y="185" font-family="Inter, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5px">
-    Weekly Security Threat
-  </text>
-  <text x="50" y="245" font-family="Inter, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-0.5px">
-    Intelligence Digest
-  </text>
-
-  
-  <rect x="50" y="280" width="280" height="45" rx="6" fill="#1a3a3a" stroke="#00ff88" stroke-width="1.5" opacity="0.6" />
-  <text x="65" y="308" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#00ff88">
-    FEBRUARY 2, 2026
-  </text>
-
-  
-  <rect x="50" y="415" width="110" height="36" rx="18" fill="#ff4444" opacity="0.15" stroke="#ff4444" stroke-width="1" />
-  <rect x="175" y="415" width="110" height="36" rx="18" fill="#00ccff" opacity="0.15" stroke="#00ccff" stroke-width="1" />
-  <text x="190" y="438" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#00ddff">threats</text>
-
-  <rect x="300" y="415" width="110" height="36" rx="18" fill="#ffaa00" opacity="0.15" stroke="#ffaa00" stroke-width="1" />
-  <text x="315" y="438" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffbb33">intel</text>
-
-  
-  <text x="50" y="600" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#666699">
-    tech.2twodragon.com
-  </text>
-
-  
-  
-  <circle cx="925" cy="200" r="120" fill="none" stroke="#003366" stroke-width="1" opacity="0.4" />
-  <circle cx="925" cy="200" r="80" fill="none" stroke="#004488" stroke-width="1" opacity="0.5" />
-  <circle cx="925" cy="200" r="40" fill="none" stroke="#0066aa" stroke-width="1" opacity="0.6" />
-
-  
-  <circle cx="820" cy="160" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)" />
-  <circle cx="1020" cy="180" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)" />
-  <circle cx="900" cy="130" r="9" fill="#ff3333" opacity="0.8" filter="url(#glow)" />
-  <circle cx="950" cy="260" r="6" fill="#ff6666" opacity="0.5" filter="url(#glow)" />
-  <circle cx="880" cy="240" r="8" fill="#ff4444" opacity="0.7" filter="url(#glow)" />
-  <circle cx="1000" cy="220" r="7" fill="#ff5555" opacity="0.6" filter="url(#glow)" />
-
-  
-  <line x1="820" y1="160" x2="900" y2="130" stroke="#ff4444" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3" />
-  <line x1="900" y1="130" x2="1020" y2="180" stroke="#ff5555" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3" />
-  <line x1="950" y1="260" x2="880" y2="240" stroke="#ff4444" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3" />
-
-  
-  <path d="M 750 280 Q 820 270 880 310" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round" />
-  <path d="M 780 350 Q 850 330 920 380" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round" />
-  <path d="M 1050 320 Q 980 340 920 300" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round" />
-
-  
-  <rect x="750" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff8833" stroke-width="1.5" opacity="0.7" />
-  <text x="763" y="458" font-family="monospace" font-size="16" font-weight="700" fill="#ff6633">8.9</text>
-
-  <rect x="830" y="440" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#ff4444" stroke-width="1.5" opacity="0.7" />
-  <text x="843" y="478" font-family="monospace" font-size="16" font-weight="700" fill="#ff5555">7.2</text>
-
-  <rect x="910" y="420" width="60" height="50" rx="4" fill="#1a2a3a" stroke="#00dd88" stroke-width="1.5" opacity="0.6" />
-  <text x="923" y="458" font-family="monospace" font-size="16" font-weight="700" fill="#00ee77">5.1</text>
-
-  
-  <circle cx="925" cy="520" r="35" fill="#0a3a4a" stroke="#00ddff" stroke-width="2" opacity="0.8" />
-  <circle cx="925" cy="520" r="25" fill="none" stroke="#00ccff" stroke-width="1" opacity="0.6" stroke-dasharray="2,2" />
-  <text x="913" y="527" font-family="monospace" font-size="13" font-weight="700" fill="#00ffff">INTEL</text>
-
-  
-  <path d="M 795 485 L 895 530" stroke="#00ddff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
-  <path d="M 870 465 L 910 510" stroke="#00ccff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
-  <path d="M 1000 475 L 950 515" stroke="#00aaff" stroke-width="2" fill="none" opacity="0.5" marker-end="url(#arrowhead)" />
-
-  
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#00ccff" opacity="0.7" />
-    </marker>
-  </defs>
-
-  
-  <rect x="1040" y="360" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#00ccff" stroke-width="1.5" opacity="0.6" />
-  <rect x="1040" y="480" width="50" height="50" rx="3" fill="#1a2a3a" stroke="#ff6633" stroke-width="1.5" opacity="0.6" />
-  <line x1="700" y1="85" x2="1150" y2="85" stroke="#ff4444" stroke-width="3" opacity="0.4" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 2, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Weekly Security Threat</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Intelligence Digest</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Supply Chain | Notepad++ | Ransomware</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="144" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="152" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Supply Chain</text>
+  <rect x="238" y="420" width="117" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="296" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Notepad++</text>
+  <rect x="369" y="420" width="126" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="432" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Ransomware</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

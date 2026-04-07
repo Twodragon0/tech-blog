@@ -1,125 +1,61 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Botnet Blockchain Go</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Left Section: Text Content -->
-  <!-- Title Line 1 -->
-  <text x="40" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
-  
-  <!-- Title Line 2 -->
-  <text x="40" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Botnet Blockchain</text>
-  
-  <!-- Date Badge -->
-  <rect x="40" y="280" width="280" height="50" rx="6" fill="rgba(220, 53, 69, 0.15)" stroke="#dc3545" stroke-width="1.5"/>
-  <text x="55" y="312" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#ff6b7a">FEBRUARY 27, 2026</text>
-  
-  <!-- Tag Pills -->
-  <!-- Tag 1: Botnet -->
-  <g>
-    <rect x="40" y="420" width="110" height="35" rx="18" fill="rgba(255, 107, 107, 0.2)" stroke="#ff6b6b" stroke-width="1"/>
-    <text x="95" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff8888" text-anchor="middle">Botnet</text>
-  </g>
-  
-  <!-- Tag 2: Blockchain -->
-  <g>
-    <rect x="160" y="420" width="130" height="35" rx="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="1"/>
-    <text x="225" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#9f88ff" text-anchor="middle">Blockchain</text>
-  </g>
-  
-  <!-- Tag 3: Malware -->
-  <g>
-    <rect x="300" y="420" width="110" height="35" rx="18" fill="rgba(255, 159, 64, 0.2)" stroke="#ff9f40" stroke-width="1"/>
-    <text x="355" y="441" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ffb366" text-anchor="middle">Malware</text>
-  </g>
-  
-  <!-- Right Section: Illustration - Botnet + Blockchain Integration -->
-  <!-- Background gradient effect for right section -->
   <defs>
-    <radialGradient id="threatGrad" cx="850" cy="200">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.05" />
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
-    </radialGradient>
-    <linearGradient id="chainGrad" x1="700" y1="0" x2="1150" y2="630">
-      <stop offset="0%" style="stop-color:#7b68ee;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-  
-  <rect x="700" y="0" width="500" height="630" fill="url(#threatGrad)"/>
-  
-  <!-- Blockchain Chain Links (diagonal) -->
-  <g stroke="#7b68ee" stroke-width="2" fill="none" opacity="0.6">
-    <circle cx="750" cy="100" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
-    <line x1="768" y1="108" x2="820" y2="152"/>
-    <circle cx="838" cy="170" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
-    <line x1="856" y1="188" x2="908" y2="232"/>
-    <circle cx="926" cy="250" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
-    <line x1="944" y1="268" x2="996" y2="312"/>
-    <circle cx="1014" cy="330" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
-    <line x1="1032" y1="348" x2="1084" y2="392"/>
-    <circle cx="1102" cy="410" r="18" fill="rgba(123, 104, 238, 0.2)" stroke="#7b68ee" stroke-width="2"/>
-  </g>
-  
-  <!-- Botnet Nodes Network (interconnected circles) -->
-  <!-- Central malicious cluster -->
-  <g opacity="0.8">
-    <!-- Node 1 -->
-    <circle cx="850" cy="250" r="20" fill="rgba(255, 68, 68, 0.3)" stroke="#ff4444" stroke-width="2.5"/>
-    <circle cx="850" cy="250" r="14" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
-    
-    <!-- Node 2 -->
-    <circle cx="920" cy="310" r="18" fill="rgba(255, 100, 100, 0.25)" stroke="#ff6464" stroke-width="2"/>
-    
-    <!-- Node 3 -->
-    <circle cx="780" cy="360" r="19" fill="rgba(255, 68, 68, 0.3)" stroke="#ff4444" stroke-width="2.5"/>
-    
-    <!-- Node 4 -->
-    <circle cx="1000" cy="380" r="17" fill="rgba(255, 80, 80, 0.28)" stroke="#ff5050" stroke-width="2"/>
-    
-    <!-- Node 5 -->
-    <circle cx="900" cy="450" r="16" fill="rgba(255, 120, 120, 0.25)" stroke="#ff7878" stroke-width="2"/>
-    
-    <!-- Malicious traffic lines between nodes -->
-    <line x1="850" y1="250" x2="920" y2="310" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
-    <line x1="850" y1="250" x2="780" y2="360" stroke="#ff5555" stroke-width="1.5" opacity="0.5"/>
-    <line x1="920" y1="310" x2="1000" y2="380" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
-    <line x1="780" y1="360" x2="900" y2="450" stroke="#ff5555" stroke-width="1.5" opacity="0.5"/>
-    <line x1="1000" y1="380" x2="900" y2="450" stroke="#ff4444" stroke-width="1.5" opacity="0.6"/>
-  </g>
-  
-  <!-- Threat Indicators -->
-  <!-- Warning symbol -->
-  <g opacity="0.7">
-    <path d="M 1050 150 L 1070 120 L 1090 150 Z" fill="rgba(255, 159, 64, 0.4)" stroke="#ff9f40" stroke-width="1.5"/>
-    <line x1="1070" y1="135" x2="1070" y2="145" stroke="#ff9f40" stroke-width="2"/>
-    <circle cx="1070" cy="152" r="2" fill="#ff9f40"/>
-  </g>
-  
-  <!-- Propagation waves -->
-  <g stroke="#ff6b6b" stroke-width="1" fill="none" opacity="0.4">
-    <circle cx="850" cy="250" r="35"/>
-    <circle cx="850" cy="250" r="55"/>
-  </g>
-  
-  <!-- Encrypted connection indicator (lock symbol) -->
-  <g opacity="0.6">
-    <rect x="750" y="520" width="30" height="32" rx="4" fill="none" stroke="#7b68ee" stroke-width="1.5"/>
-    <path d="M 765 520 Q 765 510 775 510 Q 785 510 785 520" fill="none" stroke="#7b68ee" stroke-width="1.5"/>
-    <circle cx="767" cy="535" r="2" fill="#7b68ee"/>
-  </g>
-  
-  <!-- Data flow indicators -->
-  <g stroke="#ff8888" stroke-width="1.5" fill="none" opacity="0.5">
-    <path d="M 730 200 Q 800 180 850 250" stroke-dasharray="4,4"/>
-    <path d="M 980 500 Q 950 480 920 450" stroke-dasharray="4,4"/>
-  </g>
-  
-  <!-- Network pulse dots -->
-  <circle cx="1050" cy="280" r="3" fill="#ff6b6b" opacity="0.6"/>
-  <circle cx="1100" cy="350" r="3" fill="#7b68ee" opacity="0.6"/>
-  <circle cx="800" cy="300" r="3" fill="#ff9f40" opacity="0.6"/>
-  
-  <!-- Footer -->
-  <text x="600" y="610" font-family="Arial, sans-serif" font-size="13" fill="rgba(255, 255, 255, 0.5)" text-anchor="middle">tech.2twodragon.com</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 27, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Botnet Blockchain Go</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AI</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

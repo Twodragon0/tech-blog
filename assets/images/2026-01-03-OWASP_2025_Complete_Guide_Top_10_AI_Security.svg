@@ -1,93 +1,61 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>OWASP 2025 Complete Guide Top 10 AI Security</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- LEFT SIDE: Title and Info -->
-  
-  <!-- Date Badge -->
-  <rect x="50" y="40" width="200" height="44" rx="8" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.8"/>
-  <text x="150" y="68" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#ef4444">JANUARY 3, 2026</text>
-  
-  <!-- Main Title -->
-  <text x="80" y="185" font-family="'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#ffffff">OWASP 2025</text>
-  <text x="80" y="235" font-family="'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#ffffff">Latest Update</text>
-  <text x="80" y="285" font-family="'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#ffffff">Top Agentic</text>
-  
-  <!-- Tag Pills -->
-  <rect x="80" y="420" width="140" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8"/>
-  <text x="150" y="442" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#3b82f6">AI Security</text>
-  
-  <rect x="240" y="420" width="140" height="32" rx="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.8"/>
-  <text x="310" y="442" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#f59e0b">Agent Safety</text>
-  
-  <rect x="400" y="420" width="140" height="32" rx="16" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.8"/>
-  <text x="470" y="442" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#ef4444">LLM Risks</text>
-  
-  <!-- Footer -->
-  <text x="80" y="570" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#6b7280">tech.2twodragon.com</text>
-  
-  <!-- RIGHT SIDE: Visual Scene (x=650-1150, y=80-550) -->
-  
-  <!-- Brain Silhouette with Neural Lines -->
-  <ellipse cx="900" cy="200" rx="65" ry="75" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.8"/>
-  
-  <!-- Neural circuit lines -->
-  <path d="M 850 180 Q 870 150 900 155 Q 930 160 950 185" fill="none" stroke="#3b82f6" stroke-width="0.35" opacity="0.5"/>
-  <path d="M 860 200 Q 890 200 930 200" fill="none" stroke="#3b82f6" stroke-width="0.35" opacity="0.5"/>
-  <path d="M 850 220 Q 880 240 920 235" fill="none" stroke="#3b82f6" stroke-width="0.35" opacity="0.5"/>
-  <path d="M 870 160 L 870 240" fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.4"/>
-  <path d="M 930 160 L 930 240" fill="none" stroke="#3b82f6" stroke-width="0.25" opacity="0.4"/>
-  
-  <!-- Circuit nodes -->
-  <circle cx="870" cy="160" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="900" cy="155" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="930" cy="160" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="860" cy="200" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="940" cy="200" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="880" cy="240" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="920" cy="235" r="3" fill="#3b82f6" opacity="0.6"/>
-  
-  <!-- Data Flow Arrows -->
-  <!-- Left arrow to brain -->
-  <path d="M 750 200 Q 800 200 850 200" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.7"/>
-  <polygon points="850,200 843,197 845,203" fill="#f59e0b" opacity="0.7"/>
-  
-  <!-- Right arrow from brain -->
-  <path d="M 950 200 Q 1000 200 1050 200" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.7"/>
-  <polygon points="1050,200 1043,197 1045,203" fill="#ef4444" opacity="0.7"/>
-  
-  <!-- Down arrow from brain -->
-  <path d="M 900 280 Q 900 320 900 360" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.7"/>
-  <polygon points="900,360 897,353 903,353" fill="#ef4444" opacity="0.7"/>
-  
-  <!-- Up data nodes -->
-  <circle cx="750" cy="200" r="5" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.5"/>
-  <circle cx="1050" cy="200" r="5" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5"/>
-  <circle cx="900" cy="360" r="5" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.5"/>
-  
-  <!-- Warning triangles -->
-  <!-- Triangle 1 (left-bottom) -->
-  <polygon points="750,340 765,380 735,380" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.6"/>
-  <text x="750" y="365" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#ef4444" opacity="0.8">!</text>
-  
-  <!-- Triangle 2 (right-bottom) -->
-  <polygon points="1050,340 1065,380 1035,380" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.6"/>
-  <text x="1050" y="365" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#ef4444" opacity="0.8">!</text>
-  
-  <!-- Alert indicator at top -->
-  <polygon points="900,100 915,130 885,130" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="0.6"/>
-  
-  <!-- Additional security-focused elements -->
-  <!-- Shield shape near brain -->
-  <path d="M 880 140 L 920 140 L 920 180 Q 900 200 880 180 Z" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.5"/>
-  
-  <!-- Connection lines between warning indicators -->
-  <line x1="750" y1="340" x2="900" y2="280" stroke="#ef4444" stroke-width="0.25" opacity="0.3"/>
-  <line x1="1050" y1="340" x2="900" y2="280" stroke="#ef4444" stroke-width="0.25" opacity="0.3"/>
-  
-  <!-- Data flow circles -->
-  <circle cx="820" cy="190" r="4" fill="#f59e0b" opacity="0.3"/>
-  <circle cx="980" cy="190" r="4" fill="#ef4444" opacity="0.3"/>
-  <circle cx="900" cy="320" r="4" fill="#ef4444" opacity="0.3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>OWASP 2025 Latest Update Complete Guide Top 10 Agentic AI Security</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 3, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OWASP 2025 Latest Update</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Complete Guide Top 10...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">OWASP | Security | Top10</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="81" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">OWASP</text>
+  <rect x="175" y="420" width="108" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="229" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Security</text>
+  <rect x="297" y="420" width="81" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="337" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Top10</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

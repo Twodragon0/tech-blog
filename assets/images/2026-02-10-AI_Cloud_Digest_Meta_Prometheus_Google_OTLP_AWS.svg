@@ -1,121 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>AI Cloud Digest Meta Prometheus Google OTLP AWS</title>
   <defs>
-    <style>
-      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #ffffff; }
-      .subtitle-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #ffffff; }
-      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; font-weight: 600; fill: #ffffff; }
-      .tag-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; fill: #ffffff; }
-      .footer-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; fill: #94a3b8; }
-    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
   </defs>
-  
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- LEFT SIDE: Text Content -->
-  
-  <!-- Date Badge -->
-  <rect x="60" y="40" width="180" height="40" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-  <text x="150" y="65" class="badge-text" text-anchor="middle">FEBRUARY 10, 2026</text>
-  
-  <!-- Main Title -->
-  <text x="80" y="185" font-size="44" class="title-text">Cloud Digest Meta</text>
-  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 10, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI Cloud Digest Meta</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Prometheus Google OTLP AWS</text>
   <!-- Subtitle -->
-  <text x="80" y="245" font-size="44" class="subtitle-text">Prometheus Google OTLP</text>
-  
-  <!-- Tag Pills -->
-  <g>
-    <!-- Tag 1 -->
-    <rect x="80" y="430" width="110" height="32" rx="16" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-    <text x="135" y="451" class="tag-text" text-anchor="middle">Observability</text>
-    
-    <!-- Tag 2 -->
-    <rect x="210" y="430" width="95" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
-    <text x="257.5" y="451" class="tag-text" text-anchor="middle">Metrics</text>
-    
-    <!-- Tag 3 -->
-    <rect x="325" y="430" width="85" height="32" rx="16" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <text x="367.5" y="451" class="tag-text" text-anchor="middle">Monitoring</text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="80" y="555" class="footer-text">tech.2twodragon.com</text>
-  
-  <!-- RIGHT SIDE: Visual Elements (x=650-1150, y=80-550) -->
-  
-  <!-- Central Cloud Shape -->
-  <path d="M 750 150 Q 730 120 700 120 Q 680 100 650 110 Q 620 90 590 110 Q 570 100 550 120 Q 530 120 520 150 Q 500 150 490 170 L 490 280 Q 490 310 520 320 L 1050 320 Q 1080 310 1080 280 L 1080 170 Q 1080 150 1060 140 Q 1040 110 1010 110 Q 980 80 950 110 Q 920 100 890 120 Q 860 100 840 120 Q 820 120 810 150" 
-        fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25"/>
-  
-  <!-- Data Flow Arrows from Cloud -->
-  <!-- Arrow 1: Down-left to Prometheus -->
-  <defs>
-    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.6"/>
-    </marker>
-    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.6"/>
-    </marker>
-    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.6"/>
-    </marker>
-  </defs>
-  
-  <!-- Arrow 1: Cloud to Prometheus (Blue) -->
-  <path d="M 740 320 Q 720 360 700 400" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.5" marker-end="url(#arrowblue)"/>
-  
-  <!-- Arrow 2: Cloud to Google (Orange) -->
-  <path d="M 900 320 Q 920 360 940 400" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0.5" marker-end="url(#arroworange)"/>
-  
-  <!-- Arrow 3: Cloud to OTLP (Red) -->
-  <path d="M 850 320 L 850 400" stroke="#ef4444" stroke-width="1.5" fill="none" opacity="0.5" marker-end="url(#arrowred)" stroke-dasharray="3,2"/>
-  
-  <!-- Prometheus Icon (Left) -->
-  <g>
-    <rect x="670" y="410" width="60" height="60" rx="8" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.25"/>
-    <circle cx="700" cy="440" r="8" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" stroke-width="0.5"/>
-    <circle cx="710" cy="430" r="6" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="0.5"/>
-    <circle cx="690" cy="450" r="7" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="0.5"/>
-  </g>
-  
-  <!-- Google/OTLP Icon (Right) -->
-  <g>
-    <rect x="920" y="410" width="60" height="60" rx="8" fill="#3b82f6" opacity="0.06" stroke="#3b82f6" stroke-width="0.25"/>
-    <circle cx="950" cy="440" r="10" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="0.5"/>
-    <path d="M 945 435 L 955 445 M 955 435 L 945 445" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
-  </g>
-  
-  <!-- Meta/Central Icon (Center) -->
-  <g>
-    <rect x="820" y="410" width="60" height="60" rx="8" fill="#ef4444" opacity="0.06" stroke="#ef4444" stroke-width="0.25"/>
-    <path d="M 835 425 L 865 455 M 865 425 L 835 455" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <circle cx="850" cy="440" r="3" fill="#ef4444" opacity="0.5"/>
-  </g>
-  
-  <!-- Warning Triangles -->
-  <g>
-    <!-- Alert 1 -->
-    <polygon points="600,250 620,200 640,250" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.25"/>
-    <text x="620" y="235" font-size="16" fill="#ef4444" opacity="0.3" text-anchor="middle">⚠</text>
-    
-    <!-- Alert 2 -->
-    <polygon points="1080,220 1100,170 1120,220" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25"/>
-    <text x="1100" y="205" font-size="16" fill="#f59e0b" opacity="0.3" text-anchor="middle">⚠</text>
-  </g>
-  
-  <!-- Data Points/Nodes -->
-  <circle cx="650" cy="480" r="4" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="0.5"/>
-  <circle cx="700" cy="500" r="3" fill="#f59e0b" opacity="0.4" stroke="#f59e0b" stroke-width="0.5"/>
-  <circle cx="800" cy="520" r="3.5" fill="#ef4444" opacity="0.4" stroke="#ef4444" stroke-width="0.5"/>
-  <circle cx="950" cy="510" r="4" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="0.5"/>
-  <circle cx="1050" cy="480" r="3" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" stroke-width="0.5"/>
-  
-  <!-- Decorative Grid -->
-  <g stroke="#3b82f6" stroke-width="0.15" opacity="0.05">
-    <line x1="650" y1="330" x2="1150" y2="330"/>
-    <line x1="650" y1="360" x2="1150" y2="360"/>
-    <line x1="650" y1="390" x2="1150" y2="390"/>
-  </g>
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI Digest | Cloud Digest | Meta Prometheus</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AI Digest</text>
+  <rect x="211" y="420" width="144" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="283" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Cloud Digest</text>
+  <rect x="369" y="420" width="162" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="450" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Meta Promethe.</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

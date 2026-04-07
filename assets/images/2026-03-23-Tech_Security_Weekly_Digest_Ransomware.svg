@@ -1,177 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest Ransomware</title>
   <defs>
-    
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.7 0" />
-    </filter>
-    
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="g" />
-      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    
-    <filter id="cardGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="6" result="cg" />
-      <feMerge><feMergeNode in="cg" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    
-    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="cardBorder2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.35" />
-    </linearGradient>
-    <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="orb3" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
-    </radialGradient>
-    
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#ffffff" opacity="0.07" />
-    </pattern>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  
-  <ellipse cx="180" cy="320" rx="280" ry="260" fill="url(#orb1)" />
-  <ellipse cx="950" cy="150" rx="320" ry="280" fill="url(#orb2)" />
-  <ellipse cx="700" cy="520" rx="260" ry="220" fill="url(#orb3)" />
-  <ellipse cx="1100" cy="500" rx="200" ry="180" fill="url(#orb1)" opacity="0.5" />
-
-  
-
-  
-  <g filter="url(#shadow)">
-    <rect x="720" y="80" width="280" height="340" rx="16" fill="#1e293b" fill-opacity="0.45" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="720" y="80" width="280" height="340" rx="16" fill="#ffffff" fill-opacity="0.04" />
-    
-    <g transform="translate(810, 150)">
-      
-      <path d="M50 10 L90 30 L90 80 C90 120 50 150 50 150 C50 150 10 120 10 80 L10 30 Z" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.9" />
-      <path d="M50 18 L82 35 L82 78 C82 112 50 138 50 138 C50 138 18 112 18 78 L18 35 Z" fill="#3b82f6" fill-opacity="0.15" />
-      
-      <path d="M32 78 L46 95 L72 58" fill="none" stroke="#22c55e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-    </g>
-    
-    </g>
-
-  
-  <g filter="url(#shadow)">
-    <rect x="780" y="160" width="300" height="360" rx="16" fill="#1e293b" fill-opacity="0.55" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="780" y="160" width="300" height="360" rx="16" fill="#ffffff" fill-opacity="0.05" />
-    
-    <g transform="translate(870, 220)">
-      
-      <path d="M20 50 L20 28 C20 8 60 -12 80 8 C92 20 80 30 80 50" fill="none" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" opacity="0.85" />
-      
-      <rect x="8" y="48" width="84" height="65" rx="10" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="2.5" opacity="0.85" />
-      
-      <circle cx="50" cy="72" r="8" fill="#f43f5e" opacity="0.7" />
-      <rect x="47" y="78" width="6" height="16" rx="3" fill="#f43f5e" opacity="0.7" />
-      
-      <ellipse cx="-10" cy="65" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.5" transform="rotate(-20, -10, 65)" />
-      <ellipse cx="-30" cy="55" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.35" transform="rotate(-30, -30, 55)" />
-      <ellipse cx="-48" cy="42" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.2" transform="rotate(-40, -48, 42)" />
-      
-      <ellipse cx="110" cy="65" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.5" transform="rotate(20, 110, 65)" />
-      <ellipse cx="130" cy="55" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.35" transform="rotate(30, 130, 55)" />
-      <ellipse cx="148" cy="42" rx="14" ry="8" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.2" transform="rotate(40, 148, 42)" />
-    </g>
-    
-    <text x="930" y="450" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#fca5a5" font-weight="500" letter-spacing="1.5">RANSOMWARE</text>
-    </g>
-
-  
-  <g filter="url(#cardGlow)">
-    <rect x="850" y="300" width="270" height="260" rx="16" fill="#1e293b" fill-opacity="0.6" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="850" y="300" width="270" height="260" rx="16" fill="#ffffff" fill-opacity="0.06" />
-    
-    <g transform="translate(940, 340)">
-      <path d="M45 5 L85 70 L5 70 Z" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linejoin="round" opacity="0.85" />
-      <path d="M45 12 L78 65 L12 65 Z" fill="#fbbf24" fill-opacity="0.1" />
-      </g>
-    
-    <rect x="880" y="440" width="210" height="6" rx="3" fill="#1e293b" />
-    <rect x="880" y="440" width="160" height="6" rx="3" fill="url(#accentLine)" opacity="0.7" />
-    <rect x="880" y="456" width="210" height="6" rx="3" fill="#1e293b" />
-    <rect x="880" y="456" width="120" height="6" rx="3" fill="#f43f5e" opacity="0.5" />
-    <rect x="880" y="472" width="210" height="6" rx="3" fill="#1e293b" />
-    <rect x="880" y="472" width="180" height="6" rx="3" fill="#3b82f6" opacity="0.5" />
-    
-    </g>
-
-  
-  <circle cx="770" cy="200" r="2" fill="#3b82f6" opacity="0.6" />
-  <circle cx="830" cy="290" r="1.5" fill="#f43f5e" opacity="0.5" />
-  <circle cx="1050" cy="280" r="2.5" fill="#8b5cf6" opacity="0.4" />
-  <circle cx="900" cy="150" r="1.8" fill="#3b82f6" opacity="0.5" />
-  <circle cx="1100" cy="350" r="2" fill="#f43f5e" opacity="0.45" />
-  <circle cx="750" cy="400" r="1.5" fill="#22c55e" opacity="0.4" />
-  <circle cx="1080" cy="480" r="2" fill="#3b82f6" opacity="0.35" />
-  <circle cx="820" cy="480" r="1.8" fill="#8b5cf6" opacity="0.3" />
-  <circle cx="1000" cy="130" r="1.2" fill="#fbbf24" opacity="0.4" />
-
-  
-
-  
-  <rect x="60" y="80" width="140" height="32" rx="16" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1" />
-  <text x="130" y="101" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#60a5fa" font-weight="600" letter-spacing="1.5">SECURITY</text>
-
-  
-  <text x="60" y="185" font-family="Inter, system-ui, sans-serif" font-size="48" fill="#ffffff" font-weight="800" letter-spacing="-1">Tech Security</text>
-  <text x="60" y="245" font-family="Inter, system-ui, sans-serif" font-size="42" fill="#ffffff" font-weight="700" letter-spacing="-0.5">Weekly Digest</text>
-  <text x="60" y="300" font-family="Inter, system-ui, sans-serif" font-size="38" fill="#f43f5e" font-weight="700" letter-spacing="-0.5">Ransomware</text>
-
-  
-  <rect x="60" y="325" width="180" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  
-  <rect x="60" y="355" width="110" height="30" rx="15" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1" />
-  <text x="115" y="375" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#fca5a5" font-weight="500" letter-spacing="0.5">Ransomware</text>
-
-  <rect x="182" y="355" width="105" height="30" rx="15" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1" />
-  <text x="234" y="375" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#93c5fd" font-weight="500" letter-spacing="0.5">Malware</text>
-
-  <rect x="299" y="355" width="130" height="30" rx="15" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1" />
-  <text x="364" y="375" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#c4b5fd" font-weight="500" letter-spacing="0.5">Threat Intel</text>
-
-  
-  <text x="60" y="450" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#64748b" font-weight="500" letter-spacing="3">MARCH 23, 2026</text>
-
-  
-  <line x1="60" y1="555" x2="580" y2="555" stroke="#1e293b" stroke-width="1" />
-  <text x="60" y="585" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#475569" font-weight="400" letter-spacing="1">tech.2twodragon.com</text>
-
-  
-  <circle cx="520" cy="580" r="3" fill="#3b82f6" opacity="0.2" />
-  <circle cx="535" cy="575" r="2" fill="#f43f5e" opacity="0.15" />
-  <circle cx="528" cy="590" r="1.5" fill="#8b5cf6" opacity="0.2" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 23, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Ransomware</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | Ransomware</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="126" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="450" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Ransomware</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

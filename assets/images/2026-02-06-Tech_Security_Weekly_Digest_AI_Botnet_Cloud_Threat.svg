@@ -1,120 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Botnet Cloud Threat</title>
   <defs>
-    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.4" />
-    </marker>
-    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.4" />
-    </marker>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
   </defs>
-  
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
-  
-  
-  <rect x="60" y="45" width="170" height="38" fill="#ef4444" opacity="0.08" rx="5" stroke="#ef4444" stroke-width="0.3" />
-  <text x="145" y="70" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="0.5">FEBRUARY 6, 2026</text>
-  
-  
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" letter-spacing="-1">Tech Security</text>
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" letter-spacing="-1">Weekly Digest</text>
-  <text x="80" y="305" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ef4444" letter-spacing="-1">Botnet Cloud</text>
-  
-  
-  <g id="tags" transform="translate(80, 420)">
-    <rect width="95" height="32" fill="#3b82f6" opacity="0.1" rx="16" stroke="#3b82f6" stroke-width="0.3" />
-    <text x="47" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6" text-anchor="middle" letter-spacing="0.5">BOTNET</text>
-    
-    <rect x="115" width="95" height="32" fill="#f59e0b" opacity="0.1" rx="16" stroke="#f59e0b" stroke-width="0.3" />
-    <text x="162" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b" text-anchor="middle" letter-spacing="0.5">CLOUD</text>
-    
-    <rect x="230" width="95" height="32" fill="#ef4444" opacity="0.1" rx="16" stroke="#ef4444" stroke-width="0.3" />
-    <text x="277" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle" letter-spacing="0.5">SECURITY</text>
-  </g>
-  
-  
-  <text x="80" y="580" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6" letter-spacing="0.3">tech.2twodragon.com</text>
-  
-  
-  
-  
-  <g id="cloud-section">
-    <ellipse cx="900" cy="160" rx="90" ry="55" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" />
-    <circle cx="850" cy="135" r="28" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" />
-    <circle cx="950" cy="135" r="28" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" />
-    <circle cx="820" cy="165" r="22" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" />
-    <circle cx="980" cy="165" r="22" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.25" />
-    
-    
-    <path d="M 860 210 Q 840 260 820 310" stroke="#3b82f6" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-blue)" />
-    <path d="M 940 210 Q 960 260 980 310" stroke="#3b82f6" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-blue)" />
-  </g>
-  
-  
-  <g id="shield">
-    <path d="M 1000 240 L 950 240 L 950 270 Q 950 305 1000 330 Q 1050 305 1050 270 L 1050 240 Z" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.3" />
-    <path d="M 975 290 L 990 305 L 1025 275" stroke="#3b82f6" stroke-width="1.2" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-  </g>
-  
-  
-  <rect x="850" y="420" width="70" height="70" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.3" rx="3" />
-  <text x="885" y="460" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444" opacity="0.35" text-anchor="middle">SERVER</text>
-  
-  
-  
-  <g id="bot1">
-    <circle cx="750" cy="300" r="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25" />
-    <circle cx="742" cy="294" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <circle cx="758" cy="294" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <path d="M 750 310 Q 747 315 750 320" stroke="#f59e0b" stroke-width="0.4" fill="none" opacity="0.25" />
-    <path d="M 765 305 L 835 430" stroke="#ef4444" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-red)" />
-  </g>
-  
-  
-  <g id="bot2">
-    <circle cx="1020" cy="300" r="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25" />
-    <circle cx="1012" cy="294" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <circle cx="1028" cy="294" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <path d="M 1020 310 Q 1017 315 1020 320" stroke="#f59e0b" stroke-width="0.4" fill="none" opacity="0.25" />
-    <path d="M 1005 305 L 925 430" stroke="#ef4444" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-red)" />
-  </g>
-  
-  
-  <g id="bot3">
-    <circle cx="700" cy="410" r="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25" />
-    <circle cx="692" cy="404" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <circle cx="708" cy="404" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <path d="M 700 420 Q 697 425 700 430" stroke="#f59e0b" stroke-width="0.4" fill="none" opacity="0.25" />
-    <path d="M 716 410 L 845 440" stroke="#ef4444" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-red)" />
-  </g>
-  
-  
-  <g id="bot4">
-    <circle cx="1050" cy="450" r="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.25" />
-    <circle cx="1042" cy="444" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <circle cx="1058" cy="444" r="3.5" fill="#f59e0b" opacity="0.3" />
-    <path d="M 1050 460 Q 1047 465 1050 470" stroke="#f59e0b" stroke-width="0.4" fill="none" opacity="0.25" />
-    <path d="M 1034 455 L 920 460" stroke="#ef4444" stroke-width="0.5" fill="none" opacity="0.3" marker-end="url(#arrowhead-red)" />
-  </g>
-  
-  
-  <g id="botnet-lines" opacity="0.15">
-    <line x1="750" y1="300" x2="1020" y2="300" stroke="#f59e0b" stroke-width="0.25" />
-    <line x1="750" y1="300" x2="700" y2="410" stroke="#f59e0b" stroke-width="0.25" />
-    <line x1="1020" y1="300" x2="1050" y2="450" stroke="#f59e0b" stroke-width="0.25" />
-    <line x1="700" y1="410" x2="1050" y2="450" stroke="#f59e0b" stroke-width="0.25" />
-  </g>
-  
-  
-  <g id="warnings">
-    
-    <polygon points="920,240 930,260 910,260" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.25" />
-    <polygon points="800,120 810,140 790,140" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.25" />
-    <polygon points="1070,340 1080,360 1060,360" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.25" />
-    <text x="1070" y="355" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444" opacity="0.35" text-anchor="middle">!</text>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 6, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Botnet Cloud Threat</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AI</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

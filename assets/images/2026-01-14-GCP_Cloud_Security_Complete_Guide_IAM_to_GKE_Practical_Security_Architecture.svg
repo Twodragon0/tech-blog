@@ -1,97 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>GCP Cloud Security Complete Guide IAM to GKE Practical Security Architecture</title>
-  <!-- Dark Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Left Side Content -->
-  <!-- Title Line 1 -->
-  <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">GCP Cloud Security</text>
-  <!-- Title Line 2 -->
-  <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white">IAM GKE Security</text>
-  
-  <!-- Date Badge -->
-  <rect x="60" y="290" width="280" height="45" rx="6" fill="#1a1f3a" stroke="#4a90ff" stroke-width="1.5"/>
-  <text x="75" y="318" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4a90ff">JANUARY 14, 2026</text>
-  
-  <!-- Tag Pills -->
-  <!-- Tag 1: security -->
-  <rect x="60" y="420" width="90" height="32" rx="16" fill="#1a2f5a" stroke="#6ec2ff" stroke-width="1"/>
-  <text x="105" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#6ec2ff" text-anchor="middle">security</text>
-  
-  <!-- Tag 2: gcp -->
-  <rect x="165" y="420" width="70" height="32" rx="16" fill="#1a2f5a" stroke="#6ec2ff" stroke-width="1"/>
-  <text x="200" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#6ec2ff" text-anchor="middle">gcp</text>
-  
-  <!-- Tag 3: kubernetes -->
-  <rect x="250" y="420" width="105" height="32" rx="16" fill="#1a2f5a" stroke="#6ec2ff" stroke-width="1"/>
-  <text x="302" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#6ec2ff" text-anchor="middle">kubernetes</text>
-  
-  <!-- Right Side Illustration -->
-  <!-- Background gradient circle -->
+  <title>GCP Cloud Security Complete Guide IAMFrom GKETo Security Architecture</title>
   <defs>
-    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#1a3a52;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
-    </radialGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4a90ff;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#2a5acc;stop-opacity:0.6"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9"/>
-      <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:0.7"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-  
-  <!-- Illustration background -->
-  <circle cx="900" cy="315" r="280" fill="url(#bgGradient)"/>
-  
-  <!-- Cloud Platform (left of illustration) -->
-  <path d="M 760 250 Q 720 220 740 180 Q 760 150 800 160 Q 820 140 850 150 Q 870 130 880 170 Q 900 160 910 190 Q 920 160 940 175 Q 950 150 970 170 Q 980 140 1000 160 Q 980 220 950 240 Z" fill="url(#cloudGrad)" opacity="0.9"/>
-  
-  <!-- Container/Pod elements (Kubernetes) -->
-  <g>
-    <!-- Pod 1 -->
-    <rect x="750" y="310" width="80" height="80" rx="4" fill="none" stroke="#4a90ff" stroke-width="2" opacity="0.8"/>
-    <circle cx="790" cy="350" r="12" fill="#4a90ff" opacity="0.7"/>
-    
-    <!-- Pod 2 -->
-    <rect x="850" y="340" width="80" height="80" rx="4" fill="none" stroke="#4a90ff" stroke-width="2" opacity="0.8"/>
-    <circle cx="890" cy="380" r="12" fill="#4a90ff" opacity="0.7"/>
-    
-    <!-- Pod 3 -->
-    <rect x="950" y="310" width="80" height="80" rx="4" fill="none" stroke="#4a90ff" stroke-width="2" opacity="0.8"/>
-    <circle cx="990" cy="350" r="12" fill="#4a90ff" opacity="0.7"/>
-  </g>
-  
-  <!-- Central Shield (Security/IAM) -->
-  <g>
-    <!-- Shield shape -->
-    <path d="M 900 200 L 950 220 L 950 290 Q 950 340 900 370 Q 850 340 850 290 L 850 220 Z" fill="url(#shieldGrad)" opacity="0.85"/>
-    
-    <!-- Lock inside shield -->
-    <rect x="885" y="260" width="30" height="35" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
-    <path d="M 895 260 Q 895 250 905 250 Q 915 250 915 260" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
-    <circle cx="900" cy="280" r="3" fill="#ffffff" opacity="0.9"/>
-  </g>
-  
-  <!-- IAM/Key icons (top right) -->
-  <g opacity="0.8">
-    <!-- Key 1 -->
-    <circle cx="1000" cy="240" r="6" fill="#ffd700"/>
-    <rect x="1006" y="237" width="20" height="6" rx="2" fill="none" stroke="#ffd700" stroke-width="1.5"/>
-    <circle cx="1020" cy="240" r="2" fill="#ffd700"/>
-    
-    <!-- Key 2 -->
-    <circle cx="1050" cy="220" r="5" fill="#ffd700" opacity="0.7"/>
-    <rect x="1055" y="218" width="18" height="5" rx="2" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.7"/>
-  </g>
-  
-  <!-- Connection lines between elements -->
-  <line x1="830" y1="350" x2="860" y2="320" stroke="#4a90ff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/>
-  <line x1="930" y1="370" x2="970" y2="380" stroke="#4a90ff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/>
-  <line x1="950" y1="300" x2="920" y2="280" stroke="#ff6b6b" stroke-width="1.5" opacity="0.5"/>
-  
-  <!-- Footer -->
-  <text x="600" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#666" text-anchor="middle">tech.2twodragon.com</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 14, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">GCP Cloud Security Complete</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Guide IAMFrom GKETo Security...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">GCP | Security | IAM</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">GCP</text>
+  <rect x="174" y="420" width="108" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="228" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Security</text>
+  <rect x="296" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="336" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">IAM</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

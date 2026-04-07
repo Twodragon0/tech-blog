@@ -1,204 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AI Bitcoin</title>
   <defs>
-    <filter id="glass-blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="g" />
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0.231 0 0 0 0 0.510 0 0 0 0 0.965 0 0 0 0.7 0" />
-      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="glow-coral" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="g" />
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0.957 0 0 0 0 0.247 0 0 0 0 0.369 0 0 0 0.6 0" />
-      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="40" />
-    </filter>
-    <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35" />
-    </filter>
-    <filter id="particle-glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="3" />
-    </filter>
-    <linearGradient id="grad-accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="grad-border1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
-      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="grad-border2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="grad-shield" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#2563eb" />
-    </linearGradient>
-    <linearGradient id="grad-coin" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#f59e0b" />
-      <stop offset="100%" stop-color="#d97706" />
-    </linearGradient>
-    <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="orb3" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
-    </radialGradient>
-    <pattern id="dot-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dot-grid)" />
-
-  
-  <ellipse cx="200" cy="500" rx="280" ry="220" fill="url(#orb1)" filter="url(#soft-glow)" />
-  <ellipse cx="900" cy="120" rx="250" ry="200" fill="url(#orb2)" filter="url(#soft-glow)" />
-  <ellipse cx="700" cy="450" rx="200" ry="180" fill="url(#orb3)" filter="url(#soft-glow)" />
-  <ellipse cx="1100" cy="550" rx="180" ry="150" fill="url(#orb1)" filter="url(#soft-glow)" opacity="0.5" />
-
-  
-
-  
-  <g filter="url(#card-shadow)">
-    <rect x="880" y="100" width="260" height="280" rx="16" fill="#1e293b" fill-opacity="0.45" stroke="url(#grad-border2)" stroke-width="1.5" />
-    <rect x="880" y="100" width="260" height="280" rx="16" fill="#ffffff" fill-opacity="0.04" />
-    
-    <g transform="translate(960, 170)">
-      <path d="M50 0 L100 25 L100 70 C100 110 75 140 50 155 C25 140 0 110 0 70 L0 25 Z" fill="url(#grad-shield)" opacity="0.85" />
-      <path d="M50 8 L92 30 L92 70 C92 105 70 132 50 145 C30 132 8 105 8 70 L8 30 Z" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3" />
-      
-      <polyline points="30,78 45,95 72,58" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-blue)" />
-    </g>
-    </g>
-
-  
-  <g filter="url(#card-shadow)">
-    <rect x="660" y="60" width="280" height="340" rx="16" fill="#1e293b" fill-opacity="0.5" stroke="url(#grad-border1)" stroke-width="1.5" />
-    <rect x="660" y="60" width="280" height="340" rx="16" fill="#ffffff" fill-opacity="0.05" />
-    
-    <g transform="translate(720, 110)" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.9">
-      <ellipse cx="30" cy="20" rx="28" ry="14" filter="url(#glow-blue)" />
-      <ellipse cx="70" cy="20" rx="28" ry="14" />
-      <ellipse cx="50" cy="55" rx="28" ry="14" filter="url(#glow-blue)" />
-      <line x1="50" y1="34" x2="50" y2="41" stroke="#3b82f6" stroke-width="1.5" opacity="0.5" />
-    </g>
-    
-    <g transform="translate(810, 160)">
-      <circle cx="35" cy="35" r="35" fill="url(#grad-coin)" opacity="0.9" filter="url(#glow-coral)" />
-      <circle cx="35" cy="35" r="28" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3" />
-      <line x1="30" y1="10" x2="30" y2="16" stroke="#fff" stroke-width="2" opacity="0.6" />
-      <line x1="40" y1="10" x2="40" y2="16" stroke="#fff" stroke-width="2" opacity="0.6" />
-      <line x1="30" y1="54" x2="30" y2="60" stroke="#fff" stroke-width="2" opacity="0.6" />
-      <line x1="40" y1="54" x2="40" y2="60" stroke="#fff" stroke-width="2" opacity="0.6" />
-    </g>
-    
-    <g transform="translate(700, 270)" opacity="0.7">
-      <rect x="0" y="0" width="44" height="30" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" />
-      <rect x="56" y="0" width="44" height="30" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" />
-      <rect x="112" y="0" width="44" height="30" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" />
-      <line x1="44" y1="15" x2="56" y2="15" stroke="#3b82f6" stroke-width="1.5" />
-      <line x1="100" y1="15" x2="112" y2="15" stroke="#3b82f6" stroke-width="1.5" />
-      </g>
-    </g>
-
-  
-  <g filter="url(#card-shadow)">
-    <rect x="780" y="200" width="280" height="340" rx="16" fill="#1e293b" fill-opacity="0.55" stroke="url(#grad-border1)" stroke-width="1.5" />
-    <rect x="780" y="200" width="280" height="340" rx="16" fill="#ffffff" fill-opacity="0.05" />
-    
-    <g transform="translate(870, 240)">
-      <rect x="10" y="30" width="60" height="45" rx="8" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="1.5" />
-      <path d="M22 30 L22 20 C22 8 58 8 58 20 L58 30" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" />
-      <circle cx="40" cy="52" r="6" fill="#f43f5e" opacity="0.8" />
-      <line x1="40" y1="56" x2="40" y2="66" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" />
-    </g>
-    
-    <g transform="translate(810, 340)" opacity="0.5">
-      <rect x="0" y="0" width="120" height="8" rx="4" fill="#334155" />
-      <rect x="0" y="16" width="90" height="8" rx="4" fill="#334155" />
-      <rect x="0" y="32" width="140" height="8" rx="4" fill="#334155" />
-      <rect x="0" y="48" width="70" height="8" rx="4" fill="#334155" />
-    </g>
-    
-    <g transform="translate(990, 460)">
-      <circle cx="20" cy="20" r="18" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5" />
-      <polyline points="10,20 17,27 30,13" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-    </g>
-    <text x="920" y="510" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle" font-weight="500" letter-spacing="2">COMPLIANCE</text>
-  </g>
-
-  
-  <circle cx="750" cy="180" r="3" fill="#3b82f6" opacity="0.7" filter="url(#particle-glow)">
-    <animate attributeName="cy" values="180;170;180" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="870" cy="390" r="2.5" fill="#f43f5e" opacity="0.6" filter="url(#particle-glow)">
-    <animate attributeName="cy" values="390;380;390" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="950" cy="90" r="2" fill="#8b5cf6" opacity="0.7" filter="url(#particle-glow)">
-    <animate attributeName="cy" values="90;82;90" dur="4s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="680" cy="420" r="2" fill="#3b82f6" opacity="0.5" filter="url(#particle-glow)">
-    <animate attributeName="cx" values="680;688;680" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1080" cy="300" r="3" fill="#f43f5e" opacity="0.5" filter="url(#particle-glow)">
-    <animate attributeName="cy" values="300;290;300" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="820" cy="550" r="1.8" fill="#8b5cf6" opacity="0.6" filter="url(#particle-glow)">
-    <animate attributeName="cy" values="550;542;550" dur="3.2s" repeatCount="indefinite" />
-  </circle>
-
-  
-
-  
-  <rect x="60" y="80" width="160" height="34" rx="17" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4" />
-  <text x="140" y="102" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
-
-  
-  <text x="60" y="185" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="46" fill="#ffffff" font-weight="800" letter-spacing="-0.5">Tech Security</text>
-  <text x="60" y="245" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="42" fill="#ffffff" font-weight="700" opacity="0.92">Weekly Digest</text>
-  <text x="60" y="300" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="42" font-weight="700" fill="url(#grad-accent)">Bitcoin</text>
-
-  
-  <rect x="60" y="325" width="180" height="3" rx="1.5" fill="url(#grad-accent)" opacity="0.8" />
-
-  
-  <g transform="translate(60, 355)">
-    <rect x="0" y="0" width="100" height="30" rx="15" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="50" y="20" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#fb7185" text-anchor="middle" font-weight="500">Blockchain</text>
-
-    <rect x="112" y="0" width="88" height="30" rx="15" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="156" y="20" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle" font-weight="500">Security</text>
-
-    <rect x="212" y="0" width="88" height="30" rx="15" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="256" y="20" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle" font-weight="500">Crypto</text>
-  </g>
-
-  
-  <text x="60" y="440" font-family="system-ui,-apple-system,sans-serif" font-size="14" fill="#64748b" font-weight="500" letter-spacing="2.5">MARCH 16, 2026</text>
-
-  
-  <line x1="60" y1="560" x2="580" y2="560" stroke="#1e293b" stroke-width="1" />
-  <text x="60" y="588" font-family="system-ui,-apple-system,sans-serif" font-size="14" fill="#475569" font-weight="400" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  
-  <circle cx="248" cy="584" r="2.5" fill="#3b82f6" opacity="0.5" />
-  <circle cx="260" cy="584" r="2.5" fill="#f43f5e" opacity="0.5" />
-  <circle cx="272" cy="584" r="2.5" fill="#8b5cf6" opacity="0.5" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 16, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest AI</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Bitcoin</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AI</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

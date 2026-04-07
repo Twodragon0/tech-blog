@@ -1,11 +1,61 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <title>Blockchain Cryptocurrency Security Complete Guide DevSecOps From Perspective View GitHub Security Tools and Best Practice</title>
-  <defs><linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0a1a"/><stop offset="100%" stop-color="#1a0a2e"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#bgB)"/>
-  <text x="60" y="72" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">Blockchain Security and DevSecOps Controls</text>
-  <text x="60" y="106" fill="#94a3b8" font-size="18" font-family="Georgia, serif">Jan 08, 2026</text>
-  <line x1="300" y1="315" x2="540" y2="315" stroke="#f97316" stroke-width="4" stroke-dasharray="10 8"/><line x1="660" y1="315" x2="900" y2="315" stroke="#8b5cf6" stroke-width="4" stroke-dasharray="10 8"/>
-  <g transform="translate(140,220)"><rect width="180" height="190" rx="22" fill="#0f172a" stroke="#f97316" stroke-width="3"/><circle cx="90" cy="90" r="28" fill="none" stroke="#f97316" stroke-width="2.5"/><path d="M90 62 V118 M62 90 H118" stroke="#f97316" stroke-width="2.5"/><text x="90" y="165" text-anchor="middle" fill="#fdba74" font-size="16" font-family="Arial" font-weight="700">BLOCKCHAIN</text><text x="90" y="186" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Ledger trust</text></g>
-  <g transform="translate(510,205)"><circle cx="90" cy="110" r="96" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/><rect x="56" y="72" width="68" height="64" rx="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/><text x="90" y="226" text-anchor="middle" fill="#7dd3fc" font-size="17" font-family="Arial" font-weight="700">DEVSECOPS</text><text x="90" y="248" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Pipeline guardrails</text></g>
-  <g transform="translate(880,220)"><rect width="180" height="190" rx="22" fill="#0f172a" stroke="#8b5cf6" stroke-width="3"/><path d="M58 130 H122 M70 130 V86 M90 130 V66 M110 130 V96" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round"/><text x="90" y="165" text-anchor="middle" fill="#c4b5fd" font-size="16" font-family="Arial" font-weight="700">TOOLS</text><text x="90" y="186" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">GitHub checks</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Blockchain Cryptocurrency Security Complete Guide DevSecOps From Perspective Vie</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 8, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Blockchain Cryptocurrency</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Security Complete Guide...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Blockchain | Cryptocurrency | Bitcoin</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">BLOCKCHAIN DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="126" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="143" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Blockchain</text>
+  <rect x="220" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="301" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cryptocurrency</text>
+  <rect x="396" y="420" width="99" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="445" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Bitcoin</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,130 +1,61 @@
-<svg viewBox="0 0 1200 630" width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <title>Tech Security Weekly Digest</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest BitLocker FBI Cloudflare Route Leak Agentic Enterpri</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="50%" style="stop-color:#f6ad55"/>
-      <stop offset="100%" style="stop-color:#4299e1"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e53e3e"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#9b2c2c;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f6ad55;stop-opacity:0.1"/>
-      <stop offset="100%" style="stop-color:#c05621;stop-opacity:0.05"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Security shield with BitLocker lock, FBI badge, and Cloudflare route -->
-  <!-- Outer shield body -->
-  <path d="M1010,140 L1130,140 L1130,240 Q1130,305 1070,330 Q1010,305 1010,240 Z" fill="url(#shieldGrad)" stroke="rgba(229,62,62,0.3)" stroke-width="1.5"/>
-  <!-- Inner shield ring -->
-  <path d="M1022,152 L1118,152 L1118,240 Q1118,295 1070,316 Q1022,295 1022,240 Z" fill="none" stroke="rgba(229,62,62,0.2)" stroke-width="1"/>
-
-  <!-- Lock body (BitLocker) -->
-  <rect x="1052" y="210" width="36" height="30" rx="4" fill="rgba(246,173,85,0.12)" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
-  <!-- Lock shackle -->
-  <path d="M1059,210 L1059,200 Q1059,188 1070,188 Q1081,188 1081,200 L1081,210" fill="none" stroke="rgba(246,173,85,0.35)" stroke-width="1.5"/>
-  <!-- Lock keyhole -->
-  <circle cx="1070" cy="223" r="5" fill="rgba(246,173,85,0.2)" stroke="rgba(246,173,85,0.4)" stroke-width="1"/>
-  <rect x="1068" y="223" width="4" height="8" rx="1" fill="rgba(246,173,85,0.2)"/>
-
-  <!-- FBI badge star shape -->
-  <polygon points="1070,155 1074,165 1085,165 1076,172 1079,183 1070,176 1061,183 1064,172 1055,165 1066,165" fill="rgba(66,153,225,0.08)" stroke="rgba(66,153,225,0.3)" stroke-width="1.2"/>
-  <!-- Badge center -->
-  <circle cx="1070" cy="169" r="6" fill="rgba(66,153,225,0.1)" stroke="rgba(66,153,225,0.25)" stroke-width="1"/>
-
-  <!-- Cloudflare route lines -->
-  <circle cx="920" cy="160" r="12" fill="rgba(246,173,85,0.08)" stroke="rgba(246,173,85,0.25)" stroke-width="1.2"/>
-  <circle cx="920" cy="200" r="8" fill="rgba(246,173,85,0.06)" stroke="rgba(246,173,85,0.2)" stroke-width="1"/>
-  <circle cx="920" cy="232" r="10" fill="rgba(246,173,85,0.08)" stroke="rgba(246,173,85,0.22)" stroke-width="1.2"/>
-  <!-- Route connecting lines -->
-  <line x1="920" y1="172" x2="920" y2="192" stroke="rgba(246,173,85,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-  <line x1="920" y1="208" x2="920" y2="222" stroke="rgba(246,173,85,0.25)" stroke-width="1" stroke-dasharray="3,2"/>
-  <!-- Route to shield -->
-  <line x1="932" y1="196" x2="1010" y2="210" stroke="rgba(246,173,85,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
-
-  <!-- Decorative hexagonal frame around illustration -->
-  <polygon points="1070,130 1145,172 1145,258 1070,300 995,258 995,172" fill="none" stroke="rgba(229,62,62,0.08)" stroke-width="1"/>
-  <polygon points="1070,118 1158,165 1158,270 1070,316 982,270 982,165" fill="none" stroke="rgba(229,62,62,0.05)" stroke-width="1"/>
-
-  <!-- Scan lines over illustration -->
-  <line x1="995" y1="195" x2="1145" y2="195" stroke="rgba(229,62,62,0.06)" stroke-width="0.8"/>
-  <line x1="995" y1="220" x2="1145" y2="220" stroke="rgba(229,62,62,0.06)" stroke-width="0.8"/>
-  <line x1="995" y1="245" x2="1145" y2="245" stroke="rgba(229,62,62,0.06)" stroke-width="0.8"/>
-
-  <!-- Small decorative data nodes -->
-  <circle cx="1015" cy="165" r="3" fill="rgba(229,62,62,0.25)" stroke="rgba(229,62,62,0.4)" stroke-width="0.8"/>
-  <circle cx="1125" cy="165" r="3" fill="rgba(66,153,225,0.25)" stroke="rgba(66,153,225,0.4)" stroke-width="0.8"/>
-  <circle cx="1015" cy="285" r="3" fill="rgba(66,153,225,0.25)" stroke="rgba(66,153,225,0.4)" stroke-width="0.8"/>
-  <circle cx="1125" cy="285" r="3" fill="rgba(229,62,62,0.25)" stroke="rgba(229,62,62,0.4)" stroke-width="0.8"/>
-
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="4" fill="rgba(229,62,62,0.6)"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(246,173,85,0.6)"/>
-  <circle cx="860" cy="440" r="4" fill="rgba(66,153,225,0.6)"/>
-
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="230" height="32" rx="4" fill="rgba(229,62,62,0.15)" stroke="rgba(229,62,62,0.3)" stroke-width="1"/>
-  <text x="95" y="81" font-family="monospace, 'Courier New'" font-size="13" fill="rgba(255,255,255,0.85)" letter-spacing="1">JANUARY 24, 2026</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="white">Tech Security Weekly Digest</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="white">BitLocker FBI Cloudflare Route</text>
-
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 24, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">BitLocker FBI Cloudflare...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Weekly security intelligence - Threat analysis &amp; advisories</text>
-
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">BitLocker | FBI | Encryption</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
-  <text x="80" y="370" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="3" font-weight="600">SECURITY DIGEST - THREAT INTELLIGENCE</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(229,62,62,0.18)" stroke="rgba(229,62,62,0.4)" stroke-width="1"/>
-  <text x="140" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,100,100,0.95)" text-anchor="middle" font-weight="600">BitLocker</text>
-
-  <rect x="214" y="402" width="96" height="36" rx="18" fill="rgba(246,173,85,0.15)" stroke="rgba(246,173,85,0.4)" stroke-width="1"/>
-  <text x="262" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(246,173,85,0.95)" text-anchor="middle" font-weight="600">FBI</text>
-
-  <rect x="324" y="402" width="130" height="36" rx="18" fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.4)" stroke-width="1"/>
-  <text x="389" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(100,180,255,0.95)" text-anchor="middle" font-weight="600">Cloudflare</text>
-
-  <!-- Footer -->
-  <text x="80" y="545" font-family="monospace, 'Courier New'" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="2">SECURITY</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">BitLocker</text>
+  <rect x="211" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="251" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">FBI</text>
+  <rect x="305" y="420" width="126" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="368" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Encryption</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

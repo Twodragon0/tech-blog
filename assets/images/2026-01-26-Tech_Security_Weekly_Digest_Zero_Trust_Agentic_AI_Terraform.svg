@@ -1,123 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
-  <title>Tech Security Weekly Digest Zero Trust Agentic AI Terraform</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest Zero Trust Agentic AI Chrome Tech Support Scam Terra</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f1123;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="accentGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c92a5f;stop-opacity:1" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
   </defs>
-  
-  
-  <rect width="1200" height="630" fill="url(#bgGradient)" />
-  
-  
-  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-0.5">Tech Security Weekly</text>
-  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-0.5">Digest Zero Trust</text>
-  
-  
-  <rect x="60" y="280" width="340" height="50" rx="6" fill="#1a1f35" stroke="#00d4ff" stroke-width="1.5" />
-  <text x="75" y="312" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#00d4ff">📅 JANUARY 26, 2026</text>
-  
-  
-  <g>
-    
-    <rect x="60" y="420" width="100" height="36" rx="18" fill="#1a3f5f" stroke="#00d4ff" stroke-width="1" />
-    <text x="110" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#00d4ff" text-anchor="middle">Zero Trust</text>
-    
-    
-    <rect x="175" y="420" width="100" height="36" rx="18" fill="#3f1a3f" stroke="#ff6b9d" stroke-width="1" />
-    <text x="225" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff6b9d" text-anchor="middle">Security</text>
-    
-    
-    <rect x="290" y="420" width="110" height="36" rx="18" fill="#1a3f2f" stroke="#00ff88" stroke-width="1" />
-    <text x="345" y="442" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#00ff88" text-anchor="middle">Verification</text>
-  </g>
-  
-  
-  <text x="60" y="580" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#666">tech.2twodragon.com</text>
-  
-  
-  
-  
-  
-  <circle cx="925" cy="315" r="200" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.3" />
-  <circle cx="925" cy="315" r="160" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="925" cy="125" r="35" fill="url(#accentGrad)" />
-    </g>
-  <line x1="925" y1="160" x2="925" y2="240" stroke="#00d4ff" stroke-width="2" stroke-dasharray="4,4" opacity="0.6" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="780" cy="315" r="35" fill="url(#accentGrad2)" />
-    </g>
-  <line x1="815" y1="315" x2="885" y2="315" stroke="#ff6b9d" stroke-width="2" stroke-dasharray="4,4" opacity="0.6" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="1070" cy="315" r="35" fill="#00ff88" opacity="0.8" />
-    <text x="1070" y="325" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0a0c1a" text-anchor="middle">🌐</text>
-  </g>
-  <line x1="965" y1="315" x2="1035" y2="315" stroke="#00ff88" stroke-width="2" stroke-dasharray="4,4" opacity="0.6" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="820" cy="450" r="35" fill="#ff6b9d" opacity="0.7" />
-    <text x="820" y="460" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">💻</text>
-  </g>
-  <line x1="835" y1="415" x2="900" y2="365" stroke="#ff6b9d" stroke-width="2" stroke-dasharray="4,4" opacity="0.6" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="1030" cy="450" r="35" fill="#00d4ff" opacity="0.7" />
-    <text x="1030" y="460" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">🛡️</text>
-  </g>
-  <line x1="1015" y1="415" x2="950" y2="365" stroke="#00d4ff" stroke-width="2" stroke-dasharray="4,4" opacity="0.6" />
-  
-  
-  <g filter="url(#glow)">
-    <circle cx="925" cy="315" r="45" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" />
-    <circle cx="925" cy="315" r="40" fill="none" stroke="url(#accentGrad2)" stroke-width="1.5" opacity="0.5" />
-    </g>
-  
-  
-  <g opacity="0.7">
-    <circle cx="880" cy="285" r="6" fill="#00ff88" />
-    <circle cx="970" cy="285" r="6" fill="#00ff88" />
-    <circle cx="880" cy="345" r="6" fill="#00ff88" />
-    <circle cx="970" cy="345" r="6" fill="#00ff88" />
-  </g>
-  
-  
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#00d4ff" opacity="0.5" />
-    </marker>
-  </defs>
-  
-  
-  <g opacity="0.15">
-    <rect x="1050" y="500" width="120" height="120" rx="8" fill="none" stroke="#00d4ff" stroke-width="1" />
-    <line x1="1050" y1="540" x2="1170" y2="540" stroke="#00d4ff" stroke-width="0.5" />
-    <line x1="1050" y1="560" x2="1170" y2="560" stroke="#00d4ff" stroke-width="0.5" />
-    <line x1="1050" y1="580" x2="1170" y2="580" stroke="#00d4ff" stroke-width="0.5" />
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 26, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Zero Trust Agentic AI Chrome...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Zero Trust | AI Agents | Chrome Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="126" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="143" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Zero Trust</text>
+  <rect x="220" y="420" width="117" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="278" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AI Agents</text>
+  <rect x="351" y="420" width="162" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="432" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Chrome Securi.</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

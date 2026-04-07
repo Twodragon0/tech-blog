@@ -1,129 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest n8n RCE D Link Zero Day Kubernetes AI Agent</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Gradient overlay for depth -->
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1d2e;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4757;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:0.4"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-  
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
-  <!-- LEFT SIDE: TEXT CONTENT -->
-  
-  <!-- Title line 1 -->
-  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Tech Security Weekly</text>
-  
-  <!-- Title line 2 -->
-  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ff4757">Digest n8n RCE</text>
-  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="50" y="290" width="280" height="48" rx="6" fill="#1a1d2e" stroke="#ff4757" stroke-width="2"/>
-  <text x="140" y="321" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ff4757">JANUARY 29, 2026</text>
-  
-  <!-- Tag pills -->
-  <g>
-    <!-- Tag 1: Security -->
-    <rect x="50" y="420" width="110" height="36" rx="18" fill="#ff4757" opacity="0.15" stroke="#ff4757" stroke-width="1.5"/>
-    <text x="105" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff4757" text-anchor="middle">security</text>
-    
-    <!-- Tag 2: Vulnerability -->
-    <rect x="175" y="420" width="130" height="36" rx="18" fill="#ffa502" opacity="0.15" stroke="#ffa502" stroke-width="1.5"/>
-    <text x="240" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffa502" text-anchor="middle">vulnerability</text>
-    
-    <!-- Tag 3: RCE -->
-    <rect x="320" y="420" width="80" height="36" rx="18" fill="#ff6348" opacity="0.15" stroke="#ff6348" stroke-width="1.5"/>
-    <text x="360" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff6348" text-anchor="middle">RCE</text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="50" y="595" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#666">tech.2twodragon.com</text>
-  
-  <!-- RIGHT SIDE: ILLUSTRATION -->
-  
-  <!-- Background circles for depth -->
-  <circle cx="900" cy="200" r="120" fill="#ff4757" opacity="0.08"/>
-  <circle cx="950" cy="380" r="100" fill="#ffa502" opacity="0.06"/>
-  
-  <!-- Node network - central workflow node (being attacked) -->
-  <g filter="url(#glow)">
-    <!-- Central compromised node -->
-    <rect x="820" y="250" width="120" height="120" rx="8" fill="#1a1d2e" stroke="#ff4757" stroke-width="2.5"/>
-    
-    <!-- Node icon: workflow/code -->
-    <circle cx="880" cy="310" r="8" fill="#ff4757" opacity="0.3"/>
-    <line x1="850" y1="310" x2="910" y2="310" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
-    <line x1="880" y1="280" x2="880" y2="340" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
-    
-    <!-- Code symbols breaking out -->
-    <text x="880" y="300" font-family="monospace" font-size="20" font-weight="bold" fill="#ff4757" text-anchor="middle" opacity="0.7">{ }</text>
-  </g>
-  
-  <!-- Connected nodes (input nodes) -->
-  <g opacity="0.6">
-    <circle cx="740" cy="240" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-    <circle cx="740" cy="340" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-    <circle cx="740" cy="440" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-  </g>
-  
-  <!-- Connection lines turning red (attack flow) -->
-  <line x1="758" y1="240" x2="820" y2="280" stroke="#ff4757" stroke-width="2.5" opacity="0.7" stroke-dasharray="5,3"/>
-  <line x1="758" y1="340" x2="820" y2="310" stroke="#ff4757" stroke-width="2.5" opacity="0.8" stroke-dasharray="5,3"/>
-  <line x1="758" y1="440" x2="820" y2="340" stroke="#ff4757" stroke-width="2.5" opacity="0.7" stroke-dasharray="5,3"/>
-  
-  <!-- Data breaking out (attack payload) -->
-  <g fill="#ff4757" opacity="0.6">
-    <circle cx="950" cy="220" r="4"/>
-    <circle cx="980" cy="180" r="3"/>
-    <circle cx="1010" cy="210" r="3.5"/>
-    <circle cx="1030" cy="250" r="3"/>
-    <circle cx="1020" cy="290" r="4"/>
-    <circle cx="1000" cy="320" r="3.5"/>
-  </g>
-  
-  <!-- Execution trace lines -->
-  <line x1="940" y1="260" x2="980" y2="200" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  <line x1="940" y1="310" x2="1010" y2="280" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  <line x1="940" y1="350" x2="1000" y2="360" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  
-  <!-- Warning indicators (brackets) -->
-  <g stroke="#ffa502" stroke-width="2" fill="none" opacity="0.7">
-    <path d="M 990 160 L 970 160 L 970 180 L 990 180"/>
-    <path d="M 1050 220 L 1030 220 L 1030 240 L 1050 240"/>
-  </g>
-  
-  <!-- Critical vulnerability badge -->
-  <g>
-    <circle cx="1080" cy="150" r="35" fill="#ff4757" opacity="0.15" stroke="#ff4757" stroke-width="2"/>
-    <text x="1080" y="145" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff4757" text-anchor="middle">CRITICAL</text>
-    <text x="1080" y="163" font-family="Arial, sans-serif" font-size="10" fill="#ff4757" text-anchor="middle">RCE</text>
-  </g>
-  
-  <!-- Lock icon (broken) -->
-  <g opacity="0.8">
-    <rect x="865" y="390" width="30" height="22" rx="3" fill="none" stroke="#ffa502" stroke-width="2"/>
-    <path d="M 870 390 Q 870 380 880 380 Q 890 380 890 390" fill="none" stroke="#ffa502" stroke-width="2"/>
-    <line x1="875" y1="405" x2="885" y2="405" stroke="#ffa502" stroke-width="1.5" opacity="0.6"/>
-    <line x1="875" y1="395" x2="885" y2="415" stroke="#ff4757" stroke-width="2" opacity="0.7"/>
-  </g>
-  
-  <!-- Accent elements -->
-  <circle cx="950" cy="500" r="1.5" fill="#4db8ff" opacity="0.5"/>
-  <circle cx="1010" cy="480" r="1" fill="#4db8ff" opacity="0.4"/>
-  <circle cx="880" cy="520" r="1.5" fill="#4db8ff" opacity="0.3"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 29, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">n8n RCE D Link Zero Day...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">n8n | RCE | CVE 2026 1470</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">n8n</text>
+  <rect x="174" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="214" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">RCE</text>
+  <rect x="268" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="344" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">CVE 2026 1470</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>
