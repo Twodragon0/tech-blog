@@ -1,6 +1,6 @@
 # AGENTS.md - AI Agent Coding Guidelines
 
-**Last updated**: 2026-04-06
+**Last updated**: 2026-04-08
 
 Coding guidelines for AI agents (Claude, Cursor, Copilot, etc.) working on this Jekyll-based DevSecOps technical blog.
 

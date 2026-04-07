@@ -93,6 +93,8 @@ referenced_images.txt
 .claude/settings.local.json
 .claude/settings.json
 .claude/worktrees/
+.claude/agent-memory/
+.claude/CLAUDE.md.backup.*
 .cursor/
 .sisyphus/
 .env.backup
