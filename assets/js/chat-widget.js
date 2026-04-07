@@ -629,7 +629,7 @@
     messages.push(message);
 
     const messageEl = document.createElement('div');
-    messageEl.className = 'chat-message chat-message-assistant';
+    messageEl.className = 'chat-message chat-message-assistant chat-message-streaming';
     messageEl.id = `message-${messageId}`;
 
     const contentEl = document.createElement('div');
@@ -702,7 +702,7 @@
     removeLoading();
 
     // Create the assistant message element once
-    const { contentEl, message: msgObj } = createStreamingMessage();
+    const { messageEl, contentEl, message: msgObj } = createStreamingMessage();
     let accumulated = '';
     let formatDebounceTimer = null;
 
@@ -734,6 +734,8 @@
               if (formatDebounceTimer) clearTimeout(formatDebounceTimer);
               msgObj.content = accumulated;
               updateStreamingContent(contentEl, accumulated);
+              // Remove streaming indicator
+              messageEl.classList.remove('chat-message-streaming');
               scrollToBottom();
               return;
             }
@@ -768,6 +770,7 @@
     if (accumulated) {
       msgObj.content = accumulated;
       updateStreamingContent(contentEl, accumulated);
+      messageEl.classList.remove('chat-message-streaming');
       scrollToBottom();
     }
   }

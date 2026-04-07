@@ -772,6 +772,23 @@
   }
 }
 
+// Streaming cursor animation
+.chat-message-streaming .chat-message-content::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--color-primary, #6366f1);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 // Suggestion buttons
 .chat-suggestions {
   display: flex;
