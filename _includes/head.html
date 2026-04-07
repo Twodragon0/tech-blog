@@ -256,8 +256,11 @@
   <link rel="prefetch" href="{{ "/assets/js/mermaid-init.js" | relative_url }}" as="script">
   {% endif %}
   <link rel="prefetch" href="{{ "/assets/js/main-search.js" | relative_url }}" as="script">
-  {% comment %}OG 이미지 preload는 제거 (404 오류 및 성능 문제 방지){% endcomment %}
-  {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
+  {% comment %}LCP 이미지 preload: 모든 포스트에 AVIF OG 이미지 완비 (2026-04-07){% endcomment %}
+  {% if page.image %}
+    {% assign preload_path = page.image | replace: '_og.png', '_og.avif' | replace: '.svg', '_og.avif' %}
+    <link rel="preload" as="image" type="image/avif" href="{{ preload_path | relative_url }}">
+  {% endif %}
 
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
   {% if site.sentry_dsn and site.sentry_dsn != "" %}
