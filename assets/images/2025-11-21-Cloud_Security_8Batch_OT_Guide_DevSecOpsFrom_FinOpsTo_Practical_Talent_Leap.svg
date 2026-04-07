@@ -1,153 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
-  <title>Cloud Security 8Batch OT Guide DevSecOpsFrom FinOpsTo Practical Talent Leap</title>
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>8 OT DEVSECOPS FINOPS DEVSECOPS</title>
   <defs>
-    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
     </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#a78bfa" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#a78bfa" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#6d28d9" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#a78bfa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#a78bfa" opacity="0.28"/>
+  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
   
-  
-  <text x="40" y="185" font-size="46" font-weight="700" font-family="Inter, sans-serif" fill="url(#titleGrad)" letter-spacing="-0.5">
-    Cloud Security
-  </text>
-  
-  
-  <text x="40" y="245" font-size="46" font-weight="700" font-family="Inter, sans-serif" fill="url(#titleGrad)" letter-spacing="-0.5">
-    8Batch DevSecOps
-  </text>
-  
-  
-  <rect x="40" y="280" width="280" height="38" rx="19" fill="rgba(14, 165, 233, 0.15)" stroke="#0ea5e9" stroke-width="1" />
-  <text x="60" y="305" font-size="13" font-weight="600" font-family="Inter, sans-serif" fill="#0ea5e9">
-    NOVEMBER 21, 2025
-  </text>
-  
-  
-  <g id="tags">
-    
-    <rect x="40" y="420" width="110" height="32" rx="16" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d4" stroke-width="1" />
-    <text x="60" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#06b6d4">devsecops</text>
-    
-    
-    <rect x="170" y="420" width="130" height="32" rx="16" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="1" />
-    <text x="190" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#22c55e">cloud-security</text>
-    
-    
-    <rect x="320" y="420" width="95" height="32" rx="16" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1" />
-    <text x="340" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#a855f7">finops</text>
+  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
+  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
+
+  <g transform="translate(917,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#a78bfa" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+
+    <circle cx="-60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <circle cx="60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <line x1="-38" y1="0" x2="-22" y2="0" stroke="#a78bfa" stroke-width="2"/>
+    <line x1="22" y1="0" x2="38" y2="0" stroke="#a78bfa" stroke-width="2"/>
+    <polygon points="-25,-4 -18,0 -25,4" fill="#a78bfa"/>
+    <polygon points="35,-4 42,0 35,4" fill="#a78bfa"/>
+    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
   </g>
-  
-  
-  <text x="40" y="595" font-size="12" font-weight="500" font-family="Inter, sans-serif" fill="#666">
-    tech.2twodragon.com
-  </text>
-  
-  
-  <g id="illustration">
-    
-    <circle cx="925" cy="280" r="220" fill="#0ea5e9" opacity="0.06" />
-    <circle cx="925" cy="280" r="180" fill="#a855f7" opacity="0.04" />
-
-    
-    <g id="cloud-platform">
-      
-      <defs>
-        <radialGradient id="cloudGrad" cx="50%" cy="30%">
-          <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.4" />
-          <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.2" />
-        </radialGradient>
-      </defs>
-      <path d="M 780 140 Q 750 120 730 135 Q 700 110 680 130 Q 660 105 640 120 L 640 200 Q 670 230 730 230 L 1050 230 Q 1080 230 1100 210 L 1100 150 Q 1070 130 1040 145 Q 1010 120 990 135 Q 960 110 940 125 Q 910 100 880 115 Q 850 95 830 110 Z" fill="url(#cloudGrad)" stroke="#06b6d4" stroke-width="1.5" opacity="0.8" />
-
-      
-      <rect x="850" y="155" width="28" height="32" rx="3" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.9" />
-      <path d="M 854 165 Q 854 158 860 158 Q 866 158 866 165" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.9" />
-      <circle cx="860" cy="175" r="2" fill="#22c55e" opacity="0.9" />
-
-      
-      <path d="M 1010 165 L 1030 160 L 1030 180 Q 1030 195 1010 200 Q 990 195 990 180 L 990 160 Z" fill="#f43f5e" opacity="0.7" />
-    </g>
-
-    
-    <g id="devsecops-cycle">
-      
-      <circle cx="900" cy="310" r="45" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.5" />
-      <circle cx="900" cy="310" r="30" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.3" />
-      <circle cx="760" cy="280" r="28" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.8" />
-      <path d="M 780 295 L 855 305" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowhead)" />
-
-      
-      <circle cx="790" cy="390" r="28" fill="none" stroke="#f43f5e" stroke-width="2" opacity="0.8" />
-      <path d="M 820 370 L 870 330" stroke="#f43f5e" stroke-width="1.5" opacity="0.6" />
-
-      
-      <circle cx="1040" cy="280" r="28" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.8" />
-      <text x="1030" y="288" font-size="11" font-weight="600" font-family="Inter, sans-serif" fill="#a855f7">Ops</text>
-      <path d="M 1015 300 L 945 310" stroke="#a855f7" stroke-width="1.5" opacity="0.6" />
-    </g>
-
-    
-    <g id="finops-stack">
-      
-      <ellipse cx="760" cy="450" rx="22" ry="10" fill="#fbbf24" opacity="0.3" stroke="#fbbf24" stroke-width="1" />
-      <ellipse cx="760" cy="435" rx="22" ry="10" fill="#fbbf24" opacity="0.5" stroke="#fbbf24" stroke-width="1" />
-      <ellipse cx="760" cy="420" rx="22" ry="10" fill="#fbbf24" opacity="0.7" stroke="#fbbf24" stroke-width="1" />
-
-      
-      <text x="810" y="442" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#fbbf24" opacity="0.9">FinOps</text>
-    </g>
-
-    
-    <g id="talent-pipeline">
-      
-      <g id="team1">
-        <circle cx="980" cy="435" r="8" fill="#22c55e" opacity="0.9" />
-        <path d="M 972 450 L 988 450 L 988 460 L 972 460 Z" fill="#22c55e" opacity="0.9" />
-      </g>
-
-      <g id="team2">
-        <circle cx="1020" cy="450" r="8" fill="#22c55e" opacity="0.7" />
-        <path d="M 1012 465 L 1028 465 L 1028 475 L 1012 475 Z" fill="#22c55e" opacity="0.7" />
-      </g>
-
-      <g id="team3">
-        <circle cx="1000" cy="480" r="8" fill="#22c55e" opacity="0.5" />
-        <path d="M 992 495 L 1008 495 L 1008 505 L 992 505 Z" fill="#22c55e" opacity="0.5" />
-      </g>
-
-      
-      <text x="1020" y="525" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#22c55e" opacity="0.9">Talent</text>
-    </g>
-
-    
-    <line x1="780" y1="460" x2="850" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3" />
-    <line x1="850" y1="400" x2="920" y2="360" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3" />
-    <line x1="920" y1="360" x2="980" y2="420" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3,3" />
-
-    
-    <circle cx="730" cy="520" r="4" fill="#0ea5e9" opacity="0.6" />
-    <circle cx="755" cy="535" r="3" fill="#06b6d4" opacity="0.5" />
-    <circle cx="785" cy="545" r="3" fill="#0ea5e9" opacity="0.4" />
-
-    <circle cx="1080" cy="410" r="4" fill="#a855f7" opacity="0.5" />
-    <circle cx="1100" cy="440" r="3" fill="#f43f5e" opacity="0.4" />
-    <circle cx="1090" cy="475" r="3" fill="#22c55e" opacity="0.4" />
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
   </g>
-  
-  
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#0ea5e9" opacity="0.6" />
-    </marker>
-  </defs>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">8 OT DEVSECOPS FINOPS</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">DEVSECOPS</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">DEVSECOPS / CLOUD / FINOPS</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 0872BDE4C917</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="124" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
+  </g>
+  <g transform="translate(222 474)">
+    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+  </g>
+  <g transform="translate(346 474)">
+    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">FINOPS</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">DEVSECOPS</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 08, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

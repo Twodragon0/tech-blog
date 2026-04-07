@@ -1,129 +1,100 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>Cloud Security Course 7Batch - 5Week AWS Control Tower and ZTNA</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-
-  <!-- LEFT SIDE: TEXT CONTENT -->
-
-  <!-- Date Badge -->
-  <rect x="60" y="50" width="160" height="32" rx="4" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.8"/>
-  <text x="140" y="70" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#ef4444">MAY 16, 2025</text>
-
-  <!-- Main Title -->
-  <text x="80" y="185" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Cloud Security Course</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="245" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-0.5">7Batch 5Week AWS</text>
-
-  <!-- Tag Pills -->
-  <g>
-    <!-- Tag 1: Cloud -->
-    <rect x="80" y="420" width="100" height="28" rx="14" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8"/>
-    <text x="130" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#3b82f6">Cloud Security</text>
-
-    <!-- Tag 2: AWS -->
-    <rect x="200" y="420" width="70" height="28" rx="14" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="0.8"/>
-    <text x="235" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#f59e0b">AWS</text>
-
-    <!-- Tag 3: Compliance -->
-    <rect x="290" y="420" width="110" height="28" rx="14" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.8"/>
-    <text x="345" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#ef4444">Compliance</text>
-  </g>
-
-  <!-- Footer -->
-  <text x="80" y="555" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff" opacity="0.6">tech.2twodragon.com</text>
-
-  <!-- RIGHT SIDE: VISUAL SCENE (x=650-1150, y=80-550) -->
-
-  <!-- Cloud Shape -->
-  <g>
-    <!-- Cloud outline -->
-    <path d="M 800 180 Q 750 160 720 190 Q 700 170 670 180 Q 660 150 630 160 Q 620 200 640 220 L 900 220 Q 920 200 910 160 Q 880 150 850 170 Q 840 140 800 180"
-          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.3"/>
-
-    <!-- Cloud accent -->
-    <circle cx="750" cy="200" r="35" fill="#3b82f6" opacity="0.04"/>
-    <circle cx="850" cy="190" r="40" fill="#3b82f6" opacity="0.05"/>
-  </g>
-
-  <!-- Data Flow Arrows from Cloud -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>7 5 AWS CONTROL TOWER ZTNA</title>
   <defs>
-    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.7"/>
-    </marker>
-    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.7"/>
-    </marker>
-    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.7"/>
-    </marker>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#34d399" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#34d399" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#059669" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="720" y="132" width="388" height="292" rx="28" fill="url(#panel)" stroke="#34d399" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="742" y="152" width="108" height="12" rx="6" fill="#34d399" opacity="0.28"/>
+  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#67e8f9" stroke-width="1.3" opacity="0.24"/>
+  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.22"/>
 
-  <!-- Arrow 1: Cloud to Shield (left) -->
-  <path d="M 750 240 Q 750 300 800 350"
-        fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead-blue)" stroke-dasharray="4,3"/>
+  <g transform="translate(914,278)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#34d399" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#34d399" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-  <!-- Arrow 2: Cloud to Shield (right) -->
-  <path d="M 850 240 Q 880 290 900 350"
-        fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead-orange)" stroke-dasharray="4,3"/>
-
-  <!-- Shield with Checkmark -->
-  <g>
-    <!-- Shield outline -->
-    <path d="M 850 320 L 810 340 L 810 400 Q 850 450 850 450 Q 890 450 890 400 L 890 340 Z"
-          fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="0.8"/>
-
-    <!-- Checkmark inside shield -->
-    <g transform="translate(850, 385)">
-      <path d="M -12 0 L -4 10 L 12 -8"
-            fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
-    </g>
+    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
+    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
   </g>
-
-  <!-- Alert/Warning Indicators -->
-  <g>
-    <!-- Alert Triangle 1 (top right) -->
-    <circle cx="950" cy="150" r="18" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.8"/>
-    <polygon points="950,135 960,165 940,165" fill="#f59e0b" opacity="0.7"/>
-
-    <!-- Alert Triangle 2 (bottom left) -->
-    <circle cx="720" cy="480" r="16" fill="#ef4444" opacity="0.05" stroke="#ef4444" stroke-width="0.8"/>
-    <polygon points="720,468 730,496 710,496" fill="#ef4444" opacity="0.6"/>
-
-    <!-- Alert Triangle 3 (center right) -->
-    <circle cx="1000" cy="380" r="15" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.75"/>
-    <polygon points="1000,369 1009,395 991,395" fill="#f59e0b" opacity="0.65"/>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#34d399" opacity="0.2" stroke="#34d399" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle">CLOUD</text>
   </g>
-
-  <!-- Additional Data Flow Arrows -->
-  <path d="M 920 300 L 980 340"
-        fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowhead-blue)"/>
-
-  <path d="M 900 420 Q 950 450 1000 480"
-        fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowhead-orange)" stroke-dasharray="3,2"/>
-
-  <!-- Data Connection Lines -->
-  <circle cx="780" cy="280" r="3" fill="#3b82f6" opacity="0.4"/>
-  <circle cx="920" cy="360" r="3" fill="#f59e0b" opacity="0.4"/>
-  <circle cx="1050" cy="320" r="3" fill="#ef4444" opacity="0.4"/>
-
-  <!-- Connecting dots with lines -->
-  <line x1="780" y1="280" x2="850" y2="320" stroke="#3b82f6" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
-  <line x1="920" y1="360" x2="1050" y2="320" stroke="#f59e0b" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
-
-  <!-- Decorative Security Elements -->
-  <g>
-    <!-- Lock outline -->
-    <rect x="700" y="500" width="24" height="20" rx="3" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.5"/>
-    <path d="M 706 500 Q 706 492 712 492 Q 718 492 718 500"
-          fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.5"/>
-
-    <!-- Key outline -->
-    <circle cx="950" cy="510" r="6" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.5"/>
-    <line x1="956" y1="510" x2="968" y2="510" stroke="#ef4444" stroke-width="1.2" opacity="0.5"/>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">7 5 AWS CONTROL TOWER</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">ZTNA</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO TRUST / CLOUD / AWS</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM D627FFA82B58</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="134" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">ZERO TRUST</text>
   </g>
-
-  <!-- Accent Circles for Depth -->
-  <circle cx="850" cy="150" r="50" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.08" stroke-dasharray="4,3"/>
-  <circle cx="850" cy="150" r="80" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.04" stroke-dasharray="5,4"/>
+  <g transform="translate(232 474)">
+    <rect width="110" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+  </g>
+  <g transform="translate(356 474)">
+    <rect width="110" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">AWS</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">CLOUD</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 08, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

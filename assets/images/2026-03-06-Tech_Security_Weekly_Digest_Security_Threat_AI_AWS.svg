@@ -1,130 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
-  <title>Tech Security Weekly Digest Security Threat AI AWS</title>
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
-  <text x="60" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5px">Tech Security Weekly</text>
-  <text x="60" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5px">Digest Security Threat</text>
-  
-  
-  <g>
-    <rect x="60" y="270" width="240" height="40" rx="6" fill="#1a1f3a" stroke="#4a63ff" stroke-width="1.5" />
-    <text x="70" y="295" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#4a63ff">📅 MARCH 6, 2026</text>
-  </g>
-  
-  
-  <g>
-    
-    <rect x="60" y="420" width="110" height="32" rx="16" fill="#ff2d55" opacity="0.15" />
-    <text x="115" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ff2d55" text-anchor="middle">Security</text>
-    
-    
-    <rect x="185" y="420" width="110" height="32" rx="16" fill="#4a63ff" opacity="0.15" />
-    <text x="240" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4a63ff" text-anchor="middle">Threat</text>
-    
-    
-    <rect x="310" y="420" width="110" height="32" rx="16" fill="#ffd700" opacity="0.15" />
-    <text x="365" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ffd700" text-anchor="middle">Digest</text>
-  </g>
-  
-  
-  <text x="60" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#666" letter-spacing="0.5px">tech.2twodragon.com</text>
-  
-  
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest</title>
   <defs>
-    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff2d55;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#ff1744;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#181024"/>
     </linearGradient>
-    <linearGradient id="warningGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="infoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4a63ff;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
-    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
+    </filter>
   </defs>
-  
-  
-  <circle cx="950" cy="150" r="200" fill="#ff2d55" opacity="0.08" />
-  
-  
-  <g transform="translate(750, 380)">
-    <rect x="0" y="0" width="180" height="120" rx="8" fill="#1a1f3a" stroke="#666" stroke-width="1" opacity="0.6" />
-    <rect x="8" y="8" width="10" height="104" rx="2" fill="url(#threatGrad)" />
-    <circle cx="140" cy="25" r="4" fill="#ff2d55" opacity="0.6" />
-    <circle cx="140" cy="45" r="4" fill="#ff2d55" opacity="0.4" />
-    <line x1="30" y1="25" x2="120" y2="25" stroke="#666" stroke-width="1" />
-    <line x1="30" y1="50" x2="100" y2="50" stroke="#666" stroke-width="0.8" opacity="0.5" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="250" cy="170" r="180" fill="#f97316" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="600" cy="140" r="160" fill="#3b82f6" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="950" cy="220" r="170" fill="#dc2626" opacity="0.12" filter="url(#glow)"/>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">DEVOPS  CLOUD  ZERO DAY</tspan></text>
+  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
+
+  <g transform="translate(250 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M-16 0 A16 16 0 0 1 16 0" fill="none" stroke="#f97316" stroke-width="2.5"/><path d="M16 0 A16 16 0 0 1 -16 0" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="4 3"/><polygon points="16,-4 22,0 16,4" fill="#f97316"/><polygon points="-16,4 -22,0 -16,-4" fill="#f97316"/>
   </g>
-  
-  
-  <g transform="translate(780, 340)">
-    <rect x="0" y="0" width="180" height="120" rx="8" fill="#1a2a3a" stroke="#ff2d55" stroke-width="1.5" opacity="0.8" />
-    <rect x="8" y="8" width="10" height="104" rx="2" fill="url(#threatGrad)" />
-    <circle cx="140" cy="25" r="5" fill="#ff2d55" />
-    <circle cx="140" cy="45" r="5" fill="#ff2d55" opacity="0.7" />
-    <line x1="30" y1="25" x2="120" y2="25" stroke="#ff2d55" stroke-width="1.5" />
-    <line x1="30" y1="50" x2="110" y2="50" stroke="#ff2d55" stroke-width="1" opacity="0.7" />
-    <text x="30" y="85" font-family="monospace" font-size="9" fill="#ff2d55" opacity="0.8">CRITICAL</text>
+
+
+  <g transform="translate(600 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5"/>
+    <ellipse cx="0" cy="4" rx="22" ry="14" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="-8" cy="-4" r="10" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="8" cy="-6" r="12" fill="none" stroke="#3b82f6" stroke-width="2"/>
   </g>
-  
-  
-  <g transform="translate(810, 300)">
-    <rect x="0" y="0" width="180" height="120" rx="8" fill="#0f1419" stroke="#ff2d55" stroke-width="2" />
-    <rect x="8" y="8" width="10" height="104" rx="2" fill="url(#threatGrad)" />
-    
-    <polygon points="94,25 90,40 98,40" fill="#ff2d55" />
-    <circle cx="94" cy="45" r="1.5" fill="#ff2d55" />
-    
-    <line x1="30" y1="25" x2="80" y2="25" stroke="#ff2d55" stroke-width="2" />
-    <line x1="30" y1="40" x2="120" y2="40" stroke="#ff2d55" stroke-width="1" opacity="0.8" />
-    <line x1="30" y1="55" x2="115" y2="55" stroke="#ff2d55" stroke-width="1" opacity="0.6" />
-    <text x="30" y="85" font-family="monospace" font-size="10" fill="#ff2d55" font-weight="bold">NEW THREAT</text>
+
+
+  <g transform="translate(950 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#dc2626" stroke-width="2"/><text x="0" font-family="Courier New" fill="#dc2626" text-anchor="middle"><tspan y="-2" font-size="11" font-weight="700">CVE</tspan><tspan x="0" y="12" font-size="8" opacity="0.7">0-DAY</tspan></text>
   </g>
-  
-  
-  <g transform="translate(700, 100)">
-    
-    <rect x="0" y="0" width="70" height="70" rx="6" fill="#1a1f3a" stroke="#4a63ff" stroke-width="1.5" />
-    
-    <g>
-      </g>
-    
-    <circle cx="31" cy="38" r="8" fill="#4a63ff" opacity="0.3" />
-    <line x1="5" y1="55" x2="65" y2="55" stroke="#4a63ff" stroke-width="2" opacity="0.5" />
-    <text x="10" y="68" font-family="monospace" font-size="7" fill="#4a63ff" opacity="0.8">WK 10</text>
-  </g>
-  
-  
-  <g transform="translate(900, 110)">
-    
-    <path d="M 30 5 L 50 15 L 50 40 Q 30 55 30 55 Q 10 55 10 40 L 10 15 Z" fill="none" stroke="#ff2d55" stroke-width="2" opacity="0.8" />
-    
-    <rect x="18" y="28" width="4" height="8" fill="#ff2d55" opacity="0.9" />
-    <rect x="25" y="24" width="4" height="12" fill="#ff2d55" opacity="0.7" />
-    <rect x="32" y="20" width="4" height="16" fill="#ff2d55" opacity="0.5" />
-    <rect x="39" y="24" width="4" height="12" fill="#ff2d55" opacity="0.7" />
-  </g>
-  
-  
-  <g stroke="#4a63ff" stroke-width="1" opacity="0.4" stroke-dasharray="2,2">
-    <line x1="770" y1="150" x2="820" y2="200" />
-    <line x1="820" y1="150" x2="870" y2="200" />
-  </g>
-  
-  
-  <g transform="translate(950, 500)">
-    <circle cx="0" cy="0" r="25" fill="none" stroke="#4a63ff" stroke-width="1.5" opacity="0.5" />
-    <circle cx="0" cy="0" r="18" fill="none" stroke="#ff2d55" stroke-width="1" opacity="0.4" />
-    <circle cx="0" cy="0" r="5" fill="#4a63ff" opacity="0.6" />
-    
-    <line x1="0" y1="-25" x2="0" y2="-35" stroke="#4a63ff" stroke-width="1" opacity="0.6" />
-    <line x1="18" y1="-18" x2="25" y2="-25" stroke="#ff2d55" stroke-width="1" opacity="0.6" />
-    <line x1="25" y1="0" x2="35" y2="0" stroke="#4a63ff" stroke-width="1" opacity="0.6" />
-  </g>
+
+  <text font-family="Arial, sans-serif" font-size="16" font-weight="700"><tspan x="250" y="448" fill="#f97316" text-anchor="middle">DEVOPS</tspan><tspan x="600" y="448" fill="#3b82f6" text-anchor="middle">CLOUD</tspan><tspan x="950" y="448" fill="#dc2626" text-anchor="middle">ZERO DAY</tspan></text>
+  <circle cx="425" cy="340" r="4" fill="#475569"/>
+  <circle cx="775" cy="340" r="4" fill="#475569"/>
+
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">April 08, 2026</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
 </svg>

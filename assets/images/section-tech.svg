@@ -1,43 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>section-tech</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
-<circle cx="0" cy="0" r="105" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2"/>
-<circle cx="0" cy="0" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-<circle cx="0" cy="0" r="35" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-<circle cx="0" cy="0" r="6" fill="#ef4444" opacity="0.6"/>
-<line x1="0" y1="0" x2="100" y2="-100" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
-<path d="M0,0 L70,-70 A100,100 0 0,1 100,0 Z" fill="#ef4444" fill-opacity="0.08"/>
-<line x1="-145" y1="0" x2="145" y2="0" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<line x1="0" y1="-145" x2="0" y2="145" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
-<circle cx="60" cy="-80" r="5" fill="#ef4444" opacity="0.7"/>
-<circle cx="60" cy="-80" r="10" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-<circle cx="-40" cy="50" r="4" fill="#f59e0b" opacity="0.6"/>
-<circle cx="-40" cy="50" r="8" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
-<circle cx="90" cy="30" r="3" fill="#f59e0b" opacity="0.5"/>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">section tech</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security | Cloud | DevOps</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>section-tech</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08101f"/>
+      <stop offset="58%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#334155" stroke-width="1" opacity="0.24"/>
+      <circle cx="17" cy="17" r="1.1" fill="#3b82f6" opacity="0.14"/>
+    </pattern>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="180" cy="118" r="190" fill="#3b82f6" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="1010" cy="500" r="220" fill="#ef4444" opacity="0.06" filter="url(#softGlow)"/>
+  <path d="M0 520 C228 476 426 476 640 544" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.24"/>
+  <g transform="translate(84 70)">
+    <rect width="170" height="36" rx="18" fill="#3b82f6" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="85" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">TECH</text>
+  </g>
+  <text x="84" y="174" font-family="Arial,sans-serif" font-size="56" font-weight="700" fill="#f8fafc">TECH</text>
+  <text x="84" y="226" font-family="Arial,sans-serif" font-size="20" fill="#cbd5e1">Signals across platforms cloud and tools</text>
+  <rect x="84" y="260" width="510" height="1.5" fill="#334155" opacity="0.9"/>
+  <g transform="translate(860 318)" filter="url(#shadow)">
+    <rect x="-204" y="-170" width="408" height="340" rx="30" fill="#0f172a" fill-opacity="0.82" stroke="#3b82f6" stroke-opacity="0.28" stroke-width="1.4"/>
+    <rect x="-182" y="-148" width="364" height="296" rx="24" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+    
+  <circle cx="0" cy="0" r="146" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.24"/>
+  <circle cx="0" cy="0" r="106" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.28"/>
+  <circle cx="0" cy="0" r="66" fill="none" stroke="#3b82f6" stroke-width="1.4" opacity="0.36"/>
+  <line x1="-164" y1="0" x2="164" y2="0" stroke="#475569" stroke-width="1" opacity="0.32"/>
+  <line x1="0" y1="-164" x2="0" y2="164" stroke="#475569" stroke-width="1" opacity="0.32"/>
+  <path d="M0 0 L88 -94" fill="none" stroke="#ef4444" stroke-width="2.2" opacity="0.52"/>
+  <circle cx="88" cy="-94" r="8" fill="#ef4444" opacity="0.7"/>
+  <circle cx="-48" cy="62" r="7" fill="#3b82f6" opacity="0.65"/>
+  <circle cx="112" cy="36" r="5" fill="#ef4444" opacity="0.52"/>
+
+  </g>
+  <g transform="translate(84 470)">
+    <rect width="176" height="40" rx="20" fill="#3b82f6" opacity="0.14" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="88" y="25" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECTION BANNER</text>
+  </g>
+  <g transform="translate(274 470)">
+    <rect width="220" height="40" rx="20" fill="#ef4444" opacity="0.14" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="110" y="25" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">POST NAVIGATION</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

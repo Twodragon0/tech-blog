@@ -1,143 +1,46 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>Tech Security Weekly Digest MS Office Zero Day CTEM Grist Core RCE</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f1419;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#151b32"/>
+      <stop offset="100%" stop-color="#181024"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
     </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="250" cy="170" r="180" fill="#f97316" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="600" cy="140" r="160" fill="#dc2626" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="950" cy="220" r="170" fill="#3b82f6" opacity="0.12" filter="url(#glow)"/>
+  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">DEVOPS  ZERO DAY  CLOUD</tspan></text>
+  <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <!-- LEFT SIDE: Text Content -->
-  <!-- Date Badge -->
-  <rect x="70" y="50" width="200" height="35" rx="6" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <text x="170" y="72" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="middle">JANUARY 28, 2026</text>
-
-  <!-- Main Title -->
-  <text x="80" y="210" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="#ffffff" letter-spacing="-1">Tech Security Weekly</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="280" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="#f59e0b">Digest Office Zero</text>
-
-  <!-- Tag Pills -->
-  <g id="tags">
-    <!-- Tag 1: Security -->
-    <rect x="80" y="430" width="120" height="32" rx="16" fill="#3b82f6" opacity="0.06" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="140" y="452" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">Security</text>
-
-    <!-- Tag 2: Compliance -->
-    <rect x="220" y="430" width="130" height="32" rx="16" fill="#10b981" opacity="0.06" stroke="#10b981" stroke-width="1.2"/>
-    <text x="285" y="452" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#10b981" text-anchor="middle">Compliance</text>
-
-    <!-- Tag 3: Threats -->
-    <rect x="370" y="430" width="110" height="32" rx="16" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="1.2"/>
-    <text x="425" y="452" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#f59e0b" text-anchor="middle">Threats</text>
+  <g transform="translate(250 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M-16 0 A16 16 0 0 1 16 0" fill="none" stroke="#f97316" stroke-width="2.5"/><path d="M16 0 A16 16 0 0 1 -16 0" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="4 3"/><polygon points="16,-4 22,0 16,4" fill="#f97316"/><polygon points="-16,4 -22,0 -16,-4" fill="#f97316"/>
   </g>
 
-  <!-- Footer -->
-  <text x="80" y="575" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#64748b">tech.2twodragon.com</text>
 
-  <!-- RIGHT SIDE: Visual Elements (x=650-1150, y=80-550) -->
-  <g id="security-scene">
-    <!-- Background circle for visual grouping -->
-    <circle cx="920" cy="280" r="210" fill="#3b82f6" opacity="0.03" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
-
-    <!-- Large Shield with Checkmark -->
-    <g transform="translate(850, 220)">
-      <!-- Shield outline -->
-      <path d="M 0 -50 L 45 -30 L 45 20 Q 0 60 -45 20 L -45 -30 Z"
-            fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.4"/>
-      <!-- Shield fill -->
-      <path d="M 0 -50 L 45 -30 L 45 20 Q 0 60 -45 20 L -45 -30 Z"
-            fill="#3b82f6" opacity="0.06"/>
-      <!-- Checkmark -->
-      <path d="M -15 5 L -5 15 L 20 -8"
-            stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-    </g>
-
-    <!-- Data Flow Arrows -->
-    <defs>
-      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.4"/>
-      </marker>
-      <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.4"/>
-      </marker>
-      <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.4"/>
-      </marker>
-    </defs>
-
-    <!-- Curved arrow from top left -->
-    <path d="M 700 120 Q 760 150 810 180"
-          stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.35" marker-end="url(#arrowBlue)" stroke-dasharray="4,3"/>
-
-    <!-- Curved arrow from bottom left -->
-    <path d="M 710 460 Q 760 400 810 340"
-          stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.35" marker-end="url(#arrowOrange)" stroke-dasharray="4,3"/>
-
-    <!-- Arrow from right back to center -->
-    <path d="M 1020 280 Q 950 300 890 260"
-          stroke="#ef4444" stroke-width="2" fill="none" opacity="0.35" marker-end="url(#arrowRed)" stroke-dasharray="4,3"/>
-
-    <!-- Warning Triangle Top Right -->
-    <g transform="translate(1050, 140)">
-      <!-- Triangle outline -->
-      <path d="M 0 -35 L 35 30 L -35 30 Z"
-            fill="none" stroke="#ef4444" stroke-width="2.2" opacity="0.4"/>
-      <!-- Triangle fill -->
-      <path d="M 0 -35 L 35 30 L -35 30 Z"
-            fill="#ef4444" opacity="0.05"/>
-      <!-- Exclamation mark -->
-      <circle cx="0" cy="5" r="3" fill="#ef4444" opacity="0.5"/>
-      <rect x="-1.5" y="-15" width="3" height="15" fill="#ef4444" opacity="0.5"/>
-    </g>
-
-    <!-- Alert Indicator Circle Bottom Right -->
-    <g transform="translate(1080, 420)">
-      <!-- Outer ring -->
-      <circle cx="0" cy="0" r="28" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.3" stroke-dasharray="8,4"/>
-      <!-- Inner circle -->
-      <circle cx="0" cy="0" r="18" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1.5"/>
-      <!-- Center dot -->
-      <circle cx="0" cy="0" r="6" fill="#f59e0b" opacity="0.4"/>
-    </g>
-
-    <!-- Lock Icon Left Center -->
-    <g transform="translate(700, 300)">
-      <!-- Lock body -->
-      <rect x="-8" y="8" width="16" height="20" rx="2"
-            fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.35"/>
-      <!-- Lock shackle -->
-      <path d="M -8 8 Q -12 0 0 -8 Q 12 0 8 8"
-            fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
-      <!-- Lock hole -->
-      <circle cx="0" cy="15" r="2.5" fill="#3b82f6" opacity="0.35"/>
-    </g>
-
-    <!-- Data Connection Lines (flowing) -->
-    <!-- Horizontal flow line -->
-    <line x1="720" y1="280" x2="810" y2="280"
-          stroke="#3b82f6" stroke-width="1.5" opacity="0.25" stroke-dasharray="3,3"/>
-
-    <!-- Vertical accent line -->
-    <line x1="850" y1="120" x2="850" y2="180"
-          stroke="#f59e0b" stroke-width="1.2" opacity="0.2" stroke-dasharray="2,2"/>
-
-    <!-- Pulse circles around shield -->
-    <circle cx="850" cy="220" r="70" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.12" stroke-dasharray="8,4"/>
-    <circle cx="850" cy="220" r="100" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.06" stroke-dasharray="10,5"/>
+  <g transform="translate(600 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#dc2626" stroke-width="2"/><text x="0" font-family="Courier New" fill="#dc2626" text-anchor="middle"><tspan y="-2" font-size="11" font-weight="700">CVE</tspan><tspan x="0" y="12" font-size="8" opacity="0.7">0-DAY</tspan></text>
   </g>
 
-  <!-- Decorative accent line bottom -->
-  <line x1="0" y1="610" x2="1200" y2="610" stroke="#3b82f6" stroke-width="1" opacity="0.1"/>
+
+  <g transform="translate(950 340)" filter="url(#shadow)">
+    <circle r="56" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5"/>
+    <ellipse cx="0" cy="4" rx="22" ry="14" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="-8" cy="-4" r="10" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="8" cy="-6" r="12" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+
+  <text font-family="Arial, sans-serif" font-size="16" font-weight="700"><tspan x="250" y="448" fill="#f97316" text-anchor="middle">DEVOPS</tspan><tspan x="600" y="448" fill="#dc2626" text-anchor="middle">ZERO DAY</tspan><tspan x="950" y="448" fill="#3b82f6" text-anchor="middle">CLOUD</tspan></text>
+  <circle cx="425" cy="340" r="4" fill="#475569"/>
+  <circle cx="775" cy="340" r="4" fill="#475569"/>
+
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">April 08, 2026</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
 </svg>

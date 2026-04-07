@@ -1,150 +1,99 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>KARA Ransomware Trends 2025 Q3</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-
-  <!-- Gradient definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>2025 3 KARA RANSOMWARE</title>
   <defs>
-    <linearGradient id="redOrange" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
     </linearGradient>
-    <linearGradient id="purpleRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#cc2244;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#aa0033;stop-opacity:1" />
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
     </linearGradient>
-    <linearGradient id="glowBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3388ff;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#00ccff;stop-opacity:0.6" />
-    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#ef4444" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#ef4444" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#991b1b" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#ef4444" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#ef4444" opacity="0.28"/>
+  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
+  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
 
-  <!-- LEFT SIDE: Text Content -->
-  <!-- Title Line 1 -->
-  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
-    KARA Ransomware
-  </text>
+  <g transform="translate(917,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#ef4444" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#ef4444" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-  <!-- Title Line 2 -->
-  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
-    Trends Report 2025
-  </text>
-
-  <!-- Date Badge -->
-  <rect x="60" y="270" width="280" height="40" rx="8" fill="#ff4444" opacity="0.2" stroke="#ff4444" stroke-width="2"/>
-  <text x="75" y="298" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff8800">
-    JANUARY 22, 2026
-  </text>
-
-  <!-- Tags -->
-  <!-- Tag 1 -->
-  <rect x="60" y="420" width="110" height="32" rx="16" fill="#ff4444" opacity="0.15" stroke="#ff4444" stroke-width="1.5"/>
-  <text x="75" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff8800">
-    Ransomware
-  </text>
-
-  <!-- Tag 2 -->
-  <rect x="180" y="420" width="90" height="32" rx="16" fill="#3388ff" opacity="0.15" stroke="#3388ff" stroke-width="1.5"/>
-  <text x="195" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00ccff">
-    Security
-  </text>
-
-  <!-- Tag 3 -->
-  <rect x="280" y="420" width="80" height="32" rx="16" fill="#cc2244" opacity="0.15" stroke="#cc2244" stroke-width="1.5"/>
-  <text x="295" y="443" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff6688">
-    Threats
-  </text>
-
-  <!-- Footer -->
-  <text x="60" y="600" font-family="Arial, sans-serif" font-size="12" fill="#666666">
-    tech.2twodragon.com
-  </text>
-
-  <!-- RIGHT SIDE: Illustration for KARA Ransomware -->
-  <!-- Background accent circle for illustration area -->
-  <circle cx="900" cy="300" r="220" fill="#ff4444" opacity="0.05"/>
-
-  <!-- Central Shield with lock -->
-  <g transform="translate(900, 280)">
-    <!-- Shield outline -->
-    <path d="M -80 -90 L -80 -20 Q -80 40 0 80 Q 80 40 80 -20 L 80 -90 Z" fill="none" stroke="#ff4444" stroke-width="3" opacity="0.8"/>
-
-    <!-- Shield fill (darker) -->
-    <path d="M -75 -85 L -75 -20 Q -75 35 0 75 Q 75 35 75 -20 L 75 -85 Z" fill="#ff4444" opacity="0.1"/>
-
-    <!-- Lock icon inside shield -->
-    <g transform="translate(0, 0)">
-      <!-- Lock body -->
-      <rect x="-28" y="-5" width="56" height="45" rx="6" fill="none" stroke="#ff8800" stroke-width="2.5"/>
-
-      <!-- Lock shackle (curved top) -->
-      <path d="M -18 -5 Q -18 -35 0 -40 Q 18 -35 18 -5" fill="none" stroke="#ff8800" stroke-width="2.5" stroke-linecap="round"/>
-
-      <!-- Lock keyhole circle -->
-      <circle cx="0" cy="12" r="6" fill="none" stroke="#ff8800" stroke-width="2"/>
-    </g>
+    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
+    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
+    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
+    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
   </g>
-
-  <!-- Threat indicator - upward trend lines (showing growth) -->
-  <g transform="translate(750, 380)">
-    <!-- Line 1 -->
-    <line x1="0" y1="40" x2="20" y2="20" stroke="#ff4444" stroke-width="2.5" opacity="0.8"/>
-    <!-- Line 2 -->
-    <line x1="25" y1="35" x2="45" y2="10" stroke="#ff8800" stroke-width="2.5" opacity="0.8"/>
-    <!-- Line 3 -->
-    <line x1="50" y1="30" x2="70" y2="0" stroke="#ff6688" stroke-width="2.5" opacity="0.8"/>
-
-    <!-- Arrow at top -->
-    <polygon points="70,0 65,-8 75,-5" fill="#ff4444" opacity="0.9"/>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Data corruption symbols (broken/fragmented) -->
-  <g transform="translate(1050, 200)">
-    <!-- Fragment 1 -->
-    <rect x="0" y="0" width="25" height="25" fill="#ff4444" opacity="0.4" transform="rotate(-15)"/>
-    <!-- Fragment 2 -->
-    <rect x="30" y="10" width="20" height="20" fill="#ff8800" opacity="0.5" transform="rotate(25)"/>
-    <!-- Fragment 3 -->
-    <rect x="15" y="40" width="22" height="22" fill="#ff6688" opacity="0.4" transform="rotate(45)"/>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">2025 3 KARA</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">RANSOMWARE</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">RANSOMWARE / DEVSECOPS / SECURITY</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 29D7C877027A</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="134" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">RANSOMWARE</text>
   </g>
-
-  <!-- Network/connection nodes showing attack vectors -->
-  <g stroke="#3388ff" stroke-width="1.5" opacity="0.6">
-    <!-- Node connections -->
-    <circle cx="750" cy="150" r="8" fill="none"/>
-    <circle cx="850" cy="140" r="8" fill="none"/>
-    <circle cx="950" cy="160" r="8" fill="none"/>
-
-    <!-- Connection lines -->
-    <line x1="750" y1="150" x2="850" y2="140"/>
-    <line x1="850" y1="140" x2="950" y2="160"/>
-    <line x1="750" y1="150" x2="950" y2="160"/>
+  <g transform="translate(232 474)">
+    <rect width="124" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
   </g>
-
-  <!-- Encrypted data symbol (chain links) -->
-  <g transform="translate(800, 480)">
-    <!-- Link 1 -->
-    <rect x="0" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
-    <!-- Link 2 -->
-    <rect x="14" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
-    <!-- Link 3 -->
-    <rect x="28" y="0" width="18" height="12" rx="6" fill="none" stroke="#cc2244" stroke-width="2" opacity="0.7"/>
+  <g transform="translate(370 474)">
+    <rect width="114" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Warning pulse (concentric circles) -->
-  <g transform="translate(1000, 450)" opacity="0.7">
-    <circle cx="0" cy="0" r="15" fill="none" stroke="#ff4444" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="25" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.5"/>
-    <circle cx="0" cy="0" r="8" fill="#ff4444" opacity="0.6"/>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">SECURITY</text>
   </g>
-
-  <!-- Binary code scattered (showing data breach) -->
-  <g font-family="monospace" font-size="10" fill="#ff8800" opacity="0.5">
-    <text x="780" y="520">1011010</text>
-    <text x="920" y="535">0110110</text>
-    <text x="1020" y="500">1101001</text>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
-
-  <!-- Glow effect for shield -->
-  <circle cx="900" cy="280" r="95" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.3" filter="blur(3)"/>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">10</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 08, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

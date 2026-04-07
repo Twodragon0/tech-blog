@@ -1,52 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<title>section-security</title>
-<defs>
-<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#0a0a1a"/>
-<stop offset="50%" style="stop-color:#0f1629"/>
-<stop offset="100%" style="stop-color:#1a0a2e"/>
-</linearGradient>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="b"/>
-<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="sg"><feGaussianBlur stdDeviation="25"/></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<circle cx="400" cy="250" r="200" fill="#ef4444" opacity="0.04" filter="url(#sg)"/>
-<circle cx="800" cy="300" r="180" fill="#ef4444" opacity="0.03" filter="url(#sg)"/>
-<circle cx="200" cy="400" r="150" fill="#8b5cf6" opacity="0.02" filter="url(#sg)"/>
-<g transform="translate(600,255)">
-<path d="M0,-135 C75,-135 125,-95 125,-15 C125,65 65,125 0,155 C-65,125 -125,65 -125,-15 C-125,-95 -75,-135 0,-135Z" fill="#ef4444" fill-opacity="0.05" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
-<path d="M0,-100 C55,-100 90,-70 90,-10 C90,45 50,85 0,110 C-50,85 -90,45 -90,-10 C-90,-70 -55,-100 0,-100Z" fill="#ef4444" fill-opacity="0.03" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
-<path d="M-5,-115 L10,-65 L-12,-20 L14,35 L-10,75 L6,125" fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
-<rect x="-20" y="-15" width="40" height="32" rx="5" fill="none" stroke="#ef4444" stroke-width="2"/>
-<path d="M-12,-15 L-12,-28 C-12,-45 12,-45 12,-28 L12,-15" fill="none" stroke="#ef4444" stroke-width="2.5"/>
-<circle cx="0" cy="5" r="5" fill="#ef4444" opacity="0.7"/>
-<rect x="-1.5" y="8" width="3" height="8" rx="1.5" fill="#ef4444" opacity="0.7"/>
-</g>
-<g opacity="0.5">
-<path d="M120,100 C250,150 380,200 485,240" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="483,235 495,240 483,245" fill="#ef4444"/>
-<path d="M1080,100 C950,150 820,200 715,240" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="717,235 705,240 717,245" fill="#f59e0b"/>
-<path d="M120,420 C250,370 380,310 490,275" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="488,270 500,275 488,280" fill="#8b5cf6"/>
-<path d="M1080,420 C950,370 820,310 710,275" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
-<polygon points="712,270 700,275 712,280" fill="#3b82f6"/>
-</g>
-<g opacity="0.35">
-<polygon points="170,160 180,145 190,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="180" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
-<polygon points="1010,160 1020,145 1030,160" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-<text x="1020" y="158" font-family="Arial" font-size="7" fill="#f59e0b" text-anchor="middle">!</text>
-</g>
-<text x="600" y="510" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">section security</text>
-<text x="600" y="548" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Security</text>
-<rect x="40" y="25" width="160" height="32" rx="16" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-<text x="120" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">TECH BLOG</text>
-<rect x="1000" y="25" width="160" height="32" rx="16" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-<text x="1080" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">2026</text>
-<line x1="50" y1="590" x2="1150" y2="590" stroke="#334155" stroke-width="1" opacity="0.5"/>
-<text x="1150" y="615" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <title>section-security</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08101f"/>
+      <stop offset="58%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#334155" stroke-width="1" opacity="0.24"/>
+      <circle cx="17" cy="17" r="1.1" fill="#ef4444" opacity="0.14"/>
+    </pattern>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="180" cy="118" r="190" fill="#ef4444" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="1010" cy="500" r="220" fill="#f59e0b" opacity="0.06" filter="url(#softGlow)"/>
+  <path d="M0 520 C228 476 426 476 640 544" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.24"/>
+  <g transform="translate(84 70)">
+    <rect width="170" height="36" rx="18" fill="#ef4444" opacity="0.18" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="85" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
+  </g>
+  <text x="84" y="174" font-family="Arial,sans-serif" font-size="56" font-weight="700" fill="#f8fafc">SECURITY</text>
+  <text x="84" y="226" font-family="Arial,sans-serif" font-size="20" fill="#cbd5e1">Threat defense and response</text>
+  <rect x="84" y="260" width="510" height="1.5" fill="#334155" opacity="0.9"/>
+  <g transform="translate(860 318)" filter="url(#shadow)">
+    <rect x="-204" y="-170" width="408" height="340" rx="30" fill="#0f172a" fill-opacity="0.82" stroke="#ef4444" stroke-opacity="0.28" stroke-width="1.4"/>
+    <rect x="-182" y="-148" width="364" height="296" rx="24" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+    
+  <path d="M0,-120 C70,-120 118,-82 118,-12 C118,70 62,126 0,156 C-62,126 -118,70 -118,-12 C-118,-82 -70,-120 0,-120Z" fill="#0f172a" stroke="#ef4444" stroke-width="2.8"/>
+  <path d="M-4,-92 L10,-50 L-10,-8 L16,38 L-12,84" fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
+  <rect x="-24" y="-8" width="48" height="36" rx="7" fill="none" stroke="#ef4444" stroke-width="2.2"/>
+  <path d="M-14,-8 L-14,-24 C-14,-42 14,-42 14,-24 L14,-8" fill="none" stroke="#ef4444" stroke-width="2.4"/>
+  <circle cx="0" cy="12" r="5" fill="#ef4444" opacity="0.7"/>
+  <path d="M-240,-44 C-174,-20 -122,6 -74,40" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8 6" opacity="0.42"/>
+  <path d="M240,-44 C174,-20 122,6 74,40" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="8 6" opacity="0.42"/>
+
+  </g>
+  <g transform="translate(84 470)">
+    <rect width="176" height="40" rx="20" fill="#ef4444" opacity="0.14" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="88" y="25" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECTION BANNER</text>
+  </g>
+  <g transform="translate(274 470)">
+    <rect width="220" height="40" rx="20" fill="#f59e0b" opacity="0.14" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="110" y="25" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">POST NAVIGATION</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
