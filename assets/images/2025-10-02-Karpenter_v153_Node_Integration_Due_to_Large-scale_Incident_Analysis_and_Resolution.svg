@@ -1,12 +1,214 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <title>Karpenter v153 Node Integration Due to Large-scale Incident Analysis and Resolution</title>
-  <defs><linearGradient id="bgK" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0a1a"/><stop offset="100%" stop-color="#17152c"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#bgK)"/>
-  <text x="60" y="72" fill="#e2e8f0" font-size="32" font-family="Georgia, serif">Karpenter Upgrade Incident Loop</text>
-  <text x="60" y="106" fill="#94a3b8" font-size="18" font-family="Georgia, serif">Oct 02, 2025</text>
-  <path d="M360 315 C360 210 520 210 520 315 C520 420 360 420 360 315" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.55"/>
-  <path d="M680 315 C680 420 840 420 840 315 C840 210 680 210 680 315" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.55"/>
-  <g transform="translate(280,240)"><circle cx="80" cy="75" r="62" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/><text x="80" y="80" text-anchor="middle" fill="#fbbf24" font-size="17" font-family="Arial" font-weight="700">PLAN</text><text x="80" y="165" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Upgrade scope</text></g>
-  <g transform="translate(510,220)"><rect width="180" height="190" rx="22" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/><text x="90" y="90" text-anchor="middle" fill="#fbbf24" font-size="17" font-family="Arial" font-weight="700">BUILD</text><text x="90" y="116" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Node path</text><text x="90" y="168" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Integration check</text></g>
-  <g transform="translate(740,240)"><circle cx="80" cy="75" r="62" fill="#0f172a" stroke="#3b82f6" stroke-width="3"/><text x="80" y="80" text-anchor="middle" fill="#93c5fd" font-size="17" font-family="Arial" font-weight="700">TEST</text><text x="80" y="165" text-anchor="middle" fill="#cbd5e1" font-size="13" font-family="Arial">Rollback signal</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Karpenter v1.5.3 Node Integration Large-Scale Incident Analysis</title>
+  <defs>
+    <filter id="orbGlow"><feGaussianBlur stdDeviation="40" /></filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="50%" stop-color="#f87171" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.12" />
+    </linearGradient>
+    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
+    </pattern>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0891b2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dots)" />
+
+  <!-- Orb glows -->
+  <circle cx="780" cy="135" r="188" fill="#dc2626" opacity="0.07" filter="url(#orbGlow)" />
+  <circle cx="1055" cy="445" r="150" fill="#06b6d4" opacity="0.06" filter="url(#orbGlow)" />
+  <circle cx="195" cy="495" r="120" fill="#dc2626" opacity="0.04" filter="url(#orbGlow)" />
+  <circle cx="595" cy="315" r="100" fill="#06b6d4" opacity="0.04" filter="url(#orbGlow)" />
+
+  <!-- Card 1 (top-right): K8s wheel with warning - Karpenter -->
+  <g transform="translate(840, 55)" filter="url(#cardShadow)">
+    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder1)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(100, 18)">
+      <!-- K8s helm wheel (6 spokes) -->
+      <circle cx="55" cy="50" r="32" fill="none" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.7" />
+      <circle cx="55" cy="50" r="10" fill="#06b6d4" opacity="0.25" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.8" />
+      <!-- 6 spokes -->
+      <line x1="55" y1="18" x2="55" y2="40" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <line x1="55" y1="60" x2="55" y2="82" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <line x1="27.3" y1="34" x2="42.3" y2="45.6" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <line x1="67.7" y1="54.4" x2="82.7" y2="66" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <line x1="27.3" y1="66" x2="42.3" y2="54.4" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <line x1="67.7" y1="45.6" x2="82.7" y2="34" stroke="#06b6d4" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" />
+      <!-- Warning triangle overlay -->
+      <path d="M55 12 L78 52 L32 52 Z" fill="#dc2626" opacity="0.22" stroke="#dc2626" stroke-width="1.8" stroke-opacity="0.85" />
+      <text x="55" y="47" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="900">!</text>
+      <!-- Badge -->
+      <rect x="10" y="96" width="92" height="18" rx="4" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4" />
+      <text x="56" y="109" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">KARPENTER v1.5.3</text>
+    </g>
+    <circle cx="130" cy="200" r="3" fill="#dc2626" opacity="0.8" />
+    <circle cx="145" cy="200" r="3" fill="#f87171" opacity="0.6" />
+    <circle cx="160" cy="200" r="3" fill="#06b6d4" opacity="0.4" />
+  </g>
+
+  <!-- Card 2 (middle): Incident graph/chart down -->
+  <g transform="translate(725, 188)" filter="url(#cardShadow)">
+    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(98, 15)">
+      <!-- Chart axes -->
+      <line x1="15" y1="90" x2="110" y2="90" stroke="#475569" stroke-width="1.5" stroke-opacity="0.6" />
+      <line x1="15" y1="10" x2="15" y2="90" stroke="#475569" stroke-width="1.5" stroke-opacity="0.6" />
+      <!-- Declining graph line (incident) -->
+      <polyline points="15,20 30,22 45,26 55,30 65,48 75,72 88,84 100,88" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Area under curve -->
+      <polygon points="15,20 30,22 45,26 55,30 65,48 75,72 88,84 100,88 100,90 15,90" fill="#dc2626" opacity="0.08" />
+      <!-- Data points -->
+      <circle cx="55" cy="30" r="3.5" fill="#dc2626" opacity="0.8" />
+      <circle cx="75" cy="72" r="3.5" fill="#f87171" opacity="0.8" />
+      <!-- Down arrow -->
+      <path d="M105 20 L105 60 M98 52 L105 62 L112 52" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+      <!-- Badge -->
+      <rect x="12" y="100" width="90" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
+      <text x="57" y="113" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">INCIDENT ANALYSIS</text>
+    </g>
+    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
+    <rect x="40" y="192" width="185" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
+  </g>
+
+  <!-- Card 3 (bottom): Server nodes integration -->
+  <g transform="translate(660, 345)" filter="url(#cardShadow)">
+    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder3)" stroke-width="1.5" />
+    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(105, 18)">
+      <!-- Server node top -->
+      <rect x="25" y="5" width="60" height="20" rx="4" fill="#06b6d4" opacity="0.18" stroke="#06b6d4" stroke-width="1.6" stroke-opacity="0.75" />
+      <circle cx="38" cy="15" r="3" fill="#06b6d4" opacity="0.6" />
+      <rect x="44" y="12" width="28" height="4" rx="2" fill="#06b6d4" opacity="0.4" />
+      <!-- Connection lines -->
+      <line x1="55" y1="25" x2="28" y2="42" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="3,2" />
+      <line x1="55" y1="25" x2="82" y2="42" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="3,2" />
+      <line x1="55" y1="25" x2="55" y2="42" stroke="#dc2626" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="3,2" />
+      <!-- Server node bottom-left -->
+      <rect x="0" y="42" width="56" height="20" rx="4" fill="#dc2626" opacity="0.16" stroke="#dc2626" stroke-width="1.5" stroke-opacity="0.7" />
+      <circle cx="12" cy="52" r="3" fill="#dc2626" opacity="0.65" />
+      <rect x="18" y="49" width="24" height="4" rx="2" fill="#dc2626" opacity="0.4" />
+      <!-- Server node bottom-center (warning) -->
+      <rect x="27" y="42" width="56" height="20" rx="4" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="1.5" stroke-opacity="0.6" />
+      <circle cx="39" cy="52" r="3" fill="#eab308" opacity="0.7" />
+      <rect x="45" y="49" width="24" height="4" rx="2" fill="#eab308" opacity="0.4" />
+      <!-- Server node bottom-right -->
+      <rect x="54" y="42" width="56" height="20" rx="4" fill="#06b6d4" opacity="0.18" stroke="#06b6d4" stroke-width="1.6" stroke-opacity="0.75" />
+      <circle cx="66" cy="52" r="3" fill="#06b6d4" opacity="0.6" />
+      <rect x="72" y="49" width="24" height="4" rx="2" fill="#06b6d4" opacity="0.4" />
+      <!-- Badge -->
+      <rect x="16" y="95" width="78" height="18" rx="4" fill="#06b6d4" opacity="0.2" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4" />
+      <text x="55" y="108" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">NODE INTEGRATION</text>
+    </g>
+    <g transform="translate(40, 196)">
+      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
+      <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="1.8s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="732" cy="278" r="2" fill="#dc2626" opacity="0.5">
+    <animate attributeName="cy" values="278;268;278" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="848" cy="338" r="1.5" fill="#06b6d4" opacity="0.4">
+    <animate attributeName="cy" values="338;328;338" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1068" cy="308" r="2" fill="#dc2626" opacity="0.5">
+    <animate attributeName="cy" values="308;298;308" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="698" cy="210" r="1.5" fill="#06b6d4" opacity="0.3">
+    <animate attributeName="cy" values="210;202;210" dur="2.8s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1118" cy="180" r="1" fill="#dc2626" opacity="0.4">
+    <animate attributeName="cy" values="180;172;180" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="962" cy="130" r="1.5" fill="#06b6d4" opacity="0.35">
+    <animate attributeName="cx" values="962;970;962" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Left panel badge -->
+  <g transform="translate(60, 80)">
+    <rect width="160" height="32" rx="16" fill="#dc2626" opacity="0.15" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
+    <text x="80" y="21" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">INCIDENT REPORT</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="60" y="168" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Karpenter</text>
+  <text x="60" y="220" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">v1.5.3</text>
+  <text x="60" y="280" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">Karpenter v1.5.3</text>
+  <text x="60" y="328" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">Incident Analysis</text>
+
+  <!-- Accent line -->
+  <rect x="60" y="355" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
+
+  <!-- Tag pills -->
+  <g transform="translate(60, 380)">
+    <rect width="84" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35" />
+    <text x="42" y="20" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Karpenter</text>
+    <g transform="translate(94, 0)">
+      <rect width="48" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="24" y="20" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">K8s</text>
+    </g>
+    <g transform="translate(152, 0)">
+      <rect width="74" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="37" y="20" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Incident</text>
+    </g>
+    <g transform="translate(236, 0)">
+      <rect width="60" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="30" y="20" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Node</text>
+    </g>
+  </g>
+
+  <!-- Date -->
+  <text x="60" y="458" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">OCTOBER 02, 2025</text>
+
+  <!-- Footer URL -->
+  <g transform="translate(60, 560)">
+    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
+    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
+  </g>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
 </svg>

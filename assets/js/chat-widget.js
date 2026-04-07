@@ -605,32 +605,204 @@
     return history;
   }
 
+  // Check if browser supports ReadableStream for SSE streaming
+  function supportsStreaming() {
+    try {
+      return typeof ReadableStream !== 'undefined' &&
+             typeof TextDecoder !== 'undefined' &&
+             typeof Response !== 'undefined' &&
+             typeof Response.prototype.body !== 'undefined';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Create a streaming assistant message element (returns the content element for progressive updates)
+  function createStreamingMessage() {
+    const messageId = Date.now().toString();
+    const message = {
+      id: messageId,
+      content: '',
+      role: 'assistant',
+      timestamp: new Date(),
+    };
+    messages.push(message);
+
+    const messageEl = document.createElement('div');
+    messageEl.className = 'chat-message chat-message-assistant';
+    messageEl.id = `message-${messageId}`;
+
+    const contentEl = document.createElement('div');
+    contentEl.className = 'chat-message-content';
+
+    const timeEl = document.createElement('div');
+    timeEl.className = 'chat-message-time';
+    timeEl.textContent = formatTime(message.timestamp);
+
+    messageEl.appendChild(contentEl);
+    messageEl.appendChild(timeEl);
+    chatMessages.appendChild(messageEl);
+    scrollToBottom();
+
+    return { messageEl, contentEl, message };
+  }
+
+  // Update streaming message content with formatted HTML
+  function updateStreamingContent(contentEl, text) {
+    const formattedContent = formatMessage(text);
+    if (typeof DOMPurify !== 'undefined') {
+      contentEl.innerHTML = DOMPurify.sanitize(formattedContent, {
+        ALLOWED_TAGS: ['h1','h2','h3','h4','h5','h6','p','br','hr','strong','em','del',
+          'code','pre','blockquote','ul','ol','li','table','thead','tbody','tr','th','td','div','a','span','mark','svg','polyline','line','path','rect'],
+        ALLOWED_ATTR: ['class','href','target','rel','width','height','viewBox','fill','stroke','stroke-width','stroke-linecap','stroke-linejoin','style','d','x1','y1','x2','y2','points','aria-hidden'],
+      });
+    } else {
+      contentEl.textContent = formattedContent.replace(/<[^>]*>/g, '');
+    }
+  }
+
+  // Send message with SSE streaming
+  async function sendMessageStreaming(message, conversationHistory) {
+    const abortController = new AbortController();
+    const timeoutHandle = setTimeout(() => abortController.abort(), CONFIG.timeout);
+
+    const response = await fetch(CONFIG.apiEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'omit',
+      body: JSON.stringify({
+        message: message,
+        sessionId: sessionId,
+        conversationHistory: conversationHistory.length > 0 ? conversationHistory : undefined,
+        pageContext: getPageContext(),
+        stream: true,
+      }),
+      signal: abortController.signal,
+    });
+
+    clearTimeout(timeoutHandle);
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      if (response.status === 403) throw new Error('요청이 거부되었습니다. 페이지를 새로고침해주세요.');
+      if (response.status === 429) {
+        const retryAfter = errorData.retryAfter || 60;
+        throw new Error(`요청이 너무 많습니다. ${retryAfter}초 후 다시 시도해주세요.`);
+      }
+      if (response.status === 503) throw new Error(errorData.error || '서비스가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해주세요.');
+      if (response.status === 504) {
+        const err = new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
+        err.timeoutData = errorData;
+        throw err;
+      }
+      if (response.status === 400) throw new Error(errorData.error || '입력 형식이 올바르지 않습니다.');
+      throw new Error(errorData.error || `서버 오류 (${response.status})`);
+    }
+
+    removeLoading();
+
+    // Create the assistant message element once
+    const { contentEl, message: msgObj } = createStreamingMessage();
+    let accumulated = '';
+    let formatDebounceTimer = null;
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let sseBuffer = '';
+
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        sseBuffer += decoder.decode(value, { stream: true });
+
+        // Split on double newline (SSE event boundary)
+        const events = sseBuffer.split('\n\n');
+        // Keep the last potentially incomplete event
+        sseBuffer = events.pop() || '';
+
+        for (const event of events) {
+          const lines = event.split('\n');
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed || !trimmed.startsWith('data: ')) continue;
+
+            const payload = trimmed.slice(6);
+            if (payload === '[DONE]') {
+              // Final format update
+              if (formatDebounceTimer) clearTimeout(formatDebounceTimer);
+              msgObj.content = accumulated;
+              updateStreamingContent(contentEl, accumulated);
+              scrollToBottom();
+              return;
+            }
+
+            try {
+              const json = JSON.parse(payload);
+              if (json.error) throw new Error(json.error);
+              if (json.delta) {
+                accumulated += json.delta;
+                // Debounced formatting: update every 100ms for smooth rendering
+                if (!formatDebounceTimer) {
+                  formatDebounceTimer = setTimeout(() => {
+                    formatDebounceTimer = null;
+                    updateStreamingContent(contentEl, accumulated);
+                    scrollToBottom();
+                  }, 100);
+                }
+              }
+            } catch (parseErr) {
+              if (parseErr.message && parseErr.message !== 'Unexpected end of JSON input') {
+                throw parseErr;
+              }
+            }
+          }
+        }
+      }
+    } finally {
+      if (formatDebounceTimer) clearTimeout(formatDebounceTimer);
+    }
+
+    // Final update if [DONE] was not received
+    if (accumulated) {
+      msgObj.content = accumulated;
+      updateStreamingContent(contentEl, accumulated);
+      scrollToBottom();
+    }
+  }
+
   // Send message to DeepSeek API
   async function sendMessage(message) {
     if (isLoading) return;
-    
+
     isLoading = true;
     chatInput.disabled = true;
     chatSend.disabled = true;
-    
+
     // Add user message
     addMessage(message, 'user');
-    
+
     // Show loading
     showLoading();
-    
+
     try {
       // 대화 컨텍스트 가져오기 (비용 최적화: Context Caching 활용)
       const conversationHistory = getConversationHistory();
-      
-      // Vercel Serverless Function을 통한 API 호출 (보안)
-      // 엔드포인트는 trailing slash 없이 사용 (Vercel이 자동으로 처리)
+
+      // Use streaming if supported, non-streaming as fallback
+      if (supportsStreaming()) {
+        await sendMessageStreaming(message, conversationHistory);
+        return;
+      }
+
+      // --- Non-streaming fallback ---
       const response = await fetch(CONFIG.apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'omit', // 쿠키 전송 방지 (보안)
+        credentials: 'omit',
         body: JSON.stringify({
           message: message,
           sessionId: sessionId,
@@ -646,53 +818,40 @@
           return controller.signal;
         })(),
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        
-        // 403 Forbidden (Origin 검증 실패)
+
         if (response.status === 403) {
           throw new Error('요청이 거부되었습니다. 페이지를 새로고침해주세요.');
         }
-        
-        // Rate limit 오류 처리
         if (response.status === 429) {
           const retryAfter = errorData.retryAfter || 60;
           throw new Error(`요청이 너무 많습니다. ${retryAfter}초 후 다시 시도해주세요.`);
         }
-        
-        // 서비스 사용 불가 오류
         if (response.status === 503) {
           throw new Error(errorData.error || '서비스가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해주세요.');
         }
-        
-        // 타임아웃 오류
         if (response.status === 504) {
           const timeoutError = new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
-          timeoutError.timeoutData = errorData; // 추가 정보 저장
+          timeoutError.timeoutData = errorData;
           throw timeoutError;
         }
-        
-        // 400 Bad Request (입력 검증 실패)
         if (response.status === 400) {
           throw new Error(errorData.error || '입력 형식이 올바르지 않습니다.');
         }
-        
         throw new Error(errorData.error || `서버 오류 (${response.status})`);
       }
-      
+
       const data = await response.json();
       removeLoading();
-      
+
       if (data.response && typeof data.response === 'string') {
         addMessage(data.response, 'assistant');
-        // 세션 ID 업데이트
         if (data.sessionId) {
           sessionId = data.sessionId;
           localStorage.setItem('chatSessionId', sessionId);
         }
-        
-        // 개발 환경에서 비용 최적화 정보 표시 (선택적)
         if (data.usage && isDev) {
           console.log('[Chat Widget] Usage:', {
             promptTokens: data.usage.promptTokens,
@@ -708,51 +867,45 @@
       removeLoading();
       let errorMessage = '죄송합니다. 답변을 생성하는 중에 문제가 발생했습니다.';
       let shouldRetry = false;
-      
+
       if (error.name === 'AbortError' || error.name === 'TimeoutError' || error.message.includes('시간이 오래 걸리고')) {
-        // 서버에서 더 자세한 메시지를 받은 경우 사용
         const timeoutData = error.timeoutData;
         if (timeoutData && timeoutData.suggestion) {
-          errorMessage = timeoutData.error + '\n\n💡 ' + timeoutData.suggestion;
+          errorMessage = timeoutData.error + '\n\n' + timeoutData.suggestion;
         } else {
           errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 짧고 구체적으로 작성하거나 잠시 후 다시 시도해주세요.';
         }
-        // 타임아웃은 재시도하지 않음 (비효율적)
         shouldRetry = false;
       } else if (error.message) {
         errorMessage = error.message;
-        // 네트워크 오류는 재시도 고려
         if (error.message.includes('네트워크') || error.message.includes('fetch') || error.message.includes('연결')) {
           shouldRetry = true;
         }
-        // 타임아웃 관련 메시지도 재시도하지 않음
         if (error.message.includes('시간이 오래 걸리고') || error.message.includes('타임아웃')) {
           shouldRetry = false;
         }
       }
 
-      // 콘솔에 상세 오류 로깅 (디버깅용)
       if (isDev) {
-        console.error('[Chat Widget] 오류 발생:', {
+        console.error('[Chat Widget] Error:', {
           name: error.name,
           message: error.message,
           stack: error.stack
         });
       }
-      
-      addMessage(`❌ ${errorMessage}`, 'assistant');
-      
-      // 재시도 제안 (타임아웃이 아닌 경우)
+
+      addMessage(errorMessage, 'assistant');
+
       if (shouldRetry && !errorMessage.includes('너무 많습니다')) {
         const retryButton = document.createElement('button');
         retryButton.className = 'chat-retry-button';
-        retryButton.textContent = '🔄 다시 시도';
+        retryButton.textContent = 'Retry';
         retryButton.style.cssText = 'margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--color-primary); color: white; border: none; border-radius: 0.5rem; cursor: pointer;';
         retryButton.onclick = () => {
           retryButton.remove();
           sendMessage(message);
         };
-        
+
         const lastMessage = chatMessages.lastElementChild;
         if (lastMessage) {
           lastMessage.querySelector('.chat-message-content')?.appendChild(retryButton);

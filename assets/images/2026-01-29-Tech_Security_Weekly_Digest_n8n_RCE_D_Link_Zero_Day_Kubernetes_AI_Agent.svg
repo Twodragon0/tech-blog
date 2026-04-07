@@ -1,129 +1,197 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Tech Security Weekly Digest n8n RCE D Link Zero Day Kubernetes AI Agent</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Gradient overlay for depth -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Tech Security Weekly Digest - n8n Critical RCE, D-Link Zero-Day, K8s AI Agent</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1d2e;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4757;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:0.4"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="orbGlow"><feGaussianBlur stdDeviation="40" /></filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
     </filter>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.15" />
+    </linearGradient>
+    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
+    </pattern>
   </defs>
-  
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
-  <!-- LEFT SIDE: TEXT CONTENT -->
-  
-  <!-- Title line 1 -->
-  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Tech Security Weekly</text>
-  
-  <!-- Title line 2 -->
-  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#ff4757">Digest n8n RCE</text>
-  
-  <!-- Date badge -->
-  <rect x="50" y="290" width="280" height="48" rx="6" fill="#1a1d2e" stroke="#ff4757" stroke-width="2"/>
-  <text x="140" y="321" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ff4757">JANUARY 29, 2026</text>
-  
+
+  <!-- Base + dot pattern -->
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect width="1200" height="630" fill="url(#dots)" />
+
+  <!-- Orb glows -->
+  <circle cx="760" cy="140" r="185" fill="#06b6d4" opacity="0.07" filter="url(#orbGlow)" />
+  <circle cx="1050" cy="430" r="150" fill="#dc2626" opacity="0.06" filter="url(#orbGlow)" />
+  <circle cx="200" cy="490" r="120" fill="#f97316" opacity="0.05" filter="url(#orbGlow)" />
+
+  <!-- Card 1 (top-right): K8s AI Agent - wheel + AI text -->
+  <g transform="translate(832, 58)" filter="url(#cardShadow)">
+    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(95, 18)">
+      <!-- K8s helm wheel (7 spokes) -->
+      <circle cx="60" cy="40" r="32" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6" />
+      <circle cx="60" cy="40" r="10" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.8" />
+      <!-- 7 spokes -->
+      <line x1="60" y1="8" x2="60" y2="30" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <line x1="88" y1="24" x2="72" y2="36" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <line x1="88" y1="56" x2="72" y2="44" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <line x1="60" y1="72" x2="60" y2="50" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <line x1="32" y1="56" x2="48" y2="44" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <line x1="32" y1="24" x2="48" y2="36" stroke="#06b6d4" stroke-width="2" opacity="0.7" />
+      <!-- AI text overlay -->
+      <text x="60" y="44" text-anchor="middle" fill="#22d3ee" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="800">AI</text>
+      <!-- Label -->
+      <rect x="10" y="62" width="100" height="14" rx="3" fill="#06b6d4" opacity="0.18" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.4" />
+      <text x="60" y="73" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="700">K8s AI AGENT</text>
+    </g>
+    <circle cx="130" cy="200" r="3" fill="#06b6d4" opacity="0.8" />
+    <circle cx="145" cy="200" r="3" fill="#f97316" opacity="0.6" />
+    <circle cx="160" cy="200" r="3" fill="#06b6d4" opacity="0.4" />
+  </g>
+
+  <!-- Card 2 (middle): D-Link router + warning triangle -->
+  <g transform="translate(720, 193)" filter="url(#cardShadow)">
+    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
+    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(95, 18)">
+      <!-- Router body -->
+      <rect x="14" y="44" width="92" height="30" rx="5" fill="none" stroke="#f97316" stroke-width="2" opacity="0.7" />
+      <!-- Antenna left -->
+      <line x1="28" y1="44" x2="20" y2="12" stroke="#f97316" stroke-width="2" opacity="0.6" stroke-linecap="round" />
+      <!-- Antenna right -->
+      <line x1="92" y1="44" x2="100" y2="12" stroke="#f97316" stroke-width="2" opacity="0.6" stroke-linecap="round" />
+      <!-- LED dots -->
+      <circle cx="30" cy="59" r="3.5" fill="#f97316" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.5s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="44" cy="59" r="3.5" fill="#dc2626" opacity="0.6" />
+      <circle cx="58" cy="59" r="3.5" fill="#f97316" opacity="0.5" />
+      <!-- Warning triangle above router -->
+      <polygon points="60,4 80,38 40,38" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.8" />
+      <text x="60" y="30" text-anchor="middle" fill="#dc2626" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="800" opacity="0.9">!</text>
+      <!-- Label -->
+      <rect x="10" y="82" width="100" height="14" rx="3" fill="#f97316" opacity="0.18" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4" />
+      <text x="60" y="93" text-anchor="middle" fill="#fdba74" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="700">D-LINK ZERO-DAY</text>
+    </g>
+    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
+    <rect x="40" y="192" width="168" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
+  </g>
+
+  <!-- Card 3 (front/lower): n8n RCE terminal + exploit -->
+  <g transform="translate(660, 342)" filter="url(#cardShadow)">
+    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
+    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
+    <g transform="translate(108, 14)">
+      <!-- Terminal window -->
+      <rect x="8" y="6" width="84" height="72" rx="5" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7" />
+      <!-- Title bar -->
+      <rect x="8" y="6" width="84" height="16" rx="5" fill="#dc2626" opacity="0.15" />
+      <!-- Window dots -->
+      <circle cx="18" cy="14" r="3" fill="#dc2626" opacity="0.7" />
+      <circle cx="29" cy="14" r="3" fill="#f97316" opacity="0.6" />
+      <circle cx="40" cy="14" r="3" fill="#06b6d4" opacity="0.5" />
+      <!-- Code lines -->
+      <text x="14" y="34" fill="#dc2626" font-family="monospace" font-size="9" opacity="0.9">$ node exec</text>
+      <text x="14" y="46" fill="#fca5a5" font-family="monospace" font-size="9" opacity="0.75">RCE payload</text>
+      <text x="14" y="58" fill="#dc2626" font-family="monospace" font-size="9" opacity="0.9">CRITICAL</text>
+      <!-- Exploit burst lines -->
+      <line x1="92" y1="42" x2="110" y2="30" stroke="#dc2626" stroke-width="1.5" opacity="0.6" />
+      <line x1="92" y1="50" x2="114" y2="50" stroke="#dc2626" stroke-width="1.5" opacity="0.5" />
+      <line x1="92" y1="58" x2="108" y2="68" stroke="#dc2626" stroke-width="1.5" opacity="0.6" />
+      <!-- Label -->
+      <rect x="10" y="84" width="80" height="14" rx="3" fill="#dc2626" opacity="0.18" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.4" />
+      <text x="50" y="95" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="700">n8n RCE CRITICAL</text>
+    </g>
+    <g transform="translate(40, 198)">
+      <rect width="240" height="26" rx="6" fill="#1e293b" opacity="0.8" />
+      <circle cx="18" cy="13" r="5" fill="#dc2626" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="1.4s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="725" cy="280" r="2" fill="#dc2626" opacity="0.5">
+    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="840" cy="330" r="1.5" fill="#06b6d4" opacity="0.4">
+    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1060" cy="300" r="2" fill="#f97316" opacity="0.5">
+    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="690" cy="205" r="1.5" fill="#dc2626" opacity="0.3">
+    <animate attributeName="cy" values="205;197;205" dur="2.8s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1112" cy="175" r="1" fill="#06b6d4" opacity="0.4">
+    <animate attributeName="cy" values="175;167;175" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- WEEKLY DIGEST badge -->
+  <g transform="translate(60, 80)">
+    <rect width="160" height="32" rx="16" fill="#dc2626" opacity="0.15" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
+    <text x="80" y="21" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
+  </g>
+
+  <!-- Left text block -->
+  <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
+  <text x="60" y="224" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
+  <text x="60" y="282" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="36" font-weight="700" letter-spacing="-0.3">n8n RCE Critical</text>
+  <text x="60" y="328" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="36" font-weight="700" letter-spacing="-0.3">D-Link Zero-Day</text>
+
+  <!-- Accent divider -->
+  <rect x="60" y="352" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
+
   <!-- Tag pills -->
-  <g>
-    <!-- Tag 1: Security -->
-    <rect x="50" y="420" width="110" height="36" rx="18" fill="#ff4757" opacity="0.15" stroke="#ff4757" stroke-width="1.5"/>
-    <text x="105" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff4757" text-anchor="middle">security</text>
-    
-    <!-- Tag 2: Vulnerability -->
-    <rect x="175" y="420" width="130" height="36" rx="18" fill="#ffa502" opacity="0.15" stroke="#ffa502" stroke-width="1.5"/>
-    <text x="240" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffa502" text-anchor="middle">vulnerability</text>
-    
-    <!-- Tag 3: RCE -->
-    <rect x="320" y="420" width="80" height="36" rx="18" fill="#ff6348" opacity="0.15" stroke="#ff6348" stroke-width="1.5"/>
-    <text x="360" y="443" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ff6348" text-anchor="middle">RCE</text>
+  <g transform="translate(60, 372)">
+    <rect width="44" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35" />
+    <text x="22" y="20" text-anchor="middle" fill="#22d3ee" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">n8n</text>
+    <g transform="translate(54, 0)">
+      <rect width="50" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="25" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">RCE</text>
+    </g>
+    <g transform="translate(114, 0)">
+      <rect width="62" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="31" y="20" text-anchor="middle" fill="#fdba74" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">D-Link</text>
+    </g>
+    <g transform="translate(186, 0)">
+      <rect width="84" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
+      <text x="42" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Zero-Day</text>
+    </g>
   </g>
-  
-  <!-- Footer -->
-  <text x="50" y="595" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#666">tech.2twodragon.com</text>
-  
-  <!-- RIGHT SIDE: ILLUSTRATION -->
-  
-  <!-- Background circles for depth -->
-  <circle cx="900" cy="200" r="120" fill="#ff4757" opacity="0.08"/>
-  <circle cx="950" cy="380" r="100" fill="#ffa502" opacity="0.06"/>
-  
-  <!-- Node network - central workflow node (being attacked) -->
-  <g filter="url(#glow)">
-    <!-- Central compromised node -->
-    <rect x="820" y="250" width="120" height="120" rx="8" fill="#1a1d2e" stroke="#ff4757" stroke-width="2.5"/>
-    
-    <!-- Node icon: workflow/code -->
-    <circle cx="880" cy="310" r="8" fill="#ff4757" opacity="0.3"/>
-    <line x1="850" y1="310" x2="910" y2="310" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
-    <line x1="880" y1="280" x2="880" y2="340" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
-    
-    <!-- Code symbols breaking out -->
-    <text x="880" y="300" font-family="monospace" font-size="20" font-weight="bold" fill="#ff4757" text-anchor="middle" opacity="0.7">{ }</text>
+
+  <text x="60" y="450" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">JANUARY 29, 2026</text>
+
+  <g transform="translate(60, 560)">
+    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
+    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
   </g>
-  
-  <!-- Connected nodes (input nodes) -->
-  <g opacity="0.6">
-    <circle cx="740" cy="240" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-    <circle cx="740" cy="340" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-    <circle cx="740" cy="440" r="18" fill="#2a2d3e" stroke="#4db8ff" stroke-width="2"/>
-  </g>
-  
-  <!-- Connection lines turning red (attack flow) -->
-  <line x1="758" y1="240" x2="820" y2="280" stroke="#ff4757" stroke-width="2.5" opacity="0.7" stroke-dasharray="5,3"/>
-  <line x1="758" y1="340" x2="820" y2="310" stroke="#ff4757" stroke-width="2.5" opacity="0.8" stroke-dasharray="5,3"/>
-  <line x1="758" y1="440" x2="820" y2="340" stroke="#ff4757" stroke-width="2.5" opacity="0.7" stroke-dasharray="5,3"/>
-  
-  <!-- Data breaking out (attack payload) -->
-  <g fill="#ff4757" opacity="0.6">
-    <circle cx="950" cy="220" r="4"/>
-    <circle cx="980" cy="180" r="3"/>
-    <circle cx="1010" cy="210" r="3.5"/>
-    <circle cx="1030" cy="250" r="3"/>
-    <circle cx="1020" cy="290" r="4"/>
-    <circle cx="1000" cy="320" r="3.5"/>
-  </g>
-  
-  <!-- Execution trace lines -->
-  <line x1="940" y1="260" x2="980" y2="200" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  <line x1="940" y1="310" x2="1010" y2="280" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  <line x1="940" y1="350" x2="1000" y2="360" stroke="#ff4757" stroke-width="1.5" opacity="0.5"/>
-  
-  <!-- Warning indicators (brackets) -->
-  <g stroke="#ffa502" stroke-width="2" fill="none" opacity="0.7">
-    <path d="M 990 160 L 970 160 L 970 180 L 990 180"/>
-    <path d="M 1050 220 L 1030 220 L 1030 240 L 1050 240"/>
-  </g>
-  
-  <!-- Critical vulnerability badge -->
-  <g>
-    <circle cx="1080" cy="150" r="35" fill="#ff4757" opacity="0.15" stroke="#ff4757" stroke-width="2"/>
-    <text x="1080" y="145" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff4757" text-anchor="middle">CRITICAL</text>
-    <text x="1080" y="163" font-family="Arial, sans-serif" font-size="10" fill="#ff4757" text-anchor="middle">RCE</text>
-  </g>
-  
-  <!-- Lock icon (broken) -->
-  <g opacity="0.8">
-    <rect x="865" y="390" width="30" height="22" rx="3" fill="none" stroke="#ffa502" stroke-width="2"/>
-    <path d="M 870 390 Q 870 380 880 380 Q 890 380 890 390" fill="none" stroke="#ffa502" stroke-width="2"/>
-    <line x1="875" y1="405" x2="885" y2="405" stroke="#ffa502" stroke-width="1.5" opacity="0.6"/>
-    <line x1="875" y1="395" x2="885" y2="415" stroke="#ff4757" stroke-width="2" opacity="0.7"/>
-  </g>
-  
-  <!-- Accent elements -->
-  <circle cx="950" cy="500" r="1.5" fill="#4db8ff" opacity="0.5"/>
-  <circle cx="1010" cy="480" r="1" fill="#4db8ff" opacity="0.4"/>
-  <circle cx="880" cy="520" r="1.5" fill="#4db8ff" opacity="0.3"/>
+
+  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
 </svg>

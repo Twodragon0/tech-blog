@@ -351,7 +351,10 @@ export default async function handler(req, res) {
     const now = new Date();
     const utcHour = now.getUTCHours();
     const isOffPeak = utcHour >= CONFIG.OFF_PEAK_START_HOUR || utcHour < CONFIG.OFF_PEAK_END_HOUR;
-    
+
+    // 스트리밍 모드 확인
+    const useStreaming = req.body.stream === true;
+
     // API 요청 로깅 (항상 로깅하여 진단 가능하도록)
     // requestStartTime은 setTimeout 콜백에서도 참조하므로 반드시 먼저 선언
     const requestStartTime = Date.now();
@@ -368,6 +371,7 @@ export default async function handler(req, res) {
       messageCount: messages.length,
       maxTokens: CONFIG.MAX_TOKENS,
       timeout: CONFIG.TIMEOUT_MS,
+      streaming: useStreaming,
       timestamp: new Date().toISOString()
     });
 
@@ -384,7 +388,7 @@ export default async function handler(req, res) {
           messages: messages,
           temperature: 0.7,
           max_tokens: CONFIG.MAX_TOKENS,
-          stream: false,
+          stream: useStreaming,
           // 응답 시간 최적화를 위한 추가 설정
           top_p: 0.9, // 응답 다양성 조절 (0.95 → 0.9로 감소하여 응답 생성 속도 향상)
           // Context Caching은 자동으로 작동하므로 별도 설정 불필요
@@ -395,24 +399,24 @@ export default async function handler(req, res) {
     } catch (fetchError) {
       clearTimeout(timeoutId);
       const fetchTime = Date.now() - requestStartTime;
-      
+
       // 타임아웃 오류 처리
       if (fetchError.name === 'AbortError' || fetchError.name === 'TimeoutError') {
         console.warn(`[Chat API] DeepSeek API 타임아웃 (${fetchTime}ms)`);
-        return res.status(504).json({ 
+        return res.status(504).json({
           error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
           timeout: true,
           executionTime: fetchTime
         });
       }
-      
+
       // 네트워크 오류 처리
       console.error('[Chat API] DeepSeek API 네트워크 오류:', {
         name: fetchError.name,
         message: fetchError.message,
         fetchTime: fetchTime
       });
-      return res.status(503).json({ 
+      return res.status(503).json({
         error: 'AI 서비스에 연결할 수 없습니다. 네트워크 연결을 확인하고 잠시 후 다시 시도해주세요.',
         code: 'NETWORK_ERROR'
       });
@@ -420,10 +424,10 @@ export default async function handler(req, res) {
 
     clearTimeout(timeoutId);
     const fetchTime = Date.now() - requestStartTime;
-    
+
     // API 응답 시간 로깅 (항상 로깅하여 진단 가능하도록)
     if (DEBUG) console.log(`[Chat API] DeepSeek API 응답 완료: ${fetchTime}ms (타임아웃 제한: ${CONFIG.TIMEOUT_MS}ms)`);
-    
+
     // 타임아웃에 가까운 경우 경고
     if (fetchTime > CONFIG.TIMEOUT_MS * 0.8) {
       console.warn(`[Chat API] 응답 시간이 타임아웃 제한의 80%를 초과했습니다: ${fetchTime}ms / ${CONFIG.TIMEOUT_MS}ms`);
@@ -440,7 +444,7 @@ export default async function handler(req, res) {
           responsePreview: responseText.substring(0, 200)
         });
       }
-      
+
       // 상세 로그 (보안: 민감 정보 제외)
       console.error('[Chat API] DeepSeek API 오류:', {
         status: deepseekResponse.status,
@@ -448,29 +452,113 @@ export default async function handler(req, res) {
         errorType: errorData.error?.type || 'unknown',
         errorMessage: errorData.error?.message || 'No error message'
       });
-      
+
       // Rate limit 오류 처리
       if (deepseekResponse.status === 429) {
         const retryAfter = deepseekResponse.headers.get('retry-after') || '60';
-        return res.status(429).json({ 
+        return res.status(429).json({
           error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
           retryAfter: parseInt(retryAfter, 10)
         });
       }
-      
+
       // 401 Unauthorized (API 키 오류)
       if (deepseekResponse.status === 401) {
         // 프로덕션에서는 일반적인 메시지만 반환 (보안)
-        return res.status(503).json({ 
-          error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.' 
+        return res.status(503).json({
+          error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.'
         });
       }
 
-      return res.status(503).json({ 
-        error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해주세요.' 
+      return res.status(503).json({
+        error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해주세요.'
       });
     }
 
+    // --- SSE Streaming path ---
+    if (useStreaming) {
+      res.setHeader('Content-Type', 'text/event-stream');
+      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Connection', 'keep-alive');
+      res.flushHeaders();
+
+      try {
+        const body = deepseekResponse.body;
+        if (!body) {
+          res.write('data: {"error":"No response body from upstream"}\n\n');
+          res.write('data: [DONE]\n\n');
+          return res.end();
+        }
+
+        let buffer = '';
+        const decoder = new TextDecoder();
+
+        for await (const chunk of body) {
+          buffer += decoder.decode(chunk, { stream: true });
+
+          // Process complete SSE lines from the buffer
+          const lines = buffer.split('\n');
+          // Keep the last potentially incomplete line in the buffer
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+
+            if (trimmed === 'data: [DONE]') {
+              res.write('data: [DONE]\n\n');
+              continue;
+            }
+
+            if (trimmed.startsWith('data: ')) {
+              try {
+                const json = JSON.parse(trimmed.slice(6));
+                const delta = json.choices?.[0]?.delta?.content;
+                if (delta) {
+                  res.write(`data: ${JSON.stringify({ delta })}\n\n`);
+                }
+              } catch (parseErr) {
+                // Skip malformed JSON chunks
+              }
+            }
+          }
+        }
+
+        // Flush any remaining buffer
+        if (buffer.trim()) {
+          const trimmed = buffer.trim();
+          if (trimmed === 'data: [DONE]') {
+            res.write('data: [DONE]\n\n');
+          } else if (trimmed.startsWith('data: ')) {
+            try {
+              const json = JSON.parse(trimmed.slice(6));
+              const delta = json.choices?.[0]?.delta?.content;
+              if (delta) {
+                res.write(`data: ${JSON.stringify({ delta })}\n\n`);
+              }
+            } catch (parseErr) {
+              // Skip malformed JSON
+            }
+          }
+        }
+
+        // Ensure [DONE] is always sent
+        res.write('data: [DONE]\n\n');
+        return res.end();
+      } catch (streamError) {
+        console.error('[Chat API] Streaming error:', streamError.message);
+        // Try to send error event if connection is still open
+        try {
+          res.write(`data: ${JSON.stringify({ error: 'Streaming interrupted' })}\n\n`);
+          res.write('data: [DONE]\n\n');
+        } catch (_) {
+          // Connection already closed
+        }
+        return res.end();
+      }
+    }
+
+    // --- Non-streaming path (original) ---
     let data;
     try {
       data = await deepseekResponse.json();
@@ -478,7 +566,7 @@ export default async function handler(req, res) {
       console.error('[Chat API] DeepSeek API 응답 파싱 오류:', parseError.message);
       const responseText = await deepseekResponse.text().catch(() => 'Unable to read response');
       console.error('[Chat API] Raw response:', responseText.substring(0, 500));
-      return res.status(500).json({ 
+      return res.status(500).json({
         error: 'AI 서비스 응답을 처리할 수 없습니다. 잠시 후 다시 시도해주세요.',
         code: 'RESPONSE_PARSE_ERROR'
       });
@@ -491,7 +579,7 @@ export default async function handler(req, res) {
         hasMessage: !!data.choices?.[0]?.message,
         error: data.error
       });
-      return res.status(500).json({ 
+      return res.status(500).json({
         error: '응답 형식이 올바르지 않습니다.',
         code: 'INVALID_RESPONSE_FORMAT'
       });
@@ -505,7 +593,7 @@ export default async function handler(req, res) {
         responseType: typeof response,
         responseValue: response
       });
-      return res.status(500).json({ 
+      return res.status(500).json({
         error: '응답을 생성할 수 없습니다.',
         code: 'EMPTY_RESPONSE'
       });
@@ -516,14 +604,14 @@ export default async function handler(req, res) {
 
     // 실행 시간 로깅 (성능 모니터링)
     const executionTime = Date.now() - startTime;
-    
+
     // 비용 최적화 모니터링: 캐시 히트율 및 토큰 사용량 로깅
     const cacheHitTokens = data.usage?.prompt_cache_hit_tokens || 0;
     const cacheMissTokens = data.usage?.prompt_cache_miss_tokens || 0;
     const totalPromptTokens = data.usage?.prompt_tokens || 0;
     const totalCompletionTokens = data.usage?.completion_tokens || 0;
     const cacheHitRate = totalPromptTokens > 0 ? (cacheHitTokens / totalPromptTokens * 100).toFixed(1) : 0;
-    
+
     // 성능 모니터링: 느린 요청만 로깅 (프로덕션 최적화)
     if (executionTime > CONFIG.SLOW_REQUEST_THRESHOLD_MS) {
       if (DEBUG) console.log(`[Chat API] Execution time: ${executionTime}ms`);
