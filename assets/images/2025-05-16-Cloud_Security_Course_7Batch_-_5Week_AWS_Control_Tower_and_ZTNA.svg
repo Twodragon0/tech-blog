@@ -1,129 +1,62 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="None" height="None">
-  <title>Cloud Security Course 7Batch - 5Week AWS Control Tower and ZTNA</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-
-  <!-- LEFT SIDE: TEXT CONTENT -->
-
-  <!-- Date Badge -->
-  <rect x="60" y="50" width="160" height="32" rx="4" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="0.8"/>
-  <text x="140" y="70" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#ef4444">MAY 16, 2025</text>
-
-  <!-- Main Title -->
-  <text x="80" y="185" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Cloud Security Course</text>
-
-  <!-- Subtitle -->
-  <text x="80" y="245" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-0.5">7Batch 5Week AWS</text>
-
-  <!-- Tag Pills -->
-  <g>
-    <!-- Tag 1: Cloud -->
-    <rect x="80" y="420" width="100" height="28" rx="14" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.8"/>
-    <text x="130" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#3b82f6">Cloud Security</text>
-
-    <!-- Tag 2: AWS -->
-    <rect x="200" y="420" width="70" height="28" rx="14" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="0.8"/>
-    <text x="235" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#f59e0b">AWS</text>
-
-    <!-- Tag 3: Compliance -->
-    <rect x="290" y="420" width="110" height="28" rx="14" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="0.8"/>
-    <text x="345" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#ef4444">Compliance</text>
-  </g>
-
-  <!-- Footer -->
-  <text x="80" y="555" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff" opacity="0.6">tech.2twodragon.com</text>
-
-  <!-- RIGHT SIDE: VISUAL SCENE (x=650-1150, y=80-550) -->
-
-  <!-- Cloud Shape -->
-  <g>
-    <!-- Cloud outline -->
-    <path d="M 800 180 Q 750 160 720 190 Q 700 170 670 180 Q 660 150 630 160 Q 620 200 640 220 L 900 220 Q 920 200 910 160 Q 880 150 850 170 Q 840 140 800 180"
-          fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="0.3"/>
-
-    <!-- Cloud accent -->
-    <circle cx="750" cy="200" r="35" fill="#3b82f6" opacity="0.04"/>
-    <circle cx="850" cy="190" r="40" fill="#3b82f6" opacity="0.05"/>
-  </g>
-
-  <!-- Data Flow Arrows from Cloud -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Cloud Security Course 7Batch   5Week AWS Control Tower And ZTNA</title>
   <defs>
-    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" opacity="0.7"/>
-    </marker>
-    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" opacity="0.7"/>
-    </marker>
-    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" opacity="0.7"/>
-    </marker>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
   </defs>
-
-  <!-- Arrow 1: Cloud to Shield (left) -->
-  <path d="M 750 240 Q 750 300 800 350"
-        fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead-blue)" stroke-dasharray="4,3"/>
-
-  <!-- Arrow 2: Cloud to Shield (right) -->
-  <path d="M 850 240 Q 880 290 900 350"
-        fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead-orange)" stroke-dasharray="4,3"/>
-
-  <!-- Shield with Checkmark -->
-  <g>
-    <!-- Shield outline -->
-    <path d="M 850 320 L 810 340 L 810 400 Q 850 450 850 450 Q 890 450 890 400 L 890 340 Z"
-          fill="#ef4444" opacity="0.09" stroke="#ef4444" stroke-width="0.8"/>
-
-    <!-- Checkmark inside shield -->
-    <g transform="translate(850, 385)">
-      <path d="M -12 0 L -4 10 L 12 -8"
-            fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
-    </g>
-  </g>
-
-  <!-- Alert/Warning Indicators -->
-  <g>
-    <!-- Alert Triangle 1 (top right) -->
-    <circle cx="950" cy="150" r="18" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.8"/>
-    <polygon points="950,135 960,165 940,165" fill="#f59e0b" opacity="0.7"/>
-
-    <!-- Alert Triangle 2 (bottom left) -->
-    <circle cx="720" cy="480" r="16" fill="#ef4444" opacity="0.05" stroke="#ef4444" stroke-width="0.8"/>
-    <polygon points="720,468 730,496 710,496" fill="#ef4444" opacity="0.6"/>
-
-    <!-- Alert Triangle 3 (center right) -->
-    <circle cx="1000" cy="380" r="15" fill="#f59e0b" opacity="0.06" stroke="#f59e0b" stroke-width="0.75"/>
-    <polygon points="1000,369 1009,395 991,395" fill="#f59e0b" opacity="0.65"/>
-  </g>
-
-  <!-- Additional Data Flow Arrows -->
-  <path d="M 920 300 L 980 340"
-        fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowhead-blue)"/>
-
-  <path d="M 900 420 Q 950 450 1000 480"
-        fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowhead-orange)" stroke-dasharray="3,2"/>
-
-  <!-- Data Connection Lines -->
-  <circle cx="780" cy="280" r="3" fill="#3b82f6" opacity="0.4"/>
-  <circle cx="920" cy="360" r="3" fill="#f59e0b" opacity="0.4"/>
-  <circle cx="1050" cy="320" r="3" fill="#ef4444" opacity="0.4"/>
-
-  <!-- Connecting dots with lines -->
-  <line x1="780" y1="280" x2="850" y2="320" stroke="#3b82f6" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
-  <line x1="920" y1="360" x2="1050" y2="320" stroke="#f59e0b" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
-
-  <!-- Decorative Security Elements -->
-  <g>
-    <!-- Lock outline -->
-    <rect x="700" y="500" width="24" height="20" rx="3" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.5"/>
-    <path d="M 706 500 Q 706 492 712 492 Q 718 492 718 500"
-          fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.5"/>
-
-    <!-- Key outline -->
-    <circle cx="950" cy="510" r="6" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.5"/>
-    <line x1="956" y1="510" x2="968" y2="510" stroke="#ef4444" stroke-width="1.2" opacity="0.5"/>
-  </g>
-
-  <!-- Accent Circles for Depth -->
-  <circle cx="850" cy="150" r="50" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.08" stroke-dasharray="4,3"/>
-  <circle cx="850" cy="150" r="80" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.04" stroke-dasharray="5,4"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 16, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 7Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">5Week AWS Control Tower And ZTNA</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | Control Tower | ZTNA</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="250" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Control Tower</text>
+  <rect x="341" y="420" width="80" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="381" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">ZTNA</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

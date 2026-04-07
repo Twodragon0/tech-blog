@@ -1,96 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="None" height="None">
-  <title>Cloud Security Course 7Batch - 9Week DevSecOps Integration</title>
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
-  <g id="left-content">
-    
-    <text x="40" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">Cloud Security Course</text>
-    
-    
-    <text x="40" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">7Batch 9Week DevSecOps</text>
-    
-    
-    <rect x="40" y="280" width="200" height="40" rx="6" fill="#1a1f3a" stroke="#4a7c59" stroke-width="2" />
-    <text x="140" y="306" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7dd3c0" text-anchor="middle">JUNE 13, 2025</text>
-    
-    
-    
-    <rect x="40" y="420" width="140" height="32" rx="16" fill="#1f3a2f" stroke="#4a7c59" stroke-width="1.5" />
-    <text x="110" y="441" font-family="Arial, sans-serif" font-size="13" fill="#7dd3c0" text-anchor="middle" font-weight="600">Cloud Security</text>
-    
-    
-    <rect x="195" y="420" width="110" height="32" rx="16" fill="#2a1f3a" stroke="#6a4a7c" stroke-width="1.5" />
-    <text x="250" y="441" font-family="Arial, sans-serif" font-size="13" fill="#b47dd3" text-anchor="middle" font-weight="600">DevSecOps</text>
-    
-    
-    <rect x="320" y="420" width="105" height="32" rx="16" fill="#1f2f3a" stroke="#4a6a7c" stroke-width="1.5" />
-    <text x="372.5" y="441" font-family="Arial, sans-serif" font-size="13" fill="#7dadd3" text-anchor="middle" font-weight="600">9 Week Path</text>
-    
-    
-    <text x="40" y="600" font-family="Arial, sans-serif" font-size="14" fill="#6a8f9c">tech.2twodragon.com</text>
-  </g>
-  
-  
-  <g id="right-illustration">
-    
-    <circle cx="925" cy="315" r="250" fill="#1a2f4a" opacity="0.25" />
-
-    
-    <text x="880" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4fc3f7" text-anchor="middle" opacity="0.8">CI/CD + Security Pipeline</text>
-
-    
-    <circle cx="760" cy="180" r="28" fill="none" stroke="#4fc3f7" stroke-width="2" />
-    <line x1="788" y1="180" x2="828" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6" />
-    <polygon points="835,180 828,175 828,185" fill="#4fc3f7" opacity="0.6" />
-
-    
-    <circle cx="880" cy="180" r="28" fill="none" stroke="#ff6b6b" stroke-width="2" />
-    <line x1="908" y1="180" x2="948" y2="180" stroke="#4fc3f7" stroke-width="2" opacity="0.6" />
-    <polygon points="955,180 948,175 948,185" fill="#4fc3f7" opacity="0.6" />
-
-    
-    <circle cx="1000" cy="180" r="28" fill="none" stroke="#ffd54f" stroke-width="2" />
-    <line x1="1000" y1="208" x2="1000" y2="248" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
-    <polygon points="1000,255 995,248 1005,248" fill="#4fc3f7" opacity="0.4" />
-
-    
-    <circle cx="1000" cy="310" r="28" fill="none" stroke="#81c784" stroke-width="2" />
-    <line x1="972" y1="310" x2="912" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
-    <polygon points="905,310 912,305 912,315" fill="#4fc3f7" opacity="0.4" />
-
-    
-    <circle cx="880" cy="310" r="28" fill="none" stroke="#ba68c8" stroke-width="2" />
-    <line x1="852" y1="310" x2="792" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
-    <polygon points="785,310 792,305 792,315" fill="#4fc3f7" opacity="0.4" />
-
-    
-    <circle cx="760" cy="310" r="28" fill="none" stroke="#7dd3c0" stroke-width="2" />
-    <line x1="760" y1="338" x2="760" y2="378" stroke="#4fc3f7" stroke-width="2" opacity="0.4" stroke-dasharray="4,4" />
-    <polygon points="760,385 755,378 765,378" fill="#4fc3f7" opacity="0.4" />
-
-    
-    <circle cx="760" cy="440" r="28" fill="none" stroke="#4fc3f7" stroke-width="2" />
-    <circle cx="880" cy="440" r="35" fill="#1e3a5f" opacity="0.5" stroke="#4fc3f7" stroke-width="2" stroke-dasharray="6,3" />
-    <text x="880" y="495" font-family="Arial, sans-serif" font-size="10" fill="#4fc3f7" text-anchor="middle" font-weight="600">Automation</text>
-
-    
-    <line x1="845" y1="410" x2="788" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
-    <line x1="880" y1="405" x2="880" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
-    <line x1="915" y1="410" x2="972" y2="360" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
-    <line x1="845" y1="475" x2="788" y2="468" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
-    <line x1="915" y1="475" x2="1012" y2="338" stroke="#4fc3f7" stroke-width="1" opacity="0.2" stroke-dasharray="2,2" />
-
-    
-    <rect x="720" y="535" width="320" height="32" rx="5" fill="#1a2847" opacity="0.7" stroke="#4fc3f7" stroke-width="1" />
-    <text x="880" y="556" font-family="Arial, sans-serif" font-size="11" fill="#4fc3f7" text-anchor="middle" font-weight="600">Security Integrated at Every Stage</text>
-
-    
-    <circle cx="750" cy="120" r="2" fill="#4fc3f7" opacity="0.4" />
-    <circle cx="1040" cy="220" r="2" fill="#81c784" opacity="0.4" />
-    <circle cx="920" cy="380" r="2" fill="#ba68c8" opacity="0.4" />
-    <circle cx="760" cy="520" r="2" fill="#7dd3c0" opacity="0.4" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Cloud Security Course 7Batch   9Week DevSecOps Integration</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JUNE 13, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 7Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">9Week DevSecOps Integration</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Integration | Cloud Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="135" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="278" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Integration</text>
+  <rect x="360" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="441" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

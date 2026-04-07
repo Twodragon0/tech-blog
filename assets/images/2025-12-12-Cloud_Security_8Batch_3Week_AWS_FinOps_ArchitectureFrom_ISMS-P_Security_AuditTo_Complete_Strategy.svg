@@ -1,115 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security 8Batch 3Week AWS FinOps ArchitectureFrom ISMS-P Security AuditTo Complete Strategy</title>
+  <title>Cloud Security 8Batch 3Week AWS FinOps ArchitectureFrom ISMS P Security AuditTo </title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a1a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#f7c59f;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ef233c;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ef233c;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#ef233c;stop-opacity:0.1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  
-  <ellipse cx="1010" cy="230" rx="110" ry="70" fill="rgba(255,107,53,0.08)" stroke="rgba(255,107,53,0.25)" stroke-width="1.5" />
-  <ellipse cx="950" cy="245" rx="60" ry="45" fill="rgba(255,107,53,0.06)" stroke="rgba(255,107,53,0.2)" stroke-width="1" />
-  <ellipse cx="1075" cy="245" rx="55" ry="40" fill="rgba(255,107,53,0.06)" stroke="rgba(255,107,53,0.2)" stroke-width="1" />
-
-  
-  <circle cx="1010" cy="225" r="28" fill="rgba(247,197,159,0.10)" stroke="rgba(247,197,159,0.35)" stroke-width="1.5" />
-  <path d="M990,275 L990,310 Q990,330 1010,338 Q1030,330 1030,310 L1030,275 Z" fill="rgba(239,35,60,0.10)" stroke="rgba(239,35,60,0.30)" stroke-width="1.5" />
-  <path d="M997,285 L997,308 Q997,322 1010,328 Q1023,322 1023,308 L1023,285 Z" fill="rgba(239,35,60,0.06)" stroke="rgba(239,35,60,0.2)" stroke-width="1" />
-  
-  <polyline points="1003,307 1008,313 1018,299" fill="none" stroke="rgba(239,35,60,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-
-  
-  <rect x="890" y="148" width="42" height="32" rx="4" fill="rgba(255,107,53,0.08)" stroke="rgba(255,107,53,0.28)" stroke-width="1" />
-  <rect x="1085" y="148" width="42" height="32" rx="4" fill="rgba(255,107,53,0.08)" stroke="rgba(255,107,53,0.28)" stroke-width="1" />
-  <rect x="1085" y="290" width="48" height="32" rx="4" fill="rgba(247,197,159,0.08)" stroke="rgba(247,197,159,0.28)" stroke-width="1" />
-  <rect x="882" y="290" width="50" height="32" rx="4" fill="rgba(247,197,159,0.08)" stroke="rgba(247,197,159,0.28)" stroke-width="1" />
-  <line x1="911" y1="180" x2="960" y2="215" stroke="rgba(255,107,53,0.2)" stroke-width="1" stroke-dasharray="4,3" />
-  <line x1="1106" y1="180" x2="1060" y2="215" stroke="rgba(255,107,53,0.2)" stroke-width="1" stroke-dasharray="4,3" />
-  <line x1="1010" y1="275" x2="1010" y2="290" stroke="rgba(239,35,60,0.25)" stroke-width="1" stroke-dasharray="3,3" />
-  <line x1="907" y1="322" x2="945" y2="248" stroke="rgba(247,197,159,0.15)" stroke-width="1" stroke-dasharray="3,4" />
-  <line x1="1109" y1="322" x2="1068" y2="248" stroke="rgba(247,197,159,0.15)" stroke-width="1" stroke-dasharray="3,4" />
-
-  
-  <ellipse cx="1010" cy="235" rx="145" ry="100" fill="none" stroke="rgba(255,107,53,0.08)" stroke-width="1" stroke-dasharray="6,5" />
-
-  
-  <rect x="1000" y="296" width="20" height="14" rx="3" fill="rgba(239,35,60,0.12)" stroke="rgba(239,35,60,0.35)" stroke-width="1" />
-  <path d="M1004,296 Q1004,290 1010,290 Q1016,290 1016,296" fill="none" stroke="rgba(239,35,60,0.35)" stroke-width="1" />
-  <circle cx="1010" cy="303" r="2.5" fill="rgba(239,35,60,0.5)" />
-
-  
-  <circle cx="870" cy="400" r="5" fill="rgba(239,35,60,0.7)" />
-  <circle cx="900" cy="420" r="5" fill="rgba(247,197,159,0.7)" />
-  <circle cx="860" cy="440" r="5" fill="rgba(255,107,53,0.7)" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,107,53,0.04)" stroke-width="1" />
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,107,53,0.05)" stroke-width="1" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
-
-  
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,107,53,0.3)" stroke-width="1" />
-  <text x="94" y="81" font-size="12" font-family="Arial, sans-serif" fill="rgba(255,150,100,0.9)" font-weight="600" letter-spacing="1">DECEMBER 12, 2025</text>
-
-  
-  <text x="80" y="185" font-size="46" font-weight="700" font-family="Arial, sans-serif" fill="white">Cloud Security 8Batch 3Week</text>
-
-  
-  <text x="80" y="245" font-size="46" font-weight="700" font-family="Arial, sans-serif" fill="white">AWS FinOps Architecture</text>
-
-  
-  <text x="80" y="300" font-size="19" font-family="Arial, sans-serif" fill="rgba(255,150,100,0.85)">From ISMS Compliance to Cost Optimization</text>
-
-  
-  <rect x="80" y="325" width="420" height="3" rx="2" fill="url(#accentLine)" />
-
-  
-  <text x="80" y="370" font-size="14" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.45)" letter-spacing="3" font-weight="600">FINOPS / CLOUD SECURITY / AWS</text>
-
-  
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(239,35,60,0.18)" stroke="rgba(239,35,60,0.4)" stroke-width="1" />
-  <text x="135" y="425" font-size="13" font-family="Arial, sans-serif" fill="rgba(239,120,120,0.95)" text-anchor="middle" font-weight="600">ISMS-P</text>
-
-  <rect x="205" y="402" width="118" height="36" rx="18" fill="rgba(255,160,50,0.18)" stroke="rgba(255,160,50,0.4)" stroke-width="1" />
-  <text x="264" y="425" font-size="13" font-family="Arial, sans-serif" fill="rgba(255,190,100,0.95)" text-anchor="middle" font-weight="600">AWS FinOps</text>
-
-  <rect x="338" y="402" width="130" height="36" rx="18" fill="rgba(60,130,255,0.18)" stroke="rgba(60,130,255,0.4)" stroke-width="1" />
-  <text x="403" y="425" font-size="13" font-family="Arial, sans-serif" fill="rgba(120,170,255,0.95)" text-anchor="middle" font-weight="600">Cost Explorer</text>
-
-  
-  <text x="80" y="545" font-size="13" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-size="13" font-family="Arial, sans-serif" fill="rgba(255,255,255,0.3)" text-anchor="end" letter-spacing="1">finops</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cost graph bars -->
+  <rect x="880" y="260" width="30" height="80" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="220" width="30" height="120" rx="4" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+  <rect x="960" y="240" width="30" height="100" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="180" width="30" height="160" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <!-- Trend line -->
+  <polyline points="895,270 935,230 975,250 1015,190" fill="none" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+  <circle cx="1015" cy="190" r="5" fill="rgba(34,197,94,0.5)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">DECEMBER 12, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security 8Batch 3Week</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS FinOps ArchitectureFrom...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | FinOps | ISMS P</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">FINOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="90" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="219" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">FinOps</text>
+  <rect x="278" y="420" width="90" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="323" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">ISMS P</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,94 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>NPM ampquotShai-Huludampquot 180 Large-scale Analysis</title>
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-
-  <!-- Gradient definitions -->
+  <title>NPM ampquotShai Huludampquot Self Replication Worm Attack 180 Above Package Brea</title>
   <defs>
-    <linearGradient id="wormGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#cc2222;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#990000;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#130820"/>
     </linearGradient>
-    <linearGradient id="segmentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6666;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#dd3333;stop-opacity:1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ff6666"/>
-    </marker>
   </defs>
-
-  <!-- Illustration area (right side) -->
-  <g id="worm-illustration">
-    <!-- Main worm body -->
-    <ellipse cx="900" cy="280" rx="180" ry="120" fill="url(#wormGradient)" opacity="0.8"/>
-
-    <!-- Worm segments -->
-    <circle cx="850" cy="240" r="45" fill="url(#segmentGradient)" opacity="0.9"/>
-    <circle cx="920" cy="220" r="50" fill="url(#segmentGradient)" opacity="0.85"/>
-    <circle cx="980" cy="260" r="48" fill="url(#segmentGradient)" opacity="0.9"/>
-    <circle cx="1000" cy="330" r="52" fill="url(#segmentGradient)" opacity="0.88"/>
-    <circle cx="950" cy="370" r="46" fill="url(#segmentGradient)" opacity="0.92"/>
-
-    <!-- Worm head -->
-    <circle cx="800" cy="200" r="55" fill="#dd1111" opacity="0.95"/>
-    <circle cx="780" cy="195" r="20" fill="#ff6666"/>
-    <circle cx="820" cy="195" r="20" fill="#ff6666"/>
-    <path d="M 800 220 Q 795 235 800 240 Q 805 235 800 220" fill="#330000" opacity="0.8"/>
-    <polygon points="790,230 785,245 795,235" fill="#ffaaaa"/>
-    <polygon points="810,230 815,245 805,235" fill="#ffaaaa"/>
-
-    <!-- Worm tail -->
-    <path d="M 1020 350 Q 1060 380 1080 420" stroke="#cc2222" stroke-width="35" fill="none" opacity="0.85" stroke-linecap="round"/>
-    <circle cx="1085" cy="425" r="28" fill="#bb1111" opacity="0.9"/>
-
-    <!-- Package 1 (entering worm) -->
-    <rect x="700" y="150" width="60" height="60" rx="4" fill="#ff9944" opacity="0.7" stroke="#ffaa66" stroke-width="2"/>
-    <text x="730" y="188" font-family="monospace" font-size="24" fill="#0a0c1a" text-anchor="middle" font-weight="bold">npm</text>
-    <path d="M 760 180 Q 785 190 810 200" stroke="#ff4444" stroke-width="3" fill="none" stroke-dasharray="5,5" opacity="0.8"/>
-    <circle cx="770" cy="173" r="8" fill="#ff4444" opacity="0.6"/>
-
-    <!-- Package 2 (replicating) -->
-    <rect x="1030" y="280" width="55" height="55" rx="3" fill="#ff9944" opacity="0.6" stroke="#ffaa66" stroke-width="2"/>
-    <text x="1057" y="313" font-family="monospace" font-size="20" fill="#0a0c1a" text-anchor="middle" font-weight="bold">npm</text>
-
-    <!-- Package 3 (replicating) -->
-    <rect x="1050" y="360" width="50" height="50" rx="3" fill="#ff9944" opacity="0.5" stroke="#ffaa66" stroke-width="2"/>
-    <text x="1075" y="388" font-family="monospace" font-size="18" fill="#0a0c1a" text-anchor="middle" font-weight="bold">npm</text>
-
-    <!-- Replication arrows -->
-    <path d="M 940 340 L 1010 350" stroke="#ff6666" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" opacity="0.7"/>
-    <path d="M 960 370 L 1030 380" stroke="#ff6666" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" opacity="0.7"/>
-
-    <!-- Danger indicators -->
-    <circle cx="750" cy="300" r="6" fill="#ff4444" opacity="0.7"/>
-    <circle cx="1050" cy="240" r="6" fill="#ff4444" opacity="0.7"/>
-    <circle cx="880" cy="420" r="6" fill="#ff4444" opacity="0.7"/>
-
-    <!-- Self-replication waves -->
-    <circle cx="920" cy="200" r="80" fill="none" stroke="#ff4444" stroke-width="1.5" opacity="0.3" stroke-dasharray="3,3"/>
-    <circle cx="920" cy="200" r="110" fill="none" stroke="#ff4444" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
-  </g>
-
-  <!-- Title -->
-  <text x="60" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">NPM "Shai Hulud"</text>
-  <text x="60" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" letter-spacing="-1">Self Replication Worm</text>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Abstract nodes -->
+  <circle cx="920" cy="200" r="18" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <circle cx="990" cy="240" r="14" fill="none" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="310" r="16" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+  <line x1="920" y1="218" x2="990" y2="226" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="990" y1="254" x2="950" y2="294" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="950" y1="294" x2="920" y2="218" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Abstract shape -->
+  <rect x="900" y="370" width="100" height="60" rx="8" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="60" y="280" width="280" height="45" rx="8" fill="#ff4444" opacity="0.15" stroke="#ff6666" stroke-width="1.5"/>
-  <text x="200" y="310" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#ff8888" text-anchor="middle">SEPTEMBER 17, 2025</text>
-
-  <!-- Tags -->
-  <rect x="60" y="410" width="120" height="32" rx="6" fill="#ff4444" opacity="0.2" stroke="#ff6666" stroke-width="1"/>
-  <text x="120" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff8888" text-anchor="middle">NPM Security</text>
-
-  <rect x="195" y="410" width="120" height="32" rx="6" fill="#ff4444" opacity="0.2" stroke="#ff6666" stroke-width="1"/>
-  <text x="255" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff8888" text-anchor="middle">Supply Chain</text>
-
-  <rect x="330" y="410" width="100" height="32" rx="6" fill="#ff4444" opacity="0.2" stroke="#ff6666" stroke-width="1"/>
-  <text x="380" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ff8888" text-anchor="middle">Malware</text>
-
-  <!-- Footer -->
-  <text x="60" y="600" font-family="Arial, sans-serif" font-size="14" fill="#666666">tech.2twodragon.com</text>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">SEPTEMBER 17, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">NPM ampquotShai Huludampquot</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Self Replication Worm Attack...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">npm | Supply Chain Attack | Worm</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">INCIDENT ANALYSIS</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">npm</text>
+  <rect x="174" y="420" width="162" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="255" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Supply Chain .</text>
+  <rect x="350" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="390" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Worm</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>
