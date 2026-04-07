@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-06T01:32:45.560147+00:00",
+  "updated_at": "2026-04-07T01:31:57.205472+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/north-korean-hackers-abuse-vs-code-auto.html",
-      "title": "North Korean Hackers Abuse VS Code Auto-Run Tasks to Deploy StoatWaffle Malware",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/iam-policy-types-how-and-when-to-use-them/",
-      "title": "IAM policy types: How and when to use them",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/weekly-recap-cicd-backdoor-fbi-buys.html",
-      "title": "⚡ Weekly Recap: CI/CD Backdoor, FBI Buys Location Data, WhatsApp Ditches Numbers",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/we-found-eight-attack-vectors-inside.html",
-      "title": "We Found Eight Attack Vectors Inside AWS Bedrock. Here's What Attackers Can Do w",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/microsoft-warns-irs-phishing-hits-29000.html",
-      "title": "Microsoft Warns IRS Phishing Hits 29,000 Users, Deploys RMM Malware",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/secure-autonomous-ai-agents-openshell/",
-      "title": "How Autonomous AI Agents Become Secure by Design With NVIDIA OpenShell",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-reco-transforms-security-alerts-using-amazon-bedrock/",
-      "title": "How Reco transforms security alerts using Amazon Bedrock",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/integrating-amazon-bedrock-agentcore-with-slack/",
-      "title": "Integrating Amazon Bedrock AgentCore with Slack",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/overcoming-llm-hallucinations-in-regulated-industries-artificial-geniuss-deterministic-models-on-amazon-nova/",
-      "title": "Overcoming LLM hallucinations in regulated industries: Artificial Genius’s deter",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/training-large-models-on-ironwood-tpus/",
-      "title": "A developer’s guide to training with Ironwood TPUs",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/rsac-26-supercharging-agentic-ai-defense-with-frontline-threat-intelligence/",
-      "title": "RSAC ’26: Supercharging agentic AI defense with frontline threat intelligence",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/bringing-dark-web-intelligence-into-the-ai-era/",
-      "title": "Bringing dark web intelligence into the AI era",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026/",
-      "title": "M-Trends 2026: Data, Insights, and Strategies From the Frontlines",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-nvidia-nemotron-3-super-on-amazon-bedrock-nova-forge-sdk-amazon-corretto-26-and-more-march-23-2026/",
-      "title": "AWS Weekly Roundup: NVIDIA Nemotron 3 Super on Amazon Bedrock, Nova Forge SDK, A",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/trivy-supply-chain-compromise-what-docker-hub-users-should-know/",
-      "title": "Trivy supply chain compromise: What Docker Hub users should know",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
     {
       "url": "https://www.microsoft.com/en-us/security/blog/2026/03/24/detecting-investigating-defending-against-trivy-supply-chain-compromise/",
       "title": "Guidance for detecting, investigating, and defending against the Trivy supply ch",
@@ -810,6 +720,96 @@
       "title": "AWS 엔지니어, Linux 7.0에서 PostgreSQL 성능이 절반으로 감소했다고 보고 – 수정이 쉽지 않을 수 있음",
       "published_date": "2026-04-06",
       "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/iran-linked-password-spraying-campaign.html",
+      "title": "Iran-Linked Password-Spraying Campaign Targets 300+ Israeli Microsoft 365 Organi",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/dprk-linked-hackers-use-github-as-c2-in.html",
+      "title": "DPRK-Linked Hackers Use GitHub as C2 in Multi-Stage Attacks Targeting South Kore",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/german-authorities-identify-revil-and-gangcrab-ransomware-bosses/",
+      "title": "German authorities identify REvil and GangCrab ransomware bosses",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/multi-os-cyberattacks-how-socs-close.html",
+      "title": "Multi-OS Cyberattacks: How SOCs Close a Critical Risk in 3 Steps",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/weekly-recap-axios-hack-chrome-0-day.html",
+      "title": "⚡ Weekly Recap: Axios Hack, Chrome 0-Day, Fortinet Exploits, Paragon Spyware and",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-building-a-backend-less-cross-application-api-a40be7874ee5?source=rss----3c87dc14372f---4",
+      "title": "Frontend Engineering at Palantir: Building a Backend-less Cross-Application API",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/osdk-and-mobile-applications-building-with-the-embedded-ontology-668432da6572?source=rss----3c87dc14372f---4",
+      "title": "OSDK and Mobile Applications: Building with the Embedded Ontology",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/06/developer-tools/how-meta-used-ai-to-map-tribal-knowledge-in-large-scale-data-pipelines/",
+      "title": "How Meta Used AI to Map Tribal Knowledge in Large-Scale Data Pipelines",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-openai-safety-fellowship",
+      "title": "Announcing the OpenAI Safety Fellowship",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://openai.com/index/industrial-policy-for-the-intelligence-age",
+      "title": "Industrial policy for the Intelligence Age",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/systems/ironwood-tpus-deliver-37x-carbon-efficiency-gains/",
+      "title": "AI infrastructure efficiency: Ironwood TPUs deliver 3.7x carbon efficiency gains",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/retail/how-a-leading-consumer-insight-brand-uses-dataproc-to-hyper-personalise-faster/",
+      "title": "How a leading consumer insight brand uses Dataproc to hyper-personalise faster",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-self-service-explores/",
+      "title": "Introducing Looker self-service Explores for faster ad-hoc analysis",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-embedded-adds-conversational-analytics/",
+      "title": "Conversational Analytics now available for Looker Embedded environments",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-devops-agent-security-agent-ga-product-lifecycle-updates-and-more-april-6-2026/",
+      "title": "AWS Weekly Roundup: AWS DevOps Agent & Security Agent GA, Product Lifecycle upda",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
     }
   ]
 }
