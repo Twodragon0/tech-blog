@@ -29,9 +29,9 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.lib.logging_utils import log_message
-
 import frontmatter
+
+from scripts.lib.logging_utils import log_message
 
 try:
     import cairosvg
@@ -276,7 +276,6 @@ KNOWN_TECH_TERMS = {
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
-
 
 
 # ---------------------------------------------------------------------------

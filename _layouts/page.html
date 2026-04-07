@@ -1,13 +1,15 @@
 ---
 layout: default
 ---
-<article class="page">
+<article class="page{% if page.page_modifier %} {{ page.page_modifier }}{% endif %}">
+  {% unless page.hide_page_header %}
   <header class="page-header">
     <h1>{{ page.title | escape }}</h1>
     {% if page.description %}
     <p class="page-description">{{ page.description }}</p>
     {% endif %}
   </header>
+  {% endunless %}
 
   <div class="page-content">
     {{ content }}

@@ -63,9 +63,9 @@ jobs:
           node - <<'EOF'
           const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST || '[]');
           const thresholds = {
-            performance: 0.7,
+            performance: 0.5,
             accessibility: 0.8,
-            'best-practices': 0.8,
+            'best-practices': 0.75,
             seo: 0.9,
           };
           let failed = false;

@@ -15,6 +15,13 @@
   var currentFilter = 'all';
   var currentSearch = '';
 
+  function setActiveFilterButton(filterValue) {
+    filterBtns.forEach(function (btn) {
+      var v = btn.getAttribute('data-filter') || 'all';
+      btn.classList.toggle('active', v === filterValue);
+    });
+  }
+
   function applyFilters() {
     var visibleCount = 0;
 
@@ -51,11 +58,8 @@
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      filterBtns.forEach(function (otherBtn) {
-        otherBtn.classList.remove('active');
-      });
-      btn.classList.add('active');
       currentFilter = btn.getAttribute('data-filter') || 'all';
+      setActiveFilterButton(currentFilter);
       applyFilters();
     });
   });
@@ -92,10 +96,34 @@
     });
   }
 
-  // Smooth scroll for year header anchors
-  document.querySelectorAll('a[href^="#year-"]').forEach(function (anchor) {
+  function resetAllFilters() {
+    searchInput.value = '';
+    currentSearch = '';
+    currentFilter = 'all';
+    setActiveFilterButton('all');
+    applyFilters();
+  }
+
+  // Reset button in empty state
+  var resetBtn = document.querySelector('.archive-empty-reset');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+      resetAllFilters();
+    });
+  }
+
+  // Smooth scroll for in-page anchors (year headers and top)
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    var href = anchor.getAttribute('href');
+    if (!href || href === '#') {
+      return;
+    }
+    var id = href.slice(1);
+    if (!id || id.indexOf('year-') !== 0 && id !== 'archive-top') {
+      return;
+    }
     anchor.addEventListener('click', function (e) {
-      var target = document.getElementById(this.getAttribute('href').slice(1));
+      var target = document.getElementById(id);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -3,13 +3,15 @@ layout: page
 title: Discussion
 description: 자유롭게 의견을 나누고 질문하세요
 permalink: /discussion/
+hide_page_header: true
+page_modifier: page--utility
 ---
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Community Discussion",
-  "description": "자유롭게 의견을 나누고 질문하세요",
+  "name": "커뮤니티 토론",
+  "description": "GitHub Discussions와 Giscus로 DevSecOps, 클라우드 보안 등 기술 주제를 나눕니다",
   "url": "{{ site.url }}/discussion/",
   "isPartOf": {
     "@type": "WebSite",
@@ -18,13 +20,13 @@ permalink: /discussion/
   }
 }
 </script>
-<div class="discussion-page">
+<div class="discussion-page" id="discussion-top">
   <!-- Hero Section -->
   <header class="discussion-hero" role="banner">
     <div class="discussion-hero-badge">Community</div>
-    <h2 class="discussion-hero-title">Community Discussion</h2>
+    <h1 class="discussion-hero-title">커뮤니티 토론</h1>
     <p class="discussion-hero-desc">
-      DevSecOps, 클라우드 보안, 쿠버네티스 등 기술 주제에 대해 자유롭게 의견을 나누고 질문하세요.
+      DevSecOps, 클라우드 보안, Kubernetes 등 실무 주제를 <strong>GitHub Discussions</strong>에서 나눕니다. 기술 질문, 글에 대한 피드백, 주제 제안을 환영합니다.
     </p>
   </header>
 
@@ -43,7 +45,8 @@ permalink: /discussion/
 
   <!-- Discussion Categories -->
   <section aria-labelledby="discussion-categories-heading">
-    <h2 id="discussion-categories-heading" class="discussion-section-title">Discussion Categories</h2>
+    <h2 id="discussion-categories-heading" class="discussion-section-title">토론 카테고리</h2>
+    <p class="discussion-section-lead">관심에 맞는 카테고리를 선택하면 GitHub에서 해당 영역으로 바로 이동합니다.</p>
     <div class="category-grid">
       <a href="https://github.com/{{ site.giscus.repo }}/discussions/categories/general" target="_blank" rel="noopener noreferrer" class="card discussion-category-card" data-category="general" aria-label="General - 일반적인 대화와 커뮤니티 소통">
         <div class="discussion-category-header">
@@ -91,36 +94,36 @@ permalink: /discussion/
 
   <!-- How to Participate -->
   <section aria-labelledby="discussion-steps-heading">
-    <h2 id="discussion-steps-heading" class="discussion-section-title">How to Participate</h2>
-    <div class="discussion-steps">
-      <div class="discussion-step-card" role="listitem">
+    <h2 id="discussion-steps-heading" class="discussion-section-title">참여 방법</h2>
+    <ol class="discussion-steps">
+      <li class="discussion-step-card">
         <span class="discussion-step-number" aria-hidden="true">1</span>
         <p class="discussion-step-text">GitHub 계정으로 로그인합니다</p>
-      </div>
-      <div class="discussion-step-card" role="listitem">
+      </li>
+      <li class="discussion-step-card">
         <span class="discussion-step-number" aria-hidden="true">2</span>
         <p class="discussion-step-text">
           <a href="https://github.com/{{ site.giscus.repo }}/discussions" target="_blank" rel="noopener noreferrer">Discussions 페이지</a>를 방문합니다
         </p>
-      </div>
-      <div class="discussion-step-card" role="listitem">
+      </li>
+      <li class="discussion-step-card">
         <span class="discussion-step-number" aria-hidden="true">3</span>
         <p class="discussion-step-text">적절한 카테고리를 선택하여 새 Discussion을 시작합니다</p>
-      </div>
-      <div class="discussion-step-card" role="listitem">
+      </li>
+      <li class="discussion-step-card">
         <span class="discussion-step-number" aria-hidden="true">4</span>
-        <p class="discussion-step-text">각 블로그 포스트 하단의 댓글로도 참여할 수 있습니다</p>
-      </div>
-    </div>
+        <p class="discussion-step-text">각 포스트 하단 <strong>Giscus</strong> 댓글로도 같은 저장소 기준으로 대화할 수 있습니다</p>
+      </li>
+    </ol>
   </section>
 
   <!-- Community Guidelines -->
   <section aria-labelledby="discussion-guidelines-heading">
-    <h2 id="discussion-guidelines-heading" class="discussion-section-title">Community Guidelines</h2>
+    <h2 id="discussion-guidelines-heading" class="discussion-section-title">커뮤니티 가이드</h2>
     <div class="discussion-guidelines">
       <div class="discussion-guideline-item">
         <div class="discussion-guideline-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
         </div>
@@ -131,7 +134,7 @@ permalink: /discussion/
       </div>
       <div class="discussion-guideline-item">
         <div class="discussion-guideline-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
           </svg>
@@ -143,7 +146,7 @@ permalink: /discussion/
       </div>
       <div class="discussion-guideline-item">
         <div class="discussion-guideline-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
@@ -155,7 +158,7 @@ permalink: /discussion/
       </div>
       <div class="discussion-guideline-item">
         <div class="discussion-guideline-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
             <polyline points="16 6 12 2 8 6"/>
             <line x1="12" y1="2" x2="12" y2="15"/>
@@ -167,11 +170,15 @@ permalink: /discussion/
         </div>
       </div>
     </div>
+
+    <div class="discussion-privacy-note" role="note">
+      <strong>보안 안내:</strong> 공개 저장소 기준 Discussions는 검색 엔진에 노출될 수 있습니다. 자격 증명, 내부 IP, 고객 데이터 등 민감 정보는 절대 올리지 마세요.
+    </div>
   </section>
 
   <!-- Community Stats -->
   <section aria-labelledby="discussion-stats-heading">
-    <h2 id="discussion-stats-heading" class="discussion-section-title">Blog Community</h2>
+    <h2 id="discussion-stats-heading" class="discussion-section-title">블로그 한눈에 보기</h2>
     <div class="discussion-stats">
       <div class="discussion-stat-card">
         <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -198,21 +205,24 @@ permalink: /discussion/
         <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        <div class="discussion-stat-number">Giscus</div>
-        <div class="discussion-stat-label">댓글 시스템</div>
+        <div class="discussion-stat-text" aria-label="Giscus 댓글 연동">Giscus</div>
+        <div class="discussion-stat-label">포스트 댓글</div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="discussion-cta" aria-labelledby="discussion-cta-heading">
-    <h2 id="discussion-cta-heading" class="discussion-cta-title">함께 성장하는 커뮤니티</h2>
-    <p class="discussion-cta-desc">보안과 DevOps에 관심 있는 개발자들과 함께 지식을 나누고 성장하세요.</p>
-    <a href="https://github.com/{{ site.giscus.repo }}/discussions" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large" aria-label="GitHub Discussions 페이지로 이동">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="btn-icon" aria-hidden="true">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      Go to Discussions
-    </a>
+    <h2 id="discussion-cta-heading" class="discussion-cta-title">Discussions로 이동</h2>
+    <p class="discussion-cta-desc">스레드를 새로 만들거나 기존 토론에 참여하려면 GitHub에서 계속하세요.</p>
+    <div class="discussion-cta-actions">
+      <a href="https://github.com/{{ site.giscus.repo }}/discussions" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large" aria-label="GitHub Discussions 페이지로 이동">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="btn-icon" aria-hidden="true">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        Discussions 열기
+      </a>
+      <a href="{{ '/feed.xml' | relative_url }}" class="btn-secondary discussion-cta-secondary" aria-label="RSS 피드 구독">RSS 피드</a>
+    </div>
   </section>
 </div>

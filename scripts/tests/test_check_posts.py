@@ -9,23 +9,23 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.check_posts import (
-    extract_front_matter,
-    check_dummy_links,
-    check_image_paths,
-    check_long_code_blocks,
     check_ai_summary_card,
-    check_news_card_severity,
-    check_table_cell_truncation,
+    check_dummy_links,
     check_duplicate_practical_points,
     check_image_exists,
     check_image_files,
+    check_image_paths,
+    check_long_code_blocks,
+    check_news_card_severity,
     check_svg_text_density,
+    check_table_cell_truncation,
+    extract_front_matter,
 )
-
 
 # ---------------------------------------------------------------------------
 # extract_front_matter
 # ---------------------------------------------------------------------------
+
 
 class TestExtractFrontMatter:
     def test_returns_parsed_dict_for_valid_front_matter(self):
@@ -65,6 +65,7 @@ class TestExtractFrontMatter:
 # check_dummy_links
 # ---------------------------------------------------------------------------
 
+
 class TestCheckDummyLinks:
     def test_detects_github_example_link(self):
         content = "See https://github.com/example/repo for details."
@@ -96,6 +97,7 @@ class TestCheckDummyLinks:
 # check_image_paths
 # ---------------------------------------------------------------------------
 
+
 class TestCheckImagePaths:
     def test_detects_korean_in_markdown_image_path(self):
         content = "![alt text](/assets/images/한글이미지.png)"
@@ -121,6 +123,7 @@ class TestCheckImagePaths:
 # ---------------------------------------------------------------------------
 # check_long_code_blocks
 # ---------------------------------------------------------------------------
+
 
 class TestCheckLongCodeBlocks:
     def test_flags_code_block_with_30_or_more_lines(self):
@@ -158,6 +161,7 @@ class TestCheckLongCodeBlocks:
 # check_ai_summary_card
 # ---------------------------------------------------------------------------
 
+
 class TestCheckAiSummaryCard:
     def test_returns_warning_when_summary_card_absent(self):
         content = "Some content without any summary card."
@@ -179,6 +183,7 @@ class TestCheckAiSummaryCard:
 # ---------------------------------------------------------------------------
 # check_news_card_severity
 # ---------------------------------------------------------------------------
+
 
 class TestCheckNewsCardSeverity:
     def test_flags_news_card_missing_severity(self):
@@ -210,6 +215,7 @@ class TestCheckNewsCardSeverity:
 # ---------------------------------------------------------------------------
 # check_table_cell_truncation
 # ---------------------------------------------------------------------------
+
 
 class TestCheckTableCellTruncation:
     def test_flags_cell_ending_with_trailing_comma(self):
@@ -244,6 +250,7 @@ class TestCheckTableCellTruncation:
 # check_duplicate_practical_points
 # ---------------------------------------------------------------------------
 
+
 class TestCheckDuplicatePracticalPoints:
     def test_flags_bullet_repeated_three_or_more_times(self):
         bullet = "- 보안 정책을 수립하세요."
@@ -265,10 +272,7 @@ class TestCheckDuplicatePracticalPoints:
 
     def test_section_ends_at_next_heading(self):
         content = (
-            "## 실무 적용 포인트\n"
-            "- 반복 항목\n" * 3
-            + "## 다른 섹션\n"
-            "- 반복 항목\n" * 3
+            "## 실무 적용 포인트\n- 반복 항목\n" * 3 + "## 다른 섹션\n- 반복 항목\n" * 3
         )
         issues = check_duplicate_practical_points(content)
         # Only counted within the section, not across sections
@@ -279,12 +283,14 @@ class TestCheckDuplicatePracticalPoints:
 # check_image_exists (filesystem)
 # ---------------------------------------------------------------------------
 
+
 class TestCheckImageExists:
     def test_existing_svg_found(self, tmp_path, monkeypatch):
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
         (images_dir / "test.svg").write_text("<svg></svg>")
         import scripts.check_posts as cp
+
         monkeypatch.setattr(cp, "PROJECT_ROOT", tmp_path)
         monkeypatch.setattr(cp, "IMAGES_DIR", images_dir)
         exists, path = check_image_exists("/assets/images/test.svg")
@@ -295,6 +301,7 @@ class TestCheckImageExists:
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
         import scripts.check_posts as cp
+
         monkeypatch.setattr(cp, "PROJECT_ROOT", tmp_path)
         monkeypatch.setattr(cp, "IMAGES_DIR", images_dir)
         exists, path = check_image_exists("/assets/images/nonexistent.svg")
@@ -310,6 +317,7 @@ class TestCheckImageExists:
         images_dir.mkdir(parents=True)
         (images_dir / "relative.png").write_text("PNG")
         import scripts.check_posts as cp
+
         monkeypatch.setattr(cp, "PROJECT_ROOT", tmp_path)
         monkeypatch.setattr(cp, "IMAGES_DIR", images_dir)
         exists, _ = check_image_exists("assets/images/relative.png")
@@ -320,6 +328,7 @@ class TestCheckImageExists:
         images_dir.mkdir(parents=True)
         (images_dir / "bare.svg").write_text("<svg/>")
         import scripts.check_posts as cp
+
         monkeypatch.setattr(cp, "PROJECT_ROOT", tmp_path)
         monkeypatch.setattr(cp, "IMAGES_DIR", images_dir)
         exists, _ = check_image_exists("bare.svg")
@@ -330,17 +339,21 @@ class TestCheckImageExists:
 # check_image_files (filesystem)
 # ---------------------------------------------------------------------------
 
+
 class TestCheckImageFiles:
     def _make_post(self, tmp_path, front_matter_image, body="", images_dir=None):
         if images_dir is None:
             images_dir = tmp_path / "assets" / "images"
             images_dir.mkdir(parents=True, exist_ok=True)
 
-        import scripts.check_posts as cp
         import unittest.mock as mock
-        with mock.patch.object(cp, "PROJECT_ROOT", tmp_path), \
-             mock.patch.object(cp, "IMAGES_DIR", images_dir):
 
+        import scripts.check_posts as cp
+
+        with (
+            mock.patch.object(cp, "PROJECT_ROOT", tmp_path),
+            mock.patch.object(cp, "IMAGES_DIR", images_dir),
+        ):
             post_file = tmp_path / "test_post.md"
             content = f"---\ntitle: Test\nimage: {front_matter_image}\n---\n{body}"
             post_file.write_text(content, encoding="utf-8")
@@ -351,13 +364,17 @@ class TestCheckImageFiles:
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
         (images_dir / "hero.svg").write_text("<svg/>")
-        issues = self._make_post(tmp_path, "/assets/images/hero.svg", images_dir=images_dir)
+        issues = self._make_post(
+            tmp_path, "/assets/images/hero.svg", images_dir=images_dir
+        )
         assert issues == []
 
     def test_missing_main_image_reported(self, tmp_path):
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
-        issues = self._make_post(tmp_path, "/assets/images/missing.svg", images_dir=images_dir)
+        issues = self._make_post(
+            tmp_path, "/assets/images/missing.svg", images_dir=images_dir
+        )
         assert any("Main image file not found" in i for i in issues)
 
     def test_missing_body_image_reported(self, tmp_path):
@@ -365,12 +382,18 @@ class TestCheckImageFiles:
         images_dir.mkdir(parents=True)
         (images_dir / "hero.svg").write_text("<svg/>")
         body = "![diagram](/assets/images/diagram.png)"
-        import scripts.check_posts as cp
         import unittest.mock as mock
-        with mock.patch.object(cp, "PROJECT_ROOT", tmp_path), \
-             mock.patch.object(cp, "IMAGES_DIR", images_dir):
+
+        import scripts.check_posts as cp
+
+        with (
+            mock.patch.object(cp, "PROJECT_ROOT", tmp_path),
+            mock.patch.object(cp, "IMAGES_DIR", images_dir),
+        ):
             post_file = tmp_path / "test.md"
-            post_file.write_text(f"---\ntitle: T\nimage: /assets/images/hero.svg\n---\n{body}")
+            post_file.write_text(
+                f"---\ntitle: T\nimage: /assets/images/hero.svg\n---\n{body}"
+            )
             issues = check_image_files(post_file, {"image": "/assets/images/hero.svg"})
         assert any("Image file not found" in i for i in issues)
 
@@ -379,12 +402,18 @@ class TestCheckImageFiles:
         images_dir.mkdir(parents=True)
         (images_dir / "hero.svg").write_text("<svg/>")
         body = '<img src="/assets/images/photo.jpg" alt="photo">'
-        import scripts.check_posts as cp
         import unittest.mock as mock
-        with mock.patch.object(cp, "PROJECT_ROOT", tmp_path), \
-             mock.patch.object(cp, "IMAGES_DIR", images_dir):
+
+        import scripts.check_posts as cp
+
+        with (
+            mock.patch.object(cp, "PROJECT_ROOT", tmp_path),
+            mock.patch.object(cp, "IMAGES_DIR", images_dir),
+        ):
             post_file = tmp_path / "test.md"
-            post_file.write_text(f"---\ntitle: T\nimage: /assets/images/hero.svg\n---\n{body}")
+            post_file.write_text(
+                f"---\ntitle: T\nimage: /assets/images/hero.svg\n---\n{body}"
+            )
             issues = check_image_files(post_file, {"image": "/assets/images/hero.svg"})
         assert any("Image file not found" in i for i in issues)
 
@@ -393,15 +422,20 @@ class TestCheckImageFiles:
 # check_svg_text_density (filesystem)
 # ---------------------------------------------------------------------------
 
+
 class TestCheckSvgTextDensity:
     def _make_svg_and_check(self, tmp_path, svg_content, image_name="test.svg"):
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
         (images_dir / image_name).write_text(svg_content, encoding="utf-8")
-        import scripts.check_posts as cp
         import unittest.mock as mock
-        with mock.patch.object(cp, "PROJECT_ROOT", tmp_path), \
-             mock.patch.object(cp, "IMAGES_DIR", images_dir):
+
+        import scripts.check_posts as cp
+
+        with (
+            mock.patch.object(cp, "PROJECT_ROOT", tmp_path),
+            mock.patch.object(cp, "IMAGES_DIR", images_dir),
+        ):
             fm = {"image": f"/assets/images/{image_name}"}
             return check_svg_text_density(fm)
 
@@ -411,7 +445,7 @@ class TestCheckSvgTextDensity:
         assert issues == []
 
     def test_too_many_text_nodes_flagged(self, tmp_path):
-        texts = "".join(f"<text>Node {i}</text>" for i in range(15))
+        texts = "".join(f"<text>Node {i}</text>" for i in range(25))
         svg = f'<svg xmlns="http://www.w3.org/2000/svg">{texts}</svg>'
         issues = self._make_svg_and_check(tmp_path, svg)
         assert any("text nodes" in i for i in issues)
@@ -433,8 +467,10 @@ class TestCheckSvgTextDensity:
         assert any("Invalid SVG XML" in i for i in issues)
 
     def test_non_svg_image_skipped(self, tmp_path):
-        import scripts.check_posts as cp
         import unittest.mock as mock
+
+        import scripts.check_posts as cp
+
         with mock.patch.object(cp, "PROJECT_ROOT", tmp_path):
             fm = {"image": "/assets/images/photo.png"}
             issues = check_svg_text_density(fm)
@@ -443,10 +479,14 @@ class TestCheckSvgTextDensity:
     def test_missing_svg_returns_empty(self, tmp_path):
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
-        import scripts.check_posts as cp
         import unittest.mock as mock
-        with mock.patch.object(cp, "PROJECT_ROOT", tmp_path), \
-             mock.patch.object(cp, "IMAGES_DIR", images_dir):
+
+        import scripts.check_posts as cp
+
+        with (
+            mock.patch.object(cp, "PROJECT_ROOT", tmp_path),
+            mock.patch.object(cp, "IMAGES_DIR", images_dir),
+        ):
             fm = {"image": "/assets/images/missing.svg"}
             issues = check_svg_text_density(fm)
         assert issues == []

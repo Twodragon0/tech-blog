@@ -28,7 +28,6 @@ from fix_links_unified import (
     process_post_file,
 )
 
-
 # ---------------------------------------------------------------------------
 # is_github_link
 # ---------------------------------------------------------------------------
@@ -85,7 +84,9 @@ def test_check_dummy_links_detects_placeholder_keyword():
 
 
 def test_check_dummy_links_returns_empty_list_for_clean_content():
-    content = "See [Falco](https://github.com/falcosecurity/falco) for runtime security."
+    content = (
+        "See [Falco](https://github.com/falcosecurity/falco) for runtime security."
+    )
     issues = check_dummy_links(content)
     assert issues == []
 
@@ -108,7 +109,9 @@ def test_check_dummy_links_is_case_insensitive_for_dummy():
 
 
 def test_fix_reference_links_replaces_kubernetes_best_practices_url():
-    content = "See https://kubernetes.io/docs/concepts/security/best-practices/ for more."
+    content = (
+        "See https://kubernetes.io/docs/concepts/security/best-practices/ for more."
+    )
     result = fix_reference_links(content)
     assert "best-practices" not in result
     assert "security-checklist" in result
@@ -162,11 +165,7 @@ def test_fix_code_blocks_restores_short_spf_comment():
 
 def test_fix_code_blocks_keeps_long_code_in_comment():
     long_code = "\n".join([f"line {i}" for i in range(20)])
-    content = (
-        "<!-- 긴 코드 블록 제거됨\n"
-        f"```python\n{long_code}\n```\n"
-        "-->"
-    )
+    content = f"<!-- 긴 코드 블록 제거됨\n```python\n{long_code}\n```\n-->"
     result = fix_code_blocks(content)
     # Long code (>5 lines) should remain commented out
     assert "<!--" in result

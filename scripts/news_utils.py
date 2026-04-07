@@ -15,12 +15,14 @@ logger = logging.getLogger(__name__)
 def _import_requests():
     """Lazy import for requests (avoid slow top-level import)."""
     import requests  # noqa: F811
+
     return requests
 
 
 def _import_bs4():
     """Lazy import for BeautifulSoup (avoid slow top-level import)."""
     from bs4 import BeautifulSoup  # noqa: F811
+
     return BeautifulSoup
 
 
@@ -149,44 +151,92 @@ def determine_severity(
     cat_lower = category.lower()
 
     if is_security is None:
-        is_security = cat_lower in (
-            "security", "devsecops", "보안", "보안 뉴스",
-        ) or "보안" in cat_lower or "security" in cat_lower
+        is_security = (
+            cat_lower
+            in (
+                "security",
+                "devsecops",
+                "보안",
+                "보안 뉴스",
+            )
+            or "보안" in cat_lower
+            or "security" in cat_lower
+        )
 
     has_cve = bool(re.search(r"cve-\d{4}-\d+", text_lower))
 
     critical_phrases = [
-        "critical vulnerability", "critical flaw", "critical patch",
-        "critical security", "critical rce", "rce",
-        "zero-day", "제로데이", "0-day",
-        "cvss 9", "cvss 10",
-        "actively exploited", "in the wild",
-        "emergency patch", "긴급 패치",
-        "pre-auth", "wormable",
-        "remote code execution", "원격 코드 실행",
-        "ransomware attack", "data breach", "데이터 유출",
+        "critical vulnerability",
+        "critical flaw",
+        "critical patch",
+        "critical security",
+        "critical rce",
+        "rce",
+        "zero-day",
+        "제로데이",
+        "0-day",
+        "cvss 9",
+        "cvss 10",
+        "actively exploited",
+        "in the wild",
+        "emergency patch",
+        "긴급 패치",
+        "pre-auth",
+        "wormable",
+        "remote code execution",
+        "원격 코드 실행",
+        "ransomware attack",
+        "data breach",
+        "데이터 유출",
     ]
     high_keywords = [
-        "high severity", "high risk",
-        "권한 상승", "privilege escalation",
-        "authentication bypass", "인증 우회",
-        "ssrf", "sql injection", "command injection",
-        "supply chain attack", "supply chain", "공급망 공격", "공급망",
-        "backdoor", "백도어",
-        "botnet", "봇넷",
+        "high severity",
+        "high risk",
+        "권한 상승",
+        "privilege escalation",
+        "authentication bypass",
+        "인증 우회",
+        "ssrf",
+        "sql injection",
+        "command injection",
+        "supply chain attack",
+        "supply chain",
+        "공급망 공격",
+        "공급망",
+        "backdoor",
+        "백도어",
+        "botnet",
+        "봇넷",
         "nation-state",
         "arbitrary code execution",
-        "malware", "악성코드",
-        "exploit kit", "exploit", "취약점 악용", "취약점",
-        "ddos", "distributed denial", "디도스",
-        "phishing", "피싱", "spear phishing", "스피어 피싱",
-        "cryptojacking", "크립토재킹", "crypto mining attack",
-        "credential stuffing", "크리덴셜 스터핑",
-        "watering hole", "워터링 홀",
-        "apt", "advanced persistent threat",
-        "sandbox escape", "container escape",
-        "랜섬웨어", "vulnerability",
-        "공격", "attack",
+        "malware",
+        "악성코드",
+        "exploit kit",
+        "exploit",
+        "취약점 악용",
+        "취약점",
+        "ddos",
+        "distributed denial",
+        "디도스",
+        "phishing",
+        "피싱",
+        "spear phishing",
+        "스피어 피싱",
+        "cryptojacking",
+        "크립토재킹",
+        "crypto mining attack",
+        "credential stuffing",
+        "크리덴셜 스터핑",
+        "watering hole",
+        "워터링 홀",
+        "apt",
+        "advanced persistent threat",
+        "sandbox escape",
+        "container escape",
+        "랜섬웨어",
+        "vulnerability",
+        "공격",
+        "attack",
     ]
 
     for phrase in critical_phrases:

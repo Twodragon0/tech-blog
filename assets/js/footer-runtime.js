@@ -39,26 +39,7 @@
     }, 3000);
   }
 
-  // News card image fallback (CSP-safe, handles already-failed images)
-  var fallbackImages = document.querySelectorAll('img[data-fallback]');
-  for (var i = 0; i < fallbackImages.length; i++) {
-    (function (img) {
-      var fallbackSrc = img.getAttribute('data-fallback');
-      // Handle images that already failed before JS loaded
-      if (img.complete && img.naturalWidth === 0 && img.src !== fallbackSrc) {
-        img.src = fallbackSrc;
-        img.style.objectFit = 'contain';
-        return;
-      }
-      // Handle future load errors
-      img.addEventListener('error', function () {
-        if (img.src !== fallbackSrc) {
-          img.src = fallbackSrc;
-          img.style.objectFit = 'contain';
-        }
-      }, { once: true });
-    })(fallbackImages[i]);
-  }
+  // Image fallback is handled by main-core.js unified handler (data-fallback attribute)
 
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return;

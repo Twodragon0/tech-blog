@@ -152,7 +152,15 @@ title: Home
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback-src="{{ '/assets/images/og-default.png' | relative_url }}">
+              {% comment %}OG format variants (plugin already converts .svg→_og.png){% endcomment %}
+              {% assign card_img = post.image | relative_url %}
+              {% assign card_webp = card_img | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+              {% assign card_avif = card_img | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+              <picture>
+                <source srcset="{{ card_avif }}" type="image/avif">
+                <source srcset="{{ card_webp }}" type="image/webp">
+                <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
+              </picture>
             </div>
             {% endif %}
             <div class="post-card-content">

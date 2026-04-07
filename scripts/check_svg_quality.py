@@ -89,7 +89,9 @@ def check_svg_file(path: Path) -> list[Issue]:
         found = set(FORBIDDEN_CHARS_RE.findall(text_content))
         if found:
             chars = ", ".join(repr(c) for c in sorted(found))
-            issues.append(Issue("WARNING", f"Forbidden special characters in <text>: {chars}"))
+            issues.append(
+                Issue("WARNING", f"Forbidden special characters in <text>: {chars}")
+            )
 
     return issues
 
@@ -120,7 +122,9 @@ def fix_svg_dimensions(path: Path) -> bool:
 
     tag = svg_tag_match.group(1).rstrip()
     new_tag = f'{tag} width="{w}" height="{h}"' + svg_tag_match.group(2)
-    content = content[: svg_tag_match.start()] + new_tag + content[svg_tag_match.end() :]
+    content = (
+        content[: svg_tag_match.start()] + new_tag + content[svg_tag_match.end() :]
+    )
     path.write_text(content, encoding="utf-8")
     return True
 
@@ -182,7 +186,11 @@ def main() -> int:
         fixed = 0
         for path in svg_files:
             if fix_svg_dimensions(path):
-                rel = path.relative_to(PROJECT_ROOT) if path.is_absolute() and path.is_relative_to(PROJECT_ROOT) else path
+                rel = (
+                    path.relative_to(PROJECT_ROOT)
+                    if path.is_absolute() and path.is_relative_to(PROJECT_ROOT)
+                    else path
+                )
                 print(f"[FIXED] {rel}")
                 fixed += 1
         print(f"\nFixed {fixed} / {len(svg_files)} files")
@@ -209,7 +217,11 @@ def main() -> int:
             status = "PASS"
             total_pass += 1
 
-        rel = path.relative_to(PROJECT_ROOT) if path.is_absolute() and path.is_relative_to(PROJECT_ROOT) else path
+        rel = (
+            path.relative_to(PROJECT_ROOT)
+            if path.is_absolute() and path.is_relative_to(PROJECT_ROOT)
+            else path
+        )
         print(f"[{status}] {rel}")
         for issue in issues:
             prefix = "  [FAIL]" if issue.level == "FAIL" else "  [WARN]"

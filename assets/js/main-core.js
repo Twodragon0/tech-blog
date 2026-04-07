@@ -394,26 +394,56 @@
       });
     }
 
-    const bindImageFallback = (img) => {
-      if (!img || img.dataset.fallbackBound === '1') {
+    // Unified image fallback via event delegation (CSP-compliant, no inline onerror)
+    // Supports SVG→PNG→default 3-stage chain via data-svg-src and data-fallback
+    document.addEventListener('error', function(e) {
+      var img = e.target;
+      if (img.tagName !== 'IMG') return;
+      // Stage 1: Try SVG source if available
+      var svgSrc = img.getAttribute('data-svg-src');
+      if (svgSrc && svgSrc !== '' && img.getAttribute('src') !== svgSrc) {
+        img.setAttribute('src', svgSrc);
+        img.removeAttribute('data-svg-src');
         return;
       }
+      // Stage 2: Try fallback image
+      var fallback = img.getAttribute('data-fallback');
+      if (fallback && img.getAttribute('src') !== fallback) {
+        img.setAttribute('src', fallback);
+        img.removeAttribute('data-fallback');
+        return;
+      }
+      // Stage 3: No fallback available - hide wrapper
+      var wrapper = img.closest('.post-card-image');
+      if (wrapper) {
+        wrapper.style.display = 'none';
+      }
+    }, true);
 
-      img.dataset.fallbackBound = '1';
-      img.addEventListener('error', () => {
-        const fallbackSrc = img.getAttribute('data-fallback-src');
-        if (fallbackSrc && img.getAttribute('src') !== fallbackSrc) {
-          img.setAttribute('src', fallbackSrc);
-          return;
+    // Handle images that already failed before JS loaded
+    document.querySelectorAll('img[data-fallback]').forEach(function(img) {
+      if (img.complete && img.naturalWidth === 0) {
+        var svgSrc = img.getAttribute('data-svg-src');
+        if (svgSrc && svgSrc !== '' && img.getAttribute('src') !== svgSrc) {
+          img.setAttribute('src', svgSrc);
+          img.removeAttribute('data-svg-src');
+        } else {
+          var fallback = img.getAttribute('data-fallback');
+          if (fallback && img.getAttribute('src') !== fallback) {
+            img.setAttribute('src', fallback);
+          }
         }
+      }
+    });
 
-        const wrapper = img.closest('.post-card-image');
-        if (wrapper) {
-          wrapper.style.display = 'none';
-        }
-      });
-    };
-
-    document.querySelectorAll('img[data-fallback-src]').forEach(bindImageFallback);
+    // Mark loaded images to remove skeleton shimmer
+    document.querySelectorAll('.post-card-image img').forEach(function(img) {
+      if (img.complete && img.naturalHeight > 0) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() { this.classList.add('loaded'); });
+        img.addEventListener('error', function() { this.classList.add('loaded'); });
+      }
+    });
   });
 })();

@@ -162,6 +162,35 @@
   min-height: 200px;
   contain: layout style;
   cursor: zoom-in;
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary, #e2e8f0));
+}
+
+/* Hero image skeleton shimmer */
+.post-header .post-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: hero-shimmer 1.5s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.post-header .post-image:has(img.loaded)::before {
+  display: none;
+}
+
+@keyframes hero-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+[data-theme="dark"] .post-header .post-image::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: hero-shimmer 1.5s ease-in-out infinite;
 }
 
 .post-header .post-image img {
@@ -172,6 +201,8 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background-color: var(--color-bg-secondary);
+  position: relative;
+  z-index: 2;
 }
 
 /* SVG 헤더 이미지는 aspect-ratio 제거 */

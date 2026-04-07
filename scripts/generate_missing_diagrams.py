@@ -19,11 +19,11 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.lib.security import mask_sensitive_info
-from scripts.lib.logging_utils import log_message
-
 import requests
 from dotenv import load_dotenv
+
+from scripts.lib.logging_utils import log_message
+from scripts.lib.security import mask_sensitive_info
 
 # .env 파일에서 환경 변수 로드
 load_dotenv()
@@ -39,7 +39,6 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # nosec B105
 GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent"
 GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent"
 USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
-
 
 
 def extract_diagram_references(content: str) -> List[Tuple[str, str]]:

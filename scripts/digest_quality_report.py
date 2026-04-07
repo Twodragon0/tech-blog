@@ -26,13 +26,25 @@ _ENGLISH_HEADER = re.compile(r"^\*\*[A-Za-z0-9 /\-&.]+\*\*$")
 
 # Acceptable English-only headers (industry standard terms)
 _ALLOWED_ENGLISH_HEADERS = {
-    "**AI/ML**", "**AI/LLM**", "**CVE ID**", "**Ransomware**",
-    "**K8s**", "**Container/K8s**", "**DevOps**", "**DevSecOps**", "**FinOps**",
-    "**CVSS**", "**MITRE ATT&CK**", "**IoC**", "**IoT/OT**",
+    "**AI/ML**",
+    "**AI/LLM**",
+    "**CVE ID**",
+    "**Ransomware**",
+    "**K8s**",
+    "**Container/K8s**",
+    "**DevOps**",
+    "**DevSecOps**",
+    "**FinOps**",
+    "**CVSS**",
+    "**MITRE ATT&CK**",
+    "**IoC**",
+    "**IoT/OT**",
 }
 
 # Proper Korean sentence endings
-_KOREAN_ENDINGS = re.compile(r"(습니다|됩니다|했습니다|입니다|됨|임|다)\.\s*$|[.!?]\s*$")
+_KOREAN_ENDINGS = re.compile(
+    r"(습니다|됩니다|했습니다|입니다|됨|임|다)\.\s*$|[.!?]\s*$"
+)
 
 
 def find_digest_posts(month: str = None) -> list:
@@ -47,6 +59,12 @@ def find_digest_posts(month: str = None) -> list:
 
 def analyze_post(filepath: Path) -> dict:
     """Analyze a single post for quality issues."""
+    issues = {
+        "truncated_cells": [],
+        "english_headers": [],
+        "incomplete_highlights": [],
+        "summary_quality": "ok",
+    }
     try:
         content = filepath.read_text(encoding="utf-8")
     except UnicodeDecodeError:
@@ -72,9 +90,7 @@ def analyze_post(filepath: Path) -> dict:
             # Check for truncated table cells (핵심 내용 / 주요 키워드)
             for cell in cells:
                 if len(cell) > 30 and _TRUNCATION_PARTICLES.search(cell):
-                    issues["truncated_cells"].append(
-                        {"line": i, "text": cell[-60:]}
-                    )
+                    issues["truncated_cells"].append({"line": i, "text": cell[-60:]})
 
             # Check for English-only trend headers
             for cell in cells:
@@ -83,9 +99,7 @@ def analyze_post(filepath: Path) -> dict:
                     and len(cell) > 6
                     and cell not in _ALLOWED_ENGLISH_HEADERS
                 ):
-                    issues["english_headers"].append(
-                        {"line": i, "text": cell}
-                    )
+                    issues["english_headers"].append({"line": i, "text": cell})
         elif in_table and not stripped.startswith("|"):
             in_table = False
 
@@ -146,9 +160,7 @@ def generate_report(posts: list) -> dict:
             if issues["summary_quality"] != "ok":
                 report["generic_summaries"] += 1
 
-            report["details"].append(
-                {"file": post.name, "issues": issues}
-            )
+            report["details"].append({"file": post.name, "issues": issues})
 
     return report
 
@@ -202,12 +214,8 @@ def print_report(report: dict):
 
 def main():
     parser = argparse.ArgumentParser(description="Digest quality report")
-    parser.add_argument(
-        "--month", help="Month to check (YYYY-MM)", default=None
-    )
-    parser.add_argument(
-        "--all", action="store_true", help="Check all Digest posts"
-    )
+    parser.add_argument("--month", help="Month to check (YYYY-MM)", default=None)
+    parser.add_argument("--all", action="store_true", help="Check all Digest posts")
     parser.add_argument(
         "--ci", action="store_true", help="Exit with code 1 if issues found"
     )
@@ -224,6 +232,7 @@ def main():
         posts = find_digest_posts(args.month)
     else:
         from datetime import datetime
+
         posts = find_digest_posts(datetime.now().strftime("%Y-%m"))
 
     if not posts:

@@ -54,7 +54,6 @@ def load_env_file(env_path: Path) -> None:
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from scripts.lib.security import mask_sensitive_info
 
-
 env_path = PROJECT_ROOT / ".env"
 load_env_file(env_path)
 

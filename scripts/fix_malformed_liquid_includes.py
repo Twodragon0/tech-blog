@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-
 CURLY_QUOTES = {
     "\u201c": '"',  # LEFT DOUBLE QUOTATION MARK
     "\u201d": '"',  # RIGHT DOUBLE QUOTATION MARK

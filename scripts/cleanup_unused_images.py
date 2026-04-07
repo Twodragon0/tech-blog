@@ -19,7 +19,6 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-
 REPO_ROOT = Path(__file__).parent.parent
 POSTS_DIR = REPO_ROOT / "_posts"
 IMAGES_DIR = REPO_ROOT / "assets" / "images"
@@ -51,7 +50,9 @@ def extract_image_refs_from_file(filepath: Path) -> set[str]:
         return refs
 
     # front matter image: /assets/images/...
-    for match in re.finditer(r"^image\s*:\s*['\"]?(/assets/images/[^\s'\"]+)['\"]?", content, re.MULTILINE):
+    for match in re.finditer(
+        r"^image\s*:\s*['\"]?(/assets/images/[^\s'\"]+)['\"]?", content, re.MULTILINE
+    ):
         refs.add(match.group(1))
 
     # Markdown image syntax: ![alt](path)
@@ -59,16 +60,22 @@ def extract_image_refs_from_file(filepath: Path) -> set[str]:
         refs.add(match.group(1))
 
     # HTML img src: <img src="/assets/images/...">
-    for match in re.finditer(r'<img[^>]+src=["\']([^"\']*assets/images/[^"\']+)["\']', content):
+    for match in re.finditer(
+        r'<img[^>]+src=["\']([^"\']*assets/images/[^"\']+)["\']', content
+    ):
         refs.add(match.group(1))
 
     # HTML picture source srcset: <source srcset="...">
-    for match in re.finditer(r'<source[^>]+srcset=["\']([^"\']*assets/images/[^"\']+)["\']', content):
+    for match in re.finditer(
+        r'<source[^>]+srcset=["\']([^"\']*assets/images/[^"\']+)["\']', content
+    ):
         path = match.group(1).split()[0]  # srcset에서 첫 URL만
         refs.add(path)
 
     # src= 또는 href= 패턴 (레이아웃/인클루드용)
-    for match in re.finditer(r'(?:src|href)=["\']([^"\']*assets/images/[^"\']+)["\']', content):
+    for match in re.finditer(
+        r'(?:src|href)=["\']([^"\']*assets/images/[^"\']+)["\']', content
+    ):
         refs.add(match.group(1))
 
     # Liquid {{ ... }} 내부 assets/images 참조
@@ -78,7 +85,9 @@ def extract_image_refs_from_file(filepath: Path) -> set[str]:
             refs.add(m2.group(1))
 
     # {% raw %}{{ '/assets/images/...' | filter }}{% endraw %} 패턴
-    for match in re.finditer(r"\{%-?\s*raw\s*-?%\}(.*?)\{%-?\s*endraw\s*-?%\}", content, re.DOTALL):
+    for match in re.finditer(
+        r"\{%-?\s*raw\s*-?%\}(.*?)\{%-?\s*endraw\s*-?%\}", content, re.DOTALL
+    ):
         inner = match.group(1)
         for m2 in re.finditer(r"['\"]([^'\"]*assets/images/[^'\"]+)['\"]", inner):
             refs.add(m2.group(1))
@@ -91,9 +100,9 @@ def normalize_ref(ref: str) -> str:
     ref = ref.strip()
     # /assets/images/ 또는 assets/images/ 제거
     if ref.startswith("/assets/images/"):
-        return ref[len("/assets/images/"):]
+        return ref[len("/assets/images/") :]
     if ref.startswith("assets/images/"):
-        return ref[len("assets/images/"):]
+        return ref[len("assets/images/") :]
     return ref
 
 
@@ -196,7 +205,11 @@ def is_referenced(image_path: Path, refs_map: dict[str, set[Path]]) -> bool:
     # 예: foo_og.png -> foo.svg / foo.png 가 참조되면 OK
     stem = image_path.stem
     ext = image_path.suffix.lower()
-    parent_rel = str(image_path.parent.relative_to(IMAGES_DIR)) if image_path.parent != IMAGES_DIR else ""
+    parent_rel = (
+        str(image_path.parent.relative_to(IMAGES_DIR))
+        if image_path.parent != IMAGES_DIR
+        else ""
+    )
 
     def make_rel(name: str) -> str:
         if parent_rel and parent_rel != ".":
@@ -259,7 +272,7 @@ def analyze(verbose: bool = False, show_missing: bool = False) -> dict:
     missing_images: dict[str, set[Path]] = {}  # 참조는 있지만 파일 없음
     # _unused_archive 내 파일을 빠른 검색용 이름 맵으로 구성
     archive_by_name: dict[str, Path] = {}  # filename -> path
-    archive_by_rel: dict[str, Path] = {}   # rel path from _unused_archive -> path
+    archive_by_rel: dict[str, Path] = {}  # rel path from _unused_archive -> path
     for f in archive_images:
         archive_by_name[f.name] = f
         rel = str(f.relative_to(ARCHIVE_DIR))
@@ -311,7 +324,9 @@ def analyze(verbose: bool = False, show_missing: bool = False) -> dict:
     }
 
 
-def print_report(result: dict, verbose: bool = False, show_missing: bool = False) -> None:
+def print_report(
+    result: dict, verbose: bool = False, show_missing: bool = False
+) -> None:
     """분석 결과를 출력합니다."""
     active_images = result["active_images"]
     archive_images = result["archive_images"]
@@ -340,7 +355,9 @@ def print_report(result: dict, verbose: bool = False, show_missing: bool = False
     print("=" * 65)
 
     if restorable_images and (verbose or show_missing):
-        print(f"\n[복원 가능한 이미지] (_unused_archive에 존재, {len(restorable_images)}개)")
+        print(
+            f"\n[복원 가능한 이미지] (_unused_archive에 존재, {len(restorable_images)}개)"
+        )
         print("-" * 65)
         for ref_norm in sorted(restorable_images.keys()):
             archive_path = restorable_images[ref_norm]
@@ -355,7 +372,9 @@ def print_report(result: dict, verbose: bool = False, show_missing: bool = False
 
     if verbose or show_missing:
         if missing_images:
-            print(f"\n[진짜 누락된 이미지 목록] (참조O/파일X, 아카이브에도 없음, {len(missing_images)}개)")
+            print(
+                f"\n[진짜 누락된 이미지 목록] (참조O/파일X, 아카이브에도 없음, {len(missing_images)}개)"
+            )
             print("-" * 65)
             for ref_norm in sorted(missing_images.keys()):
                 source_files = missing_images[ref_norm]
@@ -366,7 +385,9 @@ def print_report(result: dict, verbose: bool = False, show_missing: bool = False
                 for post in post_sources:
                     print(f"           <- {post}")
         else:
-            print("\n누락된 이미지가 없습니다. (모든 참조 이미지가 존재하거나 아카이브에 있음)")
+            print(
+                "\n누락된 이미지가 없습니다. (모든 참조 이미지가 존재하거나 아카이브에 있음)"
+            )
 
     if verbose:
         print(f"\n[미사용 이미지 목록] (활성 디렉토리, {len(unused_images)}개)")
@@ -390,7 +411,9 @@ def print_report(result: dict, verbose: bool = False, show_missing: bool = False
     print()
 
 
-def restore_from_archive(restorable_images: dict[str, Path], skip_confirm: bool = False) -> None:
+def restore_from_archive(
+    restorable_images: dict[str, Path], skip_confirm: bool = False
+) -> None:
     """아카이브에서 복원 가능한 이미지를 활성 디렉토리로 복사합니다."""
     import shutil
 
@@ -403,7 +426,9 @@ def restore_from_archive(restorable_images: dict[str, Path], skip_confirm: bool 
         print(f"  {archive_path.name} → assets/images/{ref_norm}")
 
     if not skip_confirm:
-        confirm = input(f"\n{len(restorable_images)}개 파일을 복원하시겠습니까? (yes/no): ")
+        confirm = input(
+            f"\n{len(restorable_images)}개 파일을 복원하시겠습니까? (yes/no): "
+        )
         if confirm.strip().lower() != "yes":
             print("복원 취소됨.")
             return
@@ -421,7 +446,9 @@ def restore_from_archive(restorable_images: dict[str, Path], skip_confirm: bool 
     print(f"복원 완료: {restored}개")
 
 
-def delete_unused(unused_images: list[Path], dry_run: bool = True, skip_confirm: bool = False) -> None:
+def delete_unused(
+    unused_images: list[Path], dry_run: bool = True, skip_confirm: bool = False
+) -> None:
     """미사용 이미지를 삭제합니다."""
     if not unused_images:
         print("삭제할 미사용 이미지가 없습니다.")
@@ -435,7 +462,9 @@ def delete_unused(unused_images: list[Path], dry_run: bool = True, skip_confirm:
         return
 
     if not skip_confirm:
-        confirm = input(f"\n정말로 {len(unused_images)}개 파일을 삭제하시겠습니까? (yes/no): ")
+        confirm = input(
+            f"\n정말로 {len(unused_images)}개 파일을 삭제하시겠습니까? (yes/no): "
+        )
         if confirm.strip().lower() != "yes":
             print("삭제 취소됨.")
             return
@@ -465,15 +494,30 @@ def main() -> None:
   python3 scripts/cleanup_unused_images.py --delete     # 미사용 이미지 삭제 (확인 필요)
 """,
     )
-    parser.add_argument("--verbose", "-v", action="store_true", help="미사용 이미지 전체 목록 출력")
-    parser.add_argument("--missing", "-m", action="store_true", help="누락 이미지 목록만 출력")
-    parser.add_argument("--delete", "-d", action="store_true", help="미사용 이미지 실제 삭제 (확인 프롬프트)")
-    parser.add_argument("--restore", "-r", action="store_true", help="아카이브에서 누락 이미지 복원")
-    parser.add_argument("--yes", "-y", action="store_true", help="확인 프롬프트 없이 실행")
+    parser.add_argument(
+        "--verbose", "-v", action="store_true", help="미사용 이미지 전체 목록 출력"
+    )
+    parser.add_argument(
+        "--missing", "-m", action="store_true", help="누락 이미지 목록만 출력"
+    )
+    parser.add_argument(
+        "--delete",
+        "-d",
+        action="store_true",
+        help="미사용 이미지 실제 삭제 (확인 프롬프트)",
+    )
+    parser.add_argument(
+        "--restore", "-r", action="store_true", help="아카이브에서 누락 이미지 복원"
+    )
+    parser.add_argument(
+        "--yes", "-y", action="store_true", help="확인 프롬프트 없이 실행"
+    )
     args = parser.parse_args()
 
     result = analyze()
-    print_report(result, verbose=args.verbose, show_missing=args.missing or args.verbose)
+    print_report(
+        result, verbose=args.verbose, show_missing=args.missing or args.verbose
+    )
 
     if args.restore:
         restore_from_archive(result["restorable_images"], skip_confirm=args.yes)
@@ -488,7 +532,9 @@ def main() -> None:
             print("  --delete  옵션: 미사용 이미지 삭제 실행 (확인 필요)")
         # 복원 가능한 이미지가 있으면 안내
         if result["restorable_images"] and not args.missing and not args.verbose:
-            print(f"\n[안내] {len(result['restorable_images'])}개 이미지가 _unused_archive에 있어 복원 가능합니다.")
+            print(
+                f"\n[안내] {len(result['restorable_images'])}개 이미지가 _unused_archive에 있어 복원 가능합니다."
+            )
             print("  --missing 옵션으로 상세 내용을 확인하세요.")
 
 

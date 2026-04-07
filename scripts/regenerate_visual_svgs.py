@@ -20,19 +20,84 @@ from pathlib import Path
 IMAGES_DIR = Path("assets/images")
 
 THEME_KEYWORDS = {
-    "threat": ["zero-day", "cve", "vulnerability", "ransomware", "malware",
-               "exploit", "threat", "attack", "patch", "breach", "security",
-               "incident", "phishing", "botnet", "ddos", "worm", "edr"],
-    "neural": ["ai", "ml", "llm", "agent", "gpt", "model", "deep",
-               "coding", "assistant", "openai", "gemini", "claude", "chatgpt"],
-    "cloud": ["cloud", "aws", "gcp", "azure", "kubernetes", "k8s",
-              "docker", "eks", "gke", "iam", "vpc", "waf", "guardduty",
-              "cloudfront", "cloudflare", "control-tower", "isms"],
-    "pipeline": ["devops", "devsecops", "pipeline", "deploy", "container",
-                 "go", "rust", "ci", "cd", "helm", "karpenter", "datadog",
-                 "terraform", "roadmap"],
-    "chain": ["blockchain", "bitcoin", "ethereum", "defi", "web3", "crypto",
-              "cryptocurrency"],
+    "threat": [
+        "zero-day",
+        "cve",
+        "vulnerability",
+        "ransomware",
+        "malware",
+        "exploit",
+        "threat",
+        "attack",
+        "patch",
+        "breach",
+        "security",
+        "incident",
+        "phishing",
+        "botnet",
+        "ddos",
+        "worm",
+        "edr",
+    ],
+    "neural": [
+        "ai",
+        "ml",
+        "llm",
+        "agent",
+        "gpt",
+        "model",
+        "deep",
+        "coding",
+        "assistant",
+        "openai",
+        "gemini",
+        "claude",
+        "chatgpt",
+    ],
+    "cloud": [
+        "cloud",
+        "aws",
+        "gcp",
+        "azure",
+        "kubernetes",
+        "k8s",
+        "docker",
+        "eks",
+        "gke",
+        "iam",
+        "vpc",
+        "waf",
+        "guardduty",
+        "cloudfront",
+        "cloudflare",
+        "control-tower",
+        "isms",
+    ],
+    "pipeline": [
+        "devops",
+        "devsecops",
+        "pipeline",
+        "deploy",
+        "container",
+        "go",
+        "rust",
+        "ci",
+        "cd",
+        "helm",
+        "karpenter",
+        "datadog",
+        "terraform",
+        "roadmap",
+    ],
+    "chain": [
+        "blockchain",
+        "bitcoin",
+        "ethereum",
+        "defi",
+        "web3",
+        "crypto",
+        "cryptocurrency",
+    ],
 }
 
 THEME_COLORS = {
@@ -73,8 +138,21 @@ def extract_title(filename: str) -> str:
 def extract_date(filename: str) -> str:
     match = re.match(r"(\d{4})-(\d{2})-(\d{2})", Path(filename).name)
     if match:
-        months = ["", "January", "February", "March", "April", "May", "June",
-                   "July", "August", "September", "October", "November", "December"]
+        months = [
+            "",
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ]
         y, m, d = match.groups()
         return f"{months[int(m)]} {int(d)}, {y}"
     return "2026"
@@ -84,14 +162,25 @@ def extract_subtopics(filename: str) -> str:
     name = Path(filename).stem.lower()
     found = []
     topic_map = {
-        "security": "Security", "aws": "AWS", "cloud": "Cloud",
-        "kubernetes": "K8s", "docker": "Docker", "ai": "AI",
-        "devsecops": "DevSecOps", "devops": "DevOps",
-        "blockchain": "Blockchain", "bitcoin": "Bitcoin",
-        "ransomware": "Ransomware", "zero.day": "Zero-Day",
-        "malware": "Malware", "isms": "ISMS-P",
-        "finops": "FinOps", "llm": "LLM", "mcp": "MCP",
-        "tesla": "Tesla", "owasp": "OWASP",
+        "security": "Security",
+        "aws": "AWS",
+        "cloud": "Cloud",
+        "kubernetes": "K8s",
+        "docker": "Docker",
+        "ai": "AI",
+        "devsecops": "DevSecOps",
+        "devops": "DevOps",
+        "blockchain": "Blockchain",
+        "bitcoin": "Bitcoin",
+        "ransomware": "Ransomware",
+        "zero.day": "Zero-Day",
+        "malware": "Malware",
+        "isms": "ISMS-P",
+        "finops": "FinOps",
+        "llm": "LLM",
+        "mcp": "MCP",
+        "tesla": "Tesla",
+        "owasp": "OWASP",
     }
     for key, label in topic_map.items():
         if key in name and label not in found:
@@ -579,7 +668,7 @@ def generate_visual_svg(filename: str) -> str:
         tag_x += tw + 12
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>{headline}</title>
+  <title>{title}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f8fafc"/>
@@ -699,8 +788,12 @@ def is_card_based(filepath: str) -> bool:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert card-based SVGs to visual illustrations")
-    parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
+    parser = argparse.ArgumentParser(
+        description="Convert card-based SVGs to visual illustrations"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Preview without writing"
+    )
     parser.add_argument("--file", type=str, help="Convert specific file")
     parser.add_argument("--yes", "-y", action="store_true", help="Skip confirmation")
     args = parser.parse_args()

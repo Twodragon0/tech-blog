@@ -11,10 +11,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
 
-
 # ---------------------------------------------------------------------------
 # mask_sensitive_info
 # ---------------------------------------------------------------------------
+
 
 class TestMaskSensitiveInfo:
     def test_masks_sk_ant_api_key(self):
@@ -85,6 +85,7 @@ class TestMaskSensitiveInfo:
 # ---------------------------------------------------------------------------
 # validate_masked_text
 # ---------------------------------------------------------------------------
+
 
 class TestValidateMaskedText:
     def test_returns_true_for_clean_text(self):

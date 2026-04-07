@@ -1,0 +1,27 @@
+{
+  "version": "4.11.0",
+  "mode": "ultrawork",
+  "ccg": {
+    "enabled": true,
+    "codex": {
+      "focus": "correctness,content-structure"
+    },
+    "gemini": {
+      "enabled": true,
+      "focus": "alternatives,ux-clarity,edge-cases,docs"
+    }
+  },
+  "leadAgents": {
+    "primary": "writer",
+    "secondary": [
+      "designer",
+      "executor"
+    ],
+    "review": [
+      "code-reviewer"
+    ]
+  },
+  "ecomode": true,
+  "hud": "full",
+  "bashHistory": true
+}

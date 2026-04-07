@@ -26,7 +26,8 @@
 {% assign severity_class = severity_label | downcase %}
 {% assign card_image = include.image | default: '' %}
 {% if card_image == '' and include.url %}
-  {% assign card_image = 'https://www.google.com/s2/favicons?sz=256&domain_url=' | append: include.url | url_encode %}
+  {% assign encoded_url = include.url | url_encode %}
+  {% assign card_image = 'https://www.google.com/s2/favicons?sz=256&domain_url=' | append: encoded_url %}
 {% endif %}
 {% assign card_summary = include.summary | default: '' %}
 {% if card_summary == '' %}
@@ -51,5 +52,6 @@
       <span class="news-card__severity news-card__severity--{{ severity_class }}">{{ severity_label }}</span>
     </div>
     <p class="news-card__summary">{{ card_summary }}</p>
+    {% if include.url %}<a class="news-card__link" href="{{ include.url }}" target="_blank" rel="noopener noreferrer">원문 보기 →</a>{% endif %}
   </div>
 </div>

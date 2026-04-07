@@ -14,10 +14,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 # ──────────────────────────────────────────────
 # Helper: front matter 파싱
 # ──────────────────────────────────────────────
+
 
 def parse_front_matter(content: str) -> dict:
     """YAML front matter에서 주요 필드를 추출합니다."""
@@ -47,12 +47,12 @@ def parse_front_matter(content: str) -> dict:
         result["description"] = m.group(1).strip().strip('"').strip("'")
 
     # categories
-    cat_m = re.search(r'^categories:\s*\n((?:^- .+\n?)+)', fm_text, re.MULTILINE)
+    cat_m = re.search(r"^categories:\s*\n((?:^- .+\n?)+)", fm_text, re.MULTILINE)
     if cat_m:
         result["categories"] = re.findall(r"- (.+)", cat_m.group(1))
 
     # category (single-value field)
-    m = re.search(r'^category:\s*\[?(.+?)\]?\s*$', fm_text, re.MULTILINE)
+    m = re.search(r"^category:\s*\[?(.+?)\]?\s*$", fm_text, re.MULTILINE)
     if m:
         raw = m.group(1).strip()
         cats = [c.strip().strip('"').strip("'") for c in raw.split(",")]
@@ -64,9 +64,11 @@ def parse_front_matter(content: str) -> dict:
         result["title"] = m.group(1).strip().strip('"').strip("'")
 
     # tags
-    tag_m = re.search(r'^tags:\s*\[(.+?)\]', fm_text, re.MULTILINE)
+    tag_m = re.search(r"^tags:\s*\[(.+?)\]", fm_text, re.MULTILINE)
     if tag_m:
-        result["tags"] = [t.strip().strip('"').strip("'") for t in tag_m.group(1).split(",")]
+        result["tags"] = [
+            t.strip().strip('"').strip("'") for t in tag_m.group(1).split(",")
+        ]
 
     return result
 
@@ -75,22 +77,32 @@ def parse_front_matter(content: str) -> dict:
 # Helper: 스마트 요약 생성
 # ──────────────────────────────────────────────
 
+
 def _trim_summary(text: str) -> str:
     """Summary 텍스트를 150자 이내로 정리합니다."""
     text = text.strip()
     if len(text) > 150:
         truncated = text[:147]
-        last_period = max(truncated.rfind('.'), truncated.rfind('다.'))
+        last_period = max(truncated.rfind("."), truncated.rfind("다."))
         if last_period > 80:
-            return text[:last_period + 1]
+            return text[: last_period + 1]
         return truncated + "..."
     return text
 
 
 def _extract_key_topics(content: str) -> str:
     """본문에서 주요 토픽 키워드를 추출합니다 (## 헤딩 기반)."""
-    headings = re.findall(r'^##\s+(.+?)$', content, re.MULTILINE)
-    skip = {"Executive Summary", "경영진 브리핑", "위험도 평가", "위험 스코어카드", "참고", "References", "마무리", "결론"}
+    headings = re.findall(r"^##\s+(.+?)$", content, re.MULTILINE)
+    skip = {
+        "Executive Summary",
+        "경영진 브리핑",
+        "위험도 평가",
+        "위험 스코어카드",
+        "참고",
+        "References",
+        "마무리",
+        "결론",
+    }
     topics = [h.strip() for h in headings if h.strip() not in skip][:3]
     if not topics:
         return "주요 기술 동향"
@@ -132,6 +144,7 @@ def generate_smart_summary(fm: dict, post_type: str, content: str) -> str:
 # Helper: 포스트 타입 판별
 # ──────────────────────────────────────────────
 
+
 def classify_post(filepath: Path, fm: dict) -> str:
     """포스트 유형을 파일명과 카테고리에서 결정합니다."""
     name = filepath.name.lower()
@@ -152,13 +165,14 @@ def classify_post(filepath: Path, fm: dict) -> str:
 # Helper: 위험도 텍스트 결정
 # ──────────────────────────────────────────────
 
+
 def risk_level_text(post_type: str) -> str:
     mapping = {
-        "incident":       "🔴 높음 | 즉시 대응 및 패치 적용 필요",
-        "cloud_course":   "🟢 낮음 | 교육 목적 실습 환경 중심",
-        "weekly_digest":  "🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요",
+        "incident": "🔴 높음 | 즉시 대응 및 패치 적용 필요",
+        "cloud_course": "🟢 낮음 | 교육 목적 실습 환경 중심",
+        "weekly_digest": "🟡 중간 | 주요 보안 위협 모니터링 및 패치 적용 필요",
         "security_guide": "🟡 중간 | 보안 설정 점검 및 강화 필요",
-        "general":        "🟡 중간 | 보안 업데이트 및 모니터링 필요",
+        "general": "🟡 중간 | 보안 업데이트 및 모니터링 필요",
     }
     return mapping.get(post_type, mapping["general"])
 
@@ -166,6 +180,7 @@ def risk_level_text(post_type: str) -> str:
 # ──────────────────────────────────────────────
 # Helper: 삽입 위치 탐색
 # ──────────────────────────────────────────────
+
 
 def find_insert_position(content: str) -> int:
     """
@@ -182,24 +197,24 @@ def find_insert_position(content: str) -> int:
     for i, line in enumerate(lines):
         stripped = line.strip()
         # 시작: {%- include ai-summary-card 또는 {% include ai-summary-card
-        if re.search(r'\{%-?\s*include\s+ai-summary-card', stripped):
+        if re.search(r"\{%-?\s*include\s+ai-summary-card", stripped):
             in_include = True
         if in_include:
             # 블록 끝: -%} 또는 %} 로 끝나는 줄
-            if re.search(r'-%\}', stripped) or (stripped.endswith('%}') and i > 0):
+            if re.search(r"-%\}", stripped) or (stripped.endswith("%}") and i > 0):
                 # 다음 줄(빈 줄 포함)부터 삽입
-                pos = sum(len(l) for l in lines[:i + 1])
+                pos = sum(len(l) for l in lines[: i + 1])
                 return pos
 
     # 2. {% endcapture %} 블록 탐색
     for i, line in enumerate(lines):
-        if re.search(r'\{%-?\s*endcapture\s*-?%\}', line.strip()):
-            pos = sum(len(l) for l in lines[:i + 1])
+        if re.search(r"\{%-?\s*endcapture\s*-?%\}", line.strip()):
+            pos = sum(len(l) for l in lines[: i + 1])
             return pos
 
     # 3. 첫 번째 ## 헤딩 직전
     for i, line in enumerate(lines):
-        if re.match(r'^## ', line):
+        if re.match(r"^## ", line):
             pos = sum(len(l) for l in lines[:i])
             return pos
 
@@ -210,6 +225,7 @@ def find_insert_position(content: str) -> int:
 # ──────────────────────────────────────────────
 # Helper: 섹션 생성
 # ──────────────────────────────────────────────
+
 
 def make_executive_summary(summary_text: str) -> str:
     return f"\n## Executive Summary\n\n> **경영진 브리핑**: {summary_text}\n"
@@ -275,11 +291,14 @@ def make_checklist(post_type: str) -> str:
 # 품질 점수 조회
 # ──────────────────────────────────────────────
 
+
 def get_quality_score(filepath: Path) -> tuple[int, dict]:
     """validate_post_quality.py 를 실행해 점수와 세부 항목을 반환합니다."""
     result = subprocess.run(
         [sys.executable, "scripts/validate_post_quality.py", str(filepath)],
-        capture_output=True, text=True, cwd=filepath.parent.parent
+        capture_output=True,
+        text=True,
+        cwd=filepath.parent.parent,
     )
     output = result.stdout + result.stderr
 
@@ -301,6 +320,7 @@ def get_quality_score(filepath: Path) -> tuple[int, dict]:
 # 메인 처리 함수
 # ──────────────────────────────────────────────
 
+
 def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     """
     파일을 분석하고 필요한 섹션을 삽입합니다.
@@ -312,7 +332,7 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     score, items = get_quality_score(filepath)
 
     if score < 0:
-        return False, f"  점수 파싱 실패"
+        return False, "  점수 파싱 실패"
 
     needs_exec = items.get("executive_summary", 0) == 0
     needs_risk = items.get("risk_scorecard", 0) == 0
@@ -364,8 +384,7 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
     if fix:
         filepath.write_text(new_content, encoding="utf-8")
         return True, (
-            f"  [{score}/100] 섹션 추가: {', '.join(missing)}"
-            f"  (타입={post_type})"
+            f"  [{score}/100] 섹션 추가: {', '.join(missing)}  (타입={post_type})"
         )
     else:
         return True, (
@@ -378,18 +397,19 @@ def process_file(filepath: Path, fix: bool) -> tuple[bool, str]:
 # CLI
 # ──────────────────────────────────────────────
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="80점 미만 포스트에 Executive Summary / 위험 스코어카드 섹션을 추가합니다."
     )
     parser.add_argument("files", nargs="+", help="처리할 포스트 파일 경로")
     parser.add_argument(
-        "--fix", action="store_true",
-        help="실제로 파일을 수정합니다 (없으면 dry-run)"
+        "--fix", action="store_true", help="실제로 파일을 수정합니다 (없으면 dry-run)"
     )
     parser.add_argument(
-        "--dry-run", action="store_true",
-        help="변경 내용만 출력하고 파일을 수정하지 않습니다 (기본)"
+        "--dry-run",
+        action="store_true",
+        help="변경 내용만 출력하고 파일을 수정하지 않습니다 (기본)",
     )
     args = parser.parse_args()
 

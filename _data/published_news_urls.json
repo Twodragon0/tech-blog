@@ -1,366 +1,6 @@
 {
-  "updated_at": "2026-04-03T01:29:22.974810+00:00",
+  "updated_at": "2026-04-07T01:31:57.205472+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/trivy-security-scanner-github-actions.html",
-      "title": "Trivy Security Scanner GitHub Actions Breached, 75 Tags Hijacked to Steal CI/CD ",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html",
-      "title": "Critical Langflow Flaw CVE-2026-33017 Triggers Attacks within 20 Hours of Disclo",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/google-adds-24-hour-wait-for-unverified.html",
-      "title": "Google Adds 24-Hour Wait for Unverified App Sideloading to Reduce Malware and Sc",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/cti-realm-a-new-benchmark-for-end-to-end-detection-rule-generation-with-ai-agents/",
-      "title": "CTI-REALM: A new benchmark for end-to-end detection rule generation with AI agen",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/20/secure-agentic-ai-end-to-end/",
-      "title": "Secure agentic AI end-to-end",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune",
-      "title": "Build a Domain-Specific Embedding Model in Under a Day",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/ibm-granite/granite-libraries",
-      "title": "What's New in Mellea 0.4.0 + Granite Libraries Release",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/your-merge-forward-guide-to-kubecon-cloudnativecon-amsterdam/",
-      "title": "Your Merge Forward guide to KubeCon + CloudNativeCon Amsterdam",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/crossplane-and-ai-the-case-for-api-first-infrastructure/",
-      "title": "Crossplane and AI: The case for API-first infrastructure",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/03/20/kubecon-cloudnativecon-eu-2026-end-user-tab-recommendations-and-tips/",
-      "title": "KubeCon + CloudNativeCon EU 2026: End User TAB recommendations and tips",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/03/20/ingress2gateway-1-0-release/",
-      "title": "Announcing Ingress2Gateway 1.0: Your Path to Gateway API",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/03/20/running-agents-on-kubernetes-with-agent-sandbox/",
-      "title": "Running Agents on Kubernetes with Agent Sandbox",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/white-house-reaches-tentative-crypto",
-      "title": "White House Reaches Tentative Crypto Regulatory Agreement: Report",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/phong-le-calls-morgan-stanleys-bitcoin",
-      "title": "Phong Le Calls Morgan Stanley’s BTC ETF a “Monster Bitcoin” Bet With $160 Billio",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-holds-70000-amid-war",
-      "title": "Bitcoin Price Holds $70,000 as War-Driven Inflation Fears Meet Defensive Market ",
-      "published_date": "2026-03-21",
-      "expires_at": "2026-03-28T01:16:25.001344+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/fbi-warns-russian-hackers-target-signal.html",
-      "title": "FBI Warns Russian Hackers Target Signal, WhatsApp in Mass Phishing Attacks",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/oracle-patches-critical-cve-2026-21992.html",
-      "title": "Oracle Patches Critical CVE-2026-21992 Enabling Unauthenticated RCE in Identity ",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/trivy-supply-chain-attack-triggers-self.html",
-      "title": "Trivy Supply Chain Attack Triggers Self-Spreading CanisterWorm Across 47 npm Pac",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/cisa-flags-apple-craft-cms-laravel-bugs.html",
-      "title": "CISA Flags Apple, Craft CMS, Laravel Bugs in KEV, Orders Patching by April 3, 20",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/cftc-staff-clarify-expectations-crypto-collateral?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CFTC staff clarify expectations on using crypto as collateral",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/brazil-finance-minister-shelves-crypto-tax?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Brazil's finance minister shelves crypto tax policy due to election: Report",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/sec-crypto-guidance-final-nail-gensler-era?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "SEC crypto guidance puts the 'final nail' in the Gensler era: Analyst",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ethereum-25-rally-richest-eth-whale-return-profitable?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ethereum eyes 25% rally as richest ETH whales return to 'profitable state'",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/hong-kong-retiree-loses-840k-triple-scam?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Hong Kong retiree loses $840K in triple ‘crypto expert’ scam",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27724",
-      "title": "디자인 프로세스는 죽지 않았다, 압축되었을 뿐",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27723",
-      "title": "아동 보호를 인터넷 접근 통제로 바꾸지 말라",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27722",
-      "title": "시간이 필요한 것들",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27721",
-      "title": "인터넷 아카이브 차단은 AI를 막지 못하지만 웹의 역사 기록을 지워버림",
-      "published_date": "2026-03-22",
-      "expires_at": "2026-03-29T01:24:45.567978+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
-      "title": "SK쉴더스 EQST insight 통합 12월호",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
-      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
-      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://www.chainalysis.com/blog/lessons-from-the-resolv-hack/",
-      "title": "The Resolv Hack: How One Compromised Key Printed $23 Million",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/tokenized-deposits-europe-banks-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Banks push tokenized deposits as onchain cash race intensifies: Report",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/divergence-between-btc-gold-retail-central-bank?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BTC and gold divergence reflects split between retail and central banks: Analyst",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/fidelity-letter-sec-alternative-trading-systems?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Fidelity urges SEC to move further on crypto activity by broker-dealers",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/resolv-says-no-assets-lost-as-defi-partners-respond-to-usr-depeg?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Resolv says no assets lost as DeFi protocols respond to $24M USR exploit",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27749",
-      "title": "헤드폰 사용 거부 승객, 이제 United 항공편에서 퇴출 가능",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27748",
-      "title": "서구 자동차 제조사의 전기차 후퇴, 산업적 퇴보로 이어질 위험",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27747",
-      "title": "대규모 연구, 대마초가 불안·우울·외상후스트레스장애(PTSD)에 효과 없음 확인",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27746",
-      "title": "FFmpeg 101 (2024)",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=27745",
-      "title": "Grafeo – Rust로 구축된 빠르고 경량의 임베디드 그래프 데이터베이스",
-      "published_date": "2026-03-23",
-      "expires_at": "2026-03-30T01:23:43.162444+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/north-korean-hackers-abuse-vs-code-auto.html",
-      "title": "North Korean Hackers Abuse VS Code Auto-Run Tasks to Deploy StoatWaffle Malware",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/iam-policy-types-how-and-when-to-use-them/",
-      "title": "IAM policy types: How and when to use them",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/weekly-recap-cicd-backdoor-fbi-buys.html",
-      "title": "⚡ Weekly Recap: CI/CD Backdoor, FBI Buys Location Data, WhatsApp Ditches Numbers",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/we-found-eight-attack-vectors-inside.html",
-      "title": "We Found Eight Attack Vectors Inside AWS Bedrock. Here's What Attackers Can Do w",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/microsoft-warns-irs-phishing-hits-29000.html",
-      "title": "Microsoft Warns IRS Phishing Hits 29,000 Users, Deploys RMM Malware",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/secure-autonomous-ai-agents-openshell/",
-      "title": "How Autonomous AI Agents Become Secure by Design With NVIDIA OpenShell",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-reco-transforms-security-alerts-using-amazon-bedrock/",
-      "title": "How Reco transforms security alerts using Amazon Bedrock",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/integrating-amazon-bedrock-agentcore-with-slack/",
-      "title": "Integrating Amazon Bedrock AgentCore with Slack",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/overcoming-llm-hallucinations-in-regulated-industries-artificial-geniuss-deterministic-models-on-amazon-nova/",
-      "title": "Overcoming LLM hallucinations in regulated industries: Artificial Genius’s deter",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/training-large-models-on-ironwood-tpus/",
-      "title": "A developer’s guide to training with Ironwood TPUs",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/rsac-26-supercharging-agentic-ai-defense-with-frontline-threat-intelligence/",
-      "title": "RSAC ’26: Supercharging agentic AI defense with frontline threat intelligence",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/bringing-dark-web-intelligence-into-the-ai-era/",
-      "title": "Bringing dark web intelligence into the AI era",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026/",
-      "title": "M-Trends 2026: Data, Insights, and Strategies From the Frontlines",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-nvidia-nemotron-3-super-on-amazon-bedrock-nova-forge-sdk-amazon-corretto-26-and-more-march-23-2026/",
-      "title": "AWS Weekly Roundup: NVIDIA Nemotron 3 Super on Amazon Bedrock, Nova Forge SDK, A",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/trivy-supply-chain-compromise-what-docker-hub-users-should-know/",
-      "title": "Trivy supply chain compromise: What Docker Hub users should know",
-      "published_date": "2026-03-24",
-      "expires_at": "2026-03-31T01:18:57.773841+00:00"
-    },
     {
       "url": "https://www.microsoft.com/en-us/security/blog/2026/03/24/detecting-investigating-defending-against-trivy-supply-chain-compromise/",
       "title": "Guidance for detecting, investigating, and defending against the Trivy supply ch",
@@ -810,6 +450,366 @@
       "title": "Defending Your Software Supply Chain: What Every Engineering Team Should Do Now",
       "published_date": "2026-04-03",
       "expires_at": "2026-04-10T01:29:22.974709+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+      "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phish",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/microsoft-details-cookie-controlled-php.html",
+      "title": "Microsoft Details Cookie-Controlled PHP Web Shells Persisting via Cron on Linux ",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/linkedin-secretely-scans-for-6-000-plus-chrome-extensions-collects-data/",
+      "title": "LinkedIn secretely scans for 6,000+ Chrome extensions, collects data",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/unc1069-social-engineering-of-axios.html",
+      "title": "UNC1069 Social Engineering of Axios Maintainer Led to npm Supply Chain Attack",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/why-third-party-risk-is-biggest-gap-in.html",
+      "title": "Why Third-Party Risk Is the Biggest Gap in Your Clients' Security Posture",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/the-case-for-envoy-networking-in-the-agentic-ai-era/",
+      "title": "Envoy: A future-ready foundation for agentic AI networking",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/veo-3-1-lite-and-a-new-veo-upscaling-capability-on-vertex-ai/",
+      "title": "Introducing Veo 3.1 Lite and a new Veo upscaling capability on Vertex AI",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-guardrails-supports-cross-account-safeguards-with-centralized-control-and-management/",
+      "title": "Amazon Bedrock Guardrails supports cross-account safeguards with centralized con",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-organization-runner-controls-for-copilot-cloud-agent",
+      "title": "Organization runner controls for Copilot cloud agent",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-gpt-5-1-codex-gpt-5-1-codex-max-and-gpt-5-1-codex-mini-deprecated",
+      "title": "GPT-5.1 Codex, GPT-5.1-Codex-Max, and GPT-5.1-Codex-Mini deprecated",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/engineering/architecture-optimization/the-uphill-climb-of-making-diff-lines-performant/",
+      "title": "The uphill climb of making diff lines performant",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-organization-firewall-settings-for-copilot-cloud-agent",
+      "title": "Organization firewall settings for Copilot cloud agent",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-03-copilot-cloud-agent-signs-its-commits",
+      "title": "Copilot cloud agent signs its commits",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/charles-schwab-direct-bitcoin-trading",
+      "title": "Charles Schwab Teases Direct Bitcoin Trading With New ‘Schwab Crypto’ Account",
+      "published_date": "2026-04-04",
+      "expires_at": "2026-04-11T01:23:49.546599+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-the-landing-zone-accelerator-on-aws-universal-configuration-and-lza-compliance-workbook/",
+      "title": "Introducing the Landing Zone Accelerator on AWS Universal Configuration and LZA ",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/axios-npm-hack-used-fake-teams-error-fix-to-hijack-maintainer-account/",
+      "title": "Axios npm hack used fake Teams error fix to hijack maintainer account",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/device-code-phishing-attacks-surge-37x-as-new-kits-spread-online/",
+      "title": "Device code phishing attacks surge 37x as new kits spread online",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/04/04/after-fighting-malware-for-decades-this-cybersecurity-veteran-is-now-hacking-drones/",
+      "title": "After fighting malware for decades, this cybersecurity veteran is now hacking dr",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/european-commission-confirms-data-breach-linked-to-trivy-supply-chain-attack/",
+      "title": "European Commission Confirms Data Breach Linked to Trivy Supply Chain Attack",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/national-robotics-week-2026/",
+      "title": "National Robotics Week — Latest Physical AI Research, Breakthroughs and Resource",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/ai-news-service-using-amazon-bedrock-prompt-engineering-case/",
+      "title": "25년차 기자가 만든 AI 뉴스 서비스: 서울경제신문의 Amazon Bedrock 프롬프트 엔지니어링 실전 사례",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/telegram-durov-iran-ban-backfire?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Telegram founder Pavel Durov says Iranian government's ban backfired",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/jimmy-song-bitcoin-conservative-node-client?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Jimmy Song explains why Bitcoin needs a 'conservative' node client",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/nevada-judge-extends-kalshi-ban-unlicensed-gambling-ruling?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Nevada judge extends ban on Kalshi, rejects event contract defense",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/prediction-markets-testing-legal-limits-asia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Prediction markets are testing legal limits in strict Asian markets",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/polymarket-removes-missing-us-pilot-market-backlash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Polymarket takes down market on missing US pilot after backlash",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28214",
+      "title": "GPU를 직접 설계하며 배우는 인터랙티브 게임 ‘Mvidia’",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28213",
+      "title": "Delve가 Y Combinator 목록에서 삭제됨",
+      "published_date": "2026-04-05",
+      "expires_at": "2026-04-12T01:36:25.368571+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html",
+      "title": "$285 Million Drift Hack Traced to Six-Month DPRK Social Engineering Operation",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/traffic-violation-scams-switch-to-qr-codes-in-new-phishing-texts/",
+      "title": "Traffic violation scams switch to QR codes in new phishing texts",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-fortinet-forticlient-ems-flaw-cve-2026-35616-exploited-in-attacks/",
+      "title": "New FortiClient EMS flaw exploited in attacks, emergency patch released",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/36-malicious-npm-packages-exploited.html",
+      "title": "36 Malicious npm Packages Exploited Redis, PostgreSQL to Deploy Persistent Impla",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-react2shell-in-automated-credential-theft-campaign/",
+      "title": "Hackers exploit React2Shell in automated credential theft campaign",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-attorney-says-drift-incident-may-qualify-as-civil-negligence?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto attorney says Drift incident may qualify as 'civil negligence'",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/polymarket-odds-us-invade-iran-2027-60-trump?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Polymarket odds of US invading Iran this year reach 63% after Trump's post",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-us-dollar-symbiotic-relationship-bpi?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin and the US dollar have a 'symbiotic' relationship: BPI exec",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/robert-kiyosaki-1974-shift-bitcoin-gold-real-money?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Robert Kiyosaki recommends Bitcoin, gold as 1974 shift comes full circle",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-bearish-social-media-chatter-low-price-btc-stagnant-santiment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin bearish social chatter reaches 5-week high: Santiment",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28246",
+      "title": "Awesome Design.MD - 유명 웹사이트 디자인 시스템을 내 사이트에 적용하기",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28245",
+      "title": "rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28244",
+      "title": "BrowserStack에서 사용자 이메일 주소가 유출되고 있음",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28242",
+      "title": "Google AI Edge Gallery - 완전 오프라인 LLM 갤러리 앱 오픈소스",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28241",
+      "title": "AWS 엔지니어, Linux 7.0에서 PostgreSQL 성능이 절반으로 감소했다고 보고 – 수정이 쉽지 않을 수 있음",
+      "published_date": "2026-04-06",
+      "expires_at": "2026-04-13T01:32:45.560055+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/iran-linked-password-spraying-campaign.html",
+      "title": "Iran-Linked Password-Spraying Campaign Targets 300+ Israeli Microsoft 365 Organi",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/dprk-linked-hackers-use-github-as-c2-in.html",
+      "title": "DPRK-Linked Hackers Use GitHub as C2 in Multi-Stage Attacks Targeting South Kore",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/german-authorities-identify-revil-and-gangcrab-ransomware-bosses/",
+      "title": "German authorities identify REvil and GangCrab ransomware bosses",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/multi-os-cyberattacks-how-socs-close.html",
+      "title": "Multi-OS Cyberattacks: How SOCs Close a Critical Risk in 3 Steps",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/weekly-recap-axios-hack-chrome-0-day.html",
+      "title": "⚡ Weekly Recap: Axios Hack, Chrome 0-Day, Fortinet Exploits, Paragon Spyware and",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-building-a-backend-less-cross-application-api-a40be7874ee5?source=rss----3c87dc14372f---4",
+      "title": "Frontend Engineering at Palantir: Building a Backend-less Cross-Application API",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/osdk-and-mobile-applications-building-with-the-embedded-ontology-668432da6572?source=rss----3c87dc14372f---4",
+      "title": "OSDK and Mobile Applications: Building with the Embedded Ontology",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/06/developer-tools/how-meta-used-ai-to-map-tribal-knowledge-in-large-scale-data-pipelines/",
+      "title": "How Meta Used AI to Map Tribal Knowledge in Large-Scale Data Pipelines",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-openai-safety-fellowship",
+      "title": "Announcing the OpenAI Safety Fellowship",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://openai.com/index/industrial-policy-for-the-intelligence-age",
+      "title": "Industrial policy for the Intelligence Age",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/systems/ironwood-tpus-deliver-37x-carbon-efficiency-gains/",
+      "title": "AI infrastructure efficiency: Ironwood TPUs deliver 3.7x carbon efficiency gains",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/retail/how-a-leading-consumer-insight-brand-uses-dataproc-to-hyper-personalise-faster/",
+      "title": "How a leading consumer insight brand uses Dataproc to hyper-personalise faster",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-self-service-explores/",
+      "title": "Introducing Looker self-service Explores for faster ad-hoc analysis",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-embedded-adds-conversational-analytics/",
+      "title": "Conversational Analytics now available for Looker Embedded environments",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-devops-agent-security-agent-ga-product-lifecycle-updates-and-more-april-6-2026/",
+      "title": "AWS Weekly Roundup: AWS DevOps Agent & Security Agent GA, Product Lifecycle upda",
+      "published_date": "2026-04-07",
+      "expires_at": "2026-04-14T01:31:57.205318+00:00"
     }
   ]
 }

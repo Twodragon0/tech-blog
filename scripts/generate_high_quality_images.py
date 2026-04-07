@@ -11,16 +11,15 @@ from pathlib import Path
 from typing import Dict
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.lib.logging_utils import log_message
-
 import frontmatter
+
+from scripts.lib.logging_utils import log_message
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
 IMAGES_DIR.mkdir(parents=True, exist_ok=True)
-
 
 
 def _escape_svg_text(text: str) -> str:
