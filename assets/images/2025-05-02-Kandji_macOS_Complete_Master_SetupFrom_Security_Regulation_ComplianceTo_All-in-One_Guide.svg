@@ -1,135 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Kandji macOS Complete Master SetupFrom Security Regulation ComplianceTo All-in-One Guide</title>
+  <title>Kandji macOS Complete Master SetupFrom Security Regulation ComplianceTo All in O</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a" />
-      <stop offset="100%" style="stop-color:#1a0a0a" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e8304a" />
-      <stop offset="50%" style="stop-color:#b03ccc" />
-      <stop offset="100%" style="stop-color:#3a7bd5" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e8304a" />
-      <stop offset="100%" style="stop-color:transparent" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e8304a;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#b03ccc;stop-opacity:0.08" />
-    </linearGradient>
-    <linearGradient id="appleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3a7bd5;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#e8304a;stop-opacity:0.06" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="6,4" />
-  <circle cx="1010" cy="225" r="82" fill="none" stroke="rgba(232,48,74,0.15)" stroke-width="1.5" stroke-dasharray="3,6" />
-
-  
-  <path d="M1010,155 C1010,155 995,160 990,175 C985,190 990,205 1000,210 C1005,212 1008,210 1010,208 C1012,210 1015,212 1020,210 C1030,205 1035,190 1030,175 C1025,160 1010,155 1010,155 Z" fill="url(#appleGrad)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" />
-  
-  <path d="M1010,155 C1010,155 1016,148 1022,150" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-linecap="round" />
-
-  
-  <path d="M998,178 C996,183 997,193 1001,200" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1" stroke-linecap="round" />
-
-  
-  <path d="M1010,218 L975,232 L975,265 C975,285 990,302 1010,308 C1030,302 1045,285 1045,265 L1045,232 Z" fill="url(#shieldGrad)" stroke="rgba(232,48,74,0.35)" stroke-width="1.5" />
-  
-  <path d="M1010,228 L990,238 L990,263 C990,276 998,287 1010,292 C1022,287 1030,276 1030,263 L1030,238 Z" fill="none" stroke="rgba(176,60,204,0.25)" stroke-width="1" />
-  
-  <path d="M998,262 L1005,270 L1022,252" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
-
-  
-  <circle cx="955" cy="180" r="14" fill="rgba(58,123,213,0.12)" stroke="rgba(58,123,213,0.35)" stroke-width="1.2" />
-  <path d="M949,180 L953,184 L961,176" fill="none" stroke="rgba(58,123,213,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-  <circle cx="1065" cy="180" r="14" fill="rgba(176,60,204,0.10)" stroke="rgba(176,60,204,0.35)" stroke-width="1.2" />
-  <path d="M1059,180 L1063,184 L1071,176" fill="none" stroke="rgba(176,60,204,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-  <circle cx="1075" cy="250" r="14" fill="rgba(232,48,74,0.10)" stroke="rgba(232,48,74,0.35)" stroke-width="1.2" />
-  <path d="M1069,250 L1073,254 L1081,246" fill="none" stroke="rgba(232,48,74,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-  <circle cx="945" cy="250" r="14" fill="rgba(255,180,0,0.10)" stroke="rgba(255,180,0,0.32)" stroke-width="1.2" />
-  <path d="M939,250 L943,254 L951,246" fill="none" stroke="rgba(255,180,0,0.65)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-  
-  <line x1="965" y1="185" x2="980" y2="232" stroke="rgba(58,123,213,0.18)" stroke-width="1" />
-  <line x1="1055" y1="185" x2="1040" y2="232" stroke="rgba(176,60,204,0.18)" stroke-width="1" />
-  <line x1="1063" y1="253" x2="1045" y2="258" stroke="rgba(232,48,74,0.18)" stroke-width="1" />
-  <line x1="957" y1="253" x2="975" y2="258" stroke="rgba(255,180,0,0.18)" stroke-width="1" />
-
-  
-  <rect x="1002" y="310" width="16" height="13" rx="2" fill="rgba(232,48,74,0.12)" stroke="rgba(232,48,74,0.30)" stroke-width="1.2" />
-  <path d="M1005,310 L1005,305 C1005,301 1015,301 1015,305 L1015,310" fill="none" stroke="rgba(232,48,74,0.35)" stroke-width="1.2" />
-  <circle cx="1010" cy="317" r="2" fill="rgba(232,48,74,0.55)" />
-
-  
-  <circle cx="870" cy="400" r="5" fill="rgba(232,48,74,0.55)" />
-  <circle cx="900" cy="420" r="5" fill="rgba(176,60,204,0.50)" />
-  <circle cx="860" cy="440" r="5" fill="rgba(58,123,213,0.50)" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
-
-  
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(232,48,74,0.15)" stroke="rgba(232,48,74,0.30)" stroke-width="1" />
-  <text x="180" y="81" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.75)" text-anchor="middle" letter-spacing="1.5">MAY 2, 2025</text>
-
-  
-  <text x="80" y="185" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700" fill="white">Kandji macOS Master SetupFrom</text>
-
-  
-  <text x="80" y="245" font-family="'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700" fill="white">Security Regulation ComplianceTo All</text>
-
-  
-  <text x="80" y="300" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">macOS MDM deployment, compliance enforcement, and enterprise security</text>
-
-  
-  <rect x="80" y="325" width="420" height="3" fill="url(#accentLine)" rx="2" />
-
-  
-  <text x="80" y="370" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="rgba(232,48,74,0.85)" letter-spacing="3">SECURITY / DEVSECOPS / MACOS</text>
-
-  
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(232,48,74,0.18)" stroke="rgba(232,48,74,0.40)" stroke-width="1" />
-  <text x="135" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.80)" text-anchor="middle">Kandji MDM</text>
-
-  <rect x="204" y="402" width="96" height="36" rx="18" fill="rgba(245,166,35,0.18)" stroke="rgba(245,166,35,0.38)" stroke-width="1" />
-  <text x="252" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.80)" text-anchor="middle">Compliance</text>
-
-  <rect x="314" y="402" width="96" height="36" rx="18" fill="rgba(58,123,213,0.18)" stroke="rgba(58,123,213,0.40)" stroke-width="1" />
-  <text x="362" y="425" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.80)" text-anchor="middle">macOS Sec</text>
-
-  
-  <text x="80" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="rgba(232,48,74,0.50)" text-anchor="end" letter-spacing="1">SECURITY</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 2, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Kandji macOS Complete Master</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">SetupFrom Security...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Kandji | macOS | MDM</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="90" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="125" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Kandji</text>
+  <rect x="184" y="420" width="81" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="224" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">macOS</text>
+  <rect x="279" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="319" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">MDM</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

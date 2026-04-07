@@ -1,206 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Amazon Q Developer and GitHub Advanced Security for AWS Code Security</title>
+  <title>Amazon Q DeveloperAnd GitHub Advanced Security Security And AWS</title>
   <defs>
-    <filter id="orbGlow"><feGaussianBlur stdDeviation="40" /></filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#3b82f6" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="50%" stop-color="#fb923c" />
-      <stop offset="100%" stop-color="#3b82f6" />
-    </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.12" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
-    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#ea580c" />
-    </linearGradient>
-    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#2563eb" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  <!-- Orb glows -->
-  <circle cx="780" cy="130" r="190" fill="#f97316" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1060" cy="440" r="155" fill="#3b82f6" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="190" cy="500" r="120" fill="#f97316" opacity="0.04" filter="url(#orbGlow)" />
-  <circle cx="590" cy="320" r="100" fill="#3b82f6" opacity="0.04" filter="url(#orbGlow)" />
-
-  <!-- Card 1 (top-right): Code editor with shield - Q Developer -->
-  <g transform="translate(840, 55)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 18)">
-      <!-- Code editor frame -->
-      <rect x="8" y="8" width="104" height="76" rx="6" fill="#0f172a" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.7" />
-      <!-- Editor titlebar dots -->
-      <circle cx="18" cy="18" r="3" fill="#ef4444" opacity="0.75" />
-      <circle cx="28" cy="18" r="3" fill="#eab308" opacity="0.75" />
-      <circle cx="38" cy="18" r="3" fill="#22c55e" opacity="0.75" />
-      <!-- Code lines -->
-      <rect x="14" y="28" width="56" height="4" rx="2" fill="#f97316" opacity="0.65" />
-      <rect x="14" y="38" width="40" height="4" rx="2" fill="#3b82f6" opacity="0.55" />
-      <rect x="14" y="48" width="68" height="4" rx="2" fill="#94a3b8" opacity="0.3" />
-      <rect x="14" y="58" width="36" height="4" rx="2" fill="#3b82f6" opacity="0.45" />
-      <rect x="14" y="68" width="50" height="4" rx="2" fill="#f97316" opacity="0.35" />
-      <!-- Shield overlay -->
-      <path d="M85 5 L108 14 L108 38 C108 52 98 59 88 63 C78 59 68 52 68 38 L68 14 Z" fill="url(#orangeGrad)" opacity="0.2" stroke="#f97316" stroke-width="1.8" stroke-opacity="0.85" />
-      <path d="M78 36 L84 43 L98 27" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
-      <!-- Q Developer badge -->
-      <rect x="18" y="94" width="84" height="18" rx="4" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="60" y="107" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">Q DEVELOPER</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#f97316" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#fb923c" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#3b82f6" opacity="0.4" />
-  </g>
-
-  <!-- Card 2 (middle): GitHub octocat outline - GHAS -->
-  <g transform="translate(725, 188)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(100, 18)">
-      <!-- GitHub octocat: outer circle -->
-      <circle cx="55" cy="42" r="34" fill="none" stroke="#3b82f6" stroke-width="1.8" opacity="0.5" />
-      <!-- Head -->
-      <circle cx="55" cy="36" r="17" fill="#3b82f6" opacity="0.14" stroke="#3b82f6" stroke-width="1.8" stroke-opacity="0.75" />
-      <!-- Ear bumps -->
-      <circle cx="40" cy="24" r="5" fill="#3b82f6" opacity="0.28" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.7" />
-      <circle cx="70" cy="24" r="5" fill="#3b82f6" opacity="0.28" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.7" />
-      <!-- Eyes -->
-      <circle cx="48" cy="34" r="3" fill="#3b82f6" opacity="0.7" />
-      <circle cx="62" cy="34" r="3" fill="#3b82f6" opacity="0.7" />
-      <!-- Tentacles -->
-      <path d="M33 56 C22 60 18 70 28 74" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.55" stroke-linecap="round" />
-      <path d="M43 64 C39 72 43 80 51 78" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.55" stroke-linecap="round" />
-      <path d="M67 64 C71 72 67 80 59 78" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.55" stroke-linecap="round" />
-      <path d="M77 56 C88 60 92 70 82 74" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.55" stroke-linecap="round" />
-      <!-- GHAS badge -->
-      <rect x="16" y="100" width="78" height="18" rx="4" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4" />
-      <text x="55" y="113" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">GHAS</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="195" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Cloud with lock - AWS -->
-  <g transform="translate(660, 345)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(108, 18)">
-      <!-- AWS cloud shape -->
-      <path d="M30 65 C10 65 0 55 0 42 C0 30 8 22 20 20 C24 8 38 0 55 0 C72 0 84 10 88 22 C98 24 105 33 105 44 C105 57 95 65 80 65 Z" fill="url(#blueGrad)" opacity="0.16" stroke="#3b82f6" stroke-width="1.8" stroke-opacity="0.65" />
-      <!-- Lock on cloud -->
-      <rect x="41" y="36" width="28" height="22" rx="4" fill="#f97316" opacity="0.22" stroke="#f97316" stroke-width="1.8" stroke-opacity="0.88" />
-      <path d="M46 36 L46 26 C46 16 68 16 68 26 L68 36" fill="none" stroke="#f97316" stroke-width="2.5" stroke-opacity="0.8" stroke-linecap="round" />
-      <circle cx="55" cy="45" r="4" fill="#f97316" opacity="0.55" />
-      <rect x="53.5" y="45" width="3" height="8" rx="1" fill="#f97316" opacity="0.55" />
-      <!-- AWS badge -->
-      <rect x="20" y="95" width="66" height="18" rx="4" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="53" y="108" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">AWS CLOUD</text>
-    </g>
-    <g transform="translate(40, 196)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#f97316" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="730" cy="275" r="2" fill="#f97316" opacity="0.5">
-    <animate attributeName="cy" values="275;265;275" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="845" cy="335" r="1.5" fill="#3b82f6" opacity="0.4">
-    <animate attributeName="cy" values="335;325;335" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1065" cy="305" r="2" fill="#f97316" opacity="0.5">
-    <animate attributeName="cy" values="305;295;305" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="695" cy="208" r="1.5" fill="#3b82f6" opacity="0.3">
-    <animate attributeName="cy" values="208;200;208" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1115" cy="178" r="1" fill="#f97316" opacity="0.4">
-    <animate attributeName="cy" values="178;170;178" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="960" cy="128" r="1.5" fill="#3b82f6" opacity="0.35">
-    <animate attributeName="cx" values="960;968;960" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel badge -->
-  <g transform="translate(60, 80)">
-    <rect width="160" height="32" rx="16" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-    <text x="80" y="21" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">AWS SECURITY</text>
-  </g>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 24, 2025</text>
   <!-- Main title -->
-  <text x="60" y="168" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Amazon Q</text>
-  <text x="60" y="220" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Developer</text>
-  <text x="60" y="280" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">Amazon Q Dev</text>
-  <text x="60" y="328" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">Code Security</text>
-
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Amazon Q DeveloperAnd GitHub</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Advanced Security Security...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Amazon Q | GitHub Advanced Security | Code Security</text>
   <!-- Accent line -->
-  <rect x="60" y="355" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 380)">
-    <rect width="52" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="26" y="20" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">AWS</text>
-    <g transform="translate(62, 0)">
-      <rect width="84" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="42" y="20" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Amazon Q</text>
-    </g>
-    <g transform="translate(156, 0)">
-      <rect width="68" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="34" y="20" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">GitHub</text>
-    </g>
-    <g transform="translate(234, 0)">
-      <rect width="76" height="30" rx="15" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="38" y="20" text-anchor="middle" fill="#93c5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Security</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="458" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">MAY 24, 2025</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="108" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="134" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Amazon Q</text>
+  <rect x="202" y="420" width="162" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="283" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">GitHub Advanc.</text>
+  <rect x="378" y="420" width="153" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="454" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Code Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

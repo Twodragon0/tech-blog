@@ -1,116 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Kubernetes Minikube ampamp K9s Guide From Practical To</title>
+  <title>Kubernetes Minikube ampamp K9s Practice Guide Problem From Resolution Practical </title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0c1a" />
-      <stop offset="100%" stop-color="#1a0a0a" />
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0f0a25"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#326ce5" />
-      <stop offset="100%" stop-color="#e53e3e" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#326ce5" />
-      <stop offset="100%" stop-color="transparent" />
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#326ce5" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#326ce5" stop-opacity="0.05" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bg)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="#326ce5" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6,4" />
-  
-  <polygon points="1010,140 1083,182 1083,268 1010,310 937,268 937,182" fill="#326ce5" fill-opacity="0.07" stroke="#326ce5" stroke-opacity="0.35" stroke-width="1.5" />
-  
-  <polygon points="1010,165 1060,193 1060,257 1010,285 960,257 960,193" fill="#326ce5" fill-opacity="0.05" stroke="#326ce5" stroke-opacity="0.2" stroke-width="1" />
-  
-  <line x1="1010" y1="225" x2="1010" y2="145" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  <line x1="1010" y1="225" x2="1073" y2="185" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  <line x1="1010" y1="225" x2="1073" y2="265" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  <line x1="1010" y1="225" x2="1010" y2="305" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  <line x1="1010" y1="225" x2="947" y2="265" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  <line x1="1010" y1="225" x2="947" y2="185" stroke="#326ce5" stroke-opacity="0.3" stroke-width="1.5" />
-  
-  <circle cx="1010" cy="225" r="26" fill="#326ce5" fill-opacity="0.12" stroke="#326ce5" stroke-opacity="0.45" stroke-width="2" />
-  <circle cx="1010" cy="225" r="14" fill="#326ce5" fill-opacity="0.2" stroke="#326ce5" stroke-opacity="0.5" stroke-width="1.5" />
-  
-  <circle cx="1010" cy="145" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  <circle cx="1073" cy="185" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  <circle cx="1073" cy="265" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  <circle cx="1010" cy="305" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  <circle cx="947" cy="265" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  <circle cx="947" cy="185" r="9" fill="#326ce5" fill-opacity="0.25" stroke="#326ce5" stroke-opacity="0.55" stroke-width="1.5" />
-  
-  <rect x="1058" y="282" width="72" height="30" rx="6" fill="#f6ad55" fill-opacity="0.1" stroke="#f6ad55" stroke-opacity="0.35" stroke-width="1.2" />
-  <rect x="1058" y="142" width="62" height="30" rx="6" fill="#68d391" fill-opacity="0.1" stroke="#68d391" stroke-opacity="0.35" stroke-width="1.2" />
-  <circle cx="910" cy="165" r="5" fill="#e53e3e" fill-opacity="0.3" stroke="#e53e3e" stroke-opacity="0.5" stroke-width="1" />
-  <circle cx="1110" cy="230" r="4" fill="#68d391" fill-opacity="0.3" stroke="#68d391" stroke-opacity="0.5" stroke-width="1" />
-  <circle cx="960" cy="310" r="5" fill="#f6ad55" fill-opacity="0.3" stroke="#f6ad55" stroke-opacity="0.5" stroke-width="1" />
-  
-  <line x1="910" y1="165" x2="937" y2="182" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-  <line x1="1110" y1="230" x2="1083" y2="225" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-
-  
-  <circle cx="870" cy="400" r="5" fill="#e53e3e" fill-opacity="0.7" />
-  <circle cx="900" cy="420" r="4" fill="#f6ad55" fill-opacity="0.6" />
-  <circle cx="860" cy="440" r="5" fill="#326ce5" fill-opacity="0.7" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
-
-  
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="url(#dateBadge)" stroke="#326ce5" stroke-opacity="0.2" stroke-width="1" />
-  <text x="180" y="81" font-family="Arial, sans-serif" font-size="13" fill="#326ce5" fill-opacity="0.9" text-anchor="middle" letter-spacing="1.5">MAY 30, 2025</text>
-
-  
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Kubernetes Minikube K9s</text>
-
-  
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Practice Problem Resolution</text>
-
-  
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Local Kubernetes cluster setup, K9s TUI debugging and troubleshooting</text>
-
-  
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.35)" letter-spacing="3">KUBERNETES</text>
-
-  
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="#e53e3e" fill-opacity="0.15" stroke="#e53e3e" stroke-opacity="0.4" stroke-width="1.2" />
-  <text x="135" y="425" font-family="Arial, sans-serif" font-size="13" fill="#fc8181" text-anchor="middle">minikube</text>
-
-  <rect x="204" y="402" width="90" height="36" rx="18" fill="#f6ad55" fill-opacity="0.15" stroke="#f6ad55" stroke-opacity="0.4" stroke-width="1.2" />
-  <text x="249" y="425" font-family="Arial, sans-serif" font-size="13" fill="#f6ad55" text-anchor="middle">k9s</text>
-
-  <rect x="308" y="402" width="120" height="36" rx="18" fill="#326ce5" fill-opacity="0.15" stroke="#326ce5" stroke-opacity="0.4" stroke-width="1.2" />
-  <text x="368" y="425" font-family="Arial, sans-serif" font-size="13" fill="#7eb3ff" text-anchor="middle">kubectl</text>
-
-  
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.25)" text-anchor="end">kubernetes</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- K8s hexagon -->
+  <polygon points="950,150 990,172 990,218 950,240 910,218 910,172" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="195" r="18" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <!-- Pod boxes -->
+  <rect x="880" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="940" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="310" width="45" height="35" rx="5" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" stroke-width="1.5"/>
+  <line x1="925" y1="327" x2="940" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="985" y1="327" x2="1000" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 30, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Kubernetes Minikube ampamp K9s</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Practice Guide Problem From...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Kubernetes | Minikube | K9s</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">KUBERNETES DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="126" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="143" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Kubernetes</text>
+  <rect x="220" y="420" width="108" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="274" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Minikube</text>
+  <rect x="342" y="420" width="80" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="382" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">K9s</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,230 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest - NK IT Workers, Cisco FMC Zero-Day, Telnetd RCE</title>
+  <title>Tech Security Weekly Digest Zero Day CVE Ransomware Patch</title>
   <defs>
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="orbGlow">
-      <feGaussianBlur stdDeviation="40" />
-    </filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#06b6d4" />
-      <stop offset="100%" stop-color="#dc2626" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#06b6d4" />
-      <stop offset="50%" stop-color="#0ea5e9" />
-      <stop offset="100%" stop-color="#dc2626" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  <!-- Orb glows -->
-  <circle cx="775" cy="148" r="185" fill="#06b6d4" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="1048" cy="442" r="150" fill="#dc2626" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="188" cy="492" r="120" fill="#0ea5e9" opacity="0.05" filter="url(#orbGlow)" />
-  <circle cx="608" cy="318" r="100" fill="#06b6d4" opacity="0.04" filter="url(#orbGlow)" />
-
-  <!-- Card 1 (top-right): NK IT Workers - Globe with flag -->
-  <g transform="translate(830, 55)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 20)">
-      <!-- Globe circle -->
-      <circle cx="60" cy="55" r="42" fill="none" stroke="#0ea5e9" stroke-width="2" opacity="0.7" />
-      <circle cx="60" cy="55" r="42" fill="#0ea5e9" opacity="0.05" />
-      <!-- Latitude arcs -->
-      <ellipse cx="60" cy="55" rx="42" ry="16" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.35" />
-      <ellipse cx="60" cy="38" rx="30" ry="10" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.22" />
-      <ellipse cx="60" cy="72" rx="30" ry="10" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.22" />
-      <!-- Longitude vertical line -->
-      <line x1="60" y1="13" x2="60" y2="97" stroke="#0ea5e9" stroke-width="1" opacity="0.35" />
-      <!-- Flag pole -->
-      <line x1="60" y1="13" x2="60" y2="4" stroke="#cbd5e1" stroke-width="2" opacity="0.8" />
-      <!-- Flag rectangle (NK red) -->
-      <rect x="60" y="-1" width="24" height="15" rx="2" fill="#dc2626" opacity="0.85" />
-      <!-- NK flag star outline -->
-      <circle cx="72" cy="7" r="5" fill="none" stroke="#f1f5f9" stroke-width="1.5" opacity="0.9" />
-      <circle cx="72" cy="7" r="2" fill="#f1f5f9" opacity="0.9" />
-      <!-- Label -->
-      <rect x="10" y="108" width="100" height="18" rx="4" fill="#0ea5e9" opacity="0.2" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.4" />
-      <text x="60" y="121" text-anchor="middle" fill="#7dd3fc" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">NK IT WORKERS</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#0ea5e9" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#dc2626" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#06b6d4" opacity="0.4" />
-  </g>
-
-  <!-- Card 2 (middle): Cisco FMC Zero-Day - Fire/exploit -->
-  <g transform="translate(720, 188)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 18)">
-      <!-- Outer flame -->
-      <path d="M60 100 Q28 85 30 60 Q32 42 45 35 Q38 50 50 52 Q44 38 55 22 Q58 38 65 38 Q60 50 68 50 Q75 40 72 28 Q88 42 88 60 Q90 85 60 100 Z" fill="#f97316" opacity="0.15" />
-      <path d="M60 100 Q28 85 30 60 Q32 42 45 35 Q38 50 50 52 Q44 38 55 22 Q58 38 65 38 Q60 50 68 50 Q75 40 72 28 Q88 42 88 60 Q90 85 60 100 Z" fill="none" stroke="#f97316" stroke-width="2" opacity="0.8" />
-      <!-- Inner flame core -->
-      <path d="M60 92 Q42 80 44 62 Q46 52 55 47 Q50 57 58 60 Q56 50 62 40 Q65 52 70 52 Q68 62 75 62 Q74 80 60 92 Z" fill="#dc2626" opacity="0.22" />
-      <!-- Zero-Day text in center -->
-      <text x="60" y="69" text-anchor="middle" fill="#fed7aa" font-family="monospace" font-size="10" font-weight="800" opacity="0.9">0DAY</text>
-      <!-- Sparks -->
-      <circle cx="38" cy="38" r="2.5" fill="#fbbf24" opacity="0.8">
-        <animate attributeName="opacity" values="0.8;0.1;0.8" dur="1.4s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="82" cy="32" r="2" fill="#fbbf24" opacity="0.7">
-        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="1.7s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="42" cy="55" r="1.5" fill="#f97316" opacity="0.6">
-        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.1s" repeatCount="indefinite" />
-      </circle>
-      <!-- Label -->
-      <rect x="10" y="110" width="100" height="18" rx="4" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="60" y="123" text-anchor="middle" fill="#fed7aa" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CISCO ZERO-DAY</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="175" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Telnetd RCE - Terminal with skull -->
-  <g transform="translate(660, 340)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(108, 15)">
-      <!-- Terminal window -->
-      <rect x="10" y="8" width="100" height="82" rx="6" fill="#0b0f1a" stroke="#dc2626" stroke-width="2" opacity="0.9" />
-      <!-- Terminal title bar -->
-      <rect x="10" y="8" width="100" height="14" rx="6" fill="#dc2626" opacity="0.2" />
-      <text x="60" y="19" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="8" font-weight="600">TELNETD</text>
-      <!-- Terminal content lines -->
-      <text x="18" y="38" fill="#22c55e" font-family="monospace" font-size="8" opacity="0.8">$ telnet 10.0.0.1</text>
-      <text x="18" y="50" fill="#ef4444" font-family="monospace" font-size="8" opacity="0.7">overflow buffer...</text>
-      <text x="18" y="62" fill="#fca5a5" font-family="monospace" font-size="8" opacity="0.8">root shell gained</text>
-      <!-- Hash cursor blink -->
-      <text x="18" y="78" fill="#ef4444" font-family="monospace" font-size="9" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.2;0.9" dur="1s" repeatCount="indefinite" />
-        #_
-      </text>
-      <!-- Skull overlay top-right of terminal -->
-      <circle cx="98" cy="22" r="8" fill="#dc2626" opacity="0.12" />
-      <!-- Skull head -->
-      <circle cx="98" cy="20" r="5" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.8" />
-      <!-- Skull jaw -->
-      <rect x="94" y="24" width="8" height="5" rx="1" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.8" />
-      <!-- Eye sockets -->
-      <circle cx="96" cy="21" r="1.2" fill="#ef4444" opacity="0.7" />
-      <circle cx="100" cy="21" r="1.2" fill="#ef4444" opacity="0.7" />
-      <!-- Label -->
-      <rect x="15" y="100" width="80" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
-      <text x="55" y="113" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">TELNETD RCE</text>
-    </g>
-    <g transform="translate(40, 195)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="718" cy="272" r="2" fill="#06b6d4" opacity="0.5">
-    <animate attributeName="cy" values="272;262;272" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="836" cy="322" r="1.5" fill="#dc2626" opacity="0.4">
-    <animate attributeName="cy" values="322;312;322" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1056" cy="292" r="2" fill="#0ea5e9" opacity="0.5">
-    <animate attributeName="cy" values="292;282;292" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="693" cy="192" r="1.5" fill="#06b6d4" opacity="0.3">
-    <animate attributeName="cy" values="192;184;192" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1106" cy="172" r="1" fill="#0ea5e9" opacity="0.4">
-    <animate attributeName="cy" values="172;164;172" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="950" cy="124" r="1.5" fill="#dc2626" opacity="0.35">
-    <animate attributeName="cx" values="950;958;950" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel: WEEKLY DIGEST badge -->
-  <g transform="translate(60, 80)">
-    <rect width="160" height="32" rx="16" fill="#06b6d4" opacity="0.15" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4" />
-    <text x="80" y="21" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
-  </g>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 19, 2026</text>
   <!-- Main title -->
-  <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
-  <text x="60" y="225" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
-  <text x="60" y="290" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">Cisco Zero-Day</text>
-  <text x="60" y="335" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">Telnetd RCE</text>
-
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Zero Day CVE Ransomware Patch</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | Zero Day</text>
   <!-- Accent line -->
-  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 385)">
-    <rect width="76" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="38" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Zero-Day</text>
-    <g transform="translate(86, 0)">
-      <rect width="58" height="30" rx="15" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="29" y="20" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Cisco</text>
-    </g>
-    <g transform="translate(154, 0)">
-      <rect width="48" height="30" rx="15" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="24" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">RCE</text>
-    </g>
-    <g transform="translate(212, 0)">
-      <rect width="60" height="30" rx="15" fill="#0ea5e9" opacity="0.12" stroke="#0ea5e9" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="30" y="20" text-anchor="middle" fill="#7dd3fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">NK IT</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">MARCH 19, 2026</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="108" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="441" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Zero Day</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

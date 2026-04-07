@@ -1,139 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI amplsquoamprsquo amplsquoSecurity amprsquo Batch AI Security Guide</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- Gradient overlay for depth -->
+  <title>AI amplsquoSecretaryamprsquo amplsquoSecurity Holeamprsquo For Enterprise AI Ser</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:0.5" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#ff3333;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#ff3333;stop-opacity:0" />
-    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
   </defs>
-  
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-  
-  <!-- LEFT SIDE: Title and metadata -->
-  <text x="50" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" word-spacing="0.1em">
-    Secretary Security Hole
-  </text>
-  <text x="50" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white">
-    Enterprise Service
-  </text>
-  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="50" y="290" width="320" height="50" rx="8" fill="#ff3333" opacity="0.15" stroke="#ff3333" stroke-width="2"/>
-  <text x="170" y="322" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff3333" text-anchor="middle">
-    OCTOBER 31, 2025
-  </text>
-  
-  <!-- Tag pills -->
-  <g id="tags">
-    <!-- Tag 1 -->
-    <rect x="50" y="420" width="100" height="32" rx="16" fill="#ff3333" opacity="0.2" stroke="#ff3333" stroke-width="1.5"/>
-    <text x="100" y="441" font-family="Arial, sans-serif" font-size="13" fill="#ff3333" text-anchor="middle" font-weight="600">
-      Security
-    </text>
-    
-    <!-- Tag 2 -->
-    <rect x="170" y="420" width="100" height="32" rx="16" fill="#ffa500" opacity="0.2" stroke="#ffa500" stroke-width="1.5"/>
-    <text x="220" y="441" font-family="Arial, sans-serif" font-size="13" fill="#ffa500" text-anchor="middle" font-weight="600">
-      Vulnerability
-    </text>
-    
-    <!-- Tag 3 -->
-    <rect x="290" y="420" width="80" height="32" rx="16" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="1.5"/>
-    <text x="330" y="441" font-family="Arial, sans-serif" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="600">
-      Enterprise
-    </text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="50" y="600" font-family="Arial, sans-serif" font-size="14" fill="#888888">
-    tech.2twodragon.com
-  </text>
-  
-  <!-- RIGHT SIDE: Illustration (x=700-1150) -->
-  <!-- Background building structure -->
-  <rect x="750" y="200" width="300" height="280" rx="12" fill="#1a2a4a" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
-  
-  <!-- Building windows (office floors) -->
-  <g opacity="0.4">
-    <rect x="770" y="220" width="40" height="40" fill="#00d4ff"/>
-    <rect x="825" y="220" width="40" height="40" fill="#00d4ff"/>
-    <rect x="880" y="220" width="40" height="40" fill="#ff3333"/>
-    <rect x="770" y="275" width="40" height="40" fill="#00d4ff"/>
-    <rect x="825" y="275" width="40" height="40" fill="#ff3333"/>
-    <rect x="880" y="275" width="40" height="40" fill="#00d4ff"/>
-    <rect x="770" y="330" width="40" height="40" fill="#00d4ff"/>
-    <rect x="825" y="330" width="40" height="40" fill="#00d4ff"/>
-    <rect x="880" y="330" width="40" height="40" fill="#ff3333"/>
-  </g>
-  
-  <!-- Secretary desk icon (left side of building) -->
-  <g transform="translate(760, 420)">
-    <rect width="60" height="35" rx="4" fill="#ffa500" opacity="0.7" stroke="#ffa500" stroke-width="1.5"/>
-    <circle cx="15" cy="20" r="5" fill="#ffffff" opacity="0.8"/>
-    <rect x="25" y="15" width="25" height="8" fill="#ffffff" opacity="0.8"/>
-  </g>
-  
-  <!-- Security hole breach (center-right) -->
-  <g id="securityHole">
-    <!-- Outer warning ring -->
-    <circle cx="900" cy="340" r="90" fill="none" stroke="#ff3333" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
-    
-    <!-- Crack lines indicating breach -->
-    <path d="M 900 250 Q 895 290 920 340 Q 900 360 880 380" stroke="#ff3333" stroke-width="2.5" fill="none" opacity="0.8"/>
-    <path d="M 900 250 Q 910 295 900 340 Q 920 365 900 400" stroke="#ff3333" stroke-width="2.5" fill="none" opacity="0.8"/>
-    
-    <!-- Center breach point (hole) -->
-    <circle cx="900" cy="340" r="35" fill="#ff3333" opacity="0.1" stroke="#ff3333" stroke-width="2"/>
-    
-    <!-- Glow effect for danger -->
-    <circle cx="900" cy="340" r="50" fill="url(#glowEffect)"/>
-  </g>
-  
-  <!-- Unauthorized access indicator (ladder or bypass symbol) -->
-  <g transform="translate(1000, 300)">
-    <!-- Ladder/bypass lines -->
-    <line x1="0" y1="0" x2="0" y2="100" stroke="#ffa500" stroke-width="3" opacity="0.6"/>
-    <line x1="40" y1="0" x2="40" y2="100" stroke="#ffa500" stroke-width="3" opacity="0.6"/>
-    <line x1="0" y1="25" x2="40" y2="25" stroke="#ffa500" stroke-width="2" opacity="0.5"/>
-    <line x1="0" y1="50" x2="40" y2="50" stroke="#ffa500" stroke-width="2" opacity="0.5"/>
-    <line x1="0" y1="75" x2="40" y2="75" stroke="#ffa500" stroke-width="2" opacity="0.5"/>
-    
-    <!-- Access arrow -->
-    <path d="M 45 50 L 55 50 M 50 45 L 55 50 L 50 55" stroke="#ff3333" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  
-  <!-- Lock icon (broken/compromised) -->
-  <g transform="translate(800, 500)">
-    <!-- Lock body -->
-    <rect x="10" y="25" width="40" height="35" rx="3" fill="none" stroke="#ff3333" stroke-width="2.5" opacity="0.8"/>
-    <!-- Lock shackle (broken) -->
-    <path d="M 20 25 Q 20 10 30 10 Q 40 10 40 25" stroke="#ff3333" stroke-width="2.5" fill="none" stroke-dasharray="3,3" opacity="0.6"/>
-    <!-- Lock keyhole (X mark for compromised) -->
-    <line x1="25" y1="35" x2="35" y2="50" stroke="#ff3333" stroke-width="2.5" opacity="0.8"/>
-    <line x1="35" y1="35" x2="25" y2="50" stroke="#ff3333" stroke-width="2.5" opacity="0.8"/>
-  </g>
-  
-  <!-- Warning symbol (top right) -->
-  <g transform="translate(1050, 220)">
-    <!-- Triangle background -->
-    <polygon points="0,0 35,60 -35,60" fill="#ff3333" opacity="0.15" stroke="#ff3333" stroke-width="2"/>
-    <!-- Exclamation mark -->
-    <circle cx="0" cy="40" r="3" fill="#ff3333"/>
-    <rect x="-2" y="18" width="4" height="15" fill="#ff3333"/>
-  </g>
-  
-  <!-- Data flow lines indicating unauthorized access -->
-  <g opacity="0.5" stroke="#ff3333" stroke-width="1.5" fill="none">
-    <path d="M 800 340 Q 820 330 850 340"/>
-    <path d="M 800 360 Q 820 370 850 360"/>
-    <path d="M 950 340 Q 970 330 1000 340"/>
-  </g>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">OCTOBER 31, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI amplsquoSecretaryamprsquo</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">amplsquoSecurity...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI | Enterprise Security | AI Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">AI</text>
+  <rect x="174" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="255" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Enterprise Se.</text>
+  <rect x="350" y="420" width="135" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="417" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

@@ -1,242 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI Content Creator Workflow 2026 - Blog, Video, Music, Animation</title>
+  <title>AI Content Creator Workflow 2026 Blog Video Music Animation</title>
   <defs>
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="orbGlow">
-      <feGaussianBlur stdDeviation="40" />
-    </filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ec4899" />
-      <stop offset="100%" stop-color="#eab308" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ec4899" />
-      <stop offset="50%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#eab308" />
-    </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#eab308" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#eab308" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
-    <linearGradient id="videoGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#eab308" />
-    </linearGradient>
-    <linearGradient id="musicGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ec4899" />
-      <stop offset="100%" stop-color="#f97316" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  <!-- Orb glows -->
-  <circle cx="775" cy="148" r="188" fill="#ec4899" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1050" cy="445" r="152" fill="#eab308" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="190" cy="495" r="118" fill="#f97316" opacity="0.05" filter="url(#orbGlow)" />
-  <circle cx="615" cy="315" r="98" fill="#ec4899" opacity="0.04" filter="url(#orbGlow)" />
-
-  <!-- Card 1 (top-right): Blog / Pen and document -->
-  <g transform="translate(830, 60)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 18)">
-      <!-- Document page -->
-      <rect x="18" y="8" width="72" height="90" rx="6" fill="none" stroke="#eab308" stroke-width="2" opacity="0.8" />
-      <rect x="18" y="8" width="72" height="20" rx="6" fill="#eab308" opacity="0.12" />
-      <!-- Folded corner -->
-      <path d="M72 8 L90 26 L72 26 Z" fill="#eab308" opacity="0.25" />
-      <path d="M72 8 L90 26" stroke="#eab308" stroke-width="1.5" opacity="0.5" />
-      <!-- Text lines -->
-      <line x1="28" y1="38" x2="80" y2="38" stroke="#eab308" stroke-width="1.5" opacity="0.5" />
-      <line x1="28" y1="48" x2="80" y2="48" stroke="#eab308" stroke-width="1.5" opacity="0.4" />
-      <line x1="28" y1="58" x2="72" y2="58" stroke="#eab308" stroke-width="1.5" opacity="0.3" />
-      <line x1="28" y1="68" x2="76" y2="68" stroke="#eab308" stroke-width="1.5" opacity="0.25" />
-      <line x1="28" y1="78" x2="62" y2="78" stroke="#eab308" stroke-width="1.5" opacity="0.2" />
-      <!-- Pen nib overlapping -->
-      <path d="M75 85 L90 70 L96 76 L81 91 Z" fill="#eab308" opacity="0.6" />
-      <path d="M81 91 L78 96 L83 93 Z" fill="#fde68a" opacity="0.7" />
-      <!-- Label -->
-      <rect x="20" y="102" width="68" height="18" rx="4" fill="#eab308" opacity="0.18" stroke="#eab308" stroke-width="1" stroke-opacity="0.4" />
-      <text x="54" y="115" text-anchor="middle" fill="#fde68a" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">BLOG</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#eab308" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#f97316" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#ec4899" opacity="0.4" />
-  </g>
-
-  <!-- Card 2 (middle): Video / Play button -->
-  <g transform="translate(720, 190)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 18)">
-      <!-- Video screen frame -->
-      <rect x="10" y="8" width="100" height="68" rx="8" fill="none" stroke="#f97316" stroke-width="2" opacity="0.85" />
-      <rect x="10" y="8" width="100" height="68" rx="8" fill="#f97316" opacity="0.05" />
-      <!-- Play button triangle -->
-      <polygon points="44,25 44,65 80,45" fill="url(#videoGrad)" opacity="0.85" />
-      <!-- Film strip top/bottom -->
-      <rect x="10" y="8" width="100" height="10" rx="8" fill="#f97316" opacity="0.15" />
-      <rect x="10" y="66" width="100" height="10" rx="8" fill="#f97316" opacity="0.15" />
-      <!-- Film holes -->
-      <rect x="18" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="32" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="46" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="60" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="74" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="88" y="10" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="18" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="32" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="46" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="60" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="74" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <rect x="88" y="68" width="6" height="6" rx="1" fill="#f97316" opacity="0.4" />
-      <!-- Label -->
-      <rect x="18" y="82" width="84" height="18" rx="4" fill="#f97316" opacity="0.18" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="60" y="95" text-anchor="middle" fill="#fed7aa" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">VIDEO</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="182" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Music note -->
-  <g transform="translate(660, 340)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(110, 15)">
-      <!-- Music note stem and flag -->
-      <line x1="65" y1="10" x2="65" y2="80" stroke="#ec4899" stroke-width="3" opacity="0.8" />
-      <!-- Note head 1 (left) -->
-      <ellipse cx="38" cy="80" rx="16" ry="11" transform="rotate(-15,38,80)" fill="#ec4899" opacity="0.75" />
-      <!-- Note head 2 (right) -->
-      <ellipse cx="65" cy="72" rx="16" ry="11" transform="rotate(-15,65,72)" fill="#ec4899" opacity="0.75" />
-      <!-- Beam connecting stems -->
-      <line x1="38" y1="32" x2="65" y2="24" stroke="#ec4899" stroke-width="3" opacity="0.8" />
-      <line x1="38" y1="40" x2="65" y2="32" stroke="#ec4899" stroke-width="2" opacity="0.5" />
-      <!-- Stem for left note -->
-      <line x1="38" y1="32" x2="38" y2="72" stroke="#ec4899" stroke-width="3" opacity="0.8" />
-      <!-- Sound waves radiating -->
-      <path d="M82 35 Q92 46 82 57" fill="none" stroke="#ec4899" stroke-width="1.5" opacity="0.45" />
-      <path d="M90 28 Q104 46 90 64" fill="none" stroke="#ec4899" stroke-width="1.5" opacity="0.3" />
-      <!-- Musical sparkles -->
-      <circle cx="18" cy="18" r="3" fill="#f9a8d4" opacity="0.6">
-        <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.1s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="10" cy="45" r="2" fill="#f9a8d4" opacity="0.45">
-        <animate attributeName="opacity" values="0.45;0.1;0.45" dur="1.7s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="98" cy="20" r="2.5" fill="#fde68a" opacity="0.5">
-        <animate attributeName="opacity" values="0.5;0.12;0.5" dur="2.4s" repeatCount="indefinite" />
-      </circle>
-      <!-- Label -->
-      <rect x="8" y="102" width="84" height="18" rx="4" fill="#ec4899" opacity="0.18" stroke="#ec4899" stroke-width="1" stroke-opacity="0.4" />
-      <text x="50" y="115" text-anchor="middle" fill="#f9a8d4" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">MUSIC</text>
-    </g>
-    <g transform="translate(40, 195)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#ec4899" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="722" cy="278" r="2" fill="#ec4899" opacity="0.5">
-    <animate attributeName="cy" values="278;268;278" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="842" cy="328" r="1.5" fill="#eab308" opacity="0.4">
-    <animate attributeName="cy" values="328;318;328" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1058" cy="298" r="2" fill="#f97316" opacity="0.5">
-    <animate attributeName="cy" values="298;288;298" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="702" cy="198" r="1.5" fill="#ec4899" opacity="0.3">
-    <animate attributeName="cy" values="198;190;198" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1108" cy="178" r="1" fill="#f97316" opacity="0.4">
-    <animate attributeName="cy" values="178;170;178" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="952" cy="128" r="1.5" fill="#eab308" opacity="0.35">
-    <animate attributeName="cx" values="952;960;952" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel badge -->
-  <g transform="translate(60, 80)">
-    <rect width="168" height="32" rx="16" fill="#ec4899" opacity="0.12" stroke="#ec4899" stroke-width="1" stroke-opacity="0.4" />
-    <text x="84" y="21" text-anchor="middle" fill="#f9a8d4" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">AI CREATOR 2026</text>
-  </g>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 5, 2026</text>
   <!-- Main title -->
-  <text x="60" y="172" fill="white" font-family="Inter,system-ui,sans-serif" font-size="46" font-weight="800" letter-spacing="-0.5">AI Content</text>
-  <text x="60" y="228" fill="white" font-family="Inter,system-ui,sans-serif" font-size="46" font-weight="800" letter-spacing="-0.5">Creator</text>
-  <text x="60" y="286" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">Workflow</text>
-  <text x="60" y="332" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="37" font-weight="700" letter-spacing="-0.3">2026</text>
-
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI Content Creator Workflow</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">2026 Blog Video Music Animation</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI | Claude | Suno AI</text>
   <!-- Accent line -->
-  <rect x="60" y="356" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 380)">
-    <rect width="44" height="30" rx="15" fill="#ec4899" opacity="0.12" stroke="#ec4899" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="22" y="20" text-anchor="middle" fill="#f9a8d4" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">AI</text>
-    <g transform="translate(54, 0)">
-      <rect width="62" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="31" y="20" text-anchor="middle" fill="#fed7aa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Video</text>
-    </g>
-    <g transform="translate(126, 0)">
-      <rect width="66" height="30" rx="15" fill="#ec4899" opacity="0.12" stroke="#ec4899" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="33" y="20" text-anchor="middle" fill="#f9a8d4" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Music</text>
-    </g>
-    <g transform="translate(202, 0)">
-      <rect width="88" height="30" rx="15" fill="#eab308" opacity="0.12" stroke="#eab308" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="44" y="20" text-anchor="middle" fill="#fde68a" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Animation</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">FEBRUARY 05, 2026</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">AI</text>
+  <rect x="174" y="420" width="90" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="219" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Claude</text>
+  <rect x="278" y="420" width="99" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="327" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Suno AI</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

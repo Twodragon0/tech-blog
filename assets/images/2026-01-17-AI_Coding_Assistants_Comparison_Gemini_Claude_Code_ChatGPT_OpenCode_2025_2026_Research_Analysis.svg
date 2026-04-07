@@ -1,140 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>AI Coding Assistants Comparison Gemini Claude Code ChatGPT OpenCode 2025 2026 Research Analysis</title>
-  <!-- Dark background -->
-  <rect width="1200" height="630" fill="#0a0c1a"/>
-  
-  <!-- LEFT SIDE: Title and Content -->
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">
-    Coding Assistants
-  </text>
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white">
-    Comparison
-  </text>
-  <text x="80" y="310" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="#3b82f6" opacity="0.8">
-    Gemini Claude Code
-  </text>
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>AI Coding Assistants Comparison Gemini Claude Code ChatGPT OpenCode 2025 2026 Re</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Pipeline flow -->
+  <circle cx="880" cy="200" r="20" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+  <line x1="900" y1="200" x2="940" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="960" cy="200" r="20" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1020" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="1040" cy="200" r="20" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+  <!-- Infinity loop -->
+  <path d="M900,350 Q960,290 1020,350 Q960,410 900,350" fill="none" stroke="rgba(34,197,94,0.25)" stroke-width="2"/>
+  <path d="M940,350 Q1000,290 1060,350 Q1000,410 940,350" fill="none" stroke="rgba(6,182,212,0.25)" stroke-width="2"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="60" y="40" width="220" height="40" rx="8" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="85" y="65" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" letter-spacing="1">
-    JANUARY 17, 2026
-  </text>
-  
-  <!-- Tag pills at y=430 -->
-  <g>
-    <!-- Tag 1 -->
-    <rect x="80" y="420" width="130" height="32" rx="16" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="100" y="442" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" font-weight="600">
-      AI Tools
-    </text>
-    
-    <!-- Tag 2 -->
-    <rect x="230" y="420" width="130" height="32" rx="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="250" y="442" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" font-weight="600">
-      Development
-    </text>
-    
-    <!-- Tag 3 -->
-    <rect x="380" y="420" width="130" height="32" rx="16" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="400" y="442" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" font-weight="600">
-      Comparison
-    </text>
-  </g>
-  
-  <!-- Footer -->
-  <text x="80" y="555" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">
-    tech.2twodragon.com
-  </text>
-  
-  <!-- RIGHT SIDE: Visual Scene with AI/Neural Concepts -->
-  <g>
-    <!-- Brain silhouette with circuits -->
-    <!-- Brain outline -->
-    <ellipse cx="850" cy="240" rx="95" ry="110" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
-    
-    <!-- Brain lobes detail -->
-    <circle cx="800" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
-    <circle cx="900" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
-    <ellipse cx="850" cy="280" rx="60" ry="50" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
-    
-    <!-- Neural connections/circuits -->
-    <line x1="750" y1="200" x2="800" y2="220" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
-    <line x1="800" y1="220" x2="850" y2="200" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
-    <line x1="850" y1="200" x2="900" y2="220" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
-    <line x1="900" y1="220" x2="950" y2="200" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
-    
-    <!-- Vertical neural paths -->
-    <line x1="820" y1="240" x2="810" y2="310" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-    <line x1="850" y1="240" x2="850" y2="330" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-    <line x1="880" y1="240" x2="890" y2="310" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-    
-    <!-- Circuit nodes -->
-    <circle cx="750" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
-    <circle cx="800" cy="220" r="4" fill="#f59e0b" opacity="0.6"/>
-    <circle cx="850" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
-    <circle cx="900" cy="220" r="4" fill="#f59e0b" opacity="0.6"/>
-    <circle cx="950" cy="200" r="4" fill="#f59e0b" opacity="0.6"/>
-    
-    <!-- Data flow arrows coming from brain -->
-    <defs>
-      <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" opacity="0.6"/>
-      </marker>
-      <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" opacity="0.6"/>
-      </marker>
-      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" opacity="0.6"/>
-      </marker>
-    </defs>
-    
-    <!-- Right arrow (Output/Results) -->
-    <line x1="960" y1="240" x2="1050" y2="240" stroke="#f59e0b" stroke-width="2" opacity="0.6" marker-end="url(#arrowOrange)"/>
-    
-    <!-- Lower right arrow -->
-    <line x1="930" y1="290" x2="1040" y2="360" stroke="#3b82f6" stroke-width="2" opacity="0.5" marker-end="url(#arrowBlue)"/>
-    
-    <!-- Upper right arrow -->
-    <line x1="930" y1="190" x2="1040" y2="120" stroke="#ef4444" stroke-width="2" opacity="0.5" marker-end="url(#arrowRed)"/>
-    
-    <!-- Data packets along arrows -->
-    <circle cx="1000" cy="235" r="3" fill="#f59e0b" opacity="0.7"/>
-    <circle cx="980" cy="245" r="2.5" fill="#f59e0b" opacity="0.5"/>
-    
-    <!-- Warning/Alert triangles -->
-    <!-- Triangle 1 (Top right) -->
-    <polygon points="1080,100 1095,130 1065,130" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
-    <text x="1078" y="122" font-family="Arial, sans-serif" font-size="20" fill="#ef4444" opacity="0.5" font-weight="bold">!</text>
-    
-    <!-- Triangle 2 (Right) -->
-    <polygon points="1070,360 1085,390 1055,390" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
-    <text x="1068" y="382" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" opacity="0.4" font-weight="bold">!</text>
-    
-    <!-- Processing indicators -->
-    <!-- Hexagon shapes for processing nodes -->
-    <g transform="translate(700, 350)">
-      <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
-    </g>
-    
-    <g transform="translate(1000, 450)">
-      <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
-    </g>
-    
-    <!-- Connecting line between processing nodes -->
-    <line x1="710" y1="360" x2="990" y2="445" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-    
-    <!-- Energy pulses on neural lines -->
-    <circle cx="835" cy="300" r="3" fill="#f59e0b" opacity="0.6"/>
-    <circle cx="865" cy="300" r="2.5" fill="#f59e0b" opacity="0.4"/>
-    
-    <!-- Top section glow -->
-    <ellipse cx="850" cy="150" rx="120" ry="80" fill="#3b82f6" opacity="0.04"/>
-    
-    <!-- Right section glow -->
-    <ellipse cx="1050" cy="280" rx="100" ry="120" fill="#f59e0b" opacity="0.05"/>
-  </g>
-  
-  <!-- Subtle grid lines for design depth -->
-  <line x1="650" y1="80" x2="650" y2="550" stroke="white" stroke-width="0.5" opacity="0.05"/>
-  <line x1="650" y1="315" x2="1150" y2="315" stroke="white" stroke-width="0.5" opacity="0.05"/>
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 17, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AI Coding Assistants</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Comparison Gemini Claude...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AI | Coding Assistants | Gemini</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVSECOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">AI</text>
+  <rect x="174" y="420" width="162" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="255" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Coding Assist.</text>
+  <rect x="350" y="420" width="90" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="395" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Gemini</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

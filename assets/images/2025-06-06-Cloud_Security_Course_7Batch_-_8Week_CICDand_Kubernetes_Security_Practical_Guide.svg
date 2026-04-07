@@ -1,166 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security Course 7Batch - 8Week CICDand Kubernetes Security Practical Guide</title>
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-
-  
+  <title>Cloud Security Course 7Batch   8Week CI CDAnd Kubernetes Security Practical Guid</title>
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#0a0c1a;stop-opacity:0" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0f0a25"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGradient)" />
-
-  
-  
-  <g id="k8s-cluster">
-    
-    <circle cx="950" cy="280" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6" />
-    <circle cx="950" cy="280" r="145" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5" />
-
-    
-    <rect x="915" y="245" width="70" height="70" fill="#00d4ff" opacity="0.2" rx="8" />
-    <rect x="915" y="245" width="70" height="70" fill="none" stroke="#00d4ff" stroke-width="2" rx="8" />
-    <text x="950" y="290" font-family="monospace" font-size="24" fill="#00d4ff" text-anchor="middle" font-weight="bold">K8s</text>
-
-    
-    
-    <g id="node1">
-      <circle cx="820" cy="180" r="35" fill="#ff6b6b" opacity="0.15" />
-      <circle cx="820" cy="180" r="35" fill="none" stroke="#ff6b6b" stroke-width="2" />
-      <rect x="805" y="165" width="30" height="30" fill="#ff6b6b" opacity="0.2" rx="4" />
-      <rect x="805" y="165" width="30" height="30" fill="none" stroke="#ff6b6b" stroke-width="1.5" rx="4" />
-    </g>
-
-    
-    <g id="node2">
-      <circle cx="820" cy="380" r="35" fill="#4ecdc4" opacity="0.15" />
-      <circle cx="820" cy="380" r="35" fill="none" stroke="#4ecdc4" stroke-width="2" />
-      <rect x="805" y="365" width="30" height="30" fill="#4ecdc4" opacity="0.2" rx="4" />
-      <rect x="805" y="365" width="30" height="30" fill="none" stroke="#4ecdc4" stroke-width="1.5" rx="4" />
-    </g>
-
-    
-    <g id="node3">
-      <circle cx="1080" cy="280" r="35" fill="#ffd93d" opacity="0.15" />
-      <circle cx="1080" cy="280" r="35" fill="none" stroke="#ffd93d" stroke-width="2" />
-      <rect x="1065" y="265" width="30" height="30" fill="#ffd93d" opacity="0.2" rx="4" />
-      <rect x="1065" y="265" width="30" height="30" fill="none" stroke="#ffd93d" stroke-width="1.5" rx="4" />
-    </g>
-
-    
-    <line x1="880" y1="200" x2="920" y2="250" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
-    <line x1="880" y1="360" x2="920" y2="300" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
-    <line x1="1045" y1="280" x2="985" y2="280" stroke="#00d4ff" stroke-width="2" opacity="0.5" />
-  </g>
-
-  
-  <g id="cicd-pipeline">
-    
-    <g id="stage1">
-      <rect x="710" y="150" width="50" height="50" fill="#6366f1" opacity="0.3" rx="6" />
-      <rect x="710" y="150" width="50" height="50" fill="none" stroke="#6366f1" stroke-width="2" rx="6" />
-      </g>
-
-    
-    <path d="M 770 175 L 795 175" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.6" />
-    <polygon points="795,175 785,170 785,180" fill="#6366f1" opacity="0.6" />
-
-    <g id="stage2">
-      <rect x="800" y="150" width="50" height="50" fill="#8b5cf6" opacity="0.3" rx="6" />
-      <rect x="800" y="150" width="50" height="50" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6" />
-      </g>
-
-    
-    <path d="M 860 175 L 885 175" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.6" />
-    <polygon points="885,175 875,170 875,180" fill="#8b5cf6" opacity="0.6" />
-
-    <g id="stage3">
-      <rect x="890" y="150" width="50" height="50" fill="#ec4899" opacity="0.3" rx="6" />
-      <rect x="890" y="150" width="50" height="50" fill="none" stroke="#ec4899" stroke-width="2" rx="6" />
-      </g>
-  </g>
-
-  
-  <g id="security-shields">
-    
-    <g id="shield1" transform="translate(750, 380)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2" />
-      </g>
-
-    
-    <g id="shield2" transform="translate(900, 420)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2" />
-      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold">IMG</text>
-    </g>
-
-    
-    <g id="shield3" transform="translate(1050, 380)">
-      <path d="M 0 -25 L 15 -15 L 15 0 Q 0 20 0 25 Q 0 20 -15 0 L -15 -15 Z" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="2" />
-      <text x="0" y="8" font-family="sans-serif" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">POD</text>
-    </g>
-  </g>
-
-  
-  <g id="security-locks">
-    
-    <g transform="translate(730, 280)">
-      <circle cx="0" cy="0" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5" />
-      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#00d4ff" stroke-width="1.5" rx="2" />
-      <circle cx="0" cy="5" r="2" fill="#00d4ff" />
-    </g>
-
-    
-    <g transform="translate(1120, 320)">
-      <circle cx="0" cy="0" r="10" fill="none" stroke="#10b981" stroke-width="1.5" />
-      <rect x="-6" y="0" width="12" height="10" fill="none" stroke="#10b981" stroke-width="1.5" rx="2" />
-      <circle cx="0" cy="5" r="2" fill="#10b981" />
-    </g>
-  </g>
-
-  
-  
-  <text x="60" y="185" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Cloud Security</text>
-  <text x="60" y="245" font-family="sans-serif" font-size="46" font-weight="700" fill="#ffffff">Course 8Week CI/CD</text>
-
-  
-  <g id="date-badge">
-    <rect x="60" y="275" width="220" height="45" fill="#00d4ff" opacity="0.15" rx="25" />
-    <rect x="60" y="275" width="220" height="45" fill="none" stroke="#00d4ff" stroke-width="2" rx="25" />
-    <circle cx="85" cy="297.5" r="6" fill="#00d4ff" />
-    <text x="100" y="305" font-family="monospace" font-size="16" font-weight="600" fill="#00d4ff">JUNE 6, 2025</text>
-  </g>
-
-  
-  
-  <g id="tag1">
-    <rect x="60" y="420" width="110" height="35" fill="#6366f1" opacity="0.2" rx="18" />
-    <rect x="60" y="420" width="110" height="35" fill="none" stroke="#6366f1" stroke-width="1.5" rx="18" />
-    <text x="115" y="443" font-family="sans-serif" font-size="13" fill="#6366f1" text-anchor="middle" font-weight="600">Kubernetes</text>
-  </g>
-
-  
-  <g id="tag2">
-    <rect x="185" y="420" width="95" height="35" fill="#8b5cf6" opacity="0.2" rx="18" />
-    <rect x="185" y="420" width="95" height="35" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="18" />
-    <text x="232.5" y="443" font-family="sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="600">CI/CD</text>
-  </g>
-
-  
-  <g id="tag3">
-    <rect x="300" y="420" width="110" height="35" fill="#ec4899" opacity="0.2" rx="18" />
-    <rect x="300" y="420" width="110" height="35" fill="none" stroke="#ec4899" stroke-width="1.5" rx="18" />
-    <text x="355" y="443" font-family="sans-serif" font-size="13" fill="#ec4899" text-anchor="middle" font-weight="600">Security</text>
-  </g>
-
-  
-  <text x="60" y="595" font-family="monospace" font-size="12" fill="#ffffff" opacity="0.7">tech.2twodragon.com</text>
-
-  
-  
-  <circle cx="400" cy="100" r="2" fill="#00d4ff" opacity="0.3" />
-  <circle cx="500" cy="500" r="2" fill="#6366f1" opacity="0.3" />
-  <circle cx="150" cy="500" r="2" fill="#8b5cf6" opacity="0.3" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- K8s hexagon -->
+  <polygon points="950,150 990,172 990,218 950,240 910,218 910,172" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+  <circle cx="950" cy="195" r="18" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <!-- Pod boxes -->
+  <rect x="880" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="940" y="310" width="45" height="35" rx="5" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="310" width="45" height="35" rx="5" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" stroke-width="1.5"/>
+  <line x1="925" y1="327" x2="940" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="985" y1="327" x2="1000" y2="327" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JUNE 6, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 7Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">8Week CI CDAnd Kubernetes...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">CI/CD | Kubernetes | Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">KUBERNETES DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="81" height="36" rx="18" fill="rgba(139,92,246,0.18)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">CI/CD</text>
+  <rect x="175" y="420" width="126" height="36" rx="18" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
+  <text x="238" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">Kubernetes</text>
+  <rect x="315" y="420" width="108" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="369" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

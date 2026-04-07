@@ -1,200 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Daily Tech Digest RSS Roundup</title>
   <defs>
-    <filter id="glassBlur">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="20" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="cardShadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#3b82f6" flood-opacity="0.25" />
-    </filter>
-    <filter id="particleGlow">
-      <feGaussianBlur stdDeviation="2" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a1a0a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="50%" stop-color="#8b5cf6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="orbGrad1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-    </linearGradient>
-    <linearGradient id="orbGrad2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
-    </linearGradient>
-    <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
-    </radialGradient>
-    <clipPath id="cardClip1"><rect x="700" y="80" width="420" height="220" rx="16" /></clipPath>
-    <clipPath id="cardClip2"><rect x="730" y="200" width="420" height="220" rx="16" /></clipPath>
-    <clipPath id="cardClip3"><rect x="680" y="340" width="420" height="220" rx="16" /></clipPath>
-    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.7" fill="#334155" opacity="0.5" />
-    </pattern>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dotGrid)" />
-
-  
-  <ellipse cx="200" cy="500" rx="280" ry="200" fill="url(#orbGrad1)" filter="url(#glassBlur)" />
-  <ellipse cx="900" cy="120" rx="250" ry="180" fill="url(#orbGrad2)" filter="url(#glassBlur)" />
-  <ellipse cx="600" cy="350" rx="200" ry="150" fill="url(#orbGrad1)" filter="url(#glassBlur)" opacity="0.5" />
-
-  
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="680" y="340" width="420" height="220" rx="16" fill="#1e293b" fill-opacity="0.35" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <g clip-path="url(#cardClip3)" opacity="0.6">
-      <rect x="680" y="340" width="420" height="220" fill="#1e293b" fill-opacity="0.2" filter="url(#glassBlur)" />
-    </g>
-    
-    <circle cx="890" cy="430" r="30" fill="none" stroke="#f43f5e" stroke-width="2" opacity="0.5" />
-    <circle cx="890" cy="450" r="5" fill="#f43f5e" opacity="0.7" />
-    <path d="M875 420 Q875 445 900 445" fill="none" stroke="#f43f5e" stroke-width="2" opacity="0.5" stroke-linecap="round" />
-    <path d="M868 410 Q868 455 913 455" fill="none" stroke="#f43f5e" stroke-width="1.5" opacity="0.35" stroke-linecap="round" />
-    
-    <line x1="720" y1="500" x2="780" y2="500" stroke="#94a3b8" stroke-width="1" opacity="0.3" />
-    <line x1="720" y1="510" x2="760" y2="510" stroke="#94a3b8" stroke-width="1" opacity="0.2" />
-    <line x1="720" y1="520" x2="800" y2="520" stroke="#94a3b8" stroke-width="1" opacity="0.15" />
-    <rect x="950" y="490" width="60" height="24" rx="6" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="0.8" />
-    </g>
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="730" y="200" width="420" height="220" rx="16" fill="#1e293b" fill-opacity="0.4" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <g clip-path="url(#cardClip2)" opacity="0.5">
-      <rect x="730" y="200" width="420" height="220" fill="#1e293b" fill-opacity="0.2" filter="url(#glassBlur)" />
-    </g>
-    
-    <rect x="960" y="330" width="12" height="40" rx="3" fill="#8b5cf6" opacity="0.3" />
-    <rect x="980" y="310" width="12" height="60" rx="3" fill="#8b5cf6" opacity="0.4" />
-    <rect x="1000" y="320" width="12" height="50" rx="3" fill="#3b82f6" opacity="0.35" />
-    <rect x="1020" y="300" width="12" height="70" rx="3" fill="#3b82f6" opacity="0.45" />
-    <rect x="1040" y="325" width="12" height="45" rx="3" fill="#f43f5e" opacity="0.35" />
-    <rect x="1060" y="340" width="12" height="30" rx="3" fill="#f43f5e" opacity="0.25" />
-  </g>
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="700" y="80" width="420" height="220" rx="16" fill="#1e293b" fill-opacity="0.5" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <g clip-path="url(#cardClip1)" opacity="0.4">
-      <rect x="700" y="80" width="420" height="220" fill="#1e293b" fill-opacity="0.25" filter="url(#glassBlur)" />
-    </g>
-    
-    <g transform="translate(860, 140)" filter="url(#softGlow)">
-      <circle cx="0" cy="0" r="55" fill="url(#brainGlow)" />
-    </g>
-    <g transform="translate(860, 140)" opacity="0.85">
-      
-      <path d="M-8,-40 C-25,-38 -38,-25 -40,-8 C-42,5 -35,18 -28,28 C-22,35 -15,40 -5,42 C0,43 5,42 8,42 C18,40 25,35 30,28 C37,18 42,5 40,-8 C38,-25 25,-38 8,-40 C3,-41 -3,-41 -8,-40Z" fill="none" stroke="#3b82f6" stroke-width="1.8" />
-      
-      <path d="M0,-38 C-2,-15 2,15 0,40" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.6" />
-      
-      <line x1="-30" y1="-10" x2="-55" y2="-25" stroke="#3b82f6" stroke-width="1" opacity="0.5" />
-      <line x1="-25" y1="15" x2="-55" y2="30" stroke="#8b5cf6" stroke-width="1" opacity="0.4" />
-      <line x1="30" y1="-15" x2="55" y2="-30" stroke="#3b82f6" stroke-width="1" opacity="0.5" />
-      <line x1="28" y1="20" x2="55" y2="35" stroke="#f43f5e" stroke-width="1" opacity="0.4" />
-      <line x1="0" y1="-40" x2="0" y2="-60" stroke="#3b82f6" stroke-width="1" opacity="0.4" />
-      <line x1="-35" y1="25" x2="-60" y2="45" stroke="#8b5cf6" stroke-width="0.8" opacity="0.3" />
-      <line x1="35" y1="-5" x2="65" y2="0" stroke="#3b82f6" stroke-width="0.8" opacity="0.3" />
-      
-      <circle cx="-55" cy="-25" r="3" fill="#3b82f6" opacity="0.7" />
-      <circle cx="-55" cy="30" r="3" fill="#8b5cf6" opacity="0.6" />
-      <circle cx="55" cy="-30" r="3" fill="#3b82f6" opacity="0.7" />
-      <circle cx="55" cy="35" r="3" fill="#f43f5e" opacity="0.6" />
-      <circle cx="0" cy="-60" r="3" fill="#3b82f6" opacity="0.5" />
-      <circle cx="-60" cy="45" r="2.5" fill="#8b5cf6" opacity="0.4" />
-      <circle cx="65" cy="0" r="2.5" fill="#3b82f6" opacity="0.4" />
-      
-      <circle cx="-15" cy="-10" r="2" fill="#60a5fa" opacity="0.6" />
-      <circle cx="12" cy="-18" r="2" fill="#60a5fa" opacity="0.5" />
-      <circle cx="-10" cy="15" r="2" fill="#a78bfa" opacity="0.5" />
-      <circle cx="15" cy="10" r="2" fill="#60a5fa" opacity="0.6" />
-      <circle cx="5" cy="-5" r="2.5" fill="#60a5fa" opacity="0.7" />
-      
-      <line x1="-15" y1="-10" x2="5" y2="-5" stroke="#60a5fa" stroke-width="0.7" opacity="0.4" />
-      <line x1="5" y1="-5" x2="15" y2="10" stroke="#60a5fa" stroke-width="0.7" opacity="0.4" />
-      <line x1="5" y1="-5" x2="12" y2="-18" stroke="#60a5fa" stroke-width="0.7" opacity="0.3" />
-      <line x1="-10" y1="15" x2="5" y2="-5" stroke="#a78bfa" stroke-width="0.7" opacity="0.3" />
-    </g>
-    
-    <rect x="740" y="268" width="80" height="18" rx="9" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.25" stroke-width="0.8" />
-    <text x="780" y="280" font-family="system-ui,sans-serif" font-size="9" fill="#60a5fa" text-anchor="middle" opacity="0.8">ACTIVE</text>
-  </g>
-
-  
-  <circle cx="720" cy="310" r="2" fill="#3b82f6" opacity="0.6" filter="url(#particleGlow)" />
-  <circle cx="1100" cy="280" r="1.5" fill="#f43f5e" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="750" cy="350" r="1.8" fill="#8b5cf6" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="1080" cy="150" r="2" fill="#3b82f6" opacity="0.4" filter="url(#particleGlow)" />
-  <circle cx="690" cy="250" r="1.5" fill="#f43f5e" opacity="0.4" filter="url(#particleGlow)" />
-  <circle cx="1130" cy="400" r="2.2" fill="#8b5cf6" opacity="0.45" filter="url(#particleGlow)" />
-  <circle cx="760" cy="190" r="1.2" fill="#60a5fa" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="1050" cy="330" r="1.8" fill="#f43f5e" opacity="0.35" filter="url(#particleGlow)" />
-
-  
-
-  
-  <rect x="60" y="100" width="140" height="32" rx="16" fill="url(#accentGrad)" fill-opacity="0.15" stroke="url(#accentGrad)" stroke-width="1" />
-  <text x="130" y="121" font-family="system-ui,sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle" font-weight="600" letter-spacing="1.5">TECH DIGEST</text>
-
-  
-  <text x="60" y="200" font-family="system-ui,-apple-system,sans-serif" font-size="46" fill="#ffffff" font-weight="800" letter-spacing="-0.5">Daily Tech</text>
-  <text x="60" y="258" font-family="system-ui,-apple-system,sans-serif" font-size="46" fill="#ffffff" font-weight="800" letter-spacing="-0.5">Digest RSS</text>
-  <text x="60" y="316" font-family="system-ui,-apple-system,sans-serif" font-size="46" fill="url(#accentGrad)" font-weight="800" letter-spacing="-0.5">Roundup</text>
-
-  
-  <rect x="60" y="340" width="180" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  
-  <g transform="translate(60, 370)">
-    <rect x="0" y="0" width="72" height="28" rx="14" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="0.8" />
-    <text x="36" y="18" font-family="system-ui,sans-serif" font-size="11" fill="#60a5fa" text-anchor="middle" font-weight="500">DevOps</text>
-
-    <rect x="84" y="0" width="85" height="28" rx="14" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="0.8" />
-    <text x="126" y="18" font-family="system-ui,sans-serif" font-size="11" fill="#a78bfa" text-anchor="middle" font-weight="500">Security</text>
-
-    <rect x="181" y="0" width="62" height="28" rx="14" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="0.8" />
-    <text x="212" y="18" font-family="system-ui,sans-serif" font-size="11" fill="#fb7185" text-anchor="middle" font-weight="500">Cloud</text>
-  </g>
-
-  
-  <text x="60" y="460" font-family="system-ui,sans-serif" font-size="13" fill="#64748b" font-weight="500" letter-spacing="2">FEBRUARY 16, 2026</text>
-
-  
-  <line x1="60" y1="560" x2="600" y2="560" stroke="#1e293b" stroke-width="1" />
-  <text x="60" y="585" font-family="system-ui,sans-serif" font-size="13" fill="#475569" font-weight="500" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  
-  <rect x="0" y="626" width="1200" height="4" fill="url(#accentLine)" opacity="0.6" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cost graph bars -->
+  <rect x="880" y="260" width="30" height="80" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="220" width="30" height="120" rx="4" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+  <rect x="960" y="240" width="30" height="100" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+  <rect x="1000" y="180" width="30" height="160" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <!-- Trend line -->
+  <polyline points="895,270 935,230 975,250 1015,190" fill="none" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+  <circle cx="1015" cy="190" r="5" fill="rgba(34,197,94,0.5)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 16, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Daily Tech Digest RSS Roundup</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1"></text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Daily Digest | Tech Newsletter | AI Inference</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">FINOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="144" height="36" rx="18" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+  <text x="152" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Daily Digest</text>
+  <rect x="238" y="420" width="162" height="36" rx="18" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="319" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Tech Newslett.</text>
+  <rect x="414" y="420" width="144" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="486" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AI Inference</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

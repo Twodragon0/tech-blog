@@ -1,204 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Blockchain Cryptocurrency Security Complete Guide - DevSecOps</title>
+  <title>Blockchain Cryptocurrency Security Complete Guide DevSecOps From Perspective Vie</title>
   <defs>
-    <filter id="orbGlow"><feGaussianBlur stdDeviation="40" /></filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7c3aed" />
-      <stop offset="100%" stop-color="#22c55e" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#7c3aed" />
-      <stop offset="50%" stop-color="#a855f7" />
-      <stop offset="100%" stop-color="#22c55e" />
-    </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.12" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
-    <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7c3aed" />
-      <stop offset="100%" stop-color="#6d28d9" />
-    </linearGradient>
-    <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#22c55e" />
-      <stop offset="100%" stop-color="#16a34a" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  <!-- Orb glows -->
-  <circle cx="775" cy="132" r="185" fill="#7c3aed" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1052" cy="442" r="152" fill="#22c55e" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="192" cy="498" r="118" fill="#a855f7" opacity="0.05" filter="url(#orbGlow)" />
-  <circle cx="592" cy="318" r="98" fill="#22c55e" opacity="0.04" filter="url(#orbGlow)" />
-
-  <!-- Card 1 (top-right): Chain links - Blockchain -->
-  <g transform="translate(840, 55)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(98, 18)">
-      <!-- Chain link 1 (left) -->
-      <rect x="5" y="28" width="42" height="22" rx="11" fill="none" stroke="#7c3aed" stroke-width="2.8" stroke-opacity="0.85" />
-      <rect x="12" y="34" width="28" height="10" rx="5" fill="#7c3aed" opacity="0.2" />
-      <!-- Chain link 2 (center, interlocked) -->
-      <rect x="35" y="42" width="42" height="22" rx="11" fill="none" stroke="#a855f7" stroke-width="2.8" stroke-opacity="0.75" />
-      <rect x="42" y="48" width="28" height="10" rx="5" fill="#a855f7" opacity="0.2" />
-      <!-- Chain link 3 (right) -->
-      <rect x="65" y="28" width="42" height="22" rx="11" fill="none" stroke="#22c55e" stroke-width="2.8" stroke-opacity="0.8" />
-      <rect x="72" y="34" width="28" height="10" rx="5" fill="#22c55e" opacity="0.2" />
-      <!-- Hash text inside blocks -->
-      <text x="26" y="41" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="7" opacity="0.7">0x4F2</text>
-      <text x="56" y="55" text-anchor="middle" fill="#c4b5fd" font-family="monospace" font-size="7" opacity="0.7">0xA91</text>
-      <text x="86" y="41" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7" opacity="0.7">0x3D8</text>
-      <!-- Badge -->
-      <rect x="14" y="96" width="84" height="18" rx="4" fill="#7c3aed" opacity="0.2" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4" />
-      <text x="56" y="109" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">BLOCKCHAIN</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#7c3aed" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#a855f7" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#22c55e" opacity="0.4" />
-  </g>
-
-  <!-- Card 2 (middle): Lock with crypto symbol - Security -->
-  <g transform="translate(725, 188)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(100, 15)">
-      <!-- Lock body -->
-      <rect x="22" y="42" width="56" height="48" rx="8" fill="#22c55e" opacity="0.18" stroke="#22c55e" stroke-width="2" stroke-opacity="0.8" />
-      <!-- Lock shackle -->
-      <path d="M32 42 L32 26 C32 10 70 10 70 26 L70 42" fill="none" stroke="#22c55e" stroke-width="3" stroke-opacity="0.75" stroke-linecap="round" />
-      <!-- Bitcoin/crypto symbol inside lock -->
-      <text x="50" y="70" text-anchor="middle" fill="#22c55e" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="900" opacity="0.75">B</text>
-      <line x1="44" y1="50" x2="44" y2="52" stroke="#22c55e" stroke-width="1.5" opacity="0.5" />
-      <line x1="56" y1="50" x2="56" y2="52" stroke="#22c55e" stroke-width="1.5" opacity="0.5" />
-      <!-- Key symbol -->
-      <circle cx="88" cy="25" r="10" fill="none" stroke="#a855f7" stroke-width="2" stroke-opacity="0.75" />
-      <line x1="95" y1="31" x2="108" y2="44" stroke="#a855f7" stroke-width="2" stroke-opacity="0.75" stroke-linecap="round" />
-      <line x1="104" y1="44" x2="104" y2="50" stroke="#a855f7" stroke-width="2" stroke-opacity="0.6" stroke-linecap="round" />
-      <line x1="108" y1="47" x2="114" y2="47" stroke="#a855f7" stroke-width="2" stroke-opacity="0.6" stroke-linecap="round" />
-      <!-- Badge -->
-      <rect x="12" y="100" width="76" height="18" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4" />
-      <text x="50" y="113" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CRYPTO LOCK</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="200" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Shield with check - Best Practice -->
-  <g transform="translate(660, 345)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(108, 18)">
-      <!-- Shield shape -->
-      <path d="M53 0 L100 18 L100 55 C100 78 75 90 53 96 C31 90 6 78 6 55 L6 18 Z" fill="url(#purpleGrad)" opacity="0.18" stroke="#7c3aed" stroke-width="2" stroke-opacity="0.75" />
-      <!-- Check mark inside shield -->
-      <path d="M28 52 L44 68 L78 30" fill="none" stroke="#22c55e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
-      <!-- Stars/sparkles around shield -->
-      <circle cx="4" cy="22" r="2" fill="#a855f7" opacity="0.6" />
-      <circle cx="102" cy="30" r="2" fill="#22c55e" opacity="0.6" />
-      <circle cx="8" cy="65" r="1.5" fill="#7c3aed" opacity="0.5" />
-      <circle cx="99" cy="68" r="1.5" fill="#4ade80" opacity="0.5" />
-      <!-- Badge -->
-      <rect x="16" y="100" width="72" height="18" rx="4" fill="#7c3aed" opacity="0.2" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4" />
-      <text x="52" y="113" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">BEST PRACTICE</text>
-    </g>
-    <g transform="translate(40, 196)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#22c55e" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="732" cy="278" r="2" fill="#7c3aed" opacity="0.5">
-    <animate attributeName="cy" values="278;268;278" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="848" cy="338" r="1.5" fill="#22c55e" opacity="0.4">
-    <animate attributeName="cy" values="338;328;338" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1068" cy="308" r="2" fill="#a855f7" opacity="0.5">
-    <animate attributeName="cy" values="308;298;308" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="698" cy="210" r="1.5" fill="#22c55e" opacity="0.3">
-    <animate attributeName="cy" values="210;202;210" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1118" cy="180" r="1" fill="#7c3aed" opacity="0.4">
-    <animate attributeName="cy" values="180;172;180" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="962" cy="130" r="1.5" fill="#22c55e" opacity="0.35">
-    <animate attributeName="cx" values="962;970;962" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel badge -->
-  <g transform="translate(60, 80)">
-    <rect width="172" height="32" rx="16" fill="#7c3aed" opacity="0.15" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4" />
-    <text x="86" y="21" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">DEVSECOPS GUIDE</text>
-  </g>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">JANUARY 8, 2026</text>
   <!-- Main title -->
-  <text x="60" y="168" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Blockchain</text>
-  <text x="60" y="220" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Security</text>
-  <text x="60" y="280" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="35" font-weight="700" letter-spacing="-0.3">Blockchain Security</text>
-  <text x="60" y="328" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="35" font-weight="700" letter-spacing="-0.3">DevSecOps Guide</text>
-
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Blockchain Cryptocurrency</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Security Complete Guide...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Blockchain | Cryptocurrency | Bitcoin</text>
   <!-- Accent line -->
-  <rect x="60" y="355" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 380)">
-    <rect width="84" height="30" rx="15" fill="#7c3aed" opacity="0.12" stroke="#7c3aed" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="42" y="20" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Blockchain</text>
-    <g transform="translate(94, 0)">
-      <rect width="58" height="30" rx="15" fill="#a855f7" opacity="0.12" stroke="#a855f7" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="29" y="20" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Crypto</text>
-    </g>
-    <g transform="translate(162, 0)">
-      <rect width="84" height="30" rx="15" fill="#22c55e" opacity="0.12" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="42" y="20" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">DevSecOps</text>
-    </g>
-    <g transform="translate(256, 0)">
-      <rect width="66" height="30" rx="15" fill="#22c55e" opacity="0.12" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="33" y="20" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">GitHub</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="458" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">JANUARY 08, 2026</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">BLOCKCHAIN DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="126" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="143" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">Blockchain</text>
+  <rect x="220" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="301" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cryptocurrency</text>
+  <rect x="396" y="420" width="99" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="445" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Bitcoin</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

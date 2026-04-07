@@ -1,138 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>12 Conference Review AWSKRUG OWASP Datadog Preview See 2025 AIand Security Coexistence</title>
+  <title>12 Conference Review AWSKRUG OWASP Datadog Preview See 2025 AIAnd Security Coexi</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a" />
-      <stop offset="100%" style="stop-color:#1a0a0a" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444" />
-      <stop offset="50%" style="stop-color:#ff8800" />
-      <stop offset="100%" style="stop-color:#4488ff" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444" />
-      <stop offset="50%" style="stop-color:#ff8800" />
-      <stop offset="100%" style="stop-color:transparent" />
-    </linearGradient>
-    <linearGradient id="dateBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.15" />
-    </linearGradient>
-    <linearGradient id="confGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.12" />
-      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:0.06" />
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#00ccff;stop-opacity:0.05" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  
-  <ellipse cx="1010" cy="225" rx="110" ry="55" fill="url(#confGrad)" stroke="rgba(255,68,68,0.25)" stroke-width="1.5" />
-  
-  <path d="M900,165 Q910,145 930,148 Q935,132 955,134 Q960,118 980,122 Q995,108 1010,115 Q1025,108 1040,115 Q1055,118 1060,134 Q1080,132 1085,148 Q1105,145 1115,165 Z" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.3)" stroke-width="1.5" />
-  
-  <polygon points="1010,140 1035,155 1035,185 1010,200 985,185 985,155" fill="rgba(255,136,0,0.08)" stroke="rgba(255,136,0,0.35)" stroke-width="1.5" />
-  <polygon points="1010,150 1025,161 1025,181 1010,191 995,181 995,161" fill="rgba(255,136,0,0.06)" stroke="rgba(255,136,0,0.2)" stroke-width="1" />
-  
-  <polyline points="1001,170 1008,178 1020,162" fill="none" stroke="rgba(255,136,0,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <circle cx="1010" cy="225" r="95" fill="none" stroke="rgba(255,68,68,0.15)" stroke-width="1" stroke-dasharray="6,4" />
-  
-  <circle cx="1010" cy="225" r="65" fill="none" stroke="rgba(255,136,0,0.2)" stroke-width="1" stroke-dasharray="4,5" />
-  
-  <circle cx="1010" cy="225" r="38" fill="none" stroke="rgba(68,136,255,0.25)" stroke-width="1.5" />
-  
-  <line x1="1010" y1="225" x2="1010" y2="160" stroke="rgba(255,68,68,0.3)" stroke-width="1.5" stroke-linecap="round" />
-  <line x1="1010" y1="225" x2="1063" y2="198" stroke="rgba(255,68,68,0.15)" stroke-width="1" stroke-linecap="round" />
-  <line x1="1010" y1="225" x2="957" y2="198" stroke="rgba(255,68,68,0.15)" stroke-width="1" stroke-linecap="round" />
-  
-  <circle cx="1010" cy="225" r="6" fill="rgba(255,68,68,0.5)" stroke="rgba(255,136,0,0.6)" stroke-width="1.5" />
-  
-  <ellipse cx="1010" cy="290" rx="55" ry="22" fill="rgba(68,136,255,0.07)" stroke="rgba(68,136,255,0.3)" stroke-width="1.5" />
-  <circle cx="1010" cy="290" r="11" fill="rgba(68,136,255,0.12)" stroke="rgba(68,136,255,0.4)" stroke-width="1.5" />
-  <circle cx="1010" cy="290" r="4" fill="rgba(68,136,255,0.35)" />
-  
-  <rect x="888" y="230" width="16" height="38" rx="2" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.3)" stroke-width="1" />
-  <rect x="910" y="218" width="16" height="50" rx="2" fill="rgba(255,136,0,0.12)" stroke="rgba(255,136,0,0.3)" stroke-width="1" />
-  <rect x="932" y="244" width="16" height="24" rx="2" fill="rgba(68,136,255,0.12)" stroke="rgba(68,136,255,0.3)" stroke-width="1" />
-  
-  <circle cx="900" cy="228" r="3" fill="rgba(255,68,68,0.5)" />
-  <circle cx="922" cy="216" r="3" fill="rgba(255,136,0,0.5)" />
-  <circle cx="944" cy="242" r="3" fill="rgba(68,136,255,0.5)" />
-  
-  <rect x="955" y="136" width="42" height="28" rx="5" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.4)" stroke-width="1.5" />
-  <circle cx="888" cy="165" r="5" fill="rgba(68,136,255,0.2)" stroke="rgba(68,136,255,0.4)" stroke-width="1" />
-  <circle cx="1120" cy="170" r="5" fill="rgba(255,136,0,0.2)" stroke="rgba(255,136,0,0.4)" stroke-width="1" />
-  <circle cx="1110" cy="290" r="4" fill="rgba(255,68,68,0.2)" stroke="rgba(255,68,68,0.4)" stroke-width="1" />
-  <line x1="888" y1="165" x2="900" y2="165" stroke="rgba(68,136,255,0.25)" stroke-width="1" />
-  <line x1="1110" y1="170" x2="1120" y2="170" stroke="rgba(255,136,0,0.25)" stroke-width="1" />
-
-  
-  <circle cx="870" cy="400" r="4" fill="rgba(255,68,68,0.6)" />
-  <circle cx="900" cy="420" r="4" fill="rgba(255,136,0,0.6)" />
-  <circle cx="860" cy="440" r="4" fill="rgba(68,136,255,0.6)" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
-
-  
-  <rect x="80" y="60" width="230" height="32" rx="4" fill="url(#dateBadge)" stroke="rgba(255,68,68,0.3)" stroke-width="1" />
-  <text x="195" y="81" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="rgba(255,180,100,0.9)" text-anchor="middle" letter-spacing="1.5">DECEMBER 17, 2025</text>
-
-  
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">12 Conference Review AWSKRUG</text>
-
-  
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">OWASP Datadog Preview See</text>
-
-  
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(200,200,230,0.75)">Cloud Security Conferences - AWS, OWASP, Datadog Insights</text>
-
-  
-  <rect x="80" y="325" width="420" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,136,0,0.85)" letter-spacing="2">CLOUD SECURITY - CONFERENCE REVIEW</text>
-
-  
-  <rect x="80" y="402" width="110" height="36" rx="18" fill="rgba(255,68,68,0.18)" stroke="rgba(255,68,68,0.45)" stroke-width="1.5" />
-  <text x="135" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,120,120,0.95)" text-anchor="middle">AWSKRUG</text>
-
-  <rect x="206" y="402" width="90" height="36" rx="18" fill="rgba(255,136,0,0.18)" stroke="rgba(255,136,0,0.45)" stroke-width="1.5" />
-  <text x="251" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,180,80,0.95)" text-anchor="middle">OWASP</text>
-
-  <rect x="312" y="402" width="100" height="36" rx="18" fill="rgba(68,136,255,0.18)" stroke="rgba(68,136,255,0.45)" stroke-width="1.5" />
-  <text x="362" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(100,180,255,0.95)" text-anchor="middle">Datadog</text>
-
-  
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="end">CLOUD</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">DECEMBER 17, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">12 Conference Review AWSKRUG</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">OWASP Datadog Preview See...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWSKRUG | OWASP | Datadog</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="99" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="129" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWSKRUG</text>
+  <rect x="193" y="420" width="81" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="233" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">OWASP</text>
+  <rect x="288" y="420" width="99" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="337" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Datadog</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

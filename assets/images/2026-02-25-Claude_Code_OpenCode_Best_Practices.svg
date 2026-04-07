@@ -1,135 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Claude Code OpenCode Best Practices</title>
-  
-  <rect width="1200" height="630" fill="#0a0c1a" />
-  
-  
   <defs>
-    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a150a"/>
     </linearGradient>
-    <linearGradient id="orchestrateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff4d94;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="executeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8338ec;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3a86ff;stop-opacity:1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#a3e635"/>
     </linearGradient>
   </defs>
-  
-  
-  
-  
-  <text x="50" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff">
-    Claude Code OpenCode
-  </text>
-  
-  
-  <text x="50" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="700" fill="#ffffff">
-    Best Practices
-  </text>
-  
-  
-  <g>
-    <rect x="50" y="270" width="280" height="40" rx="6" fill="rgba(0, 217, 255, 0.1)" stroke="#00d9ff" stroke-width="1" />
-    <text x="70" y="296" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#00d9ff">
-      FEBRUARY 25, 2026
-    </text>
-  </g>
-  
-  
-  <g>
-    
-    <rect x="50" y="420" width="120" height="32" rx="16" fill="rgba(255, 77, 148, 0.15)" stroke="#ff4d94" stroke-width="1" />
-    <text x="65" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ff4d94">
-      Orchestration
-    </text>
-    
-    
-    <rect x="190" y="420" width="100" height="32" rx="16" fill="rgba(51, 56, 236, 0.15)" stroke="#8338ec" stroke-width="1" />
-    <text x="205" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#8338ec">
-      Delegation
-    </text>
-    
-    
-    <rect x="310" y="420" width="110" height="32" rx="16" fill="rgba(0, 153, 255, 0.15)" stroke="#3a86ff" stroke-width="1" />
-    <text x="325" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#3a86ff">
-      Multi-Agent
-    </text>
-  </g>
-  
-  
-  <text x="50" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#666688">
-    tech.2twodragon.com
-  </text>
-  
-  
-  
-  
-  <circle cx="925" cy="315" r="35" fill="url(#agentGrad)" opacity="0.9" />
-  <circle cx="925" cy="315" r="35" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.5" />
-  <circle cx="800" cy="200" r="22" fill="rgba(0, 217, 255, 0.8)" />
-  <circle cx="800" cy="200" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6" />
-  <circle cx="1050" cy="315" r="22" fill="url(#executeGrad)" opacity="0.9" />
-  <circle cx="1050" cy="315" r="22" fill="none" stroke="#8338ec" stroke-width="2" opacity="0.6" />
-  <circle cx="1000" cy="180" r="22" fill="rgba(0, 217, 255, 0.7)" />
-  <circle cx="1000" cy="180" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6" />
-  <circle cx="1000" cy="450" r="22" fill="url(#orchestrateGrad)" opacity="0.8" />
-  <circle cx="1000" cy="450" r="22" fill="none" stroke="#ff4d94" stroke-width="2" opacity="0.6" />
-  <circle cx="800" cy="430" r="22" fill="rgba(0, 217, 255, 0.6)" />
-  <circle cx="800" cy="430" r="22" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.6" />
-  <line x1="902" y1="295" x2="815" y2="220" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3" />
-  
-  
-  <line x1="960" y1="315" x2="1028" y2="315" stroke="#8338ec" stroke-width="2" opacity="0.4" />
-  
-  
-  <line x1="950" y1="292" x2="985" y2="198" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3" />
-  
-  
-  <line x1="950" y1="340" x2="985" y2="432" stroke="#ff4d94" stroke-width="2" opacity="0.4" stroke-dasharray="3,3" />
-  
-  
-  <line x1="902" y1="335" x2="815" y2="410" stroke="#00d9ff" stroke-width="2" opacity="0.4" stroke-dasharray="3,3" />
-  
-  
-  <line x1="815" y1="215" x2="985" y2="198" stroke="#3a86ff" stroke-width="1" opacity="0.2" stroke-dasharray="4,4" />
-  <line x1="1050" y1="295" x2="1000" y2="172" stroke="#3a86ff" stroke-width="1" opacity="0.2" stroke-dasharray="4,4" />
-  
-  
-  <path d="M 935 282 L 945 275" stroke="#00d9ff" stroke-width="2" fill="none" marker-end="url(#arrowblue)" opacity="0.5" />
-  <path d="M 960 325 L 1020 325" stroke="#8338ec" stroke-width="2" fill="none" opacity="0.5" />
-  <path d="M 940 345 L 930 400" stroke="#ff4d94" stroke-width="2" fill="none" opacity="0.5" />
-  
-  
-  <defs>
-    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#00d9ff" />
-    </marker>
-  </defs>
-  
-  
-  
-  <rect x="750" y="520" width="14" height="80" rx="2" fill="rgba(0, 217, 255, 0.2)" stroke="#00d9ff" stroke-width="1" />
-  <rect x="770" y="520" width="14" height="60" rx="2" fill="rgba(51, 56, 236, 0.2)" stroke="#8338ec" stroke-width="1" />
-  <rect x="790" y="520" width="14" height="70" rx="2" fill="rgba(255, 77, 148, 0.2)" stroke="#ff4d94" stroke-width="1" />
-  
-  
-  <circle cx="850" cy="535" r="3" fill="#00d9ff" opacity="0.7" />
-  <circle cx="865" cy="535" r="3" fill="#8338ec" opacity="0.7" />
-  <circle cx="880" cy="535" r="3" fill="#ff4d94" opacity="0.7" />
-  
-  
-  <text x="920" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
-    Orchestrate
-  </text>
-  <text x="1000" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
-    Delegate
-  </text>
-  <text x="1060" y="565" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="500">
-    Verify
-  </text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Container boxes -->
+  <rect x="880" y="170" width="60" height="50" rx="6" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <rect x="960" y="170" width="60" height="50" rx="6" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <rect x="920" y="240" width="60" height="50" rx="6" fill="rgba(163,230,53,0.06)" stroke="rgba(163,230,53,0.25)" stroke-width="1.5"/>
+  <!-- Arrows -->
+  <line x1="910" y1="220" x2="940" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="990" y1="220" x2="960" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Gear -->
+  <circle cx="950" cy="370" r="25" fill="none" stroke="rgba(34,197,94,0.3)" stroke-width="2"/>
+  <circle cx="950" cy="370" r="10" fill="none" stroke="rgba(34,197,94,0.2)" stroke-width="1.5"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 25, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Claude Code OpenCode Best</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Practices</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">Claude Code | OpenCode | Best Practices</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">DEVOPS DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="135" height="36" rx="18" fill="rgba(34,197,94,0.18)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+  <text x="147" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#86efac" text-anchor="middle" font-weight="600">Claude Code</text>
+  <rect x="229" y="420" width="108" height="36" rx="18" fill="rgba(163,230,53,0.15)" stroke="rgba(163,230,53,0.35)" stroke-width="1"/>
+  <text x="283" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#d9f99d" text-anchor="middle" font-weight="600">OpenCode</text>
+  <rect x="351" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="432" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Best Practices</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

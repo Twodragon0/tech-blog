@@ -1,181 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Tech Security Weekly Digest AWS AI Bitcoin</title>
   <defs>
-    
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0" />
-    </filter>
-    
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    
-    <filter id="orbGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="40" />
-    </filter>
-    
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4" />
-    </filter>
-    
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="50%" stop-color="#8b5cf6" />
-      <stop offset="100%" stop-color="#f43f5e" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="rgba(59,130,246,0.6)" />
-      <stop offset="100%" stop-color="rgba(244,63,94,0.1)" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(244,63,94,0.5)" />
-      <stop offset="100%" stop-color="rgba(59,130,246,0.1)" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="rgba(139,92,246,0.5)" />
-      <stop offset="100%" stop-color="rgba(59,130,246,0.1)" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#1e40af" />
-    </linearGradient>
-    <linearGradient id="coinGrad" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#fbbf24" />
-      <stop offset="100%" stop-color="#f59e0b" />
-    </linearGradient>
-    
-    <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="rgba(148,163,184,0.15)" />
-    </pattern>
-    
-    <filter id="particleGlow" x="-200%" y="-200%" width="500%" height="500%">
-      <feGaussianBlur stdDeviation="3" />
-    </filter>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dotGrid)" />
-
-  
-  <circle cx="200" cy="500" r="180" fill="#3b82f6" opacity="0.08" filter="url(#orbGlow)" />
-  <circle cx="900" cy="120" r="200" fill="#f43f5e" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="700" cy="450" r="150" fill="#8b5cf6" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1050" cy="550" r="120" fill="#3b82f6" opacity="0.05" filter="url(#orbGlow)" />
-
-  
-
-  
-  <rect x="70" y="80" width="180" height="34" rx="17" fill="url(#accentGrad)" opacity="0.9" />
-  <text x="160" y="102" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="white" letter-spacing="1.5">WEEKLY DIGEST</text>
-
-  
-  <text x="70" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="-0.5">Tech Security Weekly</text>
-  <text x="70" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="-0.5">Digest AWS Bitcoin</text>
-
-  
-  <rect x="70" y="252" width="220" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  
-  <rect x="70" y="280" width="80" height="30" rx="15" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1" />
-  <text x="110" y="300" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#60a5fa">AWS</text>
-
-  <rect x="162" y="280" width="110" height="30" rx="15" fill="rgba(244,63,94,0.15)" stroke="rgba(244,63,94,0.4)" stroke-width="1" />
-  <text x="217" y="300" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#fb7185">BITCOIN</text>
-
-  <rect x="284" y="280" width="110" height="30" rx="15" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.4)" stroke-width="1" />
-  <text x="339" y="300" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#a78bfa">SECURITY</text>
-
-  
-  <text x="70" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="rgba(148,163,184,0.8)" letter-spacing="2">MARCH 15, 2026</text>
-
-  
-  <text x="70" y="570" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="rgba(100,116,139,0.7)" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="620" y="300" width="280" height="280" rx="16" fill="rgba(15,23,42,0.5)" filter="url(#glassBlur)" />
-    <rect x="620" y="300" width="280" height="280" rx="16" fill="rgba(255,255,255,0.05)" />
-    <rect x="620" y="300" width="280" height="280" rx="16" fill="none" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    
-    <g transform="translate(720, 370)">
-      <path d="M40 0 L80 18 L80 50 C80 82 60 105 40 115 C20 105 0 82 0 50 L0 18 Z" fill="url(#shieldGrad)" opacity="0.8" />
-      <path d="M40 5 L75 21 L75 50 C75 78 57 99 40 108 C23 99 5 78 5 50 L5 21 Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
-      
-      <polyline points="22,55 35,68 58,42" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    </g>
-    </g>
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="700" y="150" width="280" height="280" rx="16" fill="rgba(15,23,42,0.5)" filter="url(#glassBlur)" />
-    <rect x="700" y="150" width="280" height="280" rx="16" fill="rgba(255,255,255,0.06)" />
-    <rect x="700" y="150" width="280" height="280" rx="16" fill="none" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    
-    <g transform="translate(760, 210)">
-      <rect x="0" y="15" width="50" height="30" rx="15" fill="none" stroke="#f43f5e" stroke-width="2.5" opacity="0.8" />
-      <rect x="30" y="15" width="50" height="30" rx="15" fill="none" stroke="#f43f5e" stroke-width="2.5" opacity="0.8" />
-      <rect x="60" y="15" width="50" height="30" rx="15" fill="none" stroke="#f43f5e" stroke-width="2.5" opacity="0.6" />
-    </g>
-    
-    <g transform="translate(800, 300)">
-      <circle cx="0" cy="0" r="24" fill="url(#coinGrad)" opacity="0.85" />
-      <circle cx="55" cy="-10" r="18" fill="url(#coinGrad)" opacity="0.6" />
-      </g>
-    <text x="840" y="380" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="1">BLOCKCHAIN</text>
-  </g>
-
-  
-  <g filter="url(#cardShadow)">
-    <rect x="850" y="60" width="290" height="280" rx="16" fill="rgba(15,23,42,0.5)" filter="url(#glassBlur)" />
-    <rect x="850" y="60" width="290" height="280" rx="16" fill="rgba(255,255,255,0.07)" />
-    <rect x="850" y="60" width="290" height="280" rx="16" fill="none" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    
-    <g transform="translate(930, 110)">
-      <path d="M30 70 C10 70 0 58 0 48 C0 36 10 26 22 26 C24 12 36 0 52 0 C68 0 80 12 82 26 C94 26 105 36 105 48 C105 60 94 70 80 70 Z" fill="rgba(59,130,246,0.25)" stroke="#3b82f6" stroke-width="2" opacity="0.9" />
-      
-      <line x1="35" y1="75" x2="35" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
-      <polygon points="30,100 35,110 40,100" fill="#3b82f6" opacity="0.6" />
-      <line x1="55" y1="100" x2="55" y2="75" stroke="#60a5fa" stroke-width="2" opacity="0.6" />
-      <polygon points="50,75 55,65 60,75" fill="#60a5fa" opacity="0.6" />
-      <line x1="75" y1="75" x2="75" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
-      <polygon points="70,100 75,110 80,100" fill="#3b82f6" opacity="0.6" />
-      
-      <rect x="15" y="112" width="30" height="18" rx="3" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1" />
-      <circle cx="25" cy="121" r="2" fill="#3b82f6" />
-      <circle cx="32" cy="121" r="2" fill="#3b82f6" opacity="0.5" />
-      <rect x="55" y="112" width="30" height="18" rx="3" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1" />
-      <circle cx="65" cy="121" r="2" fill="#3b82f6" />
-      <circle cx="72" cy="121" r="2" fill="#3b82f6" opacity="0.5" />
-    </g>
-    <text x="995" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="1">CLOUD INFRA</text>
-  </g>
-
-  
-  <circle cx="680" cy="280" r="2.5" fill="#3b82f6" opacity="0.7" filter="url(#particleGlow)" />
-  <circle cx="730" cy="160" r="2" fill="#f43f5e" opacity="0.6" filter="url(#particleGlow)" />
-  <circle cx="870" cy="350" r="3" fill="#8b5cf6" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="920" cy="55" r="2" fill="#60a5fa" opacity="0.6" filter="url(#particleGlow)" />
-  <circle cx="650" cy="430" r="2" fill="#f43f5e" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="1100" cy="380" r="2.5" fill="#3b82f6" opacity="0.4" filter="url(#particleGlow)" />
-  <circle cx="810" cy="100" r="1.8" fill="#a78bfa" opacity="0.6" filter="url(#particleGlow)" />
-  <circle cx="960" cy="360" r="2" fill="#fbbf24" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="670" cy="190" r="1.5" fill="#60a5fa" opacity="0.5" filter="url(#particleGlow)" />
-  <circle cx="1050" cy="200" r="2" fill="#f43f5e" opacity="0.4" filter="url(#particleGlow)" />
-
-  
-  <line x1="1150" y1="20" x2="1180" y2="20" stroke="url(#accentLine)" stroke-width="2" opacity="0.4" />
-  <line x1="1180" y1="20" x2="1180" y2="50" stroke="url(#accentLine)" stroke-width="2" opacity="0.4" />
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MARCH 15, 2026</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS AI Bitcoin</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AWS</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AWS</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

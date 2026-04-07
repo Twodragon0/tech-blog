@@ -1,123 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS reInforce 2025 Cloud Security and Future</title>
+  <title>AWS reInforce 2025 Cloud Security Current and Future</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4500;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:1" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4500;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff4500;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#ff2200;stop-opacity:0.06" />
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9900;stop-opacity:0.12" />
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:0.05" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-      <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-
-  
-
-  
-  <circle cx="1010" cy="225" r="110" fill="none" stroke="rgba(255,100,30,0.22)" stroke-width="1.5" stroke-dasharray="8,5" />
-  <circle cx="1010" cy="225" r="88" fill="none" stroke="rgba(255,153,0,0.18)" stroke-width="1" stroke-dasharray="4,8" />
-
-  
-  <path d="M940,235 Q935,210 950,200 Q955,180 975,185 Q985,165 1005,168 Q1025,155 1045,170 Q1065,160 1075,178 Q1092,178 1095,198 Q1108,205 1102,222 Q1108,238 1092,242 Q940,248 940,235 Z" fill="url(#cloudGrad)" stroke="rgba(255,153,0,0.35)" stroke-width="1.5" />
-
-  
-  <path d="M1010,258 L980,265 L980,295 Q980,325 1010,340 Q1040,325 1040,295 L1040,265 Z" fill="url(#shieldGrad)" stroke="rgba(255,80,0,0.38)" stroke-width="1.8" />
-
-  
-  <path d="M1000,295 L1006,303 L1022,285" fill="none" stroke="rgba(255,120,30,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-
-  
-  <polygon points="1010,140 1028,150 1028,170 1010,180 992,170 992,150" fill="rgba(255,153,0,0.08)" stroke="rgba(255,153,0,0.28)" stroke-width="1.5" />
-  <path d="M995,268 Q995,252 1010,252 Q1025,252 1025,268" fill="none" stroke="rgba(255,80,30,0.40)" stroke-width="2" />
-  
-  <rect x="993" y="266" width="34" height="24" rx="3" fill="rgba(255,60,0,0.10)" stroke="rgba(255,80,30,0.38)" stroke-width="1.5" />
-
-  
-  <circle cx="918" cy="210" r="5" fill="rgba(255,100,0,0.25)" stroke="rgba(255,100,0,0.45)" stroke-width="1" />
-  <circle cx="1102" cy="240" r="5" fill="rgba(255,153,0,0.25)" stroke="rgba(255,153,0,0.45)" stroke-width="1" />
-  <circle cx="1010" cy="135" r="4" fill="rgba(255,80,0,0.20)" stroke="rgba(255,80,0,0.40)" stroke-width="1" />
-
-  
-  <line x1="880" y1="225" x2="920" y2="225" stroke="rgba(255,80,0,0.20)" stroke-width="1.5" stroke-dasharray="3,4" />
-  <line x1="1100" y1="225" x2="1140" y2="225" stroke="rgba(255,80,0,0.20)" stroke-width="1.5" stroke-dasharray="3,4" />
-
-  
-  <rect x="875" y="148" width="28" height="18" rx="3" fill="rgba(255,60,0,0.07)" stroke="rgba(255,80,30,0.22)" stroke-width="1" />
-  <rect x="1105" y="148" width="34" height="18" rx="3" fill="rgba(255,153,0,0.07)" stroke="rgba(255,153,0,0.22)" stroke-width="1" />
-  <circle cx="870" cy="400" r="4" fill="rgba(255,80,0,0.55)" filter="url(#glow)" />
-  <circle cx="900" cy="420" r="4" fill="rgba(255,153,0,0.50)" filter="url(#glow)" />
-  <circle cx="860" cy="440" r="4" fill="rgba(255,60,60,0.50)" filter="url(#glow)" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,60,0,0.03)" stroke="none" />
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,80,0,0.04)" stroke="none" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
-
-  
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,69,0,0.18)" stroke="rgba(255,69,0,0.40)" stroke-width="1" />
-  <text x="92" y="81" font-size="13" font-weight="600" fill="rgba(255,130,60,0.95)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="0.5">SEPTEMBER 16, 2025</text>
-
-  
-  <text x="80" y="185" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.5">AWS reInforce 2025</text>
-
-  
-  <text x="80" y="245" font-size="46" font-weight="700" fill="white" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.5">Cloud Security</text>
-  <text x="80" y="295" font-size="38" font-weight="700" fill="rgba(255,160,80,0.92)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="-0.3">Current &amp; Future</text>
-
-  
-  <text x="80" y="330" font-size="19" fill="rgba(200,200,200,0.75)" font-family="'Segoe UI', Arial, sans-serif">Cloud Security Conference - Annual AWS Security Summit</text>
-
-  
-  <rect x="80" y="350" width="420" height="3" rx="1" fill="url(#accentLine)" />
-
-  
-  <text x="80" y="385" font-size="14" fill="rgba(255,100,30,0.80)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="2" font-weight="600">CLOUD SECURITY</text>
-
-  
-  <rect x="80" y="402" width="108" height="36" rx="18" fill="rgba(220,50,20,0.22)" stroke="rgba(255,80,30,0.45)" stroke-width="1" />
-  <text x="134" y="425" text-anchor="middle" font-size="13" font-weight="600" fill="rgba(255,120,60,0.95)" font-family="'Segoe UI', Arial, sans-serif">AWS Security</text>
-
-  <rect x="200" y="402" width="100" height="36" rx="18" fill="rgba(200,120,0,0.22)" stroke="rgba(255,170,0,0.40)" stroke-width="1" />
-  <text x="250" y="425" text-anchor="middle" font-size="13" font-weight="600" fill="rgba(255,195,60,0.95)" font-family="'Segoe UI', Arial, sans-serif">reInforce</text>
-
-  <rect x="312" y="402" width="110" height="36" rx="18" fill="rgba(20,80,200,0.22)" stroke="rgba(60,130,255,0.40)" stroke-width="1" />
-  <text x="367" y="425" text-anchor="middle" font-size="13" font-weight="600" fill="rgba(100,170,255,0.95)" font-family="'Segoe UI', Arial, sans-serif">Zero Trust</text>
-
-  
-  <text x="80" y="545" font-size="13" fill="rgba(150,150,150,0.65)" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="0.3">tech.2twodragon.com</text>
-  </svg>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">SEPTEMBER 16, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS reInforce 2025 Cloud</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Security Current and Future</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | reInforce | Cloud Security</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="117" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="232" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">reInforce</text>
+  <rect x="305" y="420" width="162" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="386" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
+</svg>

@@ -1,138 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security Course 8Batch 5Week AWS Control TowerSCP Based Governance and Datadog SIEM Cloudflare Security</title>
+  <title>Cloud Security Course 8Batch 5Week AWS Control TowerSCP Based Governance And Dat</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#0a1525"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4488ff;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient id="towerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#cc2200;stop-opacity:0.07" />
-    </linearGradient>
-    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.14" />
-      <stop offset="100%" style="stop-color:#2255cc;stop-opacity:0.06" />
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:0.08" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
   </defs>
-
-  
-  <rect width="1200" height="630" fill="url(#bgGrad)" />
-
-  
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.035)" stroke-width="1" />
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.035)" stroke-width="1" />
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.035)" stroke-width="1" />
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.035)" stroke-width="1" />
-
-  
-  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-  
-  
-  <ellipse cx="1010" cy="225" rx="130" ry="60" fill="none" stroke="rgba(255,100,0,0.22)" stroke-width="1.5" stroke-dasharray="6,4" />
-  <ellipse cx="1010" cy="225" rx="100" ry="46" fill="none" stroke="rgba(68,136,255,0.18)" stroke-width="1" stroke-dasharray="4,6" />
-
-  
-  <circle cx="985" cy="195" r="38" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.3)" stroke-width="1.2" />
-  <circle cx="1018" cy="185" r="30" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1" />
-  <circle cx="1048" cy="196" r="26" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.25)" stroke-width="1" />
-  <rect x="958" y="198" width="118" height="32" rx="8" fill="url(#cloudGrad)" stroke="rgba(68,136,255,0.2)" stroke-width="1" />
-
-  
-  
-  <rect x="992" y="230" width="38" height="8" rx="2" fill="url(#towerGrad)" stroke="rgba(255,102,0,0.35)" stroke-width="1.2" />
-  
-  <rect x="998" y="218" width="26" height="13" rx="1" fill="url(#towerGrad)" stroke="rgba(255,102,0,0.3)" stroke-width="1" />
-  <rect x="1002" y="207" width="18" height="12" rx="1" fill="url(#towerGrad)" stroke="rgba(255,136,0,0.32)" stroke-width="1" />
-  <rect x="1006" y="197" width="10" height="11" rx="1" fill="url(#towerGrad)" stroke="rgba(255,160,0,0.35)" stroke-width="1" />
-  
-  <line x1="1011" y1="197" x2="1011" y2="183" stroke="rgba(255,180,0,0.45)" stroke-width="1.5" />
-  <circle cx="1011" cy="181" r="3" fill="rgba(255,200,0,0.4)" stroke="rgba(255,220,0,0.5)" stroke-width="1" />
-
-  
-  <path d="M960,258 L960,248 Q960,243 965,243 L976,243 Q981,243 981,248 L981,258 Q981,268 970.5,272 Q960,268 960,258 Z" fill="url(#shieldGrad)" stroke="rgba(255,170,0,0.38)" stroke-width="1.3" />
-  
-  <path d="M964,255 L968,259 L977,250" fill="none" stroke="rgba(255,200,0,0.55)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-
-  
-  <circle cx="945" cy="215" r="8" fill="rgba(255,80,80,0.12)" stroke="rgba(255,80,80,0.35)" stroke-width="1" />
-  <circle cx="1072" cy="195" r="8" fill="rgba(80,200,120,0.1)" stroke="rgba(80,200,120,0.3)" stroke-width="1" />
-  <circle cx="1060" cy="245" r="8" fill="rgba(100,160,255,0.1)" stroke="rgba(100,160,255,0.3)" stroke-width="1" />
-  <line x1="1011" y1="230" x2="953" y2="215" stroke="rgba(255,140,0,0.15)" stroke-width="1" stroke-dasharray="3,3" />
-  <line x1="1011" y1="230" x2="1064" y2="195" stroke="rgba(255,140,0,0.15)" stroke-width="1" stroke-dasharray="3,3" />
-  <line x1="1011" y1="238" x2="1052" y2="244" stroke="rgba(255,140,0,0.15)" stroke-width="1" stroke-dasharray="3,3" />
-
-  
-  <rect x="888" y="275" width="48" height="22" rx="3" fill="rgba(68,136,255,0.08)" stroke="rgba(68,136,255,0.25)" stroke-width="1" />
-  <rect x="948" y="295" width="44" height="20" rx="3" fill="rgba(68,136,255,0.06)" stroke="rgba(68,136,255,0.2)" stroke-width="1" />
-  <rect x="1004" y="295" width="46" height="20" rx="3" fill="rgba(68,136,255,0.06)" stroke="rgba(68,136,255,0.2)" stroke-width="1" />
-  <line x1="912" y1="297" x2="970" y2="295" stroke="rgba(68,136,255,0.18)" stroke-width="1" />
-  <line x1="912" y1="297" x2="1027" y2="295" stroke="rgba(68,136,255,0.18)" stroke-width="1" />
-  <line x1="912" y1="275" x2="1011" y2="250" stroke="rgba(68,136,255,0.12)" stroke-width="1" stroke-dasharray="2,3" />
-
-  
-  <rect x="882" y="165" width="50" height="6" rx="2" fill="rgba(255,80,80,0.1)" stroke="rgba(255,80,80,0.28)" stroke-width="1" />
-  <rect x="1080" y="165" width="52" height="6" rx="2" fill="rgba(80,200,120,0.09)" stroke="rgba(80,200,120,0.25)" stroke-width="1" />
-  <text x="1106" y="173" font-family="monospace" font-size="7" fill="rgba(80,200,120,0.45)" text-anchor="middle">ALLOW</text>
-
-  
-  <circle cx="870" cy="400" r="5" fill="rgba(255,80,80,0.5)" stroke="rgba(255,80,80,0.7)" stroke-width="1" />
-  <circle cx="900" cy="420" r="4" fill="rgba(255,160,0,0.5)" stroke="rgba(255,160,0,0.7)" stroke-width="1" />
-  <circle cx="860" cy="440" r="3.5" fill="rgba(68,136,255,0.5)" stroke="rgba(68,136,255,0.7)" stroke-width="1" />
-
-  
-  <circle cx="1050" cy="450" r="200" fill="rgba(255,80,0,0.025)" stroke="none" />
-  <circle cx="1050" cy="450" r="140" fill="rgba(255,100,0,0.03)" stroke="none" />
-
-  
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)" />
-
-  
-  <rect x="80" y="60" width="220" height="32" rx="4" fill="rgba(255,68,68,0.12)" stroke="rgba(255,68,68,0.35)" stroke-width="1" />
-  <text x="92" y="81" font-family="'Courier New', monospace" font-size="12" fill="rgba(255,120,120,0.9)" letter-spacing="1">DECEMBER 24, 2025</text>
-
-  
-  <text x="80" y="185" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">Cloud Security Course 8Batch</text>
-
-  
-  <text x="80" y="245" font-family="'Arial', sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-0.5">5Week AWS Control TowerSCP</text>
-
-  
-  <text x="80" y="300" font-family="'Arial', sans-serif" font-size="19" fill="rgba(255,180,120,0.82)">AWS Control Tower - Service Control Policies - Organizational Units</text>
-
-  
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)" />
-
-  
-  <text x="80" y="370" font-family="'Courier New', monospace" font-size="14" fill="rgba(255,100,100,0.7)" letter-spacing="3">CLOUD SECURITY / AWS GOVERNANCE</text>
-
-  
-  <rect x="80" y="400" width="130" height="36" rx="18" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.4)" stroke-width="1" />
-  <text x="145" y="423" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,110,110,0.9)" text-anchor="middle">Control Tower</text>
-
-  <rect x="226" y="400" width="96" height="36" rx="18" fill="rgba(255,160,0,0.14)" stroke="rgba(255,160,0,0.38)" stroke-width="1" />
-  <text x="274" y="423" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(255,190,60,0.9)" text-anchor="middle">SCP Policy</text>
-
-  <rect x="338" y="400" width="106" height="36" rx="18" fill="rgba(68,136,255,0.13)" stroke="rgba(68,136,255,0.36)" stroke-width="1" />
-  <text x="391" y="423" font-family="'Arial', sans-serif" font-size="13" font-weight="600" fill="rgba(100,170,255,0.9)" text-anchor="middle">AWS Guardrails</text>
-
-  
-  <text x="80" y="545" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">tech.2twodragon.com</text>
-  </svg>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Cloud shape -->
+  <ellipse cx="970" cy="200" rx="110" ry="50" fill="rgba(6,182,212,0.07)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+  <ellipse cx="935" cy="218" rx="75" ry="38" fill="rgba(6,182,212,0.05)"/>
+  <ellipse cx="1010" cy="222" rx="65" ry="33" fill="rgba(6,182,212,0.05)"/>
+  <!-- Server rack -->
+  <rect x="920" y="320" width="80" height="100" rx="6" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="920" y1="350" x2="1000" y2="350" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <line x1="920" y1="380" x2="1000" y2="380" stroke="rgba(59,130,246,0.15)" stroke-width="1"/>
+  <circle cx="985" cy="335" r="4" fill="rgba(34,197,94,0.4)"/>
+  <circle cx="985" cy="365" r="4" fill="rgba(34,197,94,0.3)"/>
+  <circle cx="985" cy="395" r="4" fill="rgba(245,158,11,0.3)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">DECEMBER 24, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 8Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">5Week AWS Control TowerSCP...</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | Control Tower | SCP</text>
+  <!-- Accent line -->
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">CLOUD SECURITY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(6,182,212,0.18)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#67e8f9" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="153" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="250" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Control Tower</text>
+  <rect x="341" y="420" width="80" height="36" rx="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.35)" stroke-width="1"/>
+  <text x="381" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="600">SCP</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
+</svg>

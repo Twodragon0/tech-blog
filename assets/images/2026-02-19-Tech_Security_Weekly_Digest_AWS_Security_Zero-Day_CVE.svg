@@ -1,221 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Tech Security Weekly Digest - AWS Security Update, Zero-Day Patch, CVE Analysis</title>
+  <title>Tech Security Weekly Digest AWS Security Zero Day CVE</title>
   <defs>
-    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="orbGlow">
-      <feGaussianBlur stdDeviation="40" />
-    </filter>
-    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4" />
-    </filter>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#dc2626" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="50%" stop-color="#ef4444" />
-      <stop offset="100%" stop-color="#dc2626" />
-    </linearGradient>
-    <linearGradient id="cardBorder1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardBorder2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.15" />
-    </linearGradient>
-    <linearGradient id="cardBorder3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0.1" />
-    </linearGradient>
-    <linearGradient id="cardFill1" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.5" />
-    </linearGradient>
-    <linearGradient id="cardFill2" x1="0" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.45" />
-    </linearGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5" />
-    </pattern>
-    <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#ea580c" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0f172a" />
-  <rect width="1200" height="630" fill="url(#dots)" />
-
-  <!-- Orb glows -->
-  <circle cx="760" cy="140" r="185" fill="#f97316" opacity="0.07" filter="url(#orbGlow)" />
-  <circle cx="1050" cy="430" r="150" fill="#dc2626" opacity="0.06" filter="url(#orbGlow)" />
-  <circle cx="200" cy="490" r="120" fill="#ef4444" opacity="0.05" filter="url(#orbGlow)" />
-  <circle cx="600" cy="310" r="100" fill="#f97316" opacity="0.04" filter="url(#orbGlow)" />
-
-  <!-- Card 1 (top-right): Cloud with shield (AWS) -->
-  <g transform="translate(830, 60)" filter="url(#cardShadow)">
-    <rect width="310" height="220" rx="16" fill="url(#cardFill2)" stroke="url(#cardBorder1)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(88, 15)">
-      <!-- Cloud shape -->
-      <path d="M28 72 C8 72 0 60 0 48 C0 36 10 26 24 24 C28 12 42 4 58 4 C74 4 86 14 90 26 C100 28 108 38 108 50 C108 62 98 72 82 72 Z" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="2" stroke-opacity="0.7" />
-      <!-- AWS logo simplified - three horizontal bars -->
-      <rect x="30" y="32" width="48" height="7" rx="3" fill="#f97316" opacity="0.8" />
-      <rect x="30" y="44" width="48" height="7" rx="3" fill="#fb923c" opacity="0.6" />
-      <rect x="30" y="56" width="48" height="7" rx="3" fill="#f97316" opacity="0.4" />
-      <!-- Shield overlay -->
-      <path d="M84 28 L96 33 L96 46 C96 54 90 60 84 63 C78 60 72 54 72 46 L72 33 Z" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1.5" stroke-opacity="0.8" />
-      <path d="M84 37 L89 39 L89 46 C89 50 87 52 84 54 C81 52 79 50 79 46 L79 39 Z" fill="#dc2626" opacity="0.4" />
-      <!-- Badge -->
-      <rect x="22" y="82" width="64" height="18" rx="4" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-      <text x="54" y="95" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">AWS SHIELD</text>
-    </g>
-    <circle cx="130" cy="200" r="3" fill="#f97316" opacity="0.8" />
-    <circle cx="145" cy="200" r="3" fill="#ef4444" opacity="0.6" />
-    <circle cx="160" cy="200" r="3" fill="#dc2626" opacity="0.4" />
-  </g>
-
-  <!-- Card 2 (middle): Shield with exclamation (Zero-Day) -->
-  <g transform="translate(720, 190)" filter="url(#cardShadow)">
-    <rect width="310" height="230" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder2)" stroke-width="1.5" />
-    <rect x="2" y="2" width="306" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(95, 18)">
-      <!-- Shield body -->
-      <path d="M55 8 L100 24 L100 62 C100 88 78 105 55 115 C32 105 10 88 10 62 L10 24 Z" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="2" stroke-opacity="0.75" />
-      <!-- Shield inner highlight -->
-      <path d="M55 18 L90 30 L90 62 C90 82 72 97 55 105 C38 97 20 82 20 62 L20 30 Z" fill="none" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3" />
-      <!-- Exclamation mark -->
-      <rect x="49" y="38" width="12" height="36" rx="4" fill="#dc2626" opacity="0.85" />
-      <circle cx="55" cy="86" r="7" fill="#dc2626" opacity="0.85" />
-      <!-- Pulse ring -->
-      <circle cx="55" cy="62" r="52" fill="none" stroke="#dc2626" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,6">
-        <animateTransform attributeName="transform" type="rotate" values="0 55 62;360 55 62" dur="8s" repeatCount="indefinite" />
-      </circle>
-      <!-- Badge -->
-      <rect x="18" y="118" width="74" height="18" rx="4" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4" />
-      <text x="55" y="131" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">ZERO-DAY</text>
-    </g>
-    <rect x="40" y="192" width="230" height="4" rx="2" fill="#1e293b" />
-    <rect x="40" y="192" width="195" height="4" rx="2" fill="url(#accentGrad)" opacity="0.7" />
-  </g>
-
-  <!-- Card 3 (bottom): Document with bug (CVE) -->
-  <g transform="translate(660, 340)" filter="url(#cardShadow)">
-    <rect width="320" height="240" rx="16" fill="url(#cardFill1)" stroke="url(#cardBorder3)" stroke-width="1.5" />
-    <rect x="2" y="2" width="316" height="80" rx="14" fill="white" opacity="0.03" />
-    <g transform="translate(100, 18)">
-      <!-- Document frame -->
-      <rect x="14" y="6" width="92" height="110" rx="6" fill="#0d1829" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.7" />
-      <!-- Folded corner -->
-      <path d="M86 6 L106 26 L86 26 Z" fill="#ef4444" opacity="0.3" />
-      <path d="M86 6 L106 26" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.5" />
-      <!-- CVE text lines -->
-      <rect x="24" y="20" width="52" height="6" rx="2" fill="#334155" opacity="0.8" />
-      <rect x="24" y="32" width="44" height="5" rx="2" fill="#334155" opacity="0.6" />
-      <rect x="24" y="43" width="56" height="5" rx="2" fill="#334155" opacity="0.6" />
-      <!-- Bug icon -->
-      <ellipse cx="60" cy="72" rx="14" ry="10" fill="none" stroke="#f97316" stroke-width="2" stroke-opacity="0.8" />
-      <line x1="60" y1="62" x2="60" y2="82" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6" />
-      <line x1="46" y1="72" x2="74" y2="72" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6" />
-      <!-- Bug legs -->
-      <line x1="46" y1="65" x2="38" y2="60" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <line x1="46" y1="72" x2="37" y2="72" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <line x1="46" y1="79" x2="38" y2="84" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <line x1="74" y1="65" x2="82" y2="60" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <line x1="74" y1="72" x2="83" y2="72" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <line x1="74" y1="79" x2="82" y2="84" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round" />
-      <!-- Bug antennae -->
-      <line x1="55" y1="62" x2="50" y2="54" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6" stroke-linecap="round" />
-      <line x1="65" y1="62" x2="70" y2="54" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6" stroke-linecap="round" />
-      <!-- CVE label -->
-      <rect x="22" y="98" width="76" height="18" rx="4" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4" />
-      <text x="60" y="111" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="700">CVE-2026-2329</text>
-    </g>
-    <g transform="translate(40, 195)">
-      <rect width="240" height="28" rx="6" fill="#1e293b" opacity="0.8" />
-      <circle cx="18" cy="14" r="5" fill="#dc2626" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- Floating particles -->
-  <circle cx="725" cy="280" r="2" fill="#f97316" opacity="0.5">
-    <animate attributeName="cy" values="280;270;280" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="840" cy="330" r="1.5" fill="#dc2626" opacity="0.4">
-    <animate attributeName="cy" values="330;320;330" dur="2.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1060" cy="300" r="2" fill="#ef4444" opacity="0.5">
-    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="690" cy="205" r="1.5" fill="#f97316" opacity="0.3">
-    <animate attributeName="cy" values="205;197;205" dur="2.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1110" cy="175" r="1" fill="#dc2626" opacity="0.4">
-    <animate attributeName="cy" values="175;167;175" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="955" cy="130" r="1.5" fill="#f97316" opacity="0.35">
-    <animate attributeName="cx" values="955;963;955" dur="4s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Left panel: WEEKLY DIGEST badge -->
-  <g transform="translate(60, 80)">
-    <rect width="160" height="32" rx="16" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1" stroke-opacity="0.4" />
-    <text x="80" y="21" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">WEEKLY DIGEST</text>
-  </g>
-
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Alert dots -->
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+  <!-- Date badge -->
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">FEBRUARY 19, 2026</text>
   <!-- Main title -->
-  <text x="60" y="170" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Tech Security</text>
-  <text x="60" y="225" fill="white" font-family="Inter,system-ui,sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Weekly</text>
-  <text x="60" y="290" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">AWS Zero-Day</text>
-  <text x="60" y="335" fill="url(#accentGrad)" font-family="Inter,system-ui,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.3">CVE-2026-2329</text>
-
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Tech Security Weekly Digest</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">AWS Security Zero Day CVE</text>
+  <!-- Subtitle -->
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">DevSecOps | Cloud Security | AWS</text>
   <!-- Accent line -->
-  <rect x="60" y="360" width="200" height="3" rx="1.5" fill="url(#accentLine)" />
-
-  <!-- Tag pills -->
-  <g transform="translate(60, 385)">
-    <rect width="52" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-    <text x="26" y="20" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">AWS</text>
-    <g transform="translate(62, 0)">
-      <rect width="82" height="30" rx="15" fill="#dc2626" opacity="0.12" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="41" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Zero-Day</text>
-    </g>
-    <g transform="translate(154, 0)">
-      <rect width="48" height="30" rx="15" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="24" y="20" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">CVE</text>
-    </g>
-    <g transform="translate(212, 0)">
-      <rect width="62" height="30" rx="15" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.35" />
-      <text x="31" y="20" text-anchor="middle" fill="#fb923c" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Patch</text>
-    </g>
-  </g>
-
-  <!-- Date -->
-  <text x="60" y="460" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="2">FEBRUARY 19, 2026</text>
-
-  <!-- Footer URL -->
-  <g transform="translate(60, 560)">
-    <circle cx="6" cy="-4" r="4" fill="url(#accentGrad)" opacity="0.8" />
-    <text x="18" y="0" fill="#475569" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="500">tech.2twodragon.com</text>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="1198" height="628" rx="4" fill="none" stroke="#1e293b" stroke-width="1" />
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
+  <!-- Category label -->
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="117" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="138" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">DevSecOps</text>
+  <rect x="211" y="420" width="162" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="292" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">Cloud Security</text>
+  <rect x="387" y="420" width="80" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="427" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">AWS</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>

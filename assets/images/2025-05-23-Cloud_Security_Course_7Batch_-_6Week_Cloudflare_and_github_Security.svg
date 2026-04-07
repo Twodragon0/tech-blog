@@ -1,128 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Cloud Security Course 7Batch - 6Week Cloudflare and github Security</title>
+  <title>Cloud Security Course 7Batch   6Week Cloudflare And github Security</title>
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0c1a"/>
-      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c1a"/>
+      <stop offset="100%" stop-color="#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f38020"/>
-      <stop offset="50%" style="stop-color:#e63757"/>
-      <stop offset="100%" style="stop-color:#4a9eff"/>
-    </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f38020"/>
-      <stop offset="100%" style="stop-color:#e63757;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="cloudGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f38020;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#e63757;stop-opacity:0.06"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:0.2"/>
-      <stop offset="100%" style="stop-color:#0a4a8a;stop-opacity:0.08"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- Grid lines horizontal -->
-  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
   <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Grid lines vertical -->
   <line x1="240" y1="0" x2="240" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
   <line x1="720" y1="0" x2="720" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-
-  <!-- Background subtle circles -->
-  <circle cx="1050" cy="450" r="200" fill="none" stroke="rgba(243,128,32,0.05)" stroke-width="1"/>
-  <circle cx="1050" cy="450" r="140" fill="none" stroke="rgba(243,128,32,0.07)" stroke-width="1"/>
-
-  <!-- RIGHT SIDE ILLUSTRATION: Cloudflare + GitHub Security Shield -->
-  <!-- Outer cloud ring -->
-  <ellipse cx="1010" cy="220" rx="115" ry="75" fill="url(#cloudGlow)" stroke="rgba(243,128,32,0.3)" stroke-width="1.5"/>
-  <!-- Cloud shape layers -->
-  <circle cx="970" cy="215" r="38" fill="rgba(243,128,32,0.08)" stroke="rgba(243,128,32,0.25)" stroke-width="1"/>
-  <circle cx="1010" cy="200" r="48" fill="rgba(243,128,32,0.07)" stroke="rgba(243,128,32,0.22)" stroke-width="1"/>
-  <circle cx="1050" cy="215" r="36" fill="rgba(243,128,32,0.08)" stroke="rgba(243,128,32,0.25)" stroke-width="1"/>
-  <rect x="950" y="218" width="120" height="32" rx="8" fill="rgba(243,128,32,0.06)" stroke="rgba(243,128,32,0.2)" stroke-width="1"/>
-
-  <!-- GitHub Octocat-inspired outline (geometric) -->
-  <circle cx="1010" cy="215" r="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
-  <!-- Octocat ears -->
-  <polygon points="992,200 985,188 998,194" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-  <polygon points="1028,200 1035,188 1022,194" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-  <!-- Eyes -->
-  <circle cx="1003" cy="212" r="3" fill="rgba(255,255,255,0.35)"/>
-  <circle cx="1017" cy="212" r="3" fill="rgba(255,255,255,0.35)"/>
-
-  <!-- Security shield below cloud -->
-  <polygon points="1010,255 985,267 985,295 1010,310 1035,295 1035,267" fill="url(#shieldGrad)" stroke="rgba(74,158,255,0.35)" stroke-width="1.5"/>
-  <!-- Shield inner check -->
-  <polyline points="997,282 1007,292 1024,272" fill="none" stroke="rgba(74,158,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Lock icon top right area -->
-  <rect x="1085" y="150" width="34" height="28" rx="4" fill="rgba(230,55,87,0.1)" stroke="rgba(230,55,87,0.3)" stroke-width="1.5"/>
-  <path d="M1093 150 Q1093 138 1102 138 Q1111 138 1111 150" fill="none" stroke="rgba(230,55,87,0.3)" stroke-width="1.5"/>
-  <circle cx="1102" cy="164" r="4" fill="rgba(230,55,87,0.4)"/>
-  <rect x="1100" y="164" width="4" height="7" rx="1" fill="rgba(230,55,87,0.4)"/>
-
-  <!-- Decorative orbit ring around illustration -->
-  <ellipse cx="1010" cy="230" rx="130" ry="95" fill="none" stroke="rgba(74,158,255,0.12)" stroke-width="1" stroke-dasharray="6,4"/>
-
-  <!-- Small decorative nodes on orbit -->
-  <circle cx="880" cy="230" r="4" fill="rgba(74,158,255,0.3)" stroke="rgba(74,158,255,0.5)" stroke-width="1"/>
-  <circle cx="1010" cy="135" r="4" fill="rgba(243,128,32,0.4)" stroke="rgba(243,128,32,0.6)" stroke-width="1"/>
-  <circle cx="1140" cy="230" r="4" fill="rgba(74,158,255,0.3)" stroke="rgba(74,158,255,0.5)" stroke-width="1"/>
-
-  <!-- Connection lines between nodes and shield -->
-  <line x1="884" y1="230" x2="985" y2="270" stroke="rgba(74,158,255,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1010" y1="139" x2="1010" y2="255" stroke="rgba(243,128,32,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="1136" y1="230" x2="1035" y2="270" stroke="rgba(74,158,255,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-
+  <line x1="960" y1="0" x2="960" y2="630" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <!-- Shield icon -->
+  <path d="M950,140 L1030,170 L1030,250 Q1030,310 950,340 Q870,310 870,250 L870,170 Z" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <path d="M950,160 L1015,185 L1015,250 Q1015,295 950,318 Q885,295 885,250 L885,185 Z" fill="rgba(239,68,68,0.04)"/>
+  <!-- Lock -->
+  <rect x="935" y="220" width="30" height="24" rx="4" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <path d="M940,220 L940,210 Q940,198 950,198 Q960,198 960,210 L960,220" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
   <!-- Alert dots -->
-  <circle cx="870" cy="400" r="5" fill="rgba(230,55,87,0.7)" stroke="rgba(230,55,87,0.9)" stroke-width="1"/>
-  <circle cx="900" cy="420" r="4" fill="rgba(243,128,32,0.6)" stroke="rgba(243,128,32,0.8)" stroke-width="1"/>
-  <circle cx="860" cy="440" r="3" fill="rgba(74,158,255,0.5)" stroke="rgba(74,158,255,0.7)" stroke-width="1"/>
-
+  <circle cx="870" cy="400" r="6" fill="rgba(239,68,68,0.3)"/>
+  <circle cx="900" cy="420" r="4" fill="rgba(245,158,11,0.25)"/>
+  <circle cx="860" cy="440" r="5" fill="rgba(239,68,68,0.2)"/>
+  <!-- Background circles -->
+  <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)"/>
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="6" height="630" fill="url(#accentBar)"/>
-
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
   <!-- Date badge -->
-  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(243,128,32,0.15)" stroke="rgba(243,128,32,0.4)" stroke-width="1"/>
-  <text x="180" y="81" font-family="monospace, sans-serif" font-size="13" font-weight="600" fill="rgba(243,128,32,0.9)" text-anchor="middle" letter-spacing="1">MAY 23, 2025</text>
-
-  <!-- Title line 1 -->
-  <text x="80" y="185" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">Cloud Security Course 7Batch</text>
-
-  <!-- Title line 2 -->
-  <text x="80" y="245" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="white">6Week Cloudflare github Security</text>
-
+  <rect x="80" y="60" width="200" height="32" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="180" y="81" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="1">MAY 23, 2025</text>
+  <!-- Main title -->
+  <text x="80" y="185" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">Cloud Security Course 7Batch</text>
+  <text x="80" y="245" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="white" letter-spacing="-1">6Week Cloudflare And github...</text>
   <!-- Subtitle -->
-  <text x="80" y="300" font-family="Arial, sans-serif" font-size="19" fill="rgba(255,255,255,0.55)">Cloudflare WAF, GitHub Advanced Security &amp; Zero Trust Architecture</text>
-
+  <text x="80" y="300" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.6)">AWS | CDN | Cloudflare</text>
   <!-- Accent line -->
-  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accentLine)"/>
-
+  <rect x="80" y="325" width="420" height="3" rx="1" fill="url(#accent)"/>
   <!-- Category label -->
-  <text x="80" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(243,128,32,0.75)" letter-spacing="2">SECURITY / DEVSECOPS / CLOUD</text>
-
-  <!-- Tag pills -->
-  <rect x="80" y="402" width="120" height="36" rx="18" fill="rgba(230,55,87,0.18)" stroke="rgba(230,55,87,0.4)" stroke-width="1"/>
-  <text x="140" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(230,55,87,0.9)" text-anchor="middle">Cloudflare</text>
-
-  <rect x="215" y="402" width="130" height="36" rx="18" fill="rgba(243,128,32,0.15)" stroke="rgba(243,128,32,0.38)" stroke-width="1"/>
-  <text x="280" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(243,128,32,0.9)" text-anchor="middle">GitHub Security</text>
-
-  <rect x="360" y="402" width="110" height="36" rx="18" fill="rgba(74,158,255,0.15)" stroke="rgba(74,158,255,0.38)" stroke-width="1"/>
-  <text x="415" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(74,158,255,0.9)" text-anchor="middle">Zero Trust</text>
-
-  <!-- Footer -->
-  <text x="80" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)">tech.2twodragon.com</text>
-  <text x="1120" y="545" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.3)" text-anchor="end">SECURITY</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" letter-spacing="2">SECURITY WEEKLY DIGEST</text>
+  <!-- Keyword tags (3 max) -->
+  <rect x="80" y="420" width="80" height="36" rx="18" fill="rgba(239,68,68,0.18)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+  <text x="120" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fca5a5" text-anchor="middle" font-weight="600">AWS</text>
+  <rect x="174" y="420" width="80" height="36" rx="18" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.35)" stroke-width="1"/>
+  <text x="214" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="600">CDN</text>
+  <rect x="268" y="420" width="126" height="36" rx="18" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+  <text x="331" y="443" font-family="system-ui,sans-serif" font-size="14" fill="#93c5fd" text-anchor="middle" font-weight="600">Cloudflare</text>
+  <!-- Bottom rule -->
+  <rect x="80" y="520" width="1040" height="1" fill="rgba(255,255,255,0.08)"/>
+  <text x="80" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">tech.2twodragon.com</text>
+  <text x="1120" y="545" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="end">DevSecOps</text>
 </svg>
