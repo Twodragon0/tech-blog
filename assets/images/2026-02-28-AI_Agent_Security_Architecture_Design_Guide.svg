@@ -70,7 +70,7 @@
 
     <!-- Title -->
     <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u805021title)" font-weight="700" letter-spacing="-1">AI Agent Stateful</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u805021title)" font-weight="700" letter-spacing="-1">Runtime & Continuous</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u805021title)" font-weight="700" letter-spacing="-1">Runtime &amp; Continuous</text>
     <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u805021title)" font-weight="700" letter-spacing="-1">Evaluation</text>
 
     <!-- Accent divider -->

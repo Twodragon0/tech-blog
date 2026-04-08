@@ -178,6 +178,7 @@ def split_title(title: str, max_chars: int = 22) -> list[str]:
     en = re.sub(r"(?<!\w)\d{1,2}(?!\w)", "", en)  # isolated 1-2 digit numbers
     en = re.sub(r"\s+", " ", en).strip()
     en = re.sub(r"^[^a-zA-Z0-9]+", "", en).strip()  # leading punctuation
+    en = en.replace("&", "&amp;")  # XML-escape ampersands for SVG
     if not en:
         en = "Tech Blog Post"
     words = en.split()
