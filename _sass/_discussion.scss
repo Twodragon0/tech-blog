@@ -689,3 +689,94 @@
     padding: var(--spacing-md);
   }
 }
+
+/* Step connector line between cards */
+@media (min-width: 768px) {
+  .discussion-steps {
+    position: relative;
+  }
+
+  .discussion-step-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    width: 16px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-devsecops));
+    opacity: 0.3;
+  }
+
+  .discussion-step-card:last-child::after {
+    display: none;
+  }
+}
+
+/* Focus styles for step cards and guideline items */
+.discussion-step-card:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.discussion-guideline-item:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* Back to top link */
+.discussion-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.discussion-back-top:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+/* Enhanced CTA gradient animation */
+.discussion-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.discussion-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  animation: ctaPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes ctaPulse {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discussion-cta::before {
+    animation: none;
+  }
+}
+
+/* Category card icon circles enhancement */
+.discussion-icon {
+  border-radius: 50%;
+}
+
+/* Stat card hover enhancement */
+.discussion-stat-card:hover .discussion-stat-icon {
+  transform: scale(1.2);
+  transition: transform var(--transition-fast);
+}

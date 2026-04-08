@@ -22,6 +22,21 @@ page_modifier: page--utility
 </script>
 
 <div class="archive-page" id="archive-top">
+  <!-- Utility Page Navigation -->
+  <nav class="utility-nav" aria-label="유틸리티 페이지 탐색">
+    <a href="/archive/" class="utility-nav-tab active" aria-current="page">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Archive
+    </a>
+    <a href="/tags/" class="utility-nav-tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      Tags
+    </a>
+    <a href="/discussion/" class="utility-nav-tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Discussion
+    </a>
+  </nav>
   {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
 
   <header class="archive-hero" role="banner">
@@ -120,6 +135,10 @@ page_modifier: page--utility
       </ul>
     </div>
     {% endfor %}
+    <a href="#archive-top" class="archive-back-top" aria-label="페이지 상단으로 이동">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+      맨 위로
+    </a>
   </section>
   {% endfor %}
 

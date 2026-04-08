@@ -21,6 +21,21 @@ page_modifier: page--utility
 }
 </script>
 <div class="discussion-page" id="discussion-top">
+  <!-- Utility Page Navigation -->
+  <nav class="utility-nav" aria-label="유틸리티 페이지 탐색">
+    <a href="/archive/" class="utility-nav-tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Archive
+    </a>
+    <a href="/tags/" class="utility-nav-tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      Tags
+    </a>
+    <a href="/discussion/" class="utility-nav-tab active" aria-current="page">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Discussion
+    </a>
+  </nav>
   <!-- Hero Section -->
   <header class="discussion-hero" role="banner">
     <div class="discussion-hero-badge">Community</div>
@@ -96,21 +111,21 @@ page_modifier: page--utility
   <section aria-labelledby="discussion-steps-heading">
     <h2 id="discussion-steps-heading" class="discussion-section-title">참여 방법</h2>
     <ol class="discussion-steps">
-      <li class="discussion-step-card">
+      <li class="discussion-step-card" data-step="1">
         <span class="discussion-step-number" aria-hidden="true">1</span>
         <p class="discussion-step-text">GitHub 계정으로 로그인합니다</p>
       </li>
-      <li class="discussion-step-card">
+      <li class="discussion-step-card" data-step="2">
         <span class="discussion-step-number" aria-hidden="true">2</span>
         <p class="discussion-step-text">
           <a href="https://github.com/{{ site.giscus.repo }}/discussions" target="_blank" rel="noopener noreferrer">Discussions 페이지</a>를 방문합니다
         </p>
       </li>
-      <li class="discussion-step-card">
+      <li class="discussion-step-card" data-step="3">
         <span class="discussion-step-number" aria-hidden="true">3</span>
         <p class="discussion-step-text">적절한 카테고리를 선택하여 새 Discussion을 시작합니다</p>
       </li>
-      <li class="discussion-step-card">
+      <li class="discussion-step-card" data-step="4">
         <span class="discussion-step-number" aria-hidden="true">4</span>
         <p class="discussion-step-text">각 포스트 하단 <strong>Giscus</strong> 댓글로도 같은 저장소 기준으로 대화할 수 있습니다</p>
       </li>
@@ -198,7 +213,7 @@ page_modifier: page--utility
         <svg class="discussion-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        <div class="discussion-stat-number">{{ site.category_list | size }}</div>
+        <div class="discussion-stat-number">{{ site.categories | size }}</div>
         <div class="discussion-stat-label">카테고리</div>
       </div>
       <div class="discussion-stat-card">
@@ -225,4 +240,12 @@ page_modifier: page--utility
       <a href="{{ '/feed.xml' | relative_url }}" class="btn-secondary discussion-cta-secondary" aria-label="RSS 피드 구독">RSS 피드</a>
     </div>
   </section>
+
+  <!-- Back to top -->
+  <div style="text-align: center; margin-top: var(--spacing-xl);">
+    <a href="#discussion-top" class="discussion-back-top" aria-label="페이지 상단으로 이동">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+      맨 위로
+    </a>
+  </div>
 </div>
