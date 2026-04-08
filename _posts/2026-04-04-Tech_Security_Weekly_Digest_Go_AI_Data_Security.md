@@ -415,11 +415,12 @@ Riot Platforms가 채굴에서 AI 인프라로의 전환을 위해 1분기에 3,
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **클라우드 보안** | 4건 | Google Cloud Blog 관련 동향, GitHub Changelog 관련 동향 |
-| **AI/ML** | 3건 | Google Cloud Blog 관련 동향, GitHub Changelog 관련 동향 |
-| **공급망 보안** | 1건 | The Hacker News 관련 동향 |
+| **국가 배후 공격** | 1건 | 중국 TA416 PlugX, OAuth 피싱으로 유럽 정부 표적 |
+| **AI 플랫폼** | 2건 | Vertex AI Veo 3.1 Lite, Envoy 에이전트 AI 네트워킹 |
+| **DevOps 도구 변화** | 2건 | GPT-5.1 Codex 지원 중단, Copilot 클라우드 에이전트 러너 |
+| **암호화폐 전환** | 2건 | Schwab 직접 BTC 거래, Riot AI 인프라 전환 |
 
-이번 주기의 핵심 트렌드는 **클라우드 보안**(4건)입니다. Google Cloud Blog 관련 동향, GitHub Changelog 관련 동향 등이 주요 이슈입니다. **AI/ML** 분야에서는 Google Cloud Blog 관련 동향, GitHub Changelog 관련 동향 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI 플랫폼 진화**(2건)와 **DevOps 도구 변화**(2건)입니다. Vertex AI의 Veo 3.1 Lite 출시와 Envoy의 에이전트 AI 네트워킹이 AI 생태계를 확장하고 있으며, GPT-5.1 Codex 지원 중단은 코딩 도구 전환을 촉발합니다. **보안** 측면에서는 중국 연계 TA416의 유럽 정부 표적 공격과 Linux PHP 웹 셸이 주의를 요합니다.
 
 ---
 

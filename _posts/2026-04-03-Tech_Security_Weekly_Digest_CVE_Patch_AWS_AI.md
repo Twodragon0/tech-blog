@@ -517,12 +517,12 @@ Chainalysis Links NYC 2026 컨퍼런스에서 암호화폐 거래소, 글로벌 
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 4건 | AWS Security Blog 관련 동향, Meta Engineering Blog 관련 동향, NVIDIA AI Blog 관련 동향 |
-| **클라우드 보안** | 3건 | The Hacker News 관련 동향, NVIDIA AI Blog 관련 동향, Google Cloud Blog 관련 동향 |
-| **공급망 보안** | 1건 | Docker Blog 관련 동향 |
-| **인증 보안** | 1건 | 해커 익스플로잇 CVE-2025-55182 침해 766 Next.js |
+| **AI 인프라 최적화** | 3건 | Meta KernelEvolve, NVIDIA Gemma 4 가속, Gemini API 비용/신뢰성 |
+| **취약점 & 패치** | 2건 | Next.js CVE-2025-55182 (766개 호스트), Cisco CVSS 9.8 |
+| **컨테이너 & 공급망** | 3건 | Docker Offload GA, Gemma 4 Docker Hub, 공급망 방어 |
+| **AI 보안 원칙** | 1건 | 에이전트 AI 시스템 보안 4원칙 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(4건)입니다. AWS Security Blog 관련 동향, Meta Engineering Blog 관련 동향 등이 주요 이슈입니다. **클라우드 보안** 분야에서는 The Hacker News 관련 동향, NVIDIA AI Blog 관련 동향 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI 인프라 최적화**(3건)입니다. Meta의 KernelEvolve 랭킹 에이전트, NVIDIA의 로컬 Gemma 4 가속, Gemini API 비용 최적화 등 AI 운영 효율화가 주요 화두입니다. **취약점** 측면에서는 Next.js CVE-2025-55182로 766개 호스트 침해와 Cisco CVSS 9.8 취약점이 즉각적인 패치를 요구합니다.
 
 ---
 
