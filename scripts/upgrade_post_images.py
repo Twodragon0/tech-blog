@@ -401,6 +401,53 @@ def _common_decorations(p: dict, u: str, tag_labels: list[str]) -> str:
       <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
     </circle>
 
+    <!-- Perspective vanishing lines (tunnel effect) -->
+    <line x1="720" y1="315" x2="400" y2="50" stroke="{p['accent1']}" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="1150" y2="50" stroke="{p['accent1']}" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="400" y2="580" stroke="{p['accent2']}" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="1150" y2="580" stroke="{p['accent2']}" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="400" y2="315" stroke="{p['accent1']}" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="1150" y2="315" stroke="{p['accent1']}" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="500" y2="50" stroke="{p['accent3']}" stroke-width="0.3" opacity="0.06"/>
+    <line x1="720" y1="315" x2="940" y2="580" stroke="{p['accent3']}" stroke-width="0.3" opacity="0.06"/>
+
+    <!-- Breach crack line (jagged polyline across y=315) -->
+    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
+              fill="none" stroke="{p['accent1']}" stroke-width="1.5" opacity="0.35"
+              filter="url(#{u}fxRed)" class="{u}crack"/>
+    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
+              fill="none" stroke="{p['accent3']}" stroke-width="0.8" opacity="0.2"/>
+
+    <!-- Floating particles with animation classes -->
+    <circle cx="480" cy="120" r="2.5" fill="{p['accent1']}" opacity="0.7" class="{u}fa"/>
+    <circle cx="620" cy="480" r="2" fill="{p['accent2']}" opacity="0.6" class="{u}fb"/>
+    <circle cx="900" cy="100" r="3" fill="{p['accent3']}" opacity="0.5" class="{u}fc"/>
+    <circle cx="1050" cy="350" r="2" fill="{p['accent1']}" opacity="0.6" class="{u}fa"/>
+    <circle cx="550" cy="550" r="2.5" fill="{p['accent2']}" opacity="0.5" class="{u}fb"/>
+    <circle cx="850" cy="520" r="1.8" fill="{p['accent1']}" opacity="0.55" class="{u}fc"/>
+    <circle cx="750" cy="80" r="2.2" fill="{p['accent3']}" opacity="0.45" class="{u}fa"/>
+
+    <!-- Additional data panel (mid-right) -->
+    <rect x="960" y="180" width="190" height="76" rx="6" fill="{p['bg1']}" stroke="{p['accent3']}"
+          stroke-width="0.8" opacity="0.55"/>
+    <rect x="960" y="180" width="190" height="18" rx="6" fill="{p['accent3']}" opacity="0.10"/>
+    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
+          fill="{p['accent3']}" font-weight="bold" letter-spacing="1">TELEMETRY</text>
+    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" opacity="0.6">LATENCY</text>
+    <rect x="1050" y="207" width="88" height="5" rx="2" fill="{p['accent3']}" opacity="0.12"/>
+    <rect x="1050" y="207" width="55" height="5" rx="2" fill="{p['accent3']}" opacity="0.45"/>
+    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" opacity="0.6">THROUGHPUT</text>
+    <rect x="1050" y="223" width="88" height="5" rx="2" fill="{p['accent1']}" opacity="0.12"/>
+    <rect x="1050" y="223" width="72" height="5" rx="2" fill="{p['accent1']}" opacity="0.4"/>
+    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" opacity="0.6">ERROR RATE</text>
+    <rect x="1050" y="239" width="88" height="5" rx="2" fill="{p['accent1']}" opacity="0.12"/>
+    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
+    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
+          fill="#22c55e" opacity="0.5">LOW</text>
+
     <!-- Timestamp watermark -->
     <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
           fill="#1e293b" text-anchor="end" opacity="0.5">2TWODRAGON // DIGEST</text>
@@ -480,6 +527,49 @@ def _scene_security(p: dict, u: str, tag_labels: list[str]) -> str:
     <circle cx="800" cy="140" r="50" fill="none" stroke="{p['accent1']}" stroke-width="0.8"
             opacity="0.2" style="animation: {u}pulse 4s ease-in-out infinite"/>
 
+    <!-- Cracked shield detail -->
+    <path d="M600 170 L600 230" stroke="{p['accent2']}" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
+    <path d="M585 195 L615 205" stroke="{p['accent2']}" stroke-width="1" opacity="0.5"/>
+
+    <!-- Broken padlock -->
+    <g transform="translate(680,430)">
+      <rect x="-12" y="0" width="24" height="18" rx="3" fill="none" stroke="{p['accent1']}" stroke-width="1.5"/>
+      <path d="M-6 0 L-6 -8 Q-6 -16 0 -16 Q6 -16 6 -8 L6 -4" fill="none" stroke="{p['accent1']}" stroke-width="1.5"/>
+      <line x1="6" y1="-8" x2="10" y2="-12" stroke="{p['accent2']}" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="0" cy="9" r="2" fill="{p['accent1']}" opacity="0.7"/>
+    </g>
+    <text x="680" y="460" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">BREACH</text>
+
+    <!-- Attack flow arrows with dashed lines -->
+    <path d="M 830 160 Q 870 180 880 220" fill="none" stroke="{p['accent1']}"
+          stroke-width="1.2" opacity="0.35" stroke-dasharray="5 3" style="animation: {u}dash 2.5s linear infinite"/>
+    <polygon points="878,215 885,222 875,220" fill="{p['accent1']}" opacity="0.35"/>
+    <path d="M 780 445 Q 830 460 870 440" fill="none" stroke="{p['accent3']}"
+          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
+    <polygon points="867,443 875,438 870,447" fill="{p['accent3']}" opacity="0.3"/>
+
+    <!-- Skull warning icon -->
+    <g transform="translate(520,440)" filter="url(#{u}fxRed)">
+      <circle cx="0" cy="0" r="18" fill="{p['bg2']}" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.8"/>
+      <circle cx="-5" cy="-3" r="2.5" fill="{p['accent1']}" opacity="0.7"/>
+      <circle cx="5" cy="-3" r="2.5" fill="{p['accent1']}" opacity="0.7"/>
+      <path d="M-4 6 L-2 4 L0 6 L2 4 L4 6" fill="none" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    </g>
+    <text x="520" y="468" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.6">MALWARE</text>
+
+    <!-- ALERT badge -->
+    <rect x="850" y="390" width="80" height="24" rx="4" fill="{p['accent1']}" opacity="0.15"
+          stroke="{p['accent1']}" stroke-width="1.2"/>
+    <text x="890" y="406" font-family="Courier New, monospace" font-size="10"
+          fill="{p['accent1']}" text-anchor="middle" font-weight="bold" class="{u}blink">ALERT</text>
+
+    <!-- CVE reference label -->
+    <rect x="560" y="260" width="100" height="18" rx="3" fill="{p['bg2']}" stroke="{p['accent3']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="610" y="273" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent3']}" text-anchor="middle" opacity="0.7">CVE-2025-XXXX</text>
+
     <!-- Ambient glow -->
     <ellipse cx="750" cy="280" rx="250" ry="200" fill="{p['glow']}" opacity="0.04"/>
 """
@@ -537,6 +627,48 @@ def _scene_cloud(p: dict, u: str, tag_labels: list[str]) -> str:
           opacity="0.3" stroke-dasharray="3 5"/>
     <path d="M 925 340 Q 900 390 830 420" fill="none" stroke="{p['accent2']}"
           stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
+
+    <!-- Server rack blinking LEDs -->
+    <circle cx="895" cy="240" r="3" fill="#ef4444" opacity="0.5" class="{u}blink"/>
+    <circle cx="895" cy="280" r="3" fill="{p['accent1']}" opacity="0.4" class="{u}blink"/>
+    <circle cx="895" cy="320" r="3" fill="#f59e0b" opacity="0.45"/>
+    <rect x="892" y="234" width="14" height="4" rx="1" fill="{p['accent2']}" opacity="0.2"/>
+    <rect x="892" y="274" width="14" height="4" rx="1" fill="{p['accent2']}" opacity="0.2"/>
+    <rect x="892" y="314" width="14" height="4" rx="1" fill="{p['accent2']}" opacity="0.2"/>
+
+    <!-- VPC boundary box (larger) -->
+    <rect x="450" y="260" width="280" height="220" rx="8" fill="none"
+          stroke="{p['accent1']}" stroke-width="1.2" stroke-dasharray="8 4" opacity="0.25"/>
+    <text x="460" y="278" font-family="Courier New, monospace" font-size="8"
+          fill="{p['accent1']}" opacity="0.5" font-weight="bold">VPC-BOUNDARY</text>
+
+    <!-- Data flow arrows -->
+    <path d="M 770 190 Q 820 210 880 225" fill="none" stroke="{p['accent2']}"
+          stroke-width="1.5" opacity="0.4" stroke-dasharray="5 3" style="animation: {u}dash 2s linear infinite"/>
+    <polygon points="876,222 885,226 878,230" fill="{p['accent2']}" opacity="0.4"/>
+    <path d="M 600 345 Q 650 380 700 400" fill="none" stroke="{p['accent1']}"
+          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
+    <polygon points="696,397 705,402 698,406" fill="{p['accent1']}" opacity="0.3"/>
+
+    <!-- Region label badges -->
+    <rect x="480" y="300" width="72" height="20" rx="3" fill="{p['badge_bg']}" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="516" y="314" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent1']}" text-anchor="middle" opacity="0.8">us-west-2</text>
+    <rect x="830" y="450" width="72" height="20" rx="3" fill="{p['badge_bg']}" stroke="{p['accent2']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="866" y="464" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.8">eu-west-1</text>
+
+    <!-- Load balancer icon -->
+    <g transform="translate(700,320)" filter="url(#{u}fxGlow)">
+      <circle cx="0" cy="0" r="22" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1.5"/>
+      <line x1="-8" y1="-5" x2="8" y2="-5" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.7"/>
+      <line x1="-8" y1="0" x2="8" y2="0" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.7"/>
+      <line x1="-8" y1="5" x2="8" y2="5" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.7"/>
+      <polygon points="-10,0 -14,-4 -14,4" fill="{p['accent1']}" opacity="0.5"/>
+      <polygon points="10,0 14,-4 14,4" fill="{p['accent1']}" opacity="0.5"/>
+    </g>
+    <text x="700" y="350" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">ALB</text>
 
     <!-- Pulsing ring on cloud -->
     <ellipse cx="700" cy="180" rx="140" ry="70" fill="none" stroke="{p['accent1']}"
@@ -606,6 +738,45 @@ def _scene_kubernetes(p: dict, u: str, tag_labels: list[str]) -> str:
     <line x1="615" y1="380" x2="640" y2="250" stroke="{p['accent2']}" stroke-width="1"
           opacity="0.25" stroke-dasharray="3 5"/>
 
+    <!-- Container escape visualization (cracked box) -->
+    <g transform="translate(870,200)">
+      <rect x="-25" y="-20" width="50" height="40" rx="4" fill="{p['bg2']}" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.7"/>
+      <line x1="-10" y1="-20" x2="5" y2="20" stroke="{p['accent1']}" stroke-width="1.5" opacity="0.6" class="{u}crack"/>
+      <path d="M-5,-20 L0,-15 L5,-20" fill="none" stroke="{p['accent1']}" stroke-width="1" opacity="0.5"/>
+      <text x="0" y="3" font-family="Courier New, monospace" font-size="7"
+            fill="{p['accent1']}" text-anchor="middle" opacity="0.8">ESC</text>
+    </g>
+    <text x="870" y="230" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.6">ESCAPE</text>
+
+    <!-- Namespace labels -->
+    <rect x="625" y="260" width="60" height="16" rx="3" fill="{p['badge_bg']}" stroke="{p['accent1']}" stroke-width="0.6" opacity="0.5"/>
+    <text x="655" y="271" font-family="Courier New, monospace" font-size="6"
+          fill="{p['accent1']}" text-anchor="middle" opacity="0.7">ns:prod</text>
+    <rect x="770" y="260" width="56" height="16" rx="3" fill="{p['badge_bg']}" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.5"/>
+    <text x="798" y="271" font-family="Courier New, monospace" font-size="6"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.7">ns:dev</text>
+
+    <!-- Helm icon -->
+    <g transform="translate(950,440)" filter="url(#{u}fxGlow)">
+      <circle cx="0" cy="0" r="22" fill="{p['bg1']}" stroke="{p['accent3']}" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="{p['accent3']}" stroke-width="1" opacity="0.6"/>
+      <line x1="0" y1="-14" x2="0" y2="-18" stroke="{p['accent3']}" stroke-width="2" opacity="0.5"/>
+      <line x1="0" y1="14" x2="0" y2="18" stroke="{p['accent3']}" stroke-width="2" opacity="0.5"/>
+      <line x1="-14" y1="0" x2="-18" y2="0" stroke="{p['accent3']}" stroke-width="2" opacity="0.5"/>
+      <line x1="14" y1="0" x2="18" y2="0" stroke="{p['accent3']}" stroke-width="2" opacity="0.5"/>
+    </g>
+    <text x="950" y="470" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">HELM</text>
+
+    <!-- Service mesh lines -->
+    <path d="M 675 250 Q 720 270 735 310" fill="none" stroke="{p['accent1']}" stroke-width="0.8"
+          opacity="0.2" stroke-dasharray="2 3"/>
+    <path d="M 795 250 Q 770 280 735 310" fill="none" stroke="{p['accent2']}" stroke-width="0.8"
+          opacity="0.2" stroke-dasharray="2 3"/>
+    <path d="M 770 340 Q 830 370 900 355" fill="none" stroke="{p['accent3']}" stroke-width="0.8"
+          opacity="0.2" stroke-dasharray="2 3"/>
+
     <!-- Pulsing rings -->
     <circle cx="720" cy="280" r="90" fill="none" stroke="{p['accent3']}" stroke-width="0.8"
             opacity="0.15" style="animation: {u}pulse 3s ease-in-out infinite"/>
@@ -669,6 +840,52 @@ def _scene_ai(p: dict, u: str, tag_labels: list[str]) -> str:
           fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">GRADIENT</text>
     <line x1="878" y1="210" x2="924" y2="250" stroke="{p['accent3']}" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
     <line x1="878" y1="315" x2="924" y2="270" stroke="{p['accent3']}" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
+
+    <!-- Neural network 3 layers of connected nodes -->
+    <!-- Hidden layer -->
+    <circle cx="620" cy="180" r="10" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="220" r="10" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="260" r="10" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="300" r="10" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="340" r="10" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <!-- Hidden layer 2 -->
+    <circle cx="780" cy="200" r="10" fill="{p['bg1']}" stroke="{p['accent3']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="240" r="10" fill="{p['bg1']}" stroke="{p['accent3']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="280" r="10" fill="{p['bg1']}" stroke="{p['accent3']}" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="320" r="10" fill="{p['bg1']}" stroke="{p['accent3']}" stroke-width="1" opacity="0.6"/>
+    <!-- Neural connections (sparse) -->
+    <line x1="558" y1="180" x2="610" y2="180" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="260" x2="610" y2="220" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="260" x2="610" y2="300" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="340" x2="610" y2="340" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.2"/>
+    <line x1="630" y1="185" x2="770" y2="200" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="220" x2="770" y2="240" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="260" x2="770" y2="280" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.18"/>
+    <line x1="630" y1="300" x2="770" y2="280" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="340" x2="770" y2="320" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.15"/>
+    <line x1="790" y1="205" x2="842" y2="200" stroke="{p['accent3']}" stroke-width="0.5" opacity="0.15"/>
+    <line x1="790" y1="280" x2="842" y2="260" stroke="{p['accent3']}" stroke-width="0.5" opacity="0.18"/>
+    <line x1="790" y1="320" x2="842" y2="320" stroke="{p['accent3']}" stroke-width="0.5" opacity="0.15"/>
+
+    <!-- Brain circuit pattern -->
+    <path d="M 680 240 Q 700 220 720 240 Q 740 260 720 280 Q 700 300 680 280 Q 660 260 680 240"
+          fill="none" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.2"/>
+    <path d="M 690 248 Q 700 238 710 248" fill="none" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.25"/>
+    <path d="M 690 268 Q 700 278 710 268" fill="none" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.25"/>
+
+    <!-- Data pipeline arrows -->
+    <path d="M 470 260 L 520 260" fill="none" stroke="{p['accent2']}" stroke-width="1.5" opacity="0.4"
+          stroke-dasharray="4 3" style="animation: {u}dash 2s linear infinite"/>
+    <polygon points="518,255 528,260 518,265" fill="{p['accent2']}" opacity="0.4"/>
+    <path d="M 878 260 L 930 260" fill="none" stroke="{p['accent3']}" stroke-width="1.5" opacity="0.35"/>
+    <polygon points="928,255 938,260 928,265" fill="{p['accent3']}" opacity="0.35"/>
+
+    <!-- Training progress badge -->
+    <rect x="830" y="370" width="100" height="28" rx="4" fill="{p['bg2']}" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="880" y="384" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent1']}" text-anchor="middle" opacity="0.7">EPOCH 42/100</text>
+    <rect x="840" y="390" width="80" height="4" rx="2" fill="{p['accent1']}" opacity="0.15"/>
+    <rect x="840" y="390" width="34" height="4" rx="2" fill="{p['accent1']}" opacity="0.5"/>
 
     <!-- Pulsing rings -->
     <circle cx="700" cy="260" r="70" fill="none" stroke="{p['accent1']}" stroke-width="0.8"
@@ -734,6 +951,47 @@ def _scene_devops(p: dict, u: str, tag_labels: list[str]) -> str:
     <text x="950" y="420" font-family="Courier New, monospace" font-size="8"
           fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">SECURE</text>
 
+    <!-- Pipeline stage labels -->
+    <rect x="485" y="262" width="90" height="14" rx="3" fill="{p['accent2']}" opacity="0.1"/>
+    <text x="530" y="273" font-family="Courier New, monospace" font-size="6"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.6">COMPILE OK</text>
+    <rect x="635" y="262" width="90" height="14" rx="3" fill="{p['accent1']}" opacity="0.1"/>
+    <text x="680" y="273" font-family="Courier New, monospace" font-size="6"
+          fill="{p['accent1']}" text-anchor="middle" opacity="0.6">42/42 PASS</text>
+    <rect x="785" y="262" width="90" height="14" rx="3" fill="#22c55e" opacity="0.1"/>
+    <text x="830" y="273" font-family="Courier New, monospace" font-size="6"
+          fill="#22c55e" text-anchor="middle" opacity="0.6">LIVE v2.1</text>
+
+    <!-- CI/CD badges -->
+    <rect x="480" y="130" width="80" height="22" rx="4" fill="{p['badge_bg']}" stroke="{p['accent2']}" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="495" cy="141" r="4" fill="#22c55e" opacity="0.6"/>
+    <text x="525" y="145" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" opacity="0.7">CI/CD</text>
+    <rect x="580" y="130" width="80" height="22" rx="4" fill="{p['badge_bg']}" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="595" cy="141" r="4" fill="{p['accent1']}" opacity="0.5" class="{u}blink"/>
+    <text x="625" y="145" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" opacity="0.7">SCAN</text>
+
+    <!-- Terraform icon -->
+    <g transform="translate(480,430)" filter="url(#{u}fxGlow)">
+      <rect x="-18" y="-14" width="36" height="28" rx="4" fill="{p['bg1']}" stroke="{p['accent2']}" stroke-width="1.2"/>
+      <rect x="-10" y="-8" width="8" height="8" rx="1" fill="{p['accent2']}" opacity="0.5"/>
+      <rect x="2" y="-8" width="8" height="8" rx="1" fill="{p['accent2']}" opacity="0.5"/>
+      <rect x="-10" y="2" width="8" height="8" rx="1" fill="{p['accent2']}" opacity="0.4"/>
+      <rect x="2" y="2" width="8" height="8" rx="1" fill="{p['accent2']}" opacity="0.3"/>
+    </g>
+    <text x="480" y="458" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.7">IaC</text>
+
+    <!-- Additional git branch detail -->
+    <circle cx="900" cy="380" r="8" fill="{p['accent1']}" opacity="0.5"/>
+    <line x1="808" y1="380" x2="892" y2="380" stroke="{p['accent1']}" stroke-width="1.5" opacity="0.4"/>
+    <text x="900" y="400" font-family="Courier New, monospace" font-size="7"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.6">release</text>
+    <line x1="700" y1="430" x2="800" y2="430" stroke="{p['accent3']}" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/>
+    <text x="750" y="448" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.5">merge --no-ff</text>
+
     <!-- Ambient glow -->
     <ellipse cx="730" cy="280" rx="260" ry="160" fill="{p['glow']}" opacity="0.035"/>
 """
@@ -785,6 +1043,45 @@ def _scene_finops(p: dict, u: str, tag_labels: list[str]) -> str:
           opacity="0.3" stroke-dasharray="3 5"/>
     <line x1="600" y1="240" x2="600" y2="310" stroke="{p['accent1']}" stroke-width="1"
           opacity="0.3" stroke-dasharray="3 5"/>
+
+    <!-- Bar chart with axis -->
+    <line x1="510" y1="440" x2="750" y2="440" stroke="{p['text_accent']}" stroke-width="0.8" opacity="0.3"/>
+    <line x1="510" y1="300" x2="510" y2="440" stroke="{p['text_accent']}" stroke-width="0.8" opacity="0.3"/>
+    <text x="505" y="445" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="end" opacity="0.4">$0</text>
+    <text x="505" y="370" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="end" opacity="0.4">$5K</text>
+    <text x="505" y="310" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="end" opacity="0.4">$10K</text>
+
+    <!-- Cost arrow trending down -->
+    <path d="M 780 180 Q 820 200 860 260 Q 900 320 940 310" fill="none"
+          stroke="{p['accent2']}" stroke-width="2" opacity="0.5" stroke-dasharray="6 3"
+          style="animation: {u}dash 3s linear infinite"/>
+    <polygon points="938,305 948,310 938,315" fill="{p['accent2']}" opacity="0.5"/>
+    <text x="960" y="315" font-family="Courier New, monospace" font-size="9"
+          fill="{p['accent2']}" opacity="0.7" font-weight="bold">-23%</text>
+
+    <!-- Dollar sign coin -->
+    <g transform="translate(850,380)" filter="url(#{u}fxGlow)">
+      <circle cx="0" cy="0" r="25" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="2"/>
+      <circle cx="0" cy="0" r="20" fill="none" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.4"/>
+      <text x="0" y="7" font-family="Courier New, monospace" font-size="18"
+            fill="{p['accent1']}" text-anchor="middle" font-weight="bold" opacity="0.8">$</text>
+    </g>
+
+    <!-- Cloud with price tags -->
+    <rect x="920" y="420" width="70" height="20" rx="3" fill="{p['badge_bg']}" stroke="{p['accent2']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="955" y="434" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.7">$142/mo</text>
+    <rect x="920" y="445" width="70" height="20" rx="3" fill="{p['badge_bg']}" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.6"/>
+    <text x="955" y="459" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent1']}" text-anchor="middle" opacity="0.7">$89/mo</text>
+
+    <!-- Savings badge -->
+    <rect x="780" y="470" width="90" height="24" rx="4" fill="{p['bg2']}" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+    <text x="825" y="486" font-family="Courier New, monospace" font-size="9"
+          fill="#22c55e" text-anchor="middle" font-weight="bold" opacity="0.8">SAVED 37%</text>
 
     <!-- Ambient glow -->
     <ellipse cx="730" cy="300" rx="240" ry="170" fill="{p['glow']}" opacity="0.035"/>
@@ -850,6 +1147,56 @@ def _scene_blockchain(p: dict, u: str, tag_labels: list[str]) -> str:
     <line x1="820" y1="270" x2="870" y2="278" stroke="{p['accent2']}" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
     <line x1="670" y1="300" x2="670" y2="370" stroke="{p['accent1']}" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
 
+    <!-- Chain link icons between blocks -->
+    <g transform="translate(575,270)">
+      <ellipse cx="0" cy="0" rx="8" ry="5" fill="none" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.5"/>
+      <ellipse cx="6" cy="0" rx="8" ry="5" fill="none" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.5"/>
+    </g>
+    <g transform="translate(705,270)">
+      <ellipse cx="0" cy="0" rx="8" ry="5" fill="none" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.5"/>
+      <ellipse cx="6" cy="0" rx="8" ry="5" fill="none" stroke="{p['accent1']}" stroke-width="1.2" opacity="0.5"/>
+    </g>
+
+    <!-- Block internal hash pattern -->
+    <text x="520" y="295" font-family="Courier New, monospace" font-size="5"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.35">0xfa3b..c2</text>
+    <text x="650" y="295" font-family="Courier New, monospace" font-size="5"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.35">0x8e1d..a7</text>
+    <text x="780" y="295" font-family="Courier New, monospace" font-size="5"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.35">0x2c4f..91</text>
+
+    <!-- Crypto coin with hash pattern -->
+    <g transform="translate(950,180)" filter="url(#{u}fxGlow)">
+      <circle cx="0" cy="0" r="28" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="2"/>
+      <circle cx="0" cy="0" r="22" fill="none" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.4"/>
+      <text x="0" y="4" font-family="Courier New, monospace" font-size="12"
+            fill="{p['accent1']}" text-anchor="middle" font-weight="bold" opacity="0.8">ETH</text>
+      <text x="0" y="14" font-family="Courier New, monospace" font-size="5"
+            fill="{p['text_accent']}" text-anchor="middle" opacity="0.5">#HASH</text>
+    </g>
+
+    <!-- Consensus badge -->
+    <rect x="850" y="340" width="95" height="24" rx="4" fill="{p['bg2']}" stroke="{p['accent2']}" stroke-width="1" opacity="0.6"/>
+    <text x="897" y="356" font-family="Courier New, monospace" font-size="8"
+          fill="{p['accent2']}" text-anchor="middle" font-weight="bold" opacity="0.7">CONSENSUS</text>
+
+    <!-- Merkle tree hint -->
+    <circle cx="520" cy="380" r="6" fill="{p['accent1']}" opacity="0.3"/>
+    <circle cx="500" cy="410" r="5" fill="{p['accent1']}" opacity="0.2"/>
+    <circle cx="540" cy="410" r="5" fill="{p['accent1']}" opacity="0.2"/>
+    <line x1="520" y1="386" x2="500" y2="405" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.2"/>
+    <line x1="520" y1="386" x2="540" y2="405" stroke="{p['accent1']}" stroke-width="0.8" opacity="0.2"/>
+    <circle cx="490" cy="435" r="4" fill="{p['accent3']}" opacity="0.15"/>
+    <circle cx="510" cy="435" r="4" fill="{p['accent3']}" opacity="0.15"/>
+    <circle cx="530" cy="435" r="4" fill="{p['accent3']}" opacity="0.15"/>
+    <circle cx="550" cy="435" r="4" fill="{p['accent3']}" opacity="0.15"/>
+    <line x1="500" y1="415" x2="490" y2="431" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.15"/>
+    <line x1="500" y1="415" x2="510" y2="431" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.15"/>
+    <line x1="540" y1="415" x2="530" y2="431" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.15"/>
+    <line x1="540" y1="415" x2="550" y2="431" stroke="{p['accent3']}" stroke-width="0.6" opacity="0.15"/>
+    <text x="520" y="455" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" text-anchor="middle" opacity="0.4">MERKLE</text>
+
     <!-- Ambient glow -->
     <ellipse cx="700" cy="290" rx="240" ry="160" fill="{p['glow']}" opacity="0.035"/>
 """
@@ -913,6 +1260,41 @@ def _scene_general(p: dict, u: str, tag_labels: list[str]) -> str:
           opacity="0.35" stroke-dasharray="4 3"/>
     <path d="M 600 200 Q 650 280 700 260" fill="none" stroke="{p['accent1']}"
           stroke-width="0.8" opacity="0.2"/>
+
+    <!-- Database cylinder icon -->
+    <g transform="translate(600,180)">
+      <ellipse cx="0" cy="-8" rx="14" ry="5" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1"/>
+      <rect x="-14" y="-8" width="28" height="16" fill="{p['bg1']}" stroke="none"/>
+      <line x1="-14" y1="-8" x2="-14" y2="8" stroke="{p['accent1']}" stroke-width="1"/>
+      <line x1="14" y1="-8" x2="14" y2="8" stroke="{p['accent1']}" stroke-width="1"/>
+      <ellipse cx="0" cy="8" rx="14" ry="5" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1"/>
+      <ellipse cx="0" cy="-1" rx="14" ry="5" fill="none" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.3"/>
+    </g>
+
+    <!-- Microservice boxes -->
+    <rect x="440" y="280" width="65" height="35" rx="4" fill="{p['bg1']}" stroke="{p['accent2']}" stroke-width="1" opacity="0.6"/>
+    <text x="472" y="302" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.7">SVC-A</text>
+    <rect x="440" y="330" width="65" height="35" rx="4" fill="{p['bg1']}" stroke="{p['accent2']}" stroke-width="1" opacity="0.6"/>
+    <text x="472" y="352" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent2']}" text-anchor="middle" opacity="0.7">SVC-B</text>
+    <line x1="505" y1="297" x2="660" y2="260" stroke="{p['accent2']}" stroke-width="0.8" opacity="0.25" stroke-dasharray="3 3"/>
+    <line x1="505" y1="347" x2="660" y2="265" stroke="{p['accent2']}" stroke-width="0.8" opacity="0.25" stroke-dasharray="3 3"/>
+
+    <!-- Monitoring dashboard mini -->
+    <rect x="800" y="420" width="130" height="65" rx="5" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.6"/>
+    <text x="810" y="436" font-family="Courier New, monospace" font-size="7"
+          fill="{p['accent1']}" font-weight="bold" opacity="0.7">MONITOR</text>
+    <!-- Sparkline -->
+    <polyline points="810,455 825,448 840,460 855,445 870,452 885,442 900,450 915,440"
+              fill="none" stroke="{p['accent2']}" stroke-width="1" opacity="0.5"/>
+    <text x="810" y="475" font-family="Courier New, monospace" font-size="6"
+          fill="{p['text_accent']}" opacity="0.5">CPU: 42% | MEM: 67%</text>
+
+    <!-- Webhook arrow -->
+    <path d="M 870 380 Q 890 400 870 420" fill="none" stroke="{p['accent1']}"
+          stroke-width="1" opacity="0.3" stroke-dasharray="3 3" style="animation: {u}dash 2s linear infinite"/>
+    <polygon points="867,418 875,425 873,415" fill="{p['accent1']}" opacity="0.3"/>
 
     <!-- Pulsing ring -->
     <circle cx="700" cy="260" r="70" fill="none" stroke="{p['accent1']}" stroke-width="0.8"
@@ -1063,6 +1445,24 @@ def generate_svg(
     <filter id="{u}textglow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="{p['accent1']}" flood-opacity="0.5"/>
     </filter>
+    <filter id="{u}fxGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="{u}fxRed" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="{u}sceneGlow1" cx="75%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="{p['accent1']}" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="{p['accent1']}" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="{u}sceneGlow2" cx="60%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="{p['accent2']}" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="{p['accent2']}" stop-opacity="0"/>
+    </radialGradient>
     <pattern id="{u}dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
       <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
     </pattern>
@@ -1070,9 +1470,17 @@ def generate_svg(
       <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
     </clipPath>
     <style>
-      @keyframes {u}pulse {{ 0%,100%{{opacity:0.4}} 50%{{opacity:1}} }}
-      @keyframes {u}glimmer {{ 0%{{opacity:0.3}} 50%{{opacity:0.7}} 100%{{opacity:0.3}} }}
+      @keyframes {u}floatUp {{ 0%{{transform:translateY(0);opacity:0.9}} 85%{{opacity:0.5}} 100%{{transform:translateY(-80px);opacity:0}} }}
+      @keyframes {u}pulse {{ 0%,100%{{opacity:0.5}} 50%{{opacity:1}} }}
+      @keyframes {u}crackFx {{ 0%,100%{{stroke-opacity:0.6}} 50%{{stroke-opacity:1}} }}
+      @keyframes {u}glimmer {{ 0%{{opacity:0.3}} 50%{{opacity:0.85}} 100%{{opacity:0.3}} }}
       @keyframes {u}dash {{ to{{stroke-dashoffset:-20}} }}
+      @keyframes {u}rotSpin {{ from{{transform:rotate(0deg)}} to{{transform:rotate(360deg)}} }}
+      .{u}fa {{ animation: {u}floatUp 3.2s ease-in infinite; }}
+      .{u}fb {{ animation: {u}floatUp 3.8s ease-in infinite; animation-delay:0.9s; }}
+      .{u}fc {{ animation: {u}floatUp 2.9s ease-in infinite; animation-delay:1.7s; }}
+      .{u}crack {{ animation: {u}crackFx 1.9s ease-in-out infinite; }}
+      .{u}blink {{ animation: {u}pulse 2.2s ease-in-out infinite; }}
     </style>
   </defs>
 
@@ -1110,6 +1518,9 @@ def generate_svg(
           fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
 
     <!-- RIGHT SCENE AREA -->
+    <!-- Scene ambient glow overlays -->
+    <rect x="380" y="40" width="780" height="550" fill="url(#{u}sceneGlow1)" opacity="0.6"/>
+    <rect x="380" y="40" width="780" height="550" fill="url(#{u}sceneGlow2)" opacity="0.5"/>
 {scene_svg}
     <!-- COMMON DECORATIONS -->
 {decorations_svg}
