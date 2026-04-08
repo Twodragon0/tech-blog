@@ -35,6 +35,24 @@
     <filter id="ucfc18etextglow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.5"/>
     </filter>
+    <filter id="ucfc18efxGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ucfc18efxRed" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ucfc18esceneGlow1" cx="75%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ucfc18esceneGlow2" cx="60%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
     <pattern id="ucfc18edots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
       <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
     </pattern>
@@ -42,9 +60,17 @@
       <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
     </clipPath>
     <style>
-      @keyframes ucfc18epulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
-      @keyframes ucfc18eglimmer { 0%{opacity:0.3} 50%{opacity:0.7} 100%{opacity:0.3} }
+      @keyframes ucfc18efloatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
+      @keyframes ucfc18epulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+      @keyframes ucfc18ecrackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
+      @keyframes ucfc18eglimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
       @keyframes ucfc18edash { to{stroke-dashoffset:-20} }
+      @keyframes ucfc18erotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      .ucfc18efa { animation: ucfc18efloatUp 3.2s ease-in infinite; }
+      .ucfc18efb { animation: ucfc18efloatUp 3.8s ease-in infinite; animation-delay:0.9s; }
+      .ucfc18efc { animation: ucfc18efloatUp 2.9s ease-in infinite; animation-delay:1.7s; }
+      .ucfc18ecrack { animation: ucfc18ecrackFx 1.9s ease-in-out infinite; }
+      .ucfc18eblink { animation: ucfc18epulse 2.2s ease-in-out infinite; }
     </style>
   </defs>
 
@@ -92,6 +118,9 @@
           fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
 
     <!-- RIGHT SCENE AREA -->
+    <!-- Scene ambient glow overlays -->
+    <rect x="380" y="40" width="780" height="550" fill="url(#ucfc18esceneGlow1)" opacity="0.6"/>
+    <rect x="380" y="40" width="780" height="550" fill="url(#ucfc18esceneGlow2)" opacity="0.5"/>
 
     <!-- SCENE: Security Breach -->
     <!-- Shield (broken) -->
@@ -159,6 +188,49 @@
             opacity="0.3" style="animation: ucfc18epulse 3s ease-in-out infinite"/>
     <circle cx="800" cy="140" r="50" fill="none" stroke="#ef4444" stroke-width="0.8"
             opacity="0.2" style="animation: ucfc18epulse 4s ease-in-out infinite"/>
+
+    <!-- Cracked shield detail -->
+    <path d="M600 170 L600 230" stroke="#f97316" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
+    <path d="M585 195 L615 205" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+
+    <!-- Broken padlock -->
+    <g transform="translate(680,430)">
+      <rect x="-12" y="0" width="24" height="18" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+      <path d="M-6 0 L-6 -8 Q-6 -16 0 -16 Q6 -16 6 -8 L6 -4" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+      <line x1="6" y1="-8" x2="10" y2="-12" stroke="#f97316" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="0" cy="9" r="2" fill="#ef4444" opacity="0.7"/>
+    </g>
+    <text x="680" y="460" font-family="Courier New, monospace" font-size="7"
+          fill="#fca5a5" text-anchor="middle" opacity="0.7">BREACH</text>
+
+    <!-- Attack flow arrows with dashed lines -->
+    <path d="M 830 160 Q 870 180 880 220" fill="none" stroke="#ef4444"
+          stroke-width="1.2" opacity="0.35" stroke-dasharray="5 3" style="animation: ucfc18edash 2.5s linear infinite"/>
+    <polygon points="878,215 885,222 875,220" fill="#ef4444" opacity="0.35"/>
+    <path d="M 780 445 Q 830 460 870 440" fill="none" stroke="#dc2626"
+          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
+    <polygon points="867,443 875,438 870,447" fill="#dc2626" opacity="0.3"/>
+
+    <!-- Skull warning icon -->
+    <g transform="translate(520,440)" filter="url(#ucfc18efxRed)">
+      <circle cx="0" cy="0" r="18" fill="#1a0505" stroke="#ef4444" stroke-width="1.2" opacity="0.8"/>
+      <circle cx="-5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
+      <circle cx="5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
+      <path d="M-4 6 L-2 4 L0 6 L2 4 L4 6" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+    </g>
+    <text x="520" y="468" font-family="Courier New, monospace" font-size="6"
+          fill="#fca5a5" text-anchor="middle" opacity="0.6">MALWARE</text>
+
+    <!-- ALERT badge -->
+    <rect x="850" y="390" width="80" height="24" rx="4" fill="#ef4444" opacity="0.15"
+          stroke="#ef4444" stroke-width="1.2"/>
+    <text x="890" y="406" font-family="Courier New, monospace" font-size="10"
+          fill="#ef4444" text-anchor="middle" font-weight="bold" class="ucfc18eblink">ALERT</text>
+
+    <!-- CVE reference label -->
+    <rect x="560" y="260" width="100" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="0.8" opacity="0.6"/>
+    <text x="610" y="273" font-family="Courier New, monospace" font-size="7"
+          fill="#dc2626" text-anchor="middle" opacity="0.7">CVE-2025-XXXX</text>
 
     <!-- Ambient glow -->
     <ellipse cx="750" cy="280" rx="250" ry="200" fill="#dc2626" opacity="0.04"/>
@@ -332,6 +404,53 @@
       <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
     </circle>
+
+    <!-- Perspective vanishing lines (tunnel effect) -->
+    <line x1="720" y1="315" x2="400" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="1150" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="400" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="1150" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="400" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="1150" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="500" y2="50" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
+    <line x1="720" y1="315" x2="940" y2="580" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
+
+    <!-- Breach crack line (jagged polyline across y=315) -->
+    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
+              fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"
+              filter="url(#ucfc18efxRed)" class="ucfc18ecrack"/>
+    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
+              fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.2"/>
+
+    <!-- Floating particles with animation classes -->
+    <circle cx="480" cy="120" r="2.5" fill="#ef4444" opacity="0.7" class="ucfc18efa"/>
+    <circle cx="620" cy="480" r="2" fill="#f97316" opacity="0.6" class="ucfc18efb"/>
+    <circle cx="900" cy="100" r="3" fill="#dc2626" opacity="0.5" class="ucfc18efc"/>
+    <circle cx="1050" cy="350" r="2" fill="#ef4444" opacity="0.6" class="ucfc18efa"/>
+    <circle cx="550" cy="550" r="2.5" fill="#f97316" opacity="0.5" class="ucfc18efb"/>
+    <circle cx="850" cy="520" r="1.8" fill="#ef4444" opacity="0.55" class="ucfc18efc"/>
+    <circle cx="750" cy="80" r="2.2" fill="#dc2626" opacity="0.45" class="ucfc18efa"/>
+
+    <!-- Additional data panel (mid-right) -->
+    <rect x="960" y="180" width="190" height="76" rx="6" fill="#0f172a" stroke="#dc2626"
+          stroke-width="0.8" opacity="0.55"/>
+    <rect x="960" y="180" width="190" height="18" rx="6" fill="#dc2626" opacity="0.10"/>
+    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
+          fill="#dc2626" font-weight="bold" letter-spacing="1">TELEMETRY</text>
+    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
+          fill="#fca5a5" opacity="0.6">LATENCY</text>
+    <rect x="1050" y="207" width="88" height="5" rx="2" fill="#dc2626" opacity="0.12"/>
+    <rect x="1050" y="207" width="55" height="5" rx="2" fill="#dc2626" opacity="0.45"/>
+    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
+          fill="#fca5a5" opacity="0.6">THROUGHPUT</text>
+    <rect x="1050" y="223" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
+    <rect x="1050" y="223" width="72" height="5" rx="2" fill="#ef4444" opacity="0.4"/>
+    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
+          fill="#fca5a5" opacity="0.6">ERROR RATE</text>
+    <rect x="1050" y="239" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
+    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
+    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
+          fill="#22c55e" opacity="0.5">LOW</text>
 
     <!-- Timestamp watermark -->
     <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
