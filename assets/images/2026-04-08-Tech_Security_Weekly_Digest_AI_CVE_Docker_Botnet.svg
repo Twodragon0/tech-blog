@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>THREAT SIGNAL MAP</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#111c35"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Vault door outline -->
+  <rect x="380" y="200" width="440" height="300" rx="16" fill="#111827" stroke="#f59e0b" stroke-width="2.5" filter="url(#shadow)"/>
+  <!-- Vault hinge marks -->
+  <rect x="390" y="230" width="18" height="40" rx="4" fill="#f59e0b" opacity="0.4"/>
+  <rect x="390" y="430" width="18" height="40" rx="4" fill="#f59e0b" opacity="0.4"/>
+  <!-- Breach crack down the middle -->
+  <path d="M600 200 L590 260 L614 310 L588 370 L606 430 L600 500" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Glow behind crack -->
+  <path d="M600 200 L590 260 L614 310 L588 370 L606 430 L600 500" fill="none" stroke="#ef4444" stroke-width="16" stroke-linecap="round" opacity="0.12" filter="url(#glow)"/>
+  <!-- Lock wheel center -->
+  <circle cx="600" cy="350" r="40" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="600" cy="350" r="18" fill="#111827" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="600" cy="350" r="6" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="600" cy="330" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="600" cy="370" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="580" cy="350" r="4" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="620" cy="350" r="4" fill="#f59e0b" opacity="0.5"/>
+  <!-- Ambient glows -->
+  <circle cx="240" cy="350" r="180" fill="#f59e0b" opacity="0.07" filter="url(#glow)"/>
+  <circle cx="960" cy="350" r="180" fill="#3b82f6" opacity="0.07" filter="url(#glow)"/>
+  <g transform="translate(200 350)" filter="url(#shadow)">
+    <circle r="52" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
+    <circle r="16" fill="#f59e0b" opacity="0.15"/><circle cx="-10" cy="-6" r="5" fill="#f59e0b" opacity="0.6"/><circle cx="10" cy="6" r="5" fill="#f59e0b" opacity="0.6"/><circle cx="12" cy="-10" r="3" fill="#f59e0b" opacity="0.4"/>
+    <text x="0" y="78" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">DNS EXFIL</text>
+  </g>
+  <g transform="translate(600 490)" filter="url(#shadow)">
+    <circle r="46" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#3b82f6" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#3b82f6" text-anchor="middle" opacity="0.7">PATCH</text>
+    <text x="0" y="72" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" text-anchor="middle">ZERO DAY</text>
+  </g>
+  <g transform="translate(1000 350)" filter="url(#shadow)">
+    <circle r="52" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
+    <path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="#ef4444" stroke-width="2" transform="scale(0.7)"/>
+    <text x="0" y="78" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ef4444" text-anchor="middle">CLOUD</text>
+  </g>
+  <rect x="90" y="62" width="196" height="32" rx="6" fill="#dc2626" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">DNS EXFIL  ZERO DAY  CLOUD</text>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">April 08, 2026</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>
