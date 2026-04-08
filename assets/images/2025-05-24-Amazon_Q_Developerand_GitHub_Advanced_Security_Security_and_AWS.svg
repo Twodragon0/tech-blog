@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Amazon Q Developer &</title>
+  <title>Amazon Q Developer &amp;</title>
   <defs>
     <linearGradient id="ue76ba7bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f172a"/>
@@ -69,7 +69,7 @@
           fill="#64748b" letter-spacing="1">2025-05-24</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ue76ba7title)" font-weight="700" letter-spacing="-1">Amazon Q Developer &</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ue76ba7title)" font-weight="700" letter-spacing="-1">Amazon Q Developer &amp;</text>
     <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ue76ba7title)" font-weight="700" letter-spacing="-1">GitHub Advanced</text>
     <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ue76ba7title)" font-weight="700" letter-spacing="-1">Security AWS</text>
 
