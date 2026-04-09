@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-08T01:32:58.412029+00:00",
+  "updated_at": "2026-04-09T01:24:45.173499+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
@@ -810,6 +810,96 @@
       "title": "Prioritize security alerts with runtime context from Dynatrace",
       "published_date": "2026-04-08",
       "expires_at": "2026-04-15T01:32:58.411917+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html",
+      "title": "New Chaos Variant Targets Misconfigured Cloud Deployments, Adds SOCKS Proxy",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/masjesu-botnet-emerges-as-ddos-for-hire.html",
+      "title": "Masjesu Botnet Emerges as DDoS-for-Hire Service Targeting Global IoT Devices",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/apt28-deploys-prismex-malware-in.html",
+      "title": "APT28 Deploys PRISMEX Malware in Campaign Targeting Ukraine and NATO Allies",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-use-pixel-large-svg-trick-to-hide-credit-card-stealer/",
+      "title": "Hackers use pixel-large SVG trick to hide credit card stealer",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/a-framework-for-securely-collecting-forensic-artifacts-into-s3-buckets/",
+      "title": "A framework for securely collecting forensic artifacts into S3 buckets",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/08/security/trust-but-canary-configuration-safety-at-scale-meta-tech-podcast/",
+      "title": "Trust But Canary: Configuration Safety at Scale",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://openai.com/index/next-phase-of-enterprise-ai",
+      "title": "The next phase of enterprise AI",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-child-safety-blueprint",
+      "title": "Introducing the Child Safety Blueprint",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/customize-amazon-nova-models-with-amazon-bedrock-fine-tuning/",
+      "title": "Customize Amazon Nova models with Amazon Bedrock fine-tuning",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/human-in-the-loop-constructs-for-agentic-workflows-in-healthcare-and-life-sciences/",
+      "title": "Human-in-the-loop constructs for agentic workflows in healthcare and life scienc",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/a-leader-in-forrester-wave-sovereign-cloud-platform-2026/",
+      "title": "Google Cloud named a Leader in The Forrester Wave™: Sovereign Cloud Platforms, Q",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/optimize-aiml-workloads-with-gke-cloud-storage-fuse-profiles/",
+      "title": "New GKE Cloud Storage FUSE Profiles take the guesswork out of configuring AI sto",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/improved-interoperability-for-your-apache-iceberg-lakehouse/",
+      "title": "Openness without compromises for your Apache Iceberg lakehouse",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-gpus-gke-managed-dranet-and-inference-gateway-ai-deployment/",
+      "title": "Experimenting with GPUs: GKE managed DRANET and Inference Gateway AI Deployment",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/context-engineering-from-deep-insight/",
+      "title": "Context Window 한계를 넘어서 – Deep Insight 개발 여정으로 배우는 Context Engineering 실전 기법",
+      "published_date": "2026-04-09",
+      "expires_at": "2026-04-16T01:24:45.173394+00:00"
     }
   ]
 }
