@@ -24,6 +24,11 @@ bundle exec jekyll build --destination _site
 bundle exec jekyll clean
 ```
 
+### Git Hooks Setup
+```bash
+bash scripts/install-hooks.sh                      # Install pre-commit hooks (SVG quality gate + pytest)
+```
+
 ### Python Scripts
 ```bash
 python3 scripts/check_posts.py                    # Validate all posts

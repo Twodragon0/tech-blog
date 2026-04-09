@@ -194,6 +194,9 @@ cd tech-blog
 # 의존성 설치
 bundle install
 
+# Git hooks 설치 (SVG 품질 게이트 + pytest)
+bash scripts/install-hooks.sh
+
 # 로컬 서버 실행
 bundle exec jekyll serve
 
