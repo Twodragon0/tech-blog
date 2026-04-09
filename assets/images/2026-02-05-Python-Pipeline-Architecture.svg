@@ -7,11 +7,11 @@
       <stop offset="100%" style="stop-color:#153030" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#306998" />
+      <stop offset="0%" style="stop-color:#06b6d4" />
       <stop offset="100%" style="stop-color:#ffd43b" />
     </linearGradient>
     <marker id="pipearrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#306998" />
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#06b6d4" />
     </marker>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
@@ -26,24 +26,24 @@
   <circle cx="1050" cy="450" r="200" fill="rgba(255,255,255,0.02)" />
   <circle cx="1050" cy="450" r="140" fill="rgba(255,255,255,0.02)" />
   
-  <path d="M 795 150 Q 795 130 815 130 L 860 130 Q 880 130 880 150 L 880 175 Q 880 185 870 185 L 845 185 L 845 195 Q 845 205 855 205 L 900 205 Q 920 205 920 225 L 920 250 Q 920 270 900 270 L 855 270 Q 835 270 835 250 L 835 225 L 810 225 Q 795 225 795 210 Z" fill="rgba(48,105,152,0.25)" stroke="#306998" stroke-width="2" />
+  <path d="M 795 150 Q 795 130 815 130 L 860 130 Q 880 130 880 150 L 880 175 Q 880 185 870 185 L 845 185 L 845 195 Q 845 205 855 205 L 900 205 Q 920 205 920 225 L 920 250 Q 920 270 900 270 L 855 270 Q 835 270 835 250 L 835 225 L 810 225 Q 795 225 795 210 Z" fill="rgba(48,105,152,0.25)" stroke="#06b6d4" stroke-width="2" />
   <path d="M 920 270 Q 920 290 900 290 L 855 290 Q 835 290 835 310 L 835 335 Q 835 355 855 355 L 900 355 Q 920 355 920 370 L 920 385 Q 920 400 905 400 L 860 400 Q 840 400 840 385 L 840 360" fill="rgba(255,212,59,0.2)" stroke="#ffd43b" stroke-width="2" />
   
   <circle cx="870" cy="148" r="5" fill="#ffd43b" />
-  <circle cx="862" cy="292" r="5" fill="#306998" />
+  <circle cx="862" cy="292" r="5" fill="#06b6d4" />
   
   
-  <rect x="960" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2" />
-  <line x1="1055" y1="173" x2="1070" y2="173" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)" />
+  <rect x="960" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#06b6d4" stroke-width="2" />
+  <line x1="1055" y1="173" x2="1070" y2="173" stroke="#06b6d4" stroke-width="2" marker-end="url(#pipearrow)" />
   
-  <rect x="1070" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.18)" stroke="#306998" stroke-width="2" />
+  <rect x="1070" y="148" width="95" height="50" rx="7" fill="rgba(48,105,152,0.18)" stroke="#06b6d4" stroke-width="2" />
   <rect x="960" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.15)" stroke="#ffd43b" stroke-width="2" />
-  <line x1="1117" y1="198" x2="1117" y2="225" stroke="#306998" stroke-width="2" marker-end="url(#pipearrow)" />
+  <line x1="1117" y1="198" x2="1117" y2="225" stroke="#06b6d4" stroke-width="2" marker-end="url(#pipearrow)" />
   
   <rect x="1070" y="228" width="95" height="50" rx="7" fill="rgba(255,212,59,0.12)" stroke="#ffd43b" stroke-width="2" />
   <line x1="1070" y1="253" x2="1055" y2="253" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)" />
   
-  <rect x="960" y="308" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#306998" stroke-width="2" />
+  <rect x="960" y="308" width="95" height="50" rx="7" fill="rgba(48,105,152,0.2)" stroke="#06b6d4" stroke-width="2" />
   <line x1="1007" y1="278" x2="1007" y2="308" stroke="#ffd43b" stroke-width="2" marker-end="url(#pipearrow)" />
   
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />

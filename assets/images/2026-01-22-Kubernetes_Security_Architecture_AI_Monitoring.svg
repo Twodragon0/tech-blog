@@ -7,8 +7,8 @@
       <stop offset="100%" style="stop-color:#153040" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#326ce5" />
-      <stop offset="100%" style="stop-color:#9b59b6" />
+      <stop offset="0%" style="stop-color:#06b6d4" />
+      <stop offset="100%" style="stop-color:#27ae60" />
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
@@ -23,32 +23,32 @@
   <circle cx="1050" cy="450" r="200" fill="rgba(50,108,229,0.06)" />
   <circle cx="1050" cy="450" r="140" fill="rgba(155,89,182,0.07)" />
   
-  <rect x="800" y="200" width="340" height="280" rx="12" fill="none" stroke="#326ce5" stroke-width="2" opacity="0.5" stroke-dasharray="8,4" />
+  <rect x="800" y="200" width="340" height="280" rx="12" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.5" stroke-dasharray="8,4" />
   
-  <polygon points="870,270 892,282 892,306 870,318 848,306 848,282" fill="rgba(50,108,229,0.15)" stroke="#326ce5" stroke-width="2" opacity="0.8" />
-  <polygon points="950,270 972,282 972,306 950,318 928,306 928,282" fill="rgba(50,108,229,0.15)" stroke="#326ce5" stroke-width="2" opacity="0.8" />
-  <polygon points="1030,270 1052,282 1052,306 1030,318 1008,306 1008,282" fill="rgba(50,108,229,0.15)" stroke="#326ce5" stroke-width="2" opacity="0.8" />
-  <polygon points="910,340 932,352 932,376 910,388 888,376 888,352" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="1.5" opacity="0.7" />
-  <polygon points="990,340 1012,352 1012,376 990,388 968,376 968,352" fill="rgba(50,108,229,0.12)" stroke="#326ce5" stroke-width="1.5" opacity="0.7" />
-  <ellipse cx="970" cy="220" rx="40" ry="22" fill="none" stroke="#9b59b6" stroke-width="2.5" opacity="0.85" />
-  <circle cx="970" cy="220" r="10" fill="rgba(155,89,182,0.3)" stroke="#9b59b6" stroke-width="2" />
-  <circle cx="970" cy="220" r="4" fill="#9b59b6" opacity="0.8" />
+  <polygon points="870,270 892,282 892,306 870,318 848,306 848,282" fill="rgba(50,108,229,0.15)" stroke="#06b6d4" stroke-width="2" opacity="0.8" />
+  <polygon points="950,270 972,282 972,306 950,318 928,306 928,282" fill="rgba(50,108,229,0.15)" stroke="#06b6d4" stroke-width="2" opacity="0.8" />
+  <polygon points="1030,270 1052,282 1052,306 1030,318 1008,306 1008,282" fill="rgba(50,108,229,0.15)" stroke="#06b6d4" stroke-width="2" opacity="0.8" />
+  <polygon points="910,340 932,352 932,376 910,388 888,376 888,352" fill="rgba(50,108,229,0.12)" stroke="#06b6d4" stroke-width="1.5" opacity="0.7" />
+  <polygon points="990,340 1012,352 1012,376 990,388 968,376 968,352" fill="rgba(50,108,229,0.12)" stroke="#06b6d4" stroke-width="1.5" opacity="0.7" />
+  <ellipse cx="970" cy="220" rx="40" ry="22" fill="none" stroke="#27ae60" stroke-width="2.5" opacity="0.85" />
+  <circle cx="970" cy="220" r="10" fill="rgba(155,89,182,0.3)" stroke="#27ae60" stroke-width="2" />
+  <circle cx="970" cy="220" r="4" fill="#27ae60" opacity="0.8" />
   
   <line x1="970" y1="242" x2="870" y2="270" stroke="rgba(155,89,182,0.25)" stroke-width="1" stroke-dasharray="4,3" />
   <line x1="970" y1="242" x2="970" y2="270" stroke="rgba(155,89,182,0.25)" stroke-width="1" stroke-dasharray="4,3" />
   <line x1="970" y1="242" x2="1070" y2="270" stroke="rgba(155,89,182,0.25)" stroke-width="1" stroke-dasharray="4,3" />
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(50,108,229,0.15)" stroke="rgba(50,108,229,0.4)" stroke-width="1" />
-  <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#326ce5" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>
+  <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#06b6d4" text-anchor="middle" letter-spacing="2">JANUARY 22, 2026</text>
   <text x="80" y="185" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#ffffff">Kubernetes Security Architecture</text>
   <text x="80" y="245" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#ffffff">with AI Monitoring</text>
   <text x="80" y="300" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.7)">Runtime threat detection and anomaly analysis in K8s clusters</text>
   <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)" />
   <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(50,108,229,0.8)" letter-spacing="3">K8S SECURITY</text>
   <rect x="80" y="400" width="110" height="28" rx="14" fill="rgba(50,108,229,0.15)" stroke="rgba(50,108,229,0.4)" stroke-width="1" />
-  <text x="135" y="419" font-family="Arial,sans-serif" font-size="13" fill="#326ce5" text-anchor="middle">K8s Security</text>
+  <text x="135" y="419" font-family="Arial,sans-serif" font-size="13" fill="#06b6d4" text-anchor="middle">K8s Security</text>
   <rect x="202" y="400" width="100" height="28" rx="14" fill="rgba(155,89,182,0.15)" stroke="rgba(155,89,182,0.4)" stroke-width="1" />
-  <text x="252" y="419" font-family="Arial,sans-serif" font-size="13" fill="#9b59b6" text-anchor="middle">AI Monitor</text>
+  <text x="252" y="419" font-family="Arial,sans-serif" font-size="13" fill="#27ae60" text-anchor="middle">AI Monitor</text>
   <rect x="314" y="400" width="110" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
   <text x="369" y="419" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">Architecture</text>
   <rect x="0" y="590" width="1200" height="40" fill="rgba(0,0,0,0.3)" />
