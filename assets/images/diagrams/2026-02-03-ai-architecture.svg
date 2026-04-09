@@ -3,10 +3,10 @@
     <style>
       .bg { fill: #0d1117; }
       .danger-box { fill: none; stroke: #f85149; stroke-width: 3; }
-      .module-box { fill: #1f2937; stroke: #58a6ff; stroke-width: 2; }
+      .module-box { fill: #1f2937; stroke: #06b6d4; stroke-width: 2; }
       .access-box { fill: #f8514933; stroke: #f85149; stroke-width: 1.5; }
       .title-text { fill: #c9d1d9; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
-      .module-text { fill: #58a6ff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; }
+      .module-text { fill: #06b6d4; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; }
       .access-text { fill: #f85149; font-family: Arial, sans-serif; font-size: 13px; font-weight: 600; }
       .danger-text { fill: #f85149; font-family: Arial, sans-serif; font-size: 12px; }
       .label-text { fill: #8b949e; font-family: Arial, sans-serif; font-size: 11px; }
