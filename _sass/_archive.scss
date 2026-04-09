@@ -799,3 +799,230 @@
 .archive-year-header {
   scroll-margin-top: calc(var(--header-height) + 60px);
 }
+
+/* ====================================
+   Scroll Progress Bar
+   ==================================== */
+
+.archive-scroll-progress {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: var(--z-sticky);
+  pointer-events: none;
+}
+
+.archive-scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-devsecops));
+  transition: width 80ms linear;
+  border-radius: 0 2px 2px 0;
+}
+
+[data-theme="dark"] .archive-scroll-progress-bar {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+}
+
+/* ====================================
+   Tag Chips on Archive Items
+   ==================================== */
+
+.archive-tag-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.archive-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+  user-select: none;
+}
+
+.archive-tag-chip:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .archive-tag-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border);
+  color: var(--color-text-tertiary);
+}
+
+[data-theme="dark"] .archive-tag-chip:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+/* ====================================
+   Post Excerpt (inline subtitle)
+   ==================================== */
+
+.archive-item-excerpt {
+  display: block;
+  width: 100%;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  line-height: var(--line-height-normal);
+  margin-top: 2px;
+  padding-left: calc(52px + var(--spacing-md) + 0.5rem); /* align under title: time + gap */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  max-height: 0;
+  transition:
+    opacity var(--transition-fast),
+    max-height var(--transition-fast);
+}
+
+.archive-item:hover .archive-item-excerpt {
+  opacity: 1;
+  max-height: 1.6em;
+}
+
+@media (max-width: 479px) {
+  .archive-item-excerpt {
+    padding-left: 0;
+  }
+}
+
+/* ====================================
+   Filter fade-in when items appear
+   ==================================== */
+
+.archive-item {
+  transition:
+    background-color var(--transition-fast),
+    border-left-color var(--transition-fast),
+    opacity 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+.archive-item.is-hidden {
+  display: none !important;
+}
+
+.archive-item.is-filtering-out {
+  opacity: 0;
+  transform: translateX(-4px);
+  pointer-events: none;
+}
+
+.archive-item.is-filtering-in {
+  animation: archiveFadeIn 200ms ease-in-out both;
+}
+
+@keyframes archiveFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-item.is-filtering-in {
+    animation: none;
+  }
+
+  .archive-item-excerpt {
+    transition: none;
+  }
+
+  .archive-scroll-progress-bar {
+    transition: none;
+  }
+}
+
+/* ====================================
+   Stats Counter Animation
+   ==================================== */
+
+.archive-stat-number {
+  transition: transform var(--transition-fast);
+}
+
+.archive-stat-number.counting {
+  opacity: 0.7;
+}
+
+/* ====================================
+   Mobile: category filters horizontal scroll
+   ==================================== */
+
+@media (max-width: 767px) {
+  .archive-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .archive-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .archive-filter {
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .archive-tag-chip {
+    font-size: 0.6rem;
+    padding: 0.08rem 0.35rem;
+  }
+
+  .archive-item-excerpt {
+    display: none;
+  }
+}
+
+/* Ensure all interactive items have min 44px touch targets on mobile */
+@media (max-width: 767px) {
+  .archive-year-pill {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .archive-back-top {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .archive-empty-reset {
+    min-height: 44px;
+  }
+}
