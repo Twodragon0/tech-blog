@@ -22,6 +22,9 @@ page_modifier: page--utility
 </script>
 
 <div class="archive-page" id="archive-top">
+  <div class="archive-scroll-progress" id="archive-scroll-progress" aria-hidden="true">
+    <div class="archive-scroll-progress-bar" id="archive-scroll-bar"></div>
+  </div>
   <!-- Utility Page Navigation -->
   <nav class="utility-nav" aria-label="유틸리티 페이지 탐색">
     <a href="/archive/" class="utility-nav-tab active" aria-current="page">
@@ -58,7 +61,7 @@ page_modifier: page--utility
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input type="search" id="archive-search" placeholder="제목으로 필터..." aria-label="포스트 제목 검색" autocomplete="off" enterkeyhint="search">
+      <input type="search" id="archive-search" placeholder="제목 또는 태그로 검색..." aria-label="포스트 제목·태그 검색" autocomplete="off" enterkeyhint="search">
       <kbd class="search-kbd" aria-hidden="true">/</kbd>
     </div>
     <div class="archive-filters" role="group" aria-label="카테고리 필터">
@@ -74,21 +77,22 @@ page_modifier: page--utility
   </div>
 
   <!-- Stats -->
-  <div class="archive-stats">
+  <div class="archive-stats" id="archive-stats">
     <div class="archive-stat">
-      <span class="archive-stat-number" id="archive-visible-count">{{ site.posts.size }}</span>
+      <span class="archive-stat-number" id="archive-visible-count" data-stat-number="{{ site.posts.size }}">{{ site.posts.size }}</span>
       <span class="archive-stat-label">보이는 글</span>
     </div>
     <div class="archive-stat">
-      <span class="archive-stat-number">{{ postsByYear.size }}</span>
+      <span class="archive-stat-number" data-stat-number="{{ postsByYear.size }}">{{ postsByYear.size }}</span>
       <span class="archive-stat-label">연도</span>
     </div>
     <div class="archive-stat">
-      <span class="archive-stat-number">{{ site.categories.size }}</span>
+      <span class="archive-stat-number" data-stat-number="{{ site.categories.size }}">{{ site.categories.size }}</span>
       <span class="archive-stat-label">카테고리</span>
     </div>
     <div class="archive-stat">
-      <span class="archive-stat-number">{% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq %}{{ all_tags.size }}</span>
+      {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq %}
+      <span class="archive-stat-number" data-stat-number="{{ all_tags.size }}">{{ all_tags.size }}</span>
       <span class="archive-stat-label">태그</span>
     </div>
   </div>
@@ -122,7 +126,17 @@ page_modifier: page--utility
         {% elsif post.category %}
           {% assign post_cats = post.category | downcase %}
         {% endif %}
-        <li class="archive-item" data-categories="{{ post_cats | strip }}" data-title="{{ post.title | downcase | escape }}">
+        {% assign post_tags_str = "" %}
+        {% for t in post.tags %}{% assign post_tags_str = post_tags_str | append: t | downcase %}{% unless forloop.last %}{% assign post_tags_str = post_tags_str | append: " " %}{% endunless %}{% endfor %}
+        {% assign post_excerpt_raw = post.excerpt | strip_html | strip_newlines | truncate: 80 %}
+        {% assign post_words = post.content | strip_html | number_of_words %}
+        {% assign post_read_min = post_words | divided_by: 200 | plus: 1 %}
+        <li class="archive-item"
+            data-categories="{{ post_cats | strip }}"
+            data-title="{{ post.title | downcase | escape }}"
+            data-tags="{{ post_tags_str }}"
+            data-excerpt="{{ post_excerpt_raw | escape }}"
+            data-read="{{ post_read_min }}">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m. %d" }}</time>
           {% if post.category %}
           <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
@@ -130,6 +144,14 @@ page_modifier: page--utility
           <span class="category-badge {{ post.categories.first | downcase | replace: ' ', '-' }}">{{ post.categories.first }}</span>
           {% endif %}
           <a href="{{ post.url | relative_url }}" class="archive-item-title">{{ post.title | escape }}</a>
+          {% if post.tags.size > 0 %}
+          <span class="archive-tag-chips" aria-label="태그">
+            {% for t in post.tags limit:3 %}<span class="archive-tag-chip" data-tag="{{ t | downcase }}">{{ t }}</span>{% endfor %}
+          </span>
+          {% endif %}
+          {% if post_excerpt_raw != "" %}
+          <span class="archive-item-excerpt" aria-hidden="true">{{ post_excerpt_raw }}</span>
+          {% endif %}
         </li>
         {% endfor %}
       </ul>

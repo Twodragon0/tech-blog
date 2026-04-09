@@ -21,19 +21,21 @@ page_modifier: page--utility
 }
 </script>
 
+<a class="skip-to-content" href="#tag-cloud-region">태그 목록으로 바로 이동</a>
+
 <div class="tags-page" id="tags-top">
   <!-- Utility Page Navigation -->
   <nav class="utility-nav" aria-label="유틸리티 페이지 탐색">
     <a href="/archive/" class="utility-nav-tab">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
       Archive
     </a>
     <a href="/tags/" class="utility-nav-tab active" aria-current="page">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
       Tags
     </a>
     <a href="/discussion/" class="utility-nav-tab">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       Discussion
     </a>
   </nav>
@@ -62,12 +64,18 @@ page_modifier: page--utility
 
     <!-- Search Toolbar -->
     <div class="tags-toolbar">
-      <div class="tags-search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="search" id="tag-search" placeholder="태그 이름으로 필터..." aria-label="태그 검색" autocomplete="off" enterkeyhint="search">
-        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+      <div class="tags-search-wrap">
+        <div class="tags-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="search" id="tag-search" placeholder="태그 이름으로 필터..." aria-label="태그 검색" autocomplete="off" enterkeyhint="search">
+          <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        </div>
+        <div class="tags-filter-status" id="tags-filter-status" aria-live="polite" hidden>
+          <span id="tags-selected-badge" class="tags-selected-badge"></span>
+          <button class="tags-clear-btn" id="tags-clear-btn" type="button">모두 해제</button>
+        </div>
       </div>
     </div>
     <div class="tags-sort" role="group" aria-label="태그 정렬">
@@ -79,13 +87,25 @@ page_modifier: page--utility
   <p id="tags-search-empty" class="tags-empty" hidden aria-live="polite" aria-hidden="true">입력과 일치하는 태그가 없습니다. 검색어를 줄이거나 지워 보세요.</p>
 
   <!-- Tag Cloud -->
-  <div class="tag-cloud" aria-label="태그 목록">
+  <div class="tag-cloud" id="tag-cloud-region" aria-label="태그 목록" role="region">
+    {% assign current_letter = "" %}
     {% for tag in all_tags %}
     {% assign tag_str = tag | append: "" %}
     {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-    <a href="#{{ tag_str | slugify }}" class="tag {% if tag_posts.size > 5 %}tag--lg{% elsif tag_posts.size > 2 %}tag--md{% endif %}">
+    {% assign tag_size = tag_posts.size %}
+    {% assign first_letter = tag_str | slice: 0 | upcase %}
+    {% if first_letter != current_letter %}
+    <span class="tag-letter-divider" data-letter="{{ first_letter }}" aria-hidden="true">{{ first_letter }}</span>
+    {% assign current_letter = first_letter %}
+    {% endif %}
+    <a href="#{{ tag_str | slugify }}"
+       class="tag {% if tag_size > 10 %}tag--xl{% elsif tag_size > 5 %}tag--lg{% elsif tag_size > 2 %}tag--md{% elsif tag_size > 1 %}tag--sm{% else %}tag--xs{% endif %}"
+       data-tag="{{ tag_str | slugify }}"
+       data-tag-name="{{ tag_str }}"
+       data-count="{{ tag_size }}"
+       data-letter="{{ first_letter }}">
       {{ tag_str }}
-      <span class="tag-count">{{ tag_posts.size }}</span>
+      <span class="tag-count" aria-hidden="true">{{ tag_size }}</span>
     </a>
     {% endfor %}
   </div>
@@ -95,15 +115,42 @@ page_modifier: page--utility
   {% assign tag_str = tag | append: "" %}
   {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
   {% if tag_posts.size > 0 %}
-  <section id="{{ tag_str | slugify }}" class="tag-section">
+
+  <!-- Build related tags: find all tags that appear together with this tag -->
+  {% assign related_candidates = "" | split: "" %}
+  {% for post in tag_posts %}
+    {% for ptag in post.tags %}
+      {% assign ptag_str = ptag | append: "" %}
+      {% unless ptag_str == tag_str %}
+        {% assign related_candidates = related_candidates | push: ptag_str %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign related_tags = related_candidates | uniq | slice: 0, 5 %}
+
+  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}">
     <div class="tag-section-header">
       <span class="tag">{{ tag_str }}</span>
       <span class="tag-section-count">{{ tag_posts.size }}개 글</span>
     </div>
+    {% if related_tags.size > 0 %}
+    <div class="tag-related" aria-label="관련 태그">
+      <span class="tag-related-label">관련:</span>
+      {% for rtag in related_tags %}
+      {% assign rtag_str = rtag | append: "" %}
+      <a href="#{{ rtag_str | slugify }}" class="tag-related-pill" data-related-tag="{{ rtag_str | slugify }}">{{ rtag_str }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
     <ul class="tag-section-list">
       {% for post in tag_posts %}
       <li class="tag-section-item">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+        {% if post.category %}
+        <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
+        {% elsif post.categories.first %}
+        <span class="category-badge {{ post.categories.first | downcase }}">{{ post.categories.first }}</span>
+        {% endif %}
         <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       </li>
       {% endfor %}
