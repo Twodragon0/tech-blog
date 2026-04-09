@@ -705,6 +705,217 @@
 }
 
 /* ====================================
+   Tag Statistics Chart
+   ==================================== */
+
+.tags-chart-details {
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--border-radius-xl);
+  background: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .tags-chart-details {
+  background: var(--color-bg-secondary);
+  border-color: rgba(139, 92, 246, 0.22);
+}
+
+.tags-chart-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  border-radius: var(--border-radius-xl);
+  transition: background-color var(--transition-fast);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba(139, 92, 246, 0.04);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+[data-theme="dark"] .tags-chart-summary:hover {
+  background-color: rgba(139, 92, 246, 0.08);
+}
+
+.tags-chart-summary-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: 0.01em;
+}
+
+.tags-chart-summary-sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+}
+
+.tags-chart-chevron {
+  margin-left: auto;
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.tags-chart-details[open] .tags-chart-chevron {
+  transform: rotate(180deg);
+}
+
+.tags-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg);
+}
+
+.tags-chart-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 36px;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  padding: 3px 4px;
+  transition: background-color var(--transition-fast);
+  min-height: 44px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(139, 92, 246, 0.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+[data-theme="dark"] .tags-chart-row:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.tags-chart-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  transition: color var(--transition-fast);
+}
+
+.tags-chart-row:hover .tags-chart-label {
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .tags-chart-row:hover .tags-chart-label {
+  color: rgba(196, 167, 255, 1);
+}
+
+.tags-chart-track {
+  position: relative;
+  height: 28px;
+  background: var(--color-bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .tags-chart-track {
+  background: var(--color-bg-tertiary);
+}
+
+.tags-chart-bar {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 60%, #06b6d4 100%);
+  min-width: 4px;
+  transition: transform 150ms ease, filter 150ms ease;
+  transform-origin: left center;
+}
+
+.tags-chart-row:hover .tags-chart-bar {
+  transform: translateX(2px);
+  filter: brightness(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tags-chart-bar {
+    transition: none;
+  }
+  .tags-chart-chevron {
+    transition: none;
+  }
+}
+
+.tags-chart-count {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  transition: color var(--transition-fast);
+}
+
+.tags-chart-row:hover .tags-chart-count {
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .tags-chart-row:hover .tags-chart-count {
+  color: rgba(196, 167, 255, 1);
+}
+
+/* Mobile: tighter label column, smaller font */
+@media (max-width: 767px) {
+  .tags-chart-row {
+    grid-template-columns: 90px 1fr 30px;
+    gap: 6px;
+    min-height: 40px;
+  }
+
+  .tags-chart-label {
+    font-size: 0.6875rem;
+  }
+
+  .tags-chart-bar {
+    height: 22px;
+  }
+
+  .tags-chart-track {
+    height: 22px;
+  }
+}
+
+/* Very small screens: show only top 10 (hide rows 11-15) */
+@media (max-width: 479px) {
+  .tags-chart-row:nth-child(n+11) {
+    display: none;
+  }
+
+  .tags-chart-summary-sub::after {
+    content: " (상위 10개)";
+  }
+
+  .tags-chart-row {
+    grid-template-columns: 80px 1fr 28px;
+  }
+}
+
+/* ====================================
    Tags Toolbar / Search
    ==================================== */
 
