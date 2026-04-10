@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-09T01:24:45.173499+00:00",
+  "updated_at": "2026-04-10T01:34:20.141132+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
@@ -900,6 +900,96 @@
       "title": "Context Window 한계를 넘어서 – Deep Insight 개발 여정으로 배우는 Context Engineering 실전 기법",
       "published_date": "2026-04-09",
       "expires_at": "2026-04-16T01:24:45.173394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/engagelab-sdk-flaw-exposed-50m-android.html",
+      "title": "EngageLab SDK Flaw Exposed 50M Android Users, Including 30M Crypto Wallets",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/uat-10362-targets-taiwanese-ngos-with.html",
+      "title": "UAT-10362 Targets Taiwanese NGOs with LucidRook Malware in Spear-Phishing Campai",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/09/the-agentic-soc-rethinking-secops-for-the-next-decade/",
+      "title": "The agentic SOC—Rethinking SecOps for the next decade",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-hybrid-p2p-botnet.html",
+      "title": "ThreatsDay Bulletin: Hybrid P2P Botnet, 13-Year-Old Apache RCE and 18 More Stori",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-lucidrook-malware-used-in-targeted-attacks-on-ngos-universities/",
+      "title": "New ‘LucidRook’ malware used in targeted attacks on NGOs, universities",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/09/developer-tools/escaping-the-fork-how-meta-modernized-webrtc-across-50-use-cases/",
+      "title": "Escaping the Fork: How Meta Modernized WebRTC Across 50+ Use Cases",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-samson-a-tyndalston-story/",
+      "title": "Strength and Destiny Collide: ‘Samson: A Tyndalston Story’ Arrives in the Cloud",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/understanding-amazon-bedrock-model-lifecycle/",
+      "title": "Understanding Amazon Bedrock model lifecycle",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/",
+      "title": "The future of managing agents at scale: AWS Agent Registry now in preview",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/",
+      "title": "Embed a live AI browser agent in your React app with Amazon Bedrock AgentCore",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/a-guide-to-architecting-reliable-gpu-infrastructure/",
+      "title": "A developer’s guide to architecting reliable GPU infrastructure at scale",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/securing-ai-inference-on-gke-with-model-armor/",
+      "title": "Guardrails at the gateway: Securing AI inference on GKE with Model Armor",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/serverless/cloud-run-worker-pools-at-estee-lauder-companies/",
+      "title": "How Estée Lauder Companies uses Cloud Run worker pools for its pull-based agenti",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/yanolja-aiops-strands-agent-on-agentcore/",
+      "title": "야놀자의 Strands SDK와 Bedrock AgentCore를 활용한 AIOps Agent 구축 사례",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-09-ask-copilot-in-security-assessments-now-available",
+      "title": "Ask Copilot in security assessments now available",
+      "published_date": "2026-04-10",
+      "expires_at": "2026-04-17T01:34:20.141032+00:00"
     }
   ]
 }
