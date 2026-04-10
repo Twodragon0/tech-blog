@@ -345,7 +345,7 @@ def main():
         print("=" * 80)
         return
 
-    # 포스팅 파일 목록
+    # 포스팅 파일 목록 (AGENTS.md는 deepinit 가이드, 포스트 아님)
     if args.all:
         posts = sorted(
             POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
@@ -354,6 +354,7 @@ def main():
         posts = sorted(
             POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
         )[: args.recent]
+    posts = [p for p in posts if p.name != "AGENTS.md"]
 
     print(f"📊 {len(posts)}개 포스팅 이미지 확인 중...\n")
 

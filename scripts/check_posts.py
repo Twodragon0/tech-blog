@@ -568,6 +568,8 @@ def main():
         post_files = _resolve_changed_posts()
     else:
         post_files = sorted(POSTS_DIR.glob("*.md"))
+        # Skip AGENTS.md (deepinit hierarchical AI guide, not a blog post)
+        post_files = [p for p in post_files if p.name != "AGENTS.md"]
 
     if not args.detailed_only:
         print(f"📝 Found {len(post_files)} post files\n")
