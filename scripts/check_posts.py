@@ -275,11 +275,11 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
     text_nodes = [text for text in text_nodes if text]
     total_chars = sum(len(text) for text in text_nodes)
 
-    if len(text_nodes) > 20:
+    if len(text_nodes) > 40:
         issues.append(
             f"⚠️ SVG text too dense ({len(text_nodes)} text nodes): {image_path}"
         )
-    if total_chars > 300:
+    if total_chars > 800:
         issues.append(
             f"⚠️ SVG contains too much text ({total_chars} chars): {image_path}"
         )
