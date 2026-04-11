@@ -1,477 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS FinOps</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="ud8dcf7bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1505"/>
-      <stop offset="50%" style="stop-color:#0a1a10"/>
-      <stop offset="100%" style="stop-color:#0f0f05"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
     </linearGradient>
-    <linearGradient id="ud8dcf7accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#22c55e"/>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="ud8dcf7title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
-    </linearGradient>
-    <linearGradient id="ud8dcf7panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
-    </linearGradient>
-    <radialGradient id="ud8dcf7ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="ud8dcf7ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="ud8dcf7glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.7"/>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
-    <filter id="ud8dcf7blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="ud8dcf7textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.5"/>
-    </filter>
-    <filter id="ud8dcf7fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="ud8dcf7fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="ud8dcf7sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="ud8dcf7sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="ud8dcf7dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
-    </pattern>
-    <clipPath id="ud8dcf7clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
-    </clipPath>
-    <style>
-      @keyframes ud8dcf7floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
-      @keyframes ud8dcf7pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-      @keyframes ud8dcf7crackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
-      @keyframes ud8dcf7glimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
-      @keyframes ud8dcf7dash { to{stroke-dashoffset:-20} }
-      @keyframes ud8dcf7rotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-      .ud8dcf7fa { animation: ud8dcf7floatUp 3.2s ease-in infinite; }
-      .ud8dcf7fb { animation: ud8dcf7floatUp 3.8s ease-in infinite; animation-delay:0.9s; }
-      .ud8dcf7fc { animation: ud8dcf7floatUp 2.9s ease-in infinite; animation-delay:1.7s; }
-      .ud8dcf7crack { animation: ud8dcf7crackFx 1.9s ease-in-out infinite; }
-      .ud8dcf7blink { animation: ud8dcf7pulse 2.2s ease-in-out infinite; }
-    </style>
   </defs>
-
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#ud8dcf7bg)"/>
-  <g clip-path="url(#ud8dcf7clip)">
-    <rect width="1200" height="630" fill="url(#ud8dcf7dots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#ud8dcf7ambientL)"/>
-    <rect width="1200" height="630" fill="url(#ud8dcf7ambientR)"/>
-
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#ud8dcf7panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#ud8dcf7accent)"/>
-
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#713f12" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#fde68a" text-anchor="middle" letter-spacing="2" font-weight="bold">FINOPS</text>
-
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2025-05-02</text>
-
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud8dcf7title)" font-weight="700" letter-spacing="-1">AWS FinOps</text>
-
-    <!-- Accent divider -->
-    <rect x="40" y="173" width="260" height="2" rx="1" fill="url(#ud8dcf7accent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-    <text x="40" y="211" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f59e0b" font-weight="600">Aws</text>
-    <text x="40" y="237" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Finops</text>
-
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="54" height="24" rx="12" fill="#713f12" stroke="#f59e0b" stroke-width="1.2"/>
-    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="bold">Aws</text>
-    <rect x="104" y="525" width="64" height="24" rx="12" fill="#0a1a10" stroke="#22c55e" stroke-width="1.2"/>
-    <text x="136" y="541" font-family="Courier New, monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">Finops</text>
-    <rect x="178" y="525" width="128" height="24" rx="12" fill="#1a1505" stroke="#eab308" stroke-width="1.2"/>
-    <text x="242" y="541" font-family="Courier New, monospace" font-size="10" fill="#eab308" text-anchor="middle" font-weight="bold">Cloud Security</text>
-
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#ud8dcf7sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#ud8dcf7sceneGlow2)" opacity="0.5"/>
-
-    <!-- SCENE: FinOps -->
-    <!-- Cost chart bars -->
-    <rect x="520" y="320" width="40" height="120" rx="4" fill="#f59e0b" opacity="0.25"/>
-    <rect x="520" y="370" width="40" height="70" rx="4" fill="#f59e0b" opacity="0.5"/>
-    <rect x="580" y="280" width="40" height="160" rx="4" fill="#f59e0b" opacity="0.25"/>
-    <rect x="580" y="350" width="40" height="90" rx="4" fill="#22c55e" opacity="0.5"/>
-    <rect x="640" y="300" width="40" height="140" rx="4" fill="#f59e0b" opacity="0.25"/>
-    <rect x="640" y="340" width="40" height="100" rx="4" fill="#f59e0b" opacity="0.4"/>
-    <rect x="700" y="340" width="40" height="100" rx="4" fill="#22c55e" opacity="0.25"/>
-    <rect x="700" y="380" width="40" height="60" rx="4" fill="#22c55e" opacity="0.6"
-          style="animation: ud8dcf7glimmer 3s ease-in-out infinite"/>
-    <text x="630" y="465" font-family="Courier New, monospace" font-size="9"
-          fill="#fde68a" text-anchor="middle" opacity="0.7">COST TREND</text>
-
-    <!-- Dollar sign node -->
-    <g filter="url(#ud8dcf7glow)">
-      <circle cx="600" cy="200" r="40" fill="#1a1505" stroke="#f59e0b" stroke-width="2"/>
-    </g>
-    <text x="600" y="210" font-family="Courier New, monospace" font-size="28"
-          fill="#f59e0b" text-anchor="middle" font-weight="bold">$</text>
-
-    <!-- Cloud with price tag -->
-    <ellipse cx="850" cy="200" rx="80" ry="40" fill="#1a1505" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
-    <text x="850" y="198" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" text-anchor="middle">CLOUD</text>
-    <text x="850" y="212" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" text-anchor="middle" opacity="0.7">SPEND</text>
-
-    <!-- Optimization arrows -->
-    <g transform="translate(900,350)">
-      <circle cx="0" cy="0" r="30" fill="#1a1505" stroke="#22c55e" stroke-width="1.5"/>
-      <polyline points="-10,-8 0,8 10,-8" fill="none" stroke="#22c55e" stroke-width="2"/>
-      <line x1="0" y1="-12" x2="0" y2="2" stroke="#22c55e" stroke-width="2"/>
-    </g>
-    <text x="900" y="392" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" text-anchor="middle" opacity="0.7">OPTIMIZE</text>
-
-    <!-- Connection lines -->
-    <line x1="640" y1="200" x2="770" y2="200" stroke="#f59e0b" stroke-width="1"
-          opacity="0.3" stroke-dasharray="4 4" style="animation: ud8dcf7dash 2s linear infinite"/>
-    <line x1="850" y1="240" x2="900" y2="320" stroke="#22c55e" stroke-width="1"
-          opacity="0.3" stroke-dasharray="3 5"/>
-    <line x1="600" y1="240" x2="600" y2="310" stroke="#f59e0b" stroke-width="1"
-          opacity="0.3" stroke-dasharray="3 5"/>
-
-    <!-- Bar chart with axis -->
-    <line x1="510" y1="440" x2="750" y2="440" stroke="#fde68a" stroke-width="0.8" opacity="0.3"/>
-    <line x1="510" y1="300" x2="510" y2="440" stroke="#fde68a" stroke-width="0.8" opacity="0.3"/>
-    <text x="505" y="445" font-family="Courier New, monospace" font-size="6"
-          fill="#fde68a" text-anchor="end" opacity="0.4">$0</text>
-    <text x="505" y="370" font-family="Courier New, monospace" font-size="6"
-          fill="#fde68a" text-anchor="end" opacity="0.4">$5K</text>
-    <text x="505" y="310" font-family="Courier New, monospace" font-size="6"
-          fill="#fde68a" text-anchor="end" opacity="0.4">$10K</text>
-
-    <!-- Cost arrow trending down -->
-    <path d="M 780 180 Q 820 200 860 260 Q 900 320 940 310" fill="none"
-          stroke="#22c55e" stroke-width="2" opacity="0.5" stroke-dasharray="6 3"
-          style="animation: ud8dcf7dash 3s linear infinite"/>
-    <polygon points="938,305 948,310 938,315" fill="#22c55e" opacity="0.5"/>
-    <text x="960" y="315" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" opacity="0.7" font-weight="bold">-23%</text>
-
-    <!-- Dollar sign coin -->
-    <g transform="translate(850,380)" filter="url(#ud8dcf7fxGlow)">
-      <circle cx="0" cy="0" r="25" fill="#1a1505" stroke="#f59e0b" stroke-width="2"/>
-      <circle cx="0" cy="0" r="20" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.4"/>
-      <text x="0" y="7" font-family="Courier New, monospace" font-size="18"
-            fill="#f59e0b" text-anchor="middle" font-weight="bold" opacity="0.8">$</text>
-    </g>
-
-    <!-- Cloud with price tags -->
-    <rect x="920" y="420" width="70" height="20" rx="3" fill="#713f12" stroke="#22c55e" stroke-width="0.8" opacity="0.6"/>
-    <text x="955" y="434" font-family="Courier New, monospace" font-size="7"
-          fill="#22c55e" text-anchor="middle" opacity="0.7">$142/mo</text>
-    <rect x="920" y="445" width="70" height="20" rx="3" fill="#713f12" stroke="#f59e0b" stroke-width="0.8" opacity="0.6"/>
-    <text x="955" y="459" font-family="Courier New, monospace" font-size="7"
-          fill="#f59e0b" text-anchor="middle" opacity="0.7">$89/mo</text>
-
-    <!-- Savings badge -->
-    <rect x="780" y="470" width="90" height="24" rx="4" fill="#0a1a10" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
-    <text x="825" y="486" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" text-anchor="middle" font-weight="bold" opacity="0.8">SAVED 37%</text>
-
-    <!-- Ambient glow -->
-    <ellipse cx="730" cy="300" rx="240" ry="170" fill="#f59e0b" opacity="0.035"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <!-- ===== COMMON DECORATIONS ===== -->
-
-    <!-- Hex grid overlay (right area) -->
-    <defs>
-      <pattern id="ud8dcf7hex" x="0" y="0" width="24" height="28" patternUnits="userSpaceOnUse">
-        <polygon points="12,0 24,7 24,21 12,28 0,21 0,7"
-                 fill="none" stroke="#f59e0b" stroke-width="0.4" opacity="0.15"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#ud8dcf7hex)" opacity="0.35"/>
-
-    <!-- Orbital rings -->
-    <circle cx="720" cy="300" r="220" fill="none" stroke="#f59e0b" stroke-width="0.6"
-            stroke-dasharray="5 8" opacity="0.2"/>
-    <circle cx="720" cy="300" r="180" fill="none" stroke="#eab308" stroke-width="0.5"
-            stroke-dasharray="3 6" opacity="0.15"/>
-    <circle cx="720" cy="300" r="260" fill="none" stroke="#22c55e" stroke-width="0.4"
-            stroke-dasharray="8 12" opacity="0.1"/>
-
-    <!-- Radial grid lines -->
-    <line x1="720" y1="80" x2="720" y2="520" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
-    <line x1="460" y1="300" x2="980" y2="300" stroke="#f59e0b" stroke-width="0.3" opacity="0.1"/>
-    <line x1="535" y1="120" x2="905" y2="480" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
-    <line x1="905" y1="120" x2="535" y2="480" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
-
-    <!-- Top-right data panel -->
-    <rect x="960" y="50" width="190" height="110" rx="6" fill="#1a1505" stroke="#f59e0b"
-          stroke-width="1" opacity="0.7"/>
-    <rect x="960" y="50" width="190" height="22" rx="6" fill="#f59e0b" opacity="0.12"/>
-    <text x="975" y="66" font-family="Courier New, monospace" font-size="9"
-          fill="#f59e0b" font-weight="bold" letter-spacing="1">STATUS</text>
-    <circle cx="1135" cy="61" r="4" fill="#22c55e" opacity="0.7"
-            style="animation: ud8dcf7pulse 2s ease-in-out infinite"/>
-    <text x="975" y="90" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.7">INTEGRITY</text>
-    <rect x="1050" y="82" width="88" height="6" rx="3" fill="#f59e0b" opacity="0.15"/>
-    <rect x="1050" y="82" width="62" height="6" rx="3" fill="#f59e0b" opacity="0.5"/>
-    <text x="975" y="108" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.7">COVERAGE</text>
-    <rect x="1050" y="100" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
-    <rect x="1050" y="100" width="75" height="6" rx="3" fill="#22c55e" opacity="0.5"/>
-    <text x="975" y="126" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.7">UPTIME</text>
-    <rect x="1050" y="118" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
-    <rect x="1050" y="118" width="82" height="6" rx="3" fill="#22c55e" opacity="0.45"/>
-    <text x="975" y="148" font-family="Courier New, monospace" font-size="7"
-          fill="#64748b" opacity="0.6">SYS.OK | v2.1.4</text>
-
-    <!-- Bottom-right metrics panel -->
-    <rect x="920" y="480" width="220" height="100" rx="6" fill="#1a1505" stroke="#22c55e"
-          stroke-width="1" opacity="0.65"/>
-    <text x="935" y="500" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" font-weight="bold" letter-spacing="1">METRICS</text>
-    <line x1="920" y1="506" x2="1140" y2="506" stroke="#22c55e" stroke-width="0.5" opacity="0.3"/>
-    <!-- Mini bar chart -->
-    <rect x="940" y="545" width="14" height="28" rx="2" fill="#f59e0b" opacity="0.3"/>
-    <rect x="940" y="555" width="14" height="18" rx="2" fill="#f59e0b" opacity="0.6"/>
-    <rect x="960" y="535" width="14" height="38" rx="2" fill="#22c55e" opacity="0.3"/>
-    <rect x="960" y="550" width="14" height="23" rx="2" fill="#22c55e" opacity="0.6"/>
-    <rect x="980" y="540" width="14" height="33" rx="2" fill="#f59e0b" opacity="0.3"/>
-    <rect x="980" y="548" width="14" height="25" rx="2" fill="#f59e0b" opacity="0.5"/>
-    <rect x="1000" y="530" width="14" height="43" rx="2" fill="#eab308" opacity="0.3"/>
-    <rect x="1000" y="545" width="14" height="28" rx="2" fill="#eab308" opacity="0.6"/>
-    <rect x="1020" y="538" width="14" height="35" rx="2" fill="#22c55e" opacity="0.3"/>
-    <rect x="1020" y="552" width="14" height="21" rx="2" fill="#22c55e" opacity="0.5"/>
-    <rect x="1040" y="525" width="14" height="48" rx="2" fill="#f59e0b" opacity="0.3"/>
-    <rect x="1040" y="540" width="14" height="33" rx="2" fill="#f59e0b" opacity="0.6"
-          style="animation: ud8dcf7glimmer 3s ease-in-out infinite"/>
-    <!-- Metric labels -->
-    <text x="1080" y="520" font-family="Courier New, monospace" font-size="8"
-          fill="#22c55e" opacity="0.7">7-DAY</text>
-    <text x="1080" y="532" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.6">TREND</text>
-    <text x="1080" y="555" font-family="Courier New, monospace" font-size="16"
-          fill="#f59e0b" font-weight="bold" opacity="0.8">+12%</text>
-
-    <!-- Circuit traces (decorative) -->
-    <polyline points="400,100 430,100 430,140 480,140" fill="none"
-              stroke="#f59e0b" stroke-width="0.8" opacity="0.2"/>
-    <circle cx="480" cy="140" r="3" fill="#f59e0b" opacity="0.3"/>
-    <polyline points="400,160 420,160 420,200 460,200 460,180" fill="none"
-              stroke="#22c55e" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="460" cy="180" r="2.5" fill="#22c55e" opacity="0.25"/>
-    <polyline points="1100,200 1130,200 1130,260 1100,260 1100,300" fill="none"
-              stroke="#eab308" stroke-width="0.8" opacity="0.18"/>
-    <circle cx="1100" cy="300" r="3" fill="#eab308" opacity="0.3"/>
-    <polyline points="1120,350 1150,350 1150,420 1120,420" fill="none"
-              stroke="#f59e0b" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="1120" cy="420" r="2.5" fill="#f59e0b" opacity="0.25"/>
-    <polyline points="450,500 480,500 480,520 520,520" fill="none"
-              stroke="#22c55e" stroke-width="0.7" opacity="0.15"/>
-    <circle cx="520" cy="520" r="2" fill="#22c55e" opacity="0.2"/>
-    <polyline points="1060,460 1090,460 1090,440 1120,440" fill="none"
-              stroke="#f59e0b" stroke-width="0.7" opacity="0.15"/>
-
-    <!-- Left panel data readout -->
-    <rect x="40" y="430" width="280" height="80" rx="6" fill="#0a1a10" stroke="#f59e0b"
-          stroke-width="1" opacity="0.6"/>
-    <rect x="40" y="430" width="4" height="80" rx="2" fill="#f59e0b"/>
-    <text x="56" y="450" font-family="Courier New, monospace" font-size="8"
-          fill="#f59e0b" font-weight="bold" letter-spacing="1">ANALYSIS</text>
-    <text x="56" y="466" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.6">Aws</text>
-    <rect x="56" y="474" width="200" height="5" rx="2" fill="#f59e0b" opacity="0.12"/>
-    <rect x="56" y="474" width="145" height="5" rx="2" fill="#f59e0b" opacity="0.45"/>
-    <text x="56" y="492" font-family="Courier New, monospace" font-size="8"
-          fill="#fde68a" opacity="0.6">Finops</text>
-    <rect x="56" y="496" width="200" height="5" rx="2" fill="#22c55e" opacity="0.12"/>
-    <rect x="56" y="496" width="170" height="5" rx="2" fill="#22c55e" opacity="0.45"/>
-
-    <!-- Scattered micro-nodes -->
-    <circle cx="420" cy="80" r="5" fill="#1a1505" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-    <circle cx="420" cy="80" r="2" fill="#f59e0b" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="5" fill="#1a1505" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="2" fill="#22c55e" opacity="0.3"/>
-    <circle cx="480" cy="560" r="4" fill="#1a1505" stroke="#eab308" stroke-width="1" opacity="0.4"/>
-    <circle cx="480" cy="560" r="1.5" fill="#eab308" opacity="0.3"/>
-    <circle cx="1080" cy="570" r="4" fill="#1a1505" stroke="#f59e0b" stroke-width="1" opacity="0.35"/>
-    <circle cx="1080" cy="570" r="1.5" fill="#f59e0b" opacity="0.25"/>
-
-    <!-- Hash / fingerprint decorative text -->
-    <text x="400" y="590" font-family="Courier New, monospace" font-size="7"
-          fill="#334155" opacity="0.4" letter-spacing="1">SHA256:e3b0c44298fc1c14...</text>
-    <text x="820" y="590" font-family="Courier New, monospace" font-size="7"
-          fill="#334155" opacity="0.3" letter-spacing="1">SIG:VERIFIED</text>
-
-    <!-- Scanning beam effect -->
-    <line x1="380" y1="300" x2="1160" y2="300" stroke="#f59e0b" stroke-width="0.5" opacity="0.06"/>
-    <rect x="380" y="298" width="40" height="4" rx="2" fill="#f59e0b" opacity="0.15">
-      <animate attributeName="x" values="380;1120;380" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.15;0.3;0.15" dur="8s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Animated dashed orbit arc -->
-    <path d="M 500 100 A 280 250 0 0 1 940 100" fill="none" stroke="#f59e0b"
-          stroke-width="1" stroke-dasharray="6 8" opacity="0.15"
-          style="animation: ud8dcf7dash 4s linear infinite"/>
-    <path d="M 940 500 A 280 250 0 0 1 500 500" fill="none" stroke="#22c55e"
-          stroke-width="0.8" stroke-dasharray="4 6" opacity="0.12"
-          style="animation: ud8dcf7dash 5s linear infinite"/>
-
-    <!-- Corner decorative brackets -->
-    <polyline points="390,55 390,45 400,45" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="1150,45 1160,45 1160,55" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="390,575 390,585 400,585" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1150,585 1160,585 1160,575" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.35"/>
-
-    <!-- Crosshair on center -->
-    <circle cx="720" cy="300" r="8" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="288" x2="720" y2="294" stroke="#f59e0b" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="306" x2="720" y2="312" stroke="#f59e0b" stroke-width="0.6" opacity="0.2"/>
-    <line x1="708" y1="300" x2="714" y2="300" stroke="#f59e0b" stroke-width="0.6" opacity="0.2"/>
-    <line x1="726" y1="300" x2="732" y2="300" stroke="#f59e0b" stroke-width="0.6" opacity="0.2"/>
-
-    <!-- Horizontal data lines -->
-    <line x1="400" y1="48" x2="470" y2="48" stroke="#f59e0b" stroke-width="0.8" opacity="0.15"/>
-    <line x1="475" y1="48" x2="500" y2="48" stroke="#f59e0b" stroke-width="0.8" opacity="0.1"/>
-    <line x1="400" y1="585" x2="450" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.12"/>
-    <line x1="455" y1="585" x2="490" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.08"/>
-    <line x1="1060" y1="48" x2="1120" y2="48" stroke="#f59e0b" stroke-width="0.8" opacity="0.12"/>
-    <line x1="1060" y1="585" x2="1100" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.1"/>
-
-    <!-- Animated pulse dot (center) -->
-    <circle cx="720" cy="300" r="4" fill="#f59e0b" opacity="0.3">
-      <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Perspective vanishing lines (tunnel effect) -->
-    <line x1="720" y1="315" x2="400" y2="50" stroke="#f59e0b" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="1150" y2="50" stroke="#f59e0b" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="400" y2="580" stroke="#22c55e" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="1150" y2="580" stroke="#22c55e" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="400" y2="315" stroke="#f59e0b" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="1150" y2="315" stroke="#f59e0b" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="500" y2="50" stroke="#eab308" stroke-width="0.3" opacity="0.06"/>
-    <line x1="720" y1="315" x2="940" y2="580" stroke="#eab308" stroke-width="0.3" opacity="0.06"/>
-
-    <!-- Breach crack line (jagged polyline across y=315) -->
-    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
-              fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.35"
-              filter="url(#ud8dcf7fxRed)" class="ud8dcf7crack"/>
-    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
-              fill="none" stroke="#eab308" stroke-width="0.8" opacity="0.2"/>
-
-    <!-- Floating particles with animation classes -->
-    <circle cx="480" cy="120" r="2.5" fill="#f59e0b" opacity="0.7" class="ud8dcf7fa"/>
-    <circle cx="620" cy="480" r="2" fill="#22c55e" opacity="0.6" class="ud8dcf7fb"/>
-    <circle cx="900" cy="100" r="3" fill="#eab308" opacity="0.5" class="ud8dcf7fc"/>
-    <circle cx="1050" cy="350" r="2" fill="#f59e0b" opacity="0.6" class="ud8dcf7fa"/>
-    <circle cx="550" cy="550" r="2.5" fill="#22c55e" opacity="0.5" class="ud8dcf7fb"/>
-    <circle cx="850" cy="520" r="1.8" fill="#f59e0b" opacity="0.55" class="ud8dcf7fc"/>
-    <circle cx="750" cy="80" r="2.2" fill="#eab308" opacity="0.45" class="ud8dcf7fa"/>
-
-    <!-- Additional data panel (mid-right) -->
-    <rect x="960" y="180" width="190" height="76" rx="6" fill="#1a1505" stroke="#eab308"
-          stroke-width="0.8" opacity="0.55"/>
-    <rect x="960" y="180" width="190" height="18" rx="6" fill="#eab308" opacity="0.10"/>
-    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
-          fill="#eab308" font-weight="bold" letter-spacing="1">TELEMETRY</text>
-    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
-          fill="#fde68a" opacity="0.6">LATENCY</text>
-    <rect x="1050" y="207" width="88" height="5" rx="2" fill="#eab308" opacity="0.12"/>
-    <rect x="1050" y="207" width="55" height="5" rx="2" fill="#eab308" opacity="0.45"/>
-    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
-          fill="#fde68a" opacity="0.6">THROUGHPUT</text>
-    <rect x="1050" y="223" width="88" height="5" rx="2" fill="#f59e0b" opacity="0.12"/>
-    <rect x="1050" y="223" width="72" height="5" rx="2" fill="#f59e0b" opacity="0.4"/>
-    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
-          fill="#fde68a" opacity="0.6">ERROR RATE</text>
-    <rect x="1050" y="239" width="88" height="5" rx="2" fill="#f59e0b" opacity="0.12"/>
-    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
-    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
-          fill="#22c55e" opacity="0.5">LOW</text>
-
-    <!-- Timestamp watermark -->
-    <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
-          fill="#1e293b" text-anchor="end" opacity="0.5">2TWODRAGON // DIGEST</text>
-
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#f59e0b" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#22c55e" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#f59e0b" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#eab308" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#22c55e" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#f59e0b" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#f59e0b" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#f59e0b" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#eab308" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#eab308" stroke-width="1" opacity="0.1"/>
-
-    <!-- CRT scan line -->
-    <rect width="1200" height="2" x="0" y="0" fill="#f59e0b" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
-    </rect>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
   </g>
+  <circle cx="600" cy="320" r="260" fill="#3b82f6" opacity="0.05" filter="url(#glow)"/>
 
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
+  <!-- Shared header frame -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">Tutorial Guide</text>
+  <text x="80" y="62" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">Hands-on DevSecOps walkthrough</text>
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">May 02, 2025</text>
 
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+  <!-- Pillar 1: AWS CLOUD -->
+  <rect x="66" y="120" width="340" height="380" rx="14" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="66" y="120" width="340" height="52" rx="14" fill="#3b82f6" opacity="0.18"/>
+  <text x="86" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" letter-spacing="3">STEP 01</text>
+  <g transform="translate(236,290)">
+    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8" transform="scale(0.65)"/>
+  </g>
+  <text x="236" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#3b82f6" text-anchor="middle">AWS CLOUD</text>
+  <line x1="106" y1="410" x2="366" y2="410" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <text x="236" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
+  <text x="236" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
+  <text x="236" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
+  <!-- Pillar 2: CLOUD SEC -->
+  <rect x="430" y="120" width="340" height="380" rx="14" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="430" y="120" width="340" height="52" rx="14" fill="#22d3ee" opacity="0.18"/>
+  <text x="450" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" letter-spacing="3">STEP 02</text>
+  <g transform="translate(600,290)">
+    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#22d3ee" stroke-width="1.8" transform="scale(0.65)"/>
+  </g>
+  <text x="600" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#22d3ee" text-anchor="middle">CLOUD SEC</text>
+  <line x1="470" y1="410" x2="730" y2="410" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
+  <text x="600" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
+  <text x="600" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
+  <text x="600" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
+  <!-- Pillar 3: SEC OPS -->
+  <rect x="794" y="120" width="340" height="380" rx="14" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
+  <rect x="794" y="120" width="340" height="52" rx="14" fill="#22c55e" opacity="0.18"/>
+  <text x="814" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e" letter-spacing="3">STEP 03</text>
+  <g transform="translate(964,290)">
+    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#22c55e" stroke-width="1.8"/>
+  </g>
+  <text x="964" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#22c55e" text-anchor="middle">SEC OPS</text>
+  <line x1="834" y1="410" x2="1094" y2="410" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
+  <text x="964" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
+  <text x="964" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
+  <text x="964" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
+  <!-- Shared footer frame -->
+  <rect x="0" y="540" width="1200" height="90" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="540" width="1200" height="2" fill="#1e293b"/>
+  <circle cx="32" cy="580" r="4" fill="#3b82f6" opacity="0.6"/>
+  <text x="46" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569">Tutorial Guide | May 02, 2025</text>
+  <text x="1168" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
