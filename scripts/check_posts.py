@@ -110,6 +110,63 @@ def check_front_matter(file_path: Path) -> List[str]:
                 issues.append(f"⚠️ Generic title should be more specific: {title}")
                 break
 
+        issues.extend(check_title_truncation(title))
+
+    return issues
+
+
+# Korean particles/verb endings that indicate a truncated/incomplete phrase
+# when they appear at the end of a title segment (split by comma).
+_TITLE_DANGLING_RE = re.compile(
+    r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|위한|하는|하기|하여|통해|대한"
+    r"|하지|한|된|되는|되며|되지|되고|되자|려는|면서|지만|라는|라고|처럼|까지)"
+    r"\s*[,.]?\s*$"
+)
+# Trailing bare number/count that usually means the next noun got cut off.
+# Compound Korean units (5천만 = 50 million) are matched greedily so the
+# full unit is consumed rather than leaving "만" dangling at the end.
+_TITLE_TRAILING_COUNT_RE = re.compile(
+    r"(?:\d+(?:천만|백만|억|조|천|만|%|\s?[GMK]B))\s*[,]?\s*$"
+)
+
+
+def check_title_truncation(title: str) -> List[str]:
+    """Detect frontmatter titles that appear to have been truncated mid-phrase.
+
+    Runs over each comma-separated segment of the title and flags:
+    1. Segments ending in a Korean particle/verb ending (dangling suffix)
+    2. Segments ending in a bare count/number (5천만, CVE-2024) without a noun
+    3. Title with 4+ commas AND any short (< 4 char) segment (keyword soup)
+    4. Title containing obvious sentence fragments like ", Google," or ", Windows,"
+       where the segment has no verb/predicate
+    """
+    issues: List[str] = []
+    if not title:
+        return issues
+
+    segments = [s.strip() for s in title.split(",")]
+    for segment in segments:
+        if not segment or len(segment) < 3:
+            continue
+        if _TITLE_DANGLING_RE.search(segment):
+            issues.append(
+                f'⚠️ Title segment ends in dangling Korean particle/ending: "{segment[-40:]}"'
+            )
+        elif _TITLE_TRAILING_COUNT_RE.search(segment) and not re.search(
+            r"(달러|원|건|개의|명)\s*$", segment
+        ):
+            issues.append(
+                f'⚠️ Title segment ends in bare count without noun: "{segment[-40:]}"'
+            )
+
+    if len(segments) >= 5:
+        short_segments = [s for s in segments if 0 < len(s) < 4]
+        if short_segments:
+            issues.append(
+                f"⚠️ Title looks like keyword soup ({len(segments)} segments, "
+                f"{len(short_segments)} short): {title[:80]}"
+            )
+
     return issues
 
 
@@ -458,38 +515,65 @@ def check_table_cell_truncation(content: str) -> List[str]:
 def check_duplicate_practical_points(content: str) -> List[str]:
     """Check for duplicate '실무 적용 포인트' bullet points within a single post.
 
-    Detects when the same bullet text appears 3+ times, which indicates
-    copy-pasted generic templates that should be replaced with
-    context-specific content.
+    Flags two separate quality issues:
+
+    * **Individual bullet repetition** — the same exact bullet line appearing
+      2+ times across all "실무 적용 포인트" sections (copy-pasted generic
+      template that should be replaced with context-specific content).
+    * **Whole-block duplication** — an entire 3-bullet block appearing twice
+      or more identically, which indicates the generator fell through to the
+      fallback branch without randomization.
     """
     issues = []
-    # Extract all bullet lines under "실무 적용 포인트" or "실무 포인트" sections
+    from collections import Counter
+
+    # --- Pass 1: collect individual bullets and whole blocks ---
     bullets: List[str] = []
+    blocks: List[tuple[str, ...]] = []
+    current_block: List[str] = []
     in_section = False
+
+    def _flush_block() -> None:
+        if current_block:
+            blocks.append(tuple(current_block))
+            current_block.clear()
+
     for line in content.split("\n"):
         stripped = line.strip()
-        # Detect section headers
         if "실무 적용 포인트" in stripped or "실무 포인트" in stripped:
+            _flush_block()
             in_section = True
             continue
-        # Exit section on next header or separator
         if in_section and (
             stripped.startswith("#")
             or stripped.startswith("---")
             or (stripped.startswith("{%") and "include" in stripped)
         ):
+            _flush_block()
             in_section = False
-        # Collect bullet points
         if in_section and stripped.startswith("- "):
-            bullets.append(stripped[2:].strip())
+            text = stripped[2:].strip()
+            bullets.append(text)
+            current_block.append(text)
+    _flush_block()
 
-    # Count occurrences
-    from collections import Counter
-
-    counts = Counter(bullets)
-    for text, count in counts.most_common():
-        if count >= 3:
+    # Individual bullet repetition — threshold lowered from 3 to 2 so that
+    # the generator's fallback branch produces an error on its very first
+    # duplicate instead of waiting for three.
+    bullet_counts = Counter(bullets)
+    for text, count in bullet_counts.most_common():
+        if count >= 2:
             issues.append(f'⚠️ 실무 포인트 반복 {count}회: "{text[:50]}..."')
+
+    # Whole-block duplication — any exact-match 3-bullet block reused
+    block_counts = Counter(blocks)
+    for block, count in block_counts.most_common():
+        if count >= 2 and len(block) >= 2:
+            preview = " / ".join(b[:30] for b in block[:2])
+            issues.append(
+                f"⚠️ 실무 포인트 블록 중복 {count}회 ({len(block)} bullets): {preview}..."
+            )
+
     return issues
 
 

@@ -56,6 +56,14 @@ TARGET_IMAGES = [
     "2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API.svg",
     "2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.svg",
     "2026-02-28-Tech_Security_Weekly_Digest_Go_AI_Malware.svg",
+    # April 2026 batch
+    "2026-04-02-Tech_Security_Weekly_Digest_AI_Malware.svg",
+    "2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.svg",
+    "2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security.svg",
+    "2026-04-05-Tech_Security_Weekly_Digest_AWS_AI_Security_Malware.svg",
+    "2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.svg",
+    "2026-04-07-Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir.svg",
+    "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.svg",
 ]
 
 

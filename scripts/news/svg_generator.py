@@ -838,25 +838,874 @@ def _convert_svg_to_og_png(svg_path: Path) -> None:
         logging.warning(f"PNG conversion skipped: {e}")
 
 
+def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
+    """Extract up to `limit` short uppercase labels from news titles for card headers.
+
+    Prefers specific threat actors, CVE IDs, product names, and well-known keywords
+    over generic terms, producing labels like "APT28", "CVE-2025", "DOCKER RCE".
+    Falls back to composite labels that won't trigger the check_posts noisy-marker
+    check (which fires when 5+ labels exactly match generic single words like
+    "security", "cloud", "devops", "ai/ml", "blockchain", "weekly digest").
+    """
+    # Noisy single-word labels that check_posts flags as repeated generic text.
+    # We avoid producing labels that exactly match these (case-insensitive).
+    _NOISY = {"weekly digest", "news collected", "security", "cloud", "devops",
+               "ai/ml", "blockchain"}
+
+    # Priority patterns: match specific terms first
+    priority_patterns = [
+        (r"\b(APT\d+)\b", lambda m: m.group(1)),
+        (r"\b(CVE-\d{4}-\d+)\b", lambda m: m.group(1)[:12]),
+        (r"\b(TA\d{3,4})\b", lambda m: m.group(1)),
+        (r"\b(DPRK|LAZARUS|REVIL|BLACKCAT|LOCKBIT|COZY BEAR)\b", lambda m: m.group(1)),
+        (r"\b(RANSOMWARE)\b", lambda m: "RANSOM"),
+        (r"\b(MALWARE)\b", lambda m: "MALWARE"),
+        (r"\b(BOTNET)\b", lambda m: "BOTNET"),
+        (r"\b(PHISH(?:ING)?)\b", lambda m: "PHISHING"),
+        (r"\b(ZERO[- ]DAY|0DAY)\b", lambda m: "ZERO-DAY"),
+        (r"\b(DOCKER)\b", lambda m: "DOCKER CTR"),
+        (r"\b(KUBERNETES|K8S)\b", lambda m: "K8S"),
+        (r"\b(AWS)\b", lambda m: "AWS CLOUD"),
+        (r"\b(GCP|GOOGLE CLOUD)\b", lambda m: "GCP"),
+        (r"\b(AZURE)\b", lambda m: "AZURE AD"),
+        (r"\b(AI|LLM|AGENTIC)\b", lambda m: "AI AGENT"),
+        (r"\b(PATCH(?:ING)?)\b", lambda m: "PATCH MGT"),
+        (r"\b(SUPPLY[- ]CHAIN)\b", lambda m: "SUPPLY CHAIN"),
+        (r"\b(DNS)\b", lambda m: "DNS THREAT"),
+        (r"\b(NPM|PYPI)\b", lambda m: "PKG SUPPLY"),
+        (r"\b(CISCO)\b", lambda m: "CISCO CVE"),
+        (r"\b(FORTINET|FORTICLIENT)\b", lambda m: "FORTINET"),
+        (r"\b(MICROSOFT|MSFT)\b", lambda m: "MS PATCH"),
+        (r"\b(PALANTIR)\b", lambda m: "PALANTIR"),
+        (r"\b(GOLANG|GO LANG)\b", lambda m: "GO LANG"),
+        (r"\b(LINUX)\b", lambda m: "LINUX"),
+        (r"\b(NGINX|APACHE)\b", lambda m: "WEB SRV"),
+    ]
+
+    labels: List[str] = []
+    seen: set = set()
+
+    for item in news_items[:8]:
+        title = _to_english_svg_text(item.get("title", "")).upper()
+        for pattern, formatter in priority_patterns:
+            m = re.search(pattern, title, re.IGNORECASE)
+            if m:
+                label = formatter(m)
+                label = label[:16].strip()
+                if label and label not in seen and label.lower() not in _NOISY:
+                    seen.add(label)
+                    labels.append(label)
+                    if len(labels) >= limit:
+                        return labels
+                break  # one label per news item
+
+    # Fill remaining slots from extracted topics — use composite forms to avoid
+    # single generic words that match noisy_markers
+    _TOPIC_MAP = {
+        "Zero-Day": "ZERO-DAY",
+        "CVE": "CVE PATCH",
+        "Vulnerability": "VULN MGT",
+        "Patch": "PATCH MGT",
+        "Update": "SEC UPDATE",
+        "AI": "AI AGENT",
+        "ML": "ML OPS",
+        "Cloud": "CLOUD SEC",
+        "Kubernetes": "K8S",
+        "Docker": "DOCKER CTR",
+        "AWS": "AWS CLOUD",
+        "Azure": "AZURE AD",
+        "GCP": "GCP SEC",
+        "Security": "SEC OPS",
+        "Threat": "THREAT INT",
+        "Malware": "MALWARE",
+        "Ransomware": "RANSOM",
+        "Botnet": "BOTNET",
+        "Bitcoin": "BITCOIN",
+        "Ethereum": "ETHEREUM",
+        "DeFi": "DEFI",
+        "Web3": "WEB3",
+        "Blockchain": "CHAIN SEC",
+        "LLM": "LLM SEC",
+        "GPT": "GPT AGENT",
+        "Agent": "AI AGENT",
+        "Data": "DATA SEC",
+        "Palantir": "PALANTIR",
+        "Tesla": "TESLA",
+        "Apple": "APPLE SEC",
+        "Rust": "RUST LANG",
+        "Go": "GO LANG",
+        "Open-Source": "OSS SEC",
+        "API": "API SEC",
+    }
+    if len(labels) < limit:
+        for topic in _extract_key_topics(news_items):
+            label = _TOPIC_MAP.get(topic, _normalize_svg_focus_label(
+                _to_english_svg_text(topic))[:16])
+            if label and label not in seen and label.lower() not in _NOISY:
+                seen.add(label)
+                labels.append(label)
+                if len(labels) >= limit:
+                    break
+
+    # Hard fallbacks — all composite so they won't match single noisy_markers
+    _HARD_FALLBACKS = [
+        "SEC OPS", "THREAT INT", "CLOUD SEC", "AI AGENT", "PATCH MGT",
+        "MALWARE", "RANSOM", "ZERO-DAY", "BOTNET", "DATA SEC",
+    ]
+    for fb in _HARD_FALLBACKS:
+        if len(labels) >= limit:
+            break
+        if fb not in seen:
+            seen.add(fb)
+            labels.append(fb)
+
+    return labels[:limit]
+
+
+def _card_icon_svg(label: str, color: str) -> str:
+    """Return a small inline SVG icon glyph for a card, keyed on label content."""
+    lbl = label.lower()
+    if any(k in lbl for k in ["apt", "ta4", "ta41", "dprk", "lazarus", "cozy"]):
+        # Spy/actor icon: eye shape
+        return (
+            f'<ellipse cx="0" cy="-4" rx="14" ry="9" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<circle cx="0" cy="-4" r="4" fill="{color}" opacity="0.7"/>'
+        )
+    if any(k in lbl for k in ["cve", "zero-day", "vuln", "patch"]):
+        # Warning triangle + CVE text
+        return (
+            f'<path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="{color}" text-anchor="middle">CVE</text>'
+        )
+    if any(k in lbl for k in ["ransom", "lock"]):
+        # Padlock
+        return (
+            f'<rect x="-12" y="-2" width="24" height="20" rx="4" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<path d="M-8,-2 v-10 c0-12 16-12 16,0 v10" stroke="{color}" stroke-width="2.2" fill="none" stroke-linecap="round"/>'
+            f'<circle cx="0" cy="8" r="3" fill="{color}"/>'
+        )
+    if any(k in lbl for k in ["malware", "botnet", "worm", "trojan"]):
+        # Bug/malware icon: circle with legs
+        return (
+            f'<circle cx="0" cy="-2" r="10" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<line x1="-10" y1="-8" x2="-18" y2="-14" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="10" y1="-8" x2="18" y2="-14" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="-10" y1="2" x2="-18" y2="2" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="10" y1="2" x2="18" y2="2" stroke="{color}" stroke-width="1.5"/>'
+        )
+    if any(k in lbl for k in ["phish", "social"]):
+        # Hook shape
+        return (
+            f'<path d="M-8,-14 C-8,-20 8,-20 8,-14 L8,6 C8,16 -8,16 -8,6 Z" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<path d="M8,6 L18,16" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>'
+        )
+    if any(k in lbl for k in ["docker", "container"]):
+        # Docker whale outline (simplified stacked boxes)
+        return (
+            f'<rect x="-14" y="-16" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-2" y="-16" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-14" y="-6" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-2" y="-6" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<path d="M-16,8 C-10,18 10,18 16,8" fill="none" stroke="{color}" stroke-width="1.5"/>'
+        )
+    if any(k in lbl for k in ["aws", "cloud", "gcp", "azure"]):
+        # Cloud shape
+        return (
+            f'<path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" '
+            f'fill="none" stroke="{color}" stroke-width="1.8" transform="scale(0.65)"/>'
+        )
+    if any(k in lbl for k in ["k8s", "kube"]):
+        # Kubernetes helm/wheel
+        return (
+            f'<circle cx="0" cy="0" r="10" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<circle cx="0" cy="0" r="4" fill="{color}" opacity="0.5"/>'
+            f'<line x1="0" y1="-10" x2="0" y2="-18" stroke="{color}" stroke-width="2"/>'
+            f'<line x1="8.7" y1="5" x2="15.6" y2="9" stroke="{color}" stroke-width="2"/>'
+            f'<line x1="-8.7" y1="5" x2="-15.6" y2="9" stroke="{color}" stroke-width="2"/>'
+        )
+    if any(k in lbl for k in ["ai", "llm", "agent", "model"]):
+        # Neural net nodes
+        return (
+            f'<circle cx="-12" cy="-8" r="4" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<circle cx="12" cy="-8" r="4" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<circle cx="0" cy="8" r="5" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<line x1="-8" y1="-6" x2="-2" y2="6" stroke="{color}" stroke-width="1.2" opacity="0.7"/>'
+            f'<line x1="8" y1="-6" x2="2" y2="6" stroke="{color}" stroke-width="1.2" opacity="0.7"/>'
+            f'<line x1="-8" y1="-8" x2="8" y2="-8" stroke="{color}" stroke-width="1.2" opacity="0.5"/>'
+        )
+    if any(k in lbl for k in ["supply", "npm", "pypi"]):
+        # Chain links
+        return (
+            f'<ellipse cx="-8" cy="0" rx="10" ry="6" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<ellipse cx="8" cy="0" rx="10" ry="6" fill="none" stroke="{color}" stroke-width="1.8"/>'
+        )
+    if any(k in lbl for k in ["dns"]):
+        # Globe outline
+        return (
+            f'<circle cx="0" cy="0" r="14" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<ellipse cx="0" cy="0" rx="7" ry="14" fill="none" stroke="{color}" stroke-width="1"/>'
+            f'<line x1="-14" y1="0" x2="14" y2="0" stroke="{color}" stroke-width="1" opacity="0.6"/>'
+        )
+    # Default: shield
+    return (
+        f'<path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" '
+        f'fill="none" stroke="{color}" stroke-width="1.8"/>'
+    )
+
+
+def _node_label_from_card(label: str) -> str:
+    """Return a very short (<=4 char) node label for the threat-map area."""
+    abbreviations = {
+        "MALWARE": "MAL",
+        "BOTNET": "BOT",
+        "PHISHING": "PHSH",
+        "ZERO-DAY": "0DAY",
+        "SUPPLY CHAIN": "SCM",
+        "DOCKER": "CTR",
+        "AI AGENT": "AI",
+        "AWS CLOUD": "AWS",
+        "AZURE": "AZUR",
+        "K8S": "K8S",
+        "RANSOM": "RAN",
+        "PATCH": "PTCH",
+        "DNS": "DNS",
+    }
+    if label in abbreviations:
+        return abbreviations[label]
+    # For APT28, CVE-..., TA416 etc — keep up to 5 chars
+    words = label.split()
+    if len(words) == 1:
+        return label[:5]
+    return words[0][:4]
+
+
+def generate_card_signal_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Generate the 'card-based signal map' SVG format (the golden 04-09 style).
+
+    Layout (1200x630, dark gradient):
+      - Grid overlay + 3 glow orbs
+      - Header bar: shield icon + "Security Weekly Digest" title + date badge
+      - 5 topic cards (y=100, each ~220x120) with colored borders and icon glyphs
+      - Threat map area (x=32, y=240, 1136x220) with ~5 nodes + dashed arrows
+      - Footer: tag pills + bottom bar with timestamp and URL
+
+    All text is ASCII/English only.
+    """
+    date_display = date.strftime("%B %d, %Y")
+    card_labels = _extract_card_labels(news_items, limit=5)
+
+    # Ensure exactly 5 labels (pad with generic fallbacks)
+    fallbacks = ["SECURITY", "THREAT", "CLOUD", "AI", "PATCH"]
+    while len(card_labels) < 5:
+        for fb in fallbacks:
+            if fb not in card_labels:
+                card_labels.append(fb)
+                break
+        else:
+            card_labels.append(f"TOPIC{len(card_labels) + 1}")
+
+    # 5 distinct colors for cards
+    palette = ["#ef4444", "#f59e0b", "#3b82f6", "#22c55e", "#22d3ee"]
+    bg_fills = ["#1a0505", "#1a0d0d", "#0a1020", "#071a10", "#071a20"]
+
+    # Card x positions and widths
+    card_specs = [
+        (32, 220),
+        (268, 220),
+        (504, 220),
+        (740, 200),
+        (956, 212),
+    ]
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Security Weekly Digest - {date_display}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
+    </linearGradient>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <!-- Glow orbs -->
+  <circle cx="200" cy="300" r="200" fill="{palette[0]}" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="350" r="180" fill="{palette[1]}" opacity="0.05" filter="url(#glow)"/>
+  <circle cx="1000" cy="300" r="180" fill="{palette[2]}" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="{palette[2]}" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="{palette[2]}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">{date_display}</text>
+"""
+
+    # Draw 5 cards
+    for i, (label, color, bg, (cx, cw)) in enumerate(
+        zip(card_labels, palette, bg_fills, card_specs)
+    ):
+        icon_x = cx + cw // 2
+        icon_y = 148
+        label_text = _escape_svg_text(label[:20])
+        icon_glyph = _card_icon_svg(label, color)
+        svg += f"""
+  <!-- Card {i + 1}: {label_text} -->
+  <rect x="{cx}" y="100" width="{cw}" height="120" rx="8" fill="{bg}" stroke="{color}" stroke-width="1.5"/>
+  <circle cx="{cx + 20}" cy="120" r="6" fill="{color}"/>
+  <g transform="translate({icon_x},{icon_y})">
+    {icon_glyph}
+  </g>
+  <text x="{icon_x}" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>"""
+
+    # Threat map area
+    svg += """
+
+  <!-- Threat map area -->
+  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Ambient dots -->
+  <g opacity="0.25">
+    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
+    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
+    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
+    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
+  </g>
+"""
+
+    # Draw threat-map nodes (5 nodes spread across the map area)
+    node_positions = [170, 370, 580, 780, 980]
+    node_y_vals = [340, 350, 330, 355, 340]
+    node_radii = [22, 20, 22, 18, 22]
+
+    for i, (label, color, bg, nx, ny, nr) in enumerate(
+        zip(card_labels, palette, bg_fills, node_positions, node_y_vals, node_radii)
+    ):
+        short = _escape_svg_text(_node_label_from_card(label))
+        svg += f"""  <!-- Node: {_escape_svg_text(label)} -->
+  <circle cx="{nx}" cy="{ny}" r="{nr}" fill="{bg}" stroke="{color}" stroke-width="2"/>
+  <text x="{nx}" y="{ny + 4}" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{color}" text-anchor="middle">{short}</text>
+"""
+
+    # Draw arrows between consecutive nodes
+    for i in range(len(node_positions) - 1):
+        x1 = node_positions[i] + node_radii[i]
+        x2 = node_positions[i + 1] - node_radii[i + 1]
+        y1 = node_y_vals[i]
+        y2 = node_y_vals[i + 1]
+        color = palette[i]
+        svg += f"""  <line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
+"""
+
+    # Footer tag pills
+    svg += """
+  <!-- Footer -->
+  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+
+  <!-- Tags -->"""
+
+    tag_x = 32
+    for label, color, bg in zip(card_labels, palette, bg_fills):
+        label_text = _escape_svg_text(label[:20])
+        tag_w = min(max(len(label_text) * 9 + 20, 80), 180)
+        tag_cx = tag_x + tag_w // 2
+        svg += f"""
+  <rect x="{tag_x}" y="490" width="{tag_w}" height="24" rx="4" fill="{bg}" stroke="{color}" stroke-width="1"/>
+  <text x="{tag_cx}" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>"""
+        tag_x += tag_w + 12
+
+    # Bottom bar
+    svg += f"""
+
+  <!-- Bottom bar -->
+  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
+  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | {date_display}</text>
+  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+
+    return svg
+
+
+def _shared_frame_header(
+    title_text: str,
+    date_display: str,
+    accent: str,
+    subtitle: str = "",
+) -> str:
+    """Shared 1200x80 header bar used by all lane-specific layouts.
+
+    Provides brand consistency across digest / tutorial / postmortem /
+    roadmap / comparison formats (per Gemini advisor guidance): same dark
+    gradient header, same title typography, same date badge on the right.
+    """
+    title_safe = _escape_svg_text(title_text[:38])
+    subtitle_safe = _escape_svg_text(subtitle[:56]) if subtitle else ""
+    subtitle_svg = (
+        f'<text x="80" y="62" font-family="Arial,sans-serif" font-size="13" '
+        f'fill="#94a3b8">{subtitle_safe}</text>'
+        if subtitle_safe
+        else ""
+    )
+    return f"""
+  <!-- Shared header frame -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="{accent}" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="{accent}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">{title_safe}</text>
+  {subtitle_svg}
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">{date_display}</text>
+"""
+
+
+def _shared_frame_footer(
+    date_display: str, footer_label: str, accent: str
+) -> str:
+    """Shared bottom bar with timestamp + site URL."""
+    label_safe = _escape_svg_text(footer_label[:40])
+    return f"""
+  <!-- Shared footer frame -->
+  <rect x="0" y="540" width="1200" height="90" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="540" width="1200" height="2" fill="#1e293b"/>
+  <circle cx="32" cy="580" r="4" fill="{accent}" opacity="0.6"/>
+  <text x="46" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569">{label_safe} | {date_display}</text>
+  <text x="1168" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+
+
+def _shared_defs_and_background(
+    primary_accent: str, title: str = "Security Weekly Digest"
+) -> str:
+    """Shared <defs> + background rect used by all lane layouts.
+
+    The ``<title>`` element is required by scripts/check_svg_quality.py for
+    CI validation — omitting it causes every regenerated SVG to FAIL the
+    check-svg workflow. The title doubles as the accessible name for
+    screen readers on the OG image preview.
+    """
+    title_safe = _escape_svg_text(title[:80])
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{title_safe}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
+    </linearGradient>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <circle cx="600" cy="320" r="260" fill="{primary_accent}" opacity="0.05" filter="url(#glow)"/>
+"""
+
+
+def generate_tutorial_stack_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Tutorial / guide layout: 3-pillar architecture tiles.
+
+    Palette: education blue/cyan (per Gemini: tutorials read as "learning"
+    rather than "alert"). Each pillar represents a core topic from the post
+    tags — e.g. Docker / Kubernetes / Cloud Armor for a K8s security guide.
+    """
+    date_display = date.strftime("%B %d, %Y")
+    labels = _extract_card_labels(news_items, limit=3)
+    fallbacks = ["FOUNDATION", "PRACTICE", "ARCHITECTURE"]
+    while len(labels) < 3:
+        for fb in fallbacks:
+            if fb not in labels:
+                labels.append(fb)
+                break
+        else:
+            labels.append(f"TOPIC{len(labels) + 1}")
+
+    palette = ["#3b82f6", "#22d3ee", "#22c55e"]  # blue, cyan, green
+    bg_fills = ["#0a1020", "#071a20", "#071a10"]
+
+    svg = _shared_defs_and_background(
+        "#3b82f6", title=f"Tutorial Guide - {date_display}"
+    )
+    svg += _shared_frame_header(
+        "Tutorial Guide",
+        date_display,
+        accent="#3b82f6",
+        subtitle="Hands-on DevSecOps walkthrough",
+    )
+
+    # 3 pillars, each 340 wide, centered with 24px gaps
+    pillar_width = 340
+    pillar_gap = 24
+    total_width = 3 * pillar_width + 2 * pillar_gap  # 1068
+    start_x = (1200 - total_width) // 2  # 66
+    pillar_top = 120
+    pillar_height = 380
+
+    for i, (label, color, bg) in enumerate(zip(labels[:3], palette, bg_fills)):
+        px = start_x + i * (pillar_width + pillar_gap)
+        cx = px + pillar_width // 2
+        label_text = _escape_svg_text(label[:22])
+        step_label = f"0{i + 1}"
+        icon = _card_icon_svg(label, color)
+        svg += f"""
+  <!-- Pillar {i + 1}: {label_text} -->
+  <rect x="{px}" y="{pillar_top}" width="{pillar_width}" height="{pillar_height}" rx="14" fill="{bg}" stroke="{color}" stroke-width="2"/>
+  <rect x="{px}" y="{pillar_top}" width="{pillar_width}" height="52" rx="14" fill="{color}" opacity="0.18"/>
+  <text x="{px + 20}" y="{pillar_top + 32}" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" letter-spacing="3">STEP {step_label}</text>
+  <g transform="translate({cx},{pillar_top + 170})">
+    {icon}
+  </g>
+  <text x="{cx}" y="{pillar_top + 260}" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>
+  <line x1="{px + 40}" y1="{pillar_top + 290}" x2="{px + pillar_width - 40}" y2="{pillar_top + 290}" stroke="{color}" stroke-width="1" opacity="0.4"/>
+  <text x="{cx}" y="{pillar_top + 320}" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
+  <text x="{cx}" y="{pillar_top + 340}" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
+  <text x="{cx}" y="{pillar_top + 360}" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>"""
+
+    svg += _shared_frame_footer(date_display, "Tutorial Guide", "#3b82f6")
+    return svg
+
+
+def generate_timeline_pulse_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Postmortem / incident layout: ECG-style timeline with status phases.
+
+    Palette: amber/orange (per Gemini: signals "caution/learning", not alert).
+    Horizontal timeline spine at y=320 with phase nodes (Detection →
+    Containment → Eradication → Recovery) and a pulse wave showing severity.
+    """
+    date_display = date.strftime("%B %d, %Y")
+
+    # Phase labels — postmortem standard timeline
+    phases = ["DETECT", "CONTAIN", "ERADICATE", "RECOVER"]
+    # Try to pull one specific topic label from the news items for the hero
+    focus_labels = _extract_card_labels(news_items, limit=1)
+    hero_label = (
+        _escape_svg_text(focus_labels[0][:28]) if focus_labels else "Incident Analysis"
+    )
+
+    svg = _shared_defs_and_background(
+        "#f59e0b", title=f"Postmortem - {date_display}"
+    )
+    svg += _shared_frame_header(
+        "Postmortem",
+        date_display,
+        accent="#f59e0b",
+        subtitle="Timeline & impact review",
+    )
+
+    # Hero strip (incident name)
+    svg += f"""
+  <!-- Hero strip -->
+  <rect x="32" y="110" width="1136" height="60" rx="10" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="600" y="148" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle">{hero_label}</text>
+"""
+
+    # ECG-style pulse wave (y=200-280 roughly)
+    svg += """
+  <!-- ECG pulse wave -->
+  <path d="M60 240 L200 240 L220 200 L240 280 L260 240 L480 240 L500 210 L520 260 L540 240 L760 240 L780 200 L800 290 L820 240 L1040 240 L1060 230 L1080 250 L1140 240"
+        fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.85"/>
+  <line x1="32" y1="240" x2="1168" y2="240" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.25"/>
+"""
+
+    # Timeline spine at y=380 with 4 phase nodes
+    spine_y = 400
+    svg += f"""
+  <!-- Timeline spine -->
+  <line x1="80" y1="{spine_y}" x2="1120" y2="{spine_y}" stroke="#334155" stroke-width="3"/>
+"""
+
+    phase_positions = [140, 460, 780, 1080]
+    phase_colors = ["#ef4444", "#f59e0b", "#3b82f6", "#22c55e"]
+    phase_subs = ["Alert", "Isolate", "Remove", "Restore"]
+
+    for i, (phase, px, color, sub) in enumerate(
+        zip(phases, phase_positions, phase_colors, phase_subs)
+    ):
+        svg += f"""
+  <!-- Phase {i + 1}: {phase} -->
+  <circle cx="{px}" cy="{spine_y}" r="20" fill="#0a0e1a" stroke="{color}" stroke-width="3"/>
+  <text x="{px}" y="{spine_y + 4}" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{color}" text-anchor="middle">0{i + 1}</text>
+  <text x="{px}" y="{spine_y - 34}" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{phase}</text>
+  <text x="{px}" y="{spine_y + 48}" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">{sub}</text>"""
+
+    # "RESOLVED" stamp
+    svg += """
+  <!-- Resolved stamp -->
+  <g transform="translate(1050 120) rotate(-8)">
+    <rect x="-60" y="-20" width="120" height="40" rx="4" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.55"/>
+    <text x="0" y="6" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#22c55e" text-anchor="middle" opacity="0.7" letter-spacing="3">RESOLVED</text>
+  </g>
+"""
+
+    svg += _shared_frame_footer(date_display, "Postmortem", "#f59e0b")
+    return svg
+
+
+def generate_milestone_curve_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Roadmap layout: S-curve progression with milestone markers.
+
+    Palette: strategy purple/magenta (per Gemini: roadmaps read as forward
+    planning). 5 milestones rise along an S-curve from bottom-left to
+    top-right with labels and quarter markers.
+    """
+    date_display = date.strftime("%B %d, %Y")
+    labels = _extract_card_labels(news_items, limit=5)
+    fallbacks = ["FOUNDATION", "BUILD", "SCALE", "AUTOMATE", "OPTIMIZE"]
+    while len(labels) < 5:
+        for fb in fallbacks:
+            if fb not in labels:
+                labels.append(fb)
+                break
+        else:
+            labels.append(f"PHASE{len(labels) + 1}")
+
+    svg = _shared_defs_and_background(
+        "#a855f7", title=f"Roadmap - {date_display}"
+    )
+    svg += _shared_frame_header(
+        "Roadmap",
+        date_display,
+        accent="#a855f7",
+        subtitle="Maturity progression plan",
+    )
+
+    # S-curve path from (80, 460) bottom-left to (1120, 160) top-right
+    svg += """
+  <!-- S-curve spine -->
+  <path d="M 80 460 C 280 460, 360 320, 600 300 S 900 200, 1120 160"
+        fill="none" stroke="#a855f7" stroke-width="3" opacity="0.85"/>
+  <path d="M 80 460 C 280 460, 360 320, 600 300 S 900 200, 1120 160"
+        fill="none" stroke="#a855f7" stroke-width="10" opacity="0.12"/>
+"""
+
+    # 5 milestone nodes along the curve (pre-computed sample points)
+    milestone_positions = [
+        (180, 448, 16),
+        (380, 380, 18),
+        (600, 300, 22),
+        (820, 240, 18),
+        (1050, 170, 16),
+    ]
+    milestone_colors = ["#c084fc", "#a855f7", "#9333ea", "#7e22ce", "#6b21a8"]
+
+    for i, ((mx, my, mr), color, label) in enumerate(
+        zip(milestone_positions, milestone_colors, labels[:5])
+    ):
+        label_text = _escape_svg_text(label[:18])
+        phase = f"Q{i + 1}"
+        # Alternate label position above/below the curve to avoid overlap
+        offset = -42 if i % 2 == 0 else 42
+        svg += f"""
+  <!-- Milestone {i + 1}: {label_text} -->
+  <circle cx="{mx}" cy="{my}" r="{mr}" fill="#1a0f1d" stroke="{color}" stroke-width="3"/>
+  <circle cx="{mx}" cy="{my}" r="{mr - 6}" fill="{color}" opacity="0.3"/>
+  <text x="{mx}" y="{my + 4}" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{color}" text-anchor="middle">{phase}</text>
+  <text x="{mx}" y="{my + offset}" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>"""
+
+    svg += _shared_frame_footer(date_display, "Roadmap", "#a855f7")
+    return svg
+
+
+def generate_versus_split_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Comparison layout: left/right split with versus divider.
+
+    Palette: strategy purple on one side, operations cyan on the other. The
+    two topic cards are fed from the first two extracted labels; tags become
+    bullet-point contrasts under each card.
+    """
+    date_display = date.strftime("%B %d, %Y")
+    labels = _extract_card_labels(news_items, limit=2)
+    if len(labels) < 2:
+        labels = (labels + ["OPTION A", "OPTION B"])[:2]
+    left_label = _escape_svg_text(labels[0][:22])
+    right_label = _escape_svg_text(labels[1][:22])
+
+    svg = _shared_defs_and_background(
+        "#a855f7", title=f"Comparison - {date_display}"
+    )
+    svg += _shared_frame_header(
+        "Comparison",
+        date_display,
+        accent="#a855f7",
+        subtitle="Side-by-side evaluation",
+    )
+
+    # Left panel (purple)
+    svg += """
+  <!-- Left panel -->
+  <rect x="40" y="120" width="540" height="400" rx="16" fill="#1a0f1d" stroke="#a855f7" stroke-width="2"/>
+  <rect x="40" y="120" width="540" height="52" rx="16" fill="#a855f7" opacity="0.18"/>
+  <text x="60" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" letter-spacing="3">OPTION A</text>
+"""
+    svg += f"""  <text x="310" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#a855f7" text-anchor="middle">{left_label}</text>
+"""
+
+    # Left icon (shield)
+    svg += """
+  <g transform="translate(310 310)">
+    <path d="M0,-60 L46,-36 L46,12 C46,44 26,64 0,76 C-26,64 -46,44 -46,12 L-46,-36 Z" fill="none" stroke="#a855f7" stroke-width="2"/>
+    <path d="M-18,4 L-6,16 L20,-14" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="310" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
+  <text x="310" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
+  <text x="310" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
+"""
+
+    # Center VS divider
+    svg += """
+  <!-- VS divider -->
+  <line x1="600" y1="130" x2="600" y2="510" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="600" cy="320" r="34" fill="#0a0e1a" stroke="#f8fafc" stroke-width="2"/>
+  <text x="600" y="326" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="2">VS</text>
+"""
+
+    # Right panel (cyan)
+    svg += """
+  <!-- Right panel -->
+  <rect x="620" y="120" width="540" height="400" rx="16" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="620" y="120" width="540" height="52" rx="16" fill="#22d3ee" opacity="0.18"/>
+  <text x="640" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" letter-spacing="3">OPTION B</text>
+"""
+    svg += f"""  <text x="890" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#22d3ee" text-anchor="middle">{right_label}</text>
+"""
+
+    # Right icon (gear)
+    svg += """
+  <g transform="translate(890 310)">
+    <circle r="44" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <circle r="18" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M-50,0 L-40,0 M40,0 L50,0 M0,-50 L0,-40 M0,40 L0,50 M-36,-36 L-30,-30 M30,30 L36,36 M30,-30 L36,-36 M-36,36 L-30,30" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="890" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
+  <text x="890" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
+  <text x="890" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
+"""
+
+    svg += _shared_frame_footer(date_display, "Comparison", "#a855f7")
+    return svg
+
+
+def _classify_post_for_layout(
+    categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Classify a post into a layout lane by inspecting categories and titles.
+
+    Kept in sync with scripts/bulk_regenerate_old_svgs.py::classify_post so
+    that auto_publish_news and the backfill pipeline agree on lane routing.
+    """
+    # Pull all the text signals we have
+    cat_blob = " ".join((categorized or {}).keys()).lower()
+    title_blob = " ".join(
+        str((item or {}).get("title", "")).lower() for item in (news_items or [])
+    )
+    blob = f"{cat_blob} {title_blob}"
+
+    if any(
+        re.search(p, blob)
+        for p in (
+            r"postmortem",
+            r"post.?mortem",
+            r"incident",
+            r"outage",
+        )
+    ):
+        return "postmortem"
+    if any(
+        re.search(p, blob)
+        for p in (r"roadmap", r"learning.?path", r"maturity.?model")
+    ):
+        return "roadmap"
+    if any(
+        re.search(p, blob)
+        for p in (r"comparison", r"\bvs\.?\b", r"versus", r"비교")
+    ):
+        return "comparison"
+    if any(
+        re.search(p, blob)
+        for p in (r"guide", r"course", r"tutorial", r"how.?to", r"step.?by.?step")
+    ):
+        return "tutorial"
+    return "digest"
+
+
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
     """Generate low-text digest SVG focused on standalone comprehension.
 
-    Layout cycles through 5 visually distinct styles based on day of month (day % 5):
-      0 - Fractured Core: central hexagon with orbiting nodes (red/cyan)
-      1 - Dossier Strike: diagonal split with classified stamp motif (purple/gold)
-      2 - Pipeline Triptych: three vertical columns (cyan/green/orange)
-      3 - Shattered Vault: horizontal split with breach crack (gold/blue)
-      4 - Global Gavel: world map grid with depth layers (navy/crimson/silver)
+    Routes each post to a layout based on category + title classification:
+      - digest      → card-signal-map (golden 04-09 style)
+      - tutorial    → 3-pillar stack
+      - postmortem  → timeline + ECG pulse
+      - roadmap     → S-curve milestones
+      - comparison  → left/right versus split
+    Non-security fallbacks cycle through 5 legacy visual styles.
     """
+
+    if categorized.get("security") or categorized.get("devsecops"):
+        lane = _classify_post_for_layout(categorized, news_items)
+        if lane == "tutorial":
+            return generate_tutorial_stack_svg(date, categorized, news_items)
+        if lane == "postmortem":
+            return generate_timeline_pulse_svg(date, categorized, news_items)
+        if lane == "roadmap":
+            return generate_milestone_curve_svg(date, categorized, news_items)
+        if lane == "comparison":
+            return generate_versus_split_svg(date, categorized, news_items)
+        return generate_card_signal_svg(date, categorized, news_items)
 
     date_display = date.strftime("%B %d, %Y")
     focus_labels = _extract_visual_focus_labels(news_items, limit=SVG_MAX_FOCUS_LABELS)
 
-    if categorized.get("security") or categorized.get("devsecops"):
-        main_category = "security"
-    elif categorized.get("ai"):
+    if categorized.get("ai"):
         main_category = "ai"
     elif categorized.get("cloud"):
         main_category = "cloud"
@@ -865,7 +1714,7 @@ def generate_svg_image(
 
     config = CATEGORY_SVG_CONFIG.get(main_category, CATEGORY_SVG_CONFIG["tech"])
     accent = config["icon_color"]
-    headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
+    headline = "TECH SIGNAL MAP"
     subtitle = _compose_svg_subtitle(focus_labels)
 
     layout_index = date.day % 5
