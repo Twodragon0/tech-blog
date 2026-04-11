@@ -176,14 +176,82 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
     return title_keywords
 
 
+# Korean particles/endings that indicate an incomplete phrase.
+# Shared between _trim_dangling_particles, _title_quality_score, and _smart_truncate_korean.
+_DANGLING_SUFFIXES_RE = re.compile(
+    r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|위한|하는|하기|하여|통해|대한"
+    r"|하지|한|된|되는|되며|되지|되고|되자|려는|면서|지만|라는|라고|처럼|마저|까지)"
+    r"\s*[,.]?\s*$"
+)
+
+# Trailing patterns that signal cut-mid-number or cut-mid-count.
+# Compound Korean units (5천만 = 50 million, 2억 5천 등) are matched greedily
+# so "5천만" is consumed as a single unit rather than leaving "만" dangling.
+_TRAILING_COUNT_RE = re.compile(
+    r"(?:\d+(?:천만|백만|억|조|천|만|%|\s?[GMK]B))\s*[,]?\s*$"
+)
+
+
+def _trim_dangling_particles(text: str, min_len: int = 6) -> str:
+    """Strip Korean particles/endings that leave a phrase hanging mid-sentence.
+
+    Repeatedly cuts the last token while the result still ends with a dangling
+    particle and stays above ``min_len``. Also strips trailing numeric fragments
+    like "5천만," that indicate the following noun was truncated away.
+    """
+    if not text:
+        return text
+    while len(text) > min_len and (
+        _DANGLING_SUFFIXES_RE.search(text) or _TRAILING_COUNT_RE.search(text)
+    ):
+        stripped = _DANGLING_SUFFIXES_RE.sub("", text)
+        stripped = _TRAILING_COUNT_RE.sub("", stripped)
+        if " " in stripped:
+            stripped = stripped.rsplit(" ", 1)[0]
+        stripped = stripped.rstrip(" ,.")
+        if stripped == text or not stripped:
+            break
+        text = stripped
+    return text.rstrip(" ,.")
+
+
+def _smart_truncate_korean(text: str, max_len: int) -> str:
+    """Truncate Korean text while preserving sentence/phrase boundaries.
+
+    Preference order for the cut point:
+      1. Sentence terminator (. ! ?)
+      2. Phrase separator (, ; : — | )
+      3. Space
+      4. Hard cut (last resort)
+
+    The result is further passed through :func:`_trim_dangling_particles`
+    so that common Korean particles aren't left hanging.
+    """
+    if not text or len(text) <= max_len:
+        return _trim_dangling_particles(text.rstrip(" ,.") if text else text)
+
+    window = text[: max_len + 1]
+    # Prefer strong terminators
+    for terminators in (".!?", ",;:—|"):
+        cut = -1
+        for ch in terminators:
+            idx = window.rfind(ch)
+            if idx > cut:
+                cut = idx
+        if cut > max_len // 2:
+            return _trim_dangling_particles(window[:cut].rstrip(" ,."))
+
+    # Fall back to last space
+    if " " in window:
+        return _trim_dangling_particles(window.rsplit(" ", 1)[0].rstrip(" ,."))
+
+    return _trim_dangling_particles(text[:max_len].rstrip(" ,."))
+
+
 def _extract_digest_title_phrases(
     news_items: List[Dict], mode: str = "security", limit: int = 3
 ) -> List[str]:
     """Build a more specific digest title from top headlines."""
-    # Korean particles/endings that indicate an incomplete phrase
-    _DANGLING_SUFFIXES = re.compile(
-        r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|하는|하기|하여|통해|대한)\s*$"
-    )
     phrases: List[str] = []
     seen: set[str] = set()
 
@@ -195,13 +263,10 @@ def _extract_digest_title_phrases(
         if len(candidate) < 8:
             candidate = raw_title.strip(" ,.")
         if len(candidate) > 26:
-            candidate = candidate[:26].rsplit(" ", 1)[0].rstrip(" ,.")
+            candidate = _smart_truncate_korean(candidate, max_len=26)
 
         # Trim dangling Korean particles (cut back to last noun)
-        while _DANGLING_SUFFIXES.search(candidate) and len(candidate) > 6:
-            candidate = (
-                _DANGLING_SUFFIXES.sub("", candidate).rsplit(" ", 1)[0].rstrip(" ,.")
-            )
+        candidate = _trim_dangling_particles(candidate, min_len=6)
 
         if not candidate or len(candidate) < 4:
             continue
@@ -340,13 +405,13 @@ def _has_batchim(char: str) -> bool:
 def _title_quality_score(title: str) -> int:
     """제목 품질 점수 (0-100). 낮을수록 나쁨."""
     score = 100
-    # Dangling Korean particles at phrase boundaries
-    dangling = re.compile(
-        r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|하는|하기|하여|통해|대한)\s*[,.]?\s*$"
-    )
+    # Dangling Korean particles at phrase boundaries (shared with trim helper)
     for part in title.split(","):
-        if dangling.search(part.strip()):
+        stripped = part.strip()
+        if _DANGLING_SUFFIXES_RE.search(stripped):
             score -= 20
+        elif _TRAILING_COUNT_RE.search(stripped):
+            score -= 15
     # Too many commas = keyword soup
     comma_count = title.count(",")
     if comma_count > 4:
@@ -1594,7 +1659,7 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
             display_title = raw_title
 
         if len(display_title) > max_len:
-            display_title = display_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+            display_title = _smart_truncate_korean(display_title, max_len=max_len)
 
         KOREAN_TITLE_CACHE[cache_key] = display_title
         return display_title
@@ -2156,12 +2221,51 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         logging.info(
             f"AI template fallback triggered for: {item.get('title', '')[:60]}"
         )
-        template += "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토\n"
-        template += "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인\n"
-        template += "- 관련 기술의 자사 환경 적용 가능성 평가 및 보안 영향 분석\n"
+        template += _pick_generic_ai_bullets(item)
 
     template += "\n"
     return template
+
+
+# AI/ML fallback bullet pools — parallel to the DevOps fallback pools.
+_AI_FALLBACK_POOLS: List[List[str]] = [
+    [
+        "- AI/ML 기술 도입 시 데이터 파이프라인 보안 및 접근 제어 검토",
+        "- 모델 학습/추론 환경의 네트워크 격리 및 인증 체계 확인",
+        "- 관련 기술의 자사 환경 적용 가능성 평가 및 보안 영향 분석",
+    ],
+    [
+        "- 벤더 AI 서비스의 데이터 처리 약관·데이터 레지던시 요구사항 재검토",
+        "- 실험(research) 모델이 프로덕션 데이터에 접근할 때의 격리 경계 명문화",
+        "- 모델 업데이트 주기·회귀 테스트 셋을 MLOps 파이프라인에 기본값으로 포함",
+    ],
+    [
+        "- 학습 데이터셋의 PII·라이선스 출처 감사 자동화로 재배포 리스크 제거",
+        "- 모델 카드·시스템 카드에 알려진 실패 모드와 완화 전략 문서화",
+        "- 평가(eval) 지표에 안전성(safety)·편향(bias) 항목을 명시적으로 포함",
+    ],
+    [
+        "- 멀티 모델 라우팅에서 민감 쿼리는 특정 리전·벤더로 고정하는 정책 설정",
+        "- 프롬프트·시스템 메시지를 시크릿으로 분류해 버전 관리·감사 로그에 연계",
+        "- 사용량 상위 10% 프롬프트에 대한 red-team 리뷰를 주기적으로 실시",
+    ],
+    [
+        "- RAG 인덱스의 컬렉션·네임스페이스 단위 접근 제어와 테넌트 분리 검증",
+        "- 벡터 DB의 임베딩 유사도 기반 정보 누출(membership inference) 위험 모델링",
+        "- AI 응답에 인용 출처를 포함하도록 강제해 hallucination 추적성을 확보",
+    ],
+]
+
+
+def _pick_generic_ai_bullets(item: Optional[Dict]) -> str:
+    """Deterministic fallback bullet picker for AI template."""
+    if item is None:
+        return "\n".join(_AI_FALLBACK_POOLS[0]) + "\n"
+    seed = item.get("url") or item.get("title", "") or ""
+    if not seed:
+        return "\n".join(_AI_FALLBACK_POOLS[0]) + "\n"
+    bucket = sum(ord(c) for c in seed) % len(_AI_FALLBACK_POOLS)
+    return "\n".join(_AI_FALLBACK_POOLS[bucket]) + "\n"
 
 
 def _generate_devops_template(item: Optional[Dict] = None) -> str:
@@ -2281,16 +2385,148 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
         template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
         template += "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n"
+    elif any(
+        kw in text
+        for kw in ["copilot", "github blog", "github action", "changelog", "코파일럿"]
+    ):
+        template += "- Copilot/Actions 플랜·쿼터 변경이 내부 파이프라인에 미치는 영향 회귀 테스트\n"
+        template += "- 에이전트 응답 로그를 SIEM에 연동해 민감 코드/시크릿 노출 사례 감사\n"
+        template += "- 팀별 Copilot 사용량 지표(AAU, MAU, 토큰)를 라이선스 리포트에 통합\n"
+    elif any(
+        kw in text
+        for kw in ["metric", "observability", "dashboard", "대시보드", "메트릭", "로그"]
+    ):
+        template += "- 메트릭·로그 스키마 변경 시 기존 Grafana/Looker 대시보드 호환성 회귀 확인\n"
+        template += "- 신규 지표(AAU·MAU 등)를 SLO·SLA 보고서에 통합해 정책 공백 감지\n"
+        template += "- 관측성 데이터의 보존 기간과 접근 제어(RBAC)를 거버넌스 정책과 일치시키기\n"
+    elif any(
+        kw in text
+        for kw in ["serverless", "lambda", "cloud run", "cloud functions", "function"]
+    ):
+        template += "- 서버리스 워크로드 실행 역할(IAM)의 최소 권한·일시성 로그 감사 정책 점검\n"
+        template += "- Cold start·burst 스케일 시 비밀값 주입 지연과 cache-poisoning 위험 평가\n"
+        template += "- 이벤트 소스(버킷·큐·스케줄러)별 invoke 권한과 VPC 경계 분리 검증\n"
+    elif any(
+        kw in text
+        for kw in [
+            "gpu",
+            "cuda",
+            "nccl",
+            "training",
+            "학습 인프라",
+            "infiniband",
+            "nvlink",
+        ]
+    ):
+        template += "- GPU 드라이버·CUDA·NCCL 버전 고정 및 헬스체크 훅으로 단일 장애 노드 자동 격리\n"
+        template += "- 토폴로지 인식 스케줄링(Kueue/Ray)으로 NVLink/InfiniBand 장애 도메인 분리\n"
+        template += "- 분산 체크포인트 RPO 기준 설계 및 복구 시간 테스트 자동화\n"
+    elif any(
+        kw in text
+        for kw in [
+            "trial",
+            "체험판",
+            "abuse",
+            "남용",
+            "rate limit",
+            "레이트 리미트",
+            "quota",
+            "쿼터",
+        ]
+    ):
+        template += "- 가입·세션 생성 엔드포인트의 IP·디바이스 지문 기반 중복 탐지 룰과 CAPTCHA 단계 강화\n"
+        template += "- 체험판 API에 별도 quota 버킷을 할당하고 burst·cumulative 임계 기반 실시간 알림 구성\n"
+        template += "- 남용 패턴(봇 가입, 카드 재사용, 일회용 이메일)을 Risk Engine에 공급해 자동 차단·수동 리뷰 분리\n"
+    elif any(
+        kw in text
+        for kw in [
+            "bigquery",
+            "data cloud",
+            "데이터 큐레이션",
+            "etl",
+            "analytics",
+            "warehouse",
+            "lakehouse",
+            "iceberg",
+        ]
+    ):
+        template += "- 데이터 파이프라인의 출처·목적지별 PII 분류와 DLP 마스킹 정책 적용 검토\n"
+        template += "- ETL/큐레이션 작업의 서비스 계정 권한을 테이블 단위 IAM으로 축소하고 감사\n"
+        template += "- 컬럼 단위 암호화(CMEK)와 BigQuery row-level security 정책 일관성 확인\n"
+    elif any(
+        kw in text
+        for kw in [
+            "gemini",
+            "enterprise ai",
+            "엔터프라이즈 ai",
+            "agentic",
+            "에이전틱",
+            "public sector",
+            "공공 부문",
+        ]
+    ):
+        template += "- 엔터프라이즈 AI 도입 시 데이터 분류(공개/내부/기밀/규제) 등급별 RAG 접근 통제 설계\n"
+        template += "- 에이전트 도구 호출(Tool Use)에 화이트리스트·스키마 검증과 human-in-the-loop 승인 게이트 적용\n"
+        template += "- 컴플라이언스(FedRAMP/KISA/CSAP) 요구사항과 모델 계층 책임 공유 모델 문서화\n"
     else:
         logging.info(
             f"DevOps template fallback triggered for: {item.get('title', '')[:60]}"
         )
-        template += "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
-        template += "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
-        template += "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+        template += _pick_generic_devops_bullets(item)
 
     template += "\n"
     return template
+
+
+# Diverse fallback bullet pools — selected deterministically by item hash so
+# that multiple items in the same digest post don't all get identical bullets.
+_DEVOPS_FALLBACK_POOLS: List[List[str]] = [
+    [
+        "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인",
+        "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검",
+        "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정",
+    ],
+    [
+        "- 변경 관리 티켓과 IaC 커밋의 1:1 추적성 확보로 사후 감사 대응 간소화",
+        "- 스테이징-프로덕션 파리티 점검으로 구성 차이에서 오는 운영 위험 제거",
+        "- 변경 롤백 플랜(Runbook)을 워크플로우에 포함시켜 MTTR 단축",
+    ],
+    [
+        "- 서비스 의존성 그래프 기반으로 변경 파급 범위(blast radius)를 사전 가시화",
+        "- 운영 지표(SLO·error budget)가 변경 이전 수준으로 수렴하는지 release gate 자동화",
+        "- 주요 서드파티 서비스의 Status 페이지를 내부 알림 파이프라인에 연동",
+    ],
+    [
+        "- 기능 플래그(Feature Flag) 점진 롤아웃으로 회귀 리스크를 단계적으로 검증",
+        "- 운영 툴 접근(SSH/kubectl/cloud CLI) 이력의 JIT 권한과 감사 로그 정기 리뷰",
+        "- 쉘·플레이북 자동화에 dry-run 모드와 승인 게이트를 기본값으로 설정",
+    ],
+    [
+        "- Prometheus/OpenTelemetry 경보 룰을 변경 이벤트와 상관관계 분석해 회귀 탐지",
+        "- 인프라 스냅샷·백업의 복구 리허설을 분기별로 실제 집행하고 결과 기록",
+        "- 서비스 오너·오너십 메타데이터를 catalog화해 변경 책임 소재 명확화",
+    ],
+]
+
+
+def _pick_generic_devops_bullets(item: Optional[Dict]) -> str:
+    """Deterministically pick one of the fallback bullet pools based on item hash.
+
+    Ensures different items in the same digest post receive different bullets
+    even when they all fall through to the generic fallback branch.
+    """
+    if item is None:
+        return "\n".join(_DEVOPS_FALLBACK_POOLS[0]) + "\n"
+    seed = (
+        item.get("url")
+        or item.get("title", "")
+        or ""
+    )
+    if not seed:
+        return "\n".join(_DEVOPS_FALLBACK_POOLS[0]) + "\n"
+    # Non-crypto stable hash — stdlib hash() varies per run, so use a sum
+    bucket = sum(ord(c) for c in seed) % len(_DEVOPS_FALLBACK_POOLS)
+    return "\n".join(_DEVOPS_FALLBACK_POOLS[bucket]) + "\n"
 
 
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
