@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "해커들, CVE-2025-55182 악용해, Cisco, 원격 시스템 침해 가능한 9.8, 에이전트 AI 시스템을 위한 네 가지 보안 원칙"
+title: "Cisco FMC CVE-2025-55182 원격 침해·에이전트 AI 4대 보안 원칙: 2026-04-03 보안 위클리 다이제스트"
 date: 2026-04-03 10:26:39 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AWS, AI]
-excerpt: "해커들, CVE-2025-55182 악용해, Cisco, 원격 시스템 침해 가능한 9.8, 에이전트 AI 시스템을 위한 네 가지 보안 원칙을 중심으로 2026년 04월 03일 주요 보안/기술 뉴스 29건과 대응 우선순위를 정리합니다."
-description: "2026년 04월 03일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 해커들, CVE-2025-55182 악용해, Cisco 등 DevSecOps 대응 포인트를 정리합니다."
+excerpt: "Cisco FMC CVE-2025-55182(CVSS 9.8) 원격 시스템 침해 익스플로잇, 에이전트 AI 시스템을 위한 네 가지 보안 원칙을 중심으로 2026년 04월 03일 주요 보안·기술 뉴스 29건과 DevSecOps 대응 우선순위를 정리합니다."
+description: "2026년 04월 03일 보안 뉴스 요약. The Hacker News·AWS Security Blog 29건을 분석하고 Cisco FMC CVE-2025-55182 원격 침해, 에이전트 AI 보안 원칙 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AWS]
 author: Twodragon
 comments: true
 image: /assets/images/2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.svg
-image_alt: "CVE-2025-55182, Cisco, 9.8, AI - security digest overview"
+image_alt: "Cisco FMC CVE-2025-55182, agentic AI security principles - security digest overview"
 toc: true
 ---
 
 {% include ai-summary-card.html
-  title='해커들, CVE-2025-55182 악용해, Cisco, 원격 시스템 침해 가능한 9.8, 에이전트 AI 시스템을 위한 네 가지 보안 원칙'
+  title='Cisco FMC CVE-2025-55182 원격 침해·에이전트 AI 4대 보안 원칙: 2026-04-03 보안 위클리 다이제스트'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">CVE</span>
@@ -214,14 +214,14 @@ DevSecOps 팀은 **"런타임 보안 모니터링"** 과 **"에이전트 행동 
 
 Meta의 두 번째 Ranking Engineer Agent 시리즈는 AI 인프라 최적화에 초점을 맞추고 있습니다. 이번 글에서는 광고 순위 모델 실행의 기반이 되는 저수준 인프라를 KernelEvolve로 최적화하는 방법을 다룹니다.
 
-**실무 포인트**: AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요.
+**실무 포인트**: ML 커널·컴파일러 자동 최적화 에이전트가 프로덕션 코드를 수정할 때 안전 가드레일을 선제 설계하세요.
 
 
 #### 실무 적용 포인트
 
-- AI 에이전트 도구 호출 권한 및 접근 범위 최소화 설계
-- 에이전트 행동 로깅 및 감사 파이프라인 구축 검토
-- 에이전트 출력에 대한 검증 및 사람 감독(Human-in-the-Loop) 설계
+- 자동 생성된 GPU 커널에 대한 정적/동적 분석(정확도·메모리 안전성) 게이트를 CI 파이프라인에 의무화
+- 커널 변경의 수치 정확도 회귀 테스트(Loss·AUC 임계 기반)를 A/B 평가로 검증한 뒤에만 롤아웃
+- 에이전트 수정 이력·근거(prompt → diff → review)를 불변 로그로 보존해 사후 포렌식과 재현 가능성 확보
 
 
 ---
@@ -241,14 +241,14 @@ Meta의 두 번째 Ranking Engineer Agent 시리즈는 AI 인프라 최적화에
 
 Google의 Gemma 4 모델군은 효율적인 로컬 실행을 위해 설계된 소형 고속 모델을 소개합니다. 이는 클라우드를 넘어 온디바이스 AI와 실시간 현지 컨텍스트 활용의 중요성을 강조하는 흐름을 반영합니다.
 
-**실무 포인트**: AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요.
+**실무 포인트**: 온디바이스·에지 LLM 배포에서 모델 무결성·데이터 주권·오프라인 남용 방어 체계를 수립하세요.
 
 
 #### 실무 적용 포인트
 
-- AI 에이전트 도구 호출 권한 및 접근 범위 최소화 설계
-- 에이전트 행동 로깅 및 감사 파이프라인 구축 검토
-- 에이전트 출력에 대한 검증 및 사람 감독(Human-in-the-Loop) 설계
+- RTX·Jetson·Spark 엣지 노드에 배포되는 Gemma 4 가중치 해시·서명 검증과 자동 rollback 채널 구축
+- 온디바이스 추론 환경의 로컬 RAG 인덱스·컨텍스트 캐시에 대한 디스크 암호화·TPM 바인딩 적용
+- 로컬 에이전트의 도구 호출(파일·셸·네트워크)에 기본 deny + 명시적 allowlist 정책 및 사용자 프롬프트 승인 단계
 
 
 ---
@@ -403,14 +403,14 @@ Software Supply Chain에 대한 지속적인 공격이 심화되고 있습니다
 
 Docker Hub는 경량 엣지 모델부터 고성능 LLM까지 OCI 아티팩트로 패키징된 AI 모델의 허브로 자리잡고 있습니다. Google의 최신 경량 오픈 모델인 Gemma 4가 Docker Hub에서 이용 가능해졌습니다.
 
-**실무 포인트**: 컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요.
+**실무 포인트**: OCI 아티팩트로 배포되는 AI 모델은 일반 컨테이너 이미지와 다른 공급망·라이선스 위험을 수반하므로 별도 거버넌스가 필요합니다.
 
 
 #### 실무 적용 포인트
 
-- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토
-- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인
-- 컨테이너 런타임 보안 모니터링 강화
+- Docker Hub에서 제공되는 모델 OCI 아티팩트의 cosign 서명·SBOM 첨부 여부를 검증하고 미서명 모델은 pull 차단 정책 적용
+- 모델 레이어 해시를 내부 registry에 미러링해 업스트림 변경·삭제 발생 시 재현 가능한 롤백 경로 확보
+- Gemma 4 라이선스(프로파일별 사용 제한) 조건을 소프트웨어 자산 관리 시스템에 등록하고 사용처 감사
 
 
 ---
@@ -429,14 +429,14 @@ Docker Hub는 경량 엣지 모델부터 고성능 LLM까지 OCI 아티팩트로
 
 Docker Offload가 정식 출시되어 VDI 플랫폼 등 제한된 환경의 엔터프라이즈 개발자들도 Docker Desktop의 모든 기능을 활용할 수 있게 되었습니다. 이는 리소스나 기능 부족으로 Docker Desktop 사용이 어려웠던 개발자들에게 전면적인 Docker 경험을 제공합니다.
 
-**실무 포인트**: 컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요.
+**실무 포인트**: Offload가 개발자 워크스테이션의 빌드·실행을 원격 인프라로 이동시키므로 네트워크 경계·IP 유출 리스크를 새롭게 평가해야 합니다.
 
 
 #### 실무 적용 포인트
 
-- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토
-- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인
-- 컨테이너 런타임 보안 모니터링 강화
+- Docker Offload가 사용하는 원격 빌드 세션에 대해 회사 프록시·TLS 인스펙션·Egress 게이트웨이 통제 범위를 확인하고 우회 경로 차단
+- 로컬 작업 디렉토리·시크릿이 원격 빌드 컨텍스트로 전송될 때 `.dockerignore` 및 시크릿 마운트(`--secret`) 사용을 조직 표준으로 의무화
+- VDI·제한 환경에서의 Offload 승격을 개발자별 access review 워크플로우와 연동해 과도한 권한 부여 방지
 
 
 ---
