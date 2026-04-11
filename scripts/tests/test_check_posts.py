@@ -259,11 +259,15 @@ class TestCheckDuplicatePracticalPoints:
         assert len(issues) == 1
         assert "반복" in issues[0]
 
-    def test_no_flag_when_bullet_appears_twice(self):
+    def test_flag_when_bullet_appears_twice(self):
+        """Threshold lowered from 3→2: duplicate bullets are now flagged on
+        the first repeat so the generator's fallback branch regression is
+        caught immediately rather than waiting for a third occurrence."""
         bullet = "- 팀 내 공유 필요."
         section = "## 실무 적용 포인트\n" + (bullet + "\n") * 2
         issues = check_duplicate_practical_points(section)
-        assert issues == []
+        assert len(issues) == 1
+        assert "반복 2회" in issues[0]
 
     def test_no_flag_outside_practical_points_section(self):
         content = "## 다른 섹션\n- 같은 내용\n- 같은 내용\n- 같은 내용\n"
@@ -445,13 +449,15 @@ class TestCheckSvgTextDensity:
         assert issues == []
 
     def test_too_many_text_nodes_flagged(self, tmp_path):
-        texts = "".join(f"<text>Node {i}</text>" for i in range(25))
+        # Threshold was raised to 40 nodes in commit 130a12d0. Use 45 to trip it.
+        texts = "".join(f"<text>Node {i}</text>" for i in range(45))
         svg = f'<svg xmlns="http://www.w3.org/2000/svg">{texts}</svg>'
         issues = self._make_svg_and_check(tmp_path, svg)
         assert any("text nodes" in i for i in issues)
 
     def test_too_many_chars_flagged(self, tmp_path):
-        long_text = "A" * 350
+        # Threshold was raised to 800 chars in commit 130a12d0. Use 900 to trip it.
+        long_text = "A" * 900
         svg = f'<svg xmlns="http://www.w3.org/2000/svg"><text>{long_text}</text></svg>'
         issues = self._make_svg_and_check(tmp_path, svg)
         assert any("too much text" in i for i in issues)

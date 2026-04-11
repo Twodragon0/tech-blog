@@ -53,9 +53,12 @@ BANNED_PHRASES = [
 # ===========================================================================
 
 
-def _item(title: str = "", summary: str = "") -> dict:
+def _item(title: str = "", summary: str = "", url: str = "") -> dict:
     """Build a minimal news item dict."""
-    return {"title": title, "summary": summary}
+    item: dict = {"title": title, "summary": summary}
+    if url:
+        item["url"] = url
+    return item
 
 
 def _assert_no_banned(text: str, label: str = "") -> None:
@@ -254,13 +257,34 @@ class TestGenerateAiAnalysisTemplate:
     def test_fallback_no_keywords(self):
         item = _item(title="Quarterly earnings report", summary="Revenue up 10%")
         result = _generate_ai_analysis_template(item)
-        assert "데이터 파이프라인" in result
-        assert "네트워크 격리" in result
+        # Fallback is now deterministic by item-hash but always produces
+        # 3 context-adjacent bullets under the header.
+        assert "#### 실무 적용 포인트" in result
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3, f"Expected 3 bullets, got {len(bullets)}"
 
     def test_fallback_empty_item(self):
         item = _item()
         result = _generate_ai_analysis_template(item)
-        assert "데이터 파이프라인" in result
+        assert "#### 실무 적용 포인트" in result
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3
+
+    def test_fallback_hash_diversity(self):
+        """Different items should land in different fallback buckets in aggregate.
+
+        With 5 pools and 8 distinct inputs we expect at least 2 distinct outputs.
+        Individual hash collisions are possible but all 8 landing in one bucket
+        would mean the picker is broken.
+        """
+        items = [
+            _item(title=f"Quarterly earnings report {i}", url=f"https://example.com/{c}")
+            for i, c in enumerate("abcdefgh")
+        ]
+        results = {_generate_ai_analysis_template(item) for item in items}
+        assert (
+            len(results) >= 2
+        ), f"AI fallback bullets lack diversity across 8 items: {len(results)} unique"
 
     # ------------------------------------------------------------------
     # Common structure checks
@@ -535,15 +559,32 @@ class TestGenerateDevopsTemplate:
     # ------------------------------------------------------------------
     # Branch: fallback (else)
     # ------------------------------------------------------------------
-    def test_fallback_drift_detection(self):
+    def test_fallback_has_three_bullets(self):
+        """Fallback should always produce exactly 3 bullets under the header."""
         item = _item(title="General infrastructure update notes")
         result = _generate_devops_template(item)
-        assert "드리프트" in result or "취약점 데이터베이스" in result
+        assert "#### 실무 적용 포인트" in result
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3
 
     def test_fallback_empty_item(self):
-        item = _item()
-        result = _generate_devops_template(item)
-        assert "드리프트" in result or "취약점 데이터베이스" in result
+        """None input returns the canonical generic fallback."""
+        result = _generate_devops_template(None)
+        assert "#### 실무 적용 포인트" in result
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3
+
+    def test_fallback_hash_diversity(self):
+        """Different items should land in different fallback buckets in aggregate."""
+        items = [
+            _item(title=f"General infra notes {i}", url=f"https://example.com/{c}")
+            for i, c in enumerate("abcdefghij")
+        ]
+        results = {_generate_devops_template(item) for item in items}
+        # With 5 pools and 10 distinct inputs we expect multiple unique outputs.
+        assert (
+            len(results) >= 2
+        ), f"DevOps fallback bullets lack diversity across 10 items: {len(results)} unique"
 
     # ------------------------------------------------------------------
     # Common structure checks
@@ -2708,3 +2749,234 @@ class TestDetectDigestNodes:
             {"title": "Identity authentication 인증 위협", "tags": []}
         )
         assert "auth" in nodes
+
+
+# ============================================================================
+# Title-quality helpers — content_generator regression suite
+# ============================================================================
+
+
+class TestTrimDanglingParticles:
+    """_trim_dangling_particles() — Korean particle/ending cleanup."""
+
+    @pytest.fixture(autouse=True)
+    def _load(self):
+        from news.content_generator import _trim_dangling_particles
+
+        self.trim = _trim_dangling_particles
+
+    def test_trim_eul(self):
+        """조사 '을' 로 끝나는 구문은 그 단어를 함께 떨어냄."""
+        assert not self.trim("차세대 10년을 위한").endswith("을")
+        assert not self.trim("차세대 10년을 위한").endswith("위한")
+
+    def test_trim_discussion_hanji(self):
+        """'논의하지' (discuss + dangling ending)."""
+        result = self.trim("브라우저 확장 프로그램은 아무도 논의하지")
+        assert not result.endswith("하지")
+
+    def test_trim_target_han(self):
+        """'표적으로 한' — participial ending."""
+        result = self.trim("대만 NGO를 표적으로 한")
+        assert not result.endswith("한") or result == "대만 NGO"
+
+    def test_trim_bare_count(self):
+        """'5천만' 숫자 뒤에 명사가 잘린 경우 숫자도 제거."""
+        result = self.trim("EngageLab SDK 결함으로 5천만")
+        assert "5천만" not in result.split()[-1:] or result == "EngageLab SDK 결함으로"
+
+    def test_preserve_clean_title(self):
+        """완전한 구문은 변형 없이 유지."""
+        clean = "GlassWorm 캠페인 Zig 드로퍼"
+        assert self.trim(clean) == clean
+
+    def test_min_len_guard(self):
+        """min_len 미만으로는 자르지 않음."""
+        assert self.trim("위한", min_len=10) == "위한"
+
+    def test_empty_input(self):
+        assert self.trim("") == ""
+
+
+class TestSmartTruncateKorean:
+    """_smart_truncate_korean() — boundary-aware truncation."""
+
+    @pytest.fixture(autouse=True)
+    def _load(self):
+        from news.content_generator import _smart_truncate_korean
+
+        self.truncate = _smart_truncate_korean
+
+    def test_short_passthrough(self):
+        """max_len 이하는 그대로 반환."""
+        assert self.truncate("short", 20) == "short"
+
+    def test_prefers_phrase_separator(self):
+        """쉼표/콜론 경계에서 자름 (윈도우 내 마지막 경계 우선 = 내용 최대 보존)."""
+        text = "GlassWorm 캠페인, Zig 드로퍼, Chrome DBSC 배포"
+        result = self.truncate(text, max_len=25)
+        # The result should end at a comma boundary (no partial word),
+        # preferring the latest boundary that still fits within max_len+1.
+        assert result in {"GlassWorm 캠페인", "GlassWorm 캠페인, Zig 드로퍼"}
+        assert "," not in result[-2:], "should not leave a trailing comma"
+        assert not result.endswith("드로")  # never a partial word
+
+    def test_falls_back_to_space(self):
+        """쉼표가 없을 때는 마지막 공백에서 자름."""
+        text = "GlassWorm Zig dropper multi IDE infection attempt"
+        result = self.truncate(text, max_len=25)
+        # Should not contain a partial word at the end
+        assert not result.endswith("infecti")
+        assert " " in result
+
+    def test_trims_dangling_after_cut(self):
+        """자른 뒤에도 조사가 남아 있으면 제거."""
+        text = "차세대 10년을 위한 SecOps 재정립 발표"
+        result = self.truncate(text, max_len=20)
+        assert not result.endswith("을")
+        assert not result.endswith("위한")
+
+    def test_empty_input(self):
+        assert self.truncate("", 10) == ""
+
+
+class TestTitleQualityScore:
+    """_title_quality_score() — integer quality score for titles."""
+
+    @pytest.fixture(autouse=True)
+    def _load(self):
+        from news.content_generator import _title_quality_score
+
+        self.score = _title_quality_score
+
+    def test_clean_title_high_score(self):
+        assert self.score("GlassWorm Zig 드로퍼 Chrome DBSC 배포") >= 70
+
+    def test_dangling_particle_penalized(self):
+        clean = "GlassWorm Zig 드로퍼"
+        dangling = "GlassWorm Zig 드로퍼, 차세대 10년을 위한"
+        assert self.score(dangling) < self.score(clean)
+
+    def test_bare_count_penalized(self):
+        bad = "EngageLab SDK 결함으로 5천만"
+        assert self.score(bad) < 100
+
+    def test_keyword_soup_penalized(self):
+        """쉼표가 많고 짧은 조각이 있으면 감점."""
+        soup = "AI, Go, CVE, Update, GlassWorm, Zig"
+        assert self.score(soup) < 80
+
+
+class TestCheckTitleTruncation:
+    """check_posts.check_title_truncation() — frontmatter title validator."""
+
+    @pytest.fixture(autouse=True)
+    def _load(self):
+        import importlib.util
+        import sys
+        from pathlib import Path
+
+        spec = importlib.util.spec_from_file_location(
+            "check_posts",
+            Path(__file__).resolve().parents[1] / "check_posts.py",
+        )
+        module = importlib.util.module_from_spec(spec)
+        sys.modules["check_posts_for_test"] = module
+        spec.loader.exec_module(module)
+        self.check = module.check_title_truncation
+
+    def test_clean_title_no_issues(self):
+        issues = self.check(
+            "Chaos 클라우드 변종·Masjesu IoT 봇넷·APT28 PRISMEX: 2026-04-09 보안 다이제스트"
+        )
+        assert issues == []
+
+    def test_dangling_han_detected(self):
+        issues = self.check("EngageLab SDK 결함으로 5천만, 대만 NGO를 표적으로 한")
+        assert any("dangling" in msg.lower() for msg in issues)
+
+    def test_dangling_wihan_detected(self):
+        issues = self.check("에이전트 기반 SOC—차세대 10년을 위한")
+        assert issues  # some dangling or count warning
+
+    def test_bare_count_detected(self):
+        issues = self.check("EngageLab SDK 결함으로 5천만")
+        assert any("count" in msg.lower() or "dangling" in msg.lower() for msg in issues)
+
+    def test_empty_title_no_issues(self):
+        assert self.check("") == []
+
+    def test_money_suffix_not_flagged(self):
+        """'10억 원' 처럼 명사가 뒤에 오면 경고 없음."""
+        issues = self.check("AI 투자 10억 원 유치")
+        assert issues == []
+
+
+class TestCheckDuplicatePracticalPoints:
+    """check_posts.check_duplicate_practical_points() — dup threshold check."""
+
+    @pytest.fixture(autouse=True)
+    def _load(self):
+        import importlib.util
+        import sys
+        from pathlib import Path
+
+        spec = importlib.util.spec_from_file_location(
+            "check_posts_dup",
+            Path(__file__).resolve().parents[1] / "check_posts.py",
+        )
+        module = importlib.util.module_from_spec(spec)
+        sys.modules["check_posts_dup"] = module
+        spec.loader.exec_module(module)
+        self.check = module.check_duplicate_practical_points
+
+    def test_clean_post_no_issues(self):
+        content = """
+#### 실무 적용 포인트
+
+- 컨테이너 이미지 서명 검증
+- 프라이빗 레지스트리 접근 제어
+- SBOM 기반 취약점 추적
+
+---
+
+#### 실무 적용 포인트
+
+- Kubernetes RBAC 최소 권한 원칙 감사
+- Admission Controller 정책으로 비인가 리소스 차단
+- Pod Security Admission restricted 프로필 적용
+"""
+        assert self.check(content) == []
+
+    def test_single_bullet_repeat_detected(self):
+        """Same bullet appearing twice now triggers a warning (threshold 2)."""
+        content = """
+#### 실무 적용 포인트
+
+- 동일한 보일러플레이트 라인입니다 하나
+- 두 번째 고유한 포인트
+- 세 번째 고유한 포인트
+
+---
+
+#### 실무 적용 포인트
+
+- 동일한 보일러플레이트 라인입니다 하나
+- 네 번째 고유 포인트
+- 다섯 번째 고유 포인트
+"""
+        issues = self.check(content)
+        assert any("반복 2회" in msg for msg in issues)
+
+    def test_whole_block_dup_detected(self):
+        """Identical 3-bullet blocks should trigger the block-dup warning."""
+        block = (
+            "#### 실무 적용 포인트\n\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n\n"
+            "---\n\n"
+        )
+        content = block * 2
+        issues = self.check(content)
+        assert any("블록 중복" in msg for msg in issues)
