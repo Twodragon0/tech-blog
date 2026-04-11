@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>FSD 2026: Model Y</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover -->
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
   <defs>
     <linearGradient id="ua4c920bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f172a"/>
@@ -105,6 +105,19 @@
     <!-- Topic bars -->
     <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Tesla</text>
     <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Fsd</text>
+
+    <!-- Focus panel -->
+    <rect x="40" y="317" width="280" height="88" rx="10" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="317" width="280" height="18" rx="10" fill="#ef4444" opacity="0.10"/>
+    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Tesla / Fsd</text>
+    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Model Y / Juniper</text>
+    <rect x="56" y="373" width="70" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
+    <text x="91" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Tesla</text>
+    <rect x="134" y="373" width="70" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
+    <text x="169" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Fsd</text>
+    <rect x="212" y="373" width="70" height="22" rx="11" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.85"/>
+    <text x="247" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">Model Y</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="56" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
@@ -238,210 +251,40 @@
 
     <!-- COMMON DECORATIONS -->
 
-    <!-- ===== COMMON DECORATIONS ===== -->
-
-    <!-- Hex grid overlay (right area) -->
     <defs>
-      <pattern id="ua4c920hex" x="0" y="0" width="24" height="28" patternUnits="userSpaceOnUse">
-        <polygon points="12,0 24,7 24,21 12,28 0,21 0,7"
-                 fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.15"/>
+      <pattern id="ua4c920mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#ef4444"
+              stroke-width="0.35" opacity="0.12"/>
       </pattern>
     </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#ua4c920hex)" opacity="0.35"/>
-
-    <!-- Orbital rings -->
-    <circle cx="720" cy="300" r="220" fill="none" stroke="#ef4444" stroke-width="0.6"
-            stroke-dasharray="5 8" opacity="0.2"/>
-    <circle cx="720" cy="300" r="180" fill="none" stroke="#dc2626" stroke-width="0.5"
-            stroke-dasharray="3 6" opacity="0.15"/>
-    <circle cx="720" cy="300" r="260" fill="none" stroke="#f97316" stroke-width="0.4"
-            stroke-dasharray="8 12" opacity="0.1"/>
-
-    <!-- Radial grid lines -->
-    <line x1="720" y1="80" x2="720" y2="520" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
-    <line x1="460" y1="300" x2="980" y2="300" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
-    <line x1="535" y1="120" x2="905" y2="480" stroke="#f97316" stroke-width="0.3" opacity="0.08"/>
-    <line x1="905" y1="120" x2="535" y2="480" stroke="#f97316" stroke-width="0.3" opacity="0.08"/>
-
-    <!-- Top-right data panel -->
-    <rect x="960" y="50" width="190" height="110" rx="6" fill="#0f172a" stroke="#ef4444"
-          stroke-width="1" opacity="0.7"/>
-    <rect x="960" y="50" width="190" height="22" rx="6" fill="#ef4444" opacity="0.12"/>
-    <text x="975" y="66" font-family="Courier New, monospace" font-size="9"
-          fill="#ef4444" font-weight="bold" letter-spacing="1">STATUS</text>
-    <circle cx="1135" cy="61" r="4" fill="#22c55e" opacity="0.7"
-            style="animation: ua4c920pulse 2s ease-in-out infinite"/>
-    <text x="975" y="90" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">INTEGRITY</text>
-    <rect x="1050" y="82" width="88" height="6" rx="3" fill="#ef4444" opacity="0.15"/>
-    <rect x="1050" y="82" width="62" height="6" rx="3" fill="#ef4444" opacity="0.5"/>
-    <text x="975" y="108" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">COVERAGE</text>
-    <rect x="1050" y="100" width="88" height="6" rx="3" fill="#f97316" opacity="0.15"/>
-    <rect x="1050" y="100" width="75" height="6" rx="3" fill="#f97316" opacity="0.5"/>
-    <text x="975" y="126" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">UPTIME</text>
-    <rect x="1050" y="118" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
-    <rect x="1050" y="118" width="82" height="6" rx="3" fill="#22c55e" opacity="0.45"/>
-    <text x="975" y="148" font-family="Courier New, monospace" font-size="7"
-          fill="#64748b" opacity="0.6">SYS.OK | v2.1.4</text>
-
-    <!-- Bottom-right metrics panel -->
-    <rect x="920" y="480" width="220" height="100" rx="6" fill="#0f172a" stroke="#f97316"
-          stroke-width="1" opacity="0.65"/>
-    <text x="935" y="500" font-family="Courier New, monospace" font-size="9"
-          fill="#f97316" font-weight="bold" letter-spacing="1">METRICS</text>
-    <line x1="920" y1="506" x2="1140" y2="506" stroke="#f97316" stroke-width="0.5" opacity="0.3"/>
-    <!-- Mini bar chart -->
-    <rect x="940" y="545" width="14" height="28" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="940" y="555" width="14" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
-    <rect x="960" y="535" width="14" height="38" rx="2" fill="#f97316" opacity="0.3"/>
-    <rect x="960" y="550" width="14" height="23" rx="2" fill="#f97316" opacity="0.6"/>
-    <rect x="980" y="540" width="14" height="33" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="980" y="548" width="14" height="25" rx="2" fill="#ef4444" opacity="0.5"/>
-    <rect x="1000" y="530" width="14" height="43" rx="2" fill="#dc2626" opacity="0.3"/>
-    <rect x="1000" y="545" width="14" height="28" rx="2" fill="#dc2626" opacity="0.6"/>
-    <rect x="1020" y="538" width="14" height="35" rx="2" fill="#f97316" opacity="0.3"/>
-    <rect x="1020" y="552" width="14" height="21" rx="2" fill="#f97316" opacity="0.5"/>
-    <rect x="1040" y="525" width="14" height="48" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="1040" y="540" width="14" height="33" rx="2" fill="#ef4444" opacity="0.6"
-          style="animation: ua4c920glimmer 3s ease-in-out infinite"/>
-    <!-- Metric labels -->
-    <!-- Circuit traces (decorative) -->
-    <polyline points="400,100 430,100 430,140 480,140" fill="none"
-              stroke="#ef4444" stroke-width="0.8" opacity="0.2"/>
-    <circle cx="480" cy="140" r="3" fill="#ef4444" opacity="0.3"/>
-    <polyline points="400,160 420,160 420,200 460,200 460,180" fill="none"
-              stroke="#f97316" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="460" cy="180" r="2.5" fill="#f97316" opacity="0.25"/>
-    <polyline points="1100,200 1130,200 1130,260 1100,260 1100,300" fill="none"
-              stroke="#dc2626" stroke-width="0.8" opacity="0.18"/>
-    <circle cx="1100" cy="300" r="3" fill="#dc2626" opacity="0.3"/>
-    <polyline points="1120,350 1150,350 1150,420 1120,420" fill="none"
-              stroke="#ef4444" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="1120" cy="420" r="2.5" fill="#ef4444" opacity="0.25"/>
-    <polyline points="450,500 480,500 480,520 520,520" fill="none"
-              stroke="#f97316" stroke-width="0.7" opacity="0.15"/>
-    <circle cx="520" cy="520" r="2" fill="#f97316" opacity="0.2"/>
-    <polyline points="1060,460 1090,460 1090,440 1120,440" fill="none"
-              stroke="#ef4444" stroke-width="0.7" opacity="0.15"/>
-
-    <!-- Left panel data readout -->
-    <rect x="40" y="430" width="280" height="80" rx="6" fill="#1a0505" stroke="#ef4444"
-          stroke-width="1" opacity="0.6"/>
-    <rect x="40" y="430" width="4" height="80" rx="2" fill="#ef4444"/>
-    <text x="56" y="466" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.6">Tesla</text>
-    <rect x="56" y="474" width="200" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="56" y="474" width="145" height="5" rx="2" fill="#ef4444" opacity="0.45"/>
-    <text x="56" y="492" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.6">Fsd</text>
-    <rect x="56" y="496" width="200" height="5" rx="2" fill="#f97316" opacity="0.12"/>
-    <rect x="56" y="496" width="170" height="5" rx="2" fill="#f97316" opacity="0.45"/>
-
-    <!-- Scattered micro-nodes -->
-    <circle cx="420" cy="80" r="5" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
-    <circle cx="420" cy="80" r="2" fill="#ef4444" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="5" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="2" fill="#f97316" opacity="0.3"/>
-    <circle cx="480" cy="560" r="4" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.4"/>
-    <circle cx="480" cy="560" r="1.5" fill="#dc2626" opacity="0.3"/>
-    <circle cx="1080" cy="570" r="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
-    <circle cx="1080" cy="570" r="1.5" fill="#ef4444" opacity="0.25"/>
-
-    <!-- Scanning beam effect -->
-    <line x1="380" y1="300" x2="1160" y2="300" stroke="#ef4444" stroke-width="0.5" opacity="0.06"/>
-    <rect x="380" y="298" width="40" height="4" rx="2" fill="#ef4444" opacity="0.15">
-      <animate attributeName="x" values="380;1120;380" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.15;0.3;0.15" dur="8s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Animated dashed orbit arc -->
-    <path d="M 500 100 A 280 250 0 0 1 940 100" fill="none" stroke="#ef4444"
-          stroke-width="1" stroke-dasharray="6 8" opacity="0.15"
-          style="animation: ua4c920dash 4s linear infinite"/>
-    <path d="M 940 500 A 280 250 0 0 1 500 500" fill="none" stroke="#f97316"
-          stroke-width="0.8" stroke-dasharray="4 6" opacity="0.12"
-          style="animation: ua4c920dash 5s linear infinite"/>
-
-    <!-- Corner decorative brackets -->
-    <polyline points="390,55 390,45 400,45" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="1150,45 1160,45 1160,55" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="390,575 390,585 400,585" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1150,585 1160,585 1160,575" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.35"/>
-
-    <!-- Crosshair on center -->
-    <circle cx="720" cy="300" r="8" fill="none" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="288" x2="720" y2="294" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="306" x2="720" y2="312" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="708" y1="300" x2="714" y2="300" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="726" y1="300" x2="732" y2="300" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-
-    <!-- Horizontal data lines -->
-    <line x1="400" y1="48" x2="470" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.15"/>
-    <line x1="475" y1="48" x2="500" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.1"/>
-    <line x1="400" y1="585" x2="450" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.12"/>
-    <line x1="455" y1="585" x2="490" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.08"/>
-    <line x1="1060" y1="48" x2="1120" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.12"/>
-    <line x1="1060" y1="585" x2="1100" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.1"/>
-
-    <!-- Animated pulse dot (center) -->
-    <circle cx="720" cy="300" r="4" fill="#ef4444" opacity="0.3">
-      <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Perspective vanishing lines (tunnel effect) -->
-    <line x1="720" y1="315" x2="400" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="1150" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="400" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="1150" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="400" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="1150" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="500" y2="50" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
-    <line x1="720" y1="315" x2="940" y2="580" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
-
-    <!-- Breach crack line (jagged polyline across y=315) -->
-    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
-              fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"
-              filter="url(#ua4c920fxRed)" class="ua4c920crack"/>
-    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
-              fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.2"/>
-
-    <!-- Floating particles with animation classes -->
-    <circle cx="480" cy="120" r="2.5" fill="#ef4444" opacity="0.7" class="ua4c920fa"/>
-    <circle cx="620" cy="480" r="2" fill="#f97316" opacity="0.6" class="ua4c920fb"/>
-    <circle cx="900" cy="100" r="3" fill="#dc2626" opacity="0.5" class="ua4c920fc"/>
-    <circle cx="1050" cy="350" r="2" fill="#ef4444" opacity="0.6" class="ua4c920fa"/>
-    <circle cx="550" cy="550" r="2.5" fill="#f97316" opacity="0.5" class="ua4c920fb"/>
-    <circle cx="850" cy="520" r="1.8" fill="#ef4444" opacity="0.55" class="ua4c920fc"/>
-    <circle cx="750" cy="80" r="2.2" fill="#dc2626" opacity="0.45" class="ua4c920fa"/>
-
-    <!-- Additional data panel (mid-right) -->
-    <rect x="960" y="180" width="190" height="76" rx="6" fill="#0f172a" stroke="#dc2626"
-          stroke-width="0.8" opacity="0.55"/>
-    <rect x="960" y="180" width="190" height="18" rx="6" fill="#dc2626" opacity="0.10"/>
-    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
-          fill="#dc2626" font-weight="bold" letter-spacing="1">TELEMETRY</text>
-    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">LATENCY</text>
-    <rect x="1050" y="207" width="88" height="5" rx="2" fill="#dc2626" opacity="0.12"/>
-    <rect x="1050" y="207" width="55" height="5" rx="2" fill="#dc2626" opacity="0.45"/>
-    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">THROUGHPUT</text>
-    <rect x="1050" y="223" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="1050" y="223" width="72" height="5" rx="2" fill="#ef4444" opacity="0.4"/>
-    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">ERROR RATE</text>
-    <rect x="1050" y="239" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
-    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
-          fill="#22c55e" opacity="0.5">LOW</text>
-
-    <!-- Timestamp watermark -->
-    <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
-          fill="#1e293b" text-anchor="end" opacity="0.5">2TWODRAGON // DIGEST</text>
-
+    <rect x="380" y="40" width="780" height="550" fill="url(#ua4c920mesh)" opacity="0.25"/>
+    <circle cx="720" cy="315" r="228" fill="none" stroke="#ef4444" stroke-width="0.55"
+            stroke-dasharray="6 9" opacity="0.16"/>
+    <circle cx="720" cy="315" r="182" fill="none" stroke="#f97316" stroke-width="0.45"
+            stroke-dasharray="3 7" opacity="0.11"/>
+    <circle cx="720" cy="315" r="266" fill="none" stroke="#dc2626" stroke-width="0.35"
+            stroke-dasharray="10 12" opacity="0.08"/>
+    <line x1="390" y1="70" x2="1150" y2="70" stroke="#ef4444" stroke-width="0.6" opacity="0.10"/>
+    <line x1="390" y1="560" x2="1150" y2="560" stroke="#f97316" stroke-width="0.6" opacity="0.08"/>
+    <line x1="420" y1="120" x2="1080" y2="500" stroke="#ef4444" stroke-width="0.35" opacity="0.08"/>
+    <line x1="1080" y1="120" x2="420" y2="500" stroke="#f97316" stroke-width="0.35" opacity="0.06"/>
+    <polyline points="392,56 392,46 404,46" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="392,574 392,584 404,584" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.30"/>
+    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.30"/>
+    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#dc2626" opacity="0.03"/>
+    <circle cx="430" cy="110" r="3" fill="#ef4444" opacity="0.22"/>
+    <circle cx="1120" cy="160" r="2.5" fill="#f97316" opacity="0.24"/>
+    <circle cx="470" cy="540" r="3" fill="#dc2626" opacity="0.20"/>
+    <circle cx="1080" cy="530" r="2.5" fill="#ef4444" opacity="0.20"/>
+    
+    <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="#ef4444" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>
+    <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="#f97316" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>
+    <polygon points="470,120 1030,120 1150,220 590,220" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1" /><text x="612" y="177" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#ef4444" font-weight="700">Tesla</text>
+    <polygon points="430,262 990,262 1110,362 550,362" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="1" /><text x="622" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f97316" font-weight="700">Fsd</text>
+    <polygon points="520,404 1080,404 1160,484 600,484" fill="#dc2626" opacity="0.08" stroke="#dc2626" stroke-width="1" /><text x="632" y="461" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#dc2626" font-weight="700">Model Y</text>
+    <rect x="915" y="500" width="180" height="36" rx="18" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/>
+    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Juniper</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#ef4444" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

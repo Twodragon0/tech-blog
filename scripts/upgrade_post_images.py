@@ -139,6 +139,52 @@ TAG_ENGLISH_MAP = {
     "보안": "Security", "클라우드": "Cloud", "쿠버네티스": "Kubernetes",
     "도커": "Docker", "인공지능": "AI", "블록체인": "Blockchain",
 }
+VISUAL_VARIANTS = ("orbit", "beacon", "editorial", "bands")
+THEME_DEFAULT_CONCEPTS = {
+    "security": ["Threat Intel", "Patch Flow", "Attack Surface", "Runtime Guard"],
+    "cloud": ["Cloud Fabric", "Access Plane", "Scale Pattern", "Data Path"],
+    "kubernetes": ["Cluster Guard", "Pod Policy", "Runtime Mesh", "Node Drift"],
+    "ai": ["Model Ops", "Agent Guard", "Prompt Risk", "Data Control"],
+    "devops": ["Pipeline Gate", "Release Flow", "Build Provenance", "Ops Signal"],
+    "finops": ["Spend Signal", "Cost Guard", "Usage Pattern", "Budget Drift"],
+    "blockchain": ["Chain Watch", "Wallet Flow", "Market Signal", "Ledger Risk"],
+    "general": ["Tech Signal", "Platform Shift", "System Pattern", "Field Notes"],
+}
+VISUAL_PHRASE_MAP = [
+    ("zero trust", "Zero Trust"),
+    ("zero day", "Zero Day"),
+    ("supply chain", "Supply Chain"),
+    ("prompt injection", "Prompt Injection"),
+    ("cloud security", "Cloud Security"),
+    ("threat intelligence", "Threat Intel"),
+    ("incident response", "Incident Response"),
+    ("runtime security", "Runtime Security"),
+    ("identity access", "Identity Access"),
+    ("data privacy", "Data Privacy"),
+    ("cost optimization", "Cost Control"),
+    ("cost control", "Cost Control"),
+    ("agentic ai", "Agentic AI"),
+    ("model runner", "Model Runner"),
+    ("container escape", "Container Escape"),
+]
+VISUAL_STOPWORDS = {
+    "tech", "blog", "weekly", "digest", "complete", "guide", "practical", "master",
+    "setup", "review", "analysis", "latest", "future", "course", "batch", "week",
+    "post", "posts", "from", "with", "into", "using", "the", "and", "for", "all",
+    "one", "new", "news", "update", "updates", "view", "notes", "issue", "issues",
+    "today", "overview", "summary", "overview", "part", "series", "building",
+    "toward", "based", "core", "complete", "understanding",
+}
+VISUAL_ACRONYMS = {
+    "ai", "api", "aws", "cicd", "cve", "db", "dns", "edr", "eks", "gcp", "gpu",
+    "iam", "ioc", "iso", "k8s", "kisa", "llm", "mcp", "nlb", "npm", "otp", "rag",
+    "rsa", "s3", "sdk", "siem", "soc", "spf", "tls", "vpc", "waf", "ztna",
+}
+VISUAL_GENERIC_LABELS = {
+    "ai", "blockchain", "cloud", "cloud security", "devops", "devsecops",
+    "kubernetes", "monthly index", "security", "security news", "tech signal",
+    "weekly digest",
+}
 
 
 def english_tags(tags: list, limit: int = 4) -> list[str]:
@@ -203,6 +249,130 @@ def split_title(title: str, max_chars: int = 22) -> list[str]:
     if not lines:
         lines = ["Tech Blog Post"]
     return lines[:3]
+
+
+def _ascii_visual_source(*parts: object) -> str:
+    """Collapse mixed-language inputs into an ASCII-only source string."""
+    text = " ".join(str(part or "") for part in parts)
+    text = text.replace("&", " and ")
+    text = re.sub(r"[^\x00-\x7F]+", " ", text)
+    text = re.sub(r"[_/]+", " ", text)
+    text = re.sub(r"[^A-Za-z0-9+\-.\s]", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _format_visual_label(raw: str, max_chars: int = 18) -> str:
+    """Format a short SVG-safe concept label."""
+    words = [w for w in re.split(r"[\s\-]+", raw.strip()) if w]
+    if not words:
+        return ""
+
+    normalized: list[str] = []
+    for word in words:
+        plain = word.strip(".+").lower()
+        if plain in VISUAL_ACRONYMS:
+            normalized.append(plain.upper())
+        elif re.fullmatch(r"v?\d+(?:\.\d+)*", plain):
+            normalized.append(word.upper())
+        elif len(word) <= 3 and word.isupper():
+            normalized.append(word)
+        else:
+            normalized.append(word.title())
+
+    label = " ".join(normalized)
+    if len(label) <= max_chars:
+        return label
+
+    if len(normalized) > 1:
+        trimmed = normalized[:]
+        while len(" ".join(trimmed)) > max_chars and len(trimmed) > 1:
+            trimmed.pop()
+        candidate = " ".join(trimmed)
+        if candidate and len(candidate) <= max_chars:
+            return candidate
+
+    return label[:max_chars].rstrip(" -/.")
+
+
+def _add_unique_label(target: list[str], label: str, seen: set[str], limit: int) -> None:
+    clean = _format_visual_label(label)
+    if not clean:
+        return
+    key = clean.lower()
+    if key in VISUAL_GENERIC_LABELS:
+        return
+    if key in seen:
+        return
+    seen.add(key)
+    target.append(clean)
+    if len(target) > limit:
+        del target[limit:]
+
+
+def build_visual_concepts(
+    title: str,
+    excerpt: str,
+    tags: list[str],
+    filepath: str,
+    theme: str,
+    limit: int = 4,
+) -> list[str]:
+    """Derive post-specific English concept labels for the visual composition."""
+    labels: list[str] = []
+    seen: set[str] = set()
+
+    source = _ascii_visual_source(
+        title, excerpt, Path(filepath).stem, " ".join(str(tag) for tag in tags)
+    )
+    lowered = source.lower()
+
+    for phrase, label in VISUAL_PHRASE_MAP:
+        if phrase in lowered:
+            _add_unique_label(labels, label, seen, limit)
+
+    for tag_label in english_tags(tags, limit=limit + 2):
+        _add_unique_label(labels, tag_label, seen, limit)
+
+    tokens = [
+        token for token in re.findall(r"[A-Za-z0-9.+#-]+", source)
+        if token.lower() not in VISUAL_STOPWORDS
+        and (len(token) > 2 or token.lower() in VISUAL_ACRONYMS)
+        and not re.fullmatch(r"\d+", token)
+    ]
+
+    for left, right in zip(tokens, tokens[1:]):
+        if left.lower() in VISUAL_STOPWORDS or right.lower() in VISUAL_STOPWORDS:
+            continue
+        pair = _format_visual_label(f"{left} {right}")
+        if 6 <= len(pair) <= 18:
+            _add_unique_label(labels, pair, seen, limit)
+
+    for token in tokens:
+        _add_unique_label(labels, token, seen, limit)
+
+    for fallback in THEME_DEFAULT_CONCEPTS.get(theme, THEME_DEFAULT_CONCEPTS["general"]):
+        _add_unique_label(labels, fallback, seen, limit)
+
+    return labels[:limit]
+
+
+def select_visual_variant(theme: str, title: str, filepath: str) -> str:
+    """Pick a deterministic layout variant per post."""
+    seed = hashlib.sha1(f"{theme}:{title}:{filepath}".encode()).hexdigest()
+    return VISUAL_VARIANTS[int(seed[:2], 16) % len(VISUAL_VARIANTS)]
+
+
+def build_focus_lines(concepts: list[str]) -> list[str]:
+    """Convert 3-4 concept labels into two compact lines."""
+    if not concepts:
+        return ["Tech Signal", "Visual Narrative"]
+    if len(concepts) == 1:
+        return [concepts[0], "Visual Narrative"]
+    if len(concepts) == 2:
+        return [f"{concepts[0]} / {concepts[1]}", "Visual Narrative"]
+    line_one = " / ".join(concepts[:2])
+    line_two = " / ".join(concepts[2:4])
+    return [line_one, line_two or "Visual Narrative"]
 
 
 def format_date(date_val) -> str:
@@ -1290,6 +1460,187 @@ def _scene_general(p: dict, u: str, tag_labels: list[str]) -> str:
 """
 
 
+def _build_focus_panel(p: dict, concepts: list[str], focus_y: int) -> str:
+    """Render a compact concept panel in the left column."""
+    focus_lines = build_focus_lines(concepts[:4])
+    pills = ""
+    x_off = 56
+    for i, label in enumerate(concepts[:3]):
+        width = max(70, len(label) * 7 + 18)
+        accent = [p["accent1"], p["accent2"], p["accent3"]][i % 3]
+        pills += (
+            f'    <rect x="{x_off}" y="{focus_y + 56}" width="{width}" height="22" rx="11" '
+            f'fill="{p["bg1"]}" stroke="{accent}" stroke-width="1" opacity="0.85"/>\n'
+            f'    <text x="{x_off + width // 2}" y="{focus_y + 71}" '
+            f'font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="{accent}" '
+            f'text-anchor="middle" font-weight="600">{label}</text>\n'
+        )
+        x_off += width + 8
+
+    return (
+        f'    <rect x="40" y="{focus_y}" width="280" height="88" rx="10" '
+        f'fill="{p["bg2"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.66"/>\n'
+        f'    <rect x="40" y="{focus_y}" width="280" height="18" rx="10" '
+        f'fill="{p["accent1"]}" opacity="0.10"/>\n'
+        f'    <text x="56" y="{focus_y + 13}" font-family="Segoe UI, Arial, sans-serif" '
+        f'font-size="10" fill="{p["text_accent"]}" font-weight="700" letter-spacing="1">FOCUS</text>\n'
+        f'    <text x="56" y="{focus_y + 34}" font-family="Segoe UI, Arial, sans-serif" '
+        f'font-size="13" fill="#e2e8f0" font-weight="600">{focus_lines[0]}</text>\n'
+        f'    <text x="56" y="{focus_y + 51}" font-family="Segoe UI, Arial, sans-serif" '
+        f'font-size="12" fill="#94a3b8">{focus_lines[1]}</text>\n'
+        f"{pills}"
+    )
+
+
+def _shared_scene_scaffold(p: dict, u: str) -> str:
+    """Shared abstract scaffold without dashboard-style UI chrome."""
+    return f"""
+    <defs>
+      <pattern id="{u}mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="{p['accent1']}"
+              stroke-width="0.35" opacity="0.12"/>
+      </pattern>
+    </defs>
+    <rect x="380" y="40" width="780" height="550" fill="url(#{u}mesh)" opacity="0.25"/>
+    <circle cx="720" cy="315" r="228" fill="none" stroke="{p['accent1']}" stroke-width="0.55"
+            stroke-dasharray="6 9" opacity="0.16"/>
+    <circle cx="720" cy="315" r="182" fill="none" stroke="{p['accent2']}" stroke-width="0.45"
+            stroke-dasharray="3 7" opacity="0.11"/>
+    <circle cx="720" cy="315" r="266" fill="none" stroke="{p['accent3']}" stroke-width="0.35"
+            stroke-dasharray="10 12" opacity="0.08"/>
+    <line x1="390" y1="70" x2="1150" y2="70" stroke="{p['accent1']}" stroke-width="0.6" opacity="0.10"/>
+    <line x1="390" y1="560" x2="1150" y2="560" stroke="{p['accent2']}" stroke-width="0.6" opacity="0.08"/>
+    <line x1="420" y1="120" x2="1080" y2="500" stroke="{p['accent1']}" stroke-width="0.35" opacity="0.08"/>
+    <line x1="1080" y1="120" x2="420" y2="500" stroke="{p['accent2']}" stroke-width="0.35" opacity="0.06"/>
+    <polyline points="392,56 392,46 404,46" fill="none" stroke="{p['accent1']}" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="{p['accent1']}" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="392,574 392,584 404,584" fill="none" stroke="{p['accent2']}" stroke-width="1.5" opacity="0.30"/>
+    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="{p['accent2']}" stroke-width="1.5" opacity="0.30"/>
+    <ellipse cx="720" cy="315" rx="275" ry="210" fill="{p['glow']}" opacity="0.03"/>
+    <circle cx="430" cy="110" r="3" fill="{p['accent1']}" opacity="0.22"/>
+    <circle cx="1120" cy="160" r="2.5" fill="{p['accent2']}" opacity="0.24"/>
+    <circle cx="470" cy="540" r="3" fill="{p['accent3']}" opacity="0.20"/>
+    <circle cx="1080" cy="530" r="2.5" fill="{p['accent1']}" opacity="0.20"/>
+    """
+
+
+def _variant_orbit_decoration(p: dict, u: str, concepts: list[str]) -> str:
+    cards = (
+        (520, 136, 168, 72, 10, concepts[0], p["accent1"]),
+        (900, 202, 160, 70, -8, concepts[1], p["accent2"]),
+        (760, 430, 176, 74, 7, concepts[2], p["accent3"]),
+    )
+    blocks = []
+    for x, y, w, h, rot, label, accent in cards:
+        blocks.append(
+            f'<g transform="rotate({rot} {x + w / 2:.1f} {y + h / 2:.1f})">'
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1.2" opacity="0.76"/>'
+            f'<rect x="{x + 14}" y="{y + 16}" width="{w - 28}" height="12" rx="6" fill="{accent}" opacity="0.12"/>'
+            f'<text x="{x + 18}" y="{y + 40}" font-family="Segoe UI, Arial, sans-serif" font-size="11" '
+            f'fill="{accent}" font-weight="700">{label}</text>'
+            f'<text x="{x + 18}" y="{y + 58}" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" '
+            f'fill="#94a3b8">editorial frame</text></g>'
+        )
+    return (
+        f'    <path d="M 510 160 A 250 190 0 0 1 980 180" fill="none" stroke="{p["accent1"]}" '
+        f'stroke-width="1" opacity="0.18" stroke-dasharray="7 5" style="animation: {u}dash 5s linear infinite"/>\n'
+        f'    <path d="M 560 470 A 205 150 0 0 1 1010 420" fill="none" stroke="{p["accent2"]}" '
+        f'stroke-width="0.9" opacity="0.14" stroke-dasharray="5 6"/>\n'
+        f'    <circle cx="720" cy="315" r="92" fill="none" stroke="{p["accent1"]}" stroke-width="0.7" opacity="0.16"/>\n'
+        f'    <circle cx="720" cy="315" r="122" fill="none" stroke="{p["accent2"]}" stroke-width="0.6" opacity="0.12"/>\n'
+        + "\n".join(f"    {block}" for block in blocks)
+    )
+
+
+def _variant_beacon_decoration(p: dict, u: str, concepts: list[str]) -> str:
+    labels = concepts[:4]
+    pills = []
+    for i, label in enumerate(labels):
+        x = 470 + i * 155
+        accent = [p["accent1"], p["accent2"], p["accent3"], p["accent1"]][i]
+        pills.append(
+            f'<rect x="{x}" y="454" width="132" height="28" rx="14" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1" opacity="0.78"/>'
+            f'<text x="{x + 66}" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" '
+            f'fill="{accent}" text-anchor="middle" font-weight="700">{label}</text>'
+        )
+    return (
+        f'    <rect x="694" y="96" width="52" height="372" rx="26" fill="{p["accent1"]}" opacity="0.06"/>\n'
+        f'    <ellipse cx="720" cy="180" rx="118" ry="64" fill="{p["accent1"]}" opacity="0.08"/>\n'
+        f'    <ellipse cx="720" cy="180" rx="76" ry="38" fill="{p["accent2"]}" opacity="0.10"/>\n'
+        f'    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="{p["accent2"]}" stroke-width="1.1" '
+        f'opacity="0.16" stroke-dasharray="4 5"/>\n'
+        f'    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="{p["accent3"]}" stroke-width="1" opacity="0.15"/>\n'
+        + "\n".join(f"    {pill}" for pill in pills)
+    )
+
+
+def _variant_editorial_decoration(p: dict, u: str, concepts: list[str]) -> str:
+    layers = []
+    entries = [
+        (470, 118, 430, 84, concepts[0], "story layer", p["accent1"]),
+        (548, 240, 392, 82, concepts[1], "signal slice", p["accent2"]),
+        (620, 360, 340, 78, concepts[2], concepts[3], p["accent3"]),
+    ]
+    for x, y, w, h, label_a, label_b, accent in entries:
+        layers.append(
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1.1" opacity="0.76"/>'
+            f'<line x1="{x + 18}" y1="{y + 28}" x2="{x + w - 18}" y2="{y + 28}" stroke="{accent}" stroke-width="0.8" opacity="0.25"/>'
+            f'<text x="{x + 20}" y="{y + 24}" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="{accent}" font-weight="700">{label_a}</text>'
+            f'<text x="{x + 20}" y="{y + 52}" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#e2e8f0" font-weight="700">{label_b}</text>'
+            f'<text x="{x + 20}" y="{y + 69}" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">high-context cover</text>'
+        )
+    return (
+        f'    <rect x="432" y="96" width="660" height="370" rx="24" fill="{p["bg1"]}" opacity="0.12"/>\n'
+        f'    <rect x="452" y="116" width="620" height="330" rx="20" fill="{p["bg2"]}" opacity="0.09"/>\n'
+        f'    <path d="M 450 490 Q 700 430 1080 520" fill="none" stroke="{p["accent1"]}" stroke-width="1.0" opacity="0.14"/>\n'
+        + "\n".join(f"    {layer}" for layer in layers)
+    )
+
+
+def _variant_bands_decoration(p: dict, u: str, concepts: list[str]) -> str:
+    bands = []
+    specs = [
+        ("470,120 1030,120 1150,220 590,220", p["accent1"], concepts[0]),
+        ("430,262 990,262 1110,362 550,362", p["accent2"], concepts[1]),
+        ("520,404 1080,404 1160,484 600,484", p["accent3"], concepts[2]),
+    ]
+    for idx, (points, accent, label) in enumerate(specs):
+        y = 177 + idx * 142
+        bands.append(
+            f'<polygon points="{points}" fill="{accent}" opacity="0.08" stroke="{accent}" stroke-width="1" />'
+            f'<text x="{612 + idx * 10}" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="18" '
+            f'fill="{accent}" font-weight="700">{label}</text>'
+        )
+    return (
+        f'    <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>\n'
+        f'    <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="{p["accent2"]}" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>\n'
+        + "\n".join(f"    {band}" for band in bands)
+        + f'\n    <rect x="915" y="500" width="180" height="36" rx="18" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.78"/>'
+        + f'\n    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="{p["accent1"]}" text-anchor="middle" font-weight="700">{concepts[3]}</text>'
+    )
+
+
+def _common_decorations_v2(
+    p: dict,
+    u: str,
+    concept_labels: list[str],
+    variant: str,
+) -> str:
+    """Generate post-specific abstract composition blocks."""
+    concepts = (concept_labels + THEME_DEFAULT_CONCEPTS["general"])[:4]
+    variant_renderers = {
+        "orbit": _variant_orbit_decoration,
+        "beacon": _variant_beacon_decoration,
+        "editorial": _variant_editorial_decoration,
+        "bands": _variant_bands_decoration,
+    }
+    render = variant_renderers.get(variant, _variant_orbit_decoration)
+    return _shared_scene_scaffold(p, u) + "\n" + render(p, u, concepts)
+
+
 SCENE_RENDERERS = {
     "security":   _scene_security,
     "cloud":      _scene_cloud,
@@ -1308,6 +1659,7 @@ SCENE_RENDERERS = {
 
 def generate_svg(
     title: str,
+    excerpt: str,
     date_str: str,
     tags: list[str],
     categories: list[str],
@@ -1319,6 +1671,8 @@ def generate_svg(
     u = uid(filepath)
     title_lines = split_title(title)
     tag_labels = english_tags(tags)
+    concept_labels = build_visual_concepts(title, excerpt, tags, filepath, theme)
+    variant = select_visual_variant(theme, title, filepath)
     date_display = format_date(date_str)
 
     # Build tag pills (up to 3)
@@ -1361,11 +1715,13 @@ def generate_svg(
             f'font-size="16" fill="{pill_colors[i % len(pill_colors)]}" '
             f'font-weight="600">{bl}</text>\n'
         )
+    focus_y = min(accent_y + 96, 408)
+    focus_svg = _build_focus_panel(p, concept_labels, focus_y)
 
     # Scene + common decorations
     scene_fn = SCENE_RENDERERS.get(theme, _scene_general)
     scene_svg = scene_fn(p, u, tag_labels)
-    decorations_svg = _common_decorations(p, u, tag_labels)
+    decorations_svg = _common_decorations_v2(p, u, concept_labels, variant)
 
     # Floating particles
     particles = ""
@@ -1395,7 +1751,7 @@ def generate_svg(
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{title_lines[0]}</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover -->
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: {variant} -->
   <defs>
     <linearGradient id="{u}bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:{p['bg1']}"/>
@@ -1497,6 +1853,8 @@ def generate_svg(
 
     <!-- Topic bars -->
 {bars_svg}
+    <!-- Focus panel -->
+{focus_svg}
     <!-- Tag pills -->
 {tag_pills}
     <!-- Site URL -->
@@ -1561,6 +1919,7 @@ def process_post(post_path: Path, dry_run: bool, force: bool) -> tuple[bool, str
         return False, f"SKIP (already {current_size / 1024:.1f}KB): {svg_path.name}"
 
     title = post.get("title", post_path.stem)
+    excerpt = str(post.get("excerpt", ""))
     date_val = post.get("date", "")
     tags = post.get("tags", []) or []
     categories = post.get("categories", []) or []
@@ -1573,6 +1932,7 @@ def process_post(post_path: Path, dry_run: bool, force: bool) -> tuple[bool, str
     theme = detect_theme(tags, categories, title)
     svg_content = generate_svg(
         title=title,
+        excerpt=excerpt,
         date_str=str(date_val),
         tags=tags,
         categories=categories,

@@ -1,134 +1,582 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - April 07, 2026</title>
+  <title>Tech Security Weekly Digest - April 07 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
+    <!-- Background gradients -->
+    <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="45%" stop-color="#0a0f1e"/>
+      <stop offset="100%" stop-color="#070d1a"/>
     </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="bgLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#090e1c"/>
+      <stop offset="100%" stop-color="#0d1420"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
+    <linearGradient id="bgTopScene" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#120a0a"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="bgBottomScene" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#08101a"/>
+    </linearGradient>
+    <linearGradient id="crackGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#ef4444" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ff6060" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#ef4444" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a0e0e"/>
+      <stop offset="100%" stop-color="#0f0808"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f1f3d"/>
+    </linearGradient>
+    <linearGradient id="palantirGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0c2040"/>
+    </linearGradient>
+    <linearGradient id="reilBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#dc7f00"/>
+    </linearGradient>
+    <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#0a0f1c"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <!-- Radial glows -->
+    <radialGradient id="iranGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="israelGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dprGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="palGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Filters -->
+    <filter id="glowRed" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0.9
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.8 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
+    <filter id="glowBlue" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.2
+                0 0 0 0 0.4
+                0 0 0 0 1
+                0 0 0 0.7 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowAmber" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0.9
+                0 0 0 0 0.5
+                0 0 0 0 0
+                0 0 0 0.7 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.1
+                0 0 0 0 0.8
+                0 0 0 0 0.3
+                0 0 0 0.7 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="crackBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Dot grid pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#334155" opacity="0.35"/>
+    </pattern>
+    <!-- Hex pattern for left panel -->
+    <pattern id="hexGrid" x="0" y="0" width="20" height="17.32" patternUnits="userSpaceOnUse">
+      <polygon points="10,0 20,5.77 20,11.55 10,17.32 0,11.55 0,5.77" fill="none" stroke="#1e293b" stroke-width="0.4" opacity="0.5"/>
+    </pattern>
+    <!-- Arrowheads -->
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" opacity="0.9"/>
     </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b" opacity="0.9"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6" opacity="0.9"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22c55e" opacity="0.9"/>
+    </marker>
+    <clipPath id="sceneClip">
+      <rect x="310" y="0" width="890" height="630"/>
+    </clipPath>
+    <clipPath id="topSceneClip">
+      <rect x="310" y="0" width="890" height="315"/>
+    </clipPath>
+    <clipPath id="bottomSceneClip">
+      <rect x="310" y="315" width="890" height="315"/>
+    </clipPath>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- CSS Animations -->
+  <style>
+    @keyframes floatUp {
+      0%   { transform: translateY(0px); opacity: 0.6; }
+      50%  { transform: translateY(-12px); opacity: 1; }
+      100% { transform: translateY(0px); opacity: 0.6; }
+    }
+    @keyframes pulse {
+      0%   { opacity: 0.4; transform: scale(1); }
+      50%  { opacity: 1; transform: scale(1.15); }
+      100% { opacity: 0.4; transform: scale(1); }
+    }
+    @keyframes pulseRing {
+      0%   { r: 18px; opacity: 0.8; }
+      100% { r: 40px; opacity: 0; }
+    }
+    @keyframes crackFx {
+      0%   { opacity: 0.6; filter: drop-shadow(0 0 4px #ef4444); }
+      50%  { opacity: 1;   filter: drop-shadow(0 0 12px #ff6060); }
+      100% { opacity: 0.6; filter: drop-shadow(0 0 4px #ef4444); }
+    }
+    @keyframes glimmer {
+      0%   { opacity: 0.3; }
+      50%  { opacity: 0.9; }
+      100% { opacity: 0.3; }
+    }
+    @keyframes scanLine {
+      0%   { transform: translateY(0px); opacity: 0.6; }
+      100% { transform: translateY(320px); opacity: 0; }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -40; }
+    }
+    @keyframes rotSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.15; }
+      50%       { opacity: 0.7; }
+    }
+    @keyframes dataFlow {
+      0%   { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -80; }
+    }
+    .float1 { animation: floatUp 3.8s ease-in-out infinite; }
+    .float2 { animation: floatUp 4.5s ease-in-out infinite 0.8s; }
+    .float3 { animation: floatUp 3.2s ease-in-out infinite 1.6s; }
+    .pulse1 { animation: pulse 2.4s ease-in-out infinite; }
+    .pulse2 { animation: pulse 3.1s ease-in-out infinite 0.6s; }
+    .pulse3 { animation: pulse 2.8s ease-in-out infinite 1.2s; }
+    .crack  { animation: crackFx 2s ease-in-out infinite; }
+    .glimmer1 { animation: glimmer 2.2s ease-in-out infinite; }
+    .glimmer2 { animation: glimmer 3.0s ease-in-out infinite 0.9s; }
+    .glimmer3 { animation: glimmer 2.7s ease-in-out infinite 1.8s; }
+    .dashFlow { animation: dash 1.2s linear infinite; stroke-dasharray: 12 8; }
+    .dataLine { animation: dataFlow 1.5s linear infinite; stroke-dasharray: 20 10; }
+    .spin { animation: rotSpin 8s linear infinite; transform-origin: center; transform-box: fill-box; }
+    .fadeio { animation: fadeInOut 2.5s ease-in-out infinite; }
+  </style>
 
-  <!-- Grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  <!-- ===== BASE BACKGROUND ===== -->
+  <rect width="1200" height="630" fill="url(#bgMain)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.5"/>
+
+  <!-- ===== VERTICAL DIVIDER: Left Panel | Scene ===== -->
+  <rect x="0" y="0" width="305" height="630" fill="url(#bgLeft)"/>
+  <rect x="0" y="0" width="305" height="630" fill="url(#hexGrid)" opacity="0.4"/>
+  <!-- Divider line with glow -->
+  <line x1="305" y1="0" x2="305" y2="630" stroke="#1e3a5f" stroke-width="1.5" opacity="0.8"/>
+  <line x1="305" y1="0" x2="305" y2="630" stroke="#3b82f6" stroke-width="1" opacity="0.3" filter="url(#softBlur)"/>
+
+  <!-- HORIZONTAL DIVIDER: Top scene | Bottom scene -->
+  <rect x="305" y="0"   width="895" height="315" fill="url(#bgTopScene)"/>
+  <rect x="305" y="315" width="895" height="315" fill="url(#bgBottomScene)"/>
+  <!-- Horizontal crack line -->
+  <rect x="305" y="312" width="895" height="6" fill="url(#crackGlow)" class="crack"/>
+
+  <!-- ===== LEFT PANEL ===== -->
+  <!-- Shield icon top -->
+  <g transform="translate(36, 42)">
+    <path d="M0,-28 L22,-15 L22,4 C22,18 12,28 0,33 C-12,28 -22,18 -22,4 L-22,-15 Z"
+      fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="2"/>
+    <path d="M-9,2 L-3,9 L10,-7" stroke="#60a5fa" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <!-- Glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
+  <!-- WEEKLY DIGEST badge -->
+  <rect x="70" y="22" width="168" height="28" rx="14" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="154" y="41" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
 
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 07, 2026</text>
+  <!-- Main title -->
+  <text x="24" y="95" font-family="'Arial',sans-serif" font-size="22" font-weight="900" fill="#f1f5f9" letter-spacing="0.5">Tech Security</text>
+  <text x="24" y="121" font-family="'Arial',sans-serif" font-size="22" font-weight="900" fill="#f1f5f9" letter-spacing="0.5">Weekly</text>
 
-  <!-- Card 1: REVIL -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-  </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">REVIL</text>
-  <!-- Card 2: SEC OPS -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
-  </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC OPS</text>
-  <!-- Card 3: CLOUD SEC -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8" transform="scale(0.65)"/>
-  </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD SEC</text>
-  <!-- Card 4: THREAT INT -->
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#22c55e" stroke-width="1.8"/>
-  </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">THREAT INT</text>
-  <!-- Card 5: AI AGENT -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#22d3ee" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#22d3ee" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#22d3ee" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#22d3ee" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#22d3ee" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#22d3ee" stroke-width="1.2" opacity="0.5"/>
-  </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">AI AGENT</text>
+  <!-- Date -->
+  <text x="24" y="148" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#475569" letter-spacing="3">APRIL 07, 2026</text>
 
-  <!-- Threat map area -->
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+  <!-- Divider under title -->
+  <rect x="24" y="158" width="260" height="1" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="24" y="158" width="80" height="1" fill="#3b82f6" opacity="0.6"/>
 
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
+  <!-- Story bullets -->
+  <g transform="translate(24, 175)">
+    <!-- Story 1: Iran -->
+    <circle cx="8" cy="8" r="5" fill="#dc2626" class="pulse1"/>
+    <text x="22" y="13" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#ef4444">Iran Password Spray</text>
+    <text x="22" y="28" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">300+ orgs in Israel targeted</text>
+    <!-- Story 2: DPRK -->
+    <circle cx="8" cy="52" r="5" fill="#f97316" class="pulse2"/>
+    <text x="22" y="57" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#fb923c">DPRK Multi-Stage</text>
+    <text x="22" y="72" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">GitHub C2 multi-payload</text>
+    <!-- Story 3: REvil -->
+    <circle cx="8" cy="96" r="5" fill="#f59e0b" class="pulse3"/>
+    <text x="22" y="101" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#fbbf24">REvil Identified</text>
+    <text x="22" y="116" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">Germany IDs GangCrab ops</text>
+    <!-- Story 4: Palantir -->
+    <circle cx="8" cy="138" r="5" fill="#3b82f6" class="glimmer1"/>
+    <text x="22" y="143" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa">Palantir OSDK</text>
+    <text x="22" y="158" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">Ontology SDK released</text>
   </g>
-  <!-- Node: REVIL -->
-  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">REVIL</text>
-  <!-- Node: SEC OPS -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC</text>
-  <!-- Node: CLOUD SEC -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOU</text>
-  <!-- Node: THREAT INT -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">THRE</text>
-  <!-- Node: AI AGENT -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
 
-  <!-- Footer -->
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+  <!-- Severity bars -->
+  <text x="24" y="390" font-family="'Arial',sans-serif" font-size="10" font-weight="700" fill="#475569" letter-spacing="2">SEVERITY</text>
+  <rect x="24" y="398" width="260" height="1" fill="#1e293b"/>
+  <!-- Critical bar -->
+  <text x="24" y="418" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">CRITICAL</text>
+  <rect x="80" y="408" width="180" height="8" rx="4" fill="#1e293b"/>
+  <rect x="80" y="408" width="162" height="8" rx="4" fill="#dc2626" opacity="0.85" class="glimmer1"/>
+  <text x="268" y="418" font-family="'Arial',sans-serif" font-size="9" fill="#ef4444">90%</text>
+  <!-- High bar -->
+  <text x="24" y="438" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">HIGH</text>
+  <rect x="80" y="428" width="180" height="8" rx="4" fill="#1e293b"/>
+  <rect x="80" y="428" width="126" height="8" rx="4" fill="#f59e0b" opacity="0.85" class="glimmer2"/>
+  <text x="214" y="438" font-family="'Arial',sans-serif" font-size="9" fill="#fbbf24">70%</text>
+  <!-- Medium bar -->
+  <text x="24" y="458" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">MED</text>
+  <rect x="80" y="448" width="180" height="8" rx="4" fill="#1e293b"/>
+  <rect x="80" y="448" width="90" height="8" rx="4" fill="#3b82f6" opacity="0.85" class="glimmer3"/>
+  <text x="178" y="458" font-family="'Arial',sans-serif" font-size="9" fill="#60a5fa">50%</text>
 
-  <!-- Tags -->
-  <rect x="32" y="490" width="80" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="72" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">REVIL</text>
-  <rect x="124" y="490" width="83" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="165" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC OPS</text>
-  <rect x="219" y="490" width="101" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="269" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD SEC</text>
-  <rect x="332" y="490" width="110" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="387" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">THREAT INT</text>
-  <rect x="454" y="490" width="92" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="500" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">AI AGENT</text>
+  <!-- Tag pills -->
+  <g transform="translate(24, 470)">
+    <rect x="0"   y="0" width="52"  height="20" rx="10" fill="#2a0808" stroke="#ef4444" stroke-width="1"/>
+    <text x="26"  y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">Iran</text>
+    <rect x="58"  y="0" width="52"  height="20" rx="10" fill="#2a0808" stroke="#dc2626" stroke-width="1"/>
+    <text x="84"  y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">DPRK</text>
+    <rect x="116" y="0" width="52"  height="20" rx="10" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
+    <text x="142" y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">REvil</text>
+    <rect x="174" y="0" width="68"  height="20" rx="10" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
+    <text x="208" y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">Palantir</text>
+  </g>
 
-  <!-- Bottom bar -->
-  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 07, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Panel footer: URL -->
+  <text x="24" y="612" font-family="'Arial',sans-serif" font-size="10" fill="#334155">tech.2twodragon.com</text>
+  <line x1="24" y1="595" x2="284" y2="595" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="14" cy="612" r="3" fill="#3b82f6" opacity="0.6"/>
+
+  <!-- ===== TOP SCENE: PASSWORD SPRAY ATTACK ===== -->
+  <!-- Ambient glow from Iran origin -->
+  <ellipse cx="460" cy="170" rx="180" ry="100" fill="url(#iranGlow)" filter="url(#softBlur)" clip-path="url(#topSceneClip)"/>
+  <!-- Ambient glow from Israel defense -->
+  <ellipse cx="920" cy="170" rx="140" ry="90" fill="url(#israelGlow)" filter="url(#softBlur)" clip-path="url(#topSceneClip)"/>
+
+  <!-- Perspective tunnel lines (depth) -->
+  <g opacity="0.06" clip-path="url(#topSceneClip)">
+    <line x1="600" y1="157" x2="305" y2="0"   stroke="#ef4444" stroke-width="1"/>
+    <line x1="600" y1="157" x2="305" y2="315" stroke="#ef4444" stroke-width="1"/>
+    <line x1="600" y1="157" x2="1200" y2="0"  stroke="#ef4444" stroke-width="1"/>
+    <line x1="600" y1="157" x2="1200" y2="315" stroke="#ef4444" stroke-width="1"/>
+    <line x1="600" y1="157" x2="600" y2="0"   stroke="#94a3b8" stroke-width="1"/>
+    <line x1="600" y1="157" x2="750" y2="0"   stroke="#94a3b8" stroke-width="1"/>
+    <line x1="600" y1="157" x2="450" y2="0"   stroke="#94a3b8" stroke-width="1"/>
+  </g>
+
+  <!-- === IRAN ORIGIN NODE (left of top scene) === -->
+  <!-- Outer pulse ring 1 -->
+  <circle cx="450" cy="165" r="52" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2" class="pulse1"/>
+  <!-- Outer pulse ring 2 -->
+  <circle cx="450" cy="165" r="38" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35" class="pulse2"/>
+  <!-- Iran node body -->
+  <circle cx="450" cy="165" r="26" fill="#1c0505" stroke="#ef4444" stroke-width="2.5" filter="url(#glowRed)"/>
+  <circle cx="450" cy="165" r="12" fill="#dc2626" opacity="0.9" class="pulse1"/>
+  <!-- Iran label -->
+  <text x="450" y="210" font-family="'Arial',sans-serif" font-size="13" font-weight="900" fill="#ef4444" text-anchor="middle" letter-spacing="2">IRAN</text>
+  <text x="450" y="226" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">APT Origin</text>
+  <!-- Crosshair on Iran node -->
+  <line x1="440" y1="165" x2="424" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="460" y1="165" x2="476" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="450" y1="155" x2="450" y2="139" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="450" y1="175" x2="450" y2="191" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+
+  <!-- === ATTACK LINES from IRAN to ISRAEL targets === -->
+  <!-- Main spray line 1 -->
+  <line x1="476" y1="152" x2="790" y2="112" stroke="#ef4444" stroke-width="2" opacity="0.7" marker-end="url(#arrowRed)" class="dashFlow"/>
+  <!-- Main spray line 2 -->
+  <line x1="476" y1="165" x2="790" y2="155" stroke="#ef4444" stroke-width="2" opacity="0.8" marker-end="url(#arrowRed)" class="dashFlow"/>
+  <!-- Main spray line 3 -->
+  <line x1="476" y1="178" x2="790" y2="198" stroke="#ef4444" stroke-width="2" opacity="0.6" marker-end="url(#arrowRed)" class="dashFlow"/>
+  <!-- Secondary lines (more targets) -->
+  <line x1="470" y1="145" x2="750" y2="80"  stroke="#ef4444" stroke-width="1.2" opacity="0.35" marker-end="url(#arrowRed)" class="dashFlow"/>
+  <line x1="470" y1="185" x2="750" y2="240" stroke="#ef4444" stroke-width="1.2" opacity="0.35" marker-end="url(#arrowRed)" class="dashFlow"/>
+
+  <!-- === AUTHENTICATION WALL (center-right top) === -->
+  <!-- Wall background -->
+  <rect x="790" y="60" width="280" height="200" rx="6" fill="url(#wallGrad)" stroke="#3b1515" stroke-width="2"/>
+  <!-- Wall brick pattern -->
+  <g stroke="#2a1010" stroke-width="0.8" opacity="0.5">
+    <line x1="790" y1="90"  x2="1070" y2="90"/>
+    <line x1="790" y1="120" x2="1070" y2="120"/>
+    <line x1="790" y1="150" x2="1070" y2="150"/>
+    <line x1="790" y1="180" x2="1070" y2="180"/>
+    <line x1="790" y1="210" x2="1070" y2="210"/>
+    <line x1="830" y1="60"  x2="830" y2="90"/>
+    <line x1="890" y1="60"  x2="890" y2="90"/>
+    <line x1="960" y1="60"  x2="960" y2="90"/>
+    <line x1="1020" y1="60" x2="1020" y2="90"/>
+    <line x1="810" y1="90"  x2="810" y2="120"/>
+    <line x1="870" y1="90"  x2="870" y2="120"/>
+    <line x1="940" y1="90"  x2="940" y2="120"/>
+    <line x1="1010" y1="90" x2="1010" y2="120"/>
+    <line x1="850" y1="120" x2="850" y2="150"/>
+    <line x1="920" y1="120" x2="920" y2="150"/>
+    <line x1="990" y1="120" x2="990" y2="150"/>
+    <line x1="820" y1="150" x2="820" y2="180"/>
+    <line x1="880" y1="150" x2="880" y2="180"/>
+    <line x1="950" y1="150" x2="950" y2="180"/>
+    <line x1="1030" y1="150" x2="1030" y2="180"/>
+  </g>
+
+  <!-- ISRAEL shield node (center of wall) -->
+  <circle cx="930" cy="160" r="36" fill="url(#israelGlow)" filter="url(#softBlur)"/>
+  <!-- Shield icon -->
+  <path d="M930,124 L960,140 L960,162 C960,180 946,192 930,198 C914,192 900,180 900,162 L900,140 Z"
+    fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="2.5" filter="url(#glowBlue)"/>
+  <path d="M916,162 L924,172 L946,148" stroke="#60a5fa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Shield being breached - crack marks on it -->
+  <line x1="905" y1="145" x2="915" y2="168" stroke="#ef4444" stroke-width="1.5" opacity="0.7" class="glimmer2"/>
+  <line x1="948" y1="140" x2="940" y2="165" stroke="#ef4444" stroke-width="1.5" opacity="0.6" class="glimmer3"/>
+
+  <!-- "300+ ORGS" label on wall -->
+  <rect x="870" y="205" width="120" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+  <text x="930" y="220" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">300+ ORGS TARGETED</text>
+
+  <!-- Login form elements being attacked (below wall) -->
+  <!-- Input field 1 - breached -->
+  <rect x="820" y="240" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="835" y="257" font-family="'Courier New',monospace" font-size="10" fill="#475569">username@org.il</text>
+  <text x="1028" y="257" font-family="'Arial',sans-serif" font-size="14" fill="#ef4444" text-anchor="middle">x</text>
+  <!-- Input field 2 - breached -->
+  <rect x="820" y="273" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="835" y="290" font-family="'Courier New',monospace" font-size="10" fill="#475569">••••••••••••</text>
+  <text x="1028" y="290" font-family="'Arial',sans-serif" font-size="14" fill="#ef4444" text-anchor="middle">x</text>
+
+  <!-- Password spray labels floating -->
+  <g class="float1">
+    <rect x="520" y="72" width="90" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
+    <text x="565" y="84" font-family="'Courier New',monospace" font-size="9" fill="#ef4444" text-anchor="middle">P@ssw0rd</text>
+  </g>
+  <g class="float2">
+    <rect x="640" y="92" width="80" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.75"/>
+    <text x="680" y="104" font-family="'Courier New',monospace" font-size="9" fill="#ef4444" text-anchor="middle">Admin1234</text>
+  </g>
+  <g class="float3">
+    <rect x="545" y="132" width="72" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="1" opacity="0.65"/>
+    <text x="581" y="144" font-family="'Courier New',monospace" font-size="9" fill="#dc2626" text-anchor="middle">Summer26!</text>
+  </g>
+
+  <!-- Top scene label -->
+  <rect x="318" y="12" width="180" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.9"/>
+  <text x="408" y="28" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle" letter-spacing="1">PASSWORD SPRAY ATTACK</text>
+
+  <!-- IRAN label on node (inside) -->
+  <text x="450" y="170" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.9">IR</text>
+
+  <!-- === CRACK DIVIDER LINE (with jagged effect) === -->
+  <!-- Glow layer -->
+  <rect x="305" y="310" width="895" height="10" fill="url(#crackGlow)" opacity="0.6" filter="url(#softBlur)"/>
+  <!-- Jagged crack path -->
+  <polyline points="305,315 370,311 435,318 500,312 560,316 625,309 690,318 750,313 810,317 875,311 935,316 1000,312 1060,317 1120,313 1200,315"
+    fill="none" stroke="#ef4444" stroke-width="2.5" class="crack"/>
+  <polyline points="305,315 370,311 435,318 500,312 560,316 625,309 690,318 750,313 810,317 875,311 935,316 1000,312 1060,317 1120,313 1200,315"
+    fill="none" stroke="#ff6060" stroke-width="1" opacity="0.6" filter="url(#crackBlur)" class="crack"/>
+
+  <!-- APT badge on crack centerline -->
+  <rect x="565" y="303" width="70" height="24" rx="12" fill="#2a0505" stroke="#ef4444" stroke-width="2"/>
+  <text x="600" y="319" font-family="'Arial',sans-serif" font-size="12" font-weight="900" fill="#ef4444" text-anchor="middle" letter-spacing="2">APT</text>
+
+  <!-- ===== BOTTOM SCENE: MULTI-VECTOR THREAT MAP ===== -->
+  <!-- Ambient glows -->
+  <ellipse cx="470" cy="460" rx="160" ry="80" fill="url(#dprGlow)" filter="url(#softBlur)" clip-path="url(#bottomSceneClip)"/>
+  <ellipse cx="980" cy="470" rx="160" ry="90" fill="url(#palGlow)" filter="url(#softBlur)" clip-path="url(#bottomSceneClip)"/>
+
+  <!-- === DPRK NODE === -->
+  <circle cx="420" cy="420" r="42" fill="url(#iranGlow)" filter="url(#softBlur)"/>
+  <circle cx="420" cy="420" r="28" fill="#150505" stroke="#dc2626" stroke-width="2.5" filter="url(#glowRed)"/>
+  <circle cx="420" cy="420" r="28" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="5 3" opacity="0.5" class="spin"/>
+  <!-- Skull icon (simplified) for DPRK -->
+  <circle cx="420" cy="414" r="10" fill="#2a0505" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="413" y="420" width="14" height="8" rx="2" fill="#2a0505" stroke="#dc2626" stroke-width="1.5"/>
+  <circle cx="416" cy="413" r="2" fill="#dc2626"/>
+  <circle cx="424" cy="413" r="2" fill="#dc2626"/>
+  <line x1="415" y1="424" x2="415" y2="428" stroke="#dc2626" stroke-width="1.5"/>
+  <line x1="420" y1="424" x2="420" y2="428" stroke="#dc2626" stroke-width="1.5"/>
+  <line x1="425" y1="424" x2="425" y2="428" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="420" y="465" font-family="'Arial',sans-serif" font-size="13" font-weight="900" fill="#dc2626" text-anchor="middle" letter-spacing="2">DPRK</text>
+  <text x="420" y="481" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Multi-Stage APT</text>
+
+  <!-- === GITHUB C2 NODE (center bottom) === -->
+  <circle cx="620" cy="490" r="24" fill="#0f0f1a" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
+  <text x="620" y="487" font-family="'Courier New',monospace" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">GitHub</text>
+  <text x="620" y="502" font-family="'Courier New',monospace" font-size="9" fill="#fbbf24" text-anchor="middle">C2</text>
+  <text x="620" y="528" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Staging Server</text>
+
+  <!-- DPRK -> GitHub C2 arrow -->
+  <line x1="446" y1="428" x2="594" y2="484" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" class="dashFlow"/>
+
+  <!-- === SOUTH KOREA TARGET NODE === -->
+  <circle cx="750" cy="420" r="24" fill="#1a1000" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
+  <!-- Korean flag simplified: white circle + lines -->
+  <circle cx="750" cy="417" r="9" fill="#0f0f0f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="750" y="421" font-family="'Arial',sans-serif" font-size="7" font-weight="700" fill="#fbbf24" text-anchor="middle">KR</text>
+  <text x="750" y="460" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">South Korea</text>
+  <text x="750" y="474" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Target</text>
+
+  <!-- GitHub C2 -> South Korea arrow -->
+  <line x1="643" y1="483" x2="726" y2="433" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowAmber)" class="dashFlow"/>
+
+  <!-- === REVIL / GANGCRAB NODE === -->
+  <circle cx="545" cy="375" r="26" fill="#1a0f00" stroke="#f59e0b" stroke-width="2.5" filter="url(#glowAmber)"/>
+  <!-- Ransomware padlock icon -->
+  <rect x="536" y="368" width="18" height="14" rx="3" fill="#1a0f00" stroke="#f59e0b" stroke-width="1.5"/>
+  <path d="M538,368 C538,362 553,362 553,368" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="545" cy="376" r="2.5" fill="#fbbf24"/>
+  <text x="545" y="418" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">REvil</text>
+  <text x="545" y="432" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GangCrab Ops</text>
+
+  <!-- === GERMANY LAW ENFORCEMENT NODE === -->
+  <circle cx="370" cy="545" r="24" fill="#0f1420" stroke="#3b82f6" stroke-width="2" filter="url(#glowBlue)"/>
+  <!-- Handcuffs icon (simplified) -->
+  <circle cx="363" cy="545" r="7" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <circle cx="377" cy="545" r="7" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="370" y1="545" x2="370" y2="545" stroke="#60a5fa" stroke-width="3"/>
+  <line x1="367" y1="545" x2="373" y2="545" stroke="#60a5fa" stroke-width="2.5"/>
+  <text x="370" y="585" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle">Germany</text>
+  <text x="370" y="599" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Law Enforcement</text>
+
+  <!-- Germany -> REvil (arrest connection) -->
+  <line x1="394" y1="534" x2="522" y2="396" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#arrowBlue)" opacity="0.8"/>
+
+  <!-- Encrypted file icons (ransomware visualization) -->
+  <g transform="translate(490, 320)" class="float1">
+    <rect x="0" y="0" width="22" height="28" rx="3" fill="#1a0f00" stroke="#f59e0b" stroke-width="1.5"/>
+    <path d="M14,0 L22,8 L14,8 Z" fill="#f59e0b" opacity="0.6"/>
+    <line x1="4" y1="14" x2="18" y2="14" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+    <line x1="4" y1="18" x2="18" y2="18" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+    <line x1="4" y1="22" x2="12" y2="22" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+    <text x="11" y="34" font-family="'Arial',sans-serif" font-size="7" fill="#f59e0b" text-anchor="middle">.enc</text>
+  </g>
+  <g transform="translate(560, 340)" class="float2">
+    <rect x="0" y="0" width="22" height="28" rx="3" fill="#1a0f00" stroke="#dc2626" stroke-width="1.5"/>
+    <path d="M14,0 L22,8 L14,8 Z" fill="#dc2626" opacity="0.6"/>
+    <line x1="4" y1="14" x2="18" y2="14" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+    <line x1="4" y1="18" x2="18" y2="18" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+    <text x="11" y="34" font-family="'Arial',sans-serif" font-size="7" fill="#dc2626" text-anchor="middle">.lock</text>
+  </g>
+
+  <!-- === PALANTIR OSDK NODE === -->
+  <circle cx="930" cy="430" r="32" fill="url(#palGlow)" filter="url(#softBlur)"/>
+  <circle cx="930" cy="430" r="26" fill="url(#palantirGrad)" stroke="#3b82f6" stroke-width="2.5" filter="url(#glowBlue)"/>
+  <!-- Palantir data icon (simplified: overlapping circles) -->
+  <circle cx="922" cy="426" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <circle cx="938" cy="426" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <circle cx="930" cy="438" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <text x="930" y="475" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">Palantir</text>
+  <text x="930" y="490" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">OSDK Platform</text>
+
+  <!-- === IRONWOOD TPU NODE === -->
+  <circle cx="1090" cy="430" r="26" fill="#071a10" stroke="#22c55e" stroke-width="2.5" filter="url(#glowGreen)"/>
+  <circle cx="1090" cy="430" r="26" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3" opacity="0.5" class="spin"/>
+  <!-- TPU chip icon -->
+  <rect x="1079" y="419" width="22" height="22" rx="3" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="1082" y="422" width="16" height="16" rx="2" fill="#0a2010" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1079" y1="424" x2="1075" y2="424" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1079" y1="429" x2="1075" y2="429" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1079" y1="434" x2="1075" y2="434" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1101" y1="424" x2="1105" y2="424" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1101" y1="429" x2="1105" y2="429" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1101" y1="434" x2="1105" y2="434" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1083" y1="419" x2="1083" y2="415" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1090" y1="419" x2="1090" y2="415" stroke="#22c55e" stroke-width="1"/>
+  <line x1="1097" y1="419" x2="1097" y2="415" stroke="#22c55e" stroke-width="1"/>
+  <text x="1090" y="475" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#22c55e" text-anchor="middle">Ironwood</text>
+  <text x="1090" y="490" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">3.7x TPU</text>
+  <text x="1090" y="504" font-family="'Arial',sans-serif" font-size="9" fill="#4ade80" text-anchor="middle" class="glimmer2">AI Compute</text>
+
+  <!-- Palantir data stream lines -->
+  <line x1="956" y1="422" x2="1060" y2="422" stroke="#3b82f6" stroke-width="1.5" class="dataLine" marker-end="url(#arrowBlue)"/>
+  <line x1="956" y1="432" x2="1060" y2="432" stroke="#22c55e" stroke-width="1.5" class="dataLine" marker-end="url(#arrowGreen)"/>
+  <line x1="956" y1="442" x2="1060" y2="442" stroke="#3b82f6" stroke-width="1.5" class="dataLine" marker-end="url(#arrowBlue)"/>
+
+  <!-- "3.7x Performance" badge near Ironwood -->
+  <rect x="1048" y="395" width="84" height="18" rx="9" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
+  <text x="1090" y="408" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle" class="glimmer1">3.7x FASTER</text>
+
+  <!-- Bottom scene label -->
+  <rect x="318" y="322" width="195" height="22" rx="4" fill="#0a0f20" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
+  <text x="415" y="336" font-family="'Arial',sans-serif" font-size="10" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="1">MULTI-VECTOR THREAT MAP</text>
+
+  <!-- Floating particles in bottom scene -->
+  <g class="float1" transform="translate(470, 500)">
+    <circle cx="0" cy="0" r="2" fill="#ef4444" opacity="0.6"/>
+  </g>
+  <g class="float2" transform="translate(680, 355)">
+    <circle cx="0" cy="0" r="1.5" fill="#f59e0b" opacity="0.7"/>
+  </g>
+  <g class="float3" transform="translate(860, 515)">
+    <circle cx="0" cy="0" r="2" fill="#3b82f6" opacity="0.5"/>
+  </g>
+  <g class="float1" transform="translate(1020, 380)">
+    <circle cx="0" cy="0" r="1.5" fill="#22c55e" opacity="0.6"/>
+  </g>
+  <g class="float3" transform="translate(590, 430)">
+    <circle cx="0" cy="0" r="1.5" fill="#f97316" opacity="0.5"/>
+  </g>
+
+  <!-- Scan line effect on top scene -->
+  <rect x="305" y="0" width="895" height="3" fill="url(#crackGlow)" opacity="0.15" class="glimmer3"/>
+
+  <!-- ===== FOOTER / WATERMARK ===== -->
+  <rect x="305" y="605" width="895" height="25" fill="#080c18" opacity="0.9"/>
+  <line x1="305" y1="605" x2="1200" y2="605" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="322" cy="617" r="3.5" fill="#ef4444" opacity="0.7" class="pulse1"/>
+  <text x="334" y="621" font-family="'Arial',sans-serif" font-size="10" fill="#475569">Security Weekly Digest | April 07, 2026</text>
+  <text x="1190" y="621" font-family="'Arial',sans-serif" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
