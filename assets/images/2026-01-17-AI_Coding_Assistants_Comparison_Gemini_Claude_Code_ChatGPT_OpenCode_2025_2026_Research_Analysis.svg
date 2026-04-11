@@ -1,78 +1,498 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>AI Gemini, Claude</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
+    <linearGradient id="ua62140bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#0a1a0a"/>
+      <stop offset="100%" style="stop-color:#0d0f25"/>
     </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="ua62140accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
+    <linearGradient id="ua62140title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="ua62140panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
+      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
+    </linearGradient>
+    <radialGradient id="ua62140ambientL" cx="20%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="ua62140ambientR" cx="70%" cy="45%" r="35%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="ua62140glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#8b5cf6" flood-opacity="0.7"/>
     </filter>
+    <filter id="ua62140blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="ua62140textglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#a855f7" flood-opacity="0.5"/>
+    </filter>
+    <filter id="ua62140fxGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ua62140fxRed" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ua62140sceneGlow1" cx="75%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ua62140sceneGlow2" cx="60%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ua62140dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
+    </pattern>
+    <clipPath id="ua62140clip">
+      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
+    </clipPath>
+    <style>
+      @keyframes ua62140floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
+      @keyframes ua62140pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+      @keyframes ua62140crackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
+      @keyframes ua62140glimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
+      @keyframes ua62140dash { to{stroke-dashoffset:-20} }
+      @keyframes ua62140rotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      .ua62140fa { animation: ua62140floatUp 3.2s ease-in infinite; }
+      .ua62140fb { animation: ua62140floatUp 3.8s ease-in infinite; animation-delay:0.9s; }
+      .ua62140fc { animation: ua62140floatUp 2.9s ease-in infinite; animation-delay:1.7s; }
+      .ua62140crack { animation: ua62140crackFx 1.9s ease-in-out infinite; }
+      .ua62140blink { animation: ua62140pulse 2.2s ease-in-out infinite; }
+    </style>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+
+  <!-- BACKGROUND -->
+  <rect width="1200" height="630" fill="url(#ua62140bg)"/>
+  <g clip-path="url(#ua62140clip)">
+    <rect width="1200" height="630" fill="url(#ua62140dots)" opacity="0.6"/>
+    <rect width="1200" height="630" fill="url(#ua62140ambientL)"/>
+    <rect width="1200" height="630" fill="url(#ua62140ambientR)"/>
+
+    <!-- LEFT PANEL -->
+    <rect x="0" y="0" width="370" height="630" fill="url(#ua62140panel)"/>
+    <rect x="0" y="0" width="4" height="630" fill="url(#ua62140accent)"/>
+
+    <!-- Badge -->
+    <rect x="40" y="40" width="160" height="28" rx="4" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
+          fill="#d8b4fe" text-anchor="middle" letter-spacing="2" font-weight="bold">AI / ML</text>
+
+    <!-- Date -->
+    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
+          fill="#64748b" letter-spacing="1">2026-01-17</text>
+
+    <!-- Title -->
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ua62140title)" font-weight="700" letter-spacing="-1">AI Gemini, Claude</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua62140title)" font-weight="700" letter-spacing="-1">Code, ChatGPT,</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua62140title)" font-weight="700" letter-spacing="-1">OpenCode 2026</text>
+
+    <!-- Accent divider -->
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ua62140accent)" opacity="0.8"/>
+
+    <!-- Topic bars -->
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Ai</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Coding Assistants</text>
+
+    <!-- Tag pills -->
+    <rect x="40" y="525" width="54" height="24" rx="12" fill="#3b0764" stroke="#a855f7" stroke-width="1.2"/>
+    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="bold">Ai</text>
+    <rect x="104" y="525" width="152" height="24" rx="12" fill="#0a1a0a" stroke="#22c55e" stroke-width="1.2"/>
+    <text x="180" y="541" font-family="Courier New, monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">Coding Assistants</text>
+    <rect x="266" y="525" width="64" height="24" rx="12" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2"/>
+    <text x="298" y="541" font-family="Courier New, monospace" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Gemini</text>
+
+    <!-- Site URL -->
+    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
+          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
+
+    <!-- RIGHT SCENE AREA -->
+    <!-- Scene ambient glow overlays -->
+    <rect x="380" y="40" width="780" height="550" fill="url(#ua62140sceneGlow1)" opacity="0.6"/>
+    <rect x="380" y="40" width="780" height="550" fill="url(#ua62140sceneGlow2)" opacity="0.5"/>
+
+    <!-- SCENE: AI / ML -->
+    <!-- Neural network center -->
+    <g filter="url(#ua62140glow)">
+      <circle cx="700" cy="260" r="50" fill="#0f172a" stroke="#a855f7" stroke-width="2.5"/>
+      <circle cx="700" cy="260" r="50" fill="#8b5cf6" opacity="0.08"/>
+    </g>
+    <!-- Brain circuit paths -->
+    <ellipse cx="700" cy="255" rx="22" ry="18" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+    <path d="M685 250 Q700 235 715 250" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.7"/>
+    <path d="M685 260 Q700 275 715 260" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/>
+    <circle cx="700" cy="255" r="5" fill="#a855f7" opacity="0.6"/>
+    <text x="700" y="300" font-family="Courier New, monospace" font-size="9"
+          fill="#d8b4fe" text-anchor="middle" font-weight="bold">AI MODEL</text>
+
+    <!-- Layer nodes (input) -->
+    <circle cx="540" cy="180" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
+    <circle cx="540" cy="260" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
+    <circle cx="540" cy="340" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
+
+    <!-- Layer nodes (output) -->
+    <circle cx="860" cy="200" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="860" cy="320" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+
+    <!-- Data pipeline connections -->
+    <line x1="558" y1="185" x2="652" y2="248" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
+    <line x1="558" y1="260" x2="652" y2="260" stroke="#22c55e" stroke-width="1.2" opacity="0.5"
+          stroke-dasharray="4 3" style="animation: ua62140dash 2s linear infinite"/>
+    <line x1="558" y1="335" x2="652" y2="272" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
+    <line x1="748" y1="250" x2="842" y2="205" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+    <line x1="748" y1="270" x2="842" y2="315" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+
+    <!-- Model card -->
+    <rect x="620" y="380" width="160" height="80" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.8"/>
+    <text x="700" y="405" font-family="Courier New, monospace" font-size="9"
+          fill="#d8b4fe" text-anchor="middle" opacity="0.8">PARAMETERS</text>
+    <rect x="640" y="415" width="120" height="8" rx="3" fill="#a855f7" opacity="0.15"/>
+    <rect x="640" y="415" width="85" height="8" rx="3" fill="#a855f7" opacity="0.4"/>
+    <rect x="640" y="430" width="120" height="8" rx="3" fill="#8b5cf6" opacity="0.15"/>
+    <rect x="640" y="430" width="60" height="8" rx="3" fill="#8b5cf6" opacity="0.4"/>
+    <rect x="640" y="445" width="120" height="8" rx="3" fill="#22c55e" opacity="0.15"/>
+    <rect x="640" y="445" width="100" height="8" rx="3" fill="#22c55e" opacity="0.4"/>
+
+    <!-- Gradient computation node -->
+    <g filter="url(#ua62140glow)">
+      <circle cx="950" cy="260" r="28" fill="#0f172a" stroke="#a855f7" stroke-width="1.5"/>
+    </g>
+    <text x="950" y="258" font-family="Courier New, monospace" font-size="16"
+          fill="#a855f7" text-anchor="middle" opacity="0.8">&#x2207;</text>
+    <text x="950" y="280" font-family="Courier New, monospace" font-size="7"
+          fill="#d8b4fe" text-anchor="middle" opacity="0.7">GRADIENT</text>
+    <line x1="878" y1="210" x2="924" y2="250" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
+    <line x1="878" y1="315" x2="924" y2="270" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
+
+    <!-- Neural network 3 layers of connected nodes -->
+    <!-- Hidden layer -->
+    <circle cx="620" cy="180" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="220" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="260" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="300" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <circle cx="620" cy="340" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <!-- Hidden layer 2 -->
+    <circle cx="780" cy="200" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="240" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="280" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+    <circle cx="780" cy="320" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+    <!-- Neural connections (sparse) -->
+    <line x1="558" y1="180" x2="610" y2="180" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="260" x2="610" y2="220" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="260" x2="610" y2="300" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="558" y1="340" x2="610" y2="340" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="630" y1="185" x2="770" y2="200" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="220" x2="770" y2="240" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="260" x2="770" y2="280" stroke="#a855f7" stroke-width="0.5" opacity="0.18"/>
+    <line x1="630" y1="300" x2="770" y2="280" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
+    <line x1="630" y1="340" x2="770" y2="320" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
+    <line x1="790" y1="205" x2="842" y2="200" stroke="#8b5cf6" stroke-width="0.5" opacity="0.15"/>
+    <line x1="790" y1="280" x2="842" y2="260" stroke="#8b5cf6" stroke-width="0.5" opacity="0.18"/>
+    <line x1="790" y1="320" x2="842" y2="320" stroke="#8b5cf6" stroke-width="0.5" opacity="0.15"/>
+
+    <!-- Brain circuit pattern -->
+    <path d="M 680 240 Q 700 220 720 240 Q 740 260 720 280 Q 700 300 680 280 Q 660 260 680 240"
+          fill="none" stroke="#a855f7" stroke-width="0.8" opacity="0.2"/>
+    <path d="M 690 248 Q 700 238 710 248" fill="none" stroke="#8b5cf6" stroke-width="0.6" opacity="0.25"/>
+    <path d="M 690 268 Q 700 278 710 268" fill="none" stroke="#8b5cf6" stroke-width="0.6" opacity="0.25"/>
+
+    <!-- Data pipeline arrows -->
+    <path d="M 470 260 L 520 260" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.4"
+          stroke-dasharray="4 3" style="animation: ua62140dash 2s linear infinite"/>
+    <polygon points="518,255 528,260 518,265" fill="#22c55e" opacity="0.4"/>
+    <path d="M 878 260 L 930 260" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.35"/>
+    <polygon points="928,255 938,260 928,265" fill="#8b5cf6" opacity="0.35"/>
+
+    <!-- Training progress badge -->
+    <rect x="830" y="370" width="100" height="28" rx="4" fill="#0a1a0a" stroke="#a855f7" stroke-width="0.8" opacity="0.6"/>
+    <text x="880" y="384" font-family="Courier New, monospace" font-size="7"
+          fill="#a855f7" text-anchor="middle" opacity="0.7">EPOCH 42/100</text>
+    <rect x="840" y="390" width="80" height="4" rx="2" fill="#a855f7" opacity="0.15"/>
+    <rect x="840" y="390" width="34" height="4" rx="2" fill="#a855f7" opacity="0.5"/>
+
+    <!-- Pulsing rings -->
+    <circle cx="700" cy="260" r="70" fill="none" stroke="#a855f7" stroke-width="0.8"
+            opacity="0.2" style="animation: ua62140pulse 3s ease-in-out infinite"/>
+
+    <!-- Ambient glow -->
+    <ellipse cx="720" cy="280" rx="260" ry="180" fill="#8b5cf6" opacity="0.035"/>
+
+    <!-- COMMON DECORATIONS -->
+
+    <!-- ===== COMMON DECORATIONS ===== -->
+
+    <!-- Hex grid overlay (right area) -->
+    <defs>
+      <pattern id="ua62140hex" x="0" y="0" width="24" height="28" patternUnits="userSpaceOnUse">
+        <polygon points="12,0 24,7 24,21 12,28 0,21 0,7"
+                 fill="none" stroke="#a855f7" stroke-width="0.4" opacity="0.15"/>
+      </pattern>
+    </defs>
+    <rect x="380" y="40" width="780" height="550" fill="url(#ua62140hex)" opacity="0.35"/>
+
+    <!-- Orbital rings -->
+    <circle cx="720" cy="300" r="220" fill="none" stroke="#a855f7" stroke-width="0.6"
+            stroke-dasharray="5 8" opacity="0.2"/>
+    <circle cx="720" cy="300" r="180" fill="none" stroke="#8b5cf6" stroke-width="0.5"
+            stroke-dasharray="3 6" opacity="0.15"/>
+    <circle cx="720" cy="300" r="260" fill="none" stroke="#22c55e" stroke-width="0.4"
+            stroke-dasharray="8 12" opacity="0.1"/>
+
+    <!-- Radial grid lines -->
+    <line x1="720" y1="80" x2="720" y2="520" stroke="#a855f7" stroke-width="0.3" opacity="0.1"/>
+    <line x1="460" y1="300" x2="980" y2="300" stroke="#a855f7" stroke-width="0.3" opacity="0.1"/>
+    <line x1="535" y1="120" x2="905" y2="480" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
+    <line x1="905" y1="120" x2="535" y2="480" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
+
+    <!-- Top-right data panel -->
+    <rect x="960" y="50" width="190" height="110" rx="6" fill="#0f172a" stroke="#a855f7"
+          stroke-width="1" opacity="0.7"/>
+    <rect x="960" y="50" width="190" height="22" rx="6" fill="#a855f7" opacity="0.12"/>
+    <text x="975" y="66" font-family="Courier New, monospace" font-size="9"
+          fill="#a855f7" font-weight="bold" letter-spacing="1">STATUS</text>
+    <circle cx="1135" cy="61" r="4" fill="#22c55e" opacity="0.7"
+            style="animation: ua62140pulse 2s ease-in-out infinite"/>
+    <text x="975" y="90" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.7">INTEGRITY</text>
+    <rect x="1050" y="82" width="88" height="6" rx="3" fill="#a855f7" opacity="0.15"/>
+    <rect x="1050" y="82" width="62" height="6" rx="3" fill="#a855f7" opacity="0.5"/>
+    <text x="975" y="108" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.7">COVERAGE</text>
+    <rect x="1050" y="100" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
+    <rect x="1050" y="100" width="75" height="6" rx="3" fill="#22c55e" opacity="0.5"/>
+    <text x="975" y="126" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.7">UPTIME</text>
+    <rect x="1050" y="118" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
+    <rect x="1050" y="118" width="82" height="6" rx="3" fill="#22c55e" opacity="0.45"/>
+    <text x="975" y="148" font-family="Courier New, monospace" font-size="7"
+          fill="#64748b" opacity="0.6">SYS.OK | v2.1.4</text>
+
+    <!-- Bottom-right metrics panel -->
+    <rect x="920" y="480" width="220" height="100" rx="6" fill="#0f172a" stroke="#22c55e"
+          stroke-width="1" opacity="0.65"/>
+    <text x="935" y="500" font-family="Courier New, monospace" font-size="9"
+          fill="#22c55e" font-weight="bold" letter-spacing="1">METRICS</text>
+    <line x1="920" y1="506" x2="1140" y2="506" stroke="#22c55e" stroke-width="0.5" opacity="0.3"/>
+    <!-- Mini bar chart -->
+    <rect x="940" y="545" width="14" height="28" rx="2" fill="#a855f7" opacity="0.3"/>
+    <rect x="940" y="555" width="14" height="18" rx="2" fill="#a855f7" opacity="0.6"/>
+    <rect x="960" y="535" width="14" height="38" rx="2" fill="#22c55e" opacity="0.3"/>
+    <rect x="960" y="550" width="14" height="23" rx="2" fill="#22c55e" opacity="0.6"/>
+    <rect x="980" y="540" width="14" height="33" rx="2" fill="#a855f7" opacity="0.3"/>
+    <rect x="980" y="548" width="14" height="25" rx="2" fill="#a855f7" opacity="0.5"/>
+    <rect x="1000" y="530" width="14" height="43" rx="2" fill="#8b5cf6" opacity="0.3"/>
+    <rect x="1000" y="545" width="14" height="28" rx="2" fill="#8b5cf6" opacity="0.6"/>
+    <rect x="1020" y="538" width="14" height="35" rx="2" fill="#22c55e" opacity="0.3"/>
+    <rect x="1020" y="552" width="14" height="21" rx="2" fill="#22c55e" opacity="0.5"/>
+    <rect x="1040" y="525" width="14" height="48" rx="2" fill="#a855f7" opacity="0.3"/>
+    <rect x="1040" y="540" width="14" height="33" rx="2" fill="#a855f7" opacity="0.6"
+          style="animation: ua62140glimmer 3s ease-in-out infinite"/>
+    <!-- Metric labels -->
+    <text x="1080" y="520" font-family="Courier New, monospace" font-size="8"
+          fill="#22c55e" opacity="0.7">7-DAY</text>
+    <text x="1080" y="532" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.6">TREND</text>
+    <text x="1080" y="555" font-family="Courier New, monospace" font-size="16"
+          fill="#a855f7" font-weight="bold" opacity="0.8">+12%</text>
+
+    <!-- Circuit traces (decorative) -->
+    <polyline points="400,100 430,100 430,140 480,140" fill="none"
+              stroke="#a855f7" stroke-width="0.8" opacity="0.2"/>
+    <circle cx="480" cy="140" r="3" fill="#a855f7" opacity="0.3"/>
+    <polyline points="400,160 420,160 420,200 460,200 460,180" fill="none"
+              stroke="#22c55e" stroke-width="0.8" opacity="0.15"/>
+    <circle cx="460" cy="180" r="2.5" fill="#22c55e" opacity="0.25"/>
+    <polyline points="1100,200 1130,200 1130,260 1100,260 1100,300" fill="none"
+              stroke="#8b5cf6" stroke-width="0.8" opacity="0.18"/>
+    <circle cx="1100" cy="300" r="3" fill="#8b5cf6" opacity="0.3"/>
+    <polyline points="1120,350 1150,350 1150,420 1120,420" fill="none"
+              stroke="#a855f7" stroke-width="0.8" opacity="0.15"/>
+    <circle cx="1120" cy="420" r="2.5" fill="#a855f7" opacity="0.25"/>
+    <polyline points="450,500 480,500 480,520 520,520" fill="none"
+              stroke="#22c55e" stroke-width="0.7" opacity="0.15"/>
+    <circle cx="520" cy="520" r="2" fill="#22c55e" opacity="0.2"/>
+    <polyline points="1060,460 1090,460 1090,440 1120,440" fill="none"
+              stroke="#a855f7" stroke-width="0.7" opacity="0.15"/>
+
+    <!-- Left panel data readout -->
+    <rect x="40" y="430" width="280" height="80" rx="6" fill="#0a1a0a" stroke="#a855f7"
+          stroke-width="1" opacity="0.6"/>
+    <rect x="40" y="430" width="4" height="80" rx="2" fill="#a855f7"/>
+    <text x="56" y="450" font-family="Courier New, monospace" font-size="8"
+          fill="#a855f7" font-weight="bold" letter-spacing="1">ANALYSIS</text>
+    <text x="56" y="466" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.6">Ai</text>
+    <rect x="56" y="474" width="200" height="5" rx="2" fill="#a855f7" opacity="0.12"/>
+    <rect x="56" y="474" width="145" height="5" rx="2" fill="#a855f7" opacity="0.45"/>
+    <text x="56" y="492" font-family="Courier New, monospace" font-size="8"
+          fill="#d8b4fe" opacity="0.6">Coding Assistants</text>
+    <rect x="56" y="496" width="200" height="5" rx="2" fill="#22c55e" opacity="0.12"/>
+    <rect x="56" y="496" width="170" height="5" rx="2" fill="#22c55e" opacity="0.45"/>
+
+    <!-- Scattered micro-nodes -->
+    <circle cx="420" cy="80" r="5" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.5"/>
+    <circle cx="420" cy="80" r="2" fill="#a855f7" opacity="0.4"/>
+    <circle cx="1150" cy="140" r="5" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
+    <circle cx="1150" cy="140" r="2" fill="#22c55e" opacity="0.3"/>
+    <circle cx="480" cy="560" r="4" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+    <circle cx="480" cy="560" r="1.5" fill="#8b5cf6" opacity="0.3"/>
+    <circle cx="1080" cy="570" r="4" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.35"/>
+    <circle cx="1080" cy="570" r="1.5" fill="#a855f7" opacity="0.25"/>
+
+    <!-- Hash / fingerprint decorative text -->
+    <text x="400" y="590" font-family="Courier New, monospace" font-size="7"
+          fill="#334155" opacity="0.4" letter-spacing="1">SHA256:e3b0c44298fc1c14...</text>
+    <text x="820" y="590" font-family="Courier New, monospace" font-size="7"
+          fill="#334155" opacity="0.3" letter-spacing="1">SIG:VERIFIED</text>
+
+    <!-- Scanning beam effect -->
+    <line x1="380" y1="300" x2="1160" y2="300" stroke="#a855f7" stroke-width="0.5" opacity="0.06"/>
+    <rect x="380" y="298" width="40" height="4" rx="2" fill="#a855f7" opacity="0.15">
+      <animate attributeName="x" values="380;1120;380" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.15;0.3;0.15" dur="8s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Animated dashed orbit arc -->
+    <path d="M 500 100 A 280 250 0 0 1 940 100" fill="none" stroke="#a855f7"
+          stroke-width="1" stroke-dasharray="6 8" opacity="0.15"
+          style="animation: ua62140dash 4s linear infinite"/>
+    <path d="M 940 500 A 280 250 0 0 1 500 500" fill="none" stroke="#22c55e"
+          stroke-width="0.8" stroke-dasharray="4 6" opacity="0.12"
+          style="animation: ua62140dash 5s linear infinite"/>
+
+    <!-- Corner decorative brackets -->
+    <polyline points="390,55 390,45 400,45" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+    <polyline points="1150,45 1160,45 1160,55" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+    <polyline points="390,575 390,585 400,585" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="1150,585 1160,585 1160,575" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.35"/>
+
+    <!-- Crosshair on center -->
+    <circle cx="720" cy="300" r="8" fill="none" stroke="#a855f7" stroke-width="0.6" opacity="0.2"/>
+    <line x1="720" y1="288" x2="720" y2="294" stroke="#a855f7" stroke-width="0.6" opacity="0.2"/>
+    <line x1="720" y1="306" x2="720" y2="312" stroke="#a855f7" stroke-width="0.6" opacity="0.2"/>
+    <line x1="708" y1="300" x2="714" y2="300" stroke="#a855f7" stroke-width="0.6" opacity="0.2"/>
+    <line x1="726" y1="300" x2="732" y2="300" stroke="#a855f7" stroke-width="0.6" opacity="0.2"/>
+
+    <!-- Horizontal data lines -->
+    <line x1="400" y1="48" x2="470" y2="48" stroke="#a855f7" stroke-width="0.8" opacity="0.15"/>
+    <line x1="475" y1="48" x2="500" y2="48" stroke="#a855f7" stroke-width="0.8" opacity="0.1"/>
+    <line x1="400" y1="585" x2="450" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.12"/>
+    <line x1="455" y1="585" x2="490" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.08"/>
+    <line x1="1060" y1="48" x2="1120" y2="48" stroke="#a855f7" stroke-width="0.8" opacity="0.12"/>
+    <line x1="1060" y1="585" x2="1100" y2="585" stroke="#22c55e" stroke-width="0.8" opacity="0.1"/>
+
+    <!-- Animated pulse dot (center) -->
+    <circle cx="720" cy="300" r="4" fill="#a855f7" opacity="0.3">
+      <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Perspective vanishing lines (tunnel effect) -->
+    <line x1="720" y1="315" x2="400" y2="50" stroke="#a855f7" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="1150" y2="50" stroke="#a855f7" stroke-width="0.4" opacity="0.08"/>
+    <line x1="720" y1="315" x2="400" y2="580" stroke="#22c55e" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="1150" y2="580" stroke="#22c55e" stroke-width="0.4" opacity="0.06"/>
+    <line x1="720" y1="315" x2="400" y2="315" stroke="#a855f7" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="1150" y2="315" stroke="#a855f7" stroke-width="0.3" opacity="0.07"/>
+    <line x1="720" y1="315" x2="500" y2="50" stroke="#8b5cf6" stroke-width="0.3" opacity="0.06"/>
+    <line x1="720" y1="315" x2="940" y2="580" stroke="#8b5cf6" stroke-width="0.3" opacity="0.06"/>
+
+    <!-- Breach crack line (jagged polyline across y=315) -->
+    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
+              fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.35"
+              filter="url(#ua62140fxRed)" class="ua62140crack"/>
+    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
+              fill="none" stroke="#8b5cf6" stroke-width="0.8" opacity="0.2"/>
+
+    <!-- Floating particles with animation classes -->
+    <circle cx="480" cy="120" r="2.5" fill="#a855f7" opacity="0.7" class="ua62140fa"/>
+    <circle cx="620" cy="480" r="2" fill="#22c55e" opacity="0.6" class="ua62140fb"/>
+    <circle cx="900" cy="100" r="3" fill="#8b5cf6" opacity="0.5" class="ua62140fc"/>
+    <circle cx="1050" cy="350" r="2" fill="#a855f7" opacity="0.6" class="ua62140fa"/>
+    <circle cx="550" cy="550" r="2.5" fill="#22c55e" opacity="0.5" class="ua62140fb"/>
+    <circle cx="850" cy="520" r="1.8" fill="#a855f7" opacity="0.55" class="ua62140fc"/>
+    <circle cx="750" cy="80" r="2.2" fill="#8b5cf6" opacity="0.45" class="ua62140fa"/>
+
+    <!-- Additional data panel (mid-right) -->
+    <rect x="960" y="180" width="190" height="76" rx="6" fill="#0f172a" stroke="#8b5cf6"
+          stroke-width="0.8" opacity="0.55"/>
+    <rect x="960" y="180" width="190" height="18" rx="6" fill="#8b5cf6" opacity="0.10"/>
+    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
+          fill="#8b5cf6" font-weight="bold" letter-spacing="1">TELEMETRY</text>
+    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
+          fill="#d8b4fe" opacity="0.6">LATENCY</text>
+    <rect x="1050" y="207" width="88" height="5" rx="2" fill="#8b5cf6" opacity="0.12"/>
+    <rect x="1050" y="207" width="55" height="5" rx="2" fill="#8b5cf6" opacity="0.45"/>
+    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
+          fill="#d8b4fe" opacity="0.6">THROUGHPUT</text>
+    <rect x="1050" y="223" width="88" height="5" rx="2" fill="#a855f7" opacity="0.12"/>
+    <rect x="1050" y="223" width="72" height="5" rx="2" fill="#a855f7" opacity="0.4"/>
+    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
+          fill="#d8b4fe" opacity="0.6">ERROR RATE</text>
+    <rect x="1050" y="239" width="88" height="5" rx="2" fill="#a855f7" opacity="0.12"/>
+    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
+    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
+          fill="#22c55e" opacity="0.5">LOW</text>
+
+    <!-- Timestamp watermark -->
+    <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
+          fill="#1e293b" text-anchor="end" opacity="0.5">2TWODRAGON // DIGEST</text>
+
+    <!-- FLOATING PARTICLES -->
+    <circle cx="150" cy="100" r="2.5" fill="#a855f7" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1060" cy="150" r="2.0" fill="#22c55e" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="480" r="2.5" fill="#a855f7" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="520" r="2.0" fill="#8b5cf6" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="180" cy="560" r="1.5" fill="#22c55e" opacity="0.35">
+      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1030" cy="80" r="2.0" fill="#a855f7" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- DATA STREAMS -->
+    <line x1="50" y1="200" x2="120" y2="200" stroke="#a855f7" stroke-width="1" opacity="0.15"/>
+    <line x1="50" y1="215" x2="95" y2="215" stroke="#a855f7" stroke-width="1" opacity="0.1"/>
+    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#8b5cf6" stroke-width="1" opacity="0.1"/>
+
+    <!-- CRT scan line -->
+    <rect width="1200" height="2" x="0" y="0" fill="#a855f7" opacity="0">
+      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
+    </rect>
   </g>
-  <circle cx="600" cy="320" r="260" fill="#a855f7" opacity="0.05" filter="url(#glow)"/>
 
-  <!-- Shared header frame -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#a855f7" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </g>
-  <text x="80" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">Comparison</text>
-  <text x="80" y="62" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">Side-by-side evaluation</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">January 17, 2026</text>
+  <!-- FOOTER -->
+  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
+  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
+        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
 
-  <!-- Left panel -->
-  <rect x="40" y="120" width="540" height="400" rx="16" fill="#1a0f1d" stroke="#a855f7" stroke-width="2"/>
-  <rect x="40" y="120" width="540" height="52" rx="16" fill="#a855f7" opacity="0.18"/>
-  <text x="60" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" letter-spacing="3">OPTION A</text>
-  <text x="310" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#a855f7" text-anchor="middle">AI AGENT</text>
-
-  <g transform="translate(310 310)">
-    <path d="M0,-60 L46,-36 L46,12 C46,44 26,64 0,76 C-26,64 -46,44 -46,12 L-46,-36 Z" fill="none" stroke="#a855f7" stroke-width="2"/>
-    <path d="M-18,4 L-6,16 L20,-14" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round"/>
-  </g>
-  <text x="310" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
-  <text x="310" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
-  <text x="310" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
-
-  <!-- VS divider -->
-  <line x1="600" y1="130" x2="600" y2="510" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
-  <circle cx="600" cy="320" r="34" fill="#0a0e1a" stroke="#f8fafc" stroke-width="2"/>
-  <text x="600" y="326" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="2">VS</text>
-
-  <!-- Right panel -->
-  <rect x="620" y="120" width="540" height="400" rx="16" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <rect x="620" y="120" width="540" height="52" rx="16" fill="#22d3ee" opacity="0.18"/>
-  <text x="640" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" letter-spacing="3">OPTION B</text>
-  <text x="890" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#22d3ee" text-anchor="middle">GPT AGENT</text>
-
-  <g transform="translate(890 310)">
-    <circle r="44" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <circle r="18" fill="none" stroke="#22d3ee" stroke-width="2"/>
-    <path d="M-50,0 L-40,0 M40,0 L50,0 M0,-50 L0,-40 M0,40 L0,50 M-36,-36 L-30,-30 M30,30 L36,36 M30,-30 L36,-36 M-36,36 L-30,30" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <text x="890" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
-  <text x="890" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
-  <text x="890" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
-
-  <!-- Shared footer frame -->
-  <rect x="0" y="540" width="1200" height="90" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="540" width="1200" height="2" fill="#1e293b"/>
-  <circle cx="32" cy="580" r="4" fill="#a855f7" opacity="0.6"/>
-  <text x="46" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569">Comparison | January 17, 2026</text>
-  <text x="1168" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <!-- BORDER -->
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <!-- Corner accents -->
+  <polyline points="0,25 0,0 25,0" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
+  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
+  <polyline points="0,605 0,630 25,630" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
 </svg>

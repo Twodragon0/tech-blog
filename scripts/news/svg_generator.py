@@ -1303,9 +1303,19 @@ def _shared_frame_footer(
 </svg>"""
 
 
-def _shared_defs_and_background(primary_accent: str) -> str:
-    """Shared <defs> + background rect used by all lane layouts."""
+def _shared_defs_and_background(
+    primary_accent: str, title: str = "Security Weekly Digest"
+) -> str:
+    """Shared <defs> + background rect used by all lane layouts.
+
+    The ``<title>`` element is required by scripts/check_svg_quality.py for
+    CI validation — omitting it causes every regenerated SVG to FAIL the
+    check-svg workflow. The title doubles as the accessible name for
+    screen readers on the OG image preview.
+    """
+    title_safe = _escape_svg_text(title[:80])
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>{title_safe}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0e1a"/>
@@ -1355,7 +1365,9 @@ def generate_tutorial_stack_svg(
     palette = ["#3b82f6", "#22d3ee", "#22c55e"]  # blue, cyan, green
     bg_fills = ["#0a1020", "#071a20", "#071a10"]
 
-    svg = _shared_defs_and_background("#3b82f6")
+    svg = _shared_defs_and_background(
+        "#3b82f6", title=f"Tutorial Guide - {date_display}"
+    )
     svg += _shared_frame_header(
         "Tutorial Guide",
         date_display,
@@ -1414,7 +1426,9 @@ def generate_timeline_pulse_svg(
         _escape_svg_text(focus_labels[0][:28]) if focus_labels else "Incident Analysis"
     )
 
-    svg = _shared_defs_and_background("#f59e0b")
+    svg = _shared_defs_and_background(
+        "#f59e0b", title=f"Postmortem - {date_display}"
+    )
     svg += _shared_frame_header(
         "Postmortem",
         date_display,
@@ -1491,7 +1505,9 @@ def generate_milestone_curve_svg(
         else:
             labels.append(f"PHASE{len(labels) + 1}")
 
-    svg = _shared_defs_and_background("#a855f7")
+    svg = _shared_defs_and_background(
+        "#a855f7", title=f"Roadmap - {date_display}"
+    )
     svg += _shared_frame_header(
         "Roadmap",
         date_display,
@@ -1552,7 +1568,9 @@ def generate_versus_split_svg(
     left_label = _escape_svg_text(labels[0][:22])
     right_label = _escape_svg_text(labels[1][:22])
 
-    svg = _shared_defs_and_background("#a855f7")
+    svg = _shared_defs_and_background(
+        "#a855f7", title=f"Comparison - {date_display}"
+    )
     svg += _shared_frame_header(
         "Comparison",
         date_display,
