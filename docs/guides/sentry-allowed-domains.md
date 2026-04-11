@@ -10,10 +10,11 @@ Sentry DSN은 클라이언트 측 코드에 노출되므로, 허용 도메인을
 
 ```
 tech.2twodragon.com
+www.tech.2twodragon.com
 twodragon0.github.io
 ```
 
-빈 칸으로 두면 모든 도메인에서 이벤트를 전송할 수 있으므로, 반드시 운영 도메인만 등록합니다.
+빈 칸으로 두면 모든 도메인에서 이벤트를 전송할 수 있으므로, 반드시 운영/백업 도메인만 등록합니다.
 
 ## 2. Inbound Data Filters 활성화
 

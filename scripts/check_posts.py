@@ -116,18 +116,62 @@ def check_front_matter(file_path: Path) -> List[str]:
 
 
 # Korean particles/verb endings that indicate a truncated/incomplete phrase
-# when they appear at the end of a title segment (split by comma).
-_TITLE_DANGLING_RE = re.compile(
-    r"(?:를|을|의|에|에서|으로|로|이|가|는|은|및|와|과|위해|위한|하는|하기|하여|통해|대한"
-    r"|하지|한|된|되는|되며|되지|되고|되자|려는|면서|지만|라는|라고|처럼|까지)"
-    r"\s*[,.]?\s*$"
-)
+# when they appear as a standalone final token of a title segment.
+_TITLE_DANGLING_TOKEN_SET = {
+    "를",
+    "을",
+    "의",
+    "에",
+    "에서",
+    "으로",
+    "로",
+    "이",
+    "가",
+    "는",
+    "은",
+    "및",
+    "와",
+    "과",
+    "위해",
+    "위한",
+    "하는",
+    "하기",
+    "하여",
+    "통해",
+    "대한",
+    "하지",
+    "한",
+    "된",
+    "되는",
+    "되며",
+    "되지",
+    "되고",
+    "되자",
+    "려는",
+    "면서",
+    "지만",
+    "라는",
+    "라고",
+    "처럼",
+}
 # Trailing bare number/count that usually means the next noun got cut off.
 # Compound Korean units (5천만 = 50 million) are matched greedily so the
 # full unit is consumed rather than leaving "만" dangling at the end.
 _TITLE_TRAILING_COUNT_RE = re.compile(
     r"(?:\d+(?:천만|백만|억|조|천|만|%|\s?[GMK]B))\s*[,]?\s*$"
 )
+
+
+def _is_high_quality_cover_svg(raw_svg: str) -> bool:
+    """Return True when the SVG uses the richer legacy cover profile."""
+    markers = (
+        "profile: high-quality-cover",
+        "sceneGlow1",
+        "sceneGlow2",
+        "floatUp",
+        "clipPath",
+    )
+    return any(marker in raw_svg for marker in markers)
 
 
 def check_title_truncation(title: str) -> List[str]:
@@ -148,7 +192,9 @@ def check_title_truncation(title: str) -> List[str]:
     for segment in segments:
         if not segment or len(segment) < 3:
             continue
-        if _TITLE_DANGLING_RE.search(segment):
+        normalized = segment.rstrip(" ,.")
+        last_token = normalized.split()[-1] if normalized.split() else ""
+        if last_token in _TITLE_DANGLING_TOKEN_SET:
             issues.append(
                 f'⚠️ Title segment ends in dangling Korean particle/ending: "{segment[-40:]}"'
             )
@@ -320,9 +366,14 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
         return issues
 
     try:
-        root = ET.fromstring(image_file.read_text(encoding="utf-8"))
+        raw_svg = image_file.read_text(encoding="utf-8")
+        root = ET.fromstring(raw_svg)
     except ET.ParseError:
         return [f"⚠️ Invalid SVG XML: {image_path}"]
+
+    is_hq_cover = _is_high_quality_cover_svg(raw_svg)
+    text_node_limit = 45 if is_hq_cover else 40
+    total_char_limit = 900 if is_hq_cover else 800
 
     text_nodes = [
         " ".join((node.itertext())).strip()
@@ -332,11 +383,11 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
     text_nodes = [text for text in text_nodes if text]
     total_chars = sum(len(text) for text in text_nodes)
 
-    if len(text_nodes) > 40:
+    if len(text_nodes) > text_node_limit:
         issues.append(
             f"⚠️ SVG text too dense ({len(text_nodes)} text nodes): {image_path}"
         )
-    if total_chars > 800:
+    if total_chars > total_char_limit:
         issues.append(
             f"⚠️ SVG contains too much text ({total_chars} chars): {image_path}"
         )

@@ -139,8 +139,8 @@ vercel logs https://tech.2twodragon.com --since 1h | grep -i "chat\|deepseek\|ap
 - ⏳ **60초 대기 후 재시도**
 - 🔄 **브라우저 새로고침**
 - 💡 **Rate Limit 설정 확인:**
-  - 현재: 세션당 15회/분
-  - `api/chat.js`의 `RATE_LIMIT` 설정 확인
+  - 현재 기본값: 익명 사용자 기준 분당 10회
+  - 실제 값은 `api/lib/ratelimit.js`의 `RATELIMIT_ANONYMOUS_RPM` 환경 변수 또는 기본값을 확인
 
 ### 문제 3: Origin 검증 실패
 
@@ -165,8 +165,8 @@ vercel logs https://tech.2twodragon.com --since 1h | grep -i "chat\|deepseek\|ap
 
 **해결 방법:**
 - ⏱️ **타임아웃 설정 확인:**
-  - 프로덕션: 55초 (Pro 플랜)
-  - 개발: 9초 (Hobby 플랜)
+  - 프로덕션 기본: 25초
+  - 개발/프리뷰 기본: 8초
 - 💡 **질문을 더 구체적으로 작성**
 - 🔄 **잠시 후 재시도**
 

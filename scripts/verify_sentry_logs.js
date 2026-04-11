@@ -1,23 +1,25 @@
 #!/usr/bin/env node
 /**
  * Sentry Logs 검증 스크립트
- * 
+ *
  * 사용법:
  *   node scripts/verify_sentry_logs.js
- * 
+ *
  * 환경 변수:
- *   SENTRY_DSN: Sentry DSN (선택사항)
- *   SENTRY_ORG: Sentry 조직 이름 (선택사항)
- *   SENTRY_PROJECT: Sentry 프로젝트 이름 (선택사항)
+ *   SENTRY_DSN: Sentry DSN (필수)
+ *   SENTRY_ORG: Sentry 조직 이름 (프로젝트/대시보드 확인 시 필요)
+ *   SENTRY_PROJECT: Sentry 프로젝트 이름 (선택, 기본값: tech-blog)
+ *   SENTRY_AUTH_TOKEN: Sentry API 토큰 (프로젝트 API 확인 시 필요)
  */
 
-const https = require('https');
-const { URL } = require('url');
+import https from 'node:https';
+import process from 'node:process';
+import { URL, pathToFileURL } from 'node:url';
 
 // Sentry 설정
 // 보안: DSN은 환경 변수로만 제공되어야 하며, 기본값은 사용하지 않음
 const SENTRY_DSN = process.env.SENTRY_DSN;
-const SENTRY_ORG = process.env.SENTRY_ORG || 'your-org';  // 실제 조직 이름으로 교체 필요
+const SENTRY_ORG = process.env.SENTRY_ORG || '';
 const SENTRY_PROJECT = process.env.SENTRY_PROJECT || 'tech-blog';
 
 // DSN 검증
@@ -31,14 +33,12 @@ if (!SENTRY_DSN) {
 // DSN에서 정보 추출
 function parseDSN(dsn) {
   const url = new URL(dsn);
-  const [publicKey, projectId] = url.pathname.split('/').filter(Boolean);
-  const host = url.hostname;
-  
+  const publicKey = url.username || '';
+  const projectId = url.pathname.replace(/^\/+/, '').split('/')[0] || '';
   return {
     publicKey,
     projectId,
-    host,
-    organization: url.pathname.split('/')[1] || SENTRY_ORG
+    host: url.hostname,
   };
 }
 
@@ -100,14 +100,15 @@ async function verifyLogs() {
     const dsnInfo = parseDSN(SENTRY_DSN);
     console.log(`   ✅ DSN 파싱 성공`);
     console.log(`   - Host: ${dsnInfo.host}`);
+    console.log(`   - Public Key: ${dsnInfo.publicKey ? `${dsnInfo.publicKey.slice(0, 6)}...` : 'missing'}`);
     console.log(`   - Project ID: ${dsnInfo.projectId}`);
-    console.log(`   - Organization: ${dsnInfo.organization}\n`);
+    console.log(`   - Organization: ${SENTRY_ORG || '(SENTRY_ORG not set)'}\n`);
     
     // 2. 프로젝트 정보 확인 (Auth Token이 있는 경우)
-    if (process.env.SENTRY_AUTH_TOKEN) {
+    if (process.env.SENTRY_AUTH_TOKEN && SENTRY_ORG) {
       try {
         console.log('2. 프로젝트 정보 확인');
-        const projectInfo = await sentryAPIRequest(`/projects/${dsnInfo.organization}/${SENTRY_PROJECT}/`);
+        const projectInfo = await sentryAPIRequest(`/projects/${SENTRY_ORG}/${SENTRY_PROJECT}/`);
         console.log(`   ✅ 프로젝트 확인 성공`);
         console.log(`   - 프로젝트 이름: ${projectInfo.name}`);
         console.log(`   - 플랫폼: ${projectInfo.platform}\n`);
@@ -116,8 +117,8 @@ async function verifyLogs() {
       }
     } else {
       console.log('2. 프로젝트 정보 확인');
-      console.log(`   ⚠️  Auth Token이 없어 프로젝트 정보를 확인할 수 없습니다.\n`);
-      console.log(`   💡 SENTRY_AUTH_TOKEN 환경 변수를 설정하면 더 많은 정보를 확인할 수 있습니다.\n`);
+      console.log(`   ⚠️  SENTRY_AUTH_TOKEN 또는 SENTRY_ORG가 없어 프로젝트 정보를 확인할 수 없습니다.\n`);
+      console.log(`   💡 두 환경 변수를 함께 설정하면 API 기반 검증이 가능합니다.\n`);
     }
     
     // 3. 로그 설정 확인
@@ -142,9 +143,13 @@ async function verifyLogs() {
     
     // 6. 모니터링 가이드
     console.log('6. 모니터링 가이드');
-    console.log(`   - Sentry 대시보드: https://sentry.io/organizations/${dsnInfo.organization}/projects/${SENTRY_PROJECT}/`);
-    console.log(`   - Logs 섹션: https://sentry.io/organizations/${dsnInfo.organization}/projects/${SENTRY_PROJECT}/logs/`);
-    console.log(`   - 이벤트 수 확인: https://sentry.io/organizations/${dsnInfo.organization}/projects/${SENTRY_PROJECT}/stats/\n`);
+    if (SENTRY_ORG) {
+      console.log(`   - Sentry 대시보드: https://sentry.io/organizations/${SENTRY_ORG}/projects/${SENTRY_PROJECT}/`);
+      console.log(`   - Logs 섹션: https://sentry.io/organizations/${SENTRY_ORG}/projects/${SENTRY_PROJECT}/logs/`);
+      console.log(`   - 이벤트 수 확인: https://sentry.io/organizations/${SENTRY_ORG}/projects/${SENTRY_PROJECT}/stats/\n`);
+    } else {
+      console.log('   - SENTRY_ORG를 설정하면 대시보드 링크를 출력합니다.\n');
+    }
     
     console.log('✅ 검증 완료!\n');
     
@@ -154,9 +159,8 @@ async function verifyLogs() {
   }
 }
 
-// 실행
-if (require.main === module) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   verifyLogs();
 }
 
-module.exports = { verifyLogs, parseDSN };
+export { verifyLogs, parseDSN };

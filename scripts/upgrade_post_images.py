@@ -302,13 +302,6 @@ def _common_decorations(p: dict, u: str, tag_labels: list[str]) -> str:
     <rect x="1040" y="540" width="14" height="33" rx="2" fill="{p['accent1']}" opacity="0.6"
           style="animation: {u}glimmer 3s ease-in-out infinite"/>
     <!-- Metric labels -->
-    <text x="1080" y="520" font-family="Courier New, monospace" font-size="8"
-          fill="{p['accent2']}" opacity="0.7">7-DAY</text>
-    <text x="1080" y="532" font-family="Courier New, monospace" font-size="8"
-          fill="{p['text_accent']}" opacity="0.6">TREND</text>
-    <text x="1080" y="555" font-family="Courier New, monospace" font-size="16"
-          fill="{p['accent1']}" font-weight="bold" opacity="0.8">+12%</text>
-
     <!-- Circuit traces (decorative) -->
     <polyline points="400,100 430,100 430,140 480,140" fill="none"
               stroke="{p['accent1']}" stroke-width="0.8" opacity="0.2"/>
@@ -332,8 +325,6 @@ def _common_decorations(p: dict, u: str, tag_labels: list[str]) -> str:
     <rect x="40" y="430" width="280" height="80" rx="6" fill="{p['bg2']}" stroke="{p['accent1']}"
           stroke-width="1" opacity="0.6"/>
     <rect x="40" y="430" width="4" height="80" rx="2" fill="{p['accent1']}"/>
-    <text x="56" y="450" font-family="Courier New, monospace" font-size="8"
-          fill="{p['accent1']}" font-weight="bold" letter-spacing="1">ANALYSIS</text>
     <text x="56" y="466" font-family="Courier New, monospace" font-size="8"
           fill="{p['text_accent']}" opacity="0.6">{labels[0] if labels else 'DATA'}</text>
     <rect x="56" y="474" width="200" height="5" rx="2" fill="{p['accent1']}" opacity="0.12"/>
@@ -352,12 +343,6 @@ def _common_decorations(p: dict, u: str, tag_labels: list[str]) -> str:
     <circle cx="480" cy="560" r="1.5" fill="{p['accent3']}" opacity="0.3"/>
     <circle cx="1080" cy="570" r="4" fill="{p['bg1']}" stroke="{p['accent1']}" stroke-width="1" opacity="0.35"/>
     <circle cx="1080" cy="570" r="1.5" fill="{p['accent1']}" opacity="0.25"/>
-
-    <!-- Hash / fingerprint decorative text -->
-    <text x="400" y="590" font-family="Courier New, monospace" font-size="7"
-          fill="#334155" opacity="0.4" letter-spacing="1">SHA256:e3b0c44298fc1c14...</text>
-    <text x="820" y="590" font-family="Courier New, monospace" font-size="7"
-          fill="#334155" opacity="0.3" letter-spacing="1">SIG:VERIFIED</text>
 
     <!-- Scanning beam effect -->
     <line x1="380" y1="300" x2="1160" y2="300" stroke="{p['accent1']}" stroke-width="0.5" opacity="0.06"/>
@@ -1410,6 +1395,7 @@ def generate_svg(
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{title_lines[0]}</title>
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover -->
   <defs>
     <linearGradient id="{u}bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:{p['bg1']}"/>

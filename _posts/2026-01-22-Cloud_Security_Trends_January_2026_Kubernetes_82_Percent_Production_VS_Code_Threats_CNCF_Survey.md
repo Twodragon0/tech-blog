@@ -25,7 +25,7 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1]
-title: '2026년 1월 클라우드 보안: Kubernetes 82%, VS Code 위협, CNCF 조사'
+title: '2026년 1월 클라우드 보안: Kubernetes 프로덕션 채택률 82% 도달, VS Code 위협, CNCF 조사'
 toc: true
 ---
 {%- include ai-summary-card.html

@@ -4,9 +4,14 @@
   var script = document.currentScript;
   var dsn = (script && script.getAttribute('data-sentry-dsn')) || '';
   var productionHost = (script && script.getAttribute('data-production-host')) || 'tech.2twodragon.com';
+  var allowedHostsAttr = (script && script.getAttribute('data-allowed-hosts')) || productionHost;
 
   if (!dsn) {
     return;
+  }
+
+  function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
   function initSentry() {
@@ -14,7 +19,13 @@
       return;
     }
 
-    var isProduction = window.location.hostname === productionHost;
+    var allowedHosts = allowedHostsAttr.split(',').map(function (host) {
+      return host.trim();
+    }).filter(Boolean);
+    var currentHost = window.location.hostname;
+    var isAllowedHost = allowedHosts.indexOf(currentHost) !== -1;
+    var isProduction = currentHost === productionHost || currentHost === 'www.' + productionHost;
+    var isBackup = currentHost === 'twodragon0.github.io';
     var isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     var MONTHLY_LIMIT = 5000;
     var MONTHLY_KEY = 'se_month';
@@ -111,7 +122,7 @@
 
     Sentry.init({
       dsn: dsn,
-      environment: isProduction ? 'production' : (isDev ? 'development' : 'preview'),
+      environment: isProduction ? 'production' : (isBackup ? 'backup' : (isDev ? 'development' : 'preview')),
       release: (function () {
         if (typeof window !== 'undefined' && window.VERCEL_GIT_COMMIT_SHA) {
           return 'tech-blog@' + window.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
@@ -126,10 +137,12 @@
       sampleRate: getDynamicSampleRate(),
       maxBreadcrumbs: 30,
       attachStacktrace: true,
-      allowUrls: [/https?:\/\/(www\.)?tech\.2twodragon\.com/],
+      allowUrls: allowedHosts.map(function (host) {
+        return new RegExp('https?:\\/\\/' + escapeRegex(host));
+      }),
       ignoreErrors: ['fb_xd_fragment', 'top.GLOBALS', /^Non-Error promise rejection/, /ResizeObserver loop/],
       beforeSend: function (event, hint) {
-        if (!isProduction) {
+        if (!isAllowedHost || (!isProduction && !isBackup)) {
           return null;
         }
 
@@ -152,7 +165,7 @@
                 return true;
               }
               var url = new URL(frame.filename, window.location.origin);
-              return url.hostname === productionHost;
+              return allowedHosts.indexOf(url.hostname) !== -1;
             } catch (_error) {
               return false;
             }
@@ -212,7 +225,7 @@
         return event;
       },
       beforeBreadcrumb: function (breadcrumb) {
-        if (!isProduction) {
+        if (!isAllowedHost || (!isProduction && !isBackup)) {
           return null;
         }
         if (breadcrumb.category === 'console' && breadcrumb.level === 'log') {

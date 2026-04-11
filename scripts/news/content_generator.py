@@ -2224,7 +2224,7 @@ def _generate_ai_analysis_template(item: Dict) -> str:
         template += _pick_generic_ai_bullets(item)
 
     template += "\n"
-    return template
+    return _contextualize_practical_points(template, item)
 
 
 # AI/ML fallback bullet pools — parallel to the DevOps fallback pools.
@@ -2266,6 +2266,25 @@ def _pick_generic_ai_bullets(item: Optional[Dict]) -> str:
         return "\n".join(_AI_FALLBACK_POOLS[0]) + "\n"
     bucket = sum(ord(c) for c in seed) % len(_AI_FALLBACK_POOLS)
     return "\n".join(_AI_FALLBACK_POOLS[bucket]) + "\n"
+
+
+def _contextualize_practical_points(template: str, item: Optional[Dict]) -> str:
+    """Stamp the first practical bullet with a short item-specific topic label."""
+    if not item or "#### 실무 적용 포인트" not in template:
+        return template
+
+    raw_label = _korean_display_title(item, max_len=36)
+    label = re.split(r"\s*[|:]+\s*|\s+-\s+", raw_label)[0].strip(" ,.")
+    label = _smart_truncate_korean(label, 18)
+    if not label:
+        return template
+
+    lines = template.splitlines()
+    for index, line in enumerate(lines):
+        if line.startswith("- "):
+            lines[index] = f"- [{label}] {line[2:]}"
+            break
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def _generate_devops_template(item: Optional[Dict] = None) -> str:
@@ -2475,7 +2494,7 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         template += _pick_generic_devops_bullets(item)
 
     template += "\n"
-    return template
+    return _contextualize_practical_points(template, item)
 
 
 # Diverse fallback bullet pools — selected deterministically by item hash so

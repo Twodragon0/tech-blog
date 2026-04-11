@@ -26,7 +26,7 @@ tags:
 - SSL-Inspection
 - Zero-Trust
 - Cloud-Security
-title: 'Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단'
+title: 'Zscaler 완벽 가이드: SSL 검사와 샌드박스로 Zero Trust 웹 보안 강화'
 toc: true
 ---
 

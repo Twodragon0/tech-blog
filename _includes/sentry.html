@@ -7,7 +7,7 @@
   crossorigin="anonymous"
   defer
 ></script>
-<script src="{{ '/assets/js/sentry-init.js' | relative_url }}" data-sentry-dsn="{{ site.sentry_dsn }}" data-production-host="tech.2twodragon.com" defer></script>
+<script src="{{ '/assets/js/sentry-init.js' | relative_url }}" data-sentry-dsn="{{ site.sentry_dsn }}" data-production-host="tech.2twodragon.com" data-allowed-hosts="tech.2twodragon.com,www.tech.2twodragon.com,twodragon0.github.io" defer></script>
 {% else %}
 <!-- Sentry disabled: sentry_dsn not configured in _config.yml -->
 {% endif %}
