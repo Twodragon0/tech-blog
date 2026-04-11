@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-10T01:34:20.141132+00:00",
+  "updated_at": "2026-04-11T01:27:30.775049+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
@@ -990,6 +990,96 @@
       "title": "Ask Copilot in security assessments now available",
       "published_date": "2026-04-10",
       "expires_at": "2026-04-17T01:34:20.141032+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html",
+      "title": "GlassWorm Campaign Uses Zig Dropper to Infect Multiple Developer IDEs",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/browser-extensions-are-new-ai.html",
+      "title": "Browser Extensions Are the New AI Consumption Channel That No One Is Talking Abo",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/google-rolls-out-dbsc-in-chrome-146-to.html",
+      "title": "Google Rolls Out DBSC in Chrome 146 to Block Session Theft on Windows",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/marimo-rce-flaw-cve-2026-39987.html",
+      "title": "Marimo RCE Flaw CVE-2026-39987 Exploited Within 10 Hours of Disclosure",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/backdoored-smart-slider-3-pro-update.html",
+      "title": "Backdoored Smart Slider 3 Pro Update Distributed via Compromised Nextend Servers",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/coreweave-agreement-anthropic-ai?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "CoreWeave lands multi-year agreement with Anthropic to run AI workloads",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/data-curation-accelerators-for-google-data-cloud/",
+      "title": "Accelerating data curation with Google Data Cloud",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/accelerating-innovation-and-impact-across-the-public-sector/",
+      "title": "Accelerating innovation and impact across the public sector",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-sap-concur-automates-expense-reporting-with-agentic-ai/",
+      "title": "How SAP Concur automates expense reporting with agentic AI",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/how-to-get-your-agent-near-100-percent-accurate-data/",
+      "title": "Near-100% Accurate Data for your Agent with Comprehensive Context Engineering",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/introducing-querydata-for-near-100-percent-accurate-data-agents/",
+      "title": "QueryData helps agents turn natural language into queries for AlloyDB, Cloud SQL",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-10-enforcing-new-limits-and-retiring-opus-4-6-fast-from-copilot-pro",
+      "title": "Enforcing new limits and retiring Opus 4.6 Fast from Copilot Pro+",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-10-copilot-usage-metrics-now-aggregate-copilot-cloud-agent-active-user-counts",
+      "title": "Copilot usage metrics now aggregate Copilot cloud agent active user counts",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials",
+      "title": "Pausing new GitHub Copilot Pro trials",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-10-actions-workflows-are-limited-to-50-reruns",
+      "title": "Actions workflows are limited to 50 reruns",
+      "published_date": "2026-04-11",
+      "expires_at": "2026-04-18T01:27:30.774950+00:00"
     }
   ]
 }

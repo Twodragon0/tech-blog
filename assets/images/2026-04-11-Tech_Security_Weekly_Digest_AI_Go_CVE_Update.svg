@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>THREAT SIGNAL MAP</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Diagonal divider -->
+  <polygon points="0,0 820,0 560,630 0,630" fill="#110d20" opacity="0.7"/>
+  <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
+  <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
+  <!-- Classified stamp rotated -->
+  <g transform="translate(900 310) rotate(-22)">
+    <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
+    <text x="0" y="12" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
+  </g>
+  <!-- Corner bracket marks -->
+  <path d="M70 60 L70 90 L100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M1130 60 L1130 90 L1100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M70 570 L70 540 L100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <path d="M1130 570 L1130 540 L1100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <!-- WEEKLY DIGEST badge -->
+  <rect x="90" y="62" width="196" height="32" rx="6" fill="#a855f7" opacity="0.18"/>
+  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
+  <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO DAY  PATCH  AI AGENT</text>
+  <g transform="translate(280 360)" filter="url(#shadow)">
+    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="2"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#a855f7" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#a855f7" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#a855f7" text-anchor="middle" opacity="0.7">PATCH</text>
+    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" text-anchor="middle">ZERO DAY</text>
+  </g>
+  <g transform="translate(680 280)" filter="url(#shadow)">
+    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#f59e0b" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#f59e0b" text-anchor="middle" opacity="0.7">PATCH</text>
+    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">PATCH</text>
+  </g>
+  <g transform="translate(1000 420)" filter="url(#shadow)">
+    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#22d3ee" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#22d3ee" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
+    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle">AI AGENT</text>
+  </g>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">April 11, 2026</text>
+  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>
