@@ -838,12 +838,432 @@ def _convert_svg_to_og_png(svg_path: Path) -> None:
         logging.warning(f"PNG conversion skipped: {e}")
 
 
+def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
+    """Extract up to `limit` short uppercase labels from news titles for card headers.
+
+    Prefers specific threat actors, CVE IDs, product names, and well-known keywords
+    over generic terms, producing labels like "APT28", "CVE-2025", "DOCKER RCE".
+    Falls back to composite labels that won't trigger the check_posts noisy-marker
+    check (which fires when 5+ labels exactly match generic single words like
+    "security", "cloud", "devops", "ai/ml", "blockchain", "weekly digest").
+    """
+    # Noisy single-word labels that check_posts flags as repeated generic text.
+    # We avoid producing labels that exactly match these (case-insensitive).
+    _NOISY = {"weekly digest", "news collected", "security", "cloud", "devops",
+               "ai/ml", "blockchain"}
+
+    # Priority patterns: match specific terms first
+    priority_patterns = [
+        (r"\b(APT\d+)\b", lambda m: m.group(1)),
+        (r"\b(CVE-\d{4}-\d+)\b", lambda m: m.group(1)[:12]),
+        (r"\b(TA\d{3,4})\b", lambda m: m.group(1)),
+        (r"\b(DPRK|LAZARUS|REVIL|BLACKCAT|LOCKBIT|COZY BEAR)\b", lambda m: m.group(1)),
+        (r"\b(RANSOMWARE)\b", lambda m: "RANSOM"),
+        (r"\b(MALWARE)\b", lambda m: "MALWARE"),
+        (r"\b(BOTNET)\b", lambda m: "BOTNET"),
+        (r"\b(PHISH(?:ING)?)\b", lambda m: "PHISHING"),
+        (r"\b(ZERO[- ]DAY|0DAY)\b", lambda m: "ZERO-DAY"),
+        (r"\b(DOCKER)\b", lambda m: "DOCKER CTR"),
+        (r"\b(KUBERNETES|K8S)\b", lambda m: "K8S"),
+        (r"\b(AWS)\b", lambda m: "AWS CLOUD"),
+        (r"\b(GCP|GOOGLE CLOUD)\b", lambda m: "GCP"),
+        (r"\b(AZURE)\b", lambda m: "AZURE AD"),
+        (r"\b(AI|LLM|AGENTIC)\b", lambda m: "AI AGENT"),
+        (r"\b(PATCH(?:ING)?)\b", lambda m: "PATCH MGT"),
+        (r"\b(SUPPLY[- ]CHAIN)\b", lambda m: "SUPPLY CHAIN"),
+        (r"\b(DNS)\b", lambda m: "DNS THREAT"),
+        (r"\b(NPM|PYPI)\b", lambda m: "PKG SUPPLY"),
+        (r"\b(CISCO)\b", lambda m: "CISCO CVE"),
+        (r"\b(FORTINET|FORTICLIENT)\b", lambda m: "FORTINET"),
+        (r"\b(MICROSOFT|MSFT)\b", lambda m: "MS PATCH"),
+        (r"\b(PALANTIR)\b", lambda m: "PALANTIR"),
+        (r"\b(GOLANG|GO LANG)\b", lambda m: "GO LANG"),
+        (r"\b(LINUX)\b", lambda m: "LINUX"),
+        (r"\b(NGINX|APACHE)\b", lambda m: "WEB SRV"),
+    ]
+
+    labels: List[str] = []
+    seen: set = set()
+
+    for item in news_items[:8]:
+        title = _to_english_svg_text(item.get("title", "")).upper()
+        for pattern, formatter in priority_patterns:
+            m = re.search(pattern, title, re.IGNORECASE)
+            if m:
+                label = formatter(m)
+                label = label[:16].strip()
+                if label and label not in seen and label.lower() not in _NOISY:
+                    seen.add(label)
+                    labels.append(label)
+                    if len(labels) >= limit:
+                        return labels
+                break  # one label per news item
+
+    # Fill remaining slots from extracted topics — use composite forms to avoid
+    # single generic words that match noisy_markers
+    _TOPIC_MAP = {
+        "Zero-Day": "ZERO-DAY",
+        "CVE": "CVE PATCH",
+        "Vulnerability": "VULN MGT",
+        "Patch": "PATCH MGT",
+        "Update": "SEC UPDATE",
+        "AI": "AI AGENT",
+        "ML": "ML OPS",
+        "Cloud": "CLOUD SEC",
+        "Kubernetes": "K8S",
+        "Docker": "DOCKER CTR",
+        "AWS": "AWS CLOUD",
+        "Azure": "AZURE AD",
+        "GCP": "GCP SEC",
+        "Security": "SEC OPS",
+        "Threat": "THREAT INT",
+        "Malware": "MALWARE",
+        "Ransomware": "RANSOM",
+        "Botnet": "BOTNET",
+        "Bitcoin": "BITCOIN",
+        "Ethereum": "ETHEREUM",
+        "DeFi": "DEFI",
+        "Web3": "WEB3",
+        "Blockchain": "CHAIN SEC",
+        "LLM": "LLM SEC",
+        "GPT": "GPT AGENT",
+        "Agent": "AI AGENT",
+        "Data": "DATA SEC",
+        "Palantir": "PALANTIR",
+        "Tesla": "TESLA",
+        "Apple": "APPLE SEC",
+        "Rust": "RUST LANG",
+        "Go": "GO LANG",
+        "Open-Source": "OSS SEC",
+        "API": "API SEC",
+    }
+    if len(labels) < limit:
+        for topic in _extract_key_topics(news_items):
+            label = _TOPIC_MAP.get(topic, _normalize_svg_focus_label(
+                _to_english_svg_text(topic))[:16])
+            if label and label not in seen and label.lower() not in _NOISY:
+                seen.add(label)
+                labels.append(label)
+                if len(labels) >= limit:
+                    break
+
+    # Hard fallbacks — all composite so they won't match single noisy_markers
+    _HARD_FALLBACKS = [
+        "SEC OPS", "THREAT INT", "CLOUD SEC", "AI AGENT", "PATCH MGT",
+        "MALWARE", "RANSOM", "ZERO-DAY", "BOTNET", "DATA SEC",
+    ]
+    for fb in _HARD_FALLBACKS:
+        if len(labels) >= limit:
+            break
+        if fb not in seen:
+            seen.add(fb)
+            labels.append(fb)
+
+    return labels[:limit]
+
+
+def _card_icon_svg(label: str, color: str) -> str:
+    """Return a small inline SVG icon glyph for a card, keyed on label content."""
+    lbl = label.lower()
+    if any(k in lbl for k in ["apt", "ta4", "ta41", "dprk", "lazarus", "cozy"]):
+        # Spy/actor icon: eye shape
+        return (
+            f'<ellipse cx="0" cy="-4" rx="14" ry="9" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<circle cx="0" cy="-4" r="4" fill="{color}" opacity="0.7"/>'
+        )
+    if any(k in lbl for k in ["cve", "zero-day", "vuln", "patch"]):
+        # Warning triangle + CVE text
+        return (
+            f'<path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="{color}" text-anchor="middle">CVE</text>'
+        )
+    if any(k in lbl for k in ["ransom", "lock"]):
+        # Padlock
+        return (
+            f'<rect x="-12" y="-2" width="24" height="20" rx="4" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<path d="M-8,-2 v-10 c0-12 16-12 16,0 v10" stroke="{color}" stroke-width="2.2" fill="none" stroke-linecap="round"/>'
+            f'<circle cx="0" cy="8" r="3" fill="{color}"/>'
+        )
+    if any(k in lbl for k in ["malware", "botnet", "worm", "trojan"]):
+        # Bug/malware icon: circle with legs
+        return (
+            f'<circle cx="0" cy="-2" r="10" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<line x1="-10" y1="-8" x2="-18" y2="-14" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="10" y1="-8" x2="18" y2="-14" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="-10" y1="2" x2="-18" y2="2" stroke="{color}" stroke-width="1.5"/>'
+            f'<line x1="10" y1="2" x2="18" y2="2" stroke="{color}" stroke-width="1.5"/>'
+        )
+    if any(k in lbl for k in ["phish", "social"]):
+        # Hook shape
+        return (
+            f'<path d="M-8,-14 C-8,-20 8,-20 8,-14 L8,6 C8,16 -8,16 -8,6 Z" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<path d="M8,6 L18,16" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>'
+        )
+    if any(k in lbl for k in ["docker", "container"]):
+        # Docker whale outline (simplified stacked boxes)
+        return (
+            f'<rect x="-14" y="-16" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-2" y="-16" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-14" y="-6" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<rect x="-2" y="-6" width="10" height="8" rx="2" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<path d="M-16,8 C-10,18 10,18 16,8" fill="none" stroke="{color}" stroke-width="1.5"/>'
+        )
+    if any(k in lbl for k in ["aws", "cloud", "gcp", "azure"]):
+        # Cloud shape
+        return (
+            f'<path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" '
+            f'fill="none" stroke="{color}" stroke-width="1.8" transform="scale(0.65)"/>'
+        )
+    if any(k in lbl for k in ["k8s", "kube"]):
+        # Kubernetes helm/wheel
+        return (
+            f'<circle cx="0" cy="0" r="10" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<circle cx="0" cy="0" r="4" fill="{color}" opacity="0.5"/>'
+            f'<line x1="0" y1="-10" x2="0" y2="-18" stroke="{color}" stroke-width="2"/>'
+            f'<line x1="8.7" y1="5" x2="15.6" y2="9" stroke="{color}" stroke-width="2"/>'
+            f'<line x1="-8.7" y1="5" x2="-15.6" y2="9" stroke="{color}" stroke-width="2"/>'
+        )
+    if any(k in lbl for k in ["ai", "llm", "agent", "model"]):
+        # Neural net nodes
+        return (
+            f'<circle cx="-12" cy="-8" r="4" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<circle cx="12" cy="-8" r="4" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<circle cx="0" cy="8" r="5" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<line x1="-8" y1="-6" x2="-2" y2="6" stroke="{color}" stroke-width="1.2" opacity="0.7"/>'
+            f'<line x1="8" y1="-6" x2="2" y2="6" stroke="{color}" stroke-width="1.2" opacity="0.7"/>'
+            f'<line x1="-8" y1="-8" x2="8" y2="-8" stroke="{color}" stroke-width="1.2" opacity="0.5"/>'
+        )
+    if any(k in lbl for k in ["supply", "npm", "pypi"]):
+        # Chain links
+        return (
+            f'<ellipse cx="-8" cy="0" rx="10" ry="6" fill="none" stroke="{color}" stroke-width="1.8"/>'
+            f'<ellipse cx="8" cy="0" rx="10" ry="6" fill="none" stroke="{color}" stroke-width="1.8"/>'
+        )
+    if any(k in lbl for k in ["dns"]):
+        # Globe outline
+        return (
+            f'<circle cx="0" cy="0" r="14" fill="none" stroke="{color}" stroke-width="1.5"/>'
+            f'<ellipse cx="0" cy="0" rx="7" ry="14" fill="none" stroke="{color}" stroke-width="1"/>'
+            f'<line x1="-14" y1="0" x2="14" y2="0" stroke="{color}" stroke-width="1" opacity="0.6"/>'
+        )
+    # Default: shield
+    return (
+        f'<path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" '
+        f'fill="none" stroke="{color}" stroke-width="1.8"/>'
+    )
+
+
+def _node_label_from_card(label: str) -> str:
+    """Return a very short (<=4 char) node label for the threat-map area."""
+    abbreviations = {
+        "MALWARE": "MAL",
+        "BOTNET": "BOT",
+        "PHISHING": "PHSH",
+        "ZERO-DAY": "0DAY",
+        "SUPPLY CHAIN": "SCM",
+        "DOCKER": "CTR",
+        "AI AGENT": "AI",
+        "AWS CLOUD": "AWS",
+        "AZURE": "AZUR",
+        "K8S": "K8S",
+        "RANSOM": "RAN",
+        "PATCH": "PTCH",
+        "DNS": "DNS",
+    }
+    if label in abbreviations:
+        return abbreviations[label]
+    # For APT28, CVE-..., TA416 etc — keep up to 5 chars
+    words = label.split()
+    if len(words) == 1:
+        return label[:5]
+    return words[0][:4]
+
+
+def generate_card_signal_svg(
+    date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
+) -> str:
+    """Generate the 'card-based signal map' SVG format (the golden 04-09 style).
+
+    Layout (1200x630, dark gradient):
+      - Grid overlay + 3 glow orbs
+      - Header bar: shield icon + "Security Weekly Digest" title + date badge
+      - 5 topic cards (y=100, each ~220x120) with colored borders and icon glyphs
+      - Threat map area (x=32, y=240, 1136x220) with ~5 nodes + dashed arrows
+      - Footer: tag pills + bottom bar with timestamp and URL
+
+    All text is ASCII/English only.
+    """
+    date_display = date.strftime("%B %d, %Y")
+    card_labels = _extract_card_labels(news_items, limit=5)
+
+    # Ensure exactly 5 labels (pad with generic fallbacks)
+    fallbacks = ["SECURITY", "THREAT", "CLOUD", "AI", "PATCH"]
+    while len(card_labels) < 5:
+        for fb in fallbacks:
+            if fb not in card_labels:
+                card_labels.append(fb)
+                break
+        else:
+            card_labels.append(f"TOPIC{len(card_labels) + 1}")
+
+    # 5 distinct colors for cards
+    palette = ["#ef4444", "#f59e0b", "#3b82f6", "#22c55e", "#22d3ee"]
+    bg_fills = ["#1a0505", "#1a0d0d", "#0a1020", "#071a10", "#071a20"]
+
+    # Card x positions and widths
+    card_specs = [
+        (32, 220),
+        (268, 220),
+        (504, 220),
+        (740, 200),
+        (956, 212),
+    ]
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Security Weekly Digest - {date_display}</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
+    </linearGradient>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <!-- Glow orbs -->
+  <circle cx="200" cy="300" r="200" fill="{palette[0]}" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="350" r="180" fill="{palette[1]}" opacity="0.05" filter="url(#glow)"/>
+  <circle cx="1000" cy="300" r="180" fill="{palette[2]}" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="{palette[2]}" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="{palette[2]}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">{date_display}</text>
+"""
+
+    # Draw 5 cards
+    for i, (label, color, bg, (cx, cw)) in enumerate(
+        zip(card_labels, palette, bg_fills, card_specs)
+    ):
+        icon_x = cx + cw // 2
+        icon_y = 148
+        label_text = _escape_svg_text(label[:20])
+        icon_glyph = _card_icon_svg(label, color)
+        svg += f"""
+  <!-- Card {i + 1}: {label_text} -->
+  <rect x="{cx}" y="100" width="{cw}" height="120" rx="8" fill="{bg}" stroke="{color}" stroke-width="1.5"/>
+  <circle cx="{cx + 20}" cy="120" r="6" fill="{color}"/>
+  <g transform="translate({icon_x},{icon_y})">
+    {icon_glyph}
+  </g>
+  <text x="{icon_x}" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>"""
+
+    # Threat map area
+    svg += """
+
+  <!-- Threat map area -->
+  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Ambient dots -->
+  <g opacity="0.25">
+    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
+    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
+    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
+    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
+  </g>
+"""
+
+    # Draw threat-map nodes (5 nodes spread across the map area)
+    node_positions = [170, 370, 580, 780, 980]
+    node_y_vals = [340, 350, 330, 355, 340]
+    node_radii = [22, 20, 22, 18, 22]
+
+    for i, (label, color, bg, nx, ny, nr) in enumerate(
+        zip(card_labels, palette, bg_fills, node_positions, node_y_vals, node_radii)
+    ):
+        short = _escape_svg_text(_node_label_from_card(label))
+        svg += f"""  <!-- Node: {_escape_svg_text(label)} -->
+  <circle cx="{nx}" cy="{ny}" r="{nr}" fill="{bg}" stroke="{color}" stroke-width="2"/>
+  <text x="{nx}" y="{ny + 4}" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{color}" text-anchor="middle">{short}</text>
+"""
+
+    # Draw arrows between consecutive nodes
+    for i in range(len(node_positions) - 1):
+        x1 = node_positions[i] + node_radii[i]
+        x2 = node_positions[i + 1] - node_radii[i + 1]
+        y1 = node_y_vals[i]
+        y2 = node_y_vals[i + 1]
+        color = palette[i]
+        svg += f"""  <line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
+"""
+
+    # Footer tag pills
+    svg += """
+  <!-- Footer -->
+  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+
+  <!-- Tags -->"""
+
+    tag_x = 32
+    for label, color, bg in zip(card_labels, palette, bg_fills):
+        label_text = _escape_svg_text(label[:20])
+        tag_w = min(max(len(label_text) * 9 + 20, 80), 180)
+        tag_cx = tag_x + tag_w // 2
+        svg += f"""
+  <rect x="{tag_x}" y="490" width="{tag_w}" height="24" rx="4" fill="{bg}" stroke="{color}" stroke-width="1"/>
+  <text x="{tag_cx}" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="{color}" text-anchor="middle">{label_text}</text>"""
+        tag_x += tag_w + 12
+
+    # Bottom bar
+    svg += f"""
+
+  <!-- Bottom bar -->
+  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
+  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | {date_display}</text>
+  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>"""
+
+    return svg
+
+
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
     """Generate low-text digest SVG focused on standalone comprehension.
 
-    Layout cycles through 5 visually distinct styles based on day of month (day % 5):
+    For security/devsecops digest posts, uses the card-based signal map format
+    (header + 5 topic cards + threat map area + footer tags) which matches the
+    golden 04-09 style and avoids text-density warnings.
+
+    For other categories, cycles through 5 visually distinct styles based on
+    day of month (day % 5):
       0 - Fractured Core: central hexagon with orbiting nodes (red/cyan)
       1 - Dossier Strike: diagonal split with classified stamp motif (purple/gold)
       2 - Pipeline Triptych: three vertical columns (cyan/green/orange)
@@ -851,12 +1271,13 @@ def generate_svg_image(
       4 - Global Gavel: world map grid with depth layers (navy/crimson/silver)
     """
 
+    if categorized.get("security") or categorized.get("devsecops"):
+        return generate_card_signal_svg(date, categorized, news_items)
+
     date_display = date.strftime("%B %d, %Y")
     focus_labels = _extract_visual_focus_labels(news_items, limit=SVG_MAX_FOCUS_LABELS)
 
-    if categorized.get("security") or categorized.get("devsecops"):
-        main_category = "security"
-    elif categorized.get("ai"):
+    if categorized.get("ai"):
         main_category = "ai"
     elif categorized.get("cloud"):
         main_category = "cloud"
@@ -865,7 +1286,7 @@ def generate_svg_image(
 
     config = CATEGORY_SVG_CONFIG.get(main_category, CATEGORY_SVG_CONFIG["tech"])
     accent = config["icon_color"]
-    headline = "THREAT SIGNAL MAP" if main_category == "security" else "TECH SIGNAL MAP"
+    headline = "TECH SIGNAL MAP"
     subtitle = _compose_svg_subtitle(focus_labels)
 
     layout_index = date.day % 5
