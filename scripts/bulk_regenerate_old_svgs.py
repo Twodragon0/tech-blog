@@ -51,8 +51,8 @@ IMAGES_DIR = BASE_DIR / "assets" / "images"
 if str(BASE_DIR / "scripts") not in sys.path:
     sys.path.insert(0, str(BASE_DIR / "scripts"))
 
-# Only import the generator on demand to keep --dry-run fast and offline.
-_GENERATE_SVG = None  # type: ignore
+# Only import generators on demand to keep --dry-run fast and offline.
+_LANE_GENERATORS: dict[str, object] = {}  # type: ignore
 _CONVERT_OG = None  # type: ignore
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -66,7 +66,23 @@ log = logging.getLogger("bulk-regen")
 CUTOFF = datetime(2026, 4, 2)
 
 # Lanes that currently have a working, safe generator wired up.
-EXECUTABLE_LANES = frozenset({"digest", "news-roundup"})
+# Each lane is routed via auto_publish_news.generate_svg_image →
+# scripts/news/svg_generator layout functions:
+#   digest/news-roundup → generate_card_signal_svg
+#   tutorial            → generate_tutorial_stack_svg  (3-pillar stack)
+#   postmortem          → generate_timeline_pulse_svg  (ECG timeline)
+#   roadmap             → generate_milestone_curve_svg (S-curve)
+#   comparison          → generate_versus_split_svg    (left/right split)
+EXECUTABLE_LANES = frozenset(
+    {
+        "digest",
+        "news-roundup",
+        "tutorial",
+        "postmortem",
+        "roadmap",
+        "comparison",
+    }
+)
 
 
 # ---------------------------------------------------------------------------
@@ -80,33 +96,60 @@ PROTECTED_DIRS = (
     "assets/images/_unused_archive",
 )
 
-# Filename substrings that indicate a bespoke hand-crafted asset.
-BESPOKE_FILENAME_MARKERS = (
+# Filename markers that indicate a bespoke hand-crafted asset.
+#
+# The tokens must appear in a structural position (separated by '-' or at the
+# tail of the stem, ending in .svg) rather than as a substring match — because
+# words like "architecture" and "timeline" commonly appear inside legitimate
+# tutorial/guide post titles (e.g. "AWS Security Architecture Week 2"),
+# and we were incorrectly skipping those from regeneration.
+#
+# Format: bare filename stem ends with one of these tokens, optionally
+# followed by a short suffix like "-diagram" or "-v2". Example matches:
+#   learning-path.svg, learning_path.svg, roadmap-structure.svg,
+#   tools-stack.svg, incident-timeline.svg, devsecops-architecture.svg,
+#   attack-chain-v2.svg, mermaid.svg, flow-diagram.svg, flowchart-1.svg
+BESPOKE_FILENAME_TOKENS = (
     "learning-path",
     "learning_path",
     "roadmap-structure",
     "tools-stack",
     "attack-chain",
     "attack_chain",
-    "timeline",
-    "architecture",
-    "ecosystem",
     "mermaid",
-    "dashboard",
     "before-after",
     "flow-diagram",
     "flowchart",
+    "ecosystem-diagram",
+)
+
+# Tokens that only qualify as bespoke when they appear as a standalone
+# trailing segment (e.g. "-architecture.svg" but NOT "_Security_Architecture_Week2").
+_BESPOKE_SUFFIX_PATTERN = re.compile(
+    r"-(?:architecture|timeline|dashboard|topology|flow|diagram)"
+    r"(?:-[a-z0-9]+)?\.svg$",
+    re.IGNORECASE,
 )
 
 
 def is_bespoke_asset(image_path: str) -> bool:
     """Return True if the image is a hand-crafted asset that must not be
-    overwritten automatically."""
+    overwritten automatically.
+
+    Matching strategy:
+      1. Protected directories (diagrams/, mermaid/, _unused_archive/) are
+         unconditionally skipped.
+      2. Filename stems containing a bespoke token are skipped.
+      3. Filenames whose trailing segment matches the suffix pattern
+         (``-architecture.svg``, ``-timeline-v2.svg``, …) are skipped.
+    """
     lower = image_path.lower()
     if any(lower.startswith("/" + d) or d in lower for d in PROTECTED_DIRS):
         return True
     fname = Path(image_path).name.lower()
-    return any(marker in fname for marker in BESPOKE_FILENAME_MARKERS)
+    if any(token in fname for token in BESPOKE_FILENAME_TOKENS):
+        return True
+    return bool(_BESPOKE_SUFFIX_PATTERN.search(fname))
 
 
 # ---------------------------------------------------------------------------
@@ -125,6 +168,12 @@ DIGEST_PATTERNS = (
     r"tech.?blog.?weekly",
     r"daily.?tech.?digest",
     r"monthly.?index",
+    # Generic _Digest_ catch-all — matches Security_Cloud_Digest, Blockchain_Tech_Digest,
+    # AI_Cloud_Digest, DevOps_Blockchain_Digest, Krebs_Security_Digest, etc.
+    r"(?:^|_)digest(?:_|\.|$)",
+    r"digest.*\.md$",
+    r"patch.?tuesday",
+    r"vendor.?blog.?(?:weekly|review)",
 )
 
 POSTMORTEM_PATTERNS = (
@@ -348,15 +397,34 @@ def build_entry(
 
 
 def _lazy_import_generator() -> None:
-    global _GENERATE_SVG, _CONVERT_OG
-    if _GENERATE_SVG is not None:
+    """Populate _LANE_GENERATORS with one generator per executable lane.
+
+    Importing up-front would slow down --dry-run (no files touched) and
+    pull in heavy dependencies, so generators are only loaded on the
+    first --execute call.
+    """
+    global _CONVERT_OG
+    if _LANE_GENERATORS:
         return
-    from auto_publish_news import (  # type: ignore
-        _convert_svg_to_og_png,
-        generate_svg_image,
+    from auto_publish_news import _convert_svg_to_og_png  # type: ignore
+    from news.svg_generator import (  # type: ignore
+        generate_card_signal_svg,
+        generate_milestone_curve_svg,
+        generate_timeline_pulse_svg,
+        generate_tutorial_stack_svg,
+        generate_versus_split_svg,
     )
 
-    _GENERATE_SVG = generate_svg_image
+    _LANE_GENERATORS.update(
+        {
+            "digest": generate_card_signal_svg,
+            "news-roundup": generate_card_signal_svg,
+            "tutorial": generate_tutorial_stack_svg,
+            "postmortem": generate_timeline_pulse_svg,
+            "roadmap": generate_milestone_curve_svg,
+            "comparison": generate_versus_split_svg,
+        }
+    )
     _CONVERT_OG = _convert_svg_to_og_png
 
 
@@ -401,9 +469,23 @@ def _build_categorized(
 
 
 def regenerate_entry(entry: ManifestEntry) -> None:
-    """Run the safe generator for a single manifest entry. Raises on error."""
+    """Run the safe generator for a single manifest entry.
+
+    Critically, this dispatches directly by ``entry.lane`` rather than
+    relying on ``auto_publish_news.generate_svg_image`` to re-classify.
+    The manifest's classification is authoritative — the generator's
+    internal heuristic can disagree (e.g. on non-English titles that
+    don't match filename-based tutorial markers), which would cause a
+    postmortem post to render as a legacy TECH SIGNAL MAP.
+
+    Raises KeyError on an unknown lane — the caller should ensure lanes
+    are validated via :data:`EXECUTABLE_LANES` first.
+    """
     _lazy_import_generator()
-    assert _GENERATE_SVG is not None and _CONVERT_OG is not None
+    generator = _LANE_GENERATORS.get(entry.lane)
+    if generator is None:
+        raise KeyError(f"No generator wired up for lane '{entry.lane}'")
+    assert _CONVERT_OG is not None
 
     post_path = POSTS_DIR / entry.post_name
     front_matter = load_front_matter(post_path)
@@ -411,7 +493,7 @@ def regenerate_entry(entry: ManifestEntry) -> None:
     categorized = _build_categorized(front_matter, news_items)
     post_date = datetime.fromisoformat(f"{entry.post_date}T00:00:00")
 
-    svg_content = _GENERATE_SVG(post_date, categorized, news_items)
+    svg_content = generator(post_date, categorized, news_items)  # type: ignore[operator]
     svg_path = (BASE_DIR / entry.image_path.lstrip("/")).resolve()
     svg_path.parent.mkdir(parents=True, exist_ok=True)
     svg_path.write_text(svg_content, encoding="utf-8")

@@ -3,21 +3,23 @@
 # Checks NEW/MODIFIED SVGs in assets/images/ root level only.
 #
 # Post-date header SVGs (YYYY-MM-DD-*) must fall within a healthy size band:
-#   - min 8 KB   : guard against degenerate/empty/placeholder SVGs
+#   - min 5 KB   : guard against degenerate/empty/placeholder SVGs
 #   - max 24 KB  : guard against regression to the old 31+ KB dense dashboard
 #                  layouts with truncated SHA256 dumps, 40+ text nodes, etc.
 #
-# The card-signal-map "golden" format introduced in commit 7f7ae7b1 is
-# intentionally compact (~9.5-10 KB) because it trades dense text labels
-# for clean topic cards + threat-map nodes. Warning below 15KB is therefore
-# obsolete and was producing false positives on every healthy regen.
+# The card-signal-map "golden" format is ~9.5-10 KB. The lighter lane layouts
+# introduced later (tutorial 3-pillar, postmortem ECG timeline, roadmap
+# S-curve, comparison versus-split) land in the 5.3-6.3 KB range because
+# they trade dense visual density for focused single-concept clarity.
+# Warning below 15 KB (the original floor) is therefore obsolete.
 #
 # Small known SVGs (section-*, news-fallback.svg, *-mermaid-*) are exempt.
 #
 # Usage: called by .git/hooks/pre-commit (via install-hooks.sh)
 # Exit code: 0 always (warnings only, does not block commit)
 
-MIN_BYTES=8192     # 8 KB
+MIN_BYTES=5000     # 5 KB — covers lane layouts (tutorial/postmortem/roadmap/
+                   # comparison) as well as digest card-signal-map
 MAX_BYTES=24576    # 24 KB
 
 CHANGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]+\.svg$' || true)
