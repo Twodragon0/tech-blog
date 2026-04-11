@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI , Bedrock , Aave</title>
+  <title>Agent</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
   <defs>
     <linearGradient id="uc5dab9bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,28 +96,30 @@
           fill="#64748b" letter-spacing="1">2026-03-16</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#uc5dab9title)" font-weight="700" letter-spacing="-1">AI , Bedrock , Aave</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc5dab9title)" font-weight="700" letter-spacing="-1">Shield</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc5dab9title)" font-weight="700" letter-spacing="-1">Agent</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc5dab9title)" font-weight="700" letter-spacing="-1">Open Source</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc5dab9title)" font-weight="700" letter-spacing="-1">Update</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#uc5dab9accent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#uc5dab9accent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Devsecops</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Cloud Security</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Devsecops</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Cloud Security</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#ef4444" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Devsecops / Cloud Security</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">AI / Agent</text>
-    <rect x="56" y="373" width="81" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    <text x="96" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Devsecops</text>
-    <rect x="145" y="373" width="116" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
-    <text x="203" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Cloud Security</text>
-    <rect x="269" y="373" width="70" height="22" rx="11" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.85"/>
-    <text x="304" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">AI</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#ef4444" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Agent / Open Source</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Update / AI Bedrock</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#ef4444" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">AI AWS Bedrock Aave Shield DeFi .</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Recent-style layout</text>
+    <rect x="56" y="461" width="70" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
+    <text x="91" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Agent</text>
+    <rect x="134" y="461" width="95" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
+    <text x="181" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Open Source</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="88" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
@@ -125,7 +127,7 @@
     <rect x="138" y="525" width="128" height="24" rx="12" fill="#1a0505" stroke="#f97316" stroke-width="1.2"/>
     <text x="202" y="541" font-family="Courier New, monospace" font-size="10" fill="#f97316" text-anchor="middle" font-weight="bold">Cloud Security</text>
     <rect x="276" y="525" width="54" height="24" rx="12" fill="#0f172a" stroke="#dc2626" stroke-width="1.2"/>
-    <text x="303" y="541" font-family="Courier New, monospace" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">Ai</text>
+    <text x="303" y="541" font-family="Courier New, monospace" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">AI</text>
 
     <!-- Site URL -->
     <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
@@ -283,10 +285,13 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#f97316" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#f97316" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.15"/>
-    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Devsecops</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle" font-weight="700">Cloud Security</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">AI</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Agent</text>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#ef4444" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#ef4444" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Agent</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Open Source</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#f97316" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#f97316" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">AI AWS Bedrock Aave Shield</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">.</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#dc2626" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#dc2626" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Update</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AI Bedrock</text>
+    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Agent</text>
+    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle" font-weight="700">Open Source</text>
+    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">Update</text>
+    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">AI Bedrock</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#ef4444" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

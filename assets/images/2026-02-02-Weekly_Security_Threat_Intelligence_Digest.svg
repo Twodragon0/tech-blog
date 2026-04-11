@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Notepad++ , SK ,</title>
+  <title>Threat Intel</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
   <defs>
     <linearGradient id="uc99c58bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,28 +96,30 @@
           fill="#64748b" letter-spacing="1">2026-02-02</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc99c58title)" font-weight="700" letter-spacing="-1">Notepad++ , SK ,</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc99c58title)" font-weight="700" letter-spacing="-1">HashiCorp</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc99c58title)" font-weight="700" letter-spacing="-1">Threat Intel</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc99c58title)" font-weight="700" letter-spacing="-1">Supply Chain</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#uc99c58title)" font-weight="700" letter-spacing="-1">Notepad++</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#uc99c58accent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#uc99c58accent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Supply Chain</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Notepad++</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Supply Chain</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Notepad++</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#ef4444" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Threat Intel / Supply Chain</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Notepad++ / Ransomware</text>
-    <rect x="56" y="373" width="102" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    <text x="107" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Threat Intel</text>
-    <rect x="166" y="373" width="102" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
-    <text x="217" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Supply Chain</text>
-    <rect x="276" y="373" width="81" height="22" rx="11" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.85"/>
-    <text x="316" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">Notepad++</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#ef4444" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Threat Intel / Supply Chain</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Notepad++ / Ransomware</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#ef4444" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Notepad++ SK 11-1 Vertical AI</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Sinobi Gentlemen JWT HashiCorp RDP</text>
+    <rect x="56" y="461" width="102" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
+    <text x="107" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Threat Intel</text>
+    <rect x="166" y="461" width="102" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
+    <text x="217" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Supply Chain</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="112" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
@@ -280,9 +282,12 @@
     
     <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="#ef4444" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>
     <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="#f97316" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>
-    <polygon points="470,120 1030,120 1150,220 590,220" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1" /><text x="612" y="177" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#ef4444" font-weight="700">Threat Intel</text>
-    <polygon points="430,262 990,262 1110,362 550,362" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="1" /><text x="622" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f97316" font-weight="700">Supply Chain</text>
-    <polygon points="520,404 1080,404 1160,484 600,484" fill="#dc2626" opacity="0.08" stroke="#dc2626" stroke-width="1" /><text x="632" y="461" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#dc2626" font-weight="700">Notepad++</text>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#ef4444" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#ef4444" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Threat Intel</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Supply Chain</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#f97316" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#f97316" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Notepad++ SK 11-1 Vertical</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">BlackField Sinobi Gentl...</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#dc2626" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#dc2626" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Notepad++</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Ransomware</text>
+    <polygon points="470,186 1030,186 1150,286 590,286" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1" /><text x="612" y="243" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#ef4444" font-weight="700">Threat Intel</text><text x="612" y="261" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Supply Chain</text>
+    <polygon points="430,318 990,318 1110,418 550,418" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="1" /><text x="622" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f97316" font-weight="700">Supply Chain</text><text x="622" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">BlackField Sinobi Gentl...</text>
+    <polygon points="520,450 1080,450 1160,530 600,530" fill="#dc2626" opacity="0.08" stroke="#dc2626" stroke-width="1" /><text x="632" y="507" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#dc2626" font-weight="700">Notepad++</text><text x="632" y="525" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Ransomware</text>
     <rect x="915" y="500" width="180" height="36" rx="18" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/>
     <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Ransomware</text>
     <!-- FLOATING PARTICLES -->

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AI , EKS Flyte ,</title>
+  <title>Tech Blog</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
   <defs>
     <linearGradient id="ud514b2bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,28 +96,30 @@
           fill="#64748b" letter-spacing="1">2026-02-20</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud514b2title)" font-weight="700" letter-spacing="-1">AI , EKS Flyte ,</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ud514b2title)" font-weight="700" letter-spacing="-1">Docker , Cloud Native</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud514b2title)" font-weight="700" letter-spacing="-1">Tech Blog</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud514b2title)" font-weight="700" letter-spacing="-1">Developer</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud514b2title)" font-weight="700" letter-spacing="-1">Data</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#ud514b2accent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ud514b2accent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Tech Blog</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#3b82f6" font-weight="600">Developer</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Tech Blog</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#3b82f6" font-weight="600">Developer</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#06b6d4" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Tech Blog / Developer</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">AI / Data</text>
-    <rect x="56" y="373" width="81" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="96" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Tech Blog</text>
-    <rect x="145" y="373" width="81" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
-    <text x="185" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">Developer</text>
-    <rect x="234" y="373" width="70" height="22" rx="11" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.85"/>
-    <text x="269" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#0ea5e9" text-anchor="middle" font-weight="600">AI</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Tech Blog / Developer</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Data / Go</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#06b6d4" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">AI EKS Flyte Docker Cloud Native</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">2 20 .</text>
+    <rect x="56" y="461" width="81" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
+    <text x="96" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Tech Blog</text>
+    <rect x="145" y="461" width="81" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
+    <text x="185" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">Developer</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="88" height="24" rx="12" fill="#0c4a6e" stroke="#06b6d4" stroke-width="1.2"/>
@@ -125,7 +127,7 @@
     <rect x="138" y="525" width="88" height="24" rx="12" fill="#0d1525" stroke="#3b82f6" stroke-width="1.2"/>
     <text x="182" y="541" font-family="Courier New, monospace" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold">Developer</text>
     <rect x="236" y="525" width="54" height="24" rx="12" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.2"/>
-    <text x="263" y="541" font-family="Courier New, monospace" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="bold">Ai</text>
+    <text x="263" y="541" font-family="Courier New, monospace" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="bold">AI</text>
 
     <!-- Site URL -->
     <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
@@ -270,10 +272,13 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#3b82f6" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#3b82f6" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Tech Blog</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Developer</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#3b82f6" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#3b82f6" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#3b82f6" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">AI EKS Flyte Docker Cloud</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">2026 2 20 .</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Data</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Go</text>
     <rect x="470" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Tech Blog</text>
     <rect x="625" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="700">Developer</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="700">AI</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Data</text>
+    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="700">Data</text>
+    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Go</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#06b6d4" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

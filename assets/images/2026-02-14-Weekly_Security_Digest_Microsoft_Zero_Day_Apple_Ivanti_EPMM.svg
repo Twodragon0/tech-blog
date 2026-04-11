@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026 Microsoft</title>
+  <title>Zero Day</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
   <defs>
     <linearGradient id="ua79f5cbg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,9 +96,9 @@
           fill="#64748b" letter-spacing="1">2026-02-14</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">2026 Microsoft</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">Zero-Day , Apple ,</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">Ivanti EPMM</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">Zero Day</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">Patch Tuesday</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua79f5ctitle)" font-weight="700" letter-spacing="-1">CVE 2026 21510</text>
 
     <!-- Accent divider -->
     <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ua79f5caccent)" opacity="0.8"/>
@@ -108,17 +108,18 @@
     <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Cloud Security</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="365" width="280" height="88" rx="10" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="365" width="280" height="18" rx="10" fill="#ef4444" opacity="0.10"/>
-    <text x="56" y="378" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="399" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Day / Devsecops</text>
-    <text x="56" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Cloud Security / Patch Tuesday</text>
-    <rect x="56" y="421" width="74" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    <text x="93" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Zero Day</text>
-    <rect x="138" y="421" width="81" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
-    <text x="178" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Devsecops</text>
-    <rect x="227" y="421" width="116" height="22" rx="11" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.85"/>
-    <text x="285" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">Cloud Security</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#ef4444" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Day / Patch Tuesday</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">CVE 2026 21510 / CVE 2026 20700</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#ef4444" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Zero Day focus</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Patch Tuesday priority</text>
+    <rect x="56" y="461" width="74" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
+    <text x="93" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">Zero Day</text>
+    <rect x="138" y="461" width="109" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
+    <text x="192" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">Patch Tuesday</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="88" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
@@ -284,10 +285,13 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#f97316" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#f97316" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.15"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#ef4444" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#ef4444" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Zero Day</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Patch Tuesday</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#f97316" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#f97316" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Zero Day focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Patch Tuesday priority</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#dc2626" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#dc2626" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">CVE 2026 21510</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">CVE 2026 20700</text>
     <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Zero Day</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle" font-weight="700">Devsecops</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">Cloud Security</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Patch Tuesday</text>
+    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle" font-weight="700">Patch Tuesday</text>
+    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">CVE 2026 21510</text>
+    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">CVE 2026 20700</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#ef4444" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

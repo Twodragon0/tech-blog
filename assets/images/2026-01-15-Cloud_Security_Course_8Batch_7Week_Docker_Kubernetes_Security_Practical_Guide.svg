@@ -107,17 +107,18 @@
     <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Kubernetes</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#0d1525" stroke="#818cf8" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#818cf8" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#c4b5fd" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Cloud Security / Docker</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Kubernetes / Container Security</text>
-    <rect x="56" y="373" width="116" height="22" rx="11" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.85"/>
-    <text x="114" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#818cf8" text-anchor="middle" font-weight="600">Cloud Security</text>
-    <rect x="180" y="373" width="70" height="22" rx="11" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="215" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Docker</text>
-    <rect x="258" y="373" width="88" height="22" rx="11" fill="#0f0a2a" stroke="#6366f1" stroke-width="1" opacity="0.85"/>
-    <text x="302" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600">Kubernetes</text>
+    <rect x="40" y="313" width="280" height="122" rx="12" fill="#0d1525" stroke="#818cf8" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="313" width="280" height="18" rx="12" fill="#818cf8" opacity="0.10"/>
+    <text x="56" y="326" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#c4b5fd" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="347" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Docker / Container Security</text>
+    <text x="56" y="364" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">K8S / Docker Kubernetes</text>
+    <line x1="56" y1="373" x2="304" y2="373" stroke="#818cf8" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="391" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Docker focus</text>
+    <text x="56" y="406" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Container Security priority</text>
+    <rect x="56" y="413" width="70" height="22" rx="11" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.85"/>
+    <text x="91" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#818cf8" text-anchor="middle" font-weight="600">Docker</text>
+    <rect x="134" y="413" width="144" height="22" rx="11" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
+    <text x="206" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Container Security</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="64" height="24" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="1.2"/>
@@ -272,9 +273,12 @@
     <path d="M 560 470 A 205 150 0 0 1 1010 420" fill="none" stroke="#06b6d4" stroke-width="0.9" opacity="0.14" stroke-dasharray="5 6"/>
     <circle cx="720" cy="315" r="92" fill="none" stroke="#818cf8" stroke-width="0.7" opacity="0.16"/>
     <circle cx="720" cy="315" r="122" fill="none" stroke="#06b6d4" stroke-width="0.6" opacity="0.12"/>
-    <g transform="rotate(10 604.0 172.0)"><rect x="520" y="136" width="168" height="72" rx="14" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.2" opacity="0.76"/><rect x="534" y="152" width="140" height="12" rx="6" fill="#818cf8" opacity="0.12"/><text x="538" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#818cf8" font-weight="700">Cloud Security</text><text x="538" y="194" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">editorial frame</text></g>
-    <g transform="rotate(-8 980.0 237.0)"><rect x="900" y="202" width="160" height="70" rx="14" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.2" opacity="0.76"/><rect x="914" y="218" width="132" height="12" rx="6" fill="#06b6d4" opacity="0.12"/><text x="918" y="242" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#06b6d4" font-weight="700">Docker</text><text x="918" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">editorial frame</text></g>
-    <g transform="rotate(7 848.0 467.0)"><rect x="760" y="430" width="176" height="74" rx="14" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.2" opacity="0.76"/><rect x="774" y="446" width="148" height="12" rx="6" fill="#6366f1" opacity="0.12"/><text x="778" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#6366f1" font-weight="700">Kubernetes</text><text x="778" y="488" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">editorial frame</text></g>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#818cf8" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#818cf8" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Docker</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Container Security</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Docker focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Container Security priority</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#6366f1" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#6366f1" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">K8S</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Docker Kubernetes</text>
+    <g transform="rotate(10 605.0 229.0)"><rect x="516" y="190" width="178" height="78" rx="14" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.2" opacity="0.76"/><rect x="530" y="206" width="150" height="12" rx="6" fill="#818cf8" opacity="0.12"/><text x="534" y="230" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#818cf8" font-weight="700">Docker</text><text x="534" y="248" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">Container Security</text></g>
+    <g transform="rotate(-8 987.0 289.0)"><rect x="904" y="252" width="166" height="74" rx="14" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.2" opacity="0.76"/><rect x="918" y="268" width="138" height="12" rx="6" fill="#06b6d4" opacity="0.12"/><text x="922" y="292" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#06b6d4" font-weight="700">Container Security</text><text x="922" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">Container Security priority</text></g>
+    <g transform="rotate(7 838.0 475.0)"><rect x="744" y="436" width="188" height="78" rx="14" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.2" opacity="0.76"/><rect x="758" y="452" width="160" height="12" rx="6" fill="#6366f1" opacity="0.12"/><text x="762" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#6366f1" font-weight="700">K8S</text><text x="762" y="494" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">Docker Kubernetes</text></g>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#818cf8" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
