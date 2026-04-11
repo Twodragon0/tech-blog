@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Kubernetes RBAC , SLSA</title>
+  <title>Supply Chain</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
   <defs>
     <linearGradient id="ua83708bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,28 +96,30 @@
           fill="#64748b" letter-spacing="1">2026-03-26</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ua83708title)" font-weight="700" letter-spacing="-1">Kubernetes RBAC , SLSA</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua83708title)" font-weight="700" letter-spacing="-1">, AI</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua83708title)" font-weight="700" letter-spacing="-1">Supply Chain</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua83708title)" font-weight="700" letter-spacing="-1">AI Agent</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ua83708title)" font-weight="700" letter-spacing="-1">Security Weekly</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#ua83708accent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ua83708accent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Devsecops</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Cloud Security</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Devsecops</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Cloud Security</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#0a1a0a" stroke="#a855f7" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#a855f7" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Supply Chain / Devsecops</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Cloud Security / Kubernetes</text>
-    <rect x="56" y="373" width="102" height="22" rx="11" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
-    <text x="107" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="600">Supply Chain</text>
-    <rect x="166" y="373" width="81" height="22" rx="11" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
-    <text x="206" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Devsecops</text>
-    <rect x="255" y="373" width="116" height="22" rx="11" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.85"/>
-    <text x="313" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle" font-weight="600">Cloud Security</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a0a" stroke="#a855f7" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#a855f7" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Supply Chain / AI Agent</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Security Weekly / Kubernetes Rbac</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#a855f7" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Kubernetes RBAC Cilium eBPF SLSA</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">AI CVE 2026 03 26 DevSecOps .</text>
+    <rect x="56" y="461" width="102" height="22" rx="11" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+    <text x="107" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="600">Supply Chain</text>
+    <rect x="166" y="461" width="74" height="22" rx="11" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
+    <text x="203" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">AI Agent</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="88" height="24" rx="12" fill="#3b0764" stroke="#a855f7" stroke-width="1.2"/>
@@ -276,10 +278,13 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#22c55e" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#22c55e" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#a855f7" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Supply Chain</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AI Agent</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Kubernetes RBAC Cilium</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">SLSA SBOM AI CVE 2026 0...</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#8b5cf6" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#8b5cf6" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Security Weekly</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Kubernetes Rbac</text>
     <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">Supply Chain</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="700">Devsecops</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="700">Cloud Security</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">Kubernetes</text>
+    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="700">AI Agent</text>
+    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="700">Security Weekly</text>
+    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">Kubernetes Rbac</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#a855f7" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

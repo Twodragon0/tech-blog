@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>MS Office Zero-Day ,</title>
+  <title>Zero Day</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
   <defs>
     <linearGradient id="u4d585ebg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,28 +96,30 @@
           fill="#64748b" letter-spacing="1">2026-01-27</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u4d585etitle)" font-weight="700" letter-spacing="-1">MS Office Zero-Day ,</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u4d585etitle)" font-weight="700" letter-spacing="-1">Kimi K2. , Kimwolf</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u4d585etitle)" font-weight="700" letter-spacing="-1">Zero Day</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u4d585etitle)" font-weight="700" letter-spacing="-1">Microsoft Office</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u4d585etitle)" font-weight="700" letter-spacing="-1">Kimi K25</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#u4d585eaccent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u4d585eaccent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Zero Day</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Microsoft Office</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Zero Day</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Microsoft Office</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#0a1a0a" stroke="#a855f7" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#a855f7" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Day / Microsoft Office</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Kimi K25 / AI Agents</text>
-    <rect x="56" y="373" width="74" height="22" rx="11" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
-    <text x="93" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="600">Zero Day</text>
-    <rect x="138" y="373" width="130" height="22" rx="11" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
-    <text x="203" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Microsoft Office</text>
-    <rect x="276" y="373" width="74" height="22" rx="11" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.85"/>
-    <text x="313" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle" font-weight="600">Kimi K25</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a0a" stroke="#a855f7" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#a855f7" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Day / Microsoft Office</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Kimi K25 / AI Agents</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#a855f7" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">MS Office Zero-Day Kimi K2.5</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">200 IoT AWS Blackwell GPU</text>
+    <rect x="56" y="461" width="74" height="22" rx="11" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+    <text x="93" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="600">Zero Day</text>
+    <rect x="138" y="461" width="130" height="22" rx="11" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
+    <text x="203" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Microsoft Office</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="80" height="24" rx="12" fill="#3b0764" stroke="#a855f7" stroke-width="1.2"/>
@@ -276,6 +278,9 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#22c55e" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#22c55e" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#a855f7" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Zero Day</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Microsoft Office</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">MS Office Zero-Day Kimi</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Kimwolf 200 IoT AWS Bla...</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#8b5cf6" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#8b5cf6" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Kimi K25</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AI Agents</text>
     <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">Zero Day</text>
     <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="700">Microsoft Office</text>
     <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="700">Kimi K25</text>

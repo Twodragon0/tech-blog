@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS FinOps</title>
+  <title>AWS</title>
   <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
   <defs>
     <linearGradient id="ud8dcf7bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,31 +96,34 @@
           fill="#64748b" letter-spacing="1">2025-05-02</text>
 
     <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud8dcf7title)" font-weight="700" letter-spacing="-1">AWS FinOps</text>
+    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud8dcf7title)" font-weight="700" letter-spacing="-1">AWS</text>
+    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ud8dcf7title)" font-weight="700" letter-spacing="-1">Finops</text>
+    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ud8dcf7title)" font-weight="700" letter-spacing="-1">Cost Optimization</text>
 
     <!-- Accent divider -->
-    <rect x="40" y="173" width="260" height="2" rx="1" fill="url(#ud8dcf7accent)" opacity="0.8"/>
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ud8dcf7accent)" opacity="0.8"/>
 
     <!-- Topic bars -->
-    <text x="40" y="211" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f59e0b" font-weight="600">Aws</text>
-    <text x="40" y="237" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Finops</text>
+    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f59e0b" font-weight="600">AWS</text>
+    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Finops</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="269" width="280" height="88" rx="10" fill="#0a1a10" stroke="#f59e0b" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="269" width="280" height="18" rx="10" fill="#f59e0b" opacity="0.10"/>
-    <text x="56" y="282" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fde68a" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="303" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Cloud Security / AWS</text>
-    <text x="56" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Finops / Cost Optimization</text>
-    <rect x="56" y="325" width="116" height="22" rx="11" fill="#1a1505" stroke="#f59e0b" stroke-width="1" opacity="0.85"/>
-    <text x="114" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="600">Cloud Security</text>
-    <rect x="180" y="325" width="70" height="22" rx="11" fill="#1a1505" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
-    <text x="215" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">AWS</text>
-    <rect x="258" y="325" width="70" height="22" rx="11" fill="#1a1505" stroke="#eab308" stroke-width="1" opacity="0.85"/>
-    <text x="293" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#eab308" text-anchor="middle" font-weight="600">Finops</text>
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a10" stroke="#f59e0b" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#f59e0b" opacity="0.10"/>
+    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fde68a" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">AWS / Finops</text>
+    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Cost Optimization / Well Architected</text>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#f59e0b" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">AWS focus</text>
+    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Finops priority</text>
+    <rect x="56" y="461" width="70" height="22" rx="11" fill="#1a1505" stroke="#f59e0b" stroke-width="1" opacity="0.85"/>
+    <text x="91" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="600">AWS</text>
+    <rect x="134" y="461" width="70" height="22" rx="11" fill="#1a1505" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
+    <text x="169" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Finops</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="54" height="24" rx="12" fill="#713f12" stroke="#f59e0b" stroke-width="1.2"/>
-    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="bold">Aws</text>
+    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="bold">AWS</text>
     <rect x="104" y="525" width="64" height="24" rx="12" fill="#0a1a10" stroke="#22c55e" stroke-width="1.2"/>
     <text x="136" y="541" font-family="Courier New, monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">Finops</text>
     <rect x="178" y="525" width="128" height="24" rx="12" fill="#1a1505" stroke="#eab308" stroke-width="1.2"/>
@@ -253,11 +256,14 @@
     
     <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="#f59e0b" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>
     <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="#22c55e" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>
-    <polygon points="470,120 1030,120 1150,220 590,220" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1" /><text x="612" y="177" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f59e0b" font-weight="700">Cloud Security</text>
-    <polygon points="430,262 990,262 1110,362 550,362" fill="#22c55e" opacity="0.08" stroke="#22c55e" stroke-width="1" /><text x="622" y="319" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#22c55e" font-weight="700">AWS</text>
-    <polygon points="520,404 1080,404 1160,484 600,484" fill="#eab308" opacity="0.08" stroke="#eab308" stroke-width="1" /><text x="632" y="461" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#eab308" font-weight="700">Finops</text>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#1a1505" stroke="#f59e0b" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#f59e0b" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#f59e0b" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">AWS</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Finops</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#1a1505" stroke="#22c55e" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">AWS focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Finops priority</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#1a1505" stroke="#eab308" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#eab308" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#eab308" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Cost Optimization</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Well Architected</text>
+    <polygon points="470,186 1030,186 1150,286 590,286" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1" /><text x="612" y="243" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f59e0b" font-weight="700">AWS</text><text x="612" y="261" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Finops</text>
+    <polygon points="430,318 990,318 1110,418 550,418" fill="#22c55e" opacity="0.08" stroke="#22c55e" stroke-width="1" /><text x="622" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#22c55e" font-weight="700">Finops</text><text x="622" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Finops priority</text>
+    <polygon points="520,450 1080,450 1160,530 600,530" fill="#eab308" opacity="0.08" stroke="#eab308" stroke-width="1" /><text x="632" y="507" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#eab308" font-weight="700">Cost Optimization</text><text x="632" y="525" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Well Architected</text>
     <rect x="915" y="500" width="180" height="36" rx="18" fill="#1a1505" stroke="#f59e0b" stroke-width="1" opacity="0.78"/>
-    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="700">Cost Optimization</text>
+    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="700">Well Architected</text>
     <!-- FLOATING PARTICLES -->
     <circle cx="150" cy="100" r="2.5" fill="#f59e0b" opacity="0.5">
       <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>

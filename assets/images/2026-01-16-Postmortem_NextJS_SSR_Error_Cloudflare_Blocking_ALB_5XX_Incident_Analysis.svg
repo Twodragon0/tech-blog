@@ -107,17 +107,18 @@
     <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#3b82f6" font-weight="600">Next.Js</text>
 
     <!-- Focus panel -->
-    <rect x="40" y="317" width="280" height="88" rx="10" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="317" width="280" height="18" rx="10" fill="#06b6d4" opacity="0.10"/>
-    <text x="56" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Post Mortem / Next.Js</text>
-    <text x="56" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Ssr / Cloudflare</text>
-    <rect x="56" y="373" width="95" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="103" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Post Mortem</text>
-    <rect x="159" y="373" width="70" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
-    <text x="194" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">Next.Js</text>
-    <rect x="237" y="373" width="70" height="22" rx="11" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.85"/>
-    <text x="272" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#0ea5e9" text-anchor="middle" font-weight="600">Ssr</text>
+    <rect x="40" y="313" width="280" height="122" rx="12" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
+    <rect x="40" y="313" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10"/>
+    <text x="56" y="326" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
+    <text x="56" y="347" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Post Mortem / Next.Js</text>
+    <text x="56" y="364" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Ssr / Cloudflare</text>
+    <line x1="56" y1="373" x2="304" y2="373" stroke="#06b6d4" stroke-width="0.8" opacity="0.20"/>
+    <text x="56" y="391" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Post Mortem focus</text>
+    <text x="56" y="406" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Next.Js priority</text>
+    <rect x="56" y="413" width="95" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
+    <text x="103" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Post Mortem</text>
+    <rect x="159" y="413" width="70" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
+    <text x="194" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">Next.Js</text>
 
     <!-- Tag pills -->
     <rect x="40" y="525" width="104" height="24" rx="12" fill="#0c4a6e" stroke="#06b6d4" stroke-width="1.2"/>
@@ -270,6 +271,9 @@
     <ellipse cx="720" cy="180" rx="76" ry="38" fill="#3b82f6" opacity="0.10"/>
     <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#3b82f6" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
     <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Post Mortem</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Next.Js</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#3b82f6" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#3b82f6" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#3b82f6" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Post Mortem focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Next.Js priority</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Ssr</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Cloudflare</text>
     <rect x="470" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Post Mortem</text>
     <rect x="625" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="700">Next.Js</text>
     <rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="700">Ssr</text>

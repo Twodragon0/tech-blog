@@ -191,6 +191,27 @@ def english_tags(tags: list, limit: int = 4) -> list[str]:
     """Return up to *limit* English tag labels, preferring specific tags."""
     generic = {"security-weekly", "weekly-digest", "daily-digest",
                "tech-newsletter", "2025", "2026", "2024"}
+    acronyms = {
+        "ai", "api", "aws", "cicd", "cve", "edr", "gcp", "iam", "k8s", "llm",
+        "mcp", "mfa", "otp", "skt", "soc", "usim", "ztna",
+    }
+
+    def normalize_label(raw: str) -> str:
+        words = [w for w in raw.replace("-", " ").split() if w]
+        normalized = []
+        for word in words:
+            clean = word.lower()
+            if clean in acronyms:
+                normalized.append(clean.upper())
+            elif re.fullmatch(r"v?\d+(?:\.\d+)*", clean):
+                normalized.append(word.upper())
+            else:
+                normalized.append(word.title())
+        label = " ".join(normalized)
+        if len(label) > 18:
+            label = label[:17].rstrip() + "."
+        return label
+
     specific = []
     fallback = []
     for t in tags:
@@ -200,18 +221,11 @@ def english_tags(tags: list, limit: int = 4) -> list[str]:
             continue
         # Map Korean if needed
         mapped = TAG_ENGLISH_MAP.get(t_str, t_str)
-        # Clean hyphens for display
-        label = mapped.replace("-", " ").title()
-        if len(label) > 18:
-            label = label[:17].rstrip() + "."
-        specific.append(label)
+        specific.append(normalize_label(mapped))
     result = specific[:limit]
     while len(result) < limit and fallback:
         t_str = fallback.pop(0)
-        label = t_str.replace("-", " ").title()
-        if len(label) > 18:
-            label = label[:17].rstrip() + "."
-        result.append(label)
+        result.append(normalize_label(t_str))
     return result[:limit]
 
 
@@ -249,6 +263,21 @@ def split_title(title: str, max_chars: int = 22) -> list[str]:
     if not lines:
         lines = ["Tech Blog Post"]
     return lines[:3]
+
+
+def build_cover_title_lines(title: str, concepts: list[str]) -> list[str]:
+    """Build stable SVG title lines, falling back to concept labels when needed."""
+    lines = split_title(title)
+    joined = " ".join(lines).strip(" ,-/")
+    words = re.findall(r"[A-Za-z0-9+#.-]+", joined)
+    noisy = " ," in joined or joined.count(",") >= 2 or joined.count("/") >= 2
+    if len(words) >= 3 and len(joined) >= 12 and not joined.endswith(",") and not noisy:
+        return lines
+
+    fallback = [label for label in concepts[:3] if label]
+    if fallback:
+        return fallback[:3]
+    return lines
 
 
 def _ascii_visual_source(*parts: object) -> str:
@@ -373,6 +402,72 @@ def build_focus_lines(concepts: list[str]) -> list[str]:
     line_one = " / ".join(concepts[:2])
     line_two = " / ".join(concepts[2:4])
     return [line_one, line_two or "Visual Narrative"]
+
+
+def build_excerpt_lines(
+    excerpt: str,
+    max_chars: int = 34,
+    fallback: list[str] | None = None,
+) -> list[str]:
+    """Build two short ASCII-safe excerpt lines for the left summary panel."""
+    clean = _ascii_visual_source(excerpt)
+    clean = re.sub(r"\b(through|using|based|guide|complete|practical)\b", " ", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s+", " ", clean).strip()
+    alpha_words = [
+        word for word in clean.split()
+        if re.search(r"[A-Za-z]", word) and len(re.sub(r"[^A-Za-z]", "", word)) >= 3
+    ]
+    if (
+        not clean
+        or len(alpha_words) < 5
+        or clean.count(".") >= 2
+        or clean.count("/") >= 2
+    ):
+        if fallback and len(fallback) >= 2:
+            return [f"{fallback[0]} focus", f"{fallback[1]} priority"]
+        return ["High-context cover", "Recent-style layout"]
+
+    words = clean.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip() if current else word
+        if len(candidate) <= max_chars:
+            current = candidate
+            continue
+        if current:
+            lines.append(current)
+        current = word
+        if len(lines) == 1:
+            break
+
+    remaining_words = words[len(" ".join(lines + ([current] if current else [])).split()):]
+    if current:
+        lines.append(current)
+    if remaining_words:
+        second = " ".join(remaining_words)
+        if len(second) > max_chars:
+            second = second[: max_chars - 3].rstrip() + "..."
+        if len(lines) == 1:
+            lines.append(second)
+        else:
+            lines[-1] = second
+
+    while len(lines) < 2:
+        lines.append("Recent-style layout")
+    return lines[:2]
+
+
+def build_signal_cards(concepts: list[str], excerpt: str, theme: str) -> list[tuple[str, str, str]]:
+    """Build three short right-side cards with per-post copy."""
+    fallbacks = THEME_DEFAULT_CONCEPTS.get(theme, THEME_DEFAULT_CONCEPTS["general"])
+    labels = (concepts + fallbacks)[:4]
+    summary_lines = build_excerpt_lines(excerpt, max_chars=26, fallback=labels)
+    return [
+        ("PRIMARY", labels[0], labels[1]),
+        ("SUMMARY", summary_lines[0], summary_lines[1]),
+        ("TRACK", labels[2], labels[3]),
+    ]
 
 
 def format_date(date_val) -> str:
@@ -1460,27 +1555,32 @@ def _scene_general(p: dict, u: str, tag_labels: list[str]) -> str:
 """
 
 
-def _build_focus_panel(p: dict, concepts: list[str], focus_y: int) -> str:
+def _build_focus_panel(
+    p: dict,
+    concepts: list[str],
+    summary_lines: list[str],
+    focus_y: int,
+) -> str:
     """Render a compact concept panel in the left column."""
     focus_lines = build_focus_lines(concepts[:4])
     pills = ""
     x_off = 56
-    for i, label in enumerate(concepts[:3]):
+    for i, label in enumerate(concepts[:2]):
         width = max(70, len(label) * 7 + 18)
         accent = [p["accent1"], p["accent2"], p["accent3"]][i % 3]
         pills += (
-            f'    <rect x="{x_off}" y="{focus_y + 56}" width="{width}" height="22" rx="11" '
+            f'    <rect x="{x_off}" y="{focus_y + 100}" width="{width}" height="22" rx="11" '
             f'fill="{p["bg1"]}" stroke="{accent}" stroke-width="1" opacity="0.85"/>\n'
-            f'    <text x="{x_off + width // 2}" y="{focus_y + 71}" '
+            f'    <text x="{x_off + width // 2}" y="{focus_y + 115}" '
             f'font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="{accent}" '
             f'text-anchor="middle" font-weight="600">{label}</text>\n'
         )
         x_off += width + 8
 
     return (
-        f'    <rect x="40" y="{focus_y}" width="280" height="88" rx="10" '
+        f'    <rect x="40" y="{focus_y}" width="280" height="122" rx="12" '
         f'fill="{p["bg2"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.66"/>\n'
-        f'    <rect x="40" y="{focus_y}" width="280" height="18" rx="10" '
+        f'    <rect x="40" y="{focus_y}" width="280" height="18" rx="12" '
         f'fill="{p["accent1"]}" opacity="0.10"/>\n'
         f'    <text x="56" y="{focus_y + 13}" font-family="Segoe UI, Arial, sans-serif" '
         f'font-size="10" fill="{p["text_accent"]}" font-weight="700" letter-spacing="1">FOCUS</text>\n'
@@ -1488,8 +1588,37 @@ def _build_focus_panel(p: dict, concepts: list[str], focus_y: int) -> str:
         f'font-size="13" fill="#e2e8f0" font-weight="600">{focus_lines[0]}</text>\n'
         f'    <text x="56" y="{focus_y + 51}" font-family="Segoe UI, Arial, sans-serif" '
         f'font-size="12" fill="#94a3b8">{focus_lines[1]}</text>\n'
+        f'    <line x1="56" y1="{focus_y + 60}" x2="304" y2="{focus_y + 60}" '
+        f'stroke="{p["accent1"]}" stroke-width="0.8" opacity="0.20"/>\n'
+        f'    <text x="56" y="{focus_y + 78}" font-family="Segoe UI, Arial, sans-serif" '
+        f'font-size="10.5" fill="#cbd5e1">{summary_lines[0]}</text>\n'
+        f'    <text x="56" y="{focus_y + 93}" font-family="Segoe UI, Arial, sans-serif" '
+        f'font-size="10.5" fill="#94a3b8">{summary_lines[1]}</text>\n'
         f"{pills}"
     )
+
+
+def _build_signal_strip(p: dict, signal_cards: list[tuple[str, str, str]]) -> str:
+    """Render three compact signal cards inspired by recent digest layouts."""
+    blocks = []
+    specs = [
+        (454, 90, 206, 74, p["accent1"]),
+        (676, 90, 206, 74, p["accent2"]),
+        (898, 90, 206, 74, p["accent3"]),
+    ]
+    for (x, y, w, h, accent), (eyebrow, headline, detail) in zip(specs, signal_cards):
+        blocks.append(
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1.1" opacity="0.78"/>'
+            f'<circle cx="{x + 18}" cy="{y + 18}" r="5" fill="{accent}" opacity="0.85"/>'
+            f'<text x="{x + 32}" y="{y + 21}" font-family="Courier New, monospace" font-size="9" '
+            f'fill="{accent}" font-weight="700" letter-spacing="1">{eyebrow}</text>'
+            f'<text x="{x + 16}" y="{y + 44}" font-family="Segoe UI, Arial, sans-serif" font-size="14" '
+            f'fill="#f8fafc" font-weight="700">{headline}</text>'
+            f'<text x="{x + 16}" y="{y + 61}" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" '
+            f'fill="#94a3b8">{detail}</text>'
+        )
+    return "\n".join(f"    {block}" for block in blocks)
 
 
 def _shared_scene_scaffold(p: dict, u: str) -> str:
@@ -1524,14 +1653,19 @@ def _shared_scene_scaffold(p: dict, u: str) -> str:
     """
 
 
-def _variant_orbit_decoration(p: dict, u: str, concepts: list[str]) -> str:
+def _variant_orbit_decoration(
+    p: dict,
+    u: str,
+    concepts: list[str],
+    signal_cards: list[tuple[str, str, str]],
+) -> str:
     cards = (
-        (520, 136, 168, 72, 10, concepts[0], p["accent1"]),
-        (900, 202, 160, 70, -8, concepts[1], p["accent2"]),
-        (760, 430, 176, 74, 7, concepts[2], p["accent3"]),
+        (516, 190, 178, 78, 10, concepts[0], signal_cards[0][2], p["accent1"]),
+        (904, 252, 166, 74, -8, concepts[1], signal_cards[1][2], p["accent2"]),
+        (744, 436, 188, 78, 7, concepts[2], signal_cards[2][2], p["accent3"]),
     )
     blocks = []
-    for x, y, w, h, rot, label, accent in cards:
+    for x, y, w, h, rot, label, detail, accent in cards:
         blocks.append(
             f'<g transform="rotate({rot} {x + w / 2:.1f} {y + h / 2:.1f})">'
             f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{p["bg1"]}" '
@@ -1540,7 +1674,7 @@ def _variant_orbit_decoration(p: dict, u: str, concepts: list[str]) -> str:
             f'<text x="{x + 18}" y="{y + 40}" font-family="Segoe UI, Arial, sans-serif" font-size="11" '
             f'fill="{accent}" font-weight="700">{label}</text>'
             f'<text x="{x + 18}" y="{y + 58}" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" '
-            f'fill="#94a3b8">editorial frame</text></g>'
+            f'fill="#94a3b8">{detail}</text></g>'
         )
     return (
         f'    <path d="M 510 160 A 250 190 0 0 1 980 180" fill="none" stroke="{p["accent1"]}" '
@@ -1549,11 +1683,17 @@ def _variant_orbit_decoration(p: dict, u: str, concepts: list[str]) -> str:
         f'stroke-width="0.9" opacity="0.14" stroke-dasharray="5 6"/>\n'
         f'    <circle cx="720" cy="315" r="92" fill="none" stroke="{p["accent1"]}" stroke-width="0.7" opacity="0.16"/>\n'
         f'    <circle cx="720" cy="315" r="122" fill="none" stroke="{p["accent2"]}" stroke-width="0.6" opacity="0.12"/>\n'
+        + _build_signal_strip(p, signal_cards) + "\n"
         + "\n".join(f"    {block}" for block in blocks)
     )
 
 
-def _variant_beacon_decoration(p: dict, u: str, concepts: list[str]) -> str:
+def _variant_beacon_decoration(
+    p: dict,
+    u: str,
+    concepts: list[str],
+    signal_cards: list[tuple[str, str, str]],
+) -> str:
     labels = concepts[:4]
     pills = []
     for i, label in enumerate(labels):
@@ -1572,51 +1712,66 @@ def _variant_beacon_decoration(p: dict, u: str, concepts: list[str]) -> str:
         f'    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="{p["accent2"]}" stroke-width="1.1" '
         f'opacity="0.16" stroke-dasharray="4 5"/>\n'
         f'    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="{p["accent3"]}" stroke-width="1" opacity="0.15"/>\n'
+        + _build_signal_strip(p, signal_cards) + "\n"
         + "\n".join(f"    {pill}" for pill in pills)
     )
 
 
-def _variant_editorial_decoration(p: dict, u: str, concepts: list[str]) -> str:
+def _variant_editorial_decoration(
+    p: dict,
+    u: str,
+    concepts: list[str],
+    signal_cards: list[tuple[str, str, str]],
+) -> str:
     layers = []
     entries = [
-        (470, 118, 430, 84, concepts[0], "story layer", p["accent1"]),
-        (548, 240, 392, 82, concepts[1], "signal slice", p["accent2"]),
-        (620, 360, 340, 78, concepts[2], concepts[3], p["accent3"]),
+        (470, 186, 430, 84, signal_cards[0][0], concepts[0], signal_cards[0][2], p["accent1"]),
+        (548, 292, 392, 82, signal_cards[1][0], concepts[1], signal_cards[1][2], p["accent2"]),
+        (620, 396, 340, 78, signal_cards[2][0], concepts[2], concepts[3], p["accent3"]),
     ]
-    for x, y, w, h, label_a, label_b, accent in entries:
+    for x, y, w, h, eyebrow, label_a, label_b, accent in entries:
         layers.append(
             f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{p["bg1"]}" '
             f'stroke="{accent}" stroke-width="1.1" opacity="0.76"/>'
             f'<line x1="{x + 18}" y1="{y + 28}" x2="{x + w - 18}" y2="{y + 28}" stroke="{accent}" stroke-width="0.8" opacity="0.25"/>'
-            f'<text x="{x + 20}" y="{y + 24}" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="{accent}" font-weight="700">{label_a}</text>'
-            f'<text x="{x + 20}" y="{y + 52}" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#e2e8f0" font-weight="700">{label_b}</text>'
-            f'<text x="{x + 20}" y="{y + 69}" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">high-context cover</text>'
+            f'<text x="{x + 20}" y="{y + 24}" font-family="Courier New, monospace" font-size="9" fill="{accent}" font-weight="700">{eyebrow}</text>'
+            f'<text x="{x + 20}" y="{y + 52}" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#e2e8f0" font-weight="700">{label_a}</text>'
+            f'<text x="{x + 20}" y="{y + 69}" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">{label_b}</text>'
         )
     return (
         f'    <rect x="432" y="96" width="660" height="370" rx="24" fill="{p["bg1"]}" opacity="0.12"/>\n'
         f'    <rect x="452" y="116" width="620" height="330" rx="20" fill="{p["bg2"]}" opacity="0.09"/>\n'
         f'    <path d="M 450 490 Q 700 430 1080 520" fill="none" stroke="{p["accent1"]}" stroke-width="1.0" opacity="0.14"/>\n'
+        + _build_signal_strip(p, signal_cards) + "\n"
         + "\n".join(f"    {layer}" for layer in layers)
     )
 
 
-def _variant_bands_decoration(p: dict, u: str, concepts: list[str]) -> str:
+def _variant_bands_decoration(
+    p: dict,
+    u: str,
+    concepts: list[str],
+    signal_cards: list[tuple[str, str, str]],
+) -> str:
     bands = []
     specs = [
-        ("470,120 1030,120 1150,220 590,220", p["accent1"], concepts[0]),
-        ("430,262 990,262 1110,362 550,362", p["accent2"], concepts[1]),
-        ("520,404 1080,404 1160,484 600,484", p["accent3"], concepts[2]),
+        ("470,186 1030,186 1150,286 590,286", p["accent1"], concepts[0], signal_cards[0][2]),
+        ("430,318 990,318 1110,418 550,418", p["accent2"], concepts[1], signal_cards[1][2]),
+        ("520,450 1080,450 1160,530 600,530", p["accent3"], concepts[2], signal_cards[2][2]),
     ]
-    for idx, (points, accent, label) in enumerate(specs):
-        y = 177 + idx * 142
+    for idx, (points, accent, label, detail) in enumerate(specs):
+        y = 243 + idx * 132
         bands.append(
             f'<polygon points="{points}" fill="{accent}" opacity="0.08" stroke="{accent}" stroke-width="1" />'
             f'<text x="{612 + idx * 10}" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="18" '
             f'fill="{accent}" font-weight="700">{label}</text>'
+            f'<text x="{612 + idx * 10}" y="{y + 18}" font-family="Segoe UI, Arial, sans-serif" font-size="9" '
+            f'fill="#94a3b8">{detail}</text>'
         )
     return (
         f'    <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>\n'
         f'    <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="{p["accent2"]}" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>\n'
+        + _build_signal_strip(p, signal_cards) + "\n"
         + "\n".join(f"    {band}" for band in bands)
         + f'\n    <rect x="915" y="500" width="180" height="36" rx="18" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.78"/>'
         + f'\n    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="{p["accent1"]}" text-anchor="middle" font-weight="700">{concepts[3]}</text>'
@@ -1627,10 +1782,13 @@ def _common_decorations_v2(
     p: dict,
     u: str,
     concept_labels: list[str],
+    excerpt: str,
+    theme: str,
     variant: str,
 ) -> str:
     """Generate post-specific abstract composition blocks."""
     concepts = (concept_labels + THEME_DEFAULT_CONCEPTS["general"])[:4]
+    signal_cards = build_signal_cards(concepts, excerpt, theme)
     variant_renderers = {
         "orbit": _variant_orbit_decoration,
         "beacon": _variant_beacon_decoration,
@@ -1638,7 +1796,7 @@ def _common_decorations_v2(
         "bands": _variant_bands_decoration,
     }
     render = variant_renderers.get(variant, _variant_orbit_decoration)
-    return _shared_scene_scaffold(p, u) + "\n" + render(p, u, concepts)
+    return _shared_scene_scaffold(p, u) + "\n" + render(p, u, concepts, signal_cards)
 
 
 SCENE_RENDERERS = {
@@ -1669,9 +1827,10 @@ def generate_svg(
     """Build the full SVG string."""
     p = PALETTES[theme]
     u = uid(filepath)
-    title_lines = split_title(title)
     tag_labels = english_tags(tags)
     concept_labels = build_visual_concepts(title, excerpt, tags, filepath, theme)
+    title_lines = build_cover_title_lines(title, concept_labels)
+    summary_lines = build_excerpt_lines(excerpt, fallback=concept_labels)
     variant = select_visual_variant(theme, title, filepath)
     date_display = format_date(date_str)
 
@@ -1715,13 +1874,13 @@ def generate_svg(
             f'font-size="16" fill="{pill_colors[i % len(pill_colors)]}" '
             f'font-weight="600">{bl}</text>\n'
         )
-    focus_y = min(accent_y + 96, 408)
-    focus_svg = _build_focus_panel(p, concept_labels, focus_y)
+    focus_y = min(accent_y + 92, 392)
+    focus_svg = _build_focus_panel(p, concept_labels, summary_lines, focus_y)
 
     # Scene + common decorations
     scene_fn = SCENE_RENDERERS.get(theme, _scene_general)
     scene_svg = scene_fn(p, u, tag_labels)
-    decorations_svg = _common_decorations_v2(p, u, concept_labels, variant)
+    decorations_svg = _common_decorations_v2(p, u, concept_labels, excerpt, theme, variant)
 
     # Floating particles
     particles = ""
