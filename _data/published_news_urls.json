@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-11T01:27:30.775049+00:00",
+  "updated_at": "2026-04-12T01:50:57.589193+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
@@ -1080,6 +1080,96 @@
       "title": "Actions workflows are limited to 50 reruns",
       "published_date": "2026-04-11",
       "expires_at": "2026-04-18T01:27:30.774950+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html",
+      "title": "Citizen Lab: Law Enforcement Used Webloc to Track 500 Million Devices via Ad Dat",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/police-identifies-20-000-victims-in-international-crypto-fraud-crackdown/",
+      "title": "Over 20,000 crypto fraud victims identified in international crackdown",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-rolls-out-new-100-pro-subscription-to-challenge-claude/",
+      "title": "ChatGPT rolls out new $100 Pro subscription to challenge Claude",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28423",
+      "title": "CPU-Z와 HWMonitor가 해킹으로 악성코드 배포에 이용됨",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/04/11/what-i-learned-at-my-first-kubecon-cloudnativecon-as-a-high-school-speaker/",
+      "title": "What I Learned at My First KubeCon + CloudNativeCon as a High School Speaker",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/print/the-core-issue-the-role-and-history-of-bitcoin-core-maintainers",
+      "title": "The Core Issue: The Role and History of Bitcoin Core Maintainers",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/messaging-notifications-privacy-attack-durov?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Messaging push notifications are a privacy attack surface, says Durov",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/reality-ai-impact-employment-clashes-optimism?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Reality of AI’s impact on employment clashes with C-suite optimism",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/paying-iran-crypto-shippers-sanctions-risk-chainalysis?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Paying Iran in crypto could put shippers at sanctions risk: Chainalysis",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trump-linked-wlfi-hits-new-low-token-backed-loan-concerns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trump-linked WLFI hits new low as token-backed loan triggers concern",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28428",
+      "title": "AI 사이버보안의 새로운 경계: Mythos 이후의 현실",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28427",
+      "title": "Managed Agents 확장하기: 두뇌와 손을 분리하기",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28426",
+      "title": "아르테미스 II, 역사적 달 임무 후 샌디에이고 인근 해상에 안전 착수",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28425",
+      "title": "Arcmark - macOS용 브라우저 사이드북마크 관리자",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28424",
+      "title": "Microsoft, 주요 오픈소스 프로젝트 개발자 계정 정지",
+      "published_date": "2026-04-12",
+      "expires_at": "2026-04-19T01:50:57.589090+00:00"
     }
   ]
 }
