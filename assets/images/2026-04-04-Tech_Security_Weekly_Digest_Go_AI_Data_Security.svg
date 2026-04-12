@@ -359,6 +359,8 @@
     <circle cx="1080" cy="570" r="1.5" fill="#ef4444" opacity="0.25"/>
 
     <!-- Hash / fingerprint decorative text -->
+    <text x="400" y="590" font-family="Courier New, monospace" font-size="7"
+          fill="#334155" opacity="0.4" letter-spacing="1">SHA256 VERIFIED</text>
     <text x="820" y="590" font-family="Courier New, monospace" font-size="7"
           fill="#334155" opacity="0.3" letter-spacing="1">SIG:VERIFIED</text>
 
