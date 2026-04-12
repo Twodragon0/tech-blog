@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Docker</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: editorial -->
   <defs>
     <linearGradient id="u2e433abg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0a2a"/>
@@ -81,244 +81,89 @@
     <rect width="1200" height="630" fill="url(#u2e433adots)" opacity="0.6"/>
     <rect width="1200" height="630" fill="url(#u2e433aambientL)"/>
     <rect width="1200" height="630" fill="url(#u2e433aambientR)"/>
+    <ellipse cx="940" cy="250" rx="260" ry="180" fill="#818cf8" opacity="0.05"/>
+    <ellipse cx="760" cy="430" rx="240" ry="150" fill="#06b6d4" opacity="0.04"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u2e433apanel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u2e433aaccent)"/>
+    <!-- HEADER -->
+    <rect x="0" y="0" width="1200" height="88" fill="url(#u2e433apanel)" opacity="0.96"/>
+    <rect x="0" y="86" width="1200" height="2" fill="#1e293b" opacity="0.8"/>
+    <rect x="36" y="24" width="178" height="34" rx="8" fill="#312e81" stroke="#6366f1" stroke-width="1.3"/>
+    <text x="125" y="46" font-family="Courier New, monospace" font-size="11"
+          fill="#c4b5fd" text-anchor="middle" letter-spacing="1.6" font-weight="bold">K8S / CONTAINER</text>
+    <rect x="986" y="22" width="178" height="40" rx="10" fill="#0f0a2a" stroke="#334155" stroke-width="1"/>
+    <text x="1075" y="47" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700"
+          fill="#cbd5e1" text-anchor="middle">2025-05-30</text>
+    <text x="36" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#f8fafc">Post Spotlight</text>
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#312e81" stroke="#6366f1" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#c4b5fd" text-anchor="middle" letter-spacing="2" font-weight="bold">K8S / CONTAINER</text>
+    <!-- LEFT TITLE COLUMN -->
+    <rect x="24" y="106" width="394" height="500" rx="30" fill="url(#u2e433apanel)" stroke="#1e293b" stroke-width="1.1" opacity="0.94"/>
+    <rect x="40" y="132" width="150" height="24" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="1.1" opacity="0.9"/>
+    <text x="115" y="148" font-family="Courier New, monospace" font-size="9" fill="#c4b5fd" text-anchor="middle" font-weight="700" letter-spacing="1.1">EDITORIAL BRIEF</text>
+    <text x="40" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="50" fill="url(#u2e433atitle)" font-weight="800" letter-spacing="-1.1">Docker</text>
+    <text x="40" y="264" font-family="Segoe UI, Arial, sans-serif" font-size="50" fill="url(#u2e433atitle)" font-weight="800" letter-spacing="-1.1">Container</text>
+    <text x="40" y="314" font-family="Segoe UI, Arial, sans-serif" font-size="50" fill="url(#u2e433atitle)" font-weight="800" letter-spacing="-1.1">K8S</text>
+    <rect x="40" y="320" width="338" height="18" rx="9" fill="#818cf8" opacity="0.10"/>
+    <text x="40" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#e2e8f0" font-weight="700">Docker focus</text>
+    <text x="40" y="380" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" fill="#94a3b8">Container priority</text>
+    <rect x="40" y="410" width="156" height="116" rx="20" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.88"/>
+    <text x="60" y="438" font-family="Courier New, monospace" font-size="9" fill="#818cf8" font-weight="700">LEAD</text>
+    <text x="60" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#f8fafc" font-weight="700">Docker</text>
+    <text x="60" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">K8S</text>
+    <rect x="212" y="410" width="166" height="116" rx="20" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.88"/>
+    <text x="232" y="438" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700">DECK</text>
+    <text x="232" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#f8fafc" font-weight="700">Container</text>
+    <text x="232" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">Docker Kubernetes</text>
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2025-05-30</text>
+    <rect x="40" y="546" width="70" height="24" rx="12" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.1" opacity="0.88"/><text x="75.0" y="562" font-family="Courier New, monospace" font-size="9" fill="#818cf8" text-anchor="middle" font-weight="700">Docker</text>
+    <rect x="120" y="546" width="102" height="24" rx="12" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.1" opacity="0.88"/><text x="171.0" y="562" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="700">Kubernetes</text>
+    <rect x="232" y="546" width="94" height="24" rx="12" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.1" opacity="0.88"/><text x="279.0" y="562" font-family="Courier New, monospace" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="700">Container</text>
 
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2e433atitle)" font-weight="700" letter-spacing="-1">Docker</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2e433atitle)" font-weight="700" letter-spacing="-1">Container</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2e433atitle)" font-weight="700" letter-spacing="-1">K8S</text>
-
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u2e433aaccent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#818cf8" font-weight="600">Docker</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Kubernetes</text>
-
-    <!-- Focus panel -->
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0d1525" stroke="#818cf8" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#818cf8" opacity="0.10"/>
-    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#c4b5fd" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Docker / Container</text>
-    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">K8S / Docker Kubernetes</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#818cf8" stroke-width="0.8" opacity="0.20"/>
-    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Docker focus</text>
-    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Container priority</text>
-    <rect x="56" y="461" width="70" height="22" rx="11" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.85"/>
-    <text x="91" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#818cf8" text-anchor="middle" font-weight="600">Docker</text>
-    <rect x="134" y="461" width="81" height="22" rx="11" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="174" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Container</text>
-
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="64" height="24" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="1.2"/>
-    <text x="72" y="541" font-family="Courier New, monospace" font-size="10" fill="#818cf8" text-anchor="middle" font-weight="bold">Docker</text>
-    <rect x="114" y="525" width="96" height="24" rx="12" fill="#0d1525" stroke="#06b6d4" stroke-width="1.2"/>
-    <text x="162" y="541" font-family="Courier New, monospace" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="bold">Kubernetes</text>
-    <rect x="220" y="525" width="88" height="24" rx="12" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.2"/>
-    <text x="264" y="541" font-family="Courier New, monospace" font-size="10" fill="#6366f1" text-anchor="middle" font-weight="bold">Container</text>
-
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2e433asceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2e433asceneGlow2)" opacity="0.5"/>
-
-    <!-- SCENE: Kubernetes / Container -->
-    <!-- Cluster circle -->
-    <circle cx="720" cy="280" r="160" fill="none" stroke="#818cf8" stroke-width="1"
-            stroke-dasharray="6 4" opacity="0.3"/>
-    <circle cx="720" cy="280" r="120" fill="none" stroke="#6366f1" stroke-width="0.8"
-            opacity="0.2"/>
-    <text x="720" y="130" font-family="Courier New, monospace" font-size="9"
-          fill="#c4b5fd" text-anchor="middle" opacity="0.6">CLUSTER</text>
-
-    <!-- Pod boxes -->
-    <rect x="640" y="200" width="70" height="50" rx="6" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.5"/>
-    <rect x="644" y="204" width="62" height="42" rx="4" fill="none" stroke="#818cf8" stroke-width="0.5" opacity="0.4"/>
-    <text x="675" y="230" font-family="Courier New, monospace" font-size="9"
-          fill="#818cf8" text-anchor="middle" font-weight="bold">POD</text>
-
-    <rect x="760" y="200" width="70" height="50" rx="6" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.5"/>
-    <rect x="764" y="204" width="62" height="42" rx="4" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.4"/>
-    <text x="795" y="230" font-family="Courier New, monospace" font-size="9"
-          fill="#06b6d4" text-anchor="middle" font-weight="bold">POD</text>
-
-    <rect x="700" y="310" width="70" height="50" rx="6" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.5"/>
-    <rect x="704" y="314" width="62" height="42" rx="4" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.4"/>
-    <text x="735" y="340" font-family="Courier New, monospace" font-size="9"
-          fill="#6366f1" text-anchor="middle" font-weight="bold">POD</text>
-
-    <!-- Docker whale -->
-    <g filter="url(#u2e433aglow)" transform="translate(580,380)">
-      <circle cx="0" cy="0" r="35" fill="#0f0a2a" stroke="#06b6d4" stroke-width="2"/>
-      <rect x="-15" y="-8" width="8" height="6" rx="1" fill="#06b6d4" opacity="0.7"/>
-      <rect x="-5" y="-8" width="8" height="6" rx="1" fill="#06b6d4" opacity="0.7"/>
-      <rect x="5" y="-8" width="8" height="6" rx="1" fill="#06b6d4" opacity="0.7"/>
-      <rect x="-15" y="-16" width="8" height="6" rx="1" fill="#06b6d4" opacity="0.5"/>
-      <rect x="-5" y="-16" width="8" height="6" rx="1" fill="#06b6d4" opacity="0.5"/>
-      <ellipse cx="0" cy="5" rx="20" ry="10" fill="none" stroke="#06b6d4" stroke-width="1.2"/>
-    </g>
-    <text x="580" y="425" font-family="Courier New, monospace" font-size="8"
-          fill="#c4b5fd" text-anchor="middle" opacity="0.7">DOCKER</text>
-
-    <!-- Node connections -->
-    <g filter="url(#u2e433aglow)">
-      <circle cx="900" cy="350" r="30" fill="#0f0a2a" stroke="#818cf8" stroke-width="2"/>
-    </g>
-    <text x="900" y="348" font-family="Courier New, monospace" font-size="8"
-          fill="#818cf8" text-anchor="middle">NODE</text>
-    <text x="900" y="360" font-family="Courier New, monospace" font-size="7"
-          fill="#c4b5fd" text-anchor="middle" opacity="0.7">worker-1</text>
-
-    <!-- Connection lines -->
-    <line x1="710" y1="250" x2="735" y2="310" stroke="#818cf8" stroke-width="1.2"
-          opacity="0.4" stroke-dasharray="4 3"/>
-    <line x1="830" y1="225" x2="770" y2="310" stroke="#06b6d4" stroke-width="1.2"
-          opacity="0.35" stroke-dasharray="4 3"/>
-    <line x1="770" y1="335" x2="870" y2="348" stroke="#818cf8" stroke-width="1"
-          opacity="0.3" stroke-dasharray="3 5" style="animation: u2e433adash 2s linear infinite"/>
-    <line x1="615" y1="380" x2="640" y2="250" stroke="#06b6d4" stroke-width="1"
-          opacity="0.25" stroke-dasharray="3 5"/>
-
-    <!-- Container escape visualization (cracked box) -->
-    <g transform="translate(870,200)">
-      <rect x="-25" y="-20" width="50" height="40" rx="4" fill="#0d1525" stroke="#818cf8" stroke-width="1.2" opacity="0.7"/>
-      <line x1="-10" y1="-20" x2="5" y2="20" stroke="#818cf8" stroke-width="1.5" opacity="0.6" class="u2e433acrack"/>
-      <path d="M-5,-20 L0,-15 L5,-20" fill="none" stroke="#818cf8" stroke-width="1" opacity="0.5"/>
-      <text x="0" y="3" font-family="Courier New, monospace" font-size="7"
-            fill="#818cf8" text-anchor="middle" opacity="0.8">ESC</text>
-    </g>
-    <text x="870" y="230" font-family="Courier New, monospace" font-size="7"
-          fill="#c4b5fd" text-anchor="middle" opacity="0.6">ESCAPE</text>
-
-    <!-- Namespace labels -->
-    <rect x="625" y="260" width="60" height="16" rx="3" fill="#312e81" stroke="#818cf8" stroke-width="0.6" opacity="0.5"/>
-    <text x="655" y="271" font-family="Courier New, monospace" font-size="6"
-          fill="#818cf8" text-anchor="middle" opacity="0.7">ns:prod</text>
-    <rect x="770" y="260" width="56" height="16" rx="3" fill="#312e81" stroke="#06b6d4" stroke-width="0.6" opacity="0.5"/>
-    <text x="798" y="271" font-family="Courier New, monospace" font-size="6"
-          fill="#06b6d4" text-anchor="middle" opacity="0.7">ns:dev</text>
-
-    <!-- Helm icon -->
-    <g transform="translate(950,440)" filter="url(#u2e433afxGlow)">
-      <circle cx="0" cy="0" r="22" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.5"/>
-      <circle cx="0" cy="0" r="10" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.6"/>
-      <line x1="0" y1="-14" x2="0" y2="-18" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
-      <line x1="0" y1="14" x2="0" y2="18" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
-      <line x1="-14" y1="0" x2="-18" y2="0" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
-      <line x1="14" y1="0" x2="18" y2="0" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
-    </g>
-    <text x="950" y="470" font-family="Courier New, monospace" font-size="7"
-          fill="#c4b5fd" text-anchor="middle" opacity="0.7">HELM</text>
-
-    <!-- Service mesh lines -->
-    <path d="M 675 250 Q 720 270 735 310" fill="none" stroke="#818cf8" stroke-width="0.8"
-          opacity="0.2" stroke-dasharray="2 3"/>
-    <path d="M 795 250 Q 770 280 735 310" fill="none" stroke="#06b6d4" stroke-width="0.8"
-          opacity="0.2" stroke-dasharray="2 3"/>
-    <path d="M 770 340 Q 830 370 900 355" fill="none" stroke="#6366f1" stroke-width="0.8"
-          opacity="0.2" stroke-dasharray="2 3"/>
-
-    <!-- Pulsing rings -->
-    <circle cx="720" cy="280" r="90" fill="none" stroke="#6366f1" stroke-width="0.8"
-            opacity="0.15" style="animation: u2e433apulse 3s ease-in-out infinite"/>
-
-    <!-- Ambient glow -->
-    <ellipse cx="720" cy="300" rx="220" ry="180" fill="#6366f1" opacity="0.04"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <defs>
-      <pattern id="u2e433amesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#818cf8"
-              stroke-width="0.35" opacity="0.12"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2e433amesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#818cf8" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#06b6d4" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#6366f1" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#818cf8" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#06b6d4" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#818cf8" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#06b6d4" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#6366f1" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#818cf8" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#06b6d4" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#6366f1" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#818cf8" opacity="0.20"/>
-    
-    <rect x="694" y="96" width="52" height="372" rx="26" fill="#818cf8" opacity="0.06"/>
-    <ellipse cx="720" cy="180" rx="118" ry="64" fill="#818cf8" opacity="0.08"/>
-    <ellipse cx="720" cy="180" rx="76" ry="38" fill="#06b6d4" opacity="0.10"/>
-    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#06b6d4" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
-    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
+    <!-- RIGHT OG AREA -->
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2e433apanel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2e433asceneGlow1)" opacity="0.55"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2e433asceneGlow2)" opacity="0.42"/>
+    <rect x="440" y="80" width="700" height="96" rx="28" fill="#0f0a2a" opacity="0.32"/>
     <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#818cf8" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#818cf8" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Docker</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Container</text>
     <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Docker focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Container priority</text>
     <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f0a2a" stroke="#6366f1" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#6366f1" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#6366f1" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">K8S</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Docker Kubernetes</text>
-    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle" font-weight="700">Docker</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Container</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0f0a2a" stroke="#6366f1" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle" font-weight="700">K8S</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle" font-weight="700">Docker Kubernetes</text>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#818cf8" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#818cf8" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#6366f1" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#06b6d4" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#818cf8" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
 
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#818cf8" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#818cf8" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#6366f1" stroke-width="1" opacity="0.1"/>
+    <!-- variant-layout: editorial -->
+    <rect x="506" y="188" width="154" height="272" rx="24" fill="#0f0a2a" stroke="#818cf8" stroke-width="1.1" opacity="0.84"/>
+    <text x="536" y="226" font-family="Courier New, monospace" font-size="10" fill="#818cf8"
+          font-weight="700" letter-spacing="1.2">SOCIAL PREVIEW</text>
+    <text x="536" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#f8fafc"
+          font-weight="800">Docker</text>
+    <text x="536" y="304" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#cbd5e1"
+          font-weight="700">Container</text>
+    <line x1="536" y1="320" x2="634" y2="320" stroke="#818cf8" stroke-width="1" opacity="0.24"/>
+    <text x="536" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#e2e8f0">Docker focus</text>
+    <text x="536" y="372" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#94a3b8">Container priority</text>
+    <rect x="694" y="188" width="360" height="124" rx="26" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1.2" opacity="0.86"/>
+    <text x="722" y="222" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700">COVER STORY</text>
+    <text x="722" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="36" fill="#f8fafc" font-weight="800">Docker</text>
+    <text x="722" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#cbd5e1" font-weight="700">Container</text>
+    <rect x="694" y="332" width="170" height="128" rx="20" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.84"/>
+    <text x="716" y="360" font-family="Courier New, monospace" font-size="9" fill="#818cf8" font-weight="700">ANGLE 01</text>
+    <text x="716" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#f8fafc" font-weight="700">K8S</text>
+    <text x="716" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">Container</text>
+    <rect x="884" y="332" width="170" height="128" rx="20" fill="#0f0a2a" stroke="#6366f1" stroke-width="1" opacity="0.84"/>
+    <text x="906" y="360" font-family="Courier New, monospace" font-size="9" fill="#6366f1" font-weight="700">ANGLE 02</text>
+    <text x="906" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#f8fafc" font-weight="700">Docker Kubernetes</text>
+    <text x="906" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">Docker Kubernetes</text>
+    <circle cx="1026" cy="224" r="20" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="1026" cy="224" r="6" fill="#818cf8" opacity="0.75"/>
+    <text x="1026" y="256" font-family="Courier New, monospace" font-size="8" fill="#818cf8"
+          text-anchor="middle" font-weight="700">OG</text>
 
+    <rect x="520" y="488" width="144" height="28" rx="14" fill="#0f0a2a" stroke="#818cf8" stroke-width="1" opacity="0.84"/><text x="592.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle" font-weight="700">K8S</text>
+    <rect x="678" y="488" width="154" height="28" rx="14" fill="#0f0a2a" stroke="#06b6d4" stroke-width="1" opacity="0.84"/><text x="755.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Docker Kubernetes</text>
+    <rect x="846" y="488" width="168" height="28" rx="14" fill="#0f0a2a" stroke="#6366f1" stroke-width="1" opacity="0.84"/><text x="930.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle" font-weight="700">Docker</text>
     <!-- CRT scan line -->
     <rect width="1200" height="2" x="0" y="0" fill="#818cf8" opacity="0">
       <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
     </rect>
   </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
 
   <!-- BORDER -->
   <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
