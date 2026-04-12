@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
+import scripts.upgrade_post_images as upgrade_post_images
 from scripts.upgrade_post_images import (
     build_cover_title_lines,
     build_excerpt_lines,
@@ -93,7 +94,7 @@ def test_build_cover_title_lines_falls_back_to_concepts_for_korean_titles():
     assert lines[:3] == ["Supply Chain", "Ransomware", "LLM"]
 
 
-def test_generate_svg_embeds_variant_marker_and_focus_panel():
+def test_generate_svg_embeds_variant_marker_and_recent_og_layout():
     svg = generate_svg(
         title="AWS Zero Trust Runtime Security",
         excerpt="Prompt injection and runtime guardrails for AI agents.",
@@ -105,6 +106,25 @@ def test_generate_svg_embeds_variant_marker_and_focus_panel():
     )
 
     assert "profile: high-quality-cover; variant:" in svg
-    assert ">FOCUS<" in svg
+    assert ">BRIEFING<" in svg
     assert ">PRIMARY<" in svg
+    assert ">SOCIAL PREVIEW<" in svg
     assert "Zero Trust" in svg or "AWS" in svg
+
+
+def test_generate_svg_uses_distinct_variant_layout_markup(monkeypatch):
+    monkeypatch.setattr(upgrade_post_images, "select_visual_variant", lambda *_: "editorial")
+
+    svg = generate_svg(
+        title="Supply Chain Identity Control",
+        excerpt="Identity segmentation and software supply chain telemetry for workloads.",
+        date_str="2026-03-21 09:00:00 +0900",
+        tags=["identity", "supply-chain", "telemetry"],
+        categories=["security"],
+        theme="security",
+        filepath="assets/images/test-editorial.svg",
+    )
+
+    assert "variant-layout: editorial" in svg
+    assert ">COVER STORY<" in svg
+    assert ">ANGLE 01<" in svg

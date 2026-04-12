@@ -178,12 +178,13 @@ VISUAL_STOPWORDS = {
 VISUAL_ACRONYMS = {
     "ai", "api", "aws", "cicd", "cve", "db", "dns", "edr", "eks", "gcp", "gpu",
     "iam", "ioc", "iso", "k8s", "kisa", "llm", "mcp", "nlb", "npm", "otp", "rag",
-    "rsa", "s3", "sdk", "siem", "soc", "spf", "tls", "vpc", "waf", "ztna",
+    "rsa", "s3", "sdk", "siem", "skt", "soc", "spf", "tls", "usim", "vpc", "waf",
+    "ztna", "mfa", "esim",
 }
 VISUAL_GENERIC_LABELS = {
     "ai", "blockchain", "cloud", "cloud security", "devops", "devsecops",
-    "kubernetes", "monthly index", "security", "security news", "tech signal",
-    "weekly digest",
+    "kubernetes", "monthly index", "security", "security news", "security weekly",
+    "tech signal", "weekly digest",
 }
 
 
@@ -385,9 +386,16 @@ def build_visual_concepts(
     return labels[:limit]
 
 
-def select_visual_variant(theme: str, title: str, filepath: str) -> str:
+def select_visual_variant(
+    theme: str,
+    title: str,
+    filepath: str,
+    excerpt: str = "",
+) -> str:
     """Pick a deterministic layout variant per post."""
-    seed = hashlib.sha1(f"{theme}:{title}:{filepath}".encode()).hexdigest()
+    seed = hashlib.sha1(
+        f"{theme}:{title}:{excerpt}:{filepath}".encode()
+    ).hexdigest()
     return VISUAL_VARIANTS[int(seed[:2], 16) % len(VISUAL_VARIANTS)]
 
 
@@ -410,6 +418,17 @@ def build_excerpt_lines(
     fallback: list[str] | None = None,
 ) -> list[str]:
     """Build two short ASCII-safe excerpt lines for the left summary panel."""
+    def trim_words(text: str, limit: int) -> str:
+        words = text.split()
+        out = ""
+        for word in words:
+            candidate = f"{out} {word}".strip() if out else word
+            if len(candidate) <= limit:
+                out = candidate
+                continue
+            break
+        return out or text[:limit].rstrip()
+
     clean = _ascii_visual_source(excerpt)
     clean = re.sub(r"\b(through|using|based|guide|complete|practical)\b", " ", clean, flags=re.IGNORECASE)
     clean = re.sub(r"\s+", " ", clean).strip()
@@ -447,7 +466,7 @@ def build_excerpt_lines(
     if remaining_words:
         second = " ".join(remaining_words)
         if len(second) > max_chars:
-            second = second[: max_chars - 3].rstrip() + "..."
+            second = trim_words(second, max_chars)
         if len(lines) == 1:
             lines.append(second)
         else:
@@ -1621,6 +1640,315 @@ def _build_signal_strip(p: dict, signal_cards: list[tuple[str, str, str]]) -> st
     return "\n".join(f"    {block}" for block in blocks)
 
 
+def _build_summary_panel(
+    p: dict,
+    u: str,
+    concepts: list[str],
+    summary_lines: list[str],
+    top_y: int,
+) -> str:
+    """Render a concise summary block for the left title column."""
+    chips = []
+    x_off = 48
+    for i, label in enumerate(concepts[:3]):
+        accent = [p["accent1"], p["accent2"], p["accent3"]][i % 3]
+        width = max(76, len(label) * 7 + 18)
+        chips.append(
+            f'<rect x="{x_off}" y="{top_y + 88}" width="{width}" height="24" rx="12" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1" opacity="0.88"/>'
+            f'<text x="{x_off + width / 2:.1f}" y="{top_y + 104}" font-family="Segoe UI, Arial, sans-serif" '
+            f'font-size="9.5" fill="{accent}" text-anchor="middle" font-weight="700">{label}</text>'
+        )
+        x_off += width + 10
+
+    return (
+        f'    <rect x="40" y="{top_y}" width="360" height="126" rx="18" fill="url(#{u}panel)" '
+        f'stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.94"/>\n'
+        f'    <rect x="40" y="{top_y}" width="360" height="26" rx="18" fill="{p["accent1"]}" opacity="0.12"/>\n'
+        f'    <text x="58" y="{top_y + 18}" font-family="Courier New, monospace" font-size="10" '
+        f'fill="{p["text_accent"]}" font-weight="700" letter-spacing="1.2">BRIEFING</text>\n'
+        f'    <text x="58" y="{top_y + 50}" font-family="Segoe UI, Arial, sans-serif" font-size="14" '
+        f'fill="#e2e8f0" font-weight="700">{summary_lines[0]}</text>\n'
+        f'    <text x="58" y="{top_y + 72}" font-family="Segoe UI, Arial, sans-serif" font-size="13" '
+        f'fill="#94a3b8">{summary_lines[1]}</text>\n'
+        + "\n".join(f"    {chip}" for chip in chips)
+    )
+
+
+def _build_variant_left_column(
+    p: dict,
+    u: str,
+    variant: str,
+    title_lines: list[str],
+    concepts: list[str],
+    summary_lines: list[str],
+    tag_labels: list[str],
+) -> str:
+    """Render a variant-specific left-side title system."""
+
+    def render_title(
+        x: int,
+        y_start: int,
+        line_gap: int,
+        large_size: int,
+        small_size: int,
+        max_len_for_large: int = 16,
+    ) -> str:
+        lines = []
+        for i, line in enumerate(title_lines):
+            fs = large_size if len(line) <= max_len_for_large else small_size
+            y = y_start + i * line_gap
+            lines.append(
+                f'    <text x="{x}" y="{y}" font-family="Segoe UI, Arial, sans-serif" '
+                f'font-size="{fs}" fill="url(#{u}title)" font-weight="800" letter-spacing="-1.1">{line}</text>'
+            )
+        return "\n".join(lines)
+
+    def render_pills(
+        x: int,
+        y: int,
+        labels: list[str],
+        max_width: int,
+        row_gap: int = 10,
+    ) -> str:
+        out = []
+        x_off = x
+        y_off = y
+        for i, label in enumerate(labels[:4]):
+            width = max(70, min(164, len(label) * 8 + 22))
+            if x_off + width > x + max_width:
+                x_off = x
+                y_off += 24 + row_gap
+            accent = [p["accent1"], p["accent2"], p["accent3"], p["accent1"]][i]
+            out.append(
+                f'    <rect x="{x_off}" y="{y_off}" width="{width}" height="24" rx="12" fill="{p["bg1"]}" '
+                f'stroke="{accent}" stroke-width="1.1" opacity="0.88"/>'
+                f'<text x="{x_off + width / 2:.1f}" y="{y_off + 16}" font-family="Courier New, monospace" '
+                f'font-size="9" fill="{accent}" text-anchor="middle" font-weight="700">{label}</text>'
+            )
+            x_off += width + 10
+        return "\n".join(out)
+
+    summary_panel = _build_summary_panel(p, u, concepts, summary_lines, 372)
+    primary_label = concepts[0] if concepts else "Tech Signal"
+    secondary_label = concepts[1] if len(concepts) > 1 else "Field Notes"
+    chip_labels = tag_labels[:3] if tag_labels else concepts[:3]
+
+    if variant == "beacon":
+        return (
+            f'    <rect x="24" y="106" width="372" height="500" rx="30" fill="url(#{u}panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>\n'
+            f'    <rect x="44" y="138" width="84" height="420" rx="30" fill="{p["accent1"]}" opacity="0.08"/>\n'
+            f'    <rect x="68" y="168" width="36" height="360" rx="18" fill="{p["accent2"]}" opacity="0.12"/>\n'
+            + render_title(154, 176, 48, 48, 40)
+            + "\n"
+            + f'    <line x1="154" y1="332" x2="360" y2="332" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.24"/>\n'
+            + f'    <text x="154" y="356" font-family="Courier New, monospace" font-size="10" fill="{p["text_accent"]}" font-weight="700" letter-spacing="1.2">BRIEFING</text>\n'
+            + f'    <text x="154" y="386" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#e2e8f0" font-weight="700">{summary_lines[0]}</text>\n'
+            + f'    <text x="154" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94a3b8">{summary_lines[1]}</text>\n'
+            + f'    <rect x="154" y="438" width="96" height="62" rx="16" fill="{p["bg1"]}" stroke="{p["accent2"]}" stroke-width="1" opacity="0.86"/>\n'
+            + f'    <text x="172" y="483" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#f8fafc" font-weight="700">{primary_label}</text>\n'
+            + f'    <rect x="264" y="438" width="104" height="62" rx="16" fill="{p["bg1"]}" stroke="{p["accent3"]}" stroke-width="1" opacity="0.86"/>\n'
+            + f'    <text x="282" y="483" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#f8fafc" font-weight="700">{secondary_label}</text>\n'
+            + "\n"
+            + render_pills(44, 546, chip_labels, 324)
+        )
+
+    if variant == "editorial":
+        return (
+            f'    <rect x="24" y="106" width="394" height="500" rx="30" fill="url(#{u}panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.94"/>\n'
+            f'    <rect x="40" y="132" width="150" height="24" rx="12" fill="{p["badge_bg"]}" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.9"/>\n'
+            f'    <text x="115" y="148" font-family="Courier New, monospace" font-size="9" fill="{p["text_accent"]}" text-anchor="middle" font-weight="700" letter-spacing="1.1">EDITORIAL BRIEF</text>\n'
+            + render_title(40, 214, 50, 50, 41)
+            + "\n"
+            + f'    <rect x="40" y="320" width="338" height="18" rx="9" fill="{p["accent1"]}" opacity="0.10"/>\n'
+            + f'    <text x="40" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#e2e8f0" font-weight="700">{summary_lines[0]}</text>\n'
+            + f'    <text x="40" y="380" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" fill="#94a3b8">{summary_lines[1]}</text>\n'
+            + f'    <rect x="40" y="410" width="156" height="116" rx="20" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.88"/>\n'
+            + f'    <text x="60" y="438" font-family="Courier New, monospace" font-size="9" fill="{p["accent1"]}" font-weight="700">LEAD</text>\n'
+            + f'    <text x="60" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#f8fafc" font-weight="700">{primary_label}</text>\n'
+            + f'    <text x="60" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">{concepts[2] if len(concepts) > 2 else summary_lines[1]}</text>\n'
+            + f'    <rect x="212" y="410" width="166" height="116" rx="20" fill="{p["bg1"]}" stroke="{p["accent2"]}" stroke-width="1" opacity="0.88"/>\n'
+            + f'    <text x="232" y="438" font-family="Courier New, monospace" font-size="9" fill="{p["accent2"]}" font-weight="700">DECK</text>\n'
+            + f'    <text x="232" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#f8fafc" font-weight="700">{secondary_label}</text>\n'
+            + f'    <text x="232" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">{concepts[3] if len(concepts) > 3 else summary_lines[0]}</text>\n'
+            + "\n"
+            + render_pills(40, 546, chip_labels, 338)
+        )
+
+    if variant == "bands":
+        return (
+            f'    <rect x="24" y="106" width="394" height="500" rx="30" fill="url(#{u}panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.94"/>\n'
+            f'    <polygon points="24,144 280,144 366,194 110,194" fill="{p["accent1"]}" opacity="0.14"/>\n'
+            f'    <polygon points="24,220 262,220 350,268 112,268" fill="{p["accent2"]}" opacity="0.12"/>\n'
+            f'    <polygon points="24,296 286,296 376,344 114,344" fill="{p["accent3"]}" opacity="0.12"/>\n'
+            f'    <text x="44" y="138" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1.4">PRE-03-30 ARCHIVE REFRESH</text>\n'
+            + render_title(40, 176, 74, 43, 38, 14)
+            + "\n"
+            + f'    <rect x="40" y="390" width="338" height="110" rx="20" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.88"/>\n'
+            + f'    <text x="60" y="414" font-family="Courier New, monospace" font-size="10" fill="{p["text_accent"]}" font-weight="700" letter-spacing="1.2">BRIEFING</text>\n'
+            + f'    <text x="60" y="446" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">{summary_lines[0]}</text>\n'
+            + f'    <text x="60" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94a3b8">{summary_lines[1]}</text>\n'
+            + "\n"
+            + render_pills(40, 514, chip_labels, 338)
+        )
+
+    return (
+        f'    <rect x="24" y="106" width="394" height="500" rx="28" fill="url(#{u}panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>\n'
+        f'    <rect x="24" y="106" width="6" height="500" rx="3" fill="url(#{u}accent)"/>\n'
+        + render_title(40, 162, 52, 46, 40)
+        + "\n"
+        + summary_panel
+        + "\n"
+        + render_pills(40, 546, chip_labels, 338)
+    )
+
+
+def _build_recent_og_layout(
+    p: dict,
+    u: str,
+    variant: str,
+    concepts: list[str],
+    signal_cards: list[tuple[str, str, str]],
+    summary_lines: list[str],
+    tag_labels: list[str],
+) -> str:
+    """Render a stronger SNS/OG panel with visibly different layouts per variant."""
+    lead = concepts[0]
+    secondary = concepts[1] if len(concepts) > 1 else "Tech Signal"
+    detail_a = concepts[2] if len(concepts) > 2 else (tag_labels[0] if tag_labels else "Coverage")
+    detail_b = concepts[3] if len(concepts) > 3 else (tag_labels[1] if len(tag_labels) > 1 else "Briefing")
+
+    def chip(x: int, y: int, width: int, label: str, accent: str) -> str:
+        return (
+            f'<rect x="{x}" y="{y}" width="{width}" height="28" rx="14" fill="{p["bg1"]}" '
+            f'stroke="{accent}" stroke-width="1" opacity="0.84"/>'
+            f'<text x="{x + width / 2:.1f}" y="{y + 18}" font-family="Segoe UI, Arial, sans-serif" '
+            f'font-size="10" fill="{accent}" text-anchor="middle" font-weight="700">{label}</text>'
+        )
+
+    footer_chips = "\n".join(
+        [
+            f'    {chip(520, 488, 144, detail_a, p["accent1"])}',
+            f'    {chip(678, 488, 154, detail_b, p["accent2"])}',
+            f'    {chip(846, 488, 168, tag_labels[0] if tag_labels else lead, p["accent3"])}',
+        ]
+    )
+
+    hero_by_variant = {
+        "orbit": f"""
+    <!-- variant-layout: orbit -->
+    <text x="800" y="226" font-family="Courier New, monospace" font-size="10" fill="{p["text_accent"]}"
+          font-weight="700" text-anchor="middle" letter-spacing="1.4">SOCIAL PREVIEW</text>
+    <circle cx="800" cy="334" r="152" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1.4" opacity="0.88"/>
+    <circle cx="800" cy="334" r="126" fill="none" stroke="{p["accent2"]}" stroke-width="1.0" opacity="0.22"/>
+    <circle cx="800" cy="334" r="98" fill="none" stroke="{p["accent3"]}" stroke-width="0.8" opacity="0.18"/>
+    <path d="M 586 278 A 226 170 0 0 1 1016 252" fill="none" stroke="{p["accent1"]}" stroke-width="1"
+          opacity="0.16" stroke-dasharray="7 5"/>
+    <path d="M 620 426 A 210 144 0 0 0 1010 446" fill="none" stroke="{p["accent2"]}" stroke-width="1"
+          opacity="0.14" stroke-dasharray="4 6"/>
+    <rect x="640" y="252" width="320" height="166" rx="28" fill="{p["bg2"]}" opacity="0.46"/>
+    <text x="800" y="316" font-family="Segoe UI, Arial, sans-serif" font-size="42" fill="#f8fafc"
+          font-weight="800" text-anchor="middle">{lead}</text>
+    <text x="800" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#cbd5e1"
+          font-weight="700" text-anchor="middle">{secondary}</text>
+    <text x="800" y="391" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0"
+          text-anchor="middle">{summary_lines[0]}</text>
+    <text x="800" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#94a3b8"
+          text-anchor="middle">{summary_lines[1]}</text>
+    <circle cx="1042" cy="226" r="20" fill="none" stroke="{p["accent1"]}" stroke-width="2"/>
+    <circle cx="1042" cy="226" r="6" fill="{p["accent1"]}" opacity="0.75"/>
+    <text x="1042" y="258" font-family="Courier New, monospace" font-size="8" fill="{p["accent1"]}"
+          text-anchor="middle" font-weight="700">OG</text>
+""",
+        "beacon": f"""
+    <!-- variant-layout: beacon -->
+    <rect x="536" y="188" width="128" height="286" rx="40" fill="{p["accent1"]}" opacity="0.09"/>
+    <rect x="564" y="214" width="72" height="232" rx="32" fill="{p["accent2"]}" opacity="0.10"/>
+    <text x="560" y="226" font-family="Courier New, monospace" font-size="10" fill="{p["text_accent"]}"
+          font-weight="700" letter-spacing="1.4">SOCIAL PREVIEW</text>
+    <text x="700" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="{p["accent1"]}"
+          font-weight="700">{lead}</text>
+    <text x="700" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="#f8fafc"
+          font-weight="800">{secondary}</text>
+    <line x1="700" y1="322" x2="1058" y2="322" stroke="{p["accent1"]}" stroke-width="1.2" opacity="0.24"/>
+    <text x="700" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#e2e8f0"
+          font-weight="600">{summary_lines[0]}</text>
+    <text x="700" y="382" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94a3b8">{summary_lines[1]}</text>
+    <rect x="700" y="404" width="182" height="54" rx="16" fill="{p["bg1"]}" stroke="{p["accent2"]}" stroke-width="1.1" opacity="0.84"/>
+    <text x="720" y="427" font-family="Courier New, monospace" font-size="9" fill="{p["accent2"]}" font-weight="700">PRIMARY</text>
+    <text x="720" y="446" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">{detail_a}</text>
+    <rect x="894" y="404" width="174" height="54" rx="16" fill="{p["bg1"]}" stroke="{p["accent3"]}" stroke-width="1.1" opacity="0.84"/>
+    <text x="914" y="427" font-family="Courier New, monospace" font-size="9" fill="{p["accent3"]}" font-weight="700">TRACK</text>
+    <text x="914" y="446" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">{detail_b}</text>
+    <circle cx="1034" cy="226" r="20" fill="none" stroke="{p["accent1"]}" stroke-width="2"/>
+    <circle cx="1034" cy="226" r="6" fill="{p["accent1"]}" opacity="0.75"/>
+    <text x="1034" y="258" font-family="Courier New, monospace" font-size="8" fill="{p["accent1"]}"
+          text-anchor="middle" font-weight="700">OG</text>
+""",
+        "editorial": f"""
+    <!-- variant-layout: editorial -->
+    <rect x="506" y="188" width="154" height="272" rx="24" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.84"/>
+    <text x="536" y="226" font-family="Courier New, monospace" font-size="10" fill="{p["accent1"]}"
+          font-weight="700" letter-spacing="1.2">SOCIAL PREVIEW</text>
+    <text x="536" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#f8fafc"
+          font-weight="800">{lead}</text>
+    <text x="536" y="304" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#cbd5e1"
+          font-weight="700">{secondary}</text>
+    <line x1="536" y1="320" x2="634" y2="320" stroke="{p["accent1"]}" stroke-width="1" opacity="0.24"/>
+    <text x="536" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#e2e8f0">{summary_lines[0]}</text>
+    <text x="536" y="372" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#94a3b8">{summary_lines[1]}</text>
+    <rect x="694" y="188" width="360" height="124" rx="26" fill="{p["bg1"]}" stroke="{p["accent2"]}" stroke-width="1.2" opacity="0.86"/>
+    <text x="722" y="222" font-family="Courier New, monospace" font-size="9" fill="{p["accent2"]}" font-weight="700">COVER STORY</text>
+    <text x="722" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="36" fill="#f8fafc" font-weight="800">{lead}</text>
+    <text x="722" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#cbd5e1" font-weight="700">{secondary}</text>
+    <rect x="694" y="332" width="170" height="128" rx="20" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1" opacity="0.84"/>
+    <text x="716" y="360" font-family="Courier New, monospace" font-size="9" fill="{p["accent1"]}" font-weight="700">ANGLE 01</text>
+    <text x="716" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#f8fafc" font-weight="700">{detail_a}</text>
+    <text x="716" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">{signal_cards[0][2]}</text>
+    <rect x="884" y="332" width="170" height="128" rx="20" fill="{p["bg1"]}" stroke="{p["accent3"]}" stroke-width="1" opacity="0.84"/>
+    <text x="906" y="360" font-family="Courier New, monospace" font-size="9" fill="{p["accent3"]}" font-weight="700">ANGLE 02</text>
+    <text x="906" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#f8fafc" font-weight="700">{detail_b}</text>
+    <text x="906" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#94a3b8">{signal_cards[2][2]}</text>
+    <circle cx="1026" cy="224" r="20" fill="none" stroke="{p["accent1"]}" stroke-width="2"/>
+    <circle cx="1026" cy="224" r="6" fill="{p["accent1"]}" opacity="0.75"/>
+    <text x="1026" y="256" font-family="Courier New, monospace" font-size="8" fill="{p["accent1"]}"
+          text-anchor="middle" font-weight="700">OG</text>
+""",
+        "bands": f"""
+    <!-- variant-layout: bands -->
+    <text x="540" y="226" font-family="Courier New, monospace" font-size="10" fill="{p["text_accent"]}"
+          font-weight="700" letter-spacing="1.4">SOCIAL PREVIEW</text>
+    <polygon points="520,246 936,246 1066,310 650,310" fill="{p["accent1"]}" opacity="0.14" stroke="{p["accent1"]}" stroke-width="1"/>
+    <polygon points="486,332 902,332 1032,396 616,396" fill="{p["accent2"]}" opacity="0.13" stroke="{p["accent2"]}" stroke-width="1"/>
+    <polygon points="548,418 964,418 1078,474 662,474" fill="{p["accent3"]}" opacity="0.12" stroke="{p["accent3"]}" stroke-width="1"/>
+    <text x="578" y="289" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#f8fafc" font-weight="800">{lead}</text>
+    <text x="612" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#f8fafc" font-weight="800">{secondary}</text>
+    <text x="678" y="453" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#f8fafc" font-weight="700">{detail_a}</text>
+    <rect x="880" y="196" width="180" height="86" rx="20" fill="{p["bg1"]}" stroke="{p["accent1"]}" stroke-width="1.1" opacity="0.84"/>
+    <text x="902" y="222" font-family="Courier New, monospace" font-size="9" fill="{p["accent1"]}" font-weight="700">SUMMARY</text>
+    <text x="902" y="246" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">{summary_lines[0]}</text>
+    <text x="902" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#94a3b8">{summary_lines[1]}</text>
+    <circle cx="1034" cy="430" r="20" fill="none" stroke="{p["accent1"]}" stroke-width="2"/>
+    <circle cx="1034" cy="430" r="6" fill="{p["accent1"]}" opacity="0.75"/>
+    <text x="1034" y="462" font-family="Courier New, monospace" font-size="8" fill="{p["accent1"]}"
+          text-anchor="middle" font-weight="700">OG</text>
+""",
+    }
+
+    hero_svg = hero_by_variant.get(variant, hero_by_variant["orbit"])
+    return (
+        f'    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#{u}panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>\n'
+        f'    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#{u}sceneGlow1)" opacity="0.55"/>\n'
+        f'    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#{u}sceneGlow2)" opacity="0.42"/>\n'
+        f'    <rect x="440" y="80" width="700" height="96" rx="28" fill="{p["bg1"]}" opacity="0.32"/>\n'
+        + _build_signal_strip(p, signal_cards)
+        + "\n"
+        + hero_svg
+        + "\n"
+        + footer_chips
+    )
+
+
 def _shared_scene_scaffold(p: dict, u: str) -> str:
     """Shared abstract scaffold without dashboard-style UI chrome."""
     return f"""
@@ -1831,81 +2159,14 @@ def generate_svg(
     concept_labels = build_visual_concepts(title, excerpt, tags, filepath, theme)
     title_lines = build_cover_title_lines(title, concept_labels)
     summary_lines = build_excerpt_lines(excerpt, fallback=concept_labels)
-    variant = select_visual_variant(theme, title, filepath)
+    variant = select_visual_variant(theme, title, filepath, excerpt)
     date_display = format_date(date_str)
-
-    # Build tag pills (up to 3)
-    pill_colors = [p["accent1"], p["accent2"], p["accent3"]]
-    pill_bgs = [p["badge_bg"], p["bg2"], p["bg1"]]
-    tag_pills = ""
-    x_off = 40
-    for i, label in enumerate(tag_labels[:3]):
-        w = max(len(label) * 8 + 16, 54)
-        c = pill_colors[i % len(pill_colors)]
-        bg = pill_bgs[i % len(pill_bgs)]
-        tag_pills += (
-            f'    <rect x="{x_off}" y="525" width="{w}" height="24" rx="12" '
-            f'fill="{bg}" stroke="{c}" stroke-width="1.2"/>\n'
-            f'    <text x="{x_off + w // 2}" y="541" font-family="Courier New, monospace" '
-            f'font-size="10" fill="{c}" text-anchor="middle" font-weight="bold">{label}</text>\n'
-        )
-        x_off += w + 10
-
-    # Build title lines
-    title_svg = ""
-    y_start = 155
-    for i, line in enumerate(title_lines):
-        y = y_start + i * 48
-        fs = 40 if len(line) > 16 else 44
-        title_svg += (
-            f'    <text x="40" y="{y}" font-family="Segoe UI, Arial, sans-serif" '
-            f'font-size="{fs}" fill="url(#{u}title)" font-weight="700" '
-            f'letter-spacing="-1">{line}</text>\n'
-        )
-    accent_y = y_start + len(title_lines) * 48 - 30
-
-    # Severity / topic bars
-    bar_labels = tag_labels[:2] if len(tag_labels) >= 2 else tag_labels
-    bars_svg = ""
-    for i, bl in enumerate(bar_labels):
-        by = accent_y + 38 + i * 26
-        bars_svg += (
-            f'    <text x="40" y="{by}" font-family="Segoe UI, Arial, sans-serif" '
-            f'font-size="16" fill="{pill_colors[i % len(pill_colors)]}" '
-            f'font-weight="600">{bl}</text>\n'
-        )
-    focus_y = min(accent_y + 92, 392)
-    focus_svg = _build_focus_panel(p, concept_labels, summary_lines, focus_y)
-
-    # Scene + common decorations
-    scene_fn = SCENE_RENDERERS.get(theme, _scene_general)
-    scene_svg = scene_fn(p, u, tag_labels)
-    decorations_svg = _common_decorations_v2(p, u, concept_labels, excerpt, theme, variant)
-
-    # Floating particles
-    particles = ""
-    particle_data = [
-        (150, 100, 2.5, p["accent1"], 0.5, 3.0),
-        (1060, 150, 2.0, p["accent2"], 0.4, 2.8),
-        (100, 480, 2.5, p["accent1"], 0.4, 3.5),
-        (1100, 520, 2.0, p["accent3"], 0.5, 4.0),
-        (180, 560, 1.5, p["accent2"], 0.35, 3.2),
-        (1030, 80, 2.0, p["accent1"], 0.4, 2.5),
-    ]
-    for px, py, pr, pc, po, pd in particle_data:
-        particles += (
-            f'    <circle cx="{px}" cy="{py}" r="{pr}" fill="{pc}" opacity="{po}">\n'
-            f'      <animate attributeName="opacity" values="{po};{po*0.3:.2f};{po}" '
-            f'dur="{pd}s" repeatCount="indefinite"/>\n'
-            f'    </circle>\n'
-        )
-
-    # Data stream lines
-    streams = (
-        f'    <line x1="50" y1="200" x2="120" y2="200" stroke="{p["accent1"]}" stroke-width="1" opacity="0.15"/>\n'
-        f'    <line x1="50" y1="215" x2="95" y2="215" stroke="{p["accent1"]}" stroke-width="1" opacity="0.1"/>\n'
-        f'    <line x1="1080" y1="400" x2="1150" y2="400" stroke="{p["accent3"]}" stroke-width="1" opacity="0.15"/>\n'
-        f'    <line x1="1095" y1="415" x2="1150" y2="415" stroke="{p["accent3"]}" stroke-width="1" opacity="0.1"/>\n'
+    signal_cards = build_signal_cards(concept_labels, excerpt, theme)
+    left_svg = _build_variant_left_column(
+        p, u, variant, title_lines, concept_labels, summary_lines, tag_labels
+    )
+    right_svg = _build_recent_og_layout(
+        p, u, variant, concept_labels, signal_cards, summary_lines, tag_labels
     )
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
@@ -1991,57 +2252,31 @@ def generate_svg(
     <rect width="1200" height="630" fill="url(#{u}dots)" opacity="0.6"/>
     <rect width="1200" height="630" fill="url(#{u}ambientL)"/>
     <rect width="1200" height="630" fill="url(#{u}ambientR)"/>
+    <ellipse cx="940" cy="250" rx="260" ry="180" fill="{p['accent1']}" opacity="0.05"/>
+    <ellipse cx="760" cy="430" rx="240" ry="150" fill="{p['accent2']}" opacity="0.04"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#{u}panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#{u}accent)"/>
+    <!-- HEADER -->
+    <rect x="0" y="0" width="1200" height="88" fill="url(#{u}panel)" opacity="0.96"/>
+    <rect x="0" y="86" width="1200" height="2" fill="#1e293b" opacity="0.8"/>
+    <rect x="36" y="24" width="178" height="34" rx="8" fill="{p['badge_bg']}" stroke="{p['badge_border']}" stroke-width="1.3"/>
+    <text x="125" y="46" font-family="Courier New, monospace" font-size="11"
+          fill="{p['text_accent']}" text-anchor="middle" letter-spacing="1.6" font-weight="bold">{p['badge_text']}</text>
+    <rect x="986" y="22" width="178" height="40" rx="10" fill="{p['bg1']}" stroke="#334155" stroke-width="1"/>
+    <text x="1075" y="47" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700"
+          fill="#cbd5e1" text-anchor="middle">{date_display.title()}</text>
+    <text x="36" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#f8fafc">Post Spotlight</text>
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="{p['badge_bg']}" stroke="{p['badge_border']}" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="{p['text_accent']}" text-anchor="middle" letter-spacing="2" font-weight="bold">{p['badge_text']}</text>
+    <!-- LEFT TITLE COLUMN -->
+{left_svg}
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">{date_display}</text>
-
-    <!-- Title -->
-{title_svg}
-    <!-- Accent divider -->
-    <rect x="40" y="{accent_y}" width="260" height="2" rx="1" fill="url(#{u}accent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-{bars_svg}
-    <!-- Focus panel -->
-{focus_svg}
-    <!-- Tag pills -->
-{tag_pills}
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#{u}sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#{u}sceneGlow2)" opacity="0.5"/>
-{scene_svg}
-    <!-- COMMON DECORATIONS -->
-{decorations_svg}
-    <!-- FLOATING PARTICLES -->
-{particles}
-    <!-- DATA STREAMS -->
-{streams}
+    <!-- RIGHT OG AREA -->
+{right_svg}
     <!-- CRT scan line -->
     <rect width="1200" height="2" x="0" y="0" fill="{p['accent1']}" opacity="0">
       <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
     </rect>
   </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
 
   <!-- BORDER -->
   <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
