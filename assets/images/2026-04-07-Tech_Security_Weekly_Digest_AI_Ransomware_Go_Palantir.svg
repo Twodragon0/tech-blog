@@ -390,7 +390,7 @@
   <text x="835" y="257" font-family="'Courier New',monospace" font-size="10" fill="#475569">username@org.il</text>
   <!-- Input field 2 - breached -->
   <rect x="820" y="273" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="835" y="290" font-family="'Courier New',monospace" font-size="10" fill="#475569">••••••••••••</text>
+  <text x="835" y="290" font-family="'Courier New',monospace" font-size="10" fill="#475569">------------</text>
 
   <!-- Password spray labels floating -->
   <g class="float1">

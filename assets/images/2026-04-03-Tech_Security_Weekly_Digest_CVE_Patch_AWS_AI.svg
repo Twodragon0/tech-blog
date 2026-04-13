@@ -56,7 +56,7 @@
 <line x1="290" y1="0" x2="290" y2="630" stroke="#1e3a5f" stroke-width="1.5"/>
 <text x="145" y="26" font-family="Courier New,monospace" font-size="10" fill="#4a9eff" text-anchor="middle" letter-spacing="3">THREAT INTELLIGENCE</text>
 <text x="145" y="48" font-family="Courier New,monospace" font-size="16" fill="#e2e8f0" text-anchor="middle" font-weight="bold">Tech Security Weekly</text>
-<text x="145" y="64" font-family="Courier New,monospace" font-size="9" fill="#64748b" text-anchor="middle" letter-spacing="1">APRIL 03, 2026 — ISSUE #015</text>
+<text x="145" y="64" font-family="Courier New,monospace" font-size="9" fill="#64748b" text-anchor="middle" letter-spacing="1">APRIL 03, 2026 - ISSUE #015</text>
 <line x1="12" y1="72" x2="278" y2="72" stroke="#1e3a5f" stroke-width="1"/>
 
 <rect x="11" y="80" width="4" height="38" fill="#ef4444" rx="2"/>
@@ -126,16 +126,16 @@
 <text x="228" y="424" font-family="Courier New,monospace" font-size="13" fill="#22c55e" text-anchor="middle" font-weight="bold">P0</text>
 <text x="228" y="442" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">PRIORITY</text>
 
-<text x="14" y="468" font-family="Courier New,monospace" font-size="8" fill="#334155">Cisco FMC · AI Agents · AWS</text>
-<text x="14" y="482" font-family="Courier New,monospace" font-size="8" fill="#334155">Network · Cloud · AI Systems</text>
-<text x="14" y="496" font-family="Courier New,monospace" font-size="8" fill="#334155">T1190 · T1059 · T1078</text>
+<text x="14" y="468" font-family="Courier New,monospace" font-size="8" fill="#334155">Cisco FMC | AI Agents | AWS</text>
+<text x="14" y="482" font-family="Courier New,monospace" font-size="8" fill="#334155">Network | Cloud | AI Systems</text>
+<text x="14" y="496" font-family="Courier New,monospace" font-size="8" fill="#334155">T1190 | T1059 | T1078</text>
 
 <!-- CRITICAL badge -->
 <rect x="1094" y="11" width="92" height="26" rx="4" fill="#ef44441a" stroke="#ef4444" stroke-width="1.5"/>
 <text x="1140" y="28" font-family="Courier New,monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold">CRITICAL</text>
 
 <!-- TOP HALF: Cisco FMC CVE -->
-<text x="575" y="100" font-family="Courier New,monospace" font-size="11" fill="#ef4444" text-anchor="middle" letter-spacing="2">CISCO FMC CVE-2025-55182 — REMOTE COMPROMISE</text>
+<text x="575" y="100" font-family="Courier New,monospace" font-size="11" fill="#ef4444" text-anchor="middle" letter-spacing="2">CISCO FMC CVE-2025-55182 - REMOTE COMPROMISE</text>
 
 <!-- Server rack with breach arrow -->
 <g filter="url(#a03_glowRed)">
@@ -230,7 +230,7 @@
 </g>
 
 <!-- BOTTOM HALF: AI Principles grid + AWS Deploy -->
-<text x="480" y="345" font-family="Courier New,monospace" font-size="11" fill="#8b5cf6" text-anchor="middle" letter-spacing="2">AI AGENT SECURITY PRINCIPLES — DETAIL</text>
+<text x="480" y="345" font-family="Courier New,monospace" font-size="11" fill="#8b5cf6" text-anchor="middle" letter-spacing="2">AI AGENT SECURITY PRINCIPLES - DETAIL</text>
 
 <g filter="url(#a03_glow)">
   <!-- Principle boxes -->
@@ -239,28 +239,28 @@
   <line x1="325" y1="381" x2="420" y2="381" stroke="#1e3a5f" stroke-width="0.8"/>
   <text x="372" y="394" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Verify agent identity</text>
   <text x="372" y="407" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">before every action</text>
-  <text x="372" y="421" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">mTLS · JWT · OIDC</text>
+  <text x="372" y="421" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">mTLS | JWT | OIDC</text>
 
   <rect x="440" y="358" width="115" height="72" rx="3" fill="#0a1520" stroke="#06b6d4" stroke-width="1.2"/>
   <text x="497" y="376" font-family="Courier New,monospace" font-size="9" fill="#06b6d4" text-anchor="middle">2. LEAST PRIVILEGE</text>
   <line x1="450" y1="381" x2="545" y2="381" stroke="#1e3a5f" stroke-width="0.8"/>
   <text x="497" y="394" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Minimal permissions</text>
   <text x="497" y="407" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">scoped to task only</text>
-  <text x="497" y="421" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">IAM · RBAC · ABAC</text>
+  <text x="497" y="421" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">IAM | RBAC | ABAC</text>
 
   <rect x="315" y="442" width="115" height="72" rx="3" fill="#0a1520" stroke="#22c55e" stroke-width="1.2"/>
   <text x="372" y="460" font-family="Courier New,monospace" font-size="9" fill="#22c55e" text-anchor="middle">3. AUDIT LOGGING</text>
   <line x1="325" y1="465" x2="420" y2="465" stroke="#1e3a5f" stroke-width="0.8"/>
   <text x="372" y="478" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Immutable action log</text>
   <text x="372" y="491" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">full chain of custody</text>
-  <text x="372" y="505" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">SIEM · CloudTrail</text>
+  <text x="372" y="505" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">SIEM | CloudTrail</text>
 
   <rect x="440" y="442" width="115" height="72" rx="3" fill="#0a1520" stroke="#f59e0b" stroke-width="1.2"/>
   <text x="497" y="460" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle">4. ISOLATION</text>
   <line x1="450" y1="465" x2="545" y2="465" stroke="#1e3a5f" stroke-width="0.8"/>
   <text x="497" y="478" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Sandboxed execution</text>
   <text x="497" y="491" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">no lateral movement</text>
-  <text x="497" y="505" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">VPC · Namespace · gVisor</text>
+  <text x="497" y="505" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">VPC | Namespace | gVisor</text>
 </g>
 
 <!-- AWS Deployment Flow -->
@@ -296,7 +296,7 @@
   <text x="630" y="494" font-family="Courier New,monospace" font-size="8.5" fill="#64748b">Mean time to patch:</text>
   <text x="936" y="494" font-family="Courier New,monospace" font-size="8.5" fill="#f59e0b" text-anchor="end">4.2 hrs</text>
   <text x="630" y="510" font-family="Courier New,monospace" font-size="8.5" fill="#64748b">Rollback ready:</text>
-  <text x="936" y="510" font-family="Courier New,monospace" font-size="8.5" fill="#22c55e" text-anchor="end">YES — AMI snapshot</text>
+  <text x="936" y="510" font-family="Courier New,monospace" font-size="8.5" fill="#22c55e" text-anchor="end">YES - AMI snapshot</text>
 </g>
 
 <!-- Particles -->
@@ -316,7 +316,7 @@
 <line x1="0" y1="597" x2="1200" y2="597" stroke="#1e3a5f" stroke-width="1"/>
 <text x="310" y="618" font-family="Courier New,monospace" font-size="9" fill="#3b82f6" text-anchor="middle">tech.2twodragon.com</text>
 <line x1="400" y1="603" x2="400" y2="627" stroke="#1e3a5f" stroke-width="1"/>
-<text x="610" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">Cisco CVE-2025-55182 · AI Agent Security · AWS Patching</text>
+<text x="610" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">Cisco CVE-2025-55182 | AI Agent Security | AWS Patching</text>
 <line x1="830" y1="603" x2="830" y2="627" stroke="#1e3a5f" stroke-width="1"/>
-<text x="1015" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">APRIL 03, 2026 — WEEKLY DIGEST</text>
+<text x="1015" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">APRIL 03, 2026 - WEEKLY DIGEST</text>
 </svg>
