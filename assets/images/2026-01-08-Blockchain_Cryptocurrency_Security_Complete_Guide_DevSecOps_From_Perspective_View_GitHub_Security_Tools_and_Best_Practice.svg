@@ -1,64 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Cryptocurrency</title>
-  
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
   <defs>
     <linearGradient id="u559921bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1005" />
-      <stop offset="50%" style="stop-color:#150a25" />
-      <stop offset="100%" style="stop-color:#0f0f1a" />
+      <stop offset="0%" style="stop-color:#1a1005"/>
+      <stop offset="50%" style="stop-color:#150a25"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
     </linearGradient>
     <linearGradient id="u559921accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b" />
-      <stop offset="100%" style="stop-color:#a855f7" />
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
     </linearGradient>
     <linearGradient id="u559921title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc" />
-      <stop offset="100%" style="stop-color:#cbd5e1" />
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#cbd5e1"/>
     </linearGradient>
     <linearGradient id="u559921panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85" />
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75" />
+      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
+      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
     </linearGradient>
     <radialGradient id="u559921ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.06" />
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
     </radialGradient>
     <radialGradient id="u559921ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08" />
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
     </radialGradient>
     <filter id="u559921glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.7" />
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.7"/>
     </filter>
     <filter id="u559921blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12" />
+      <feGaussianBlur stdDeviation="12"/>
     </filter>
     <filter id="u559921textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.5" />
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.5"/>
     </filter>
     <filter id="u559921fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b" />
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g" />
-      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="u559921fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b" />
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g" />
-      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <radialGradient id="u559921sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="u559921sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.10" />
-      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
     </radialGradient>
     <pattern id="u559921dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7" />
+      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
     </pattern>
     <clipPath id="u559921clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8" />
+      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
     </clipPath>
     <style>
       @keyframes u559921floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
@@ -75,204 +75,86 @@
     </style>
   </defs>
 
-  
-  <rect width="1200" height="630" fill="url(#u559921bg)" />
+  <!-- BACKGROUND -->
+  <rect width="1200" height="630" fill="url(#u559921bg)"/>
   <g clip-path="url(#u559921clip)">
-    <rect width="1200" height="630" fill="url(#u559921dots)" opacity="0.6" />
-    <rect width="1200" height="630" fill="url(#u559921ambientL)" />
-    <rect width="1200" height="630" fill="url(#u559921ambientR)" />
+    <rect width="1200" height="630" fill="url(#u559921dots)" opacity="0.6"/>
+    <rect width="1200" height="630" fill="url(#u559921ambientL)"/>
+    <rect width="1200" height="630" fill="url(#u559921ambientR)"/>
+    <ellipse cx="940" cy="250" rx="260" ry="180" fill="#f59e0b" opacity="0.05"/>
+    <ellipse cx="760" cy="430" rx="240" ry="150" fill="#a855f7" opacity="0.04"/>
 
-    
-    <rect x="0" y="0" width="370" height="630" fill="url(#u559921panel)" />
-    <rect x="0" y="0" width="4" height="630" fill="url(#u559921accent)" />
+    <!-- HEADER -->
+    <rect x="0" y="0" width="1200" height="88" fill="url(#u559921panel)" opacity="0.96"/>
+    <rect x="0" y="86" width="1200" height="2" fill="#1e293b" opacity="0.8"/>
+    <rect x="36" y="24" width="178" height="34" rx="8" fill="#713f12" stroke="#f59e0b" stroke-width="1.3"/>
+    <text x="125" y="46" font-family="Courier New, monospace" font-size="11"
+          fill="#fde68a" text-anchor="middle" letter-spacing="1.6" font-weight="bold">BLOCKCHAIN</text>
+    <rect x="986" y="22" width="178" height="40" rx="10" fill="#1a1005" stroke="#334155" stroke-width="1"/>
+    <text x="1075" y="47" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700"
+          fill="#cbd5e1" text-anchor="middle">2026-01-08</text>
+    <text x="36" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#f8fafc">Post Spotlight</text>
 
-    
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#713f12" stroke="#f59e0b" stroke-width="1.5" />
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11" fill="#fde68a" text-anchor="middle" letter-spacing="2" font-weight="bold">BLOCKCHAIN</text>
+    <!-- LEFT TITLE COLUMN -->
+    <rect x="24" y="106" width="394" height="500" rx="30" fill="url(#u559921panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.94"/>
+    <polygon points="24,144 280,144 366,194 110,194" fill="#f59e0b" opacity="0.14"/>
+    <polygon points="24,220 262,220 350,268 112,268" fill="#a855f7" opacity="0.12"/>
+    <polygon points="24,296 286,296 376,344 114,344" fill="#eab308" opacity="0.12"/>
+    <text x="44" y="138" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1.4">PRE-03-30 ARCHIVE REFRESH</text>
+    <text x="40" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u559921title)" font-weight="800" letter-spacing="-1.1">Cryptocurrency</text>
+    <text x="40" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u559921title)" font-weight="800" letter-spacing="-1.1">Bitcoin</text>
+    <text x="40" y="324" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u559921title)" font-weight="800" letter-spacing="-1.1">Ethereum</text>
+    <rect x="40" y="390" width="338" height="110" rx="20" fill="#1a1005" stroke="#f59e0b" stroke-width="1.1" opacity="0.88"/>
+    <text x="60" y="414" font-family="Courier New, monospace" font-size="10" fill="#fde68a" font-weight="700" letter-spacing="1.2">BRIEFING</text>
+    <text x="60" y="446" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">Cryptocurrency focus</text>
+    <text x="60" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94a3b8">Bitcoin priority</text>
 
-    
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1">2026-01-08</text>
+    <rect x="40" y="514" width="102" height="24" rx="12" fill="#1a1005" stroke="#f59e0b" stroke-width="1.1" opacity="0.88"/><text x="91.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="700">Blockchain</text>
+    <rect x="152" y="514" width="134" height="24" rx="12" fill="#1a1005" stroke="#a855f7" stroke-width="1.1" opacity="0.88"/><text x="219.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="700">Cryptocurrency</text>
+    <rect x="296" y="514" width="78" height="24" rx="12" fill="#1a1005" stroke="#eab308" stroke-width="1.1" opacity="0.88"/><text x="335.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#eab308" text-anchor="middle" font-weight="700">Bitcoin</text>
 
-    
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u559921title)" font-weight="700" letter-spacing="-1">Cryptocurrency</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u559921title)" font-weight="700" letter-spacing="-1">Bitcoin</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u559921title)" font-weight="700" letter-spacing="-1">Ethereum</text>
+    <!-- RIGHT OG AREA -->
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u559921panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u559921sceneGlow1)" opacity="0.55"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u559921sceneGlow2)" opacity="0.42"/>
+    <rect x="440" y="80" width="700" height="96" rx="28" fill="#1a1005" opacity="0.32"/>
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#f59e0b" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#f59e0b" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#f59e0b" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Cryptocurrency</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Bitcoin</text>
+    <rect x="676" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#a855f7" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#a855f7" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Cryptocurrency focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Bitcoin priority</text>
+    <rect x="898" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#eab308" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#eab308" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#eab308" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Ethereum</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Smart Contract</text>
 
-    
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u559921accent)" opacity="0.8" />
+    <!-- variant-layout: bands -->
+    <text x="540" y="226" font-family="Courier New, monospace" font-size="10" fill="#fde68a"
+          font-weight="700" letter-spacing="1.4">SOCIAL PREVIEW</text>
+    <polygon points="520,246 936,246 1066,310 650,310" fill="#f59e0b" opacity="0.14" stroke="#f59e0b" stroke-width="1"/>
+    <polygon points="486,332 902,332 1032,396 616,396" fill="#a855f7" opacity="0.13" stroke="#a855f7" stroke-width="1"/>
+    <polygon points="548,418 964,418 1078,474 662,474" fill="#eab308" opacity="0.12" stroke="#eab308" stroke-width="1"/>
+    <text x="578" y="289" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#f8fafc" font-weight="800">Cryptocurrency</text>
+    <text x="612" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#f8fafc" font-weight="800">Bitcoin</text>
+    <text x="678" y="453" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#f8fafc" font-weight="700">Ethereum</text>
+    <rect x="880" y="196" width="180" height="86" rx="20" fill="#1a1005" stroke="#f59e0b" stroke-width="1.1" opacity="0.84"/>
+    <text x="902" y="222" font-family="Courier New, monospace" font-size="9" fill="#f59e0b" font-weight="700">SUMMARY</text>
+    <text x="902" y="246" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Cryptocurrency focus</text>
+    <text x="902" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#94a3b8">Bitcoin priority</text>
+    <circle cx="1034" cy="430" r="20" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="1034" cy="430" r="6" fill="#f59e0b" opacity="0.75"/>
+    <text x="1034" y="462" font-family="Courier New, monospace" font-size="8" fill="#f59e0b"
+          text-anchor="middle" font-weight="700">OG</text>
 
-    
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#150a25" stroke="#f59e0b" stroke-width="1" opacity="0.66" />
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#f59e0b" opacity="0.10" />
-    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fde68a" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Cryptocurrency / Bitcoin</text>
-    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Ethereum / Smart Contract</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#f59e0b" stroke-width="0.8" opacity="0.20" />
-    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Cryptocurrency focus</text>
-    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Bitcoin priority</text>
-    <rect x="56" y="461" width="116" height="22" rx="11" fill="#1a1005" stroke="#f59e0b" stroke-width="1" opacity="0.85" />
-    <rect x="180" y="461" width="70" height="22" rx="11" fill="#1a1005" stroke="#a855f7" stroke-width="1" opacity="0.85" />
-    <rect x="40" y="525" width="96" height="24" rx="12" fill="#713f12" stroke="#f59e0b" stroke-width="1.2" />
-    <rect x="146" y="525" width="128" height="24" rx="12" fill="#150a25" stroke="#a855f7" stroke-width="1.2" />
-    <rect x="284" y="525" width="72" height="24" rx="12" fill="#1a1005" stroke="#eab308" stroke-width="1.2" />
-    <rect x="380" y="40" width="780" height="550" fill="url(#u559921sceneGlow1)" opacity="0.6" />
-    <rect x="380" y="40" width="780" height="550" fill="url(#u559921sceneGlow2)" opacity="0.5" />
-
-    
-    
-    <rect x="480" y="240" width="80" height="60" rx="6" fill="#1a1005" stroke="#f59e0b" stroke-width="1.5" />
-    <text x="520" y="270" font-family="Courier New, monospace" font-size="8" fill="#f59e0b" text-anchor="middle" font-weight="bold">BLOCK</text>
-    <text x="520" y="284" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.6">#N-2</text>
-
-    <rect x="610" y="240" width="80" height="60" rx="6" fill="#1a1005" stroke="#f59e0b" stroke-width="1.5" />
-    <text x="650" y="284" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.6">#N-1</text>
-
-    <rect x="740" y="240" width="80" height="60" rx="6" fill="#1a1005" stroke="#a855f7" stroke-width="2" style="animation: u559921glimmer 3s ease-in-out infinite" />
-    <text x="780" y="284" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.6">#N</text>
-
-    
-    <line x1="560" y1="270" x2="608" y2="270" stroke="#f59e0b" stroke-width="2" opacity="0.6" stroke-dasharray="4 3" style="animation: u559921dash 2s linear infinite" />
-    <line x1="690" y1="270" x2="738" y2="270" stroke="#f59e0b" stroke-width="2" opacity="0.6" />
-
-    
-    <g filter="url(#u559921glow)">
-      <circle cx="650" cy="160" r="30" fill="#1a1005" stroke="#f59e0b" stroke-width="1.5" />
-    </g>
-    <text x="650" y="158" font-family="Courier New, monospace" font-size="8" fill="#f59e0b" text-anchor="middle">NODE</text>
-    <text x="650" y="170" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.7">peer-1</text>
-
-    <g filter="url(#u559921glow)">
-      <circle cx="900" cy="280" r="30" fill="#1a1005" stroke="#a855f7" stroke-width="1.5" />
-    </g>
-    <text x="900" y="290" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.7">peer-2</text>
-
-    
-    <rect x="600" y="370" width="140" height="70" rx="6" fill="#1a1005" stroke="#f59e0b" stroke-width="1" opacity="0.8" />
-    <text x="670" y="395" font-family="Courier New, monospace" font-size="8" fill="#f59e0b" text-anchor="middle" font-weight="bold">SMART CONTRACT</text>
-    <text x="670" y="412" font-family="Courier New, monospace" font-size="7" fill="#fde68a" text-anchor="middle" opacity="0.6">0x7f2c...a3b8</text>
-    <rect x="620" y="420" width="100" height="6" rx="2" fill="#a855f7" opacity="0.2" />
-    <rect x="620" y="420" width="65" height="6" rx="2" fill="#a855f7" opacity="0.5" />
-
-    
-    <line x1="650" y1="190" x2="650" y2="240" stroke="#f59e0b" stroke-width="1" opacity="0.4" stroke-dasharray="3 4" />
-    <line x1="820" y1="270" x2="870" y2="278" stroke="#a855f7" stroke-width="1" opacity="0.3" stroke-dasharray="3 5" />
-    <line x1="670" y1="300" x2="670" y2="370" stroke="#f59e0b" stroke-width="1" opacity="0.3" stroke-dasharray="3 5" />
-
-    
-    <g transform="translate(575,270)">
-      <ellipse cx="0" cy="0" rx="8" ry="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" />
-      <ellipse cx="6" cy="0" rx="8" ry="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" />
-    </g>
-    <g transform="translate(705,270)">
-      <ellipse cx="0" cy="0" rx="8" ry="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" />
-      <ellipse cx="6" cy="0" rx="8" ry="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" />
-    </g>
-
-    
-    <text x="520" y="295" font-family="Courier New, monospace" font-size="5" fill="#fde68a" text-anchor="middle" opacity="0.35">0xfa3b..c2</text>
-    <text x="650" y="295" font-family="Courier New, monospace" font-size="5" fill="#fde68a" text-anchor="middle" opacity="0.35">0x8e1d..a7</text>
-    <text x="780" y="295" font-family="Courier New, monospace" font-size="5" fill="#fde68a" text-anchor="middle" opacity="0.35">0x2c4f..91</text>
-
-    
-    <g transform="translate(950,180)" filter="url(#u559921fxGlow)">
-      <circle cx="0" cy="0" r="28" fill="#1a1005" stroke="#f59e0b" stroke-width="2" />
-      <circle cx="0" cy="0" r="22" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.4" />
-      <text x="0" y="4" font-family="Courier New, monospace" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" opacity="0.8">ETH</text>
-      <text x="0" y="14" font-family="Courier New, monospace" font-size="5" fill="#fde68a" text-anchor="middle" opacity="0.5">#HASH</text>
-    </g>
-
-    
-    <rect x="850" y="340" width="95" height="24" rx="4" fill="#150a25" stroke="#a855f7" stroke-width="1" opacity="0.6" />
-    <text x="897" y="356" font-family="Courier New, monospace" font-size="8" fill="#a855f7" text-anchor="middle" font-weight="bold" opacity="0.7">CONSENSUS</text>
-
-    
-    <circle cx="520" cy="380" r="6" fill="#f59e0b" opacity="0.3" />
-    <circle cx="500" cy="410" r="5" fill="#f59e0b" opacity="0.2" />
-    <circle cx="540" cy="410" r="5" fill="#f59e0b" opacity="0.2" />
-    <line x1="520" y1="386" x2="500" y2="405" stroke="#f59e0b" stroke-width="0.8" opacity="0.2" />
-    <line x1="520" y1="386" x2="540" y2="405" stroke="#f59e0b" stroke-width="0.8" opacity="0.2" />
-    <circle cx="490" cy="435" r="4" fill="#eab308" opacity="0.15" />
-    <circle cx="510" cy="435" r="4" fill="#eab308" opacity="0.15" />
-    <circle cx="530" cy="435" r="4" fill="#eab308" opacity="0.15" />
-    <circle cx="550" cy="435" r="4" fill="#eab308" opacity="0.15" />
-    <line x1="500" y1="415" x2="490" y2="431" stroke="#eab308" stroke-width="0.6" opacity="0.15" />
-    <line x1="500" y1="415" x2="510" y2="431" stroke="#eab308" stroke-width="0.6" opacity="0.15" />
-    <line x1="540" y1="415" x2="530" y2="431" stroke="#eab308" stroke-width="0.6" opacity="0.15" />
-    <line x1="540" y1="415" x2="550" y2="431" stroke="#eab308" stroke-width="0.6" opacity="0.15" />
-    <text x="520" y="455" font-family="Courier New, monospace" font-size="6" fill="#fde68a" text-anchor="middle" opacity="0.4">MERKLE</text>
-
-    
-    <ellipse cx="700" cy="290" rx="240" ry="160" fill="#f59e0b" opacity="0.035" />
-
-    
-
-    <defs>
-      <pattern id="u559921mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#f59e0b" stroke-width="0.35" opacity="0.12" />
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u559921mesh)" opacity="0.25" />
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#f59e0b" stroke-width="0.55" stroke-dasharray="6 9" opacity="0.16" />
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#a855f7" stroke-width="0.45" stroke-dasharray="3 7" opacity="0.11" />
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#eab308" stroke-width="0.35" stroke-dasharray="10 12" opacity="0.08" />
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#f59e0b" stroke-width="0.6" opacity="0.10" />
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#a855f7" stroke-width="0.6" opacity="0.08" />
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#f59e0b" stroke-width="0.35" opacity="0.08" />
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#a855f7" stroke-width="0.35" opacity="0.06" />
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.35" />
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.35" />
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.30" />
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.30" />
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#f59e0b" opacity="0.03" />
-    <circle cx="430" cy="110" r="3" fill="#f59e0b" opacity="0.22" />
-    <circle cx="1120" cy="160" r="2.5" fill="#a855f7" opacity="0.24" />
-    <circle cx="470" cy="540" r="3" fill="#eab308" opacity="0.20" />
-    <circle cx="1080" cy="530" r="2.5" fill="#f59e0b" opacity="0.20" />
-    
-    <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="#f59e0b" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5" />
-    <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="#a855f7" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6" />
-    <rect x="454" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#f59e0b" stroke-width="1.1" opacity="0.78" /><circle cx="472" cy="108" r="5" fill="#f59e0b" opacity="0.85" /><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#f59e0b" font-weight="700" letter-spacing="1">PRIMARY</text><rect x="676" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#a855f7" stroke-width="1.1" opacity="0.78" /><circle cx="694" cy="108" r="5" fill="#a855f7" opacity="0.85" /><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700" letter-spacing="1">SUMMARY</text><rect x="898" y="90" width="206" height="74" rx="10" fill="#1a1005" stroke="#eab308" stroke-width="1.1" opacity="0.78" /><circle cx="916" cy="108" r="5" fill="#eab308" opacity="0.85" /><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#eab308" font-weight="700" letter-spacing="1">TRACK</text><polygon points="470,186 1030,186 1150,286 590,286" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1" /><polygon points="430,318 990,318 1110,418 550,418" fill="#a855f7" opacity="0.08" stroke="#a855f7" stroke-width="1" /><polygon points="520,450 1080,450 1160,530 600,530" fill="#eab308" opacity="0.08" stroke="#eab308" stroke-width="1" /><rect x="915" y="500" width="180" height="36" rx="18" fill="#1a1005" stroke="#f59e0b" stroke-width="1" opacity="0.78" />
-    <circle cx="150" cy="100" r="2.5" fill="#f59e0b" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#a855f7" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#f59e0b" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#eab308" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#a855f7" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#f59e0b" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite" />
-    </circle>
-
-    
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#f59e0b" stroke-width="1" opacity="0.15" />
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#f59e0b" stroke-width="1" opacity="0.1" />
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#eab308" stroke-width="1" opacity="0.15" />
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#eab308" stroke-width="1" opacity="0.1" />
-
-    
+    <rect x="520" y="488" width="144" height="28" rx="14" fill="#1a1005" stroke="#f59e0b" stroke-width="1" opacity="0.84"/><text x="592.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="700">Ethereum</text>
+    <rect x="678" y="488" width="154" height="28" rx="14" fill="#1a1005" stroke="#a855f7" stroke-width="1" opacity="0.84"/><text x="755.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">Smart Contract</text>
+    <rect x="846" y="488" width="168" height="28" rx="14" fill="#1a1005" stroke="#eab308" stroke-width="1" opacity="0.84"/><text x="930.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#eab308" text-anchor="middle" font-weight="700">Blockchain</text>
+    <!-- CRT scan line -->
     <rect width="1200" height="2" x="0" y="0" fill="#f59e0b" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1" />
+      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
     </rect>
   </g>
 
-  
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1" />
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11" fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1" />
-  
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6" />
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6" />
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5" />
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5" />
+  <!-- BORDER -->
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <!-- Corner accents -->
+  <polyline points="0,25 0,0 25,0" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+  <polyline points="0,605 0,630 25,630" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
 </svg>

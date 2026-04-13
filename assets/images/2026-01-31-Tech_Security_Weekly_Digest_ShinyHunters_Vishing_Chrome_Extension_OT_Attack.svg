@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Shinyhunters</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: orbit -->
+  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
   <defs>
     <linearGradient id="u2be768bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f172a"/>
@@ -81,245 +81,74 @@
     <rect width="1200" height="630" fill="url(#u2be768dots)" opacity="0.6"/>
     <rect width="1200" height="630" fill="url(#u2be768ambientL)"/>
     <rect width="1200" height="630" fill="url(#u2be768ambientR)"/>
+    <ellipse cx="940" cy="250" rx="260" ry="180" fill="#a855f7" opacity="0.05"/>
+    <ellipse cx="760" cy="430" rx="240" ry="150" fill="#22c55e" opacity="0.04"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u2be768panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u2be768accent)"/>
+    <!-- HEADER -->
+    <rect x="0" y="0" width="1200" height="88" fill="url(#u2be768panel)" opacity="0.96"/>
+    <rect x="0" y="86" width="1200" height="2" fill="#1e293b" opacity="0.8"/>
+    <rect x="36" y="24" width="178" height="34" rx="8" fill="#3b0764" stroke="#a855f7" stroke-width="1.3"/>
+    <text x="125" y="46" font-family="Courier New, monospace" font-size="11"
+          fill="#d8b4fe" text-anchor="middle" letter-spacing="1.6" font-weight="bold">AI / ML</text>
+    <rect x="986" y="22" width="178" height="40" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="1075" y="47" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700"
+          fill="#cbd5e1" text-anchor="middle">2026-01-31</text>
+    <text x="36" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#f8fafc">Post Spotlight</text>
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#3b0764" stroke="#a855f7" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#d8b4fe" text-anchor="middle" letter-spacing="2" font-weight="bold">AI / ML</text>
+    <!-- LEFT TITLE COLUMN -->
+    <rect x="24" y="106" width="394" height="500" rx="30" fill="url(#u2be768panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.94"/>
+    <polygon points="24,144 280,144 366,194 110,194" fill="#a855f7" opacity="0.14"/>
+    <polygon points="24,220 262,220 350,268 112,268" fill="#22c55e" opacity="0.12"/>
+    <polygon points="24,296 286,296 376,344 114,344" fill="#8b5cf6" opacity="0.12"/>
+    <text x="44" y="138" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1.4">PRE-03-30 ARCHIVE REFRESH</text>
+    <text x="40" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u2be768title)" font-weight="800" letter-spacing="-1.1">Shinyhunters</text>
+    <text x="40" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u2be768title)" font-weight="800" letter-spacing="-1.1">Vishing</text>
+    <text x="40" y="324" font-family="Segoe UI, Arial, sans-serif" font-size="43" fill="url(#u2be768title)" font-weight="800" letter-spacing="-1.1">MFA Bypass</text>
+    <rect x="40" y="390" width="338" height="110" rx="20" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.88"/>
+    <text x="60" y="414" font-family="Courier New, monospace" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1.2">BRIEFING</text>
+    <text x="60" y="446" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">ShinyHunters MFA Chrome ChatGPT</text>
+    <text x="60" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#94a3b8">Polska 30+ OT</text>
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2026-01-31</text>
+    <rect x="40" y="514" width="94" height="24" rx="12" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.88"/><text x="87.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="700">Devsecops</text>
+    <rect x="144" y="514" width="118" height="24" rx="12" fill="#0f172a" stroke="#22c55e" stroke-width="1.1" opacity="0.88"/><text x="203.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="700">Shinyhunters</text>
+    <rect x="272" y="514" width="78" height="24" rx="12" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.1" opacity="0.88"/><text x="311.0" y="530" font-family="Courier New, monospace" font-size="9" fill="#8b5cf6" text-anchor="middle" font-weight="700">Vishing</text>
 
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2be768title)" font-weight="700" letter-spacing="-1">Shinyhunters</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2be768title)" font-weight="700" letter-spacing="-1">Vishing</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u2be768title)" font-weight="700" letter-spacing="-1">MFA Bypass</text>
-
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u2be768accent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#a855f7" font-weight="600">Devsecops</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Shinyhunters</text>
-
-    <!-- Focus panel -->
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a0a" stroke="#a855f7" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#a855f7" opacity="0.10"/>
-    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#d8b4fe" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Shinyhunters / Vishing</text>
-    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">MFA Bypass / Chrome Extension</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#a855f7" stroke-width="0.8" opacity="0.20"/>
-    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">ShinyHunters MFA Chrome ChatGPT</text>
-    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Polska 30+ OT</text>
-    <rect x="56" y="461" width="102" height="22" rx="11" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
-    <text x="107" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a855f7" text-anchor="middle" font-weight="600">Shinyhunters</text>
-    <rect x="166" y="461" width="70" height="22" rx="11" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
-    <text x="201" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Vishing</text>
-
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="88" height="24" rx="12" fill="#3b0764" stroke="#a855f7" stroke-width="1.2"/>
-    <text x="84" y="541" font-family="Courier New, monospace" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="bold">Devsecops</text>
-    <rect x="138" y="525" width="112" height="24" rx="12" fill="#0a1a0a" stroke="#22c55e" stroke-width="1.2"/>
-    <text x="194" y="541" font-family="Courier New, monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">Shinyhunters</text>
-    <rect x="260" y="525" width="72" height="24" rx="12" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2"/>
-    <text x="296" y="541" font-family="Courier New, monospace" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Vishing</text>
-
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2be768sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2be768sceneGlow2)" opacity="0.5"/>
-
-    <!-- SCENE: AI / ML -->
-    <!-- Neural network center -->
-    <g filter="url(#u2be768glow)">
-      <circle cx="700" cy="260" r="50" fill="#0f172a" stroke="#a855f7" stroke-width="2.5"/>
-      <circle cx="700" cy="260" r="50" fill="#8b5cf6" opacity="0.08"/>
-    </g>
-    <!-- Brain circuit paths -->
-    <ellipse cx="700" cy="255" rx="22" ry="18" fill="none" stroke="#a855f7" stroke-width="1.5"/>
-    <path d="M685 250 Q700 235 715 250" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.7"/>
-    <path d="M685 260 Q700 275 715 260" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/>
-    <circle cx="700" cy="255" r="5" fill="#a855f7" opacity="0.6"/>
-    <text x="700" y="300" font-family="Courier New, monospace" font-size="9"
-          fill="#d8b4fe" text-anchor="middle" font-weight="bold">AI MODEL</text>
-
-    <!-- Layer nodes (input) -->
-    <circle cx="540" cy="180" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
-    <circle cx="540" cy="260" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
-    <circle cx="540" cy="340" r="18" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
-
-    <!-- Layer nodes (output) -->
-    <circle cx="860" cy="200" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
-    <circle cx="860" cy="320" r="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
-
-    <!-- Data pipeline connections -->
-    <line x1="558" y1="185" x2="652" y2="248" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
-    <line x1="558" y1="260" x2="652" y2="260" stroke="#22c55e" stroke-width="1.2" opacity="0.5"
-          stroke-dasharray="4 3" style="animation: u2be768dash 2s linear infinite"/>
-    <line x1="558" y1="335" x2="652" y2="272" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
-    <line x1="748" y1="250" x2="842" y2="205" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
-    <line x1="748" y1="270" x2="842" y2="315" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
-
-    <!-- Model card -->
-    <rect x="620" y="380" width="160" height="80" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.8"/>
-    <text x="700" y="405" font-family="Courier New, monospace" font-size="9"
-          fill="#d8b4fe" text-anchor="middle" opacity="0.8">PARAMETERS</text>
-    <rect x="640" y="415" width="120" height="8" rx="3" fill="#a855f7" opacity="0.15"/>
-    <rect x="640" y="415" width="85" height="8" rx="3" fill="#a855f7" opacity="0.4"/>
-    <rect x="640" y="430" width="120" height="8" rx="3" fill="#8b5cf6" opacity="0.15"/>
-    <rect x="640" y="430" width="60" height="8" rx="3" fill="#8b5cf6" opacity="0.4"/>
-    <rect x="640" y="445" width="120" height="8" rx="3" fill="#22c55e" opacity="0.15"/>
-    <rect x="640" y="445" width="100" height="8" rx="3" fill="#22c55e" opacity="0.4"/>
-
-    <!-- Gradient computation node -->
-    <g filter="url(#u2be768glow)">
-      <circle cx="950" cy="260" r="28" fill="#0f172a" stroke="#a855f7" stroke-width="1.5"/>
-    </g>
-    <text x="950" y="258" font-family="Courier New, monospace" font-size="16"
-          fill="#a855f7" text-anchor="middle" opacity="0.8">&#x2207;</text>
-    <text x="950" y="280" font-family="Courier New, monospace" font-size="7"
-          fill="#d8b4fe" text-anchor="middle" opacity="0.7">GRADIENT</text>
-    <line x1="878" y1="210" x2="924" y2="250" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
-    <line x1="878" y1="315" x2="924" y2="270" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="3 5"/>
-
-    <!-- Neural network 3 layers of connected nodes -->
-    <!-- Hidden layer -->
-    <circle cx="620" cy="180" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-    <circle cx="620" cy="220" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-    <circle cx="620" cy="260" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-    <circle cx="620" cy="300" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-    <circle cx="620" cy="340" r="10" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-    <!-- Hidden layer 2 -->
-    <circle cx="780" cy="200" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
-    <circle cx="780" cy="240" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
-    <circle cx="780" cy="280" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
-    <circle cx="780" cy="320" r="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
-    <!-- Neural connections (sparse) -->
-    <line x1="558" y1="180" x2="610" y2="180" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
-    <line x1="558" y1="260" x2="610" y2="220" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
-    <line x1="558" y1="260" x2="610" y2="300" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
-    <line x1="558" y1="340" x2="610" y2="340" stroke="#22c55e" stroke-width="0.6" opacity="0.2"/>
-    <line x1="630" y1="185" x2="770" y2="200" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
-    <line x1="630" y1="220" x2="770" y2="240" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
-    <line x1="630" y1="260" x2="770" y2="280" stroke="#a855f7" stroke-width="0.5" opacity="0.18"/>
-    <line x1="630" y1="300" x2="770" y2="280" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
-    <line x1="630" y1="340" x2="770" y2="320" stroke="#a855f7" stroke-width="0.5" opacity="0.15"/>
-    <line x1="790" y1="205" x2="842" y2="200" stroke="#8b5cf6" stroke-width="0.5" opacity="0.15"/>
-    <line x1="790" y1="280" x2="842" y2="260" stroke="#8b5cf6" stroke-width="0.5" opacity="0.18"/>
-    <line x1="790" y1="320" x2="842" y2="320" stroke="#8b5cf6" stroke-width="0.5" opacity="0.15"/>
-
-    <!-- Brain circuit pattern -->
-    <path d="M 680 240 Q 700 220 720 240 Q 740 260 720 280 Q 700 300 680 280 Q 660 260 680 240"
-          fill="none" stroke="#a855f7" stroke-width="0.8" opacity="0.2"/>
-    <path d="M 690 248 Q 700 238 710 248" fill="none" stroke="#8b5cf6" stroke-width="0.6" opacity="0.25"/>
-    <path d="M 690 268 Q 700 278 710 268" fill="none" stroke="#8b5cf6" stroke-width="0.6" opacity="0.25"/>
-
-    <!-- Data pipeline arrows -->
-    <path d="M 470 260 L 520 260" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.4"
-          stroke-dasharray="4 3" style="animation: u2be768dash 2s linear infinite"/>
-    <polygon points="518,255 528,260 518,265" fill="#22c55e" opacity="0.4"/>
-    <path d="M 878 260 L 930 260" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.35"/>
-    <polygon points="928,255 938,260 928,265" fill="#8b5cf6" opacity="0.35"/>
-
-    <!-- Training progress badge -->
-    <rect x="830" y="370" width="100" height="28" rx="4" fill="#0a1a0a" stroke="#a855f7" stroke-width="0.8" opacity="0.6"/>
-    <text x="880" y="384" font-family="Courier New, monospace" font-size="7"
-          fill="#a855f7" text-anchor="middle" opacity="0.7">EPOCH 42/100</text>
-    <rect x="840" y="390" width="80" height="4" rx="2" fill="#a855f7" opacity="0.15"/>
-    <rect x="840" y="390" width="34" height="4" rx="2" fill="#a855f7" opacity="0.5"/>
-
-    <!-- Pulsing rings -->
-    <circle cx="700" cy="260" r="70" fill="none" stroke="#a855f7" stroke-width="0.8"
-            opacity="0.2" style="animation: u2be768pulse 3s ease-in-out infinite"/>
-
-    <!-- Ambient glow -->
-    <ellipse cx="720" cy="280" rx="260" ry="180" fill="#8b5cf6" opacity="0.035"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <defs>
-      <pattern id="u2be768mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#a855f7"
-              stroke-width="0.35" opacity="0.12"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u2be768mesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#a855f7" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#22c55e" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#8b5cf6" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#a855f7" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#22c55e" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#a855f7" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#22c55e" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#8b5cf6" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#a855f7" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#22c55e" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#8b5cf6" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#a855f7" opacity="0.20"/>
-    
-    <path d="M 510 160 A 250 190 0 0 1 980 180" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.18" stroke-dasharray="7 5" style="animation: u2be768dash 5s linear infinite"/>
-    <path d="M 560 470 A 205 150 0 0 1 1010 420" fill="none" stroke="#22c55e" stroke-width="0.9" opacity="0.14" stroke-dasharray="5 6"/>
-    <circle cx="720" cy="315" r="92" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.16"/>
-    <circle cx="720" cy="315" r="122" fill="none" stroke="#22c55e" stroke-width="0.6" opacity="0.12"/>
+    <!-- RIGHT OG AREA -->
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2be768panel)" stroke="#1e293b" stroke-width="1.1" opacity="0.96"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2be768sceneGlow1)" opacity="0.55"/>
+    <rect x="440" y="80" width="700" height="470" rx="28" fill="url(#u2be768sceneGlow2)" opacity="0.42"/>
+    <rect x="440" y="80" width="700" height="96" rx="28" fill="#0f172a" opacity="0.32"/>
     <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#a855f7" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Shinyhunters</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Vishing</text>
     <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">ShinyHunters MFA Chrome</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">CERT Polska 30+ OT</text>
     <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#8b5cf6" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#8b5cf6" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">MFA Bypass</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Chrome Extension</text>
-    <g transform="rotate(10 605.0 229.0)"><rect x="516" y="190" width="178" height="78" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1.2" opacity="0.76"/><rect x="530" y="206" width="150" height="12" rx="6" fill="#a855f7" opacity="0.12"/><text x="534" y="230" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#a855f7" font-weight="700">Shinyhunters</text><text x="534" y="248" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">Vishing</text></g>
-    <g transform="rotate(-8 987.0 289.0)"><rect x="904" y="252" width="166" height="74" rx="14" fill="#0f172a" stroke="#22c55e" stroke-width="1.2" opacity="0.76"/><rect x="918" y="268" width="138" height="12" rx="6" fill="#22c55e" opacity="0.12"/><text x="922" y="292" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#22c55e" font-weight="700">Vishing</text><text x="922" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">CERT Polska 30+ OT</text></g>
-    <g transform="rotate(7 838.0 475.0)"><rect x="744" y="436" width="188" height="78" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2" opacity="0.76"/><rect x="758" y="452" width="160" height="12" rx="6" fill="#8b5cf6" opacity="0.12"/><text x="762" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#8b5cf6" font-weight="700">MFA Bypass</text><text x="762" y="494" font-family="Segoe UI, Arial, sans-serif" font-size="8.5" fill="#94a3b8">Chrome Extension</text></g>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#a855f7" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#22c55e" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#a855f7" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#8b5cf6" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#22c55e" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#a855f7" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
 
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#a855f7" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#a855f7" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#8b5cf6" stroke-width="1" opacity="0.1"/>
+    <!-- variant-layout: bands -->
+    <text x="540" y="226" font-family="Courier New, monospace" font-size="10" fill="#d8b4fe"
+          font-weight="700" letter-spacing="1.4">SOCIAL PREVIEW</text>
+    <polygon points="520,246 936,246 1066,310 650,310" fill="#a855f7" opacity="0.14" stroke="#a855f7" stroke-width="1"/>
+    <polygon points="486,332 902,332 1032,396 616,396" fill="#22c55e" opacity="0.13" stroke="#22c55e" stroke-width="1"/>
+    <polygon points="548,418 964,418 1078,474 662,474" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="578" y="289" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#f8fafc" font-weight="800">Shinyhunters</text>
+    <text x="612" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#f8fafc" font-weight="800">Vishing</text>
+    <text x="678" y="453" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#f8fafc" font-weight="700">MFA Bypass</text>
+    <rect x="880" y="196" width="180" height="86" rx="20" fill="#0f172a" stroke="#a855f7" stroke-width="1.1" opacity="0.84"/>
+    <text x="902" y="222" font-family="Courier New, monospace" font-size="9" fill="#a855f7" font-weight="700">SUMMARY</text>
+    <text x="902" y="246" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">ShinyHunters MFA Chrome ChatGPT</text>
+    <text x="902" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#94a3b8">Polska 30+ OT</text>
+    <circle cx="1034" cy="430" r="20" fill="none" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="1034" cy="430" r="6" fill="#a855f7" opacity="0.75"/>
+    <text x="1034" y="462" font-family="Courier New, monospace" font-size="8" fill="#a855f7"
+          text-anchor="middle" font-weight="700">OG</text>
 
+    <rect x="520" y="488" width="144" height="28" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.84"/><text x="592.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a855f7" text-anchor="middle" font-weight="700">MFA Bypass</text>
+    <rect x="678" y="488" width="154" height="28" rx="14" fill="#0f172a" stroke="#22c55e" stroke-width="1" opacity="0.84"/><text x="755.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="700">Chrome Extension</text>
+    <rect x="846" y="488" width="168" height="28" rx="14" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" opacity="0.84"/><text x="930.0" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="700">Devsecops</text>
     <!-- CRT scan line -->
     <rect width="1200" height="2" x="0" y="0" fill="#a855f7" opacity="0">
       <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
     </rect>
   </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
 
   <!-- BORDER -->
   <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>

@@ -1,322 +1,315 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Zero Trust</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: editorial -->
-  <defs>
-    <linearGradient id="u3129f1bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1628"/>
-      <stop offset="50%" style="stop-color:#0d1525"/>
-      <stop offset="100%" style="stop-color:#081020"/>
-    </linearGradient>
-    <linearGradient id="u3129f1accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
-    </linearGradient>
-    <linearGradient id="u3129f1title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
-    </linearGradient>
-    <linearGradient id="u3129f1panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
-    </linearGradient>
-    <radialGradient id="u3129f1ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="u3129f1ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="u3129f1glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#06b6d4" flood-opacity="0.7"/>
-    </filter>
-    <filter id="u3129f1blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="u3129f1textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.5"/>
-    </filter>
-    <filter id="u3129f1fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="u3129f1fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="u3129f1sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="u3129f1sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="u3129f1dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
-    </pattern>
-    <clipPath id="u3129f1clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
-    </clipPath>
-    <style>
-      @keyframes u3129f1floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
-      @keyframes u3129f1pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-      @keyframes u3129f1crackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
-      @keyframes u3129f1glimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
-      @keyframes u3129f1dash { to{stroke-dashoffset:-20} }
-      @keyframes u3129f1rotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-      .u3129f1fa { animation: u3129f1floatUp 3.2s ease-in infinite; }
-      .u3129f1fb { animation: u3129f1floatUp 3.8s ease-in infinite; animation-delay:0.9s; }
-      .u3129f1fc { animation: u3129f1floatUp 2.9s ease-in infinite; animation-delay:1.7s; }
-      .u3129f1crack { animation: u3129f1crackFx 1.9s ease-in-out infinite; }
-      .u3129f1blink { animation: u3129f1pulse 2.2s ease-in-out infinite; }
-    </style>
-  </defs>
+<defs>
+  <linearGradient id="m27_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0d1117"/>
+    <stop offset="50%" stop-color="#0a1025"/>
+    <stop offset="100%" stop-color="#070d1a"/>
+  </linearGradient>
+  <radialGradient id="m27_vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+  </radialGradient>
+  <filter id="m27_glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="m27_glowC"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 0.024 0 0 0 0 0.714 0 0 0 0 0.831 0 0 0 1 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="m27_glowB"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 0.231 0 0 0 0 0.510 0 0 0 0 0.965 0 0 0 1 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="m27_glowG"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 0.133 0 0 0 0 0.773 0 0 0 0 0.369 0 0 0 1 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="m27_panel"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#06b6d4" flood-opacity="0.25"/></filter>
+  <filter id="m27_crack"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="m27_dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="12" cy="12" r="0.8" fill="#1e3a5f"/>
+  </pattern>
+  <pattern id="m27_hex" width="30" height="52" patternUnits="userSpaceOnUse">
+    <polygon points="15,2 28,9 28,23 15,30 2,23 2,9" fill="none" stroke="#1a2f4a" stroke-width="0.5"/>
+    <polygon points="15,28 28,35 28,49 15,56 2,49 2,35" fill="none" stroke="#1a2f4a" stroke-width="0.5"/>
+  </pattern>
+  <style>
+    @keyframes m27_pulse{0%,100%{opacity:.6}50%{opacity:1}}
+    @keyframes m27_float{0%{transform:translateY(0);opacity:.8}100%{transform:translateY(-22px);opacity:0}}
+    @keyframes m27_spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes m27_big{0%,100%{opacity:.3}50%{opacity:.7}}
+    @keyframes m27_glim{0%,100%{opacity:.25}50%{opacity:.85}}
+    .p1{animation:m27_pulse 2.1s infinite}
+    .p2{animation:m27_pulse 2.8s infinite .4s}
+    .p3{animation:m27_pulse 3.2s infinite .8s}
+    .f1{animation:m27_float 3.2s infinite}
+    .f2{animation:m27_float 4.1s infinite 1.1s}
+    .f3{animation:m27_float 3.7s infinite 2.1s}
+    .big{animation:m27_big 3s infinite}
+    .gl{animation:m27_glim 2.2s infinite}
+  </style>
+</defs>
 
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#u3129f1bg)"/>
-  <g clip-path="url(#u3129f1clip)">
-    <rect width="1200" height="630" fill="url(#u3129f1dots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#u3129f1ambientL)"/>
-    <rect width="1200" height="630" fill="url(#u3129f1ambientR)"/>
+<rect width="1200" height="630" fill="url(#m27_bg)"/>
+<rect width="1200" height="630" fill="url(#m27_dots)"/>
+<rect width="1200" height="630" fill="url(#m27_hex)" opacity="0.4"/>
+<line x1="0" y1="157" x2="1200" y2="157" stroke="#1e3a5f" stroke-width="0.5" opacity="0.6"/>
+<line x1="0" y1="314" x2="1200" y2="314" stroke="#1e3a5f" stroke-width="0.5" opacity="0.6"/>
+<line x1="0" y1="471" x2="1200" y2="471" stroke="#1e3a5f" stroke-width="0.5" opacity="0.6"/>
+<rect width="1200" height="630" fill="url(#m27_vignette)"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u3129f1panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u3129f1accent)"/>
+<!-- LEFT PANEL -->
+<rect x="10" y="10" width="282" height="610" rx="4" fill="#06080f" stroke="#1e3a5f" stroke-width="1" filter="url(#m27_panel)" opacity="0.96"/>
+<rect x="10" y="10" width="282" height="3" rx="2" fill="#06b6d4"/>
+<text x="24" y="36" font-family="Courier New" font-size="9" fill="#06b6d4" letter-spacing="3" opacity="0.7">SECURITY DIGEST</text>
+<text x="24" y="56" font-family="Courier New" font-size="14" fill="#e2e8f0" font-weight="bold" letter-spacing="1">ZERO TRUST</text>
+<text x="24" y="74" font-family="Courier New" font-size="14" fill="#e2e8f0" font-weight="bold" letter-spacing="1">CLOUD FINOPS</text>
+<text x="24" y="90" font-family="Courier New" font-size="9" fill="#475569" letter-spacing="2">MARCH 27, 2026</text>
+<line x1="24" y1="98" x2="274" y2="98" stroke="#1e3a5f" stroke-width="1"/>
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#67e8f9" text-anchor="middle" letter-spacing="2" font-weight="bold">CLOUD INFRA</text>
+<!-- Topic 1: AWS IAM -->
+<rect x="20" y="110" width="3" height="42" rx="1" fill="#06b6d4"/>
+<text x="32" y="124" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">AWS IAM</text>
+<text x="32" y="138" font-family="Arial" font-size="9" fill="#94a3b8">Identity Access Mgmt</text>
+<rect x="32" y="143" width="65" height="4" rx="2" fill="#1e3a5f"/>
+<rect x="32" y="143" width="54" height="4" rx="2" fill="#06b6d4" class="gl"/>
+<rect x="222" y="116" width="44" height="16" rx="3" fill="#06b6d418"/>
+<text x="244" y="128" font-family="Courier New" font-size="9" fill="#06b6d4" text-anchor="middle">IAM</text>
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2026-03-27</text>
+<!-- Topic 2: Zero Trust -->
+<rect x="20" y="162" width="3" height="42" rx="1" fill="#3b82f6"/>
+<text x="32" y="176" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">Zero Trust</text>
+<text x="32" y="190" font-family="Arial" font-size="9" fill="#94a3b8">Network Architecture</text>
+<rect x="32" y="195" width="65" height="4" rx="2" fill="#1e3a5f"/>
+<rect x="32" y="195" width="48" height="4" rx="2" fill="#3b82f6" class="gl"/>
+<rect x="216" y="168" width="56" height="16" rx="3" fill="#3b82f618"/>
+<text x="244" y="180" font-family="Courier New" font-size="9" fill="#3b82f6" text-anchor="middle">TRUST</text>
 
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u3129f1title)" font-weight="700" letter-spacing="-1">Zero Trust</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u3129f1title)" font-weight="700" letter-spacing="-1">Finops</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u3129f1title)" font-weight="700" letter-spacing="-1">Security Weekly</text>
+<!-- Topic 3: GCP Workload -->
+<rect x="20" y="214" width="3" height="42" rx="1" fill="#22c55e"/>
+<text x="32" y="228" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">GCP Workload</text>
+<text x="32" y="242" font-family="Arial" font-size="9" fill="#94a3b8">Identity Federation</text>
+<rect x="32" y="247" width="65" height="4" rx="2" fill="#1e3a5f"/>
+<rect x="32" y="247" width="38" height="4" rx="2" fill="#22c55e" class="gl"/>
+<rect x="210" y="220" width="62" height="16" rx="3" fill="#22c55e18"/>
+<text x="241" y="232" font-family="Courier New" font-size="9" fill="#22c55e" text-anchor="middle">GCP WLI</text>
 
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u3129f1accent)" opacity="0.8"/>
+<!-- Topic 4: FinOps -->
+<rect x="20" y="266" width="3" height="42" rx="1" fill="#f59e0b"/>
+<text x="32" y="280" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">FinOps</text>
+<text x="32" y="294" font-family="Arial" font-size="9" fill="#94a3b8">Cost Optimization</text>
+<rect x="32" y="299" width="65" height="4" rx="2" fill="#1e3a5f"/>
+<rect x="32" y="299" width="45" height="4" rx="2" fill="#f59e0b" class="gl"/>
+<rect x="208" y="272" width="64" height="16" rx="3" fill="#f59e0b18"/>
+<text x="240" y="284" font-family="Courier New" font-size="9" fill="#f59e0b" text-anchor="middle">FINOPS</text>
 
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Devsecops</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#3b82f6" font-weight="600">Cloud Security</text>
+<!-- Topic 5: Cloud Security -->
+<rect x="20" y="318" width="3" height="42" rx="1" fill="#06b6d4"/>
+<text x="32" y="332" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">Cloud Security</text>
+<text x="32" y="346" font-family="Arial" font-size="9" fill="#94a3b8">Posture Management</text>
+<rect x="32" y="351" width="65" height="4" rx="2" fill="#1e3a5f"/>
+<rect x="32" y="351" width="56" height="4" rx="2" fill="#06b6d4" class="gl"/>
+<rect x="204" y="324" width="68" height="16" rx="3" fill="#06b6d418"/>
+<text x="238" y="336" font-family="Courier New" font-size="9" fill="#06b6d4" text-anchor="middle">CSPM</text>
 
-    <!-- Focus panel -->
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10"/>
-    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Trust / Finops</text>
-    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Security Weekly / AWS IAM</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#06b6d4" stroke-width="0.8" opacity="0.20"/>
-    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">AWS IAM Identity Center + SCP Zero</text>
-    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">GCP Workload Identity</text>
-    <rect x="56" y="461" width="88" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    
-    <rect x="152" y="461" width="70" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
-    
+<line x1="24" y1="374" x2="274" y2="374" stroke="#1e3a5f" stroke-width="1"/>
+<text x="24" y="390" font-family="Courier New" font-size="9" fill="#475569" letter-spacing="2">SEVERITY INDEX</text>
 
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="88" height="24" rx="12" fill="#0c4a6e" stroke="#06b6d4" stroke-width="1.2"/>
-    
-    <rect x="138" y="525" width="128" height="24" rx="12" fill="#0d1525" stroke="#3b82f6" stroke-width="1.2"/>
-    
-    <rect x="276" y="525" width="96" height="24" rx="12" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.2"/>
-    
+<text x="24" y="410" font-family="Arial" font-size="9" fill="#ef4444">HIGH</text>
+<rect x="74" y="402" width="185" height="8" rx="4" fill="#1e3a5f"/>
+<rect x="74" y="402" width="139" height="8" rx="4" fill="#ef4444" opacity="0.8"/>
+<text x="265" y="410" font-family="Courier New" font-size="9" fill="#ef4444" text-anchor="end">75%</text>
 
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
+<text x="24" y="428" font-family="Arial" font-size="9" fill="#f59e0b">MED</text>
+<rect x="74" y="420" width="185" height="8" rx="4" fill="#1e3a5f"/>
+<rect x="74" y="420" width="111" height="8" rx="4" fill="#f59e0b" opacity="0.8"/>
+<text x="265" y="428" font-family="Courier New" font-size="9" fill="#f59e0b" text-anchor="end">60%</text>
 
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u3129f1sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u3129f1sceneGlow2)" opacity="0.5"/>
+<text x="24" y="446" font-family="Arial" font-size="9" fill="#22c55e">LOW</text>
+<rect x="74" y="438" width="185" height="8" rx="4" fill="#1e3a5f"/>
+<rect x="74" y="438" width="74" height="8" rx="4" fill="#22c55e" opacity="0.8"/>
+<text x="265" y="446" font-family="Courier New" font-size="9" fill="#22c55e" text-anchor="end">40%</text>
 
-    <!-- SCENE: Cloud Infrastructure -->
-    <!-- Cloud shape -->
-    <ellipse cx="700" cy="180" rx="120" ry="55" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5" opacity="0.7"/>
-    <ellipse cx="665" cy="200" rx="80" ry="42" fill="#06b6d4" opacity="0.05"/>
-    <ellipse cx="740" cy="205" rx="70" ry="38" fill="#3b82f6" opacity="0.04"/>
-    <text x="700" y="185" font-family="Courier New, monospace" font-size="10"
-          fill="#67e8f9" text-anchor="middle" font-weight="bold">CLOUD</text>
+<line x1="24" y1="460" x2="274" y2="460" stroke="#1e3a5f" stroke-width="1"/>
+<text x="24" y="476" font-family="Courier New" font-size="9" fill="#475569" letter-spacing="2">INTEL SUMMARY</text>
+<text x="24" y="494" font-family="Arial" font-size="10" fill="#94a3b8">CVEs Tracked</text>
+<text x="274" y="494" font-family="Courier New" font-size="10" fill="#06b6d4" text-anchor="end">14</text>
+<text x="24" y="510" font-family="Arial" font-size="10" fill="#94a3b8">Advisories</text>
+<text x="274" y="510" font-family="Courier New" font-size="10" fill="#22c55e" text-anchor="end">7</text>
+<text x="24" y="526" font-family="Arial" font-size="10" fill="#94a3b8">Policy Updates</text>
+<text x="274" y="526" font-family="Courier New" font-size="10" fill="#f59e0b" text-anchor="end">5</text>
+<text x="24" y="542" font-family="Arial" font-size="10" fill="#94a3b8">Cloud Configs</text>
+<text x="274" y="542" font-family="Courier New" font-size="10" fill="#3b82f6" text-anchor="end">9</text>
+<text x="24" y="558" font-family="Arial" font-size="10" fill="#94a3b8">IAM Policies</text>
+<text x="274" y="558" font-family="Courier New" font-size="10" fill="#06b6d4" text-anchor="end">21</text>
 
-    <!-- Server rack -->
-    <rect x="880" y="220" width="90" height="120" rx="6" fill="#0a1628" stroke="#3b82f6" stroke-width="1.5" opacity="0.8"/>
-    <line x1="880" y1="260" x2="970" y2="260" stroke="#3b82f6" stroke-width="0.8" opacity="0.5"/>
-    <line x1="880" y1="300" x2="970" y2="300" stroke="#3b82f6" stroke-width="0.8" opacity="0.5"/>
-    <circle cx="955" cy="240" r="4" fill="#22c55e" opacity="0.6" style="animation: u3129f1pulse 2s ease-in-out infinite"/>
-    <circle cx="955" cy="280" r="4" fill="#22c55e" opacity="0.4"/>
-    <circle cx="955" cy="320" r="4" fill="#3b82f6" opacity="0.5"/>
-    <text x="925" y="360" font-family="Courier New, monospace" font-size="8"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">SERVER</text>
+<!-- HIGH badge -->
+<rect x="1048" y="14" width="138" height="32" rx="4" fill="#f59e0b22" stroke="#f59e0b" stroke-width="1.5"/>
+<circle cx="1066" cy="30" r="5" fill="#f59e0b" class="p1"/>
+<text x="1076" y="35" font-family="Courier New" font-size="13" fill="#f59e0b" font-weight="bold" letter-spacing="2">HIGH</text>
 
-    <!-- Region nodes -->
-    <g filter="url(#u3129f1glow)">
-      <circle cx="580" cy="340" r="32" fill="#0a1628" stroke="#06b6d4" stroke-width="2"/>
-    </g>
-    <text x="580" y="338" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" text-anchor="middle">REGION</text>
-    <text x="580" y="350" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">us-east-1</text>
+<!-- TOP HALF: Zero Trust rings (right side) -->
+<g transform="translate(880,190)" filter="url(#m27_glowC)">
+  <circle cx="0" cy="0" r="112" fill="none" stroke="#06b6d4" stroke-width="1" stroke-dasharray="8,4" opacity="0.35" class="big"/>
+  <circle cx="0" cy="0" r="80" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" class="p2"/>
+  <circle cx="0" cy="0" r="50" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.55" class="p3"/>
+  <circle cx="0" cy="0" r="24" fill="#08101e" stroke="#06b6d4" stroke-width="2"/>
+  <text x="0" y="-7" font-family="Courier New" font-size="8" fill="#06b6d4" text-anchor="middle">ZERO</text>
+  <text x="0" y="5" font-family="Courier New" font-size="8" fill="#06b6d4" text-anchor="middle">TRUST</text>
+  <text x="0" y="17" font-family="Courier New" font-size="7" fill="#3b82f6" text-anchor="middle">CORE</text>
+  <!-- checkpoints -->
+  <rect x="-12" y="-124" width="24" height="16" rx="3" fill="#08101e" stroke="#06b6d4" stroke-width="1.2"/>
+  <text x="0" y="-113" font-family="Courier New" font-size="7" fill="#06b6d4" text-anchor="middle">VERIFY</text>
+  <rect x="82" y="-8" width="24" height="16" rx="3" fill="#08101e" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="94" y="1" font-family="Courier New" font-size="7" fill="#3b82f6" text-anchor="middle">AUTH</text>
+  <rect x="-106" y="-8" width="24" height="16" rx="3" fill="#08101e" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="-94" y="1" font-family="Courier New" font-size="7" fill="#3b82f6" text-anchor="middle">MFA</text>
+  <rect x="-12" y="108" width="24" height="16" rx="3" fill="#08101e" stroke="#22c55e" stroke-width="1.2"/>
+  <text x="0" y="119" font-family="Courier New" font-size="7" fill="#22c55e" text-anchor="middle">AUDIT</text>
+  <!-- diagonal checkpoints -->
+  <rect x="50" y="-80" width="32" height="14" rx="3" fill="#08101e" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="66" y="-73" font-family="Courier New" font-size="6" fill="#22c55e" text-anchor="middle">POLICY</text>
+  <rect x="-82" y="-80" width="32" height="14" rx="3" fill="#08101e" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="-66" y="-73" font-family="Courier New" font-size="6" fill="#f59e0b" text-anchor="middle">COST</text>
+  <!-- spokes -->
+  <line x1="0" y1="-50" x2="0" y2="-80" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.4"/>
+  <line x1="0" y1="50" x2="0" y2="80" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.4"/>
+  <line x1="-50" y1="0" x2="-80" y2="0" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.4"/>
+  <line x1="50" y1="0" x2="80" y2="0" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.4"/>
+</g>
 
-    <g filter="url(#u3129f1glow)">
-      <circle cx="800" cy="420" r="32" fill="#0a1628" stroke="#3b82f6" stroke-width="2"/>
-    </g>
-    
-    <text x="800" y="430" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">ap-ne-2</text>
+<!-- TOP HALF: IAM Policy Tree (left of center) -->
+<g transform="translate(540,180)">
+  <text x="0" y="-95" font-family="Courier New" font-size="10" fill="#06b6d4" text-anchor="middle" letter-spacing="1">IAM POLICY TREE</text>
+  <rect x="-44" y="-84" width="88" height="24" rx="4" fill="#06b6d420" stroke="#06b6d4" stroke-width="1.2"/>
+  <text x="0" y="-68" font-family="Courier New" font-size="9" fill="#06b6d4" text-anchor="middle">ROOT ACCOUNT</text>
+  <line x1="0" y1="-60" x2="0" y2="-48" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="-80" y1="-48" x2="80" y2="-48" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="-80" y1="-48" x2="-80" y2="-36" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="0" y1="-48" x2="0" y2="-36" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="80" y1="-48" x2="80" y2="-36" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="-110" y="-36" width="60" height="22" rx="3" fill="#ef444420" stroke="#ef4444" stroke-width="1"/>
+  <text x="-80" y="-21" font-family="Courier New" font-size="8" fill="#ef4444" text-anchor="middle">ADMIN</text>
+  <rect x="-30" y="-36" width="60" height="22" rx="3" fill="#3b82f620" stroke="#3b82f6" stroke-width="1"/>
+  <text x="0" y="-21" font-family="Courier New" font-size="8" fill="#3b82f6" text-anchor="middle">DEV</text>
+  <rect x="50" y="-36" width="60" height="22" rx="3" fill="#22c55e20" stroke="#22c55e" stroke-width="1"/>
+  <text x="80" y="-21" font-family="Courier New" font-size="8" fill="#22c55e" text-anchor="middle">READONLY</text>
+  <!-- sub branches -->
+  <line x1="-80" y1="-14" x2="-80" y2="-2" stroke="#1e3a5f" stroke-width="0.8"/>
+  <line x1="-100" y1="-2" x2="-60" y2="-2" stroke="#1e3a5f" stroke-width="0.8"/>
+  <line x1="-100" y1="-2" x2="-100" y2="12" stroke="#1e3a5f" stroke-width="0.8"/>
+  <line x1="-60" y1="-2" x2="-60" y2="12" stroke="#1e3a5f" stroke-width="0.8"/>
+  <rect x="-122" y="12" width="44" height="16" rx="2" fill="#1e3a5f"/>
+  <text x="-100" y="23" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="middle">EC2</text>
+  <rect x="-78" y="12" width="44" height="16" rx="2" fill="#1e3a5f"/>
+  <text x="-56" y="23" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="middle">S3</text>
+  <rect x="-30" y="0" width="60" height="16" rx="3" fill="#f59e0b18" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="0" y="11" font-family="Courier New" font-size="7" fill="#f59e0b" text-anchor="middle">CONDITION</text>
+  <rect x="50" y="0" width="60" height="16" rx="3" fill="#22c55e18" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="80" y="11" font-family="Courier New" font-size="7" fill="#22c55e" text-anchor="middle">LIST ONLY</text>
+  <!-- MFA required badge -->
+  <rect x="-30" y="22" width="60" height="16" rx="3" fill="#06b6d418" stroke="#06b6d4" stroke-width="0.8"/>
+  <text x="0" y="33" font-family="Courier New" font-size="7" fill="#06b6d4" text-anchor="middle">MFA REQ</text>
+  <!-- permission boundary -->
+  <rect x="-130" y="-90" width="260" height="140" rx="6" fill="none" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="5,3" opacity="0.3"/>
+  <text x="130" y="-84" font-family="Courier New" font-size="7" fill="#3b82f6" text-anchor="end" opacity="0.5">PERMISSION BOUNDARY</text>
+</g>
 
-    <!-- VPC box -->
-    <rect x="620" y="400" width="120" height="70" rx="4" fill="none"
-          stroke="#06b6d4" stroke-width="1" stroke-dasharray="5 3" opacity="0.4"/>
-    <text x="680" y="418" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" text-anchor="middle" opacity="0.6">VPC</text>
+<!-- CRACK DIVIDER -->
+<g filter="url(#m27_crack)">
+  <path d="M292,314 L365,307 L420,320 L495,311 L555,318 L635,308 L695,315 L775,307 L840,314 L910,308 L978,317 L1050,311 L1130,315 L1200,315"
+    fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.65" stroke-dasharray="7,3">
+    <animate attributeName="stroke-dashoffset" from="80" to="0" dur="3.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M292,314 L365,319 L420,310 L495,317 L555,309 L635,316 L695,310 L775,317 L840,312 L910,318 L978,310 L1050,316 L1130,312 L1200,315"
+    fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.35"/>
+</g>
 
-    <!-- Data flow lines -->
-    <line x1="700" y1="235" x2="700" y2="310" stroke="#06b6d4" stroke-width="1.5"
-          opacity="0.4" stroke-dasharray="4 4" style="animation: u3129f1dash 2s linear infinite"/>
-    <line x1="750" y1="220" x2="880" y2="250" stroke="#3b82f6" stroke-width="1.5"
-          opacity="0.35" stroke-dasharray="4 4"/>
-    <line x1="610" y1="340" x2="770" y2="415" stroke="#06b6d4" stroke-width="1"
-          opacity="0.3" stroke-dasharray="3 5"/>
-    <path d="M 925 340 Q 900 390 830 420" fill="none" stroke="#3b82f6"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
+<!-- BOTTOM HALF: FinOps Chart -->
+<g transform="translate(520,460)">
+  <text x="0" y="-98" font-family="Courier New" font-size="10" fill="#f59e0b" text-anchor="middle" letter-spacing="1">FINOPS COST DASHBOARD</text>
+  <line x1="-145" y1="-82" x2="-145" y2="34" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="-145" y1="34" x2="155" y2="34" stroke="#1e3a5f" stroke-width="1"/>
+  <!-- y-axis ticks -->
+  <text x="-152" y="-58" font-family="Courier New" font-size="7" fill="#475569" text-anchor="end">100K</text>
+  <text x="-152" y="-18" font-family="Courier New" font-size="7" fill="#475569" text-anchor="end">50K</text>
+  <text x="-152" y="22" font-family="Courier New" font-size="7" fill="#475569" text-anchor="end">10K</text>
+  <!-- bars -->
+  <rect x="-134" y="-62" width="26" height="96" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="0.8"/>
+  <rect x="-96" y="-48" width="26" height="82" rx="2" fill="#3b82f630" stroke="#3b82f6" stroke-width="0.8"/>
+  <rect x="-58" y="-72" width="26" height="106" rx="2" fill="#22c55e30" stroke="#22c55e" stroke-width="0.8"/>
+  <rect x="-20" y="-36" width="26" height="70" rx="2" fill="#f59e0b30" stroke="#f59e0b" stroke-width="0.8"/>
+  <rect x="18" y="-54" width="26" height="88" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="0.8"/>
+  <rect x="56" y="-28" width="26" height="62" rx="2" fill="#3b82f630" stroke="#3b82f6" stroke-width="0.8"/>
+  <rect x="94" y="-66" width="26" height="100" rx="2" fill="#22c55e30" stroke="#22c55e" stroke-width="0.8"/>
+  <rect x="132" y="-42" width="26" height="76" rx="2" fill="#f59e0b30" stroke="#f59e0b" stroke-width="0.8"/>
+  <!-- month labels -->
+  <text x="-121" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">JAN</text>
+  <text x="-83" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">FEB</text>
+  <text x="-45" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">MAR</text>
+  <text x="-7" y="46" font-family="Courier New" font-size="7" fill="#f59e0b" text-anchor="middle">APR</text>
+  <text x="31" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">MAY</text>
+  <text x="69" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">JUN</text>
+  <text x="107" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">JUL</text>
+  <text x="145" y="46" font-family="Courier New" font-size="7" fill="#475569" text-anchor="middle">AUG</text>
+  <!-- trend line -->
+  <polyline points="-121,-14 -83,-6 -45,-24 -7,2 31,-10 69,12 107,-16 145,-4"
+    fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.8"/>
+  <!-- saved badge -->
+  <rect x="-20" y="-90" width="80" height="20" rx="3" fill="#22c55e20" stroke="#22c55e" stroke-width="1"/>
+  <text x="20" y="-77" font-family="Courier New" font-size="8" fill="#22c55e" text-anchor="middle">SAVED 23%</text>
+</g>
 
-    <!-- Server rack blinking LEDs -->
-    <circle cx="895" cy="240" r="3" fill="#ef4444" opacity="0.5" class="u3129f1blink"/>
-    <circle cx="895" cy="280" r="3" fill="#06b6d4" opacity="0.4" class="u3129f1blink"/>
-    <circle cx="895" cy="320" r="3" fill="#f59e0b" opacity="0.45"/>
-    <rect x="892" y="234" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
-    <rect x="892" y="274" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
-    <rect x="892" y="314" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
+<!-- BOTTOM HALF: Workload Identity Flow -->
+<g transform="translate(900,455)">
+  <text x="0" y="-98" font-family="Courier New" font-size="10" fill="#22c55e" text-anchor="middle" letter-spacing="1">WORKLOAD IDENTITY FLOW</text>
+  <!-- nodes -->
+  <rect x="-155" y="-55" width="80" height="28" rx="4" fill="#22c55e20" stroke="#22c55e" stroke-width="1.2" class="p1"/>
+  <text x="-115" y="-38" font-family="Courier New" font-size="8" fill="#22c55e" text-anchor="middle">WORKLOAD</text>
+  <rect x="-38" y="-55" width="76" height="28" rx="4" fill="#3b82f620" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="0" y="-38" font-family="Courier New" font-size="8" fill="#3b82f6" text-anchor="middle">STS/TOKEN</text>
+  <rect x="80" y="-55" width="76" height="28" rx="4" fill="#06b6d420" stroke="#06b6d4" stroke-width="1.2"/>
+  <text x="118" y="-38" font-family="Courier New" font-size="8" fill="#06b6d4" text-anchor="middle">RESOURCE</text>
+  <!-- arrows -->
+  <path d="M-75,-41 L-38,-41" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-dasharray="5,2">
+    <animate attributeName="stroke-dashoffset" from="28" to="0" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <polygon points="-38,-38 -44,-43 -44,-39" fill="#3b82f6"/>
+  <path d="M38,-41 L80,-41" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-dasharray="5,2">
+    <animate attributeName="stroke-dashoffset" from="28" to="0" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  <polygon points="80,-38 74,-43 74,-39" fill="#06b6d4"/>
+  <text x="-56" y="-47" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="middle">ATTEST</text>
+  <text x="59" y="-47" font-family="Courier New" font-size="7" fill="#94a3b8" text-anchor="middle">TOKEN</text>
+  <!-- identity pool -->
+  <rect x="-90" y="-2" width="180" height="26" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="0" y="14" font-family="Courier New" font-size="8" fill="#3b82f6" text-anchor="middle">WORKLOAD IDENTITY POOL</text>
+  <!-- OIDC provider -->
+  <rect x="-70" y="34" width="140" height="22" rx="3" fill="#06b6d415" stroke="#06b6d4" stroke-width="0.8"/>
+  <text x="0" y="49" font-family="Courier New" font-size="7" fill="#06b6d4" text-anchor="middle">OIDC PROVIDER: GCP</text>
+  <!-- connectors -->
+  <line x1="0" y1="-27" x2="0" y2="-2" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <line x1="0" y1="24" x2="0" y2="34" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <!-- budget policy -->
+  <rect x="96" y="-2" width="82" height="22" rx="3" fill="#f59e0b15" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="137" y="12" font-family="Courier New" font-size="7" fill="#f59e0b" text-anchor="middle">BUDGET POLICY</text>
+  <line x1="96" y1="9" x2="80" y2="-27" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="2,2" opacity="0.4"/>
+</g>
 
-    <!-- VPC boundary box (larger) -->
-    <rect x="450" y="260" width="280" height="220" rx="8" fill="none"
-          stroke="#06b6d4" stroke-width="1.2" stroke-dasharray="8 4" opacity="0.25"/>
-    <text x="460" y="278" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" opacity="0.5" font-weight="bold">VPC-BOUNDARY</text>
+<!-- Particles -->
+<circle cx="315" cy="95" r="2" fill="#06b6d4" class="f1" opacity="0.7"/>
+<circle cx="445" cy="145" r="1.5" fill="#3b82f6" class="f2" opacity="0.6"/>
+<circle cx="595" cy="88" r="2" fill="#22c55e" class="f3" opacity="0.7"/>
+<circle cx="720" cy="128" r="1.5" fill="#06b6d4" class="f1" opacity="0.5"/>
+<circle cx="855" cy="92" r="2" fill="#f59e0b" class="f2" opacity="0.6"/>
+<circle cx="985" cy="115" r="1.5" fill="#3b82f6" class="f3" opacity="0.7"/>
+<circle cx="1080" cy="78" r="2" fill="#22c55e" class="f1" opacity="0.5"/>
+<circle cx="355" cy="415" r="2" fill="#f59e0b" class="f2" opacity="0.5"/>
+<circle cx="575" cy="462" r="1.5" fill="#22c55e" class="f3" opacity="0.6"/>
+<circle cx="765" cy="388" r="2" fill="#06b6d4" class="f1" opacity="0.7"/>
+<circle cx="952" cy="428" r="1.5" fill="#3b82f6" class="f2" opacity="0.5"/>
+<circle cx="1110" cy="398" r="2" fill="#22c55e" class="f3" opacity="0.6"/>
 
-    <!-- Data flow arrows -->
-    <path d="M 770 190 Q 820 210 880 225" fill="none" stroke="#3b82f6"
-          stroke-width="1.5" opacity="0.4" stroke-dasharray="5 3" style="animation: u3129f1dash 2s linear infinite"/>
-    <polygon points="876,222 885,226 878,230" fill="#3b82f6" opacity="0.4"/>
-    <path d="M 600 345 Q 650 380 700 400" fill="none" stroke="#06b6d4"
-          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
-    <polygon points="696,397 705,402 698,406" fill="#06b6d4" opacity="0.3"/>
+<!-- Corner bracket -->
+<line x1="1158" y1="578" x2="1192" y2="578" stroke="#06b6d4" stroke-width="1" opacity="0.4"/>
+<line x1="1192" y1="578" x2="1192" y2="544" stroke="#06b6d4" stroke-width="1" opacity="0.4"/>
+<line x1="300" y1="580" x2="300" y2="616" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
 
-    <!-- Region label badges -->
-    <rect x="480" y="300" width="72" height="20" rx="3" fill="#0c4a6e" stroke="#06b6d4" stroke-width="0.8" opacity="0.6"/>
-    <text x="516" y="314" font-family="Courier New, monospace" font-size="7"
-          fill="#06b6d4" text-anchor="middle" opacity="0.8">us-west-2</text>
-    <rect x="830" y="450" width="72" height="20" rx="3" fill="#0c4a6e" stroke="#3b82f6" stroke-width="0.8" opacity="0.6"/>
-    <text x="866" y="464" font-family="Courier New, monospace" font-size="7"
-          fill="#3b82f6" text-anchor="middle" opacity="0.8">eu-west-1</text>
-
-    <!-- Load balancer icon -->
-    <g transform="translate(700,320)" filter="url(#u3129f1fxGlow)">
-      <circle cx="0" cy="0" r="22" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5"/>
-      <line x1="-8" y1="-5" x2="8" y2="-5" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <line x1="-8" y1="0" x2="8" y2="0" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <line x1="-8" y1="5" x2="8" y2="5" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <polygon points="-10,0 -14,-4 -14,4" fill="#06b6d4" opacity="0.5"/>
-      <polygon points="10,0 14,-4 14,4" fill="#06b6d4" opacity="0.5"/>
-    </g>
-    <text x="700" y="350" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">ALB</text>
-
-    <!-- Pulsing ring on cloud -->
-    <ellipse cx="700" cy="180" rx="140" ry="70" fill="none" stroke="#06b6d4"
-             stroke-width="0.8" opacity="0.2" style="animation: u3129f1pulse 4s ease-in-out infinite"/>
-
-    <!-- Ambient glow -->
-    <ellipse cx="750" cy="300" rx="250" ry="180" fill="#06b6d4" opacity="0.04"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <defs>
-      <pattern id="u3129f1mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#06b6d4"
-              stroke-width="0.35" opacity="0.12"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u3129f1mesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#06b6d4" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#3b82f6" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#0ea5e9" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#06b6d4" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#3b82f6" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#06b6d4" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#3b82f6" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#06b6d4" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#06b6d4" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#3b82f6" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#0ea5e9" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#06b6d4" opacity="0.20"/>
-    
-    <rect x="432" y="96" width="660" height="370" rx="24" fill="#0a1628" opacity="0.12"/>
-    <rect x="452" y="116" width="620" height="330" rx="20" fill="#0d1525" opacity="0.09"/>
-    <path d="M 450 490 Q 700 430 1080 520" fill="none" stroke="#06b6d4" stroke-width="1.0" opacity="0.14"/>
-    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text>
-    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#3b82f6" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#3b82f6" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#3b82f6" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">AWS IAM Identity Center +</text>
-    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AWS IAM</text>
-    <rect x="470" y="186" width="430" height="84" rx="16" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.76"/><line x1="488" y1="214" x2="882" y2="214" stroke="#06b6d4" stroke-width="0.8" opacity="0.25"/>
-    <rect x="548" y="292" width="392" height="82" rx="16" fill="#0a1628" stroke="#3b82f6" stroke-width="1.1" opacity="0.76"/><line x1="566" y1="320" x2="922" y2="320" stroke="#3b82f6" stroke-width="0.8" opacity="0.25"/>
-    <rect x="620" y="396" width="340" height="78" rx="16" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.76"/><line x1="638" y1="424" x2="942" y2="424" stroke="#0ea5e9" stroke-width="0.8" opacity="0.25"/>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#06b6d4" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#3b82f6" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#0ea5e9" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#3b82f6" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#06b6d4" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#0ea5e9" stroke-width="1" opacity="0.1"/>
-
-    <!-- CRT scan line -->
-    <rect width="1200" height="2" x="0" y="0" fill="#06b6d4" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
-    </rect>
-  </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  
-
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+<!-- FOOTER -->
+<rect x="0" y="609" width="1200" height="21" fill="#030608" opacity="0.96"/>
+<text x="295" y="623" font-family="Courier New" font-size="9" fill="#1e3a5f">//////////</text>
+<text x="378" y="623" font-family="Courier New" font-size="9" fill="#3b82f6" letter-spacing="2">ZERO TRUST CLOUD FINOPS</text>
+<text x="608" y="623" font-family="Courier New" font-size="9" fill="#1e3a5f">//</text>
+<text x="624" y="623" font-family="Courier New" font-size="9" fill="#94a3b8">tech.2twodragon.com</text>
+<text x="804" y="623" font-family="Courier New" font-size="9" fill="#1e3a5f">//</text>
+<text x="820" y="623" font-family="Courier New" font-size="9" fill="#475569">2026-03-27</text>
 </svg>

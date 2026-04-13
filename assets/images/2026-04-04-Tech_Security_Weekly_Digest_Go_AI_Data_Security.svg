@@ -1,503 +1,312 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>TA416, PlugX,</title>
-  <defs>
-    <linearGradient id="u7b1b1abg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1a0505"/>
-      <stop offset="100%" style="stop-color:#0a0f1e"/>
-    </linearGradient>
-    <linearGradient id="u7b1b1aaccent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#f97316"/>
-    </linearGradient>
-    <linearGradient id="u7b1b1atitle" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
-    </linearGradient>
-    <linearGradient id="u7b1b1apanel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
-    </linearGradient>
-    <radialGradient id="u7b1b1aambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="u7b1b1aambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="u7b1b1aglow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#dc2626" flood-opacity="0.7"/>
-    </filter>
-    <filter id="u7b1b1ablur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="u7b1b1atextglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.5"/>
-    </filter>
-    <filter id="u7b1b1afxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="u7b1b1afxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="u7b1b1asceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="u7b1b1asceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="u7b1b1adots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
-    </pattern>
-    <clipPath id="u7b1b1aclip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
-    </clipPath>
-    <style>
-      @keyframes u7b1b1afloatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
-      @keyframes u7b1b1apulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-      @keyframes u7b1b1acrackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
-      @keyframes u7b1b1aglimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
-      @keyframes u7b1b1adash { to{stroke-dashoffset:-20} }
-      @keyframes u7b1b1arotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-      .u7b1b1afa { animation: u7b1b1afloatUp 3.2s ease-in infinite; }
-      .u7b1b1afb { animation: u7b1b1afloatUp 3.8s ease-in infinite; animation-delay:0.9s; }
-      .u7b1b1afc { animation: u7b1b1afloatUp 2.9s ease-in infinite; animation-delay:1.7s; }
-      .u7b1b1acrack { animation: u7b1b1acrackFx 1.9s ease-in-out infinite; }
-      .u7b1b1ablink { animation: u7b1b1apulse 2.2s ease-in-out infinite; }
-    </style>
-  </defs>
+<defs>
+  <linearGradient id="a04_bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0d1117"/><stop offset="50%" stop-color="#0a1025"/><stop offset="100%" stop-color="#070d1a"/>
+  </linearGradient>
+  <pattern id="a04_dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#1e3a5f" opacity="0.5"/>
+  </pattern>
+  <pattern id="a04_hex" x="0" y="0" width="30" height="52" patternUnits="userSpaceOnUse">
+    <path d="M15,0 L30,8.66 L30,26 L15,34.64 L0,26 L0,8.66 Z" fill="none" stroke="#1a2f4a" stroke-width="0.4" opacity="0.3"/>
+    <path d="M15,26 L30,34.66 L30,52 L15,60.64 L0,52 L0,34.66 Z" fill="none" stroke="#1a2f4a" stroke-width="0.4" opacity="0.3"/>
+  </pattern>
+  <pattern id="a04_scan" x="0" y="0" width="1200" height="4" patternUnits="userSpaceOnUse">
+    <rect x="0" y="0" width="1200" height="1" fill="#0a1830" opacity="0.15"/>
+  </pattern>
+  <radialGradient id="a04_vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="#00000099"/>
+  </radialGradient>
+  <filter id="a04_glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="a04_glowRed"><feGaussianBlur stdDeviation="5" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0.9 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="rb"/><feMerge><feMergeNode in="rb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="a04_glowBlue"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.4 0 0 0 0 1 0 0 0 1 0" result="bb"/><feMerge><feMergeNode in="bb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="a04_glowAmber"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0.9 0.5 0 0 0 0.3 0 0 0 0 0 0 0 0 1 0" result="ab"/><feMerge><feMergeNode in="ab"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="a04_crackGlow"><feGaussianBlur stdDeviation="4" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0.9 0.2 0 0 0 0.2 0 0 0 0 0 0 0 0 1 0" result="fb"/><feMerge><feMergeNode in="fb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="a04_crackGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#ef4444"/><stop offset="50%" stop-color="#f97316"/><stop offset="100%" stop-color="#dc2626"/>
+  </linearGradient>
+  <linearGradient id="a04_critBar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
+  <linearGradient id="a04_highBar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
+  <linearGradient id="a04_medBar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#eab308"/><stop offset="100%" stop-color="#ca8a04"/></linearGradient>
+  <marker id="a04_arr" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#ef4444"/></marker>
+  <marker id="a04_arrB" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#3b82f6"/></marker>
+  <marker id="a04_arrA" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#f59e0b"/></marker>
+</defs>
+<style>
+  @keyframes a04_pulse{0%,100%{opacity:0.4}50%{opacity:1}}
+  @keyframes a04_fu{0%{transform:translateY(0);opacity:0.7}100%{transform:translateY(-45px);opacity:0}}
+  @keyframes a04_fd{0%{transform:translateY(0);opacity:0.7}100%{transform:translateY(45px);opacity:0}}
+  @keyframes a04_ck{0%,100%{opacity:0.7}50%{opacity:1}}
+  @keyframes a04_blink{0%,100%{opacity:1}50%{opacity:0.2}}
+  .a04_p1{animation:a04_pulse 2s infinite}
+  .a04_p2{animation:a04_pulse 2.5s infinite 0.4s}
+  .a04_p3{animation:a04_pulse 1.9s infinite 0.8s}
+  .a04_fu{animation:a04_fu 4s infinite}
+  .a04_fd{animation:a04_fd 4s infinite 1.2s}
+  .a04_ck{animation:a04_ck 1.5s infinite}
+  .a04_bl{animation:a04_blink 1s infinite}
+</style>
 
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#u7b1b1abg)"/>
-  <g clip-path="url(#u7b1b1aclip)">
-    <rect width="1200" height="630" fill="url(#u7b1b1adots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#u7b1b1aambientL)"/>
-    <rect width="1200" height="630" fill="url(#u7b1b1aambientR)"/>
+<rect width="1200" height="630" fill="url(#a04_bg)"/>
+<rect width="1200" height="630" fill="url(#a04_dots)"/>
+<rect width="1200" height="630" fill="url(#a04_hex)"/>
+<rect width="1200" height="630" fill="url(#a04_scan)"/>
+<rect width="1200" height="630" fill="url(#a04_vignette)"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u7b1b1apanel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u7b1b1aaccent)"/>
+<!-- Left Panel -->
+<rect x="0" y="0" width="290" height="630" fill="#0d1520" opacity="0.96"/>
+<line x1="290" y1="0" x2="290" y2="630" stroke="#1e3a5f" stroke-width="1.5"/>
+<text x="145" y="26" font-family="Courier New,monospace" font-size="10" fill="#4a9eff" text-anchor="middle" letter-spacing="3">THREAT INTELLIGENCE</text>
+<text x="145" y="48" font-family="Courier New,monospace" font-size="16" fill="#e2e8f0" text-anchor="middle" font-weight="bold">Tech Security Weekly</text>
+<text x="145" y="64" font-family="Courier New,monospace" font-size="9" fill="#64748b" text-anchor="middle" letter-spacing="1">APRIL 04, 2026 - ISSUE #016</text>
+<line x1="12" y1="72" x2="278" y2="72" stroke="#1e3a5f" stroke-width="1"/>
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#7f1d1d" stroke="#dc2626" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#fca5a5" text-anchor="middle" letter-spacing="2" font-weight="bold">SECURITY ALERT</text>
+<rect x="11" y="80" width="4" height="38" fill="#ef4444" rx="2"/>
+<circle cx="271" cy="99" r="4" fill="#ef4444" class="a04_p1"/>
+<text x="23" y="94" font-family="Arial,sans-serif" font-size="10.5" fill="#f1f5f9" font-weight="bold">TA416 APT Campaign</text>
+<text x="23" y="108" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">China-linked Threat Actor</text>
+<rect x="23" y="113" width="36" height="11" rx="3" fill="#ef44441a" stroke="#ef4444" stroke-width="0.5"/>
+<text x="41" y="122" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle">APT</text>
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2026-04-04</text>
+<rect x="11" y="125" width="4" height="38" fill="#ef4444" rx="2"/>
+<circle cx="271" cy="144" r="4" fill="#ef4444" class="a04_p2"/>
+<text x="23" y="139" font-family="Arial,sans-serif" font-size="10.5" fill="#f1f5f9" font-weight="bold">PlugX RAT</text>
+<text x="23" y="153" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Backdoor Implant</text>
+<rect x="23" y="158" width="36" height="11" rx="3" fill="#ef44441a" stroke="#ef4444" stroke-width="0.5"/>
+<text x="41" y="167" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle">RAT</text>
 
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u7b1b1atitle)" font-weight="700" letter-spacing="-1">TA416, PlugX,</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u7b1b1atitle)" font-weight="700" letter-spacing="-1">Microsoft, Linux,</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u7b1b1atitle)" font-weight="700" letter-spacing="-1">LinkedIn, ,000</text>
+<rect x="11" y="170" width="4" height="38" fill="#3b82f6" rx="2"/>
+<circle cx="271" cy="189" r="4" fill="#3b82f6" class="a04_p3"/>
+<text x="23" y="184" font-family="Arial,sans-serif" font-size="10.5" fill="#f1f5f9" font-weight="bold">LinkedIn Target</text>
+<text x="23" y="198" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">6,000+ Accounts Hit</text>
+<rect x="23" y="203" width="44" height="11" rx="3" fill="#3b82f61a" stroke="#3b82f6" stroke-width="0.5"/>
+<text x="45" y="212" font-family="Courier New,monospace" font-size="8" fill="#3b82f6" text-anchor="middle">SOCIAL</text>
 
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u7b1b1aaccent)" opacity="0.8"/>
+<rect x="11" y="215" width="4" height="38" fill="#f59e0b" rx="2"/>
+<circle cx="271" cy="234" r="4" fill="#f59e0b" class="a04_p1"/>
+<text x="23" y="229" font-family="Arial,sans-serif" font-size="10.5" fill="#f1f5f9" font-weight="bold">Data Breach</text>
+<text x="23" y="243" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Microsoft/Linux Accounts</text>
+<rect x="23" y="248" width="44" height="11" rx="3" fill="#f59e0b1a" stroke="#f59e0b" stroke-width="0.5"/>
+<text x="45" y="257" font-family="Courier New,monospace" font-size="8" fill="#f59e0b" text-anchor="middle">BREACH</text>
 
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">Devsecops</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">Cloud Security</text>
+<rect x="11" y="260" width="4" height="38" fill="#22c55e" rx="2"/>
+<circle cx="271" cy="279" r="4" fill="#22c55e" class="a04_p2"/>
+<text x="23" y="274" font-family="Arial,sans-serif" font-size="10.5" fill="#f1f5f9" font-weight="bold">Go Security Fixes</text>
+<text x="23" y="288" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Runtime Hardening</text>
+<rect x="23" y="293" width="36" height="11" rx="3" fill="#22c55e1a" stroke="#22c55e" stroke-width="0.5"/>
+<text x="41" y="302" font-family="Courier New,monospace" font-size="8" fill="#22c55e" text-anchor="middle">GO</text>
 
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="88" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="84" y="541" font-family="Courier New, monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">Devsecops</text>
-    <rect x="138" y="525" width="128" height="24" rx="12" fill="#1a0505" stroke="#f97316" stroke-width="1.2"/>
-    <text x="202" y="541" font-family="Courier New, monospace" font-size="10" fill="#f97316" text-anchor="middle" font-weight="bold">Cloud Security</text>
-    <rect x="276" y="525" width="54" height="24" rx="12" fill="#0f172a" stroke="#dc2626" stroke-width="1.2"/>
-    <text x="303" y="541" font-family="Courier New, monospace" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">Go</text>
+<line x1="12" y1="313" x2="278" y2="313" stroke="#1e3a5f" stroke-width="1"/>
+<text x="14" y="330" font-family="Courier New,monospace" font-size="9" fill="#64748b" letter-spacing="1">SEVERITY DISTRIBUTION</text>
 
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
+<text x="14" y="348" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">CRITICAL</text>
+<rect x="72" y="339" width="140" height="10" rx="2" fill="#1a2a3a"/>
+<rect x="72" y="339" width="112" height="10" rx="2" fill="url(#a04_critBar)"/>
+<text x="218" y="348" font-family="Courier New,monospace" font-size="9" fill="#ef4444">80%</text>
 
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u7b1b1asceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u7b1b1asceneGlow2)" opacity="0.5"/>
+<text x="14" y="368" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">HIGH</text>
+<rect x="72" y="359" width="140" height="10" rx="2" fill="#1a2a3a"/>
+<rect x="72" y="359" width="91" height="10" rx="2" fill="url(#a04_highBar)"/>
+<text x="218" y="368" font-family="Courier New,monospace" font-size="9" fill="#f97316">65%</text>
 
-    <!-- SCENE: Security Breach -->
-    <!-- Shield (broken) -->
-    <g filter="url(#u7b1b1aglow)">
-      <circle cx="600" cy="200" r="55" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.9"/>
-      <circle cx="600" cy="200" r="55" fill="#dc2626" opacity="0.08"/>
-    </g>
-    <path d="M600 165 L625 175 L625 200 Q625 220 600 230 Q575 220 575 200 L575 175 Z"
-          fill="none" stroke="#ef4444" stroke-width="2"/>
-    <line x1="590" y1="180" x2="610" y2="220" stroke="#f97316" stroke-width="2.5" opacity="0.9"/>
-    <line x1="610" y1="180" x2="590" y2="220" stroke="#f97316" stroke-width="2.5" opacity="0.9"/>
+<text x="14" y="388" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">MEDIUM</text>
+<rect x="72" y="379" width="140" height="10" rx="2" fill="#1a2a3a"/>
+<rect x="72" y="379" width="63" height="10" rx="2" fill="url(#a04_medBar)"/>
+<text x="218" y="388" font-family="Courier New,monospace" font-size="9" fill="#eab308">45%</text>
 
-    <!-- Threat node 1 - skull warning -->
-    <g filter="url(#u7b1b1aglow)">
-      <circle cx="800" cy="140" r="38" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-      <circle cx="800" cy="140" r="38" fill="#dc2626" opacity="0.1"/>
-    </g>
-    <polygon points="800,118 815,142 808,148 800,155 792,148 785,142"
-             fill="none" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="800" y="140" font-family="Courier New, monospace" font-size="14"
-          fill="#ef4444" text-anchor="middle" font-weight="bold">!</text>
-    <text x="800" y="170" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">THREAT</text>
+<line x1="12" y1="398" x2="278" y2="398" stroke="#1e3a5f" stroke-width="1"/>
 
-    <!-- Threat node 2 - lock -->
-    <g filter="url(#u7b1b1aglow)">
-      <circle cx="950" cy="280" r="35" fill="#1a0505" stroke="#dc2626" stroke-width="2"/>
-    </g>
-    <rect x="937" y="278" width="26" height="20" rx="3" fill="none" stroke="#f97316" stroke-width="1.5"/>
-    <path d="M943 278 L943 270 Q943 262 950 262 Q957 262 957 270 L957 278"
-          fill="none" stroke="#f97316" stroke-width="1.5"/>
-    <circle cx="950" cy="289" r="2.5" fill="#f97316"/>
-    <text x="950" y="308" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">LOCK</text>
+<rect x="11" y="406" width="78" height="44" rx="3" fill="#0a1830" stroke="#1e3a5f" stroke-width="1"/>
+<text x="50" y="424" font-family="Courier New,monospace" font-size="14" fill="#ef4444" text-anchor="middle" font-weight="bold">6K+</text>
+<text x="50" y="442" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ACCOUNTS</text>
 
-    <!-- Threat node 3 - exploit -->
-    <g filter="url(#u7b1b1aglow)">
-      <circle cx="750" cy="430" r="35" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-    </g>
-    <polygon points="750,412 765,440 735,440" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <text x="750" y="434" font-family="Courier New, monospace" font-size="12"
-          fill="#ef4444" text-anchor="middle" font-weight="bold">!</text>
-    <text x="750" y="460" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">EXPLOIT</text>
+<rect x="100" y="406" width="78" height="44" rx="3" fill="#0a1830" stroke="#1e3a5f" stroke-width="1"/>
+<text x="139" y="424" font-family="Courier New,monospace" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="bold">TA416</text>
+<text x="139" y="442" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ACTOR</text>
 
-    <!-- Connection lines -->
-    <line x1="650" y1="190" x2="765" y2="148" stroke="#ef4444" stroke-width="1.5"
-          opacity="0.4" stroke-dasharray="4 4" style="animation: u7b1b1adash 2s linear infinite"/>
-    <line x1="650" y1="210" x2="918" y2="272" stroke="#dc2626" stroke-width="1.5"
-          opacity="0.35" stroke-dasharray="4 4"/>
-    <line x1="620" y1="248" x2="722" y2="418" stroke="#ef4444" stroke-width="1.5"
-          opacity="0.3" stroke-dasharray="4 4"/>
-    <path d="M 800 175 Q 870 220 950 248" fill="none" stroke="#ef4444"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
-    <path d="M 920 305 Q 850 370 780 420" fill="none" stroke="#dc2626"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
+<rect x="189" y="406" width="78" height="44" rx="3" fill="#0a1830" stroke="#1e3a5f" stroke-width="1"/>
+<text x="228" y="424" font-family="Courier New,monospace" font-size="14" fill="#3b82f6" text-anchor="middle" font-weight="bold">CN</text>
+<text x="228" y="442" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ORIGIN</text>
 
-    <!-- Alert badge -->
-    <rect x="560" y="340" width="110" height="30" rx="5" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="615" y="360" font-family="Courier New, monospace" font-size="11"
-          fill="#fca5a5" text-anchor="middle" font-weight="bold" letter-spacing="1">CRITICAL</text>
+<text x="14" y="468" font-family="Courier New,monospace" font-size="8" fill="#334155">TA416 | Mustang Panda | APT41</text>
+<text x="14" y="482" font-family="Courier New,monospace" font-size="8" fill="#334155">LinkedIn | MS365 | Linux</text>
+<text x="14" y="496" font-family="Courier New,monospace" font-size="8" fill="#334155">T1589 | T1566 | T1071</text>
 
-    <!-- Pulsing ring -->
-    <circle cx="600" cy="200" r="70" fill="none" stroke="#ef4444" stroke-width="1"
-            opacity="0.3" style="animation: u7b1b1apulse 3s ease-in-out infinite"/>
-    <circle cx="800" cy="140" r="50" fill="none" stroke="#ef4444" stroke-width="0.8"
-            opacity="0.2" style="animation: u7b1b1apulse 4s ease-in-out infinite"/>
+<!-- CRITICAL badge -->
+<rect x="1094" y="11" width="92" height="26" rx="4" fill="#ef44441a" stroke="#ef4444" stroke-width="1.5"/>
+<text x="1140" y="28" font-family="Courier New,monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold">CRITICAL</text>
 
-    <!-- Cracked shield detail -->
-    <path d="M600 170 L600 230" stroke="#f97316" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
-    <path d="M585 195 L615 205" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+<!-- TOP HALF: APT World Map Attribution -->
+<text x="575" y="100" font-family="Courier New,monospace" font-size="11" fill="#ef4444" text-anchor="middle" letter-spacing="2">TA416 APT CAMPAIGN ATTRIBUTION - CHINA-LINKED</text>
 
-    <!-- Broken padlock -->
-    <g transform="translate(680,430)">
-      <rect x="-12" y="0" width="24" height="18" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-      <path d="M-6 0 L-6 -8 Q-6 -16 0 -16 Q6 -16 6 -8 L6 -4" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-      <line x1="6" y1="-8" x2="10" y2="-12" stroke="#f97316" stroke-width="1.5" opacity="0.8"/>
-      <circle cx="0" cy="9" r="2" fill="#ef4444" opacity="0.7"/>
-    </g>
-    <text x="680" y="460" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" text-anchor="middle" opacity="0.7">BREACH</text>
+<!-- World map outline (simplified) -->
+<g filter="url(#a04_glow)" opacity="0.6">
+  <!-- Continental outlines simplified -->
+  <path d="M310,190 Q340,160 380,155 Q420,150 450,165 Q470,175 460,190 Q450,205 430,200 Q410,195 390,205 Q370,215 355,205 Q335,210 310,190Z" fill="none" stroke="#1e3a5f" stroke-width="1"/>
+  <!-- Europe -->
+  <path d="M470,145 Q490,135 510,140 Q525,148 520,162 Q510,172 495,168 Q478,165 470,145Z" fill="none" stroke="#1e3a5f" stroke-width="1"/>
+  <!-- Asia highlight -->
+  <path d="M530,120 Q580,110 640,115 Q690,120 720,135 Q740,145 735,165 Q725,185 700,190 Q670,195 640,185 Q610,175 590,165 Q560,155 540,145 Q525,135 530,120Z" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <!-- China specific -->
+  <path d="M600,130 Q625,122 650,128 Q670,134 665,148 Q658,160 640,158 Q620,155 608,145 Q596,138 600,130Z" fill="#ef44441a" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="635" cy="142" r="4" fill="#ef4444" class="a04_p1"/>
+  <text x="635" y="125" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle">CN ORIGIN</text>
+  <!-- N America -->
+  <path d="M315,145 Q345,130 375,133 Q395,140 388,160 Q378,175 358,172 Q336,168 320,157 Q308,148 315,145Z" fill="none" stroke="#1e3a5f" stroke-width="1"/>
+  <!-- Target dots: Europe, US -->
+  <circle cx="490" cy="152" r="5" fill="#3b82f6" class="a04_p2"/>
+  <circle cx="350" cy="152" r="5" fill="#3b82f6" class="a04_p3"/>
+</g>
 
-    <!-- Attack flow arrows with dashed lines -->
-    <path d="M 830 160 Q 870 180 880 220" fill="none" stroke="#ef4444"
-          stroke-width="1.2" opacity="0.35" stroke-dasharray="5 3" style="animation: u7b1b1adash 2.5s linear infinite"/>
-    <polygon points="878,215 885,222 875,220" fill="#ef4444" opacity="0.35"/>
-    <path d="M 780 445 Q 830 460 870 440" fill="none" stroke="#dc2626"
-          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
-    <polygon points="867,443 875,438 870,447" fill="#dc2626" opacity="0.3"/>
+<!-- Attack arrows from China -->
+<g filter="url(#a04_glowRed)">
+  <path d="M635,140 Q570,130 510,150" stroke="#ef4444" stroke-width="1.8" fill="none" stroke-dasharray="5,3" marker-end="url(#a04_arr)">
+    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1.3s" repeatCount="indefinite"/>
+  </path>
+  <path d="M635,142 Q530,125 370,150" stroke="#ef4444" stroke-width="1.8" fill="none" stroke-dasharray="5,3" marker-end="url(#a04_arr)">
+    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1.8s" repeatCount="indefinite"/>
+  </path>
+</g>
 
-    <!-- Skull warning icon -->
-    <g transform="translate(520,440)" filter="url(#u7b1b1afxRed)">
-      <circle cx="0" cy="0" r="18" fill="#1a0505" stroke="#ef4444" stroke-width="1.2" opacity="0.8"/>
-      <circle cx="-5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
-      <circle cx="5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
-      <path d="M-4 6 L-2 4 L0 6 L2 4 L4 6" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-    </g>
-    <text x="520" y="468" font-family="Courier New, monospace" font-size="6"
-          fill="#fca5a5" text-anchor="middle" opacity="0.6">MALWARE</text>
+<!-- PlugX architecture box -->
+<rect x="700" y="108" width="150" height="105" rx="4" fill="#0a1520" stroke="#ef4444" stroke-width="1"/>
+<text x="775" y="126" font-family="Courier New,monospace" font-size="9" fill="#ef4444" text-anchor="middle">PlugX BACKDOOR</text>
+<line x1="714" y1="131" x2="836" y2="131" stroke="#1e3a5f" stroke-width="0.8"/>
+<text x="714" y="145" font-family="Courier New,monospace" font-size="8" fill="#64748b">loader:</text>
+<text x="760" y="145" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">DLL sideload</text>
+<text x="714" y="158" font-family="Courier New,monospace" font-size="8" fill="#64748b">persist:</text>
+<text x="760" y="158" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">registry run</text>
+<text x="714" y="171" font-family="Courier New,monospace" font-size="8" fill="#64748b">C2 proto:</text>
+<text x="760" y="171" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">HTTP/DNS</text>
+<text x="714" y="184" font-family="Courier New,monospace" font-size="8" fill="#64748b">obfuscate:</text>
+<text x="760" y="184" font-family="Courier New,monospace" font-size="8" fill="#f59e0b">XOR + RC4</text>
+<text x="714" y="197" font-family="Courier New,monospace" font-size="8" fill="#64748b">target:</text>
+<text x="760" y="197" font-family="Courier New,monospace" font-size="8" fill="#ef4444">gov + NGO</text>
+<text x="714" y="210" font-family="Courier New,monospace" font-size="8" fill="#64748b">detected:</text>
+<text x="760" y="210" font-family="Courier New,monospace" font-size="8" fill="#22c55e">38% AV rate</text>
 
-    <!-- ALERT badge -->
-    <rect x="850" y="390" width="80" height="24" rx="4" fill="#ef4444" opacity="0.15"
-          stroke="#ef4444" stroke-width="1.2"/>
-    <text x="890" y="406" font-family="Courier New, monospace" font-size="10"
-          fill="#ef4444" text-anchor="middle" font-weight="bold" class="u7b1b1ablink">ALERT</text>
+<!-- Line divider -->
+<line x1="305" y1="228" x2="865" y2="228" stroke="#1e3a5f" stroke-width="0.8" stroke-dasharray="4,4"/>
 
-    <!-- CVE reference label -->
-    <rect x="560" y="260" width="100" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="0.8" opacity="0.6"/>
-    <text x="610" y="273" font-family="Courier New, monospace" font-size="7"
-          fill="#dc2626" text-anchor="middle" opacity="0.7">CVE-2025-XXXX</text>
+<!-- LinkedIn section -->
+<text x="575" y="248" font-family="Courier New,monospace" font-size="11" fill="#3b82f6" text-anchor="middle" letter-spacing="2">LINKEDIN ACCOUNT TARGETING - 6000+ VICTIMS</text>
 
-    <!-- Ambient glow -->
-    <ellipse cx="750" cy="280" rx="250" ry="200" fill="#dc2626" opacity="0.04"/>
+<!-- Social network graph -->
+<g filter="url(#a04_glowBlue)">
+  <!-- Central LinkedIn node -->
+  <circle cx="450" cy="285" r="16" fill="#0a1520" stroke="#3b82f6" stroke-width="2"/>
+  <text x="450" y="280" font-family="Arial,sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="bold">in</text>
+  <text x="450" y="291" font-family="Arial,sans-serif" font-size="7" fill="#3b82f6" text-anchor="middle">LinkedIn</text>
 
-    <!-- COMMON DECORATIONS -->
+  <!-- Target nodes around -->
+  <circle cx="390" cy="258" r="8" fill="#0d1520" stroke="#ef4444" stroke-width="1.5" class="a04_p1"/>
+  <circle cx="510" cy="258" r="8" fill="#0d1520" stroke="#ef4444" stroke-width="1.5" class="a04_p2"/>
+  <circle cx="390" cy="312" r="8" fill="#0d1520" stroke="#f59e0b" stroke-width="1.5" class="a04_p3"/>
+  <circle cx="510" cy="312" r="8" fill="#0d1520" stroke="#ef4444" stroke-width="1.5" class="a04_p1"/>
+  <circle cx="350" cy="285" r="8" fill="#0d1520" stroke="#f59e0b" stroke-width="1.5" class="a04_p2"/>
+  <circle cx="550" cy="285" r="8" fill="#0d1520" stroke="#ef4444" stroke-width="1.5" class="a04_p3"/>
 
-    <!-- ===== COMMON DECORATIONS ===== -->
+  <!-- Connection lines -->
+  <line x1="434" y1="272" x2="398" y2="263" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="466" y1="272" x2="502" y2="263" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="434" y1="298" x2="398" y2="307" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <line x1="466" y1="298" x2="502" y2="307" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+  <line x1="434" y1="285" x2="358" y2="285" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <line x1="466" y1="285" x2="542" y2="285" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+</g>
 
-    <!-- Hex grid overlay (right area) -->
-    <defs>
-      <pattern id="u7b1b1ahex" x="0" y="0" width="24" height="28" patternUnits="userSpaceOnUse">
-        <polygon points="12,0 24,7 24,21 12,28 0,21 0,7"
-                 fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.15"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u7b1b1ahex)" opacity="0.35"/>
+<!-- Exfil flow -->
+<rect x="590" y="255" width="130" height="65" rx="3" fill="#0a1520" stroke="#f59e0b" stroke-width="1"/>
+<text x="655" y="272" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle">EXFIL TARGETS</text>
+<line x1="600" y1="277" x2="710" y2="277" stroke="#1e3a5f" stroke-width="0.8"/>
+<text x="603" y="290" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">MS365 credentials</text>
+<text x="603" y="303" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">LinkedIn tokens</text>
+<text x="603" y="316" font-family="Courier New,monospace" font-size="8" fill="#ef4444">Linux SSH keys</text>
 
-    <!-- Orbital rings -->
-    <circle cx="720" cy="300" r="220" fill="none" stroke="#ef4444" stroke-width="0.6"
-            stroke-dasharray="5 8" opacity="0.2"/>
-    <circle cx="720" cy="300" r="180" fill="none" stroke="#dc2626" stroke-width="0.5"
-            stroke-dasharray="3 6" opacity="0.15"/>
-    <circle cx="720" cy="300" r="260" fill="none" stroke="#f97316" stroke-width="0.4"
-            stroke-dasharray="8 12" opacity="0.1"/>
+<!-- CRACK -->
+<g filter="url(#a04_crackGlow)" class="a04_ck">
+  <path d="M0,315 L130,312 L190,319 L270,311 L350,318 L430,313 L510,320 L590,314 L670,321 L750,313 L830,319 L910,314 L990,320 L1070,315 L1150,318 L1200,315" fill="none" stroke="url(#a04_crackGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M0,318 L130,315 L190,322 L270,314 L350,321 L430,316 L510,323 L590,317 L670,324 L750,316 L830,322 L910,317 L990,323 L1070,318 L1150,321 L1200,318" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.4"/>
+</g>
 
-    <!-- Radial grid lines -->
-    <line x1="720" y1="80" x2="720" y2="520" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
-    <line x1="460" y1="300" x2="980" y2="300" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
-    <line x1="535" y1="120" x2="905" y2="480" stroke="#f97316" stroke-width="0.3" opacity="0.08"/>
-    <line x1="905" y1="120" x2="535" y2="480" stroke="#f97316" stroke-width="0.3" opacity="0.08"/>
+<!-- BOTTOM HALF -->
+<text x="480" y="345" font-family="Courier New,monospace" font-size="11" fill="#3b82f6" text-anchor="middle" letter-spacing="2">LINKEDIN SPEAR-PHISHING DETAIL</text>
+<text x="760" y="345" font-family="Courier New,monospace" font-size="11" fill="#f59e0b" text-anchor="middle" letter-spacing="2">DATA EXFILTRATION FLOW</text>
 
-    <!-- Top-right data panel -->
-    <rect x="960" y="50" width="190" height="110" rx="6" fill="#0f172a" stroke="#ef4444"
-          stroke-width="1" opacity="0.7"/>
-    <rect x="960" y="50" width="190" height="22" rx="6" fill="#ef4444" opacity="0.12"/>
-    <text x="975" y="66" font-family="Courier New, monospace" font-size="9"
-          fill="#ef4444" font-weight="bold" letter-spacing="1">STATUS</text>
-    <circle cx="1135" cy="61" r="4" fill="#22c55e" opacity="0.7"
-            style="animation: u7b1b1apulse 2s ease-in-out infinite"/>
-    <text x="975" y="90" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">INTEGRITY</text>
-    <rect x="1050" y="82" width="88" height="6" rx="3" fill="#ef4444" opacity="0.15"/>
-    <rect x="1050" y="82" width="62" height="6" rx="3" fill="#ef4444" opacity="0.5"/>
-    <text x="975" y="108" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">COVERAGE</text>
-    <rect x="1050" y="100" width="88" height="6" rx="3" fill="#f97316" opacity="0.15"/>
-    <rect x="1050" y="100" width="75" height="6" rx="3" fill="#f97316" opacity="0.5"/>
-    <text x="975" y="126" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.7">UPTIME</text>
-    <rect x="1050" y="118" width="88" height="6" rx="3" fill="#22c55e" opacity="0.15"/>
-    <rect x="1050" y="118" width="82" height="6" rx="3" fill="#22c55e" opacity="0.45"/>
-    <text x="975" y="148" font-family="Courier New, monospace" font-size="7"
-          fill="#64748b" opacity="0.6">SYS.OK | v2.1.4</text>
+<!-- LinkedIn flow -->
+<g filter="url(#a04_glow)">
+  <rect x="315" y="358" width="110" height="40" rx="3" fill="#0a1520" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="370" y="374" font-family="Courier New,monospace" font-size="9" fill="#3b82f6" text-anchor="middle">Fake Recruiter</text>
+  <text x="370" y="387" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">TA416 persona</text>
 
-    <!-- Bottom-right metrics panel -->
-    <rect x="920" y="480" width="220" height="100" rx="6" fill="#0f172a" stroke="#f97316"
-          stroke-width="1" opacity="0.65"/>
-    <text x="935" y="500" font-family="Courier New, monospace" font-size="9"
-          fill="#f97316" font-weight="bold" letter-spacing="1">METRICS</text>
-    <line x1="920" y1="506" x2="1140" y2="506" stroke="#f97316" stroke-width="0.5" opacity="0.3"/>
-    <!-- Mini bar chart -->
-    <rect x="940" y="545" width="14" height="28" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="940" y="555" width="14" height="18" rx="2" fill="#ef4444" opacity="0.6"/>
-    <rect x="960" y="535" width="14" height="38" rx="2" fill="#f97316" opacity="0.3"/>
-    <rect x="960" y="550" width="14" height="23" rx="2" fill="#f97316" opacity="0.6"/>
-    <rect x="980" y="540" width="14" height="33" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="980" y="548" width="14" height="25" rx="2" fill="#ef4444" opacity="0.5"/>
-    <rect x="1000" y="530" width="14" height="43" rx="2" fill="#dc2626" opacity="0.3"/>
-    <rect x="1000" y="545" width="14" height="28" rx="2" fill="#dc2626" opacity="0.6"/>
-    <rect x="1020" y="538" width="14" height="35" rx="2" fill="#f97316" opacity="0.3"/>
-    <rect x="1020" y="552" width="14" height="21" rx="2" fill="#f97316" opacity="0.5"/>
-    <rect x="1040" y="525" width="14" height="48" rx="2" fill="#ef4444" opacity="0.3"/>
-    <rect x="1040" y="540" width="14" height="33" rx="2" fill="#ef4444" opacity="0.6"
-          style="animation: u7b1b1aglimmer 3s ease-in-out infinite"/>
-    <!-- Metric labels -->
-    <text x="1080" y="520" font-family="Courier New, monospace" font-size="8"
-          fill="#f97316" opacity="0.7">7-DAY</text>
-    <text x="1080" y="532" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.6">TREND</text>
-    <text x="1080" y="555" font-family="Courier New, monospace" font-size="16"
-          fill="#ef4444" font-weight="bold" opacity="0.8">+12%</text>
+  <path d="M425,378 L455,378" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#a04_arrB)"/>
 
-    <!-- Circuit traces (decorative) -->
-    <polyline points="400,100 430,100 430,140 480,140" fill="none"
-              stroke="#ef4444" stroke-width="0.8" opacity="0.2"/>
-    <circle cx="480" cy="140" r="3" fill="#ef4444" opacity="0.3"/>
-    <polyline points="400,160 420,160 420,200 460,200 460,180" fill="none"
-              stroke="#f97316" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="460" cy="180" r="2.5" fill="#f97316" opacity="0.25"/>
-    <polyline points="1100,200 1130,200 1130,260 1100,260 1100,300" fill="none"
-              stroke="#dc2626" stroke-width="0.8" opacity="0.18"/>
-    <circle cx="1100" cy="300" r="3" fill="#dc2626" opacity="0.3"/>
-    <polyline points="1120,350 1150,350 1150,420 1120,420" fill="none"
-              stroke="#ef4444" stroke-width="0.8" opacity="0.15"/>
-    <circle cx="1120" cy="420" r="2.5" fill="#ef4444" opacity="0.25"/>
-    <polyline points="450,500 480,500 480,520 520,520" fill="none"
-              stroke="#f97316" stroke-width="0.7" opacity="0.15"/>
-    <circle cx="520" cy="520" r="2" fill="#f97316" opacity="0.2"/>
-    <polyline points="1060,460 1090,460 1090,440 1120,440" fill="none"
-              stroke="#ef4444" stroke-width="0.7" opacity="0.15"/>
+  <rect x="455" y="358" width="110" height="40" rx="3" fill="#0a1520" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510" y="374" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle">Spear Phish</text>
+  <text x="510" y="387" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">job offer lure</text>
 
-    <!-- Left panel data readout -->
-    <rect x="40" y="430" width="280" height="80" rx="6" fill="#1a0505" stroke="#ef4444"
-          stroke-width="1" opacity="0.6"/>
-    <rect x="40" y="430" width="4" height="80" rx="2" fill="#ef4444"/>
-    <text x="56" y="450" font-family="Courier New, monospace" font-size="8"
-          fill="#ef4444" font-weight="bold" letter-spacing="1">ANALYSIS</text>
-    <text x="56" y="466" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.6">Devsecops</text>
-    <rect x="56" y="474" width="200" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="56" y="474" width="145" height="5" rx="2" fill="#ef4444" opacity="0.45"/>
-    <text x="56" y="492" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" opacity="0.6">Cloud Security</text>
-    <rect x="56" y="496" width="200" height="5" rx="2" fill="#f97316" opacity="0.12"/>
-    <rect x="56" y="496" width="170" height="5" rx="2" fill="#f97316" opacity="0.45"/>
+  <path d="M565,378 L595,378" stroke="#ef4444" stroke-width="1.5" marker-end="url(#a04_arr)"/>
 
-    <!-- Scattered micro-nodes -->
-    <circle cx="420" cy="80" r="5" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
-    <circle cx="420" cy="80" r="2" fill="#ef4444" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="5" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.4"/>
-    <circle cx="1150" cy="140" r="2" fill="#f97316" opacity="0.3"/>
-    <circle cx="480" cy="560" r="4" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.4"/>
-    <circle cx="480" cy="560" r="1.5" fill="#dc2626" opacity="0.3"/>
-    <circle cx="1080" cy="570" r="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.35"/>
-    <circle cx="1080" cy="570" r="1.5" fill="#ef4444" opacity="0.25"/>
+  <rect x="595" y="358" width="110" height="40" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
+  <text x="650" y="374" font-family="Courier New,monospace" font-size="9" fill="#ef4444" text-anchor="middle">PlugX Drop</text>
+  <text x="650" y="387" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle">DLL sideload</text>
+</g>
 
-    <!-- Hash / fingerprint decorative text -->
-    <text x="820" y="590" font-family="Courier New, monospace" font-size="7"
-          fill="#334155" opacity="0.3" letter-spacing="1">SIG:VERIFIED</text>
+<!-- Victim stats -->
+<rect x="315" y="410" width="390" height="60" rx="3" fill="#0a1520" stroke="#1e3a5f" stroke-width="1"/>
+<text x="510" y="427" font-family="Courier New,monospace" font-size="9" fill="#64748b" text-anchor="middle">VICTIM BREAKDOWN</text>
+<line x1="325" y1="432" x2="695" y2="432" stroke="#1e3a5f" stroke-width="0.8"/>
+<text x="325" y="448" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">Microsoft accounts:</text>
+<text x="695" y="448" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="end">2,840</text>
+<text x="325" y="461" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">Linux / SSH:</text>
+<text x="695" y="461" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="end">1,920</text>
+<text x="325" y="474" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">LinkedIn tokens:</text>
+<text x="695" y="474" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="end">1,460+</text>
 
-    <!-- Scanning beam effect -->
-    <line x1="380" y1="300" x2="1160" y2="300" stroke="#ef4444" stroke-width="0.5" opacity="0.06"/>
-    <rect x="380" y="298" width="40" height="4" rx="2" fill="#ef4444" opacity="0.15">
-      <animate attributeName="x" values="380;1120;380" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.15;0.3;0.15" dur="8s" repeatCount="indefinite"/>
-    </rect>
+<!-- Exfil flow diagram right -->
+<g filter="url(#a04_glowAmber)">
+  <rect x="730" y="358" width="80" height="36" rx="3" fill="#0d1520" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="770" y="372" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle">VICTIM</text>
+  <text x="770" y="386" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">implanted</text>
 
-    <!-- Animated dashed orbit arc -->
-    <path d="M 500 100 A 280 250 0 0 1 940 100" fill="none" stroke="#ef4444"
-          stroke-width="1" stroke-dasharray="6 8" opacity="0.15"
-          style="animation: u7b1b1adash 4s linear infinite"/>
-    <path d="M 940 500 A 280 250 0 0 1 500 500" fill="none" stroke="#f97316"
-          stroke-width="0.8" stroke-dasharray="4 6" opacity="0.12"
-          style="animation: u7b1b1adash 5s linear infinite"/>
+  <path d="M810,376 L840,355" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#a04_arr)">
+    <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
 
-    <!-- Corner decorative brackets -->
-    <polyline points="390,55 390,45 400,45" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="1150,45 1160,45 1160,55" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <polyline points="390,575 390,585 400,585" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1150,585 1160,585 1160,575" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.35"/>
+  <rect x="840" y="340" width="80" height="36" rx="3" fill="#0d1520" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="880" y="355" font-family="Courier New,monospace" font-size="9" fill="#ef4444" text-anchor="middle">C2 / CN</text>
+  <text x="880" y="368" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">Beijing infra</text>
 
-    <!-- Crosshair on center -->
-    <circle cx="720" cy="300" r="8" fill="none" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="288" x2="720" y2="294" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="720" y1="306" x2="720" y2="312" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="708" y1="300" x2="714" y2="300" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
-    <line x1="726" y1="300" x2="732" y2="300" stroke="#ef4444" stroke-width="0.6" opacity="0.2"/>
+  <path d="M880,376 L880,406" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a04_arrA)">
+    <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+</g>
 
-    <!-- Horizontal data lines -->
-    <line x1="400" y1="48" x2="470" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.15"/>
-    <line x1="475" y1="48" x2="500" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.1"/>
-    <line x1="400" y1="585" x2="450" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.12"/>
-    <line x1="455" y1="585" x2="490" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.08"/>
-    <line x1="1060" y1="48" x2="1120" y2="48" stroke="#ef4444" stroke-width="0.8" opacity="0.12"/>
-    <line x1="1060" y1="585" x2="1100" y2="585" stroke="#f97316" stroke-width="0.8" opacity="0.1"/>
+<!-- Data staging box -->
+<rect x="730" y="408" width="190" height="72" rx="3" fill="#0a1520" stroke="#f59e0b" stroke-width="1"/>
+<text x="825" y="425" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle">STAGED DATA</text>
+<line x1="740" y1="430" x2="910" y2="430" stroke="#1e3a5f" stroke-width="0.8"/>
+<text x="742" y="444" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">Documents | Emails</text>
+<text x="742" y="458" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">Credentials | SSH keys</text>
+<text x="742" y="472" font-family="Courier New,monospace" font-size="8" fill="#ef4444">exfil via DNS tunnel</text>
 
-    <!-- Animated pulse dot (center) -->
-    <circle cx="720" cy="300" r="4" fill="#ef4444" opacity="0.3">
-      <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
-    </circle>
+<!-- Particles -->
+<circle cx="360" cy="420" r="2.5" fill="#ef4444" opacity="0.7" class="a04_fu"/>
+<circle cx="510" cy="270" r="2" fill="#3b82f6" opacity="0.6" class="a04_fd"/>
+<circle cx="700" cy="175" r="2.5" fill="#f59e0b" opacity="0.7" class="a04_fu"/>
+<circle cx="790" cy="445" r="2" fill="#ef4444" opacity="0.6" class="a04_fd"/>
+<circle cx="630" cy="355" r="2" fill="#3b82f6" opacity="0.5" class="a04_fu"/>
+<circle cx="870" cy="290" r="2.5" fill="#f59e0b" opacity="0.7" class="a04_fd"/>
+<circle cx="455" cy="510" r="2" fill="#ef4444" opacity="0.6" class="a04_fu"/>
+<circle cx="685" cy="130" r="2" fill="#3b82f6" opacity="0.5" class="a04_fd"/>
+<circle cx="555" cy="340" r="2.5" fill="#22c55e" opacity="0.7" class="a04_fu"/>
+<circle cx="745" cy="520" r="2" fill="#f59e0b" opacity="0.6" class="a04_fd"/>
 
-    <!-- Perspective vanishing lines (tunnel effect) -->
-    <line x1="720" y1="315" x2="400" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="1150" y2="50" stroke="#ef4444" stroke-width="0.4" opacity="0.08"/>
-    <line x1="720" y1="315" x2="400" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="1150" y2="580" stroke="#f97316" stroke-width="0.4" opacity="0.06"/>
-    <line x1="720" y1="315" x2="400" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="1150" y2="315" stroke="#ef4444" stroke-width="0.3" opacity="0.07"/>
-    <line x1="720" y1="315" x2="500" y2="50" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
-    <line x1="720" y1="315" x2="940" y2="580" stroke="#dc2626" stroke-width="0.3" opacity="0.06"/>
-
-    <!-- Breach crack line (jagged polyline across y=315) -->
-    <polyline points="400,315 435,310 460,320 495,308 530,318 565,306 600,322 640,310 680,316 720,304 760,320 800,308 840,318 880,306 920,322 960,310 1000,318 1040,308 1080,316 1120,310 1155,315"
-              fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"
-              filter="url(#u7b1b1afxRed)" class="u7b1b1acrack"/>
-    <polyline points="400,315 435,312 460,318 495,310 530,316 565,308 600,320 640,312 680,314 720,306 760,318 800,310 840,316 880,308 920,320 960,312 1000,316 1040,310 1080,314 1120,312 1155,315"
-              fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.2"/>
-
-    <!-- Floating particles with animation classes -->
-    <circle cx="480" cy="120" r="2.5" fill="#ef4444" opacity="0.7" class="u7b1b1afa"/>
-    <circle cx="620" cy="480" r="2" fill="#f97316" opacity="0.6" class="u7b1b1afb"/>
-    <circle cx="900" cy="100" r="3" fill="#dc2626" opacity="0.5" class="u7b1b1afc"/>
-    <circle cx="1050" cy="350" r="2" fill="#ef4444" opacity="0.6" class="u7b1b1afa"/>
-    <circle cx="550" cy="550" r="2.5" fill="#f97316" opacity="0.5" class="u7b1b1afb"/>
-    <circle cx="850" cy="520" r="1.8" fill="#ef4444" opacity="0.55" class="u7b1b1afc"/>
-    <circle cx="750" cy="80" r="2.2" fill="#dc2626" opacity="0.45" class="u7b1b1afa"/>
-
-    <!-- Additional data panel (mid-right) -->
-    <rect x="960" y="180" width="190" height="76" rx="6" fill="#0f172a" stroke="#dc2626"
-          stroke-width="0.8" opacity="0.55"/>
-    <rect x="960" y="180" width="190" height="18" rx="6" fill="#dc2626" opacity="0.10"/>
-    <text x="975" y="193" font-family="Courier New, monospace" font-size="8"
-          fill="#dc2626" font-weight="bold" letter-spacing="1">TELEMETRY</text>
-    <text x="975" y="214" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">LATENCY</text>
-    <rect x="1050" y="207" width="88" height="5" rx="2" fill="#dc2626" opacity="0.12"/>
-    <rect x="1050" y="207" width="55" height="5" rx="2" fill="#dc2626" opacity="0.45"/>
-    <text x="975" y="230" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">THROUGHPUT</text>
-    <rect x="1050" y="223" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="1050" y="223" width="72" height="5" rx="2" fill="#ef4444" opacity="0.4"/>
-    <text x="975" y="246" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" opacity="0.6">ERROR RATE</text>
-    <rect x="1050" y="239" width="88" height="5" rx="2" fill="#ef4444" opacity="0.12"/>
-    <rect x="1050" y="239" width="18" height="5" rx="2" fill="#22c55e" opacity="0.5"/>
-    <text x="1120" y="246" font-family="Courier New, monospace" font-size="6"
-          fill="#22c55e" opacity="0.5">LOW</text>
-
-    <!-- Timestamp watermark -->
-    <text x="1160" y="598" font-family="Courier New, monospace" font-size="7"
-          fill="#1e293b" text-anchor="end" opacity="0.5">2TWODRAGON // DIGEST</text>
-
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#ef4444" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#f97316" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#ef4444" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#dc2626" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#f97316" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#ef4444" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#ef4444" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#dc2626" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#dc2626" stroke-width="1" opacity="0.1"/>
-
-    <!-- CRT scan line -->
-    <rect width="1200" height="2" x="0" y="0" fill="#ef4444" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
-    </rect>
-  </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#f97316" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#f97316" stroke-width="2" opacity="0.5"/>
+<!-- Footer -->
+<rect x="0" y="597" width="1200" height="33" fill="#070d1a" opacity="0.96"/>
+<line x1="0" y1="597" x2="1200" y2="597" stroke="#1e3a5f" stroke-width="1"/>
+<text x="310" y="618" font-family="Courier New,monospace" font-size="9" fill="#3b82f6" text-anchor="middle">tech.2twodragon.com</text>
+<line x1="400" y1="603" x2="400" y2="627" stroke="#1e3a5f" stroke-width="1"/>
+<text x="610" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">TA416 APT | PlugX RAT | LinkedIn 6K+ | Data Exfiltration</text>
+<line x1="830" y1="603" x2="830" y2="627" stroke="#1e3a5f" stroke-width="1"/>
+<text x="1015" y="618" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="middle">APRIL 04, 2026 - WEEKLY DIGEST</text>
 </svg>
