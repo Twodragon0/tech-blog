@@ -1,64 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Devops Digest</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
+  
   <defs>
     <linearGradient id="ubeeb60bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1628"/>
-      <stop offset="50%" style="stop-color:#0a1a10"/>
-      <stop offset="100%" style="stop-color:#081020"/>
+      <stop offset="0%" style="stop-color:#0a1628" />
+      <stop offset="50%" style="stop-color:#0a1a10" />
+      <stop offset="100%" style="stop-color:#081020" />
     </linearGradient>
     <linearGradient id="ubeeb60accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#22c55e"/>
+      <stop offset="0%" style="stop-color:#06b6d4" />
+      <stop offset="100%" style="stop-color:#22c55e" />
     </linearGradient>
     <linearGradient id="ubeeb60title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
+      <stop offset="0%" style="stop-color:#f8fafc" />
+      <stop offset="100%" style="stop-color:#cbd5e1" />
     </linearGradient>
     <linearGradient id="ubeeb60panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
+      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75" />
     </linearGradient>
     <radialGradient id="ubeeb60ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.06" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
     </radialGradient>
     <radialGradient id="ubeeb60ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
     </radialGradient>
     <filter id="ubeeb60glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#06b6d4" flood-opacity="0.7"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#06b6d4" flood-opacity="0.7" />
     </filter>
     <filter id="ubeeb60blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
+      <feGaussianBlur stdDeviation="12" />
     </filter>
     <filter id="ubeeb60textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.5" />
     </filter>
     <filter id="ubeeb60fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="6" result="b" />
+      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g" />
+      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
     <filter id="ubeeb60fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="8" result="b" />
+      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g" />
+      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
     <radialGradient id="ubeeb60sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="ubeeb60sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
     </radialGradient>
     <pattern id="ubeeb60dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
+      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7" />
     </pattern>
     <clipPath id="ubeeb60clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
+      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8" />
     </clipPath>
     <style>
       @keyframes ubeeb60floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
@@ -75,250 +75,201 @@
     </style>
   </defs>
 
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#ubeeb60bg)"/>
+  
+  <rect width="1200" height="630" fill="url(#ubeeb60bg)" />
   <g clip-path="url(#ubeeb60clip)">
-    <rect width="1200" height="630" fill="url(#ubeeb60dots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#ubeeb60ambientL)"/>
-    <rect width="1200" height="630" fill="url(#ubeeb60ambientR)"/>
+    <rect width="1200" height="630" fill="url(#ubeeb60dots)" opacity="0.6" />
+    <rect width="1200" height="630" fill="url(#ubeeb60ambientL)" />
+    <rect width="1200" height="630" fill="url(#ubeeb60ambientR)" />
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#ubeeb60panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#ubeeb60accent)"/>
+    
+    <rect x="0" y="0" width="370" height="630" fill="url(#ubeeb60panel)" />
+    <rect x="0" y="0" width="4" height="630" fill="url(#ubeeb60accent)" />
 
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#064e3b" stroke="#22c55e" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#67e8f9" text-anchor="middle" letter-spacing="2" font-weight="bold">DEVOPS PIPELINE</text>
+    
+    <rect x="40" y="40" width="160" height="28" rx="4" fill="#064e3b" stroke="#22c55e" stroke-width="1.5" />
+    <text x="120" y="58" font-family="Courier New, monospace" font-size="11" fill="#67e8f9" text-anchor="middle" letter-spacing="2" font-weight="bold">DEVOPS PIPELINE</text>
 
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2026-02-10</text>
+    
+    <text x="40" y="100" font-family="Courier New, monospace" font-size="10" fill="#64748b" letter-spacing="1">2026-02-10</text>
 
-    <!-- Title -->
+    
     <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ubeeb60title)" font-weight="700" letter-spacing="-1">Devops Digest</text>
     <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#ubeeb60title)" font-weight="700" letter-spacing="-1">Blockchain Digest</text>
     <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#ubeeb60title)" font-weight="700" letter-spacing="-1">Cncf</text>
 
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ubeeb60accent)" opacity="0.8"/>
+    
+    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#ubeeb60accent)" opacity="0.8" />
 
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">Devops Digest</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#22c55e" font-weight="600">Blockchain Digest</text>
-
-    <!-- Focus panel -->
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a10" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10"/>
+    
+    <rect x="40" y="361" width="280" height="122" rx="12" fill="#0a1a10" stroke="#06b6d4" stroke-width="1" opacity="0.66" />
+    <rect x="40" y="361" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10" />
     <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
     <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Devops Digest / Blockchain Digest</text>
     <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Cncf / Cluster API</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#06b6d4" stroke-width="0.8" opacity="0.20"/>
+    <line x1="56" y1="421" x2="304" y2="421" stroke="#06b6d4" stroke-width="0.8" opacity="0.20" />
     <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Devops Digest focus</text>
     <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">Blockchain Digest priority</text>
-    <rect x="56" y="461" width="109" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="110" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Devops Digest</text>
-    <rect x="173" y="461" width="137" height="22" rx="11" fill="#0a1628" stroke="#22c55e" stroke-width="1" opacity="0.85"/>
-    <text x="241" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">Blockchain Digest</text>
+    <rect x="56" y="461" width="109" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85" />
+    <rect x="173" y="461" width="137" height="22" rx="11" fill="#0a1628" stroke="#22c55e" stroke-width="1" opacity="0.85" />
+    <rect x="40" y="525" width="120" height="24" rx="12" fill="#064e3b" stroke="#06b6d4" stroke-width="1.2" />
+    <rect x="170" y="525" width="152" height="24" rx="12" fill="#0a1a10" stroke="#22c55e" stroke-width="1.2" />
+    <rect x="332" y="525" width="54" height="24" rx="12" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.2" />
+    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60sceneGlow1)" opacity="0.6" />
+    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60sceneGlow2)" opacity="0.5" />
 
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="120" height="24" rx="12" fill="#064e3b" stroke="#06b6d4" stroke-width="1.2"/>
-    <text x="100" y="541" font-family="Courier New, monospace" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="bold">Devops Digest</text>
-    <rect x="170" y="525" width="152" height="24" rx="12" fill="#0a1a10" stroke="#22c55e" stroke-width="1.2"/>
-    <text x="246" y="541" font-family="Courier New, monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">Blockchain Digest</text>
-    <rect x="332" y="525" width="54" height="24" rx="12" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.2"/>
-    <text x="359" y="541" font-family="Courier New, monospace" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="bold">Cncf</text>
+    
+    
+    <rect x="480" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#22c55e" stroke-width="1.5" />
+    <text x="530" y="225" font-family="Courier New, monospace" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="bold">BUILD</text>
+    <circle cx="530" y="248" r="4" fill="#22c55e" opacity="0.6" style="animation: ubeeb60pulse 2s ease-in-out infinite" />
 
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
+    <rect x="630" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5" />
+    <text x="680" y="225" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="bold">TEST</text>
+    <circle cx="680" y="248" r="4" fill="#06b6d4" opacity="0.6" />
 
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60sceneGlow2)" opacity="0.5"/>
+    <rect x="780" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5" />
+    <text x="830" y="225" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="bold">DEPLOY</text>
+    <circle cx="830" y="248" r="4" fill="#22c55e" opacity="0.6" />
 
-    <!-- SCENE: DevOps Pipeline -->
-    <!-- Pipeline stages -->
-    <rect x="480" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#22c55e" stroke-width="1.5"/>
-    <text x="530" y="225" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" text-anchor="middle" font-weight="bold">BUILD</text>
-    <circle cx="530" y="248" r="4" fill="#22c55e" opacity="0.6" style="animation: ubeeb60pulse 2s ease-in-out infinite"/>
+    <rect x="930" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#22c55e" stroke-width="1.5" />
+    <text x="980" y="225" font-family="Courier New, monospace" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="bold">MONITOR</text>
 
-    <rect x="630" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="680" y="225" font-family="Courier New, monospace" font-size="9"
-          fill="#06b6d4" text-anchor="middle" font-weight="bold">TEST</text>
-    <circle cx="680" y="248" r="4" fill="#06b6d4" opacity="0.6"/>
+    
+    <line x1="580" y1="230" x2="625" y2="230" stroke="#22c55e" stroke-width="2" opacity="0.6" stroke-dasharray="4 3" style="animation: ubeeb60dash 1.5s linear infinite" />
+    <polygon points="625,225 635,230 625,235" fill="#22c55e" opacity="0.6" />
+    <line x1="730" y1="230" x2="775" y2="230" stroke="#06b6d4" stroke-width="2" opacity="0.5" />
+    <polygon points="775,225 785,230 775,235" fill="#06b6d4" opacity="0.5" />
+    <line x1="880" y1="230" x2="925" y2="230" stroke="#22c55e" stroke-width="2" opacity="0.5" />
+    <polygon points="925,225 935,230 925,235" fill="#22c55e" opacity="0.5" />
 
-    <rect x="780" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="830" y="225" font-family="Courier New, monospace" font-size="9"
-          fill="#06b6d4" text-anchor="middle" font-weight="bold">DEPLOY</text>
-    <circle cx="830" y="248" r="4" fill="#22c55e" opacity="0.6"/>
+    
+    <circle cx="600" cy="380" r="8" fill="#22c55e" opacity="0.7" />
+    <circle cx="700" cy="380" r="8" fill="#06b6d4" opacity="0.7" />
+    <circle cx="800" cy="380" r="8" fill="#22c55e" opacity="0.7" />
+    <circle cx="700" cy="430" r="8" fill="#0ea5e9" opacity="0.5" />
+    <line x1="608" y1="380" x2="692" y2="380" stroke="#22c55e" stroke-width="1.5" opacity="0.5" />
+    <line x1="708" y1="380" x2="792" y2="380" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" />
+    <line x1="700" y1="388" x2="700" y2="422" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3 3" />
+    <text x="600" y="400" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" text-anchor="middle" opacity="0.7">main</text>
+    <text x="700" y="452" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" text-anchor="middle" opacity="0.7">feature</text>
 
-    <rect x="930" y="200" width="100" height="60" rx="8" fill="#0a1628" stroke="#22c55e" stroke-width="1.5"/>
-    <text x="980" y="225" font-family="Courier New, monospace" font-size="9"
-          fill="#22c55e" text-anchor="middle" font-weight="bold">MONITOR</text>
-
-    <!-- Pipeline arrows -->
-    <line x1="580" y1="230" x2="625" y2="230" stroke="#22c55e" stroke-width="2" opacity="0.6"
-          stroke-dasharray="4 3" style="animation: ubeeb60dash 1.5s linear infinite"/>
-    <polygon points="625,225 635,230 625,235" fill="#22c55e" opacity="0.6"/>
-    <line x1="730" y1="230" x2="775" y2="230" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
-    <polygon points="775,225 785,230 775,235" fill="#06b6d4" opacity="0.5"/>
-    <line x1="880" y1="230" x2="925" y2="230" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
-    <polygon points="925,225 935,230 925,235" fill="#22c55e" opacity="0.5"/>
-
-    <!-- Git branch visualization -->
-    <circle cx="600" cy="380" r="8" fill="#22c55e" opacity="0.7"/>
-    <circle cx="700" cy="380" r="8" fill="#06b6d4" opacity="0.7"/>
-    <circle cx="800" cy="380" r="8" fill="#22c55e" opacity="0.7"/>
-    <circle cx="700" cy="430" r="8" fill="#0ea5e9" opacity="0.5"/>
-    <line x1="608" y1="380" x2="692" y2="380" stroke="#22c55e" stroke-width="1.5" opacity="0.5"/>
-    <line x1="708" y1="380" x2="792" y2="380" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
-    <line x1="700" y1="388" x2="700" y2="422" stroke="#0ea5e9" stroke-width="1" opacity="0.4" stroke-dasharray="3 3"/>
-    <text x="600" y="400" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">main</text>
-    <text x="700" y="452" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">feature</text>
-
-    <!-- Shield with checkmark -->
+    
     <g filter="url(#ubeeb60glow)" transform="translate(950,380)">
-      <circle cx="0" cy="0" r="30" fill="#0a1628" stroke="#22c55e" stroke-width="2"/>
-      <path d="M0,-15 L12,-9 L12,3 Q12,12 0,18 Q-12,12 -12,3 L-12,-9 Z"
-            fill="none" stroke="#22c55e" stroke-width="1.5"/>
-      <polyline points="-6,2 -2,7 8,-5" fill="none" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="0" cy="0" r="30" fill="#0a1628" stroke="#22c55e" stroke-width="2" />
+      <path d="M0,-15 L12,-9 L12,3 Q12,12 0,18 Q-12,12 -12,3 L-12,-9 Z" fill="none" stroke="#22c55e" stroke-width="1.5" />
+      <polyline points="-6,2 -2,7 8,-5" fill="none" stroke="#22c55e" stroke-width="2" />
     </g>
-    <text x="950" y="420" font-family="Courier New, monospace" font-size="8"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">SECURE</text>
+    <text x="950" y="420" font-family="Courier New, monospace" font-size="8" fill="#67e8f9" text-anchor="middle" opacity="0.7">SECURE</text>
 
-    <!-- Pipeline stage labels -->
-    <rect x="485" y="262" width="90" height="14" rx="3" fill="#22c55e" opacity="0.1"/>
-    <text x="530" y="273" font-family="Courier New, monospace" font-size="6"
-          fill="#22c55e" text-anchor="middle" opacity="0.6">COMPILE OK</text>
-    <rect x="635" y="262" width="90" height="14" rx="3" fill="#06b6d4" opacity="0.1"/>
-    <text x="680" y="273" font-family="Courier New, monospace" font-size="6"
-          fill="#06b6d4" text-anchor="middle" opacity="0.6">42/42 PASS</text>
-    <rect x="785" y="262" width="90" height="14" rx="3" fill="#22c55e" opacity="0.1"/>
-    <text x="830" y="273" font-family="Courier New, monospace" font-size="6"
-          fill="#22c55e" text-anchor="middle" opacity="0.6">LIVE v2.1</text>
+    
+    <rect x="485" y="262" width="90" height="14" rx="3" fill="#22c55e" opacity="0.1" />
+    <text x="530" y="273" font-family="Courier New, monospace" font-size="6" fill="#22c55e" text-anchor="middle" opacity="0.6">COMPILE OK</text>
+    <rect x="635" y="262" width="90" height="14" rx="3" fill="#06b6d4" opacity="0.1" />
+    <text x="680" y="273" font-family="Courier New, monospace" font-size="6" fill="#06b6d4" text-anchor="middle" opacity="0.6">42/42 PASS</text>
+    <rect x="785" y="262" width="90" height="14" rx="3" fill="#22c55e" opacity="0.1" />
+    <text x="830" y="273" font-family="Courier New, monospace" font-size="6" fill="#22c55e" text-anchor="middle" opacity="0.6">LIVE v2.1</text>
 
-    <!-- CI/CD badges -->
-    <rect x="480" y="130" width="80" height="22" rx="4" fill="#064e3b" stroke="#22c55e" stroke-width="0.8" opacity="0.6"/>
-    <circle cx="495" cy="141" r="4" fill="#22c55e" opacity="0.6"/>
-    <text x="525" y="145" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" opacity="0.7">CI/CD</text>
-    <rect x="580" y="130" width="80" height="22" rx="4" fill="#064e3b" stroke="#06b6d4" stroke-width="0.8" opacity="0.6"/>
-    <circle cx="595" cy="141" r="4" fill="#06b6d4" opacity="0.5" class="ubeeb60blink"/>
-    <text x="625" y="145" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" opacity="0.7">SCAN</text>
+    
+    <rect x="480" y="130" width="80" height="22" rx="4" fill="#064e3b" stroke="#22c55e" stroke-width="0.8" opacity="0.6" />
+    <circle cx="495" cy="141" r="4" fill="#22c55e" opacity="0.6" />
+    <text x="525" y="145" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" opacity="0.7">CI/CD</text>
+    <rect x="580" y="130" width="80" height="22" rx="4" fill="#064e3b" stroke="#06b6d4" stroke-width="0.8" opacity="0.6" />
+    <circle cx="595" cy="141" r="4" fill="#06b6d4" opacity="0.5" class="ubeeb60blink" />
+    <text x="625" y="145" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" opacity="0.7">SCAN</text>
 
-    <!-- Terraform icon -->
+    
     <g transform="translate(480,430)" filter="url(#ubeeb60fxGlow)">
-      <rect x="-18" y="-14" width="36" height="28" rx="4" fill="#0a1628" stroke="#22c55e" stroke-width="1.2"/>
-      <rect x="-10" y="-8" width="8" height="8" rx="1" fill="#22c55e" opacity="0.5"/>
-      <rect x="2" y="-8" width="8" height="8" rx="1" fill="#22c55e" opacity="0.5"/>
-      <rect x="-10" y="2" width="8" height="8" rx="1" fill="#22c55e" opacity="0.4"/>
-      <rect x="2" y="2" width="8" height="8" rx="1" fill="#22c55e" opacity="0.3"/>
+      <rect x="-18" y="-14" width="36" height="28" rx="4" fill="#0a1628" stroke="#22c55e" stroke-width="1.2" />
+      <rect x="-10" y="-8" width="8" height="8" rx="1" fill="#22c55e" opacity="0.5" />
+      <rect x="2" y="-8" width="8" height="8" rx="1" fill="#22c55e" opacity="0.5" />
+      <rect x="-10" y="2" width="8" height="8" rx="1" fill="#22c55e" opacity="0.4" />
+      <rect x="2" y="2" width="8" height="8" rx="1" fill="#22c55e" opacity="0.3" />
     </g>
-    <text x="480" y="458" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">IaC</text>
+    <text x="480" y="458" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" text-anchor="middle" opacity="0.7">IaC</text>
 
-    <!-- Additional git branch detail -->
-    <circle cx="900" cy="380" r="8" fill="#06b6d4" opacity="0.5"/>
-    <line x1="808" y1="380" x2="892" y2="380" stroke="#06b6d4" stroke-width="1.5" opacity="0.4"/>
-    <text x="900" y="400" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.6">release</text>
-    <line x1="700" y1="430" x2="800" y2="430" stroke="#0ea5e9" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/>
-    <text x="750" y="448" font-family="Courier New, monospace" font-size="6"
-          fill="#67e8f9" text-anchor="middle" opacity="0.5">merge --no-ff</text>
+    
+    <circle cx="900" cy="380" r="8" fill="#06b6d4" opacity="0.5" />
+    <line x1="808" y1="380" x2="892" y2="380" stroke="#06b6d4" stroke-width="1.5" opacity="0.4" />
+    <text x="900" y="400" font-family="Courier New, monospace" font-size="7" fill="#67e8f9" text-anchor="middle" opacity="0.6">release</text>
+    <line x1="700" y1="430" x2="800" y2="430" stroke="#0ea5e9" stroke-width="1" opacity="0.3" stroke-dasharray="3 3" />
+    <text x="750" y="448" font-family="Courier New, monospace" font-size="6" fill="#67e8f9" text-anchor="middle" opacity="0.5">merge --no-ff</text>
 
-    <!-- Ambient glow -->
-    <ellipse cx="730" cy="280" rx="260" ry="160" fill="#06b6d4" opacity="0.035"/>
+    
+    <ellipse cx="730" cy="280" rx="260" ry="160" fill="#06b6d4" opacity="0.035" />
 
-    <!-- COMMON DECORATIONS -->
+    
 
     <defs>
       <pattern id="ubeeb60mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#06b6d4"
-              stroke-width="0.35" opacity="0.12"/>
+        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#06b6d4" stroke-width="0.35" opacity="0.12" />
       </pattern>
     </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60mesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#06b6d4" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#22c55e" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#0ea5e9" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#06b6d4" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#22c55e" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#06b6d4" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#22c55e" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#06b6d4" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#06b6d4" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#22c55e" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#0ea5e9" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#06b6d4" opacity="0.20"/>
+    <rect x="380" y="40" width="780" height="550" fill="url(#ubeeb60mesh)" opacity="0.25" />
+    <circle cx="720" cy="315" r="228" fill="none" stroke="#06b6d4" stroke-width="0.55" stroke-dasharray="6 9" opacity="0.16" />
+    <circle cx="720" cy="315" r="182" fill="none" stroke="#22c55e" stroke-width="0.45" stroke-dasharray="3 7" opacity="0.11" />
+    <circle cx="720" cy="315" r="266" fill="none" stroke="#0ea5e9" stroke-width="0.35" stroke-dasharray="10 12" opacity="0.08" />
+    <line x1="390" y1="70" x2="1150" y2="70" stroke="#06b6d4" stroke-width="0.6" opacity="0.10" />
+    <line x1="390" y1="560" x2="1150" y2="560" stroke="#22c55e" stroke-width="0.6" opacity="0.08" />
+    <line x1="420" y1="120" x2="1080" y2="500" stroke="#06b6d4" stroke-width="0.35" opacity="0.08" />
+    <line x1="1080" y1="120" x2="420" y2="500" stroke="#22c55e" stroke-width="0.35" opacity="0.06" />
+    <polyline points="392,56 392,46 404,46" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35" />
+    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35" />
+    <polyline points="392,574 392,584 404,584" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30" />
+    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.30" />
+    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#06b6d4" opacity="0.03" />
+    <circle cx="430" cy="110" r="3" fill="#06b6d4" opacity="0.22" />
+    <circle cx="1120" cy="160" r="2.5" fill="#22c55e" opacity="0.24" />
+    <circle cx="470" cy="540" r="3" fill="#0ea5e9" opacity="0.20" />
+    <circle cx="1080" cy="530" r="2.5" fill="#06b6d4" opacity="0.20" />
     
-    <rect x="694" y="96" width="52" height="372" rx="26" fill="#06b6d4" opacity="0.06"/>
-    <ellipse cx="720" cy="180" rx="118" ry="64" fill="#06b6d4" opacity="0.08"/>
-    <ellipse cx="720" cy="180" rx="76" ry="38" fill="#22c55e" opacity="0.10"/>
-    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#22c55e" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
-    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
-    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Devops Digest</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Blockchain Digest</text>
-    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#22c55e" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Devops Digest focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Blockchain Digest priority</text>
-    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Cncf</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Cluster API</text>
-    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Devops Digest</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#22c55e" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="700">Blockchain Digest</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="700">Cncf</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Cluster API</text>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#06b6d4" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
+    <rect x="694" y="96" width="52" height="372" rx="26" fill="#06b6d4" opacity="0.06" />
+    <ellipse cx="720" cy="180" rx="118" ry="64" fill="#06b6d4" opacity="0.08" />
+    <ellipse cx="720" cy="180" rx="76" ry="38" fill="#22c55e" opacity="0.10" />
+    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#22c55e" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5" />
+    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15" />
+    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78" /><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85" /><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text><rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#22c55e" stroke-width="1.1" opacity="0.78" /><circle cx="694" cy="108" r="5" fill="#22c55e" opacity="0.85" /><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#22c55e" font-weight="700" letter-spacing="1">SUMMARY</text><rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78" /><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85" /><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Cluster API</text>
+    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78" /><rect x="625" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#22c55e" stroke-width="1" opacity="0.78" /><rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78" /><rect x="935" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78" /><circle cx="150" cy="100" r="2.5" fill="#06b6d4" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite" />
     </circle>
     <circle cx="1060" cy="150" r="2.0" fill="#22c55e" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite" />
     </circle>
     <circle cx="100" cy="480" r="2.5" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite" />
     </circle>
     <circle cx="1100" cy="520" r="2.0" fill="#0ea5e9" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite" />
     </circle>
     <circle cx="180" cy="560" r="1.5" fill="#22c55e" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite" />
     </circle>
     <circle cx="1030" cy="80" r="2.0" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite" />
     </circle>
 
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#06b6d4" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#0ea5e9" stroke-width="1" opacity="0.1"/>
+    
+    <line x1="50" y1="200" x2="120" y2="200" stroke="#06b6d4" stroke-width="1" opacity="0.15" />
+    <line x1="50" y1="215" x2="95" y2="215" stroke="#06b6d4" stroke-width="1" opacity="0.1" />
+    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.15" />
+    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#0ea5e9" stroke-width="1" opacity="0.1" />
 
-    <!-- CRT scan line -->
+    
     <rect width="1200" height="2" x="0" y="0" fill="#06b6d4" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
+      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1" />
     </rect>
   </g>
 
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
+  
+  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1" />
+  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11" fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
 
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+  
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1" />
+  
+  <polyline points="0,25 0,0 25,0" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.6" />
+  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.6" />
+  <polyline points="0,605 0,630 25,630" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5" />
+  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5" />
 </svg>
