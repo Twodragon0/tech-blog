@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-12T01:50:57.589193+00:00",
+  "updated_at": "2026-04-13T01:55:28.755558+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
@@ -1170,6 +1170,96 @@
       "title": "Microsoft, 주요 오픈소스 프로젝트 개발자 계정 정지",
       "published_date": "2026-04-12",
       "expires_at": "2026-04-19T01:50:57.589090+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/cpuid-breach-distributes-stx-rat-via.html",
+      "title": "CPUID Breach Distributes STX RAT via Trojanized CPU-Z and HWMonitor Downloads",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/critical-marimo-pre-auth-rce-flaw-now-under-active-exploitation/",
+      "title": "Critical Marimo pre-auth RCE flaw now under active exploitation",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/adobe-patches-actively-exploited.html",
+      "title": "Adobe Patches Actively Exploited Acrobat Reader Flaw CVE-2026-34621",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/adobe-patches-reader-zero-day-exploited-for-months/",
+      "title": "Adobe Patches Reader Zero-Day Exploited for Months",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28454",
+      "title": "Google, Pixel 10 베이스밴드 펌웨어에 Rust 도입",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/culture/relics-of-a-revolution-part-ii-false-profits-and-freedom",
+      "title": "Relics of a Revolution, Part II: False Profits and Freedom",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/justin-sun-wlfi-platform-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Justin Sun calls out WLFI, platform threatens lawsuit in response",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategy-saylor-signal-bitcoin-purchase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy's Michael Saylor signals impending Bitcoin purchase",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-2028-halving-hits-the-halfway-point?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin miners face a tougher road to the 2028 halving",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/banks-corporates-europe-actively-selecting-partners-stablecoin-push?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Banks, corporates in Europe ‘actively selecting partners’ for stablecoin push",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28459",
+      "title": "Pro Max 5x 요금제, 중간 사용에도 1.5시간 만에 할당량 소진 문제",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28458",
+      "title": "스페인에서 Cloudflare의 축구 관련 차단으로 Docker Pull 실패 발생",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28457",
+      "title": "월 20달러 기술 스택으로 여러 개의 월 1만 달러 MRR 회사를 운영하는 방법",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28456",
+      "title": "Apple Silicon에서 가상머신 2개 제한을 우회하는 방법 (2023)",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28455",
+      "title": "비트코인 채굴자, 난이도 7.8% 하락 속에 코인당 1만9천달러 손실",
+      "published_date": "2026-04-13",
+      "expires_at": "2026-04-20T01:55:28.755449+00:00"
     }
   ]
 }
