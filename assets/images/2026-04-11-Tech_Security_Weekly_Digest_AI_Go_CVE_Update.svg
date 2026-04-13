@@ -1,54 +1,438 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>THREAT SIGNAL MAP</title>
+  <title>Tech Security Weekly Digest - April 11 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1a0a2e"/>
+    <linearGradient id="a11_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/><stop offset="50%" stop-color="#0a1025"/><stop offset="100%" stop-color="#070d1a"/>
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
+    <linearGradient id="a11_leftPanel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1520"/><stop offset="100%" stop-color="#0a1428" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="a11_crack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.9"/><stop offset="50%" stop-color="#f97316" stop-opacity="1"/><stop offset="100%" stop-color="#dc2626" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="a11_purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="a11_blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="a11_topHalf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#080a18" stop-opacity="0.6"/><stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="a11_bottomHalf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" stop-opacity="0"/><stop offset="100%" stop-color="#050d1a" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="a11_sevCrit" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626"/><stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="a11_sevHigh" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="a11_footer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1520"/><stop offset="50%" stop-color="#111827"/><stop offset="100%" stop-color="#0d1520"/>
+    </linearGradient>
+    <radialGradient id="a11_redRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/><stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="a11_blueRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="a11_amberRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5"/><stop offset="100%" stop-color="#92400e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="a11_purpleRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.5"/><stop offset="100%" stop-color="#4c1d95" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="a11_vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+    </radialGradient>
+    <filter id="a11_glowRed" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix type="matrix" in="blur" values="1 0 0 0 0.5  0 0 0 0 0  0 0 0 0 0  0 0 0 20 -8" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    <filter id="a11_glowBlue" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix type="matrix" in="blur" values="0 0 0 0 0  0 0 0 0 0.3  1 0 0 0 1  0 0 0 18 -6" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="a11_glowAmber" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix type="matrix" in="blur" values="1 0 0 0 0.6  0.5 0 0 0 0.2  0 0 0 0 0  0 0 0 16 -5" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="a11_glowPurple" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix type="matrix" in="blur" values="0.5 0 0 0 0.4  0 0 0 0 0  1 0 0 0 0.8  0 0 0 16 -5" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="a11_heavyBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="a11_crackGlow" x="-40%" y="-200%" width="180%" height="500%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feColorMatrix type="matrix" in="blur" values="1 0 0 0 0.6  0.3 0 0 0 0.1  0 0 0 0 0  0 0 0 20 -6" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="a11_panelShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="4" dy="0" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <pattern id="a11_dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="#1e3a5f" opacity="0.5"/>
+    </pattern>
+    <pattern id="a11_hexGrid" x="0" y="0" width="30" height="26" patternUnits="userSpaceOnUse">
+      <polygon points="15,2 25,8 25,18 15,24 5,18 5,8" fill="none" stroke="#1a2f4a" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+    <pattern id="a11_scanLines" x="0" y="0" width="1" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="1200" y2="0" stroke="#0a1628" stroke-width="0.5"/>
+    </pattern>
+    <clipPath id="a11_mainClip">
+      <rect x="290" y="0" width="910" height="630"/>
+    </clipPath>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- Diagonal divider -->
-  <polygon points="0,0 820,0 560,630 0,630" fill="#110d20" opacity="0.7"/>
-  <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
-  <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
-  <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
-  <!-- Classified stamp rotated -->
-  <g transform="translate(900 310) rotate(-22)">
-    <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
-    <text x="0" y="12" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
+
+  <style>
+    @keyframes a11_floatUp{0%{transform:translateY(0);opacity:0}20%{opacity:0.8}80%{opacity:0.6}100%{transform:translateY(-40px);opacity:0}}
+    @keyframes a11_floatDown{0%{transform:translateY(0);opacity:0}20%{opacity:0.7}80%{opacity:0.5}100%{transform:translateY(30px);opacity:0}}
+    @keyframes a11_pulse{0%,100%{opacity:0.5}50%{opacity:1}}
+    @keyframes a11_pulseLarge{0%,100%{opacity:0.25}50%{opacity:0.65}}
+    @keyframes a11_crackFx{0%,100%{opacity:0.7}50%{opacity:1}}
+    @keyframes a11_glimmer{0%,100%{opacity:0.4}50%{opacity:1}}
+    @keyframes a11_dash{to{stroke-dashoffset:-30}}
+    @keyframes a11_radarSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes a11_tokenFlow{0%{transform:translateX(0);opacity:0}15%{opacity:1}85%{opacity:0.8}100%{transform:translateX(120px);opacity:0}}
+    @keyframes a11_drop{0%{transform:translateY(-30px);opacity:0}20%{opacity:1}80%{opacity:0.8}100%{transform:translateY(40px);opacity:0}}
+    .a11_pa{animation:a11_floatUp 3.2s ease-in-out infinite}
+    .a11_pb{animation:a11_floatUp 4.1s ease-in-out infinite;animation-delay:0.8s}
+    .a11_pc{animation:a11_floatUp 2.9s ease-in-out infinite;animation-delay:1.6s}
+    .a11_pd{animation:a11_floatUp 3.7s ease-in-out infinite;animation-delay:2.2s}
+    .a11_pe{animation:a11_floatDown 3.5s ease-in-out infinite;animation-delay:0.4s}
+    .a11_pnode{animation:a11_pulse 2s ease-in-out infinite}
+    .a11_pslow{animation:a11_pulseLarge 3s ease-in-out infinite}
+    .a11_pfast{animation:a11_pulse 1.2s ease-in-out infinite}
+    .a11_crack{animation:a11_crackFx 2.5s ease-in-out infinite}
+    .a11_glimmer{animation:a11_glimmer 2s ease-in-out infinite}
+    .a11_glimmerFast{animation:a11_glimmer 1s ease-in-out infinite}
+    .a11_dash{animation:a11_dash 1.5s linear infinite;stroke-dasharray:8 6}
+    .a11_dashSlow{animation:a11_dash 3s linear infinite;stroke-dasharray:6 10}
+    .a11_radar{animation:a11_radarSweep 4s linear infinite;transform-origin:50% 50%}
+    .a11_token{animation:a11_tokenFlow 2.4s linear infinite}
+    .a11_tokenB{animation:a11_tokenFlow 2.4s linear infinite;animation-delay:1.2s}
+    .a11_drop{animation:a11_drop 2.2s ease-in-out infinite}
+    .a11_dropB{animation:a11_drop 2.2s ease-in-out infinite;animation-delay:1.1s}
+  </style>
+
+  <!-- BG -->
+  <rect width="1200" height="630" fill="url(#a11_bg)"/>
+  <rect width="1200" height="630" fill="url(#a11_dotGrid)" opacity="0.8"/>
+  <rect width="1200" height="630" fill="url(#a11_hexGrid)" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#a11_scanLines)" opacity="0.3"/>
+  <rect width="1200" height="630" fill="url(#a11_vignette)"/>
+  <rect x="290" y="0" width="910" height="315" fill="url(#a11_topHalf)" opacity="0.6"/>
+  <rect x="290" y="315" width="910" height="315" fill="url(#a11_bottomHalf)" opacity="0.5"/>
+
+  <!-- Left panel -->
+  <rect x="0" y="0" width="290" height="630" fill="url(#a11_leftPanel)" filter="url(#a11_panelShadow)"/>
+  <line x1="290" y1="0" x2="290" y2="630" stroke="#1e3a5f" stroke-width="1.5"/>
+  <line x1="289" y1="0" x2="289" y2="630" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+  <rect x="0" y="0" width="290" height="630" fill="url(#a11_dotGrid)" opacity="0.4"/>
+
+  <!-- Panel header -->
+  <rect x="18" y="20" width="130" height="24" rx="12" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="19" y="21" width="128" height="22" rx="11" fill="#0f2044" opacity="0.8"/>
+  <text x="83" y="37" font-family="'Courier New',monospace" font-size="9.5" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <g transform="translate(240,22)">
+    <path d="M20,2 L38,8 L38,22 C38,31 20,38 20,38 C20,38 2,31 2,22 L2,8 Z" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+    <path d="M20,6 L34,11 L34,21 C34,28 20,34 20,34 C20,34 6,28 6,21 L6,11 Z" fill="#0f2044" opacity="0.6"/>
   </g>
-  <!-- Corner bracket marks -->
-  <path d="M70 60 L70 90 L100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 60 L1130 90 L1100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M70 570 L70 540 L100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 570 L1130 540 L1100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <!-- WEEKLY DIGEST badge -->
-  <rect x="90" y="62" width="196" height="32" rx="6" fill="#a855f7" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
-  <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO DAY  PATCH  AI AGENT</text>
-  <g transform="translate(280 360)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="2"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#a855f7" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#a855f7" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#a855f7" text-anchor="middle" opacity="0.7">PATCH</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" text-anchor="middle">ZERO DAY</text>
+
+  <!-- Title -->
+  <text x="18" y="70" font-family="'Courier New',monospace" font-size="17" font-weight="700" fill="#f8fafc" letter-spacing="0.5">Tech Security</text>
+  <text x="18" y="91" font-family="'Courier New',monospace" font-size="17" font-weight="700" fill="#f8fafc" letter-spacing="0.5">Weekly</text>
+  <line x1="18" y1="100" x2="272" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="18" y="118" font-family="'Courier New',monospace" font-size="9" fill="#64748b" letter-spacing="1.5">APRIL 11, 2026</text>
+
+  <!-- 5 Topics -->
+  <rect x="18" y="130" width="4" height="36" rx="2" fill="#ef4444"/>
+  <text x="30" y="143" font-family="'Courier New',monospace" font-size="10.5" font-weight="700" fill="#fca5a5">Zig Dropper</text>
+  <text x="30" y="158" font-family="'Courier New',monospace" font-size="9" fill="#94a3b8">GlassWorm Payload</text>
+  <circle cx="264" cy="143" r="4" fill="#ef4444" class="a11_pnode"/>
+
+  <rect x="18" y="176" width="4" height="36" rx="2" fill="#3b82f6"/>
+  <text x="30" y="189" font-family="'Courier New',monospace" font-size="10.5" font-weight="700" fill="#93c5fd">Chrome DBSC</text>
+  <text x="30" y="204" font-family="'Courier New',monospace" font-size="9" fill="#94a3b8">Chrome 146 Token Bind</text>
+  <circle cx="264" cy="189" r="4" fill="#3b82f6" class="a11_pnode"/>
+
+  <rect x="18" y="222" width="4" height="36" rx="2" fill="#f59e0b"/>
+  <text x="30" y="235" font-family="'Courier New',monospace" font-size="10.5" font-weight="700" fill="#fcd34d">Browser Ext</text>
+  <text x="30" y="250" font-family="'Courier New',monospace" font-size="9" fill="#94a3b8">AI-Powered Malext</text>
+  <circle cx="264" cy="235" r="4" fill="#f59e0b" class="a11_pnode"/>
+
+  <rect x="18" y="268" width="4" height="36" rx="2" fill="#7c3aed"/>
+  <text x="30" y="281" font-family="'Courier New',monospace" font-size="10.5" font-weight="700" fill="#c4b5fd">AI Threat</text>
+  <text x="30" y="296" font-family="'Courier New',monospace" font-size="9" fill="#94a3b8">LLM Browser Attack</text>
+  <circle cx="264" cy="281" r="4" fill="#7c3aed" class="a11_pnode"/>
+
+  <rect x="18" y="314" width="4" height="36" rx="2" fill="#dc2626"/>
+  <text x="30" y="327" font-family="'Courier New',monospace" font-size="10.5" font-weight="700" fill="#fca5a5">CVE Update</text>
+  <text x="30" y="342" font-family="'Courier New',monospace" font-size="9" fill="#94a3b8">Critical patch batch</text>
+  <circle cx="264" cy="327" r="4" fill="#dc2626" class="a11_pnode"/>
+
+  <line x1="18" y1="360" x2="272" y2="360" stroke="#1e3a5f" stroke-width="1"/>
+
+  <!-- Severity bars -->
+  <text x="18" y="378" font-family="'Courier New',monospace" font-size="8.5" fill="#64748b" letter-spacing="1">SEVERITY LEVEL</text>
+  <text x="18" y="396" font-family="'Courier New',monospace" font-size="8" fill="#94a3b8">CRITICAL</text>
+  <rect x="80" y="386" width="180" height="10" rx="5" fill="#0f172a"/>
+  <rect x="80" y="386" width="153" height="10" rx="5" fill="url(#a11_sevCrit)" class="a11_glimmer"/>
+  <text x="267" y="396" font-family="'Courier New',monospace" font-size="8" fill="#ef4444" text-anchor="end">85%</text>
+  <text x="18" y="416" font-family="'Courier New',monospace" font-size="8" fill="#94a3b8">HIGH</text>
+  <rect x="80" y="406" width="180" height="10" rx="5" fill="#0f172a"/>
+  <rect x="80" y="406" width="126" height="10" rx="5" fill="url(#a11_sevHigh)"/>
+  <text x="267" y="416" font-family="'Courier New',monospace" font-size="8" fill="#f59e0b" text-anchor="end">70%</text>
+  <text x="18" y="436" font-family="'Courier New',monospace" font-size="8" fill="#94a3b8">MEDIUM</text>
+  <rect x="80" y="426" width="180" height="10" rx="5" fill="#0f172a"/>
+  <rect x="80" y="426" width="90" height="10" rx="5" fill="#1d4ed8"/>
+  <text x="267" y="436" font-family="'Courier New',monospace" font-size="8" fill="#60a5fa" text-anchor="end">50%</text>
+
+  <line x1="18" y1="450" x2="272" y2="450" stroke="#1e3a5f" stroke-width="1"/>
+
+  <!-- Tags -->
+  <rect x="18" y="462" width="46" height="16" rx="8" fill="#3b0a0a" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="41" y="474" font-family="'Courier New',monospace" font-size="7" fill="#fca5a5" text-anchor="middle">ZIG</text>
+  <rect x="70" y="462" width="54" height="16" rx="8" fill="#0f1a2e" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="97" y="474" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">CHROME</text>
+  <rect x="130" y="462" width="46" height="16" rx="8" fill="#2d1a00" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="153" y="474" font-family="'Courier New',monospace" font-size="7" fill="#fcd34d" text-anchor="middle">EXT</text>
+  <rect x="182" y="462" width="46" height="16" rx="8" fill="#1e0a40" stroke="#7c3aed" stroke-width="0.8"/>
+  <text x="205" y="474" font-family="'Courier New',monospace" font-size="7" fill="#c4b5fd" text-anchor="middle">AI</text>
+  <rect x="18" y="484" width="46" height="16" rx="8" fill="#3b0a0a" stroke="#dc2626" stroke-width="0.8"/>
+  <text x="41" y="496" font-family="'Courier New',monospace" font-size="7" fill="#fca5a5" text-anchor="middle">CVE</text>
+  <rect x="70" y="484" width="46" height="16" rx="8" fill="#0f1a2e" stroke="#1d4ed8" stroke-width="0.8"/>
+  <text x="93" y="496" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">DBSC</text>
+
+  <rect x="0" y="540" width="290" height="60" fill="#050d15" opacity="0.7"/>
+  <line x1="0" y1="540" x2="290" y2="540" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="0" y="606" width="290" height="24" fill="#070d15"/>
+
+  <!-- Radial bg lines -->
+  <g clip-path="url(#a11_mainClip)" opacity="0.12">
+    <line x1="740" y1="315" x2="310" y2="10" stroke="#ef4444" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="550" y2="0" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="950" y2="0" stroke="#f59e0b" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="1190" y2="10" stroke="#7c3aed" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="310" y2="620" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="750" y2="630" stroke="#f59e0b" stroke-width="0.5"/>
+    <line x1="740" y1="315" x2="1190" y2="620" stroke="#7c3aed" stroke-width="0.5"/>
   </g>
-  <g transform="translate(680 280)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#f59e0b" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#f59e0b" text-anchor="middle" opacity="0.7">PATCH</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">PATCH</text>
+
+  <!-- TOP HALF: Browser window with malicious extension + dropper payload descent -->
+
+  <!-- Halos -->
+  <ellipse cx="530" cy="150" rx="112" ry="85" fill="url(#a11_redRadial)" class="a11_pslow"/>
+  <ellipse cx="1000" cy="148" rx="95" ry="80" fill="url(#a11_amberRadial)" class="a11_pslow"/>
+
+  <!-- Browser window -->
+  <g transform="translate(398,38)" filter="url(#a11_glowRed)">
+    <rect x="0" y="0" width="260" height="200" rx="8" fill="#0a1220" stroke="#1e3a5f" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="28" rx="8" fill="#1e3a5f" opacity="0.8"/>
+    <rect x="0" y="18" width="260" height="10" fill="#1e3a5f" opacity="0.8"/>
+    <circle cx="16" cy="14" r="5" fill="#ef4444"/>
+    <circle cx="30" cy="14" r="5" fill="#f59e0b"/>
+    <circle cx="44" cy="14" r="5" fill="#22c55e"/>
+    <rect x="58" y="7" width="162" height="14" rx="7" fill="#0a0f1a" stroke="#1e3a5f" stroke-width="0.8"/>
+    <text x="70" y="18" font-family="'Courier New',monospace" font-size="7" fill="#64748b">chrome-extension://malext</text>
+    <rect x="4" y="32" width="252" height="24" rx="3" fill="#1a0a00" stroke="#f59e0b" stroke-width="1"/>
+    <text x="130" y="48" font-family="'Courier New',monospace" font-size="7.5" fill="#f59e0b" text-anchor="middle">! MALICIOUS EXTENSION DETECTED</text>
+    <rect x="228" y="7" width="14" height="14" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" class="a11_glimmerFast"/>
+    <text x="235" y="17" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#ef4444" text-anchor="middle">X</text>
+    <rect x="4" y="60" width="252" height="136" rx="3" fill="#050d18"/>
+    <rect x="12" y="68" width="180" height="8" rx="2" fill="#1e3a5f" opacity="0.4"/>
+    <rect x="12" y="82" width="140" height="6" rx="2" fill="#1e3a5f" opacity="0.3"/>
+    <rect x="12" y="94" width="160" height="6" rx="2" fill="#1e3a5f" opacity="0.3"/>
+    <rect x="50" y="112" width="160" height="52" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.9"/>
+    <text x="130" y="130" font-family="'Courier New',monospace" font-size="7" fill="#ef4444" text-anchor="middle">CREDENTIALS HARVESTED</text>
+    <text x="130" y="143" font-family="'Courier New',monospace" font-size="6.5" fill="#fca5a5" text-anchor="middle">GlassWorm injector active</text>
+    <text x="130" y="156" font-family="'Courier New',monospace" font-size="6.5" fill="#94a3b8" text-anchor="middle">Zig dropper: stage 2</text>
   </g>
-  <g transform="translate(1000 420)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#22d3ee" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#22d3ee" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle">AI AGENT</text>
+
+  <!-- Dropper payload descent -->
+  <g transform="translate(890,45)">
+    <rect x="50" y="0" width="80" height="40" rx="5" fill="#0a0f1a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="90" y="16" font-family="'Courier New',monospace" font-size="7.5" fill="#fca5a5" text-anchor="middle">GLASSWORM</text>
+    <text x="90" y="29" font-family="'Courier New',monospace" font-size="6.5" fill="#94a3b8" text-anchor="middle">Zig dropper</text>
+    <line x1="90" y1="40" x2="90" y2="64" stroke="#ef4444" stroke-width="1.5" class="a11_dash" opacity="0.8"/>
+    <polygon points="90,70 84,58 96,58" fill="#ef4444"/>
+    <rect x="55" y="75" width="70" height="28" rx="4" fill="#1a0505" stroke="#dc2626" stroke-width="1"/>
+    <text x="90" y="87" font-family="'Courier New',monospace" font-size="7" fill="#fca5a5" text-anchor="middle">stage-1</text>
+    <text x="90" y="98" font-family="'Courier New',monospace" font-size="6" fill="#64748b" text-anchor="middle">loader.zig</text>
+    <line x1="90" y1="103" x2="90" y2="120" stroke="#dc2626" stroke-width="1.2" class="a11_drop" opacity="0.7"/>
+    <rect x="55" y="125" width="70" height="28" rx="4" fill="#2a0808" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="90" y="137" font-family="'Courier New',monospace" font-size="7" fill="#ef4444" text-anchor="middle">stage-2</text>
+    <text x="90" y="148" font-family="'Courier New',monospace" font-size="6" fill="#fca5a5" text-anchor="middle">payload.bin</text>
+    <line x1="90" y1="153" x2="90" y2="170" stroke="#ef4444" stroke-width="1.2" class="a11_dropB" opacity="0.7"/>
+    <rect x="45" y="175" width="90" height="28" rx="4" fill="#3b0a0a" stroke="#ef4444" stroke-width="1.5" class="a11_pnode"/>
+    <text x="90" y="187" font-family="'Courier New',monospace" font-size="7" fill="#ef4444" text-anchor="middle">EXECUTE</text>
+    <text x="90" y="199" font-family="'Courier New',monospace" font-size="6" fill="#fca5a5" text-anchor="middle">shellcode inject</text>
   </g>
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">April 11, 2026</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Payload particles -->
+  <g class="a11_drop"><rect x="992" y="230" width="7" height="10" rx="2" fill="#ef4444" opacity="0.8"/></g>
+  <g class="a11_dropB"><rect x="1002" y="230" width="5" height="8" rx="1" fill="#dc2626" opacity="0.7"/></g>
+
+  <!-- Intel panel -->
+  <rect x="308" y="208" width="148" height="78" rx="4" fill="#0a1020" stroke="#f59e0b" stroke-width="1" opacity="0.95"/>
+  <rect x="308" y="208" width="148" height="14" rx="3" fill="#92400e" opacity="0.85"/>
+  <text x="382" y="219" font-family="'Courier New',monospace" font-size="8" fill="#fcd34d" text-anchor="middle">BROWSER EXT</text>
+  <text x="316" y="235" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Type: AI-gen malext</text>
+  <text x="316" y="247" font-family="'Courier New',monospace" font-size="7" fill="#ef4444">Steal: creds+cookies</text>
+  <text x="316" y="259" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Target: Chrome 146-</text>
+  <text x="316" y="271" font-family="'Courier New',monospace" font-size="7" fill="#f59e0b">Users: 340K installs</text>
+  <text x="316" y="280" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Status: active</text>
+
+  <!-- Particles top -->
+  <circle cx="420" cy="75" r="2" fill="#ef4444" class="a11_pa" opacity="0.8"/>
+  <circle cx="680" cy="55" r="2" fill="#f59e0b" class="a11_pb" opacity="0.6"/>
+  <circle cx="820" cy="92" r="1.5" fill="#3b82f6" class="a11_pc" opacity="0.6"/>
+  <circle cx="1170" cy="72" r="1.5" fill="#ef4444" class="a11_pa" opacity="0.5"/>
+  <circle cx="1148" cy="200" r="1.5" fill="#f59e0b" class="a11_pb" opacity="0.4"/>
+
+  <!-- CRACK DIVIDER -->
+  <g class="a11_crack">
+    <rect x="290" y="305" width="910" height="20" fill="url(#a11_crack)" opacity="0.3" filter="url(#a11_heavyBlur)"/>
+    <path d="M290,315 L345,307 L385,322 L435,306 L475,319 L535,308 L575,321 L625,310 L675,318 L725,307 L775,316 L825,306 L875,319 L925,309 L965,321 L1015,307 L1065,317 L1115,307 L1155,318 L1200,312" fill="none" stroke="url(#a11_crack)" stroke-width="3" filter="url(#a11_crackGlow)"/>
+    <path d="M290,315 L345,323 L385,308 L435,324 L475,311 L535,322 L575,310 L625,320 L675,312 L725,323 L775,314 L825,324 L875,311 L925,321 L965,309 L1015,323 L1065,313 L1115,323 L1155,312 L1200,318" fill="none" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+  </g>
+  <g transform="translate(718,300)">
+    <rect x="-30" y="-14" width="60" height="28" rx="5" fill="#0f2044" stroke="#3b82f6" stroke-width="1.5" filter="url(#a11_glowBlue)"/>
+  </g>
+
+  <!-- BOTTOM HALF: Chrome DBSC layered shield + token flow -->
+
+  <!-- Halos -->
+  <circle cx="500" cy="455" r="75" fill="url(#a11_blueRadial)" class="a11_pslow"/>
+  <circle cx="1020" cy="450" r="72" fill="url(#a11_purpleRadial)" class="a11_pslow"/>
+
+  <!-- Chrome DBSC layered shield diagram -->
+  <g transform="translate(330,330)">
+    <rect x="20" y="10" width="150" height="30" rx="5" fill="#0a1a2e" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="95" y="30" font-family="'Courier New',monospace" font-size="8" fill="#93c5fd" text-anchor="middle">CHROME 146 BROWSER</text>
+    <line x1="95" y1="40" x2="95" y2="50" stroke="#3b82f6" stroke-width="1" opacity="0.6"/>
+    <rect x="30" y="50" width="130" height="26" rx="4" fill="#0f1a2e" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="95" y="67" font-family="'Courier New',monospace" font-size="7.5" fill="#60a5fa" text-anchor="middle">DBSC LAYER</text>
+    <line x1="95" y1="76" x2="95" y2="86" stroke="#3b82f6" stroke-width="1" opacity="0.6"/>
+    <rect x="40" y="86" width="110" height="26" rx="4" fill="#0a2040" stroke="#1d4ed8" stroke-width="1.2"/>
+    <text x="95" y="103" font-family="'Courier New',monospace" font-size="7.5" fill="#93c5fd" text-anchor="middle">DEVICE BINDING</text>
+    <line x1="95" y1="112" x2="95" y2="122" stroke="#3b82f6" stroke-width="1" opacity="0.6"/>
+    <rect x="50" y="122" width="90" height="26" rx="4" fill="#071428" stroke="#2563eb" stroke-width="1"/>
+    <text x="95" y="139" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">SESSION KEY</text>
+    <!-- Chrome ring icon -->
+    <circle cx="95" cy="178" r="28" fill="#0a1220" stroke="#3b82f6" stroke-width="2" filter="url(#a11_glowBlue)"/>
+    <circle cx="95" cy="178" r="20" fill="none" stroke="#1d4ed8" stroke-width="8"/>
+    <circle cx="95" cy="178" r="10" fill="#0a1220" stroke="#3b82f6" stroke-width="2"/>
+    <text x="95" y="182" font-family="'Courier New',monospace" font-size="6" fill="#60a5fa" text-anchor="middle">DBSC</text>
+    <text x="95" y="218" font-family="'Courier New',monospace" font-size="8" fill="#93c5fd" text-anchor="middle">Chrome 146 DBSC</text>
+  </g>
+
+  <!-- DBSC token flow visualization -->
+  <g transform="translate(598,332)">
+    <text x="130" y="16" font-family="'Courier New',monospace" font-size="9" font-weight="700" fill="#60a5fa" text-anchor="middle">TOKEN FLOW</text>
+    <!-- Browser node -->
+    <rect x="0" y="26" width="72" height="36" rx="5" fill="#0a1a2e" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="36" y="42" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">BROWSER</text>
+    <text x="36" y="55" font-family="'Courier New',monospace" font-size="6.5" fill="#64748b" text-anchor="middle">Chrome 146</text>
+    <!-- Arrow 1 -->
+    <line x1="72" y1="44" x2="110" y2="44" stroke="#3b82f6" stroke-width="1.2" class="a11_dash" opacity="0.8"/>
+    <g class="a11_token"><rect x="76" y="40" width="10" height="8" rx="2" fill="#3b82f6" opacity="0.9"/></g>
+    <!-- Server node -->
+    <rect x="110" y="26" width="72" height="36" rx="5" fill="#0a1a2e" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="146" y="42" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">SERVER</text>
+    <text x="146" y="55" font-family="'Courier New',monospace" font-size="6.5" fill="#64748b" text-anchor="middle">auth endpoint</text>
+    <!-- Arrow 2 -->
+    <line x1="182" y1="44" x2="220" y2="44" stroke="#1d4ed8" stroke-width="1.2" class="a11_dash" opacity="0.8"/>
+    <g class="a11_tokenB"><rect x="186" y="40" width="10" height="8" rx="2" fill="#1d4ed8" opacity="0.9"/></g>
+    <!-- Device key node -->
+    <rect x="220" y="26" width="72" height="36" rx="5" fill="#071428" stroke="#2563eb" stroke-width="1.5" class="a11_pnode"/>
+    <text x="256" y="42" font-family="'Courier New',monospace" font-size="7" fill="#60a5fa" text-anchor="middle">DEVICE</text>
+    <text x="256" y="55" font-family="'Courier New',monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle">KEY BIND</text>
+    <!-- DBSC benefit -->
+    <rect x="55" y="76" width="182" height="28" rx="4" fill="#071428" stroke="#3b82f6" stroke-width="1"/>
+    <text x="146" y="89" font-family="'Courier New',monospace" font-size="7" fill="#93c5fd" text-anchor="middle">Device-Bound Session Cookie</text>
+    <text x="146" y="100" font-family="'Courier New',monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle">Prevents cookie theft attacks</text>
+    <!-- Blocked attacker -->
+    <rect x="55" y="118" width="90" height="28" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+    <text x="100" y="130" font-family="'Courier New',monospace" font-size="7" fill="#ef4444" text-anchor="middle">ATTACKER</text>
+    <text x="100" y="141" font-family="'Courier New',monospace" font-size="6" fill="#94a3b8" text-anchor="middle">BLOCKED</text>
+    <line x1="145" y1="132" x2="218" y2="132" stroke="#ef4444" stroke-width="1.2" opacity="0.6"/>
+    <line x1="198" y1="126" x2="220" y2="138" stroke="#ef4444" stroke-width="2"/>
+    <line x1="220" y1="126" x2="198" y2="138" stroke="#ef4444" stroke-width="2"/>
+  </g>
+
+  <!-- AI threat shield right -->
+  <g transform="translate(930,338)" filter="url(#a11_glowPurple)">
+    <path d="M60,5 L118,25 L118,83 C118,117 60,138 60,138 C60,138 2,117 2,83 L2,25 Z" fill="url(#a11_purpleGrad)" opacity="0.85"/>
+    <path d="M60,15 L108,32 L108,81 C108,107 60,127 60,127 C60,127 12,107 12,81 L12,32 Z" fill="#1e1040" opacity="0.7"/>
+    <text x="60" y="64" font-family="'Courier New',monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">AI</text>
+    <text x="60" y="76" font-family="'Courier New',monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">BROWSER</text>
+    <text x="60" y="88" font-family="'Courier New',monospace" font-size="8" fill="#c4b5fd" text-anchor="middle">THREAT</text>
+    <circle cx="60" cy="105" r="40" fill="none" stroke="#7c3aed" stroke-width="0.8" stroke-dasharray="5 5" class="a11_radar" opacity="0.5"/>
+    <rect x="15" y="126" width="90" height="14" rx="3" fill="#1e0a40" stroke="#7c3aed" stroke-width="0.8"/>
+    <text x="60" y="137" font-family="'Courier New',monospace" font-size="7" fill="#a78bfa" text-anchor="middle">LLM ATTACK</text>
+  </g>
+
+  <!-- Bottom info boxes -->
+  <rect x="308" y="520" width="158" height="62" rx="4" fill="#050f1f" stroke="#ef4444" stroke-width="1" opacity="0.95"/>
+  <rect x="308" y="520" width="158" height="14" rx="3" fill="#7f1d1d" opacity="0.85"/>
+  <text x="387" y="531" font-family="'Courier New',monospace" font-size="8" fill="#fca5a5" text-anchor="middle">ZIG DROPPER</text>
+  <text x="316" y="547" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Lang: Zig 0.13</text>
+  <text x="316" y="559" font-family="'Courier New',monospace" font-size="7" fill="#ef4444">CVSSv3: 9.1 CRITICAL</text>
+  <text x="316" y="571" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">IOC: glassworm.dll</text>
+
+  <rect x="770" y="520" width="158" height="62" rx="4" fill="#050f20" stroke="#3b82f6" stroke-width="1" opacity="0.95"/>
+  <rect x="770" y="520" width="158" height="14" rx="3" fill="#1d4ed8" opacity="0.75"/>
+  <text x="849" y="531" font-family="'Courier New',monospace" font-size="8" fill="#93c5fd" text-anchor="middle">CHROME DBSC</text>
+  <text x="778" y="547" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Version: Chrome 146</text>
+  <text x="778" y="559" font-family="'Courier New',monospace" font-size="7" fill="#60a5fa">Tech: device binding</text>
+  <text x="778" y="571" font-family="'Courier New',monospace" font-size="7" fill="#94a3b8">Blocks: cookie theft</text>
+
+  <!-- Bottom particles -->
+  <circle cx="535" cy="512" r="2" fill="#3b82f6" class="a11_pe" opacity="0.7"/>
+  <circle cx="622" cy="542" r="1.5" fill="#7c3aed" class="a11_pa" opacity="0.6"/>
+  <circle cx="742" cy="508" r="2" fill="#f59e0b" class="a11_pb" opacity="0.5"/>
+  <circle cx="862" cy="528" r="1.5" fill="#3b82f6" class="a11_pc" opacity="0.6"/>
+  <circle cx="1102" cy="498" r="2" fill="#7c3aed" class="a11_pd" opacity="0.5"/>
+  <circle cx="1158" cy="545" r="1.5" fill="#a855f7" class="a11_pe" opacity="0.5"/>
+
+  <!-- Footer -->
+  <rect x="290" y="597" width="910" height="33" fill="url(#a11_footer)"/>
+  <line x1="290" y1="597" x2="1200" y2="597" stroke="#1e3a5f" stroke-width="1"/>
+  <line x1="310" y1="615" x2="560" y2="615" stroke="#1e3a5f" stroke-width="0.5"/>
+  <text x="740" y="619" font-family="'Courier New',monospace" font-size="8" fill="#475569" text-anchor="middle" letter-spacing="1">tech.2twodragon.com — APR 11 2026 — AI / GO / CVE / CHROME DBSC</text>
+  <line x1="920" y1="615" x2="1180" y2="615" stroke="#1e3a5f" stroke-width="0.5"/>
+  <circle cx="570" cy="615" r="1.5" fill="#1e3a5f"/>
+  <circle cx="910" cy="615" r="1.5" fill="#1e3a5f"/>
+
+  <!-- Final vignette -->
+  <rect width="1200" height="630" fill="url(#a11_vignette)" opacity="0.4"/>
+
+  <!-- CRITICAL + HIGH badges -->
+  <g transform="translate(1130,12)">
+    <rect x="0" y="0" width="62" height="22" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
+    <circle cx="11" cy="11" r="4" fill="#3b82f6" class="a11_pfast"/>
+    <text x="37" y="15" font-family="'Courier New',monospace" font-size="8" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="0.5">HIGH</text>
+  </g>
+  <g transform="translate(1056,12)">
+    <rect x="0" y="0" width="70" height="22" rx="4" fill="#0a1020" stroke="#ef4444" stroke-width="1"/>
+    <circle cx="11" cy="11" r="4" fill="#ef4444" class="a11_pfast" style="animation-delay:0.3s"/>
+    <text x="41" y="15" font-family="'Courier New',monospace" font-size="8" font-weight="700" fill="#ef4444" text-anchor="middle" letter-spacing="0.5">CRITICAL</text>
+  </g>
+
+  <!-- Title bar -->
+  <rect x="550" y="10" width="300" height="26" rx="5" fill="#0a0f1e" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+  <text x="700" y="28" font-family="'Courier New',monospace" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle" letter-spacing="1.5">SECURITY INTEL BRIEF</text>
+
+  <!-- Scan line -->
+  <rect x="290" y="0" width="910" height="2" fill="#3b82f6" opacity="0.04">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,628;0,0" dur="6s" repeatCount="indefinite"/>
+  </rect>
 </svg>
