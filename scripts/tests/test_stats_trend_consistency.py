@@ -258,3 +258,29 @@ class TestGenerateTechTrendAnalysis:
         content = _generate_tech_trend_analysis([], 1)
         rows = _parse_trend_rows(content)
         assert len(rows) == 0
+
+
+# ===========================================================================
+# Regression: qa_gate on actual April 12/13 posts
+# ===========================================================================
+
+from pathlib import Path
+
+from news.qa_gate import run_qa_gate
+
+
+class TestAprilDigestRegression:
+    """Verify fixed 4/12 and 4/13 posts pass qa_gate with zero issues."""
+
+    @pytest.fixture(params=["2026-04-12", "2026-04-13"])
+    def post_content(self, request):
+        posts_dir = Path(__file__).resolve().parents[2] / "_posts"
+        matches = list(posts_dir.glob(f"{request.param}-Tech_Security_Weekly_Digest_*.md"))
+        if not matches:
+            pytest.skip(f"Post file for {request.param} not found")
+        return matches[0].read_text(encoding="utf-8"), matches[0].name
+
+    def test_qa_gate_zero_issues(self, post_content):
+        content, filename = post_content
+        issues = run_qa_gate(content, filename)
+        assert issues == [], f"QA gate found issues in {filename}: {issues}"

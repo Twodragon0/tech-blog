@@ -30,8 +30,25 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: |
+          pip install -q pyyaml frontmatter 2>/dev/null || true
+
       - name: Auto-fix and check SVG quality
         run: |
           echo "Auto-fixing missing width/height and checking SVG quality..."
           python3 scripts/check_svg_quality.py --fix --ci assets/images/
           echo "SVG quality check passed"
+
+      - name: Check posts quality (zero SVG warnings)
+        run: |
+          OUTPUT=$(python3 scripts/check_posts.py 2>&1 || true)
+          TRUNCATED=$(echo "$OUTPUT" | grep -c "truncated" || true)
+          DENSE=$(echo "$OUTPUT" | grep -c "text too dense" || true)
+          TOTAL=$((TRUNCATED + DENSE))
+          echo "SVG warnings: truncated=$TRUNCATED, dense=$DENSE, total=$TOTAL"
+          if [ "$TOTAL" -gt "0" ]; then
+            echo "$OUTPUT" | grep -E "truncated|text too dense"
+            echo "::error::check_posts.py reported $TOTAL SVG warnings. Fix before merging."
+            exit 1
+          fi
