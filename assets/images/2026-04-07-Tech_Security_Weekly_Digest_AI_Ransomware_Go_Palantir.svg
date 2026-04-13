@@ -328,7 +328,7 @@
   <circle cx="450" cy="165" r="12" fill="#dc2626" opacity="0.9" class="pulse1"/>
   <!-- Iran label -->
   <text x="450" y="210" font-family="'Arial',sans-serif" font-size="13" font-weight="900" fill="#ef4444" text-anchor="middle" letter-spacing="2">IRAN</text>
-  <text x="450" y="226" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">APT Origin</text>
+  
   <!-- Crosshair on Iran node -->
   <line x1="440" y1="165" x2="424" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
   <line x1="460" y1="165" x2="476" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
@@ -386,35 +386,35 @@
 
   <!-- "300+ ORGS" label on wall -->
   <rect x="870" y="205" width="120" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="930" y="220" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">300+ ORGS TARGETED</text>
+  
 
   <!-- Login form elements being attacked (below wall) -->
   <!-- Input field 1 - breached -->
   <rect x="820" y="240" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="835" y="257" font-family="'Courier New',monospace" font-size="10" fill="#475569">username@org.il</text>
-  <text x="1028" y="257" font-family="'Arial',sans-serif" font-size="14" fill="#ef4444" text-anchor="middle">x</text>
+  
+  
   <!-- Input field 2 - breached -->
   <rect x="820" y="273" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="835" y="290" font-family="'Courier New',monospace" font-size="10" fill="#475569">••••••••••••</text>
-  <text x="1028" y="290" font-family="'Arial',sans-serif" font-size="14" fill="#ef4444" text-anchor="middle">x</text>
+  
+  
 
   <!-- Password spray labels floating -->
   <g class="float1">
     <rect x="520" y="72" width="90" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    <text x="565" y="84" font-family="'Courier New',monospace" font-size="9" fill="#ef4444" text-anchor="middle">P@ssw0rd</text>
+    
   </g>
   <g class="float2">
     <rect x="640" y="92" width="80" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.75"/>
-    <text x="680" y="104" font-family="'Courier New',monospace" font-size="9" fill="#ef4444" text-anchor="middle">Admin1234</text>
+    
   </g>
   <g class="float3">
     <rect x="545" y="132" width="72" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="1" opacity="0.65"/>
-    <text x="581" y="144" font-family="'Courier New',monospace" font-size="9" fill="#dc2626" text-anchor="middle">Summer26!</text>
+    
   </g>
 
   <!-- Top scene label -->
   <rect x="318" y="12" width="180" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.9"/>
-  <text x="408" y="28" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle" letter-spacing="1">PASSWORD SPRAY ATTACK</text>
+  
 
   <!-- IRAN label on node (inside) -->
   <text x="450" y="170" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.9">IR</text>
@@ -456,7 +456,7 @@
   <circle cx="620" cy="490" r="24" fill="#0f0f1a" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
   <text x="620" y="487" font-family="'Courier New',monospace" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">GitHub</text>
   <text x="620" y="502" font-family="'Courier New',monospace" font-size="9" fill="#fbbf24" text-anchor="middle">C2</text>
-  <text x="620" y="528" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Staging Server</text>
+  
 
   <!-- DPRK -> GitHub C2 arrow -->
   <line x1="446" y1="428" x2="594" y2="484" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" class="dashFlow"/>
@@ -465,9 +465,9 @@
   <circle cx="750" cy="420" r="24" fill="#1a1000" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
   <!-- Korean flag simplified: white circle + lines -->
   <circle cx="750" cy="417" r="9" fill="#0f0f0f" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="750" y="421" font-family="'Arial',sans-serif" font-size="7" font-weight="700" fill="#fbbf24" text-anchor="middle">KR</text>
-  <text x="750" y="460" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">South Korea</text>
-  <text x="750" y="474" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Target</text>
+  
+  
+  
 
   <!-- GitHub C2 -> South Korea arrow -->
   <line x1="643" y1="483" x2="726" y2="433" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowAmber)" class="dashFlow"/>
@@ -479,7 +479,7 @@
   <path d="M538,368 C538,362 553,362 553,368" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
   <circle cx="545" cy="376" r="2.5" fill="#fbbf24"/>
   <text x="545" y="418" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">REvil</text>
-  <text x="545" y="432" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GangCrab Ops</text>
+  
 
   <!-- === GERMANY LAW ENFORCEMENT NODE === -->
   <circle cx="370" cy="545" r="24" fill="#0f1420" stroke="#3b82f6" stroke-width="2" filter="url(#glowBlue)"/>
@@ -489,7 +489,7 @@
   <line x1="370" y1="545" x2="370" y2="545" stroke="#60a5fa" stroke-width="3"/>
   <line x1="367" y1="545" x2="373" y2="545" stroke="#60a5fa" stroke-width="2.5"/>
   <text x="370" y="585" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle">Germany</text>
-  <text x="370" y="599" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Law Enforcement</text>
+  
 
   <!-- Germany -> REvil (arrest connection) -->
   <line x1="394" y1="534" x2="522" y2="396" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#arrowBlue)" opacity="0.8"/>
@@ -501,14 +501,14 @@
     <line x1="4" y1="14" x2="18" y2="14" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
     <line x1="4" y1="18" x2="18" y2="18" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
     <line x1="4" y1="22" x2="12" y2="22" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-    <text x="11" y="34" font-family="'Arial',sans-serif" font-size="7" fill="#f59e0b" text-anchor="middle">.enc</text>
+    
   </g>
   <g transform="translate(560, 340)" class="float2">
     <rect x="0" y="0" width="22" height="28" rx="3" fill="#1a0f00" stroke="#dc2626" stroke-width="1.5"/>
     <path d="M14,0 L22,8 L14,8 Z" fill="#dc2626" opacity="0.6"/>
     <line x1="4" y1="14" x2="18" y2="14" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
     <line x1="4" y1="18" x2="18" y2="18" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
-    <text x="11" y="34" font-family="'Arial',sans-serif" font-size="7" fill="#dc2626" text-anchor="middle">.lock</text>
+    
   </g>
 
   <!-- === PALANTIR OSDK NODE === -->
@@ -519,7 +519,7 @@
   <circle cx="938" cy="426" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
   <circle cx="930" cy="438" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
   <text x="930" y="475" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">Palantir</text>
-  <text x="930" y="490" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">OSDK Platform</text>
+  
 
   <!-- === IRONWOOD TPU NODE === -->
   <circle cx="1090" cy="430" r="26" fill="#071a10" stroke="#22c55e" stroke-width="2.5" filter="url(#glowGreen)"/>
@@ -536,9 +536,9 @@
   <line x1="1083" y1="419" x2="1083" y2="415" stroke="#22c55e" stroke-width="1"/>
   <line x1="1090" y1="419" x2="1090" y2="415" stroke="#22c55e" stroke-width="1"/>
   <line x1="1097" y1="419" x2="1097" y2="415" stroke="#22c55e" stroke-width="1"/>
-  <text x="1090" y="475" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#22c55e" text-anchor="middle">Ironwood</text>
-  <text x="1090" y="490" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">3.7x TPU</text>
-  <text x="1090" y="504" font-family="'Arial',sans-serif" font-size="9" fill="#4ade80" text-anchor="middle" class="glimmer2">AI Compute</text>
+  
+  
+  
 
   <!-- Palantir data stream lines -->
   <line x1="956" y1="422" x2="1060" y2="422" stroke="#3b82f6" stroke-width="1.5" class="dataLine" marker-end="url(#arrowBlue)"/>
@@ -547,11 +547,11 @@
 
   <!-- "3.7x Performance" badge near Ironwood -->
   <rect x="1048" y="395" width="84" height="18" rx="9" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="1090" y="408" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle" class="glimmer1">3.7x FASTER</text>
+  
 
   <!-- Bottom scene label -->
   <rect x="318" y="322" width="195" height="22" rx="4" fill="#0a0f20" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
-  <text x="415" y="336" font-family="'Arial',sans-serif" font-size="10" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="1">MULTI-VECTOR THREAT MAP</text>
+  
 
   <!-- Floating particles in bottom scene -->
   <g class="float1" transform="translate(470, 500)">
@@ -577,6 +577,6 @@
   <rect x="305" y="605" width="895" height="25" fill="#080c18" opacity="0.9"/>
   <line x1="305" y1="605" x2="1200" y2="605" stroke="#1e293b" stroke-width="1"/>
   <circle cx="322" cy="617" r="3.5" fill="#ef4444" opacity="0.7" class="pulse1"/>
-  <text x="334" y="621" font-family="'Arial',sans-serif" font-size="10" fill="#475569">Security Weekly Digest | April 07, 2026</text>
+  
   <text x="1190" y="621" font-family="'Arial',sans-serif" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
