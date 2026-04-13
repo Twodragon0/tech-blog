@@ -132,6 +132,15 @@ from scripts.news.loader import (  # noqa: E402,F401
     select_top_news,
 )
 
+# Re-export QA gate functions
+from scripts.news.qa_gate import (  # noqa: E402,F401
+    QAGateError,
+    run_qa_gate,
+    validate_sentence_completeness,
+    validate_stats_consistency,
+    validate_trend_analysis,
+)
+
 # Re-export SVG generator functions
 from scripts.news.svg_generator import (  # noqa: E402,F401
     _compose_svg_subtitle,
@@ -413,6 +422,13 @@ def main():
             print(
                 f"\U0001f4dd Overwriting existing post ({existing_size}B \u2192 {new_size}B)"
             )
+
+    # --- Pre-publish QA gate ---
+    qa_issues = run_qa_gate(post_content, post_filename)
+    if qa_issues:
+        print(f"\u26a0\ufe0f QA gate found {len(qa_issues)} issue(s):")
+        for qi in qa_issues:
+            print(f"   - {qi}")
 
     if args.dry_run:
         print("\n\U0001f4dd [DRY RUN] Would create:")
