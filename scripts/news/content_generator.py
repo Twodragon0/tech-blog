@@ -686,6 +686,49 @@ def _run_post_quality_gate(post_path: Path, target: int = 80) -> None:
     )
 
 
+def _format_stats_block(stats: Dict[str, int], total: int) -> str:
+    """Build the stats block dynamically so every category is represented.
+
+    Known categories are displayed with Korean labels in a fixed order.
+    Any remaining items that don't belong to a known category are summed
+    into a '기타 뉴스' line.  An assertion guarantees the displayed
+    category counts sum exactly to *total*.
+    """
+    _KNOWN_CATEGORIES = [
+        ("security", "보안 뉴스"),
+        ("ai", "AI/ML 뉴스"),
+        ("cloud", "클라우드 뉴스"),
+        ("devops", "DevOps 뉴스"),
+        ("blockchain", "블록체인 뉴스"),
+    ]
+
+    lines: list[str] = [f"- **총 뉴스 수**: {total}개"]
+    shown_sum = 0
+    shown_keys: set[str] = set()
+
+    for key, label in _KNOWN_CATEGORIES:
+        count = stats.get(key, 0)
+        if count > 0:
+            lines.append(f"- **{label}**: {count}개")
+            shown_sum += count
+            shown_keys.add(key)
+
+    # Remaining categories → '기타 뉴스'
+    etc_count = 0
+    for key, count in stats.items():
+        if key not in shown_keys:
+            etc_count += count
+    if etc_count > 0:
+        lines.append(f"- **기타 뉴스**: {etc_count}개")
+        shown_sum += etc_count
+
+    assert shown_sum == total, (
+        f"Stats block category sum mismatch: {shown_sum} != {total} (stats={stats})"
+    )
+
+    return "\n".join(lines)
+
+
 def generate_post_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -796,12 +839,7 @@ toc: true
 {date_str} 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
 
 **수집 통계:**
-- **총 뉴스 수**: {total}개
-- **보안 뉴스**: {stats.get("security", 0)}개
-- **AI/ML 뉴스**: {stats.get("ai", 0)}개
-- **클라우드 뉴스**: {stats.get("cloud", 0)}개
-- **DevOps 뉴스**: {stats.get("devops", 0)}개
-- **블록체인 뉴스**: {stats.get("blockchain", 0)}개
+{_format_stats_block(stats, total)}
 
 ---
 
@@ -1059,6 +1097,12 @@ def generate_tech_blog_content(
         else:
             topic_groups["General"].append(item)
 
+    # Invariant: topic_groups must account for all items
+    group_sum = sum(len(v) for v in topic_groups.values())
+    assert group_sum == total, (
+        f"Tech-blog topic group sum mismatch: {group_sum} != {total}"
+    )
+
     # Title generation for tech-blog mode
     title_keywords = _build_digest_title(news_items, mode="tech-blog")
 
@@ -1287,25 +1331,32 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
     }
 
     trend_results = []
+    matched_indices: set[int] = set()
     for trend_name, keywords in trend_defs.items():
         count = 0
         matched_kws = set()
-        for item in news_items:
+        for idx, item in enumerate(news_items):
             text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
             for kw in keywords:
                 if kw in text:
                     count += 1
                     matched_kws.add(kw)
+                    matched_indices.add(idx)
                     break
         if count > 0:
             trend_results.append((trend_name, count, ", ".join(list(matched_kws)[:3])))
+
+    # Add "기타" for unmatched items so trend sum == total
+    etc_count = len(news_items) - len(matched_indices)
+    if etc_count > 0:
+        trend_results.append(("기타", etc_count, "기타 주제"))
 
     trend_results.sort(key=lambda x: x[1], reverse=True)
 
     if trend_results:
         content += "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
         content += "|--------|-------------|------------|\n"
-        for name, count, kws in trend_results[:7]:
+        for name, count, kws in trend_results:
             content += f"| **{name}** | {count}건 | {kws} |\n"
         content += "\n"
 
@@ -2409,8 +2460,12 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
         for kw in ["copilot", "github blog", "github action", "changelog", "코파일럿"]
     ):
         template += "- Copilot/Actions 플랜·쿼터 변경이 내부 파이프라인에 미치는 영향 회귀 테스트\n"
-        template += "- 에이전트 응답 로그를 SIEM에 연동해 민감 코드/시크릿 노출 사례 감사\n"
-        template += "- 팀별 Copilot 사용량 지표(AAU, MAU, 토큰)를 라이선스 리포트에 통합\n"
+        template += (
+            "- 에이전트 응답 로그를 SIEM에 연동해 민감 코드/시크릿 노출 사례 감사\n"
+        )
+        template += (
+            "- 팀별 Copilot 사용량 지표(AAU, MAU, 토큰)를 라이선스 리포트에 통합\n"
+        )
     elif any(
         kw in text
         for kw in ["metric", "observability", "dashboard", "대시보드", "메트릭", "로그"]
@@ -2424,7 +2479,9 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
     ):
         template += "- 서버리스 워크로드 실행 역할(IAM)의 최소 권한·일시성 로그 감사 정책 점검\n"
         template += "- Cold start·burst 스케일 시 비밀값 주입 지연과 cache-poisoning 위험 평가\n"
-        template += "- 이벤트 소스(버킷·큐·스케줄러)별 invoke 권한과 VPC 경계 분리 검증\n"
+        template += (
+            "- 이벤트 소스(버킷·큐·스케줄러)별 invoke 권한과 VPC 경계 분리 검증\n"
+        )
     elif any(
         kw in text
         for kw in [
@@ -2469,9 +2526,13 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "iceberg",
         ]
     ):
-        template += "- 데이터 파이프라인의 출처·목적지별 PII 분류와 DLP 마스킹 정책 적용 검토\n"
+        template += (
+            "- 데이터 파이프라인의 출처·목적지별 PII 분류와 DLP 마스킹 정책 적용 검토\n"
+        )
         template += "- ETL/큐레이션 작업의 서비스 계정 권한을 테이블 단위 IAM으로 축소하고 감사\n"
-        template += "- 컬럼 단위 암호화(CMEK)와 BigQuery row-level security 정책 일관성 확인\n"
+        template += (
+            "- 컬럼 단위 암호화(CMEK)와 BigQuery row-level security 정책 일관성 확인\n"
+        )
     elif any(
         kw in text
         for kw in [
@@ -2536,11 +2597,7 @@ def _pick_generic_devops_bullets(item: Optional[Dict]) -> str:
     """
     if item is None:
         return "\n".join(_DEVOPS_FALLBACK_POOLS[0]) + "\n"
-    seed = (
-        item.get("url")
-        or item.get("title", "")
-        or ""
-    )
+    seed = item.get("url") or item.get("title", "") or ""
     if not seed:
         return "\n".join(_DEVOPS_FALLBACK_POOLS[0]) + "\n"
     # Non-crypto stable hash — stdlib hash() varies per run, so use a sum
@@ -2564,10 +2621,11 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
     }
 
     trend_results = []
+    matched_indices: set[int] = set()
     for trend_name, keywords in trend_defs.items():
         count = 0
         representative_titles = []
-        for item in news_items:
+        for idx, item in enumerate(news_items):
             # Use title primarily for classification to avoid false positives
             title_text = item.get("title", "").lower()
             for kw in keywords:
@@ -2581,6 +2639,7 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
                     matched = kw in title_text
                 if matched:
                     count += 1
+                    matched_indices.add(idx)
                     title = item.get("title", "")
                     source = item.get("source_name", "")
                     short_ref = _extract_trend_keyword(title, source)
@@ -2598,12 +2657,17 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
                 (trend_name, count, display_kws, representative_titles)
             )
 
+    # Add "기타" for unmatched items so trend sum == total
+    etc_count = len(news_items) - len(matched_indices)
+    if etc_count > 0:
+        trend_results.append(("기타", etc_count, "기타 주제", []))
+
     trend_results.sort(key=lambda x: x[1], reverse=True)
 
     if trend_results:
         content += "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
         content += "|--------|-------------|------------|\n"
-        for name, count, kws, _ in trend_results[:7]:
+        for name, count, kws, _ in trend_results:
             content += f"| **{name}** | {count}건 | {kws} |\n"
         content += "\n"
 
