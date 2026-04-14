@@ -1086,7 +1086,7 @@
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
       if (postContent && originalContent.postContent) {
-        postContent.innerHTML = originalContent.postContent;
+        postContent.innerHTML = sanitize(originalContent.postContent);
       }
 
       if (postTitle && originalContent.postTitle) {
@@ -1095,7 +1095,7 @@
       
       // Restore certification page content
       if (certPage && originalContent.certPage) {
-        certPage.innerHTML = originalContent.certPage;
+        certPage.innerHTML = sanitize(originalContent.certPage);
       }
       
       if (certTitle && originalContent.certTitle) {
