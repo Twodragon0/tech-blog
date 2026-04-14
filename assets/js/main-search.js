@@ -865,7 +865,7 @@
       // Translate post content with batch processing for better performance
       if (postContent && originalContent.postContent) {
         const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = originalContent.postContent;
+        tempDiv.innerHTML = sanitize(originalContent.postContent);
         const textElements = Array.from(tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, code:not(pre code), span:not(.highlight), div:not(.code-block):not(.highlight)')).filter(el => {
           const text = el.textContent.trim();
           // Filter out empty elements, code blocks, and elements with code children
@@ -959,7 +959,7 @@
       // Translate certification page content
       if (certPage && originalContent.certPage) {
         const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = originalContent.certPage;
+        tempDiv.innerHTML = sanitize(originalContent.certPage);
         const textElements = Array.from(tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, span.question-topic, span.question-number, .question-content, .question-options, .question-answer')).filter(el => {
           const text = el.textContent.trim();
           // Filter out empty elements, code blocks, and elements with code children
