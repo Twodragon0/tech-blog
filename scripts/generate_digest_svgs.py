@@ -8,12 +8,19 @@ from pathlib import Path
 
 import yaml
 
-POSTS_DIR = Path("/Users/yong/Desktop/tech-blog/_posts")
-IMAGES_DIR = Path("/Users/yong/Desktop/tech-blog/assets/images")
+_REPO_ROOT = Path("/Users/yong/Desktop/personal/tech-blog")
+POSTS_DIR = _REPO_ROOT / "_posts" if (_REPO_ROOT / "_posts").exists() else Path.cwd() / "_posts"
+IMAGES_DIR = _REPO_ROOT / "assets/images"
 
 # Reference SVG style from 2026-03-05 - the "good" style
 # Posts that already have the good style - skip these
 SKIP_FILES = set()  # Regenerate all
+
+# Explicit date range to skip (hand-crafted high-quality SVGs)
+SKIP_DATE_RANGE = ("2026-04-05", "2026-04-14")
+
+# SVG file size threshold: files larger than this are already high quality
+SKIP_IF_LARGER_THAN = 8000  # bytes
 
 # Topic keyword -> (icon_color, topic_label, icon_svg_snippet)
 TOPIC_ICONS = {
@@ -462,10 +469,39 @@ def generate_svg(post_data, filename_stem):
     # Network dots
     network_dots = make_network_dots(filename_stem)
 
+    # Determine badge label based on primary topic severity
+    primary_icon_type = topics[0][3] if topics else "shield"
+    if primary_icon_type in ("alert", "lock", "bug"):
+        badge_label = "SECURITY ALERT"
+        badge_color = "#dc2626"
+        badge_bg = "#450a0a"
+    elif primary_icon_type == "brain":
+        badge_label = "AI INTELLIGENCE"
+        badge_color = "#818cf8"
+        badge_bg = "#1e1b4b"
+    elif primary_icon_type in ("cloud",):
+        badge_label = "CLOUD REPORT"
+        badge_color = "#06b6d4"
+        badge_bg = "#083344"
+    elif primary_icon_type == "chain":
+        badge_label = "BLOCKCHAIN UPDATE"
+        badge_color = "#f59e0b"
+        badge_bg = "#431407"
+    elif primary_icon_type in ("gear", "container"):
+        badge_label = "DEVOPS DIGEST"
+        badge_color = "#10b981"
+        badge_bg = "#052e16"
+    else:
+        badge_label = "WEEKLY DIGEST"
+        badge_color = palette["accent1"]
+        badge_bg = "#1e293b"
+
+    badge_width = len(badge_label) * 10 + 32
+
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
   <title>{filename_stem}</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="50%" stop-color="#1e293b"/>
       <stop offset="100%" stop-color="#0f172a"/>
@@ -478,13 +514,38 @@ def generate_svg(post_data, filename_stem):
       <stop offset="0%" stop-color="{palette["accent2"]}"/>
       <stop offset="100%" stop-color="{palette["accent2_dark"]}"/>
     </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="{palette["accent1"]}" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="{palette["accent1"]}" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="{palette["accent2"]}" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="{palette["accent2"]}" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#94a3b8" opacity="0.08"/>
+    </pattern>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
 
+  <!-- Dot pattern overlay -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Ambient glow blobs -->
+  <ellipse cx="200" cy="315" rx="260" ry="260" fill="url(#glow1)"/>
+  <ellipse cx="1000" cy="315" rx="220" ry="220" fill="url(#glow2)"/>
+
   <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+  <g opacity="0.03" stroke="#94a3b8" stroke-width="1">
     <line x1="0" y1="100" x2="1200" y2="100"/>
     <line x1="0" y1="200" x2="1200" y2="200"/>
     <line x1="0" y1="300" x2="1200" y2="300"/>
@@ -497,8 +558,18 @@ def generate_svg(post_data, filename_stem):
     <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="{palette["accent1"]}" stroke-width="2" opacity="0.5"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{palette["accent1"]}" stroke-width="2" opacity="0.5"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="{palette["accent2"]}" stroke-width="2" opacity="0.5"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{palette["accent2"]}" stroke-width="2" opacity="0.5"/>
+
+  <!-- Badge at top -->
+  <rect x="260" y="30" width="{badge_width}" height="28" rx="4" fill="{badge_bg}" stroke="{badge_color}" stroke-width="1" opacity="0.9"/>
+  <text x="{260 + badge_width // 2}" y="49" text-anchor="middle" fill="{badge_color}" font-family="Courier New, monospace" font-size="12" font-weight="bold" letter-spacing="2">{badge_label}</text>
+
   <!-- Primary icon -->
-  <g transform="translate(80, 180)">
+  <g transform="translate(80, 180)" filter="url(#glow-filter)">
     {icon1_rendered}
   </g>
 
@@ -516,7 +587,7 @@ def generate_svg(post_data, filename_stem):
 
   <!-- Date badge -->
   <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">{date_str}</text>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Courier New, monospace" font-size="15" font-weight="bold">{date_str}</text>
 
   <!-- Stats cards -->
   <g transform="translate(260, 310)">
@@ -528,22 +599,31 @@ def generate_svg(post_data, filename_stem):
 {chr(10).join(tag_pills)}
   </g>
 
-  <!-- Network visualization -->
-  <g transform="translate(900, 180)" opacity="0.4">
+  <!-- Network visualization with dashed orbital rings -->
+  <g transform="translate(900, 180)" opacity="0.35">
+    <!-- Dashed orbital rings -->
+    <circle cx="120" cy="120" r="90" fill="none" stroke="{palette["accent1"]}" stroke-width="1" stroke-dasharray="6,4" opacity="0.3"/>
+    <circle cx="120" cy="120" r="60" fill="none" stroke="{palette["accent2"]}" stroke-width="1" stroke-dasharray="4,6" opacity="0.25"/>
+    <circle cx="120" cy="120" r="30" fill="none" stroke="{palette["accent1"]}" stroke-width="1" stroke-dasharray="3,5" opacity="0.2"/>
 {network_dots}
   </g>
 
+  <!-- Bottom separator line -->
+  <rect x="0" y="508" width="1200" height="1" fill="{palette["accent1"]}" opacity="0.4"/>
+
   <!-- Bottom bar -->
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+  <rect x="0" y="509" width="1200" height="121" fill="#0f172a" opacity="0.9"/>
+  <rect x="0" y="509" width="1200" height="2" fill="url(#accent)" opacity="0.6"/>
 
-  <!-- Bottom text -->
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
+  <!-- Bottom left: site info -->
+  <text x="80" y="548" fill="#94a3b8" font-family="Courier New, monospace" font-size="15" font-weight="bold">tech.2twodragon.com</text>
+  <text x="80" y="572" fill="#64748b" font-family="Arial, sans-serif" font-size="12">DevSecOps Weekly Security Intelligence</text>
+  <text x="80" y="592" fill="#475569" font-family="Courier New, monospace" font-size="11">tech.2twodragon.com/digest</text>
 
-  <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">{article_count} curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">{topics_str}</text>
+  <!-- Bottom right: stats -->
+  <text x="1120" y="548" text-anchor="end" fill="{palette["accent1"]}" font-family="Courier New, monospace" font-size="14" font-weight="bold">{article_count} curated articles</text>
+  <text x="1120" y="572" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="12">{topics_str}</text>
+  <text x="1120" y="592" text-anchor="end" fill="#475569" font-family="Courier New, monospace" font-size="11">tech.2twodragon.com</text>
 </svg>
 """
     return svg
@@ -597,18 +677,30 @@ def main():
     for post_file in digest_posts:
         stem = post_file.stem
 
-        # Skip already-good SVGs
+        # Skip already-good SVGs listed explicitly
         if stem in SKIP_FILES:
             print(f"  SKIP (already good): {stem}")
+            skipped += 1
+            continue
+
+        # Skip posts in the protected hand-crafted date range
+        date_prefix = stem[:10]  # YYYY-MM-DD
+        if SKIP_DATE_RANGE[0] <= date_prefix <= SKIP_DATE_RANGE[1]:
+            print(f"  SKIP (hand-crafted date range): {stem}")
             skipped += 1
             continue
 
         # Find SVG path
         svg_path = find_svg_path(post_file)
 
-        # Check if existing SVG is already in new style
+        # Check if existing SVG is already high quality (large file or new style marker)
         if svg_path.exists():
             try:
+                file_size = svg_path.stat().st_size
+                if file_size > SKIP_IF_LARGER_THAN:
+                    print(f"  SKIP (high-quality SVG {file_size}B > {SKIP_IF_LARGER_THAN}B): {stem}")
+                    skipped += 1
+                    continue
                 with open(svg_path, "r", encoding="utf-8") as f:
                     content = f.read(200)
                     if "Key topics" in content or "key topics" in content:

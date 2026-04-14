@@ -1,99 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>2026 01 22 ZERO TRUST</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <title>2026-01-22-Security_Vendor_Blog_Weekly_Review</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="52%" stop-color="#121a2f"/>
-      <stop offset="100%" stop-color="#170f25"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
-      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
-    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#ef4444" opacity="0.15"/>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#94a3b8" opacity="0.08"/>
     </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="36"/>
-    </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
-    </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#ef4444" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#991b1b" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
-  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
-  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="720" y="132" width="388" height="292" rx="28" fill="url(#panel)" stroke="#ef4444" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
-  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="742" y="152" width="108" height="12" rx="6" fill="#ef4444" opacity="0.28"/>
-  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
-  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
-  
-  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#67e8f9" stroke-width="1.3" opacity="0.24"/>
-  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.22"/>
 
-  <g transform="translate(914,278)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#ef4444" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#ef4444" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- Dot pattern overlay -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+  <!-- Ambient glow blobs -->
+  <ellipse cx="200" cy="315" rx="260" ry="260" fill="url(#glow1)"/>
+  <ellipse cx="1000" cy="315" rx="220" ry="220" fill="url(#glow2)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.03" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
-  <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
+
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+
+  <!-- Badge at top -->
+  <rect x="260" y="30" width="182" height="28" rx="4" fill="#1e1b4b" stroke="#818cf8" stroke-width="1" opacity="0.9"/>
+  <text x="351" y="49" text-anchor="middle" fill="#818cf8" font-family="Courier New, monospace" font-size="12" font-weight="bold" letter-spacing="2">AI INTELLIGENCE</text>
+
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)" filter="url(#glow-filter)">
+    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
+    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
   </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">2026 01 22</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">ZERO TRUST</text>
-  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO TRUST / DEVSECOPS / CLOUD</text>
-  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
-  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 4CABDB3C0219</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
-  <g transform="translate(84 474)">
-    <rect width="134" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">ZERO TRUST</text>
+
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <path d="M90 120 L30 120 C13 120 0 107 0 90 C0 75 10 63 24 60 C24 35 45 15 70 15 C92 15 110 30 115 50 C128 52 138 63 138 78 C138 95 125 108 108 108" fill="none" stroke="#10b981" stroke-width="2.5"/>
+    <path d="M50 75 L65 90 L90 60" fill="none" stroke="#94a3b8" stroke-width="3"/>
   </g>
-  <g transform="translate(232 474)">
-    <rect width="124" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
+
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Security Vendor</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Blog Weekly Review</text>
   </g>
-  <g transform="translate(370 474)">
-    <rect width="110" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Courier New, monospace" font-size="15" font-weight="bold">January 22, 2026</text>
+
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#ff9900" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AWS</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AWS</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
   </g>
-  <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">SECURITY</text>
+
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="75" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="37" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="90" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="127" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+    <rect x="180" y="0" width="57" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="208" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AWS</text>
+    <rect x="252" y="0" width="111" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="307" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">DevSecOps</text>
   </g>
-  <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+
+  <!-- Network visualization with dashed orbital rings -->
+  <g transform="translate(900, 180)" opacity="0.35">
+    <!-- Dashed orbital rings -->
+    <circle cx="120" cy="120" r="90" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="6,4" opacity="0.3"/>
+    <circle cx="120" cy="120" r="60" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="4,6" opacity="0.25"/>
+    <circle cx="120" cy="120" r="30" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="3,5" opacity="0.2"/>
+    <circle cx="124" cy="77" r="3" fill="#f87171"/>
+    <circle cx="141" cy="141" r="4" fill="#fb923c"/>
+    <circle cx="93" cy="157" r="5" fill="#818cf8"/>
+    <circle cx="62" cy="161" r="6" fill="#34d399"/>
+    <circle cx="59" cy="62" r="3" fill="#fbbf24"/>
+    <circle cx="208" cy="88" r="4" fill="#f87171"/>
+    <circle cx="177" cy="144" r="5" fill="#fb923c"/>
+    <circle cx="98" cy="208" r="6" fill="#818cf8"/>
+    <circle cx="138" cy="124" r="3" fill="#34d399"/>
+    <circle cx="43" cy="103" r="4" fill="#fbbf24"/>
+    <line x1="124" y1="77" x2="141" y2="141" stroke="#475569" stroke-width="1"/>
+    <line x1="141" y1="141" x2="93" y2="157" stroke="#475569" stroke-width="1"/>
+    <line x1="93" y1="157" x2="62" y2="161" stroke="#475569" stroke-width="1"/>
+    <line x1="62" y1="161" x2="59" y2="62" stroke="#475569" stroke-width="1"/>
+    <line x1="59" y1="62" x2="208" y2="88" stroke="#475569" stroke-width="1"/>
+    <line x1="208" y1="88" x2="177" y2="144" stroke="#475569" stroke-width="1"/>
+    <line x1="177" y1="144" x2="98" y2="208" stroke="#475569" stroke-width="1"/>
+    <line x1="98" y1="208" x2="138" y2="124" stroke="#475569" stroke-width="1"/>
   </g>
-  <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">10</text>
-  </g>
-  <g transform="translate(1030 74)">
-    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
-  </g>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Bottom separator line -->
+  <rect x="0" y="508" width="1200" height="1" fill="#6366f1" opacity="0.4"/>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="509" width="1200" height="121" fill="#0f172a" opacity="0.9"/>
+  <rect x="0" y="509" width="1200" height="2" fill="url(#accent)" opacity="0.6"/>
+
+  <!-- Bottom left: site info -->
+  <text x="80" y="548" fill="#94a3b8" font-family="Courier New, monospace" font-size="15" font-weight="bold">tech.2twodragon.com</text>
+  <text x="80" y="572" fill="#64748b" font-family="Arial, sans-serif" font-size="12">DevSecOps Weekly Security Intelligence</text>
+  <text x="80" y="592" fill="#475569" font-family="Courier New, monospace" font-size="11">tech.2twodragon.com/digest</text>
+
+  <!-- Bottom right: stats -->
+  <text x="1120" y="548" text-anchor="end" fill="#6366f1" font-family="Courier New, monospace" font-size="14" font-weight="bold">10 curated articles</text>
+  <text x="1120" y="572" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="12">AI/ML | Cloud | AWS | DevSecOps</text>
+  <text x="1120" y="592" text-anchor="end" fill="#475569" font-family="Courier New, monospace" font-size="11">tech.2twodragon.com</text>
 </svg>
