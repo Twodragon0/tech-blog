@@ -1,54 +1,88 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>THREAT SIGNAL MAP</title>
+  <title>Security Weekly Digest - April 11 2026</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1a0a2e"/>
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="22"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- Diagonal divider -->
-  <polygon points="0,0 820,0 560,630 0,630" fill="#110d20" opacity="0.7"/>
-  <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
-  <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
-  <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
-  <!-- Classified stamp rotated -->
-  <g transform="translate(900 310) rotate(-22)">
-    <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
-    <text x="0" y="12" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
   </g>
-  <!-- Corner bracket marks -->
-  <path d="M70 60 L70 90 L100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 60 L1130 90 L1100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M70 570 L70 540 L100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 570 L1130 540 L1100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <!-- WEEKLY DIGEST badge -->
-  <rect x="90" y="62" width="196" height="32" rx="6" fill="#a855f7" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
-  <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">THREAT SIGNAL MAP</text>
-  <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO DAY  PATCH  AI AGENT</text>
-  <g transform="translate(280 360)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#a855f7" stroke-width="2"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#a855f7" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#a855f7" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#a855f7" text-anchor="middle" opacity="0.7">PATCH</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" text-anchor="middle">ZERO DAY</text>
+  <circle cx="200" cy="300" r="200" fill="#a855f7" opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="350" r="180" fill="#22d3ee" opacity="0.05" filter="url(#glow)"/>
+  <circle cx="1000" cy="300" r="180" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   </g>
-  <g transform="translate(680 280)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-    <rect x="-20" y="-16" width="40" height="32" rx="6" fill="#1a1020" stroke="#f59e0b" stroke-width="2"/><text x="0" y="-2" font-family="Courier New" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">CVE</text><text x="0" y="12" font-family="Courier New" font-size="8" fill="#f59e0b" text-anchor="middle" opacity="0.7">PATCH</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">PATCH</text>
-  </g>
-  <g transform="translate(1000 420)" filter="url(#shadow)">
-    <rect x="-58" y="-58" width="116" height="116" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#22d3ee" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#22d3ee" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
-    <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle">AI AGENT</text>
-  </g>
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">April 11, 2026</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 11, 2026</text>
+  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0f0f" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
+  <g transform="translate(142,148)"><circle r="14" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/><path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="#ef4444" stroke-width="2" opacity="0.8"/></g>
+  <text x="142" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ef4444" text-anchor="middle">GLASSWORM ZIG</text>
+  <rect x="268" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="288" cy="120" r="6" fill="#3b82f6"/>
+  <g transform="translate(378,148)"><rect x="-16" y="-14" width="32" height="28" rx="4" fill="#0a1428" stroke="#3b82f6" stroke-width="1.5"/><circle cx="0" cy="0" r="8" fill="none" stroke="#3b82f6" stroke-width="1.2"/></g>
+  <text x="378" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" text-anchor="middle">CHROME DBSC</text>
+  <rect x="504" y="100" width="220" height="120" rx="8" fill="#1a0a1a" stroke="#a855f7" stroke-width="1.5"/>
+  <circle cx="524" cy="120" r="6" fill="#a855f7"/>
+  <g transform="translate(614,148)"><rect x="-18" y="-14" width="36" height="28" rx="6" fill="#150a20" stroke="#a855f7" stroke-width="1.5"/><text x="0" y="4" font-family="Arial" font-size="8" font-weight="700" fill="#a855f7" text-anchor="middle">EXT</text></g>
+  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle">BROWSER AI RISK</text>
+  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
+  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
+  <g transform="translate(840,148)"><circle r="14" fill="none" stroke="#22c55e" stroke-width="1.5"/><text x="0" y="5" font-family="Arial" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">Go</text></g>
+  <text x="840" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e" text-anchor="middle">GO CVE PATCH</text>
+  <rect x="956" y="100" width="212" height="120" rx="8" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="976" cy="120" r="6" fill="#f59e0b"/>
+  <g transform="translate(1062,148)"><path d="M0,-16 L14,12 L-14,12 Z" fill="none" stroke="#f59e0b" stroke-width="2"/><text x="0" y="8" font-family="Arial" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">!</text></g>
+  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">ZERO-DAY</text>
+  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+  <g opacity="0.25"><circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/><circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/><circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/><circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/></g>
+  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
+  <text x="170" y="345" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">ZIG</text>
+  <circle cx="400" cy="350" r="20" fill="#0a1428" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="400" y="355" font-family="Arial,sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle">DBSC</text>
+  <line x1="192" y1="342" x2="380" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6"/>
+  <circle cx="600" cy="330" r="22" fill="#150a20" stroke="#a855f7" stroke-width="2"/>
+  <text x="600" y="335" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#a855f7" text-anchor="middle">EXT</text>
+  <circle cx="780" cy="360" r="18" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="780" y="365" font-family="Arial,sans-serif" font-size="9" fill="#22c55e" text-anchor="middle">Go</text>
+  <line x1="622" y1="338" x2="762" y2="355" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="8 5" opacity="0.6"/>
+  <circle cx="960" cy="340" r="22" fill="#1a1000" stroke="#f59e0b" stroke-width="2"/>
+  <text x="960" y="345" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">0day</text>
+  <line x1="420" y1="348" x2="578" y2="334" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
+  <line x1="800" y1="356" x2="938" y2="344" stroke="#22c55e" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
+  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+  <rect x="32" y="490" width="120" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+  <text x="92" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">GLASSWORM</text>
+  <rect x="164" y="490" width="120" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
+  <text x="224" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">CHROME 146</text>
+  <rect x="296" y="490" width="120" height="24" rx="4" fill="#1a0a1a" stroke="#a855f7" stroke-width="1"/>
+  <text x="356" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#a855f7" text-anchor="middle">BROWSER AI</text>
+  <rect x="428" y="490" width="100" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
+  <text x="478" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">GO CVE</text>
+  <rect x="540" y="490" width="100" height="24" rx="4" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
+  <text x="590" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">ZERO-DAY</text>
+  <circle cx="32" cy="545" r="4" fill="#a855f7" opacity="0.6"/>
+  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 11, 2026</text>
+  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>

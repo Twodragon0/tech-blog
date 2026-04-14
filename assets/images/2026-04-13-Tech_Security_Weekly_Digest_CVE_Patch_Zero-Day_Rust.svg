@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - April 13, 2026</title>
+  <title>Security Weekly Digest - April 13 2026</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0e1a"/>
@@ -13,14 +13,8 @@
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="18"/>
     </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
-    </marker>
   </defs>
-
   <rect width="1200" height="630" fill="url(#bg)"/>
-
-  <!-- Grid -->
   <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
     <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
     <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
@@ -28,13 +22,9 @@
     <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
     <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
   </g>
-
-  <!-- Glow orbs -->
   <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
   <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
-
-  <!-- Header -->
+  <circle cx="1000" cy="300" r="180" fill="#22c55e" opacity="0.06" filter="url(#glow)"/>
   <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
   <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
   <g transform="translate(48,40)">
@@ -44,90 +34,54 @@
   <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
   <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
   <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 13, 2026</text>
-
-  <!-- Card 1: CVE-2026-346 -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0f0f" stroke="#ef4444" stroke-width="1.5"/>
   <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#ef4444" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">CVE</text>
-  </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2026-346</text>
-  <!-- Card 2: ZERO-DAY -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
+  <g transform="translate(142,148)"><rect x="-16" y="-14" width="32" height="28" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/><text x="0" y="4" font-family="Arial" font-size="8" font-weight="700" fill="#ef4444" text-anchor="middle">CPU</text></g>
+  <text x="142" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ef4444" text-anchor="middle">CPUID CPU-Z</text>
+  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
   <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#f59e0b" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">CVE</text>
-  </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">ZERO-DAY</text>
-  <!-- Card 3: CVE PATCH -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#3b82f6" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE</text>
-  </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE PATCH</text>
-  <!-- Card 4: PATCH MGT -->
+  <g transform="translate(378,148)"><path d="M0,-16 L14,12 L-14,12 Z" fill="none" stroke="#f59e0b" stroke-width="2"/><text x="0" y="8" font-family="Arial" font-size="12" font-weight="700" fill="#f59e0b" text-anchor="middle">!</text></g>
+  <text x="378" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">MARIMO RCE</text>
+  <rect x="504" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#dc2626" stroke-width="1.5"/>
+  <circle cx="524" cy="120" r="6" fill="#dc2626"/>
+  <g transform="translate(614,148)"><rect x="-16" y="-16" width="32" height="32" rx="4" fill="#1a0505" stroke="#dc2626" stroke-width="1.5"/><path d="M-8,0 L0,-10 L8,0 L0,10 Z" fill="#dc2626" opacity="0.4"/></g>
+  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">ADOBE ZERO-DAY</text>
   <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
   <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#22c55e" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">CVE</text>
-  </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">PATCH MGT</text>
-  <!-- Card 5: RUST LANG -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
-  </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">RUST LANG</text>
-
-  <!-- Threat map area -->
+  <g transform="translate(840,148)"><circle r="14" fill="none" stroke="#22c55e" stroke-width="1.5"/><text x="0" y="5" font-family="Arial" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">Rs</text></g>
+  <text x="840" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e" text-anchor="middle">PIXEL RUST</text>
+  <rect x="956" y="100" width="212" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="976" cy="120" r="6" fill="#3b82f6"/>
+  <g transform="translate(1062,148)"><path d="M0,-18 L14,-8 L14,6 C14,14 8,18 0,22 C-8,18 -14,14 -14,6 L-14,-8 Z" fill="none" stroke="#3b82f6" stroke-width="1.5"/><path d="M-5,2 L-1,6 L7,-4" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE PATCH</text>
   <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
-
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
-  </g>
-  <!-- Node: CVE-2026-346 -->
+  <g opacity="0.25"><circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/><circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/><circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/><circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/></g>
   <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2</text>
-  <!-- Node: ZERO-DAY -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">0DAY</text>
-  <!-- Node: CVE PATCH -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE</text>
-  <!-- Node: PATCH MGT -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">PATC</text>
-  <!-- Node: RUST LANG -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">RUST</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-
-  <!-- Footer -->
+  <text x="170" y="345" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">CPU</text>
+  <circle cx="400" cy="350" r="20" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="400" y="355" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">RCE</text>
+  <line x1="192" y1="342" x2="380" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6"/>
+  <circle cx="600" cy="330" r="22" fill="#1a0505" stroke="#dc2626" stroke-width="2"/>
+  <text x="600" y="335" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">0day</text>
+  <circle cx="780" cy="360" r="18" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="780" y="365" font-family="Arial,sans-serif" font-size="9" fill="#22c55e" text-anchor="middle">Rust</text>
+  <line x1="622" y1="338" x2="762" y2="355" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="8 5" opacity="0.6"/>
+  <circle cx="960" cy="340" r="22" fill="#0a1428" stroke="#3b82f6" stroke-width="2"/>
+  <text x="960" y="345" font-family="Arial,sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle">CVE</text>
+  <line x1="420" y1="348" x2="578" y2="334" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
+  <line x1="800" y1="356" x2="938" y2="344" stroke="#22c55e" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
   <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
   <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
-
-  <!-- Tags -->
-  <rect x="32" y="490" width="128" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="96" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2026-346</text>
-  <rect x="172" y="490" width="92" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="218" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">ZERO-DAY</text>
-  <rect x="276" y="490" width="101" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="326" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE PATCH</text>
-  <rect x="389" y="490" width="101" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="439" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">PATCH MGT</text>
-  <rect x="502" y="490" width="101" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="552" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">RUST LANG</text>
-
-  <!-- Bottom bar -->
+  <rect x="32" y="490" width="110" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+  <text x="87" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">CPUID CPU-Z</text>
+  <rect x="154" y="490" width="110" height="24" rx="4" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
+  <text x="209" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">MARIMO RCE</text>
+  <rect x="276" y="490" width="120" height="24" rx="4" fill="#1a0505" stroke="#dc2626" stroke-width="1"/>
+  <text x="336" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">ADOBE 0DAY</text>
+  <rect x="408" y="490" width="100" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
+  <text x="458" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">PIXEL RUST</text>
+  <rect x="520" y="490" width="100" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
+  <text x="570" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">CVE PATCH</text>
   <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
   <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 13, 2026</text>
   <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
