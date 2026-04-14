@@ -1,326 +1,100 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>AWS NLB + Security</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: beacon -->
+  <title>AWS NLB + SECURITY GROUP</title>
   <defs>
-    <linearGradient id="u1cf0c8bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1628"/>
-      <stop offset="50%" style="stop-color:#0d1525"/>
-      <stop offset="100%" style="stop-color:#081020"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
     </linearGradient>
-    <linearGradient id="u1cf0c8accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
     </linearGradient>
-    <linearGradient id="u1cf0c8title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
-    </linearGradient>
-    <linearGradient id="u1cf0c8panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
-    </linearGradient>
-    <radialGradient id="u1cf0c8ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="u1cf0c8ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="u1cf0c8glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#06b6d4" flood-opacity="0.7"/>
-    </filter>
-    <filter id="u1cf0c8blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="u1cf0c8textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.5"/>
-    </filter>
-    <filter id="u1cf0c8fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="u1cf0c8fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="u1cf0c8sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="u1cf0c8sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="u1cf0c8dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#34d399" opacity="0.15"/>
     </pattern>
-    <clipPath id="u1cf0c8clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
-    </clipPath>
-    <style>
-      @keyframes u1cf0c8floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
-      @keyframes u1cf0c8pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-      @keyframes u1cf0c8crackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
-      @keyframes u1cf0c8glimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
-      @keyframes u1cf0c8dash { to{stroke-dashoffset:-20} }
-      @keyframes u1cf0c8rotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-      .u1cf0c8fa { animation: u1cf0c8floatUp 3.2s ease-in infinite; }
-      .u1cf0c8fb { animation: u1cf0c8floatUp 3.8s ease-in infinite; animation-delay:0.9s; }
-      .u1cf0c8fc { animation: u1cf0c8floatUp 2.9s ease-in infinite; animation-delay:1.7s; }
-      .u1cf0c8crack { animation: u1cf0c8crackFx 1.9s ease-in-out infinite; }
-      .u1cf0c8blink { animation: u1cf0c8pulse 2.2s ease-in-out infinite; }
-    </style>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#34d399" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#059669" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="720" y="132" width="388" height="292" rx="28" fill="url(#panel)" stroke="#34d399" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="742" y="152" width="108" height="12" rx="6" fill="#34d399" opacity="0.28"/>
+  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#67e8f9" stroke-width="1.3" opacity="0.24"/>
+  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.22"/>
 
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#u1cf0c8bg)"/>
-  <g clip-path="url(#u1cf0c8clip)">
-    <rect width="1200" height="630" fill="url(#u1cf0c8dots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#u1cf0c8ambientL)"/>
-    <rect width="1200" height="630" fill="url(#u1cf0c8ambientR)"/>
+  <g transform="translate(914,278)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#34d399" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#34d399" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u1cf0c8panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u1cf0c8accent)"/>
-
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#67e8f9" text-anchor="middle" letter-spacing="2" font-weight="bold">CLOUD INFRA</text>
-
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2025-10-03</text>
-
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="url(#u1cf0c8title)" font-weight="700" letter-spacing="-1">AWS NLB + Security</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u1cf0c8title)" font-weight="700" letter-spacing="-1">Group</text>
-
-    <!-- Accent divider -->
-    <rect x="40" y="221" width="260" height="2" rx="1" fill="url(#u1cf0c8accent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-    <text x="40" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#06b6d4" font-weight="600">AWS</text>
-    <text x="40" y="285" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#3b82f6" font-weight="600">Nlb</text>
-
-    <!-- Focus panel -->
-    <rect x="40" y="313" width="280" height="122" rx="12" fill="#0d1525" stroke="#06b6d4" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="313" width="280" height="18" rx="12" fill="#06b6d4" opacity="0.10"/>
-    <text x="56" y="326" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#67e8f9" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="347" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">Zero Trust / AWS</text>
-    <text x="56" y="364" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">NLB / Security Group</text>
-    <line x1="56" y1="373" x2="304" y2="373" stroke="#06b6d4" stroke-width="0.8" opacity="0.20"/>
-    <text x="56" y="391" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">Zero Trust focus</text>
-    <text x="56" y="406" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">AWS priority</text>
-    <rect x="56" y="413" width="88" height="22" rx="11" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.85"/>
-    <text x="100" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#06b6d4" text-anchor="middle" font-weight="600">Zero Trust</text>
-    <rect x="152" y="413" width="70" height="22" rx="11" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.85"/>
-    <text x="187" y="428" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">AWS</text>
-
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="54" height="24" rx="12" fill="#0c4a6e" stroke="#06b6d4" stroke-width="1.2"/>
-    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="bold">AWS</text>
-    <rect x="104" y="525" width="54" height="24" rx="12" fill="#0d1525" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="131" y="541" font-family="Courier New, monospace" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold">Nlb</text>
-    <rect x="168" y="525" width="128" height="24" rx="12" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.2"/>
-    <text x="232" y="541" font-family="Courier New, monospace" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="bold">Security Group</text>
-
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u1cf0c8sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u1cf0c8sceneGlow2)" opacity="0.5"/>
-
-    <!-- SCENE: Cloud Infrastructure -->
-    <!-- Cloud shape -->
-    <ellipse cx="700" cy="180" rx="120" ry="55" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5" opacity="0.7"/>
-    <ellipse cx="665" cy="200" rx="80" ry="42" fill="#06b6d4" opacity="0.05"/>
-    <ellipse cx="740" cy="205" rx="70" ry="38" fill="#3b82f6" opacity="0.04"/>
-    <text x="700" y="185" font-family="Courier New, monospace" font-size="10"
-          fill="#67e8f9" text-anchor="middle" font-weight="bold">CLOUD</text>
-
-    <!-- Server rack -->
-    <rect x="880" y="220" width="90" height="120" rx="6" fill="#0a1628" stroke="#3b82f6" stroke-width="1.5" opacity="0.8"/>
-    <line x1="880" y1="260" x2="970" y2="260" stroke="#3b82f6" stroke-width="0.8" opacity="0.5"/>
-    <line x1="880" y1="300" x2="970" y2="300" stroke="#3b82f6" stroke-width="0.8" opacity="0.5"/>
-    <circle cx="955" cy="240" r="4" fill="#22c55e" opacity="0.6" style="animation: u1cf0c8pulse 2s ease-in-out infinite"/>
-    <circle cx="955" cy="280" r="4" fill="#22c55e" opacity="0.4"/>
-    <circle cx="955" cy="320" r="4" fill="#3b82f6" opacity="0.5"/>
-    <text x="925" y="360" font-family="Courier New, monospace" font-size="8"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">SERVER</text>
-
-    <!-- Region nodes -->
-    <g filter="url(#u1cf0c8glow)">
-      <circle cx="580" cy="340" r="32" fill="#0a1628" stroke="#06b6d4" stroke-width="2"/>
-    </g>
-    <text x="580" y="338" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" text-anchor="middle">REGION</text>
-    <text x="580" y="350" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">us-east-1</text>
-
-    <g filter="url(#u1cf0c8glow)">
-      <circle cx="800" cy="420" r="32" fill="#0a1628" stroke="#3b82f6" stroke-width="2"/>
-    </g>
-    <text x="800" y="418" font-family="Courier New, monospace" font-size="8"
-          fill="#3b82f6" text-anchor="middle">REGION</text>
-    <text x="800" y="430" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">ap-ne-2</text>
-
-    <!-- VPC box -->
-    <rect x="620" y="400" width="120" height="70" rx="4" fill="none"
-          stroke="#06b6d4" stroke-width="1" stroke-dasharray="5 3" opacity="0.4"/>
-    <text x="680" y="418" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" text-anchor="middle" opacity="0.6">VPC</text>
-
-    <!-- Data flow lines -->
-    <line x1="700" y1="235" x2="700" y2="310" stroke="#06b6d4" stroke-width="1.5"
-          opacity="0.4" stroke-dasharray="4 4" style="animation: u1cf0c8dash 2s linear infinite"/>
-    <line x1="750" y1="220" x2="880" y2="250" stroke="#3b82f6" stroke-width="1.5"
-          opacity="0.35" stroke-dasharray="4 4"/>
-    <line x1="610" y1="340" x2="770" y2="415" stroke="#06b6d4" stroke-width="1"
-          opacity="0.3" stroke-dasharray="3 5"/>
-    <path d="M 925 340 Q 900 390 830 420" fill="none" stroke="#3b82f6"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
-
-    <!-- Server rack blinking LEDs -->
-    <circle cx="895" cy="240" r="3" fill="#ef4444" opacity="0.5" class="u1cf0c8blink"/>
-    <circle cx="895" cy="280" r="3" fill="#06b6d4" opacity="0.4" class="u1cf0c8blink"/>
-    <circle cx="895" cy="320" r="3" fill="#f59e0b" opacity="0.45"/>
-    <rect x="892" y="234" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
-    <rect x="892" y="274" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
-    <rect x="892" y="314" width="14" height="4" rx="1" fill="#3b82f6" opacity="0.2"/>
-
-    <!-- VPC boundary box (larger) -->
-    <rect x="450" y="260" width="280" height="220" rx="8" fill="none"
-          stroke="#06b6d4" stroke-width="1.2" stroke-dasharray="8 4" opacity="0.25"/>
-    <text x="460" y="278" font-family="Courier New, monospace" font-size="8"
-          fill="#06b6d4" opacity="0.5" font-weight="bold">VPC-BOUNDARY</text>
-
-    <!-- Data flow arrows -->
-    <path d="M 770 190 Q 820 210 880 225" fill="none" stroke="#3b82f6"
-          stroke-width="1.5" opacity="0.4" stroke-dasharray="5 3" style="animation: u1cf0c8dash 2s linear infinite"/>
-    <polygon points="876,222 885,226 878,230" fill="#3b82f6" opacity="0.4"/>
-    <path d="M 600 345 Q 650 380 700 400" fill="none" stroke="#06b6d4"
-          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
-    <polygon points="696,397 705,402 698,406" fill="#06b6d4" opacity="0.3"/>
-
-    <!-- Region label badges -->
-    <rect x="480" y="300" width="72" height="20" rx="3" fill="#0c4a6e" stroke="#06b6d4" stroke-width="0.8" opacity="0.6"/>
-    <text x="516" y="314" font-family="Courier New, monospace" font-size="7"
-          fill="#06b6d4" text-anchor="middle" opacity="0.8">us-west-2</text>
-    <rect x="830" y="450" width="72" height="20" rx="3" fill="#0c4a6e" stroke="#3b82f6" stroke-width="0.8" opacity="0.6"/>
-    <text x="866" y="464" font-family="Courier New, monospace" font-size="7"
-          fill="#3b82f6" text-anchor="middle" opacity="0.8">eu-west-1</text>
-
-    <!-- Load balancer icon -->
-    <g transform="translate(700,320)" filter="url(#u1cf0c8fxGlow)">
-      <circle cx="0" cy="0" r="22" fill="#0a1628" stroke="#06b6d4" stroke-width="1.5"/>
-      <line x1="-8" y1="-5" x2="8" y2="-5" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <line x1="-8" y1="0" x2="8" y2="0" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <line x1="-8" y1="5" x2="8" y2="5" stroke="#06b6d4" stroke-width="1.2" opacity="0.7"/>
-      <polygon points="-10,0 -14,-4 -14,4" fill="#06b6d4" opacity="0.5"/>
-      <polygon points="10,0 14,-4 14,4" fill="#06b6d4" opacity="0.5"/>
-    </g>
-    <text x="700" y="350" font-family="Courier New, monospace" font-size="7"
-          fill="#67e8f9" text-anchor="middle" opacity="0.7">ALB</text>
-
-    <!-- Pulsing ring on cloud -->
-    <ellipse cx="700" cy="180" rx="140" ry="70" fill="none" stroke="#06b6d4"
-             stroke-width="0.8" opacity="0.2" style="animation: u1cf0c8pulse 4s ease-in-out infinite"/>
-
-    <!-- Ambient glow -->
-    <ellipse cx="750" cy="300" rx="250" ry="180" fill="#06b6d4" opacity="0.04"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <defs>
-      <pattern id="u1cf0c8mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#06b6d4"
-              stroke-width="0.35" opacity="0.12"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u1cf0c8mesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#06b6d4" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#3b82f6" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#0ea5e9" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#06b6d4" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#3b82f6" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#06b6d4" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#3b82f6" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#06b6d4" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#06b6d4" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#3b82f6" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#0ea5e9" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#06b6d4" opacity="0.20"/>
-    
-    <rect x="694" y="96" width="52" height="372" rx="26" fill="#06b6d4" opacity="0.06"/>
-    <ellipse cx="720" cy="180" rx="118" ry="64" fill="#06b6d4" opacity="0.08"/>
-    <ellipse cx="720" cy="180" rx="76" ry="38" fill="#3b82f6" opacity="0.10"/>
-    <path d="M 510 420 Q 720 260 930 420" fill="none" stroke="#3b82f6" stroke-width="1.1" opacity="0.16" stroke-dasharray="4 5"/>
-    <path d="M 560 160 Q 720 110 880 160" fill="none" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
-    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#06b6d4" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#06b6d4" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#06b6d4" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Zero Trust</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AWS</text>
-    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#3b82f6" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#3b82f6" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#3b82f6" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Zero Trust focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">AWS priority</text>
-    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0a1628" stroke="#0ea5e9" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#0ea5e9" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#0ea5e9" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">NLB</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Security Group</text>
-    <rect x="470" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="536" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Zero Trust</text>
-    <rect x="625" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#3b82f6" stroke-width="1" opacity="0.78"/><text x="691" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="700">AWS</text>
-    <rect x="780" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#0ea5e9" stroke-width="1" opacity="0.78"/><text x="846" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#0ea5e9" text-anchor="middle" font-weight="700">NLB</text>
-    <rect x="935" y="454" width="132" height="28" rx="14" fill="#0a1628" stroke="#06b6d4" stroke-width="1" opacity="0.78"/><text x="1001" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#06b6d4" text-anchor="middle" font-weight="700">Security Group</text>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#06b6d4" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#3b82f6" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#0ea5e9" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#3b82f6" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#06b6d4" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#06b6d4" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#0ea5e9" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#0ea5e9" stroke-width="1" opacity="0.1"/>
-
-    <!-- CRT scan line -->
-    <rect width="1200" height="2" x="0" y="0" fill="#06b6d4" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
-    </rect>
+    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
+    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
   </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#34d399" opacity="0.2" stroke="#34d399" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle">CLOUD</text>
+  </g>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">AWS NLB + SECURITY</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">GROUP</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO TRUST / CLOUD / SECURITY</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 4789CADA6EB3</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="134" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">ZERO TRUST</text>
+  </g>
+  <g transform="translate(232 474)">
+    <rect width="110" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+  </g>
+  <g transform="translate(356 474)">
+    <rect width="114" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">CLOUD</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

@@ -1,338 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>SKT</title>
-  <!-- generator: upgrade_post_images.py; profile: high-quality-cover; variant: bands -->
+  <title>SKT IMEI USIM/ESIM MFA IDENTITY</title>
   <defs>
-    <linearGradient id="u68ce17bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1a0505"/>
-      <stop offset="100%" style="stop-color:#0a0f1e"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
     </linearGradient>
-    <linearGradient id="u68ce17accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#f97316"/>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
     </linearGradient>
-    <linearGradient id="u68ce17title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f8fafc"/>
-      <stop offset="100%" style="stop-color:#cbd5e1"/>
-    </linearGradient>
-    <linearGradient id="u68ce17panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#020810;stop-opacity:0.85"/>
-      <stop offset="100%" style="stop-color:#0a0f1e;stop-opacity:0.75"/>
-    </linearGradient>
-    <radialGradient id="u68ce17ambientL" cx="20%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.06"/>
-      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="u68ce17ambientR" cx="70%" cy="45%" r="35%">
-      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="u68ce17glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#dc2626" flood-opacity="0.7"/>
-    </filter>
-    <filter id="u68ce17blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="u68ce17textglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ef4444" flood-opacity="0.5"/>
-    </filter>
-    <filter id="u68ce17fxGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.2 0.4 0 0 0 0.5 0.6 0 0 0 0 0 0 0 0 0 0 0 0.85 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="u68ce17fxRed" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix" values="1.3 0 0 0 0.7 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95 0" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <radialGradient id="u68ce17sceneGlow1" cx="75%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="u68ce17sceneGlow2" cx="60%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#f97316" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="u68ce17dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1" fill="#1e293b" opacity="0.7"/>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#ef4444" opacity="0.15"/>
     </pattern>
-    <clipPath id="u68ce17clip">
-      <rect x="1" y="1" width="1198" height="628" rx="8" ry="8"/>
-    </clipPath>
-    <style>
-      @keyframes u68ce17floatUp { 0%{transform:translateY(0);opacity:0.9} 85%{opacity:0.5} 100%{transform:translateY(-80px);opacity:0} }
-      @keyframes u68ce17pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-      @keyframes u68ce17crackFx { 0%,100%{stroke-opacity:0.6} 50%{stroke-opacity:1} }
-      @keyframes u68ce17glimmer { 0%{opacity:0.3} 50%{opacity:0.85} 100%{opacity:0.3} }
-      @keyframes u68ce17dash { to{stroke-dashoffset:-20} }
-      @keyframes u68ce17rotSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-      .u68ce17fa { animation: u68ce17floatUp 3.2s ease-in infinite; }
-      .u68ce17fb { animation: u68ce17floatUp 3.8s ease-in infinite; animation-delay:0.9s; }
-      .u68ce17fc { animation: u68ce17floatUp 2.9s ease-in infinite; animation-delay:1.7s; }
-      .u68ce17crack { animation: u68ce17crackFx 1.9s ease-in-out infinite; }
-      .u68ce17blink { animation: u68ce17pulse 2.2s ease-in-out infinite; }
-    </style>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#ef4444" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#991b1b" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#ef4444" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#ef4444" opacity="0.28"/>
+  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
+  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
 
-  <!-- BACKGROUND -->
-  <rect width="1200" height="630" fill="url(#u68ce17bg)"/>
-  <g clip-path="url(#u68ce17clip)">
-    <rect width="1200" height="630" fill="url(#u68ce17dots)" opacity="0.6"/>
-    <rect width="1200" height="630" fill="url(#u68ce17ambientL)"/>
-    <rect width="1200" height="630" fill="url(#u68ce17ambientR)"/>
+  <g transform="translate(917,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#ef4444" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#ef4444" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-    <!-- LEFT PANEL -->
-    <rect x="0" y="0" width="370" height="630" fill="url(#u68ce17panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#u68ce17accent)"/>
-
-    <!-- Badge -->
-    <rect x="40" y="40" width="160" height="28" rx="4" fill="#7f1d1d" stroke="#dc2626" stroke-width="1.5"/>
-    <text x="120" y="58" font-family="Courier New, monospace" font-size="11"
-          fill="#fca5a5" text-anchor="middle" letter-spacing="2" font-weight="bold">SECURITY ALERT</text>
-
-    <!-- Date -->
-    <text x="40" y="100" font-family="Courier New, monospace" font-size="10"
-          fill="#64748b" letter-spacing="1">2025-04-29</text>
-
-    <!-- Title -->
-    <text x="40" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u68ce17title)" font-weight="700" letter-spacing="-1">SKT</text>
-    <text x="40" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u68ce17title)" font-weight="700" letter-spacing="-1">MFA</text>
-    <text x="40" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="44" fill="url(#u68ce17title)" font-weight="700" letter-spacing="-1">Usim</text>
-
-    <!-- Accent divider -->
-    <rect x="40" y="269" width="260" height="2" rx="1" fill="url(#u68ce17accent)" opacity="0.8"/>
-
-    <!-- Topic bars -->
-    <text x="40" y="307" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ef4444" font-weight="600">SKT</text>
-    <text x="40" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#f97316" font-weight="600">MFA</text>
-
-    <!-- Focus panel -->
-    <rect x="40" y="361" width="280" height="122" rx="12" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.66"/>
-    <rect x="40" y="361" width="280" height="18" rx="12" fill="#ef4444" opacity="0.10"/>
-    <text x="56" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#fca5a5" font-weight="700" letter-spacing="1">FOCUS</text>
-    <text x="56" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e2e8f0" font-weight="600">SKT / MFA</text>
-    <text x="56" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#94a3b8">Usim / Security Incident</text>
-    <line x1="56" y1="421" x2="304" y2="421" stroke="#ef4444" stroke-width="0.8" opacity="0.20"/>
-    <text x="56" y="439" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#cbd5e1">SKT focus</text>
-    <text x="56" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#94a3b8">MFA priority</text>
-    <rect x="56" y="461" width="70" height="22" rx="11" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    <text x="91" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">SKT</text>
-    <rect x="134" y="461" width="70" height="22" rx="11" fill="#0f172a" stroke="#f97316" stroke-width="1" opacity="0.85"/>
-    <text x="169" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f97316" text-anchor="middle" font-weight="600">MFA</text>
-
-    <!-- Tag pills -->
-    <rect x="40" y="525" width="54" height="24" rx="12" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.2"/>
-    <text x="67" y="541" font-family="Courier New, monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">SKT</text>
-    <rect x="104" y="525" width="54" height="24" rx="12" fill="#1a0505" stroke="#f97316" stroke-width="1.2"/>
-    <text x="131" y="541" font-family="Courier New, monospace" font-size="10" fill="#f97316" text-anchor="middle" font-weight="bold">MFA</text>
-    <rect x="168" y="525" width="54" height="24" rx="12" fill="#0f172a" stroke="#dc2626" stroke-width="1.2"/>
-    <text x="195" y="541" font-family="Courier New, monospace" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">USIM</text>
-
-    <!-- Site URL -->
-    <text x="40" y="572" font-family="Courier New, monospace" font-size="10"
-          fill="#475569" letter-spacing="0.5">tech.2twodragon.com</text>
-
-    <!-- RIGHT SCENE AREA -->
-    <!-- Scene ambient glow overlays -->
-    <rect x="380" y="40" width="780" height="550" fill="url(#u68ce17sceneGlow1)" opacity="0.6"/>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u68ce17sceneGlow2)" opacity="0.5"/>
-
-    <!-- SCENE: Security Breach -->
-    <!-- Shield (broken) -->
-    <g filter="url(#u68ce17glow)">
-      <circle cx="600" cy="200" r="55" fill="#0f172a" stroke="#ef4444" stroke-width="2.5" opacity="0.9"/>
-      <circle cx="600" cy="200" r="55" fill="#dc2626" opacity="0.08"/>
-    </g>
-    <path d="M600 165 L625 175 L625 200 Q625 220 600 230 Q575 220 575 200 L575 175 Z"
-          fill="none" stroke="#ef4444" stroke-width="2"/>
-    <line x1="590" y1="180" x2="610" y2="220" stroke="#f97316" stroke-width="2.5" opacity="0.9"/>
-    <line x1="610" y1="180" x2="590" y2="220" stroke="#f97316" stroke-width="2.5" opacity="0.9"/>
-
-    <!-- Threat node 1 - skull warning -->
-    <g filter="url(#u68ce17glow)">
-      <circle cx="800" cy="140" r="38" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-      <circle cx="800" cy="140" r="38" fill="#dc2626" opacity="0.1"/>
-    </g>
-    <polygon points="800,118 815,142 808,148 800,155 792,148 785,142"
-             fill="none" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="800" y="140" font-family="Courier New, monospace" font-size="14"
-          fill="#ef4444" text-anchor="middle" font-weight="bold">!</text>
-    <text x="800" y="170" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">THREAT</text>
-
-    <!-- Threat node 2 - lock -->
-    <g filter="url(#u68ce17glow)">
-      <circle cx="950" cy="280" r="35" fill="#1a0505" stroke="#dc2626" stroke-width="2"/>
-    </g>
-    <rect x="937" y="278" width="26" height="20" rx="3" fill="none" stroke="#f97316" stroke-width="1.5"/>
-    <path d="M943 278 L943 270 Q943 262 950 262 Q957 262 957 270 L957 278"
-          fill="none" stroke="#f97316" stroke-width="1.5"/>
-    <circle cx="950" cy="289" r="2.5" fill="#f97316"/>
-    <text x="950" y="308" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">LOCK</text>
-
-    <!-- Threat node 3 - exploit -->
-    <g filter="url(#u68ce17glow)">
-      <circle cx="750" cy="430" r="35" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-    </g>
-    <polygon points="750,412 765,440 735,440" fill="none" stroke="#ef4444" stroke-width="1.8"/>
-    <text x="750" y="434" font-family="Courier New, monospace" font-size="12"
-          fill="#ef4444" text-anchor="middle" font-weight="bold">!</text>
-    <text x="750" y="460" font-family="Courier New, monospace" font-size="8"
-          fill="#fca5a5" text-anchor="middle" opacity="0.8">EXPLOIT</text>
-
-    <!-- Connection lines -->
-    <line x1="650" y1="190" x2="765" y2="148" stroke="#ef4444" stroke-width="1.5"
-          opacity="0.4" stroke-dasharray="4 4" style="animation: u68ce17dash 2s linear infinite"/>
-    <line x1="650" y1="210" x2="918" y2="272" stroke="#dc2626" stroke-width="1.5"
-          opacity="0.35" stroke-dasharray="4 4"/>
-    <line x1="620" y1="248" x2="722" y2="418" stroke="#ef4444" stroke-width="1.5"
-          opacity="0.3" stroke-dasharray="4 4"/>
-    <path d="M 800 175 Q 870 220 950 248" fill="none" stroke="#ef4444"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
-    <path d="M 920 305 Q 850 370 780 420" fill="none" stroke="#dc2626"
-          stroke-width="1" opacity="0.25" stroke-dasharray="3 5"/>
-
-    <!-- Alert badge -->
-    <rect x="560" y="340" width="110" height="30" rx="5" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="615" y="360" font-family="Courier New, monospace" font-size="11"
-          fill="#fca5a5" text-anchor="middle" font-weight="bold" letter-spacing="1">CRITICAL</text>
-
-    <!-- Pulsing ring -->
-    <circle cx="600" cy="200" r="70" fill="none" stroke="#ef4444" stroke-width="1"
-            opacity="0.3" style="animation: u68ce17pulse 3s ease-in-out infinite"/>
-    <circle cx="800" cy="140" r="50" fill="none" stroke="#ef4444" stroke-width="0.8"
-            opacity="0.2" style="animation: u68ce17pulse 4s ease-in-out infinite"/>
-
-    <!-- Cracked shield detail -->
-    <path d="M600 170 L600 230" stroke="#f97316" stroke-width="1.5" opacity="0.6" stroke-dasharray="3 2"/>
-    <path d="M585 195 L615 205" stroke="#f97316" stroke-width="1" opacity="0.5"/>
-
-    <!-- Broken padlock -->
-    <g transform="translate(680,430)">
-      <rect x="-12" y="0" width="24" height="18" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-      <path d="M-6 0 L-6 -8 Q-6 -16 0 -16 Q6 -16 6 -8 L6 -4" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-      <line x1="6" y1="-8" x2="10" y2="-12" stroke="#f97316" stroke-width="1.5" opacity="0.8"/>
-      <circle cx="0" cy="9" r="2" fill="#ef4444" opacity="0.7"/>
-    </g>
-    <text x="680" y="460" font-family="Courier New, monospace" font-size="7"
-          fill="#fca5a5" text-anchor="middle" opacity="0.7">BREACH</text>
-
-    <!-- Attack flow arrows with dashed lines -->
-    <path d="M 830 160 Q 870 180 880 220" fill="none" stroke="#ef4444"
-          stroke-width="1.2" opacity="0.35" stroke-dasharray="5 3" style="animation: u68ce17dash 2.5s linear infinite"/>
-    <polygon points="878,215 885,222 875,220" fill="#ef4444" opacity="0.35"/>
-    <path d="M 780 445 Q 830 460 870 440" fill="none" stroke="#dc2626"
-          stroke-width="1" opacity="0.3" stroke-dasharray="4 3"/>
-    <polygon points="867,443 875,438 870,447" fill="#dc2626" opacity="0.3"/>
-
-    <!-- Skull warning icon -->
-    <g transform="translate(520,440)" filter="url(#u68ce17fxRed)">
-      <circle cx="0" cy="0" r="18" fill="#1a0505" stroke="#ef4444" stroke-width="1.2" opacity="0.8"/>
-      <circle cx="-5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
-      <circle cx="5" cy="-3" r="2.5" fill="#ef4444" opacity="0.7"/>
-      <path d="M-4 6 L-2 4 L0 6 L2 4 L4 6" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-    </g>
-    <text x="520" y="468" font-family="Courier New, monospace" font-size="6"
-          fill="#fca5a5" text-anchor="middle" opacity="0.6">MALWARE</text>
-
-    <!-- ALERT badge -->
-    <rect x="850" y="390" width="80" height="24" rx="4" fill="#ef4444" opacity="0.15"
-          stroke="#ef4444" stroke-width="1.2"/>
-    <text x="890" y="406" font-family="Courier New, monospace" font-size="10"
-          fill="#ef4444" text-anchor="middle" font-weight="bold" class="u68ce17blink">ALERT</text>
-
-    <!-- CVE reference label -->
-    <rect x="560" y="260" width="100" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="0.8" opacity="0.6"/>
-    <text x="610" y="273" font-family="Courier New, monospace" font-size="7"
-          fill="#dc2626" text-anchor="middle" opacity="0.7">CVE-2025-XXXX</text>
-
-    <!-- Ambient glow -->
-    <ellipse cx="750" cy="280" rx="250" ry="200" fill="#dc2626" opacity="0.04"/>
-
-    <!-- COMMON DECORATIONS -->
-
-    <defs>
-      <pattern id="u68ce17mesh" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M 0 14 L 14 0 L 28 14 L 14 28 Z" fill="none" stroke="#ef4444"
-              stroke-width="0.35" opacity="0.12"/>
-      </pattern>
-    </defs>
-    <rect x="380" y="40" width="780" height="550" fill="url(#u68ce17mesh)" opacity="0.25"/>
-    <circle cx="720" cy="315" r="228" fill="none" stroke="#ef4444" stroke-width="0.55"
-            stroke-dasharray="6 9" opacity="0.16"/>
-    <circle cx="720" cy="315" r="182" fill="none" stroke="#f97316" stroke-width="0.45"
-            stroke-dasharray="3 7" opacity="0.11"/>
-    <circle cx="720" cy="315" r="266" fill="none" stroke="#dc2626" stroke-width="0.35"
-            stroke-dasharray="10 12" opacity="0.08"/>
-    <line x1="390" y1="70" x2="1150" y2="70" stroke="#ef4444" stroke-width="0.6" opacity="0.10"/>
-    <line x1="390" y1="560" x2="1150" y2="560" stroke="#f97316" stroke-width="0.6" opacity="0.08"/>
-    <line x1="420" y1="120" x2="1080" y2="500" stroke="#ef4444" stroke-width="0.35" opacity="0.08"/>
-    <line x1="1080" y1="120" x2="420" y2="500" stroke="#f97316" stroke-width="0.35" opacity="0.06"/>
-    <polyline points="392,56 392,46 404,46" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="1148,46 1160,46 1160,58" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35"/>
-    <polyline points="392,574 392,584 404,584" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.30"/>
-    <polyline points="1148,584 1160,584 1160,572" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.30"/>
-    <ellipse cx="720" cy="315" rx="275" ry="210" fill="#dc2626" opacity="0.03"/>
-    <circle cx="430" cy="110" r="3" fill="#ef4444" opacity="0.22"/>
-    <circle cx="1120" cy="160" r="2.5" fill="#f97316" opacity="0.24"/>
-    <circle cx="470" cy="540" r="3" fill="#dc2626" opacity="0.20"/>
-    <circle cx="1080" cy="530" r="2.5" fill="#ef4444" opacity="0.20"/>
-    
-    <path d="M 460 520 Q 720 260 1110 110" fill="none" stroke="#ef4444" stroke-width="1.1" opacity="0.16" stroke-dasharray="6 5"/>
-    <path d="M 430 100 Q 760 250 1120 500" fill="none" stroke="#f97316" stroke-width="0.9" opacity="0.14" stroke-dasharray="4 6"/>
-    <rect x="454" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="1.1" opacity="0.78"/><circle cx="472" cy="108" r="5" fill="#ef4444" opacity="0.85"/><text x="486" y="111" font-family="Courier New, monospace" font-size="9" fill="#ef4444" font-weight="700" letter-spacing="1">PRIMARY</text><text x="470" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">SKT</text><text x="470" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">MFA</text>
-    <rect x="676" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="1.1" opacity="0.78"/><circle cx="694" cy="108" r="5" fill="#f97316" opacity="0.85"/><text x="708" y="111" font-family="Courier New, monospace" font-size="9" fill="#f97316" font-weight="700" letter-spacing="1">SUMMARY</text><text x="692" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">SKT focus</text><text x="692" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">MFA priority</text>
-    <rect x="898" y="90" width="206" height="74" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1.1" opacity="0.78"/><circle cx="916" cy="108" r="5" fill="#dc2626" opacity="0.85"/><text x="930" y="111" font-family="Courier New, monospace" font-size="9" fill="#dc2626" font-weight="700" letter-spacing="1">TRACK</text><text x="914" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="700">Usim</text><text x="914" y="151" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" fill="#94a3b8">Security Incident</text>
-    <polygon points="470,186 1030,186 1150,286 590,286" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1" /><text x="612" y="243" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#ef4444" font-weight="700">SKT</text><text x="612" y="261" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">MFA</text>
-    <polygon points="430,318 990,318 1110,418 550,418" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="1" /><text x="622" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f97316" font-weight="700">MFA</text><text x="622" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">MFA priority</text>
-    <polygon points="520,450 1080,450 1160,530 600,530" fill="#dc2626" opacity="0.08" stroke="#dc2626" stroke-width="1" /><text x="632" y="507" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#dc2626" font-weight="700">Usim</text><text x="632" y="525" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#94a3b8">Security Incident</text>
-    <rect x="915" y="500" width="180" height="36" rx="18" fill="#0f172a" stroke="#ef4444" stroke-width="1" opacity="0.78"/>
-    <text x="1005" y="523" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">Security Incident</text>
-    <!-- FLOATING PARTICLES -->
-    <circle cx="150" cy="100" r="2.5" fill="#ef4444" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1060" cy="150" r="2.0" fill="#f97316" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="480" r="2.5" fill="#ef4444" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="520" r="2.0" fill="#dc2626" opacity="0.5">
-      <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4.0s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="180" cy="560" r="1.5" fill="#f97316" opacity="0.35">
-      <animate attributeName="opacity" values="0.35;0.10;0.35" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1030" cy="80" r="2.0" fill="#ef4444" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.12;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- DATA STREAMS -->
-    <line x1="50" y1="200" x2="120" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
-    <line x1="50" y1="215" x2="95" y2="215" stroke="#ef4444" stroke-width="1" opacity="0.1"/>
-    <line x1="1080" y1="400" x2="1150" y2="400" stroke="#dc2626" stroke-width="1" opacity="0.15"/>
-    <line x1="1095" y1="415" x2="1150" y2="415" stroke="#dc2626" stroke-width="1" opacity="0.1"/>
-
-    <!-- CRT scan line -->
-    <rect width="1200" height="2" x="0" y="0" fill="#ef4444" opacity="0">
-      <animate attributeName="y" values="-2;632" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.03;0.03;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1"/>
-    </rect>
+    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3"/>
+    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
+    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3"/>
+    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
   </g>
-
-  <!-- FOOTER -->
-  <line x1="40" y1="608" x2="1160" y2="608" stroke="#1e293b" stroke-width="1"/>
-  <text x="1160" y="622" font-family="Courier New, monospace" font-size="11"
-        fill="#475569" text-anchor="end" letter-spacing="0.5">tech.2twodragon.com</text>
-
-  <!-- BORDER -->
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" ry="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <!-- Corner accents -->
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#f97316" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#f97316" stroke-width="2" opacity="0.5"/>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
+  </g>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">SKT IMEI USIM/ESIM MFA</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">IDENTITY</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">IDENTITY / INCIDENT / SECURITY</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM DBAFCC07FC31</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="114" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">IDENTITY</text>
+  </g>
+  <g transform="translate(212 474)">
+    <rect width="114" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">INCIDENT</text>
+  </g>
+  <g transform="translate(340 474)">
+    <rect width="114" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">SECURITY</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
