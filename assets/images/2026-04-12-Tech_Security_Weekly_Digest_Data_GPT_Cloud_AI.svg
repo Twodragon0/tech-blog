@@ -1,88 +1,217 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Security Weekly Digest - April 12 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="apr12bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
+      <stop offset="100%" stop-color="#0a1020"/>
     </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+    <linearGradient id="apr12p1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
+    <linearGradient id="apr12p2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="apr12p3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="apr12glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#22d3ee" flood-opacity="0.4"/>
     </filter>
+    <clipPath id="apr12clip"><rect x="1" y="1" width="1198" height="628" rx="8"/></clipPath>
+    <style>
+      @keyframes apr12radar{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+      @keyframes apr12pulse{0%,100%{opacity:0.3}50%{opacity:0.8}}
+      @keyframes apr12spark{0%,100%{opacity:0}50%{opacity:0.8}}
+    </style>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+
+  <rect width="1200" height="630" fill="url(#apr12bg)"/>
+  <g clip-path="url(#apr12clip)">
+
+    <!-- TOP HEADER -->
+    <rect x="0" y="0" width="1200" height="55" fill="#080c18" opacity="0.95"/>
+    <rect x="0" y="53" width="1200" height="2" fill="#334155" opacity="0.6"/>
+    <g transform="translate(36,28)">
+      <path d="M0,-14 L12,-7 L12,3 C12,10 7,14 0,17 C-7,14 -12,10 -12,3 L-12,-7 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.2"/>
+      <path d="M-4,1 L-1,4 L5,-3" stroke="#3b82f6" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+    <text x="56" y="34" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
+    <text x="1170" y="34" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="end">April 12, 2026</text>
+
+    <!-- ===== PANEL 1: SURVEILLANCE (CYAN) ===== -->
+    <rect x="20" y="70" width="375" height="470" rx="10" fill="#060d18" stroke="#22d3ee" stroke-width="1.5" opacity="0.8"/>
+    <rect x="20" y="70" width="375" height="470" rx="10" fill="url(#apr12p1)"/>
+    <rect x="20" y="70" width="375" height="30" rx="10" fill="#22d3ee" opacity="0.08"/>
+    <text x="40" y="92" font-family="Courier New,monospace" font-size="11" fill="#22d3ee" font-weight="bold" letter-spacing="2">SURVEILLANCE</text>
+
+    <!-- Large eye icon -->
+    <g transform="translate(207,230)" filter="url(#apr12glow)">
+      <!-- Outer eye -->
+      <ellipse rx="70" ry="40" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <!-- Iris -->
+      <circle r="25" fill="#0a1520" stroke="#22d3ee" stroke-width="2"/>
+      <circle r="12" fill="#22d3ee" opacity="0.15"/>
+      <circle r="6" fill="#22d3ee" opacity="0.3"/>
+      <circle r="2" fill="#22d3ee" opacity="0.8"/>
+      <!-- Digital scan lines across iris -->
+      <line x1="-25" y1="-5" x2="25" y2="-5" stroke="#22d3ee" stroke-width="0.5" opacity="0.3"/>
+      <line x1="-25" y1="5" x2="25" y2="5" stroke="#22d3ee" stroke-width="0.5" opacity="0.3"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#22d3ee" stroke-width="0.8" opacity="0.4"/>
+    </g>
+
+    <!-- Radar sweep -->
+    <g transform="translate(207,230)">
+      <circle r="50" fill="none" stroke="#22d3ee" stroke-width="0.5" opacity="0.2"/>
+      <line x1="0" y1="0" x2="0" y2="-50" stroke="#22d3ee" stroke-width="1.5" opacity="0.4" transform-origin="0 0" style="animation:apr12radar 4s linear infinite"/>
+    </g>
+
+    <text x="207" y="310" font-family="Courier New,monospace" font-size="16" fill="#22d3ee" text-anchor="middle" font-weight="bold">CITIZEN LAB</text>
+    <text x="207" y="332" font-family="Courier New,monospace" font-size="10" fill="#67e8f9" text-anchor="middle" opacity="0.7">Digital surveillance probe</text>
+
+    <!-- Magnifying glass -->
+    <g transform="translate(150,380)">
+      <circle r="16" fill="none" stroke="#22d3ee" stroke-width="1.8" opacity="0.6"/>
+      <line x1="11" y1="11" x2="22" y2="22" stroke="#22d3ee" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+    </g>
+    <!-- Data points -->
+    <g font-family="Courier New,monospace" font-size="8" fill="#67e8f9" opacity="0.5">
+      <text x="190" y="378">INTERCEPTS: 847</text>
+      <text x="190" y="394">TARGETS: CLASSIFIED</text>
+      <text x="190" y="410">REGION: GLOBAL</text>
+    </g>
+
+    <!-- Separator line 1 -->
+    <rect x="405" y="75" width="2" height="460" rx="1" fill="#22d3ee" opacity="0.3"/>
+
+    <!-- ===== PANEL 2: CRYPTO CRACKDOWN (GOLD) ===== -->
+    <rect x="413" y="70" width="375" height="470" rx="10" fill="#060d18" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
+    <rect x="413" y="70" width="375" height="470" rx="10" fill="url(#apr12p2)"/>
+    <rect x="413" y="70" width="375" height="30" rx="10" fill="#f59e0b" opacity="0.08"/>
+    <text x="433" y="92" font-family="Courier New,monospace" font-size="11" fill="#f59e0b" font-weight="bold" letter-spacing="2">CRYPTO CRACKDOWN</text>
+
+    <!-- Broken chain -->
+    <g transform="translate(600,190)">
+      <!-- Left chain link -->
+      <rect x="-50" y="-12" width="35" height="24" rx="12" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <!-- Right chain link -->
+      <rect x="15" y="-12" width="35" height="24" rx="12" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <!-- Break spark -->
+      <line x1="-12" y1="-8" x2="12" y2="8" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+      <line x1="-12" y1="8" x2="12" y2="-8" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="0" r="4" fill="#f59e0b" opacity="0.3" style="animation:apr12spark 1.5s ease-in-out infinite"/>
+    </g>
+
+    <!-- Large counter -->
+    <text x="600" y="270" font-family="Segoe UI,Arial,sans-serif" font-size="52" fill="#f59e0b" text-anchor="middle" font-weight="700">20,000+</text>
+    <text x="600" y="298" font-family="Courier New,monospace" font-size="12" fill="#fbbf24" text-anchor="middle">ARRESTS WORLDWIDE</text>
+
+    <!-- Globe with connection dots -->
+    <g transform="translate(600,370)">
+      <circle r="40" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+      <ellipse rx="40" ry="15" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.2"/>
+      <ellipse rx="20" ry="40" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.2"/>
+      <!-- Arrest location dots -->
+      <circle cx="-25" cy="-15" r="4" fill="#ef4444" opacity="0.6" style="animation:apr12pulse 2s ease-in-out infinite"/>
+      <circle cx="20" cy="-20" r="4" fill="#ef4444" opacity="0.6" style="animation:apr12pulse 2.5s ease-in-out infinite"/>
+      <circle cx="30" cy="10" r="4" fill="#ef4444" opacity="0.6" style="animation:apr12pulse 3s ease-in-out infinite"/>
+      <circle cx="-15" cy="25" r="4" fill="#ef4444" opacity="0.6" style="animation:apr12pulse 2.2s ease-in-out infinite"/>
+    </g>
+
+    <!-- Badges -->
+    <g transform="translate(500,450)">
+      <rect x="0" y="0" width="60" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+      <text x="30" y="15" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold">FBI</text>
+    </g>
+    <g transform="translate(570,450)">
+      <rect x="0" y="0" width="90" height="22" rx="4" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
+      <text x="45" y="15" font-family="Courier New,monospace" font-size="8" fill="#f59e0b" text-anchor="middle" font-weight="bold">INTERPOL</text>
+    </g>
+    <g transform="translate(670,450)">
+      <rect x="0" y="0" width="90" height="22" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
+      <text x="45" y="15" font-family="Courier New,monospace" font-size="8" fill="#3b82f6" text-anchor="middle" font-weight="bold">EUROPOL</text>
+    </g>
+
+    <text x="600" y="500" font-family="Courier New,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" opacity="0.6">SEIZED: $4.3B IN CRYPTO ASSETS</text>
+
+    <!-- Separator line 2 -->
+    <rect x="798" y="75" width="2" height="460" rx="1" fill="#f59e0b" opacity="0.3"/>
+
+    <!-- ===== PANEL 3: AI COMPETITION (GREEN) ===== -->
+    <rect x="806" y="70" width="375" height="470" rx="10" fill="#060d18" stroke="#22c55e" stroke-width="1.5" opacity="0.8"/>
+    <rect x="806" y="70" width="375" height="470" rx="10" fill="url(#apr12p3)"/>
+    <rect x="806" y="70" width="375" height="30" rx="10" fill="#22c55e" opacity="0.08"/>
+    <text x="826" y="92" font-family="Courier New,monospace" font-size="11" fill="#22c55e" font-weight="bold" letter-spacing="2">AI COMPETITION</text>
+
+    <!-- Brain 1: GPT -->
+    <g transform="translate(910,195)">
+      <circle r="30" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
+      <path d="M-12,-15 C-12,-22 12,-22 12,-15 C16,-12 18,-4 14,0 C18,6 14,14 8,16 C6,20 -6,20 -8,16 C-14,14 -18,6 -14,0 C-18,-4 -16,-12 -12,-15Z" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+      <text x="0" y="5" font-family="Courier New,monospace" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="bold">GPT</text>
+    </g>
+
+    <!-- VS Lightning bolt -->
+    <g transform="translate(993,195)">
+      <path d="M4,-18 L-4,0 L4,0 L-4,18" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+      <text x="0" y="32" font-family="Courier New,monospace" font-size="10" fill="#f59e0b" text-anchor="middle" font-weight="bold">VS</text>
+    </g>
+
+    <!-- Brain 2: Claude -->
+    <g transform="translate(1076,195)">
+      <circle r="30" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
+      <path d="M-12,-15 C-12,-22 12,-22 12,-15 C16,-12 18,-4 14,0 C18,6 14,14 8,16 C6,20 -6,20 -8,16 C-14,14 -18,6 -14,0 C-18,-4 -16,-12 -12,-15Z" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.6"/>
+      <text x="0" y="5" font-family="Courier New,monospace" font-size="8" fill="#3b82f6" text-anchor="middle" font-weight="bold">CLAUDE</text>
+    </g>
+
+    <!-- Neural connections -->
+    <line x1="940" y1="195" x2="965" y2="195" stroke="#22c55e" stroke-width="1" opacity="0.4" stroke-dasharray="3 2" style="animation:apr12pulse 1.5s ease-in-out infinite"/>
+    <line x1="1020" y1="195" x2="1046" y2="195" stroke="#3b82f6" stroke-width="1" opacity="0.4" stroke-dasharray="3 2" style="animation:apr12pulse 1.8s ease-in-out infinite"/>
+
+    <!-- Benchmark bars -->
+    <text x="840" y="280" font-family="Courier New,monospace" font-size="9" fill="#94a3b8" opacity="0.7">CODING</text>
+    <rect x="910" y="272" width="240" height="8" rx="4" fill="#22c55e" opacity="0.12"/>
+    <rect x="910" y="272" width="210" height="8" rx="4" fill="#22c55e" opacity="0.5"/>
+    <rect x="910" y="282" width="240" height="8" rx="4" fill="#3b82f6" opacity="0.12"/>
+    <rect x="910" y="282" width="225" height="8" rx="4" fill="#3b82f6" opacity="0.5"/>
+
+    <text x="840" y="315" font-family="Courier New,monospace" font-size="9" fill="#94a3b8" opacity="0.7">REASONING</text>
+    <rect x="910" y="307" width="240" height="8" rx="4" fill="#22c55e" opacity="0.12"/>
+    <rect x="910" y="307" width="200" height="8" rx="4" fill="#22c55e" opacity="0.5"/>
+    <rect x="910" y="317" width="240" height="8" rx="4" fill="#3b82f6" opacity="0.12"/>
+    <rect x="910" y="317" width="230" height="8" rx="4" fill="#3b82f6" opacity="0.5"/>
+
+    <text x="840" y="350" font-family="Courier New,monospace" font-size="9" fill="#94a3b8" opacity="0.7">CREATIVE</text>
+    <rect x="910" y="342" width="240" height="8" rx="4" fill="#22c55e" opacity="0.12"/>
+    <rect x="910" y="342" width="190" height="8" rx="4" fill="#22c55e" opacity="0.5"/>
+    <rect x="910" y="352" width="240" height="8" rx="4" fill="#3b82f6" opacity="0.12"/>
+    <rect x="910" y="352" width="220" height="8" rx="4" fill="#3b82f6" opacity="0.5"/>
+
+    <!-- Legend -->
+    <rect x="910" y="375" width="10" height="10" rx="2" fill="#22c55e" opacity="0.5"/>
+    <text x="926" y="384" font-family="Courier New,monospace" font-size="8" fill="#22c55e">ChatGPT Pro</text>
+    <rect x="1020" y="375" width="10" height="10" rx="2" fill="#3b82f6" opacity="0.5"/>
+    <text x="1036" y="384" font-family="Courier New,monospace" font-size="8" fill="#3b82f6">Claude</text>
+
+    <!-- Pricing card -->
+    <rect x="850" y="410" width="280" height="60" rx="6" fill="#071a10" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+    <text x="870" y="432" font-family="Courier New,monospace" font-size="9" fill="#22c55e" font-weight="bold">PRICING WAR</text>
+    <text x="870" y="450" font-family="Courier New,monospace" font-size="8" fill="#86efac" opacity="0.7">GPT Pro: $200/mo</text>
+    <text x="870" y="462" font-family="Courier New,monospace" font-size="8" fill="#93c5fd" opacity="0.7">Claude: $20/mo (Pro)</text>
+
+    <!-- Panel 3 footer text -->
+    <text x="993" y="500" font-family="Courier New,monospace" font-size="9" fill="#86efac" text-anchor="middle" opacity="0.5">AI LANDSCAPE SHIFTING</text>
   </g>
-  <circle cx="200" cy="300" r="200" fill="#22d3ee" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#ef4444" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#22c55e" opacity="0.06" filter="url(#glow)"/>
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 12, 2026</text>
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#0a1520" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(142,148)"><circle r="16" fill="none" stroke="#22d3ee" stroke-width="1.5"/><circle r="6" fill="#22d3ee" opacity="0.3"/></g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle">CITIZEN LAB</text>
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0f0f" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(378,148)"><path d="M0,-16 L14,12 L-14,12 Z" fill="none" stroke="#ef4444" stroke-width="2"/><text x="0" y="8" font-family="Arial" font-size="12" font-weight="700" fill="#ef4444" text-anchor="middle">!</text></g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">CRYPTO FRAUD</text>
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(614,148)"><rect x="-18" y="-14" width="36" height="28" rx="6" fill="#0a2010" stroke="#22c55e" stroke-width="1.5"/><text x="0" y="4" font-family="Arial" font-size="8" font-weight="700" fill="#22c55e" text-anchor="middle">GPT</text></g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e" text-anchor="middle">CHATGPT PRO</text>
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(840,148)"><rect x="-16" y="-14" width="32" height="28" rx="4" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/><text x="0" y="4" font-family="Arial" font-size="8" font-weight="700" fill="#f59e0b" text-anchor="middle">CPU</text></g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">CPUID BREACH</text>
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(1062,148)"><path d="M-14,-8 C-20,-8 -22,-2 -22,2 C-22,8 -18,12 -10,12 L14,12 C20,12 22,8 22,2 C22,-4 18,-8 12,-8 C10,-14 4,-18 -2,-18 C-8,-18 -14,-14 -14,-8 Z" fill="none" stroke="#3b82f6" stroke-width="1.5"/></g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD AI</text>
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
-  <g opacity="0.25"><circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/><circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/><circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/><circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/></g>
-  <circle cx="170" cy="340" r="22" fill="#0a1520" stroke="#22d3ee" stroke-width="2"/>
-  <text x="170" y="345" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">LAB</text>
-  <circle cx="400" cy="350" r="20" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="400" y="355" font-family="Arial,sans-serif" font-size="8" fill="#ef4444" text-anchor="middle">FRAUD</text>
-  <line x1="192" y1="342" x2="380" y2="350" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6"/>
-  <circle cx="600" cy="330" r="22" fill="#0a2010" stroke="#22c55e" stroke-width="2"/>
-  <text x="600" y="335" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">GPT</text>
-  <circle cx="780" cy="360" r="18" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="780" y="365" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">CPU</text>
-  <line x1="622" y1="338" x2="762" y2="355" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="8 5" opacity="0.6"/>
-  <circle cx="960" cy="340" r="22" fill="#0a1428" stroke="#3b82f6" stroke-width="2"/>
-  <text x="960" y="345" font-family="Arial,sans-serif" font-size="9" fill="#3b82f6" text-anchor="middle">AWS</text>
-  <line x1="420" y1="348" x2="578" y2="334" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
-  <line x1="800" y1="356" x2="938" y2="344" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="8 5" opacity="0.5"/>
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
-  <rect x="32" y="490" width="110" height="24" rx="4" fill="#0a1520" stroke="#22d3ee" stroke-width="1"/>
-  <text x="87" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">CITIZEN LAB</text>
-  <rect x="154" y="490" width="120" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="214" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">CRYPTO FRAUD</text>
-  <rect x="286" y="490" width="120" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="346" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">CHATGPT PRO</text>
-  <rect x="418" y="490" width="100" height="24" rx="4" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
-  <text x="468" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">CPUID</text>
-  <rect x="530" y="490" width="100" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="580" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">CLOUD AI</text>
-  <circle cx="32" cy="545" r="4" fill="#22d3ee" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 12, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- FOOTER -->
+  <line x1="20" y1="555" x2="1180" y2="555" stroke="#1e293b" stroke-width="1"/>
+  <text x="20" y="580" font-family="Courier New,monospace" font-size="12" fill="#475569">Security Weekly Digest | April 12, 2026</text>
+  <text x="1180" y="580" font-family="Courier New,monospace" font-size="11" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <polyline points="0,25 0,0 25,0" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.6"/>
+  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.6"/>
+  <polyline points="0,605 0,630 25,630" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.5"/>
+  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
 </svg>
