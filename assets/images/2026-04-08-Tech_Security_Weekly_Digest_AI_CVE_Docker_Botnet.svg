@@ -606,7 +606,7 @@
     <rect x="65" y="28" width="40" height="12" rx="3" fill="#2a0a30" stroke="#a855f7" stroke-width="0.8"/>
     
     <!-- Arrow up from escaping container -->
-    <line x1="84" y1="-2" x2="84" y2="-15" stroke="#a855f7" stroke-width="1" marker-end="url(#arrowPurple)" class="glimmer"/>
+    <line x1="84" y1="-2" x2="84" y2="-15" stroke="#a855f7" stroke-width="1" class="glimmer"/>
     
   </g>
 
