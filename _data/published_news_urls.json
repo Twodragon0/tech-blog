@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-13T01:55:28.755558+00:00",
+  "updated_at": "2026-04-14T01:51:37.503775+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/openai-patches-chatgpt-data.html",
-      "title": "OpenAI Patches ChatGPT Data Exfiltration Flaw and Codex GitHub Token Vulnerabili",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/deepload-malware-uses-clickfix-and-wmi.html",
-      "title": "DeepLoad Malware Uses ClickFix and WMI Persistence to Steal Browser Credentials",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/weekly-recap-telecom-sleeper-cells-llm.html",
-      "title": "⚡ Weekly Recap: Telecom Sleeper Cells, LLM Jailbreaks, Apple Forces U.K. Age Che",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/3-soc-process-fixes-that-unlock-tier-1.html",
-      "title": "3 SOC Process Fixes That Unlock Tier 1 Productivity",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/russian-ctrl-toolkit-delivered-via.html",
-      "title": "Russian CTRL Toolkit Delivered via Malicious LNK Files Hijacks RDP via FRP Tunne",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/03/30/data-center-engineering/ai-for-american-produced-cement-and-concrete/",
-      "title": "AI for American-Produced Cement and Concrete",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-ring-scales-global-customer-support-with-amazon-bedrock-knowledge-bases/",
-      "title": "How Ring scales global customer support with Amazon Bedrock Knowledge Bases",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/reimagine-marketing-at-volkswagen-group-with-generative-ai/",
-      "title": "Reimagine marketing at Volkswagen Group with generative AI",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-solar-flare-detection-system-on-sagemaker-ai-lstm-networks-and-esa-stix-data/",
-      "title": "Build a solar flare detection system on SageMaker AI LSTM networks and ESA STIX ",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/deliver-hyper-personalized-viewer-experiences-with-an-agentic-ai-movie-assistant-using-amazon-bedrock-agentcore-and-amazon-nova-sonic-2-0/",
-      "title": "Deliver hyper-personalized viewer experiences with an agentic AI movie assistant",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-rsac-26-ai-security-and-workforce-of-the-future/",
-      "title": "Cloud CISO Perspectives: RSAC '26: AI, security, and the workforce of the future",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/id-me-scales-and-fights-ai-fraud-with-alloydb/",
-      "title": "How ID.me Scaled to 145M Users While Reducing Operational Risk",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-ai-ml-scholars-program-agent-plugin-for-aws-serverless-and-more-march-30-2026/",
-      "title": "AWS Weekly Roundup: AWS AI/ML Scholars program, Agent Plugin for AWS Serverless,",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/introducing-the-graphrag-toolkit-01/",
-      "title": "Neptune GraphRAG Toolkit을 활용하여 정교한 비정형 데이터 검색하기",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/automating-vector-embedding-generation-in-amazon-aurora-postgresql-with-amazon-bedrock/",
-      "title": "Amazon Aurora PostgreSQL에서 Amazon Bedrock으로 벡터 임베딩 생성 자동화",
-      "published_date": "2026-03-31",
-      "expires_at": "2026-04-07T01:30:10.621875+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/03/android-developer-verification-rollout.html",
       "title": "Android Developer Verification Rollout Begins Ahead of September Enforcement",
@@ -1260,6 +1170,96 @@
       "title": "비트코인 채굴자, 난이도 7.8% 하락 속에 코인당 1만9천달러 손실",
       "published_date": "2026-04-13",
       "expires_at": "2026-04-20T01:55:28.755449+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/93358/",
+      "title": "2026년 3월 랜섬웨어 동향 보고서",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/janelarat-malware-targets-latin.html",
+      "title": "JanelaRAT Malware Targets Latin American Banks with 14,739 Attacks in Brazil in ",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/fbi-and-indonesian-police-dismantle.html",
+      "title": "FBI and Indonesian Police Dismantle W3LL Phishing Network Behind $20M Fraud Atte",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/weekly-recap-fiber-optic-spying-windows.html",
+      "title": "⚡ Weekly Recap: Fiber Optic Spying, Windows Rootkit, AI Vulnerability Hunting an",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/european-gym-giant-basic-fit-data-breach-affects-1-million-members/",
+      "title": "European Gym giant Basic-Fit data breach affects 1 million members",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-to-build-effective-reward-functions-with-aws-lambda-for-amazon-nova-model-customization/",
+      "title": "How to build effective reward functions with AWS Lambda for Amazon Nova model cu",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/policy/2026/04/13/coinbase-vp-of-international-policy-leaves-the-exchange-for-openai",
+      "title": "Coinbase VP of international policy leaves for OpenAI",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/a-new-standard-for-research-how-uc-riverside-is-securing-the-path-to-federal-grants-with-google-public-sector/",
+      "title": "A new standard for research: How UC Riverside is securing the path to federal gr",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-a-robust-and-cost-effective-gen-ai-strategy/",
+      "title": "How to find the sweet spot between cost and performance",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-mythos-preview-in-amazon-bedrock-aws-agent-registry-and-more-april-13-2026/",
+      "title": "AWS Weekly Roundup: Claude Mythos Preview in Amazon Bedrock, AWS Agent Registry,",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/amorepacific-ai-driven-sap-development-with-kiro/",
+      "title": "AMOREPACIFIC, Kiro IDE로 SAP 개발에 AI를 도입하다",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/lge-cad-understand-aws-agentic-workflow/",
+      "title": "LG전자 ES사업부, Agentic Workflow로 전문 엔지니어처럼 도면을 분석하다",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-13-copilot-data-residency-in-us-eu-and-fedramp-compliance-now-available",
+      "title": "Copilot data residency in US + EU and FedRAMP compliance now available",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-13-fix-merge-conflicts-in-three-clicks-with-copilot-cloud-agent",
+      "title": "Fix merge conflicts in three clicks with Copilot cloud agent",
+      "published_date": "2026-04-14",
+      "expires_at": "2026-04-21T01:51:37.503675+00:00"
     }
   ]
 }
