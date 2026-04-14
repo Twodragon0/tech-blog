@@ -487,16 +487,54 @@ def _render_fractured_core_svg(
       <stop offset="50%" stop-color="#1e1030"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
+    <radialGradient id="rg1" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="70%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.18"/>
+    </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="20"/>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
     </filter>
+    <style>
+      @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; r: 4; }}
+        50% {{ opacity: 1; r: 6; }}
+      }}
+      .status-dot {{ animation: pulse 2.4s ease-in-out infinite; }}
+    </style>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rg1)"/>
+  <rect width="1200" height="630" fill="url(#rg2)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <!-- Dashed orbital ring decoration -->
+  <circle cx="600" cy="330" r="280" fill="none" stroke="{accent}" stroke-width="1" stroke-dasharray="4 12" opacity="0.18"/>
   <circle cx="600" cy="330" r="260" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
   <circle cx="600" cy="330" r="180" fill="#22d3ee" opacity="0.07" filter="url(#glow)"/>
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <!-- Circuit trace decorative lines -->
+  <polyline points="80,420 120,420 120,460 180,460" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="80" cy="420" r="3" fill="#ef4444" opacity="0.6"/>
+  <circle cx="180" cy="460" r="3" fill="#22d3ee" opacity="0.6"/>
+  <polyline points="1120,200 1080,200 1080,240 1020,240" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="1120" cy="200" r="3" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="1020" cy="240" r="3" fill="#334155" opacity="0.7"/>
   <!-- Fractured crack lines from center -->
   <line x1="600" y1="330" x2="160" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.25"/>
   <line x1="600" y1="330" x2="1040" y2="110" stroke="#22d3ee" stroke-width="1.5" opacity="0.25"/>
@@ -504,7 +542,7 @@ def _render_fractured_core_svg(
   <!-- Central hexagon -->
   <polygon points="{hex_pts}" fill="#111827" stroke="{accent}" stroke-width="3" filter="url(#shadow)"/>
   <polygon points="600,286 634,304 634,342 600,360 566,342 566,304" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="600" y="336" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
+  <text x="600" y="336" font-family="'Courier New',Courier,monospace" font-size="11" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
   <!-- Orbit ring -->
   <circle cx="600" cy="330" r="148" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="8 6" opacity="0.5"/>
 """
@@ -523,12 +561,13 @@ def _render_fractured_core_svg(
 """
     # WEEKLY DIGEST badge
     svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <circle cx="90" cy="558" r="4" class="status-dot" fill="{accent}" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
     return svg
 
@@ -550,32 +589,67 @@ def _render_dossier_strike_svg(
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#1a0a2e"/>
     </linearGradient>
+    <radialGradient id="rg1" cx="20%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="80%" cy="65%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.16"/>
+    </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
     </filter>
+    <style>
+      @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; r: 4; }}
+        50% {{ opacity: 1; r: 6; }}
+      }}
+      .status-dot {{ animation: pulse 2.4s ease-in-out infinite; }}
+    </style>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rg1)"/>
+  <rect width="1200" height="630" fill="url(#rg2)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <!-- Dashed orbital ring decoration -->
+  <circle cx="200" cy="300" r="300" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="4 14" opacity="0.15"/>
   <!-- Diagonal divider -->
   <polygon points="0,0 820,0 560,630 0,630" fill="#110d20" opacity="0.7"/>
   <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
   <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
   <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
+  <!-- Circuit trace decorative lines -->
+  <polyline points="60,160 100,160 100,200 150,200" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="60" cy="160" r="3" fill="#a855f7" opacity="0.7"/>
+  <circle cx="150" cy="200" r="3" fill="#a855f7" opacity="0.5"/>
+  <polyline points="1100,440 1060,440 1060,480 1010,480" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="1100" cy="440" r="3" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="1010" cy="480" r="3" fill="#334155" opacity="0.6"/>
+  <polyline points="700,580 740,580 740,560 790,560" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="700" cy="580" r="3" fill="#a855f7" opacity="0.5"/>
   <!-- Classified stamp rotated -->
   <g transform="translate(900 310) rotate(-22)">
     <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
-    <text x="0" y="12" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
+    <text x="0" y="12" font-family="'Courier New',Courier,monospace" font-size="22" font-weight="700" fill="#f59e0b" text-anchor="middle" opacity="0.35" letter-spacing="4">CLASSIFIED</text>
   </g>
-  <!-- Corner bracket marks -->
-  <path d="M70 60 L70 90 L100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 60 L1130 90 L1100 90" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M70 570 L70 540 L100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-  <path d="M1130 570 L1130 540 L1100 540" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.45"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.45"/>
   <!-- WEEKLY DIGEST badge -->
   <rect x="90" y="62" width="196" height="32" rx="6" fill="#a855f7" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="#a855f7" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
 """
@@ -591,9 +665,10 @@ def _render_dossier_strike_svg(
     <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
   </g>
 """
-    svg += f"""  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+    svg += f"""  <circle cx="90" cy="558" r="4" class="status-dot" fill="#a855f7" opacity="0.6"/>
+  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
+  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
     return svg
 
