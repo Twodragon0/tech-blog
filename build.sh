@@ -99,5 +99,23 @@ else
     error_exit "CSS compilation failed - main.css not generated"
 fi
 
+# Minify JS files in _site (preserves source files in assets/js/)
+if command -v npx >/dev/null 2>&1 && npx terser --version >/dev/null 2>&1; then
+    log "Minifying JS files in _site/assets/js/..."
+    JS_FILES=( _site/assets/js/*.js )
+    if [ -e "${JS_FILES[0]}" ]; then
+        JS_BEFORE=$(du -sk _site/assets/js/*.js 2>/dev/null | awk '{sum+=$1} END {print sum+0}')
+        for f in _site/assets/js/*.js; do
+            npx terser "$f" -o "$f" -c passes=2 -m
+        done
+        JS_AFTER=$(du -sk _site/assets/js/*.js 2>/dev/null | awk '{sum+=$1} END {print sum+0}')
+        log "JS minification complete: ${JS_BEFORE} KB -> ${JS_AFTER} KB"
+    else
+        log "No JS files found in _site/assets/js/, skipping minification"
+    fi
+else
+    log "terser not available, skipping JS minification"
+fi
+
 log "Build completed successfully!"
 log "Build output size: $(du -sh _site | cut -f1)"
