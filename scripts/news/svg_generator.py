@@ -528,6 +528,23 @@ def _render_fractured_core_svg(
   <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
   <polyline points="20,610 20,570 60,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
   <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <!-- Background grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <!-- ECG / waveform strip -->
+  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
+  <!-- Threat level indicator -->
+  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
+  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
+  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
+  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
+  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
+  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
   <!-- Circuit trace decorative lines -->
   <polyline points="80,420 120,420 120,460 180,460" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
   <circle cx="80" cy="420" r="3" fill="#ef4444" opacity="0.6"/>
@@ -535,6 +552,12 @@ def _render_fractured_core_svg(
   <polyline points="1120,200 1080,200 1080,240 1020,240" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
   <circle cx="1120" cy="200" r="3" fill="#f59e0b" opacity="0.6"/>
   <circle cx="1020" cy="240" r="3" fill="#334155" opacity="0.7"/>
+  <polyline points="200,560 240,560 240,590 300,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="560" r="3" fill="#ef4444" opacity="0.5"/>
+  <circle cx="300" cy="590" r="3" fill="#22d3ee" opacity="0.45"/>
+  <polyline points="900,80 940,80 940,110 1000,110" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="900" cy="80" r="3" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="1000" cy="110" r="3" fill="#22d3ee" opacity="0.45"/>
   <!-- Fractured crack lines from center -->
   <line x1="600" y1="330" x2="160" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.25"/>
   <line x1="600" y1="330" x2="1040" y2="110" stroke="#22d3ee" stroke-width="1.5" opacity="0.25"/>
@@ -564,6 +587,78 @@ def _render_fractured_core_svg(
   <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <!-- Node status sidebar -->
+  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
+  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
+  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
+  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
+  <circle cx="1144" cy="252" r="4" class="status-dot" fill="{accent}" opacity="0.8"/>
+  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
+  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
+  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
+  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
+  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
+  <!-- Network topology mini-map -->
+  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
+  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
+  <circle cx="330" cy="232" r="5" fill="none" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
+  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
+  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
+  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
+  <!-- Threat matrix panel -->
+  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
+  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
+  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
+  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
+  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
+  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
+  <!-- Signal meter bars -->
+  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
+  <rect x="90" y="510" width="30" height="8" rx="1" fill="{accent}" opacity="0.7"/>
+  <rect x="126" y="512" width="30" height="6" rx="1" fill="{accent}" opacity="0.55"/>
+  <rect x="162" y="513" width="30" height="5" rx="1" fill="{accent}" opacity="0.4"/>
+  <rect x="198" y="514" width="30" height="4" rx="1" fill="{accent}" opacity="0.28"/>
+  <rect x="234" y="515" width="30" height="3" rx="1" fill="{accent}" opacity="0.18"/>
+  <!-- Mini hex cluster (top-right decoration) -->
+  <g opacity="0.12" fill="none" stroke="{accent}" stroke-width="1">
+    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
+    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
+    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
+    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
+    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
+    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
+  </g>
+  <!-- Scan line + ambient dots -->
+  <line x1="70" y1="522" x2="1130" y2="522" stroke="{accent}" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
+  <g opacity="0.3">
+    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
+    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
+    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
+    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
+  </g>
+  <!-- Data readout panel -->
+  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="{accent}" opacity="0.7">SYS:OK</text>
+  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
+  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
   <circle cx="90" cy="558" r="4" class="status-dot" fill="{accent}" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
   <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
@@ -628,6 +723,23 @@ def _render_dossier_strike_svg(
   <line x1="820" y1="0" x2="560" y2="630" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
   <circle cx="200" cy="200" r="220" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
   <circle cx="1000" cy="400" r="200" fill="#f59e0b" opacity="0.08" filter="url(#glow)"/>
+  <!-- Background grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <!-- ECG / waveform strip -->
+  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
+  <!-- Threat level indicator -->
+  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
+  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
+  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
+  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
+  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
+  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
   <!-- Circuit trace decorative lines -->
   <polyline points="60,160 100,160 100,200 150,200" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
   <circle cx="60" cy="160" r="3" fill="#a855f7" opacity="0.7"/>
@@ -637,6 +749,12 @@ def _render_dossier_strike_svg(
   <circle cx="1010" cy="480" r="3" fill="#334155" opacity="0.6"/>
   <polyline points="700,580 740,580 740,560 790,560" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
   <circle cx="700" cy="580" r="3" fill="#a855f7" opacity="0.5"/>
+  <polyline points="300,90 340,90 340,120 400,120" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="300" cy="90" r="3" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="400" cy="120" r="3" fill="#a855f7" opacity="0.45"/>
+  <polyline points="850,560 890,560 890,590 950,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="850" cy="560" r="3" fill="#a855f7" opacity="0.5"/>
+  <circle cx="950" cy="590" r="3" fill="#334155" opacity="0.45"/>
   <!-- Classified stamp rotated -->
   <g transform="translate(900 310) rotate(-22)">
     <rect x="-110" y="-38" width="220" height="76" rx="8" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
@@ -665,7 +783,79 @@ def _render_dossier_strike_svg(
     <text x="0" y="84" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
   </g>
 """
-    svg += f"""  <circle cx="90" cy="558" r="4" class="status-dot" fill="#a855f7" opacity="0.6"/>
+    svg += f"""  <!-- Node status sidebar -->
+  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
+  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
+  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
+  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
+  <circle cx="1144" cy="252" r="4" class="status-dot" fill="#a855f7" opacity="0.8"/>
+  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
+  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
+  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
+  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
+  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
+  <!-- Network topology mini-map -->
+  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
+  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
+  <circle cx="330" cy="232" r="5" fill="none" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
+  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
+  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
+  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
+  <!-- Threat matrix panel -->
+  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
+  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
+  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
+  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
+  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
+  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
+  <!-- Signal meter bars -->
+  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
+  <rect x="90" y="510" width="30" height="8" rx="1" fill="#a855f7" opacity="0.7"/>
+  <rect x="126" y="512" width="30" height="6" rx="1" fill="#a855f7" opacity="0.55"/>
+  <rect x="162" y="513" width="30" height="5" rx="1" fill="#a855f7" opacity="0.4"/>
+  <rect x="198" y="514" width="30" height="4" rx="1" fill="#a855f7" opacity="0.28"/>
+  <rect x="234" y="515" width="30" height="3" rx="1" fill="#a855f7" opacity="0.18"/>
+  <!-- Mini hex cluster (top-right decoration) -->
+  <g opacity="0.12" fill="none" stroke="#a855f7" stroke-width="1">
+    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
+    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
+    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
+    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
+    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
+    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
+  </g>
+  <!-- Scan line + ambient dots -->
+  <line x1="70" y1="522" x2="1130" y2="522" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
+  <g opacity="0.3">
+    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
+    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
+    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
+    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
+  </g>
+  <!-- Data readout panel -->
+  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#a855f7" opacity="0.7">SYS:OK</text>
+  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
+  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
+  <circle cx="90" cy="558" r="4" class="status-dot" fill="#a855f7" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
   <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
   <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
@@ -691,14 +881,75 @@ def _render_pipeline_triptych_svg(
       <stop offset="0%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#0a1628"/>
     </linearGradient>
+    <radialGradient id="rg1" cx="22%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="78%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.16"/>
+    </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
     </filter>
+    <style>
+      @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; r: 4; }}
+        50% {{ opacity: 1; r: 6; }}
+      }}
+      .status-dot {{ animation: pulse 2.4s ease-in-out infinite; }}
+    </style>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rg1)"/>
+  <rect width="1200" height="630" fill="url(#rg2)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <!-- Dashed orbital ring decoration -->
+  <circle cx="600" cy="340" r="320" fill="none" stroke="{accent}" stroke-width="1" stroke-dasharray="4 14" opacity="0.14"/>
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <!-- Background grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <!-- ECG / waveform strip -->
+  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
+  <!-- Threat level indicator -->
+  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
+  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
+  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
+  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
+  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
+  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
+  <!-- Circuit trace decorative lines -->
+  <polyline points="90,480 130,480 130,510 180,510" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="90" cy="480" r="3" fill="#22d3ee" opacity="0.7"/>
+  <circle cx="180" cy="510" r="3" fill="#22c55e" opacity="0.6"/>
+  <polyline points="1060,480 1020,480 1020,510 970,510" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="1060" cy="480" r="3" fill="#f97316" opacity="0.7"/>
+  <circle cx="970" cy="510" r="3" fill="#334155" opacity="0.6"/>
+  <polyline points="200,100 240,100 240,130 300,130" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="100" r="3" fill="#22d3ee" opacity="0.5"/>
+  <circle cx="300" cy="130" r="3" fill="#22c55e" opacity="0.45"/>
+  <polyline points="850,560 890,560 890,590 950,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="850" cy="560" r="3" fill="#f97316" opacity="0.5"/>
+  <circle cx="950" cy="590" r="3" fill="#334155" opacity="0.45"/>
 """
     # Column backgrounds and top connectors
     for idx, (x, color) in enumerate(zip(col_x, col_colors)):
@@ -723,12 +974,85 @@ def _render_pipeline_triptych_svg(
   <rect x="{x - 50}" y="448" width="100" height="4" rx="2" fill="{color}" opacity="0.3"/>
 """
     svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="140" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="176" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <!-- Node status sidebar -->
+  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
+  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
+  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
+  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
+  <circle cx="1144" cy="252" r="4" class="status-dot" fill="{accent}" opacity="0.8"/>
+  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
+  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
+  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
+  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
+  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
+  <!-- Network topology mini-map -->
+  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
+  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
+  <circle cx="330" cy="232" r="5" fill="none" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
+  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
+  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
+  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
+  <!-- Threat matrix panel -->
+  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
+  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
+  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
+  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
+  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
+  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
+  <!-- Signal meter bars -->
+  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
+  <rect x="90" y="510" width="30" height="8" rx="1" fill="{accent}" opacity="0.7"/>
+  <rect x="126" y="512" width="30" height="6" rx="1" fill="{accent}" opacity="0.55"/>
+  <rect x="162" y="513" width="30" height="5" rx="1" fill="{accent}" opacity="0.4"/>
+  <rect x="198" y="514" width="30" height="4" rx="1" fill="{accent}" opacity="0.28"/>
+  <rect x="234" y="515" width="30" height="3" rx="1" fill="{accent}" opacity="0.18"/>
+  <!-- Mini hex cluster (top-right decoration) -->
+  <g opacity="0.12" fill="none" stroke="{accent}" stroke-width="1">
+    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
+    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
+    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
+    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
+    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
+    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
+  </g>
+  <!-- Scan line + ambient dots -->
+  <line x1="70" y1="522" x2="1130" y2="522" stroke="{accent}" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
+  <g opacity="0.3">
+    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
+    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
+    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
+    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
+  </g>
+  <!-- Data readout panel -->
+  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="{accent}" opacity="0.7">SYS:OK</text>
+  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
+  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
+  <circle cx="90" cy="558" r="4" class="status-dot" fill="{accent}" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
     return svg
 
@@ -751,14 +1075,75 @@ def _render_shattered_vault_svg(
       <stop offset="50%" stop-color="#111c35"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
+    <radialGradient id="rg1" cx="20%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="80%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.16"/>
+    </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
     </filter>
+    <style>
+      @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; r: 4; }}
+        50% {{ opacity: 1; r: 6; }}
+      }}
+      .status-dot {{ animation: pulse 2.4s ease-in-out infinite; }}
+    </style>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rg1)"/>
+  <rect width="1200" height="630" fill="url(#rg2)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <!-- Dashed orbital ring decoration -->
+  <circle cx="600" cy="350" r="340" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 14" opacity="0.14"/>
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <!-- Background grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <!-- ECG / waveform strip -->
+  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
+  <!-- Threat level indicator -->
+  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
+  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
+  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
+  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
+  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
+  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
+  <!-- Circuit trace decorative lines -->
+  <polyline points="80,400 120,400 120,440 170,440" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="80" cy="400" r="3" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="170" cy="440" r="3" fill="#3b82f6" opacity="0.6"/>
+  <polyline points="1080,400 1040,400 1040,440 990,440" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="1080" cy="400" r="3" fill="#ef4444" opacity="0.7"/>
+  <circle cx="990" cy="440" r="3" fill="#334155" opacity="0.6"/>
+  <polyline points="200,110 240,110 240,140 300,140" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="110" r="3" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="300" cy="140" r="3" fill="#3b82f6" opacity="0.45"/>
+  <polyline points="850,560 890,560 890,590 950,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="850" cy="560" r="3" fill="#ef4444" opacity="0.5"/>
+  <circle cx="950" cy="590" r="3" fill="#334155" opacity="0.45"/>
   <!-- Vault door outline -->
   <rect x="380" y="200" width="440" height="300" rx="16" fill="#111827" stroke="#f59e0b" stroke-width="2.5" filter="url(#shadow)"/>
   <!-- Vault hinge marks -->
@@ -802,12 +1187,85 @@ def _render_shattered_vault_svg(
   </g>
 """
     svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <!-- Node status sidebar -->
+  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
+  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
+  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
+  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
+  <circle cx="1144" cy="252" r="4" class="status-dot" fill="{accent}" opacity="0.8"/>
+  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
+  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
+  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
+  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
+  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
+  <!-- Network topology mini-map -->
+  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
+  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
+  <circle cx="330" cy="232" r="5" fill="none" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
+  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
+  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
+  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
+  <!-- Threat matrix panel -->
+  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
+  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
+  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
+  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
+  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
+  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
+  <!-- Signal meter bars -->
+  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
+  <rect x="90" y="510" width="30" height="8" rx="1" fill="{accent}" opacity="0.7"/>
+  <rect x="126" y="512" width="30" height="6" rx="1" fill="{accent}" opacity="0.55"/>
+  <rect x="162" y="513" width="30" height="5" rx="1" fill="{accent}" opacity="0.4"/>
+  <rect x="198" y="514" width="30" height="4" rx="1" fill="{accent}" opacity="0.28"/>
+  <rect x="234" y="515" width="30" height="3" rx="1" fill="{accent}" opacity="0.18"/>
+  <!-- Mini hex cluster (top-right decoration) -->
+  <g opacity="0.12" fill="none" stroke="{accent}" stroke-width="1">
+    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
+    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
+    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
+    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
+    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
+    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
+  </g>
+  <!-- Scan line + ambient dots -->
+  <line x1="70" y1="522" x2="1130" y2="522" stroke="{accent}" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
+  <g opacity="0.3">
+    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
+    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
+    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
+    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
+  </g>
+  <!-- Data readout panel -->
+  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="{accent}" opacity="0.7">SYS:OK</text>
+  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
+  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
+  <circle cx="90" cy="558" r="4" class="status-dot" fill="{accent}" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
     return svg
 
@@ -830,14 +1288,75 @@ def _render_global_gavel_svg(
       <stop offset="60%" stop-color="#0f172a"/>
       <stop offset="100%" stop-color="#141030"/>
     </linearGradient>
+    <radialGradient id="rg1" cx="50%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="50%" cy="55%" r="30%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.15"/>
+    </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
     </filter>
+    <style>
+      @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; r: 4; }}
+        50% {{ opacity: 1; r: 6; }}
+      }}
+      .status-dot {{ animation: pulse 2.4s ease-in-out infinite; }}
+    </style>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rg1)"/>
+  <rect width="1200" height="630" fill="url(#rg2)"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <!-- Dashed orbital ring decoration -->
+  <circle cx="600" cy="350" r="360" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 14" opacity="0.13"/>
+  <!-- Corner bracket decorations -->
+  <polyline points="20,20 20,60 60,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="20,610 20,570 60,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="{accent}" stroke-width="2" opacity="0.45"/>
+  <!-- Background grid -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <!-- ECG / waveform strip -->
+  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="{accent}" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
+  <!-- Threat level indicator -->
+  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
+  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
+  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
+  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
+  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
+  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
+  <!-- Circuit trace decorative lines -->
+  <polyline points="70,150 110,150 110,190 160,190" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="70" cy="150" r="3" fill="#dc2626" opacity="0.7"/>
+  <circle cx="160" cy="190" r="3" fill="#3b82f6" opacity="0.6"/>
+  <polyline points="1090,500 1050,500 1050,530 1000,530" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="1090" cy="500" r="3" fill="#e2e8f0" opacity="0.5"/>
+  <circle cx="1000" cy="530" r="3" fill="#334155" opacity="0.6"/>
+  <polyline points="200,560 240,560 240,590 300,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="560" r="3" fill="#dc2626" opacity="0.5"/>
+  <circle cx="300" cy="590" r="3" fill="#3b82f6" opacity="0.45"/>
+  <polyline points="900,90 940,90 940,120 1000,120" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="900" cy="90" r="3" fill="#e2e8f0" opacity="0.4"/>
+  <circle cx="1000" cy="120" r="3" fill="#334155" opacity="0.45"/>
   <!-- Globe grid lines (longitude/latitude) -->
   <ellipse cx="600" cy="350" rx="300" ry="200" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.6"/>
   <ellipse cx="600" cy="350" rx="220" ry="200" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.4"/>
@@ -878,12 +1397,85 @@ def _render_global_gavel_svg(
   <text x="{x}" y="{node_y_offset}" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{_escape_svg_text(label)}</text>
 """
     svg += f"""  <rect x="90" y="62" width="196" height="32" rx="6" fill="{accent}" opacity="0.18"/>
-  <text x="188" y="83" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
+  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="{accent}" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
   <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">{_escape_svg_text(headline)}</text>
   <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">{_escape_svg_text(subtitle)}</text>
+  <!-- Node status sidebar -->
+  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
+  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
+  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
+  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
+  <circle cx="1144" cy="252" r="4" class="status-dot" fill="{accent}" opacity="0.8"/>
+  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
+  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
+  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
+  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
+  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
+  <!-- Network topology mini-map -->
+  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
+  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
+  <circle cx="330" cy="232" r="5" fill="none" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
+  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
+  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
+  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
+  <!-- Threat matrix panel -->
+  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
+  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
+  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
+  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
+  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
+  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
+  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
+  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
+  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
+  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
+  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
+  <!-- Signal meter bars -->
+  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
+  <rect x="90" y="510" width="30" height="8" rx="1" fill="{accent}" opacity="0.7"/>
+  <rect x="126" y="512" width="30" height="6" rx="1" fill="{accent}" opacity="0.55"/>
+  <rect x="162" y="513" width="30" height="5" rx="1" fill="{accent}" opacity="0.4"/>
+  <rect x="198" y="514" width="30" height="4" rx="1" fill="{accent}" opacity="0.28"/>
+  <rect x="234" y="515" width="30" height="3" rx="1" fill="{accent}" opacity="0.18"/>
+  <!-- Mini hex cluster (top-right decoration) -->
+  <g opacity="0.12" fill="none" stroke="{accent}" stroke-width="1">
+    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
+    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
+    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
+    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
+    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
+    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
+  </g>
+  <!-- Scan line + ambient dots -->
+  <line x1="70" y1="522" x2="1130" y2="522" stroke="{accent}" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
+  <g opacity="0.3">
+    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
+    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
+    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
+    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
+    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
+  </g>
+  <!-- Data readout panel -->
+  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="{accent}" opacity="0.7">SYS:OK</text>
+  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
+  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
+  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
+  <circle cx="90" cy="558" r="4" class="status-dot" fill="{accent}" opacity="0.6"/>
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="90" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{date_display}</text>
-  <text x="1110" y="574" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">{date_display}</text>
+  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>"""
     return svg
 
