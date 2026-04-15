@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-14T01:51:37.503775+00:00",
+  "updated_at": "2026-04-15T01:33:53.262427+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/03/android-developer-verification-rollout.html",
@@ -1260,6 +1260,96 @@
       "title": "Fix merge conflicts in three clicks with Copilot cloud agent",
       "published_date": "2026-04-14",
       "expires_at": "2026-04-21T01:51:37.503675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/secure-ai-agent-access-patterns-to-aws-resources-using-model-context-protocol/",
+      "title": "Secure AI agent access patterns to AWS resources using Model Context Protocol",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/new-php-composer-flaws-enable-arbitrary.html",
+      "title": "New PHP Composer Flaws Enable Arbitrary Command Execution — Patches Released",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/google-adds-rust-based-dns-parser-into.html",
+      "title": "Google Adds Rust-Based DNS Parser into Pixel 10 Modem to Enhance Security",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/ai-driven-pushpaganda-scam-exploits.html",
+      "title": "AI-Driven Pushpaganda Scam Exploits Google Discover to Spread Scareware and Ad F",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-windows-protections-for-malicious-remote-desktop-files/",
+      "title": "Microsoft adds Windows protections for malicious Remote Desktop files",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/ai-economy-forum/",
+      "title": "Bringing people together at AI for the Economy Forum",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/navigating-the-generative-ai-journey-the-path-to-value-framework-from-aws/",
+      "title": "Navigating the generative AI journey: The Path-to-Value framework from AWS",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-case-based-deployments-on-sagemaker-jumpstart/",
+      "title": "Use-case based deployments on SageMaker JumpStart",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/best-practices-to-run-inference-on-amazon-sagemaker-hyperpod/",
+      "title": "Best practices to run inference on Amazon SageMaker HyperPod",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-guidesly-built-ai-generated-trip-reports-for-outdoor-guides-on-aws/",
+      "title": "How Guidesly built AI-generated trip reports for outdoor guides on AWS",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/securing-the-ai-era-across-the-public-sector/",
+      "title": "Securing the AI era across the public sector",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-graph/",
+      "title": "Introducing BigQuery Graph: Unlock hidden relationships in your data",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquery-graph-with-kineviz-graphxr/",
+      "title": "Scaling unstructured enterprise knowledge with BigQuery Graph, and Kineviz Graph",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/the-unified-graph-solution-with-spanner-graph-and-bigquery-graph/",
+      "title": "From operational to analytical: The unified Spanner Graph and BigQuery Graph sol",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-interconnect-is-now-generally-available-with-a-new-option-to-simplify-last-mile-connectivity/",
+      "title": "AWS Interconnect is now generally available, with a new option to simplify last-",
+      "published_date": "2026-04-15",
+      "expires_at": "2026-04-22T01:33:53.262305+00:00"
     }
   ]
 }
