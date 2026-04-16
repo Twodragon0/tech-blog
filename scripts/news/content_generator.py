@@ -425,8 +425,28 @@ def _build_clean_description(
         keywords_text = re.sub(r",\s*,", ",", title_keywords[:60]).rstrip(" ,.")
 
     if mode == "tech":
-        return f"{date_str} 기술 블로그 다이제스트. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 개발자 트렌드와 운영 시사점을 정리합니다."
-    return f"{date_str} 보안 뉴스 요약. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 DevSecOps 대응 포인트를 정리합니다."
+        desc = f"{date_str} 기술 블로그 다이제스트. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 개발자 트렌드와 운영 시사점을 정리합니다."
+    else:
+        desc = f"{date_str} 보안 뉴스 요약. {source_list} 등 {total}건을 분석하고 {keywords_text} 등 DevSecOps 대응 포인트를 정리합니다."
+
+    # 150자 미만이면 보충 문장을 추가하여 SEO 최소 길이 보장 (최대 2회)
+    padding_tech = [
+        " 매주 업데이트되는 개발자 트렌드 정보를 한곳에서 확인하세요.",
+        " 클라우드, 보안, DevOps 최신 동향을 빠르게 파악하세요.",
+        " 실무에 바로 적용 가능한 기술 인사이트를 제공합니다.",
+    ]
+    padding_sec = [
+        " 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요.",
+        " CVE, 패치, 인프라 보안 이슈를 빠르게 파악하세요.",
+        " DevSecOps 실무자를 위한 핵심 보안 정보를 제공합니다.",
+    ]
+    padding = padding_tech if mode == "tech" else padding_sec
+    for pad in padding:
+        if len(desc) >= 150:
+            break
+        desc += pad
+
+    return desc[:300]
 
 
 def _build_clean_image_alt(title_keywords: str, mode: str) -> str:
