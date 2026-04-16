@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-04-15T01:33:53.262427+00:00",
+  "updated_at": "2026-04-16T01:56:18.886396+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/03/android-developer-verification-rollout.html",
-      "title": "Android Developer Verification Rollout Begins Ahead of September Enforcement",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/trueconf-zero-day-exploited-in-attacks.html",
-      "title": "TrueConf Zero-Day Exploited in Attacks on Southeast Asian Government Networks",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/new-compliance-guide-available-iso-iec-270012022-on-aws-compliance-guide/",
-      "title": "New compliance guide available: ISO/IEC 27001:2022 on AWS",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/vertex-ai-vulnerability-exposes-google.html",
-      "title": "Vertex AI Vulnerability Exposes Google Cloud Data and Private Artifacts",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/03/the-ai-arms-race-why-unified-exposure.html",
-      "title": "The AI Arms Race – Why Unified Exposure Management Is Becoming a Boardroom Prior",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
-      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Sc",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
-      "title": "Build with Veo 3.1 Lite, our most cost-effective video generation model",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/energy-efficiency-ai-factories-grid/",
-      "title": "Efficiency at Scale: NVIDIA, Energy Leaders Accelerating Power‑Flexible AI Facto",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://openai.com/index/accelerating-the-next-phase-ai",
-      "title": "Accelerating the next phase of AI",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-reliable-ai-agents-with-amazon-bedrock-agentcore-evaluations/",
-      "title": "Build reliable AI agents with Amazon Bedrock AgentCore Evaluations",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/customers-see-real-world-success-with-multi-model-spanner/",
-      "title": "Real-world success with Spanner’s fully interoperable multi-model database",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/spanners-multi-model-advantage-for-agentic-ai/",
-      "title": "Spanner's multi-model advantage for the era of agentic AI",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/new-gke-active-buffer-minimizes-scale-out-latency/",
-      "title": "Uplevel your workload scaling performance with GKE active buffer",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/sustainability/ai-tools-for-sustainable-infrastructure-and-reporting/",
-      "title": "How AI-powered tools are driving the next wave of sustainable infrastructure and",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/north-korea-threat-actor-targets-axios-npm-package/",
-      "title": "North Korea-Nexus Threat Actor Compromises Widely Used Axios NPM Package in Supp",
-      "published_date": "2026-04-01",
-      "expires_at": "2026-04-08T01:51:40.808340+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/cert-ua-impersonation-campaign-spread.html",
-      "title": "CERT-UA Impersonation Campaign Spread AGEWHEEZE Malware to 1 Million Emails",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/",
-      "title": "Mitigating the Axios npm supply chain compromise",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/microsoft-warns-of-whatsapp-delivered.html",
-      "title": "Microsoft Warns of WhatsApp-Delivered VBS Malware Hijacking Windows via UAC Bypa",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/block-prompt-not-work-end-of-doctor-no.html",
-      "title": "Block the Prompt, Not the Work: The End of \"Doctor No\"",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/casbaneiro-phishing-targets-latin.html",
-      "title": "Casbaneiro Phishing Targets Latin America and Europe Using Dynamic PDF Lures",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/earth/satellite-imagery-brazilian-deforestation/",
-      "title": "We’re creating a new satellite imagery map to help protect Brazil’s forests.",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
-      "title": "The latest AI news we announced in March 2026",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gradient-labs",
-      "title": "Gradient Labs gives every bank customer an AI account manager",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/automating-competitive-price-intelligence-with-amazon-nova-act/",
-      "title": "Automating competitive price intelligence with Amazon Nova Act",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/Hcompany/holo3",
-      "title": "Holo3: Breaking the Computer Use Frontier",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/infrastructure/your-guide-to-infrastructure-and-gke-sessions-at-cloud-next26/",
-      "title": "Top Infrastructure and GKE Sessions at Cloud Next '26",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/unifying-real-time-and-async-inference-with-gke-inference-gateway/",
-      "title": "Run real-time and async inference on the same infrastructure with GKE Inference ",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/announcing-managed-daemon-support-for-amazon-ecs-managed-instances/",
-      "title": "Announcing managed daemon support for Amazon ECS Managed Instances",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/building-graphrag-with-neptune-analytics-from-existing-java-code/",
-      "title": "기존 개발 코드(Java)로 Amazon Neptune Analytics GraphRAG 구현하기",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/practical-design-lessons-from-the-deep-insight-arch/",
-      "title": "프로덕션 Multi-Agent 시스템이 해결해야 할 5가지 문제 – Deep Insight 아키텍처로 배우는 실전 설계",
-      "published_date": "2026-04-02",
-      "expires_at": "2026-04-09T01:26:49.884326+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/hackers-exploit-cve-2025-55182-to.html",
       "title": "Hackers Exploit CVE-2025-55182 to Breach 766 Next.js Hosts, Steal Credentials",
@@ -1350,6 +1170,96 @@
       "title": "AWS Interconnect is now generally available, with a new option to simplify last-",
       "published_date": "2026-04-15",
       "expires_at": "2026-04-22T01:33:53.262305+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/n8n-webhooks-abused-since-october-2025.html",
+      "title": "n8n Webhooks Abused Since October 2025 to Deliver Malware via Phishing Emails",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/critical-nginx-ui-auth-bypass-flaw-now-actively-exploited-in-the-wild/",
+      "title": "Critical Nginx UI auth bypass flaw now actively exploited in the wild",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/critical-nginx-ui-vulnerability-cve.html",
+      "title": "Actively Exploited nginx-ui Flaw (CVE-2026-33032) Enables Full Nginx Server Take",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/april-patch-tuesday-fixes-critical.html",
+      "title": "April Patch Tuesday Fixes Critical Flaws Across SAP, Adobe, Microsoft, Fortinet,",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-agingfly-malware-used-in-attacks-on-ukraine-govt-hospitals/",
+      "title": "New AgingFly malware used in attacks on Ukraine govt, hospitals",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-polar-scaled-tiles-in-zodiac-6cebb5948a1a?source=rss----3c87dc14372f---4",
+      "title": "Frontend Engineering at Palantir: Polar Scaled Tiles in Zodiac",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/lowest-token-cost-ai-factories/",
+      "title": "Rethinking AI TCO: Why Cost per Token Is the Only Metric That Matters",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/",
+      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-nab-adobe-premiere-color-mode/",
+      "title": "New Adobe Premiere Color Grading Mode Accelerated on NVIDIA GPUs",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-cisos-can-pursue-technical-and-cultural-resilience-q-a/",
+      "title": "Cloud CISO Perspectives: How CISOs can pursue technical and cultural resilience ",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
+      "title": "Cool stuff Google Cloud customers built, April edition: BMW big on SLMs, MLB’s S",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-tts-on-google-cloud/",
+      "title": "Guide to prompting Gemini 3.1 Flash TTS (text-to-speech)",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/europe-data-leak-landscape/",
+      "title": "The German Cyber Criminal Überfall: Shifts in Europe's Data Leak Landscape",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/troubleshooting-amazon-efs-nfs-io-hang-security-group-outbound/",
+      "title": "Amazon EFS 트러블슈팅, NFS I/O Hang 과 Security Group Outbound 규칙의 상관관계",
+      "published_date": "2026-04-16",
+      "expires_at": "2026-04-23T01:56:18.886280+00:00"
     }
   ]
 }
