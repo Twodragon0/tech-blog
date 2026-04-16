@@ -336,7 +336,7 @@ kubectl get secrets -n kube-system | grep encryption
 # Secret 생성
 kubectl create secret generic db-credentials \
   --from-literal=username=admin \
-  --from-literal=password='$tr0ng_p@ssw0rd' \
+  --from-literal=password='<YOUR_DB_PASSWORD>' \  # EXAMPLE ONLY — use a secrets manager in production
   --namespace=production
 ```
 
@@ -515,5 +515,3 @@ https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-regi
 - [Aqua Security Trivy](https://aquasecurity.github.io/trivy/)
 - [MITRE ATT&CK for Containers](https://attack.mitre.org/matrices/enterprise/containers/)
 - [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
-
-```

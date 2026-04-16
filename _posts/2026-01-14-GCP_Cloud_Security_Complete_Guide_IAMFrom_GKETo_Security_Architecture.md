@@ -9,7 +9,7 @@ certifications:
 comments: true
 date: 2026-01-14 12:00:00 +0900
 description: 'GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage 버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth 전략...'
-excerpt: "GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth 전략을 다룹니다."
+excerpt: "GCP 클라우드 보안 완벽 가이드. IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage 버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth 전략을 단계별로 다룹니다."
 image: /assets/images/2026-01-14-GCP_Cloud_Security_Complete_Guide_IAM_to_GKE_Practical_Security_Architecture.svg
 image_alt: 'GCP Cloud Security Complete Guide: IAM to GKE Practical Security Architecture'
 layout: post

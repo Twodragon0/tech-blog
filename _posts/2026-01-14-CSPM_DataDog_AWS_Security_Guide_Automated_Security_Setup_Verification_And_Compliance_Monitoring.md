@@ -11,7 +11,7 @@ comments: true
 date: 2026-01-14 13:00:00 +0900
 description: DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드. Misconfiguration
   탐지, 자동화된 대응, 실시간 위협 탐지, CIS Benchmark, ISMS-P, PCI-DSS 준수 모니터링까지 실무 중심 완벽 정리.
-excerpt: "DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드. Misconfiguration 탐지, CIS Benchmark, ISMS-P 준수 모니터링까지 실무 정리."
+excerpt: "DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 실무 가이드. Misconfiguration 탐지, 자동화 대응, 실시간 위협 탐지, CIS Benchmark·ISMS-P·PCI-DSS 준수 모니터링까지 DevSecOps 실무 관점 단계별 정리합니다."
 image: /assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg
 image_alt: 'CSPM DataDog AWS Security Guide: Automated Security Configuration Verification'
 layout: post

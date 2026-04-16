@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe, 악용 중인 Acrobat"
+title: "CPU-Z 변조·Marimo RCE 취약점·Adobe Acrobat 악용: 주간 보안 다이제스트"
 date: 2026-04-13 10:53:41 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Zero-Day, Rust]
-excerpt: "CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe, 악용 중인 Acrobat를 중심으로 2026년 04월 13일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다."
+excerpt: "CPUID 공급망 침해로 변조된 CPU-Z 배포, Marimo 사전 인증 RCE 치명적 취약점, Adobe Acrobat 악용 중인 제로데이를 중심으로 2026년 04월 13일 주요 보안·기술 뉴스 15건과 DevSecOps 실무 대응 우선순위 및 패치 가이드를 정리합니다."
 description: "2026년 04월 13일 보안 뉴스 요약. The Hacker News, BleepingComputer, SecurityWeek 등 15건을 분석하고 CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Zero-Day]
 author: Twodragon

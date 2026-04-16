@@ -400,7 +400,7 @@ aws acm describe-certificate \
 
 ```bash
 # 인증서 체인 확인
-openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
+openssl s_client -connect db-gateway.internal.example.com:3306 -showcerts
 ```
 
 해결책:

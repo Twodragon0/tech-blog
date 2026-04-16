@@ -7,7 +7,7 @@ categories:
 comments: true
 date: 2026-02-04 20:00:00 +0900
 description: 'AI vs Claude Code 심층 비교 2026: CVE-2026-25253 RCE 취약점 분석, 400+ 악성 스킬 캠페인, SOC 2 Type II 인증, DevSecOps CI/CD 통합, FinOps ROI 계산기, 엔터프라이즈 사례 연구 7건, 의사결정 프레임워크...'
-excerpt: "AI vs Claude Code: AI 코딩 어시스턴트 심층 비교 - 보안, DevSecOps, FinOps 완전 가이드 (2026) - AI vs Claude Code 심층 비교 2026: CVE-2026-25253 RCE 취약점 분석, 400+"
+excerpt: "AI vs Claude Code 심층 비교 2026. CVE-2026-25253 RCE 취약점 분석, 400개 이상 악성 스킬 캠페인, SOC 2 Type II 인증, DevSecOps CI/CD 통합, FinOps ROI 계산기, 엔터프라이즈 사례 7건과 의사결정 프레임워크를 정리합니다."
 image: /assets/images/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.svg
 image_alt: AI vs Claude Code AI Coding Assistant Comparison 2026
 layout: post

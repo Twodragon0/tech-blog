@@ -4,7 +4,7 @@ title: "러시아 국가 연계 APT28, 글로벌 DNS 하이재킹, AI 기업 보
 date: 2026-04-08 10:30:05 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Docker, Botnet]
-excerpt: "러시아 APT28 DNS 하이재킹, Docker CVE-2026-34040 인증 우회, AI 기업 보안 리스크를 중심으로 2026년 04월 08일 주요 보안/기술 뉴스 18건과 대응 우선순위를 정리합니다."
+excerpt: "러시아 국가 연계 APT28 글로벌 DNS 하이재킹 캠페인, Docker CVE-2026-34040 인증 우회 취약점, AI 스타트업 보안 리스크 노출 사례를 중심으로 2026년 04월 08일 주요 보안·기술 뉴스 18건과 DevSecOps 대응 우선순위를 정리합니다."
 description: "2026년 04월 08일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 18건을 분석하고 러시아 APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 기업 보안 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Docker]
 author: Twodragon

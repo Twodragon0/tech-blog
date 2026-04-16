@@ -6,7 +6,7 @@ date: 2025-05-23 01:07:48 +0900
 categories: [security, devsecops]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
 keywords: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
-excerpt: "클라우드 시큐리티 7기 6주차: AWS WAF 규칙 설계, Cloudflare DDoS/WAF 보안, GitHub Dependabot·CodeQL 자동화를 실무 중심으로 정리합니다."
+excerpt: "클라우드 시큐리티 7기 6주차: AWS WAF 규칙 설계와 Managed Rule Group 구성, Cloudflare DDoS·WAF 보안 정책, GitHub Dependabot·CodeQL·Secret Scanning 보안 자동화를 DevSecOps 실무 중심으로 단계별 정리합니다."
 description: "클라우드 시큐리티 7기 6주차. AWS WAF, Cloudflare, GitHub 보안 자동화 실무 정리."
 image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
 toc: true

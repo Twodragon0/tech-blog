@@ -10,7 +10,7 @@ comments: true
 date: 2026-01-14 11:00:00 +0900
 description: AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별
   보안 모범 사례, Defense in Depth 전략, 최소 권한 원칙, 암호화, 로그 관리 및 모니터링까지 실무 중심 가이드.
-excerpt: "AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처 - AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별"
+excerpt: "AWS 클라우드 보안 완벽 가이드. IAM·VPC·S3·RDS·EKS 등 주요 서비스별 보안 모범 사례, Defense in Depth 전략, 최소 권한 원칙, 암호화, 로그 관리 및 모니터링까지 DevSecOps 실무 중심으로 단계별 상세하게 정리한 완벽 가이드입니다."
 image: /assets/images/2026-01-14-AWS_Cloud_Security_Complete_Guide_IAM_to_EKS_Practical_Security_Architecture.svg
 image_alt: 'AWS Cloud Security Complete Guide: IAM to EKS Practical Security Architecture'
 layout: post

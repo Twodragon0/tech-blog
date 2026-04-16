@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "중국 연계 TA416 PlugX 캠페인·Microsoft·Linux·LinkedIn 6,000+ 계정 표적: 2026-04-04 보안 위클리 다이제스트"
+title: "TA416 PlugX·LinkedIn 6천+ 계정 표적: 주간 보안 다이제스트 2026-04-04"
 date: 2026-04-04 10:21:41 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Data, Security]
-excerpt: "중국 연계 TA416의 PlugX 멀웨어 캠페인이 Microsoft·Linux·LinkedIn을 통해 6,000개 이상 계정을 표적으로 삼은 사례를 중심으로 2026년 04월 04일 주요 보안·기술 뉴스 24건과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "중국 연계 TA416의 PlugX 멀웨어 캠페인이 Microsoft·Linux·LinkedIn 플랫폼을 통해 6,000개 이상 계정을 표적으로 삼은 사례와 방어 전략을 중심으로 2026년 04월 04일 주요 보안·기술 뉴스 24건과 DevSecOps 대응 우선순위를 정리합니다."
 description: "2026년 04월 04일 보안 뉴스 요약. The Hacker News·BleepingComputer 24건을 분석하고 TA416 PlugX 캠페인, LinkedIn 6,000+ 계정 표적 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Data]
 author: Twodragon

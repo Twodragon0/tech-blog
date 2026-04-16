@@ -4,7 +4,7 @@ title: "2026년 3월 보안 다이제스트 월간 인덱스"
 date: 2026-03-30 09:00:00 +0900
 categories: [security, devsecops]
 tags: [monthly-index, security-news, weekly-digest, 2026]
-excerpt: "2026년 3월 한 달간 발행된 보안 주간 다이제스트의 종합 인덱스입니다. 주요 보안 위협, CVE, 클라우드 보안, AI 보안, DevSecOps 업데이트를 주차별로 정리하여 월간 보안 트렌드를 한눈에 파악할 수 있도록 구성하였습니다."
+excerpt: "2026년 3월 한 달간 발행된 보안 주간 다이제스트 종합 인덱스. 주요 보안 위협·CVE·클라우드 보안·AI 보안·DevSecOps 업데이트를 주차별로 상세 정리하여 월간 보안 트렌드와 핵심 대응 포인트와 권고 조치를 실무 관점에서 한눈에 파악할 수 있도록 구성합니다."
 description: "2026년 3월 보안 다이제스트 월간 인덱스. 주간별 보안 위협, CVE, 클라우드 보안, AI 보안, DevSecOps 업데이트를 종합 정리합니다."
 keywords: [monthly-index, security-news, weekly-digest, 2026, DevSecOps, Cloud-Security]
 author: Twodragon

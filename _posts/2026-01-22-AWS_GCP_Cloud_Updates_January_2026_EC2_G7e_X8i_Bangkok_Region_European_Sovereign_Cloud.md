@@ -7,7 +7,7 @@ categories:
 comments: true
 date: 2026-01-22 16:00:00 +0900
 description: '2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash 모델,...'
-excerpt: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign - 2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i"
+excerpt: "AWS EC2 G7e NVIDIA Blackwell GPU·EC2 X8i SAP 인증 인스턴스 출시, GCP Bangkok 리전 개설, European Sovereign Cloud 데이터 주권 기능, Gemini 3 Flash 모델 등 2026년 1월 AWS·GCP 주요 업데이트를 정리합니다."
 image: /assets/images/2026-01-22-AWS_GCP_Cloud_Updates_January_2026.svg
 image_alt: AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European
   Sovereign Cloud

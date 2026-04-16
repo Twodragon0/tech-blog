@@ -8,8 +8,7 @@ comments: true
 date: 2026-02-02 10:00:00 +0900
 description: '2026년 2월 2일 보안 위협 인텔리전스: Notepad++ 공급망 공격(T1195), SK쉴더스 EQST 보안 리포트
   11-1월호 종합 분석, 랜섬웨어 생태계 변화, 제로트러스트 데이터 보안, JWT 인증 위협, HashiCorp Boundary 0.21'
-excerpt: Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen
-  랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP
+excerpt: "Notepad++ 국가 지원 공급망 공격(T1195), SK쉴더스 11-1월 보안 리포트(Vertical AI·BlackField/Sinobi/Gentlemen 랜섬웨어·제로트러스트·JWT 보안) 종합 분석, HashiCorp Boundary 0.21 패스워드리스 RDP까지 2026년 2월 2일 주요 위협 정리."
 image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg
 image_alt: Weekly Security Threat Intelligence Digest Feb 2 2026
 layout: post

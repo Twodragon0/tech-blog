@@ -7,7 +7,7 @@ categories:
 comments: true
 date: 2026-02-08 10:58:46 +0900
 description: '2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공격(정치인/군인/언론인 타겟), BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 중심 보안전략. DevSecOps 실무 위협 분석, MITRE ATT&CK 매핑, 탐지...'
-excerpt: "Signal 피싱 국가지원 공격, BlackField 랜섬웨어, - 2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공격(정치인/군인/언론인"
+excerpt: "독일 BfV/BSI 경고 러시아 연계 Signal 피싱 공격(정치인·군인·언론인 표적), BlackField 랜섬웨어 코드 재활용 심층 분석, 제로트러스트 데이터 중심 보안 전략을 MITRE ATT&CK 매핑과 Sigma 탐지 룰, 실무 대응 가이드와 함께 정리합니다."
 image: /assets/images/2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
 image_alt: Tech Security Weekly Digest February 08 2026 Signal Phishing BlackField
   Ransomware Zero Trust Data

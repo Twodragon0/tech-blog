@@ -8,7 +8,7 @@ categories:
 comments: true
 date: 2026-01-22 18:30:00 +0900
 description: '클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy, Snyk, Vault), Kubernetes 네트워크 보안(Network Policies, RBAC), Pod Security Standards, AI 활용 DevSecOps 강화(Cursor, Claude...'
-excerpt: "클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy, Snyk, Vault), Kubernetes 네트워크 보안, Pod Security Standards, AI 활용 DevSecOps 강화 실습을 다룹니다."
+excerpt: "클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy·Snyk·Vault 통합), Kubernetes 네트워크 보안 정책(Network Policy·RBAC), Pod Security Standards, Cursor·Claude를 활용한 AI 기반 DevSecOps 강화 실습을 다룹니다."
 image: /assets/images/2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide.svg
 image_alt: 'Cloud Security Course 8Batch 8Week: CI/CD and Kubernetes Security Practical'
 layout: post

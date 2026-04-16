@@ -4,7 +4,7 @@ title: "Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 
 date: 2026-03-22 10:22:54 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI, Apple]
-excerpt: "Signal 및 WhatsApp 표적 피싱, Oracle Identity Manager RCE, Trivy CanisterWorm 공급망 확산과 Apple KEV 패치 이슈를 중심으로 2026년 03월 22일 보안 대응 우선순위를 정리합니다."
+excerpt: "Signal·WhatsApp 표적 피싱 캠페인, Oracle Identity Manager 원격 코드 실행 취약점, Trivy CanisterWorm CI/CD 공급망 확산, Apple KEV 긴급 패치 이슈를 중심으로 2026년 03월 22일 보안 대응 우선순위를 DevSecOps 관점에서 정리합니다."
 description: "2026년 03월 22일 보안 뉴스 요약. Signal 및 WhatsApp 표적 피싱, Oracle Identity Manager RCE, Trivy CanisterWorm 공급망 공격, Apple KEV 패치 이슈를 DevSecOps 관점에서 분석합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI]
 author: Twodragon

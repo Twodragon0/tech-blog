@@ -7,8 +7,7 @@ categories:
 comments: true
 date: 2026-01-26 10:00:00 +0900
 description: '2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust 전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원,...'
-excerpt: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection
-  방어
+excerpt: "HashiCorp AI 에이전트 시대 비인간 ID(NHI) Zero Trust 전략, Chrome Gemini Nano 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원, Prompt Injection 방어까지 2026년 1월 26일 주요 보안·기술 뉴스를 정리합니다."
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
 image_alt: Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents,
   Chrome Scam Detection, Terraform Stacks
