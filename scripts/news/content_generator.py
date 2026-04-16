@@ -338,15 +338,65 @@ def _extract_digest_title_labels(
 
 
 def _build_clean_excerpt(
-    title_keywords: str, date_str: str, total: int, mode: str
+    title_keywords: str,
+    date_str: str,
+    total: int,
+    mode: str,
+    topics: list[str] | None = None,
 ) -> str:
-    """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 목표"""
+    """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 보장"""
     # 조사 보정: 받침 여부에 따라 을/를 선택
     last_char = title_keywords.rstrip()[-1] if title_keywords.rstrip() else ""
     particle = "을" if _has_batchim(last_char) else "를"
+
     if mode == "tech":
-        return f"{title_keywords}{particle} 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
-    return f"{title_keywords}{particle} 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
+        first = f"{title_keywords}{particle} 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
+        # 보충 문장: topics에서 키워드 추가 또는 고정 확장
+        extra_topics = [t for t in (topics or []) if t not in title_keywords][:3]
+        if extra_topics:
+            kw = ", ".join(extra_topics)
+            second = f" {kw} 등 최신 개발 트렌드와 실무 적용 사례를 함께 다룹니다."
+        else:
+            second = " 오픈소스, 클라우드 인프라, AI 도구 등 실무 관련 개발 트렌드와 적용 사례를 함께 다룹니다."
+    else:
+        first = f"{title_keywords}{particle} 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
+        extra_topics = [t for t in (topics or []) if t not in title_keywords][:3]
+        if extra_topics:
+            kw = ", ".join(extra_topics)
+            second = (
+                f" {kw} 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+            )
+        else:
+            second = " 취약점 패치, 클라우드 보안, 공급망 위협 등 DevSecOps 실무 대응 방안을 함께 다룹니다."
+
+    excerpt = first + second
+
+    # 200자 초과 시 마지막 완성된 문장 단위로 자르되 최소 150자 유지
+    if len(excerpt) > 200:
+        # 마지막 마침표 기준으로 200자 이내 최대 길이 탐색
+        cut = excerpt[:200]
+        last_period = max(cut.rfind("다. "), cut.rfind("다."))
+        if last_period > 149:
+            excerpt = excerpt[: last_period + 2].rstrip()
+        else:
+            excerpt = excerpt[:200]
+
+    # 150자 미달 시 fallback 보충 문장 추가 (적용 후에도 부족하면 추가 확장)
+    if len(excerpt) < 150:
+        if mode == "tech":
+            filler = " 실무 개발자를 위한 핵심 인사이트와 최신 기술 동향을 한눈에 확인하세요."
+        else:
+            filler = " 보안 담당자를 위한 핵심 위협 정보와 실무 대응 가이드를 한눈에 확인하세요."
+        excerpt = (excerpt + filler)[:200]
+
+    # 여전히 150자 미달이면 주차 정보로 추가 보완
+    if len(excerpt) < 150:
+        excerpt = (
+            excerpt
+            + " 매주 업데이트되는 주간 다이제스트를 통해 최신 동향을 놓치지 마세요."
+        )[:200]
+
+    return excerpt
 
 
 def _build_clean_description(
@@ -811,7 +861,7 @@ title: "{title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "security")}"
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "security", topics)}"
 description: "{_build_clean_description(title_keywords, source_list, date_str, total, "security")}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
@@ -1153,7 +1203,7 @@ title: "기술 블로그 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "tech")}"
+excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "tech", topics)}"
 description: "{_build_clean_description(title_keywords, source_list, date_str, total, "tech")}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
