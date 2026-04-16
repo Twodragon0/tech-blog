@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI-Agent, Password-Manager, Serverless]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI-Agent,  Password-Manager,  Serverless]
 excerpt: "Infostealer 악성코드의 AI 에이전트 설정·토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건을 DevSecOps 실무 관점으로 분석한 2026년 2월 17일 주간 보안 다이제스트입니다."
-description: "Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석."
+description: "Infostealer 악성코드의 AI 에이전트 설정·토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건을 DevSecOps 실무 관점으로 분석한 2026년 2월 17일 주간 보안 다이제스트입니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.svg

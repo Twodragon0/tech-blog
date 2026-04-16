@@ -7,7 +7,7 @@ categories: [security, devsecops, cloud]
 tags: [Weekly-Digest, Security-Weekly, AI-Security, Threat-Intel, Patch-Tuesday, Cloud, FinOps, DevOps, "2026"]
 keywords: [Weekly-Digest,  Security-Weekly,  AI-Security,  Threat-Intel,  Patch-Tuesday,  Cloud,  FinOps,  DevOps,  "2026"]
 excerpt: "AI 에이전트 보안 리스크와 가드레일 전략, Microsoft Patch Tuesday 취약점 긴급 대응, Kimwolf 봇넷과 공급망 위협 분석, 클라우드 비용 최적화와 LLM 운영 지표까지 2026년 2월 3주차 기술·보안 이슈를 DevSecOps 실무 관점으로 종합 정리합니다."
-description: "2026년 2월 3주차 기술·보안 다이제스트: AI 에이전트 보안과 가드레일, Patch Tuesday 취약점 대응, Kimwolf 봇넷/공급망 위협, 클라우드 비용 최적화와 LLM 운영 지표까지 실무 관점으로 정리."
+description: "AI 에이전트 보안 리스크와 가드레일 전략, Microsoft Patch Tuesday 취약점 긴급 대응, Kimwolf 봇넷과 공급망 위협 분석, 클라우드 비용 최적화와 LLM 운영 지표까지 2026년 2월 3주차 기술·보안 이슈를 DevSecOps 실무 관점으로 종합 정리합니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk.svg

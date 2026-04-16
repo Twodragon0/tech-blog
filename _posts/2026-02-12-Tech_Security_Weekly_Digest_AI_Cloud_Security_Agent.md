@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Cloud,  Security,  Agent]
 excerpt: "공급망 침해 사례, Windows 보안 업데이트, APT36 분석 등 2026년 02월 12일 보안 뉴스 27건을 The Hacker News·Microsoft Security Blog 등 기반으로 AI·클라우드·보안·에이전트 이슈를 DevSecOps 실무 위협 분석 관점에서 정리하고 대응 우선순위를 제시합니다."
-description: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+description: "공급망 침해 사례, Windows 보안 업데이트, APT36 분석 등 2026년 02월 12일 보안 뉴스 27건을 The Hacker News·Microsoft Security Blog 등 기반으로 AI·클라우드·보안·에이전트 이슈를 DevSecOps 실무 위협 분석 관점에서 정리하고 대응 우선순위를 제시합니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg

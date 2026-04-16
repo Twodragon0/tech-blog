@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain, Go]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Botnet,  Blockchain,  Go]
 excerpt: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, Go 공급망 보안을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 27일 주간 보안 다이제스트입니다."
-description: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+description: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, Go 공급망 보안을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 27일 주간 보안 다이제스트입니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.svg

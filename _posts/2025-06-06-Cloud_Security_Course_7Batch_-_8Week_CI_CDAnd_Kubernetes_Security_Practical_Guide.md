@@ -14,8 +14,7 @@ tags:
 - Pipeline-Security
 keywords: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
 excerpt: "클라우드 시큐리티 과정 7기 8주차 핵심 정리. CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터 보안(RBAC, Pod Security Standards, Network Policy), 컨테이너 이미지 서명, 런타임 보안까지 DevSecOps 실전 가이드를 다룹니다."
-description: CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터
-  보안(RBAC, Pod Security Standards, Network Policy), 이미지 서명, 런타임 보안까지 정리.
+description: "클라우드 시큐리티 과정 7기 8주차 핵심 정리. CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터 보안(RBAC, Pod Security Standards, Network Policy), 컨테이너 이미지 서명, 런타임 보안까지 DevSecOps 실전 가이드를 다룹니다."
 image: /assets/images/2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CICDand_Kubernetes_Security_Practical_Guide.svg
 toc: true
 author: Yongho Ha

@@ -5,7 +5,7 @@ date: 2026-02-26 11:05:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS, API]
 excerpt: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 26일 주간 보안 다이제스트입니다."
-description: "2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+description: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 26일 주간 보안 다이제스트입니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS]
 author: Twodragon
 comments: true

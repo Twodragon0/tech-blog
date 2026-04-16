@@ -6,8 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-31 19:41:59 +0900
-description: '2026년 1월 31일 보안 뉴스: Mandiant 발표 ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome
-  확장 프로그램의 ChatGPT 인증 토큰 탈취, CERT Polska 보고 30+ 풍력/태양광 OT 시스템 공격 대응 가이드'
+description: "Mandiant 발표 ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome 확장 프로그램의 ChatGPT 인증 토큰 탈취 수법, CERT Polska 보고 30개 이상 풍력·태양광 OT 시스템 공격 탐지·대응 가이드와 MITRE ATT&CK 매핑을 정리합니다."
 excerpt: "Mandiant 발표 ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome 확장 프로그램의 ChatGPT 인증 토큰 탈취 수법, CERT Polska 보고 30개 이상 풍력·태양광 OT 시스템 공격 탐지·대응 가이드와 MITRE ATT&CK 매핑을 정리합니다."
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.svg
 image_alt: Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis

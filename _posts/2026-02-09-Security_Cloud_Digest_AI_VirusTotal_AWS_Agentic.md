@@ -6,8 +6,7 @@ categories:
 - cloud
 comments: true
 date: 2026-02-09 12:42:19 +0900
-description: AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트,
-  AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환
+description: "AI VirusTotal 통합으로 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트 분석, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환 전략을 2026년 02월 09일 보안·클라우드 다이제스트로 정리합니다."
 excerpt: "AI VirusTotal 통합으로 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트 분석, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환 전략을 2026년 02월 09일 보안·클라우드 다이제스트로 정리합니다."
 image: /assets/images/2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.svg
 image_alt: 보안·클라우드 다이제스트 2026년 2월 9일 AI VirusTotal AWS Agentic AI

@@ -13,8 +13,7 @@ tags:
 - Cloud-Security
 - DevSecOps
 excerpt: "클라우드 시큐리티 과정 7기 7주차 핵심 정리. Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안 도구(Trivy, Falco) 활용법, 2025년 최신 업데이트까지 실무 중심으로 학습합니다."
-description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
-  Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
+description: "클라우드 시큐리티 과정 7기 7주차 핵심 정리. Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안 도구(Trivy, Falco) 활용법, 2025년 최신 업데이트까지 실무 중심으로 학습합니다."
 image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
 toc: true
 author: Yongho Ha

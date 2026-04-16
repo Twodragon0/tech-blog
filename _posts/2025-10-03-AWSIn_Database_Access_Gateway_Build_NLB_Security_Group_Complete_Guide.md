@@ -7,8 +7,7 @@ certifications:
 - aws-saa
 comments: true
 date: 2025-10-03 00:10:37 +0900
-description: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이
-  구축 가이드. Terraform 자동화 및 보안 설정을 다룹니다.
+description: "AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이 구축 완벽 가이드. NLB 기반 안전한 DB 접근 제어 설계, Security Group 최소 권한 정책, Terraform 인프라 자동화, 보안 설정 모범 사례까지 단계별로 안내합니다."
 excerpt: "AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이 구축 완벽 가이드. NLB 기반 안전한 DB 접근 제어 설계, Security Group 최소 권한 정책, Terraform 인프라 자동화, 보안 설정 모범 사례까지 단계별로 안내합니다."
 image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
 image_alt: 'Building Secure Database Access Gateway on AWS: NLB Security Group Complete'

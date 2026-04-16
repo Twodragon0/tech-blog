@@ -5,7 +5,7 @@ date: 2026-03-29 09:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware, LLM, Kubernetes]
 excerpt: "랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 멀티스텝 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, Next.js 인증 우회 등 2026년 3월 29일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
-description: "2026년 03월 29일 보안 뉴스 요약. CISA, The Hacker News, NIST 등 30건을 분석하고 랜섬웨어 진화, LLM 탈옥 공격, Kubernetes 공급망 위협 등 DevSecOps 대응 포인트를 정리합니다."
+description: "랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 멀티스텝 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, Next.js 인증 우회 등 2026년 3월 29일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware, LLM, Kubernetes]
 author: Twodragon
 comments: true

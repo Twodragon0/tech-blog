@@ -5,7 +5,7 @@ date: 2026-03-23 10:23:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
 excerpt: "Gentlemen 랜섬웨어 확산 리포트와 그룹 전술 심층 분석, 제로트러스트 네트워크 가시성 전략, SK쉴더스 EQST 통합 위협 인사이트를 중심으로 2026년 03월 23일 보안 복구·탐지·가시성·복구 대응 우선순위를 DevSecOps 실무 관점에서 상세 정리합니다."
-description: "2026년 03월 23일 보안 뉴스 요약. Gentlemen 랜섬웨어 동향, 제로트러스트 가시성 전략, SK쉴더스 EQST 인사이트와 함께 복구·탐지·가시성 강화를 DevSecOps 관점에서 정리합니다."
+description: "Gentlemen 랜섬웨어 확산 리포트와 그룹 전술 심층 분석, 제로트러스트 네트워크 가시성 전략, SK쉴더스 EQST 통합 위협 인사이트를 중심으로 2026년 03월 23일 보안 복구·탐지·가시성·복구 대응 우선순위를 DevSecOps 실무 관점에서 상세 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
 author: Twodragon
 comments: true

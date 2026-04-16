@@ -5,7 +5,7 @@ date: 2026-02-18 23:30:00 +0900
 categories: [security, devsecops]
 tags: [KrebsOnSecurity, Threat-Intel, Botnet, Patch-Tuesday, I2P, RSS, 2026]
 excerpt: "KrebsOnSecurity RSS 10건 기반 위협 요약: Kimwolf 봇넷의 I2P 프로토콜 남용, 2026년 2월 Patch Tuesday 긴급 패치, Badbox 2.0 봇넷 재조직 추정 등 핵심 위협과 보안·운영팀을 위한 영향 분석 및 실무 대응 가이드입니다."
-description: "KrebsOnSecurity RSS 10건 기반 위협 요약: Kimwolf 봇넷의 I2P 남용, 2월 Patch Tuesday, Badbox 2.0 재조직 추정 등 보안·운영팀을 위한 영향과 대응 가이드."
+description: "KrebsOnSecurity RSS 10건 기반 위협 요약: Kimwolf 봇넷의 I2P 프로토콜 남용, 2026년 2월 Patch Tuesday 긴급 패치, Badbox 2.0 봇넷 재조직 추정 등 핵심 위협과 보안·운영팀을 위한 영향 분석 및 실무 대응 가이드입니다."
 keywords: [KrebsOnSecurity, Kimwolf, Patch-Tuesday, Badbox, Threat-Intel, I2P, DevSecOps, RSS]
 author: Twodragon
 comments: true

@@ -6,7 +6,7 @@ date: 2026-02-25 10:00:00 +0900
 categories:
 - devops
 comments: true
-description: Claude Code와 OpenCode의 38가지 Best Practice를 정리한 실전 가이드. 환경 설정부터 CLAUDE.md 작성법, 프롬프팅, 에이전트 팀, Hook & Skills, 세션 관리, 자동화까지 공식 문서와 실무 경험을 바탕으로 한 종합 레퍼런스
+description: "Claude Code와 OpenCode 38가지 Best Practice 종합 실전 가이드. 컨텍스트 윈도우 최적화, CLAUDE.md 작성법, 에이전트 팀 운영 전략, 효과적인 프롬프팅 기법, Hook·Skills 활용법까지 공식 문서와 실무 경험을 바탕으로 체계적으로 정리한 레퍼런스입니다."
 excerpt: "Claude Code와 OpenCode 38가지 Best Practice 종합 실전 가이드. 컨텍스트 윈도우 최적화, CLAUDE.md 작성법, 에이전트 팀 운영 전략, 효과적인 프롬프팅 기법, Hook·Skills 활용법까지 공식 문서와 실무 경험을 바탕으로 체계적으로 정리한 레퍼런스입니다."
 image: /assets/images/2026-02-25-Claude_Code_OpenCode_Best_Practices.svg
 image_alt: Claude Code and OpenCode Best Practices 38 Guide Agent Teams Context Window

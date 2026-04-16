@@ -5,7 +5,7 @@ date: 2026-04-11 10:25:28 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, CVE, Update]
 excerpt: "GlassWorm Zig 드로퍼를 통한 IDE 감염 경로 분석, Chrome 146 DBSC 기반 Windows 세션 쿠키 탈취 차단 메커니즘, 브라우저 확장 AI 소비 채널 보안 위협을 중심으로 2026년 04월 11일 주요 보안·기술 뉴스 26건과 DevSecOps 대응 우선순위를 정리합니다."
-description: "2026년 04월 11일 보안 뉴스 요약. The Hacker News·Google Cloud·GitHub 26건을 분석하고 GlassWorm Zig 드로퍼, Chrome DBSC 세션 바인딩, 브라우저 확장 AI 위협 등 DevSecOps 대응 포인트를 정리합니다."
+description: "GlassWorm Zig 드로퍼를 통한 IDE 감염 경로 분석, Chrome 146 DBSC 기반 Windows 세션 쿠키 탈취 차단 메커니즘, 브라우저 확장 AI 소비 채널 보안 위협을 중심으로 2026년 04월 11일 주요 보안·기술 뉴스 26건과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, CVE]
 author: Twodragon
 comments: true

@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
 keywords: [Security-Weekly,  DevSecOps,  Zero-Trust,  Crypto-Regulation,  Weekly-Digest,  2026]
 excerpt: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 규제 동향, 랜섬웨어 대응 전략에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
-description: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석."
+description: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 규제 동향, 랜섬웨어 대응 전략에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.svg

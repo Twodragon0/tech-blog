@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [LLM-Security, Prompt-Injection, RAG-Security, MCP-Security, AI-Security, OWASP, '2026']
 keywords: [LLM-Security,  Prompt-Injection,  RAG-Security,  MCP-Security,  AI-Security,  OWASP,  2026]
 excerpt: "LLM 기반 서비스의 핵심 보안 위협과 실무 방어 전략 - 직접·간접 프롬프트 인젝션 방어 기법, RAG 파이프라인 데이터 오염 보안, MCP 프로토콜 Tool Poisoning 위협 대응, Pickle 모델 공급망 보안까지 실전 코드와 SIEM 탐지 쿼리로 정리합니다."
-description: "LLM 기반 서비스의 핵심 보안 위협과 실무 방어 전략 - 프롬프트 인젝션 방어, RAG 파이프라인 보안, MCP 프로토콜 위협 대응, 모델 공급망 보안까지 실전 코드와 탐지 쿼리로 정리합니다."
+description: "LLM 기반 서비스의 핵심 보안 위협과 실무 방어 전략 - 직접·간접 프롬프트 인젝션 방어 기법, RAG 파이프라인 데이터 오염 보안, MCP 프로토콜 Tool Poisoning 위협 대응, Pickle 모델 공급망 보안까지 실전 코드와 SIEM 탐지 쿼리로 정리합니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.svg

@@ -59,6 +59,63 @@ class TestBuildCleanExcerpt:
         assert "기술 블로그 뉴스" in result
         assert "15건" in result
 
+    # ------------------------------------------------------------------
+    # Length regression tests (floor=150, ceiling=200)
+    # ------------------------------------------------------------------
+
+    @pytest.mark.parametrize(
+        "title,mode",
+        [
+            ("IAM 정책 유형", "security"),
+            ("Kubernetes, Docker, CI/CD", "tech"),
+            ("보안 위협 분석, 취약점 대응 요약", "security"),
+            ("Zero-Day Exploit, Ransomware", "tech"),
+            ("A", "security"),
+        ],
+    )
+    def test_excerpt_minimum_length(self, title, mode):
+        result = _build_clean_excerpt(title, "2026년 04월 15일", 10, mode)
+        assert len(result) >= 150, f"excerpt too short ({len(result)}): {result!r}"
+
+    @pytest.mark.parametrize(
+        "title,mode",
+        [
+            ("IAM 정책 유형", "security"),
+            ("Kubernetes, Docker, CI/CD", "tech"),
+            ("보안 위협 분석, 취약점 대응 요약", "security"),
+            ("Zero-Day Exploit, Ransomware", "tech"),
+        ],
+    )
+    def test_excerpt_maximum_length(self, title, mode):
+        result = _build_clean_excerpt(title, "2026년 04월 15일", 10, mode)
+        assert len(result) <= 200, f"excerpt too long ({len(result)}): {result!r}"
+
+    def test_excerpt_with_short_title(self):
+        result = _build_clean_excerpt("A", "2026년 04월 15일", 5, "security")
+        assert len(result) >= 150
+        assert len(result) <= 200
+
+    def test_excerpt_with_no_topics(self):
+        result = _build_clean_excerpt(
+            "보안 위협", "2026년 04월 15일", 10, "security", topics=None
+        )
+        assert len(result) >= 150
+        assert len(result) <= 200
+
+    def test_excerpt_with_long_topics(self):
+        long_topics = [
+            "Kubernetes Security Policies",
+            "Zero Trust Architecture",
+            "Supply Chain Attacks",
+            "Container Runtime Security",
+            "Cloud Native Observability",
+        ]
+        result = _build_clean_excerpt(
+            "보안 위협", "2026년 04월 15일", 10, "tech", topics=long_topics
+        )
+        assert len(result) >= 150
+        assert len(result) <= 200
+
 
 class TestBuildCleanDescription:
     """Description generation with natural sentence structure."""
@@ -100,6 +157,69 @@ class TestBuildCleanDescription:
         )
         assert ",," not in result
         assert ", ," not in result
+
+    # ------------------------------------------------------------------
+    # Length regression tests (floor=150, ceiling=300)
+    # ------------------------------------------------------------------
+
+    @pytest.mark.parametrize(
+        "title,mode",
+        [
+            ("북한 해커, VS Code 악용, IAM 정책", "security"),
+            ("Kubernetes, Docker, CI/CD", "tech"),
+            ("A", "security"),
+            ("Ransomware 위협 분석", "security"),
+            ("Zero-Day Exploit, Cloud Security", "tech"),
+        ],
+    )
+    def test_description_minimum_length(self, title, mode):
+        result = _build_clean_description(
+            title, "The Hacker News", "2026년 04월 15일", 10, mode
+        )
+        assert len(result) >= 150, f"description too short ({len(result)}): {result!r}"
+
+    @pytest.mark.parametrize(
+        "title,mode",
+        [
+            ("북한 해커, VS Code 악용, IAM 정책", "security"),
+            ("Kubernetes, Docker, CI/CD", "tech"),
+            ("A", "security"),
+            ("Ransomware 위협 분석", "security"),
+            ("Zero-Day Exploit, Cloud Security", "tech"),
+        ],
+    )
+    def test_description_maximum_length(self, title, mode):
+        result = _build_clean_description(
+            title, "The Hacker News", "2026년 04월 15일", 10, mode
+        )
+        assert len(result) <= 300, f"description too long ({len(result)}): {result!r}"
+
+    def test_description_with_short_title(self):
+        result = _build_clean_description(
+            "A", "Source", "2026년 04월 15일", 5, "security"
+        )
+        assert len(result) >= 150
+        assert len(result) <= 300
+
+    def test_description_with_no_topics(self):
+        # _build_clean_description has no topics param; verify length with minimal input
+        result = _build_clean_description(
+            "보안 위협", "Source", "2026년 04월 15일", 10, "security"
+        )
+        assert len(result) >= 150
+        assert len(result) <= 300
+
+    def test_description_with_long_topics(self):
+        long_title = (
+            "Kubernetes Security Policies, Zero Trust Architecture, "
+            "Supply Chain Attacks, Container Runtime Security, "
+            "Cloud Native Observability, Service Mesh Configuration"
+        )
+        result = _build_clean_description(
+            long_title, "CNCF Blog, AWS Blog", "2026년 04월 15일", 20, "tech"
+        )
+        assert len(result) >= 150
+        assert len(result) <= 300
 
 
 class TestBuildCleanImageAlt:

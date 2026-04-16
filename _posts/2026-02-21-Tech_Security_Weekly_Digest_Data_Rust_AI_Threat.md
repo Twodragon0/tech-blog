@@ -7,7 +7,7 @@ categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Vulnerability, AI, Security, AWS]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Vulnerability,  AI,  Security,  AWS]
 excerpt: "CVE-2025-49113 심층 분석, 실무 랜섬웨어 대응 전략, Rust 공급망 보안을 기술 관점(공격 경로·탐지 포인트)과 경영진 관점(서비스 영향·의사결정 체크리스트)으로 함께 정리한 2026년 2월 21일자 DevSecOps 실무 주간 보안 다이제스트 및 대응 가이드입니다."
-description: "2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+description: "CVE-2025-49113 심층 분석, 실무 랜섬웨어 대응 전략, Rust 공급망 보안을 기술 관점(공격 경로·탐지 포인트)과 경영진 관점(서비스 영향·의사결정 체크리스트)으로 함께 정리한 2026년 2월 21일자 DevSecOps 실무 주간 보안 다이제스트 및 대응 가이드입니다."
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat.svg

@@ -5,7 +5,7 @@ date: 2026-04-07 10:29:23 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go, Palantir]
 excerpt: "이란 연계 패스워드 스프레이링 공격, 북한 연계 해커의 한국 표적 다단계 공격, 독일 당국의 REvil·GangCrab 랜섬웨어 운영자 기소를 중심으로 2026년 04월 07일 주요 보안·기술 뉴스 17건과 DevSecOps 실무 대응 우선순위 및 탐지 전략을 상세 정리합니다."
-description: "2026년 04월 07일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 17건을 분석하고 이란 연계 패스워드 스프레이링 공격, 이스라엘, 북한 연계 해커들 등 DevSecOps 대응 포인트를 정리합니다."
+description: "이란 연계 패스워드 스프레이링 공격, 북한 연계 해커의 한국 표적 다단계 공격, 독일 당국의 REvil·GangCrab 랜섬웨어 운영자 기소를 중심으로 2026년 04월 07일 주요 보안·기술 뉴스 17건과 DevSecOps 실무 대응 우선순위 및 탐지 전략을 상세 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go]
 author: Twodragon
 comments: true

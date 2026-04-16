@@ -14,8 +14,7 @@ tags:
 - SIEM
 keywords: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM]
 excerpt: "클라우드 시큐리티 과정 8기 5주차 핵심 정리. AWS Control Tower와 SCP 기반 멀티 계정 거버넌스 구축, Datadog SIEM을 활용한 통합 보안 모니터링, Cloudflare 웹 보안 강화, Landing Zone 설계까지 엔터프라이즈 클라우드 보안을 체계적으로 학습합니다."
-description: AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고, Datadog SIEM과 Cloudflare로 통합
-  보안 모니터링 및 웹 보안을 강화하세요.
+description: "클라우드 시큐리티 과정 8기 5주차 핵심 정리. AWS Control Tower와 SCP 기반 멀티 계정 거버넌스 구축, Datadog SIEM을 활용한 통합 보안 모니터링, Cloudflare 웹 보안 강화, Landing Zone 설계까지 엔터프라이즈 클라우드 보안을 체계적으로 학습합니다."
 image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
 toc: true
 author: Twodragon

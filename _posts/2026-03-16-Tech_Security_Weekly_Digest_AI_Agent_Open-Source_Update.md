@@ -5,7 +5,7 @@ date: 2026-03-16 10:27:53 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Open-Source, Update]
 excerpt: "AI 에이전트 레드팀 오픈소스 도구 분석, AWS Bedrock 멀티에이전트 보안 아키텍처, Aave Shield DeFi 출시 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
-description: "2026년 03월 16일 보안 뉴스: Hacker News, AWS Korea Blog, Cointelegraph 등 12건. AI, Agent, Open-Source, Update 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+description: "AI 에이전트 레드팀 오픈소스 도구 분석, AWS Bedrock 멀티에이전트 보안 아키텍처, Aave Shield DeFi 출시 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Open-Source]
 author: Twodragon
 comments: true
