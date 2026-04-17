@@ -14,6 +14,7 @@
 """
 
 import argparse
+import datetime
 import re
 import subprocess
 import sys
@@ -33,6 +34,11 @@ except ModuleNotFoundError:
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
+
+# Posts dated before this cutoff were generated before commit 8785868f
+# (2026-04-17) which fixed the uniqueness regression.  Re-generating them
+# is not feasible (original news item metadata lost), so skip the check.
+_UNIQUENESS_CUTOFF = datetime.date(2026, 4, 17)
 
 REQUIRED_FIELDS = [
     "layout",
@@ -563,7 +569,9 @@ def check_table_cell_truncation(content: str) -> List[str]:
     return issues
 
 
-def check_practical_points_uniqueness(content: str) -> List[str]:
+def check_practical_points_uniqueness(
+    content: str, post_date: Optional[datetime.date] = None
+) -> List[str]:
     """Detect regressions in the per-item uniqueness of '실무 적용 포인트' sections.
 
     The generator in ``scripts/news/content_generator.py`` is expected to
@@ -585,6 +593,11 @@ def check_practical_points_uniqueness(content: str) -> List[str]:
     from intentional ``None``-item fallbacks, which legitimately render
     three bullets without a label.
     """
+    # Skip check for posts predating the fix commit (8785868f, 2026-04-17).
+    # Those posts cannot be regenerated (source news metadata lost).
+    if post_date is not None and post_date < _UNIQUENESS_CUTOFF:
+        return []
+
     issues: List[str] = []
 
     sections: List[List[str]] = []
@@ -822,7 +835,17 @@ def main():
         issues.extend(check_duplicate_practical_points(content))
 
         # 실무 포인트 uniqueness 회귀 감지 (feat: 뉴스별 고유 실무 포인트)
-        issues.extend(check_practical_points_uniqueness(content))
+        _date_match = re.match(r"(\d{4})-(\d{2})-(\d{2})", post_file.name)
+        _post_date = (
+            datetime.date(
+                int(_date_match.group(1)),
+                int(_date_match.group(2)),
+                int(_date_match.group(3)),
+            )
+            if _date_match
+            else None
+        )
+        issues.extend(check_practical_points_uniqueness(content, _post_date))
 
         # 테이블 셀 잘림 감지
         issues.extend(check_table_cell_truncation(content))
