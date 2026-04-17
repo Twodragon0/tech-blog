@@ -106,7 +106,7 @@ series_total: 7
 
 DevSecOps는 이 문제를 Shift-Left 전략으로 해결합니다:
 
-```json
+```text
 전통적 접근:
 [개발 4주] → [QA 2주] → [보안 검토 2주] → [수정 1주] → [재검토 1주] = 총 10주
 

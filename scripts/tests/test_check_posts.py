@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Unit tests for check_posts.py validation functions."""
 
+import datetime
 import sys
 from pathlib import Path
 
@@ -385,6 +386,55 @@ class TestCheckPracticalPointsUniqueness:
         )
         issues = check_practical_points_uniqueness(content)
         assert issues == []
+
+    # ------------------------------------------------------------------
+    # Cutoff date tests (commit 8785868f, 2026-04-17)
+    # ------------------------------------------------------------------
+
+    _REGRESSION_CONTENT = (
+        "#### 실무 적용 포인트\n"
+        "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+        "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+        "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+        "\n---\n\n"
+        "#### 실무 적용 포인트\n"
+        "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+        "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+        "- 컨테이너 런타임 보안 모니터링 강화\n"
+        "\n---\n"
+    )
+
+    def test_cutoff_before_skips_warning(self):
+        """Posts dated before 2026-04-17 must produce no uniqueness warning."""
+        issues = check_practical_points_uniqueness(
+            self._REGRESSION_CONTENT,
+            post_date=datetime.date(2026, 2, 25),
+        )
+        assert issues == []
+
+    def test_cutoff_after_reports_warning(self):
+        """Posts dated after 2026-04-17 must still flag the regression."""
+        issues = check_practical_points_uniqueness(
+            self._REGRESSION_CONTENT,
+            post_date=datetime.date(2026, 4, 18),
+        )
+        assert len(issues) == 1
+        assert "uniqueness 누락" in issues[0]
+
+    def test_cutoff_on_same_day_reports_warning(self):
+        """Cutoff is strict (<): the cutoff date itself is NOT skipped."""
+        issues = check_practical_points_uniqueness(
+            self._REGRESSION_CONTENT,
+            post_date=datetime.date(2026, 4, 17),
+        )
+        assert len(issues) == 1
+        assert "uniqueness 누락" in issues[0]
+
+    def test_no_date_legacy_call_reports_warning(self):
+        """post_date=None (legacy call) preserves original behaviour."""
+        issues = check_practical_points_uniqueness(self._REGRESSION_CONTENT)
+        assert len(issues) == 1
+        assert "uniqueness 누락" in issues[0]
 
 
 # ---------------------------------------------------------------------------
