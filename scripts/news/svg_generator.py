@@ -2335,6 +2335,20 @@ def _classify_post_for_layout(
         for p in (r"comparison", r"\bvs\.?\b", r"versus", r"비교")
     ):
         return "comparison"
+    # Digest detection BEFORE tutorial — Weekly Digest posts contain "guide"
+    # in news titles (e.g. "프롬프팅 가이드") which would otherwise trigger
+    # the tutorial lane.
+    if any(
+        re.search(p, blob)
+        for p in (
+            r"weekly.*digest",
+            r"security.*digest",
+            r"weekly.*roundup",
+            r"주간.*다이제스트",
+            r"뉴스.*요약",
+        )
+    ):
+        return "digest"
     if any(
         re.search(p, blob)
         for p in (r"guide", r"course", r"tutorial", r"how.?to", r"step.?by.?step")

@@ -1,81 +1,174 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Tutorial Guide - April 15, 2026</title>
+  <title>Security Digest - MCP Agent Security, PHP Composer CVE, Rust DNS - April 15, 2026</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#0f0b20"/>
     </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="hdr" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a1530"/>
+    </linearGradient>
+    <linearGradient id="c1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="c2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="c3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
     </linearGradient>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
+      <feGaussianBlur stdDeviation="20"/>
     </filter>
   </defs>
+
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
-  </g>
-  <circle cx="600" cy="320" r="260" fill="#3b82f6" opacity="0.05" filter="url(#glow)"/>
 
-  <!-- Shared header frame -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Subtle connection lines -->
+  <g opacity="0.06" stroke="#94a3b8" stroke-width="0.5">
+    <path d="M220,310 Q420,200 600,310 Q780,420 980,310" fill="none" stroke-width="1"/>
+    <path d="M220,310 Q420,420 600,310 Q780,200 980,310" fill="none" stroke-width="0.8"/>
   </g>
-  <text x="80" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">Tutorial Guide</text>
-  <text x="80" y="62" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">Hands-on DevSecOps walkthrough</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 15, 2026</text>
 
-  <!-- Pillar 1: AWS CLOUD -->
-  <rect x="66" y="120" width="340" height="380" rx="14" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <rect x="66" y="120" width="340" height="52" rx="14" fill="#3b82f6" opacity="0.18"/>
-  <text x="86" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#3b82f6" letter-spacing="3">STEP 01</text>
-  <g transform="translate(236,290)">
-    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8" transform="scale(0.65)"/>
+  <!-- Ambient glow -->
+  <circle cx="220" cy="320" r="180" fill="#f97316" opacity="0.03" filter="url(#glow)"/>
+  <circle cx="600" cy="300" r="160" fill="#dc2626" opacity="0.03" filter="url(#glow)"/>
+  <circle cx="980" cy="320" r="180" fill="#22d3ee" opacity="0.03" filter="url(#glow)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="82" fill="url(#hdr)" opacity="0.95"/>
+  <rect x="0" y="80" width="1200" height="2" fill="#334155" opacity="0.6"/>
+
+  <!-- Shield icon -->
+  <g transform="translate(48,41)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1a1030" stroke="#f97316" stroke-width="1.5"/>
+    <path d="M-6,-2 L-1,4 L8,-6" stroke="#f97316" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   </g>
-  <text x="236" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#3b82f6" text-anchor="middle">AWS CLOUD</text>
-  <line x1="106" y1="410" x2="366" y2="410" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
-  <text x="236" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
-  <text x="236" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
-  <text x="236" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
-  <!-- Pillar 2: DNS THREAT -->
-  <rect x="430" y="120" width="340" height="380" rx="14" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <rect x="430" y="120" width="340" height="52" rx="14" fill="#22d3ee" opacity="0.18"/>
-  <text x="450" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" letter-spacing="3">STEP 02</text>
-  <g transform="translate(600,290)">
-    <circle cx="0" cy="0" r="14" fill="none" stroke="#22d3ee" stroke-width="1.5"/><ellipse cx="0" cy="0" rx="7" ry="14" fill="none" stroke="#22d3ee" stroke-width="1"/><line x1="-14" y1="0" x2="14" y2="0" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+  <text x="80" y="38" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
+  <text x="80" y="60" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">AI agent access patterns and supply chain defense</text>
+
+  <!-- Date badge -->
+  <rect x="960" y="18" width="210" height="46" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="1065" y="36" font-family="Arial,sans-serif" font-size="11" fill="#f97316" text-anchor="middle" font-weight="600">30 NEWS ANALYZED</text>
+  <text x="1065" y="54" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="middle">April 15, 2026</text>
+
+  <!-- Card 1: MCP Agent Security -->
+  <rect x="40" y="110" width="360" height="400" rx="16" fill="url(#c1)" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="40" y="110" width="360" height="56" rx="16" fill="#f97316" opacity="0.1"/>
+  <rect x="56" y="126" width="72" height="24" rx="4" fill="#f97316" opacity="0.9"/>
+  <text x="92" y="143" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
+
+  <!-- MCP/Agent icon -->
+  <g transform="translate(220,255)">
+    <!-- Central brain -->
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#f97316" stroke-width="1.8"/>
+    <path d="M-8,-8 C-8,-16 8,-16 8,-8 C8,0 -8,0 -8,-8" fill="none" stroke="#f97316" stroke-width="1.2" opacity="0.7"/>
+    <path d="M-8,2 C-8,-4 8,-4 8,2 C8,10 -8,10 -8,2" fill="none" stroke="#f97316" stroke-width="1.2" opacity="0.7"/>
+    <!-- Orbital nodes (resources) -->
+    <circle cx="-42" cy="-20" r="8" fill="none" stroke="#f97316" stroke-width="1.2"/>
+    <circle cx="42" cy="-20" r="8" fill="none" stroke="#f97316" stroke-width="1.2"/>
+    <circle cx="-42" cy="20" r="8" fill="none" stroke="#f97316" stroke-width="1.2"/>
+    <circle cx="42" cy="20" r="8" fill="none" stroke="#f97316" stroke-width="1.2"/>
+    <!-- Connections -->
+    <line x1="-22" y1="-10" x2="-34" y2="-18" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+    <line x1="22" y1="-10" x2="34" y2="-18" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+    <line x1="-22" y1="10" x2="-34" y2="18" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+    <line x1="22" y1="10" x2="34" y2="18" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+    <!-- AWS labels -->
+    <text x="-42" y="-20" font-family="Courier New" font-size="6" fill="#f97316" text-anchor="middle" dominant-baseline="central">S3</text>
+    <text x="42" y="-20" font-family="Courier New" font-size="6" fill="#f97316" text-anchor="middle" dominant-baseline="central">EC2</text>
+    <text x="-42" y="20" font-family="Courier New" font-size="6" fill="#f97316" text-anchor="middle" dominant-baseline="central">IAM</text>
+    <text x="42" y="20" font-family="Courier New" font-size="6" fill="#f97316" text-anchor="middle" dominant-baseline="central">RDS</text>
   </g>
-  <text x="600" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#22d3ee" text-anchor="middle">DNS THREAT</text>
-  <line x1="470" y1="410" x2="730" y2="410" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
-  <text x="600" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
-  <text x="600" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
-  <text x="600" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
-  <!-- Pillar 3: AI AGENT -->
-  <rect x="794" y="120" width="340" height="380" rx="14" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <rect x="794" y="120" width="340" height="52" rx="14" fill="#22c55e" opacity="0.18"/>
-  <text x="814" y="152" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e" letter-spacing="3">STEP 03</text>
-  <g transform="translate(964,290)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#22c55e" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#22c55e" stroke-width="1.2" opacity="0.5"/>
+  <text x="220" y="340" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#f97316" text-anchor="middle">MCP AGENT</text>
+  <text x="220" y="362" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">AWS resource access patterns</text>
+  <line x1="80" y1="384" x2="360" y2="384" stroke="#f97316" stroke-width="1" opacity="0.3"/>
+  <text x="220" y="408" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Dynamic IAM policy design</text>
+  <text x="220" y="430" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Agent behavior audit logging</text>
+  <text x="220" y="452" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Least privilege enforcement</text>
+  <text x="220" y="486" font-family="Arial,sans-serif" font-size="10" fill="#f97316" text-anchor="middle" font-weight="600">NEW SECURITY PARADIGM</text>
+
+  <!-- Card 2: PHP Composer CVE -->
+  <rect x="420" y="110" width="360" height="400" rx="16" fill="url(#c2)" stroke="#dc2626" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="420" y="110" width="360" height="56" rx="16" fill="#dc2626" opacity="0.1"/>
+  <rect x="436" y="126" width="72" height="24" rx="4" fill="#dc2626" opacity="0.9"/>
+  <text x="472" y="143" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
+
+  <!-- Package/supply chain icon -->
+  <g transform="translate(600,255)">
+    <rect x="-28" y="-28" width="56" height="56" rx="8" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+    <line x1="-28" y1="-8" x2="28" y2="-8" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="-28" x2="0" y2="28" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+    <!-- Danger symbol -->
+    <g transform="translate(0,8)">
+      <path d="M0,-10 L9,6 L-9,6 Z" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="0" y="3" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">!</text>
+    </g>
+    <!-- Dependency arrows -->
+    <path d="M-36,-36 L-28,-28" stroke="#dc2626" stroke-width="1.2" opacity="0.6"/>
+    <path d="M36,-36 L28,-28" stroke="#dc2626" stroke-width="1.2" opacity="0.6"/>
+    <path d="M-36,36 L-28,28" stroke="#dc2626" stroke-width="1.2" opacity="0.6"/>
+    <path d="M36,36 L28,28" stroke="#dc2626" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="-40" cy="-40" r="4" fill="#dc2626" opacity="0.4"/>
+    <circle cx="40" cy="-40" r="4" fill="#dc2626" opacity="0.4"/>
+    <circle cx="-40" cy="40" r="4" fill="#dc2626" opacity="0.4"/>
+    <circle cx="40" cy="40" r="4" fill="#dc2626" opacity="0.4"/>
   </g>
-  <text x="964" y="380" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  <line x1="834" y1="410" x2="1094" y2="410" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
-  <text x="964" y="440" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Core concept</text>
-  <text x="964" y="460" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Practice drills</text>
-  <text x="964" y="480" font-family="Arial,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Checklist</text>
-  <!-- Shared footer frame -->
-  <rect x="0" y="540" width="1200" height="90" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="540" width="1200" height="2" fill="#1e293b"/>
-  <circle cx="32" cy="580" r="4" fill="#3b82f6" opacity="0.6"/>
-  <text x="46" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569">Tutorial Guide | April 15, 2026</text>
-  <text x="1168" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="600" y="340" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#dc2626" text-anchor="middle">PHP COMPOSER</text>
+  <text x="600" y="362" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">CVE-2026-40176 Command Injection</text>
+  <line x1="460" y1="384" x2="740" y2="384" stroke="#dc2626" stroke-width="1" opacity="0.3"/>
+  <text x="600" y="408" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Perforce VCS driver exploit</text>
+  <text x="600" y="430" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Arbitrary command execution</text>
+  <text x="600" y="452" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">CI/CD pipeline attack vector</text>
+  <text x="600" y="486" font-family="Arial,sans-serif" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">P0 - IMMEDIATE PATCH</text>
+
+  <!-- Card 3: Memory Safe + Cloud -->
+  <rect x="800" y="110" width="360" height="400" rx="16" fill="url(#c3)" stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="800" y="110" width="360" height="56" rx="16" fill="#22d3ee" opacity="0.1"/>
+  <rect x="816" y="126" width="64" height="24" rx="4" fill="#22d3ee" opacity="0.9"/>
+  <text x="848" y="143" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">TREND</text>
+
+  <!-- Rust/shield icon -->
+  <g transform="translate(980,255)">
+    <path d="M0,-32 L28,-16 L28,12 C28,26 16,36 0,40 C-16,36 -28,26 -28,12 L-28,-16 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
+    <!-- R for Rust -->
+    <text x="0" y="6" font-family="Courier New" font-size="28" font-weight="700" fill="#22d3ee" text-anchor="middle" opacity="0.7">R</text>
+    <!-- Circuit lines -->
+    <line x1="-36" y1="-20" x2="-28" y2="-16" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
+    <line x1="36" y1="-20" x2="28" y2="-16" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
+    <circle cx="-40" cy="-22" r="3" fill="#22d3ee" opacity="0.3"/>
+    <circle cx="40" cy="-22" r="3" fill="#22d3ee" opacity="0.3"/>
+  </g>
+  <text x="980" y="340" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#22d3ee" text-anchor="middle">RUST DNS</text>
+  <text x="980" y="362" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">Memory-safe firmware defense</text>
+  <line x1="840" y1="384" x2="1120" y2="384" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
+  <text x="980" y="408" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Pixel 10 modem hardening</text>
+  <text x="980" y="430" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Docker Hardened Images 1yr</text>
+  <text x="980" y="452" font-family="Arial,sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">BigQuery Graph analytics</text>
+  <text x="980" y="486" font-family="Arial,sans-serif" font-size="10" fill="#22d3ee" text-anchor="middle" font-weight="600">STRATEGIC EVOLUTION</text>
+
+  <!-- Stats footer -->
+  <rect x="0" y="534" width="1200" height="96" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="534" width="1200" height="2" fill="#1e293b"/>
+
+  <circle cx="80" cy="574" r="18" fill="#dc2626" opacity="0.15"/>
+  <text x="80" y="568" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle">3</text>
+  <text x="80" y="586" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">CRITICAL</text>
+
+  <circle cx="180" cy="574" r="18" fill="#f97316" opacity="0.15"/>
+  <text x="180" y="568" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#f97316" text-anchor="middle">3</text>
+  <text x="180" y="586" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">HIGH</text>
+
+  <circle cx="280" cy="574" r="18" fill="#3b82f6" opacity="0.15"/>
+  <text x="280" y="568" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="middle">30</text>
+  <text x="280" y="586" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">TOTAL</text>
+
+  <text x="480" y="578" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 15, 2026</text>
+  <text x="1168" y="578" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
