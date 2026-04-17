@@ -1,53 +1,69 @@
-# Dependabot configuration (GitHub Free tier)
-# Automatic security + version updates for all ecosystems
+# Dependabot configuration
+# Automatic security + version updates for bundler, npm, github-actions, pip
 version: 2
 updates:
+  # Ruby (Bundler) updates
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
       - "ruby"
     commit-message:
-      prefix: "chore(deps):"
+      prefix: "deps(ruby)"
+      include: "scope"
     reviewers:
       - "Twodragon0"
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "ci"
-
+  # JavaScript (npm) updates
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
-      - "npm"
+      - "javascript"
     commit-message:
-      prefix: "chore(deps):"
+      prefix: "deps(js)"
+      include: "scope"
 
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "deps(actions)"
+      include: "scope"
+
+  # Python (pip) updates
   - package-ecosystem: "pip"
     directory: "/scripts"
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 5
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 3
     labels:
       - "dependencies"
       - "python"
     commit-message:
-      prefix: "chore(deps):"
+      prefix: "deps(py)"
+      include: "scope"
