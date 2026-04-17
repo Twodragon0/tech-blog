@@ -16,6 +16,7 @@
 
 import { createHash } from 'crypto';
 import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
+import { safeLog } from './lib/log-sanitizer.js';
 
 const DEBUG = process.env.DEBUG === 'true';
 
@@ -96,7 +97,7 @@ export default async function handler(req, res) {
   if (process.env.NODE_ENV === 'production' && isBotUserAgent(userAgent)) {
     // 보안 이벤트 로깅 (비용 최적화: 최소한만)
     if (process.env.VERCEL_ENV === 'production') {
-      console.warn('[Security] Bot blocked:', {
+      safeLog('warn', '[Security] Bot blocked:', {
         userAgent: userAgent ? userAgent.substring(0, 100) : 'none',
         ip: req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown',
         requestId
@@ -261,7 +262,7 @@ export default async function handler(req, res) {
     
     if (!rateLimitResult.success) {
       if (process.env.VERCEL_ENV === 'production') {
-        console.warn('[Security] Rate limit exceeded:', {
+        safeLog('warn', '[Security] Rate limit exceeded:', {
           identifier: rateLimitIdentifier.substring(0, 50),
           ip: clientIp,
           requestId
