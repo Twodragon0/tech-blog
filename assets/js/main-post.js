@@ -357,44 +357,6 @@
         addCellStateClasses(table, context);
       };
       
-      // PC 좌우 스크롤 버튼 생성
-      const setupScrollButtons = (wrapper) => {
-        if (wrapper.querySelector('.table-scroll-btn')) return;
-
-        const btnLeft = document.createElement('button');
-        btnLeft.className = 'table-scroll-btn table-scroll-btn--left';
-        btnLeft.setAttribute('aria-label', 'Scroll table left');
-        btnLeft.innerHTML = '&#9664;';
-        btnLeft.addEventListener('click', () => {
-          wrapper.scrollBy({ left: -200, behavior: 'smooth' });
-        });
-
-        const btnRight = document.createElement('button');
-        btnRight.className = 'table-scroll-btn table-scroll-btn--right';
-        btnRight.setAttribute('aria-label', 'Scroll table right');
-        btnRight.innerHTML = '&#9654;';
-        btnRight.addEventListener('click', () => {
-          wrapper.scrollBy({ left: 200, behavior: 'smooth' });
-        });
-
-        wrapper.appendChild(btnLeft);
-        wrapper.appendChild(btnRight);
-      };
-
-      // 스크롤 위치에 따라 버튼 표시/숨김
-      const updateScrollBtnState = (wrapper) => {
-        const scrollLeft = wrapper.scrollLeft;
-        const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-
-        if (maxScroll <= 0) {
-          wrapper.classList.remove('can-scroll-left', 'can-scroll-right');
-          return;
-        }
-
-        wrapper.classList.toggle('can-scroll-left', scrollLeft > 2);
-        wrapper.classList.toggle('can-scroll-right', scrollLeft < maxScroll - 2);
-      };
-
       // 테이블 래퍼 생성 및 스크롤 이벤트 설정
       const wrapTables = () => {
         const postContent = document.querySelector('.post-content');
@@ -471,16 +433,7 @@
           } else {
             wrapper.classList.remove('no-scroll-hint');
           }
-          updateScrollBtnState(wrapper);
         };
-
-        // PC 좌우 스크롤 버튼 추가
-        setupScrollButtons(wrapper);
-
-        // 스크롤 시 버튼 상태 업데이트
-        wrapper.addEventListener('scroll', () => {
-          updateScrollBtnState(wrapper);
-        }, { passive: true });
 
         // 초기 체크 (약간 지연)
         setTimeout(checkScrollable, 100);
