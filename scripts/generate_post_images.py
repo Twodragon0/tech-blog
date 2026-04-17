@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import frontmatter
 import requests
 
+from scripts.lib import image_utils as _image_utils
 from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
 
@@ -253,19 +254,12 @@ def extract_post_info(post_file: Path) -> Dict:
 
 
 def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
-    """이미지 파일 존재 여부 확인"""
-    if not image_path:
-        return False, None
-
-    # /assets/images/... 형식에서 실제 경로 추출
-    if image_path.startswith("/assets/images/"):
-        image_file = PROJECT_ROOT / image_path.lstrip("/")
-    elif image_path.startswith("assets/images/"):
-        image_file = PROJECT_ROOT / image_path
-    else:
-        image_file = IMAGES_DIR / Path(image_path).name
-
-    return image_file.exists(), image_file
+    """이미지 파일 존재 여부 확인 (공용 `image_utils` 래퍼)."""
+    return _image_utils.check_image_exists(
+        image_path,
+        project_root=PROJECT_ROOT,
+        images_dir=IMAGES_DIR,
+    )
 
 
 def _build_visual_direction(post_info: Dict) -> Dict[str, str]:
