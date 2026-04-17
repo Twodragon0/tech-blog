@@ -4,62 +4,39 @@ Verify that all post file references and image links are correct after renaming.
 """
 
 import re
+import sys
 from pathlib import Path
 from typing import Dict, List
 
-
-def _build_image_index(images_dir: Path) -> Dict[str, List[Path]]:
-    index: Dict[str, List[Path]] = {}
-    for image_file in images_dir.rglob("*"):
-        if image_file.is_file():
-            index.setdefault(image_file.name, []).append(image_file)
-    return index
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.lib.image_utils import check_image_exists, extract_image_paths, has_korean
 
 
 def check_image_references(blog_dir: Path) -> List[Dict]:
     """Check if all image references in posts point to existing files."""
     posts_dir = blog_dir / "_posts"
+    project_root = blog_dir
     images_dir = blog_dir / "assets" / "images"
-    image_index = _build_image_index(images_dir)
 
     issues = []
 
     for post_file in sorted(posts_dir.glob("*.md")):
         try:
-            with open(post_file, "r", encoding="utf-8") as f:
-                content = f.read()
+            content = post_file.read_text(encoding="utf-8")
 
-            # Check image: field in frontmatter
-            image_match = re.search(r"^image:\s*(.+)$", content, re.MULTILINE)
-            if image_match:
-                image_path = image_match.group(1).strip().strip("\"'")
-                image_filename = Path(image_path).name
-
-                if image_filename not in image_index:
+            for rel in extract_image_paths(content):
+                exists, _ = check_image_exists(
+                    rel, project_root=project_root, images_dir=images_dir
+                )
+                if not exists:
                     issues.append(
                         {
                             "type": "image_not_found",
                             "post": post_file.name,
-                            "image": image_filename,
+                            "image": rel,
                             "severity": "error",
                         }
                     )
-
-            # Check markdown image links
-            md_image_pattern = r"!\[([^\]]*)\]\(([^)]+)\)"
-            for match in re.finditer(md_image_pattern, content):
-                img_path = match.group(2)
-                if "/assets/images/" in img_path:
-                    img_filename = Path(img_path).name
-                    if img_filename not in image_index:
-                        issues.append(
-                            {
-                                "type": "md_image_not_found",
-                                "post": post_file.name,
-                                "image": img_filename,
-                                "severity": "warning",
-                            }
-                        )
 
         except Exception as e:
             issues.append(
@@ -95,7 +72,7 @@ def check_post_urls(blog_dir: Path) -> List[Dict]:
         year, month, day, title = match.groups()
 
         # Check for Korean characters in filename
-        if re.search(r"[가-힣]", post_file.name):
+        if has_korean(post_file.name):
             issues.append(
                 {
                     "type": "korean_in_filename",
