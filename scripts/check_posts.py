@@ -30,6 +30,9 @@ except ModuleNotFoundError:
     )
     raise SystemExit(2)
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.lib import image_utils as _image_utils  # noqa: E402
+
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
@@ -305,19 +308,12 @@ def check_ai_summary_card(content: str) -> List[str]:
 
 
 def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
-    """이미지 파일 존재 여부 확인"""
-    if not image_path:
-        return False, None
-
-    # /assets/images/... 형식에서 실제 경로 추출
-    if image_path.startswith("/assets/images/"):
-        image_file = PROJECT_ROOT / image_path.lstrip("/")
-    elif image_path.startswith("assets/images/"):
-        image_file = PROJECT_ROOT / image_path
-    else:
-        image_file = IMAGES_DIR / Path(image_path).name
-
-    return image_file.exists(), image_file
+    """이미지 파일 존재 여부 확인 (공용 `image_utils` 래퍼)."""
+    return _image_utils.check_image_exists(
+        image_path,
+        project_root=PROJECT_ROOT,
+        images_dir=IMAGES_DIR,
+    )
 
 
 def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[str]:

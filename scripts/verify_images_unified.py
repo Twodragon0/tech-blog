@@ -13,66 +13,27 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from scripts.lib import image_utils as _image_utils  # noqa: E402
+from scripts.lib.image_utils import (  # noqa: E402
+    extract_image_paths,
+    has_korean,
+)
+
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 GEMINI_GUIDE = PROJECT_ROOT / "GEMINI_IMAGE_GUIDE.md"
 
 
-def has_korean(text: str) -> bool:
-    """한글이 포함되어 있는지 확인"""
-    korean_pattern = re.compile(r"[가-힣]")
-    return bool(korean_pattern.search(text))
-
-
-def extract_image_paths(content: str) -> List[str]:
-    """포스팅 내용에서 이미지 경로 추출"""
-    image_paths = []
-
-    # Front Matter의 image 필드
-    fm_match = re.search(r"^image:\s*(.+)$", content, re.MULTILINE)
-    if fm_match:
-        image_paths.append(fm_match.group(1).strip())
-
-    # HTML img 태그
-    img_tags = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
-    image_paths.extend(img_tags)
-
-    # 마크다운 이미지 링크
-    md_images = re.findall(r"!\[.*?\]\(([^)]+)\)", content)
-    image_paths.extend(md_images)
-
-    # Jekyll relative_url 필터 제거
-    cleaned_paths = []
-    for path in image_paths:
-        # {{ '/assets/images/...' | relative_url }} 형식 처리
-        if "| relative_url" in path:
-            path = path.split("|")[0].strip().strip("'\"")
-        # /assets/images/ 또는 assets/images/ 포함 경로
-        if "/assets/images/" in path:
-            filename = path.split("/assets/images/")[-1]
-            cleaned_paths.append(filename)
-        elif "assets/images/" in path:
-            filename = path.split("assets/images/")[-1]
-            cleaned_paths.append(filename)
-        elif path.startswith("/assets/images/"):
-            cleaned_paths.append(path.replace("/assets/images/", ""))
-
-    return list(set(cleaned_paths))  # 중복 제거
-
-
 def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
-    """이미지 파일 존재 여부 확인"""
-    if not image_path:
-        return False, None
-
-    # /assets/images/... 형식에서 실제 경로 추출
-    if image_path.startswith("/assets/images/"):
-        image_file = PROJECT_ROOT / image_path.lstrip("/")
-    else:
-        image_file = IMAGES_DIR / Path(image_path).name
-
-    return image_file.exists(), image_file
+    """이미지 파일 존재 여부 확인 (모듈 전역 PROJECT_ROOT/IMAGES_DIR 사용)."""
+    return _image_utils.check_image_exists(
+        image_path,
+        project_root=PROJECT_ROOT,
+        images_dir=IMAGES_DIR,
+    )
 
 
 def check_image_file(filename: str) -> Dict:

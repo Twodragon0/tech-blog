@@ -11,6 +11,10 @@ import sys
 from pathlib import Path
 from typing import Dict
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from scripts.lib import image_utils as _image_utils
+
 # 프로젝트 루트 디렉토리
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -52,17 +56,12 @@ def extract_summary_from_post(post_file: Path) -> Dict[str, str]:
 
 
 def check_image_exists(image_path: str) -> bool:
-    """이미지 파일 존재 여부 확인"""
-    if not image_path:
-        return False
-
-    # /assets/images/... 형식에서 실제 경로 추출
-    if image_path.startswith("/assets/images/"):
-        image_file = PROJECT_ROOT / image_path.lstrip("/")
-    else:
-        image_file = IMAGES_DIR / Path(image_path).name
-
-    return image_file.exists()
+    """이미지 파일 존재 여부 확인 (공용 `image_utils.image_exists` 래퍼)."""
+    return _image_utils.image_exists(
+        image_path,
+        project_root=PROJECT_ROOT,
+        images_dir=IMAGES_DIR,
+    )
 
 
 def improve_summary_with_gemini(post_data: Dict[str, str]) -> str:
