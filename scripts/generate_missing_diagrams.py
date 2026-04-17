@@ -16,12 +16,13 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import requests
 from dotenv import load_dotenv
 
+from scripts.lib.image_utils import check_image_exists
 from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info
 
@@ -59,22 +60,6 @@ def extract_diagram_references(content: str) -> List[Tuple[str, str]]:
 
     return diagrams
 
-
-def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
-    """이미지 파일 존재 여부 확인"""
-    if not image_path:
-        return False, None
-
-    # 경로 정규화
-    if image_path.startswith("/assets/images/"):
-        image_file = PROJECT_ROOT / image_path.lstrip("/")
-    elif image_path.startswith("assets/images/"):
-        image_file = PROJECT_ROOT / image_path
-    else:
-        # 상대 경로인 경우
-        image_file = DIAGRAMS_DIR / Path(image_path).name
-
-    return image_file.exists(), image_file
 
 
 def generate_diagram_prompt(
