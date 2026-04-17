@@ -1,0 +1,14 @@
+version: 2
+
+# 테스트 파일의 가짜 secret 패턴을 GitGuardian 스캔에서 제외
+# log-sanitizer 유닛 테스트는 마스킹 동작을 검증하기 위해 의도적으로
+# 실제 키 포맷(sk-, ghp_, AIza, AKIA)을 사용한다.
+paths-ignore:
+  - path: "api/__tests__/log-sanitizer.test.js"
+  - path: "api/__tests__/sanitize.test.js"
+
+# 스캔 대상 확장자는 기본값 유지
+secret:
+  ignored-paths:
+    - "api/__tests__/log-sanitizer.test.js"
+    - "api/__tests__/sanitize.test.js"
