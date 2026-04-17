@@ -2389,22 +2389,100 @@ def _pick_generic_ai_bullets(item: Optional[Dict]) -> str:
     return "\n".join(_AI_FALLBACK_POOLS[bucket]) + "\n"
 
 
+# Per-item unique bullet templates — appended as a 4th practical-point bullet
+# so that news items in the same keyword bucket still receive at least one
+# distinctive, title-specific action item instead of three identical lines.
+_UNIQUE_ITEM_BULLET_TEMPLATES: List[str] = [
+    "- 본 사안({topic}) 관련 자사 환경 영향도 평가 및 담당 팀 에스컬레이션 경로 확인",
+    "- {topic} 이슈의 공개 IoC·지표를 SIEM/보안 이벤트 룰에 반영하고 탐지 검증",
+    "- {topic} 관련 내부 시스템 노출 여부 스캔 및 변경 이력 감사 로그 점검",
+    "- {topic} 사례를 내부 런북·체크리스트에 기록해 유사 상황 대응 시간 단축",
+    "- {topic}의 기술·비즈니스 영향 범위를 표로 정리해 분기 리스크 리뷰에 포함",
+    "- {topic} 관련 서드파티·SaaS 의존성 맵 갱신 및 벤더 커뮤니케이션 로그 남기기",
+    "- {topic} 관련 테스트 케이스를 스테이징 환경에서 재현해 패치·완화 조치 검증",
+    "- {topic} 이슈 대응 경과를 보안 인시던트 보고서 템플릿에 맞춰 정리·공유",
+]
+
+
+def _item_hash_seed(item: Optional[Dict]) -> str:
+    """Return a deterministic seed string for variant selection.
+
+    Prefers URL (unique per article) and falls back to title. Empty when both
+    are missing so callers can short-circuit.
+    """
+    if not item:
+        return ""
+    return item.get("url") or item.get("title", "") or ""
+
+
+def _extract_primary_news_keyword(item: Optional[Dict]) -> str:
+    """Extract a short distinctive topic phrase from the news title.
+
+    Reuses ``_korean_display_title`` for consistent Korean-first normalization
+    but allows a longer phrase than the first-bullet label so the uniqueness
+    bullet differs from the ``[label]`` prefix.
+    """
+    if not item:
+        return ""
+    display = _korean_display_title(item, max_len=48)
+    if not display:
+        return ""
+    phrase = re.split(r"\s*[|:,]+\s*|\s+-\s+", display)[0].strip(" ,.·")
+    return _smart_truncate_korean(phrase, 24)
+
+
+def _build_unique_practical_bullet(item: Optional[Dict]) -> Optional[str]:
+    """Build an item-specific bullet line appended after the branch bullets.
+
+    Uses a deterministic hash of the item URL/title so the same news produces
+    the same bullet every run, while two items in the same keyword branch
+    pick different variants (and embed their own topic phrase).
+    """
+    seed = _item_hash_seed(item)
+    if not seed:
+        return None
+    topic = _extract_primary_news_keyword(item)
+    if not topic:
+        return None
+    variant_idx = sum(ord(c) for c in seed) % len(_UNIQUE_ITEM_BULLET_TEMPLATES)
+    return _UNIQUE_ITEM_BULLET_TEMPLATES[variant_idx].format(topic=topic)
+
+
 def _contextualize_practical_points(template: str, item: Optional[Dict]) -> str:
-    """Stamp the first practical bullet with a short item-specific topic label."""
+    """Diversify practical-point bullets so each news item has unique content.
+
+    Two passes:
+    1. Stamp the first bullet with a short ``[label]`` topic prefix.
+    2. Append an item-hash-selected 4th bullet embedding a distinctive topic
+       phrase extracted from the title. This guarantees that two items sharing
+       the same keyword branch (e.g. both matched "docker") still receive at
+       least one bullet that references their specific story.
+    """
     if not item or "#### 실무 적용 포인트" not in template:
         return template
+
+    lines = template.splitlines()
 
     raw_label = _korean_display_title(item, max_len=36)
     label = re.split(r"\s*[|:]+\s*|\s+-\s+", raw_label)[0].strip(" ,.")
     label = _smart_truncate_korean(label, 18)
-    if not label:
-        return template
+    if label:
+        for index, line in enumerate(lines):
+            if line.startswith("- "):
+                lines[index] = f"- [{label}] {line[2:]}"
+                break
 
-    lines = template.splitlines()
-    for index, line in enumerate(lines):
-        if line.startswith("- "):
-            lines[index] = f"- [{label}] {line[2:]}"
-            break
+    unique_bullet = _build_unique_practical_bullet(item)
+    if unique_bullet:
+        last_bullet_idx = -1
+        for index, line in enumerate(lines):
+            if line.startswith("- "):
+                last_bullet_idx = index
+        if last_bullet_idx >= 0:
+            lines.insert(last_bullet_idx + 1, unique_bullet)
+
+    if not label and not unique_bullet:
+        return template
     return "\n".join(lines).rstrip() + "\n"
 
 

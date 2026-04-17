@@ -257,17 +257,20 @@ class TestGenerateAiAnalysisTemplate:
     def test_fallback_no_keywords(self):
         item = _item(title="Quarterly earnings report", summary="Revenue up 10%")
         result = _generate_ai_analysis_template(item)
-        # Fallback is now deterministic by item-hash but always produces
-        # 3 context-adjacent bullets under the header.
+        # Fallback produces 3 context-adjacent bullets under the header plus
+        # 1 item-specific uniqueness bullet appended by
+        # ``_contextualize_practical_points``.
         assert "#### 실무 적용 포인트" in result
         bullets = [line for line in result.splitlines() if line.startswith("- ")]
-        assert len(bullets) == 3, f"Expected 3 bullets, got {len(bullets)}"
+        assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)}"
 
     def test_fallback_empty_item(self):
         item = _item()
         result = _generate_ai_analysis_template(item)
         assert "#### 실무 적용 포인트" in result
         bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        # Empty item has no URL/title seed → uniqueness bullet is skipped,
+        # leaving the three branch bullets untouched.
         assert len(bullets) == 3
 
     def test_fallback_hash_diversity(self):
@@ -302,19 +305,22 @@ class TestGenerateAiAnalysisTemplate:
             assert "#### 실무 적용 포인트" in result
 
     def test_always_has_three_bullets(self):
-        items = [
-            _item(title="agent system"),
-            _item(title="gpt benchmark"),
-            _item(title="gpu cluster"),
-            _item(title="simulation"),
-            _item(title="attack vector"),
-            _item(),
+        # Items with a title/url seed receive 3 branch bullets + 1 appended
+        # item-specific uniqueness bullet; an empty item skips the uniqueness
+        # bullet because there is no seed.
+        cases = [
+            (_item(title="agent system"), 4),
+            (_item(title="gpt benchmark"), 4),
+            (_item(title="gpu cluster"), 4),
+            (_item(title="simulation"), 4),
+            (_item(title="attack vector"), 4),
+            (_item(), 3),
         ]
-        for item in items:
+        for item, expected in cases:
             result = _generate_ai_analysis_template(item)
             bullet_count = result.count("\n- ")
-            assert bullet_count == 3, (
-                f"Expected 3 bullets, got {bullet_count} for title={item.get('title')!r}"
+            assert bullet_count == expected, (
+                f"Expected {expected} bullets, got {bullet_count} for title={item.get('title')!r}"
             )
 
     # ------------------------------------------------------------------
@@ -560,15 +566,15 @@ class TestGenerateDevopsTemplate:
     # Branch: fallback (else)
     # ------------------------------------------------------------------
     def test_fallback_has_three_bullets(self):
-        """Fallback should always produce exactly 3 bullets under the header."""
+        """Fallback produces 3 branch bullets + 1 item-specific uniqueness bullet."""
         item = _item(title="General infrastructure update notes")
         result = _generate_devops_template(item)
         assert "#### 실무 적용 포인트" in result
         bullets = [line for line in result.splitlines() if line.startswith("- ")]
-        assert len(bullets) == 3
+        assert len(bullets) == 4
 
     def test_fallback_empty_item(self):
-        """None input returns the canonical generic fallback."""
+        """None input returns the canonical generic fallback without the uniqueness bullet."""
         result = _generate_devops_template(None)
         assert "#### 실무 적용 포인트" in result
         bullets = [line for line in result.splitlines() if line.startswith("- ")]
@@ -2980,3 +2986,114 @@ class TestCheckDuplicatePracticalPoints:
         content = block * 2
         issues = self.check(content)
         assert any("블록 중복" in msg for msg in issues)
+
+
+# ===========================================================================
+# Per-item uniqueness of practical-point bullets
+# ===========================================================================
+
+
+class TestPracticalPointsUniqueness:
+    """Verify that news items sharing a keyword branch still receive a unique
+    practical bullet appended by ``_contextualize_practical_points``.
+
+    Before this feature, two items matching the same keyword (e.g. two Docker
+    stories) rendered the exact same three bullets, making the generated post
+    feel repetitive across multiple news sections of a single digest.
+    """
+
+    def test_devops_docker_branch_items_differ(self):
+        """Three items that all fall into the Docker branch must produce three
+        distinct template outputs.
+        """
+        items = [
+            _item(title="Docker Buildx patches critical CVE", url="https://ex.com/a"),
+            _item(title="Docker Swarm network regression", url="https://ex.com/b"),
+            _item(title="Docker Compose breaking changes", url="https://ex.com/c"),
+        ]
+        outputs = [_generate_devops_template(it) for it in items]
+        # Baseline: all hit the docker keyword branch.
+        for out in outputs:
+            assert "컨테이너 이미지 보안 스캔" in out
+        # Uniqueness: three distinct items → three distinct renderings.
+        assert len(set(outputs)) == 3, (
+            f"Docker items should produce distinct outputs, got {len(set(outputs))}"
+        )
+
+    def test_ai_agent_branch_items_differ(self):
+        """Two AI agent items pick different uniqueness-bullet variants."""
+        item_a = _item(
+            title="OpenAI Agent SDK public preview", url="https://ex.com/ai-a"
+        )
+        item_b = _item(
+            title="Claude Agent Framework 1.0 ships", url="https://ex.com/ai-b"
+        )
+        out_a = _generate_ai_analysis_template(item_a)
+        out_b = _generate_ai_analysis_template(item_b)
+        # Both stay on the agent branch.
+        assert "도구 호출 권한" in out_a
+        assert "도구 호출 권한" in out_b
+        # But full outputs must diverge.
+        assert out_a != out_b
+
+    def test_uniqueness_bullet_is_deterministic(self):
+        """Running the generator twice on the same item yields identical output."""
+        item = _item(
+            title="Docker Security Patch 24.0.7 released",
+            url="https://example.com/x",
+        )
+        assert _generate_devops_template(item) == _generate_devops_template(item)
+
+    def test_branch_bullets_are_preserved(self):
+        """Inserting the uniqueness bullet must not drop any branch-specific
+        assertions that downstream code or prior tests rely on.
+        """
+        item = _item(title="AI Agent Framework Released", url="https://ex.com/keep")
+        result = _generate_ai_analysis_template(item)
+        for expected in ("도구 호출 권한", "Human-in-the-Loop"):
+            assert expected in result, f"Branch bullet lost: {expected}"
+
+    def test_uniqueness_bullet_embeds_topic_phrase(self):
+        """The appended bullet references a phrase from the item's title so
+        readers can tell which news it belongs to.
+        """
+        item = _item(
+            title="Kubernetes RBAC misconfiguration allows privilege escalation",
+            url="https://ex.com/k8s-rbac",
+        )
+        result = _generate_devops_template(item)
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 4, (
+            f"Expected 4 bullets (3 branch + 1 uniqueness), got {len(bullets)}"
+        )
+        last_bullet = bullets[-1]
+        # Must reference some distinctive piece of the title.
+        assert any(
+            tok in last_bullet
+            for tok in ("Kubernetes", "RBAC", "misconfiguration", "privilege")
+        ), f"Uniqueness bullet lacks title reference: {last_bullet!r}"
+
+    def test_uniqueness_skipped_when_no_seed(self):
+        """With no URL and no title there is nothing to seed the variant with,
+        so the uniqueness bullet is intentionally skipped.
+        """
+        result = _generate_devops_template(_item())
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3
+
+    def test_full_digest_style_uniqueness(self):
+        """Ten same-branch items must produce at least 5 distinct bullets so a
+        weekly digest does not feel repetitive. With 8 variant templates and
+        distinct topic phrases we expect near-full diversity.
+        """
+        items = [
+            _item(
+                title=f"Docker CVE-2026-{1000 + i} disclosure",
+                url=f"https://ex.com/docker-{i}",
+            )
+            for i in range(10)
+        ]
+        outputs = [_generate_devops_template(it) for it in items]
+        assert len(set(outputs)) >= 5, (
+            f"Weekly digest bullets lack diversity: only {len(set(outputs))} unique"
+        )
