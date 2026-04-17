@@ -563,6 +563,77 @@ def check_table_cell_truncation(content: str) -> List[str]:
     return issues
 
 
+def check_practical_points_uniqueness(content: str) -> List[str]:
+    """Detect regressions in the per-item uniqueness of '실무 적용 포인트' sections.
+
+    The generator in ``scripts/news/content_generator.py`` is expected to
+    diversify every news-driven practical-point section via
+    ``_contextualize_practical_points``:
+
+    * the first bullet receives a ``[topic-label]`` prefix derived from the
+      news item's Korean display title, and
+    * a 4th uniqueness bullet drawn from ``_UNIQUE_ITEM_BULLET_TEMPLATES``
+      is appended, referencing the item's specific topic phrase.
+
+    This checker fires when a post contains two or more practical-point
+    sections and **none** of them show either marker — a strong signal
+    that the uniqueness pipeline regressed (contextualize bypassed, pool
+    emptied, or the hash seed went blank) and every news block is rendering
+    the same three fallback bullets.
+
+    Single-section posts are ignored because they cannot be distinguished
+    from intentional ``None``-item fallbacks, which legitimately render
+    three bullets without a label.
+    """
+    issues: List[str] = []
+
+    sections: List[List[str]] = []
+    current_section: List[str] = []
+    in_section = False
+
+    def _flush() -> None:
+        if current_section:
+            sections.append(list(current_section))
+            current_section.clear()
+
+    for line in content.split("\n"):
+        stripped = line.strip()
+        if "실무 적용 포인트" in stripped or "실무 포인트" in stripped:
+            _flush()
+            in_section = True
+            continue
+        if in_section and (
+            stripped.startswith("#")
+            or stripped.startswith("---")
+            or (stripped.startswith("{%") and "include" in stripped)
+        ):
+            _flush()
+            in_section = False
+        if in_section and stripped.startswith("- "):
+            current_section.append(stripped[2:].strip())
+    _flush()
+
+    if len(sections) < 2:
+        return issues
+
+    label_pattern = re.compile(r"^\[[^\]]+\]")
+    missing = 0
+    for bullets in sections:
+        has_label = any(label_pattern.match(b) for b in bullets)
+        has_fourth = len(bullets) >= 4
+        if not (has_label or has_fourth):
+            missing += 1
+
+    if missing == len(sections):
+        issues.append(
+            f"⚠️ 실무 포인트 uniqueness 누락 ({len(sections)}개 섹션 모두): "
+            "[topic-label] 프리픽스도, 4번째 고유 bullet도 없음 — "
+            "`_contextualize_practical_points` 회귀 의심"
+        )
+
+    return issues
+
+
 def check_duplicate_practical_points(content: str) -> List[str]:
     """Check for duplicate '실무 적용 포인트' bullet points within a single post.
 
@@ -749,6 +820,9 @@ def main():
 
         # 실무 포인트 반복 감지
         issues.extend(check_duplicate_practical_points(content))
+
+        # 실무 포인트 uniqueness 회귀 감지 (feat: 뉴스별 고유 실무 포인트)
+        issues.extend(check_practical_points_uniqueness(content))
 
         # 테이블 셀 잘림 감지
         issues.extend(check_table_cell_truncation(content))

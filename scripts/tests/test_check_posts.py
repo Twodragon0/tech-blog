@@ -17,6 +17,7 @@ from scripts.check_posts import (
     check_image_paths,
     check_long_code_blocks,
     check_news_card_severity,
+    check_practical_points_uniqueness,
     check_svg_text_density,
     check_table_cell_truncation,
     extract_front_matter,
@@ -281,6 +282,109 @@ class TestCheckDuplicatePracticalPoints:
         issues = check_duplicate_practical_points(content)
         # Only counted within the section, not across sections
         assert len(issues) == 1
+
+
+# ---------------------------------------------------------------------------
+# check_practical_points_uniqueness
+# ---------------------------------------------------------------------------
+
+
+class TestCheckPracticalPointsUniqueness:
+    """Regression checks for the per-item uniqueness feature.
+
+    The contract enforced here: a multi-section digest post must not render
+    every practical-point section as a bare 3-bullet fallback. At least one
+    section must expose an item-specific marker — either a ``[label]``
+    prefix on the first bullet or a 4th uniqueness bullet.
+    """
+
+    def test_flags_when_all_sections_miss_markers(self):
+        """Two sections, both raw 3-bullet fallback → regression flagged."""
+        content = (
+            "#### 실무 적용 포인트\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+            "\n---\n\n"
+            "#### 실무 적용 포인트\n"
+            "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+            "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+            "- 컨테이너 런타임 보안 모니터링 강화\n"
+            "\n---\n"
+        )
+        issues = check_practical_points_uniqueness(content)
+        assert len(issues) == 1
+        assert "uniqueness 누락" in issues[0]
+
+    def test_pass_when_label_prefix_present(self):
+        """First-bullet ``[label]`` marker present → no regression."""
+        content = (
+            "#### 실무 적용 포인트\n"
+            "- [Docker Buildx CVE] 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+            "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+            "- 컨테이너 런타임 보안 모니터링 강화\n"
+            "\n---\n\n"
+            "#### 실무 적용 포인트\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+            "\n---\n"
+        )
+        issues = check_practical_points_uniqueness(content)
+        assert issues == [], f"unexpected issues: {issues}"
+
+    def test_pass_when_fourth_bullet_present(self):
+        """A 4th uniqueness bullet is enough evidence the feature is active."""
+        content = (
+            "#### 실무 적용 포인트\n"
+            "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+            "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+            "- 컨테이너 런타임 보안 모니터링 강화\n"
+            "- Docker Buildx 관련 서드파티·SaaS 의존성 맵 갱신 및 벤더 로그 기록\n"
+            "\n---\n\n"
+            "#### 실무 적용 포인트\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+            "- Kubernetes RBAC 사례를 내부 런북·체크리스트에 기록\n"
+            "\n---\n"
+        )
+        issues = check_practical_points_uniqueness(content)
+        assert issues == []
+
+    def test_ignored_for_single_section_post(self):
+        """Single practical-point sections are too ambiguous to flag."""
+        content = (
+            "#### 실무 적용 포인트\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+            "\n---\n"
+        )
+        issues = check_practical_points_uniqueness(content)
+        assert issues == []
+
+    def test_partial_coverage_does_not_flag(self):
+        """Mixed content (one section has marker, one doesn't) is tolerated.
+
+        The checker only fires when ALL sections miss the marker, so a
+        legitimate ``None``-item fallback mixed with real-item sections
+        does not produce a false positive.
+        """
+        content = (
+            "#### 실무 적용 포인트\n"
+            "- [Docker Buildx] 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+            "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+            "- 컨테이너 런타임 보안 모니터링 강화\n"
+            "\n---\n\n"
+            "#### 실무 적용 포인트\n"
+            "- 운영 환경 변경 시 보안 구성 드리프트 탐지 자동화 확인\n"
+            "- 인프라 변경사항의 보안 영향 사전 평가 프로세스 점검\n"
+            "- 관련 기술 스택의 취약점 데이터베이스 모니터링 설정\n"
+            "\n---\n"
+        )
+        issues = check_practical_points_uniqueness(content)
+        assert issues == []
 
 
 # ---------------------------------------------------------------------------
