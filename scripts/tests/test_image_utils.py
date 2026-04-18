@@ -60,9 +60,32 @@ def test_extract_html_img():
     assert "logo.webp" in extract_image_paths(content)
 
 
+def test_extract_source_srcset_uses_first_candidate():
+    content = '<source srcset="/assets/images/card.avif 1x, /assets/images/card@2x.avif 2x">'
+    assert "card.avif" in extract_image_paths(content)
+
+
 def test_extract_relative_url_filter():
     content = "![img]({{ '/assets/images/banner.svg' | relative_url }})"
     assert "banner.svg" in extract_image_paths(content)
+
+
+def test_extract_liquid_assign_path():
+    content = "{% assign hero_image = '/assets/images/hero/banner.png' %}"
+    assert "hero/banner.png" in extract_image_paths(content)
+
+
+def test_extract_raw_wrapped_liquid_path():
+    content = (
+        "{% raw %}{{ '/assets/images/diagrams/architecture.svg' | relative_url }}"
+        "{% endraw %}"
+    )
+    assert "diagrams/architecture.svg" in extract_image_paths(content)
+
+
+def test_extract_include_attr_refs_for_href():
+    content = '<a href="/assets/images/og/preview.png">preview</a>'
+    assert "og/preview.png" in extract_image_paths(content, include_attr_refs=True)
 
 
 def test_extract_deduplicates():
