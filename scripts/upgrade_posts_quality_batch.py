@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import re
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.lib.image_utils import extract_front_matter_image
 from validate_post_quality import validate_post
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -21,10 +24,7 @@ def split_front_matter(content: str) -> tuple[str, str, str]:
 
 
 def extract_image(front_matter: str) -> str:
-    match = re.search(r"^image:\s*(.+)$", front_matter, re.MULTILINE)
-    if not match:
-        return "/assets/images/og-default.svg"
-    return match.group(1).strip()
+    return extract_front_matter_image(front_matter) or "/assets/images/og-default.svg"
 
 
 def ensure_ai_summary(content: str) -> str:

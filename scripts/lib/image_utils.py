@@ -8,11 +8,13 @@
 사용 예시::
 
     from scripts.lib.image_utils import (
+        extract_front_matter_image,
         extract_image_paths,
         check_image_exists,
         has_korean,
     )
 
+    image = extract_front_matter_image(content)  # '/assets/images/foo.svg' or None
     paths = extract_image_paths(content)  # ['2025-01-01-diagram.svg', ...]
     exists, resolved = check_image_exists("/assets/images/diagram.svg")
 """
@@ -80,6 +82,26 @@ def _normalize_extracted_path(path: str) -> Optional[str]:
     if "assets/images/" in normalized:
         return normalized.split("assets/images/", 1)[-1]
     return None
+
+
+def extract_front_matter_image(text: str) -> Optional[str]:
+    """Front matter 블록(또는 full content)에서 ``image:`` 값을 원본 그대로 추출.
+
+    - 주변 공백과 단일/이중 따옴표를 제거한 값을 그대로 반환한다.
+    - 값이 없으면 ``None``.
+    - 복수 개가 있을 경우 첫 번째 매치만 반환(front matter 표준 가정).
+
+    >>> extract_front_matter_image("---\\nimage: /assets/images/foo.svg\\n---\\n")
+    '/assets/images/foo.svg'
+    >>> extract_front_matter_image('image: "/assets/images/bar.png"')
+    '/assets/images/bar.png'
+    >>> extract_front_matter_image("no front matter here") is None
+    True
+    """
+    match = _FRONT_MATTER_IMAGE_RE.search(text)
+    if not match:
+        return None
+    return match.group(1).strip().strip("\"'")
 
 
 def extract_image_paths(content: str, *, include_attr_refs: bool = False) -> List[str]:
@@ -218,6 +240,7 @@ __all__ = [
     "PROJECT_ROOT",
     "check_image_exists",
     "check_image_references",
+    "extract_front_matter_image",
     "extract_image_paths",
     "has_korean",
     "image_exists",

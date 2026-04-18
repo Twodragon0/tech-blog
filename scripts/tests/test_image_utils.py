@@ -12,6 +12,7 @@ from scripts.lib.image_utils import (
     ImageIssue,
     check_image_exists,
     check_image_references,
+    extract_front_matter_image,
     extract_image_paths,
     has_korean,
     image_exists,
@@ -225,6 +226,38 @@ def test_image_issue_is_hashable():
     # dataclass(frozen=True) 덕분에 set/dict key로 사용 가능
     issue = ImageIssue(post=Path("a.md"), image="x.svg", reason="missing")
     assert {issue} == {issue}
+
+
+# ---------------------------------------------------------------------------
+# extract_front_matter_image
+# ---------------------------------------------------------------------------
+
+
+def test_extract_fm_image_basic_path():
+    content = "---\nimage: /assets/images/2025-01-01-diagram.svg\n---\n"
+    assert extract_front_matter_image(content) == "/assets/images/2025-01-01-diagram.svg"
+
+
+def test_extract_fm_image_strips_double_quotes():
+    content = 'image: "/assets/images/bar.png"'
+    assert extract_front_matter_image(content) == "/assets/images/bar.png"
+
+
+def test_extract_fm_image_strips_single_quotes():
+    content = "image: '/assets/images/baz.svg'"
+    assert extract_front_matter_image(content) == "/assets/images/baz.svg"
+
+
+def test_extract_fm_image_returns_none_when_missing():
+    assert extract_front_matter_image("---\ntitle: No image here\n---\n") is None
+
+
+def test_extract_fm_image_stops_at_newline():
+    # 값이 첫 줄에서만 캡처되어야 함 — 줄바꿈 이후 내용 포함 안 됨
+    content = "image: /assets/images/first.svg\nsome other line"
+    result = extract_front_matter_image(content)
+    assert result == "/assets/images/first.svg"
+    assert "\n" not in (result or "")
 
 
 if __name__ == "__main__":

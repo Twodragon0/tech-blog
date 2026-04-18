@@ -15,6 +15,11 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.lib.image_utils import extract_front_matter_image
 
 POSTS_DIR = "/Users/yong/Desktop/personal/tech-blog/_posts"
 IMAGES_DIR = "/Users/yong/Desktop/personal/tech-blog/assets/images"
@@ -550,8 +555,7 @@ def parse_post(filepath):
     fm = fm_match.group(1)
 
     # Parse image path
-    img_match = re.search(r"image:\s*(.+)", fm)
-    image_path = img_match.group(1).strip().strip("\"'") if img_match else None
+    image_path = extract_front_matter_image(fm)
 
     # Parse categories
     categories = []
