@@ -11,6 +11,10 @@ import unicodedata
 from pathlib import Path
 from typing import Dict, List
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.lib.image_utils import extract_front_matter_image
+
 # Korean to English translation dictionary for common terms
 KOREAN_TO_ENGLISH = {
     "클라우드": "Cloud",
@@ -219,9 +223,8 @@ def get_post_image_mapping(blog_dir: Path) -> Dict[str, str]:
                 content = f.read()
 
             # Extract image path from frontmatter
-            image_match = re.search(r"^image:\s*(.+)$", content, re.MULTILINE)
-            if image_match:
-                image_path = image_match.group(1).strip().strip("\"'")
+            image_path = extract_front_matter_image(content)
+            if image_path:
                 image_filename = Path(image_path).name
 
                 # Extract date from post filename

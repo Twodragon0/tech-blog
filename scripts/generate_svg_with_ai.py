@@ -9,6 +9,10 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.lib.image_utils import extract_front_matter_image
+
 POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
 
@@ -104,8 +108,7 @@ def parse_post(filepath: Path) -> dict:
     result["categories"] = cats
 
     # Image path
-    m = re.search(r"^image:\s*(.*?)$", fm, re.MULTILINE)
-    result["image"] = m.group(1).strip() if m else ""
+    result["image"] = extract_front_matter_image(fm) or ""
 
     # Excerpt
     m = re.search(r'^excerpt:\s*["\']?(.*?)["\']?\s*$', fm, re.MULTILINE)
