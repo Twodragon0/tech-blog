@@ -34,6 +34,9 @@ _KOREAN_RE = re.compile(r"[가-힣]")
 _FRONT_MATTER_IMAGE_RE = re.compile(r"^image:\s*(.+)$", re.MULTILINE)
 _HTML_IMG_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']')
 _MD_IMG_RE = re.compile(r"!\[.*?\]\(([^)]+)\)")
+_HTML_SOURCE_SRCSET_RE = re.compile(r'<source[^>]+srcset=["\']([^"\']+)["\']')
+_GENERIC_ATTR_RE = re.compile(r'(?:src|href)=["\']([^"\']*assets/images/[^"\']+)["\']')
+_QUOTED_ASSET_RE = re.compile(r"['\"]([^'\"]*assets/images/[^'\"]+)['\"]")
 
 
 @dataclass(frozen=True)
@@ -63,14 +66,33 @@ def _strip_relative_url(path: str) -> str:
     return path
 
 
-def extract_image_paths(content: str) -> List[str]:
+def _normalize_extracted_path(path: str) -> Optional[str]:
+    """추출된 이미지 참조를 `assets/images/` 기준 상대 경로로 정규화합니다."""
+    if not path:
+        return None
+
+    normalized = _strip_relative_url(path).strip()
+    normalized = normalized.split(",", 1)[0].strip()
+    normalized = normalized.split()[0].strip()
+
+    if "/assets/images/" in normalized:
+        return normalized.split("/assets/images/", 1)[-1]
+    if "assets/images/" in normalized:
+        return normalized.split("assets/images/", 1)[-1]
+    return None
+
+
+def extract_image_paths(content: str, *, include_attr_refs: bool = False) -> List[str]:
     """포스트 본문에서 이미지 파일명(assets/images 기준)을 추출합니다.
 
     다음을 모두 스캔합니다:
       - Front matter의 ``image:`` 필드
       - HTML ``<img src="...">`` 태그
+      - HTML ``<source srcset="...">`` 태그 (첫 URL 사용)
       - Markdown ``![alt](src)`` 문법
       - Jekyll ``| relative_url`` 필터 사용 경로
+      - Liquid / raw 블록 내부의 quoted image path
+      - 선택적으로 일반 ``src=`` / ``href=`` 속성 경로
 
     반환값은 `assets/images/` 뒤의 상대 경로만 포함하며 중복이 제거됩니다.
 
@@ -84,17 +106,18 @@ def extract_image_paths(content: str) -> List[str]:
         raw.append(fm.group(1).strip())
 
     raw.extend(_HTML_IMG_RE.findall(content))
+    raw.extend(_HTML_SOURCE_SRCSET_RE.findall(content))
     raw.extend(_MD_IMG_RE.findall(content))
+    raw.extend(_QUOTED_ASSET_RE.findall(content))
+
+    if include_attr_refs:
+        raw.extend(_GENERIC_ATTR_RE.findall(content))
 
     cleaned: List[str] = []
     for item in raw:
-        path = _strip_relative_url(item)
-        if "/assets/images/" in path:
-            cleaned.append(path.split("/assets/images/")[-1])
-        elif "assets/images/" in path:
-            cleaned.append(path.split("assets/images/")[-1])
-        elif path.startswith("/assets/images/"):
-            cleaned.append(path.replace("/assets/images/", ""))
+        normalized = _normalize_extracted_path(item)
+        if normalized:
+            cleaned.append(normalized)
 
     # 중복 제거 (순서는 보장하지 않음 — 기존 verify_images_unified.py와 동일)
     return list(set(cleaned))

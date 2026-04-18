@@ -13,11 +13,13 @@ assets/images/ 디렉토리의 미사용 이미지와 누락된 이미지를 분
 """
 
 import argparse
-import os
-import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.lib.image_utils import extract_image_paths
 
 REPO_ROOT = Path(__file__).parent.parent
 POSTS_DIR = REPO_ROOT / "_posts"
@@ -43,56 +45,12 @@ STATIC_IMAGES = {
 
 def extract_image_refs_from_file(filepath: Path) -> set[str]:
     """파일에서 이미지 참조 경로를 추출합니다."""
-    refs = set()
     try:
         content = filepath.read_text(encoding="utf-8", errors="ignore")
     except OSError:
-        return refs
+        return set()
 
-    # front matter image: /assets/images/...
-    for match in re.finditer(
-        r"^image\s*:\s*['\"]?(/assets/images/[^\s'\"]+)['\"]?", content, re.MULTILINE
-    ):
-        refs.add(match.group(1))
-
-    # Markdown image syntax: ![alt](path)
-    for match in re.finditer(r"!\[[^\]]*\]\((/assets/images/[^\s)]+)\)", content):
-        refs.add(match.group(1))
-
-    # HTML img src: <img src="/assets/images/...">
-    for match in re.finditer(
-        r'<img[^>]+src=["\']([^"\']*assets/images/[^"\']+)["\']', content
-    ):
-        refs.add(match.group(1))
-
-    # HTML picture source srcset: <source srcset="...">
-    for match in re.finditer(
-        r'<source[^>]+srcset=["\']([^"\']*assets/images/[^"\']+)["\']', content
-    ):
-        path = match.group(1).split()[0]  # srcset에서 첫 URL만
-        refs.add(path)
-
-    # src= 또는 href= 패턴 (레이아웃/인클루드용)
-    for match in re.finditer(
-        r'(?:src|href)=["\']([^"\']*assets/images/[^"\']+)["\']', content
-    ):
-        refs.add(match.group(1))
-
-    # Liquid {{ ... }} 내부 assets/images 참조
-    for match in re.finditer(r"\{%[^%]*%\}|{{[^}]*}}", content):
-        inner = match.group(0)
-        for m2 in re.finditer(r"['\"]([^'\"]*assets/images/[^'\"]+)['\"]", inner):
-            refs.add(m2.group(1))
-
-    # {% raw %}{{ '/assets/images/...' | filter }}{% endraw %} 패턴
-    for match in re.finditer(
-        r"\{%-?\s*raw\s*-?%\}(.*?)\{%-?\s*endraw\s*-?%\}", content, re.DOTALL
-    ):
-        inner = match.group(1)
-        for m2 in re.finditer(r"['\"]([^'\"]*assets/images/[^'\"]+)['\"]", inner):
-            refs.add(m2.group(1))
-
-    return refs
+    return set(extract_image_paths(content, include_attr_refs=True))
 
 
 def normalize_ref(ref: str) -> str:
