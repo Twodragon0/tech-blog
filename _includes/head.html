@@ -256,11 +256,7 @@
   <link rel="prefetch" href="{{ "/assets/js/mermaid-init.js" | relative_url }}" as="script">
   {% endif %}
   <link rel="prefetch" href="{{ "/assets/js/main-search.js" | relative_url }}" as="script">
-  {% comment %}LCP 이미지 preload: 모든 포스트에 AVIF OG 이미지 완비 (2026-04-07){% endcomment %}
-  {% if page.image %}
-    {% assign preload_path = page.image | replace: '_og.png', '_og.avif' | replace: '.svg', '_og.avif' %}
-    <link rel="preload" as="image" type="image/avif" href="{{ preload_path | relative_url }}">
-  {% endif %}
+  {% comment %}OG AVIF 이미지 preload 제거: 소셜 메타에만 사용되며 페이지 렌더에 미사용 -> "preloaded but not used" 경고 방지 (2026-04-17){% endcomment %}
 
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
   {% if site.sentry_dsn and site.sentry_dsn != "" %}

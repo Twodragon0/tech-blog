@@ -202,6 +202,17 @@ ins.adsbygoogle-noablate {
   position: relative !important;
 }
 
+/* AdSense 로드 실패/미사용(unfilled/hidden) 시 빈 250px 공간 붕괴 */
+ins.adsbygoogle[data-ad-status="unfilled"],
+ins.adsbygoogle[style*="display: none"],
+ins.adsbygoogle[style*="display:none"] {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Google Ads iframe 호스트 CLS 방지 */
 #aswift_1_host,
 #aswift_2_host,
