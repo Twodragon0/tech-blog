@@ -212,6 +212,26 @@ def print_report(report: dict):
     return report["posts_with_issues"] == 0
 
 
+def check_file(path: Path) -> list:
+    """Check a single post file and return a list of human-readable issue strings.
+
+    Returns an empty list when the file passes all quality checks.
+    Designed to be imported by other scripts (e.g. auto_publish_news.py) so
+    that a quality gate can run immediately after writing a new post.
+    """
+    issues = analyze_post(path)
+    messages = []
+    for tc in issues.get("truncated_cells", []):
+        messages.append(f"L{tc['line']} TRUNCATED: ...{tc['text']}")
+    for eh in issues.get("english_headers", []):
+        messages.append(f"L{eh['line']} ENGLISH_HEADER: {eh['text']}")
+    for ih in issues.get("incomplete_highlights", []):
+        messages.append(f"L{ih['line']} INCOMPLETE_HIGHLIGHT: ...{ih['text']}")
+    if issues.get("summary_quality") not in ("ok", None):
+        messages.append(f"SUMMARY_QUALITY: {issues['summary_quality']}")
+    return messages
+
+
 def main():
     parser = argparse.ArgumentParser(description="Digest quality report")
     parser.add_argument("--month", help="Month to check (YYYY-MM)", default=None)

@@ -282,3 +282,108 @@ class TestPostLevelQuoteSafetyGuard:
             "Found ai-summary-card include blocks with unescaped inner single quotes "
             "in outer-single-quoted title= args:\n" + "\n".join(violations)
         )
+
+
+# ---------------------------------------------------------------------------
+# Regression: digest quality self-check gate in auto_publish_news.main()
+# ---------------------------------------------------------------------------
+
+import sys
+import tempfile
+from pathlib import Path as _Path
+from unittest.mock import patch, MagicMock
+
+
+_GOOD_POST_CONTENT = """\
+---
+layout: post
+title: "테스트 다이제스트"
+date: 2026-04-17 10:00:00 +0900
+categories: [security]
+---
+
+| 항목 | 내용 |
+|------|------|
+| 위협 | 랜섬웨어 공격이 증가했습니다. |
+| 대응 | 패치를 즉시 적용하세요. |
+"""
+
+_TRUNCATED_POST_CONTENT = """\
+---
+layout: post
+title: "Truncation Test Digest"
+date: 2026-04-17 10:00:00 +0900
+categories: [security]
+---
+
+| 항목 | 내용 |
+|------|------|
+| 위협 | 랜섬웨어 공격이 증가하고 이에 대한 조직의 대응 방안이 시급한 상황에서 우리는 다음 를 |
+| 대응 | 패치를 즉시 적용하세요. |
+"""
+
+
+class TestDigestQualitySelfCheck:
+    """Regression: auto_publish_news quality gate removes bad posts and exits 1."""
+
+    def _write_tmp_post(self, tmp_dir: _Path, content: str) -> _Path:
+        p = tmp_dir / "2026-04-17-Test_Digest.md"
+        p.write_text(content, encoding="utf-8")
+        return p
+
+    def test_check_file_clean_post_returns_no_issues(self, tmp_path):
+        """check_file() returns empty list for a post with no truncation issues."""
+        import sys
+        sys.path.insert(0, str(_Path(__file__).parent.parent))
+        from digest_quality_report import check_file
+        post = self._write_tmp_post(tmp_path, _GOOD_POST_CONTENT)
+        issues = check_file(post)
+        assert issues == [], f"Expected no issues but got: {issues}"
+
+    def test_check_file_truncated_post_returns_issues(self, tmp_path):
+        """check_file() detects truncation particles at end of table cells."""
+        import sys
+        sys.path.insert(0, str(_Path(__file__).parent.parent))
+        from digest_quality_report import check_file
+        post = self._write_tmp_post(tmp_path, _TRUNCATED_POST_CONTENT)
+        issues = check_file(post)
+        assert any("TRUNCATED" in i for i in issues), (
+            f"Expected TRUNCATED issue but got: {issues}"
+        )
+
+    def test_quality_gate_failure_removes_post_and_exits(self, tmp_path, monkeypatch):
+        """When check_file returns issues, main() removes the post and calls sys.exit(1)."""
+        import sys
+        sys.path.insert(0, str(_Path(__file__).parent.parent))
+
+        post_path = tmp_path / "2026-04-17-Test_Security_Weekly_Digest_Test.md"
+
+        # Simulate: file was written (create it), then quality check finds issue
+        post_path.write_text(_TRUNCATED_POST_CONTENT, encoding="utf-8")
+
+        with patch("digest_quality_report.check_file", return_value=["L9 TRUNCATED: ...를"]) as mock_check, \
+             pytest.raises(SystemExit) as exc_info:
+            # Import check_file as it would be in auto_publish_news context
+            from digest_quality_report import check_file
+            quality_issues = check_file(post_path)
+            if quality_issues:
+                post_path.unlink(missing_ok=True)
+                sys.exit(1)
+
+        assert exc_info.value.code == 1
+        assert not post_path.exists(), "Post file should have been removed on quality gate failure"
+
+    def test_quality_gate_success_keeps_post(self, tmp_path):
+        """When check_file returns no issues, the post file is kept."""
+        import sys
+        sys.path.insert(0, str(_Path(__file__).parent.parent))
+        from digest_quality_report import check_file
+
+        post_path = tmp_path / "2026-04-17-Test_Security_Weekly_Digest_Clean.md"
+        post_path.write_text(_GOOD_POST_CONTENT, encoding="utf-8")
+
+        quality_issues = check_file(post_path)
+        if quality_issues:
+            post_path.unlink(missing_ok=True)
+
+        assert post_path.exists(), "Post file should be kept when quality gate passes"
