@@ -117,3 +117,12 @@ USER.md
 _data/processed_news_ids.json
 _drafts/prompts/
 .venv/
+
+# Coverage artifacts (pytest-cov)
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# OMX (oh-my-codex) local state - not for commit
+.omx/
