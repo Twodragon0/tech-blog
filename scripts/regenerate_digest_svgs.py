@@ -1,20 +1,67 @@
 #!/usr/bin/env python3
 """Regenerate cover SVGs (and derivative formats) for the weekly digest series.
 
-This is the generalised successor to ``regenerate_phase_a_svgs.py``.  It keeps
-the same visual language (dark navy gradient, three issue cards, per-card
-palette) but spans multiple waves of posts.  Phase A (2026-04-09..2026-04-19)
-and Phase B (2026-03-08..2026-04-05) are both maintained here so one script can
-rebuild every digest cover without external API calls.
+This is the canonical successor to ``regenerate_phase_a_svgs.py`` (PR #262).
+It keeps the same visual language (dark navy gradient, three issue cards,
+per-card palette) but spans multiple waves of posts.  Phase A (2026-04-09 to
+2026-04-19) and Phase B (2026-03-08 to 2026-04-05) are both maintained here so
+one script can rebuild every digest cover without external API calls.
 
-Run from the repo root::
+Usage
+-----
+Set the Cairo library path first (macOS Homebrew)::
 
-    DYLD_LIBRARY_PATH=/opt/homebrew/opt/cairo/lib \
-      python3 scripts/regenerate_digest_svgs.py
+    export DYLD_LIBRARY_PATH=/opt/homebrew/opt/cairo/lib
 
-English-only SVG text content is required by project policy; the card
-payload below was hand-written from each post's ``highlights_html`` block
-(or in the case of the monthly index, from the digest table of contents).
+Rebuild all phases (default)::
+
+    python3 scripts/regenerate_digest_svgs.py
+
+Rebuild Phase A only (2026-04-09..2026-04-19)::
+
+    python3 scripts/regenerate_digest_svgs.py --phase a
+
+Rebuild Phase B only (2026-03-08..2026-04-05)::
+
+    python3 scripts/regenerate_digest_svgs.py --phase b
+
+SVG only, skip raster derivatives::
+
+    python3 scripts/regenerate_digest_svgs.py --skip-derivatives
+
+Target specific post files (positional args are ignored by current CLI;
+use ``--phase`` to select a subset)::
+
+    python3 scripts/regenerate_digest_svgs.py --phase a --skip-derivatives
+
+Output layout
+-------------
+For each basename the script writes or overwrites:
+
+- ``assets/images/{basename}.svg``          — 1200x630 source SVG
+- ``assets/images/{basename}_og.png``       — temporary; removed after conversion
+- ``assets/images/{basename}_og.webp``      — Open Graph image (quality 88)
+- ``assets/images/{basename}_og.avif``      — Open Graph image (quality 72)
+- ``assets/images/{basename}_card.webp``    — Twitter/card image 525x275 (quality 88)
+- ``assets/images/{basename}_card.avif``    — Twitter/card image 525x275 (quality 72)
+
+Safety rules
+------------
+- **English-only SVG text**: Korean characters and special punctuation
+  (``·``, ``•``, ``—``, curly quotes) are rejected by the validator before any
+  file is written.
+- **No external API calls**: all card payloads are hand-written constants;
+  the script works offline.
+- **Reference anchor untouched**: ``2026-04-19-..._Botnet.svg`` is the style
+  reference; its derivatives are regenerated but its SVG source is never
+  overwritten by this script.
+- Pre-commit hook: changes to this file or ``scripts/tests/`` trigger
+  ``pytest scripts/tests/`` automatically.
+
+Related PRs
+-----------
+- PR #262 — Phase A SVG generation (original ``regenerate_phase_a_svgs.py``)
+- PR #263 — Phase B SVG generation (this script introduced)
 """
 
 from __future__ import annotations
