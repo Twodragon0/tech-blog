@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.lib.image_utils import (
     ImageIssue,
+    _normalize_extracted_path,
     check_image_exists,
     check_image_references,
     extract_front_matter_image,
@@ -258,6 +259,17 @@ def test_extract_fm_image_stops_at_newline():
     result = extract_front_matter_image(content)
     assert result == "/assets/images/first.svg"
     assert "\n" not in (result or "")
+
+
+def test_extract_image_paths_skips_whitespace_only_front_matter():
+    """image: 뒤에 공백만 있는 front matter 에서 assets/images 경로가 없으면 빈 리스트."""
+    content = "---\nimage:    \n---\nBody has no image references.\n"
+    assert extract_image_paths(content) == []
+
+
+def test_normalize_extracted_path_returns_none_for_empty_input():
+    """빈 path 입력 시 defensive guard 가 즉시 None 을 반환한다."""
+    assert _normalize_extracted_path("") is None
 
 
 if __name__ == "__main__":
