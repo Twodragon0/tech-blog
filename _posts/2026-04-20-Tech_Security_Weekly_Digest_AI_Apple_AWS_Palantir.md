@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적''
+  title="Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 &#x27;퇴행적&#x27;"
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">AI</span>
