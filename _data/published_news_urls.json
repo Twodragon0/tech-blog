@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-19T01:54:55.514254+00:00",
+  "updated_at": "2026-04-20T01:55:51.806292+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html",
-      "title": "$285 Million Drift Hack Traced to Six-Month DPRK Social Engineering Operation",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/traffic-violation-scams-switch-to-qr-codes-in-new-phishing-texts/",
-      "title": "Traffic violation scams switch to QR codes in new phishing texts",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-fortinet-forticlient-ems-flaw-cve-2026-35616-exploited-in-attacks/",
-      "title": "New FortiClient EMS flaw exploited in attacks, emergency patch released",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/36-malicious-npm-packages-exploited.html",
-      "title": "36 Malicious npm Packages Exploited Redis, PostgreSQL to Deploy Persistent Impla",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-react2shell-in-automated-credential-theft-campaign/",
-      "title": "Hackers exploit React2Shell in automated credential theft campaign",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/crypto-attorney-says-drift-incident-may-qualify-as-civil-negligence?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Crypto attorney says Drift incident may qualify as 'civil negligence'",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/polymarket-odds-us-invade-iran-2027-60-trump?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Polymarket odds of US invading Iran this year reach 63% after Trump's post",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-us-dollar-symbiotic-relationship-bpi?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin and the US dollar have a 'symbiotic' relationship: BPI exec",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/robert-kiyosaki-1974-shift-bitcoin-gold-real-money?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Robert Kiyosaki recommends Bitcoin, gold as 1974 shift comes full circle",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-bearish-social-media-chatter-low-price-btc-stagnant-santiment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin bearish social chatter reaches 5-week high: Santiment",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28246",
-      "title": "Awesome Design.MD - 유명 웹사이트 디자인 시스템을 내 사이트에 적용하기",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28245",
-      "title": "rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28244",
-      "title": "BrowserStack에서 사용자 이메일 주소가 유출되고 있음",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28242",
-      "title": "Google AI Edge Gallery - 완전 오프라인 LLM 갤러리 앱 오픈소스",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28241",
-      "title": "AWS 엔지니어, Linux 7.0에서 PostgreSQL 성능이 절반으로 감소했다고 보고 – 수정이 쉽지 않을 수 있음",
-      "published_date": "2026-04-06",
-      "expires_at": "2026-04-13T01:32:45.560055+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/iran-linked-password-spraying-campaign.html",
       "title": "Iran-Linked Password-Spraying Campaign Targets 300+ Israeli Microsoft 365 Organi",
@@ -1260,6 +1170,90 @@
       "title": "Kdenlive 현황",
       "published_date": "2026-04-19",
       "expires_at": "2026-04-26T01:54:55.514134+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/apple-account-change-alerts-abused-to-send-phishing-emails/",
+      "title": "Apple account change alerts abused to send phishing emails",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/nist-to-stop-rating-non-priority-flaws-due-to-volume-increase/",
+      "title": "NIST to stop rating non-priority flaws due to volume increase",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/04/19/palantir-posts-mini-manifesto-denouncing-regressive-and-harmful-cultures/",
+      "title": "Palantir posts mini-manifesto denouncing inclusivity and ‘regressive’ cultures",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28699",
+      "title": "Vercel 2026년 4월 보안 사고",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/stablecoins-not-a-threat-to-banking-sector-in-the-near-term-moody-s?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Stablecoins not a threat to banks in the near-term: Moody's analyst",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-cycle-dramatically-underperform-halving?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "2024 BTC cycle 'dramatically' underperforming previous halvings: Analyst",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kelp-exploit-non-isolated-defi-lending?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kelp exploit highlights problem with non-isolated DeFi lending: Crypto execs",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/alcoa-sells-massena-smelter-nydig-bitcoin-mining-ai-data-centers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Aluminum giant Alcoa to sell dormant smelter to Bitcoin miner NYDIG: Report",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ravedao-denies-manipulation-binance-bitget-probe-rave-trading?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "RaveDAO denies manipulation as Binance, Bitget probe RAVE trading activity",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28703",
+      "title": "프로그래밍의 일곱 가지 원형 언어 (2022)",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28702",
+      "title": "iroh - 공개키 기반 초고속 P2P 네트워크 연결 라이브러리 오픈소스",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28701",
+      "title": "모든 공개 Notion 페이지가 모든 편집자의 이메일 주소를 유출",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28700",
+      "title": "Vercel, 내부 시스템 침해 발생했다고 밝혀",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=28698",
+      "title": "아빠의 뇌: 아버지됨이 남성의 마음을 어떻게 재구성하는가",
+      "published_date": "2026-04-20",
+      "expires_at": "2026-04-27T01:55:51.806174+00:00"
     }
   ]
 }
