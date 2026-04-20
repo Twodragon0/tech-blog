@@ -1,230 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>Security Weekly Digest - April 13 2026</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Security Weekly Digest - 2026-04-13</title>
   <defs>
-    <linearGradient id="apr13bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1a0505"/>
-      <stop offset="100%" stop-color="#0a0e1a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e27"/>
+      <stop offset="1" stop-color="#1a1f3a"/>
     </linearGradient>
-    <linearGradient id="apr13accent" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#f59e0b"/>
+    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3e6c"/>
+      <stop offset="1" stop-color="#ff7a4a"/>
     </linearGradient>
-    <linearGradient id="apr13title" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#cbd5e1"/>
+    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5ba3ff"/>
+      <stop offset="1" stop-color="#9d6fff"/>
     </linearGradient>
-    <linearGradient id="apr13panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020810" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#0a0505" stop-opacity="0.8"/>
+    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ff88"/>
+      <stop offset="1" stop-color="#00d4b2"/>
     </linearGradient>
-    <radialGradient id="apr13glow1" cx="55%" cy="45%" r="30%">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
     </radialGradient>
-    <filter id="apr13glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#dc2626" flood-opacity="0.6"/>
-    </filter>
-    <pattern id="apr13pcb" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <line x1="20" y1="0" x2="20" y2="40" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
-      <line x1="0" y1="20" x2="40" y2="20" stroke="#22c55e" stroke-width="0.3" opacity="0.08"/>
-      <circle cx="20" cy="20" r="2" fill="none" stroke="#22c55e" stroke-width="0.3" opacity="0.1"/>
-    </pattern>
-    <clipPath id="apr13clip"><rect x="1" y="1" width="1198" height="628" rx="8"/></clipPath>
-    <style>
-      @keyframes apr13pulse{0%,100%{opacity:0.3}50%{opacity:0.9}}
-      @keyframes apr13crack{0%,100%{stroke-opacity:0.5}50%{stroke-opacity:1}}
-      @keyframes apr13elec{to{stroke-dashoffset:-16}}
-    </style>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#apr13bg)"/>
-  <g clip-path="url(#apr13clip)">
-    <!-- PCB background -->
-    <rect width="1200" height="630" fill="url(#apr13pcb)"/>
-    <rect width="1200" height="630" fill="url(#apr13glow1)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
+  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
 
-    <!-- PCB traces (decorative green lines) -->
-    <g stroke="#22c55e" stroke-width="0.6" opacity="0.12" fill="none">
-      <polyline points="400,80 400,150 500,150 500,200"/>
-      <polyline points="800,80 800,120 900,120 900,200"/>
-      <polyline points="500,450 600,450 600,520 700,520"/>
-      <polyline points="900,400 1000,400 1000,500 1100,500"/>
-      <polyline points="380,300 420,300 420,350 500,350"/>
-      <polyline points="850,300 890,300 890,250"/>
-    </g>
-    <!-- Via holes -->
-    <g fill="none" stroke="#22c55e" stroke-width="0.5" opacity="0.15">
-      <circle cx="400" cy="150" r="4"/><circle cx="500" cy="200" r="4"/>
-      <circle cx="800" cy="120" r="4"/><circle cx="900" cy="200" r="4"/>
-      <circle cx="600" cy="450" r="4"/><circle cx="700" cy="520" r="4"/>
-      <circle cx="420" cy="350" r="4"/><circle cx="890" cy="250" r="4"/>
-    </g>
-
-    <!-- LEFT SIDEBAR -->
-    <rect x="0" y="0" width="300" height="630" fill="url(#apr13panel)"/>
-    <rect x="0" y="0" width="4" height="630" fill="url(#apr13accent)"/>
-
-    <rect x="28" y="32" width="180" height="28" rx="4" fill="#7f1d1d" stroke="#dc2626" stroke-width="1.5"/>
-    <text x="118" y="50" font-family="Courier New,monospace" font-size="11" fill="#fca5a5" text-anchor="middle" letter-spacing="2" font-weight="bold">SUPPLY CHAIN</text>
-
-    <text x="28" y="88" font-family="Courier New,monospace" font-size="10" fill="#64748b" letter-spacing="1">2026-04-13</text>
-
-    <text x="28" y="128" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="url(#apr13title)" font-weight="700">CPUID Breach</text>
-    <text x="28" y="158" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="url(#apr13title)" font-weight="700">Marimo RCE</text>
-    <text x="28" y="188" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="url(#apr13title)" font-weight="700">Adobe 0-Day</text>
-
-    <rect x="28" y="202" width="240" height="2" rx="1" fill="url(#apr13accent)" opacity="0.8"/>
-
-    <!-- Severity ratings -->
-    <text x="28" y="234" font-family="Courier New,monospace" font-size="10" fill="#94a3b8">SEVERITY RATINGS</text>
-    <rect x="28" y="244" width="70" height="20" rx="3" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1"/>
-    <text x="63" y="258" font-family="Courier New,monospace" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">CRITICAL</text>
-    <text x="108" y="258" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.7">CPUID CPU-Z</text>
-
-    <rect x="28" y="272" width="70" height="20" rx="3" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1"/>
-    <text x="63" y="286" font-family="Courier New,monospace" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">CRITICAL</text>
-    <text x="108" y="286" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.7">Marimo RCE</text>
-
-    <rect x="28" y="300" width="50" height="20" rx="3" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-    <text x="53" y="314" font-family="Courier New,monospace" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="bold">HIGH</text>
-    <text x="88" y="314" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.7">Adobe Acrobat</text>
-
-    <!-- Stats -->
-    <rect x="28" y="345" width="245" height="80" rx="6" fill="#1a0505" stroke="#dc2626" stroke-width="1" opacity="0.6"/>
-    <text x="44" y="365" font-family="Courier New,monospace" font-size="9" fill="#dc2626" font-weight="bold" letter-spacing="1">CVE METRICS</text>
-    <text x="44" y="385" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.7">CVE COUNT</text>
-    <text x="258" y="385" font-family="Courier New,monospace" font-size="12" fill="#dc2626" text-anchor="end" font-weight="bold">47</text>
-    <text x="44" y="403" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.7">PATCH STATUS</text>
-    <text x="258" y="403" font-family="Courier New,monospace" font-size="10" fill="#f59e0b" text-anchor="end" font-weight="bold">PENDING</text>
-    <text x="44" y="420" font-family="Courier New,monospace" font-size="7" fill="#64748b" opacity="0.6">LAST SCAN: 13:45 UTC</text>
-
-    <!-- Mini trend chart -->
-    <rect x="28" y="440" width="245" height="60" rx="6" fill="#0a0505" stroke="#f59e0b" stroke-width="0.8" opacity="0.5"/>
-    <text x="44" y="456" font-family="Courier New,monospace" font-size="8" fill="#f59e0b" font-weight="bold">WEEKLY TREND</text>
-    <polyline points="50,490 80,480 110,485 140,475 170,478 200,468 230,460 255,465" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.6"/>
-    <circle cx="255" cy="465" r="3" fill="#dc2626" opacity="0.8"/>
-
-    <text x="28" y="530" font-family="Courier New,monospace" font-size="10" fill="#475569">tech.2twodragon.com</text>
-
-    <!-- ===== CENTER: CPU CHIP WITH CRACK ===== -->
-    <g transform="translate(620,300)" filter="url(#apr13glow)">
-      <!-- CPU body -->
-      <rect x="-80" y="-80" width="160" height="160" rx="8" fill="#0f172a" stroke="#dc2626" stroke-width="2.5"/>
-      <!-- Inner die -->
-      <rect x="-50" y="-50" width="100" height="100" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-      <!-- Die grid -->
-      <g stroke="#ef4444" stroke-width="0.3" opacity="0.2">
-        <line x1="-50" y1="-25" x2="50" y2="-25"/><line x1="-50" y1="0" x2="50" y2="0"/>
-        <line x1="-50" y1="25" x2="50" y2="25"/>
-        <line x1="-25" y1="-50" x2="-25" y2="50"/><line x1="0" y1="-50" x2="0" y2="50"/>
-        <line x1="25" y1="-50" x2="25" y2="50"/>
-      </g>
-      <!-- CPU pins (top) -->
-      <g stroke="#dc2626" stroke-width="1.5" opacity="0.4">
-        <line x1="-55" y1="-80" x2="-55" y2="-92"/><line x1="-35" y1="-80" x2="-35" y2="-92"/>
-        <line x1="-15" y1="-80" x2="-15" y2="-92"/><line x1="5" y1="-80" x2="5" y2="-92"/>
-        <line x1="25" y1="-80" x2="25" y2="-92"/><line x1="45" y1="-80" x2="45" y2="-92"/>
-      </g>
-      <!-- CPU pins (bottom) -->
-      <g stroke="#dc2626" stroke-width="1.5" opacity="0.4">
-        <line x1="-55" y1="80" x2="-55" y2="92"/><line x1="-35" y1="80" x2="-35" y2="92"/>
-        <line x1="-15" y1="80" x2="-15" y2="92"/><line x1="5" y1="80" x2="5" y2="92"/>
-        <line x1="25" y1="80" x2="25" y2="92"/><line x1="45" y1="80" x2="45" y2="92"/>
-      </g>
-      <!-- CPU pins (left) -->
-      <g stroke="#dc2626" stroke-width="1.5" opacity="0.4">
-        <line x1="-80" y1="-55" x2="-92" y2="-55"/><line x1="-80" y1="-35" x2="-92" y2="-35"/>
-        <line x1="-80" y1="-15" x2="-92" y2="-15"/><line x1="-80" y1="5" x2="-92" y2="5"/>
-        <line x1="-80" y1="25" x2="-92" y2="25"/><line x1="-80" y1="45" x2="-92" y2="45"/>
-      </g>
-      <!-- CPU pins (right) -->
-      <g stroke="#dc2626" stroke-width="1.5" opacity="0.4">
-        <line x1="80" y1="-55" x2="92" y2="-55"/><line x1="80" y1="-35" x2="92" y2="-35"/>
-        <line x1="80" y1="-15" x2="92" y2="-15"/><line x1="80" y1="5" x2="92" y2="5"/>
-        <line x1="80" y1="25" x2="92" y2="25"/><line x1="80" y1="45" x2="92" y2="45"/>
-      </g>
-      <!-- CRACK -->
-      <polyline points="-45,-48 -30,-20 -15,-30 5,5 20,-10 35,20 48,48" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.8" style="animation:apr13crack 2s ease-in-out infinite"/>
-      <polyline points="-40,-48 -25,-22 -10,-32 10,3 25,-12 40,18 50,48" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.4"/>
-      <!-- CPUID label -->
-      <text x="0" y="0" font-family="Courier New,monospace" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold" opacity="0.8">CPUID</text>
-    </g>
-
-    <!-- Pulse rings from crack -->
-    <circle cx="620" cy="300" r="100" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.15" style="animation:apr13pulse 2s ease-in-out infinite"/>
-    <circle cx="620" cy="300" r="130" fill="none" stroke="#ef4444" stroke-width="0.8" opacity="0.1" style="animation:apr13pulse 3s ease-in-out infinite"/>
-    <circle cx="620" cy="300" r="160" fill="none" stroke="#dc2626" stroke-width="0.5" opacity="0.08" style="animation:apr13pulse 4s ease-in-out infinite"/>
-
-    <text x="620" y="420" font-family="Courier New,monospace" font-size="14" fill="#dc2626" text-anchor="middle" font-weight="bold">CPUID BREACH</text>
-    <text x="620" y="440" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" text-anchor="middle" opacity="0.7">Tampered CPU-Z Downloads</text>
-
-    <!-- ===== TOP-RIGHT: MARIMO RCE ===== -->
-    <rect x="850" y="80" width="320" height="150" rx="8" fill="#0a0f1e" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/>
-    <rect x="850" y="80" width="320" height="24" rx="8" fill="#f59e0b" opacity="0.08"/>
-    <text x="870" y="98" font-family="Courier New,monospace" font-size="10" fill="#f59e0b" font-weight="bold" letter-spacing="1">MARIMO RCE</text>
-
-    <!-- Code block -->
-    <g font-family="Courier New,monospace" font-size="9" opacity="0.7">
-      <text x="870" y="126" fill="#94a3b8">def authenticate():</text>
-      <text x="870" y="142" fill="#94a3b8">  token = request.get()</text>
-      <rect x="865" y="147" width="290" height="14" rx="2" fill="#ef4444" opacity="0.1"/>
-      <text x="870" y="158" fill="#ef4444">  eval(user_input)  # RCE</text>
-      <text x="870" y="174" fill="#94a3b8">  return response</text>
-    </g>
-
-    <!-- PRE-AUTH badge -->
-    <rect x="1070" y="190" width="80" height="22" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="1110" y="205" font-family="Courier New,monospace" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="bold">PRE-AUTH</text>
-
-    <!-- Dashed attack path: RCE to CPU -->
-    <path d="M890 230 Q 800 260 700 280" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8 5" opacity="0.4" style="animation:apr13elec 2s linear infinite"/>
-
-    <!-- ===== BOTTOM-RIGHT: ADOBE 0DAY ===== -->
-    <rect x="850" y="390" width="320" height="150" rx="8" fill="#0a0f1e" stroke="#dc2626" stroke-width="1.5" opacity="0.8"/>
-    <rect x="850" y="390" width="320" height="24" rx="8" fill="#dc2626" opacity="0.08"/>
-    <text x="870" y="408" font-family="Courier New,monospace" font-size="10" fill="#dc2626" font-weight="bold" letter-spacing="1">ADOBE ZERO-DAY</text>
-
-    <!-- PDF icon -->
-    <g transform="translate(920,470)">
-      <rect x="-20" y="-25" width="40" height="50" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="1.5"/>
-      <polygon points="7,-25 20,-12 7,-12" fill="#dc2626" opacity="0.3"/>
-      <text x="0" y="5" font-family="Courier New,monospace" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">PDF</text>
-    </g>
-
-    <!-- Warning triangle overlay -->
-    <g transform="translate(970,455)">
-      <polygon points="0,-18 20,14 -20,14" fill="none" stroke="#ef4444" stroke-width="2"/>
-      <text x="0" y="10" font-family="Courier New,monospace" font-size="14" fill="#ef4444" text-anchor="middle" font-weight="bold">!</text>
-    </g>
-
-    <text x="1060" y="460" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.8">Acrobat Reader</text>
-    <text x="1060" y="478" font-family="Courier New,monospace" font-size="9" fill="#fca5a5" opacity="0.8">CVE-2026-XXXX</text>
-
-    <!-- ACTIVELY EXPLOITED badge -->
-    <rect x="1020" y="495" width="140" height="22" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
-    <text x="1090" y="510" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold">ACTIVELY EXPLOITED</text>
-
-    <!-- Dashed attack path: Adobe to CPU -->
-    <path d="M870 460 Q 780 400 700 340" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="8 5" opacity="0.3" style="animation:apr13elec 2.5s linear infinite"/>
-
-    <!-- Floating particles -->
-    <circle cx="400" cy="100" r="2" fill="#22c55e" opacity="0.3">
-      <animate attributeName="opacity" values="0.3;0.08;0.3" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="750" cy="500" r="2.5" fill="#dc2626" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="60" y1="95" x2="1140" y2="95"/>
+    <line x1="60" y1="555" x2="1140" y2="555"/>
   </g>
 
-  <!-- FOOTER -->
-  <line x1="28" y1="590" x2="1172" y2="590" stroke="#1e293b" stroke-width="1"/>
-  <text x="28" y="612" font-family="Courier New,monospace" font-size="12" fill="#475569">Security Weekly Digest | April 13, 2026</text>
-  <text x="1172" y="612" font-family="Courier New,monospace" font-size="11" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-13</text>
 
-  <rect x="0.5" y="0.5" width="1199" height="629" rx="8" fill="none" stroke="#1e293b" stroke-width="1"/>
-  <polyline points="0,25 0,0 25,0" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
-  <polyline points="1175,0 1200,0 1200,25" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
-  <polyline points="0,605 0,630 25,630" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
-  <polyline points="1175,630 1200,630 1200,605" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.5"/>
+  <g transform="translate(60, 125)">
+    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
+    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round">
+      <rect x="-28" y="-28" width="56" height="56" rx="6"/>
+      <rect x="-14" y="-14" width="28" height="28" rx="3"/>
+      <line x1="-36" y1="-14" x2="-28" y2="-14"/>
+      <line x1="-36" y1="0" x2="-28" y2="0"/>
+      <line x1="-36" y1="14" x2="-28" y2="14"/>
+      <line x1="28" y1="-14" x2="36" y2="-14"/>
+      <line x1="28" y1="0" x2="36" y2="0"/>
+      <line x1="28" y1="14" x2="36" y2="14"/>
+      <line x1="-14" y1="-36" x2="-14" y2="-28"/>
+      <line x1="0" y1="-36" x2="0" y2="-28"/>
+      <line x1="14" y1="-36" x2="14" y2="-28"/>
+      <line x1="-14" y1="28" x2="-14" y2="36"/>
+      <line x1="0" y1="28" x2="0" y2="36"/>
+      <line x1="14" y1="28" x2="14" y2="36"/>
+    </g>
+    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
+    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">SUPPLY</text>
+    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPUID Breach</text>
+    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPU-Z Trojanized</text>
+    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">STX RAT delivered</text>
+    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">HWMonitor downloads</text>
+    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">altered at source</text>
+  </g>
+  <g transform="translate(427, 125)">
+    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
+    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0,-44 L50,40 L-50,40 Z"/>
+      <line x1="0" y1="-16" x2="0" y2="16" stroke-width="3.5"/>
+      <circle cx="0" cy="30" r="3.5" fill="url(#accentBlue)" stroke="none"/>
+    </g>
+    <rect x="125" y="210" width="96" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
+    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">CRITICAL</text>
+    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Marimo RCE</text>
+    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Under Exploit</text>
+    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">CVE-2026-39987</text>
+    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Pre-auth remote code</text>
+    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">executed in the wild</text>
+  </g>
+  <g transform="translate(795, 125)">
+    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
+    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
+      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
+    </g>
+    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
+    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">PATCH</text>
+    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Adobe Acrobat</text>
+    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Patches Zero-Day</text>
+    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">CVE-2026-34621</text>
+    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Active exploitation</text>
+    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">against PDF readers</text>
+  </g>
+
+  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
+
+  <g transform="translate(950, 578)">
+    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
+    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
+    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
+    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  </g>
 </svg>
