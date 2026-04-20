@@ -76,6 +76,7 @@ include = [
     "scripts/fix_links_unified.py",
     "scripts/verify_images_unified.py",
     "scripts/regenerate_all_images.py",
+    "scripts/regenerate_digest_svgs.py",
     "scripts/lib/*.py",
 ]
 show_missing = true
