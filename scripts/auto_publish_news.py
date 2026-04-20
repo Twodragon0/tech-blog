@@ -446,6 +446,29 @@ def main():
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
     _run_post_quality_gate(post_path, target=80)
+
+    # --- Digest quality self-check (truncation / English-header gate) ---
+    try:
+        from digest_quality_report import check_file as _check_digest_quality
+        quality_issues = _check_digest_quality(post_path)
+    except Exception as _qe:
+        logging.debug(f"digest quality self-check skipped: {_qe}")
+        quality_issues = []
+
+    if quality_issues:
+        post_path.unlink(missing_ok=True)
+        print(
+            f"\u274c Digest quality gate FAILED for {post_path.name}:",
+            file=sys.stderr,
+        )
+        for qi in quality_issues:
+            print(f"   {qi}", file=sys.stderr)
+        print(
+            "   Post file removed. Fix the content generator and retry.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     print(f"\u2705 Created post: {post_path}")
 
     # Track published URLs for cross-day dedup
