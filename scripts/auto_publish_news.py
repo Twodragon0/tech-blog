@@ -77,6 +77,7 @@ from scripts.news.config import (  # noqa: E402,F401
 from scripts.news.content_generator import (  # noqa: E402,F401
     _apply_trend_kr_map,
     _build_digest_title,
+    _html_escape_quotes,
     _determine_severity,
     _extract_cve_ids,
     _extract_digest_title_labels,

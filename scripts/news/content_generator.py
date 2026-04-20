@@ -36,6 +36,18 @@ from scripts.news.svg_generator import (
 )
 
 
+def _html_escape_quotes(text: str) -> str:
+    """Escape quotes for safe injection into Liquid include double-quoted args.
+
+    Replaces single quotes with &#x27; and double quotes with &quot; so that
+    a value injected inside double-quoted Liquid attributes (title="...") never
+    breaks the parser regardless of what characters appear in news headlines.
+
+    & is escaped first to avoid double-escaping existing entities.
+    """
+    return text.replace("&", "&amp;").replace('"', "&quot;").replace("'", "&#x27;")
+
+
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
     if mode == "tech-blog":
         category_labels = {
@@ -875,6 +887,11 @@ def generate_post_content(
         f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
     )
 
+    # Escape quotes in title before Liquid injection to prevent parser breakage
+    # (e.g. headlines containing inner single quotes like '퇴행적' would terminate
+    # a single-quoted arg prematurely). Use double-quoted outer + entity encoding.
+    safe_title = _html_escape_quotes(title_keywords)
+
     content = f'''---
 layout: post
 title: "{title_keywords}"
@@ -892,7 +909,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='{title_keywords}'
+  title="{safe_title}"
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
@@ -1217,6 +1234,9 @@ def generate_tech_blog_content(
         f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
     )
 
+    # Escape quotes in title before Liquid injection (same guard as security template)
+    safe_title = _html_escape_quotes(title_keywords)
+
     content = f'''---
 layout: post
 title: "기술 블로그 주간 다이제스트: {title_keywords}"
@@ -1234,7 +1254,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='기술 블로그 주간 다이제스트: {title_keywords}'
+  title="기술 블로그 주간 다이제스트: {safe_title}"
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
