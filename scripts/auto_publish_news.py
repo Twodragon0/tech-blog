@@ -227,6 +227,53 @@ sys.modules[__name__] = _ConfigProxy(_this_module)
 
 
 # ---------------------------------------------------------------------------
+# Digest quality gate
+# ---------------------------------------------------------------------------
+
+
+def _run_digest_quality_gate(post_path: Path, strict: bool = True) -> bool:
+    """Run digest_quality_report analysis on a just-written Digest post.
+
+    Returns True when the post is clean (or not a Digest). When issues are
+    found and ``strict`` is True, prints a summary and returns False so the
+    caller can abort. When ``strict`` is False, prints a warning and returns
+    True (issues logged but not blocking).
+    """
+    if "Digest" not in post_path.name:
+        return True
+    try:
+        import importlib
+
+        analyze_post = importlib.import_module("digest_quality_report").analyze_post
+    except Exception as e:
+        logging.warning(f"digest_quality_report import failed: {e}")
+        return True
+
+    issues = analyze_post(post_path)
+    has_issues = bool(
+        issues.get("truncated_cells")
+        or issues.get("english_headers")
+        or issues.get("incomplete_highlights")
+        or (issues.get("summary_quality") not in (None, "ok"))
+    )
+    if not has_issues:
+        return True
+
+    label = "❌ Digest quality gate FAILED" if strict else "⚠️ Digest quality gate WARNING"
+    print(f"{label} for {post_path.name}:")
+    for tc in issues.get("truncated_cells", []):
+        print(f"   - TRUNCATED L{tc['line']}: ...{tc['text']}")
+    for eh in issues.get("english_headers", []):
+        print(f"   - ENGLISH HEADER L{eh['line']}: {eh['text']}")
+    for ih in issues.get("incomplete_highlights", []):
+        print(f"   - INCOMPLETE HIGHLIGHT L{ih['line']}: ...{ih['text']}")
+    if issues.get("summary_quality") not in (None, "ok"):
+        print(f"   - SUMMARY: {issues['summary_quality']}")
+
+    return not strict
+
+
+# ---------------------------------------------------------------------------
 # Main function
 # ---------------------------------------------------------------------------
 
@@ -446,6 +493,10 @@ def main():
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
     _run_post_quality_gate(post_path, target=80)
+    if not _run_digest_quality_gate(post_path, strict=not args.force):
+        print("   Hint: re-run with --force to override the digest quality gate.")
+        post_path.unlink(missing_ok=True)
+        sys.exit(1)
     print(f"\u2705 Created post: {post_path}")
 
     # Track published URLs for cross-day dedup
