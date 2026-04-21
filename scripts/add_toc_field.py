@@ -20,7 +20,7 @@ MISSING_TOC_FILES = [
     "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.md",
     "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md",
     "2025-09-17-NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis.md",
-    "2025-10-31-AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide.md",
+    "2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide.md",
     "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned.md",
     "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence.md",
 ]
