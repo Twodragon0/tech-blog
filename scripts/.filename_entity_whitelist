@@ -1,0 +1,10 @@
+# HTML entity whitelist for check_filename_entities.py
+# Format: one basename or repo-relative path per line.
+# Lines starting with # are comments.
+#
+# TEMPORARY entries — pre-existing contaminated filenames that existed before
+# the entity guard was introduced. Remove each entry after the corresponding
+# cleanup PR merges.
+#
+# temporary, remove after cleanup PR for 2025-09-17 batch merges
+# (no known contaminated files found in current tree — list kept as template)
