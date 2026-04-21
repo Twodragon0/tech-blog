@@ -516,3 +516,46 @@ _posts/ 디렉토리에 마크다운 포스트가 있습니다.
 - **Always** use environment variables
 - **Always** mask sensitive data in logs
 - Back up before running batch operations
+
+---
+
+## Pre-Commit: HTML Entity Filename Guard
+
+`scripts/check_filename_entities.py` prevents double-encoded HTML entity
+artifacts from entering filenames or frontmatter `image:` fields.
+
+### What it catches
+
+| Pattern | Example artifact | Source |
+|---------|-----------------|--------|
+| `amp<entity>` | `amplsquo`, `amprsquo`, `ampquot`, `amphellip`, `ampndash`, `ampmdash`, `ampamp` | URL/HTML double-encoding |
+| `&amp;` literal | `file&amp;name.svg` | Template rendering leak |
+| `&#NNN;` numeric | `file&#39;name.md` | Numeric char reference |
+| `&name;` named | `file&rsquo;name.md` | Named char reference |
+
+### Usage
+
+```bash
+# Check staged files only (called automatically by pre-commit hook)
+python3 scripts/check_filename_entities.py --staged
+
+# Check entire _posts/ and assets/images/ tree
+python3 scripts/check_filename_entities.py --all
+```
+
+### Whitelist (temporary exceptions)
+
+Add filenames or repo-relative paths to `scripts/.filename_entity_whitelist`
+(one per line, `#` for comments) to suppress a known pre-existing violation:
+
+```
+# temporary, remove after cleanup PR for 2025-09-17 batch merges
+2025-09-17-Korea-amplsquo.md
+```
+
+Remove each entry once the corresponding cleanup PR is merged.
+
+### Hook integration
+
+Installed automatically by `bash scripts/install-hooks.sh`.
+Runs as step 1 of the pre-commit hook (before pytest and SVG quality gate).
