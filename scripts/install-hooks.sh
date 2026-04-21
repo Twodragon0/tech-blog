@@ -15,7 +15,13 @@ cat > "$HOOK_FILE" << 'HOOK'
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 
-# 1. Run pytest when Python scripts change
+# 1. HTML entity residue guard — check staged filenames and frontmatter image: fields
+python3 "$REPO_ROOT/scripts/check_filename_entities.py" --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 2. Run pytest when Python scripts change
 CHANGED_PY=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^scripts/.*\.py$' || true)
 if [ -n "$CHANGED_PY" ]; then
   echo "[pre-commit] Running tests..."
@@ -27,7 +33,7 @@ if [ -n "$CHANGED_PY" ]; then
   echo "[pre-commit] Passed."
 fi
 
-# 2. SVG quality gate
+# 3. SVG quality gate
 sh "$REPO_ROOT/scripts/check_svg_precommit.sh"
 HOOK
 
