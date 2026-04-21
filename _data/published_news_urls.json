@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-20T01:55:51.806292+00:00",
+  "updated_at": "2026-04-21T01:52:46.331538+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/iran-linked-password-spraying-campaign.html",
-      "title": "Iran-Linked Password-Spraying Campaign Targets 300+ Israeli Microsoft 365 Organi",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/dprk-linked-hackers-use-github-as-c2-in.html",
-      "title": "DPRK-Linked Hackers Use GitHub as C2 in Multi-Stage Attacks Targeting South Kore",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/german-authorities-identify-revil-and-gangcrab-ransomware-bosses/",
-      "title": "German authorities identify REvil and GangCrab ransomware bosses",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/multi-os-cyberattacks-how-socs-close.html",
-      "title": "Multi-OS Cyberattacks: How SOCs Close a Critical Risk in 3 Steps",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/weekly-recap-axios-hack-chrome-0-day.html",
-      "title": "⚡ Weekly Recap: Axios Hack, Chrome 0-Day, Fortinet Exploits, Paragon Spyware and",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-building-a-backend-less-cross-application-api-a40be7874ee5?source=rss----3c87dc14372f---4",
-      "title": "Frontend Engineering at Palantir: Building a Backend-less Cross-Application API",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/osdk-and-mobile-applications-building-with-the-embedded-ontology-668432da6572?source=rss----3c87dc14372f---4",
-      "title": "OSDK and Mobile Applications: Building with the Embedded Ontology",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/06/developer-tools/how-meta-used-ai-to-map-tribal-knowledge-in-large-scale-data-pipelines/",
-      "title": "How Meta Used AI to Map Tribal Knowledge in Large-Scale Data Pipelines",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-openai-safety-fellowship",
-      "title": "Announcing the OpenAI Safety Fellowship",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://openai.com/index/industrial-policy-for-the-intelligence-age",
-      "title": "Industrial policy for the Intelligence Age",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/systems/ironwood-tpus-deliver-37x-carbon-efficiency-gains/",
-      "title": "AI infrastructure efficiency: Ironwood TPUs deliver 3.7x carbon efficiency gains",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/retail/how-a-leading-consumer-insight-brand-uses-dataproc-to-hyper-personalise-faster/",
-      "title": "How a leading consumer insight brand uses Dataproc to hyper-personalise faster",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-self-service-explores/",
-      "title": "Introducing Looker self-service Explores for faster ad-hoc analysis",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-embedded-adds-conversational-analytics/",
-      "title": "Conversational Analytics now available for Looker Embedded environments",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-devops-agent-security-agent-ga-product-lifecycle-updates-and-more-april-6-2026/",
-      "title": "AWS Weekly Roundup: AWS DevOps Agent & Security Agent GA, Product Lifecycle upda",
-      "published_date": "2026-04-07",
-      "expires_at": "2026-04-14T01:31:57.205318+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html",
       "title": "Russian State-Linked APT28 Exploits SOHO Routers in Global DNS Hijacking Campaig",
@@ -1254,6 +1164,96 @@
       "title": "아빠의 뇌: 아버지됨이 남성의 마음을 어떻게 재구성하는가",
       "published_date": "2026-04-20",
       "expires_at": "2026-04-27T01:55:51.806174+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/sglang-cve-2026-5760-cvss-98-enables.html",
+      "title": "SGLang CVE-2026-5760 (CVSS 9.8) Enables RCE via Malicious GGUF Model Files",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/weekly-recap-vercel-hack-push-fraud.html",
+      "title": "⚡ Weekly Recap: Vercel Hack, Push Fraud, QEMU Abused, New Android RATs Emerge & ",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/kelpdao-suffers-290-million-heist-tied-to-lazarus-hackers/",
+      "title": "KelpDAO suffers $290 million heist tied to Lazarus hackers",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/chinas-apple-app-store-infiltrated-by-crypto-stealing-wallet-apps/",
+      "title": "China's Apple App Store infiltrated by crypto-stealing wallet apps",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/why-most-ai-deployments-stall-after-demo.html",
+      "title": "Why Most AI Deployments Stall After the Demo",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
+      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence W",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-manufacturing-hannover-messe/",
+      "title": "NVIDIA and Partners Showcase the Future of AI-Driven Manufacturing at Hannover M",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-generative-ai-inference-on-amazon-sagemaker-ai-with-g7e-instances/",
+      "title": "Accelerate Generative AI Inference on Amazon SageMaker AI with G7e Instances",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/toolsimulator-scalable-tool-testing-for-ai-agents/",
+      "title": "ToolSimulator: scalable tool testing for AI agents",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/omnichannel-ordering-with-amazon-bedrock-agentcore-and-amazon-nova-2-sonic/",
+      "title": "Omnichannel ordering with Amazon Bedrock AgentCore and Amazon Nova 2 Sonic",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-opus-4-7-in-amazon-bedrock-aws-interconnect-ga-and-more-april-20-2026/",
+      "title": "AWS Weekly Roundup: Claude Opus 4.7 in Amazon Bedrock, AWS Interconnect GA, and ",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals",
+      "title": "Changes to GitHub Copilot plans for individuals",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-20-sunsetting-sha-1-in-https-on-github",
+      "title": "Sunsetting SHA-1 in HTTPS on GitHub",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/writing-nodejs-addons-with-dotnet-native-aot/",
+      "title": "Writing Node.js addons with .NET Native AOT",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/04/20/from-public-static-void-main-to-golden-kubestronaut-the-art-of-unlearning/",
+      "title": "From public static void main to Golden Kubestronaut: The Art of unlearning",
+      "published_date": "2026-04-21",
+      "expires_at": "2026-04-28T01:52:46.331431+00:00"
     }
   ]
 }
