@@ -7,7 +7,7 @@ comments: true
 date: 2025-10-31 19:19:44 +0900
 description: "AI 시대 기업 보안의 새로운 위협과 대응 전략. Shadow AI 확산, 딥페이크 사기, Rogue AI Agents 위험성, 기업 AI 서비스 보안 정책 수립 프레임워크, AI 거버넌스 체계 구축, 직원 보안 인식 교육까지 2025년 AI 보안 현황을 실무 관점에서 정리합니다."
 excerpt: "AI 시대 기업 보안의 새로운 위협과 대응 전략. Shadow AI 확산, 딥페이크 사기, Rogue AI Agents 위험성, 기업 AI 서비스 보안 정책 수립 프레임워크, AI 거버넌스 체계 구축, 직원 보안 인식 교육까지 2025년 AI 보안 현황을 실무 관점에서 정리합니다."
-image: /assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide.svg
+image: /assets/images/2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide.svg
 image_alt: 'AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not'
 layout: post
 original_url: https://twodragon.tistory.com/697
@@ -56,7 +56,7 @@ toc: true
 
 본 가이드에서는 AI 서비스 사용 시 발생할 수 있는 보안 위험을 분석하고, 기업이 이를 효과적으로 관리하기 위한 실무 가이드를 제공합니다.
 
-<img src="{{ '/assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide_image.png' | relative_url }}" alt="AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide_image.png' | relative_url }}" alt="AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole" loading="lazy" class="post-image">
 
 ### AI 서비스 보안 위협 체인
 

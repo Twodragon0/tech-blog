@@ -21,7 +21,7 @@
   "git": {
     "deploymentEnabled": {
       "production": true,
-      "preview": false,
+      "preview": true,
       "development": false
     }
   },
@@ -463,7 +463,12 @@
     },
     {
       "source": "/posts/2025/10/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/",
-      "destination": "/posts/2025/10/31/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/",
+      "destination": "/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2025/10/31/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/",
+      "destination": "/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/",
       "statusCode": 301
     },
     {
