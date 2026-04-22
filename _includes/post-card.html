@@ -13,7 +13,7 @@
       <picture>
         <source srcset="{{ card_sm_avif }} 525w, {{ card_avif }} 1120w" type="image/avif" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px">
         <source srcset="{{ card_sm_webp }} 525w, {{ card_webp }} 1120w" type="image/webp" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px">
-        <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="525" height="276" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
+        <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="525" height="276" style="aspect-ratio: 525/276" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
       </picture>
     </div>
     {% endif %}
