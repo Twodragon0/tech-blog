@@ -1,134 +1,221 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - April 21, 2026</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
-    </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Incident brief APR 21 2026 three-card infographic">
+<title>Incident Brief APR 21 2026</title>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+<defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0B132B"/>
+    <stop offset="100%" stop-color="#0A1020"/>
+  </linearGradient>
+  <linearGradient id="accentStripe" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#3A86FF" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="c1grad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1C2541"/>
+    <stop offset="100%" stop-color="#141C36"/>
+  </linearGradient>
+  <linearGradient id="c2grad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1C2541"/>
+    <stop offset="100%" stop-color="#141C36"/>
+  </linearGradient>
+  <linearGradient id="c3grad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1C2541"/>
+    <stop offset="100%" stop-color="#141C36"/>
+  </linearGradient>
+  <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3A86FF"/>
+    <stop offset="100%" stop-color="#2561C9"/>
+  </linearGradient>
+  <linearGradient id="critGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#E63946"/>
+    <stop offset="100%" stop-color="#B02A37"/>
+  </linearGradient>
+  <linearGradient id="ambGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#FFB703"/>
+    <stop offset="100%" stop-color="#CC8F00"/>
+  </linearGradient>
+  <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#3A86FF"/>
+    <stop offset="100%" stop-color="#FFB703"/>
+  </linearGradient>
+  <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#2EC27E"/>
+    <stop offset="100%" stop-color="#1E8A57"/>
+  </linearGradient>
+  <linearGradient id="chipGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0B132B"/>
+    <stop offset="100%" stop-color="#050A18"/>
+  </linearGradient>
+  <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1C2541"/>
+    <stop offset="100%" stop-color="#131A33"/>
+  </linearGradient>
+  <linearGradient id="qrGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="stripeSub" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#FFB703" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="nodeLabel" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#E7ECF4" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#E7ECF4" stop-opacity="0.6"/>
+  </linearGradient>
+  <radialGradient id="pulseA" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="pulseB" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+    <circle cx="16" cy="16" r="0.9" fill="#2A3256" opacity="0.5"/>
+  </pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
+<!-- Accent stripes -->
+<rect x="0" y="120" width="1200" height="2" fill="url(#accentStripe)" opacity="0.85">
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="5.2s" repeatCount="indefinite"/>
+</rect>
+<rect x="0" y="598" width="1200" height="2" fill="url(#accentStripe)" opacity="0.7">
+  <animate attributeName="opacity" values="0.35;0.85;0.35" dur="6.1s" repeatCount="indefinite"/>
+</rect>
 
-  <!-- Grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+<g>
+  <rect x="48" y="36" width="1104" height="84" rx="14" ry="14"
+        fill="url(#headerGrad)" opacity="0.92"/>
+  <rect x="48" y="36" width="1104" height="84" rx="14" ry="14"
+        fill="none" stroke="#3A86FF" stroke-width="1.2" opacity="0.55"/>
+  <circle cx="80" cy="78" r="12" fill="#3A86FF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.55;0.9" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="78" r="5" fill="#FFB703">
+    <animate attributeName="r" values="5;6.4;5" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="1020" y="58" width="120" height="40" rx="8" ry="8"
+        fill="url(#chipGrad)" stroke="#FFB703" stroke-width="1.4" opacity="0.95"/>
+  <text x="1080" y="84" font-family="Inter,Segoe UI,Arial,sans-serif"
+        font-size="18" font-weight="800" fill="#FFB703"
+        text-anchor="middle" letter-spacing="2">APR 21 2026</text>
+  <text x="600" y="90" font-family="Inter,Segoe UI,Arial,sans-serif"
+        font-size="44" font-weight="800" fill="#E7ECF4"
+        text-anchor="middle" letter-spacing="3">INCIDENT BRIEF</text>
+</g>
+<rect x="48" y="148" width="336" height="430" rx="18" ry="18" fill="url(#c1grad)" stroke="#3A86FF" stroke-width="1.6" opacity="0.96"/>
+<rect x="66" y="166" width="56" height="3" fill="#3A86FF" rx="1.5"/>
+<rect x="408" y="148" width="336" height="430" rx="18" ry="18" fill="url(#c2grad)" stroke="#FFB703" stroke-width="1.6" opacity="0.96"/>
+<rect x="426" y="166" width="56" height="3" fill="#FFB703" rx="1.5"/>
+<rect x="768" y="148" width="336" height="430" rx="18" ry="18" fill="url(#c3grad)" stroke="#E63946" stroke-width="1.6" opacity="0.96"/>
+<rect x="786" y="166" width="56" height="3" fill="#E63946" rx="1.5"/>
+<g transform="translate(96,222)">
+  <path d="M -30 -18 L 16 -18 L 30 -6 L 16 6 L -30 6 Z"
+        fill="none" stroke="#3A86FF" stroke-width="2.2" opacity="0.95"/>
+  <circle cx="-20" cy="-6" r="2.4" fill="#3A86FF"/>
+  <text x="-4" y="-2" font-family="Inter,Segoe UI,Arial,sans-serif"
+        font-size="10" font-weight="700" fill="#3A86FF" text-anchor="middle">CVE</text>
+  <line x1="-22" y1="14" x2="-22" y2="42" stroke="#8B94A8" stroke-width="2" opacity="0.5"/>
+  <line x1="-22" y1="14" x2="-22" y2="42" stroke="#3A86FF" stroke-width="2.4"
+        opacity="0.8" stroke-dasharray="4 3"/>
+  <rect x="-28" y="18" width="12" height="6" rx="2" fill="#3A86FF">
+    <animate attributeName="y" values="18;32;18" dur="4.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.95;0.55;0.95" dur="4.0s" repeatCount="indefinite"/>
+  </rect>
+  <path d="M -26 46 L -22 52 L -18 46" fill="none" stroke="#3A86FF"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="-10" y="20" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="8" fill="#8B94A8">crit</text>
+  <text x="-10" y="32" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="8" fill="#8B94A8">high</text>
+  <text x="-10" y="44" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="8" fill="#8B94A8" opacity="0.5">med</text>
+</g>
+<g transform="translate(456,222)">
+  <path d="M -22 -16 L 22 -16 L 22 14 L 8 14 L 0 24 L -8 14 L -22 14 Z"
+        fill="none" stroke="#FFB703" stroke-width="2.2"/>
+  <line x1="-14" y1="-6" x2="14" y2="8" stroke="#FFB703" stroke-width="2.6" stroke-linecap="round">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="14" y1="-6" x2="-14" y2="8" stroke="#FFB703" stroke-width="2.6" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/>
+  </line>
+  <circle cx="0" cy="36" r="3" fill="#FFB703">
+    <animate attributeName="r" values="2;4;2" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<g transform="translate(816,222)">
+  <rect x="-22" y="-10" width="44" height="30" rx="4" fill="none" stroke="#E63946" stroke-width="2.2"/>
+  <path d="M -14 -10 L -14 -18 Q -14 -26 0 -26 Q 14 -26 14 -18 L 14 -10"
+        fill="none" stroke="#E63946" stroke-width="2.2"/>
+  <circle cx="0" cy="4" r="4" fill="#E63946">
+    <animate attributeName="opacity" values="1;0.55;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="-2" y="4" width="4" height="9" fill="#E63946"/>
+  <g transform="translate(0,36)">
+    <rect x="-22" y="-2" width="44" height="4" rx="1" fill="#E63946" opacity="0.2"/>
+    <rect x="-22" y="-2" width="44" height="4" rx="1" fill="#E63946" opacity="0.9">
+      <animate attributeName="width" values="10;44;10" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
   </g>
-
-  <!-- Glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
-
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</g>
+<text x="156" y="214" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="13" font-weight="700" fill="#3A86FF" letter-spacing="2">NODE 01</text>
+<text x="156" y="242" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="11" font-weight="600" fill="#8B94A8" letter-spacing="1.2">PRIORITY CRITICAL</text>
+<text x="72" y="306" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="24" font-weight="800" fill="#E7ECF4" letter-spacing="1.2">SGLANG RCE</text>
+<line x1="72" y1="318" x2="144" y2="318"
+      stroke="#3A86FF" stroke-width="3" stroke-linecap="round"/>
+<text x="72" y="356" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="72" dy="0">CVSS 9.8 GGUF model</tspan>
+</text>
+<text x="72" y="380" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="72" dy="0">enables remote code exec.</tspan>
+</text>
+<text x="516" y="214" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="13" font-weight="700" fill="#FFB703" letter-spacing="2">NODE 02</text>
+<text x="516" y="242" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="11" font-weight="600" fill="#8B94A8" letter-spacing="1.2">PRIORITY CRITICAL</text>
+<text x="432" y="306" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="24" font-weight="800" fill="#E7ECF4" letter-spacing="1.2">VERCEL BREACH</text>
+<line x1="432" y1="318" x2="504" y2="318"
+      stroke="#FFB703" stroke-width="3" stroke-linecap="round"/>
+<text x="432" y="356" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="432" dy="0">Push fraud QEMU abuse</tspan>
+</text>
+<text x="432" y="380" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="432" dy="0">Android RAT surface up.</tspan>
+</text>
+<text x="876" y="214" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="13" font-weight="700" fill="#E63946" letter-spacing="2">NODE 03</text>
+<text x="876" y="242" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="11" font-weight="600" fill="#8B94A8" letter-spacing="1.2">PRIORITY HIGH</text>
+<text x="792" y="306" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="24" font-weight="800" fill="#E7ECF4" letter-spacing="1.2">KELPDAO HEIST</text>
+<line x1="792" y1="318" x2="864" y2="318"
+      stroke="#E63946" stroke-width="3" stroke-linecap="round"/>
+<text x="792" y="356" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="792" dy="0">Lazarus-linked actors drain</tspan>
+</text>
+<text x="792" y="380" font-family="Inter,Segoe UI,Arial,sans-serif"
+      font-size="17" font-weight="500" fill="#E7ECF4" opacity="0.95">
+  <tspan x="792" dy="0">two hundred ninety million.</tspan>
+</text>
+<text x="78" y="494" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" fill="#8B94A8" letter-spacing="1.5">ALERT VOLUME (24H)</text><rect x="78" y="504" width="36" height="14" rx="3" fill="url(#barGrad)" opacity="0.9"><animate attributeName="height" values="6;14;6" dur="3.2s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="y" values="512;504;512" dur="3.2s" begin="0.0s" repeatCount="indefinite"/></rect><rect x="78" y="501" width="36" height="3" rx="1.5" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.3;0.95;0.3" dur="2.4s" begin="0.0s" repeatCount="indefinite"/></rect><rect x="132" y="496" width="36" height="22" rx="3" fill="url(#barGrad)" opacity="0.9"><animate attributeName="height" values="14;22;14" dur="3.2s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="y" values="504;496;504" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></rect><rect x="132" y="493" width="36" height="3" rx="1.5" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.3;0.95;0.3" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></rect><rect x="186" y="486" width="36" height="32" rx="3" fill="url(#barGrad)" opacity="0.9"><animate attributeName="height" values="24;32;24" dur="3.2s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="y" values="494;486;494" dur="3.2s" begin="0.8s" repeatCount="indefinite"/></rect><rect x="186" y="483" width="36" height="3" rx="1.5" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.3;0.95;0.3" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></rect><rect x="240" y="472" width="36" height="46" rx="3" fill="url(#barGrad)" opacity="0.9"><animate attributeName="height" values="38;46;38" dur="3.2s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="y" values="480;472;480" dur="3.2s" begin="1.2s" repeatCount="indefinite"/></rect><rect x="240" y="469" width="36" height="3" rx="1.5" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.3;0.95;0.3" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></rect><line x1="74" y1="519" x2="280" y2="519" stroke="#8B94A8" stroke-width="1.2" opacity="0.45"/><text x="438" y="494" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" fill="#8B94A8" letter-spacing="1.5">SEVERITY QUEUE</text><rect x="438" y="474" width="276" height="18" rx="4" fill="url(#critGrad)" opacity="0.94"><animate attributeName="width" values="260;276;260" dur="4.0s" repeatCount="indefinite"/></rect><text x="446" y="488" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" fill="#0B132B">CRITICAL CVSS 9.8</text><rect x="438" y="500" width="180" height="14" rx="4" fill="#FFB703" opacity="0.22"><animate attributeName="width" values="180;120;180" dur="5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.22;0.12;0.22" dur="5.2s" repeatCount="indefinite"/></rect><text x="446" y="511" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="600" fill="#8B94A8" opacity="0.75">ADVISORY (queued)</text><text x="798" y="494" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" fill="#8B94A8" letter-spacing="1.5">THREAT RATIO</text><rect x="798" y="488" width="226" height="22" rx="4" fill="url(#critGrad)" opacity="0.94"><animate attributeName="width" values="212;226;212" dur="4.6s" repeatCount="indefinite"/></rect><rect x="1024" y="488" width="50" height="22" rx="4" fill="url(#greenGrad)" opacity="0.88"><animate attributeName="opacity" values="0.88;0.55;0.88" dur="4.6s" repeatCount="indefinite"/></rect><text x="806" y="504" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" fill="#0B132B">CRITICAL  82%</text><text x="798" y="526" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="600" fill="#8B94A8">18% advisory traffic</text><circle cx="396" cy="280" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.0s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.0s" begin="0.0s" repeatCount="indefinite"/></circle><circle cx="396" cy="330" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.4s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.4s" begin="0.2s" repeatCount="indefinite"/></circle><circle cx="396" cy="380" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.8s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.8s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="396" cy="430" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="4.2s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="4.2s" begin="0.6s" repeatCount="indefinite"/></circle><circle cx="396" cy="480" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.0s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.0s" begin="0.8s" repeatCount="indefinite"/></circle><circle cx="756" cy="280" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.4s" begin="1.0s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.4s" begin="1.0s" repeatCount="indefinite"/></circle><circle cx="756" cy="330" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.8s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.8s" begin="1.2s" repeatCount="indefinite"/></circle><circle cx="756" cy="380" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="4.2s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="4.2s" begin="1.4s" repeatCount="indefinite"/></circle><circle cx="756" cy="430" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.0s" begin="1.6s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.0s" begin="1.6s" repeatCount="indefinite"/></circle><circle cx="756" cy="480" r="1.8" fill="#3A86FF" opacity="0.55"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.4s" begin="1.8s" repeatCount="indefinite"/><animate attributeName="r" values="1.4;2.2;1.4" dur="3.4s" begin="1.8s" repeatCount="indefinite"/></circle><g>
+  <rect x="1048" y="478" width="108" height="108" rx="12" ry="12" fill="url(#qrGlow)" opacity="0.6"/>
+  <rect x="1052" y="482" width="100" height="100" rx="10" ry="10"
+        fill="#FFFFFF" stroke="#FFB703" stroke-width="1.6"/>
+  <g transform="translate(1060.000,490.000) scale(2.0444)">
+    <path d="M2.0,2.0H3.0V3.0H2.0zM3.0,2.0H4.0V3.0H3.0zM4.0,2.0H5.0V3.0H4.0zM5.0,2.0H6.0V3.0H5.0zM6.0,2.0H7.0V3.0H6.0zM7.0,2.0H8.0V3.0H7.0zM8.0,2.0H9.0V3.0H8.0zM11.0,2.0H12.0V3.0H11.0zM12.0,2.0H13.0V3.0H12.0zM16.0,2.0H17.0V3.0H16.0zM17.0,2.0H18.0V3.0H17.0zM18.0,2.0H19.0V3.0H18.0zM20.0,2.0H21.0V3.0H20.0zM23.0,2.0H24.0V3.0H23.0zM28.0,2.0H29.0V3.0H28.0zM29.0,2.0H30.0V3.0H29.0zM32.0,2.0H33.0V3.0H32.0zM33.0,2.0H34.0V3.0H33.0zM36.0,2.0H37.0V3.0H36.0zM37.0,2.0H38.0V3.0H37.0zM38.0,2.0H39.0V3.0H38.0zM39.0,2.0H40.0V3.0H39.0zM40.0,2.0H41.0V3.0H40.0zM41.0,2.0H42.0V3.0H41.0zM42.0,2.0H43.0V3.0H42.0zM2.0,3.0H3.0V4.0H2.0zM8.0,3.0H9.0V4.0H8.0zM11.0,3.0H12.0V4.0H11.0zM12.0,3.0H13.0V4.0H12.0zM13.0,3.0H14.0V4.0H13.0zM15.0,3.0H16.0V4.0H15.0zM18.0,3.0H19.0V4.0H18.0zM19.0,3.0H20.0V4.0H19.0zM22.0,3.0H23.0V4.0H22.0zM25.0,3.0H26.0V4.0H25.0zM29.0,3.0H30.0V4.0H29.0zM30.0,3.0H31.0V4.0H30.0zM31.0,3.0H32.0V4.0H31.0zM32.0,3.0H33.0V4.0H32.0zM34.0,3.0H35.0V4.0H34.0zM36.0,3.0H37.0V4.0H36.0zM42.0,3.0H43.0V4.0H42.0zM2.0,4.0H3.0V5.0H2.0zM4.0,4.0H5.0V5.0H4.0zM5.0,4.0H6.0V5.0H5.0zM6.0,4.0H7.0V5.0H6.0zM8.0,4.0H9.0V5.0H8.0zM11.0,4.0H12.0V5.0H11.0zM12.0,4.0H13.0V5.0H12.0zM15.0,4.0H16.0V5.0H15.0zM16.0,4.0H17.0V5.0H16.0zM18.0,4.0H19.0V5.0H18.0zM19.0,4.0H20.0V5.0H19.0zM21.0,4.0H22.0V5.0H21.0zM22.0,4.0H23.0V5.0H22.0zM23.0,4.0H24.0V5.0H23.0zM24.0,4.0H25.0V5.0H24.0zM25.0,4.0H26.0V5.0H25.0zM28.0,4.0H29.0V5.0H28.0zM31.0,4.0H32.0V5.0H31.0zM34.0,4.0H35.0V5.0H34.0zM36.0,4.0H37.0V5.0H36.0zM38.0,4.0H39.0V5.0H38.0zM39.0,4.0H40.0V5.0H39.0zM40.0,4.0H41.0V5.0H40.0zM42.0,4.0H43.0V5.0H42.0zM2.0,5.0H3.0V6.0H2.0zM4.0,5.0H5.0V6.0H4.0zM5.0,5.0H6.0V6.0H5.0zM6.0,5.0H7.0V6.0H6.0zM8.0,5.0H9.0V6.0H8.0zM12.0,5.0H13.0V6.0H12.0zM13.0,5.0H14.0V6.0H13.0zM19.0,5.0H20.0V6.0H19.0zM22.0,5.0H23.0V6.0H22.0zM23.0,5.0H24.0V6.0H23.0zM24.0,5.0H25.0V6.0H24.0zM25.0,5.0H26.0V6.0H25.0zM26.0,5.0H27.0V6.0H26.0zM27.0,5.0H28.0V6.0H27.0zM29.0,5.0H30.0V6.0H29.0zM30.0,5.0H31.0V6.0H30.0zM32.0,5.0H33.0V6.0H32.0zM33.0,5.0H34.0V6.0H33.0zM34.0,5.0H35.0V6.0H34.0zM36.0,5.0H37.0V6.0H36.0zM38.0,5.0H39.0V6.0H38.0zM39.0,5.0H40.0V6.0H39.0zM40.0,5.0H41.0V6.0H40.0zM42.0,5.0H43.0V6.0H42.0zM2.0,6.0H3.0V7.0H2.0zM4.0,6.0H5.0V7.0H4.0zM5.0,6.0H6.0V7.0H5.0zM6.0,6.0H7.0V7.0H6.0zM8.0,6.0H9.0V7.0H8.0zM14.0,6.0H15.0V7.0H14.0zM19.0,6.0H20.0V7.0H19.0zM21.0,6.0H22.0V7.0H21.0zM27.0,6.0H28.0V7.0H27.0zM29.0,6.0H30.0V7.0H29.0zM32.0,6.0H33.0V7.0H32.0zM34.0,6.0H35.0V7.0H34.0zM36.0,6.0H37.0V7.0H36.0zM38.0,6.0H39.0V7.0H38.0zM39.0,6.0H40.0V7.0H39.0zM40.0,6.0H41.0V7.0H40.0zM42.0,6.0H43.0V7.0H42.0zM2.0,7.0H3.0V8.0H2.0zM8.0,7.0H9.0V8.0H8.0zM10.0,7.0H11.0V8.0H10.0zM11.0,7.0H12.0V8.0H11.0zM13.0,7.0H14.0V8.0H13.0zM14.0,7.0H15.0V8.0H14.0zM16.0,7.0H17.0V8.0H16.0zM17.0,7.0H18.0V8.0H17.0zM19.0,7.0H20.0V8.0H19.0zM20.0,7.0H21.0V8.0H20.0zM21.0,7.0H22.0V8.0H21.0zM26.0,7.0H27.0V8.0H26.0zM28.0,7.0H29.0V8.0H28.0zM29.0,7.0H30.0V8.0H29.0zM32.0,7.0H33.0V8.0H32.0zM33.0,7.0H34.0V8.0H33.0zM34.0,7.0H35.0V8.0H34.0zM36.0,7.0H37.0V8.0H36.0zM42.0,7.0H43.0V8.0H42.0zM2.0,8.0H3.0V9.0H2.0zM3.0,8.0H4.0V9.0H3.0zM4.0,8.0H5.0V9.0H4.0zM5.0,8.0H6.0V9.0H5.0zM6.0,8.0H7.0V9.0H6.0zM7.0,8.0H8.0V9.0H7.0zM8.0,8.0H9.0V9.0H8.0zM10.0,8.0H11.0V9.0H10.0zM12.0,8.0H13.0V9.0H12.0zM14.0,8.0H15.0V9.0H14.0zM16.0,8.0H17.0V9.0H16.0zM18.0,8.0H19.0V9.0H18.0zM20.0,8.0H21.0V9.0H20.0zM22.0,8.0H23.0V9.0H22.0zM24.0,8.0H25.0V9.0H24.0zM26.0,8.0H27.0V9.0H26.0zM28.0,8.0H29.0V9.0H28.0zM30.0,8.0H31.0V9.0H30.0zM32.0,8.0H33.0V9.0H32.0zM34.0,8.0H35.0V9.0H34.0zM36.0,8.0H37.0V9.0H36.0zM37.0,8.0H38.0V9.0H37.0zM38.0,8.0H39.0V9.0H38.0zM39.0,8.0H40.0V9.0H39.0zM40.0,8.0H41.0V9.0H40.0zM41.0,8.0H42.0V9.0H41.0zM42.0,8.0H43.0V9.0H42.0zM11.0,9.0H12.0V10.0H11.0zM12.0,9.0H13.0V10.0H12.0zM14.0,9.0H15.0V10.0H14.0zM15.0,9.0H16.0V10.0H15.0zM16.0,9.0H17.0V10.0H16.0zM17.0,9.0H18.0V10.0H17.0zM18.0,9.0H19.0V10.0H18.0zM19.0,9.0H20.0V10.0H19.0zM21.0,9.0H22.0V10.0H21.0zM22.0,9.0H23.0V10.0H22.0zM23.0,9.0H24.0V10.0H23.0zM24.0,9.0H25.0V10.0H24.0zM26.0,9.0H27.0V10.0H26.0zM29.0,9.0H30.0V10.0H29.0zM30.0,9.0H31.0V10.0H30.0zM31.0,9.0H32.0V10.0H31.0zM33.0,9.0H34.0V10.0H33.0zM2.0,10.0H3.0V11.0H2.0zM5.0,10.0H6.0V11.0H5.0zM7.0,10.0H8.0V11.0H7.0zM8.0,10.0H9.0V11.0H8.0zM10.0,10.0H11.0V11.0H10.0zM11.0,10.0H12.0V11.0H11.0zM14.0,10.0H15.0V11.0H14.0zM17.0,10.0H18.0V11.0H17.0zM21.0,10.0H22.0V11.0H21.0zM23.0,10.0H24.0V11.0H23.0zM27.0,10.0H28.0V11.0H27.0zM28.0,10.0H29.0V11.0H28.0zM34.0,10.0H35.0V11.0H34.0zM35.0,10.0H36.0V11.0H35.0zM37.0,10.0H38.0V11.0H37.0zM2.0,11.0H3.0V12.0H2.0zM3.0,11.0H4.0V12.0H3.0zM6.0,11.0H7.0V12.0H6.0zM9.0,11.0H10.0V12.0H9.0zM10.0,11.0H11.0V12.0H10.0zM11.0,11.0H12.0V12.0H11.0zM14.0,11.0H15.0V12.0H14.0zM15.0,11.0H16.0V12.0H15.0zM18.0,11.0H19.0V12.0H18.0zM19.0,11.0H20.0V12.0H19.0zM23.0,11.0H24.0V12.0H23.0zM26.0,11.0H27.0V12.0H26.0zM27.0,11.0H28.0V12.0H27.0zM28.0,11.0H29.0V12.0H28.0zM31.0,11.0H32.0V12.0H31.0zM34.0,11.0H35.0V12.0H34.0zM39.0,11.0H40.0V12.0H39.0zM40.0,11.0H41.0V12.0H40.0zM41.0,11.0H42.0V12.0H41.0zM42.0,11.0H43.0V12.0H42.0zM2.0,12.0H3.0V13.0H2.0zM3.0,12.0H4.0V13.0H3.0zM5.0,12.0H6.0V13.0H5.0zM6.0,12.0H7.0V13.0H6.0zM7.0,12.0H8.0V13.0H7.0zM8.0,12.0H9.0V13.0H8.0zM9.0,12.0H10.0V13.0H9.0zM12.0,12.0H13.0V13.0H12.0zM13.0,12.0H14.0V13.0H13.0zM14.0,12.0H15.0V13.0H14.0zM15.0,12.0H16.0V13.0H15.0zM19.0,12.0H20.0V13.0H19.0zM20.0,12.0H21.0V13.0H20.0zM21.0,12.0H22.0V13.0H21.0zM22.0,12.0H23.0V13.0H22.0zM24.0,12.0H25.0V13.0H24.0zM26.0,12.0H27.0V13.0H26.0zM27.0,12.0H28.0V13.0H27.0zM32.0,12.0H33.0V13.0H32.0zM33.0,12.0H34.0V13.0H33.0zM36.0,12.0H37.0V13.0H36.0zM37.0,12.0H38.0V13.0H37.0zM38.0,12.0H39.0V13.0H38.0zM39.0,12.0H40.0V13.0H39.0zM40.0,12.0H41.0V13.0H40.0zM41.0,12.0H42.0V13.0H41.0zM2.0,13.0H3.0V14.0H2.0zM4.0,13.0H5.0V14.0H4.0zM9.0,13.0H10.0V14.0H9.0zM10.0,13.0H11.0V14.0H10.0zM12.0,13.0H13.0V14.0H12.0zM13.0,13.0H14.0V14.0H13.0zM14.0,13.0H15.0V14.0H14.0zM16.0,13.0H17.0V14.0H16.0zM18.0,13.0H19.0V14.0H18.0zM20.0,13.0H21.0V14.0H20.0zM23.0,13.0H24.0V14.0H23.0zM26.0,13.0H27.0V14.0H26.0zM27.0,13.0H28.0V14.0H27.0zM28.0,13.0H29.0V14.0H28.0zM30.0,13.0H31.0V14.0H30.0zM38.0,13.0H39.0V14.0H38.0zM40.0,13.0H41.0V14.0H40.0zM41.0,13.0H42.0V14.0H41.0zM2.0,14.0H3.0V15.0H2.0zM3.0,14.0H4.0V15.0H3.0zM6.0,14.0H7.0V15.0H6.0zM7.0,14.0H8.0V15.0H7.0zM8.0,14.0H9.0V15.0H8.0zM10.0,14.0H11.0V15.0H10.0zM11.0,14.0H12.0V15.0H11.0zM12.0,14.0H13.0V15.0H12.0zM15.0,14.0H16.0V15.0H15.0zM16.0,14.0H17.0V15.0H16.0zM17.0,14.0H18.0V15.0H17.0zM19.0,14.0H20.0V15.0H19.0zM21.0,14.0H22.0V15.0H21.0zM22.0,14.0H23.0V15.0H22.0zM23.0,14.0H24.0V15.0H23.0zM27.0,14.0H28.0V15.0H27.0zM28.0,14.0H29.0V15.0H28.0zM29.0,14.0H30.0V15.0H29.0zM30.0,14.0H31.0V15.0H30.0zM31.0,14.0H32.0V15.0H31.0zM32.0,14.0H33.0V15.0H32.0zM33.0,14.0H34.0V15.0H33.0zM34.0,14.0H35.0V15.0H34.0zM35.0,14.0H36.0V15.0H35.0zM36.0,14.0H37.0V15.0H36.0zM37.0,14.0H38.0V15.0H37.0zM39.0,14.0H40.0V15.0H39.0zM41.0,14.0H42.0V15.0H41.0zM2.0,15.0H3.0V16.0H2.0zM4.0,15.0H5.0V16.0H4.0zM5.0,15.0H6.0V16.0H5.0zM7.0,15.0H8.0V16.0H7.0zM12.0,15.0H13.0V16.0H12.0zM13.0,15.0H14.0V16.0H13.0zM16.0,15.0H17.0V16.0H16.0zM19.0,15.0H20.0V16.0H19.0zM22.0,15.0H23.0V16.0H22.0zM24.0,15.0H25.0V16.0H24.0zM25.0,15.0H26.0V16.0H25.0zM27.0,15.0H28.0V16.0H27.0zM29.0,15.0H30.0V16.0H29.0zM32.0,15.0H33.0V16.0H32.0zM33.0,15.0H34.0V16.0H33.0zM34.0,15.0H35.0V16.0H34.0zM36.0,15.0H37.0V16.0H36.0zM39.0,15.0H40.0V16.0H39.0zM40.0,15.0H41.0V16.0H40.0zM2.0,16.0H3.0V17.0H2.0zM4.0,16.0H5.0V17.0H4.0zM5.0,16.0H6.0V17.0H5.0zM6.0,16.0H7.0V17.0H6.0zM8.0,16.0H9.0V17.0H8.0zM9.0,16.0H10.0V17.0H9.0zM12.0,16.0H13.0V17.0H12.0zM13.0,16.0H14.0V17.0H13.0zM15.0,16.0H16.0V17.0H15.0zM18.0,16.0H19.0V17.0H18.0zM19.0,16.0H20.0V17.0H19.0zM20.0,16.0H21.0V17.0H20.0zM21.0,16.0H22.0V17.0H21.0zM23.0,16.0H24.0V17.0H23.0zM25.0,16.0H26.0V17.0H25.0zM29.0,16.0H30.0V17.0H29.0zM30.0,16.0H31.0V17.0H30.0zM32.0,16.0H33.0V17.0H32.0zM34.0,16.0H35.0V17.0H34.0zM36.0,16.0H37.0V17.0H36.0zM39.0,16.0H40.0V17.0H39.0zM40.0,16.0H41.0V17.0H40.0zM41.0,16.0H42.0V17.0H41.0zM42.0,16.0H43.0V17.0H42.0zM2.0,17.0H3.0V18.0H2.0zM4.0,17.0H5.0V18.0H4.0zM7.0,17.0H8.0V18.0H7.0zM9.0,17.0H10.0V18.0H9.0zM11.0,17.0H12.0V18.0H11.0zM12.0,17.0H13.0V18.0H12.0zM16.0,17.0H17.0V18.0H16.0zM17.0,17.0H18.0V18.0H17.0zM18.0,17.0H19.0V18.0H18.0zM19.0,17.0H20.0V18.0H19.0zM20.0,17.0H21.0V18.0H20.0zM22.0,17.0H23.0V18.0H22.0zM23.0,17.0H24.0V18.0H23.0zM24.0,17.0H25.0V18.0H24.0zM25.0,17.0H26.0V18.0H25.0zM27.0,17.0H28.0V18.0H27.0zM28.0,17.0H29.0V18.0H28.0zM30.0,17.0H31.0V18.0H30.0zM31.0,17.0H32.0V18.0H31.0zM32.0,17.0H33.0V18.0H32.0zM34.0,17.0H35.0V18.0H34.0zM36.0,17.0H37.0V18.0H36.0zM37.0,17.0H38.0V18.0H37.0zM3.0,18.0H4.0V19.0H3.0zM4.0,18.0H5.0V19.0H4.0zM8.0,18.0H9.0V19.0H8.0zM9.0,18.0H10.0V19.0H9.0zM11.0,18.0H12.0V19.0H11.0zM13.0,18.0H14.0V19.0H13.0zM14.0,18.0H15.0V19.0H14.0zM15.0,18.0H16.0V19.0H15.0zM16.0,18.0H17.0V19.0H16.0zM18.0,18.0H19.0V19.0H18.0zM19.0,18.0H20.0V19.0H19.0zM24.0,18.0H25.0V19.0H24.0zM29.0,18.0H30.0V19.0H29.0zM31.0,18.0H32.0V19.0H31.0zM33.0,18.0H34.0V19.0H33.0zM34.0,18.0H35.0V19.0H34.0zM37.0,18.0H38.0V19.0H37.0zM41.0,18.0H42.0V19.0H41.0zM5.0,19.0H6.0V20.0H5.0zM7.0,19.0H8.0V20.0H7.0zM11.0,19.0H12.0V20.0H11.0zM12.0,19.0H13.0V20.0H12.0zM14.0,19.0H15.0V20.0H14.0zM15.0,19.0H16.0V20.0H15.0zM16.0,19.0H17.0V20.0H16.0zM18.0,19.0H19.0V20.0H18.0zM19.0,19.0H20.0V20.0H19.0zM20.0,19.0H21.0V20.0H20.0zM21.0,19.0H22.0V20.0H21.0zM23.0,19.0H24.0V20.0H23.0zM25.0,19.0H26.0V20.0H25.0zM26.0,19.0H27.0V20.0H26.0zM28.0,19.0H29.0V20.0H28.0zM29.0,19.0H30.0V20.0H29.0zM30.0,19.0H31.0V20.0H30.0zM31.0,19.0H32.0V20.0H31.0zM36.0,19.0H37.0V20.0H36.0zM37.0,19.0H38.0V20.0H37.0zM39.0,19.0H40.0V20.0H39.0zM40.0,19.0H41.0V20.0H40.0zM41.0,19.0H42.0V20.0H41.0zM42.0,19.0H43.0V20.0H42.0zM2.0,20.0H3.0V21.0H2.0zM4.0,20.0H5.0V21.0H4.0zM7.0,20.0H8.0V21.0H7.0zM8.0,20.0H9.0V21.0H8.0zM9.0,20.0H10.0V21.0H9.0zM11.0,20.0H12.0V21.0H11.0zM12.0,20.0H13.0V21.0H12.0zM13.0,20.0H14.0V21.0H13.0zM14.0,20.0H15.0V21.0H14.0zM15.0,20.0H16.0V21.0H15.0zM17.0,20.0H18.0V21.0H17.0zM18.0,20.0H19.0V21.0H18.0zM19.0,20.0H20.0V21.0H19.0zM24.0,20.0H25.0V21.0H24.0zM27.0,20.0H28.0V21.0H27.0zM31.0,20.0H32.0V21.0H31.0zM35.0,20.0H36.0V21.0H35.0zM36.0,20.0H37.0V21.0H36.0zM38.0,20.0H39.0V21.0H38.0zM42.0,20.0H43.0V21.0H42.0zM4.0,21.0H5.0V22.0H4.0zM10.0,21.0H11.0V22.0H10.0zM11.0,21.0H12.0V22.0H11.0zM13.0,21.0H14.0V22.0H13.0zM15.0,21.0H16.0V22.0H15.0zM16.0,21.0H17.0V22.0H16.0zM22.0,21.0H23.0V22.0H22.0zM23.0,21.0H24.0V22.0H23.0zM27.0,21.0H28.0V22.0H27.0zM31.0,21.0H32.0V22.0H31.0zM34.0,21.0H35.0V22.0H34.0zM35.0,21.0H36.0V22.0H35.0zM36.0,21.0H37.0V22.0H36.0zM37.0,21.0H38.0V22.0H37.0zM39.0,21.0H40.0V22.0H39.0zM42.0,21.0H43.0V22.0H42.0zM2.0,22.0H3.0V23.0H2.0zM3.0,22.0H4.0V23.0H3.0zM5.0,22.0H6.0V23.0H5.0zM6.0,22.0H7.0V23.0H6.0zM8.0,22.0H9.0V23.0H8.0zM10.0,22.0H11.0V23.0H10.0zM11.0,22.0H12.0V23.0H11.0zM12.0,22.0H13.0V23.0H12.0zM13.0,22.0H14.0V23.0H13.0zM15.0,22.0H16.0V23.0H15.0zM16.0,22.0H17.0V23.0H16.0zM18.0,22.0H19.0V23.0H18.0zM19.0,22.0H20.0V23.0H19.0zM22.0,22.0H23.0V23.0H22.0zM24.0,22.0H25.0V23.0H24.0zM25.0,22.0H26.0V23.0H25.0zM26.0,22.0H27.0V23.0H26.0zM28.0,22.0H29.0V23.0H28.0zM29.0,22.0H30.0V23.0H29.0zM34.0,22.0H35.0V23.0H34.0zM35.0,22.0H36.0V23.0H35.0zM36.0,22.0H37.0V23.0H36.0zM37.0,22.0H38.0V23.0H37.0zM38.0,22.0H39.0V23.0H38.0zM40.0,22.0H41.0V23.0H40.0zM41.0,22.0H42.0V23.0H41.0zM5.0,23.0H6.0V24.0H5.0zM6.0,23.0H7.0V24.0H6.0zM10.0,23.0H11.0V24.0H10.0zM18.0,23.0H19.0V24.0H18.0zM19.0,23.0H20.0V24.0H19.0zM21.0,23.0H22.0V24.0H21.0zM22.0,23.0H23.0V24.0H22.0zM23.0,23.0H24.0V24.0H23.0zM24.0,23.0H25.0V24.0H24.0zM27.0,23.0H28.0V24.0H27.0zM31.0,23.0H32.0V24.0H31.0zM32.0,23.0H33.0V24.0H32.0zM36.0,23.0H37.0V24.0H36.0zM41.0,23.0H42.0V24.0H41.0zM42.0,23.0H43.0V24.0H42.0zM2.0,24.0H3.0V25.0H2.0zM5.0,24.0H6.0V25.0H5.0zM6.0,24.0H7.0V25.0H6.0zM8.0,24.0H9.0V25.0H8.0zM9.0,24.0H10.0V25.0H9.0zM10.0,24.0H11.0V25.0H10.0zM11.0,24.0H12.0V25.0H11.0zM12.0,24.0H13.0V25.0H12.0zM14.0,24.0H15.0V25.0H14.0zM17.0,24.0H18.0V25.0H17.0zM18.0,24.0H19.0V25.0H18.0zM19.0,24.0H20.0V25.0H19.0zM20.0,24.0H21.0V25.0H20.0zM21.0,24.0H22.0V25.0H21.0zM22.0,24.0H23.0V25.0H22.0zM27.0,24.0H28.0V25.0H27.0zM30.0,24.0H31.0V25.0H30.0zM33.0,24.0H34.0V25.0H33.0zM35.0,24.0H36.0V25.0H35.0zM36.0,24.0H37.0V25.0H36.0zM37.0,24.0H38.0V25.0H37.0zM38.0,24.0H39.0V25.0H38.0zM40.0,24.0H41.0V25.0H40.0zM41.0,24.0H42.0V25.0H41.0zM5.0,25.0H6.0V26.0H5.0zM7.0,25.0H8.0V26.0H7.0zM10.0,25.0H11.0V26.0H10.0zM11.0,25.0H12.0V26.0H11.0zM12.0,25.0H13.0V26.0H12.0zM18.0,25.0H19.0V26.0H18.0zM20.0,25.0H21.0V26.0H20.0zM21.0,25.0H22.0V26.0H21.0zM22.0,25.0H23.0V26.0H22.0zM23.0,25.0H24.0V26.0H23.0zM24.0,25.0H25.0V26.0H24.0zM27.0,25.0H28.0V26.0H27.0zM28.0,25.0H29.0V26.0H28.0zM30.0,25.0H31.0V26.0H30.0zM32.0,25.0H33.0V26.0H32.0zM36.0,25.0H37.0V26.0H36.0zM40.0,25.0H41.0V26.0H40.0zM41.0,25.0H42.0V26.0H41.0zM3.0,26.0H4.0V27.0H3.0zM4.0,26.0H5.0V27.0H4.0zM5.0,26.0H6.0V27.0H5.0zM6.0,26.0H7.0V27.0H6.0zM7.0,26.0H8.0V27.0H7.0zM8.0,26.0H9.0V27.0H8.0zM9.0,26.0H10.0V27.0H9.0zM10.0,26.0H11.0V27.0H10.0zM11.0,26.0H12.0V27.0H11.0zM12.0,26.0H13.0V27.0H12.0zM13.0,26.0H14.0V27.0H13.0zM14.0,26.0H15.0V27.0H14.0zM17.0,26.0H18.0V27.0H17.0zM18.0,26.0H19.0V27.0H18.0zM19.0,26.0H20.0V27.0H19.0zM21.0,26.0H22.0V27.0H21.0zM22.0,26.0H23.0V27.0H22.0zM23.0,26.0H24.0V27.0H23.0zM26.0,26.0H27.0V27.0H26.0zM27.0,26.0H28.0V27.0H27.0zM29.0,26.0H30.0V27.0H29.0zM30.0,26.0H31.0V27.0H30.0zM31.0,26.0H32.0V27.0H31.0zM33.0,26.0H34.0V27.0H33.0zM34.0,26.0H35.0V27.0H34.0zM35.0,26.0H36.0V27.0H35.0zM36.0,26.0H37.0V27.0H36.0zM37.0,26.0H38.0V27.0H37.0zM39.0,26.0H40.0V27.0H39.0zM40.0,26.0H41.0V27.0H40.0zM41.0,26.0H42.0V27.0H41.0zM2.0,27.0H3.0V28.0H2.0zM3.0,27.0H4.0V28.0H3.0zM5.0,27.0H6.0V28.0H5.0zM6.0,27.0H7.0V28.0H6.0zM7.0,27.0H8.0V28.0H7.0zM9.0,27.0H10.0V28.0H9.0zM10.0,27.0H11.0V28.0H10.0zM11.0,27.0H12.0V28.0H11.0zM13.0,27.0H14.0V28.0H13.0zM14.0,27.0H15.0V28.0H14.0zM16.0,27.0H17.0V28.0H16.0zM19.0,27.0H20.0V28.0H19.0zM21.0,27.0H22.0V28.0H21.0zM22.0,27.0H23.0V28.0H22.0zM23.0,27.0H24.0V28.0H23.0zM24.0,27.0H25.0V28.0H24.0zM26.0,27.0H27.0V28.0H26.0zM27.0,27.0H28.0V28.0H27.0zM28.0,27.0H29.0V28.0H28.0zM30.0,27.0H31.0V28.0H30.0zM31.0,27.0H32.0V28.0H31.0zM33.0,27.0H34.0V28.0H33.0zM36.0,27.0H37.0V28.0H36.0zM39.0,27.0H40.0V28.0H39.0zM41.0,27.0H42.0V28.0H41.0zM2.0,28.0H3.0V29.0H2.0zM3.0,28.0H4.0V29.0H3.0zM4.0,28.0H5.0V29.0H4.0zM5.0,28.0H6.0V29.0H5.0zM8.0,28.0H9.0V29.0H8.0zM9.0,28.0H10.0V29.0H9.0zM10.0,28.0H11.0V29.0H10.0zM11.0,28.0H12.0V29.0H11.0zM12.0,28.0H13.0V29.0H12.0zM14.0,28.0H15.0V29.0H14.0zM17.0,28.0H18.0V29.0H17.0zM18.0,28.0H19.0V29.0H18.0zM19.0,28.0H20.0V29.0H19.0zM22.0,28.0H23.0V29.0H22.0zM25.0,28.0H26.0V29.0H25.0zM27.0,28.0H28.0V29.0H27.0zM28.0,28.0H29.0V29.0H28.0zM30.0,28.0H31.0V29.0H30.0zM32.0,28.0H33.0V29.0H32.0zM34.0,28.0H35.0V29.0H34.0zM35.0,28.0H36.0V29.0H35.0zM37.0,28.0H38.0V29.0H37.0zM38.0,28.0H39.0V29.0H38.0zM41.0,28.0H42.0V29.0H41.0zM42.0,28.0H43.0V29.0H42.0zM4.0,29.0H5.0V30.0H4.0zM5.0,29.0H6.0V30.0H5.0zM11.0,29.0H12.0V30.0H11.0zM12.0,29.0H13.0V30.0H12.0zM14.0,29.0H15.0V30.0H14.0zM17.0,29.0H18.0V30.0H17.0zM19.0,29.0H20.0V30.0H19.0zM20.0,29.0H21.0V30.0H20.0zM22.0,29.0H23.0V30.0H22.0zM23.0,29.0H24.0V30.0H23.0zM24.0,29.0H25.0V30.0H24.0zM26.0,29.0H27.0V30.0H26.0zM27.0,29.0H28.0V30.0H27.0zM28.0,29.0H29.0V30.0H28.0zM29.0,29.0H30.0V30.0H29.0zM31.0,29.0H32.0V30.0H31.0zM34.0,29.0H35.0V30.0H34.0zM36.0,29.0H37.0V30.0H36.0zM41.0,29.0H42.0V30.0H41.0zM2.0,30.0H3.0V31.0H2.0zM4.0,30.0H5.0V31.0H4.0zM8.0,30.0H9.0V31.0H8.0zM11.0,30.0H12.0V31.0H11.0zM12.0,30.0H13.0V31.0H12.0zM14.0,30.0H15.0V31.0H14.0zM15.0,30.0H16.0V31.0H15.0zM18.0,30.0H19.0V31.0H18.0zM19.0,30.0H20.0V31.0H19.0zM23.0,30.0H24.0V31.0H23.0zM24.0,30.0H25.0V31.0H24.0zM25.0,30.0H26.0V31.0H25.0zM26.0,30.0H27.0V31.0H26.0zM28.0,30.0H29.0V31.0H28.0zM29.0,30.0H30.0V31.0H29.0zM31.0,30.0H32.0V31.0H31.0zM32.0,30.0H33.0V31.0H32.0zM34.0,30.0H35.0V31.0H34.0zM35.0,30.0H36.0V31.0H35.0zM37.0,30.0H38.0V31.0H37.0zM3.0,31.0H4.0V32.0H3.0zM4.0,31.0H5.0V32.0H4.0zM5.0,31.0H6.0V32.0H5.0zM11.0,31.0H12.0V32.0H11.0zM12.0,31.0H13.0V32.0H12.0zM16.0,31.0H17.0V32.0H16.0zM17.0,31.0H18.0V32.0H17.0zM21.0,31.0H22.0V32.0H21.0zM22.0,31.0H23.0V32.0H22.0zM23.0,31.0H24.0V32.0H23.0zM26.0,31.0H27.0V32.0H26.0zM27.0,31.0H28.0V32.0H27.0zM29.0,31.0H30.0V32.0H29.0zM31.0,31.0H32.0V32.0H31.0zM32.0,31.0H33.0V32.0H32.0zM35.0,31.0H36.0V32.0H35.0zM37.0,31.0H38.0V32.0H37.0zM39.0,31.0H40.0V32.0H39.0zM40.0,31.0H41.0V32.0H40.0zM42.0,31.0H43.0V32.0H42.0zM2.0,32.0H3.0V33.0H2.0zM5.0,32.0H6.0V33.0H5.0zM6.0,32.0H7.0V33.0H6.0zM8.0,32.0H9.0V33.0H8.0zM10.0,32.0H11.0V33.0H10.0zM11.0,32.0H12.0V33.0H11.0zM13.0,32.0H14.0V33.0H13.0zM15.0,32.0H16.0V33.0H15.0zM16.0,32.0H17.0V33.0H16.0zM17.0,32.0H18.0V33.0H17.0zM18.0,32.0H19.0V33.0H18.0zM20.0,32.0H21.0V33.0H20.0zM23.0,32.0H24.0V33.0H23.0zM24.0,32.0H25.0V33.0H24.0zM25.0,32.0H26.0V33.0H25.0zM26.0,32.0H27.0V33.0H26.0zM27.0,32.0H28.0V33.0H27.0zM37.0,32.0H38.0V33.0H37.0zM40.0,32.0H41.0V33.0H40.0zM41.0,32.0H42.0V33.0H41.0zM42.0,32.0H43.0V33.0H42.0zM4.0,33.0H5.0V34.0H4.0zM6.0,33.0H7.0V34.0H6.0zM10.0,33.0H11.0V34.0H10.0zM12.0,33.0H13.0V34.0H12.0zM14.0,33.0H15.0V34.0H14.0zM18.0,33.0H19.0V34.0H18.0zM19.0,33.0H20.0V34.0H19.0zM23.0,33.0H24.0V34.0H23.0zM26.0,33.0H27.0V34.0H26.0zM28.0,33.0H29.0V34.0H28.0zM31.0,33.0H32.0V34.0H31.0zM35.0,33.0H36.0V34.0H35.0zM38.0,33.0H39.0V34.0H38.0zM39.0,33.0H40.0V34.0H39.0zM2.0,34.0H3.0V35.0H2.0zM5.0,34.0H6.0V35.0H5.0zM6.0,34.0H7.0V35.0H6.0zM8.0,34.0H9.0V35.0H8.0zM13.0,34.0H14.0V35.0H13.0zM17.0,34.0H18.0V35.0H17.0zM27.0,34.0H28.0V35.0H27.0zM28.0,34.0H29.0V35.0H28.0zM29.0,34.0H30.0V35.0H29.0zM34.0,34.0H35.0V35.0H34.0zM35.0,34.0H36.0V35.0H35.0zM36.0,34.0H37.0V35.0H36.0zM37.0,34.0H38.0V35.0H37.0zM38.0,34.0H39.0V35.0H38.0zM40.0,34.0H41.0V35.0H40.0zM42.0,34.0H43.0V35.0H42.0zM10.0,35.0H11.0V36.0H10.0zM14.0,35.0H15.0V36.0H14.0zM18.0,35.0H19.0V36.0H18.0zM19.0,35.0H20.0V36.0H19.0zM20.0,35.0H21.0V36.0H20.0zM21.0,35.0H22.0V36.0H21.0zM22.0,35.0H23.0V36.0H22.0zM24.0,35.0H25.0V36.0H24.0zM26.0,35.0H27.0V36.0H26.0zM27.0,35.0H28.0V36.0H27.0zM29.0,35.0H30.0V36.0H29.0zM30.0,35.0H31.0V36.0H30.0zM31.0,35.0H32.0V36.0H31.0zM32.0,35.0H33.0V36.0H32.0zM33.0,35.0H34.0V36.0H33.0zM34.0,35.0H35.0V36.0H34.0zM38.0,35.0H39.0V36.0H38.0zM39.0,35.0H40.0V36.0H39.0zM40.0,35.0H41.0V36.0H40.0zM41.0,35.0H42.0V36.0H41.0zM42.0,35.0H43.0V36.0H42.0zM2.0,36.0H3.0V37.0H2.0zM3.0,36.0H4.0V37.0H3.0zM4.0,36.0H5.0V37.0H4.0zM5.0,36.0H6.0V37.0H5.0zM6.0,36.0H7.0V37.0H6.0zM7.0,36.0H8.0V37.0H7.0zM8.0,36.0H9.0V37.0H8.0zM11.0,36.0H12.0V37.0H11.0zM14.0,36.0H15.0V37.0H14.0zM16.0,36.0H17.0V37.0H16.0zM20.0,36.0H21.0V37.0H20.0zM21.0,36.0H22.0V37.0H21.0zM22.0,36.0H23.0V37.0H22.0zM23.0,36.0H24.0V37.0H23.0zM24.0,36.0H25.0V37.0H24.0zM27.0,36.0H28.0V37.0H27.0zM28.0,36.0H29.0V37.0H28.0zM30.0,36.0H31.0V37.0H30.0zM34.0,36.0H35.0V37.0H34.0zM36.0,36.0H37.0V37.0H36.0zM38.0,36.0H39.0V37.0H38.0zM40.0,36.0H41.0V37.0H40.0zM41.0,36.0H42.0V37.0H41.0zM2.0,37.0H3.0V38.0H2.0zM8.0,37.0H9.0V38.0H8.0zM10.0,37.0H11.0V38.0H10.0zM13.0,37.0H14.0V38.0H13.0zM18.0,37.0H19.0V38.0H18.0zM20.0,37.0H21.0V38.0H20.0zM26.0,37.0H27.0V38.0H26.0zM27.0,37.0H28.0V38.0H27.0zM29.0,37.0H30.0V38.0H29.0zM34.0,37.0H35.0V38.0H34.0zM38.0,37.0H39.0V38.0H38.0zM40.0,37.0H41.0V38.0H40.0zM42.0,37.0H43.0V38.0H42.0zM2.0,38.0H3.0V39.0H2.0zM4.0,38.0H5.0V39.0H4.0zM5.0,38.0H6.0V39.0H5.0zM6.0,38.0H7.0V39.0H6.0zM8.0,38.0H9.0V39.0H8.0zM12.0,38.0H13.0V39.0H12.0zM13.0,38.0H14.0V39.0H13.0zM15.0,38.0H16.0V39.0H15.0zM17.0,38.0H18.0V39.0H17.0zM18.0,38.0H19.0V39.0H18.0zM20.0,38.0H21.0V39.0H20.0zM22.0,38.0H23.0V39.0H22.0zM28.0,38.0H29.0V39.0H28.0zM29.0,38.0H30.0V39.0H29.0zM30.0,38.0H31.0V39.0H30.0zM31.0,38.0H32.0V39.0H31.0zM32.0,38.0H33.0V39.0H32.0zM34.0,38.0H35.0V39.0H34.0zM35.0,38.0H36.0V39.0H35.0zM36.0,38.0H37.0V39.0H36.0zM37.0,38.0H38.0V39.0H37.0zM38.0,38.0H39.0V39.0H38.0zM39.0,38.0H40.0V39.0H39.0zM41.0,38.0H42.0V39.0H41.0zM2.0,39.0H3.0V40.0H2.0zM4.0,39.0H5.0V40.0H4.0zM5.0,39.0H6.0V40.0H5.0zM6.0,39.0H7.0V40.0H6.0zM8.0,39.0H9.0V40.0H8.0zM10.0,39.0H11.0V40.0H10.0zM11.0,39.0H12.0V40.0H11.0zM16.0,39.0H17.0V40.0H16.0zM17.0,39.0H18.0V40.0H17.0zM18.0,39.0H19.0V40.0H18.0zM20.0,39.0H21.0V40.0H20.0zM21.0,39.0H22.0V40.0H21.0zM22.0,39.0H23.0V40.0H22.0zM23.0,39.0H24.0V40.0H23.0zM24.0,39.0H25.0V40.0H24.0zM28.0,39.0H29.0V40.0H28.0zM30.0,39.0H31.0V40.0H30.0zM31.0,39.0H32.0V40.0H31.0zM33.0,39.0H34.0V40.0H33.0zM34.0,39.0H35.0V40.0H34.0zM35.0,39.0H36.0V40.0H35.0zM36.0,39.0H37.0V40.0H36.0zM38.0,39.0H39.0V40.0H38.0zM39.0,39.0H40.0V40.0H39.0zM40.0,39.0H41.0V40.0H40.0zM42.0,39.0H43.0V40.0H42.0zM2.0,40.0H3.0V41.0H2.0zM4.0,40.0H5.0V41.0H4.0zM5.0,40.0H6.0V41.0H5.0zM6.0,40.0H7.0V41.0H6.0zM8.0,40.0H9.0V41.0H8.0zM11.0,40.0H12.0V41.0H11.0zM12.0,40.0H13.0V41.0H12.0zM15.0,40.0H16.0V41.0H15.0zM16.0,40.0H17.0V41.0H16.0zM18.0,40.0H19.0V41.0H18.0zM19.0,40.0H20.0V41.0H19.0zM20.0,40.0H21.0V41.0H20.0zM22.0,40.0H23.0V41.0H22.0zM23.0,40.0H24.0V41.0H23.0zM25.0,40.0H26.0V41.0H25.0zM26.0,40.0H27.0V41.0H26.0zM27.0,40.0H28.0V41.0H27.0zM28.0,40.0H29.0V41.0H28.0zM30.0,40.0H31.0V41.0H30.0zM32.0,40.0H33.0V41.0H32.0zM33.0,40.0H34.0V41.0H33.0zM38.0,40.0H39.0V41.0H38.0zM39.0,40.0H40.0V41.0H39.0zM40.0,40.0H41.0V41.0H40.0zM41.0,40.0H42.0V41.0H41.0zM42.0,40.0H43.0V41.0H42.0zM2.0,41.0H3.0V42.0H2.0zM8.0,41.0H9.0V42.0H8.0zM12.0,41.0H13.0V42.0H12.0zM13.0,41.0H14.0V42.0H13.0zM15.0,41.0H16.0V42.0H15.0zM16.0,41.0H17.0V42.0H16.0zM17.0,41.0H18.0V42.0H17.0zM18.0,41.0H19.0V42.0H18.0zM19.0,41.0H20.0V42.0H19.0zM20.0,41.0H21.0V42.0H20.0zM23.0,41.0H24.0V42.0H23.0zM24.0,41.0H25.0V42.0H24.0zM27.0,41.0H28.0V42.0H27.0zM28.0,41.0H29.0V42.0H28.0zM30.0,41.0H31.0V42.0H30.0zM31.0,41.0H32.0V42.0H31.0zM32.0,41.0H33.0V42.0H32.0zM33.0,41.0H34.0V42.0H33.0zM34.0,41.0H35.0V42.0H34.0zM35.0,41.0H36.0V42.0H35.0zM37.0,41.0H38.0V42.0H37.0zM41.0,41.0H42.0V42.0H41.0zM2.0,42.0H3.0V43.0H2.0zM3.0,42.0H4.0V43.0H3.0zM4.0,42.0H5.0V43.0H4.0zM5.0,42.0H6.0V43.0H5.0zM6.0,42.0H7.0V43.0H6.0zM7.0,42.0H8.0V43.0H7.0zM8.0,42.0H9.0V43.0H8.0zM10.0,42.0H11.0V43.0H10.0zM12.0,42.0H13.0V43.0H12.0zM14.0,42.0H15.0V43.0H14.0zM15.0,42.0H16.0V43.0H15.0zM16.0,42.0H17.0V43.0H16.0zM20.0,42.0H21.0V43.0H20.0zM21.0,42.0H22.0V43.0H21.0zM22.0,42.0H23.0V43.0H22.0zM23.0,42.0H24.0V43.0H23.0zM24.0,42.0H25.0V43.0H24.0zM26.0,42.0H27.0V43.0H26.0zM31.0,42.0H32.0V43.0H31.0zM33.0,42.0H34.0V43.0H33.0zM34.0,42.0H35.0V43.0H34.0zM35.0,42.0H36.0V43.0H35.0zM36.0,42.0H37.0V43.0H36.0zM37.0,42.0H38.0V43.0H37.0zM38.0,42.0H39.0V43.0H38.0zM39.0,42.0H40.0V43.0H39.0zM40.0,42.0H41.0V43.0H40.0zM41.0,42.0H42.0V43.0H41.0z" fill="#0B132B"/>
   </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 21, 2026</text>
+  <text x="1102" y="474" font-family="Inter,Segoe UI,Arial,sans-serif"
+        font-size="10" font-weight="700" fill="#8B94A8" text-anchor="middle" letter-spacing="1.5">SCAN BRIEF</text>
+</g>
 
-  <!-- Card 1: CVE-2026-576 -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#ef4444" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">CVE</text>
-  </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2026-576</text>
-  <!-- Card 2: LAZARUS -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <ellipse cx="0" cy="-4" rx="14" ry="9" fill="none" stroke="#f59e0b" stroke-width="1.8"/><circle cx="0" cy="-4" r="4" fill="#f59e0b" opacity="0.7"/>
-  </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">LAZARUS</text>
-  <!-- Card 3: AI AGENT -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#3b82f6" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#3b82f6" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#3b82f6" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#3b82f6" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#3b82f6" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#3b82f6" stroke-width="1.2" opacity="0.5"/>
-  </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">AI AGENT</text>
-  <!-- Card 4: CVE PATCH -->
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#22c55e" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">CVE</text>
-  </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">CVE PATCH</text>
-  <!-- Card 5: APPLE SEC -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/>
-  </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">APPLE SEC</text>
-
-  <!-- Threat map area -->
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
-
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
-  </g>
-  <!-- Node: CVE-2026-576 -->
-  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2</text>
-  <!-- Node: LAZARUS -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">LAZAR</text>
-  <!-- Node: AI AGENT -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">AI</text>
-  <!-- Node: CVE PATCH -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">CVE</text>
-  <!-- Node: APPLE SEC -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">APPL</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-
-  <!-- Footer -->
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
-
-  <!-- Tags -->
-  <rect x="32" y="490" width="128" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="96" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">CVE-2026-576</text>
-  <rect x="172" y="490" width="83" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="213" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">LAZARUS</text>
-  <rect x="267" y="490" width="92" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="313" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">AI AGENT</text>
-  <rect x="371" y="490" width="101" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="421" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">CVE PATCH</text>
-  <rect x="484" y="490" width="101" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="534" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">APPLE SEC</text>
-
-  <!-- Bottom bar -->
-  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | April 21, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
