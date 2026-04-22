@@ -1,90 +1,463 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-04-01</title>
+  <title>Cover for Android Verify TrueConf AWS ISO Spanner - April 01 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
+    <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="45%" stop-color="#0a0f1e"/>
+      <stop offset="100%" stop-color="#070d1a"/>
     </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
+    <linearGradient id="bgQ1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a0e"/>
+      <stop offset="100%" stop-color="#0b0c14"/>
     </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
+    <linearGradient id="bgQ2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13100a"/>
+      <stop offset="100%" stop-color="#0b0d14"/>
     </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
+    <linearGradient id="bgQ3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#08111d"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
+    <linearGradient id="bgQ4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1018"/>
+      <stop offset="100%" stop-color="#0a0f18"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="50%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="droidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="burstGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="60%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="skullGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="crackLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fcd34d" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="certGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="55%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="divider" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#475569" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="haloRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="haloAmber" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glowRed" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0.9  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowAmber" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 1  0 0 0 0 0.6  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowBlue" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.3  0 0 0 0 0.55  0 0 0 0 1  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowCyan" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.8  0 0 0 0 0.95  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#334155" opacity="0.28"/>
+    </pattern>
+    <pattern id="hexGrid" x="0" y="0" width="26" height="22.5" patternUnits="userSpaceOnUse">
+      <polygon points="13,0 26,7.5 26,15 13,22.5 0,15 0,7.5" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.35"/>
+    </pattern>
+    <pattern id="scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#ffffff" opacity="0.02"/>
+    </pattern>
+    <clipPath id="q1Clip"><rect x="0" y="0" width="600" height="315"/></clipPath>
+    <clipPath id="q2Clip"><rect x="600" y="0" width="600" height="315"/></clipPath>
+    <clipPath id="q3Clip"><rect x="0" y="315" width="600" height="315"/></clipPath>
+    <clipPath id="q4Clip"><rect x="600" y="315" width="600" height="315"/></clipPath>
+    <path id="flowPath1" d="M 720 470 C 820 440, 920 500, 1060 460"/>
+    <path id="flowPath2" d="M 700 520 C 800 560, 960 510, 1080 540"/>
+    <path id="burstPath" d="M 900 160 L 820 100 M 900 160 L 980 100 M 900 160 L 820 220 M 900 160 L 980 220"/>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#bgMain)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
+  <rect width="1200" height="630" fill="url(#hexGrid)" opacity="0.5"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
-  </g>
-
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-01</text>
-
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
-      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
+  <!-- Quadrant 1: Android Verification (red/amber) -->
+  <g clip-path="url(#q1Clip)">
+    <rect x="0" y="0" width="600" height="315" fill="url(#bgQ1)"/>
+    <circle cx="300" cy="157" r="230" fill="url(#haloRed)">
+      <animate attributeName="r" values="200;240;200" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <g transform="translate(300 150)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite"/>
+        <circle r="120" fill="none" stroke="#ef4444" stroke-width="1" stroke-dasharray="6 8" opacity="0.55"/>
+      </g>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="24s" repeatCount="indefinite"/>
+        <circle r="145" fill="none" stroke="#f87171" stroke-width="0.8" stroke-dasharray="2 10" opacity="0.45"/>
+      </g>
+      <path d="M 0 -90 L 78 -45 L 78 45 L 0 90 L -78 45 L -78 -45 Z" fill="url(#shieldGrad)" filter="url(#glowRed)" opacity="0.95">
+        <animate attributeName="opacity" values="0.85;1;0.85" dur="2.6s" repeatCount="indefinite"/>
+      </path>
+      <g transform="translate(0 -5)">
+        <circle cx="-18" cy="-20" r="18" fill="url(#droidGrad)">
+          <animate attributeName="cy" values="-20;-24;-20" dur="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="18" cy="-20" r="18" fill="url(#droidGrad)">
+          <animate attributeName="cy" values="-20;-24;-20" dur="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-6" cy="-22" r="2.5" fill="#0b0c14"/>
+        <circle cx="30" cy="-22" r="2.5" fill="#0b0c14"/>
+        <rect x="-24" y="-8" width="48" height="40" rx="6" fill="url(#droidGrad)"/>
+        <path d="M -14 32 L -14 46 M 14 32 L 14 46" stroke="#16a34a" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <g>
+        <circle r="30" fill="none" stroke="#fca5a5" stroke-width="2" opacity="0.6">
+          <animate attributeName="r" values="20;70;20" dur="2.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0;0.8" dur="2.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="40" fill="none" stroke="#f87171" stroke-width="1.5" opacity="0.5">
+          <animate attributeName="r" values="30;90;30" dur="3.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7;0;0.7" dur="3.4s" repeatCount="indefinite"/>
+        </circle>
+      </g>
     </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">POLICY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Android Dev ID</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Verify Rollout</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">September deadline</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Staged launch</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">for signed builds</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M0,-44 L50,40 L-50,40 Z"/>
-      <line x1="0" y1="-16" x2="0" y2="16" stroke-width="3.5"/>
-      <circle cx="0" cy="30" r="3.5" fill="url(#accentRed)" stroke="none"/>
+    <g fill="#fca5a5">
+      <circle cx="90" cy="80" r="2">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="510" cy="120" r="2">
+        <animate attributeName="opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="120" cy="250" r="1.5">
+        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="480" cy="240" r="1.5">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
     </g>
-    <rect x="125" y="210" width="96" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">ZERO-DAY</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">TrueConf Hit</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">SEA Gov Targets</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">In-the-wild chain</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">State networks</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">breached via 0-day</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
-      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
-    </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">COMPLY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">AWS Refresh</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">ISO 27001 Guide</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">2022 edition out</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Compliance kit</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">for cloud tenants</text>
+    <text x="300" y="290" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="#fca5a5" letter-spacing="3">VERIFY</text>
   </g>
 
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  <!-- Quadrant 2: TrueConf zero-day (amber/orange) -->
+  <g clip-path="url(#q2Clip)">
+    <rect x="600" y="0" width="600" height="315" fill="url(#bgQ2)"/>
+    <circle cx="900" cy="157" r="220" fill="url(#haloAmber)">
+      <animate attributeName="r" values="190;240;190" dur="4.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.55;1;0.55" dur="4.4s" repeatCount="indefinite"/>
+    </circle>
+    <g transform="translate(900 155)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="22s" repeatCount="indefinite"/>
+        <circle r="135" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 6" opacity="0.5"/>
+      </g>
+      <rect x="-75" y="-45" width="150" height="90" rx="10" fill="#1f2937" stroke="#f59e0b" stroke-width="1.5" opacity="0.9"/>
+      <rect x="-65" y="-35" width="130" height="70" rx="4" fill="#0b0d14" stroke="#fbbf24" stroke-width="0.8"/>
+      <circle cx="-25" cy="-5" r="12" fill="url(#skullGrad)"/>
+      <circle cx="25" cy="-5" r="10" fill="url(#skullGrad)" opacity="0.6"/>
+      <rect x="-45" y="12" width="40" height="18" rx="3" fill="#334155"/>
+      <rect x="5" y="12" width="40" height="18" rx="3" fill="#334155" opacity="0.6"/>
+      <circle cx="-90" cy="-40" r="6" fill="#ef4444" filter="url(#glowRed)">
+        <animate attributeName="opacity" values="1;0.2;1" dur="0.9s" repeatCount="indefinite"/>
+      </circle>
+      <text x="-82" y="-35" font-family="ui-monospace,monospace" font-size="0" fill="#ef4444">REC</text>
+    </g>
+    <g transform="translate(900 155)">
+      <g stroke="url(#crackLine)" stroke-width="1.6" fill="none" opacity="0.9">
+        <path d="M -78 -45 L -30 -10 L 10 -30 L 78 10">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" repeatCount="indefinite"/>
+        </path>
+        <path d="M -60 45 L -10 20 L 30 40 L 70 15">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+        </path>
+      </g>
+      <g stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glowAmber)">
+        <line x1="0" y1="0" x2="-60" y2="-80">
+          <animate attributeName="stroke-opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+        </line>
+        <line x1="0" y1="0" x2="60" y2="-80">
+          <animate attributeName="stroke-opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite"/>
+        </line>
+        <line x1="0" y1="0" x2="-60" y2="80">
+          <animate attributeName="stroke-opacity" values="0;1;0" dur="2.1s" repeatCount="indefinite"/>
+        </line>
+        <line x1="0" y1="0" x2="60" y2="80">
+          <animate attributeName="stroke-opacity" values="1;0;1" dur="1.7s" repeatCount="indefinite"/>
+        </line>
+      </g>
+      <text x="0" y="6" text-anchor="middle" font-family="ui-monospace,monospace" font-size="28" font-weight="900" fill="#ef4444" filter="url(#glowRed)">0DAY</text>
+    </g>
+    <g fill="#fbbf24">
+      <circle cx="700" cy="60" r="2">
+        <animate attributeName="opacity" values="1;0.2;1" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1100" cy="80" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1120" cy="250" r="1.5">
+        <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="900" y="290" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="3">ZERODAY</text>
   </g>
+
+  <!-- Quadrant 3: AWS ISO 27001:2022 (blue) -->
+  <g clip-path="url(#q3Clip)">
+    <rect x="0" y="315" width="600" height="315" fill="url(#bgQ3)"/>
+    <circle cx="300" cy="472" r="220" fill="url(#haloBlue)">
+      <animate attributeName="r" values="190;240;190" dur="4.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/>
+    </circle>
+    <g transform="translate(300 470)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="26s" repeatCount="indefinite"/>
+        <circle r="140" fill="none" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="3 8" opacity="0.45"/>
+      </g>
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3.2s" repeatCount="indefinite"/>
+        <path d="M -80 10 C -90 -20, -60 -50, -30 -40 C -20 -65, 30 -65, 40 -40 C 70 -50, 90 -15, 75 10 Z" fill="url(#cloudGrad)" opacity="0.95" filter="url(#glowBlue)"/>
+      </g>
+      <g transform="translate(0 35)">
+        <rect x="-55" y="-10" width="110" height="85" rx="4" fill="url(#certGrad)" opacity="0.9"/>
+        <rect x="-50" y="-5" width="100" height="75" rx="2" fill="#0a1020" stroke="#60a5fa" stroke-width="0.6"/>
+        <line x1="-40" y1="8" x2="40" y2="8" stroke="#60a5fa" stroke-width="0.8" opacity="0.7"/>
+        <line x1="-40" y1="20" x2="30" y2="20" stroke="#60a5fa" stroke-width="0.6" opacity="0.5"/>
+        <line x1="-40" y1="30" x2="35" y2="30" stroke="#60a5fa" stroke-width="0.6" opacity="0.5"/>
+        <g transform="translate(0 50)">
+          <circle r="14" fill="#1e40af" stroke="#93c5fd" stroke-width="1.5">
+            <animate attributeName="stroke-width" values="1.5;3;1.5" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M -6 0 L -2 5 L 7 -5" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" fill="none" filter="url(#glowCyan)">
+            <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+          </path>
+        </g>
+      </g>
+      <g transform="translate(-120 -40)">
+        <rect x="0" y="0" width="24" height="8" fill="url(#barGrad)">
+          <animate attributeName="width" values="10;24;10" dur="2.1s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="0" y="12" width="32" height="8" fill="url(#barGrad)" opacity="0.8">
+          <animate attributeName="width" values="32;16;32" dur="2.4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="0" y="24" width="20" height="8" fill="url(#barGrad)" opacity="0.7">
+          <animate attributeName="width" values="14;28;14" dur="1.9s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <g transform="translate(95 -40)">
+        <rect x="0" y="0" width="24" height="8" fill="url(#barGrad)">
+          <animate attributeName="width" values="24;12;24" dur="2.3s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="0" y="12" width="30" height="8" fill="url(#barGrad)" opacity="0.8">
+          <animate attributeName="width" values="14;30;14" dur="1.7s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="0" y="24" width="22" height="8" fill="url(#barGrad)" opacity="0.7">
+          <animate attributeName="width" values="22;10;22" dur="2.2s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+    <g fill="#60a5fa">
+      <circle cx="80" cy="360" r="1.8">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="520" cy="400" r="2">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="120" cy="570" r="1.5">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="500" cy="560" r="1.8">
+        <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="300" y="605" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="#93c5fd" letter-spacing="3">ISO27001</text>
+  </g>
+
+  <!-- Quadrant 4: Spanner multi-model database (cyan/green) -->
+  <g clip-path="url(#q4Clip)">
+    <rect x="600" y="315" width="600" height="315" fill="url(#bgQ4)"/>
+    <circle cx="900" cy="472" r="220" fill="url(#haloCyan)">
+      <animate attributeName="r" values="200;245;200" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.55;1;0.55" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <g transform="translate(900 472)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="28s" repeatCount="indefinite"/>
+        <ellipse rx="150" ry="40" fill="none" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 8" opacity="0.4"/>
+      </g>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="20s" repeatCount="indefinite"/>
+        <ellipse rx="170" ry="50" fill="none" stroke="#34d399" stroke-width="0.6" stroke-dasharray="2 9" opacity="0.35"/>
+      </g>
+      <g filter="url(#glowCyan)">
+        <ellipse cx="0" cy="-50" rx="62" ry="14" fill="url(#dbGrad)"/>
+        <path d="M -62 -50 L -62 50 C -62 58, 62 58, 62 50 L 62 -50" fill="url(#dbGrad)" opacity="0.95"/>
+        <ellipse cx="0" cy="-50" rx="62" ry="14" fill="#67e8f9" opacity="0.6">
+          <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.4s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="0" cy="-20" rx="62" ry="14" fill="none" stroke="#0e7490" stroke-width="0.6" opacity="0.7"/>
+        <ellipse cx="0" cy="10" rx="62" ry="14" fill="none" stroke="#0e7490" stroke-width="0.6" opacity="0.7"/>
+      </g>
+      <g>
+        <g transform="translate(-110 -60)">
+          <rect x="-12" y="-12" width="24" height="24" rx="3" fill="url(#modelGrad)" filter="url(#glowCyan)">
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+        <g transform="translate(110 -60)">
+          <circle r="13" fill="url(#modelGrad)" filter="url(#glowCyan)">
+            <animate attributeName="r" values="11;15;11" dur="2.6s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <g transform="translate(-110 60)">
+          <polygon points="0,-14 12,7 -12,7" fill="url(#modelGrad)" filter="url(#glowCyan)">
+            <animateTransform attributeName="transform" type="rotate" values="0;360;0" dur="9s" repeatCount="indefinite"/>
+          </polygon>
+        </g>
+        <g transform="translate(110 60)">
+          <polygon points="0,-13 13,0 0,13 -13,0" fill="url(#modelGrad)" filter="url(#glowCyan)">
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite"/>
+          </polygon>
+        </g>
+      </g>
+      <g stroke="#22d3ee" stroke-width="1.2" fill="none" opacity="0.8">
+        <line x1="-98" y1="-50" x2="-65" y2="-50">
+          <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="65" y1="-50" x2="98" y2="-50">
+          <animate attributeName="stroke-opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
+        </line>
+        <line x1="-98" y1="60" x2="-65" y2="50">
+          <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="65" y1="50" x2="98" y2="60">
+          <animate attributeName="stroke-opacity" values="1;0.3;1" dur="1.7s" repeatCount="indefinite"/>
+        </line>
+      </g>
+      <g>
+        <circle r="5" fill="#67e8f9" filter="url(#glowCyan)">
+          <animateMotion dur="4s" repeatCount="indefinite">
+            <mpath href="#flowPath1"/>
+          </animateMotion>
+        </circle>
+        <circle r="4" fill="#34d399" filter="url(#glowCyan)">
+          <animateMotion dur="5s" repeatCount="indefinite">
+            <mpath href="#flowPath2"/>
+          </animateMotion>
+        </circle>
+      </g>
+    </g>
+    <g fill="#67e8f9">
+      <circle cx="680" cy="360" r="1.8">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1120" cy="380" r="2">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="720" cy="580" r="1.5">
+        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1080" cy="570" r="1.8">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="900" y="605" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="#67e8f9" letter-spacing="3">SPANNER</text>
+  </g>
+
+  <!-- Cross dividers -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="url(#divider)" stroke-width="1.2" opacity="0.9"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="url(#divider)" stroke-width="1.2" opacity="0.9"/>
+  <g transform="translate(600 315)">
+    <circle r="10" fill="none" stroke="#475569" stroke-width="1" opacity="0.9"/>
+    <circle r="4" fill="#22d3ee">
+      <animate attributeName="fill" values="#ef4444;#f59e0b;#3b82f6;#22d3ee;#ef4444" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="3;6;3" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="18" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.5">
+      <animate attributeName="r" values="10;30;10" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Date chip bottom-left -->
+  <g transform="translate(40 575)">
+    <rect x="0" y="0" width="160" height="36" rx="18" fill="url(#chipGrad)" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="18" cy="18" r="5" fill="#22d3ee">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="36" y="23" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="#e2e8f0" letter-spacing="2">APR 01 2026</text>
+  </g>
+
+  <!-- Audience chip bottom-right -->
+  <g transform="translate(930 575)">
+    <rect x="0" y="0" width="230" height="36" rx="18" fill="url(#chipGrad)" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="18" cy="18" r="5" fill="#f59e0b">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="36" y="23" font-family="ui-monospace,Menlo,monospace" font-size="12" font-weight="700" fill="#e2e8f0" letter-spacing="2">DEVSECOPS / SRE / CLOUD</text>
+  </g>
+
+  <!-- Scanline overlay -->
+  <rect width="1200" height="630" fill="url(#scanlines)" opacity="0.6"/>
 </svg>
