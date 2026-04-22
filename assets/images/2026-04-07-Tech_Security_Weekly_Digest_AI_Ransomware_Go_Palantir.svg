@@ -1,582 +1,145 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Tech Security Weekly Digest - April 07 2026</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Style A v3 APR 07 2026 RANSOM WARE">
+  <title>Style A v3 APR 07 2026 RANSOM WARE</title>
   <defs>
-    <!-- Background gradients -->
-    <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117"/>
-      <stop offset="45%" stop-color="#0a0f1e"/>
-      <stop offset="100%" stop-color="#070d1a"/>
-    </linearGradient>
-    <linearGradient id="bgLeft" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#090e1c"/>
-      <stop offset="100%" stop-color="#0d1420"/>
-    </linearGradient>
-    <linearGradient id="bgTopScene" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#120a0a"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="bgBottomScene" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117"/>
-      <stop offset="100%" stop-color="#08101a"/>
-    </linearGradient>
-    <linearGradient id="crackGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#ef4444" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#ff6060" stop-opacity="1"/>
-      <stop offset="70%" stop-color="#ef4444" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1a0e0e"/>
-      <stop offset="100%" stop-color="#0f0808"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a5f"/>
-      <stop offset="100%" stop-color="#0f1f3d"/>
-    </linearGradient>
-    <linearGradient id="palantirGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a5f"/>
-      <stop offset="100%" stop-color="#0c2040"/>
-    </linearGradient>
-    <linearGradient id="reilBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#dc7f00"/>
-    </linearGradient>
-    <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0d1117"/>
-      <stop offset="50%" stop-color="#0a0f1c"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
-    <!-- Radial glows -->
-    <radialGradient id="iranGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="israelGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="dprGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="palGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Filters -->
-    <filter id="glowRed" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="14" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="1 0 0 0 0.9
-                0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0.8 0" result="colored"/>
-      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glowBlue" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="0 0 0 0 0.2
-                0 0 0 0 0.4
-                0 0 0 0 1
-                0 0 0 0.7 0" result="colored"/>
-      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glowAmber" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="1 0 0 0 0.9
-                0 0 0 0 0.5
-                0 0 0 0 0
-                0 0 0 0.7 0" result="colored"/>
-      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glowGreen" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="0 0 0 0 0.1
-                0 0 0 0 0.8
-                0 0 0 0 0.3
-                0 0 0 0.7 0" result="colored"/>
-      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6"/>
-    </filter>
-    <filter id="crackBlur" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <!-- Dot grid pattern -->
-    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="1" fill="#334155" opacity="0.35"/>
-    </pattern>
-    <!-- Hex pattern for left panel -->
-    <pattern id="hexGrid" x="0" y="0" width="20" height="17.32" patternUnits="userSpaceOnUse">
-      <polygon points="10,0 20,5.77 20,11.55 10,17.32 0,11.55 0,5.77" fill="none" stroke="#1e293b" stroke-width="0.4" opacity="0.5"/>
-    </pattern>
-    <!-- Arrowheads -->
-    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" opacity="0.9"/>
-    </marker>
-    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b" opacity="0.9"/>
-    </marker>
-    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6" opacity="0.9"/>
-    </marker>
-    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#22c55e" opacity="0.9"/>
-    </marker>
-    <clipPath id="sceneClip">
-      <rect x="310" y="0" width="890" height="630"/>
-    </clipPath>
-    <clipPath id="topSceneClip">
-      <rect x="310" y="0" width="890" height="315"/>
-    </clipPath>
-    <clipPath id="bottomSceneClip">
-      <rect x="310" y="315" width="890" height="315"/>
-    </clipPath>
+  <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#100415"/><stop offset="100%" stop-color="#190622"/></linearGradient>
+  <linearGradient id="bgB" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#190622"/><stop offset="100%" stop-color="#020308"/></linearGradient>
+  <radialGradient id="haloA" cx="30%" cy="40%" r="65%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0.34"/><stop offset="100%" stop-color="#100415" stop-opacity="0"/></radialGradient>
+  <radialGradient id="haloB" cx="75%" cy="72%" r="60%"><stop offset="0%" stop-color="#c026d3" stop-opacity="0.32"/><stop offset="100%" stop-color="#190622" stop-opacity="0"/></radialGradient>
+  <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c026d3"><animate attributeName="stop-color" values="#c026d3;#f472b6;#dc2626;#c026d3" dur="6s" repeatCount="indefinite"/></stop><stop offset="50%" stop-color="#f472b6"><animate attributeName="stop-color" values="#f472b6;#e11d48;#c026d3;#f472b6" dur="6s" repeatCount="indefinite"/></stop><stop offset="100%" stop-color="#e11d48"><animate attributeName="stop-color" values="#e11d48;#dc2626;#f472b6;#e11d48" dur="6s" repeatCount="indefinite"/></stop></linearGradient>
+  <linearGradient id="heroGradB" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0.9"/><stop offset="100%" stop-color="#c026d3" stop-opacity="0.95"/></linearGradient>
+  <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#100415" stop-opacity="0.95"/><stop offset="100%" stop-color="#000000" stop-opacity="0.85"/></linearGradient>
+  <linearGradient id="stripe" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0"/><stop offset="50%" stop-color="#dc2626" stop-opacity="0.7"/><stop offset="100%" stop-color="#dc2626" stop-opacity="0"/></linearGradient>
+  <radialGradient id="nodeCore" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f472b6" stop-opacity="1"/><stop offset="55%" stop-color="#c026d3" stop-opacity="0.75"/><stop offset="100%" stop-color="#c026d3" stop-opacity="0"/></radialGradient>
+  <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#e11d48" stop-opacity="0.5"/><stop offset="100%" stop-color="#e11d48" stop-opacity="0"/></radialGradient>
+  <radialGradient id="scanSpot" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fbcfe8" stop-opacity="0.85"/><stop offset="100%" stop-color="#fbcfe8" stop-opacity="0"/></radialGradient>
+  <radialGradient id="qrHalo" cx="50%" cy="50%" r="65%"><stop offset="0%" stop-color="#f472b6" stop-opacity="0.45"/><stop offset="100%" stop-color="#f472b6" stop-opacity="0"/></radialGradient>
+  <linearGradient id="ringA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0.85"/><stop offset="100%" stop-color="#c026d3" stop-opacity="0.15"/></linearGradient>
+  <linearGradient id="ringB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c026d3" stop-opacity="0.4"/><stop offset="100%" stop-color="#f472b6" stop-opacity="0.05"/></linearGradient>
+  <linearGradient id="underline" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0"/><stop offset="35%" stop-color="#dc2626" stop-opacity="0.95"/><stop offset="65%" stop-color="#c026d3" stop-opacity="0.95"/><stop offset="100%" stop-color="#c026d3" stop-opacity="0"/></linearGradient>
+  <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f472b6" stop-opacity="0"/><stop offset="40%" stop-color="#f472b6" stop-opacity="0.55"/><stop offset="100%" stop-color="#f472b6" stop-opacity="0"/></linearGradient>
+  <linearGradient id="secGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+  <filter id="fxGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="fxSoft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter><filter id="fxHero" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="dotGrid" x="0" y="0" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="19" cy="19" r="0.9" fill="#1f2937" opacity="0.42"/></pattern>
   </defs>
-
-  <!-- CSS Animations -->
-  <style>
-    @keyframes floatUp {
-      0%   { transform: translateY(0px); opacity: 0.6; }
-      50%  { transform: translateY(-12px); opacity: 1; }
-      100% { transform: translateY(0px); opacity: 0.6; }
-    }
-    @keyframes pulse {
-      0%   { opacity: 0.4; transform: scale(1); }
-      50%  { opacity: 1; transform: scale(1.15); }
-      100% { opacity: 0.4; transform: scale(1); }
-    }
-    @keyframes pulseRing {
-      0%   { r: 18px; opacity: 0.8; }
-      100% { r: 40px; opacity: 0; }
-    }
-    @keyframes crackFx {
-      0%   { opacity: 0.6; filter: drop-shadow(0 0 4px #ef4444); }
-      50%  { opacity: 1;   filter: drop-shadow(0 0 12px #ff6060); }
-      100% { opacity: 0.6; filter: drop-shadow(0 0 4px #ef4444); }
-    }
-    @keyframes glimmer {
-      0%   { opacity: 0.3; }
-      50%  { opacity: 0.9; }
-      100% { opacity: 0.3; }
-    }
-    @keyframes scanLine {
-      0%   { transform: translateY(0px); opacity: 0.6; }
-      100% { transform: translateY(320px); opacity: 0; }
-    }
-    @keyframes dash {
-      to { stroke-dashoffset: -40; }
-    }
-    @keyframes rotSpin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.15; }
-      50%       { opacity: 0.7; }
-    }
-    @keyframes dataFlow {
-      0%   { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: -80; }
-    }
-    .float1 { animation: floatUp 3.8s ease-in-out infinite; }
-    .float2 { animation: floatUp 4.5s ease-in-out infinite 0.8s; }
-    .float3 { animation: floatUp 3.2s ease-in-out infinite 1.6s; }
-    .pulse1 { animation: pulse 2.4s ease-in-out infinite; }
-    .pulse2 { animation: pulse 3.1s ease-in-out infinite 0.6s; }
-    .pulse3 { animation: pulse 2.8s ease-in-out infinite 1.2s; }
-    .crack  { animation: crackFx 2s ease-in-out infinite; }
-    .glimmer1 { animation: glimmer 2.2s ease-in-out infinite; }
-    .glimmer2 { animation: glimmer 3.0s ease-in-out infinite 0.9s; }
-    .glimmer3 { animation: glimmer 2.7s ease-in-out infinite 1.8s; }
-    .dashFlow { animation: dash 1.2s linear infinite; stroke-dasharray: 12 8; }
-    .dataLine { animation: dataFlow 1.5s linear infinite; stroke-dasharray: 20 10; }
-    .spin { animation: rotSpin 8s linear infinite; transform-origin: center; transform-box: fill-box; }
-    .fadeio { animation: fadeInOut 2.5s ease-in-out infinite; }
-  </style>
-
-  <!-- ===== BASE BACKGROUND ===== -->
-  <rect width="1200" height="630" fill="url(#bgMain)"/>
-  <rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.5"/>
-
-  <!-- ===== VERTICAL DIVIDER: Left Panel | Scene ===== -->
-  <rect x="0" y="0" width="305" height="630" fill="url(#bgLeft)"/>
-  <rect x="0" y="0" width="305" height="630" fill="url(#hexGrid)" opacity="0.4"/>
-  <!-- Divider line with glow -->
-  <line x1="305" y1="0" x2="305" y2="630" stroke="#1e3a5f" stroke-width="1.5" opacity="0.8"/>
-  <line x1="305" y1="0" x2="305" y2="630" stroke="#3b82f6" stroke-width="1" opacity="0.3" filter="url(#softBlur)"/>
-
-  <!-- HORIZONTAL DIVIDER: Top scene | Bottom scene -->
-  <rect x="305" y="0"   width="895" height="315" fill="url(#bgTopScene)"/>
-  <rect x="305" y="315" width="895" height="315" fill="url(#bgBottomScene)"/>
-  <!-- Horizontal crack line -->
-  <rect x="305" y="312" width="895" height="6" fill="url(#crackGlow)" class="crack"/>
-
-  <!-- ===== LEFT PANEL ===== -->
-  <!-- Shield icon top -->
-  <g transform="translate(36, 42)">
-    <path d="M0,-28 L22,-15 L22,4 C22,18 12,28 0,33 C-12,28 -22,18 -22,4 L-22,-15 Z"
-      fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="2"/>
-    <path d="M-9,2 L-3,9 L10,-7" stroke="#60a5fa" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="1200" height="630" fill="url(#bgA)"/>
+  <rect width="1200" height="630" fill="url(#haloA)"/>
+  <rect width="1200" height="630" fill="url(#haloB)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
+  <circle cx="760" cy="315" r="120" fill="none" stroke="url(#ringA)" stroke-width="1.60" opacity="0.42"><animate attributeName="r" values="120;130;120" dur="6.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.42;0.18;0.42" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="175" fill="none" stroke="url(#ringB)" stroke-width="1.48" opacity="0.38"><animate attributeName="r" values="175;185;175" dur="7.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.38;0.16;0.38" dur="7.1s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="230" fill="none" stroke="url(#ringA)" stroke-width="1.36" opacity="0.33"><animate attributeName="r" values="230;240;230" dur="8.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.33;0.14;0.33" dur="8.2s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="285" fill="none" stroke="url(#ringB)" stroke-width="1.24" opacity="0.28"><animate attributeName="r" values="285;295;285" dur="9.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.28;0.12;0.28" dur="9.3s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="340" fill="none" stroke="url(#ringA)" stroke-width="1.12" opacity="0.24"><animate attributeName="r" values="340;350;340" dur="10.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.24;0.10;0.24" dur="10.4s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="395" fill="none" stroke="url(#ringB)" stroke-width="1.00" opacity="0.20"><animate attributeName="r" values="395;405;395" dur="11.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.20;0.08;0.20" dur="11.5s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="180" fill="none" stroke="#dc2626" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="10,24"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="360 760 315" dur="18s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="260" fill="none" stroke="#c026d3" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="14,29"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="-360 760 315" dur="24s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="315" r="340" fill="none" stroke="#dc2626" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="18,34"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="360 760 315" dur="30s" repeatCount="indefinite"/></circle>
+  <rect x="460" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="440;500;440" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="4.5s" repeatCount="indefinite"/></rect>
+  <rect x="640" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="620;680;620" dur="5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="820" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="800;860;800" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="5.5s" repeatCount="indefinite"/></rect>
+  <rect x="1000" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="980;1040;980" dur="6.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="6.0s" repeatCount="indefinite"/></rect>
+  <line x1="946.7" y1="281.6" x2="930.5" y2="229.6" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.8s" repeatCount="indefinite"/></line>
+  <line x1="946.7" y1="281.6" x2="540.7" y2="376.2" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
+  <line x1="930.5" y1="229.6" x2="540.7" y2="376.2" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.4s" repeatCount="indefinite"/></line>
+  <line x1="930.5" y1="229.6" x2="899.1" y2="235.5" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.8s" repeatCount="indefinite"/></line>
+  <line x1="540.7" y1="376.2" x2="899.1" y2="235.5" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
+  <line x1="540.7" y1="376.2" x2="687.1" y2="165.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.6s" repeatCount="indefinite"/></line>
+  <line x1="899.1" y1="235.5" x2="687.1" y2="165.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.7s" repeatCount="indefinite"/></line>
+  <line x1="899.1" y1="235.5" x2="920.4" y2="370.5" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.6s" repeatCount="indefinite"/></line>
+  <line x1="687.1" y1="165.1" x2="920.4" y2="370.5" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.7s" repeatCount="indefinite"/></line>
+  <line x1="687.1" y1="165.1" x2="569.8" y2="358.9" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.5s" repeatCount="indefinite"/></line>
+  <line x1="920.4" y1="370.5" x2="569.8" y2="358.9" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.4s" repeatCount="indefinite"/></line>
+  <line x1="920.4" y1="370.5" x2="814.8" y2="190.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.6s" repeatCount="indefinite"/></line>
+  <line x1="569.8" y1="358.9" x2="814.8" y2="190.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.8s" repeatCount="indefinite"/></line>
+  <line x1="569.8" y1="358.9" x2="764.3" y2="407.8" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.5s" repeatCount="indefinite"/></line>
+  <line x1="814.8" y1="190.4" x2="764.3" y2="407.8" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.0s" repeatCount="indefinite"/></line>
+  <line x1="814.8" y1="190.4" x2="800.3" y2="454.2" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.6s" repeatCount="indefinite"/></line>
+  <line x1="764.3" y1="407.8" x2="800.3" y2="454.2" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.5s" repeatCount="indefinite"/></line>
+  <line x1="764.3" y1="407.8" x2="648.0" y2="463.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.8s" repeatCount="indefinite"/></line>
+  <line x1="800.3" y1="454.2" x2="648.0" y2="463.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.6s" repeatCount="indefinite"/></line>
+  <line x1="800.3" y1="454.2" x2="981.6" y2="307.3" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.2s" repeatCount="indefinite"/></line>
+  <line x1="648.0" y1="463.1" x2="981.6" y2="307.3" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.5s" repeatCount="indefinite"/></line>
+  <line x1="648.0" y1="463.1" x2="670.2" y2="171.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.8s" repeatCount="indefinite"/></line>
+  <line x1="981.6" y1="307.3" x2="670.2" y2="171.1" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.0s" repeatCount="indefinite"/></line>
+  <line x1="981.6" y1="307.3" x2="625.6" y2="457.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.2s" repeatCount="indefinite"/></line>
+  <line x1="670.2" y1="171.1" x2="625.6" y2="457.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
+  <line x1="670.2" y1="171.1" x2="975.6" y2="203.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.6s" repeatCount="indefinite"/></line>
+  <line x1="625.6" y1="457.4" x2="975.6" y2="203.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.0s" repeatCount="indefinite"/></line>
+  <line x1="625.6" y1="457.4" x2="663.4" y2="212.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.3s" repeatCount="indefinite"/></line>
+  <line x1="975.6" y1="203.4" x2="663.4" y2="212.4" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.0s" repeatCount="indefinite"/></line>
+  <line x1="975.6" y1="203.4" x2="642.9" y2="390.9" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.5s" repeatCount="indefinite"/></line>
+  <line x1="663.4" y1="212.4" x2="642.9" y2="390.9" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.5s" repeatCount="indefinite"/></line>
+  <line x1="663.4" y1="212.4" x2="1013.5" y2="286.7" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.7s" repeatCount="indefinite"/></line>
+  <line x1="642.9" y1="390.9" x2="1013.5" y2="286.7" stroke="#c026d3" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.7s" repeatCount="indefinite"/></line>
+  <circle cx="946.7" cy="281.6" r="14.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="946.7" cy="281.6" r="8.4" fill="url(#nodeCore)"><animate attributeName="r" values="8.4;10.4;8.4" dur="4.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.1s" repeatCount="indefinite"/></circle>
+  <circle cx="930.5" cy="229.6" r="10.2" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="930.5" cy="229.6" r="4.2" fill="url(#nodeCore)"><animate attributeName="r" values="4.2;6.2;4.2" dur="4.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.7s" repeatCount="indefinite"/></circle>
+  <circle cx="540.7" cy="376.2" r="12.3" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="540.7" cy="376.2" r="6.3" fill="url(#nodeCore)"><animate attributeName="r" values="6.3;8.3;6.3" dur="5.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="5.1s" repeatCount="indefinite"/></circle>
+  <circle cx="899.1" cy="235.5" r="10.6" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="899.1" cy="235.5" r="4.6" fill="url(#nodeCore)"><animate attributeName="r" values="4.6;6.6;4.6" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/></circle>
+  <circle cx="687.1" cy="165.1" r="11.5" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="687.1" cy="165.1" r="5.5" fill="url(#nodeCore)"><animate attributeName="r" values="5.5;7.5;5.5" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/></circle>
+  <circle cx="920.4" cy="370.5" r="10.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="920.4" cy="370.5" r="4.4" fill="url(#nodeCore)"><animate attributeName="r" values="4.4;6.4;4.4" dur="3.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.3s" repeatCount="indefinite"/></circle>
+  <circle cx="569.8" cy="358.9" r="12.0" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="569.8" cy="358.9" r="6.0" fill="url(#nodeCore)"><animate attributeName="r" values="6.0;8.0;6.0" dur="5.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="5.1s" repeatCount="indefinite"/></circle>
+  <circle cx="814.8" cy="190.4" r="13.1" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="814.8" cy="190.4" r="7.1" fill="url(#nodeCore)"><animate attributeName="r" values="7.1;9.1;7.1" dur="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.0s" repeatCount="indefinite"/></circle>
+  <circle cx="764.3" cy="407.8" r="12.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="764.3" cy="407.8" r="6.4" fill="url(#nodeCore)"><animate attributeName="r" values="6.4;8.4;6.4" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="800.3" cy="454.2" r="12.0" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="800.3" cy="454.2" r="6.0" fill="url(#nodeCore)"><animate attributeName="r" values="6.0;8.0;6.0" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/></circle>
+  <circle cx="648.0" cy="463.1" r="13.2" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="648.0" cy="463.1" r="7.2" fill="url(#nodeCore)"><animate attributeName="r" values="7.2;9.2;7.2" dur="3.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.9s" repeatCount="indefinite"/></circle>
+  <circle cx="981.6" cy="307.3" r="14.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="981.6" cy="307.3" r="8.4" fill="url(#nodeCore)"><animate attributeName="r" values="8.4;10.4;8.4" dur="4.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.2s" repeatCount="indefinite"/></circle>
+  <circle cx="670.2" cy="171.1" r="11.0" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="670.2" cy="171.1" r="5.0" fill="url(#nodeCore)"><animate attributeName="r" values="5.0;7.0;5.0" dur="5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="5.2s" repeatCount="indefinite"/></circle>
+  <circle cx="625.6" cy="457.4" r="14.5" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="625.6" cy="457.4" r="8.5" fill="url(#nodeCore)"><animate attributeName="r" values="8.5;10.5;8.5" dur="4.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.4s" repeatCount="indefinite"/></circle>
+  <circle cx="975.6" cy="203.4" r="10.5" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="975.6" cy="203.4" r="4.5" fill="url(#nodeCore)"><animate attributeName="r" values="4.5;6.5;4.5" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/></circle>
+  <circle cx="663.4" cy="212.4" r="11.8" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="663.4" cy="212.4" r="5.8" fill="url(#nodeCore)"><animate attributeName="r" values="5.8;7.8;5.8" dur="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.0s" repeatCount="indefinite"/></circle>
+  <circle cx="642.9" cy="390.9" r="12.5" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="642.9" cy="390.9" r="6.5" fill="url(#nodeCore)"><animate attributeName="r" values="6.5;8.5;6.5" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.8s" repeatCount="indefinite"/></circle>
+  <circle cx="1013.5" cy="286.7" r="13.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="1013.5" cy="286.7" r="7.4" fill="url(#nodeCore)"><animate attributeName="r" values="7.4;9.4;7.4" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="2.9s" repeatCount="indefinite"/></circle>
+  <circle cx="706.0" cy="566.9" r="1.7" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="566.9;512.2;566.9" dur="4.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.1s" repeatCount="indefinite"/></circle>
+  <circle cx="649.1" cy="154.1" r="2.9" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="154.1;72.4;154.1" dur="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="6.4s" repeatCount="indefinite"/></circle>
+  <circle cx="567.9" cy="166.6" r="1.8" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="166.6;91.1;166.6" dur="5.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.8s" repeatCount="indefinite"/></circle>
+  <circle cx="426.2" cy="142.1" r="2.9" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="142.1;92.8;142.1" dur="5.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.6s" repeatCount="indefinite"/></circle>
+  <circle cx="698.7" cy="144.2" r="2.6" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="144.2;68.3;144.2" dur="5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.0s" repeatCount="indefinite"/></circle>
+  <circle cx="997.6" cy="263.1" r="1.9" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="263.1;224.6;263.1" dur="4.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.4s" repeatCount="indefinite"/></circle>
+  <circle cx="404.2" cy="120.4" r="2.5" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="120.4;43.3;120.4" dur="5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.0s" repeatCount="indefinite"/></circle>
+  <circle cx="711.6" cy="545.4" r="2.7" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="545.4;505.9;545.4" dur="5.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.7s" repeatCount="indefinite"/></circle>
+  <circle cx="835.3" cy="107.3" r="2.0" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="107.3;36.6;107.3" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.3s" repeatCount="indefinite"/></circle>
+  <circle cx="576.4" cy="445.2" r="2.5" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="445.2;361.1;445.2" dur="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.5s" repeatCount="indefinite"/></circle>
+  <circle cx="1138.7" cy="110.5" r="1.6" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="110.5;30.1;110.5" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
+  <circle cx="1025.1" cy="415.2" r="3.0" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="415.2;350.9;415.2" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
+  <circle cx="559.4" cy="393.9" r="2.0" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="393.9;338.0;393.9" dur="5.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.4s" repeatCount="indefinite"/></circle>
+  <circle cx="831.4" cy="375.6" r="2.6" fill="#f472b6" opacity="0.75"><animate attributeName="cy" values="375.6;334.7;375.6" dur="6.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="6.1s" repeatCount="indefinite"/></circle>
+  <g transform="translate(1020 120)" opacity="0.85"><path d="M 0 -46 L 44 -28 L 44 14 Q 44 50 0 72 Q -44 50 -44 14 L -44 -28 Z" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-opacity="0.85"><animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></path><path d="M -15 5 L -3 18 L 20 -10" fill="none" stroke="#f472b6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></path></g>
+  <g transform="translate(445 155)" opacity="0.72"><rect x="-22" y="0" width="44" height="34" rx="5" fill="none" stroke="#c026d3" stroke-width="2.2"/><path d="M -14 0 Q -14 -22 0 -22 Q 14 -22 14 0" fill="none" stroke="#c026d3" stroke-width="2.2"><animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/></path><circle cx="0" cy="14" r="3.5" fill="#f472b6"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle></g>
+  <text x="755" y="260" font-family="Arial Black, Impact, sans-serif" font-size="96" font-weight="900" fill="url(#heroGrad)" text-anchor="middle" letter-spacing="-2" filter="url(#fxHero)">RANSOM<animate attributeName="opacity" values="0.85;1;0.85" dur="3.2s" repeatCount="indefinite"/></text>
+  <text x="755" y="355" font-family="Arial Black, Impact, sans-serif" font-size="118" font-weight="900" fill="#f1f5f9" text-anchor="middle" letter-spacing="-2" opacity="0.97" filter="url(#fxHero)">WARE<animate attributeName="opacity" values="0.85;1;0.85" dur="3.2s" begin="1.1s" repeatCount="indefinite"/></text>
+  <rect x="535" y="373" width="440" height="4" rx="2" fill="url(#underline)"><animate attributeName="width" values="40;440;40" dur="5.2s" repeatCount="indefinite"/><animate attributeName="x" values="735;535;735" dur="5.2s" repeatCount="indefinite"/></rect>
+  <g transform="translate(615.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="3.0s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#f472b6" text-anchor="middle" letter-spacing="2">AI</text></g>
+  <g transform="translate(755.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="3.6s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#f472b6" text-anchor="middle" letter-spacing="2">GO</text></g>
+  <g transform="translate(895.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="4.2s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#f472b6" text-anchor="middle" letter-spacing="2">PALANTIR</text></g>
+  <rect x="420" y="70" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></rect>
+  <rect x="510" y="82" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.7s" repeatCount="indefinite"/></rect>
+  <rect x="600" y="70" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.0s" repeatCount="indefinite"/></rect>
+  <rect x="690" y="82" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.3s" repeatCount="indefinite"/></rect>
+  <rect x="780" y="70" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.6s" repeatCount="indefinite"/></rect>
+  <rect x="870" y="82" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.9s" repeatCount="indefinite"/></rect>
+  <rect x="960" y="70" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></rect>
+  <rect x="1050" y="82" width="14" height="3" rx="1.5" fill="#c026d3" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.5s" repeatCount="indefinite"/></rect>
+  <rect x="0" y="0" width="368" height="630" fill="url(#panelGrad)"/>
+  <rect x="0" y="0" width="4" height="630" fill="#dc2626" opacity="0.9"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.1s" repeatCount="indefinite"/></rect>
+  <rect x="28" y="40" width="240" height="2" fill="url(#stripe)"><animate attributeName="width" values="80;240;80" dur="4.2s" repeatCount="indefinite"/></rect>
+  <circle cx="42" cy="74" r="6" fill="#f472b6"><animate attributeName="r" values="5;8;5" dur="2.6s" repeatCount="indefinite"/></circle>
+  <text x="62" y="80" font-family="Arial Black,sans-serif" font-size="14" fill="#fbcfe8" letter-spacing="3.5" opacity="0.9">APR 07 2026</text>
+  <text x="28" y="230" font-family="Arial Black, Impact, sans-serif" font-size="68" fill="url(#heroGrad)" letter-spacing="-2" filter="url(#fxHero)">RANSOM</text>
+  <text x="28" y="302" font-family="Arial Black, Impact, sans-serif" font-size="68" fill="#f1f5f9" letter-spacing="-2" opacity="0.95" filter="url(#fxHero)">WARE</text>
+  <rect x="28" y="320" width="240" height="3" rx="1.5" fill="url(#underline)"><animate attributeName="width" values="60;240;60" dur="4.8s" repeatCount="indefinite"/></rect>
+  <rect x="28" y="360" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="360" width="220" height="8" rx="4" fill="#dc2626" opacity="0.9"><animate attributeName="width" values="20;220;20" dur="4s" repeatCount="indefinite"/></rect>
+  <rect x="28" y="378" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="378" width="170" height="8" rx="4" fill="#c026d3" opacity="0.9"><animate attributeName="width" values="20;170;20" dur="5s" repeatCount="indefinite"/></rect>
+  <rect x="28" y="396" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="396" width="120" height="8" rx="4" fill="#f472b6" opacity="0.9"><animate attributeName="width" values="20;120;20" dur="6s" repeatCount="indefinite"/></rect>
+  <rect x="28" y="440" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="2.4s" repeatCount="indefinite"/></rect><rect x="56" y="440" width="60" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <rect x="28" y="458" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="2.7s" repeatCount="indefinite"/></rect><rect x="56" y="458" width="74" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <rect x="28" y="476" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.0s" repeatCount="indefinite"/></rect><rect x="56" y="476" width="88" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <rect x="28" y="494" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.3s" repeatCount="indefinite"/></rect><rect x="56" y="494" width="102" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <rect x="28" y="512" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.6s" repeatCount="indefinite"/></rect><rect x="56" y="512" width="116" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <rect x="28" y="530" width="20" height="4" rx="1.5" fill="#c026d3" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.9s" repeatCount="indefinite"/></rect><rect x="56" y="530" width="130" height="4" rx="1.5" fill="#dc2626" opacity="0.35"/>
+  <line x1="28" y1="585" x2="340" y2="585" stroke="#dc2626" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="28" y="606" font-family="Arial,sans-serif" font-size="11" fill="#fbcfe8" letter-spacing="2" opacity="0.7">tech.2twodragon.com</text>
+  <g transform="translate(1048.0,478.0)">
+  <rect x="-6" y="-6" width="124.0" height="124.0" rx="6" fill="#FFFFFF" stroke="#f472b6" stroke-width="1.6" opacity="0.98"/>
+  <rect x="-8" y="-8" width="128.0" height="128.0" rx="8" fill="url(#qrHalo)" opacity="0.85"><animate attributeName="opacity" values="0.55;0.95;0.55" dur="3.4s" repeatCount="indefinite"/></rect>
+  <g transform="scale(6.2222)"><path d="M0.8,0.8H1.2V1.2H0.8zM1.2,0.8H1.6V1.2H1.2zM1.6,0.8H2V1.2H1.6zM2,0.8H2.4V1.2H2zM2.4,0.8H2.8V1.2H2.4zM2.8,0.8H3.2V1.2H2.8zM3.2,0.8H3.6V1.2H3.2zM4.4,0.8H4.8V1.2H4.4zM5.6,0.8H6V1.2H5.6zM7.6,0.8H8V1.2H7.6zM8,0.8H8.4V1.2H8zM8.4,0.8H8.8V1.2H8.4zM9.2,0.8H9.6V1.2H9.2zM11.2,0.8H11.6V1.2H11.2zM11.6,0.8H12V1.2H11.6zM12.4,0.8H12.8V1.2H12.4zM12.8,0.8H13.2V1.2H12.8zM13.2,0.8H13.6V1.2H13.2zM14.4,0.8H14.8V1.2H14.4zM14.8,0.8H15.2V1.2H14.8zM15.2,0.8H15.6V1.2H15.2zM15.6,0.8H16V1.2H15.6zM16,0.8H16.4V1.2H16zM16.4,0.8H16.8V1.2H16.4zM16.8,0.8H17.2V1.2H16.8zM0.8,1.2H1.2V1.6H0.8zM3.2,1.2H3.6V1.6H3.2zM5.6,1.2H6V1.6H5.6zM7.2,1.2H7.6V1.6H7.2zM8,1.2H8.4V1.6H8zM10,1.2H10.4V1.6H10zM11.6,1.2H12V1.6H11.6zM12,1.2H12.4V1.6H12zM12.8,1.2H13.2V1.6H12.8zM13.6,1.2H14V1.6H13.6zM14.4,1.2H14.8V1.6H14.4zM16.8,1.2H17.2V1.6H16.8zM0.8,1.6H1.2V2H0.8zM1.6,1.6H2V2H1.6zM2,1.6H2.4V2H2zM2.4,1.6H2.8V2H2.4zM3.2,1.6H3.6V2H3.2zM4.8,1.6H5.2V2H4.8zM6.4,1.6H6.8V2H6.4zM7.2,1.6H7.6V2H7.2zM8,1.6H8.4V2H8zM8.4,1.6H8.8V2H8.4zM10,1.6H10.4V2H10zM11.2,1.6H11.6V2H11.2zM12.4,1.6H12.8V2H12.4zM13.6,1.6H14V2H13.6zM14.4,1.6H14.8V2H14.4zM15.2,1.6H15.6V2H15.2zM15.6,1.6H16V2H15.6zM16,1.6H16.4V2H16zM16.8,1.6H17.2V2H16.8zM0.8,2H1.2V2.4H0.8zM1.6,2H2V2.4H1.6zM2,2H2.4V2.4H2zM2.4,2H2.8V2.4H2.4zM3.2,2H3.6V2.4H3.2zM4.4,2H4.8V2.4H4.4zM5.6,2H6V2.4H5.6zM6.8,2H7.2V2.4H6.8zM7.6,2H8V2.4H7.6zM8,2H8.4V2.4H8zM8.4,2H8.8V2.4H8.4zM8.8,2H9.2V2.4H8.8zM9.2,2H9.6V2.4H9.2zM10,2H10.4V2.4H10zM10.4,2H10.8V2.4H10.4zM11.2,2H11.6V2.4H11.2zM11.6,2H12V2.4H11.6zM12,2H12.4V2.4H12zM12.4,2H12.8V2.4H12.4zM12.8,2H13.2V2.4H12.8zM13.2,2H13.6V2.4H13.2zM13.6,2H14V2.4H13.6zM14.4,2H14.8V2.4H14.4zM15.2,2H15.6V2.4H15.2zM15.6,2H16V2.4H15.6zM16,2H16.4V2.4H16zM16.8,2H17.2V2.4H16.8zM0.8,2.4H1.2V2.8H0.8zM1.6,2.4H2V2.8H1.6zM2,2.4H2.4V2.8H2zM2.4,2.4H2.8V2.8H2.4zM3.2,2.4H3.6V2.8H3.2zM6,2.4H6.4V2.8H6zM6.8,2.4H7.2V2.8H6.8zM7.2,2.4H7.6V2.8H7.2zM7.6,2.4H8V2.8H7.6zM8,2.4H8.4V2.8H8zM8.4,2.4H8.8V2.8H8.4zM10.8,2.4H11.2V2.8H10.8zM11.2,2.4H11.6V2.8H11.2zM11.6,2.4H12V2.8H11.6zM13.6,2.4H14V2.8H13.6zM14.4,2.4H14.8V2.8H14.4zM15.2,2.4H15.6V2.8H15.2zM15.6,2.4H16V2.8H15.6zM16,2.4H16.4V2.8H16zM16.8,2.4H17.2V2.8H16.8zM0.8,2.8H1.2V3.2H0.8zM3.2,2.8H3.6V3.2H3.2zM4,2.8H4.4V3.2H4zM6.4,2.8H6.8V3.2H6.4zM7.6,2.8H8V3.2H7.6zM8,2.8H8.4V3.2H8zM8.4,2.8H8.8V3.2H8.4zM10.4,2.8H10.8V3.2H10.4zM11.2,2.8H11.6V3.2H11.2zM11.6,2.8H12V3.2H11.6zM12.8,2.8H13.2V3.2H12.8zM13.2,2.8H13.6V3.2H13.2zM13.6,2.8H14V3.2H13.6zM14.4,2.8H14.8V3.2H14.4zM16.8,2.8H17.2V3.2H16.8zM0.8,3.2H1.2V3.6H0.8zM1.2,3.2H1.6V3.6H1.2zM1.6,3.2H2V3.6H1.6zM2,3.2H2.4V3.6H2zM2.4,3.2H2.8V3.6H2.4zM2.8,3.2H3.2V3.6H2.8zM3.2,3.2H3.6V3.6H3.2zM4,3.2H4.4V3.6H4zM4.8,3.2H5.2V3.6H4.8zM5.6,3.2H6V3.6H5.6zM6.4,3.2H6.8V3.6H6.4zM7.2,3.2H7.6V3.6H7.2zM8,3.2H8.4V3.6H8zM8.8,3.2H9.2V3.6H8.8zM9.6,3.2H10V3.6H9.6zM10.4,3.2H10.8V3.6H10.4zM11.2,3.2H11.6V3.6H11.2zM12,3.2H12.4V3.6H12zM12.8,3.2H13.2V3.6H12.8zM13.6,3.2H14V3.6H13.6zM14.4,3.2H14.8V3.6H14.4zM14.8,3.2H15.2V3.6H14.8zM15.2,3.2H15.6V3.6H15.2zM15.6,3.2H16V3.6H15.6zM16,3.2H16.4V3.6H16zM16.4,3.2H16.8V3.6H16.4zM16.8,3.2H17.2V3.6H16.8zM4.8,3.6H5.2V4H4.8zM5.2,3.6H5.6V4H5.2zM6.4,3.6H6.8V4H6.4zM7.2,3.6H7.6V4H7.2zM7.6,3.6H8V4H7.6zM8.4,3.6H8.8V4H8.4zM8.8,3.6H9.2V4H8.8zM9.2,3.6H9.6V4H9.2zM9.6,3.6H10V4H9.6zM10.4,3.6H10.8V4H10.4zM11.6,3.6H12V4H11.6zM12,3.6H12.4V4H12zM12.4,3.6H12.8V4H12.4zM13.2,3.6H13.6V4H13.2zM0.8,4H1.2V4.4H0.8zM2,4H2.4V4.4H2zM2.8,4H3.2V4.4H2.8zM3.2,4H3.6V4.4H3.2zM4,4H4.4V4.4H4zM4.4,4H4.8V4.4H4.4zM5.2,4H5.6V4.4H5.2zM5.6,4H6V4.4H5.6zM6,4H6.4V4.4H6zM6.4,4H6.8V4.4H6.4zM6.8,4H7.2V4.4H6.8zM7.2,4H7.6V4.4H7.2zM8.4,4H8.8V4.4H8.4zM9.2,4H9.6V4.4H9.2zM10.8,4H11.2V4.4H10.8zM11.2,4H11.6V4.4H11.2zM13.6,4H14V4.4H13.6zM14,4H14.4V4.4H14zM14.8,4H15.2V4.4H14.8zM0.8,4.4H1.2V4.8H0.8zM1.2,4.4H1.6V4.8H1.2zM2,4.4H2.4V4.8H2zM2.8,4.4H3.2V4.8H2.8zM4.4,4.4H4.8V4.8H4.4zM6,4.4H6.4V4.8H6zM7.2,4.4H7.6V4.8H7.2zM7.6,4.4H8V4.8H7.6zM9.2,4.4H9.6V4.8H9.2zM10.4,4.4H10.8V4.8H10.4zM10.8,4.4H11.2V4.8H10.8zM11.2,4.4H11.6V4.8H11.2zM12.4,4.4H12.8V4.8H12.4zM13.6,4.4H14V4.8H13.6zM15.6,4.4H16V4.8H15.6zM16,4.4H16.4V4.8H16zM16.4,4.4H16.8V4.8H16.4zM16.8,4.4H17.2V4.8H16.8zM1.2,4.8H1.6V5.2H1.2zM1.6,4.8H2V5.2H1.6zM2,4.8H2.4V5.2H2zM2.4,4.8H2.8V5.2H2.4zM3.2,4.8H3.6V5.2H3.2zM4,4.8H4.4V5.2H4zM4.8,4.8H5.2V5.2H4.8zM5.2,4.8H5.6V5.2H5.2zM5.6,4.8H6V5.2H5.6zM6.8,4.8H7.2V5.2H6.8zM7.6,4.8H8V5.2H7.6zM8,4.8H8.4V5.2H8zM8.4,4.8H8.8V5.2H8.4zM8.8,4.8H9.2V5.2H8.8zM9.6,4.8H10V5.2H9.6zM10.4,4.8H10.8V5.2H10.4zM10.8,4.8H11.2V5.2H10.8zM12.8,4.8H13.2V5.2H12.8zM13.2,4.8H13.6V5.2H13.2zM14.8,4.8H15.2V5.2H14.8zM15.2,4.8H15.6V5.2H15.2zM15.6,4.8H16V5.2H15.6zM16,4.8H16.4V5.2H16zM16.4,4.8H16.8V5.2H16.4zM0.8,5.2H1.2V5.6H0.8zM1.2,5.2H1.6V5.6H1.2zM1.6,5.2H2V5.6H1.6zM2,5.2H2.4V5.6H2zM3.6,5.2H4V5.6H3.6zM6,5.2H6.4V5.6H6zM6.4,5.2H6.8V5.6H6.4zM6.8,5.2H7.2V5.6H6.8zM7.2,5.2H7.6V5.6H7.2zM8,5.2H8.4V5.6H8zM9.2,5.2H9.6V5.6H9.2zM10.4,5.2H10.8V5.6H10.4zM10.8,5.2H11.2V5.6H10.8zM11.2,5.2H11.6V5.6H11.2zM12,5.2H12.4V5.6H12zM14,5.2H14.4V5.6H14zM14.4,5.2H14.8V5.6H14.4zM15.2,5.2H15.6V5.6H15.2zM16,5.2H16.4V5.6H16zM16.8,5.2H17.2V5.6H16.8zM1.2,5.6H1.6V6H1.2zM2,5.6H2.4V6H2zM2.4,5.6H2.8V6H2.4zM2.8,5.6H3.2V6H2.8zM3.2,5.6H3.6V6H3.2zM3.6,5.6H4V6H3.6zM4,5.6H4.4V6H4zM4.4,5.6H4.8V6H4.4zM6,5.6H6.4V6H6zM6.4,5.6H6.8V6H6.4zM7.2,5.6H7.6V6H7.2zM7.6,5.6H8V6H7.6zM8.4,5.6H8.8V6H8.4zM9.2,5.6H9.6V6H9.2zM10.4,5.6H10.8V6H10.4zM10.8,5.6H11.2V6H10.8zM11.2,5.6H11.6V6H11.2zM11.6,5.6H12V6H11.6zM12,5.6H12.4V6H12zM12.4,5.6H12.8V6H12.4zM12.8,5.6H13.2V6H12.8zM13.2,5.6H13.6V6H13.2zM13.6,5.6H14V6H13.6zM14,5.6H14.4V6H14zM14.4,5.6H14.8V6H14.4zM14.8,5.6H15.2V6H14.8zM15.6,5.6H16V6H15.6zM16.4,5.6H16.8V6H16.4zM0.8,6H1.2V6.4H0.8zM1.2,6H1.6V6.4H1.2zM2,6H2.4V6.4H2zM3.6,6H4V6.4H3.6zM5.2,6H5.6V6.4H5.2zM6.4,6H6.8V6.4H6.4zM6.8,6H7.2V6.4H6.8zM7.2,6H7.6V6.4H7.2zM7.6,6H8V6.4H7.6zM9.6,6H10V6.4H9.6zM10.8,6H11.2V6.4H10.8zM12.8,6H13.2V6.4H12.8zM13.2,6H13.6V6.4H13.2zM13.6,6H14V6.4H13.6zM14,6H14.4V6.4H14zM15.6,6H16V6.4H15.6zM16,6H16.4V6.4H16zM1.2,6.4H1.6V6.8H1.2zM1.6,6.4H2V6.8H1.6zM2.8,6.4H3.2V6.8H2.8zM3.2,6.4H3.6V6.8H3.2zM5.2,6.4H5.6V6.8H5.2zM5.6,6.4H6V6.8H5.6zM6.4,6.4H6.8V6.8H6.4zM6.8,6.4H7.2V6.8H6.8zM7.2,6.4H7.6V6.8H7.2zM7.6,6.4H8V6.8H7.6zM8,6.4H8.4V6.8H8zM8.8,6.4H9.2V6.8H8.8zM9.2,6.4H9.6V6.8H9.2zM10,6.4H10.4V6.8H10zM10.4,6.4H10.8V6.8H10.4zM12,6.4H12.4V6.8H12zM12.8,6.4H13.2V6.8H12.8zM13.6,6.4H14V6.8H13.6zM14.4,6.4H14.8V6.8H14.4zM15.6,6.4H16V6.8H15.6zM16,6.4H16.4V6.8H16zM16.4,6.4H16.8V6.8H16.4zM16.8,6.4H17.2V6.8H16.8zM0.8,6.8H1.2V7.2H0.8zM1.2,6.8H1.6V7.2H1.2zM1.6,6.8H2V7.2H1.6zM2,6.8H2.4V7.2H2zM2.8,6.8H3.2V7.2H2.8zM4,6.8H4.4V7.2H4zM4.8,6.8H5.2V7.2H4.8zM5.2,6.8H5.6V7.2H5.2zM6,6.8H6.4V7.2H6zM6.4,6.8H6.8V7.2H6.4zM6.8,6.8H7.2V7.2H6.8zM7.2,6.8H7.6V7.2H7.2zM7.6,6.8H8V7.2H7.6zM8,6.8H8.4V7.2H8zM8.4,6.8H8.8V7.2H8.4zM9.2,6.8H9.6V7.2H9.2zM9.6,6.8H10V7.2H9.6zM10.8,6.8H11.2V7.2H10.8zM11.2,6.8H11.6V7.2H11.2zM11.6,6.8H12V7.2H11.6zM12,6.8H12.4V7.2H12zM12.4,6.8H12.8V7.2H12.4zM12.8,6.8H13.2V7.2H12.8zM13.6,6.8H14V7.2H13.6zM14.4,6.8H14.8V7.2H14.4zM14.8,6.8H15.2V7.2H14.8zM0.8,7.2H1.2V7.6H0.8zM1.2,7.2H1.6V7.6H1.2zM2,7.2H2.4V7.6H2zM2.4,7.2H2.8V7.6H2.4zM2.8,7.2H3.2V7.6H2.8zM3.2,7.2H3.6V7.6H3.2zM4,7.2H4.4V7.6H4zM4.4,7.2H4.8V7.6H4.4zM4.8,7.2H5.2V7.6H4.8zM5.2,7.2H5.6V7.6H5.2zM7.6,7.2H8V7.6H7.6zM8.4,7.2H8.8V7.6H8.4zM9.6,7.2H10V7.6H9.6zM11.6,7.2H12V7.6H11.6zM12.4,7.2H12.8V7.6H12.4zM13.2,7.2H13.6V7.6H13.2zM13.6,7.2H14V7.6H13.6zM14.8,7.2H15.2V7.6H14.8zM16.4,7.2H16.8V7.6H16.4zM1.6,7.6H2V8H1.6zM2,7.6H2.4V8H2zM2.4,7.6H2.8V8H2.4zM4.4,7.6H4.8V8H4.4zM5.2,7.6H5.6V8H5.2zM6,7.6H6.4V8H6zM6.4,7.6H6.8V8H6.4zM6.8,7.6H7.2V8H6.8zM7.2,7.6H7.6V8H7.2zM8.4,7.6H8.8V8H8.4zM10,7.6H10.4V8H10zM10.4,7.6H10.8V8H10.4zM11.2,7.6H11.6V8H11.2zM11.6,7.6H12V8H11.6zM12,7.6H12.4V8H12zM12.4,7.6H12.8V8H12.4zM14.4,7.6H14.8V8H14.4zM14.8,7.6H15.2V8H14.8zM15.6,7.6H16V8H15.6zM16,7.6H16.4V8H16zM16.4,7.6H16.8V8H16.4zM16.8,7.6H17.2V8H16.8zM0.8,8H1.2V8.4H0.8zM1.2,8H1.6V8.4H1.2zM2,8H2.4V8.4H2zM3.2,8H3.6V8.4H3.2zM4,8H4.4V8.4H4zM4.4,8H4.8V8.4H4.4zM4.8,8H5.2V8.4H4.8zM5.2,8H5.6V8.4H5.2zM6,8H6.4V8.4H6zM6.8,8H7.2V8.4H6.8zM8,8H8.4V8.4H8zM9.2,8H9.6V8.4H9.2zM10.8,8H11.2V8.4H10.8zM12.4,8H12.8V8.4H12.4zM14,8H14.4V8.4H14zM14.4,8H14.8V8.4H14.4zM15.2,8H15.6V8.4H15.2zM16.8,8H17.2V8.4H16.8zM0.8,8.4H1.2V8.8H0.8zM1.2,8.4H1.6V8.8H1.2zM1.6,8.4H2V8.8H1.6zM2,8.4H2.4V8.8H2zM2.4,8.4H2.8V8.8H2.4zM4,8.4H4.4V8.8H4zM4.4,8.4H4.8V8.8H4.4zM4.8,8.4H5.2V8.8H4.8zM5.2,8.4H5.6V8.8H5.2zM5.6,8.4H6V8.8H5.6zM7.2,8.4H7.6V8.8H7.2zM7.6,8.4H8V8.8H7.6zM8,8.4H8.4V8.8H8zM8.4,8.4H8.8V8.8H8.4zM8.8,8.4H9.2V8.8H8.8zM9.6,8.4H10V8.8H9.6zM12.4,8.4H12.8V8.8H12.4zM12.8,8.4H13.2V8.8H12.8zM13.6,8.4H14V8.8H13.6zM14,8.4H14.4V8.8H14zM14.4,8.4H14.8V8.8H14.4zM14.8,8.4H15.2V8.8H14.8zM15.6,8.4H16V8.8H15.6zM16.8,8.4H17.2V8.8H16.8zM0.8,8.8H1.2V9.2H0.8zM1.2,8.8H1.6V9.2H1.2zM2,8.8H2.4V9.2H2zM2.4,8.8H2.8V9.2H2.4zM3.2,8.8H3.6V9.2H3.2zM3.6,8.8H4V9.2H3.6zM4.8,8.8H5.2V9.2H4.8zM6,8.8H6.4V9.2H6zM6.8,8.8H7.2V9.2H6.8zM7.2,8.8H7.6V9.2H7.2zM7.6,8.8H8V9.2H7.6zM8,8.8H8.4V9.2H8zM8.4,8.8H8.8V9.2H8.4zM8.8,8.8H9.2V9.2H8.8zM10,8.8H10.4V9.2H10zM10.4,8.8H10.8V9.2H10.4zM10.8,8.8H11.2V9.2H10.8zM11.2,8.8H11.6V9.2H11.2zM11.6,8.8H12V9.2H11.6zM12.4,8.8H12.8V9.2H12.4zM13.6,8.8H14V9.2H13.6zM14,8.8H14.4V9.2H14zM14.4,8.8H14.8V9.2H14.4zM16,8.8H16.4V9.2H16zM16.4,8.8H16.8V9.2H16.4zM1.2,9.2H1.6V9.6H1.2zM1.6,9.2H2V9.6H1.6zM2,9.2H2.4V9.6H2zM4,9.2H4.4V9.6H4zM4.8,9.2H5.2V9.6H4.8zM5.6,9.2H6V9.6H5.6zM6.8,9.2H7.2V9.6H6.8zM7.2,9.2H7.6V9.6H7.2zM7.6,9.2H8V9.6H7.6zM8,9.2H8.4V9.6H8zM8.4,9.2H8.8V9.6H8.4zM8.8,9.2H9.2V9.6H8.8zM9.2,9.2H9.6V9.6H9.2zM10.8,9.2H11.2V9.6H10.8zM11.2,9.2H11.6V9.6H11.2zM12.4,9.2H12.8V9.6H12.4zM12.8,9.2H13.2V9.6H12.8zM14.4,9.2H14.8V9.6H14.4zM16,9.2H16.4V9.6H16zM16.4,9.2H16.8V9.6H16.4zM16.8,9.2H17.2V9.6H16.8zM0.8,9.6H1.2V10H0.8zM1.2,9.6H1.6V10H1.2zM1.6,9.6H2V10H1.6zM2.4,9.6H2.8V10H2.4zM2.8,9.6H3.2V10H2.8zM3.2,9.6H3.6V10H3.2zM3.6,9.6H4V10H3.6zM6.8,9.6H7.2V10H6.8zM7.6,9.6H8V10H7.6zM8,9.6H8.4V10H8zM8.4,9.6H8.8V10H8.4zM8.8,9.6H9.2V10H8.8zM10.8,9.6H11.2V10H10.8zM12,9.6H12.4V10H12zM13.2,9.6H13.6V10H13.2zM14,9.6H14.4V10H14zM14.4,9.6H14.8V10H14.4zM14.8,9.6H15.2V10H14.8zM15.2,9.6H15.6V10H15.2zM16,9.6H16.4V10H16zM16.4,9.6H16.8V10H16.4zM0.8,10H1.2V10.4H0.8zM1.2,10H1.6V10.4H1.2zM2.4,10H2.8V10.4H2.4zM2.8,10H3.2V10.4H2.8zM4.8,10H5.2V10.4H4.8zM6.4,10H6.8V10.4H6.4zM7.2,10H7.6V10.4H7.2zM8,10H8.4V10.4H8zM8.4,10H8.8V10.4H8.4zM8.8,10H9.2V10.4H8.8zM9.2,10H9.6V10.4H9.2zM9.6,10H10V10.4H9.6zM10,10H10.4V10.4H10zM10.4,10H10.8V10.4H10.4zM10.8,10H11.2V10.4H10.8zM11.2,10H11.6V10.4H11.2zM12,10H12.4V10.4H12zM12.8,10H13.2V10.4H12.8zM14.4,10H14.8V10.4H14.4zM16,10H16.4V10.4H16zM16.8,10H17.2V10.4H16.8zM0.8,10.4H1.2V10.8H0.8zM1.2,10.4H1.6V10.8H1.2zM2.8,10.4H3.2V10.8H2.8zM3.2,10.4H3.6V10.8H3.2zM4,10.4H4.4V10.8H4zM5.2,10.4H5.6V10.8H5.2zM5.6,10.4H6V10.8H5.6zM6.8,10.4H7.2V10.8H6.8zM7.6,10.4H8V10.8H7.6zM8.4,10.4H8.8V10.8H8.4zM8.8,10.4H9.2V10.8H8.8zM9.2,10.4H9.6V10.8H9.2zM10.4,10.4H10.8V10.8H10.4zM10.8,10.4H11.2V10.8H10.8zM11.6,10.4H12V10.8H11.6zM12,10.4H12.4V10.8H12zM12.4,10.4H12.8V10.8H12.4zM13.2,10.4H13.6V10.8H13.2zM13.6,10.4H14V10.8H13.6zM14,10.4H14.4V10.8H14zM14.4,10.4H14.8V10.8H14.4zM14.8,10.4H15.2V10.8H14.8zM15.6,10.4H16V10.8H15.6zM16.8,10.4H17.2V10.8H16.8zM0.8,10.8H1.2V11.2H0.8zM1.2,10.8H1.6V11.2H1.2zM1.6,10.8H2V11.2H1.6zM2.8,10.8H3.2V11.2H2.8zM4.4,10.8H4.8V11.2H4.4zM4.8,10.8H5.2V11.2H4.8zM5.2,10.8H5.6V11.2H5.2zM6.8,10.8H7.2V11.2H6.8zM7.6,10.8H8V11.2H7.6zM8.4,10.8H8.8V11.2H8.4zM8.8,10.8H9.2V11.2H8.8zM9.2,10.8H9.6V11.2H9.2zM9.6,10.8H10V11.2H9.6zM10.4,10.8H10.8V11.2H10.4zM10.8,10.8H11.2V11.2H10.8zM11.2,10.8H11.6V11.2H11.2zM12,10.8H12.4V11.2H12zM12.4,10.8H12.8V11.2H12.4zM13.2,10.8H13.6V11.2H13.2zM14.4,10.8H14.8V11.2H14.4zM15.6,10.8H16V11.2H15.6zM16.4,10.8H16.8V11.2H16.4zM1.2,11.2H1.6V11.6H1.2zM1.6,11.2H2V11.6H1.6zM2.4,11.2H2.8V11.6H2.4zM3.2,11.2H3.6V11.6H3.2zM3.6,11.2H4V11.6H3.6zM4,11.2H4.4V11.6H4zM4.4,11.2H4.8V11.6H4.4zM4.8,11.2H5.2V11.6H4.8zM5.2,11.2H5.6V11.6H5.2zM5.6,11.2H6V11.6H5.6zM7.2,11.2H7.6V11.6H7.2zM7.6,11.2H8V11.6H7.6zM8.8,11.2H9.2V11.6H8.8zM10,11.2H10.4V11.6H10zM10.8,11.2H11.2V11.6H10.8zM11.2,11.2H11.6V11.6H11.2zM12,11.2H12.4V11.6H12zM12.8,11.2H13.2V11.6H12.8zM13.6,11.2H14V11.6H13.6zM14,11.2H14.4V11.6H14zM14.4,11.2H14.8V11.6H14.4zM14.8,11.2H15.2V11.6H14.8zM15.2,11.2H15.6V11.6H15.2zM16.4,11.2H16.8V11.6H16.4zM16.8,11.2H17.2V11.6H16.8zM0.8,11.6H1.2V12H0.8zM1.2,11.6H1.6V12H1.2zM2.4,11.6H2.8V12H2.4zM2.8,11.6H3.2V12H2.8zM4,11.6H4.4V12H4zM5.2,11.6H5.6V12H5.2zM5.6,11.6H6V12H5.6zM6.4,11.6H6.8V12H6.4zM7.2,11.6H7.6V12H7.2zM7.6,11.6H8V12H7.6zM8,11.6H8.4V12H8zM8.8,11.6H9.2V12H8.8zM9.2,11.6H9.6V12H9.2zM9.6,11.6H10V12H9.6zM10.4,11.6H10.8V12H10.4zM10.8,11.6H11.2V12H10.8zM11.2,11.6H11.6V12H11.2zM11.6,11.6H12V12H11.6zM12.4,11.6H12.8V12H12.4zM13.6,11.6H14V12H13.6zM16.8,11.6H17.2V12H16.8zM1.2,12H1.6V12.4H1.2zM2.4,12H2.8V12.4H2.4zM2.8,12H3.2V12.4H2.8zM3.2,12H3.6V12.4H3.2zM3.6,12H4V12.4H3.6zM4.4,12H4.8V12.4H4.4zM6.8,12H7.2V12.4H6.8zM7.2,12H7.6V12.4H7.2zM7.6,12H8V12.4H7.6zM8.8,12H9.2V12.4H8.8zM9.2,12H9.6V12.4H9.2zM9.6,12H10V12.4H9.6zM10,12H10.4V12.4H10zM11.2,12H11.6V12.4H11.2zM11.6,12H12V12.4H11.6zM12.4,12H12.8V12.4H12.4zM12.8,12H13.2V12.4H12.8zM13.6,12H14V12.4H13.6zM14,12H14.4V12.4H14zM14.8,12H15.2V12.4H14.8zM2.8,12.4H3.2V12.8H2.8zM3.6,12.4H4V12.8H3.6zM4,12.4H4.4V12.8H4zM4.4,12.4H4.8V12.8H4.4zM4.8,12.4H5.2V12.8H4.8zM6,12.4H6.4V12.8H6zM6.4,12.4H6.8V12.8H6.4zM6.8,12.4H7.2V12.8H6.8zM7.6,12.4H8V12.8H7.6zM8.4,12.4H8.8V12.8H8.4zM9.2,12.4H9.6V12.8H9.2zM10,12.4H10.4V12.8H10zM10.4,12.4H10.8V12.8H10.4zM10.8,12.4H11.2V12.8H10.8zM12,12.4H12.4V12.8H12zM12.4,12.4H12.8V12.8H12.4zM12.8,12.4H13.2V12.8H12.8zM13.2,12.4H13.6V12.8H13.2zM14.8,12.4H15.2V12.8H14.8zM15.6,12.4H16V12.8H15.6zM16,12.4H16.4V12.8H16zM16.8,12.4H17.2V12.8H16.8zM0.8,12.8H1.2V13.2H0.8zM1.6,12.8H2V13.2H1.6zM2,12.8H2.4V13.2H2zM2.4,12.8H2.8V13.2H2.4zM2.8,12.8H3.2V13.2H2.8zM3.2,12.8H3.6V13.2H3.2zM4,12.8H4.4V13.2H4zM4.4,12.8H4.8V13.2H4.4zM4.8,12.8H5.2V13.2H4.8zM5.6,12.8H6V13.2H5.6zM6,12.8H6.4V13.2H6zM7.6,12.8H8V13.2H7.6zM8.4,12.8H8.8V13.2H8.4zM8.8,12.8H9.2V13.2H8.8zM9.6,12.8H10V13.2H9.6zM10.8,12.8H11.2V13.2H10.8zM14.8,12.8H15.2V13.2H14.8zM16,12.8H16.4V13.2H16zM16.4,12.8H16.8V13.2H16.4zM16.8,12.8H17.2V13.2H16.8zM1.6,13.2H2V13.6H1.6zM2.4,13.2H2.8V13.6H2.4zM2.8,13.2H3.2V13.6H2.8zM4,13.2H4.4V13.6H4zM4.4,13.2H4.8V13.6H4.4zM6.4,13.2H6.8V13.6H6.4zM7.6,13.2H8V13.6H7.6zM8.4,13.2H8.8V13.6H8.4zM8.8,13.2H9.2V13.6H8.8zM9.2,13.2H9.6V13.6H9.2zM10,13.2H10.4V13.6H10zM11.2,13.2H11.6V13.6H11.2zM11.6,13.2H12V13.6H11.6zM12,13.2H12.4V13.6H12zM12.4,13.2H12.8V13.6H12.4zM13.2,13.2H13.6V13.6H13.2zM13.6,13.2H14V13.6H13.6zM14,13.2H14.4V13.6H14zM15.2,13.2H15.6V13.6H15.2zM15.6,13.2H16V13.6H15.6zM0.8,13.6H1.2V14H0.8zM2,13.6H2.4V14H2zM2.4,13.6H2.8V14H2.4zM3.2,13.6H3.6V14H3.2zM4,13.6H4.4V14H4zM4.8,13.6H5.2V14H4.8zM5.2,13.6H5.6V14H5.2zM6.4,13.6H6.8V14H6.4zM8.4,13.6H8.8V14H8.4zM8.8,13.6H9.2V14H8.8zM10.8,13.6H11.2V14H10.8zM11.2,13.6H11.6V14H11.2zM13.2,13.6H13.6V14H13.2zM13.6,13.6H14V14H13.6zM14,13.6H14.4V14H14zM14.4,13.6H14.8V14H14.4zM14.8,13.6H15.2V14H14.8zM15.2,13.6H15.6V14H15.2zM16,13.6H16.4V14H16zM16.8,13.6H17.2V14H16.8zM4,14H4.4V14.4H4zM6,14H6.4V14.4H6zM7.2,14H7.6V14.4H7.2zM8,14H8.4V14.4H8zM8.4,14H8.8V14.4H8.4zM8.8,14H9.2V14.4H8.8zM9.2,14H9.6V14.4H9.2zM10.4,14H10.8V14.4H10.4zM10.8,14H11.2V14.4H10.8zM11.6,14H12V14.4H11.6zM12,14H12.4V14.4H12zM12.4,14H12.8V14.4H12.4zM12.8,14H13.2V14.4H12.8zM13.2,14H13.6V14.4H13.2zM13.6,14H14V14.4H13.6zM15.2,14H15.6V14.4H15.2zM15.6,14H16V14.4H15.6zM16,14H16.4V14.4H16zM16.4,14H16.8V14.4H16.4zM16.8,14H17.2V14.4H16.8zM0.8,14.4H1.2V14.8H0.8zM1.2,14.4H1.6V14.8H1.2zM1.6,14.4H2V14.8H1.6zM2,14.4H2.4V14.8H2zM2.4,14.4H2.8V14.8H2.4zM2.8,14.4H3.2V14.8H2.8zM3.2,14.4H3.6V14.8H3.2zM4.8,14.4H5.2V14.8H4.8zM5.2,14.4H5.6V14.8H5.2zM5.6,14.4H6V14.8H5.6zM6.8,14.4H7.2V14.8H6.8zM7.6,14.4H8V14.8H7.6zM8.4,14.4H8.8V14.8H8.4zM10.8,14.4H11.2V14.8H10.8zM12,14.4H12.4V14.8H12zM12.8,14.4H13.2V14.8H12.8zM13.6,14.4H14V14.8H13.6zM14.4,14.4H14.8V14.8H14.4zM15.2,14.4H15.6V14.8H15.2zM16,14.4H16.4V14.8H16zM16.4,14.4H16.8V14.8H16.4zM0.8,14.8H1.2V15.2H0.8zM3.2,14.8H3.6V15.2H3.2zM4,14.8H4.4V15.2H4zM4.4,14.8H4.8V15.2H4.4zM5.2,14.8H5.6V15.2H5.2zM5.6,14.8H6V15.2H5.6zM6,14.8H6.4V15.2H6zM6.4,14.8H6.8V15.2H6.4zM7.2,14.8H7.6V15.2H7.2zM7.6,14.8H8V15.2H7.6zM8.4,14.8H8.8V15.2H8.4zM8.8,14.8H9.2V15.2H8.8zM9.2,14.8H9.6V15.2H9.2zM9.6,14.8H10V15.2H9.6zM10.4,14.8H10.8V15.2H10.4zM10.8,14.8H11.2V15.2H10.8zM11.2,14.8H11.6V15.2H11.2zM11.6,14.8H12V15.2H11.6zM13.6,14.8H14V15.2H13.6zM15.2,14.8H15.6V15.2H15.2zM16,14.8H16.4V15.2H16zM16.8,14.8H17.2V15.2H16.8zM0.8,15.2H1.2V15.6H0.8zM1.6,15.2H2V15.6H1.6zM2,15.2H2.4V15.6H2zM2.4,15.2H2.8V15.6H2.4zM3.2,15.2H3.6V15.6H3.2zM4.4,15.2H4.8V15.6H4.4zM4.8,15.2H5.2V15.6H4.8zM6,15.2H6.4V15.6H6zM6.4,15.2H6.8V15.6H6.4zM6.8,15.2H7.2V15.6H6.8zM7.2,15.2H7.6V15.6H7.2zM8.4,15.2H8.8V15.6H8.4zM8.8,15.2H9.2V15.6H8.8zM9.6,15.2H10V15.6H9.6zM10.8,15.2H11.2V15.6H10.8zM11.6,15.2H12V15.6H11.6zM12,15.2H12.4V15.6H12zM12.4,15.2H12.8V15.6H12.4zM13.6,15.2H14V15.6H13.6zM14,15.2H14.4V15.6H14zM14.4,15.2H14.8V15.6H14.4zM14.8,15.2H15.2V15.6H14.8zM15.2,15.2H15.6V15.6H15.2zM15.6,15.2H16V15.6H15.6zM16.4,15.2H16.8V15.6H16.4zM0.8,15.6H1.2V16H0.8zM1.6,15.6H2V16H1.6zM2,15.6H2.4V16H2zM2.4,15.6H2.8V16H2.4zM3.2,15.6H3.6V16H3.2zM4,15.6H4.4V16H4zM4.4,15.6H4.8V16H4.4zM4.8,15.6H5.2V16H4.8zM5.6,15.6H6V16H5.6zM7.2,15.6H7.6V16H7.2zM7.6,15.6H8V16H7.6zM8.4,15.6H8.8V16H8.4zM8.8,15.6H9.2V16H8.8zM9.2,15.6H9.6V16H9.2zM12,15.6H12.4V16H12zM12.4,15.6H12.8V16H12.4zM13.2,15.6H13.6V16H13.2zM13.6,15.6H14V16H13.6zM14,15.6H14.4V16H14zM14.4,15.6H14.8V16H14.4zM15.2,15.6H15.6V16H15.2zM15.6,15.6H16V16H15.6zM16.4,15.6H16.8V16H16.4zM0.8,16H1.2V16.4H0.8zM1.6,16H2V16.4H1.6zM2,16H2.4V16.4H2zM2.4,16H2.8V16.4H2.4zM3.2,16H3.6V16.4H3.2zM4.4,16H4.8V16.4H4.4zM4.8,16H5.2V16.4H4.8zM6.4,16H6.8V16.4H6.4zM7.2,16H7.6V16.4H7.2zM7.6,16H8V16.4H7.6zM8,16H8.4V16.4H8zM8.8,16H9.2V16.4H8.8zM9.2,16H9.6V16.4H9.2zM10,16H10.4V16.4H10zM10.4,16H10.8V16.4H10.4zM10.8,16H11.2V16.4H10.8zM11.2,16H11.6V16.4H11.2zM12,16H12.4V16.4H12zM12.8,16H13.2V16.4H12.8zM13.2,16H13.6V16.4H13.2zM15.2,16H15.6V16.4H15.2zM15.6,16H16V16.4H15.6zM16,16H16.4V16.4H16zM16.4,16H16.8V16.4H16.4zM16.8,16H17.2V16.4H16.8zM0.8,16.4H1.2V16.8H0.8zM3.2,16.4H3.6V16.8H3.2zM4.4,16.4H4.8V16.8H4.4zM5.2,16.4H5.6V16.8H5.2zM5.6,16.4H6V16.8H5.6zM6,16.4H6.4V16.8H6zM6.4,16.4H6.8V16.8H6.4zM6.8,16.4H7.2V16.8H6.8zM9.2,16.4H9.6V16.8H9.2zM9.6,16.4H10V16.8H9.6zM10,16.4H10.4V16.8H10zM10.8,16.4H11.2V16.8H10.8zM11.2,16.4H11.6V16.8H11.2zM12,16.4H12.4V16.8H12zM12.4,16.4H12.8V16.8H12.4zM12.8,16.4H13.2V16.8H12.8zM13.2,16.4H13.6V16.8H13.2zM13.6,16.4H14V16.8H13.6zM14,16.4H14.4V16.8H14zM14.8,16.4H15.2V16.8H14.8zM16.4,16.4H16.8V16.8H16.4zM0.8,16.8H1.2V17.2H0.8zM1.2,16.8H1.6V17.2H1.2zM1.6,16.8H2V17.2H1.6zM2,16.8H2.4V17.2H2zM2.4,16.8H2.8V17.2H2.4zM2.8,16.8H3.2V17.2H2.8zM3.2,16.8H3.6V17.2H3.2zM4,16.8H4.4V17.2H4zM8.4,16.8H8.8V17.2H8.4zM8.8,16.8H9.2V17.2H8.8zM9.2,16.8H9.6V17.2H9.2zM9.6,16.8H10V17.2H9.6zM10.4,16.8H10.8V17.2H10.4zM12.4,16.8H12.8V17.2H12.4zM13.2,16.8H13.6V17.2H13.2zM13.6,16.8H14V17.2H13.6zM14,16.8H14.4V17.2H14zM14.4,16.8H14.8V17.2H14.4zM14.8,16.8H15.2V17.2H14.8zM15.2,16.8H15.6V17.2H15.2zM15.6,16.8H16V17.2H15.6zM16.4,16.8H16.8V17.2H16.4z" fill="#0b0b0b"/></g>
   </g>
-
-  <!-- WEEKLY DIGEST badge -->
-  <rect x="70" y="22" width="168" height="28" rx="14" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="154" y="41" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
-
-  <!-- Main title -->
-  <text x="24" y="95" font-family="'Arial',sans-serif" font-size="22" font-weight="900" fill="#f1f5f9" letter-spacing="0.5">Tech Security</text>
-  <text x="24" y="121" font-family="'Arial',sans-serif" font-size="22" font-weight="900" fill="#f1f5f9" letter-spacing="0.5">Weekly</text>
-
-  <!-- Date -->
-  <text x="24" y="148" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#475569" letter-spacing="3">APRIL 07, 2026</text>
-
-  <!-- Divider under title -->
-  <rect x="24" y="158" width="260" height="1" fill="#1e3a5f" opacity="0.8"/>
-  <rect x="24" y="158" width="80" height="1" fill="#3b82f6" opacity="0.6"/>
-
-  <!-- Story bullets -->
-  <g transform="translate(24, 175)">
-    <!-- Story 1: Iran -->
-    <circle cx="8" cy="8" r="5" fill="#dc2626" class="pulse1"/>
-    <text x="22" y="13" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#ef4444">Iran Password Spray</text>
-    <text x="22" y="28" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">300+ orgs in Israel targeted</text>
-    <!-- Story 2: DPRK -->
-    <circle cx="8" cy="52" r="5" fill="#f97316" class="pulse2"/>
-    <text x="22" y="57" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#fb923c">DPRK Multi-Stage</text>
-    <text x="22" y="72" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">GitHub C2 multi-payload</text>
-    <!-- Story 3: REvil -->
-    <circle cx="8" cy="96" r="5" fill="#f59e0b" class="pulse3"/>
-    <text x="22" y="101" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#fbbf24">REvil Identified</text>
-    <text x="22" y="116" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">Germany IDs GangCrab ops</text>
-    <!-- Story 4: Palantir -->
-    <circle cx="8" cy="138" r="5" fill="#3b82f6" class="glimmer1"/>
-    <text x="22" y="143" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa">Palantir OSDK</text>
-    <text x="22" y="158" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">Ontology SDK released</text>
-  </g>
-
-  <!-- Severity bars -->
-  <text x="24" y="390" font-family="'Arial',sans-serif" font-size="10" font-weight="700" fill="#475569" letter-spacing="2">SEVERITY</text>
-  <rect x="24" y="398" width="260" height="1" fill="#1e293b"/>
-  <!-- Critical bar -->
-  <text x="24" y="418" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">CRITICAL</text>
-  <rect x="80" y="408" width="180" height="8" rx="4" fill="#1e293b"/>
-  <rect x="80" y="408" width="162" height="8" rx="4" fill="#dc2626" opacity="0.85" class="glimmer1"/>
-  <text x="268" y="418" font-family="'Arial',sans-serif" font-size="9" fill="#ef4444">90%</text>
-  <!-- High bar -->
-  <text x="24" y="438" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">HIGH</text>
-  <rect x="80" y="428" width="180" height="8" rx="4" fill="#1e293b"/>
-  <rect x="80" y="428" width="126" height="8" rx="4" fill="#f59e0b" opacity="0.85" class="glimmer2"/>
-  <text x="214" y="438" font-family="'Arial',sans-serif" font-size="9" fill="#fbbf24">70%</text>
-  <!-- Medium bar -->
-  <text x="24" y="458" font-family="'Arial',sans-serif" font-size="10" fill="#94a3b8">MED</text>
-  <rect x="80" y="448" width="180" height="8" rx="4" fill="#1e293b"/>
-  <rect x="80" y="448" width="90" height="8" rx="4" fill="#3b82f6" opacity="0.85" class="glimmer3"/>
-  <text x="178" y="458" font-family="'Arial',sans-serif" font-size="9" fill="#60a5fa">50%</text>
-
-  <!-- Tag pills -->
-  <g transform="translate(24, 470)">
-    <rect x="0"   y="0" width="52"  height="20" rx="10" fill="#2a0808" stroke="#ef4444" stroke-width="1"/>
-    <text x="26"  y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">Iran</text>
-    <rect x="58"  y="0" width="52"  height="20" rx="10" fill="#2a0808" stroke="#dc2626" stroke-width="1"/>
-    <text x="84"  y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">DPRK</text>
-    <rect x="116" y="0" width="52"  height="20" rx="10" fill="#1a1000" stroke="#f59e0b" stroke-width="1"/>
-    <text x="142" y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">REvil</text>
-    <rect x="174" y="0" width="68"  height="20" rx="10" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-    <text x="208" y="14" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">Palantir</text>
-  </g>
-
-  <!-- Panel footer: URL -->
-  <text x="24" y="612" font-family="'Arial',sans-serif" font-size="10" fill="#334155">tech.2twodragon.com</text>
-  <line x1="24" y1="595" x2="284" y2="595" stroke="#1e293b" stroke-width="1"/>
-  <circle cx="14" cy="612" r="3" fill="#3b82f6" opacity="0.6"/>
-
-  <!-- ===== TOP SCENE: PASSWORD SPRAY ATTACK ===== -->
-  <!-- Ambient glow from Iran origin -->
-  <ellipse cx="460" cy="170" rx="180" ry="100" fill="url(#iranGlow)" filter="url(#softBlur)" clip-path="url(#topSceneClip)"/>
-  <!-- Ambient glow from Israel defense -->
-  <ellipse cx="920" cy="170" rx="140" ry="90" fill="url(#israelGlow)" filter="url(#softBlur)" clip-path="url(#topSceneClip)"/>
-
-  <!-- Perspective tunnel lines (depth) -->
-  <g opacity="0.06" clip-path="url(#topSceneClip)">
-    <line x1="600" y1="157" x2="305" y2="0"   stroke="#ef4444" stroke-width="1"/>
-    <line x1="600" y1="157" x2="305" y2="315" stroke="#ef4444" stroke-width="1"/>
-    <line x1="600" y1="157" x2="1200" y2="0"  stroke="#ef4444" stroke-width="1"/>
-    <line x1="600" y1="157" x2="1200" y2="315" stroke="#ef4444" stroke-width="1"/>
-    <line x1="600" y1="157" x2="600" y2="0"   stroke="#94a3b8" stroke-width="1"/>
-    <line x1="600" y1="157" x2="750" y2="0"   stroke="#94a3b8" stroke-width="1"/>
-    <line x1="600" y1="157" x2="450" y2="0"   stroke="#94a3b8" stroke-width="1"/>
-  </g>
-
-  <!-- === IRAN ORIGIN NODE (left of top scene) === -->
-  <!-- Outer pulse ring 1 -->
-  <circle cx="450" cy="165" r="52" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.2" class="pulse1"/>
-  <!-- Outer pulse ring 2 -->
-  <circle cx="450" cy="165" r="38" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.35" class="pulse2"/>
-  <!-- Iran node body -->
-  <circle cx="450" cy="165" r="26" fill="#1c0505" stroke="#ef4444" stroke-width="2.5" filter="url(#glowRed)"/>
-  <circle cx="450" cy="165" r="12" fill="#dc2626" opacity="0.9" class="pulse1"/>
-  <!-- Iran label -->
-  <text x="450" y="210" font-family="'Arial',sans-serif" font-size="13" font-weight="900" fill="#ef4444" text-anchor="middle" letter-spacing="2">IRAN</text>
-  
-  <!-- Crosshair on Iran node -->
-  <line x1="440" y1="165" x2="424" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-  <line x1="460" y1="165" x2="476" y2="165" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-  <line x1="450" y1="155" x2="450" y2="139" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-  <line x1="450" y1="175" x2="450" y2="191" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
-
-  <!-- === ATTACK LINES from IRAN to ISRAEL targets === -->
-  <!-- Main spray line 1 -->
-  <line x1="476" y1="152" x2="790" y2="112" stroke="#ef4444" stroke-width="2" opacity="0.7" marker-end="url(#arrowRed)" class="dashFlow"/>
-  <!-- Main spray line 2 -->
-  <line x1="476" y1="165" x2="790" y2="155" stroke="#ef4444" stroke-width="2" opacity="0.8" marker-end="url(#arrowRed)" class="dashFlow"/>
-  <!-- Main spray line 3 -->
-  <line x1="476" y1="178" x2="790" y2="198" stroke="#ef4444" stroke-width="2" opacity="0.6" marker-end="url(#arrowRed)" class="dashFlow"/>
-  <!-- Secondary lines (more targets) -->
-  <line x1="470" y1="145" x2="750" y2="80"  stroke="#ef4444" stroke-width="1.2" opacity="0.35" marker-end="url(#arrowRed)" class="dashFlow"/>
-  <line x1="470" y1="185" x2="750" y2="240" stroke="#ef4444" stroke-width="1.2" opacity="0.35" marker-end="url(#arrowRed)" class="dashFlow"/>
-
-  <!-- === AUTHENTICATION WALL (center-right top) === -->
-  <!-- Wall background -->
-  <rect x="790" y="60" width="280" height="200" rx="6" fill="url(#wallGrad)" stroke="#3b1515" stroke-width="2"/>
-  <!-- Wall brick pattern -->
-  <g stroke="#2a1010" stroke-width="0.8" opacity="0.5">
-    <line x1="790" y1="90"  x2="1070" y2="90"/>
-    <line x1="790" y1="120" x2="1070" y2="120"/>
-    <line x1="790" y1="150" x2="1070" y2="150"/>
-    <line x1="790" y1="180" x2="1070" y2="180"/>
-    <line x1="790" y1="210" x2="1070" y2="210"/>
-    <line x1="830" y1="60"  x2="830" y2="90"/>
-    <line x1="890" y1="60"  x2="890" y2="90"/>
-    <line x1="960" y1="60"  x2="960" y2="90"/>
-    <line x1="1020" y1="60" x2="1020" y2="90"/>
-    <line x1="810" y1="90"  x2="810" y2="120"/>
-    <line x1="870" y1="90"  x2="870" y2="120"/>
-    <line x1="940" y1="90"  x2="940" y2="120"/>
-    <line x1="1010" y1="90" x2="1010" y2="120"/>
-    <line x1="850" y1="120" x2="850" y2="150"/>
-    <line x1="920" y1="120" x2="920" y2="150"/>
-    <line x1="990" y1="120" x2="990" y2="150"/>
-    <line x1="820" y1="150" x2="820" y2="180"/>
-    <line x1="880" y1="150" x2="880" y2="180"/>
-    <line x1="950" y1="150" x2="950" y2="180"/>
-    <line x1="1030" y1="150" x2="1030" y2="180"/>
-  </g>
-
-  <!-- ISRAEL shield node (center of wall) -->
-  <circle cx="930" cy="160" r="36" fill="url(#israelGlow)" filter="url(#softBlur)"/>
-  <!-- Shield icon -->
-  <path d="M930,124 L960,140 L960,162 C960,180 946,192 930,198 C914,192 900,180 900,162 L900,140 Z"
-    fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="2.5" filter="url(#glowBlue)"/>
-  <path d="M916,162 L924,172 L946,148" stroke="#60a5fa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Shield being breached - crack marks on it -->
-  <line x1="905" y1="145" x2="915" y2="168" stroke="#ef4444" stroke-width="1.5" opacity="0.7" class="glimmer2"/>
-  <line x1="948" y1="140" x2="940" y2="165" stroke="#ef4444" stroke-width="1.5" opacity="0.6" class="glimmer3"/>
-
-  <!-- "300+ ORGS" label on wall -->
-  <rect x="870" y="205" width="120" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  
-
-  <!-- Login form elements being attacked (below wall) -->
-  <!-- Input field 1 - breached -->
-  <rect x="820" y="240" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
-  
-  
-  <!-- Input field 2 - breached -->
-  <rect x="820" y="273" width="220" height="26" rx="4" fill="#0f0606" stroke="#ef4444" stroke-width="1.5"/>
-  
-  
-
-  <!-- Password spray labels floating -->
-  <g class="float1">
-    <rect x="520" y="72" width="90" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.85"/>
-    
-  </g>
-  <g class="float2">
-    <rect x="640" y="92" width="80" height="18" rx="3" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.75"/>
-    
-  </g>
-  <g class="float3">
-    <rect x="545" y="132" width="72" height="18" rx="3" fill="#1a0505" stroke="#dc2626" stroke-width="1" opacity="0.65"/>
-    
-  </g>
-
-  <!-- Top scene label -->
-  <rect x="318" y="12" width="180" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1" opacity="0.9"/>
-  
-
-  <!-- IRAN label on node (inside) -->
-  <text x="450" y="170" font-family="'Arial',sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.9">IR</text>
-
-  <!-- === CRACK DIVIDER LINE (with jagged effect) === -->
-  <!-- Glow layer -->
-  <rect x="305" y="310" width="895" height="10" fill="url(#crackGlow)" opacity="0.6" filter="url(#softBlur)"/>
-  <!-- Jagged crack path -->
-  <polyline points="305,315 370,311 435,318 500,312 560,316 625,309 690,318 750,313 810,317 875,311 935,316 1000,312 1060,317 1120,313 1200,315"
-    fill="none" stroke="#ef4444" stroke-width="2.5" class="crack"/>
-  <polyline points="305,315 370,311 435,318 500,312 560,316 625,309 690,318 750,313 810,317 875,311 935,316 1000,312 1060,317 1120,313 1200,315"
-    fill="none" stroke="#ff6060" stroke-width="1" opacity="0.6" filter="url(#crackBlur)" class="crack"/>
-
-  <!-- APT badge on crack centerline -->
-  <rect x="565" y="303" width="70" height="24" rx="12" fill="#2a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="600" y="319" font-family="'Arial',sans-serif" font-size="12" font-weight="900" fill="#ef4444" text-anchor="middle" letter-spacing="2">APT</text>
-
-  <!-- ===== BOTTOM SCENE: MULTI-VECTOR THREAT MAP ===== -->
-  <!-- Ambient glows -->
-  <ellipse cx="470" cy="460" rx="160" ry="80" fill="url(#dprGlow)" filter="url(#softBlur)" clip-path="url(#bottomSceneClip)"/>
-  <ellipse cx="980" cy="470" rx="160" ry="90" fill="url(#palGlow)" filter="url(#softBlur)" clip-path="url(#bottomSceneClip)"/>
-
-  <!-- === DPRK NODE === -->
-  <circle cx="420" cy="420" r="42" fill="url(#iranGlow)" filter="url(#softBlur)"/>
-  <circle cx="420" cy="420" r="28" fill="#150505" stroke="#dc2626" stroke-width="2.5" filter="url(#glowRed)"/>
-  <circle cx="420" cy="420" r="28" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="5 3" opacity="0.5" class="spin"/>
-  <!-- Skull icon (simplified) for DPRK -->
-  <circle cx="420" cy="414" r="10" fill="#2a0505" stroke="#dc2626" stroke-width="1.5"/>
-  <rect x="413" y="420" width="14" height="8" rx="2" fill="#2a0505" stroke="#dc2626" stroke-width="1.5"/>
-  <circle cx="416" cy="413" r="2" fill="#dc2626"/>
-  <circle cx="424" cy="413" r="2" fill="#dc2626"/>
-  <line x1="415" y1="424" x2="415" y2="428" stroke="#dc2626" stroke-width="1.5"/>
-  <line x1="420" y1="424" x2="420" y2="428" stroke="#dc2626" stroke-width="1.5"/>
-  <line x1="425" y1="424" x2="425" y2="428" stroke="#dc2626" stroke-width="1.5"/>
-  <text x="420" y="465" font-family="'Arial',sans-serif" font-size="13" font-weight="900" fill="#dc2626" text-anchor="middle" letter-spacing="2">DPRK</text>
-  <text x="420" y="481" font-family="'Arial',sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Multi-Stage APT</text>
-
-  <!-- === GITHUB C2 NODE (center bottom) === -->
-  <circle cx="620" cy="490" r="24" fill="#0f0f1a" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
-  <text x="620" y="487" font-family="'Courier New',monospace" font-size="11" font-weight="700" fill="#f59e0b" text-anchor="middle">GitHub</text>
-  <text x="620" y="502" font-family="'Courier New',monospace" font-size="9" fill="#fbbf24" text-anchor="middle">C2</text>
-  
-
-  <!-- DPRK -> GitHub C2 arrow -->
-  <line x1="446" y1="428" x2="594" y2="484" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" class="dashFlow"/>
-
-  <!-- === SOUTH KOREA TARGET NODE === -->
-  <circle cx="750" cy="420" r="24" fill="#1a1000" stroke="#f59e0b" stroke-width="2" filter="url(#glowAmber)"/>
-  <!-- Korean flag simplified: white circle + lines -->
-  <circle cx="750" cy="417" r="9" fill="#0f0f0f" stroke="#f59e0b" stroke-width="1.5"/>
-  
-  
-  
-
-  <!-- GitHub C2 -> South Korea arrow -->
-  <line x1="643" y1="483" x2="726" y2="433" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowAmber)" class="dashFlow"/>
-
-  <!-- === REVIL / GANGCRAB NODE === -->
-  <circle cx="545" cy="375" r="26" fill="#1a0f00" stroke="#f59e0b" stroke-width="2.5" filter="url(#glowAmber)"/>
-  <!-- Ransomware padlock icon -->
-  <rect x="536" y="368" width="18" height="14" rx="3" fill="#1a0f00" stroke="#f59e0b" stroke-width="1.5"/>
-  <path d="M538,368 C538,362 553,362 553,368" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="545" cy="376" r="2.5" fill="#fbbf24"/>
-  <text x="545" y="418" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">REvil</text>
-  
-
-  <!-- === GERMANY LAW ENFORCEMENT NODE === -->
-  <circle cx="370" cy="545" r="24" fill="#0f1420" stroke="#3b82f6" stroke-width="2" filter="url(#glowBlue)"/>
-  <!-- Handcuffs icon (simplified) -->
-  <circle cx="363" cy="545" r="7" fill="none" stroke="#60a5fa" stroke-width="2"/>
-  <circle cx="377" cy="545" r="7" fill="none" stroke="#60a5fa" stroke-width="2"/>
-  <line x1="370" y1="545" x2="370" y2="545" stroke="#60a5fa" stroke-width="3"/>
-  <line x1="367" y1="545" x2="373" y2="545" stroke="#60a5fa" stroke-width="2.5"/>
-  <text x="370" y="585" font-family="'Arial',sans-serif" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle">Germany</text>
-  
-
-  <!-- Germany -> REvil (arrest connection) -->
-  <line x1="394" y1="534" x2="522" y2="396" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#arrowBlue)" opacity="0.8"/>
-
-  <!-- Encrypted file icons (ransomware visualization) -->
-  <g transform="translate(490, 320)" class="float1">
-    <rect x="0" y="0" width="22" height="28" rx="3" fill="#1a0f00" stroke="#f59e0b" stroke-width="1.5"/>
-    <path d="M14,0 L22,8 L14,8 Z" fill="#f59e0b" opacity="0.6"/>
-    <line x1="4" y1="14" x2="18" y2="14" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-    <line x1="4" y1="18" x2="18" y2="18" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-    <line x1="4" y1="22" x2="12" y2="22" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-    
-  </g>
-  <g transform="translate(560, 340)" class="float2">
-    <rect x="0" y="0" width="22" height="28" rx="3" fill="#1a0f00" stroke="#dc2626" stroke-width="1.5"/>
-    <path d="M14,0 L22,8 L14,8 Z" fill="#dc2626" opacity="0.6"/>
-    <line x1="4" y1="14" x2="18" y2="14" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
-    <line x1="4" y1="18" x2="18" y2="18" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
-    
-  </g>
-
-  <!-- === PALANTIR OSDK NODE === -->
-  <circle cx="930" cy="430" r="32" fill="url(#palGlow)" filter="url(#softBlur)"/>
-  <circle cx="930" cy="430" r="26" fill="url(#palantirGrad)" stroke="#3b82f6" stroke-width="2.5" filter="url(#glowBlue)"/>
-  <!-- Palantir data icon (simplified: overlapping circles) -->
-  <circle cx="922" cy="426" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
-  <circle cx="938" cy="426" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
-  <circle cx="930" cy="438" r="9" fill="none" stroke="#60a5fa" stroke-width="2"/>
-  <text x="930" y="475" font-family="'Arial',sans-serif" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">Palantir</text>
-  
-
-  <!-- === IRONWOOD TPU NODE === -->
-  <circle cx="1090" cy="430" r="26" fill="#071a10" stroke="#22c55e" stroke-width="2.5" filter="url(#glowGreen)"/>
-  <circle cx="1090" cy="430" r="26" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3" opacity="0.5" class="spin"/>
-  <!-- TPU chip icon -->
-  <rect x="1079" y="419" width="22" height="22" rx="3" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <rect x="1082" y="422" width="16" height="16" rx="2" fill="#0a2010" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1079" y1="424" x2="1075" y2="424" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1079" y1="429" x2="1075" y2="429" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1079" y1="434" x2="1075" y2="434" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1101" y1="424" x2="1105" y2="424" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1101" y1="429" x2="1105" y2="429" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1101" y1="434" x2="1105" y2="434" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1083" y1="419" x2="1083" y2="415" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1090" y1="419" x2="1090" y2="415" stroke="#22c55e" stroke-width="1"/>
-  <line x1="1097" y1="419" x2="1097" y2="415" stroke="#22c55e" stroke-width="1"/>
-  
-  
-  
-
-  <!-- Palantir data stream lines -->
-  <line x1="956" y1="422" x2="1060" y2="422" stroke="#3b82f6" stroke-width="1.5" class="dataLine" marker-end="url(#arrowBlue)"/>
-  <line x1="956" y1="432" x2="1060" y2="432" stroke="#22c55e" stroke-width="1.5" class="dataLine" marker-end="url(#arrowGreen)"/>
-  <line x1="956" y1="442" x2="1060" y2="442" stroke="#3b82f6" stroke-width="1.5" class="dataLine" marker-end="url(#arrowBlue)"/>
-
-  <!-- "3.7x Performance" badge near Ironwood -->
-  <rect x="1048" y="395" width="84" height="18" rx="9" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  
-
-  <!-- Bottom scene label -->
-  <rect x="318" y="322" width="195" height="22" rx="4" fill="#0a0f20" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
-  
-
-  <!-- Floating particles in bottom scene -->
-  <g class="float1" transform="translate(470, 500)">
-    <circle cx="0" cy="0" r="2" fill="#ef4444" opacity="0.6"/>
-  </g>
-  <g class="float2" transform="translate(680, 355)">
-    <circle cx="0" cy="0" r="1.5" fill="#f59e0b" opacity="0.7"/>
-  </g>
-  <g class="float3" transform="translate(860, 515)">
-    <circle cx="0" cy="0" r="2" fill="#3b82f6" opacity="0.5"/>
-  </g>
-  <g class="float1" transform="translate(1020, 380)">
-    <circle cx="0" cy="0" r="1.5" fill="#22c55e" opacity="0.6"/>
-  </g>
-  <g class="float3" transform="translate(590, 430)">
-    <circle cx="0" cy="0" r="1.5" fill="#f97316" opacity="0.5"/>
-  </g>
-
-  <!-- Scan line effect on top scene -->
-  <rect x="305" y="0" width="895" height="3" fill="url(#crackGlow)" opacity="0.15" class="glimmer3"/>
-
-  <!-- ===== FOOTER / WATERMARK ===== -->
-  <rect x="305" y="605" width="895" height="25" fill="#080c18" opacity="0.9"/>
-  <line x1="305" y1="605" x2="1200" y2="605" stroke="#1e293b" stroke-width="1"/>
-  <circle cx="322" cy="617" r="3.5" fill="#ef4444" opacity="0.7" class="pulse1"/>
-  
-  <text x="1190" y="621" font-family="'Arial',sans-serif" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
 </svg>
