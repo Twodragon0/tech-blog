@@ -448,7 +448,12 @@
     },
     {
       "source": "/posts/2025/09/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
-      "destination": "/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
+      "destination": "/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
+      "destination": "/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
       "statusCode": 301
     },
     {
