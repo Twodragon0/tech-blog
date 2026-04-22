@@ -148,7 +148,7 @@ title: Home
         {% elsif age_days == age_under_180 %}
           {% assign popularity = popularity | plus: 8 %}
         {% endif %}
-        <article class="post-card card" data-category="{{ post_cats }}" data-date="{{ post.date | date: '%Y%m%d' }}" data-popularity="{{ popularity }}">
+        <article class="post-card card" data-category="{{ post_cats }}" data-date="{{ post.date | date: '%Y%m%d' }}" data-popularity="{{ popularity }}"{% if forloop.index > 12 %} style="display:none"{% endif %}>
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">
