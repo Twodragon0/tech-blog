@@ -1985,7 +1985,8 @@
 
 .giscus-wrapper {
   position: relative;
-  min-height: 200px;
+  min-height: 400px;
+  contain-intrinsic-size: auto 500px;
 }
 
 .giscus-loading {
