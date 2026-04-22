@@ -1,91 +1,458 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-04-15</title>
+  <title>Weekly cover art - April 15 2026</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
+    <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#0a0f1e"/>
+      <stop offset="100%" stop-color="#070d1a"/>
     </linearGradient>
-    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="0.5" stop-color="#9d6fff"/>
-      <stop offset="1" stop-color="#c47bff"/>
+    <linearGradient id="bgQ1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a0e"/>
+      <stop offset="100%" stop-color="#0b0c14"/>
     </linearGradient>
-    <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
+    <linearGradient id="bgQ2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13100a"/>
+      <stop offset="100%" stop-color="#0b0d14"/>
     </linearGradient>
-    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
+    <linearGradient id="bgQ3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#08111d"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.6">
-      <stop offset="0" stop-color="#9d6fff" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#9d6fff" stop-opacity="0"/>
+    <linearGradient id="bgQ4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1620"/>
+      <stop offset="100%" stop-color="#0a0f18"/>
+    </linearGradient>
+    <linearGradient id="composerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="60%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="crackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ff6060" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="patchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="mcpCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="awsLink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="awsNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="rustShield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="60%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="dnsPacket" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#60a5fa" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="phoneBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="govGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="divider" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#475569" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="q1Halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="q2Halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="q3Halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="q4Halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ringPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glowRed" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0.9  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowAmber" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 1  0 0 0 0 0.6  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowBlue" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.3  0 0 0 0 0.55  0 0 0 0 1  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowCyan" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.8  0 0 0 0 0.95  0 0 0 0.9 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#334155" opacity="0.28"/>
+    </pattern>
+    <pattern id="hexGrid" x="0" y="0" width="26" height="22.5" patternUnits="userSpaceOnUse">
+      <polygon points="13,0 26,7.5 26,15 13,22.5 0,15 0,7.5" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.35"/>
+    </pattern>
+    <pattern id="scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#ffffff" opacity="0.015"/>
+    </pattern>
+    <clipPath id="q1Clip"><rect x="0" y="0" width="600" height="315"/></clipPath>
+    <clipPath id="q2Clip"><rect x="600" y="0" width="600" height="315"/></clipPath>
+    <clipPath id="q3Clip"><rect x="0" y="315" width="600" height="315"/></clipPath>
+    <clipPath id="q4Clip"><rect x="600" y="315" width="600" height="315"/></clipPath>
+    <path id="awsOrbitPath" d="M 900,158 m -120,0 a 120,60 0 1,0 240,0 a 120,60 0 1,0 -240,0"/>
+    <path id="dnsStream" d="M 60,470 L 540,470"/>
+    <path id="aiLinkPath" d="M 900,475 m -90,0 a 90,90 0 1,0 180,0 a 90,90 0 1,0 -180,0"/>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <ellipse cx="600" cy="260" rx="560" ry="260" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#bgMain)"/>
+  <rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#9d6fff" letter-spacing="4">SECURE AI ERA</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-15</text>
-
-  <g transform="translate(150, 100)">
-    <rect width="900" height="260" rx="20" fill="rgba(157,111,255,0.08)" stroke="url(#heroGrad)" stroke-width="2"/>
-    <g transform="translate(130, 130)" fill="none" stroke="url(#heroGrad)" stroke-width="2.5">
-      <circle cx="0" cy="0" r="36"/>
-      <circle cx="0" cy="0" r="10" fill="url(#heroGrad)"/>
-      <line x1="-60" y1="-40" x2="-18" y2="-10" stroke-dasharray="4 4"/>
-      <line x1="60" y1="-40" x2="18" y2="-10" stroke-dasharray="4 4"/>
-      <line x1="-60" y1="40" x2="-18" y2="10" stroke-dasharray="4 4"/>
-      <line x1="60" y1="40" x2="18" y2="10" stroke-dasharray="4 4"/>
-      <rect x="-72" y="-52" width="24" height="20" rx="3"/>
-      <rect x="48" y="-52" width="24" height="20" rx="3"/>
-      <rect x="-72" y="32" width="24" height="20" rx="3"/>
-      <rect x="48" y="32" width="24" height="20" rx="3"/>
+  <!-- Quadrant 1: PHP Composer critical patch (red) -->
+  <g clip-path="url(#q1Clip)">
+    <rect x="0" y="0" width="600" height="315" fill="url(#bgQ1)"/>
+    <rect x="0" y="0" width="600" height="315" fill="url(#hexGrid)" opacity="0.5"/>
+    <circle cx="300" cy="150" r="180" fill="url(#q1Halo)">
+      <animate attributeName="r" values="160;200;160" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="150" r="110" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.35">
+      <animate attributeName="r" values="90;140;90" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="150" r="70" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4">
+      <animate attributeName="r" values="50;100;50" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Broken package cube -->
+    <g transform="translate(300 150)" filter="url(#glowRed)">
+      <polygon points="-60,-70 60,-70 80,-40 -80,-40" fill="url(#composerGrad)" opacity="0.95">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="-80,-40 80,-40 80,50 -80,50" fill="#7f1d1d" opacity="0.9"/>
+      <polygon points="-80,-40 -60,-70 -60,20 -80,50" fill="#991b1b" opacity="0.95"/>
+      <line x1="-80" y1="5" x2="80" y2="5" stroke="url(#crackGrad)" stroke-width="3">
+        <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-30" y1="-40" x2="10" y2="50" stroke="url(#crackGrad)" stroke-width="2">
+        <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="25" y1="-70" x2="55" y2="50" stroke="url(#crackGrad)" stroke-width="2">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+      </line>
     </g>
-    <rect x="240" y="46" width="150" height="24" rx="12" fill="rgba(157,111,255,0.2)"/>
-    <text x="315" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#c47bff" letter-spacing="3">HERO STORY</text>
-    <text x="240" y="110" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#f0f4f8">AWS Model Context Protocol</text>
-    <text x="240" y="147" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#f0f4f8">Secure AI Agent Access</text>
-    <text x="240" y="182" font-family="system-ui, sans-serif" font-size="15" fill="#9d6fff">Reference pattern for AI agents reaching AWS resources</text>
-    <text x="240" y="207" font-family="system-ui, sans-serif" font-size="15" fill="#8b95b0">with least-privilege, auditable tool invocation.</text>
-    <text x="240" y="232" font-family="system-ui, sans-serif" font-size="15" fill="#8b95b0">Production-ready template from AWS Security Blog.</text>
-  </g>
-
-  <g transform="translate(150, 388)">
-    <rect width="430" height="160" rx="16" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(55, 80)" fill="none" stroke="url(#gRed)" stroke-width="2.5">
-      <path d="M-22,-22 L22,-22 L22,22 L-22,22 Z"/>
-      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" fill="url(#gRed)" stroke="none">PHP</text>
+    <!-- Patch bar -->
+    <g transform="translate(120 240)">
+      <rect x="0" y="0" width="360" height="14" rx="7" fill="#1f2937" opacity="0.7"/>
+      <rect x="2" y="2" width="280" height="10" rx="5" fill="url(#patchGrad)">
+        <animate attributeName="width" values="40;356;40" dur="4s" repeatCount="indefinite"/>
+      </rect>
     </g>
-    <text x="120" y="42" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="2">SUPPLY CHAIN</text>
-    <text x="120" y="72" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#f0f4f8">PHP Composer RCE</text>
-    <text x="120" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ff7a4a">Patch released</text>
-    <text x="120" y="122" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Arbitrary command execution</text>
-    <text x="120" y="140" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">via dependency manager.</text>
+    <!-- Falling shards -->
+    <circle cx="180" cy="90" r="2" fill="#fca5a5">
+      <animate attributeName="cy" values="90;260;90" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="420" cy="110" r="2" fill="#fca5a5">
+      <animate attributeName="cy" values="110;260;110" dur="3.4s" begin="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0;1" dur="3.4s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="70" r="2" fill="#fca5a5">
+      <animate attributeName="cy" values="70;260;70" dur="2.7s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0;1" dur="2.7s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="300" y="295" font-family="'Courier New', monospace" font-size="18" font-weight="700" fill="#fca5a5" text-anchor="middle" letter-spacing="6">COMPOSER</text>
   </g>
 
-  <g transform="translate(620, 388)">
-    <rect width="430" height="160" rx="16" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(55, 80)" fill="none" stroke="url(#gGreen)" stroke-width="2.5">
-      <rect x="-22" y="-30" width="44" height="60" rx="6"/>
-      <rect x="-14" y="-20" width="28" height="6" rx="1"/>
-      <rect x="-14" y="-8" width="28" height="6" rx="1"/>
-      <circle cx="0" cy="18" r="4"/>
+  <!-- Quadrant 2: AWS MCP agent access (amber) -->
+  <g clip-path="url(#q2Clip)">
+    <rect x="600" y="0" width="600" height="315" fill="url(#bgQ2)"/>
+    <rect x="600" y="0" width="600" height="315" fill="url(#hexGrid)" opacity="0.5"/>
+    <circle cx="900" cy="158" r="190" fill="url(#q2Halo)">
+      <animate attributeName="r" values="170;210;170" dur="5.5s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Orbit ring -->
+    <ellipse cx="900" cy="158" rx="120" ry="60" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.4">
+      <animateTransform attributeName="transform" type="rotate" from="0 900 158" to="360 900 158" dur="22s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="900" cy="158" rx="150" ry="50" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.25">
+      <animateTransform attributeName="transform" type="rotate" from="360 900 158" to="0 900 158" dur="28s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Central MCP core (agent brain) -->
+    <g filter="url(#glowAmber)">
+      <circle cx="900" cy="158" r="38" fill="url(#mcpCore)">
+        <animate attributeName="r" values="34;42;34" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="900" cy="158" r="52" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.6">
+        <animate attributeName="r" values="48;70;48" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0;0.7" dur="3s" repeatCount="indefinite"/>
+      </circle>
     </g>
-    <text x="120" y="42" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">MOBILE</text>
-    <text x="120" y="72" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#f0f4f8">Pixel 10 Modem Hardened</text>
-    <text x="120" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#00d4b2">Rust DNS parser</text>
-    <text x="120" y="122" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Google ships memory-safe</text>
-    <text x="120" y="140" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">parser to modem stack.</text>
+    <!-- AWS resource nodes around -->
+    <g>
+      <rect x="760" y="70" width="44" height="32" rx="4" fill="url(#awsNode)" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="996" y="70" width="44" height="32" rx="4" fill="url(#awsNode)" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="760" y="220" width="44" height="32" rx="4" fill="url(#awsNode)" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="996" y="220" width="44" height="32" rx="4" fill="url(#awsNode)" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.4s" begin="1.8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <!-- Agent links -->
+    <line x1="900" y1="158" x2="782" y2="86" stroke="url(#awsLink)" stroke-width="1.2" opacity="0.7"/>
+    <line x1="900" y1="158" x2="1018" y2="86" stroke="url(#awsLink)" stroke-width="1.2" opacity="0.7"/>
+    <line x1="900" y1="158" x2="782" y2="236" stroke="url(#awsLink)" stroke-width="1.2" opacity="0.7"/>
+    <line x1="900" y1="158" x2="1018" y2="236" stroke="url(#awsLink)" stroke-width="1.2" opacity="0.7"/>
+    <!-- Packets traveling -->
+    <circle r="3" fill="#fde68a">
+      <animateMotion dur="2.4s" repeatCount="indefinite">
+        <mpath href="#awsOrbitPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#fde68a">
+      <animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite">
+        <mpath href="#awsOrbitPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;0" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#fde68a">
+      <animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite">
+        <mpath href="#awsOrbitPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;1;0" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Scan sweep -->
+    <line x1="760" y1="158" x2="1040" y2="158" stroke="#fbbf24" stroke-width="0.8" opacity="0.3">
+      <animate attributeName="y1" values="50;270;50" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;270;50" dur="5s" repeatCount="indefinite"/>
+    </line>
+    <text x="900" y="295" font-family="'Courier New', monospace" font-size="18" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="6">MCPGATE</text>
   </g>
 
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-  <g transform="translate(960, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  <!-- Quadrant 3: Pixel 10 Rust DNS parser (blue) -->
+  <g clip-path="url(#q3Clip)">
+    <rect x="0" y="315" width="600" height="315" fill="url(#bgQ3)"/>
+    <rect x="0" y="315" width="600" height="315" fill="url(#hexGrid)" opacity="0.5"/>
+    <circle cx="300" cy="470" r="180" fill="url(#q3Halo)">
+      <animate attributeName="r" values="160;200;160" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Phone body -->
+    <g transform="translate(220 380)" filter="url(#glowBlue)">
+      <rect x="0" y="0" width="160" height="200" rx="20" fill="url(#phoneBody)" stroke="#475569" stroke-width="1.5"/>
+      <rect x="10" y="20" width="140" height="160" rx="6" fill="#020617"/>
+      <circle cx="80" cy="10" r="3" fill="#1e293b"/>
+      <!-- Inner shield with Rust chip -->
+      <path d="M 80,50 L 130,70 L 130,120 Q 130,150 80,170 Q 30,150 30,120 L 30,70 Z" fill="url(#rustShield)" opacity="0.9">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+      </path>
+      <rect x="60" y="95" width="40" height="30" rx="3" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1"/>
+      <circle cx="80" cy="110" r="5" fill="#60a5fa">
+        <animate attributeName="r" values="3;7;3" dur="1.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Chip pins -->
+      <line x1="55" y1="100" x2="60" y2="100" stroke="#60a5fa" stroke-width="1.5"/>
+      <line x1="55" y1="110" x2="60" y2="110" stroke="#60a5fa" stroke-width="1.5"/>
+      <line x1="55" y1="120" x2="60" y2="120" stroke="#60a5fa" stroke-width="1.5"/>
+      <line x1="100" y1="100" x2="105" y2="100" stroke="#60a5fa" stroke-width="1.5"/>
+      <line x1="100" y1="110" x2="105" y2="110" stroke="#60a5fa" stroke-width="1.5"/>
+      <line x1="100" y1="120" x2="105" y2="120" stroke="#60a5fa" stroke-width="1.5"/>
+    </g>
+    <!-- DNS packets flowing -->
+    <g>
+      <rect x="60" y="405" width="24" height="10" rx="2" fill="#3b82f6" opacity="0.9">
+        <animate attributeName="x" values="40;200;40" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.2;1" dur="2.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="470" width="24" height="10" rx="2" fill="#60a5fa" opacity="0.9">
+        <animate attributeName="x" values="40;200;40" dur="2.6s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.2;1" dur="2.6s" begin="0.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="535" width="24" height="10" rx="2" fill="#3b82f6" opacity="0.9">
+        <animate attributeName="x" values="40;200;40" dur="2.4s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <g>
+      <rect x="400" y="405" width="24" height="10" rx="2" fill="#60a5fa" opacity="0.9">
+        <animate attributeName="x" values="400;550;400" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="400" y="470" width="24" height="10" rx="2" fill="#3b82f6" opacity="0.9">
+        <animate attributeName="x" values="400;550;400" dur="2.6s" begin="0.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="0.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="400" y="535" width="24" height="10" rx="2" fill="#60a5fa" opacity="0.9">
+        <animate attributeName="x" values="400;550;400" dur="2.4s" begin="1.3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" begin="1.3s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <!-- Orbit rings -->
+    <circle cx="300" cy="470" r="130" fill="none" stroke="#60a5fa" stroke-width="0.8" opacity="0.25">
+      <animate attributeName="r" values="120;150;120" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="470" r="90" fill="none" stroke="#3b82f6" stroke-width="0.8" opacity="0.3">
+      <animate attributeName="r" values="80;110;80" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="300" y="610" font-family="'Courier New', monospace" font-size="18" font-weight="700" fill="#93c5fd" text-anchor="middle" letter-spacing="6">RUSTDNS</text>
   </g>
+
+  <!-- Quadrant 4: Google Cloud AI public sector (cyan/green) -->
+  <g clip-path="url(#q4Clip)">
+    <rect x="600" y="315" width="600" height="315" fill="url(#bgQ4)"/>
+    <rect x="600" y="315" width="600" height="315" fill="url(#hexGrid)" opacity="0.5"/>
+    <circle cx="900" cy="475" r="180" fill="url(#q4Halo)">
+      <animate attributeName="r" values="160;200;160" dur="5.8s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Government building (columns) -->
+    <g transform="translate(820 495)">
+      <polygon points="0,20 80,0 160,20 160,30 0,30" fill="url(#govGrad)" opacity="0.95"/>
+      <rect x="10" y="30" width="140" height="6" fill="#0e7490"/>
+      <rect x="20" y="36" width="12" height="70" fill="url(#govGrad)"/>
+      <rect x="50" y="36" width="12" height="70" fill="url(#govGrad)"/>
+      <rect x="80" y="36" width="12" height="70" fill="url(#govGrad)"/>
+      <rect x="110" y="36" width="12" height="70" fill="url(#govGrad)"/>
+      <rect x="0" y="106" width="160" height="8" fill="#0e7490"/>
+    </g>
+    <!-- Cloud shell above -->
+    <g transform="translate(850 360)" filter="url(#glowCyan)">
+      <path d="M 10,30 Q 10,10 30,10 Q 40,-5 60,0 Q 80,-8 95,8 Q 115,5 115,25 Q 125,25 125,40 L 0,40 Q -5,30 10,30 Z" fill="url(#cloudGrad)" opacity="0.85">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="3.2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <!-- AI brain nodes inside cloud -->
+    <g>
+      <circle cx="888" cy="390" r="4" fill="#67e8f9">
+        <animate attributeName="r" values="2;5;2" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="912" cy="380" r="4" fill="#67e8f9">
+        <animate attributeName="r" values="2;5;2" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="930" cy="398" r="4" fill="#67e8f9">
+        <animate attributeName="r" values="2;5;2" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="902" cy="405" r="4" fill="#67e8f9">
+        <animate attributeName="r" values="2;5;2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/>
+      </circle>
+      <line x1="888" y1="390" x2="912" y2="380" stroke="#67e8f9" stroke-width="0.8" opacity="0.7">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="912" y1="380" x2="930" y2="398" stroke="#67e8f9" stroke-width="0.8" opacity="0.7">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="888" y1="390" x2="902" y2="405" stroke="#67e8f9" stroke-width="0.8" opacity="0.7">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+      </line>
+      <line x1="902" y1="405" x2="930" y2="398" stroke="#67e8f9" stroke-width="0.8" opacity="0.7">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <!-- Particles along orbit -->
+    <circle r="3" fill="#6ee7b7">
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath href="#aiLinkPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#22d3ee">
+      <animateMotion dur="6s" begin="2s" repeatCount="indefinite">
+        <mpath href="#aiLinkPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#6ee7b7">
+      <animateMotion dur="6s" begin="4s" repeatCount="indefinite">
+        <mpath href="#aiLinkPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Shield orbit -->
+    <circle cx="900" cy="475" r="130" fill="none" stroke="#22d3ee" stroke-width="0.8" opacity="0.25" stroke-dasharray="6 10">
+      <animateTransform attributeName="transform" type="rotate" from="0 900 475" to="360 900 475" dur="30s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="475" r="160" fill="none" stroke="#6ee7b7" stroke-width="0.8" opacity="0.2" stroke-dasharray="3 8">
+      <animateTransform attributeName="transform" type="rotate" from="360 900 475" to="0 900 475" dur="35s" repeatCount="indefinite"/>
+    </circle>
+    <text x="900" y="610" font-family="'Courier New', monospace" font-size="18" font-weight="700" fill="#6ee7b7" text-anchor="middle" letter-spacing="6">PUBLICAI</text>
+  </g>
+
+  <!-- Cross dividers -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="url(#divider)" stroke-width="1.5" opacity="0.9"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="url(#divider)" stroke-width="1.5" opacity="0.9" transform="rotate(90 600 315)"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#334155" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- Center color cycle dot -->
+  <circle cx="600" cy="315" r="8" fill="#f59e0b">
+    <animate attributeName="fill" values="#ef4444;#f59e0b;#3b82f6;#22d3ee;#ef4444" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="315" r="18" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.4">
+    <animate attributeName="r" values="14;28;14" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Date chip bottom-left -->
+  <g transform="translate(32 580)">
+    <rect x="0" y="0" width="150" height="32" rx="16" fill="url(#chipGrad)" stroke="#334155" stroke-width="1"/>
+    <circle cx="18" cy="16" r="4" fill="#f59e0b">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="32" y="21" font-family="'Courier New', monospace" font-size="13" font-weight="700" fill="#e2e8f0" letter-spacing="3">APR 15 2026</text>
+  </g>
+
+  <!-- Audience chip bottom-right -->
+  <g transform="translate(930 580)">
+    <rect x="0" y="0" width="240" height="32" rx="16" fill="url(#chipGrad)" stroke="#334155" stroke-width="1"/>
+    <circle cx="18" cy="16" r="4" fill="#22d3ee">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="32" y="21" font-family="'Courier New', monospace" font-size="13" font-weight="700" fill="#e2e8f0" letter-spacing="2">DEVSECOPS / SRE / CLOUD</text>
+  </g>
+
+  <!-- Scanline overlay -->
+  <rect width="1200" height="630" fill="url(#scanlines)" opacity="0.6"/>
 </svg>
