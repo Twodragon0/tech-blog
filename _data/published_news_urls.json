@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-21T01:52:46.331538+00:00",
+  "updated_at": "2026-04-22T01:52:02.442584+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html",
-      "title": "Russian State-Linked APT28 Exploits SOHO Routers in Global DNS Hijacking Campaig",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/webinar-how-to-close-identity-gaps-in.html",
-      "title": "[Webinar] How to Close Identity Gaps in 2026 Before AI Exploits Enterprise Risk",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/docker-cve-2026-34040-lets-attackers.html",
-      "title": "Docker CVE-2026-34040 Lets Attackers Bypass Authorization and Gain Host Access",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/over-1000-exposed-comfyui-instances.html",
-      "title": "Over 1,000 Exposed ComfyUI Instances Targeted in Cryptomining Botnet Campaign",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-flaw-in-ninja-forms-wordpress-plugin/",
-      "title": "Hackers exploit critical flaw in Ninja Forms WordPress plugin",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-plotlines-in-three-js-c0c47f310715?source=rss----3c87dc14372f---4",
-      "title": "Frontend Engineering at Palantir: Plotlines in Three.js",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/manage-ai-costs-with-amazon-bedrock-projects/",
-      "title": "Manage AI costs with Amazon Bedrock Projects",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-real-time-conversational-podcasts-with-amazon-nova-2-sonic/",
-      "title": "Building real-time conversational podcasts with Amazon Nova 2 Sonic",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/text-to-sql-solution-powered-by-amazon-bedrock/",
-      "title": "Text-to-SQL solution powered by Amazon Bedrock",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/claude-mythos-preview-on-vertex-ai/",
-      "title": "Claude Mythos Preview: Available in private preview on Vertex AI",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/see-beyond-the-ip-and-secure-urls-with-google-cloud-ngfw/",
-      "title": "See beyond the IP and secure URLs with Google Cloud NGFW",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-lyria-3-pro/",
-      "title": "Ultimate prompting guide for Lyria 3 models",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/how-unified-data-is-helping-rightmove-reinvent-property-search/",
-      "title": "Under one roof: Rightmove reinvents property search with unified data",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/lyria-3-and-lyria-3-pro-on-vertex-ai/",
-      "title": "Build music generation into your apps with Lyria 3 models on Vertex AI",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-07-prioritize-security-alerts-with-runtime-context-from-dynatrace",
-      "title": "Prioritize security alerts with runtime context from Dynatrace",
-      "published_date": "2026-04-08",
-      "expires_at": "2026-04-15T01:32:58.411917+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html",
       "title": "New Chaos Variant Targets Misconfigured Cloud Deployments, Adds SOCKS Proxy",
@@ -1254,6 +1164,96 @@
       "title": "From public static void main to Golden Kubestronaut: The Art of unlearning",
       "published_date": "2026-04-21",
       "expires_at": "2026-04-28T01:52:46.331431+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/winter-2025-soc-1-report-is-now-available-with-184-services-in-scope/",
+      "title": "Winter 2025 SOC 1 report is now available with 184 services in scope",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/systembc-c2-server-reveals-1570-victims.html",
+      "title": "SystemBC C2 Server Reveals 1,570+ Victims in The Gentlemen Ransomware Operation",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/22-bridgebreak-flaws-expose-20000.html",
+      "title": "22 BRIDGE:BREAK Flaws Expose Thousands of Lantronix and Silex Serial-to-IP Conve",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/ransomware-negotiator-pleads-guilty-to.html",
+      "title": "Ransomware Negotiator Pleads Guilty to Aiding BlackCat Attacks in 2023",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/5-places-where-mature-socs-keep-mttr.html",
+      "title": "5 Places where Mature SOCs Keep MTTR Fast and Others Waste Time",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/04/21/ml-applications/modernizing-the-facebook-groups-search-to-unlock-the-power-of-community-knowledge/",
+      "title": "Modernizing the Facebook Groups Search to Unlock the Power of Community Knowledg",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://blog.google/products/ads-commerce/ads-advisor-google-ads/",
+      "title": "3 new ways Ads Advisor is making Google Ads safer and faster",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/",
+      "title": "From developer desks to the whole organization: Running Claude Cowork in Amazon ",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/end-to-end-lineage-with-dvc-and-amazon-sagemaker-ai-mlflow-apps/",
+      "title": "End-to-end lineage with DVC and Amazon SageMaker AI MLflow apps",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard",
+      "title": "QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/building-the-foundation-for-ai-across-the-public-sector-through-our-partner-ecosystem/",
+      "title": "Building the foundation for AI across the public sector through our partner ecos",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/partners/2026-partners-of-the-year-winners-next26/",
+      "title": "Announcing our 2026 Google Cloud Partners of the Year",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/join-our-next26-developer-livestreams/",
+      "title": "From keynote to the terminal: Join our Next ‘26 developer livestreams",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/training-certifications/gear-up-to-get-the-most-out-of-ai-learning-at-google-cloud-next26/",
+      "title": "GEAR up to get the most out of AI learning at Google Cloud Next ‘26",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-the-builders-hub-from-the-google-developer-program/",
+      "title": "Introducing the Builders Hub from the Google Developer Program",
+      "published_date": "2026-04-22",
+      "expires_at": "2026-04-29T01:52:02.442485+00:00"
     }
   ]
 }
