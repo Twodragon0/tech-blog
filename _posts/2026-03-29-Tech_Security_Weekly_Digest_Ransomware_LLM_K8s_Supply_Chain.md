@@ -71,7 +71,7 @@ toc: true
 
 ## 경영진 브리핑
 
-- **긴급 대응 필요**: 랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격 등 Critical 등급 위협 3건이 확인되었습니다.
+- **긴급 대응 필요**: 랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, IngressNightmare로 명명된 Kubernetes Ingress-NGINX 인증 없는 RCE 취약점 4건, Next.js 미들웨어 인증 우회 CVE-2025-29927 등 Critical 등급 위협 5건이 확인되었습니다.
 - **주요 모니터링 대상**: GKE Autopilot 보안 정책 우회, GitHub Actions 아티팩트 포이즈닝, Kyverno 2.0 정책 마이그레이션 등 High 등급 항목 5건에 대한 탐지 강화가 필요합니다.
 - 랜섬웨어 공격이 AI를 활용하여 정찰, 초기 침투, 횡적 이동 단계를 자동화하고 있으며, 기존 시그니처 기반 탐지만으로는 대응이 부족합니다.
 - Kubernetes 공급망 보안 위협이 Helm 차트 레포지토리까지 확대되어 SBOM 관리 및 서명 검증 체계 점검이 시급합니다.

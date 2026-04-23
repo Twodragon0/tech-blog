@@ -1,5 +1,6 @@
 """Content generation functions for news digest posts."""
 
+import hashlib
 import html
 import logging
 import os
@@ -976,7 +977,19 @@ toc: true
 
     content += "\n---\n\n"
 
-    content += _generate_executive_and_risk_sections(news_items, mode="security")
+    # Pass only the items that will actually be rendered as news cards so the
+    # briefing '등 N건' counts match the severity="..." tags produced by
+    # generate_news_section below. Previously passed `news_items` (full list),
+    # which caused mismatch when per-category slicing at [:3] excluded items.
+    rendered_items = (
+        security_news
+        + ai_news
+        + cloud_news
+        + devops_news
+        + blockchain_news
+        + tech_news
+    )
+    content += _generate_executive_and_risk_sections(rendered_items, mode="security")
 
     section_num = 1
 
@@ -1519,11 +1532,29 @@ def _generate_key_points(item: Dict) -> str:
     return points
 
 
+def _pick_variant(item: Dict, variants: List[str]) -> str:
+    """Deterministically select one variant based on article identity.
+
+    Keeps the same article stable across regenerations while diversifying
+    output across different articles that share the same keyword branch.
+    """
+    if not variants:
+        return ""
+    if len(variants) == 1:
+        return variants[0]
+    key = f"{item.get('title', '')}|{item.get('url', '')}".encode("utf-8", "ignore")
+    digest = hashlib.md5(key).digest()
+    idx = int.from_bytes(digest[:4], "big") % len(variants)
+    return variants[idx]
+
+
 def _generate_contextual_action_point(item: Dict) -> str:
     """Generate a context-aware action point based on actual article content.
 
     Extracts keywords from the title/summary to produce specific advice
-    instead of generic category-based text.
+    instead of generic category-based text. For high-traffic keywords,
+    rotates among multiple variants per article to prevent copy-paste feel
+    across weekly digests.
     """
     title = (item.get("title", "") or "").lower()
     summary = (item.get("summary", "") or "").lower()
@@ -1533,29 +1564,57 @@ def _generate_contextual_action_point(item: Dict) -> str:
     # Security-specific contextual hints
     if category in ("security", "devsecops"):
         if any(kw in combined for kw in ["patch", "update", "패치", "업데이트"]):
-            return "영향받는 시스템 버전을 확인하고 패치 적용 일정을 수립하세요."
+            return _pick_variant(item, [
+                "영향받는 시스템 버전을 확인하고 패치 적용 일정을 수립하세요.",
+                "CVSS와 KEV 포함 여부를 검토한 뒤 유지보수 창과 롤백 플랜을 준비하세요.",
+                "패치 전/후 설정 드리프트를 비교하고 핫픽스 검증 환경부터 단계적 배포하세요.",
+            ])
         if any(kw in combined for kw in ["ransomware", "랜섬웨어"]):
-            return "백업 상태 확인, 네트워크 세그먼테이션 점검, 이메일 필터링 강화를 권장합니다."
+            return _pick_variant(item, [
+                "백업 상태 확인, 네트워크 세그먼테이션 점검, 이메일 필터링 강화를 권장합니다.",
+                "복구 리허설을 오프라인 백업 기준으로 수행하고 횡적 이동 차단 정책을 재검증하세요.",
+                "SMB/RDP 노출 면을 축소하고 섀도 카피·비볼륨 암호화 방어 설정을 재확인하세요.",
+            ])
         if any(kw in combined for kw in ["phishing", "피싱", "credential", "자격증명"]):
-            return "MFA 적용 현황 점검 및 사용자 보안 인식 교육을 강화하세요."
+            return _pick_variant(item, [
+                "MFA 적용 현황 점검 및 사용자 보안 인식 교육을 강화하세요.",
+                "FIDO2/패스키 기반 피싱 저항 인증으로의 마이그레이션 경로를 수립하세요.",
+                "조건부 액세스 정책과 비정상 토큰 발급 탐지 룰을 재조정하세요.",
+            ])
         if any(kw in combined for kw in ["supply chain", "공급망", "dependency"]):
-            return "서드파티 의존성 감사(SCA)를 수행하고 SBOM을 최신 상태로 유지하세요."
+            return _pick_variant(item, [
+                "서드파티 의존성 감사(SCA)를 수행하고 SBOM을 최신 상태로 유지하세요.",
+                "빌드 재현성 확인과 아티팩트 서명 검증(cosign)을 파이프라인에 강제하세요.",
+                "종속성 업데이트 정책을 pin-and-verify 기반으로 전환하고 의심 릴리스를 격리하세요.",
+            ])
         if any(kw in combined for kw in ["data breach", "유출", "leak"]):
-            return "영향 범위 파악, 인시던트 대응 절차 발동, 규제 기관 통보 여부를 확인하세요."
+            return _pick_variant(item, [
+                "영향 범위 파악, 인시던트 대응 절차 발동, 규제 기관 통보 여부를 확인하세요.",
+                "노출된 식별자 유형별로 재인증·토큰 회전을 우선순위화하고 법무팀과 통보 시점을 합의하세요.",
+                "침해 경로 타임라인을 포렌식으로 재구성해 재발 방지 통제와 감사 로그 보존을 강화하세요.",
+            ])
         if any(kw in combined for kw in ["malware", "악성코드", "trojan", "backdoor"]):
-            return "EDR/SIEM에서 IoC 기반 탐지 룰을 업데이트하세요."
+            return _pick_variant(item, [
+                "EDR/SIEM에서 IoC 기반 탐지 룰을 업데이트하세요.",
+                "관련 해시/도메인/뮤텍스를 위협 인텔리전스 피드에 반영하고 헌팅 쿼리를 작성하세요.",
+                "의심 바이너리의 부모 프로세스·서명 체인을 점검하고 자동 격리 정책을 확인하세요.",
+            ])
         if re.search(r"cve-\d{4}-\d+", combined):
-            return (
-                "해당 CVE의 영향 범위와 CVSS 점수를 확인 후 패치 우선순위를 결정하세요."
-            )
+            return _pick_variant(item, [
+                "해당 CVE의 영향 범위와 CVSS 점수를 확인 후 패치 우선순위를 결정하세요.",
+                "CVE 공개 후 KEV/EPSS 지표를 교차 확인하고 노출 자산 기준 패치 SLA를 재산정하세요.",
+                "CVE 익스플로잇 PoC 공개 여부를 모니터링하면서 핫픽스 적용과 탐지 룰 추가를 병행하세요.",
+            ])
         return "보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요."
 
     # AI category
     if category == "ai":
         if any(kw in combined for kw in ["agent", "에이전트", "agentic"]):
-            return (
-                "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
-            )
+            return _pick_variant(item, [
+                "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요.",
+                "AI Agent의 도구 호출 권한을 최소화하고 의심 행동에 대한 Human-in-the-Loop 승인 경로를 구성하세요.",
+                "Agent 실행 로그와 프롬프트 히스토리를 감사 로그로 축적하고 권한 escalation 탐지 룰을 추가하세요.",
+            ])
         if any(
             kw in combined
             for kw in [
@@ -1567,42 +1626,82 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "code generation",
             ]
         ):
-            return "AI 생성 코드에 대한 보안 스캔(SAST/SCA) 게이트를 CI/CD에 필수 적용하세요."
+            return _pick_variant(item, [
+                "AI 생성 코드에 대한 보안 스캔(SAST/SCA) 게이트를 CI/CD에 필수 적용하세요.",
+                "AI 코딩 도구가 생성한 변경분의 보안 스캔 결과를 리뷰 체크리스트에 포함하세요.",
+                "Copilot/Cursor 등 AI 코딩 어시스턴트 사용 로그를 수집해 SAST 탐지 패턴과 상관 분석하세요.",
+            ])
         if any(kw in combined for kw in ["llm", "gpt", "claude", "gemini"]):
-            return "LLM 서빙 환경의 접근 제어와 프롬프트 인젝션 방어 체계를 점검하세요."
+            return _pick_variant(item, [
+                "LLM 서빙 환경의 접근 제어와 프롬프트 인젝션 방어 체계를 점검하세요.",
+                "LLM 응답의 민감 데이터 리덕션 레이어와 프롬프트 필터링 규칙을 정기적으로 감사하세요.",
+                "LLM 업그레이드 시 프롬프트 회귀 테스트와 비용/지연 트레이드오프 모니터링을 동시에 수행하세요.",
+            ])
         if any(
             kw in combined for kw in ["gpu", "nvidia", "compute", "training", "factory"]
         ):
-            return "AI 인프라 도입 시 보안 경계 설계와 데이터 프라이버시 규정 준수를 확인하세요."
+            return _pick_variant(item, [
+                "AI 인프라 도입 시 보안 경계 설계와 데이터 프라이버시 규정 준수를 확인하세요.",
+                "GPU 공유 환경에서는 테넌트 격리 경계와 학습 데이터 저장소 접근 제어를 재점검하세요.",
+                "AI 인프라 도입 시 모델 가중치 유출 방지 통제와 네트워크 이탈 방지 정책을 병행 점검하세요.",
+            ])
         if any(
             kw in combined
             for kw in ["open source", "오픈소스", "hugging face", "ollama"]
         ):
-            return "오픈소스 모델 도입 시 출처 검증, 라이선스 및 학습 데이터 리스크를 평가하세요."
+            return _pick_variant(item, [
+                "오픈소스 모델 도입 시 출처 검증, 라이선스 및 학습 데이터 리스크를 평가하세요.",
+                "오픈소스 모델 체크포인트의 해시 검증과 공식 배포 채널 이외 경로 차단 정책을 수립하세요.",
+                "Hugging Face 등 오픈소스 허브 다운로드 출처를 화이트리스트로 관리하고 라이선스 감사 프로세스를 정례화하세요.",
+            ])
         if any(kw in combined for kw in ["model", "모델"]):
-            return (
-                "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
-            )
+            return _pick_variant(item, [
+                "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요.",
+                "신규 LLM 모델의 자사 워크로드 적합성을 응답 품질·비용·지연 3축 트레이드오프로 비교하세요.",
+                "모델 변경 시 프롬프트 호환성 회귀와 추론 비용 단가 변동을 동시에 측정하세요.",
+            ])
         return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
 
     # Cloud / DevOps
     if category in ("cloud", "devops", "kubernetes"):
         if any(kw in combined for kw in ["rbac", "iam", "권한", "identity"]):
-            return (
-                "IAM/RBAC 정책의 최소 권한 원칙 준수와 서비스 계정 감사를 수행하세요."
-            )
+            return _pick_variant(item, [
+                "IAM/RBAC 정책의 최소 권한 원칙 준수와 서비스 계정 감사를 수행하세요.",
+                "IAM/RBAC 바인딩의 최소 권한 여부와 휴면 서비스 계정 정리 주기를 재검토하세요.",
+                "IAM/RBAC 정책 변경 이력을 감사 로그 기반으로 리뷰하고 최소 권한 드리프트를 자동 탐지하세요.",
+            ])
         if any(kw in combined for kw in ["kubernetes", "k8s", "쿠버네티스"]):
-            return "클러스터 버전 호환성과 워크로드 영향을 확인하세요."
+            return _pick_variant(item, [
+                "클러스터 버전 호환성과 워크로드 영향을 확인하세요.",
+                "클러스터 업그레이드 시 Admission Controller·네트워크 폴리시 호환성을 사전 검증하세요.",
+                "클러스터 노드별 리소스/보안 컨텍스트 드리프트를 주기적으로 스캔하세요.",
+            ])
         if any(kw in combined for kw in ["docker", "container", "컨테이너"]):
-            return "컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요."
+            return _pick_variant(item, [
+                "컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요.",
+                "컨테이너 베이스 이미지의 CVE 스캔과 최소 권한 런타임 옵션을 재확인하세요.",
+                "컨테이너 빌드 파이프라인에서 서명(cosign) 검증 단계를 필수화하세요.",
+            ])
         if any(kw in combined for kw in ["terraform", "iac", "인프라 코드"]):
-            return "IaC 템플릿 보안 스캔(Checkov/tfsec)과 드리프트 탐지를 확인하세요."
+            return _pick_variant(item, [
+                "IaC 템플릿 보안 스캔(Checkov/tfsec)과 드리프트 탐지를 확인하세요.",
+                "IaC 변경분에 대한 Checkov/tfsec 정적 분석을 PR 게이트로 강제하세요.",
+                "IaC 상태 파일 접근 통제와 원격 백엔드 암호화 설정을 재점검하세요.",
+            ])
         if any(
             kw in combined for kw in ["serverless", "lambda", "서버리스", "function"]
         ):
-            return "서버리스 함수의 IAM 역할 최소화와 실행 환경 보안 설정을 점검하세요."
+            return _pick_variant(item, [
+                "서버리스 함수의 IAM 역할 최소화와 실행 환경 보안 설정을 점검하세요.",
+                "서버리스 함수의 환경 변수 민감 정보 저장을 KMS/Secrets Manager로 이관하세요.",
+                "서버리스 콜드 스타트 로그와 IAM 권한 남용 이상 징후 탐지 룰을 추가하세요.",
+            ])
         if any(kw in combined for kw in ["aws", "azure", "gcp"]):
-            return "클라우드 서비스 변경사항이 인프라 구성에 미치는 영향을 확인하세요."
+            return _pick_variant(item, [
+                "클라우드 서비스 변경사항이 인프라 구성에 미치는 영향을 확인하세요.",
+                "클라우드 서비스 업데이트에 따른 네트워크/보안 기본값 변경 여부를 릴리스 노트로 추적하세요.",
+                "클라우드 인프라 구성 드리프트를 CSPM으로 지속 모니터링하고 규제 매핑을 갱신하세요.",
+            ])
         return "인프라 및 운영 환경 영향을 검토하세요."
 
     # Blockchain
@@ -1619,7 +1718,11 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "vulnerability",
             ]
         ):
-            return "블록체인 보안 사고 관련 IoC를 확인하고 유사 공격 벡터에 대한 방어 체계를 점검하세요."
+            return _pick_variant(item, [
+                "블록체인 보안 사고 관련 IoC를 확인하고 유사 공격 벡터에 대한 방어 체계를 점검하세요.",
+                "해킹 발표 후 공개된 IoC와 지갑 주소를 위협 인텔에 반영하고 유사 서비스의 방어 설정을 재검증하세요.",
+                "사고 원인 분석 리포트가 공개되면 IoC·패턴을 추출해 자사 스마트 컨트랙트 방어 룰에 적용하세요.",
+            ])
         if any(
             kw in combined
             for kw in [
@@ -1633,7 +1736,11 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "cftc",
             ]
         ):
-            return "규제 변화에 따른 컴플라이언스 영향을 법무팀과 사전 검토하세요."
+            return _pick_variant(item, [
+                "규제 변화에 따른 컴플라이언스 영향을 법무팀과 사전 검토하세요.",
+                "규제 발표 내용을 법무 및 컴플라이언스 조직과 공유하고 영향 받는 서비스 흐름을 도식화하세요.",
+                "규제 시행 일정에 맞춰 KYC/AML 통제와 컴플라이언스 보고 프로세스를 업데이트하세요.",
+            ])
         if any(
             kw in combined
             for kw in [
@@ -1646,19 +1753,35 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "대출",
             ]
         ):
-            return "관련 DeFi 프로토콜의 스마트 컨트랙트 감사 현황과 비상 정지 메커니즘을 확인하세요."
+            return _pick_variant(item, [
+                "관련 DeFi 프로토콜의 스마트 컨트랙트 감사 현황과 비상 정지 메커니즘을 확인하세요.",
+                "해당 DeFi 프로토콜의 스마트 컨트랙트 감사 리포트와 타임락·멀티시그 구성을 재점검하세요.",
+                "연동 중인 DeFi 서비스의 스마트 컨트랙트 업그레이드 패턴과 긴급 정지 거버넌스를 검토하세요.",
+            ])
         if any(
             kw in combined
             for kw in ["conference", "컨퍼런스", "summit", "speaker", "연사"]
         ):
-            return "대규모 행사 전후로 관련 토큰 사기 및 가짜 이벤트 피싱이 증가합니다. 공식 채널만 이용하세요."
+            return _pick_variant(item, [
+                "대규모 행사 전후로 관련 토큰 사기 및 가짜 이벤트 피싱이 증가합니다. 공식 채널만 이용하세요.",
+                "컨퍼런스 시즌 피싱 도메인과 가짜 연사 에어드롭 사기 패턴을 모니터링하고 공식 채널 공지를 사내에 배포하세요.",
+                "대형 행사 기간에는 관련 키워드 기반 피싱이 증가하므로 공식 채널 링크만 사내 승인하도록 커뮤니케이션하세요.",
+            ])
         if any(kw in combined for kw in ["bitcoin", "비트코인", "btc"]):
-            return "시장 변동성 확대 시기에 피싱 도메인 모니터링을 강화하고 고액 출금 인증 절차를 점검하세요."
+            return _pick_variant(item, [
+                "시장 변동성 확대 시기에 피싱 도메인 모니터링을 강화하고 고액 출금 인증 절차를 점검하세요.",
+                "하드웨어 지갑 키 관리와 출금 서명 흐름을 재점검해 조작된 트랜잭션 승인 리스크를 차단하세요.",
+                "거래소 API 키 권한을 읽기 전용 기준으로 최소화하고 출금 화이트리스트를 의무화하세요.",
+            ])
         if any(
             kw in combined
             for kw in ["ethereum", "이더리움", "eth", "stablecoin", "스테이블코인"]
         ):
-            return "스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요."
+            return _pick_variant(item, [
+                "스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요.",
+                "이더리움 기반 서비스의 승인(approve) 오남용 탐지와 트랜잭션 모니터링 룰을 강화하세요.",
+                "스테이블코인 결제/브릿지의 접근 제어와 대규모 트랜잭션 모니터링 임계치를 재설정하세요.",
+            ])
         return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
 
     return "실무 적용 전에 상세 내용을 확인하세요."
@@ -2298,29 +2421,59 @@ def _generate_ai_analysis_template(item: Dict) -> str:
 
     template = "\n#### 실무 적용 포인트\n\n"
     if any(kw in text for kw in ["agent", "에이전트", "agentic"]):
-        template += "- AI 에이전트 도구 호출 권한 및 접근 범위 최소화 설계\n"
-        template += "- 에이전트 행동 로깅 및 감사 파이프라인 구축 검토\n"
-        template += "- 에이전트 출력에 대한 검증 및 사람 감독(Human-in-the-Loop) 설계\n"
+        template += _pick_variant(item, [
+            "- AI 에이전트 도구 호출 권한 및 접근 범위 최소화 설계\n"
+            "- 에이전트 행동 로깅 및 감사 파이프라인 구축 검토\n"
+            "- 에이전트 출력에 대한 검증 및 사람 감독(Human-in-the-Loop) 설계\n",
+            "- 에이전트 작업 범위를 최소 권한 원칙으로 제한하고 도구 호출 권한 화이트리스트 관리\n"
+            "- Human-in-the-Loop 승인 게이트를 고위험 에이전트 액션에 필수 적용\n"
+            "- 에이전트 실행 로그를 SIEM에 연동해 비정상 패턴 실시간 탐지\n",
+            "- 멀티 에이전트 파이프라인에서 도구 호출 권한 격리 및 샌드박스 경계 설계\n"
+            "- 에이전트 오케스트레이션 레이어에 Human-in-the-Loop 검증 체크포인트 삽입\n"
+            "- 에이전트 출력 스키마 검증으로 프롬프트 인젝션 경유 데이터 유출 차단\n",
+        ])
     elif any(kw in text for kw in ["llm", "gpt", "claude", "gemini", "model"]):
-        template += "- LLM 입출력 데이터 보안 및 프라이버시 검토\n"
-        template += "- 모델 서빙 환경의 접근 제어 및 네트워크 격리 확인\n"
-        template += "- 프롬프트 인젝션 등 적대적 공격 대응 방안 점검\n"
+        template += _pick_variant(item, [
+            "- LLM 입출력 데이터 보안 및 프라이버시 검토\n"
+            "- 모델 서빙 환경의 접근 제어 및 네트워크 격리 확인\n"
+            "- 프롬프트 인젝션 등 적대적 공격 대응 방안 점검\n",
+            "- LLM 입출력 로그를 DLP 정책으로 필터링해 민감 데이터 노출 방지\n"
+            "- 프롬프트 인젝션 방어를 위한 입력 정규화·출력 검증 레이어 추가\n"
+            "- 모델 API 키를 시크릿 매니저에 통합하고 최소 권한 서비스 계정으로 교체\n",
+            "- LLM 서빙 엔드포인트에 레이트 리미팅과 인증 토큰 로테이션 정책 적용\n"
+            "- 프롬프트 인젝션 시도를 SIEM 규칙으로 탐지하고 자동 차단 임계 설정\n"
+            "- 모델 응답의 PII·시크릿 포함 여부를 LLM 입출력 감사 파이프라인으로 검증\n",
+        ])
     elif any(
         kw in text
         for kw in ["gpu", "nvidia", "인프라", "factory", "compute", "training"]
     ):
-        template += "- 대규모 AI 인프라 도입 시 보안 경계 및 접근 제어 설계 검토\n"
-        template += "- GPU 클러스터 운영 환경의 취약점 관리 및 패치 정책 수립\n"
-        template += "- AI 워크로드 데이터 프라이버시 규정(GDPR, HIPAA) 준수 확인\n"
+        template += _pick_variant(item, [
+            "- 대규모 AI 인프라 도입 시 보안 경계 및 접근 제어 설계 검토\n"
+            "- GPU 클러스터 운영 환경의 취약점 관리 및 패치 정책 수립\n"
+            "- AI 워크로드 데이터 프라이버시 규정(GDPR, HIPAA) 준수 확인\n",
+            "- GPU 클러스터 노드별 접근 제어와 네트워크 분리로 횡적 이동 경로 차단\n"
+            "- AI 인프라 드라이버·펌웨어 패치 주기를 취약점 SLA에 포함해 추적\n"
+            "- 학습 데이터셋의 PII 처리 방침과 데이터 레지던시 요구사항 재검토\n",
+            "- AI 인프라 접근 제어를 IAM 역할 기반으로 재설계해 공유 자격증명 제거\n"
+            "- GPU 클러스터 상태 모니터링에 보안 이벤트(비인가 접근·이상 부하) 연계\n"
+            "- 학습·추론 환경의 네트워크 분리 현황과 VPC 피어링 정책 검토\n",
+        ])
     elif any(
         kw in text
         for kw in ["simulation", "시뮬레이션", "digital twin", "optimize", "최적화"]
     ):
-        template += (
+        template += _pick_variant(item, [
             "- 시뮬레이션 기반 인프라 검증으로 배포 전 보안 취약점 사전 식별 활용\n"
-        )
-        template += "- AI 서비스 성능 최적화와 보안 모니터링 균형 설계\n"
-        template += "- 운영 비용 절감 효과와 보안 투자 ROI 분석\n"
+            "- AI 서비스 성능 최적화와 보안 모니터링 균형 설계\n"
+            "- 운영 비용 절감 효과와 보안 투자 ROI 분석\n",
+            "- 시뮬레이션 환경을 카오스 엔지니어링에 활용해 보안 통제 회복력 검증\n"
+            "- 최적화 파이프라인에 보안 정책 드리프트 탐지 단계 포함\n"
+            "- 시뮬레이션 결과 기반 ROI 모델에 보안 사고 비용 항목 반영\n",
+            "- 디지털 트윈·시뮬레이션 데이터 접근 권한을 역할별로 분리해 유출 위험 저감\n"
+            "- 최적화 알고리즘이 민감 운영 데이터를 훈련에 사용할 때의 동의·익명화 정책 확인\n"
+            "- 시뮬레이션 ROI 지표에 보안 투자 절감 효과(MTTD/MTTR 개선)를 포함\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2335,15 +2488,31 @@ def _generate_ai_analysis_template(item: Dict) -> str:
             "vscode",
         ]
     ):
-        template += "- AI 코딩 도구가 생성한 코드에 대한 자동 보안 스캔(SAST/SCA) 게이트 필수 적용\n"
-        template += "- AI 생성 코드의 시크릿/자격증명 하드코딩 여부 자동 탐지 설정\n"
-        template += "- 개발자 대상 AI 코딩 도구 보안 사용 가이드라인 수립 및 교육\n"
+        template += _pick_variant(item, [
+            "- AI 코딩 도구가 생성한 코드에 대한 자동 보안 스캔(SAST/SCA) 게이트 필수 적용\n"
+            "- AI 생성 코드의 시크릿/자격증명 하드코딩 여부 자동 탐지 설정\n"
+            "- 개발자 대상 AI 코딩 도구 보안 사용 가이드라인 수립 및 교육\n",
+            "- AI 코딩 어시스턴트 제안 코드에 SAST 파이프라인 필수 통과 정책 적용\n"
+            "- 코드 생성 결과의 시크릿·API 키 노출을 pre-commit 훅으로 자동 차단\n"
+            "- AI 생성 코드 리뷰 체크리스트에 입력 검증·SQL 인젝션·XSS 항목 포함\n",
+            "- IDE 플러그인 접근 권한을 최소화하고 벤더 데이터 전송 정책 재검토\n"
+            "- AI 코딩 도구 사용 로그를 감사 파이프라인에 연계해 민감 코드 노출 추적\n"
+            "- 코드 생성 품질 게이트에 SAST 보안 스캔 결과를 병합 차단 조건으로 설정\n",
+        ])
     elif any(
         kw in text for kw in ["attack", "공격", "threat", "위협", "malware", "악성"]
     ):
-        template += "- AI 기반 위협 탐지 및 자동 대응 파이프라인 구축 검토\n"
-        template += "- AI 모델 자체의 적대적 공격(Adversarial Attack) 방어 설계\n"
-        template += "- 보안 팀의 AI 도구 활용 역량 강화 교육 계획 수립\n"
+        template += _pick_variant(item, [
+            "- AI 기반 위협 탐지 및 자동 대응 파이프라인 구축 검토\n"
+            "- AI 모델 자체의 적대적 공격(Adversarial Attack) 방어 설계\n"
+            "- 보안 팀의 AI 도구 활용 역량 강화 교육 계획 수립\n",
+            "- 위협 탐지 모델에 최신 공격 패턴(TTPs) 피드를 연동해 탐지율 향상\n"
+            "- Adversarial Attack 방어를 위한 모델 입력 정규화·이상치 필터링 레이어 적용\n"
+            "- AI 기반 위협 인텔리전스 플랫폼 도입 효과를 MTTD 지표로 정기 검증\n",
+            "- AI 위협 탐지 파이프라인의 false positive 임계를 재조정해 운영 피로 감소\n"
+            "- Adversarial Attack 시나리오를 레드팀 훈련에 포함해 방어 체계 실전 검증\n"
+            "- 위협 탐지 결과를 SOAR 플레이북과 연동해 자동 격리·알림 흐름 구성\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2355,9 +2524,17 @@ def _generate_ai_analysis_template(item: Dict) -> str:
             "ollama",
         ]
     ):
-        template += "- 오픈소스 AI 모델 도입 시 라이선스 및 보안 취약점 검토\n"
-        template += "- 모델 다운로드 출처 검증 및 체크섬/서명 확인 절차 수립\n"
-        template += "- 오픈소스 모델의 학습 데이터 편향 및 프라이버시 리스크 평가\n"
+        template += _pick_variant(item, [
+            "- 오픈소스 AI 모델 도입 시 라이선스 및 보안 취약점 검토\n"
+            "- 모델 다운로드 출처 검증 및 체크섬/서명 확인 절차 수립\n"
+            "- 오픈소스 모델의 학습 데이터 편향 및 프라이버시 리스크 평가\n",
+            "- 오픈소스 모델 레지스트리 접근을 내부 미러로 제한해 공급망 위험 축소\n"
+            "- 모델 다운로드 시 해시 검증과 서명 확인을 CI 파이프라인에 자동화\n"
+            "- 오픈소스 라이선스 의무(GPL·AGPL)가 프로덕션 서비스에 미치는 영향 법무 검토\n",
+            "- HuggingFace·Ollama 모델의 CVE 이력을 SCA 도구로 스캔 후 배포 승인\n"
+            "- 오픈소스 모델 학습 데이터 출처와 PII 포함 여부를 모델 카드로 문서화\n"
+            "- 커뮤니티 기여 코드에 대한 내부 보안 리뷰 게이트 수립 및 주기적 감사\n",
+        ])
     else:
         logging.info(
             f"AI template fallback triggered for: {item.get('title', '')[:60]}"
@@ -2521,9 +2698,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
     template = "\n#### 실무 적용 포인트\n\n"
 
     if any(kw in text for kw in ["docker", "container", "컨테이너"]):
-        template += "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
-        template += "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
-        template += "- 컨테이너 런타임 보안 모니터링 강화\n"
+        template += _pick_variant(item, [
+            "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+            "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+            "- 컨테이너 런타임 보안 모니터링 강화\n",
+            "- 컨테이너 이미지 보안 스캔을 CI 게이트에 연동해 취약 레이어 빌드 차단\n"
+            "- Docker 소켓 마운트 여부 감사 및 컨테이너 탈출 위험 경로 점검\n"
+            "- non-root 사용자 강제 및 읽기 전용 파일시스템 런타임 정책 적용\n",
+            "- 컨테이너 이미지 보안 스캔과 서명·무결성 검증을 레지스트리 푸시 단계에 자동화\n"
+            "- 컨테이너 런타임(containerd/runc) 최신 보안 패치 적용 현황 점검\n"
+            "- 컨테이너 네트워크 격리 정책과 Seccomp/AppArmor 프로파일 적용 여부 확인\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2536,9 +2721,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "gatekeeper",
         ]
     ):
-        template += "- Kubernetes RBAC 역할 및 바인딩 최소 권한 원칙 준수 감사\n"
-        template += "- Admission Controller/OPA 정책으로 비인가 리소스 생성 차단\n"
-        template += "- Pod Security Admission(PSA) restricted 프로필 적용 현황 점검\n"
+        template += _pick_variant(item, [
+            "- Kubernetes RBAC 역할 및 바인딩 최소 권한 원칙 준수 감사\n"
+            "- Admission Controller/OPA 정책으로 비인가 리소스 생성 차단\n"
+            "- Pod Security Admission(PSA) restricted 프로필 적용 현황 점검\n",
+            "- RBAC ClusterRole 권한 범위를 네임스페이스 단위로 축소하고 미사용 바인딩 제거\n"
+            "- OPA/Gatekeeper Constraint 위반 현황을 대시보드로 시각화해 정책 공백 탐지\n"
+            "- PSA restricted 프로파일 마이그레이션 현황과 예외 처리 목록 주기적 감사\n",
+            "- Admission Controller 웹훅 TLS 인증서 만료 주기 관리 및 자동 갱신 설정\n"
+            "- RBAC 감사 로그를 SIEM에 연동해 권한 상승 시도 실시간 탐지\n"
+            "- OPA 정책 변경을 GitOps 흐름으로 관리해 무단 정책 수정 방지\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2551,38 +2744,84 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "sbom",
         ]
     ):
-        template += (
+        template += _pick_variant(item, [
             "- 컨테이너 이미지 서명(cosign/sigstore) 및 무결성 검증 파이프라인 확인\n"
-        )
-        template += "- 프라이빗 레지스트리 접근 제어 및 이미지 스캔 정책 점검\n"
-        template += "- SBOM 기반 이미지 의존성 취약점 추적 자동화 설정\n"
+            "- 프라이빗 레지스트리 접근 제어 및 이미지 스캔 정책 점검\n"
+            "- SBOM 기반 이미지 의존성 취약점 추적 자동화 설정\n",
+            "- cosign 서명 정책을 Admission Controller에 연동해 미서명 이미지 배포 차단\n"
+            "- 레지스트리 접근 토큰 로테이션 주기를 단축하고 서비스 계정 권한 최소화\n"
+            "- SBOM을 CI 산출물로 생성·저장하고 신규 CVE 발생 시 자동 알림 연계\n",
+            "- sigstore Rekor 투명성 로그로 이미지 서명 이력 감사 자동화\n"
+            "- 이미지 레지스트리 취약점 스캔 결과를 SBOM과 결합해 영향 범위 신속 파악\n"
+            "- 베이스 이미지 업데이트 트리거를 Dependabot·Renovate로 자동화해 패치 지연 방지\n",
+        ])
     elif any(kw in text for kw in ["서비스 메시", "service mesh", "istio", "envoy"]):
-        template += "- mTLS 기반 서비스 간 통신 암호화 적용 검토\n"
-        template += "- 서비스 메시 관측성 활용한 이상 트래픽 탐지 설계\n"
-        template += "- 네트워크 폴리시와 서비스 메시 정책 통합 관리\n"
+        template += _pick_variant(item, [
+            "- mTLS 기반 서비스 간 통신 암호화 적용 검토\n"
+            "- 서비스 메시 관측성 활용한 이상 트래픽 탐지 설계\n"
+            "- 네트워크 폴리시와 서비스 메시 정책 통합 관리\n",
+            "- Istio AuthorizationPolicy로 서비스 간 최소 권한 통신 규칙 적용\n"
+            "- 서비스 메시 텔레메트리(Kiali/Jaeger)로 동서 트래픽 이상 패턴 실시간 탐지\n"
+            "- mTLS STRICT 모드 전환 현황을 네임스페이스별로 점검하고 로드맵 수립\n",
+            "- Envoy 사이드카 프록시 버전 드리프트를 정기 스캔해 패치 공백 제거\n"
+            "- 서비스 메시 정책을 GitOps로 관리해 무단 변경 감사 추적\n"
+            "- mTLS 인증서 만료 모니터링을 알림 파이프라인에 연계해 서비스 중단 예방\n",
+        ])
     elif any(
         kw in text
         for kw in ["network policy", "네트워크 폴리시", "ingress", "egress", "cilium"]
     ):
-        template += "- Kubernetes NetworkPolicy로 Pod 간 불필요한 통신 차단 설정\n"
-        template += "- Ingress/Egress 트래픽 암호화(mTLS) 적용 현황 검토\n"
-        template += "- 네트워크 관측성 도구(Cilium Hubble 등)로 이상 트래픽 탐지 강화\n"
+        template += _pick_variant(item, [
+            "- Kubernetes NetworkPolicy로 Pod 간 불필요한 통신 차단 설정\n"
+            "- Ingress/Egress 트래픽 암호화(mTLS) 적용 현황 검토\n"
+            "- 네트워크 관측성 도구(Cilium Hubble 등)로 이상 트래픽 탐지 강화\n",
+            "- NetworkPolicy 기본 거부(default-deny) 정책을 모든 네임스페이스에 적용\n"
+            "- Cilium Hubble 플로우 로그를 SIEM에 연동해 비인가 Egress 탐지\n"
+            "- Ingress 컨트롤러 WAF 규칙을 최신 OWASP Top 10 기준으로 업데이트\n",
+            "- 클러스터 외부 Egress IP를 고정하고 방화벽 화이트리스트로 통신 범위 제한\n"
+            "- NetworkPolicy 변경 이력을 GitOps 파이프라인으로 추적해 무단 수정 방지\n"
+            "- Cilium 네트워크 정책과 서비스 메시 정책 간 충돌 여부 정기 검증\n",
+        ])
     elif any(
         kw in text for kw in ["kubecon", "conference", "컨퍼런스", "행사", "summit"]
     ):
-        template += "- 컨퍼런스에서 발표된 새로운 보안 프레임워크 및 도구 검토\n"
-        template += "- 커뮤니티 모범 사례의 자사 환경 적용 가능성 평가\n"
-        template += "- 발표된 오픈소스 프로젝트의 보안 성숙도 및 도입 로드맵 검토\n"
+        template += _pick_variant(item, [
+            "- 컨퍼런스에서 발표된 새로운 보안 프레임워크 및 도구 검토\n"
+            "- 커뮤니티 모범 사례의 자사 환경 적용 가능성 평가\n"
+            "- 발표된 오픈소스 프로젝트의 보안 성숙도 및 도입 로드맵 검토\n",
+            "- 컨퍼런스 발표 내용을 내부 기술 공유 세션으로 전파하고 적용 우선순위 결정\n"
+            "- 발표된 신규 CNCF 프로젝트의 보안 감사 결과와 프로덕션 준비도 평가\n"
+            "- 커뮤니티 CVE 발표 세션에서 자사 환경 영향 항목을 즉시 식별해 조치\n",
+            "- 행사 발표 자료를 팀 위키에 정리하고 도입 검토 이슈 트래커에 연결\n"
+            "- 오픈소스 프로젝트 도입 전 보안 성숙도 평가 체크리스트(SLSA·OpenSSF Scorecard) 적용\n"
+            "- 컨퍼런스에서 공개된 취약점 정보를 패치 SLA 프로세스에 즉시 반영\n",
+        ])
     elif any(kw in text for kw in ["kubernetes", "k8s", "kcd", "cncf"]):
-        template += "- Kubernetes 클러스터 보안 벤치마크(CIS) 준수 점검\n"
-        template += "- API 서버 접근 제어 및 감사 로그(Audit Log) 활성화 확인\n"
-        template += "- 클러스터 업그레이드 주기 및 보안 패치 적용 현황 검토\n"
+        template += _pick_variant(item, [
+            "- Kubernetes 클러스터 보안 벤치마크(CIS) 준수 점검\n"
+            "- API 서버 접근 제어 및 감사 로그(Audit Log) 활성화 확인\n"
+            "- 클러스터 업그레이드 주기 및 보안 패치 적용 현황 검토\n",
+            "- kube-bench 도구로 CIS Kubernetes 벤치마크 준수 현황을 정기 스캔\n"
+            "- API 서버 감사 로그 정책을 세분화해 민감 리소스 접근을 SIEM에 연동\n"
+            "- EoL 버전 클러스터 업그레이드 일정과 취약점 익스플로잇 위험을 연계 관리\n",
+            "- CNCF 프로젝트 도입 시 OpenSSF Scorecard 점수와 보안 감사 이력 확인\n"
+            "- Kubernetes API 서버 익명 접근 비활성화 및 ServiceAccount 자동 마운트 제한\n"
+            "- CIS 벤치마크 미준수 항목을 OPA 정책으로 자동 탐지·리포트하는 파이프라인 구축\n",
+        ])
     elif any(
         kw in text for kw in ["ci/cd", "pipeline", "github action", "jenkins", "배포"]
     ):
-        template += "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
-        template += "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
-        template += "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n"
+        template += _pick_variant(item, [
+            "- CI/CD 파이프라인 보안 강화: 시크릿 관리, 토큰 권한 최소화\n"
+            "- 서드파티 Actions/플러그인의 출처 검증 및 버전 고정\n"
+            "- 빌드/배포 로그 모니터링으로 비정상 행위 탐지\n",
+            "- CI/CD 파이프라인 시크릿을 외부 시크릿 매니저로 이전하고 런타임 주입으로 전환\n"
+            "- GitHub Actions 워크플로우에 쓰기 권한 범위를 필요한 단계에만 한정\n"
+            "- 빌드 산출물 서명·무결성 검증을 배포 승인 게이트에 포함\n",
+            "- 서드파티 Actions를 SHA 고정 버전으로 참조하고 Dependabot으로 자동 업데이트\n"
+            "- CI/CD 파이프라인 실행 로그를 SIEM에 연동해 비인가 시크릿 접근 탐지\n"
+            "- 스테이징과 프로덕션 배포 승인을 별도 보호된 환경 변수로 분리 관리\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2597,13 +2836,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "memorystore",
         ]
     ):
-        template += "- 데이터베이스/캐시 서비스 업그레이드 시 데이터 무결성 검증 및 접근 제어 점검\n"
-        template += (
+        template += _pick_variant(item, [
+            "- 데이터베이스/캐시 서비스 업그레이드 시 데이터 무결성 검증 및 접근 제어 점검\n"
             "- DB 연결 암호화(SSL/TLS) 설정이 모든 복제본/노드에 적용되는지 확인\n"
-        )
-        template += (
-            "- 자동 확장 이벤트 감사 로그 모니터링으로 비정상 리소스 증가 탐지\n"
-        )
+            "- 자동 확장 이벤트 감사 로그 모니터링으로 비정상 리소스 증가 탐지\n",
+            "- 데이터베이스 계정 권한을 최소화하고 애플리케이션별 전용 서비스 계정으로 분리 운영\n"
+            "- 쿼리 실행 계획 분석으로 SQL 인젝션 취약 패턴과 성능 병목을 동시에 점검\n"
+            "- 캐시(Redis·Valkey) 외부 노출 여부를 확인하고 AUTH·TLS 설정 일관성 검토\n",
+            "- 데이터베이스 스냅샷·백업 복원 테스트를 정기 실행해 RTO/RPO 목표 달성 여부 검증\n"
+            "- DB 감사 로그(DDL·DML)를 SIEM에 연동해 비인가 스키마 변경 실시간 탐지\n"
+            "- 캐시 계층 데이터 만료 정책과 민감 정보 저장 여부를 보안 요구사항과 일치시키기\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2616,40 +2859,74 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "android app",
         ]
     ):
-        template += "- 모바일 앱 업데이트에 포함된 보안 패치 및 의존성 변경사항 검토\n"
-        template += "- API 키 및 민감 데이터의 클라이언트 측 노출 방지 설정 점검\n"
-        template += "- 사용자 데이터 수집 시 개인정보 보호 정책(GDPR, 개인정보보호법) 준수 확인\n"
+        template += _pick_variant(item, [
+            "- 모바일 앱 업데이트에 포함된 보안 패치 및 의존성 변경사항 검토\n"
+            "- API 키 및 민감 데이터의 클라이언트 측 노출 방지 설정 점검\n"
+            "- 사용자 데이터 수집 시 개인정보 보호 정책(GDPR, 개인정보보호법) 준수 확인\n",
+            "- 모바일 앱 네이티브 브리지 권한 범위를 최소화해 앱 샌드박스 우회 위험 감소\n"
+            "- 클라이언트 바이너리에 하드코딩된 API 키·시크릿을 정적 분석 도구로 자동 탐지\n"
+            "- 모바일 앱 배포 전 OWASP MASVS L1 체크리스트로 인증·암호화·데이터 저장 항목 검증\n",
+            "- 모바일 클라이언트 인증서 피닝 설정으로 중간자 공격(MITM) 위험을 런타임에 차단\n"
+            "- 사용자 단말 OS 버전·루팅 탐지 로직을 정기 업데이트해 최신 우회 기법 대응\n"
+            "- 모바일 앱 내 개인정보 처리 목적·보존 기간을 코드 주석과 개인정보처리방침에 동기화\n",
+        ])
     elif any(kw in text for kw in ["네트워크", "network"]):
-        template += "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
-        template += "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
-        template += "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n"
+        template += _pick_variant(item, [
+            "- 네트워크 세그멘테이션 및 방화벽 규칙 최신화 점검\n"
+            "- 비정상 트래픽 패턴 탐지를 위한 모니터링 강화\n"
+            "- 네트워크 접근 제어 정책(Zero Trust) 적용 현황 검토\n",
+            "- 동서(East-West) 트래픽에도 마이크로 세그멘테이션 정책을 적용해 내부 이동 경로 차단\n"
+            "- NDR 솔루션에서 DNS 터널링·이상 포트 스캔 알림 임계값을 최신 위협 수준으로 재보정\n"
+            "- VPN·SD-WAN 어플라이언스의 펌웨어 패치 현황과 관리 포털 MFA 적용 여부 확인\n",
+            "- 제로 트러스트 전환 로드맵에 미반영 레거시 VLAN 구간을 식별하고 마이그레이션 우선순위 지정\n"
+            "- 방화벽 정책 리뷰 주기를 분기 1회로 고정하고 미사용 허용 규칙 자동 탐지 도구 연동\n"
+            "- 네트워크 플로우 데이터를 SIEM에 수집해 DGA 도메인·C2 통신 패턴 상관 분석\n",
+        ])
     elif any(
         kw in text
         for kw in ["copilot", "github blog", "github action", "changelog", "코파일럿"]
     ):
-        template += "- Copilot/Actions 플랜·쿼터 변경이 내부 파이프라인에 미치는 영향 회귀 테스트\n"
-        template += (
+        template += _pick_variant(item, [
+            "- Copilot/Actions 플랜·쿼터 변경이 내부 파이프라인에 미치는 영향 회귀 테스트\n"
             "- 에이전트 응답 로그를 SIEM에 연동해 민감 코드/시크릿 노출 사례 감사\n"
-        )
-        template += (
-            "- 팀별 Copilot 사용량 지표(AAU, MAU, 토큰)를 라이선스 리포트에 통합\n"
-        )
+            "- 팀별 Copilot 사용량 지표(AAU, MAU, 토큰)를 라이선스 리포트에 통합\n",
+            "- GitHub Actions 워크플로우 권한을 최소화하고 제3자 Action은 SHA 고정 버전으로 참조\n"
+            "- Copilot 제안 코드에 SAST 게이트를 의무화해 시크릿 하드코딩·인젝션 취약점 자동 차단\n"
+            "- 변경 로그(changelog) 릴리스 노트에서 보안 관련 항목을 파싱해 내부 패치 SLA에 반영\n",
+            "- GitHub Advanced Security(GHAS) 코드 스캔 결과를 PR 머지 차단 조건으로 설정\n"
+            "- Copilot Business 정책에서 공개 코드 제안 수락 여부를 조직 정책으로 통일 관리\n"
+            "- Actions 실행 로그 보존 기간을 감사 요구사항(90일 이상)에 맞게 재설정\n",
+        ])
     elif any(
         kw in text
         for kw in ["metric", "observability", "dashboard", "대시보드", "메트릭", "로그"]
     ):
-        template += "- 메트릭·로그 스키마 변경 시 기존 Grafana/Looker 대시보드 호환성 회귀 확인\n"
-        template += "- 신규 지표(AAU·MAU 등)를 SLO·SLA 보고서에 통합해 정책 공백 감지\n"
-        template += "- 관측성 데이터의 보존 기간과 접근 제어(RBAC)를 거버넌스 정책과 일치시키기\n"
+        template += _pick_variant(item, [
+            "- 메트릭·로그 스키마 변경 시 기존 Grafana/Looker 대시보드 호환성 회귀 확인\n"
+            "- 신규 지표(AAU·MAU 등)를 SLO·SLA 보고서에 통합해 정책 공백 감지\n"
+            "- 관측성 데이터의 보존 기간과 접근 제어(RBAC)를 거버넌스 정책과 일치시키기\n",
+            "- OpenTelemetry 트레이스에 사용자 ID·세션 토큰이 포함되지 않도록 데이터 마스킹 설정\n"
+            "- 경보(Alert) 임계값과 on-call 정책을 분기마다 재검토해 알림 피로(alert fatigue) 감소\n"
+            "- 로그 집계 파이프라인의 접근 제어를 최소 권한으로 재설정하고 감사 추적 활성화\n",
+            "- 분산 추적(Distributed Tracing) 데이터에서 PII 노출 여부를 자동 스캔하는 규칙 수립\n"
+            "- 관측성 플랫폼(Grafana/Datadog) 대시보드 접근 권한을 역할 기반으로 재구성\n"
+            "- SLO 오류 예산 소진 속도를 보안 인시던트 지표와 상관 분석해 리스크 조기 감지\n",
+        ])
     elif any(
         kw in text
         for kw in ["serverless", "lambda", "cloud run", "cloud functions", "function"]
     ):
-        template += "- 서버리스 워크로드 실행 역할(IAM)의 최소 권한·일시성 로그 감사 정책 점검\n"
-        template += "- Cold start·burst 스케일 시 비밀값 주입 지연과 cache-poisoning 위험 평가\n"
-        template += (
-            "- 이벤트 소스(버킷·큐·스케줄러)별 invoke 권한과 VPC 경계 분리 검증\n"
-        )
+        template += _pick_variant(item, [
+            "- 서버리스 워크로드 실행 역할(IAM)의 최소 권한·일시성 로그 감사 정책 점검\n"
+            "- Cold start·burst 스케일 시 비밀값 주입 지연과 cache-poisoning 위험 평가\n"
+            "- 이벤트 소스(버킷·큐·스케줄러)별 invoke 권한과 VPC 경계 분리 검증\n",
+            "- Lambda/Cloud Run 함수에 환경 변수 대신 런타임 시크릿 매니저 주입 방식 적용\n"
+            "- 함수 실행 타임아웃과 메모리 상한을 설정해 DoS 남용 시 비용 폭증 방지\n"
+            "- 서버리스 이벤트 트리거(S3·Pub/Sub·SQS)의 입력 스키마 검증으로 인젝션 차단\n",
+            "- 서버리스 함수의 의존성 패키지를 정기 갱신하고 CVE 스캔을 배포 파이프라인에 통합\n"
+            "- VPC 커넥터 경유 내부 리소스 접근 시 Security Group 규칙을 함수 단위로 최소화\n"
+            "- 함수 호출 로그와 X-Ray·Cloud Trace를 SIEM에 연동해 비인가 invoke 탐지\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2662,9 +2939,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "nvlink",
         ]
     ):
-        template += "- GPU 드라이버·CUDA·NCCL 버전 고정 및 헬스체크 훅으로 단일 장애 노드 자동 격리\n"
-        template += "- 토폴로지 인식 스케줄링(Kueue/Ray)으로 NVLink/InfiniBand 장애 도메인 분리\n"
-        template += "- 분산 체크포인트 RPO 기준 설계 및 복구 시간 테스트 자동화\n"
+        template += _pick_variant(item, [
+            "- GPU 드라이버·CUDA·NCCL 버전 고정 및 헬스체크 훅으로 단일 장애 노드 자동 격리\n"
+            "- 토폴로지 인식 스케줄링(Kueue/Ray)으로 NVLink/InfiniBand 장애 도메인 분리\n"
+            "- 분산 체크포인트 RPO 기준 설계 및 복구 시간 테스트 자동화\n",
+            "- GPU 노드 접근을 전용 서비스 계정으로 제한하고 SSH 키 대신 임시 자격증명 발급\n"
+            "- CUDA 커널 취약점(CVE) 발생 시 드라이버 롤백 절차를 Runbook으로 문서화\n"
+            "- 분산 학습 데이터셋의 PII 포함 여부를 파이프라인 진입 단계에서 자동 검사\n",
+            "- InfiniBand/NVLink 네트워크 트래픽에 암호화 정책 적용 가능성과 성능 영향 평가\n"
+            "- GPU 클러스터 사용량 대시보드에 비인가 job 제출 탐지 경보 규칙 추가\n"
+            "- 체크포인트 저장소의 접근 제어(버킷 ACL·IAM)를 학습 완료 후 즉시 최소화\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2678,9 +2963,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "쿼터",
         ]
     ):
-        template += "- 가입·세션 생성 엔드포인트의 IP·디바이스 지문 기반 중복 탐지 룰과 CAPTCHA 단계 강화\n"
-        template += "- 체험판 API에 별도 quota 버킷을 할당하고 burst·cumulative 임계 기반 실시간 알림 구성\n"
-        template += "- 남용 패턴(봇 가입, 카드 재사용, 일회용 이메일)을 Risk Engine에 공급해 자동 차단·수동 리뷰 분리\n"
+        template += _pick_variant(item, [
+            "- 가입·세션 생성 엔드포인트의 IP·디바이스 지문 기반 중복 탐지 룰과 CAPTCHA 단계 강화\n"
+            "- 체험판 API에 별도 quota 버킷을 할당하고 burst·cumulative 임계 기반 실시간 알림 구성\n"
+            "- 남용 패턴(봇 가입, 카드 재사용, 일회용 이메일)을 Risk Engine에 공급해 자동 차단·수동 리뷰 분리\n",
+            "- 레이트 리미팅 정책을 사용자 티어별로 세분화하고 한도 초과 시 graceful degradation 응답 반환\n"
+            "- 일회용 이메일·VPN IP 차단 목록을 외부 위협 인텔리전스 피드와 자동 동기화\n"
+            "- 쿼터 소진 패턴을 ML 이상 탐지 모델에 학습시켜 정상 급증과 남용 사례를 자동 분류\n",
+            "- 체험판 계정의 API 키 유효기간을 72시간으로 제한하고 만료 후 자동 폐기 처리\n"
+            "- 남용 신고 접수 채널과 대응 SLA(4시간 이내 차단)를 고객 약관에 명시해 법적 근거 확보\n"
+            "- 어뷰징 시도 로그를 SIEM에 수집해 조직 단위 패턴 분석으로 공모형 남용 탐지\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2694,13 +2987,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "iceberg",
         ]
     ):
-        template += (
+        template += _pick_variant(item, [
             "- 데이터 파이프라인의 출처·목적지별 PII 분류와 DLP 마스킹 정책 적용 검토\n"
-        )
-        template += "- ETL/큐레이션 작업의 서비스 계정 권한을 테이블 단위 IAM으로 축소하고 감사\n"
-        template += (
-            "- 컬럼 단위 암호화(CMEK)와 BigQuery row-level security 정책 일관성 확인\n"
-        )
+            "- ETL/큐레이션 작업의 서비스 계정 권한을 테이블 단위 IAM으로 축소하고 감사\n"
+            "- 컬럼 단위 암호화(CMEK)와 BigQuery row-level security 정책 일관성 확인\n",
+            "- Iceberg/Delta Lake 테이블의 time-travel 스냅샷에 포함된 PII 보존 기간 정책 수립\n"
+            "- 데이터 웨어하우스 쿼리 로그를 감사 데이터셋에 별도 저장해 이상 접근 분석\n"
+            "- ETL 오케스트레이터(Airflow/Dataform) 시크릿을 시크릿 매니저로 이전하고 로테이션 자동화\n",
+            "- BigQuery authorized view로 민감 컬럼 접근을 팀 단위로 제한하고 주기적 권한 리뷰\n"
+            "- 데이터 레이크하우스의 외부 테이블 경로 검증으로 경로 조작 인젝션 위험 차단\n"
+            "- Analytics 파이프라인 실패 이벤트를 PagerDuty·Slack에 연동해 데이터 지연 MTTD 단축\n",
+        ])
     elif any(
         kw in text
         for kw in [
@@ -2713,9 +3010,17 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
             "공공 부문",
         ]
     ):
-        template += "- 엔터프라이즈 AI 도입 시 데이터 분류(공개/내부/기밀/규제) 등급별 RAG 접근 통제 설계\n"
-        template += "- 에이전트 도구 호출(Tool Use)에 화이트리스트·스키마 검증과 human-in-the-loop 승인 게이트 적용\n"
-        template += "- 컴플라이언스(FedRAMP/KISA/CSAP) 요구사항과 모델 계층 책임 공유 모델 문서화\n"
+        template += _pick_variant(item, [
+            "- 엔터프라이즈 AI 도입 시 데이터 분류(공개/내부/기밀/규제) 등급별 RAG 접근 통제 설계\n"
+            "- 에이전트 도구 호출(Tool Use)에 화이트리스트·스키마 검증과 human-in-the-loop 승인 게이트 적용\n"
+            "- 컴플라이언스(FedRAMP/KISA/CSAP) 요구사항과 모델 계층 책임 공유 모델 문서화\n",
+            "- 엔터프라이즈 AI 서비스의 데이터 레지던시(국가 경계) 요구사항과 모델 학습 약관 재검토\n"
+            "- RAG 인덱스 내 기밀 문서 접근 권한을 사용자 역할에 연동해 정보 누출 경로 차단\n"
+            "- AI 솔루션 공급망 보안(모델 업데이트 검증·서명)을 계약 조항에 명시하고 정기 감사\n",
+            "- 공공 부문 AI 도입 시 개인정보보호위원회 가이드라인과 자동화 의사결정 고지 의무 준수 확인\n"
+            "- 에이전틱 워크플로우에서 민감 데이터 처리 단계를 격리된 실행 환경(Sandbox)에서 수행\n"
+            "- 엔터프라이즈 AI 로그(프롬프트·응답)의 보존 기간과 접근 제어를 규정 요건에 맞게 설정\n",
+        ])
     else:
         logging.info(
             f"DevOps template fallback triggered for: {item.get('title', '')[:60]}"

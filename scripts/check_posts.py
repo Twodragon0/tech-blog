@@ -172,13 +172,19 @@ _TITLE_TRAILING_COUNT_RE = re.compile(
 
 
 def _is_high_quality_cover_svg(raw_svg: str) -> bool:
-    """Return True when the SVG uses the richer legacy cover profile."""
+    """Return True when the SVG uses the richer legacy cover profile or
+    the dashboard-style weekly digest cover."""
     markers = (
         "profile: high-quality-cover",
         "sceneGlow1",
         "sceneGlow2",
         "floatUp",
         "clipPath",
+        # Dashboard-style threat signal map covers (weekly digest upgrade)
+        "THREAT INTELLIGENCE",
+        "SEVERITY DISTRIBUTION",
+        "SEVERITY INDEX",
+        "TECH SECURITY",
     )
     return any(marker in raw_svg for marker in markers)
 
@@ -374,8 +380,14 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
         return [f"⚠️ Invalid SVG XML: {image_path}"]
 
     is_hq_cover = _is_high_quality_cover_svg(raw_svg)
-    text_node_limit = 45 if is_hq_cover else 40
-    total_char_limit = 900 if is_hq_cover else 800
+    # HQ dashboard covers (threat signal map style) are deliberately
+    # information-dense — stats labels, data viz annotations, terminal
+    # snippets. Observed distribution on 2026-03/04 weekly digests:
+    # 69-106 text nodes, 815-1588 chars. Thresholds calibrated ~10% above
+    # the natural max so true outliers (e.g., auto-generation bugs that
+    # produce >150 nodes) still trip the guard.
+    text_node_limit = 115 if is_hq_cover else 40
+    total_char_limit = 1700 if is_hq_cover else 800
 
     text_nodes = [
         " ".join((node.itertext())).strip()

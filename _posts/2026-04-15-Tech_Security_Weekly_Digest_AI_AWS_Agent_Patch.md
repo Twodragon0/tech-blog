@@ -71,8 +71,8 @@ toc: true
 
 ## 경영진 브리핑
 
-- **긴급 대응 필요**: Model Context Protocol을 활용한 AWS 리소스에 대한 안전한 AI 에이전트 접근 패턴, 새로운 PHP Composer 취약점으로 임의 명령어 실행 가능 — 패치 배포 등 Critical 등급 위협 3건이 확인되었습니다.
-- **주요 모니터링 대상**: AI 기반 Pushpaganda 사기가 Google Discover를 악용해 스케어웨어와 광고 사기 유포, Amazon SageMaker HyperPod에서 추론을 실행하는 모범 사례, BigQuery Graph와 Kineviz GraphXR로 비정형 기업 지식 확장하기 등 High 등급 위협 3건에 대한 탐지 강화가 필요합니다.
+- **긴급 대응 필요**: Model Context Protocol을 활용한 AWS 리소스에 대한 안전한 AI 에이전트 접근 패턴, 새로운 PHP Composer 취약점으로 임의 명령어 실행 가능 — 패치 배포 등 Critical 등급 위협 2건이 확인되었습니다.
+- **주요 모니터링 대상**: AI 기반 Pushpaganda 사기가 Google Discover를 악용해 스케어웨어와 광고 사기 유포 등 High 등급 위협 1건에 대한 탐지 강화가 필요합니다.
 
 ## 위험 스코어카드
 
