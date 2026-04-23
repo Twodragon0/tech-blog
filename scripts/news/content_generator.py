@@ -561,25 +561,55 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
 
 
 def _generate_executive_and_risk_sections(
-    news_items: List[Dict], mode: str = "security"
+    news_items: List[Dict],
+    mode: str = "security",
+    counts: Optional[Dict[str, int]] = None,
 ) -> str:
-    critical_count = 0
-    high_count = 0
-    medium_count = 0
-    critical_titles = []
-    high_titles = []
+    if counts is not None:
+        # Use caller-supplied rendered-tag counts (post-render path: structural guarantee).
+        critical_count = counts.get("Critical", 0)
+        high_count = counts.get("High", 0)
+        medium_count = counts.get("Medium", 0) + counts.get("Low", 0)
+        # Title text for briefing bullets: prefer items whose _determine_severity
+        # matches, but fall back to top items by priority when there are fewer
+        # matching items than the injected count (e.g. severity logic evolves).
+        # The count is authoritative; titles are best-effort display text only.
+        _by_sev: Dict[str, List[str]] = {"Critical": [], "High": []}
+        _fallback_titles = [
+            _korean_display_title(item, max_len=35) for item in news_items
+        ]
+        for item in news_items:
+            sev = _determine_severity(item)
+            if sev in _by_sev:
+                _by_sev[sev].append(_korean_display_title(item, max_len=35))
+        # Fill to the required count using fallback titles when needed.
+        def _fill_titles(sev_list: List[str], n: int) -> List[str]:
+            result = sev_list[:n]
+            if len(result) < n:
+                extras = [t for t in _fallback_titles if t not in result]
+                result += extras[: n - len(result)]
+            return result
 
-    for item in news_items:
-        severity = _determine_severity(item)
-        title = _korean_display_title(item, max_len=35)
-        if severity == "Critical":
-            critical_count += 1
-            critical_titles.append(title)
-        elif severity == "High":
-            high_count += 1
-            high_titles.append(title)
-        else:
-            medium_count += 1
+        critical_titles = _fill_titles(_by_sev["Critical"], critical_count)
+        high_titles = _fill_titles(_by_sev["High"], high_count)
+    else:
+        critical_count = 0
+        high_count = 0
+        medium_count = 0
+        critical_titles = []
+        high_titles = []
+
+        for item in news_items:
+            severity = _determine_severity(item)
+            title = _korean_display_title(item, max_len=35)
+            if severity == "Critical":
+                critical_count += 1
+                critical_titles.append(title)
+            elif severity == "High":
+                high_count += 1
+                high_titles.append(title)
+            else:
+                medium_count += 1
 
     if critical_count > 0 or high_count >= 3:
         overall = "High"
@@ -977,10 +1007,7 @@ toc: true
 
     content += "\n---\n\n"
 
-    # Pass only the items that will actually be rendered as news cards so the
-    # briefing '등 N건' counts match the severity="..." tags produced by
-    # generate_news_section below. Previously passed `news_items` (full list),
-    # which caused mismatch when per-category slicing at [:3] excluded items.
+    # Items that will become rendered news cards (used for briefing title text).
     rendered_items = (
         security_news
         + ai_news
@@ -989,13 +1016,16 @@ toc: true
         + blockchain_news
         + tech_news
     )
-    content += _generate_executive_and_risk_sections(rendered_items, mode="security")
 
+    # Build news sections FIRST so we can count the actual severity="..." tags
+    # they emit. This is the structural guarantee that briefing '등 N건' counts
+    # always match card reality, regardless of future changes to severity logic.
     section_num = 1
+    news_sections = ""
 
     # 보안 뉴스 섹션 - SK Shieldus 그룹핑 포함
     if security_news:
-        content += f"## {section_num}. 보안 뉴스\n\n"
+        news_sections += f"## {section_num}. 보안 뉴스\n\n"
 
         # Separate SK Shieldus reports from regular security news
         skshieldus_reports = [
@@ -1007,7 +1037,7 @@ toc: true
 
         for i, item in enumerate(regular_security, 1):
             is_critical = i <= 5  # 상위 5개 뉴스에 AI 강화 적용
-            content += generate_news_section(
+            news_sections += generate_news_section(
                 item, f"{section_num}.{i}", is_critical=is_critical
             )
 
@@ -1019,51 +1049,67 @@ toc: true
                 if sys.platform != "win32"
                 else date.strftime("%m월").lstrip("0")
             )
-            content += (
+            news_sections += (
                 f"### {section_num}.{sub_idx} SK쉴더스 {month_str} 보안 리포트\n\n"
             )
-            content += "SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.\n\n"
+            news_sections += "SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.\n\n"
             for report in skshieldus_reports:
                 report_title = report.get("title", "보안 리포트")
                 report_url = report.get("url", "")
                 report_summary = report.get("summary", "")
-                content += f"- **[{report_title}]({report_url})**"
+                news_sections += f"- **[{report_title}]({report_url})**"
                 if report_summary:
                     short_summary = report_summary[:100].rstrip(".")
-                    content += f": {short_summary}"
-                content += "\n"
-            content += "\n> SK쉴더스 보안 리포트는 국내 보안 환경에 특화된 위협 분석을 제공합니다. 원문을 다운로드하여 상세 내용을 확인하시기 바랍니다.\n\n"
-            content += "---\n\n"
+                    news_sections += f": {short_summary}"
+                news_sections += "\n"
+            news_sections += "\n> SK쉴더스 보안 리포트는 국내 보안 환경에 특화된 위협 분석을 제공합니다. 원문을 다운로드하여 상세 내용을 확인하시기 바랍니다.\n\n"
+            news_sections += "---\n\n"
 
         section_num += 1
 
     # AI/ML 뉴스 섹션
     if ai_news:
-        content += f"## {section_num}. AI/ML 뉴스\n\n"
+        news_sections += f"## {section_num}. AI/ML 뉴스\n\n"
         for i, item in enumerate(ai_news, 1):
-            content += generate_news_section(item, f"{section_num}.{i}")
+            news_sections += generate_news_section(item, f"{section_num}.{i}")
         section_num += 1
 
     # 클라우드 뉴스 섹션
     if cloud_news:
-        content += f"## {section_num}. 클라우드 & 인프라 뉴스\n\n"
+        news_sections += f"## {section_num}. 클라우드 & 인프라 뉴스\n\n"
         for i, item in enumerate(cloud_news, 1):
-            content += generate_news_section(item, f"{section_num}.{i}")
+            news_sections += generate_news_section(item, f"{section_num}.{i}")
         section_num += 1
 
     # DevOps 뉴스 섹션
     if devops_news:
-        content += f"## {section_num}. DevOps & 개발 뉴스\n\n"
+        news_sections += f"## {section_num}. DevOps & 개발 뉴스\n\n"
         for i, item in enumerate(devops_news, 1):
-            content += generate_news_section(item, f"{section_num}.{i}")
+            news_sections += generate_news_section(item, f"{section_num}.{i}")
         section_num += 1
 
     # 블록체인 뉴스 섹션
     if blockchain_news:
-        content += f"## {section_num}. 블록체인 뉴스\n\n"
+        news_sections += f"## {section_num}. 블록체인 뉴스\n\n"
         for i, item in enumerate(blockchain_news, 1):
-            content += generate_news_section(item, f"{section_num}.{i}")
+            news_sections += generate_news_section(item, f"{section_num}.{i}")
         section_num += 1
+
+    # Count severity tags from the rendered output — this is the ground truth.
+    _rendered_sev_tags = re.findall(
+        r'severity="(Critical|High|Medium|Low)"', news_sections
+    )
+    _rendered_counts: Dict[str, int] = {"Critical": 0, "High": 0, "Medium": 0, "Low": 0}
+    for _s in _rendered_sev_tags:
+        _rendered_counts[_s] += 1
+
+    # Generate briefing using rendered-tag counts (not re-classified item severities).
+    content += _generate_executive_and_risk_sections(
+        rendered_items, mode="security", counts=_rendered_counts
+    )
+
+    # Append pre-built news sections.
+    content += news_sections
 
     # 기타 뉴스
     if tech_news:

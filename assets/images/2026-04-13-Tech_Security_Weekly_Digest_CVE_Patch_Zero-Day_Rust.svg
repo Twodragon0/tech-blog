@@ -1,397 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Style A v3 APR 13 2026 ZERO DAY">
-  <title>Style A v3 APR 13 2026 ZERO DAY</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Security Weekly Digest - 2026-04-13</title>
   <defs>
-  <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#021218"/><stop offset="100%" stop-color="#03171e"/></linearGradient>
-  <linearGradient id="bgB" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#03171e"/><stop offset="100%" stop-color="#020308"/></linearGradient>
-  <radialGradient id="haloA" cx="30%" cy="40%" r="65%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.34"/><stop offset="100%" stop-color="#021218" stop-opacity="0"/></radialGradient>
-  <radialGradient id="haloB" cx="75%" cy="72%" r="60%"><stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.32"/><stop offset="100%" stop-color="#03171e" stop-opacity="0"/></radialGradient>
-  <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0ea5e9"><animate attributeName="stop-color" values="#0ea5e9;#7dd3fc;#14b8a6;#0ea5e9" dur="6s" repeatCount="indefinite"/></stop><stop offset="50%" stop-color="#7dd3fc"><animate attributeName="stop-color" values="#7dd3fc;#2dd4bf;#0ea5e9;#7dd3fc" dur="6s" repeatCount="indefinite"/></stop><stop offset="100%" stop-color="#2dd4bf"><animate attributeName="stop-color" values="#2dd4bf;#14b8a6;#7dd3fc;#2dd4bf" dur="6s" repeatCount="indefinite"/></stop></linearGradient>
-  <linearGradient id="heroGradB" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.9"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.95"/></linearGradient>
-  <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#021218" stop-opacity="0.95"/><stop offset="100%" stop-color="#000000" stop-opacity="0.85"/></linearGradient>
-  <linearGradient id="stripe" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="50%" stop-color="#14b8a6" stop-opacity="0.7"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></linearGradient>
-  <radialGradient id="nodeCore" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7dd3fc" stop-opacity="1"/><stop offset="55%" stop-color="#0ea5e9" stop-opacity="0.75"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/></radialGradient>
-  <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.5"/><stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
-  <radialGradient id="scanSpot" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#bae6fd" stop-opacity="0.85"/><stop offset="100%" stop-color="#bae6fd" stop-opacity="0"/></radialGradient>
-  <radialGradient id="qrHalo" cx="50%" cy="50%" r="65%"><stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.45"/><stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/></radialGradient>
-  <linearGradient id="ringA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.85"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.15"/></linearGradient>
-  <linearGradient id="ringB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.4"/><stop offset="100%" stop-color="#7dd3fc" stop-opacity="0.05"/></linearGradient>
-  <linearGradient id="underline" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0"/><stop offset="35%" stop-color="#14b8a6" stop-opacity="0.95"/><stop offset="65%" stop-color="#0ea5e9" stop-opacity="0.95"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/></linearGradient>
-  <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#7dd3fc" stop-opacity="0"/><stop offset="40%" stop-color="#7dd3fc" stop-opacity="0.55"/><stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/></linearGradient>
-  <linearGradient id="secGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#7dd3fc"/></linearGradient>
-  <filter id="fxGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="fxSoft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter><filter id="fxHero" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="dotGrid" x="0" y="0" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="19" cy="19" r="0.9" fill="#1f2937" opacity="0.42"/></pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e27"/>
+      <stop offset="1" stop-color="#1a1f3a"/>
+    </linearGradient>
+    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3e6c"/>
+      <stop offset="1" stop-color="#ff7a4a"/>
+    </linearGradient>
+    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5ba3ff"/>
+      <stop offset="1" stop-color="#9d6fff"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ff88"/>
+      <stop offset="1" stop-color="#00d4b2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <style>
-    @keyframes d13_pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
-    @keyframes d13_floatUp { 0%{opacity:0;transform:translateY(0)} 20%{opacity:0.8} 100%{opacity:0;transform:translateY(-40px)} }
-    @keyframes d13_dash { to{stroke-dashoffset:-30} }
-    @keyframes d13_pulseLarge { 0%,100%{opacity:0.3} 50%{opacity:0.7} }
-    @keyframes d13_glimmer { 0%,100%{opacity:0.4} 50%{opacity:1} }
-    @keyframes d13_crack { 0%,100%{opacity:0.7;stroke-width:2.5} 50%{opacity:1;stroke-width:3.5} }
-    @keyframes d13_scan { 0%{transform:translateY(-2px)} 100%{transform:translateY(632px)} }
-    @keyframes d13_blink { 0%,49%{opacity:1} 50%,100%{opacity:0.2} }
-  </style>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#d13_bgGrad)"/>
-  <rect width="1200" height="630" fill="url(#d13_dotGrid)"/>
-  <rect width="1200" height="630" fill="url(#d13_hexGrid)"/>
-  <rect width="1200" height="630" fill="url(#d13_scanLines)"/>
-  <rect width="1200" height="630" fill="url(#d13_vignette)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
+  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
 
-  <!-- Moving scan line -->
-  <rect x="0" y="-2" width="1200" height="2" fill="#3b82f6" opacity="0.07">
-    <animate attributeName="y" from="-2" to="632" dur="8s" repeatCount="indefinite"/>
-  </rect>
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="60" y1="95" x2="1140" y2="95"/>
+    <line x1="60" y1="555" x2="1140" y2="555"/>
+  </g>
 
-  <!-- ===== LEFT PANEL ===== -->
-  <rect x="0" y="0" width="290" height="630" fill="url(#d13_panelGrad)" filter="url(#d13_panelShadow)"/>
-  <rect x="288" y="0" width="1.5" height="630" fill="#1e3a5f"/>
-  <rect x="289.5" y="0" width="0.5" height="630" fill="#3b82f6" opacity="0.5"/>
+  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-13</text>
 
-  <!-- Panel header -->
-  <text x="20" y="30" font-family="Courier New,monospace" font-size="17" font-weight="bold" fill="#e2e8f0" letter-spacing="1">TECH SECURITY</text>
-  <text x="20" y="48" font-family="Courier New,monospace" font-size="17" font-weight="bold" fill="#3b82f6" letter-spacing="1">WEEKLY</text>
-  <rect x="20" y="55" width="250" height="1" fill="#1e3a5f"/>
-  <text x="20" y="68" font-family="Courier New,monospace" font-size="9" fill="#64748b">APRIL 13, 2026 // ISSUE #248</text>
+  <g transform="translate(60, 125)">
+    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
+    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round">
+      <rect x="-28" y="-28" width="56" height="56" rx="6"/>
+      <rect x="-14" y="-14" width="28" height="28" rx="3"/>
+      <line x1="-36" y1="-14" x2="-28" y2="-14"/>
+      <line x1="-36" y1="0" x2="-28" y2="0"/>
+      <line x1="-36" y1="14" x2="-28" y2="14"/>
+      <line x1="28" y1="-14" x2="36" y2="-14"/>
+      <line x1="28" y1="0" x2="36" y2="0"/>
+      <line x1="28" y1="14" x2="36" y2="14"/>
+      <line x1="-14" y1="-36" x2="-14" y2="-28"/>
+      <line x1="0" y1="-36" x2="0" y2="-28"/>
+      <line x1="14" y1="-36" x2="14" y2="-28"/>
+      <line x1="-14" y1="28" x2="-14" y2="36"/>
+      <line x1="0" y1="28" x2="0" y2="36"/>
+      <line x1="14" y1="28" x2="14" y2="36"/>
+    </g>
+    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
+    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">SUPPLY</text>
+    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPUID Breach</text>
+    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPU-Z Trojanized</text>
+    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">STX RAT delivered</text>
+    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">HWMonitor downloads</text>
+    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">altered at source</text>
+  </g>
+  <g transform="translate(427, 125)">
+    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
+    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0,-44 L50,40 L-50,40 Z"/>
+      <line x1="0" y1="-16" x2="0" y2="16" stroke-width="3.5"/>
+      <circle cx="0" cy="30" r="3.5" fill="url(#accentBlue)" stroke="none"/>
+    </g>
+    <rect x="125" y="210" width="96" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
+    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">CRITICAL</text>
+    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Marimo RCE</text>
+    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Under Exploit</text>
+    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">CVE-2026-39987</text>
+    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Pre-auth remote code</text>
+    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">executed in the wild</text>
+  </g>
+  <g transform="translate(795, 125)">
+    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
+    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
+      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
+    </g>
+    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
+    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">PATCH</text>
+    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Adobe Acrobat</text>
+    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Patches Zero-Day</text>
+    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">CVE-2026-34621</text>
+    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Active exploitation</text>
+    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">against PDF readers</text>
+  </g>
 
-  <!-- Topic 1: CPUID Breach -->
-  <rect x="0" y="80" width="4" height="52" fill="#ef4444"/>
-  <text x="14" y="97" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#f87171">CPUID BREACH</text>
-  <text x="14" y="110" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Tampered CPU-Z Binary</text>
-  <text x="14" y="121" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Hardware ID Exploit</text>
-  <circle cx="272" cy="101" r="5" fill="#ef4444" opacity="0.8">
-    <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.6s" repeatCount="indefinite"/>
-  </circle>
-  <rect x="14" y="127" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
+  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
 
-  <!-- Topic 2: Marimo RCE -->
-  <rect x="0" y="136" width="4" height="52" fill="#ef4444"/>
-  <text x="14" y="153" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#f87171">MARIMO RCE</text>
-  <text x="14" y="166" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Pre-Auth Remote Code</text>
-  <text x="14" y="177" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Execution (Critical)</text>
-  <circle cx="272" cy="157" r="5" fill="#ef4444" opacity="0.8">
-    <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <rect x="14" y="183" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
-
-  <!-- Topic 3: Adobe Zero-Day -->
-  <rect x="0" y="192" width="4" height="52" fill="#f59e0b"/>
-  <text x="14" y="209" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#fbbf24">ADOBE ZERO-DAY</text>
-  <text x="14" y="222" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Acrobat PDF Exploit</text>
-  <text x="14" y="233" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">In-the-Wild Active</text>
-  <circle cx="272" cy="213" r="5" fill="#f59e0b" opacity="0.8">
-    <animate attributeName="r" values="4;7;4" dur="2.3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.3s" repeatCount="indefinite"/>
-  </circle>
-  <rect x="14" y="239" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
-
-  <!-- Topic 4: Patch Management -->
-  <rect x="0" y="248" width="4" height="52" fill="#22c55e"/>
-  <text x="14" y="265" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#4ade80">PATCH MGMT</text>
-  <text x="14" y="278" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Vulnerability Timeline</text>
-  <text x="14" y="289" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Remediation Priority</text>
-  <circle cx="272" cy="269" r="5" fill="#22c55e" opacity="0.8">
-    <animate attributeName="r" values="4;7;4" dur="2.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <rect x="14" y="295" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
-
-  <!-- Topic 5: Rust Security -->
-  <rect x="0" y="304" width="4" height="52" fill="#22d3ee"/>
-  <text x="14" y="321" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#67e8f9">RUST SECURITY</text>
-  <text x="14" y="334" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Memory Safety Analysis</text>
-  <text x="14" y="345" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Borrow Checker Insights</text>
-  <circle cx="272" cy="325" r="5" fill="#22d3ee" opacity="0.8">
-    <animate attributeName="r" values="4;7;4" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Severity bars -->
-  <rect x="14" y="370" width="260" height="1" fill="#1e3a5f"/>
-  <text x="14" y="384" font-family="Courier New,monospace" font-size="9" fill="#64748b">SEVERITY INDEX</text>
-  <text x="14" y="401" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">CRITICAL</text>
-  <rect x="68" y="393" width="162" height="7" rx="2" fill="#1e293b"/>
-  <rect x="68" y="393" width="146" height="7" rx="2" fill="#ef4444" opacity="0.9"/>
-  <text x="236" y="401" font-family="Courier New,monospace" font-size="8.5" fill="#ef4444">90%</text>
-  <text x="14" y="417" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">HIGH</text>
-  <rect x="68" y="409" width="162" height="7" rx="2" fill="#1e293b"/>
-  <rect x="68" y="409" width="130" height="7" rx="2" fill="#f59e0b" opacity="0.85"/>
-  <text x="236" y="417" font-family="Courier New,monospace" font-size="8.5" fill="#f59e0b">80%</text>
-  <text x="14" y="433" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">MEDIUM</text>
-  <rect x="68" y="425" width="162" height="7" rx="2" fill="#1e293b"/>
-  <rect x="68" y="425" width="89" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
-  <text x="236" y="433" font-family="Courier New,monospace" font-size="8.5" fill="#22c55e">55%</text>
-
-  <!-- Tag pills -->
-  <rect x="14" y="448" width="52" height="16" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="0.5"/>
-  <text x="40" y="460" font-family="Arial,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">CPUID</text>
-  <rect x="74" y="448" width="44" height="16" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="0.5"/>
-  <text x="96" y="460" font-family="Arial,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">RCE</text>
-  <rect x="126" y="448" width="54" height="16" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="0.5"/>
-  <text x="153" y="460" font-family="Arial,sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">0-DAY</text>
-  <rect x="188" y="448" width="44" height="16" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="0.5"/>
-  <text x="210" y="460" font-family="Arial,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">RUST</text>
-
-  <!-- ===== CRITICAL badge top-right ===== -->
-  <rect x="1090" y="8" width="100" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <circle cx="1102" cy="19" r="5" fill="#ef4444">
-    <animate attributeName="opacity" values="1;0.3;1" dur="0.9s" repeatCount="indefinite"/>
-  </circle>
-  <text x="1112" y="24" font-family="Courier New,monospace" font-size="9" font-weight="bold" fill="#ef4444">CRITICAL</text>
-
-  <!-- ===== TOP HALF: CPU BREACH VISUALIZATION ===== -->
-  <text x="310" y="26" font-family="Courier New,monospace" font-size="9" fill="#64748b" letter-spacing="2">// THREAT VIZ :: CPUID BREACH + TAMPERED CPU-Z BINARY</text>
-
-  <!-- CPU chip outline (center top) -->
-  <rect x="556" y="88" width="148" height="148" rx="8" fill="#050a12" stroke="#ef4444" stroke-width="2" filter="url(#d13_glowRed)"/>
-  <!-- CPU inner die -->
-  <rect x="576" y="108" width="108" height="108" rx="4" fill="#080d18" stroke="#ef4444" stroke-width="1" opacity="0.8"/>
-  <!-- CPU grid lines -->
-  <line x1="576" y1="144" x2="684" y2="144" stroke="#1e293b" stroke-width="0.5"/>
-  <line x1="576" y1="180" x2="684" y2="180" stroke="#1e293b" stroke-width="0.5"/>
-  <line x1="612" y1="108" x2="612" y2="216" stroke="#1e293b" stroke-width="0.5"/>
-  <line x1="648" y1="108" x2="648" y2="216" stroke="#1e293b" stroke-width="0.5"/>
-  <!-- CPU label -->
-  <text x="630" y="142" font-family="Courier New,monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">CPUID</text>
-  <text x="630" y="156" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="middle">REGISTER</text>
-  <text x="630" y="170" font-family="Courier New,monospace" font-size="8" fill="#64748b" text-anchor="middle">BREACH</text>
-  <text x="630" y="186" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444" text-anchor="middle">x86_LEAF[0x00]</text>
-  <!-- CPU pins (left side) -->
-  <line x1="556" y1="108" x2="546" y2="108" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="120" x2="546" y2="120" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="132" x2="546" y2="132" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="144" x2="546" y2="144" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="156" x2="546" y2="156" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="168" x2="546" y2="168" stroke="#ef4444" stroke-width="2">
-    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.2s" repeatCount="indefinite"/>
-  </line>
-  <line x1="556" y1="180" x2="546" y2="180" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="192" x2="546" y2="192" stroke="#64748b" stroke-width="2"/>
-  <line x1="556" y1="204" x2="546" y2="204" stroke="#64748b" stroke-width="2"/>
-  <!-- CPU pins (right side) -->
-  <line x1="704" y1="108" x2="714" y2="108" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="120" x2="714" y2="120" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="132" x2="714" y2="132" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="144" x2="714" y2="144" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="156" x2="714" y2="156" stroke="#ef4444" stroke-width="2">
-    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="704" y1="168" x2="714" y2="168" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="180" x2="714" y2="180" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="192" x2="714" y2="192" stroke="#64748b" stroke-width="2"/>
-  <line x1="704" y1="204" x2="714" y2="204" stroke="#64748b" stroke-width="2"/>
-  <!-- CPU top pins -->
-  <line x1="580" y1="88" x2="580" y2="78" stroke="#64748b" stroke-width="2"/>
-  <line x1="596" y1="88" x2="596" y2="78" stroke="#64748b" stroke-width="2"/>
-  <line x1="612" y1="88" x2="612" y2="78" stroke="#ef4444" stroke-width="2">
-    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.0s" repeatCount="indefinite"/>
-  </line>
-  <line x1="628" y1="88" x2="628" y2="78" stroke="#64748b" stroke-width="2"/>
-  <line x1="644" y1="88" x2="644" y2="78" stroke="#64748b" stroke-width="2"/>
-  <line x1="660" y1="88" x2="660" y2="78" stroke="#64748b" stroke-width="2"/>
-  <line x1="676" y1="88" x2="676" y2="78" stroke="#64748b" stroke-width="2"/>
-  <!-- CPU bottom pins -->
-  <line x1="580" y1="236" x2="580" y2="246" stroke="#64748b" stroke-width="2"/>
-  <line x1="596" y1="236" x2="596" y2="246" stroke="#64748b" stroke-width="2"/>
-  <line x1="612" y1="236" x2="612" y2="246" stroke="#64748b" stroke-width="2"/>
-  <line x1="628" y1="236" x2="628" y2="246" stroke="#ef4444" stroke-width="2">
-    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.3s" repeatCount="indefinite"/>
-  </line>
-  <line x1="644" y1="236" x2="644" y2="246" stroke="#64748b" stroke-width="2"/>
-  <line x1="660" y1="236" x2="660" y2="246" stroke="#64748b" stroke-width="2"/>
-  <line x1="676" y1="236" x2="676" y2="246" stroke="#64748b" stroke-width="2"/>
-
-  <!-- Crack lines radiating from CPU -->
-  <path d="M556,120 L488,90 L456,68" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
-  <path d="M556,168 L490,172 L450,185" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
-  <path d="M630,88 L615,55 L600,35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
-  <path d="M704,148 L755,130 L790,110" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
-  <path d="M704,192 L760,205 L800,220" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
-
-  <!-- Tampered binary terminal panel -->
-  <rect x="820" y="88" width="285" height="148" rx="6" fill="#050a12" stroke="#ef4444" stroke-width="1"/>
-  <rect x="820" y="88" width="285" height="22" rx="6" fill="#0d0404"/>
-  <rect x="820" y="100" width="285" height="10" fill="#0d0404"/>
-  <text x="835" y="104" font-family="Courier New,monospace" font-size="8" fill="#64748b">BINARY ANALYSIS // CPU-Z.EXE</text>
-  <circle cx="1084" cy="100" r="5" fill="#ef4444" opacity="0.7"/>
-  <circle cx="1072" cy="100" r="5" fill="#f59e0b" opacity="0.7"/>
-  <circle cx="1060" cy="100" r="5" fill="#22c55e" opacity="0.7"/>
-  <!-- Terminal content -->
-  <text x="830" y="126" font-family="Courier New,monospace" font-size="8" fill="#22c55e">$ sha256sum cpu-z.exe</text>
-  <text x="830" y="139" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">MISMATCH: e4f2a1de != 8b3c9d7f</text>
-  <text x="830" y="152" font-family="Courier New,monospace" font-size="7.5" fill="#f87171">[!] TAMPERED BINARY DETECTED</text>
-  <text x="830" y="165" font-family="Courier New,monospace" font-size="8" fill="#22c55e">$ strings cpu-z.exe | grep -i cpuid</text>
-  <text x="830" y="178" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">cpuid_leak_r00t: EAX=0x{SERIAL}</text>
-  <text x="830" y="191" font-family="Courier New,monospace" font-size="7.5" fill="#64748b">c2_beacon: 185.220.101.47:4444</text>
-  <text x="830" y="204" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">STATUS: ACTIVE EXFIL IN PROGRESS</text>
-  <text x="830" y="218" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">_</text>
-  <animate attributeName="opacity" attributeType="XML" from="1" to="0" dur="0.8s" repeatCount="indefinite" begin="0"/>
-
-  <!-- Particle effects from CPU -->
-  <circle cx="630" cy="162" r="2" fill="#ef4444">
-    <animate attributeName="cx" values="630;580;540" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="162;130;100" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="630" cy="162" r="1.5" fill="#f87171">
-    <animate attributeName="cx" values="630;675;710" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="162;140;118" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="540" cy="100" r="1.5" fill="#ef4444">
-    <animate attributeName="cy" values="100;60" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.6;0" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Marimo RCE indicator (left of CPU) -->
-  <rect x="310" y="95" width="210" height="100" rx="6" fill="#050a12" stroke="#ef4444" stroke-width="1"/>
-  <text x="415" y="113" font-family="Courier New,monospace" font-size="9" fill="#f87171" text-anchor="middle" font-weight="bold">MARIMO PRE-AUTH RCE</text>
-  <rect x="320" y="118" width="190" height="1" fill="#1e293b"/>
-  <text x="320" y="133" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">CVE-2025-XXXX // CVSS: 9.8</text>
-  <text x="320" y="147" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">VECTOR: NETWORK</text>
-  <text x="320" y="161" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">AUTH: NONE REQUIRED</text>
-  <text x="320" y="175" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">STATUS: PATCH AVAILABLE</text>
-  <!-- Exploit path arrow -->
-  <path d="M405,185 L405,95" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.4" marker-end="url(#d13_arrowRed)"/>
-  <!-- CVSS score badge -->
-  <rect x="420" y="180" width="88" height="12" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="0.5"/>
-  <text x="464" y="190" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle">CVSS 9.8 CRITICAL</text>
-
-  <!-- ===== CRACK DIVIDER at y=315 ===== -->
-  <path d="M290,315 L338,306 L384,318 L432,304 L480,320 L528,308 L576,321 L625,307 L674,318 L722,304 L770,320 L820,307 L870,317 L920,306 L970,318 L1020,307 L1072,315 L1122,307 L1172,316 L1200,311"
-        fill="none" stroke="url(#d13_crackGrad)" stroke-width="2.5" filter="url(#d13_crackGlow)"/>
-  <path d="M290,318 L338,310 L384,322 L432,308 L480,324 L528,312 L576,325 L625,311 L674,322 L722,308 L770,324 L820,311 L870,321 L920,310 L970,322 L1020,311 L1072,319 L1122,311 L1172,320 L1200,315"
-        fill="none" stroke="#ff5500" stroke-width="1" opacity="0.35"/>
-
-  <!-- ===== BOTTOM HALF: ZERO-DAY EXPLOIT CHAIN + RUST ===== -->
-  <text x="310" y="343" font-family="Courier New,monospace" font-size="9" fill="#64748b" letter-spacing="2">// ZERO-DAY TIMELINE :: ADOBE ACROBAT + PATCH CHAIN</text>
-
-  <!-- Exploit chain timeline -->
-  <!-- Timeline base line -->
-  <line x1="320" y1="432" x2="960" y2="432" stroke="#1e3a5f" stroke-width="2"/>
-  <!-- Timeline arrow -->
-  <line x1="958" y1="427" x2="966" y2="432" stroke="#3b82f6" stroke-width="1.5"/>
-  <line x1="958" y1="437" x2="966" y2="432" stroke="#3b82f6" stroke-width="1.5"/>
-
-  <!-- Stage 1: Discovery -->
-  <circle cx="360" cy="432" r="8" fill="#0a0e16" stroke="#f59e0b" stroke-width="2" filter="url(#d13_glowAmber)"/>
-  <line x1="360" y1="424" x2="360" y2="380" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="318" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#f59e0b" stroke-width="0.8"/>
-  <text x="360" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b" text-anchor="middle">DISCOVERY</text>
-  <text x="360" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-03-28</text>
-  <text x="360" y="448" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle">D+0</text>
-
-  <!-- Stage 2: Weaponize -->
-  <circle cx="480" cy="432" r="8" fill="#0a0e16" stroke="#ef4444" stroke-width="2" filter="url(#d13_glowRed)"/>
-  <line x1="480" y1="424" x2="480" y2="380" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="438" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#ef4444" stroke-width="0.8"/>
-  <text x="480" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#f87171" text-anchor="middle">WEAPONIZE</text>
-  <text x="480" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-04-01</text>
-  <text x="480" y="448" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle">D+4</text>
-
-  <!-- Stage 3: Active Exploit -->
-  <circle cx="600" cy="432" r="10" fill="#1a0505" stroke="#ef4444" stroke-width="2.5" filter="url(#d13_glowRed)">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite"/>
-  </circle>
-  <line x1="600" y1="422" x2="600" y2="380" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <rect x="548" y="352" width="104" height="30" rx="4" fill="#0d0404" stroke="#ef4444" stroke-width="1"/>
-  <text x="600" y="366" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444" text-anchor="middle">IN-THE-WILD</text>
-  <text x="600" y="377" font-family="Courier New,monospace" font-size="7" fill="#f87171" text-anchor="middle">ACTIVE 2026-04-09</text>
-  <text x="600" y="448" font-family="Courier New,monospace" font-size="7" fill="#ef4444" text-anchor="middle">D+12 NOW</text>
-
-  <!-- Stage 4: Patch -->
-  <circle cx="720" cy="432" r="8" fill="#0a0e16" stroke="#22c55e" stroke-width="2" filter="url(#d13_glowGreen)"/>
-  <line x1="720" y1="424" x2="720" y2="380" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="678" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#22c55e" stroke-width="0.8"/>
-  <text x="720" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#4ade80" text-anchor="middle">PATCH DROP</text>
-  <text x="720" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-04-12</text>
-  <text x="720" y="448" font-family="Courier New,monospace" font-size="7" fill="#22c55e" text-anchor="middle">D+15</text>
-
-  <!-- Stage 5: Remediate -->
-  <circle cx="840" cy="432" r="8" fill="#0a0e16" stroke="#22c55e" stroke-width="2"/>
-  <line x1="840" y1="424" x2="840" y2="380" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="798" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#22c55e" stroke-width="0.8"/>
-  <text x="840" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#4ade80" text-anchor="middle">REMEDIATE</text>
-  <text x="840" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">TARGET: D+20</text>
-  <text x="840" y="448" font-family="Courier New,monospace" font-size="7" fill="#22c55e" text-anchor="middle">D+20</text>
-
-  <!-- Stage arrow line segments -->
-  <line x1="368" y1="432" x2="472" y2="432" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
-    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.8s" repeatCount="indefinite"/>
-  </line>
-  <line x1="488" y1="432" x2="590" y2="432" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
-    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.9s" repeatCount="indefinite"/>
-  </line>
-  <line x1="610" y1="432" x2="712" y2="432" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
-    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.7s" repeatCount="indefinite"/>
-  </line>
-  <line x1="728" y1="432" x2="832" y2="432" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
-    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.8s" repeatCount="indefinite"/>
-  </line>
-
-  <!-- Adobe PDF exploit payload panel -->
-  <rect x="310" y="468" width="310" height="110" rx="6" fill="#050a12" stroke="#f59e0b" stroke-width="1"/>
-  <text x="465" y="486" font-family="Courier New,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" font-weight="bold">ADOBE ACROBAT PAYLOAD</text>
-  <rect x="320" y="491" width="290" height="1" fill="#1e293b"/>
-  <text x="320" y="506" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">FILE: invoice_april2026.pdf</text>
-  <text x="320" y="519" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">[!] JS HEAP SPRAY DETECTED</text>
-  <text x="320" y="532" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">CVE: ACROBAT_2026_ZDAY</text>
-  <text x="320" y="545" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">SCOPE: READER/ACROBAT DC</text>
-  <text x="320" y="558" font-family="Courier New,monospace" font-size="7.5" fill="#22c55e">FIX: UPDATE TO 24.3.20421</text>
-  <text x="320" y="571" font-family="Courier New,monospace" font-size="7.5" fill="#64748b">PLATFORM: WINDOWS / MACOS</text>
-
-  <!-- Rust security panel -->
-  <rect x="640" y="468" width="550" height="110" rx="6" fill="#050a12" stroke="#22d3ee" stroke-width="1"/>
-  <text x="915" y="486" font-family="Courier New,monospace" font-size="9" fill="#67e8f9" text-anchor="middle" font-weight="bold">RUST MEMORY SAFETY ANALYSIS</text>
-  <rect x="650" y="491" width="530" height="1" fill="#1e293b"/>
-  <!-- Rust comparison bars -->
-  <text x="650" y="506" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">MEMORY SAFETY</text>
-  <rect x="754" y="499" width="130" height="7" rx="2" fill="#1e293b"/>
-  <rect x="754" y="499" width="124" height="7" rx="2" fill="#22d3ee" opacity="0.85"/>
-  <text x="890" y="506" font-family="Courier New,monospace" font-size="8" fill="#22d3ee">95% (RUST)</text>
-  <text x="650" y="522" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">CVE SURFACE</text>
-  <rect x="754" y="515" width="130" height="7" rx="2" fill="#1e293b"/>
-  <rect x="754" y="515" width="18" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
-  <text x="890" y="522" font-family="Courier New,monospace" font-size="8" fill="#22c55e">14% (RUST)</text>
-  <text x="650" y="538" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">USE-AFTER-FREE</text>
-  <rect x="754" y="531" width="130" height="7" rx="2" fill="#1e293b"/>
-  <rect x="754" y="531" width="4" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
-  <text x="890" y="538" font-family="Courier New,monospace" font-size="8" fill="#22c55e">3% (RUST)</text>
-  <text x="650" y="554" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">BORROW CHK</text>
-  <rect x="754" y="547" width="130" height="7" rx="2" fill="#1e293b"/>
-  <rect x="754" y="547" width="119" height="7" rx="2" fill="#22d3ee" opacity="0.75"/>
-  <text x="890" y="554" font-family="Courier New,monospace" font-size="8" fill="#22d3ee">ENFORCED</text>
-  <!-- Rust language tag -->
-  <rect x="990" y="499" width="88" height="56" rx="6" fill="#080d18" stroke="#22d3ee" stroke-width="1"/>
-  <text x="1034" y="520" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#22d3ee" text-anchor="middle">Rust</text>
-  <text x="1034" y="536" font-family="Courier New,monospace" font-size="7.5" fill="#67e8f9" text-anchor="middle">MEMORY SAFE</text>
-  <text x="1034" y="549" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2015-PRESENT</text>
-
-  <!-- Bottom half particles -->
-  <circle cx="500" cy="520" r="2" fill="#ef4444">
-    <animate attributeName="cy" values="528;488" dur="2.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.6;0" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="800" cy="508" r="1.5" fill="#22c55e">
-    <animate attributeName="cy" values="516;476" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.5;0" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1100" cy="505" r="2" fill="#22d3ee">
-    <animate attributeName="cy" values="510;470" dur="2.5s" begin="0.4s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0" dur="2.5s" begin="0.4s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="700" cy="500" r="1.5" fill="#f59e0b">
-    <animate attributeName="cy" values="504;464" dur="3s" begin="1.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.5;0" dur="3s" begin="1.2s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- ===== FOOTER ===== -->
-  <rect x="0" y="597" width="1200" height="33" fill="url(#d13_footerGrad)"/>
-  <rect x="0" y="597" width="1200" height="1" fill="#1e3a5f"/>
-  <rect x="0" y="597.5" width="1200" height="0.5" fill="#3b82f6" opacity="0.4"/>
-  <text x="310" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#3b82f6">tech.2twodragon.com</text>
-  <text x="640" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#64748b" text-anchor="middle">APRIL 13, 2026 // WEEKLY SECURITY DIGEST</text>
-  <text x="1180" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#64748b" text-anchor="end">ISSUE #248</text>
+  <g transform="translate(950, 578)">
+    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
+    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
+    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
+    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  </g>
 </svg>
