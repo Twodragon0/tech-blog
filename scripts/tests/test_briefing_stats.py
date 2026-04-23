@@ -302,3 +302,47 @@ class TestPublishedDigestConsistency:
             f"Briefing/card severity mismatch in posts on/after {self.CUTOFF_ISO}:\n  - "
             + "\n  - ".join(mismatches)
         )
+
+
+class TestRenderedTagCountsOverrideItemSeverity:
+    """Verify that when counts= is supplied, the briefing uses those counts
+    rather than re-classifying items via _determine_severity().
+
+    This is the structural guarantee introduced by the post-render count path:
+    even if item-level severity disagrees with what generate_news_section emits,
+    the briefing reflects the rendered tags.
+    """
+
+    def test_counts_override_item_severity(self):
+        """Briefing must report High=3 when counts={'High': 3} is passed,
+        even though all items would classify as Critical via _determine_severity."""
+        items = [
+            _make_item("Zero-day RCE actively exploited number 1"),
+            _make_item("Zero-day RCE actively exploited number 2"),
+            _make_item("Zero-day RCE actively exploited number 3"),
+        ]
+        # Confirm the items individually yield Critical (precondition for the test).
+        for item in items:
+            from news_utils import determine_severity
+
+            text = f"{item.get('title', '')} {item.get('summary', '')}"
+            sev = determine_severity(text, item.get("category", "tech"))
+            assert sev == "Critical", (
+                f"Precondition failed: expected Critical, got {sev} for {item['title']!r}"
+            )
+
+        # Inject counts that disagree: pretend rendered cards show High=3, Critical=0.
+        injected_counts = {"Critical": 0, "High": 3, "Medium": 0, "Low": 0}
+
+        output = _generate_executive_and_risk_sections(
+            items, mode="security", counts=injected_counts
+        )
+        claimed = _parse_briefing(output)
+
+        # Briefing must reflect the injected counts, not item-derived counts.
+        assert claimed.get("High") == 3, (
+            f"Expected High=3 from injected counts, got {claimed}.\nOutput:\n{output}"
+        )
+        assert "Critical" not in claimed or claimed.get("Critical", 0) == 0, (
+            f"Expected Critical=0 from injected counts, got {claimed}.\nOutput:\n{output}"
+        )
