@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-22T01:52:02.442584+00:00",
+  "updated_at": "2026-04-23T01:56:10.213764+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html",
-      "title": "New Chaos Variant Targets Misconfigured Cloud Deployments, Adds SOCKS Proxy",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/masjesu-botnet-emerges-as-ddos-for-hire.html",
-      "title": "Masjesu Botnet Emerges as DDoS-for-Hire Service Targeting Global IoT Devices",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/apt28-deploys-prismex-malware-in.html",
-      "title": "APT28 Deploys PRISMEX Malware in Campaign Targeting Ukraine and NATO Allies",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-use-pixel-large-svg-trick-to-hide-credit-card-stealer/",
-      "title": "Hackers use pixel-large SVG trick to hide credit card stealer",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/a-framework-for-securely-collecting-forensic-artifacts-into-s3-buckets/",
-      "title": "A framework for securely collecting forensic artifacts into S3 buckets",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/08/security/trust-but-canary-configuration-safety-at-scale-meta-tech-podcast/",
-      "title": "Trust But Canary: Configuration Safety at Scale",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://openai.com/index/next-phase-of-enterprise-ai",
-      "title": "The next phase of enterprise AI",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-child-safety-blueprint",
-      "title": "Introducing the Child Safety Blueprint",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/customize-amazon-nova-models-with-amazon-bedrock-fine-tuning/",
-      "title": "Customize Amazon Nova models with Amazon Bedrock fine-tuning",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/human-in-the-loop-constructs-for-agentic-workflows-in-healthcare-and-life-sciences/",
-      "title": "Human-in-the-loop constructs for agentic workflows in healthcare and life scienc",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/a-leader-in-forrester-wave-sovereign-cloud-platform-2026/",
-      "title": "Google Cloud named a Leader in The Forrester Wave™: Sovereign Cloud Platforms, Q",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/optimize-aiml-workloads-with-gke-cloud-storage-fuse-profiles/",
-      "title": "New GKE Cloud Storage FUSE Profiles take the guesswork out of configuring AI sto",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/improved-interoperability-for-your-apache-iceberg-lakehouse/",
-      "title": "Openness without compromises for your Apache Iceberg lakehouse",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-gpus-gke-managed-dranet-and-inference-gateway-ai-deployment/",
-      "title": "Experimenting with GPUs: GKE managed DRANET and Inference Gateway AI Deployment",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/context-engineering-from-deep-insight/",
-      "title": "Context Window 한계를 넘어서 – Deep Insight 개발 여정으로 배우는 Context Engineering 실전 기법",
-      "published_date": "2026-04-09",
-      "expires_at": "2026-04-16T01:24:45.173394+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/engagelab-sdk-flaw-exposed-50m-android.html",
       "title": "EngageLab SDK Flaw Exposed 50M Android Users, Including 30M Crypto Wallets",
@@ -1254,6 +1164,96 @@
       "title": "Introducing the Builders Hub from the Google Developer Program",
       "published_date": "2026-04-22",
       "expires_at": "2026-04-29T01:52:02.442485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/malicious-kics-docker-images-and-vs.html",
+      "title": "Malicious KICS Docker Images and VS Code Extensions Hit Checkmarx Supply Chain",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/self-propagating-supply-chain-worm.html",
+      "title": "Self-Propagating Supply Chain Worm Hijacks npm Packages to Steal Developer Token",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/harvester-deploys-linux-gogra-backdoor.html",
+      "title": "Harvester Deploys Linux GoGra Backdoor in South Asia Using Microsoft Graph API",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/22/ai-powered-defense-for-an-ai-accelerated-threat-landscape/",
+      "title": "AI-powered defense for an AI-accelerated threat landscape",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/apple-fixes-ios-bug-that-retained-deleted-notification-data/",
+      "title": "Apple fixes iOS bug that retained deleted notification data",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-engineering-multilingual-collaboration-58217e196bed?source=rss----3c87dc14372f---4",
+      "title": "Frontend Engineering at Palantir: Engineering Multilingual Collaboration",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://openai.com/index/making-chatgpt-better-for-clinicians",
+      "title": "Making ChatGPT better for clinicians",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/earth-day-2026-ai-accelerated-computing/",
+      "title": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/google-cloud-agentic-physical-ai-factories/",
+      "title": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/",
+      "title": "We're launching two specialized TPUs for the agentic era.",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/level-up-your-agents-announcing-googles-official-skills-repository/",
+      "title": "Level Up Your Agents: Announcing Google's Official Skills Repository",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/next-26-hands-on-10-codelabs-to-build-featured-tech/",
+      "title": "Next '26 Hands-On: 10 Codelabs to Build Featured Tech",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/whats-new-in-compute-at-next26/",
+      "title": "What’s new with compute: Scaling core and agentic workloads",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26/",
+      "title": "What’s next in Google AI infrastructure: Scaling for the agentic era",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/whats-new-in-gke-at-next26/",
+      "title": "What’s new in GKE at Next ‘26",
+      "published_date": "2026-04-23",
+      "expires_at": "2026-04-30T01:56:10.213647+00:00"
     }
   ]
 }

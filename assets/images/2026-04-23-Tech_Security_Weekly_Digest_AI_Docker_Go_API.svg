@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Comparison - April 23, 2026</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="60%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
+    </linearGradient>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+  <circle cx="600" cy="320" r="260" fill="#a855f7" opacity="0.05" filter="url(#glow)"/>
+
+  <!-- Shared header frame -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#a855f7" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">Comparison</text>
+  <text x="80" y="62" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8">Side-by-side evaluation</text>
+  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">April 23, 2026</text>
+
+  <!-- Left panel -->
+  <rect x="40" y="120" width="540" height="400" rx="16" fill="#1a0f1d" stroke="#a855f7" stroke-width="2"/>
+  <rect x="40" y="120" width="540" height="52" rx="16" fill="#a855f7" opacity="0.18"/>
+  <text x="60" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#a855f7" letter-spacing="3">OPTION A</text>
+  <text x="310" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#a855f7" text-anchor="middle">DOCKER CTR</text>
+
+  <g transform="translate(310 310)">
+    <path d="M0,-60 L46,-36 L46,12 C46,44 26,64 0,76 C-26,64 -46,44 -46,12 L-46,-36 Z" fill="none" stroke="#a855f7" stroke-width="2"/>
+    <path d="M-18,4 L-6,16 L20,-14" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="310" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
+  <text x="310" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
+  <text x="310" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
+
+  <!-- VS divider -->
+  <line x1="600" y1="130" x2="600" y2="510" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="600" cy="320" r="34" fill="#0a0e1a" stroke="#f8fafc" stroke-width="2"/>
+  <text x="600" y="326" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="2">VS</text>
+
+  <!-- Right panel -->
+  <rect x="620" y="120" width="540" height="400" rx="16" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="620" y="120" width="540" height="52" rx="16" fill="#22d3ee" opacity="0.18"/>
+  <text x="640" y="154" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" letter-spacing="3">OPTION B</text>
+  <text x="890" y="210" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#22d3ee" text-anchor="middle">SUPPLY CHAIN</text>
+
+  <g transform="translate(890 310)">
+    <circle r="44" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <circle r="18" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M-50,0 L-40,0 M40,0 L50,0 M0,-50 L0,-40 M0,40 L0,50 M-36,-36 L-30,-30 M30,30 L36,36 M30,-30 L36,-36 M-36,36 L-30,30" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="890" y="420" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Strength focus</text>
+  <text x="890" y="442" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Deploy model</text>
+  <text x="890" y="464" font-family="Arial,sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Cost profile</text>
+
+  <!-- Shared footer frame -->
+  <rect x="0" y="540" width="1200" height="90" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="540" width="1200" height="2" fill="#1e293b"/>
+  <circle cx="32" cy="580" r="4" fill="#a855f7" opacity="0.6"/>
+  <text x="46" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569">Comparison | April 23, 2026</text>
+  <text x="1168" y="585" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>
