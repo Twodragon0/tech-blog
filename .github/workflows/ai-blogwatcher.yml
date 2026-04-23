@@ -111,6 +111,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
+          pip install pytest pytest-cov
 
       - name: Create directories
         run: mkdir -p _data data _posts assets/images
@@ -251,6 +252,14 @@ jobs:
           POST_FILE="${{ steps.check_post.outputs.post_file }}"
           python3 scripts/check_posts.py "$POST_FILE"
           python3 scripts/verify_images_unified.py --missing
+
+      - name: Briefing severity consistency tests
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # Enforce: newly published post's briefing "N건" claims match rendered severity tags.
+          # The integration test honors CUTOFF_ISO so it won't fail on historical posts
+          # but will fail immediately if today's auto-generated post regresses.
+          pytest scripts/tests/test_briefing_stats.py -x --tb=short -q
 
       - name: Commit and push
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'

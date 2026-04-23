@@ -61,6 +61,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
+          pip install pytest pytest-cov
 
       - name: Install Gemini CLI
         run: |
@@ -239,6 +240,14 @@ jobs:
           else
             echo "⏭️ No post to validate"
           fi
+
+      - name: Briefing severity consistency tests
+        if: steps.check_news.outputs.has_enough_news == 'true'
+        run: |
+          # Enforce: newly published post's briefing "N건" claims match rendered severity tags.
+          # The integration test honors CUTOFF_ISO so historical posts are skipped
+          # but today's auto-generated post must not regress.
+          pytest scripts/tests/test_briefing_stats.py -x --tb=short -q
 
       - name: Check for new post
         id: check_post

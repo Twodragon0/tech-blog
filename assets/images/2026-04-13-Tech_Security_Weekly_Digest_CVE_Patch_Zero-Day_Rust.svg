@@ -20,126 +20,378 @@
   <linearGradient id="secGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#7dd3fc"/></linearGradient>
   <filter id="fxGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="fxSoft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter><filter id="fxHero" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="dotGrid" x="0" y="0" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="19" cy="19" r="0.9" fill="#1f2937" opacity="0.42"/></pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgA)"/>
-  <rect width="1200" height="630" fill="url(#haloA)"/>
-  <rect width="1200" height="630" fill="url(#haloB)"/>
-  <rect width="1200" height="630" fill="url(#dotGrid)"/>
-  <circle cx="760" cy="315" r="120" fill="none" stroke="url(#ringA)" stroke-width="1.60" opacity="0.42"><animate attributeName="r" values="120;130;120" dur="6.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.42;0.18;0.42" dur="6.0s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="175" fill="none" stroke="url(#ringB)" stroke-width="1.48" opacity="0.38"><animate attributeName="r" values="175;185;175" dur="7.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.38;0.16;0.38" dur="7.1s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="230" fill="none" stroke="url(#ringA)" stroke-width="1.36" opacity="0.33"><animate attributeName="r" values="230;240;230" dur="8.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.33;0.14;0.33" dur="8.2s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="285" fill="none" stroke="url(#ringB)" stroke-width="1.24" opacity="0.28"><animate attributeName="r" values="285;295;285" dur="9.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.28;0.12;0.28" dur="9.3s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="340" fill="none" stroke="url(#ringA)" stroke-width="1.12" opacity="0.24"><animate attributeName="r" values="340;350;340" dur="10.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.24;0.10;0.24" dur="10.4s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="395" fill="none" stroke="url(#ringB)" stroke-width="1.00" opacity="0.20"><animate attributeName="r" values="395;405;395" dur="11.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.20;0.08;0.20" dur="11.5s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="180" fill="none" stroke="#14b8a6" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="10,24"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="360 760 315" dur="18s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="260" fill="none" stroke="#0ea5e9" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="14,29"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="-360 760 315" dur="24s" repeatCount="indefinite"/></circle>
-  <circle cx="760" cy="315" r="340" fill="none" stroke="#14b8a6" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="18,34"><animateTransform attributeName="transform" type="rotate" from="0 760 315" to="360 760 315" dur="30s" repeatCount="indefinite"/></circle>
-  <rect x="460" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="440;500;440" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="4.5s" repeatCount="indefinite"/></rect>
-  <rect x="640" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="620;680;620" dur="5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="5.0s" repeatCount="indefinite"/></rect>
-  <rect x="820" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="800;860;800" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="5.5s" repeatCount="indefinite"/></rect>
-  <rect x="1000" y="-60" width="4" height="750" fill="url(#beam)" opacity="0.55"><animate attributeName="x" values="980;1040;980" dur="6.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.85;0.25" dur="6.0s" repeatCount="indefinite"/></rect>
-  <line x1="758.2" y1="434.8" x2="782.5" y2="185.5" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.5s" repeatCount="indefinite"/></line>
-  <line x1="758.2" y1="434.8" x2="774.1" y2="491.7" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.1s" repeatCount="indefinite"/></line>
-  <line x1="782.5" y1="185.5" x2="774.1" y2="491.7" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.7s" repeatCount="indefinite"/></line>
-  <line x1="782.5" y1="185.5" x2="903.1" y2="197.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.3s" repeatCount="indefinite"/></line>
-  <line x1="774.1" y1="491.7" x2="903.1" y2="197.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.4s" repeatCount="indefinite"/></line>
-  <line x1="774.1" y1="491.7" x2="610.9" y2="321.8" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.4s" repeatCount="indefinite"/></line>
-  <line x1="903.1" y1="197.0" x2="610.9" y2="321.8" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.4s" repeatCount="indefinite"/></line>
-  <line x1="903.1" y1="197.0" x2="673.1" y2="149.5" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.7s" repeatCount="indefinite"/></line>
-  <line x1="610.9" y1="321.8" x2="673.1" y2="149.5" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.3s" repeatCount="indefinite"/></line>
-  <line x1="610.9" y1="321.8" x2="712.0" y2="246.9" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.5s" repeatCount="indefinite"/></line>
-  <line x1="673.1" y1="149.5" x2="712.0" y2="246.9" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.4s" repeatCount="indefinite"/></line>
-  <line x1="673.1" y1="149.5" x2="662.2" y2="251.8" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.4s" repeatCount="indefinite"/></line>
-  <line x1="712.0" y1="246.9" x2="662.2" y2="251.8" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
-  <line x1="712.0" y1="246.9" x2="691.1" y2="239.9" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.3s" repeatCount="indefinite"/></line>
-  <line x1="662.2" y1="251.8" x2="691.1" y2="239.9" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.1s" repeatCount="indefinite"/></line>
-  <line x1="662.2" y1="251.8" x2="671.0" y2="219.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.4s" repeatCount="indefinite"/></line>
-  <line x1="691.1" y1="239.9" x2="671.0" y2="219.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.2s" repeatCount="indefinite"/></line>
-  <line x1="691.1" y1="239.9" x2="668.8" y2="268.5" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.4s" repeatCount="indefinite"/></line>
-  <line x1="671.0" y1="219.1" x2="668.8" y2="268.5" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.8s" repeatCount="indefinite"/></line>
-  <line x1="671.0" y1="219.1" x2="917.8" y2="349.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.5s" repeatCount="indefinite"/></line>
-  <line x1="668.8" y1="268.5" x2="917.8" y2="349.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.7s" repeatCount="indefinite"/></line>
-  <line x1="668.8" y1="268.5" x2="962.4" y2="298.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.1s" repeatCount="indefinite"/></line>
-  <line x1="917.8" y1="349.0" x2="962.4" y2="298.0" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.6s" repeatCount="indefinite"/></line>
-  <line x1="917.8" y1="349.0" x2="613.2" y2="449.2" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="6.0s" repeatCount="indefinite"/></line>
-  <line x1="962.4" y1="298.0" x2="613.2" y2="449.2" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.5s" repeatCount="indefinite"/></line>
-  <line x1="962.4" y1="298.0" x2="826.6" y2="208.7" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.9s" repeatCount="indefinite"/></line>
-  <line x1="613.2" y1="449.2" x2="826.6" y2="208.7" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
-  <line x1="613.2" y1="449.2" x2="960.7" y2="213.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.4s" repeatCount="indefinite"/></line>
-  <line x1="826.6" y1="208.7" x2="960.7" y2="213.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="5.8s" repeatCount="indefinite"/></line>
-  <line x1="826.6" y1="208.7" x2="654.7" y2="427.4" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.5s" repeatCount="indefinite"/></line>
-  <line x1="960.7" y1="213.1" x2="654.7" y2="427.4" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.9s" repeatCount="indefinite"/></line>
-  <line x1="960.7" y1="213.1" x2="905.6" y2="303.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="4.7s" repeatCount="indefinite"/></line>
-  <line x1="654.7" y1="427.4" x2="905.6" y2="303.1" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.15;0.6;0.15" dur="3.5s" repeatCount="indefinite"/></line>
-  <circle cx="758.2" cy="434.8" r="10.8" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="758.2" cy="434.8" r="4.8" fill="url(#nodeCore)"><animate attributeName="r" values="4.8;6.8;4.8" dur="3.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.9s" repeatCount="indefinite"/></circle>
-  <circle cx="782.5" cy="185.5" r="12.3" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="782.5" cy="185.5" r="6.3" fill="url(#nodeCore)"><animate attributeName="r" values="6.3;8.3;6.3" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/></circle>
-  <circle cx="774.1" cy="491.7" r="11.5" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="774.1" cy="491.7" r="5.5" fill="url(#nodeCore)"><animate attributeName="r" values="5.5;7.5;5.5" dur="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.4s" repeatCount="indefinite"/></circle>
-  <circle cx="903.1" cy="197.0" r="10.2" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="903.1" cy="197.0" r="4.2" fill="url(#nodeCore)"><animate attributeName="r" values="4.2;6.2;4.2" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="2.7s" repeatCount="indefinite"/></circle>
-  <circle cx="610.9" cy="321.8" r="10.9" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="610.9" cy="321.8" r="4.9" fill="url(#nodeCore)"><animate attributeName="r" values="4.9;6.9;4.9" dur="4.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.4s" repeatCount="indefinite"/></circle>
-  <circle cx="673.1" cy="149.5" r="12.9" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="673.1" cy="149.5" r="6.9" fill="url(#nodeCore)"><animate attributeName="r" values="6.9;8.9;6.9" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.1s" repeatCount="indefinite"/></circle>
-  <circle cx="712.0" cy="246.9" r="10.3" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="712.0" cy="246.9" r="4.3" fill="url(#nodeCore)"><animate attributeName="r" values="4.3;6.3;4.3" dur="4.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.1s" repeatCount="indefinite"/></circle>
-  <circle cx="662.2" cy="251.8" r="14.7" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="662.2" cy="251.8" r="8.7" fill="url(#nodeCore)"><animate attributeName="r" values="8.7;10.7;8.7" dur="5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="5.2s" repeatCount="indefinite"/></circle>
-  <circle cx="691.1" cy="239.9" r="11.3" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="691.1" cy="239.9" r="5.3" fill="url(#nodeCore)"><animate attributeName="r" values="5.3;7.3;5.3" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.2s" repeatCount="indefinite"/></circle>
-  <circle cx="671.0" cy="219.1" r="10.3" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="671.0" cy="219.1" r="4.3" fill="url(#nodeCore)"><animate attributeName="r" values="4.3;6.3;4.3" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/></circle>
-  <circle cx="668.8" cy="268.5" r="13.9" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="668.8" cy="268.5" r="7.9" fill="url(#nodeCore)"><animate attributeName="r" values="7.9;9.9;7.9" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.8s" repeatCount="indefinite"/></circle>
-  <circle cx="917.8" cy="349.0" r="12.9" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="917.8" cy="349.0" r="6.9" fill="url(#nodeCore)"><animate attributeName="r" values="6.9;8.9;6.9" dur="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.0s" repeatCount="indefinite"/></circle>
-  <circle cx="962.4" cy="298.0" r="11.1" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="962.4" cy="298.0" r="5.1" fill="url(#nodeCore)"><animate attributeName="r" values="5.1;7.1;5.1" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/></circle>
-  <circle cx="613.2" cy="449.2" r="11.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="613.2" cy="449.2" r="5.4" fill="url(#nodeCore)"><animate attributeName="r" values="5.4;7.4;5.4" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.3s" repeatCount="indefinite"/></circle>
-  <circle cx="826.6" cy="208.7" r="10.9" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="826.6" cy="208.7" r="4.9" fill="url(#nodeCore)"><animate attributeName="r" values="4.9;6.9;4.9" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.3s" repeatCount="indefinite"/></circle>
-  <circle cx="960.7" cy="213.1" r="11.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="960.7" cy="213.1" r="5.4" fill="url(#nodeCore)"><animate attributeName="r" values="5.4;7.4;5.4" dur="4.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.7s" repeatCount="indefinite"/></circle>
-  <circle cx="654.7" cy="427.4" r="12.4" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="654.7" cy="427.4" r="6.4" fill="url(#nodeCore)"><animate attributeName="r" values="6.4;8.4;6.4" dur="4.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="4.1s" repeatCount="indefinite"/></circle>
-  <circle cx="905.6" cy="303.1" r="12.7" fill="url(#nodeGlow)" opacity="0.6"/><circle cx="905.6" cy="303.1" r="6.7" fill="url(#nodeCore)"><animate attributeName="r" values="6.7;8.7;6.7" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/></circle>
-  <circle cx="939.9" cy="437.8" r="2.4" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="437.8;383.8;437.8" dur="5.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.9s" repeatCount="indefinite"/></circle>
-  <circle cx="1032.0" cy="102.8" r="2.5" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="102.8;31.4;102.8" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
-  <circle cx="874.2" cy="84.8" r="2.1" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="84.8;5.0;84.8" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
-  <circle cx="586.4" cy="331.4" r="2.1" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="331.4;283.2;331.4" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.8s" repeatCount="indefinite"/></circle>
-  <circle cx="717.7" cy="207.8" r="1.8" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="207.8;131.7;207.8" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.3s" repeatCount="indefinite"/></circle>
-  <circle cx="1139.1" cy="140.0" r="3.1" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="140.0;72.4;140.0" dur="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="6.4s" repeatCount="indefinite"/></circle>
-  <circle cx="712.2" cy="165.9" r="2.9" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="165.9;125.9;165.9" dur="5.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.0s" repeatCount="indefinite"/></circle>
-  <circle cx="864.9" cy="149.3" r="1.7" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="149.3;94.8;149.3" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.5s" repeatCount="indefinite"/></circle>
-  <circle cx="989.0" cy="520.7" r="2.9" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="520.7;437.7;520.7" dur="5.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.9s" repeatCount="indefinite"/></circle>
-  <circle cx="1137.2" cy="310.6" r="1.7" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="310.6;266.4;310.6" dur="5.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.3s" repeatCount="indefinite"/></circle>
-  <circle cx="983.7" cy="88.1" r="1.9" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="88.1;26.3;88.1" dur="5.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="5.6s" repeatCount="indefinite"/></circle>
-  <circle cx="1055.6" cy="510.4" r="2.8" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="510.4;452.8;510.4" dur="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.0s" repeatCount="indefinite"/></circle>
-  <circle cx="983.4" cy="421.3" r="2.6" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="421.3;362.9;421.3" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.3s" repeatCount="indefinite"/></circle>
-  <circle cx="742.8" cy="542.3" r="2.0" fill="#7dd3fc" opacity="0.75"><animate attributeName="cy" values="542.3;498.4;542.3" dur="4.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.1s" repeatCount="indefinite"/></circle>
-  <g transform="translate(1020 120)" opacity="0.85"><path d="M 0 -46 L 44 -28 L 44 14 Q 44 50 0 72 Q -44 50 -44 14 L -44 -28 Z" fill="none" stroke="#14b8a6" stroke-width="2.6" stroke-opacity="0.85"><animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></path><path d="M -15 5 L -3 18 L 20 -10" fill="none" stroke="#7dd3fc" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></path></g>
-  <g transform="translate(445 155)" opacity="0.72"><rect x="-22" y="0" width="44" height="34" rx="5" fill="none" stroke="#0ea5e9" stroke-width="2.2"/><path d="M -14 0 Q -14 -22 0 -22 Q 14 -22 14 0" fill="none" stroke="#0ea5e9" stroke-width="2.2"><animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/></path><circle cx="0" cy="14" r="3.5" fill="#7dd3fc"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle></g>
-  <text x="755" y="260" font-family="Arial Black, Impact, sans-serif" font-size="118" font-weight="900" fill="url(#heroGrad)" text-anchor="middle" letter-spacing="-2" filter="url(#fxHero)">ZERO<animate attributeName="opacity" values="0.85;1;0.85" dur="3.2s" repeatCount="indefinite"/></text>
-  <text x="755" y="355" font-family="Arial Black, Impact, sans-serif" font-size="118" font-weight="900" fill="#f1f5f9" text-anchor="middle" letter-spacing="-2" opacity="0.97" filter="url(#fxHero)">DAY<animate attributeName="opacity" values="0.85;1;0.85" dur="3.2s" begin="1.1s" repeatCount="indefinite"/></text>
-  <rect x="535" y="373" width="440" height="4" rx="2" fill="url(#underline)"><animate attributeName="width" values="40;440;40" dur="5.2s" repeatCount="indefinite"/><animate attributeName="x" values="735;535;735" dur="5.2s" repeatCount="indefinite"/></rect>
-  <g transform="translate(615.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#14b8a6" fill-opacity="0.12" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="3.0s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#7dd3fc" text-anchor="middle" letter-spacing="2">CVE</text></g>
-  <g transform="translate(755.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#14b8a6" fill-opacity="0.12" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="3.6s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#7dd3fc" text-anchor="middle" letter-spacing="2">PATCH</text></g>
-  <g transform="translate(895.0 409)"><rect x="-58" y="-16" width="116" height="30" rx="15" fill="#14b8a6" fill-opacity="0.12" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.7"><animate attributeName="stroke-opacity" values="0.4;0.95;0.4" dur="4.2s" repeatCount="indefinite"/></rect><text x="0" y="5" font-family="Arial Black,sans-serif" font-size="13" fill="#7dd3fc" text-anchor="middle" letter-spacing="2">RUST</text></g>
-  <rect x="420" y="70" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></rect>
-  <rect x="510" y="82" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.7s" repeatCount="indefinite"/></rect>
-  <rect x="600" y="70" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.0s" repeatCount="indefinite"/></rect>
-  <rect x="690" y="82" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.3s" repeatCount="indefinite"/></rect>
-  <rect x="780" y="70" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.6s" repeatCount="indefinite"/></rect>
-  <rect x="870" y="82" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="3.9s" repeatCount="indefinite"/></rect>
-  <rect x="960" y="70" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></rect>
-  <rect x="1050" y="82" width="14" height="3" rx="1.5" fill="#0ea5e9" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.5s" repeatCount="indefinite"/></rect>
-  <rect x="0" y="0" width="368" height="630" fill="url(#panelGrad)"/>
-  <rect x="0" y="0" width="4" height="630" fill="#14b8a6" opacity="0.9"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.1s" repeatCount="indefinite"/></rect>
-  <rect x="28" y="40" width="240" height="2" fill="url(#stripe)"><animate attributeName="width" values="80;240;80" dur="4.2s" repeatCount="indefinite"/></rect>
-  <circle cx="42" cy="74" r="6" fill="#7dd3fc"><animate attributeName="r" values="5;8;5" dur="2.6s" repeatCount="indefinite"/></circle>
-  <text x="62" y="80" font-family="Arial Black,sans-serif" font-size="14" fill="#bae6fd" letter-spacing="3.5" opacity="0.9">APR 13 2026</text>
-  <text x="28" y="230" font-family="Arial Black, Impact, sans-serif" font-size="68" fill="url(#heroGrad)" letter-spacing="-2" filter="url(#fxHero)">ZERO</text>
-  <text x="28" y="302" font-family="Arial Black, Impact, sans-serif" font-size="68" fill="#f1f5f9" letter-spacing="-2" opacity="0.95" filter="url(#fxHero)">DAY</text>
-  <rect x="28" y="320" width="240" height="3" rx="1.5" fill="url(#underline)"><animate attributeName="width" values="60;240;60" dur="4.8s" repeatCount="indefinite"/></rect>
-  <rect x="28" y="360" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="360" width="220" height="8" rx="4" fill="#14b8a6" opacity="0.9"><animate attributeName="width" values="20;220;20" dur="4s" repeatCount="indefinite"/></rect>
-  <rect x="28" y="378" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="378" width="170" height="8" rx="4" fill="#0ea5e9" opacity="0.9"><animate attributeName="width" values="20;170;20" dur="5s" repeatCount="indefinite"/></rect>
-  <rect x="28" y="396" width="240" height="8" rx="4" fill="#111827" opacity="0.8"/><rect x="28" y="396" width="120" height="8" rx="4" fill="#7dd3fc" opacity="0.9"><animate attributeName="width" values="20;120;20" dur="6s" repeatCount="indefinite"/></rect>
-  <rect x="28" y="440" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="2.4s" repeatCount="indefinite"/></rect><rect x="56" y="440" width="60" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <rect x="28" y="458" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="2.7s" repeatCount="indefinite"/></rect><rect x="56" y="458" width="74" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <rect x="28" y="476" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.0s" repeatCount="indefinite"/></rect><rect x="56" y="476" width="88" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <rect x="28" y="494" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.3s" repeatCount="indefinite"/></rect><rect x="56" y="494" width="102" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <rect x="28" y="512" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.6s" repeatCount="indefinite"/></rect><rect x="56" y="512" width="116" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <rect x="28" y="530" width="20" height="4" rx="1.5" fill="#0ea5e9" opacity="0.7"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="3.9s" repeatCount="indefinite"/></rect><rect x="56" y="530" width="130" height="4" rx="1.5" fill="#14b8a6" opacity="0.35"/>
-  <line x1="28" y1="585" x2="340" y2="585" stroke="#14b8a6" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="28" y="606" font-family="Arial,sans-serif" font-size="11" fill="#bae6fd" letter-spacing="2" opacity="0.7">tech.2twodragon.com</text>
-  <g transform="translate(1048.0,478.0)">
-  <rect x="-6" y="-6" width="124.0" height="124.0" rx="6" fill="#FFFFFF" stroke="#7dd3fc" stroke-width="1.6" opacity="0.98"/>
-  <rect x="-8" y="-8" width="128.0" height="128.0" rx="8" fill="url(#qrHalo)" opacity="0.85"><animate attributeName="opacity" values="0.55;0.95;0.55" dur="3.4s" repeatCount="indefinite"/></rect>
-  <g transform="scale(6.2222)"><path d="M0.8,0.8H1.2V1.2H0.8zM1.2,0.8H1.6V1.2H1.2zM1.6,0.8H2V1.2H1.6zM2,0.8H2.4V1.2H2zM2.4,0.8H2.8V1.2H2.4zM2.8,0.8H3.2V1.2H2.8zM3.2,0.8H3.6V1.2H3.2zM4,0.8H4.4V1.2H4zM5.2,0.8H5.6V1.2H5.2zM5.6,0.8H6V1.2H5.6zM6.8,0.8H7.2V1.2H6.8zM7.2,0.8H7.6V1.2H7.2zM7.6,0.8H8V1.2H7.6zM8.8,0.8H9.2V1.2H8.8zM9.2,0.8H9.6V1.2H9.2zM9.6,0.8H10V1.2H9.6zM12,0.8H12.4V1.2H12zM12.8,0.8H13.2V1.2H12.8zM13.2,0.8H13.6V1.2H13.2zM13.6,0.8H14V1.2H13.6zM14.4,0.8H14.8V1.2H14.4zM14.8,0.8H15.2V1.2H14.8zM15.2,0.8H15.6V1.2H15.2zM15.6,0.8H16V1.2H15.6zM16,0.8H16.4V1.2H16zM16.4,0.8H16.8V1.2H16.4zM16.8,0.8H17.2V1.2H16.8zM0.8,1.2H1.2V1.6H0.8zM3.2,1.2H3.6V1.6H3.2zM4,1.2H4.4V1.6H4zM4.8,1.2H5.2V1.6H4.8zM6.4,1.2H6.8V1.6H6.4zM7.2,1.2H7.6V1.6H7.2zM8,1.2H8.4V1.6H8zM10,1.2H10.4V1.6H10zM12.4,1.2H12.8V1.6H12.4zM12.8,1.2H13.2V1.6H12.8zM14.4,1.2H14.8V1.6H14.4zM16.8,1.2H17.2V1.6H16.8zM0.8,1.6H1.2V2H0.8zM1.6,1.6H2V2H1.6zM2,1.6H2.4V2H2zM2.4,1.6H2.8V2H2.4zM3.2,1.6H3.6V2H3.2zM4.4,1.6H4.8V2H4.4zM5.6,1.6H6V2H5.6zM7.6,1.6H8V2H7.6zM8.8,1.6H9.2V2H8.8zM10.4,1.6H10.8V2H10.4zM10.8,1.6H11.2V2H10.8zM11.2,1.6H11.6V2H11.2zM13.2,1.6H13.6V2H13.2zM13.6,1.6H14V2H13.6zM14.4,1.6H14.8V2H14.4zM15.2,1.6H15.6V2H15.2zM15.6,1.6H16V2H15.6zM16,1.6H16.4V2H16zM16.8,1.6H17.2V2H16.8zM0.8,2H1.2V2.4H0.8zM1.6,2H2V2.4H1.6zM2,2H2.4V2.4H2zM2.4,2H2.8V2.4H2.4zM3.2,2H3.6V2.4H3.2zM4,2H4.4V2.4H4zM4.8,2H5.2V2.4H4.8zM6,2H6.4V2.4H6zM6.8,2H7.2V2.4H6.8zM7.2,2H7.6V2.4H7.2zM8.4,2H8.8V2.4H8.4zM8.8,2H9.2V2.4H8.8zM9.2,2H9.6V2.4H9.2zM10.8,2H11.2V2.4H10.8zM11.2,2H11.6V2.4H11.2zM11.6,2H12V2.4H11.6zM12,2H12.4V2.4H12zM12.4,2H12.8V2.4H12.4zM13.6,2H14V2.4H13.6zM14.4,2H14.8V2.4H14.4zM15.2,2H15.6V2.4H15.2zM15.6,2H16V2.4H15.6zM16,2H16.4V2.4H16zM16.8,2H17.2V2.4H16.8zM0.8,2.4H1.2V2.8H0.8zM1.6,2.4H2V2.8H1.6zM2,2.4H2.4V2.8H2zM2.4,2.4H2.8V2.8H2.4zM3.2,2.4H3.6V2.8H3.2zM4.4,2.4H4.8V2.8H4.4zM4.8,2.4H5.2V2.8H4.8zM5.2,2.4H5.6V2.8H5.2zM5.6,2.4H6V2.8H5.6zM6,2.4H6.4V2.8H6zM6.4,2.4H6.8V2.8H6.4zM6.8,2.4H7.2V2.8H6.8zM7.2,2.4H7.6V2.8H7.2zM9.6,2.4H10V2.8H9.6zM10,2.4H10.4V2.8H10zM10.4,2.4H10.8V2.8H10.4zM11.6,2.4H12V2.8H11.6zM12.4,2.4H12.8V2.8H12.4zM13.2,2.4H13.6V2.8H13.2zM13.6,2.4H14V2.8H13.6zM14.4,2.4H14.8V2.8H14.4zM15.2,2.4H15.6V2.8H15.2zM15.6,2.4H16V2.8H15.6zM16,2.4H16.4V2.8H16zM16.8,2.4H17.2V2.8H16.8zM0.8,2.8H1.2V3.2H0.8zM3.2,2.8H3.6V3.2H3.2zM4.4,2.8H4.8V3.2H4.4zM4.8,2.8H5.2V3.2H4.8zM5.2,2.8H5.6V3.2H5.2zM5.6,2.8H6V3.2H5.6zM6,2.8H6.4V3.2H6zM6.4,2.8H6.8V3.2H6.4zM7.6,2.8H8V3.2H7.6zM8,2.8H8.4V3.2H8zM8.4,2.8H8.8V3.2H8.4zM8.8,2.8H9.2V3.2H8.8zM9.2,2.8H9.6V3.2H9.2zM9.6,2.8H10V3.2H9.6zM10.4,2.8H10.8V3.2H10.4zM12,2.8H12.4V3.2H12zM12.8,2.8H13.2V3.2H12.8zM13.2,2.8H13.6V3.2H13.2zM14.4,2.8H14.8V3.2H14.4zM16.8,2.8H17.2V3.2H16.8zM0.8,3.2H1.2V3.6H0.8zM1.2,3.2H1.6V3.6H1.2zM1.6,3.2H2V3.6H1.6zM2,3.2H2.4V3.6H2zM2.4,3.2H2.8V3.6H2.4zM2.8,3.2H3.2V3.6H2.8zM3.2,3.2H3.6V3.6H3.2zM4,3.2H4.4V3.6H4zM4.8,3.2H5.2V3.6H4.8zM5.6,3.2H6V3.6H5.6zM6.4,3.2H6.8V3.6H6.4zM7.2,3.2H7.6V3.6H7.2zM8,3.2H8.4V3.6H8zM8.8,3.2H9.2V3.6H8.8zM9.6,3.2H10V3.6H9.6zM10.4,3.2H10.8V3.6H10.4zM11.2,3.2H11.6V3.6H11.2zM12,3.2H12.4V3.6H12zM12.8,3.2H13.2V3.6H12.8zM13.6,3.2H14V3.6H13.6zM14.4,3.2H14.8V3.6H14.4zM14.8,3.2H15.2V3.6H14.8zM15.2,3.2H15.6V3.6H15.2zM15.6,3.2H16V3.6H15.6zM16,3.2H16.4V3.6H16zM16.4,3.2H16.8V3.6H16.4zM16.8,3.2H17.2V3.6H16.8zM4,3.6H4.4V4H4zM5.6,3.6H6V4H5.6zM6,3.6H6.4V4H6zM6.4,3.6H6.8V4H6.4zM7.6,3.6H8V4H7.6zM8.4,3.6H8.8V4H8.4zM10.4,3.6H10.8V4H10.4zM11.2,3.6H11.6V4H11.2zM12.4,3.6H12.8V4H12.4zM13.2,3.6H13.6V4H13.2zM13.6,3.6H14V4H13.6zM0.8,4H1.2V4.4H0.8zM1.6,4H2V4.4H1.6zM2,4H2.4V4.4H2zM2.8,4H3.2V4.4H2.8zM3.2,4H3.6V4.4H3.2zM3.6,4H4V4.4H3.6zM5.6,4H6V4.4H5.6zM6,4H6.4V4.4H6zM6.8,4H7.2V4.4H6.8zM7.2,4H7.6V4.4H7.2zM7.6,4H8V4.4H7.6zM8,4H8.4V4.4H8zM9.2,4H9.6V4.4H9.2zM10,4H10.4V4.4H10zM10.4,4H10.8V4.4H10.4zM11.2,4H11.6V4.4H11.2zM12.4,4H12.8V4.4H12.4zM12.8,4H13.2V4.4H12.8zM13.2,4H13.6V4.4H13.2zM13.6,4H14V4.4H13.6zM14.4,4H14.8V4.4H14.4zM15.6,4H16V4.4H15.6zM16.4,4H16.8V4.4H16.4zM16.8,4H17.2V4.4H16.8zM2,4.4H2.4V4.8H2zM2.4,4.4H2.8V4.8H2.4zM4.4,4.4H4.8V4.8H4.4zM5.2,4.4H5.6V4.8H5.2zM6,4.4H6.4V4.8H6zM6.4,4.4H6.8V4.8H6.4zM7.2,4.4H7.6V4.8H7.2zM8,4.4H8.4V4.8H8zM8.4,4.4H8.8V4.8H8.4zM9.2,4.4H9.6V4.8H9.2zM10,4.4H10.4V4.8H10zM11.2,4.4H11.6V4.8H11.2zM12.8,4.4H13.2V4.8H12.8zM13.2,4.4H13.6V4.8H13.2zM13.6,4.4H14V4.8H13.6zM14.8,4.4H15.2V4.8H14.8zM15.2,4.4H15.6V4.8H15.2zM16,4.4H16.4V4.8H16zM16.4,4.4H16.8V4.8H16.4zM16.8,4.4H17.2V4.8H16.8zM1.2,4.8H1.6V5.2H1.2zM2,4.8H2.4V5.2H2zM3.2,4.8H3.6V5.2H3.2zM4.4,4.8H4.8V5.2H4.4zM4.8,4.8H5.2V5.2H4.8zM5.2,4.8H5.6V5.2H5.2zM5.6,4.8H6V5.2H5.6zM6,4.8H6.4V5.2H6zM6.4,4.8H6.8V5.2H6.4zM6.8,4.8H7.2V5.2H6.8zM7.2,4.8H7.6V5.2H7.2zM8.8,4.8H9.2V5.2H8.8zM9.6,4.8H10V5.2H9.6zM10,4.8H10.4V5.2H10zM12.4,4.8H12.8V5.2H12.4zM14,4.8H14.4V5.2H14zM16,4.8H16.4V5.2H16zM16.4,4.8H16.8V5.2H16.4zM0.8,5.2H1.2V5.6H0.8zM2,5.2H2.4V5.6H2zM2.8,5.2H3.2V5.6H2.8zM4.4,5.2H4.8V5.6H4.4zM4.8,5.2H5.2V5.6H4.8zM5.2,5.2H5.6V5.6H5.2zM5.6,5.2H6V5.6H5.6zM6.4,5.2H6.8V5.6H6.4zM6.8,5.2H7.2V5.6H6.8zM8,5.2H8.4V5.6H8zM8.8,5.2H9.2V5.6H8.8zM9.6,5.2H10V5.6H9.6zM10.4,5.2H10.8V5.6H10.4zM10.8,5.2H11.2V5.6H10.8zM11.6,5.2H12V5.6H11.6zM13.6,5.2H14V5.6H13.6zM14,5.2H14.4V5.6H14zM14.4,5.2H14.8V5.6H14.4zM15.2,5.2H15.6V5.6H15.2zM16.4,5.2H16.8V5.6H16.4zM2,5.6H2.4V6H2zM2.4,5.6H2.8V6H2.4zM3.2,5.6H3.6V6H3.2zM4,5.6H4.4V6H4zM4.8,5.6H5.2V6H4.8zM5.2,5.6H5.6V6H5.2zM6,5.6H6.4V6H6zM6.8,5.6H7.2V6H6.8zM7.2,5.6H7.6V6H7.2zM7.6,5.6H8V6H7.6zM8.4,5.6H8.8V6H8.4zM8.8,5.6H9.2V6H8.8zM9.6,5.6H10V6H9.6zM10.4,5.6H10.8V6H10.4zM10.8,5.6H11.2V6H10.8zM12,5.6H12.4V6H12zM12.4,5.6H12.8V6H12.4zM12.8,5.6H13.2V6H12.8zM13.2,5.6H13.6V6H13.2zM14.8,5.6H15.2V6H14.8zM15.6,5.6H16V6H15.6zM16,5.6H16.4V6H16zM16.4,5.6H16.8V6H16.4zM0.8,6H1.2V6.4H0.8zM1.2,6H1.6V6.4H1.2zM2,6H2.4V6.4H2zM2.8,6H3.2V6.4H2.8zM4,6H4.4V6.4H4zM7.2,6H7.6V6.4H7.2zM7.6,6H8V6.4H7.6zM8.8,6H9.2V6.4H8.8zM9.2,6H9.6V6.4H9.2zM10,6H10.4V6.4H10zM10.4,6H10.8V6.4H10.4zM10.8,6H11.2V6.4H10.8zM11.2,6H11.6V6.4H11.2zM11.6,6H12V6.4H11.6zM12,6H12.4V6.4H12zM12.8,6H13.2V6.4H12.8zM14,6H14.4V6.4H14zM14.4,6H14.8V6.4H14.4zM15.6,6H16V6.4H15.6zM16.4,6H16.8V6.4H16.4zM16.8,6H17.2V6.4H16.8zM0.8,6.4H1.2V6.8H0.8zM2.4,6.4H2.8V6.8H2.4zM2.8,6.4H3.2V6.8H2.8zM3.2,6.4H3.6V6.8H3.2zM4,6.4H4.4V6.8H4zM4.8,6.4H5.2V6.8H4.8zM5.2,6.4H5.6V6.8H5.2zM5.6,6.4H6V6.8H5.6zM6,6.4H6.4V6.8H6zM6.8,6.4H7.2V6.8H6.8zM8.4,6.4H8.8V6.8H8.4zM8.8,6.4H9.2V6.8H8.8zM9.2,6.4H9.6V6.8H9.2zM10,6.4H10.4V6.8H10zM10.8,6.4H11.2V6.8H10.8zM12,6.4H12.4V6.8H12zM12.4,6.4H12.8V6.8H12.4zM13.2,6.4H13.6V6.8H13.2zM13.6,6.4H14V6.8H13.6zM14.4,6.4H14.8V6.8H14.4zM14.8,6.4H15.2V6.8H14.8zM15.2,6.4H15.6V6.8H15.2zM16,6.4H16.4V6.8H16zM16.4,6.4H16.8V6.8H16.4zM16.8,6.4H17.2V6.8H16.8zM1.6,6.8H2V7.2H1.6zM2,6.8H2.4V7.2H2zM2.4,6.8H2.8V7.2H2.4zM2.8,6.8H3.2V7.2H2.8zM3.6,6.8H4V7.2H3.6zM4,6.8H4.4V7.2H4zM4.4,6.8H4.8V7.2H4.4zM5.2,6.8H5.6V7.2H5.2zM5.6,6.8H6V7.2H5.6zM6.8,6.8H7.2V7.2H6.8zM7.2,6.8H7.6V7.2H7.2zM8,6.8H8.4V7.2H8zM9.2,6.8H9.6V7.2H9.2zM9.6,6.8H10V7.2H9.6zM10,6.8H10.4V7.2H10zM11.2,6.8H11.6V7.2H11.2zM13.6,6.8H14V7.2H13.6zM14.4,6.8H14.8V7.2H14.4zM15.2,6.8H15.6V7.2H15.2zM15.6,6.8H16V7.2H15.6zM1.6,7.2H2V7.6H1.6zM3.2,7.2H3.6V7.6H3.2zM4,7.2H4.4V7.6H4zM4.4,7.2H4.8V7.6H4.4zM4.8,7.2H5.2V7.6H4.8zM6,7.2H6.4V7.6H6zM7.2,7.2H7.6V7.6H7.2zM8,7.2H8.4V7.6H8zM9.6,7.2H10V7.6H9.6zM10.4,7.2H10.8V7.6H10.4zM10.8,7.2H11.2V7.6H10.8zM12.8,7.2H13.2V7.6H12.8zM13.2,7.2H13.6V7.6H13.2zM13.6,7.2H14V7.6H13.6zM15.2,7.2H15.6V7.6H15.2zM15.6,7.2H16V7.6H15.6zM16.4,7.2H16.8V7.6H16.4zM0.8,7.6H1.2V8H0.8zM1.2,7.6H1.6V8H1.2zM3.6,7.6H4V8H3.6zM4,7.6H4.4V8H4zM4.4,7.6H4.8V8H4.4zM5.2,7.6H5.6V8H5.2zM6,7.6H6.4V8H6zM6.8,7.6H7.2V8H6.8zM7.2,7.6H7.6V8H7.2zM8.4,7.6H8.8V8H8.4zM8.8,7.6H9.2V8H8.8zM9.2,7.6H9.6V8H9.2zM9.6,7.6H10V8H9.6zM10,7.6H10.4V8H10zM10.4,7.6H10.8V8H10.4zM10.8,7.6H11.2V8H10.8zM13.6,7.6H14V8H13.6zM14,7.6H14.4V8H14zM14.8,7.6H15.2V8H14.8zM15.6,7.6H16V8H15.6zM1.6,8H2V8.4H1.6zM2.4,8H2.8V8.4H2.4zM3.2,8H3.6V8.4H3.2zM3.6,8H4V8.4H3.6zM4,8H4.4V8.4H4zM4.4,8H4.8V8.4H4.4zM4.8,8H5.2V8.4H4.8zM8,8H8.4V8.4H8zM8.8,8H9.2V8.4H8.8zM9.6,8H10V8.4H9.6zM10.8,8H11.2V8.4H10.8zM11.6,8H12V8.4H11.6zM12,8H12.4V8.4H12zM12.8,8H13.2V8.4H12.8zM13.6,8H14V8.4H13.6zM15.2,8H15.6V8.4H15.2zM16,8H16.4V8.4H16zM16.4,8H16.8V8.4H16.4zM1.6,8.4H2V8.8H1.6zM2,8.4H2.4V8.8H2zM2.4,8.4H2.8V8.8H2.4zM3.6,8.4H4V8.8H3.6zM6,8.4H6.4V8.8H6zM6.8,8.4H7.2V8.8H6.8zM7.6,8.4H8V8.8H7.6zM8,8.4H8.4V8.8H8zM9.2,8.4H9.6V8.8H9.2zM11.6,8.4H12V8.8H11.6zM12,8.4H12.4V8.8H12zM12.4,8.4H12.8V8.8H12.4zM12.8,8.4H13.2V8.8H12.8zM14.8,8.4H15.2V8.8H14.8zM15.6,8.4H16V8.8H15.6zM16,8.4H16.4V8.8H16zM16.4,8.4H16.8V8.8H16.4zM0.8,8.8H1.2V9.2H0.8zM1.2,8.8H1.6V9.2H1.2zM2.8,8.8H3.2V9.2H2.8zM3.2,8.8H3.6V9.2H3.2zM4,8.8H4.4V9.2H4zM4.4,8.8H4.8V9.2H4.4zM5.6,8.8H6V9.2H5.6zM6,8.8H6.4V9.2H6zM6.8,8.8H7.2V9.2H6.8zM7.2,8.8H7.6V9.2H7.2zM8.4,8.8H8.8V9.2H8.4zM8.8,8.8H9.2V9.2H8.8zM11.2,8.8H11.6V9.2H11.2zM11.6,8.8H12V9.2H11.6zM12.4,8.8H12.8V9.2H12.4zM12.8,8.8H13.2V9.2H12.8zM13.2,8.8H13.6V9.2H13.2zM13.6,8.8H14V9.2H13.6zM14,8.8H14.4V9.2H14zM14.4,8.8H14.8V9.2H14.4zM15.2,8.8H15.6V9.2H15.2zM15.6,8.8H16V9.2H15.6zM16,8.8H16.4V9.2H16zM16.4,8.8H16.8V9.2H16.4zM0.8,9.2H1.2V9.6H0.8zM1.2,9.2H1.6V9.6H1.2zM2.4,9.2H2.8V9.6H2.4zM5.6,9.2H6V9.6H5.6zM6,9.2H6.4V9.6H6zM6.4,9.2H6.8V9.6H6.4zM7.2,9.2H7.6V9.6H7.2zM8.8,9.2H9.2V9.6H8.8zM9.2,9.2H9.6V9.6H9.2zM10,9.2H10.4V9.6H10zM10.4,9.2H10.8V9.6H10.4zM11.2,9.2H11.6V9.6H11.2zM13.2,9.2H13.6V9.6H13.2zM14.4,9.2H14.8V9.6H14.4zM14.8,9.2H15.2V9.6H14.8zM15.2,9.2H15.6V9.6H15.2zM16,9.2H16.4V9.6H16zM16.4,9.2H16.8V9.6H16.4zM16.8,9.2H17.2V9.6H16.8zM1.6,9.6H2V10H1.6zM2.8,9.6H3.2V10H2.8zM3.2,9.6H3.6V10H3.2zM3.6,9.6H4V10H3.6zM4,9.6H4.4V10H4zM4.4,9.6H4.8V10H4.4zM4.8,9.6H5.2V10H4.8zM5.2,9.6H5.6V10H5.2zM6.4,9.6H6.8V10H6.4zM6.8,9.6H7.2V10H6.8zM8.8,9.6H9.2V10H8.8zM10,9.6H10.4V10H10zM10.4,9.6H10.8V10H10.4zM12,9.6H12.4V10H12zM12.4,9.6H12.8V10H12.4zM12.8,9.6H13.2V10H12.8zM14,9.6H14.4V10H14zM14.4,9.6H14.8V10H14.4zM14.8,9.6H15.2V10H14.8zM15.2,9.6H15.6V10H15.2zM16,9.6H16.4V10H16zM16.4,9.6H16.8V10H16.4zM0.8,10H1.2V10.4H0.8zM2,10H2.4V10.4H2zM4,10H4.4V10.4H4zM4.4,10H4.8V10.4H4.4zM8,10H8.4V10.4H8zM8.4,10H8.8V10.4H8.4zM10,10H10.4V10.4H10zM10.8,10H11.2V10.4H10.8zM11.6,10H12V10.4H11.6zM12.8,10H13.2V10.4H12.8zM13.6,10H14V10.4H13.6zM14,10H14.4V10.4H14zM15.2,10H15.6V10.4H15.2zM16.4,10H16.8V10.4H16.4zM16.8,10H17.2V10.4H16.8zM1.2,10.4H1.6V10.8H1.2zM2.4,10.4H2.8V10.8H2.4zM2.8,10.4H3.2V10.8H2.8zM3.2,10.4H3.6V10.8H3.2zM4.4,10.4H4.8V10.8H4.4zM5.2,10.4H5.6V10.8H5.2zM6.4,10.4H6.8V10.8H6.4zM6.8,10.4H7.2V10.8H6.8zM7.6,10.4H8V10.8H7.6zM8.4,10.4H8.8V10.8H8.4zM9.6,10.4H10V10.8H9.6zM10.4,10.4H10.8V10.8H10.4zM10.8,10.4H11.2V10.8H10.8zM11.2,10.4H11.6V10.8H11.2zM12.4,10.4H12.8V10.8H12.4zM13.2,10.4H13.6V10.8H13.2zM14.8,10.4H15.2V10.8H14.8zM15.6,10.4H16V10.8H15.6zM16.4,10.4H16.8V10.8H16.4zM2.4,10.8H2.8V11.2H2.4zM2.8,10.8H3.2V11.2H2.8zM3.6,10.8H4V11.2H3.6zM4,10.8H4.4V11.2H4zM4.4,10.8H4.8V11.2H4.4zM4.8,10.8H5.2V11.2H4.8zM5.2,10.8H5.6V11.2H5.2zM7.6,10.8H8V11.2H7.6zM8.4,10.8H8.8V11.2H8.4zM10.4,10.8H10.8V11.2H10.4zM10.8,10.8H11.2V11.2H10.8zM11.6,10.8H12V11.2H11.6zM12.4,10.8H12.8V11.2H12.4zM13.2,10.8H13.6V11.2H13.2zM13.6,10.8H14V11.2H13.6zM14,10.8H14.4V11.2H14zM15.6,10.8H16V11.2H15.6zM16,10.8H16.4V11.2H16zM16.8,10.8H17.2V11.2H16.8zM1.2,11.2H1.6V11.6H1.2zM1.6,11.2H2V11.6H1.6zM2.4,11.2H2.8V11.6H2.4zM3.2,11.2H3.6V11.6H3.2zM4.4,11.2H4.8V11.6H4.4zM4.8,11.2H5.2V11.6H4.8zM6.4,11.2H6.8V11.6H6.4zM6.8,11.2H7.2V11.6H6.8zM7.2,11.2H7.6V11.6H7.2zM8,11.2H8.4V11.6H8zM8.4,11.2H8.8V11.6H8.4zM8.8,11.2H9.2V11.6H8.8zM10.4,11.2H10.8V11.6H10.4zM11.2,11.2H11.6V11.6H11.2zM12,11.2H12.4V11.6H12zM12.4,11.2H12.8V11.6H12.4zM13.2,11.2H13.6V11.6H13.2zM13.6,11.2H14V11.6H13.6zM14.4,11.2H14.8V11.6H14.4zM15.6,11.2H16V11.6H15.6zM16.4,11.2H16.8V11.6H16.4zM16.8,11.2H17.2V11.6H16.8zM0.8,11.6H1.2V12H0.8zM2.4,11.6H2.8V12H2.4zM4,11.6H4.4V12H4zM4.8,11.6H5.2V12H4.8zM5.6,11.6H6V12H5.6zM6,11.6H6.4V12H6zM6.4,11.6H6.8V12H6.4zM7.2,11.6H7.6V12H7.2zM8.4,11.6H8.8V12H8.4zM8.8,11.6H9.2V12H8.8zM9.2,11.6H9.6V12H9.2zM9.6,11.6H10V12H9.6zM10,11.6H10.4V12H10zM11.2,11.6H11.6V12H11.2zM11.6,11.6H12V12H11.6zM12.8,11.6H13.2V12H12.8zM13.2,11.6H13.6V12H13.2zM13.6,11.6H14V12H13.6zM14,11.6H14.4V12H14zM14.4,11.6H14.8V12H14.4zM14.8,11.6H15.2V12H14.8zM15.2,11.6H15.6V12H15.2zM15.6,11.6H16V12H15.6zM16.4,11.6H16.8V12H16.4zM2.4,12H2.8V12.4H2.4zM3.2,12H3.6V12.4H3.2zM3.6,12H4V12.4H3.6zM4.8,12H5.2V12.4H4.8zM6.4,12H6.8V12.4H6.4zM7.2,12H7.6V12.4H7.2zM8,12H8.4V12.4H8zM8.4,12H8.8V12.4H8.4zM8.8,12H9.2V12.4H8.8zM9.2,12H9.6V12.4H9.2zM9.6,12H10V12.4H9.6zM10.8,12H11.2V12.4H10.8zM11.2,12H11.6V12.4H11.2zM11.6,12H12V12.4H11.6zM12,12H12.4V12.4H12zM13.2,12H13.6V12.4H13.2zM13.6,12H14V12.4H13.6zM14,12H14.4V12.4H14zM15.2,12H15.6V12.4H15.2zM15.6,12H16V12.4H15.6zM16.4,12H16.8V12.4H16.4zM1.2,12.4H1.6V12.8H1.2zM2,12.4H2.4V12.8H2zM3.6,12.4H4V12.8H3.6zM4,12.4H4.4V12.8H4zM4.4,12.4H4.8V12.8H4.4zM5.6,12.4H6V12.8H5.6zM6,12.4H6.4V12.8H6zM6.4,12.4H6.8V12.8H6.4zM8.4,12.4H8.8V12.8H8.4zM8.8,12.4H9.2V12.8H8.8zM9.6,12.4H10V12.8H9.6zM10.8,12.4H11.2V12.8H10.8zM11.2,12.4H11.6V12.8H11.2zM12.4,12.4H12.8V12.8H12.4zM12.8,12.4H13.2V12.8H12.8zM14.8,12.4H15.2V12.8H14.8zM15.6,12.4H16V12.8H15.6zM16.4,12.4H16.8V12.8H16.4zM0.8,12.8H1.2V13.2H0.8zM1.6,12.8H2V13.2H1.6zM2,12.8H2.4V13.2H2zM3.2,12.8H3.6V13.2H3.2zM3.6,12.8H4V13.2H3.6zM4,12.8H4.4V13.2H4zM4.4,12.8H4.8V13.2H4.4zM4.8,12.8H5.2V13.2H4.8zM5.2,12.8H5.6V13.2H5.2zM6,12.8H6.4V13.2H6zM6.8,12.8H7.2V13.2H6.8zM7.2,12.8H7.6V13.2H7.2zM8,12.8H8.4V13.2H8zM8.4,12.8H8.8V13.2H8.4zM10.8,12.8H11.2V13.2H10.8zM11.2,12.8H11.6V13.2H11.2zM11.6,12.8H12V13.2H11.6zM12,12.8H12.4V13.2H12zM13.6,12.8H14V13.2H13.6zM14,12.8H14.4V13.2H14zM14.4,12.8H14.8V13.2H14.4zM14.8,12.8H15.2V13.2H14.8zM1.6,13.2H2V13.6H1.6zM2,13.2H2.4V13.6H2zM2.4,13.2H2.8V13.6H2.4zM4,13.2H4.4V13.6H4zM4.4,13.2H4.8V13.6H4.4zM5.6,13.2H6V13.6H5.6zM6.4,13.2H6.8V13.6H6.4zM6.8,13.2H7.2V13.6H6.8zM7.2,13.2H7.6V13.6H7.2zM7.6,13.2H8V13.6H7.6zM8,13.2H8.4V13.6H8zM8.4,13.2H8.8V13.6H8.4zM9.6,13.2H10V13.6H9.6zM10.4,13.2H10.8V13.6H10.4zM11.6,13.2H12V13.6H11.6zM12,13.2H12.4V13.6H12zM12.4,13.2H12.8V13.6H12.4zM13.2,13.2H13.6V13.6H13.2zM14.4,13.2H14.8V13.6H14.4zM15.2,13.2H15.6V13.6H15.2zM15.6,13.2H16V13.6H15.6zM16,13.2H16.4V13.6H16zM16.4,13.2H16.8V13.6H16.4zM16.8,13.2H17.2V13.6H16.8zM1.2,13.6H1.6V14H1.2zM2.4,13.6H2.8V14H2.4zM3.2,13.6H3.6V14H3.2zM4,13.6H4.4V14H4zM4.4,13.6H4.8V14H4.4zM5.6,13.6H6V14H5.6zM6.8,13.6H7.2V14H6.8zM7.6,13.6H8V14H7.6zM8,13.6H8.4V14H8zM10,13.6H10.4V14H10zM10.4,13.6H10.8V14H10.4zM11.2,13.6H11.6V14H11.2zM11.6,13.6H12V14H11.6zM12.4,13.6H12.8V14H12.4zM12.8,13.6H13.2V14H12.8zM13.6,13.6H14V14H13.6zM14,13.6H14.4V14H14zM14.4,13.6H14.8V14H14.4zM14.8,13.6H15.2V14H14.8zM15.2,13.6H15.6V14H15.2zM15.6,13.6H16V14H15.6zM16,13.6H16.4V14H16zM16.8,13.6H17.2V14H16.8zM4,14H4.4V14.4H4zM4.4,14H4.8V14.4H4.4zM6.8,14H7.2V14.4H6.8zM7.6,14H8V14.4H7.6zM8.8,14H9.2V14.4H8.8zM9.2,14H9.6V14.4H9.2zM9.6,14H10V14.4H9.6zM10,14H10.4V14.4H10zM11.6,14H12V14.4H11.6zM12,14H12.4V14.4H12zM12.4,14H12.8V14.4H12.4zM13.6,14H14V14.4H13.6zM15.2,14H15.6V14.4H15.2zM16,14H16.4V14.4H16zM16.4,14H16.8V14.4H16.4zM16.8,14H17.2V14.4H16.8zM0.8,14.4H1.2V14.8H0.8zM1.2,14.4H1.6V14.8H1.2zM1.6,14.4H2V14.8H1.6zM2,14.4H2.4V14.8H2zM2.4,14.4H2.8V14.8H2.4zM2.8,14.4H3.2V14.8H2.8zM3.2,14.4H3.6V14.8H3.2zM4,14.4H4.4V14.8H4zM4.4,14.4H4.8V14.8H4.4zM4.8,14.4H5.2V14.8H4.8zM5.6,14.4H6V14.8H5.6zM6,14.4H6.4V14.8H6zM6.8,14.4H7.2V14.8H6.8zM8,14.4H8.4V14.8H8zM8.8,14.4H9.2V14.8H8.8zM10,14.4H10.4V14.8H10zM10.4,14.4H10.8V14.8H10.4zM12,14.4H12.4V14.8H12zM12.4,14.4H12.8V14.8H12.4zM13.2,14.4H13.6V14.8H13.2zM13.6,14.4H14V14.8H13.6zM14.4,14.4H14.8V14.8H14.4zM15.2,14.4H15.6V14.8H15.2zM15.6,14.4H16V14.8H15.6zM16,14.4H16.4V14.8H16zM16.4,14.4H16.8V14.8H16.4zM0.8,14.8H1.2V15.2H0.8zM3.2,14.8H3.6V15.2H3.2zM4,14.8H4.4V15.2H4zM4.8,14.8H5.2V15.2H4.8zM6.4,14.8H6.8V15.2H6.4zM7.2,14.8H7.6V15.2H7.2zM7.6,14.8H8V15.2H7.6zM8.8,14.8H9.2V15.2H8.8zM10.4,14.8H10.8V15.2H10.4zM10.8,14.8H11.2V15.2H10.8zM12,14.8H12.4V15.2H12zM12.8,14.8H13.2V15.2H12.8zM13.6,14.8H14V15.2H13.6zM15.2,14.8H15.6V15.2H15.2zM16.4,14.8H16.8V15.2H16.4zM0.8,15.2H1.2V15.6H0.8zM1.6,15.2H2V15.6H1.6zM2,15.2H2.4V15.6H2zM2.4,15.2H2.8V15.6H2.4zM3.2,15.2H3.6V15.6H3.2zM4.4,15.2H4.8V15.6H4.4zM4.8,15.2H5.2V15.6H4.8zM5.2,15.2H5.6V15.6H5.2zM6,15.2H6.4V15.6H6zM6.8,15.2H7.2V15.6H6.8zM7.2,15.2H7.6V15.6H7.2zM9.2,15.2H9.6V15.6H9.2zM10.8,15.2H11.2V15.6H10.8zM13.6,15.2H14V15.6H13.6zM14,15.2H14.4V15.6H14zM14.4,15.2H14.8V15.6H14.4zM14.8,15.2H15.2V15.6H14.8zM15.2,15.2H15.6V15.6H15.2zM15.6,15.2H16V15.6H15.6zM16,15.2H16.4V15.6H16zM16.8,15.2H17.2V15.6H16.8zM0.8,15.6H1.2V16H0.8zM1.6,15.6H2V16H1.6zM2,15.6H2.4V16H2zM2.4,15.6H2.8V16H2.4zM3.2,15.6H3.6V16H3.2zM4,15.6H4.4V16H4zM4.4,15.6H4.8V16H4.4zM4.8,15.6H5.2V16H4.8zM7.2,15.6H7.6V16H7.2zM7.6,15.6H8V16H7.6zM8.4,15.6H8.8V16H8.4zM9.6,15.6H10V16H9.6zM11.2,15.6H11.6V16H11.2zM11.6,15.6H12V16H11.6zM12.4,15.6H12.8V16H12.4zM12.8,15.6H13.2V16H12.8zM13.2,15.6H13.6V16H13.2zM15.2,15.6H15.6V16H15.2zM15.6,15.6H16V16H15.6zM16.8,15.6H17.2V16H16.8zM0.8,16H1.2V16.4H0.8zM1.6,16H2V16.4H1.6zM2,16H2.4V16.4H2zM2.4,16H2.8V16.4H2.4zM3.2,16H3.6V16.4H3.2zM4,16H4.4V16.4H4zM4.4,16H4.8V16.4H4.4zM5.2,16H5.6V16.4H5.2zM6,16H6.4V16.4H6zM6.4,16H6.8V16.4H6.4zM6.8,16H7.2V16.4H6.8zM7.6,16H8V16.4H7.6zM8,16H8.4V16.4H8zM8.4,16H8.8V16.4H8.4zM8.8,16H9.2V16.4H8.8zM9.2,16H9.6V16.4H9.2zM10.4,16H10.8V16.4H10.4zM11.2,16H11.6V16.4H11.2zM12,16H12.4V16.4H12zM12.4,16H12.8V16.4H12.4zM14.8,16H15.2V16.4H14.8zM16,16H16.4V16.4H16zM16.4,16H16.8V16.4H16.4zM16.8,16H17.2V16.4H16.8zM0.8,16.4H1.2V16.8H0.8zM3.2,16.4H3.6V16.8H3.2zM4.4,16.4H4.8V16.8H4.4zM4.8,16.4H5.2V16.8H4.8zM5.6,16.4H6V16.8H5.6zM6,16.4H6.4V16.8H6zM6.4,16.4H6.8V16.8H6.4zM7.2,16.4H7.6V16.8H7.2zM7.6,16.4H8V16.8H7.6zM8.4,16.4H8.8V16.8H8.4zM9.2,16.4H9.6V16.8H9.2zM9.6,16.4H10V16.8H9.6zM10.4,16.4H10.8V16.8H10.4zM11.2,16.4H11.6V16.8H11.2zM12,16.4H12.4V16.8H12zM13.6,16.4H14V16.8H13.6zM14,16.4H14.4V16.8H14zM15.2,16.4H15.6V16.8H15.2zM15.6,16.4H16V16.8H15.6zM16.4,16.4H16.8V16.8H16.4zM0.8,16.8H1.2V17.2H0.8zM1.2,16.8H1.6V17.2H1.2zM1.6,16.8H2V17.2H1.6zM2,16.8H2.4V17.2H2zM2.4,16.8H2.8V17.2H2.4zM2.8,16.8H3.2V17.2H2.8zM3.2,16.8H3.6V17.2H3.2zM4,16.8H4.4V17.2H4zM4.4,16.8H4.8V17.2H4.4zM5.6,16.8H6V17.2H5.6zM6.4,16.8H6.8V17.2H6.4zM7.2,16.8H7.6V17.2H7.2zM7.6,16.8H8V17.2H7.6zM8,16.8H8.4V17.2H8zM8.8,16.8H9.2V17.2H8.8zM9.2,16.8H9.6V17.2H9.2zM9.6,16.8H10V17.2H9.6zM10,16.8H10.4V17.2H10zM10.8,16.8H11.2V17.2H10.8zM12.8,16.8H13.2V17.2H12.8zM13.6,16.8H14V17.2H13.6zM14,16.8H14.4V17.2H14zM14.4,16.8H14.8V17.2H14.4zM15.6,16.8H16V17.2H15.6zM16,16.8H16.4V17.2H16zM16.4,16.8H16.8V17.2H16.4z" fill="#0b0b0b"/></g>
-  </g>
+  <style>
+    @keyframes d13_pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+    @keyframes d13_floatUp { 0%{opacity:0;transform:translateY(0)} 20%{opacity:0.8} 100%{opacity:0;transform:translateY(-40px)} }
+    @keyframes d13_dash { to{stroke-dashoffset:-30} }
+    @keyframes d13_pulseLarge { 0%,100%{opacity:0.3} 50%{opacity:0.7} }
+    @keyframes d13_glimmer { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    @keyframes d13_crack { 0%,100%{opacity:0.7;stroke-width:2.5} 50%{opacity:1;stroke-width:3.5} }
+    @keyframes d13_scan { 0%{transform:translateY(-2px)} 100%{transform:translateY(632px)} }
+    @keyframes d13_blink { 0%,49%{opacity:1} 50%,100%{opacity:0.2} }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#d13_bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#d13_dotGrid)"/>
+  <rect width="1200" height="630" fill="url(#d13_hexGrid)"/>
+  <rect width="1200" height="630" fill="url(#d13_scanLines)"/>
+  <rect width="1200" height="630" fill="url(#d13_vignette)"/>
+
+  <!-- Moving scan line -->
+  <rect x="0" y="-2" width="1200" height="2" fill="#3b82f6" opacity="0.07">
+    <animate attributeName="y" from="-2" to="632" dur="8s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== LEFT PANEL ===== -->
+  <rect x="0" y="0" width="290" height="630" fill="url(#d13_panelGrad)" filter="url(#d13_panelShadow)"/>
+  <rect x="288" y="0" width="1.5" height="630" fill="#1e3a5f"/>
+  <rect x="289.5" y="0" width="0.5" height="630" fill="#3b82f6" opacity="0.5"/>
+
+  <!-- Panel header -->
+  <text x="20" y="30" font-family="Courier New,monospace" font-size="17" font-weight="bold" fill="#e2e8f0" letter-spacing="1">TECH SECURITY</text>
+  <text x="20" y="48" font-family="Courier New,monospace" font-size="17" font-weight="bold" fill="#3b82f6" letter-spacing="1">WEEKLY</text>
+  <rect x="20" y="55" width="250" height="1" fill="#1e3a5f"/>
+  <text x="20" y="68" font-family="Courier New,monospace" font-size="9" fill="#64748b">APRIL 13, 2026 // ISSUE #248</text>
+
+  <!-- Topic 1: CPUID Breach -->
+  <rect x="0" y="80" width="4" height="52" fill="#ef4444"/>
+  <text x="14" y="97" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#f87171">CPUID BREACH</text>
+  <text x="14" y="110" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Tampered CPU-Z Binary</text>
+  <text x="14" y="121" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Hardware ID Exploit</text>
+  <circle cx="272" cy="101" r="5" fill="#ef4444" opacity="0.8">
+    <animate attributeName="r" values="4;7;4" dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="14" y="127" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
+
+  <!-- Topic 2: Marimo RCE -->
+  <rect x="0" y="136" width="4" height="52" fill="#ef4444"/>
+  <text x="14" y="153" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#f87171">MARIMO RCE</text>
+  <text x="14" y="166" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Pre-Auth Remote Code</text>
+  <text x="14" y="177" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Execution (Critical)</text>
+  <circle cx="272" cy="157" r="5" fill="#ef4444" opacity="0.8">
+    <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="14" y="183" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
+
+  <!-- Topic 3: Adobe Zero-Day -->
+  <rect x="0" y="192" width="4" height="52" fill="#f59e0b"/>
+  <text x="14" y="209" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#fbbf24">ADOBE ZERO-DAY</text>
+  <text x="14" y="222" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Acrobat PDF Exploit</text>
+  <text x="14" y="233" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">In-the-Wild Active</text>
+  <circle cx="272" cy="213" r="5" fill="#f59e0b" opacity="0.8">
+    <animate attributeName="r" values="4;7;4" dur="2.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="14" y="239" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
+
+  <!-- Topic 4: Patch Management -->
+  <rect x="0" y="248" width="4" height="52" fill="#22c55e"/>
+  <text x="14" y="265" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#4ade80">PATCH MGMT</text>
+  <text x="14" y="278" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Vulnerability Timeline</text>
+  <text x="14" y="289" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Remediation Priority</text>
+  <circle cx="272" cy="269" r="5" fill="#22c55e" opacity="0.8">
+    <animate attributeName="r" values="4;7;4" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="14" y="295" width="260" height="1" fill="#1e3a5f" opacity="0.5"/>
+
+  <!-- Topic 5: Rust Security -->
+  <rect x="0" y="304" width="4" height="52" fill="#22d3ee"/>
+  <text x="14" y="321" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#67e8f9">RUST SECURITY</text>
+  <text x="14" y="334" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Memory Safety Analysis</text>
+  <text x="14" y="345" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Borrow Checker Insights</text>
+  <circle cx="272" cy="325" r="5" fill="#22d3ee" opacity="0.8">
+    <animate attributeName="r" values="4;7;4" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Severity bars -->
+  <rect x="14" y="370" width="260" height="1" fill="#1e3a5f"/>
+  <text x="14" y="384" font-family="Courier New,monospace" font-size="9" fill="#64748b">SEVERITY INDEX</text>
+  <text x="14" y="401" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">CRITICAL</text>
+  <rect x="68" y="393" width="162" height="7" rx="2" fill="#1e293b"/>
+  <rect x="68" y="393" width="146" height="7" rx="2" fill="#ef4444" opacity="0.9"/>
+  <text x="236" y="401" font-family="Courier New,monospace" font-size="8.5" fill="#ef4444">90%</text>
+  <text x="14" y="417" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">HIGH</text>
+  <rect x="68" y="409" width="162" height="7" rx="2" fill="#1e293b"/>
+  <rect x="68" y="409" width="130" height="7" rx="2" fill="#f59e0b" opacity="0.85"/>
+  <text x="236" y="417" font-family="Courier New,monospace" font-size="8.5" fill="#f59e0b">80%</text>
+  <text x="14" y="433" font-family="Courier New,monospace" font-size="8.5" fill="#94a3b8">MEDIUM</text>
+  <rect x="68" y="425" width="162" height="7" rx="2" fill="#1e293b"/>
+  <rect x="68" y="425" width="89" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
+  <text x="236" y="433" font-family="Courier New,monospace" font-size="8.5" fill="#22c55e">55%</text>
+
+  <!-- Tag pills -->
+  <rect x="14" y="448" width="52" height="16" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="40" y="460" font-family="Arial,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">CPUID</text>
+  <rect x="74" y="448" width="44" height="16" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="96" y="460" font-family="Arial,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">RCE</text>
+  <rect x="126" y="448" width="54" height="16" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="0.5"/>
+  <text x="153" y="460" font-family="Arial,sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">0-DAY</text>
+  <rect x="188" y="448" width="44" height="16" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="210" y="460" font-family="Arial,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">RUST</text>
+
+  <!-- ===== CRITICAL badge top-right ===== -->
+  <rect x="1090" y="8" width="100" height="22" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
+  <circle cx="1102" cy="19" r="5" fill="#ef4444">
+    <animate attributeName="opacity" values="1;0.3;1" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+  <text x="1112" y="24" font-family="Courier New,monospace" font-size="9" font-weight="bold" fill="#ef4444">CRITICAL</text>
+
+  <!-- ===== TOP HALF: CPU BREACH VISUALIZATION ===== -->
+  <text x="310" y="26" font-family="Courier New,monospace" font-size="9" fill="#64748b" letter-spacing="2">// THREAT VIZ :: CPUID BREACH + TAMPERED CPU-Z BINARY</text>
+
+  <!-- CPU chip outline (center top) -->
+  <rect x="556" y="88" width="148" height="148" rx="8" fill="#050a12" stroke="#ef4444" stroke-width="2" filter="url(#d13_glowRed)"/>
+  <!-- CPU inner die -->
+  <rect x="576" y="108" width="108" height="108" rx="4" fill="#080d18" stroke="#ef4444" stroke-width="1" opacity="0.8"/>
+  <!-- CPU grid lines -->
+  <line x1="576" y1="144" x2="684" y2="144" stroke="#1e293b" stroke-width="0.5"/>
+  <line x1="576" y1="180" x2="684" y2="180" stroke="#1e293b" stroke-width="0.5"/>
+  <line x1="612" y1="108" x2="612" y2="216" stroke="#1e293b" stroke-width="0.5"/>
+  <line x1="648" y1="108" x2="648" y2="216" stroke="#1e293b" stroke-width="0.5"/>
+  <!-- CPU label -->
+  <text x="630" y="142" font-family="Courier New,monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">CPUID</text>
+  <text x="630" y="156" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="middle">REGISTER</text>
+  <text x="630" y="170" font-family="Courier New,monospace" font-size="8" fill="#64748b" text-anchor="middle">BREACH</text>
+  <text x="630" y="186" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444" text-anchor="middle">x86_LEAF[0x00]</text>
+  <!-- CPU pins (left side) -->
+  <line x1="556" y1="108" x2="546" y2="108" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="120" x2="546" y2="120" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="132" x2="546" y2="132" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="144" x2="546" y2="144" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="156" x2="546" y2="156" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="168" x2="546" y2="168" stroke="#ef4444" stroke-width="2">
+    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="556" y1="180" x2="546" y2="180" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="192" x2="546" y2="192" stroke="#64748b" stroke-width="2"/>
+  <line x1="556" y1="204" x2="546" y2="204" stroke="#64748b" stroke-width="2"/>
+  <!-- CPU pins (right side) -->
+  <line x1="704" y1="108" x2="714" y2="108" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="120" x2="714" y2="120" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="132" x2="714" y2="132" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="144" x2="714" y2="144" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="156" x2="714" y2="156" stroke="#ef4444" stroke-width="2">
+    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="704" y1="168" x2="714" y2="168" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="180" x2="714" y2="180" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="192" x2="714" y2="192" stroke="#64748b" stroke-width="2"/>
+  <line x1="704" y1="204" x2="714" y2="204" stroke="#64748b" stroke-width="2"/>
+  <!-- CPU top pins -->
+  <line x1="580" y1="88" x2="580" y2="78" stroke="#64748b" stroke-width="2"/>
+  <line x1="596" y1="88" x2="596" y2="78" stroke="#64748b" stroke-width="2"/>
+  <line x1="612" y1="88" x2="612" y2="78" stroke="#ef4444" stroke-width="2">
+    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.0s" repeatCount="indefinite"/>
+  </line>
+  <line x1="628" y1="88" x2="628" y2="78" stroke="#64748b" stroke-width="2"/>
+  <line x1="644" y1="88" x2="644" y2="78" stroke="#64748b" stroke-width="2"/>
+  <line x1="660" y1="88" x2="660" y2="78" stroke="#64748b" stroke-width="2"/>
+  <line x1="676" y1="88" x2="676" y2="78" stroke="#64748b" stroke-width="2"/>
+  <!-- CPU bottom pins -->
+  <line x1="580" y1="236" x2="580" y2="246" stroke="#64748b" stroke-width="2"/>
+  <line x1="596" y1="236" x2="596" y2="246" stroke="#64748b" stroke-width="2"/>
+  <line x1="612" y1="236" x2="612" y2="246" stroke="#64748b" stroke-width="2"/>
+  <line x1="628" y1="236" x2="628" y2="246" stroke="#ef4444" stroke-width="2">
+    <animate attributeName="stroke" values="#ef4444;#ff8888;#ef4444" dur="1.3s" repeatCount="indefinite"/>
+  </line>
+  <line x1="644" y1="236" x2="644" y2="246" stroke="#64748b" stroke-width="2"/>
+  <line x1="660" y1="236" x2="660" y2="246" stroke="#64748b" stroke-width="2"/>
+  <line x1="676" y1="236" x2="676" y2="246" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Crack lines radiating from CPU -->
+  <path d="M556,120 L488,90 L456,68" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
+  <path d="M556,168 L490,172 L450,185" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
+  <path d="M630,88 L615,55 L600,35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" filter="url(#d13_glowRed)"/>
+  <path d="M704,148 L755,130 L790,110" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+  <path d="M704,192 L760,205 L800,220" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+
+  <!-- Tampered binary terminal panel -->
+  <rect x="820" y="88" width="285" height="148" rx="6" fill="#050a12" stroke="#ef4444" stroke-width="1"/>
+  <rect x="820" y="88" width="285" height="22" rx="6" fill="#0d0404"/>
+  <rect x="820" y="100" width="285" height="10" fill="#0d0404"/>
+  <text x="835" y="104" font-family="Courier New,monospace" font-size="8" fill="#64748b">BINARY ANALYSIS // CPU-Z.EXE</text>
+  <circle cx="1084" cy="100" r="5" fill="#ef4444" opacity="0.7"/>
+  <circle cx="1072" cy="100" r="5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="1060" cy="100" r="5" fill="#22c55e" opacity="0.7"/>
+  <!-- Terminal content -->
+  <text x="830" y="126" font-family="Courier New,monospace" font-size="8" fill="#22c55e">$ sha256sum cpu-z.exe</text>
+  <text x="830" y="139" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">MISMATCH: e4f2a1de != 8b3c9d7f</text>
+  <text x="830" y="152" font-family="Courier New,monospace" font-size="7.5" fill="#f87171">[!] TAMPERED BINARY DETECTED</text>
+  <text x="830" y="165" font-family="Courier New,monospace" font-size="8" fill="#22c55e">$ strings cpu-z.exe | grep -i cpuid</text>
+  <text x="830" y="178" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">cpuid_leak_r00t: EAX=0x{SERIAL}</text>
+  <text x="830" y="191" font-family="Courier New,monospace" font-size="7.5" fill="#64748b">c2_beacon: 185.220.101.47:4444</text>
+  <text x="830" y="204" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">STATUS: ACTIVE EXFIL IN PROGRESS</text>
+  <text x="830" y="218" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">_</text>
+  <animate attributeName="opacity" attributeType="XML" from="1" to="0" dur="0.8s" repeatCount="indefinite" begin="0"/>
+
+  <!-- Particle effects from CPU -->
+  <circle cx="630" cy="162" r="2" fill="#ef4444">
+    <animate attributeName="cx" values="630;580;540" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="162;130;100" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="630" cy="162" r="1.5" fill="#f87171">
+    <animate attributeName="cx" values="630;675;710" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="162;140;118" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0" dur="2.3s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="540" cy="100" r="1.5" fill="#ef4444">
+    <animate attributeName="cy" values="100;60" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Marimo RCE indicator (left of CPU) -->
+  <rect x="310" y="95" width="210" height="100" rx="6" fill="#050a12" stroke="#ef4444" stroke-width="1"/>
+  <text x="415" y="113" font-family="Courier New,monospace" font-size="9" fill="#f87171" text-anchor="middle" font-weight="bold">MARIMO PRE-AUTH RCE</text>
+  <rect x="320" y="118" width="190" height="1" fill="#1e293b"/>
+  <text x="320" y="133" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">CVE-2025-XXXX // CVSS: 9.8</text>
+  <text x="320" y="147" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">VECTOR: NETWORK</text>
+  <text x="320" y="161" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">AUTH: NONE REQUIRED</text>
+  <text x="320" y="175" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">STATUS: PATCH AVAILABLE</text>
+  <!-- Exploit path arrow -->
+  <path d="M405,185 L405,95" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.4" marker-end="url(#d13_arrowRed)"/>
+  <!-- CVSS score badge -->
+  <rect x="420" y="180" width="88" height="12" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="464" y="190" font-family="Courier New,monospace" font-size="8" fill="#ef4444" text-anchor="middle">CVSS 9.8 CRITICAL</text>
+
+  <!-- ===== CRACK DIVIDER at y=315 ===== -->
+  <path d="M290,315 L338,306 L384,318 L432,304 L480,320 L528,308 L576,321 L625,307 L674,318 L722,304 L770,320 L820,307 L870,317 L920,306 L970,318 L1020,307 L1072,315 L1122,307 L1172,316 L1200,311"
+        fill="none" stroke="url(#d13_crackGrad)" stroke-width="2.5" filter="url(#d13_crackGlow)"/>
+  <path d="M290,318 L338,310 L384,322 L432,308 L480,324 L528,312 L576,325 L625,311 L674,322 L722,308 L770,324 L820,311 L870,321 L920,310 L970,322 L1020,311 L1072,319 L1122,311 L1172,320 L1200,315"
+        fill="none" stroke="#ff5500" stroke-width="1" opacity="0.35"/>
+
+  <!-- ===== BOTTOM HALF: ZERO-DAY EXPLOIT CHAIN + RUST ===== -->
+  <text x="310" y="343" font-family="Courier New,monospace" font-size="9" fill="#64748b" letter-spacing="2">// ZERO-DAY TIMELINE :: ADOBE ACROBAT + PATCH CHAIN</text>
+
+  <!-- Exploit chain timeline -->
+  <!-- Timeline base line -->
+  <line x1="320" y1="432" x2="960" y2="432" stroke="#1e3a5f" stroke-width="2"/>
+  <!-- Timeline arrow -->
+  <line x1="958" y1="427" x2="966" y2="432" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="958" y1="437" x2="966" y2="432" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <!-- Stage 1: Discovery -->
+  <circle cx="360" cy="432" r="8" fill="#0a0e16" stroke="#f59e0b" stroke-width="2" filter="url(#d13_glowAmber)"/>
+  <line x1="360" y1="424" x2="360" y2="380" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="318" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="360" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b" text-anchor="middle">DISCOVERY</text>
+  <text x="360" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-03-28</text>
+  <text x="360" y="448" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle">D+0</text>
+
+  <!-- Stage 2: Weaponize -->
+  <circle cx="480" cy="432" r="8" fill="#0a0e16" stroke="#ef4444" stroke-width="2" filter="url(#d13_glowRed)"/>
+  <line x1="480" y1="424" x2="480" y2="380" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="438" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="480" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#f87171" text-anchor="middle">WEAPONIZE</text>
+  <text x="480" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-04-01</text>
+  <text x="480" y="448" font-family="Courier New,monospace" font-size="7" fill="#94a3b8" text-anchor="middle">D+4</text>
+
+  <!-- Stage 3: Active Exploit -->
+  <circle cx="600" cy="432" r="10" fill="#1a0505" stroke="#ef4444" stroke-width="2.5" filter="url(#d13_glowRed)">
+    <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <line x1="600" y1="422" x2="600" y2="380" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="548" y="352" width="104" height="30" rx="4" fill="#0d0404" stroke="#ef4444" stroke-width="1"/>
+  <text x="600" y="366" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444" text-anchor="middle">IN-THE-WILD</text>
+  <text x="600" y="377" font-family="Courier New,monospace" font-size="7" fill="#f87171" text-anchor="middle">ACTIVE 2026-04-09</text>
+  <text x="600" y="448" font-family="Courier New,monospace" font-size="7" fill="#ef4444" text-anchor="middle">D+12 NOW</text>
+
+  <!-- Stage 4: Patch -->
+  <circle cx="720" cy="432" r="8" fill="#0a0e16" stroke="#22c55e" stroke-width="2" filter="url(#d13_glowGreen)"/>
+  <line x1="720" y1="424" x2="720" y2="380" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="678" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="720" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#4ade80" text-anchor="middle">PATCH DROP</text>
+  <text x="720" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2026-04-12</text>
+  <text x="720" y="448" font-family="Courier New,monospace" font-size="7" fill="#22c55e" text-anchor="middle">D+15</text>
+
+  <!-- Stage 5: Remediate -->
+  <circle cx="840" cy="432" r="8" fill="#0a0e16" stroke="#22c55e" stroke-width="2"/>
+  <line x1="840" y1="424" x2="840" y2="380" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="798" y="355" width="84" height="26" rx="4" fill="#050a12" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="840" y="368" font-family="Courier New,monospace" font-size="7.5" fill="#4ade80" text-anchor="middle">REMEDIATE</text>
+  <text x="840" y="379" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">TARGET: D+20</text>
+  <text x="840" y="448" font-family="Courier New,monospace" font-size="7" fill="#22c55e" text-anchor="middle">D+20</text>
+
+  <!-- Stage arrow line segments -->
+  <line x1="368" y1="432" x2="472" y2="432" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="488" y1="432" x2="590" y2="432" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.9s" repeatCount="indefinite"/>
+  </line>
+  <line x1="610" y1="432" x2="712" y2="432" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.7s" repeatCount="indefinite"/>
+  </line>
+  <line x1="728" y1="432" x2="832" y2="432" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Adobe PDF exploit payload panel -->
+  <rect x="310" y="468" width="310" height="110" rx="6" fill="#050a12" stroke="#f59e0b" stroke-width="1"/>
+  <text x="465" y="486" font-family="Courier New,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" font-weight="bold">ADOBE ACROBAT PAYLOAD</text>
+  <rect x="320" y="491" width="290" height="1" fill="#1e293b"/>
+  <text x="320" y="506" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">FILE: invoice_april2026.pdf</text>
+  <text x="320" y="519" font-family="Courier New,monospace" font-size="7.5" fill="#ef4444">[!] JS HEAP SPRAY DETECTED</text>
+  <text x="320" y="532" font-family="Courier New,monospace" font-size="7.5" fill="#f59e0b">CVE: ACROBAT_2026_ZDAY</text>
+  <text x="320" y="545" font-family="Courier New,monospace" font-size="7.5" fill="#94a3b8">SCOPE: READER/ACROBAT DC</text>
+  <text x="320" y="558" font-family="Courier New,monospace" font-size="7.5" fill="#22c55e">FIX: UPDATE TO 24.3.20421</text>
+  <text x="320" y="571" font-family="Courier New,monospace" font-size="7.5" fill="#64748b">PLATFORM: WINDOWS / MACOS</text>
+
+  <!-- Rust security panel -->
+  <rect x="640" y="468" width="550" height="110" rx="6" fill="#050a12" stroke="#22d3ee" stroke-width="1"/>
+  <text x="915" y="486" font-family="Courier New,monospace" font-size="9" fill="#67e8f9" text-anchor="middle" font-weight="bold">RUST MEMORY SAFETY ANALYSIS</text>
+  <rect x="650" y="491" width="530" height="1" fill="#1e293b"/>
+  <!-- Rust comparison bars -->
+  <text x="650" y="506" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">MEMORY SAFETY</text>
+  <rect x="754" y="499" width="130" height="7" rx="2" fill="#1e293b"/>
+  <rect x="754" y="499" width="124" height="7" rx="2" fill="#22d3ee" opacity="0.85"/>
+  <text x="890" y="506" font-family="Courier New,monospace" font-size="8" fill="#22d3ee">95% (RUST)</text>
+  <text x="650" y="522" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">CVE SURFACE</text>
+  <rect x="754" y="515" width="130" height="7" rx="2" fill="#1e293b"/>
+  <rect x="754" y="515" width="18" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
+  <text x="890" y="522" font-family="Courier New,monospace" font-size="8" fill="#22c55e">14% (RUST)</text>
+  <text x="650" y="538" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">USE-AFTER-FREE</text>
+  <rect x="754" y="531" width="130" height="7" rx="2" fill="#1e293b"/>
+  <rect x="754" y="531" width="4" height="7" rx="2" fill="#22c55e" opacity="0.85"/>
+  <text x="890" y="538" font-family="Courier New,monospace" font-size="8" fill="#22c55e">3% (RUST)</text>
+  <text x="650" y="554" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">BORROW CHK</text>
+  <rect x="754" y="547" width="130" height="7" rx="2" fill="#1e293b"/>
+  <rect x="754" y="547" width="119" height="7" rx="2" fill="#22d3ee" opacity="0.75"/>
+  <text x="890" y="554" font-family="Courier New,monospace" font-size="8" fill="#22d3ee">ENFORCED</text>
+  <!-- Rust language tag -->
+  <rect x="990" y="499" width="88" height="56" rx="6" fill="#080d18" stroke="#22d3ee" stroke-width="1"/>
+  <text x="1034" y="520" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#22d3ee" text-anchor="middle">Rust</text>
+  <text x="1034" y="536" font-family="Courier New,monospace" font-size="7.5" fill="#67e8f9" text-anchor="middle">MEMORY SAFE</text>
+  <text x="1034" y="549" font-family="Courier New,monospace" font-size="7" fill="#64748b" text-anchor="middle">2015-PRESENT</text>
+
+  <!-- Bottom half particles -->
+  <circle cx="500" cy="520" r="2" fill="#ef4444">
+    <animate attributeName="cy" values="528;488" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="800" cy="508" r="1.5" fill="#22c55e">
+    <animate attributeName="cy" values="516;476" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="505" r="2" fill="#22d3ee">
+    <animate attributeName="cy" values="510;470" dur="2.5s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0" dur="2.5s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="500" r="1.5" fill="#f59e0b">
+    <animate attributeName="cy" values="504;464" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="0" y="597" width="1200" height="33" fill="url(#d13_footerGrad)"/>
+  <rect x="0" y="597" width="1200" height="1" fill="#1e3a5f"/>
+  <rect x="0" y="597.5" width="1200" height="0.5" fill="#3b82f6" opacity="0.4"/>
+  <text x="310" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#3b82f6">tech.2twodragon.com</text>
+  <text x="640" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#64748b" text-anchor="middle">APRIL 13, 2026 // WEEKLY SECURITY DIGEST</text>
+  <text x="1180" y="618" font-family="Courier New,monospace" font-size="8.5" fill="#64748b" text-anchor="end">ISSUE #248</text>
 </svg>

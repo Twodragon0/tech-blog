@@ -78,6 +78,11 @@ include = [
     "scripts/regenerate_all_images.py",
     "scripts/regenerate_digest_svgs.py",
     "scripts/lib/*.py",
+    "scripts/news/content_generator.py",
+    "scripts/news_utils.py",
 ]
 show_missing = true
-fail_under = 55
+# Note: raising this threshold is a ratchet. Lower it only when adding large
+# untested modules to the include list; otherwise prefer adding tests to meet
+# the existing bar.
+fail_under = 50

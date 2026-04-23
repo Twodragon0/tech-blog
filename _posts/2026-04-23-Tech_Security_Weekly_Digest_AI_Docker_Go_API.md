@@ -71,7 +71,7 @@ toc: true
 
 ## 경영진 브리핑
 
-- **주요 모니터링 대상**: 악성 KICS Docker 이미지와 VS Code 확장이 Checkmarx 공급망을 공격하다, 자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다, Harvester, Microsoft Graph API를 통해 남아시아에서 Linux GoGra 백도어 배포 등 High 등급 위협 6건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: 악성 KICS Docker 이미지와 VS Code 확장이 Checkmarx 공급망을 공격하다, 자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다, Harvester, Microsoft Graph API를 통해 남아시아에서 Linux GoGra 백도어 배포 등 High 등급 위협 5건에 대한 탐지 강화가 필요합니다.
 - 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다.
 
 ## 위험 스코어카드

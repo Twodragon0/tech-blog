@@ -69,7 +69,7 @@ toc: true
 ## 경영진 브리핑
 
 - **긴급 대응 필요**: Oracle, Identity Manager에서 인증되지 않은 RCE를 가능하게 하는 치명적 CVE-2026-21992 패치 등 Critical 등급 위협 1건이 확인되었습니다.
-- **주요 모니터링 대상**: FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격 경고, Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파, CISA, KEV에 Apple·Craft CMS·Laravel 취약점 추가 및 2026년 4월 3일까지 패치 지시 등 High 등급 위협 3건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격 경고, CISA, KEV에 Apple·Craft CMS·Laravel 취약점 추가 및 2026년 4월 3일까지 패치 지시 등 High 등급 위협 2건에 대한 탐지 강화가 필요합니다.
 - 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다.
 
 ## 위험 스코어카드
