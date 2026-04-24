@@ -1,102 +1,432 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-03-09</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly metro map: AI Agent Security threats, Saylor Bitcoin buy at 66K, Agent Safehouse sandbox">
+<title>AI Agent Security, Saylor Bitcoin Buy, Agent Safehouse — 2026.03.09</title>
+<!-- profile: high-quality-cover (L21 Metro Map, research-based, batch3a-locked) -->
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1020"/>
+    <stop offset="50%" stop-color="#0C1630"/>
+    <stop offset="100%" stop-color="#0F1A3A"/>
+  </linearGradient>
+  <radialGradient id="pulseRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FF4D5E" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#E63946" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="pulseAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFC43D" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#FFA107" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#FFA107" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="pulseCyan" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#5FD3F3" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#2AA8CE" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#2AA8CE" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="15" cy="15" r="0.7" fill="#2E3A66" opacity="0.55"/>
+  </pattern>
+  <filter id="stationShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
+    <feOffset dx="0" dy="2"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="120%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+    <feOffset dx="1" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowRed" x="-10%" y="-50%" width="120%" height="200%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  <filter id="glowAmber" x="-10%" y="-50%" width="120%" height="200%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  <filter id="glowCyan" x="-10%" y="-50%" width="120%" height="200%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  <clipPath id="canvasClip">
+    <rect x="0" y="0" width="1200" height="630"/>
+  </clipPath>
+<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgGrad)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<!-- Subtle map guides -->
+<g opacity="0.12" stroke="#4A6AA0" stroke-width="0.6" fill="none">
+  <line x1="0" y1="150" x2="1200" y2="150">
+    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <line x1="0" y1="300" x2="1200" y2="300">
+    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite" begin="1s"/>
+  </line>
+  <line x1="0" y1="450" x2="1200" y2="450">
+    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite" begin="2s"/>
+  </line>
+  <line x1="200" y1="0" x2="200" y2="630"/>
+  <line x1="420" y1="0" x2="420" y2="630"/>
+  <line x1="640" y1="0" x2="640" y2="630"/>
+  <line x1="860" y1="0" x2="860" y2="630"/>
+  <line x1="1060" y1="0" x2="1060" y2="630"/>
+</g>
+
+<!-- Title -->
+<g filter="url(#textShadow)">
+  <text x="60" y="55" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#E9EEF8" letter-spacing="1.2">
+    WEEKLY SECURITY DIGEST
+    <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
+  </text>
+  <text x="60" y="82" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#6A88C8" letter-spacing="2">2026.03.09</text>
+</g>
+
+<!-- Legend -->
+<g transform="translate(870,48)" filter="url(#textShadow)">
+  <rect x="-6" y="-26" width="310" height="52" rx="10" fill="#14213E" stroke="#3A4E82" stroke-width="1.2">
+    <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="8" cy="0" r="5" fill="#E63946">
+    <animate attributeName="r" values="5;6.5;5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="20" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">AI SECURITY</text>
+  <circle cx="118" cy="0" r="5" fill="#FFA107">
+    <animate attributeName="r" values="5;6.5;5" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="130" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">BITCOIN</text>
+  <circle cx="210" cy="0" r="5" fill="#2AA8CE">
+    <animate attributeName="r" values="5;6.5;5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="222" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">SANDBOX</text>
+</g>
+
+<!-- ==================== LINE 1: AI Agent Security (RED) ==================== -->
+<g>
+  <line x1="120" y1="170" x2="1080" y2="170" stroke="#E63946" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowRed)">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+  </line>
+  <line x1="120" y1="170" x2="1080" y2="170" stroke="#E63946" stroke-width="9" stroke-linecap="round"/>
+  <g transform="translate(60,170)" filter="url(#textShadow)">
+    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#E63946">
+      <animate attributeName="fill" values="#E63946;#FF6B7A;#E63946" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" text-anchor="middle">L1</text>
+  </g>
+  <circle r="10" fill="#FFE1E4" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="cx" values="120;1080;120" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="170;170;170" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;1;0" dur="9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Station A: Prompt Injection -->
+  <g transform="translate(200,170)">
+    <circle r="20" fill="url(#pulseRed)">
+      <animate attributeName="r" values="20;30;20" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="13" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)"/>
+    <circle r="4" fill="#FF4D5E">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="200" y="136" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Prompt</text>
+    <text x="200" y="153" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Injection</text>
+    <text x="200" y="215" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">GitHub Issue</text>
   </g>
 
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-03-09</text>
+  <!-- Station B: Supply Chain -->
+  <g transform="translate(410,170)">
+    <circle r="15" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)"/>
+    <circle r="6" fill="#E63946">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="410" y="138" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Supply Chain</text>
+    <text x="410" y="215" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">Cline pkg</text>
+  </g>
 
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round">
-      <ellipse cx="0" cy="6" rx="24" ry="28"/>
-      <circle cx="-8" cy="-2" r="3" fill="url(#accentRed)" stroke="none"/>
-      <circle cx="8" cy="-2" r="3" fill="url(#accentRed)" stroke="none"/>
-      <line x1="0" y1="-22" x2="-12" y2="-40"/>
-      <line x1="0" y1="-22" x2="12" y2="-40"/>
-      <line x1="-24" y1="-4" x2="-42" y2="-12"/>
-      <line x1="-24" y1="6" x2="-44" y2="6"/>
-      <line x1="-24" y1="16" x2="-42" y2="24"/>
-      <line x1="24" y1="-4" x2="42" y2="-12"/>
-      <line x1="24" y1="6" x2="44" y2="6"/>
-      <line x1="24" y1="16" x2="42" y2="24"/>
+  <!-- Station C: MCP Abuse -->
+  <g transform="translate(620,170)">
+    <rect x="-18" y="-14" width="36" height="28" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)">
+      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="900" fill="#FF4D5E">MCP</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="620" y="138" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">MCP Server</text>
+    <text x="620" y="215" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">Context leak</text>
+  </g>
+
+  <!-- Station D: Privilege Creep -->
+  <g transform="translate(840,170)">
+    <polygon points="-14,-14 14,-14 0,14" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="14s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="840" y="138" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Privilege</text>
+    <text x="840" y="155" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Creep</text>
+    <text x="840" y="215" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">Full FS access</text>
+  </g>
+
+  <!-- Terminus: Lethal Triangle -->
+  <g transform="translate(1055,170)">
+    <circle r="22" fill="none" stroke="#E63946" stroke-width="3" stroke-dasharray="4 3">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="14" fill="#E63946" filter="url(#stationShadow)">
+      <animate attributeName="fill" values="#E63946;#FF4D5E;#E63946" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#FFFFFF">LETHAL</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="1055" y="138" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFE1E4" text-anchor="middle">Triangle</text>
+  </g>
+</g>
+
+<!-- ==================== LINE 2: Bitcoin / Strategy (AMBER) ==================== -->
+<g>
+  <line x1="120" y1="330" x2="1080" y2="330" stroke="#FFA107" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowAmber)">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite" begin="0.7s"/>
+  </line>
+  <line x1="120" y1="330" x2="1080" y2="330" stroke="#FFA107" stroke-width="9" stroke-linecap="round"/>
+  <g transform="translate(60,330)" filter="url(#textShadow)">
+    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#FFA107">
+      <animate attributeName="fill" values="#FFA107;#FFC43D;#FFA107" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#1A1202" text-anchor="middle">L2</text>
+  </g>
+  <circle r="10" fill="#FFF0C9" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="cx" values="120;1080;120" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="330;330;330" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;1;0" dur="10s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Station A: Strategy Holdings -->
+  <g transform="translate(200,330)">
+    <circle r="20" fill="url(#pulseAmber)">
+      <animate attributeName="r" values="20;28;20" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="13" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)"/>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" font-weight="900" fill="#FFC43D">720K BTC</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="200" y="298" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Strategy</text>
+    <text x="200" y="375" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">720,737 BTC</text>
+  </g>
+
+  <!-- Station B: NAV Discount -->
+  <g transform="translate(410,330)">
+    <circle r="15" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)"/>
+    <circle r="6" fill="#FFA107">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="6;8;6" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="410" y="298" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">NAV Discount</text>
+    <text x="410" y="375" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">mNAV below 1x</text>
+  </g>
+
+  <!-- Station C: BTC $66K Buy -->
+  <g transform="translate(620,330)">
+    <rect x="-18" y="-14" width="36" height="28" rx="3" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)">
+      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite" begin="0.4s"/>
+    </rect>
+    <text y="4" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="900" fill="#FFC43D">BUY</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="620" y="298" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="900" fill="#FFF0C9" text-anchor="middle">BTC $66K</text>
+    <text x="620" y="375" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">Saylor signal</text>
+  </g>
+
+  <!-- Station D: Phishing Surge -->
+  <g transform="translate(840,330)">
+    <polygon points="0,-16 14,8 -14,8" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="16s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="840" y="298" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Phishing</text>
+    <text x="840" y="315" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Surge</text>
+    <text x="840" y="375" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">Saylor deepfake</text>
+  </g>
+
+  <!-- Terminus: CLARITY Act -->
+  <g transform="translate(1055,330)">
+    <circle r="22" fill="none" stroke="#FFA107" stroke-width="3" stroke-dasharray="4 3">
+      <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="14" fill="#FFA107" filter="url(#stationShadow)">
+      <animate attributeName="fill" values="#FFA107;#FFC43D;#FFA107" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" font-weight="900" fill="#1A1202">CLARITY</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="1055" y="298" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFE7B5" text-anchor="middle">CLARITY Act</text>
+    <text x="1055" y="314" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFD27A" text-anchor="middle">SEC/CFTC</text>
+  </g>
+</g>
+
+<!-- ==================== LINE 3: Agent Safehouse / Sandbox (CYAN) ==================== -->
+<g>
+  <line x1="120" y1="490" x2="1080" y2="490" stroke="#2AA8CE" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowCyan)">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite" begin="1.4s"/>
+  </line>
+  <line x1="120" y1="490" x2="1080" y2="490" stroke="#2AA8CE" stroke-width="9" stroke-linecap="round"/>
+  <g transform="translate(60,490)" filter="url(#textShadow)">
+    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#2AA8CE">
+      <animate attributeName="fill" values="#2AA8CE;#5FD3F3;#2AA8CE" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#061622" text-anchor="middle">L3</text>
+  </g>
+  <circle r="10" fill="#CFF0FA" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="cx" values="120;1080;120" dur="11s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="490;490;490" dur="11s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Station A: Agent Safehouse -->
+  <g transform="translate(200,490)">
+    <circle r="20" fill="url(#pulseCyan)">
+      <animate attributeName="r" values="20;28;20" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="13" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)"/>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#5FD3F3">macOS</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="200" y="458" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Agent</text>
+    <text x="200" y="475" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Safehouse</text>
+    <text x="200" y="535" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A6E6F7" text-anchor="middle">Local sandbox</text>
+  </g>
+
+  <!-- Station B: Isolation -->
+  <g transform="translate(410,490)">
+    <circle r="15" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)"/>
+    <g stroke="#5FD3F3" stroke-width="2" fill="none">
+      <path d="M-7 0 L7 0"/>
+      <path d="M0 -7 L0 7"/>
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="3s" repeatCount="indefinite"/>
     </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">AI AGENT</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Agent Attack</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Surface Mapped</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">Krebs deep dive</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Prompt injection</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">and supply chain risks</text>
   </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5">
-      <rect x="-52" y="12" width="32" height="32" rx="3"/>
-      <rect x="-16" y="-8" width="32" height="32" rx="3"/>
-      <rect x="20" y="12" width="32" height="32" rx="3" stroke="#ff3e6c" stroke-dasharray="4 3"/>
-      <path d="M-34,12 L-34,-16 L34,-16" stroke-opacity="0.5"/>
-      <polyline points="30,-20 36,-14 30,-8" stroke-opacity="0.5"/>
-    </g>
-    <rect x="133" y="210" width="80" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">POLICY</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CLARITY Act</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Splits SEC CFTC</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">Bank compliance hit</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Crypto rulebook</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">reshapes controls</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round">
-      <rect x="-24" y="0" width="48" height="36" rx="4"/>
-      <path d="M-14,0 L-14,-16 Q-14,-32 0,-32 Q14,-32 14,-16 L14,0"/>
-      <circle cx="0" cy="18" r="5" fill="url(#accentGreen)" stroke="none"/>
-    </g>
-    <rect x="128" y="210" width="88" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">SANDBOX</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Agent Safehouse</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Ships for macOS</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">Native isolation</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">AI agents pinned</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">to OS sandbox</text>
+  <g filter="url(#textShadow)">
+    <text x="410" y="458" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Isolation</text>
+    <text x="410" y="535" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A6E6F7" text-anchor="middle">Env quarantine</text>
   </g>
 
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  <!-- Station C: Policy Control -->
+  <g transform="translate(620,490)">
+    <rect x="-22" y="-14" width="44" height="28" rx="4" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)">
+      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite" begin="0.8s"/>
+    </rect>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="900" fill="#5FD3F3">POLICY</text>
   </g>
+  <g filter="url(#textShadow)">
+    <text x="620" y="458" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Policy</text>
+    <text x="620" y="475" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Control</text>
+    <text x="620" y="535" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A6E6F7" text-anchor="middle">Min privilege</text>
+  </g>
+
+  <!-- Station D: Human-in-Loop -->
+  <g transform="translate(840,490)">
+    <circle r="15" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)"/>
+    <path d="M-7 -5 Q0 -10 7 -5 Q10 0 7 5 Q0 10 -7 5 Q-10 0 -7 -5 Z" fill="none" stroke="#5FD3F3" stroke-width="1.6">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="840" y="458" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">Human</text>
+    <text x="840" y="475" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">in Loop</text>
+    <text x="840" y="535" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A6E6F7" text-anchor="middle">Manual approve</text>
+  </g>
+
+  <!-- Terminus: SAST + SCA -->
+  <g transform="translate(1055,490)">
+    <circle r="22" fill="none" stroke="#2AA8CE" stroke-width="3" stroke-dasharray="4 3">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="14" fill="#2AA8CE" filter="url(#stationShadow)">
+      <animate attributeName="fill" values="#2AA8CE;#5FD3F3;#2AA8CE" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="900" fill="#061622">SAFE</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="1055" y="458" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#CFF0FA" text-anchor="middle">SAST + SCA</text>
+  </g>
+</g>
+
+<!-- Vertical interchange bridges -->
+<g opacity="0.8">
+  <circle cx="410" cy="250" r="3" fill="#FFFFFF">
+    <animate attributeName="cy" values="188;312;188" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="410" cy="250" r="3" fill="#FFFFFF">
+    <animate attributeName="cy" values="188;312;188" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+  </circle>
+  <circle cx="620" cy="410" r="3" fill="#FFFFFF">
+    <animate attributeName="cy" values="348;472;348" dur="3.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="3.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="410" r="3" fill="#FFFFFF">
+    <animate attributeName="cy" values="348;472;348" dur="3.4s" repeatCount="indefinite" begin="1.7s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="3.4s" repeatCount="indefinite" begin="1.7s"/>
+  </circle>
+</g>
+
+<!-- Moving data pulses along each line -->
+<g>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="170;170" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="4s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="cy" values="170;170" dur="4s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="4.5s" repeatCount="indefinite" begin="0.4s"/>
+    <animate attributeName="cy" values="330;330" dur="4.5s" repeatCount="indefinite" begin="0.4s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4.5s" repeatCount="indefinite" begin="0.4s"/>
+  </circle>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="4.5s" repeatCount="indefinite" begin="2.2s"/>
+    <animate attributeName="cy" values="330;330" dur="4.5s" repeatCount="indefinite" begin="2.2s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4.5s" repeatCount="indefinite" begin="2.2s"/>
+  </circle>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="5s" repeatCount="indefinite" begin="0.9s"/>
+    <animate attributeName="cy" values="490;490" dur="5s" repeatCount="indefinite" begin="0.9s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite" begin="0.9s"/>
+  </circle>
+  <circle r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="cx" values="120;1080" dur="5s" repeatCount="indefinite" begin="2.5s"/>
+    <animate attributeName="cy" values="490;490" dur="5s" repeatCount="indefinite" begin="2.5s"/>
+    <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite" begin="2.5s"/>
+  </circle>
+</g>
+
+<!-- Footer bar -->
+<rect x="0" y="596" width="1200" height="34" fill="#0A0F1E" opacity="0.85"/>
+<text x="60" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0">tech.2twodragon.com</text>
+<text x="600" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0" text-anchor="middle">AI Agent Security · Bitcoin Strategy · Agent Safehouse</text>
+<text x="1140" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0" text-anchor="end">2026.03.09</text>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM10 0h1v1h-1zM12 0h2v1h-2zM15 0h2v1h-2zM18 0h3v1h-3zM22 0h1v1h-1zM25 0h1v1h-1zM28 0h1v1h-1zM30 0h3v1h-3zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM11 1h2v1h-2zM14 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM24 1h1v1h-1zM27 1h1v1h-1zM29 1h2v1h-2zM32 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h3v1h-3zM13 2h1v1h-1zM15 2h1v1h-1zM19 2h1v1h-1zM26 2h3v1h-3zM30 2h1v1h-1zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h3v1h-3zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM18 3h1v1h-1zM20 3h3v1h-3zM25 3h5v1h-5zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h3v1h-3zM17 4h1v1h-1zM20 4h2v1h-2zM30 4h2v1h-2zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h2v1h-2zM17 5h1v1h-1zM20 5h1v1h-1zM25 5h1v1h-1zM27 5h1v1h-1zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h2v1h-2zM13 7h2v1h-2zM16 7h1v1h-1zM18 7h4v1h-4zM23 7h1v1h-1zM27 7h1v1h-1zM30 7h2v1h-2zM0 8h1v1h-1zM2 8h5v1h-5zM9 8h1v1h-1zM11 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM22 8h2v1h-2zM25 8h5v1h-5zM32 8h1v1h-1zM34 8h5v1h-5zM0 9h1v1h-1zM4 9h2v1h-2zM7 9h5v1h-5zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM26 9h1v1h-1zM30 9h3v1h-3zM35 9h2v1h-2zM38 9h3v1h-3zM2 10h9v1h-9zM12 10h1v1h-1zM14 10h2v1h-2zM17 10h2v1h-2zM21 10h2v1h-2zM24 10h2v1h-2zM27 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h3v1h-3zM0 11h1v1h-1zM2 11h2v1h-2zM7 11h1v1h-1zM9 11h1v1h-1zM12 11h1v1h-1zM16 11h1v1h-1zM19 11h3v1h-3zM26 11h1v1h-1zM28 11h1v1h-1zM30 11h3v1h-3zM34 11h1v1h-1zM37 11h1v1h-1zM39 11h2v1h-2zM0 12h2v1h-2zM5 12h6v1h-6zM12 12h4v1h-4zM17 12h1v1h-1zM19 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM29 12h3v1h-3zM35 12h1v1h-1zM37 12h3v1h-3zM0 13h1v1h-1zM2 13h2v1h-2zM5 13h1v1h-1zM8 13h2v1h-2zM11 13h1v1h-1zM13 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM24 13h2v1h-2zM28 13h2v1h-2zM32 13h2v1h-2zM35 13h4v1h-4zM40 13h1v1h-1zM1 14h1v1h-1zM4 14h1v1h-1zM6 14h3v1h-3zM11 14h1v1h-1zM13 14h2v1h-2zM19 14h1v1h-1zM22 14h1v1h-1zM27 14h4v1h-4zM32 14h2v1h-2zM35 14h1v1h-1zM37 14h2v1h-2zM0 15h1v1h-1zM3 15h1v1h-1zM7 15h3v1h-3zM11 15h1v1h-1zM14 15h2v1h-2zM19 15h4v1h-4zM24 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM31 15h2v1h-2zM34 15h1v1h-1zM36 15h2v1h-2zM1 16h3v1h-3zM6 16h3v1h-3zM10 16h1v1h-1zM13 16h2v1h-2zM16 16h2v1h-2zM19 16h4v1h-4zM25 16h2v1h-2zM29 16h1v1h-1zM31 16h1v1h-1zM33 16h1v1h-1zM35 16h1v1h-1zM37 16h2v1h-2zM0 17h1v1h-1zM2 17h1v1h-1zM4 17h2v1h-2zM12 17h3v1h-3zM17 17h2v1h-2zM20 17h2v1h-2zM23 17h1v1h-1zM25 17h1v1h-1zM27 17h6v1h-6zM34 17h3v1h-3zM39 17h2v1h-2zM3 18h1v1h-1zM6 18h1v1h-1zM9 18h1v1h-1zM12 18h2v1h-2zM17 18h1v1h-1zM20 18h2v1h-2zM25 18h4v1h-4zM30 18h1v1h-1zM32 18h1v1h-1zM36 18h1v1h-1zM38 18h2v1h-2zM0 19h1v1h-1zM2 19h1v1h-1zM5 19h1v1h-1zM7 19h4v1h-4zM12 19h1v1h-1zM14 19h2v1h-2zM17 19h8v1h-8zM28 19h1v1h-1zM32 19h2v1h-2zM36 19h2v1h-2zM2 20h2v1h-2zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h1v1h-1zM15 20h2v1h-2zM19 20h3v1h-3zM24 20h2v1h-2zM28 20h2v1h-2zM32 20h1v1h-1zM35 20h2v1h-2zM38 20h1v1h-1zM40 20h1v1h-1zM0 21h3v1h-3zM5 21h1v1h-1zM7 21h5v1h-5zM14 21h1v1h-1zM16 21h1v1h-1zM18 21h1v1h-1zM20 21h5v1h-5zM31 21h1v1h-1zM34 21h3v1h-3zM38 21h3v1h-3zM1 22h1v1h-1zM3 22h2v1h-2zM6 22h1v1h-1zM8 22h4v1h-4zM13 22h1v1h-1zM16 22h3v1h-3zM21 22h1v1h-1zM26 22h3v1h-3zM32 22h1v1h-1zM34 22h4v1h-4zM1 23h1v1h-1zM7 23h1v1h-1zM9 23h1v1h-1zM11 23h2v1h-2zM14 23h1v1h-1zM21 23h2v1h-2zM24 23h1v1h-1zM28 23h1v1h-1zM31 23h2v1h-2zM34 23h1v1h-1zM37 23h1v1h-1zM39 23h1v1h-1zM1 24h2v1h-2zM4 24h1v1h-1zM6 24h5v1h-5zM13 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM19 24h1v1h-1zM22 24h5v1h-5zM29 24h1v1h-1zM31 24h1v1h-1zM35 24h1v1h-1zM37 24h3v1h-3zM1 25h2v1h-2zM4 25h1v1h-1zM7 25h2v1h-2zM10 25h2v1h-2zM14 25h2v1h-2zM18 25h4v1h-4zM23 25h1v1h-1zM25 25h2v1h-2zM30 25h2v1h-2zM35 25h3v1h-3zM40 25h1v1h-1zM0 26h1v1h-1zM3 26h13v1h-13zM20 26h3v1h-3zM25 26h3v1h-3zM29 26h2v1h-2zM32 26h1v1h-1zM36 26h1v1h-1zM1 27h3v1h-3zM9 27h1v1h-1zM11 27h1v1h-1zM13 27h2v1h-2zM19 27h5v1h-5zM26 27h2v1h-2zM30 27h3v1h-3zM34 27h4v1h-4zM0 28h3v1h-3zM5 28h2v1h-2zM8 28h2v1h-2zM17 28h1v1h-1zM19 28h2v1h-2zM22 28h4v1h-4zM29 28h4v1h-4zM35 28h1v1h-1zM37 28h2v1h-2zM0 29h1v1h-1zM2 29h2v1h-2zM9 29h1v1h-1zM11 29h2v1h-2zM15 29h2v1h-2zM18 29h1v1h-1zM21 29h1v1h-1zM26 29h1v1h-1zM28 29h2v1h-2zM32 29h5v1h-5zM40 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM4 30h3v1h-3zM8 30h3v1h-3zM12 30h1v1h-1zM15 30h4v1h-4zM20 30h2v1h-2zM23 30h6v1h-6zM32 30h4v1h-4zM0 31h1v1h-1zM3 31h3v1h-3zM7 31h7v1h-7zM16 31h1v1h-1zM21 31h3v1h-3zM26 31h1v1h-1zM30 31h6v1h-6zM37 31h1v1h-1zM40 31h1v1h-1zM0 32h1v1h-1zM2 32h2v1h-2zM6 32h1v1h-1zM9 32h1v1h-1zM12 32h1v1h-1zM15 32h3v1h-3zM20 32h4v1h-4zM25 32h5v1h-5zM31 32h6v1h-6zM38 32h2v1h-2zM8 33h1v1h-1zM14 33h2v1h-2zM20 33h1v1h-1zM23 33h1v1h-1zM25 33h1v1h-1zM27 33h2v1h-2zM32 33h1v1h-1zM36 33h1v1h-1zM38 33h3v1h-3zM0 34h7v1h-7zM10 34h3v1h-3zM18 34h1v1h-1zM20 34h1v1h-1zM22 34h1v1h-1zM25 34h4v1h-4zM31 34h2v1h-2zM34 34h1v1h-1zM36 34h2v1h-2zM0 35h1v1h-1zM6 35h1v1h-1zM8 35h4v1h-4zM13 35h3v1h-3zM26 35h2v1h-2zM30 35h3v1h-3zM36 35h2v1h-2zM40 35h1v1h-1zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM8 36h1v1h-1zM10 36h2v1h-2zM13 36h1v1h-1zM15 36h2v1h-2zM18 36h2v1h-2zM21 36h2v1h-2zM29 36h1v1h-1zM32 36h7v1h-7zM40 36h1v1h-1zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM8 37h1v1h-1zM10 37h1v1h-1zM12 37h1v1h-1zM15 37h3v1h-3zM19 37h3v1h-3zM23 37h2v1h-2zM30 37h4v1h-4zM35 37h1v1h-1zM37 37h1v1h-1zM39 37h2v1h-2zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM8 38h2v1h-2zM12 38h1v1h-1zM14 38h3v1h-3zM20 38h1v1h-1zM22 38h1v1h-1zM24 38h4v1h-4zM29 38h3v1h-3zM33 38h4v1h-4zM0 39h1v1h-1zM6 39h1v1h-1zM10 39h2v1h-2zM13 39h7v1h-7zM21 39h2v1h-2zM24 39h1v1h-1zM26 39h1v1h-1zM28 39h1v1h-1zM32 39h2v1h-2zM36 39h2v1h-2zM39 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM12 40h7v1h-7zM22 40h1v1h-1zM24 40h4v1h-4zM29 40h1v1h-1zM34 40h5v1h-5z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>

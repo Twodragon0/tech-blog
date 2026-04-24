@@ -1,100 +1,359 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-03-15</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: GlassWorm supply chain attack abuses 72 Open VSX extensions, AI agent prompt injection and data exfiltration vulnerability, AWS IAM Identity Center multi-region access management">
+<!-- profile: high-quality-cover (L14 Timeline, research-based, batch3a-locked) -->
+<title>Weekly digest 2026-03-15 timeline: GlassWorm supply chain (Mar 10), AI Agent security (Mar 12), AWS IAM multi-region (Mar 15)</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="55%" stop-color="#0D1530"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="colA" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#122542"/>
+    <stop offset="100%" stop-color="#0A1830"/>
+  </linearGradient>
+  <linearGradient id="colB" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2E1A0A"/>
+    <stop offset="100%" stop-color="#1E1006"/>
+  </linearGradient>
+  <linearGradient id="colC" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0A2E1A"/>
+    <stop offset="100%" stop-color="#061E10"/>
+  </linearGradient>
+  <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.2"/>
+    <stop offset="15%" stop-color="#3A86FF" stop-opacity="0.9"/>
+    <stop offset="55%" stop-color="#FFB703" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#4ADE80"/>
+  </linearGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/>
+  </pattern>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.8"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<!-- Background column glows -->
+<circle cx="240" cy="390" r="140" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="620" cy="390" r="140" fill="url(#glowAmber)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="5.6s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1000" cy="390" r="140" fill="url(#glowGreen)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="7.0s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Header bar -->
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.03.15</text>
+<rect x="0" y="54" width="1200" height="2" fill="#8FB8FF" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Starfield ambient dots -->
+<g fill="#8FB8FF">
+  <circle cx="160" cy="78" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="420" cy="86" r="1.0"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.4s" repeatCount="indefinite"/></circle>
+  <circle cx="720" cy="80" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.7s" repeatCount="indefinite"/></circle>
+  <circle cx="1040" cy="88" r="0.9" opacity="0.6"/>
+</g>
+
+<!-- Title row -->
+<text x="60" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0" letter-spacing="3">THIS WEEK  /  MAR 09 - 15</text>
+<text x="60" y="130" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA" filter="url(#textShadow)">Supply Chain, AI Agents, Cloud IAM</text>
+
+<!-- Timeline axis y=170 -->
+<line x1="60" y1="170" x2="1140" y2="170" stroke="url(#timelineGrad)" stroke-width="3.4" stroke-linecap="round"/>
+<!-- Moving traveler -->
+<circle r="5" cy="170" fill="#F5F7FA" stroke="#8FB8FF" stroke-width="1.4">
+  <animate attributeName="cx" values="60;1140;60" dur="11s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
+</circle>
+
+<!-- 7 ticks: MAR 09 through MAR 15 -->
+<g font-family="Inter, monospace" font-size="10" font-weight="700" fill="#7DA3D9">
+  <line x1="80" y1="163" x2="80" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="80" y="194" text-anchor="middle">MAR 09</text>
+  <line x1="240" y1="163" x2="240" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="240" y="194" text-anchor="middle" fill="#8FB8FF">MAR 10</text>
+  <line x1="400" y1="163" x2="400" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="400" y="194" text-anchor="middle">MAR 11</text>
+  <line x1="560" y1="163" x2="560" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="560" y="194" text-anchor="middle" fill="#FFB703">MAR 12</text>
+  <line x1="720" y1="163" x2="720" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="720" y="194" text-anchor="middle">MAR 13</text>
+  <line x1="900" y1="163" x2="900" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="900" y="194" text-anchor="middle">MAR 14</text>
+  <line x1="1100" y1="163" x2="1100" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="1100" y="194" text-anchor="middle" fill="#4ADE80">MAR 15</text>
+</g>
+
+<!-- 3 anchor dots on timeline -->
+<!-- Blue: GlassWorm at MAR 10 (x=240) -->
+<g transform="translate(240,170)">
+  <circle r="22" fill="url(#glowBlue)">
+    <animate attributeName="r" values="20;32;20" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="3" filter="url(#softShadow)"/>
+  <circle r="3.5" fill="#8FB8FF">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<!-- Amber: AI Agent at MAR 12 (x=560) -->
+<g transform="translate(560,170)">
+  <circle r="22" fill="url(#glowAmber)">
+    <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="10" fill="#1E1006" stroke="#FFB703" stroke-width="3" filter="url(#softShadow)"/>
+  <circle r="3.5" fill="#FFD58A">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<!-- Green: AWS IAM at MAR 15 (x=1100) -->
+<g transform="translate(1100,170)">
+  <circle r="22" fill="url(#glowGreen)">
+    <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="10" fill="#061E10" stroke="#4ADE80" stroke-width="3" filter="url(#softShadow)"/>
+  <circle r="3.5" fill="#86EFAC">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.7s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Connector lines from dots to columns -->
+<line x1="240" y1="180" x2="240" y2="216" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
+<line x1="560" y1="180" x2="560" y2="216" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
+<line x1="1100" y1="180" x2="1100" y2="216" stroke="#4ADE80" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
+
+<!-- COL A: GlassWorm Supply Chain (Critical / Blue) col starts x=72 -->
+<g transform="translate(72,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colA)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#3A86FF" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">CRITICAL  /  SUPPLY CHAIN</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">GlassWorm</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#BFC9D9">72 Open VSX extensions poisoned</text>
   </g>
-
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-03-15</text>
-
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="-14,-24 -40,0 -14,24"/>
-      <polyline points="14,-24 40,0 14,24"/>
-      <line x1="-4" y1="30" x2="4" y2="-30" stroke-width="2"/>
+  <!-- Scene: package box with infection spokes -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <rect x="-36" y="-24" width="72" height="52" rx="5" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.8"/>
+      <rect x="-24" y="-14" width="48" height="32" rx="3" fill="#112238"/>
+      <text x="0" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">OPEN VSX</text>
+      <text x="0" y="20" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="#E63946">x72 EXT</text>
     </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">SUPPLY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">GlassWorm Hits</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">72 VSX Exts</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">Open VSX registry</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Dev tool chain</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">turned hostile</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round">
-      <ellipse cx="0" cy="6" rx="24" ry="28"/>
-      <circle cx="-8" cy="-2" r="3" fill="url(#accentBlue)" stroke="none"/>
-      <circle cx="8" cy="-2" r="3" fill="url(#accentBlue)" stroke="none"/>
-      <line x1="0" y1="-22" x2="-12" y2="-40"/>
-      <line x1="0" y1="-22" x2="12" y2="-40"/>
-      <line x1="-24" y1="-4" x2="-42" y2="-12"/>
-      <line x1="-24" y1="6" x2="-44" y2="6"/>
-      <line x1="-24" y1="16" x2="-42" y2="24"/>
-      <line x1="24" y1="-4" x2="42" y2="-12"/>
-      <line x1="24" y1="6" x2="44" y2="6"/>
-      <line x1="24" y1="16" x2="42" y2="24"/>
+    <g stroke="#3A86FF" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.7">
+      <line x1="-36" y1="-10" x2="-68" y2="-28"/>
+      <line x1="36" y1="-10" x2="68" y2="-28"/>
+      <line x1="-36" y1="14" x2="-68" y2="28"/>
+      <line x1="36" y1="14" x2="68" y2="28"/>
     </g>
-    <rect x="129" y="210" width="88" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">AI RISK</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Agent Prompt</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Injection Leak</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">Data theft paths</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Internal LLMs</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">need input guards</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round">
-      <rect x="-24" y="0" width="48" height="36" rx="4"/>
-      <path d="M-14,0 L-14,-16 Q-14,-32 0,-32 Q14,-32 14,-16 L14,0"/>
-      <circle cx="0" cy="18" r="5" fill="url(#accentGreen)" stroke="none"/>
+    <g fill="#E63946">
+      <circle cx="-68" cy="-28" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="-28" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-68" cy="28" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="28" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></circle>
     </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">IDENTITY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">AWS IAM IDC</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Goes Multi-Region</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">Central access plane</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Federated policy</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">spans every region</text>
   </g>
-
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  <!-- 3-step attack chain -->
+  <g transform="translate(28,208)">
+    <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Typosquatting / account hijack</text>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Credentials + API key harvest</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#12283F" stroke="#8FB8FF" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#8FB8FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1020">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">C2 payload + CI/CD pivot</text>
+    </g>
   </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#12283F" stroke="#3A86FF" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#8FB8FF">P0</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#F5F7FA">72 extensions</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#E63946">CRITICAL</text>
+  </g>
+</g>
+
+<!-- COL B: AI Agent Security (High / Amber) col starts x=432 -->
+<g transform="translate(432,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#FFB703" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFB703" letter-spacing="2.4">HIGH  /  AI SECURITY</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">AI Agent Vuln</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FFD58A">Prompt inject + data exfiltration</text>
+  </g>
+  <!-- Scene: agent brain with inject/exfil arrows -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <circle cx="0" cy="0" r="36" fill="#1E1006" stroke="#FFB703" stroke-width="2"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFB703">AI</text>
+      <text x="0" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFB703">AGENT</text>
+      <circle cx="0" cy="0" r="36" fill="none" stroke="#FFB703" stroke-width="1" stroke-dasharray="4 4" opacity="0.5">
+        <animate attributeName="stroke-dashoffset" values="0;8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <line x1="-80" y1="0" x2="-40" y2="0" stroke="#E63946" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="-42,0 -52,-5 -52,5" fill="#E63946">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="-80" y="-10" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#E63946" text-anchor="middle">INJECT</text>
+    <line x1="40" y1="0" x2="78" y2="0" stroke="#FFD58A" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.6s" begin="0.5s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="76,0 66,-5 66,5" fill="#FFD58A">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.5s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="90" y="-10" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FFD58A" text-anchor="middle">EXFIL</text>
+  </g>
+  <!-- 3-step attack chain -->
+  <g transform="translate(28,208)">
+    <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="7" fill="#FFB703"/>
+    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">1</text>
+    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Prompt injection via user input</text>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#FFB703"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">System prompt leak + scope bypass</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#2A1A08" stroke="#FFD58A" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#FFD58A"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Data exfil via agent output</text>
+    </g>
+  </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#2A1A08" stroke="#FFB703" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#FFB703">P1</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#F5F7FA">Input/Output Validation</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FFB703">HIGH</text>
+  </g>
+</g>
+
+<!-- COL C: AWS IAM Identity Center Multi-Region (Medium / Green) col starts x=792 -->
+<g transform="translate(792,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colC)" stroke="#4ADE80" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#4ADE80" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#4ADE80" letter-spacing="2.4">MEDIUM  /  CLOUD IAM</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">AWS IAM Center</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#86EFAC">Multi-region access management</text>
+  </g>
+  <!-- Scene: globe with region dots -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <circle cx="0" cy="0" r="36" fill="#061E10" stroke="#4ADE80" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="36" ry="14" fill="none" stroke="#4ADE80" stroke-width="0.8" opacity="0.5"/>
+      <line x1="-36" y1="0" x2="36" y2="0" stroke="#4ADE80" stroke-width="0.8" opacity="0.5"/>
+      <line x1="0" y1="-36" x2="0" y2="36" stroke="#4ADE80" stroke-width="0.8" opacity="0.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#4ADE80">AWS IAM</text>
+    </g>
+    <circle cx="-52" cy="-20" r="5" stroke="#4ADE80" stroke-width="1.2" fill="#061E10">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-52" y="-28" text-anchor="middle" font-family="Inter, monospace" font-size="6" fill="#86EFAC">us-east</text>
+    <circle cx="56" cy="-16" r="5" stroke="#4ADE80" stroke-width="1.2" fill="#061E10">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="56" y="-24" text-anchor="middle" font-family="Inter, monospace" font-size="6" fill="#86EFAC">eu-west</text>
+    <circle cx="0" cy="44" r="5" stroke="#4ADE80" stroke-width="1.2" fill="#061E10">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="58" text-anchor="middle" font-family="Inter, monospace" font-size="6" fill="#86EFAC">ap-northeast</text>
+    <g stroke="#4ADE80" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.6">
+      <line x1="-20" y1="-20" x2="-47" y2="-20"/>
+      <line x1="20" y1="-14" x2="51" y2="-16"/>
+      <line x1="0" y1="36" x2="0" y2="39"/>
+    </g>
+  </g>
+  <!-- 3-step access chain -->
+  <g transform="translate(28,208)">
+    <rect x="0" y="0" width="280" height="34" rx="6" fill="#061E10" stroke="#4ADE80" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="7" fill="#4ADE80"/>
+    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#061E10">1</text>
+    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Central IAM Identity Center setup</text>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#4ADE80" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#061E10" stroke="#4ADE80" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#4ADE80"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#061E10">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Permission set multi-region scope</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#4ADE80" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A2A14" stroke="#86EFAC" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#86EFAC"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#061E10">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Audit SCP + least-privilege review</text>
+    </g>
+  </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#0A2A14" stroke="#4ADE80" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#4ADE80">P2</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">IAM Identity Center</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#4ADE80">MEDIUM</text>
+  </g>
+</g>
+
+<!-- Footer -->
+<rect x="0" y="610" width="1200" height="20" fill="#050813" opacity="0.85"/>
+<text x="36" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#4A6AA0" letter-spacing="1.2">tech.2twodragon.com</text>
+<text x="1164" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#4A6AA0" letter-spacing="1.2" text-anchor="end">DevSecOps Weekly</text>
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM10 0h4v1h-4zM15 0h2v1h-2zM18 0h1v1h-1zM21 0h1v1h-1zM26 0h2v1h-2zM29 0h3v1h-3zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h4v1h-4zM17 1h1v1h-1zM20 1h1v1h-1zM23 1h1v1h-1zM27 1h2v1h-2zM30 1h1v1h-1zM32 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h2v1h-2zM14 2h2v1h-2zM17 2h1v1h-1zM19 2h5v1h-5zM26 2h1v1h-1zM30 2h1v1h-1zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h4v1h-4zM14 3h1v1h-1zM17 3h1v1h-1zM20 3h6v1h-6zM27 3h6v1h-6zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM12 4h2v1h-2zM16 4h2v1h-2zM19 4h1v1h-1zM25 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM11 5h3v1h-3zM16 5h4v1h-4zM24 5h1v1h-1zM26 5h2v1h-2zM30 5h3v1h-3zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM10 7h5v1h-5zM17 7h1v1h-1zM19 7h4v1h-4zM24 7h1v1h-1zM27 7h3v1h-3zM31 7h1v1h-1zM0 8h1v1h-1zM3 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM13 8h1v1h-1zM15 8h1v1h-1zM19 8h1v1h-1zM21 8h1v1h-1zM25 8h2v1h-2zM32 8h2v1h-2zM35 8h1v1h-1zM0 9h1v1h-1zM2 9h2v1h-2zM7 9h1v1h-1zM9 9h3v1h-3zM14 9h1v1h-1zM16 9h2v1h-2zM21 9h1v1h-1zM24 9h3v1h-3zM29 9h1v1h-1zM32 9h1v1h-1zM37 9h4v1h-4zM1 10h2v1h-2zM4 10h3v1h-3zM8 10h6v1h-6zM17 10h4v1h-4zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM30 10h2v1h-2zM33 10h7v1h-7zM1 11h2v1h-2zM5 11h1v1h-1zM10 11h1v1h-1zM13 11h3v1h-3zM18 11h1v1h-1zM21 11h1v1h-1zM24 11h2v1h-2zM28 11h1v1h-1zM34 11h1v1h-1zM36 11h1v1h-1zM38 11h3v1h-3zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h2v1h-2zM9 12h1v1h-1zM11 12h1v1h-1zM13 12h3v1h-3zM17 12h1v1h-1zM19 12h3v1h-3zM25 12h11v1h-11zM37 12h1v1h-1zM40 12h1v1h-1zM0 13h5v1h-5zM7 13h1v1h-1zM10 13h1v1h-1zM14 13h2v1h-2zM17 13h1v1h-1zM20 13h1v1h-1zM22 13h2v1h-2zM25 13h1v1h-1zM27 13h1v1h-1zM30 13h1v1h-1zM33 13h1v1h-1zM37 13h2v1h-2zM0 14h1v1h-1zM5 14h3v1h-3zM13 14h3v1h-3zM17 14h3v1h-3zM21 14h1v1h-1zM23 14h1v1h-1zM27 14h2v1h-2zM30 14h1v1h-1zM32 14h1v1h-1zM34 14h1v1h-1zM37 14h4v1h-4zM0 15h1v1h-1zM2 15h1v1h-1zM4 15h2v1h-2zM8 15h2v1h-2zM12 15h2v1h-2zM17 15h2v1h-2zM20 15h4v1h-4zM25 15h2v1h-2zM28 15h3v1h-3zM32 15h1v1h-1zM34 15h2v1h-2zM0 16h3v1h-3zM6 16h2v1h-2zM9 16h1v1h-1zM15 16h1v1h-1zM22 16h1v1h-1zM27 16h1v1h-1zM29 16h1v1h-1zM32 16h1v1h-1zM35 16h1v1h-1zM39 16h1v1h-1zM2 17h3v1h-3zM8 17h1v1h-1zM10 17h1v1h-1zM13 17h5v1h-5zM19 17h1v1h-1zM21 17h1v1h-1zM23 17h2v1h-2zM26 17h3v1h-3zM34 17h2v1h-2zM37 17h4v1h-4zM2 18h1v1h-1zM5 18h6v1h-6zM17 18h1v1h-1zM22 18h1v1h-1zM25 18h1v1h-1zM30 18h1v1h-1zM33 18h2v1h-2zM36 18h1v1h-1zM40 18h1v1h-1zM2 19h2v1h-2zM5 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM25 19h1v1h-1zM29 19h2v1h-2zM32 19h4v1h-4zM37 19h1v1h-1zM40 19h1v1h-1zM0 20h5v1h-5zM6 20h1v1h-1zM9 20h9v1h-9zM20 20h1v1h-1zM22 20h3v1h-3zM26 20h2v1h-2zM29 20h2v1h-2zM32 20h4v1h-4zM38 20h2v1h-2zM1 21h2v1h-2zM5 21h1v1h-1zM8 21h4v1h-4zM13 21h2v1h-2zM16 21h2v1h-2zM19 21h4v1h-4zM25 21h1v1h-1zM29 21h2v1h-2zM34 21h1v1h-1zM37 21h4v1h-4zM4 22h1v1h-1zM6 22h4v1h-4zM11 22h2v1h-2zM14 22h1v1h-1zM16 22h5v1h-5zM25 22h1v1h-1zM28 22h1v1h-1zM31 22h1v1h-1zM33 22h3v1h-3zM38 22h2v1h-2zM0 23h4v1h-4zM7 23h2v1h-2zM10 23h1v1h-1zM15 23h1v1h-1zM18 23h5v1h-5zM24 23h3v1h-3zM28 23h1v1h-1zM30 23h1v1h-1zM34 23h1v1h-1zM38 23h2v1h-2zM0 24h1v1h-1zM6 24h1v1h-1zM10 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM19 24h3v1h-3zM24 24h2v1h-2zM27 24h3v1h-3zM31 24h5v1h-5zM37 24h1v1h-1zM0 25h2v1h-2zM5 25h1v1h-1zM9 25h1v1h-1zM13 25h5v1h-5zM19 25h4v1h-4zM24 25h3v1h-3zM28 25h2v1h-2zM31 25h1v1h-1zM34 25h1v1h-1zM37 25h1v1h-1zM39 25h2v1h-2zM0 26h2v1h-2zM3 26h4v1h-4zM9 26h1v1h-1zM11 26h1v1h-1zM14 26h4v1h-4zM20 26h1v1h-1zM23 26h1v1h-1zM25 26h2v1h-2zM28 26h1v1h-1zM30 26h1v1h-1zM32 26h1v1h-1zM35 26h2v1h-2zM39 26h2v1h-2zM2 27h2v1h-2zM5 27h1v1h-1zM12 27h4v1h-4zM17 27h2v1h-2zM20 27h3v1h-3zM24 27h4v1h-4zM29 27h1v1h-1zM32 27h1v1h-1zM40 27h1v1h-1zM0 28h1v1h-1zM6 28h4v1h-4zM11 28h4v1h-4zM16 28h2v1h-2zM21 28h4v1h-4zM26 28h5v1h-5zM32 28h2v1h-2zM35 28h1v1h-1zM39 28h2v1h-2zM1 29h1v1h-1zM4 29h1v1h-1zM7 29h3v1h-3zM14 29h1v1h-1zM17 29h1v1h-1zM19 29h3v1h-3zM24 29h2v1h-2zM27 29h1v1h-1zM29 29h2v1h-2zM32 29h4v1h-4zM37 29h2v1h-2zM40 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM6 30h2v1h-2zM11 30h2v1h-2zM14 30h3v1h-3zM18 30h1v1h-1zM22 30h4v1h-4zM32 30h1v1h-1zM35 30h1v1h-1zM38 30h3v1h-3zM3 31h2v1h-2zM7 31h3v1h-3zM13 31h1v1h-1zM15 31h1v1h-1zM17 31h2v1h-2zM21 31h1v1h-1zM24 31h1v1h-1zM26 31h4v1h-4zM31 31h3v1h-3zM36 31h2v1h-2zM0 32h1v1h-1zM2 32h1v1h-1zM5 32h4v1h-4zM10 32h1v1h-1zM12 32h1v1h-1zM15 32h3v1h-3zM20 32h1v1h-1zM25 32h2v1h-2zM31 32h6v1h-6zM38 32h1v1h-1zM40 32h1v1h-1zM8 33h7v1h-7zM16 33h5v1h-5zM22 33h1v1h-1zM24 33h2v1h-2zM27 33h2v1h-2zM30 33h3v1h-3zM36 33h5v1h-5zM0 34h7v1h-7zM16 34h1v1h-1zM18 34h2v1h-2zM21 34h2v1h-2zM25 34h2v1h-2zM28 34h2v1h-2zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM38 34h2v1h-2zM0 35h1v1h-1zM6 35h1v1h-1zM8 35h2v1h-2zM12 35h3v1h-3zM16 35h1v1h-1zM18 35h1v1h-1zM24 35h2v1h-2zM27 35h1v1h-1zM29 35h1v1h-1zM32 35h1v1h-1zM36 35h1v1h-1zM38 35h1v1h-1zM40 35h1v1h-1zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM9 36h2v1h-2zM12 36h1v1h-1zM15 36h2v1h-2zM18 36h1v1h-1zM20 36h1v1h-1zM26 36h3v1h-3zM32 36h6v1h-6zM39 36h1v1h-1zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM8 37h1v1h-1zM10 37h1v1h-1zM12 37h1v1h-1zM15 37h1v1h-1zM17 37h6v1h-6zM26 37h1v1h-1zM28 37h2v1h-2zM31 37h4v1h-4zM36 37h2v1h-2zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM10 38h5v1h-5zM16 38h1v1h-1zM20 38h2v1h-2zM23 38h1v1h-1zM25 38h2v1h-2zM28 38h1v1h-1zM30 38h2v1h-2zM36 38h1v1h-1zM39 38h2v1h-2zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM11 39h2v1h-2zM15 39h1v1h-1zM17 39h2v1h-2zM21 39h3v1h-3zM25 39h2v1h-2zM28 39h6v1h-6zM35 39h1v1h-1zM39 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM10 40h1v1h-1zM12 40h2v1h-2zM17 40h6v1h-6zM24 40h1v1h-1zM29 40h1v1h-1zM31 40h7v1h-7zM39 40h1v1h-1z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
