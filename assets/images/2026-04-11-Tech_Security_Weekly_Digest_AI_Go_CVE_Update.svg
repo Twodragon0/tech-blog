@@ -1,100 +1,270 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-04-11</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover for 2026-04-11: GlassWorm Zig dropper targeting developer IDEs via fake VSCode extension on Open VSX, Chrome 146 DBSC session cookie theft prevention with hardware-bound tokens on Windows, Marimo RCE CVE-2026-39987 actively exploited within 10 hours of public disclosure requiring immediate patch">
+<title>2026-04-11 digest: GlassWorm IDE attack, Chrome 146 DBSC, Marimo RCE CVE critical</title>
+<defs>
+  <!-- HQ marker line 2 -->
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="50%" stop-color="#0C1430"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1A0E2A"/>
+    <stop offset="100%" stop-color="#220E2E"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0A1A2E"/>
+    <stop offset="100%" stop-color="#0E1F38"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#200A0A"/>
+    <stop offset="100%" stop-color="#2A0C0C"/>
+  </linearGradient>
+  <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0D1F0D"/>
+    <stop offset="100%" stop-color="#071507"/>
+  </linearGradient>
+  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1A3A5C"/>
+    <stop offset="100%" stop-color="#0E2240"/>
+  </linearGradient>
+  <linearGradient id="cveCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3A0808"/>
+    <stop offset="100%" stop-color="#260606"/>
+  </linearGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowCritical" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="codeGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+    <path d="M0 20 L40 20" stroke="#2A1A3E" stroke-width="0.4" opacity="0.5"/>
+    <path d="M40 0 L40 20" stroke="#2A1A3E" stroke-width="0.4" opacity="0.5"/>
+  </pattern>
+  <pattern id="dotMatrix" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.8" fill="#2A1A4E" opacity="0.5"/>
+  </pattern>
+  <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+    <path d="M0 20 L40 20" stroke="#1A2A3A" stroke-width="0.4" opacity="0.45"/>
+    <path d="M40 0 L40 20" stroke="#1A2A3A" stroke-width="0.4" opacity="0.45"/>
+  </pattern>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HEADER BAR y=0..56 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<rect x="0" y="0" width="1200" height="56" fill="#070C1A" opacity="0.97"/>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.55"/>
+<g filter="url(#textShadow)">
+  <text x="32" y="35" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#BFC9D9">TECH SECURITY</text>
+  <text x="192" y="35" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="3" fill="#F5F7FA">WEEKLY DIGEST</text>
+  <text x="370" y="35" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#E63946">
+    WEEKLY
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+  </text>
+  <text x="1168" y="35" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#8FB8FF">2026.04.11</text>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BAND A: GlassWorm IDE Attack  y=56..266  (Purple/Red) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<rect x="0" y="56" width="1200" height="210" fill="url(#bandA)"/>
+<rect x="0" y="56" width="1200" height="210" fill="url(#codeGrid)" opacity="0.55"/>
+<!-- ambient glow -->
+<ellipse cx="220" cy="161" rx="165" ry="88" fill="url(#glowRed)" opacity="0.45">
+  <animate attributeName="opacity" values="0.35;0.65;0.35" dur="5.2s" repeatCount="indefinite"/>
+</ellipse>
+<!-- severity accent bar -->
+<rect x="0" y="56" width="8" height="210" fill="#E63946">
+  <animate attributeName="opacity" values="0.75;1;0.75" dur="2.4s" repeatCount="indefinite"/>
+</rect>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#E63946">IDE SUPPLY CHAIN</text>
+  <text x="30" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">GlassWorm Zig Dropper</text>
+  <text x="30" y="175" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#C9A0DC">All IDEs infected via fake VSCode extension</text>
+  <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Open VSX : specstudio.code-wakatime-activity-tracker : WakaTime impersonation</text>
+</g>
+
+<!-- Terminal illustration -->
+<g transform="translate(454,68)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="336" height="172" rx="8" fill="url(#terminalGrad)" stroke="#4ADE80" stroke-width="1.2" opacity="0.9"/>
+  <rect x="0" y="0" width="336" height="26" rx="8" fill="#0A1F0A" opacity="0.95"/>
+  <circle cx="16" cy="13" r="5" fill="#E63946" opacity="0.85"/>
+  <circle cx="32" cy="13" r="5" fill="#FFB703" opacity="0.85"/>
+  <circle cx="48" cy="13" r="5" fill="#4ADE80" opacity="0.85"/>
+  <text x="168" y="17" text-anchor="middle" font-family="Monaco, monospace" font-size="11" fill="#4ADE80" opacity="0.65">bash -- zig dropper analysis</text>
+  <text x="14" y="46" font-family="Monaco, monospace" font-size="11" fill="#4ADE80">$ ls ~/.vscode/extensions/</text>
+  <text x="14" y="63" font-family="Monaco, monospace" font-size="11" fill="#BFC9D9">specstudio.code-wakatime-<tspan fill="#E63946">activity-tracker</tspan></text>
+  <text x="14" y="80" font-family="Monaco, monospace" font-size="11" fill="#4ADE80">$ strings dropper.zig | grep -i IDE</text>
+  <text x="14" y="97" font-family="Monaco, monospace" font-size="11" fill="#E63946">VSCode  JetBrains  Vim  Emacs  Sublime</text>
+  <text x="14" y="114" font-family="Monaco, monospace" font-size="11" fill="#FFB703">WARNING: multi-IDE infection payload</text>
+  <text x="14" y="131" font-family="Monaco, monospace" font-size="11" fill="#BFC9D9">Dropper: <tspan fill="#E63946">supply_chain_backdoor.bin</tspan></text>
+  <text x="14" y="152" font-family="Monaco, monospace" font-size="11" fill="#4ADE80">_<animate attributeName="opacity" values="0;1;0" dur="1.0s" repeatCount="indefinite"/></text>
+</g>
+
+<!-- KPI card Band A -->
+<g transform="translate(840,78)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="172" height="122" rx="14" fill="#0A0618" stroke="#E63946" stroke-width="2.2"/>
+  <text x="86" y="27" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#E63946">IDES TARGETED</text>
+  <text x="86" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="900" fill="#F5F7FA">4+</text>
+  <text x="86" y="110" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#C9A0DC">VSCode JetBrains+</text>
+  <circle cx="156" cy="14" r="5" fill="#E63946" opacity="0.9">
+    <animate attributeName="r" values="4;8;4" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- separator -->
+<line x1="0" y1="266" x2="1200" y2="266" stroke="#3A86FF" stroke-width="1" opacity="0.22"/>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BAND B: Chrome 146 DBSC  y=266..476  (Cyan/Blue) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<rect x="0" y="266" width="1200" height="210" fill="url(#bandB)"/>
+<rect x="0" y="266" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+<!-- ambient glow -->
+<ellipse cx="220" cy="371" rx="175" ry="90" fill="url(#glowCyan)" opacity="0.38">
+  <animate attributeName="opacity" values="0.28;0.55;0.28" dur="6.4s" repeatCount="indefinite"/>
+</ellipse>
+<!-- severity accent bar -->
+<rect x="0" y="266" width="8" height="210" fill="#3A86FF">
+  <animate attributeName="opacity" values="0.65;1;0.65" dur="3.2s" repeatCount="indefinite"/>
+</rect>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="310" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#3A86FF">BROWSER DEFENSE</text>
+  <text x="30" y="352" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Chrome 146 DBSC</text>
+  <text x="30" y="385" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#8FB8FF">Device Bound Session Credentials</text>
+  <text x="30" y="412" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Google : Windows session cookie theft blocked : hardware-bound tokens</text>
+</g>
+
+<!-- Shield + lock illustration -->
+<g transform="translate(456,278)" filter="url(#softShadow)">
+  <!-- shield shape -->
+  <path d="M168 10 L316 52 L316 132 Q316 178 168 198 Q20 178 20 132 L20 52 Z" fill="url(#shieldGrad)" stroke="#3A86FF" stroke-width="2" opacity="0.92"/>
+  <path d="M168 30 L298 64 L298 130 Q298 168 168 182 Q38 168 38 130 L38 64 Z" fill="none" stroke="#8FB8FF" stroke-width="1" opacity="0.35"/>
+  <!-- lock body -->
+  <rect x="138" y="92" width="60" height="50" rx="8" fill="#3A86FF" opacity="0.82"/>
+  <!-- shackle -->
+  <path d="M150 92 L150 74 Q150 58 168 58 Q186 58 186 74 L186 92" fill="none" stroke="#8FB8FF" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- keyhole -->
+  <circle cx="168" cy="114" r="7" fill="#0A1A2E" opacity="0.9"/>
+  <rect x="165" y="114" width="6" height="16" rx="3" fill="#0A1A2E" opacity="0.9"/>
+  <!-- DBSC label -->
+  <text x="168" y="168" text-anchor="middle" font-family="Monaco, monospace" font-size="14" font-weight="700" fill="#8FB8FF">DBSC</text>
+  <!-- pulse ring -->
+  <ellipse cx="168" cy="110" rx="92" ry="86" fill="none" stroke="#3A86FF" stroke-width="1.5" opacity="0.0">
+    <animate attributeName="rx" values="92;118;92" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="86;110;86" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.25;0;0.25" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+</g>
+
+<!-- KPI card Band B -->
+<g transform="translate(840,290)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="172" height="122" rx="14" fill="#040C1E" stroke="#3A86FF" stroke-width="2.2"/>
+  <text x="86" y="27" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#3A86FF">CHROME VER</text>
+  <text x="86" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="900" fill="#F5F7FA">146</text>
+  <text x="86" y="110" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8FB8FF">DBSC deployed</text>
+</g>
+
+<!-- separator -->
+<line x1="0" y1="476" x2="1200" y2="476" stroke="#E63946" stroke-width="1.5" opacity="0.38"/>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BAND C: Marimo RCE CVE-2026-39987  y=476..630  (Critical Red) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<rect x="0" y="476" width="1200" height="154" fill="url(#bandC)"/>
+<rect x="0" y="476" width="1200" height="154" fill="url(#dotMatrix)" opacity="0.4"/>
+<!-- critical glow -->
+<ellipse cx="220" cy="553" rx="190" ry="72" fill="url(#glowCritical)" opacity="0.42">
+  <animate attributeName="opacity" values="0.32;0.62;0.32" dur="2.2s" repeatCount="indefinite"/>
+</ellipse>
+<!-- severity accent bar CRITICAL -->
+<rect x="0" y="476" width="8" height="154" fill="#E63946"/>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="515" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#E63946">CRITICAL RCE</text>
+  <text x="30" y="555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Marimo CVE-2026-39987</text>
+  <text x="30" y="585" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FF8A8A">Active exploit 10h post-disclosure — patch immediately</text>
+  <text x="30" y="612" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Python notebook RCE : upgrade now : reduce internet-exposed surface</text>
+</g>
+
+<!-- CVE card illustration -->
+<g transform="translate(454,484)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="336" height="128" rx="8" fill="url(#cveCardGrad)" stroke="#E63946" stroke-width="2" opacity="0.95"/>
+  <rect x="0" y="0" width="336" height="32" rx="8" fill="#3A0808" opacity="0.95"/>
+  <text x="168" y="21" text-anchor="middle" font-family="Monaco, monospace" font-size="13" font-weight="700" letter-spacing="1" fill="#E63946">CVE-2026-39987</text>
+  <rect x="258" y="6" width="70" height="20" rx="4" fill="#E63946" opacity="0.9"/>
+  <text x="293" y="20" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#F5F7FA">CRITICAL</text>
+  <text x="14" y="55" font-family="Monaco, monospace" font-size="11" fill="#FF8A8A">Product : Marimo (Python notebook)</text>
+  <text x="14" y="73" font-family="Monaco, monospace" font-size="11" fill="#BFC9D9">Type    : Remote Code Execution</text>
+  <text x="14" y="91" font-family="Monaco, monospace" font-size="11" fill="#E63946">Status  : ACTIVELY EXPLOITED</text>
+  <text x="14" y="109" font-family="Monaco, monospace" font-size="11" fill="#FFB703">Window  : 10h post-disclosure</text>
+</g>
+
+<!-- KPI card Band C -->
+<g transform="translate(840,492)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="172" height="112" rx="14" fill="#1A0404" stroke="#E63946" stroke-width="2.2"/>
+  <text x="86" y="27" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#E63946">EXPLOIT WINDOW</text>
+  <text x="86" y="80" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="58" font-weight="900" fill="#F5F7FA">10h</text>
+  <text x="86" y="102" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FF8A8A">post-disclosure</text>
+  <circle cx="155" cy="14" r="5" fill="#E63946" opacity="0.9">
+    <animate attributeName="r" values="4;8;4" dur="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- Starfield ambient -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<circle cx="88" cy="88" r="1.2" fill="#8FB8FF" opacity="0.35">
+  <animate attributeName="opacity" values="0.15;0.75;0.15" dur="3.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1112" cy="112" r="1.1" fill="#8FB8FF" opacity="0.3">
+  <animate attributeName="opacity" values="0.1;0.65;0.1" dur="4.1s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1055" cy="198" r="0.9" fill="#BFC9D9" opacity="0.25">
+  <animate attributeName="opacity" values="0.1;0.55;0.1" dur="2.9s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1148" cy="370" r="1.2" fill="#8FB8FF" opacity="0.28">
+  <animate attributeName="opacity" values="0.15;0.65;0.15" dur="5.3s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1082" cy="440" r="0.9" fill="#BFC9D9" opacity="0.22">
+  <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.7s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Footer -->
+<text x="32" y="626" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#BFC9D9" opacity="0.55">tech.2twodragon.com</text>
+<text x="1168" y="626" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#BFC9D9" opacity="0.45">26 news items analyzed</text>
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h2v1h-2zM15 0h1v1h-1zM18 0h1v1h-1zM21 0h2v1h-2zM25 0h4v1h-4zM30 0h1v1h-1zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM10 1h1v1h-1zM12 1h1v1h-1zM14 1h1v1h-1zM18 1h2v1h-2zM21 1h2v1h-2zM24 1h3v1h-3zM31 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h2v1h-2zM13 2h1v1h-1zM15 2h6v1h-6zM22 2h3v1h-3zM26 2h2v1h-2zM29 2h2v1h-2zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h2v1h-2zM11 3h1v1h-1zM13 3h5v1h-5zM20 3h2v1h-2zM23 3h2v1h-2zM27 3h1v1h-1zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h2v1h-2zM14 4h2v1h-2zM17 4h1v1h-1zM19 4h1v1h-1zM25 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM11 5h2v1h-2zM14 5h1v1h-1zM16 5h2v1h-2zM19 5h1v1h-1zM21 5h1v1h-1zM26 5h1v1h-1zM31 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h3v1h-3zM16 7h2v1h-2zM19 7h4v1h-4zM24 7h1v1h-1zM27 7h3v1h-3zM31 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h4v1h-4zM16 8h2v1h-2zM20 8h4v1h-4zM28 8h2v1h-2zM31 8h1v1h-1zM33 8h5v1h-5zM40 8h1v1h-1zM0 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM9 9h2v1h-2zM14 9h3v1h-3zM18 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM27 9h1v1h-1zM30 9h1v1h-1zM33 9h1v1h-1zM35 9h3v1h-3zM0 10h5v1h-5zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h3v1h-3zM15 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM26 10h4v1h-4zM32 10h3v1h-3zM40 10h1v1h-1zM0 11h2v1h-2zM3 11h1v1h-1zM7 11h1v1h-1zM9 11h2v1h-2zM12 11h2v1h-2zM16 11h9v1h-9zM29 11h1v1h-1zM31 11h7v1h-7zM39 11h1v1h-1zM1 12h3v1h-3zM6 12h1v1h-1zM13 12h1v1h-1zM15 12h3v1h-3zM20 12h3v1h-3zM26 12h2v1h-2zM29 12h2v1h-2zM32 12h2v1h-2zM35 12h1v1h-1zM39 12h1v1h-1zM3 13h2v1h-2zM7 13h1v1h-1zM9 13h11v1h-11zM21 13h1v1h-1zM24 13h1v1h-1zM26 13h1v1h-1zM28 13h2v1h-2zM34 13h3v1h-3zM39 13h2v1h-2zM4 14h1v1h-1zM6 14h4v1h-4zM11 14h1v1h-1zM18 14h2v1h-2zM23 14h2v1h-2zM28 14h1v1h-1zM33 14h2v1h-2zM36 14h3v1h-3zM40 14h1v1h-1zM0 15h5v1h-5zM7 15h1v1h-1zM9 15h1v1h-1zM11 15h2v1h-2zM15 15h1v1h-1zM17 15h5v1h-5zM23 15h1v1h-1zM26 15h1v1h-1zM29 15h2v1h-2zM32 15h1v1h-1zM35 15h1v1h-1zM37 15h1v1h-1zM40 15h1v1h-1zM0 16h2v1h-2zM3 16h2v1h-2zM6 16h2v1h-2zM10 16h1v1h-1zM12 16h2v1h-2zM15 16h1v1h-1zM20 16h1v1h-1zM22 16h1v1h-1zM27 16h1v1h-1zM29 16h1v1h-1zM31 16h2v1h-2zM35 16h1v1h-1zM39 16h1v1h-1zM1 17h2v1h-2zM7 17h2v1h-2zM12 17h3v1h-3zM17 17h1v1h-1zM19 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h3v1h-3zM33 17h6v1h-6zM40 17h1v1h-1zM3 18h1v1h-1zM5 18h2v1h-2zM8 18h4v1h-4zM13 18h2v1h-2zM18 18h1v1h-1zM20 18h8v1h-8zM30 18h1v1h-1zM32 18h1v1h-1zM34 18h2v1h-2zM38 18h3v1h-3zM0 19h2v1h-2zM5 19h1v1h-1zM9 19h1v1h-1zM15 19h1v1h-1zM19 19h3v1h-3zM25 19h1v1h-1zM29 19h2v1h-2zM32 19h4v1h-4zM37 19h1v1h-1zM40 19h1v1h-1zM0 20h1v1h-1zM3 20h1v1h-1zM5 20h5v1h-5zM11 20h1v1h-1zM13 20h1v1h-1zM16 20h1v1h-1zM24 20h2v1h-2zM27 20h2v1h-2zM30 20h2v1h-2zM33 20h1v1h-1zM35 20h1v1h-1zM37 20h1v1h-1zM39 20h2v1h-2zM0 21h1v1h-1zM2 21h4v1h-4zM7 21h1v1h-1zM12 21h2v1h-2zM16 21h1v1h-1zM18 21h2v1h-2zM22 21h6v1h-6zM30 21h1v1h-1zM32 21h5v1h-5zM38 21h1v1h-1zM40 21h1v1h-1zM2 22h3v1h-3zM6 22h1v1h-1zM9 22h1v1h-1zM14 22h3v1h-3zM21 22h4v1h-4zM26 22h2v1h-2zM29 22h2v1h-2zM32 22h1v1h-1zM37 22h1v1h-1zM40 22h1v1h-1zM0 23h1v1h-1zM5 23h1v1h-1zM8 23h1v1h-1zM11 23h1v1h-1zM13 23h6v1h-6zM21 23h1v1h-1zM23 23h1v1h-1zM29 23h4v1h-4zM37 23h1v1h-1zM39 23h1v1h-1zM0 24h3v1h-3zM4 24h1v1h-1zM6 24h2v1h-2zM10 24h3v1h-3zM15 24h1v1h-1zM17 24h1v1h-1zM20 24h3v1h-3zM24 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM32 24h2v1h-2zM35 24h1v1h-1zM38 24h1v1h-1zM40 24h1v1h-1zM0 25h2v1h-2zM3 25h3v1h-3zM8 25h2v1h-2zM11 25h2v1h-2zM14 25h1v1h-1zM16 25h1v1h-1zM18 25h1v1h-1zM23 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM32 25h2v1h-2zM35 25h2v1h-2zM38 25h2v1h-2zM0 26h2v1h-2zM3 26h2v1h-2zM6 26h2v1h-2zM10 26h3v1h-3zM15 26h4v1h-4zM20 26h2v1h-2zM23 26h6v1h-6zM32 26h1v1h-1zM34 26h2v1h-2zM40 26h1v1h-1zM0 27h3v1h-3zM5 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM15 27h7v1h-7zM24 27h1v1h-1zM26 27h4v1h-4zM31 27h4v1h-4zM37 27h1v1h-1zM0 28h3v1h-3zM4 28h1v1h-1zM6 28h1v1h-1zM9 28h1v1h-1zM12 28h1v1h-1zM14 28h2v1h-2zM17 28h1v1h-1zM21 28h4v1h-4zM26 28h5v1h-5zM33 28h1v1h-1zM35 28h1v1h-1zM0 29h4v1h-4zM5 29h1v1h-1zM9 29h1v1h-1zM11 29h1v1h-1zM15 29h1v1h-1zM17 29h4v1h-4zM25 29h1v1h-1zM29 29h1v1h-1zM34 29h7v1h-7zM2 30h2v1h-2zM6 30h2v1h-2zM14 30h2v1h-2zM18 30h1v1h-1zM20 30h3v1h-3zM25 30h3v1h-3zM29 30h2v1h-2zM32 30h2v1h-2zM36 30h1v1h-1zM40 30h1v1h-1zM3 31h1v1h-1zM5 31h1v1h-1zM8 31h1v1h-1zM12 31h1v1h-1zM16 31h3v1h-3zM21 31h1v1h-1zM24 31h1v1h-1zM26 31h4v1h-4zM33 31h1v1h-1zM36 31h2v1h-2zM0 32h2v1h-2zM3 32h4v1h-4zM9 32h1v1h-1zM12 32h1v1h-1zM19 32h1v1h-1zM22 32h2v1h-2zM28 32h2v1h-2zM31 32h7v1h-7zM8 33h3v1h-3zM16 33h1v1h-1zM18 33h2v1h-2zM21 33h1v1h-1zM23 33h1v1h-1zM25 33h2v1h-2zM28 33h2v1h-2zM31 33h2v1h-2zM36 33h2v1h-2zM40 33h1v1h-1zM0 34h7v1h-7zM8 34h1v1h-1zM10 34h1v1h-1zM13 34h2v1h-2zM16 34h2v1h-2zM20 34h1v1h-1zM23 34h2v1h-2zM27 34h1v1h-1zM30 34h3v1h-3zM34 34h1v1h-1zM36 34h2v1h-2zM40 34h1v1h-1zM0 35h1v1h-1zM6 35h1v1h-1zM10 35h1v1h-1zM14 35h1v1h-1zM17 35h2v1h-2zM22 35h3v1h-3zM26 35h3v1h-3zM31 35h2v1h-2zM36 35h2v1h-2zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM8 36h3v1h-3zM12 36h1v1h-1zM18 36h1v1h-1zM20 36h1v1h-1zM22 36h1v1h-1zM25 36h3v1h-3zM31 36h6v1h-6zM39 36h2v1h-2zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM11 37h1v1h-1zM13 37h1v1h-1zM23 37h3v1h-3zM27 37h1v1h-1zM30 37h1v1h-1zM35 37h1v1h-1zM39 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM9 38h1v1h-1zM12 38h3v1h-3zM17 38h1v1h-1zM20 38h1v1h-1zM23 38h6v1h-6zM31 38h1v1h-1zM33 38h1v1h-1zM37 38h2v1h-2zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM12 39h1v1h-1zM17 39h1v1h-1zM19 39h1v1h-1zM21 39h1v1h-1zM23 39h1v1h-1zM26 39h1v1h-1zM29 39h2v1h-2zM32 39h4v1h-4zM37 39h1v1h-1zM39 39h2v1h-2zM0 40h7v1h-7zM8 40h3v1h-3zM12 40h1v1h-1zM14 40h9v1h-9zM24 40h1v1h-1zM29 40h1v1h-1zM31 40h6v1h-6zM38 40h2v1h-2z"/>
   </g>
-
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-11</text>
-
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="-14,-24 -40,0 -14,24"/>
-      <polyline points="14,-24 40,0 14,24"/>
-      <line x1="-4" y1="30" x2="4" y2="-30" stroke-width="2"/>
-    </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">SUPPLY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">GlassWorm Zig</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Dropper Spreads</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">Fake WakaTime ext</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Open VSX extension</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">infects all IDEs</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round">
-      <ellipse cx="0" cy="6" rx="24" ry="28"/>
-      <circle cx="-8" cy="-2" r="3" fill="url(#accentBlue)" stroke="none"/>
-      <circle cx="8" cy="-2" r="3" fill="url(#accentBlue)" stroke="none"/>
-      <line x1="0" y1="-22" x2="-12" y2="-40"/>
-      <line x1="0" y1="-22" x2="12" y2="-40"/>
-      <line x1="-24" y1="-4" x2="-42" y2="-12"/>
-      <line x1="-24" y1="6" x2="-44" y2="6"/>
-      <line x1="-24" y1="16" x2="-42" y2="24"/>
-      <line x1="24" y1="-4" x2="42" y2="-12"/>
-      <line x1="24" y1="6" x2="44" y2="6"/>
-      <line x1="24" y1="16" x2="42" y2="24"/>
-    </g>
-    <rect x="129" y="210" width="88" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">AI RISK</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Browser Ext</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">AI Blind Spot</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">LayerX research</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Shadow AI pipes</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">leaking enterprise data</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round">
-      <rect x="-24" y="0" width="48" height="36" rx="4"/>
-      <path d="M-14,0 L-14,-16 Q-14,-32 0,-32 Q14,-32 14,-16 L14,0"/>
-      <circle cx="0" cy="18" r="5" fill="url(#accentGreen)" stroke="none"/>
-    </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">IDENTITY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Chrome 146</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Ships DBSC</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">Windows session bind</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Cookie theft blocked</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">by device binding</text>
-  </g>
-
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
-  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>

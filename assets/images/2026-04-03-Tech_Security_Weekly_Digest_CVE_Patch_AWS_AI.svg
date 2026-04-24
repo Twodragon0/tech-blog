@@ -1,91 +1,369 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-04-03</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: CVE-2025-55182 Next.js React2Shell exploit compromises 766 hosts stealing AWS keys and GitHub tokens, Cisco CVSS 9.8 critical IMC and SSM remote system compromise requiring immediate patch, AWS agentic AI four core security principles for least privilege isolation audit and human oversight">
+<!-- profile: high-quality-cover (L22 Stacked Bands, research-based) -->
+<title>Weekly digest 2026-04-03: CVE-2025-55182 React2Shell 766 hosts, Cisco CVSS 9.8 RCE patch, AWS Agentic AI 4 security principles</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="50%" stop-color="#0C1430"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1E1205"/>
+    <stop offset="100%" stop-color="#281808"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1A0508"/>
+    <stop offset="100%" stop-color="#240A10"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#071524"/>
+    <stop offset="100%" stop-color="#0D1F32"/>
+  </linearGradient>
+  <linearGradient id="shieldCrit" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#FF2233"/>
+    <stop offset="100%" stop-color="#8B0000"/>
+  </linearGradient>
+  <linearGradient id="awsBadge" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3A86FF"/>
+    <stop offset="100%" stop-color="#1A46C0"/>
+  </linearGradient>
+  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+    <path d="M0 20 L40 20" stroke="#3A2A10" stroke-width="0.4" opacity="0.5"/>
+    <path d="M40 0 L40 20" stroke="#3A2A10" stroke-width="0.4" opacity="0.5"/>
+  </pattern>
+  <pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.8" fill="#3A1020" opacity="0.55"/>
+  </pattern>
+  <pattern id="techGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M0 24 L24 24 M24 0 L24 24" stroke="#0E2040" stroke-width="0.5" opacity="0.6"/>
+  </pattern>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<!-- Top header stripe -->
+<rect x="0" y="0" width="1200" height="56" fill="#05080E" opacity="0.95"/>
+<text x="32" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1168" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.04.03</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.9">
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Starfield -->
+<g fill="#8FB8FF">
+  <circle cx="180" cy="72" r="1.1"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.2s" repeatCount="indefinite"/></circle>
+  <circle cx="440" cy="76" r="0.9"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+  <circle cx="740" cy="72" r="1.2"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.8s" begin="1.0s" repeatCount="indefinite"/></circle>
+  <circle cx="1060" cy="76" r="0.8"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+</g>
+
+<!-- ===== BAND A: CVE-2025-55182 / 766 Next.js hosts (HIGH amber) ===== -->
+<rect x="0" y="56" width="1200" height="194" fill="url(#bandA)"/>
+<rect x="0" y="56" width="1200" height="194" fill="url(#ledgerGrid)" opacity="0.55"/>
+<rect x="0" y="56" width="8" height="194" fill="#FFB703"/>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">EXPLOIT IN THE WILD  /  HIGH</text>
+  <text x="30" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">CVE-2025-55182 : React2Shell</text>
+  <text x="30" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFD58A">766 Next.js hosts breached - credentials harvested</text>
+  <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9AE">SSTI via SSR props - AWS keys, GitHub tokens, DB creds exfiltrated at scale</text>
+  <text x="30" y="228" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#B8A880">The Hacker News</text>
+</g>
+
+<!-- Band A illustration: Next.js server -> attacker payload chain -->
+<g transform="translate(440,152)">
+  <!-- Ambient glow -->
+  <circle cx="100" cy="0" r="90" fill="url(#glowAmber)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Next.js server box -->
+  <g filter="url(#softShadow)">
+    <rect x="-50" y="-38" width="100" height="76" rx="8" fill="#1E1205" stroke="#FFB703" stroke-width="1.6"/>
+    <text x="0" y="-18" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFD58A">Next.js</text>
+    <text x="0" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFB703">SSR : Server</text>
+    <rect x="-38" y="8" width="76" height="14" rx="2" fill="#3A1800" stroke="#FFB703" stroke-width="0.8"/>
+    <text x="0" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">SSTI VULN</text>
+    <circle cx="42" cy="-32" r="8" fill="#FFB703" filter="url(#softShadow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="42" y="-28" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#0A0800">!</text>
   </g>
 
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-03</text>
-
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M0,-44 L50,40 L-50,40 Z"/>
-      <line x1="0" y1="-16" x2="0" y2="16" stroke-width="3.5"/>
-      <circle cx="0" cy="30" r="3.5" fill="url(#accentRed)" stroke="none"/>
+  <!-- Arrow: attacker payload traveling right -->
+  <g transform="translate(62,0)">
+    <path d="M0 0 L65 0" stroke="#FFB703" stroke-width="2.2" stroke-dasharray="4 3" fill="none">
+      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="65,-6 78,0 65,6" fill="#FFB703"/>
+    <g fill="#FCA5A5">
+      <circle r="3"><animateMotion path="M0 0 L65 0" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="32" cy="0" r="2.4" opacity="0.5"/>
     </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">CRITICAL</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Next.js 766 Hit</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Creds Stolen</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">CVE-2025-55182</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Deploy vector</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">breached at scale</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
-      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
-    </g>
-    <rect x="133" y="210" width="80" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">PATCH</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Cisco IMC SSM</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">9.8 CVSS Fix</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">Remote takeover</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Mgmt consoles</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">patched in hurry</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round">
-      <rect x="-24" y="0" width="48" height="36" rx="4"/>
-      <path d="M-14,0 L-14,-16 Q-14,-32 0,-32 Q14,-32 14,-16 L14,0"/>
-      <circle cx="0" cy="18" r="5" fill="url(#accentGreen)" stroke="none"/>
-    </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">AI SEC</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">AWS Agent Lab</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">4 Core Principles</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">Security playbook</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Agentic AI apps</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">hardened by design</text>
   </g>
 
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+  <!-- Attacker C2 cloud -->
+  <g transform="translate(170,0)" filter="url(#softShadow)">
+    <path d="M20 24 Q8 24 6 14 Q6 4 20 6 Q26 -6 44 -2 Q62 -6 68 6 Q82 4 82 14 Q80 24 68 24 Z" fill="#1E1205" stroke="#E63946" stroke-width="1.8"/>
+    <text x="44" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">ATTACKER C2</text>
+    <text x="44" y="-16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFD58A">AWS keys / DB creds</text>
+    <circle cx="44" cy="34" r="5" fill="#E63946">
+      <animate attributeName="r" values="3.5;7;3.5" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
   </g>
+
+  <!-- Victim dots (representing 766 hosts) -->
+  <g fill="#FFB703" opacity="0.75">
+    <circle cx="-130" cy="-48" r="3"><animate attributeName="opacity" values="0.2;0.95;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="-100" cy="48" r="3"><animate attributeName="opacity" values="0.2;0.95;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="-160" cy="8" r="2.5" opacity="0.5"/>
+    <circle cx="-70" cy="-58" r="2.5" opacity="0.5"/>
+    <circle cx="-180" cy="-28" r="2" opacity="0.5"/>
+  </g>
+</g>
+
+<!-- Band A KPI -->
+<g transform="translate(1000,153)" filter="url(#softShadow)">
+  <rect x="-82" y="-66" width="184" height="132" rx="14" fill="#1A1005" stroke="#FFB703" stroke-width="2.2"/>
+  <text x="10" y="-40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">HOSTS HIT</text>
+  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">766</text>
+  <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFD58A">credential theft</text>
+  <circle cx="82" cy="-54" r="5" fill="#FFB703">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Band A side accent lines (static) -->
+<g stroke="#FFB703" stroke-width="0.5" stroke-opacity="0.4" fill="none">
+  <path d="M20 92 L28 92"/>
+  <path d="M20 152 L28 152"/>
+</g>
+
+<!-- Separator A/B -->
+<rect x="0" y="250" width="1200" height="1" fill="#2A1520" opacity="0.9"/>
+
+<!-- ===== BAND B: Cisco CVSS 9.8 (CRITICAL red) ===== -->
+<rect x="0" y="250" width="1200" height="192" fill="url(#bandB)"/>
+<rect x="0" y="250" width="1200" height="192" fill="url(#circuitDot)" opacity="0.7"/>
+<rect x="0" y="250" width="8" height="192" fill="#E63946"/>
+
+<!-- Cisco hub glow -->
+<circle cx="750" cy="346" r="100" fill="url(#glowRed)">
+  <animate attributeName="r" values="80;125;80" dur="3.0s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="3.0s" repeatCount="indefinite"/>
+</circle>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="294" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#E63946">CRITICAL PATCH  /  CVSS 9.8</text>
+  <text x="30" y="336" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">Cisco FMC : IMC / SSM RCE</text>
+  <text x="30" y="368" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FBB6BD">Remote system compromise - unauthenticated</text>
+  <text x="30" y="396" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9CE">Integrated Management Controller and Smart Software Manager vulns</text>
+  <text x="30" y="422" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#B8A8AE">The Hacker News</text>
+</g>
+
+<!-- Cisco device with radar rings -->
+<g transform="translate(750,346)">
+  <!-- Radar pulse rings -->
+  <circle cx="0" cy="0" r="42" fill="none" stroke="#E63946" stroke-width="0.9">
+    <animate attributeName="r" values="36;80;36" dur="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0;0.9" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="0" cy="0" r="60" fill="none" stroke="#E63946" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Cisco device box -->
+  <g filter="url(#softShadow)">
+    <rect x="-58" y="-36" width="116" height="72" rx="8" fill="#1E0508" stroke="#E63946" stroke-width="2"/>
+    <rect x="-46" y="-26" width="92" height="52" rx="4" fill="#130304"/>
+    <!-- port slots -->
+    <g fill="#4A0808">
+      <rect x="-42" y="-18" width="14" height="8" rx="1.5"/>
+      <rect x="-24" y="-18" width="14" height="8" rx="1.5"/>
+      <rect x="-6" y="-18" width="14" height="8" rx="1.5"/>
+      <rect x="12" y="-18" width="14" height="8" rx="1.5"/>
+      <rect x="30" y="-18" width="14" height="8" rx="1.5"/>
+    </g>
+    <!-- status LEDs -->
+    <circle cx="-40" cy="2" r="2.8" fill="#FF7070"/>
+    <circle cx="-28" cy="2" r="2.8" fill="#FFB703">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-16" cy="2" r="2.8" fill="#FF7070"/>
+    <circle cx="-4" cy="2" r="2.8" fill="#4ADE80" opacity="0.35"/>
+    <circle cx="8" cy="2" r="2.8" fill="#FF7070"/>
+    <text x="0" y="24" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">CISCO IMC / SSM</text>
+    <rect x="-42" y="28" width="84" height="12" rx="2" fill="#E63946" opacity="0.92">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="1.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="37" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">UNAUTHENTICATED RCE</text>
+  </g>
+
+  <!-- CVSS badge top-right of device -->
+  <g transform="translate(82,-32)" filter="url(#softShadow)">
+    <rect x="-30" y="-18" width="60" height="36" rx="7" fill="url(#shieldCrit)"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFE4E4">CVSS</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#FFFFFF">9.8</text>
+  </g>
+
+  <!-- Attack spoke lines -->
+  <g stroke="#E63946" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5">
+    <line x1="0" y1="-36" x2="0" y2="-105"/>
+    <line x1="58" y1="-20" x2="100" y2="-58"/>
+    <line x1="58" y1="20" x2="100" y2="58"/>
+    <line x1="-58" y1="-20" x2="-100" y2="-58"/>
+    <line x1="-58" y1="20" x2="-100" y2="58"/>
+  </g>
+  <g fill="#FCA5A5">
+    <circle cx="0" cy="-108" r="4.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="103" cy="-60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="103" cy="60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="-103" cy="-60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="-103" cy="60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.8s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+
+<!-- Band B KPI -->
+<g transform="translate(1000,346)" filter="url(#softShadow)">
+  <rect x="-82" y="-66" width="184" height="132" rx="14" fill="#1E0508" stroke="#E63946" stroke-width="2.2"/>
+  <text x="10" y="-40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">CVSS SCORE</text>
+  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">9.8</text>
+  <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">Critical - patch now</text>
+  <circle cx="82" cy="-54" r="5" fill="#E63946">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Band B side accent lines (static) -->
+<g stroke="#E63946" stroke-width="0.5" stroke-opacity="0.4" fill="none">
+  <path d="M20 284 L28 284"/>
+  <path d="M20 314 L28 314"/>
+  <path d="M20 344 L28 344"/>
+</g>
+
+<!-- Separator B/C -->
+<rect x="0" y="442" width="1200" height="1" fill="#151020" opacity="0.9"/>
+
+<!-- ===== BAND C: AWS Agentic AI 4 Principles (MEDIUM blue) ===== -->
+<rect x="0" y="442" width="1200" height="188" fill="url(#bandC)"/>
+<rect x="0" y="442" width="1200" height="188" fill="url(#techGrid)" opacity="0.6"/>
+<rect x="0" y="442" width="8" height="188" fill="#3A86FF"/>
+
+<!-- Blue glow -->
+<circle cx="550" cy="536" r="100" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="6.0s" repeatCount="indefinite"/>
+</circle>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="486" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#3A86FF">AWS SECURITY GUIDANCE  /  MEDIUM</text>
+  <text x="30" y="524" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="800" fill="#F5F7FA">Agentic AI : 4 Security Principles</text>
+  <text x="30" y="554" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#8FB8FF">Least privilege, isolation, audit, human oversight</text>
+  <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#7DA3D9">AWS Security Blog</text>
+</g>
+
+<!-- 4 principle icon row -->
+<g transform="translate(476,515)">
+  <!-- connecting baseline -->
+  <line x1="-28" y1="0" x2="260" y2="0" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.35"/>
+
+  <!-- P1: Least Privilege (lock) -->
+  <g filter="url(#softShadow)">
+    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
+    <rect x="-12" y="-10" width="24" height="20" rx="3" fill="#3A86FF"/>
+    <path d="M-7 -10 Q-7 -24 0 -24 Q7 -24 7 -10" stroke="#3A86FF" stroke-width="2.4" fill="none"/>
+    <circle cx="0" cy="1" r="3" fill="#07172A"/>
+    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">MIN PRIV</text>
+  </g>
+
+  <!-- P2: Isolation (nested boxes) -->
+  <g transform="translate(80,0)" filter="url(#softShadow)">
+    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
+    <rect x="-18" y="-22" width="36" height="36" rx="3" fill="none" stroke="#3A86FF" stroke-width="1.5"/>
+    <rect x="-10" y="-14" width="20" height="20" rx="2" fill="#3A86FF" opacity="0.45"/>
+    <rect x="-5" y="-9" width="10" height="10" rx="1" fill="#8FB8FF"/>
+    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">ISOLATE</text>
+  </g>
+
+  <!-- P3: Audit (log lines) -->
+  <g transform="translate(160,0)" filter="url(#softShadow)">
+    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
+    <g stroke="#3A86FF" stroke-width="1.4" fill="none">
+      <line x1="-18" y1="-20" x2="18" y2="-20"/>
+      <line x1="-18" y1="-9" x2="18" y2="-9"/>
+      <line x1="-18" y1="2" x2="6" y2="2"/>
+    </g>
+    <circle cx="14" cy="2" r="3" fill="#4ADE80">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">AUDIT</text>
+  </g>
+
+  <!-- P4: Human oversight (person + checkmark) -->
+  <g transform="translate(240,0)" filter="url(#softShadow)">
+    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
+    <circle cx="0" cy="-20" r="9" fill="#3A86FF"/>
+    <path d="-16 6 Q-16 -6 0 -6 Q16 -6 16 6 Z" fill="#3A86FF"/>
+    <path d="M-16 6 Q-16 -6 0 -6 Q16 -6 16 6 Z" fill="#3A86FF"/>
+    <g transform="translate(12,-26)">
+      <circle r="9" fill="#4ADE80" opacity="0.95"/>
+      <path d="M-4 0 L-1 3 L5 -4" stroke="#071226" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">OVERSIGHT</text>
+  </g>
+</g>
+
+<!-- Band C KPI -->
+<g transform="translate(1000,530)" filter="url(#softShadow)">
+  <rect x="-82" y="-62" width="184" height="124" rx="14" fill="#071626" stroke="#3A86FF" stroke-width="2.2"/>
+  <text x="10" y="-36" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#3A86FF">PRINCIPLES</text>
+  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">4</text>
+  <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8FB8FF">Agentic AI security</text>
+  <circle cx="82" cy="-50" r="4" fill="#3A86FF">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Band C accent lines (static) -->
+<g stroke="#3A86FF" stroke-width="0.5" stroke-opacity="0.4" fill="none">
+  <path d="M20 476 L28 476"/>
+  <path d="M20 506 L28 506"/>
+  <path d="M20 536 L28 536"/>
+</g>
+
+<!-- Bottom count badge -->
+<rect x="110" y="606" width="170" height="20" rx="4" fill="#0A1226" stroke="#3A86FF" stroke-width="0.8" opacity="0.9"/>
+<text x="195" y="620" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="1">29 stories - 2026.04.03</text>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h1v1h-1zM11 0h2v1h-2zM14 0h1v1h-1zM16 0h1v1h-1zM19 0h1v1h-1zM21 0h2v1h-2zM25 0h6v1h-6zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM11 1h3v1h-3zM16 1h1v1h-1zM18 1h2v1h-2zM21 1h2v1h-2zM24 1h3v1h-3zM30 1h2v1h-2zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h3v1h-3zM15 2h1v1h-1zM17 2h4v1h-4zM22 2h3v1h-3zM26 2h2v1h-2zM29 2h2v1h-2zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h2v1h-2zM11 3h1v1h-1zM13 3h1v1h-1zM15 3h1v1h-1zM17 3h1v1h-1zM19 3h3v1h-3zM23 3h2v1h-2zM27 3h1v1h-1zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h2v1h-2zM11 4h2v1h-2zM14 4h1v1h-1zM17 4h1v1h-1zM19 4h1v1h-1zM25 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM11 5h1v1h-1zM14 5h4v1h-4zM19 5h1v1h-1zM21 5h1v1h-1zM26 5h1v1h-1zM31 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h3v1h-3zM17 7h1v1h-1zM19 7h4v1h-4zM24 7h1v1h-1zM27 7h3v1h-3zM31 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h4v1h-4zM15 8h3v1h-3zM20 8h4v1h-4zM28 8h2v1h-2zM31 8h1v1h-1zM33 8h5v1h-5zM40 8h1v1h-1zM0 9h3v1h-3zM7 9h4v1h-4zM13 9h4v1h-4zM18 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM27 9h1v1h-1zM30 9h1v1h-1zM33 9h1v1h-1zM35 9h3v1h-3zM40 9h1v1h-1zM2 10h1v1h-1zM4 10h3v1h-3zM8 10h2v1h-2zM11 10h2v1h-2zM15 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM26 10h4v1h-4zM32 10h1v1h-1zM34 10h1v1h-1zM40 10h1v1h-1zM0 11h2v1h-2zM5 11h1v1h-1zM7 11h1v1h-1zM10 11h1v1h-1zM12 11h2v1h-2zM16 11h9v1h-9zM29 11h1v1h-1zM31 11h2v1h-2zM35 11h3v1h-3zM0 12h3v1h-3zM4 12h1v1h-1zM6 12h3v1h-3zM10 12h1v1h-1zM13 12h1v1h-1zM15 12h3v1h-3zM20 12h3v1h-3zM26 12h2v1h-2zM29 12h2v1h-2zM32 12h2v1h-2zM35 12h1v1h-1zM3 13h3v1h-3zM8 13h1v1h-1zM11 13h1v1h-1zM13 13h1v1h-1zM15 13h2v1h-2zM18 13h2v1h-2zM21 13h1v1h-1zM24 13h1v1h-1zM26 13h1v1h-1zM28 13h2v1h-2zM31 13h1v1h-1zM33 13h1v1h-1zM35 13h2v1h-2zM39 13h2v1h-2zM4 14h1v1h-1zM6 14h2v1h-2zM9 14h2v1h-2zM15 14h3v1h-3zM19 14h1v1h-1zM23 14h2v1h-2zM28 14h1v1h-1zM32 14h3v1h-3zM36 14h3v1h-3zM40 14h1v1h-1zM0 15h2v1h-2zM3 15h2v1h-2zM7 15h6v1h-6zM15 15h3v1h-3zM19 15h3v1h-3zM23 15h1v1h-1zM26 15h1v1h-1zM29 15h2v1h-2zM35 15h1v1h-1zM37 15h1v1h-1zM40 15h1v1h-1zM0 16h2v1h-2zM3 16h2v1h-2zM6 16h2v1h-2zM9 16h2v1h-2zM12 16h1v1h-1zM16 16h2v1h-2zM22 16h1v1h-1zM27 16h1v1h-1zM29 16h1v1h-1zM31 16h2v1h-2zM35 16h1v1h-1zM39 16h1v1h-1zM0 17h3v1h-3zM4 17h1v1h-1zM7 17h6v1h-6zM14 17h2v1h-2zM17 17h3v1h-3zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h3v1h-3zM33 17h6v1h-6zM40 17h1v1h-1zM0 18h1v1h-1zM3 18h4v1h-4zM8 18h1v1h-1zM10 18h5v1h-5zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h8v1h-8zM30 18h1v1h-1zM32 18h1v1h-1zM34 18h2v1h-2zM38 18h3v1h-3zM5 19h1v1h-1zM10 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM20 19h2v1h-2zM25 19h1v1h-1zM29 19h2v1h-2zM32 19h4v1h-4zM37 19h1v1h-1zM40 19h1v1h-1zM0 20h2v1h-2zM4 20h7v1h-7zM14 20h3v1h-3zM19 20h1v1h-1zM24 20h2v1h-2zM27 20h2v1h-2zM30 20h2v1h-2zM33 20h1v1h-1zM35 20h3v1h-3zM39 20h2v1h-2zM0 21h2v1h-2zM4 21h1v1h-1zM7 21h2v1h-2zM10 21h2v1h-2zM13 21h4v1h-4zM18 21h2v1h-2zM22 21h6v1h-6zM30 21h1v1h-1zM32 21h6v1h-6zM40 21h1v1h-1zM3 22h4v1h-4zM9 22h1v1h-1zM11 22h1v1h-1zM14 22h3v1h-3zM21 22h4v1h-4zM26 22h2v1h-2zM29 22h2v1h-2zM32 22h1v1h-1zM40 22h1v1h-1zM0 23h2v1h-2zM5 23h1v1h-1zM7 23h1v1h-1zM11 23h1v1h-1zM13 23h2v1h-2zM17 23h2v1h-2zM21 23h1v1h-1zM29 23h4v1h-4zM35 23h1v1h-1zM37 23h1v1h-1zM39 23h1v1h-1zM2 24h7v1h-7zM10 24h3v1h-3zM17 24h1v1h-1zM20 24h3v1h-3zM24 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM32 24h2v1h-2zM35 24h1v1h-1zM38 24h1v1h-1zM40 24h1v1h-1zM0 25h2v1h-2zM4 25h1v1h-1zM8 25h1v1h-1zM11 25h2v1h-2zM14 25h1v1h-1zM16 25h1v1h-1zM18 25h1v1h-1zM23 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM32 25h2v1h-2zM35 25h2v1h-2zM38 25h1v1h-1zM40 25h1v1h-1zM1 26h3v1h-3zM5 26h3v1h-3zM10 26h9v1h-9zM20 26h2v1h-2zM23 26h6v1h-6zM32 26h4v1h-4zM40 26h1v1h-1zM1 27h1v1h-1zM8 27h2v1h-2zM14 27h8v1h-8zM24 27h1v1h-1zM26 27h4v1h-4zM31 27h2v1h-2zM37 27h1v1h-1zM39 27h2v1h-2zM3 28h1v1h-1zM5 28h2v1h-2zM10 28h1v1h-1zM15 28h3v1h-3zM21 28h4v1h-4zM26 28h5v1h-5zM32 28h2v1h-2zM35 28h1v1h-1zM39 28h1v1h-1zM0 29h1v1h-1zM7 29h1v1h-1zM9 29h2v1h-2zM13 29h1v1h-1zM15 29h2v1h-2zM18 29h3v1h-3zM25 29h1v1h-1zM29 29h1v1h-1zM31 29h1v1h-1zM33 29h1v1h-1zM35 29h6v1h-6zM2 30h2v1h-2zM6 30h1v1h-1zM9 30h1v1h-1zM11 30h3v1h-3zM15 30h1v1h-1zM17 30h1v1h-1zM20 30h1v1h-1zM22 30h1v1h-1zM25 30h3v1h-3zM29 30h2v1h-2zM32 30h2v1h-2zM36 30h1v1h-1zM40 30h1v1h-1zM2 31h1v1h-1zM5 31h1v1h-1zM7 31h2v1h-2zM10 31h1v1h-1zM12 31h1v1h-1zM15 31h4v1h-4zM21 31h1v1h-1zM24 31h1v1h-1zM26 31h4v1h-4zM31 31h3v1h-3zM36 31h2v1h-2zM0 32h2v1h-2zM3 32h4v1h-4zM9 32h3v1h-3zM14 32h4v1h-4zM19 32h2v1h-2zM22 32h2v1h-2zM28 32h2v1h-2zM32 32h6v1h-6zM8 33h1v1h-1zM14 33h1v1h-1zM19 33h1v1h-1zM21 33h3v1h-3zM25 33h2v1h-2zM28 33h2v1h-2zM31 33h2v1h-2zM36 33h2v1h-2zM40 33h1v1h-1zM0 34h7v1h-7zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h3v1h-3zM16 34h2v1h-2zM23 34h2v1h-2zM27 34h1v1h-1zM30 34h3v1h-3zM34 34h1v1h-1zM36 34h2v1h-2zM40 34h1v1h-1zM0 35h1v1h-1zM6 35h1v1h-1zM11 35h1v1h-1zM14 35h7v1h-7zM22 35h3v1h-3zM26 35h3v1h-3zM31 35h2v1h-2zM36 35h2v1h-2zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM8 36h2v1h-2zM11 36h2v1h-2zM16 36h1v1h-1zM18 36h3v1h-3zM22 36h1v1h-1zM25 36h3v1h-3zM31 36h6v1h-6zM39 36h2v1h-2zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM10 37h1v1h-1zM12 37h2v1h-2zM16 37h1v1h-1zM23 37h3v1h-3zM27 37h1v1h-1zM30 37h1v1h-1zM35 37h1v1h-1zM39 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM9 38h1v1h-1zM13 38h3v1h-3zM17 38h1v1h-1zM20 38h1v1h-1zM23 38h1v1h-1zM25 38h4v1h-4zM31 38h1v1h-1zM33 38h1v1h-1zM37 38h2v1h-2zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM15 39h3v1h-3zM19 39h1v1h-1zM21 39h1v1h-1zM23 39h1v1h-1zM26 39h1v1h-1zM29 39h2v1h-2zM32 39h4v1h-4zM37 39h1v1h-1zM39 39h2v1h-2zM0 40h7v1h-7zM8 40h5v1h-5zM14 40h1v1h-1zM16 40h7v1h-7zM24 40h1v1h-1zM29 40h1v1h-1zM31 40h9v1h-9z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
