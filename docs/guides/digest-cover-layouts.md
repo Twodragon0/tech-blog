@@ -1,8 +1,8 @@
 # Tech Security Weekly Digest — Cover Layout Catalog
 
-**Last updated**: 2026-04-23
+**Last updated**: 2026-04-24
 
-이 문서는 Tech Security Weekly Digest 포스트의 연구 기반 SVG 커버 레이아웃 3종(L20, L21, L22) 및 향후 확장 슬롯을 카탈로그화합니다.
+이 문서는 Tech Security Weekly Digest 포스트의 연구 기반 SVG 커버 레이아웃 5종(L13, L14, L20, L21, L22) 및 향후 확장 슬롯(L15/L16)을 카탈로그화합니다.
 
 각 레이아웃은 특정 뉴스 구성(1dominant+2supporting / 3-chain / 3-equal) 과 KPI 기반 의사결정에 최적화되어 있으며, 공통 파운데이션(색상, 타이포그래피, 필터)을 공유합니다.
 
@@ -408,9 +408,9 @@ assets/images/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go.svg
 
 ---
 
-## 섹션 3: 향후 확장 슬롯 (제안)
+## 섹션 3: 확장 슬롯 (L13/L14 구현 완료, L15/L16 제안)
 
-### L13 — Callout Cards (4개 brief용, TBD)
+### L13 — Callout Cards (4개 brief용, Implemented)
 
 **용도**: 4개 이상 작은 뉴스, single dominant 없음
 
@@ -432,24 +432,45 @@ assets/images/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go.svg
 
 **예시 아이콘:** shield (보안), target (취약점), alert (긴급)
 
-**상태**: **TBD — 아직 구현 안 함**
+**상태**: **Implemented (2026-04-24)**
+
+**Reference**: `assets/images/2026-04-10-Tech_Security_Weekly_Digest_AI_Malware_Go_Agent.svg`
+- 실제 구현 카드 크기: 상단 2개 564/556 × 248, 하단 2개 564/556 × 242 (spec 300×280 대비 와이드 비율 적용)
+- 각 카드: 좌측 severity bar(6px) + 번호 배지(40×40) + 아이콘 + 타이틀 + 3줄 본문 + KPI 카드(120×100)
+- 4 카드 색상: Red(EngageLab) / Amber(UAT-10362) / Blue(Agentic SOC) / Purple(WebRTC)
 
 ---
 
-### L14 — Timeline Layout (시간순, TBD)
+### L14 — Timeline Layout (시간순, Implemented)
 
-**용도**: 시간순 사건 기록 (예: ransomware campaign timeline)
+**용도**: 한 주(7일) 내 3개 이상 사건의 시간순 기록, 이웃 digest와 시각 충돌 회피용 대안
 
-**구조**: 수평 시간축, y=315 중심
+**구조**: 수평 시간축 (y=170) + 하단 3개 수직 스토리 카드 (336×374)
 
 ```
-2026-03-20        2026-04-01        2026-04-15        2026-04-23
-    •                  •                  •                  •
-    └──────────────────┴──────────────────┴──────────────────┘
-  Initial vector    Escalation       Disclosure       Patch
+APR 13   APR 14   APR 15   APR 16   APR 17   APR 18   APR 19
+  │        •        │        •        │        •        │
+  └────────┴────────┴────────┴────────┴────────┴────────┘  (gradient axis)
+           ↓                 ↓                 ↓
+      ┌────────┐        ┌────────┐        ┌────────┐
+      │ Col A  │        │ Col B  │        │ Col C  │
+      │ Chain  │        │ Chain  │        │ Chain  │
+      │ 4 step │        │ 4 step │        │ 4 step │
+      │ KPI    │        │ KPI    │        │ KPI    │
+      └────────┘        └────────┘        └────────┘
 ```
 
-**상태**: **TBD — 제안만 함**
+**요소:**
+- Axis gradient: Green → Blue → Amber → Red (시간 진행에 따른 심각도 의미 부여)
+- Date pulse ring (3× `<animate r>` 반복): 각 이벤트 앵커 지점
+- Drop line: 타임라인 → 카드 (dasharray)
+- Story card: eyebrow / title / subtitle / 4-step chain (번호 배지 + 연결선) / KPI pill
+
+**상태**: **Implemented (2026-04-24)**
+
+**Reference**: `assets/images/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.svg`
+- 3 events: Apr 14 Mirai Nexcorium CVE-2024-3721 (Blue) / Apr 16 Helpdesk impersonation (Amber) / Apr 18 Grinex 13.74M hack (Red)
+- 18 animated nodes, 20KB
 
 ---
 
@@ -495,10 +516,10 @@ Row 4: Eyebrow + Title + KPI
    └─> L22 STACKED BANDS
 
 4+ small briefs, no dominant?
-   └─> L13 CALLOUTS (when implemented)
+   └─> L13 CALLOUTS (2x2 grid)
 
-Chronological sequence?
-   └─> L14 TIMELINE (when implemented)
+Chronological sequence of 3 events within one week, neighbor digest uses L20/L21/L22?
+   └─> L14 TIMELINE (horizontal axis + 3 columns)
 
 Geographic distribution?
    └─> L15 GEOGRAPHIC MAP (when implemented)
