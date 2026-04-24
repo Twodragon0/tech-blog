@@ -1,46 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: CVE-2025-55182 Next.js React2Shell exploit compromises 766 hosts stealing AWS keys and GitHub tokens, Cisco CVSS 9.8 critical IMC and SSM remote system compromise requiring immediate patch, AWS agentic AI four core security principles for least privilege isolation audit and human oversight">
-<!-- profile: high-quality-cover (L22 Stacked Bands, research-based) -->
-<title>Weekly digest 2026-04-03: CVE-2025-55182 React2Shell 766 hosts, Cisco CVSS 9.8 RCE patch, AWS Agentic AI 4 security principles</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: Cisco CVSS 9.8 IMC and SSM unauthenticated RCE requiring immediate patch, CVE-2025-55182 React2Shell compromises 766 Next.js hosts stealing AWS keys and GitHub tokens, AWS agentic AI four core security principles for least privilege isolation audit and human oversight, Google Cloud vSphere BRICKSTORM malware defender guide">
+<!-- profile: high-quality-cover (L13 Callouts, research-based) -->
+<title>Weekly digest 2026-04-03: Cisco CVSS 9.8 RCE patch, CVE-2025-55182 React2Shell 766 hosts, AWS Agentic AI 4 security principles, vSphere BRICKSTORM defender guide</title>
 <defs>
   <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" stop-color="#0A1226"/>
-    <stop offset="50%" stop-color="#0C1430"/>
+    <stop offset="55%" stop-color="#0D1530"/>
     <stop offset="100%" stop-color="#131038"/>
   </linearGradient>
-  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#1E1205"/>
-    <stop offset="100%" stop-color="#281808"/>
+  <linearGradient id="cardA" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2A0A10"/>
+    <stop offset="100%" stop-color="#1E0608"/>
   </linearGradient>
-  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#1A0508"/>
-    <stop offset="100%" stop-color="#240A10"/>
+  <linearGradient id="cardB" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2A180A"/>
+    <stop offset="100%" stop-color="#1E1006"/>
   </linearGradient>
-  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#071524"/>
-    <stop offset="100%" stop-color="#0D1F32"/>
+  <linearGradient id="cardC" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0E2038"/>
+    <stop offset="100%" stop-color="#0A1830"/>
+  </linearGradient>
+  <linearGradient id="cardD" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#14143A"/>
+    <stop offset="100%" stop-color="#0D0D30"/>
   </linearGradient>
   <linearGradient id="shieldCrit" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%" stop-color="#FF2233"/>
     <stop offset="100%" stop-color="#8B0000"/>
   </linearGradient>
-  <linearGradient id="awsBadge" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#3A86FF"/>
-    <stop offset="100%" stop-color="#1A46C0"/>
-  </linearGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
   <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
     <stop offset="0%" stop-color="#FFB703" stop-opacity="0.5"/>
     <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
   </radialGradient>
   <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
     <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/>
     <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
   </radialGradient>
+  <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/>
+  </pattern>
   <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
     <feOffset dx="1" dy="3"/>
     <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
     <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -48,313 +55,324 @@
   <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
     <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
     <feOffset dx="0" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feComponentTransfer><feFuncA type="linear" slope="0.8"/></feComponentTransfer>
     <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
-    <path d="M0 20 L40 20" stroke="#3A2A10" stroke-width="0.4" opacity="0.5"/>
-    <path d="M40 0 L40 20" stroke="#3A2A10" stroke-width="0.4" opacity="0.5"/>
-  </pattern>
-  <pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
-    <circle cx="9" cy="9" r="0.8" fill="#3A1020" opacity="0.55"/>
-  </pattern>
-  <pattern id="techGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-    <path d="M0 24 L24 24 M24 0 L24 24" stroke="#0E2040" stroke-width="0.5" opacity="0.6"/>
-  </pattern>
 </defs>
 
 <!-- Background -->
 <rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-<!-- Top header stripe -->
-<rect x="0" y="0" width="1200" height="56" fill="#05080E" opacity="0.95"/>
-<text x="32" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
-<text x="1168" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.04.03</text>
-<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.9">
-  <animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/>
+<!-- Ambient glow per card quadrant -->
+<circle cx="320" cy="220" r="120" fill="url(#glowRed)">
+  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="5.8s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="220" r="120" fill="url(#glowAmber)">
+  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="6.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="320" cy="480" r="120" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.2s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="480" r="120" fill="url(#glowPurple)" opacity="0.6"/>
+
+<!-- Top header stripe (56px) -->
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.04.03</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.2s" repeatCount="indefinite"/>
 </rect>
 
-<!-- Starfield -->
-<g fill="#8FB8FF">
-  <circle cx="180" cy="72" r="1.1"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.2s" repeatCount="indefinite"/></circle>
-  <circle cx="440" cy="76" r="0.9"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.1s" begin="0.5s" repeatCount="indefinite"/></circle>
-  <circle cx="740" cy="72" r="1.2"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.8s" begin="1.0s" repeatCount="indefinite"/></circle>
-  <circle cx="1060" cy="76" r="0.8"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.0s" begin="0.3s" repeatCount="indefinite"/></circle>
-</g>
-
-<!-- ===== BAND A: CVE-2025-55182 / 766 Next.js hosts (HIGH amber) ===== -->
-<rect x="0" y="56" width="1200" height="194" fill="url(#bandA)"/>
-<rect x="0" y="56" width="1200" height="194" fill="url(#ledgerGrid)" opacity="0.55"/>
-<rect x="0" y="56" width="8" height="194" fill="#FFB703"/>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">EXPLOIT IN THE WILD  /  HIGH</text>
-  <text x="30" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">CVE-2025-55182 : React2Shell</text>
-  <text x="30" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFD58A">766 Next.js hosts breached - credentials harvested</text>
-  <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9AE">SSTI via SSR props - AWS keys, GitHub tokens, DB creds exfiltrated at scale</text>
-  <text x="30" y="228" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#B8A880">The Hacker News</text>
-</g>
-
-<!-- Band A illustration: Next.js server -> attacker payload chain -->
-<g transform="translate(440,152)">
-  <!-- Ambient glow -->
-  <circle cx="100" cy="0" r="90" fill="url(#glowAmber)">
-    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.2s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Next.js server box -->
-  <g filter="url(#softShadow)">
-    <rect x="-50" y="-38" width="100" height="76" rx="8" fill="#1E1205" stroke="#FFB703" stroke-width="1.6"/>
-    <text x="0" y="-18" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFD58A">Next.js</text>
-    <text x="0" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFB703">SSR : Server</text>
-    <rect x="-38" y="8" width="76" height="14" rx="2" fill="#3A1800" stroke="#FFB703" stroke-width="0.8"/>
-    <text x="0" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">SSTI VULN</text>
-    <circle cx="42" cy="-32" r="8" fill="#FFB703" filter="url(#softShadow)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.4s" repeatCount="indefinite"/>
-    </circle>
-    <text x="42" y="-28" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#0A0800">!</text>
+<!-- ===== CARD 01: Cisco CVSS 9.8 IMC/SSM RCE (top-left, Red/Critical) ===== -->
+<g transform="translate(32,80)">
+  <rect x="0" y="0" width="564" height="248" rx="14" fill="url(#cardA)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" fill="#E63946"/>
+  <rect x="0" y="0" width="564" height="4" fill="#E63946" opacity="0.7"/>
+  <!-- Number badge -->
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#E63946" opacity="0.22"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F87171">01</text>
   </g>
-
-  <!-- Arrow: attacker payload traveling right -->
-  <g transform="translate(62,0)">
-    <path d="M0 0 L65 0" stroke="#FFB703" stroke-width="2.2" stroke-dasharray="4 3" fill="none">
-      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/>
-    </path>
-    <polygon points="65,-6 78,0 65,6" fill="#FFB703"/>
-    <g fill="#FCA5A5">
-      <circle r="3"><animateMotion path="M0 0 L65 0" dur="2.0s" repeatCount="indefinite"/></circle>
-      <circle cx="32" cy="0" r="2.4" opacity="0.5"/>
-    </g>
+  <!-- Eyebrow + title -->
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" letter-spacing="2.4">CRITICAL PATCH  /  CVSS 9.8</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Cisco IMC / SSM RCE</text>
   </g>
-
-  <!-- Attacker C2 cloud -->
-  <g transform="translate(170,0)" filter="url(#softShadow)">
-    <path d="M20 24 Q8 24 6 14 Q6 4 20 6 Q26 -6 44 -2 Q62 -6 68 6 Q82 4 82 14 Q80 24 68 24 Z" fill="#1E1205" stroke="#E63946" stroke-width="1.8"/>
-    <text x="44" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">ATTACKER C2</text>
-    <text x="44" y="-16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFD58A">AWS keys / DB creds</text>
-    <circle cx="44" cy="34" r="5" fill="#E63946">
-      <animate attributeName="r" values="3.5;7;3.5" dur="1.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- Victim dots (representing 766 hosts) -->
-  <g fill="#FFB703" opacity="0.75">
-    <circle cx="-130" cy="-48" r="3"><animate attributeName="opacity" values="0.2;0.95;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
-    <circle cx="-100" cy="48" r="3"><animate attributeName="opacity" values="0.2;0.95;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></circle>
-    <circle cx="-160" cy="8" r="2.5" opacity="0.5"/>
-    <circle cx="-70" cy="-58" r="2.5" opacity="0.5"/>
-    <circle cx="-180" cy="-28" r="2" opacity="0.5"/>
-  </g>
-</g>
-
-<!-- Band A KPI -->
-<g transform="translate(1000,153)" filter="url(#softShadow)">
-  <rect x="-82" y="-66" width="184" height="132" rx="14" fill="#1A1005" stroke="#FFB703" stroke-width="2.2"/>
-  <text x="10" y="-40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">HOSTS HIT</text>
-  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">766</text>
-  <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFD58A">credential theft</text>
-  <circle cx="82" cy="-54" r="5" fill="#FFB703">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
-  </circle>
-</g>
-
-<!-- Band A side accent lines (static) -->
-<g stroke="#FFB703" stroke-width="0.5" stroke-opacity="0.4" fill="none">
-  <path d="M20 92 L28 92"/>
-  <path d="M20 152 L28 152"/>
-</g>
-
-<!-- Separator A/B -->
-<rect x="0" y="250" width="1200" height="1" fill="#2A1520" opacity="0.9"/>
-
-<!-- ===== BAND B: Cisco CVSS 9.8 (CRITICAL red) ===== -->
-<rect x="0" y="250" width="1200" height="192" fill="url(#bandB)"/>
-<rect x="0" y="250" width="1200" height="192" fill="url(#circuitDot)" opacity="0.7"/>
-<rect x="0" y="250" width="8" height="192" fill="#E63946"/>
-
-<!-- Cisco hub glow -->
-<circle cx="750" cy="346" r="100" fill="url(#glowRed)">
-  <animate attributeName="r" values="80;125;80" dur="3.0s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.5;1;0.5" dur="3.0s" repeatCount="indefinite"/>
-</circle>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="294" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#E63946">CRITICAL PATCH  /  CVSS 9.8</text>
-  <text x="30" y="336" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">Cisco FMC : IMC / SSM RCE</text>
-  <text x="30" y="368" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FBB6BD">Remote system compromise - unauthenticated</text>
-  <text x="30" y="396" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9CE">Integrated Management Controller and Smart Software Manager vulns</text>
-  <text x="30" y="422" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#B8A8AE">The Hacker News</text>
-</g>
-
-<!-- Cisco device with radar rings -->
-<g transform="translate(750,346)">
-  <!-- Radar pulse rings -->
-  <circle cx="0" cy="0" r="42" fill="none" stroke="#E63946" stroke-width="0.9">
-    <animate attributeName="r" values="36;80;36" dur="2.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.9;0;0.9" dur="2.6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="0" cy="0" r="60" fill="none" stroke="#E63946" stroke-width="0.6" opacity="0.3"/>
-
-  <!-- Cisco device box -->
-  <g filter="url(#softShadow)">
-    <rect x="-58" y="-36" width="116" height="72" rx="8" fill="#1E0508" stroke="#E63946" stroke-width="2"/>
-    <rect x="-46" y="-26" width="92" height="52" rx="4" fill="#130304"/>
+  <!-- Subtitle -->
+  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FBB6BD">Unauthenticated remote system compromise</text>
+  <!-- Cisco device illustration -->
+  <g transform="translate(34,130)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="110" height="72" rx="8" fill="#1E0508" stroke="#E63946" stroke-width="1.8"/>
+    <rect x="8" y="10" width="94" height="52" rx="4" fill="#130304"/>
     <!-- port slots -->
     <g fill="#4A0808">
-      <rect x="-42" y="-18" width="14" height="8" rx="1.5"/>
-      <rect x="-24" y="-18" width="14" height="8" rx="1.5"/>
-      <rect x="-6" y="-18" width="14" height="8" rx="1.5"/>
-      <rect x="12" y="-18" width="14" height="8" rx="1.5"/>
-      <rect x="30" y="-18" width="14" height="8" rx="1.5"/>
+      <rect x="12" y="16" width="14" height="8" rx="1.5"/>
+      <rect x="30" y="16" width="14" height="8" rx="1.5"/>
+      <rect x="48" y="16" width="14" height="8" rx="1.5"/>
+      <rect x="66" y="16" width="14" height="8" rx="1.5"/>
     </g>
-    <!-- status LEDs -->
-    <circle cx="-40" cy="2" r="2.8" fill="#FF7070"/>
-    <circle cx="-28" cy="2" r="2.8" fill="#FFB703">
-      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/>
+    <!-- Status LEDs -->
+    <circle cx="18" cy="36" r="3" fill="#FF7070"/>
+    <circle cx="30" cy="36" r="3" fill="#FFB703">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.1s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="-16" cy="2" r="2.8" fill="#FF7070"/>
-    <circle cx="-4" cy="2" r="2.8" fill="#4ADE80" opacity="0.35"/>
-    <circle cx="8" cy="2" r="2.8" fill="#FF7070"/>
-    <text x="0" y="24" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">CISCO IMC / SSM</text>
-    <rect x="-42" y="28" width="84" height="12" rx="2" fill="#E63946" opacity="0.92">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="1.0s" repeatCount="indefinite"/>
+    <circle cx="42" cy="36" r="3" fill="#FF7070"/>
+    <circle cx="54" cy="36" r="3" fill="#FF7070"/>
+    <circle cx="66" cy="36" r="3" fill="#4ADE80" opacity="0.3"/>
+    <text x="55" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">CISCO FMC</text>
+    <!-- Alert bar -->
+    <rect x="8" y="60" width="94" height="10" rx="2" fill="#E63946" opacity="0.9">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="0.9s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="37" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">UNAUTHENTICATED RCE</text>
+    <text x="55" y="68" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="900" fill="#FFFFFF">UNAUTH RCE</text>
   </g>
-
-  <!-- CVSS badge top-right of device -->
-  <g transform="translate(82,-32)" filter="url(#softShadow)">
-    <rect x="-30" y="-18" width="60" height="36" rx="7" fill="url(#shieldCrit)"/>
-    <text x="0" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFE4E4">CVSS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#FFFFFF">9.8</text>
-  </g>
-
-  <!-- Attack spoke lines -->
-  <g stroke="#E63946" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5">
-    <line x1="0" y1="-36" x2="0" y2="-105"/>
-    <line x1="58" y1="-20" x2="100" y2="-58"/>
-    <line x1="58" y1="20" x2="100" y2="58"/>
-    <line x1="-58" y1="-20" x2="-100" y2="-58"/>
-    <line x1="-58" y1="20" x2="-100" y2="58"/>
-  </g>
-  <g fill="#FCA5A5">
-    <circle cx="0" cy="-108" r="4.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
-    <circle cx="103" cy="-60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.2s" repeatCount="indefinite"/></circle>
-    <circle cx="103" cy="60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>
-    <circle cx="-103" cy="-60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
-    <circle cx="-103" cy="60" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.8s" repeatCount="indefinite"/></circle>
-  </g>
-</g>
-
-<!-- Band B KPI -->
-<g transform="translate(1000,346)" filter="url(#softShadow)">
-  <rect x="-82" y="-66" width="184" height="132" rx="14" fill="#1E0508" stroke="#E63946" stroke-width="2.2"/>
-  <text x="10" y="-40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">CVSS SCORE</text>
-  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">9.8</text>
-  <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">Critical - patch now</text>
-  <circle cx="82" cy="-54" r="5" fill="#E63946">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/>
-  </circle>
-</g>
-
-<!-- Band B side accent lines (static) -->
-<g stroke="#E63946" stroke-width="0.5" stroke-opacity="0.4" fill="none">
-  <path d="M20 284 L28 284"/>
-  <path d="M20 314 L28 314"/>
-  <path d="M20 344 L28 344"/>
-</g>
-
-<!-- Separator B/C -->
-<rect x="0" y="442" width="1200" height="1" fill="#151020" opacity="0.9"/>
-
-<!-- ===== BAND C: AWS Agentic AI 4 Principles (MEDIUM blue) ===== -->
-<rect x="0" y="442" width="1200" height="188" fill="url(#bandC)"/>
-<rect x="0" y="442" width="1200" height="188" fill="url(#techGrid)" opacity="0.6"/>
-<rect x="0" y="442" width="8" height="188" fill="#3A86FF"/>
-
-<!-- Blue glow -->
-<circle cx="550" cy="536" r="100" fill="url(#glowBlue)">
-  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="6.0s" repeatCount="indefinite"/>
-</circle>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="486" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#3A86FF">AWS SECURITY GUIDANCE  /  MEDIUM</text>
-  <text x="30" y="524" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="800" fill="#F5F7FA">Agentic AI : 4 Security Principles</text>
-  <text x="30" y="554" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#8FB8FF">Least privilege, isolation, audit, human oversight</text>
-  <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#7DA3D9">AWS Security Blog</text>
-</g>
-
-<!-- 4 principle icon row -->
-<g transform="translate(476,515)">
-  <!-- connecting baseline -->
-  <line x1="-28" y1="0" x2="260" y2="0" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.35"/>
-
-  <!-- P1: Least Privilege (lock) -->
-  <g filter="url(#softShadow)">
-    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
-    <rect x="-12" y="-10" width="24" height="20" rx="3" fill="#3A86FF"/>
-    <path d="M-7 -10 Q-7 -24 0 -24 Q7 -24 7 -10" stroke="#3A86FF" stroke-width="2.4" fill="none"/>
-    <circle cx="0" cy="1" r="3" fill="#07172A"/>
-    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">MIN PRIV</text>
-  </g>
-
-  <!-- P2: Isolation (nested boxes) -->
-  <g transform="translate(80,0)" filter="url(#softShadow)">
-    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
-    <rect x="-18" y="-22" width="36" height="36" rx="3" fill="none" stroke="#3A86FF" stroke-width="1.5"/>
-    <rect x="-10" y="-14" width="20" height="20" rx="2" fill="#3A86FF" opacity="0.45"/>
-    <rect x="-5" y="-9" width="10" height="10" rx="1" fill="#8FB8FF"/>
-    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">ISOLATE</text>
-  </g>
-
-  <!-- P3: Audit (log lines) -->
-  <g transform="translate(160,0)" filter="url(#softShadow)">
-    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
-    <g stroke="#3A86FF" stroke-width="1.4" fill="none">
-      <line x1="-18" y1="-20" x2="18" y2="-20"/>
-      <line x1="-18" y1="-9" x2="18" y2="-9"/>
-      <line x1="-18" y1="2" x2="6" y2="2"/>
-    </g>
-    <circle cx="14" cy="2" r="3" fill="#4ADE80">
-      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/>
+  <!-- Radar pulse -->
+  <g transform="translate(90,166)">
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#E63946" stroke-width="0.8">
+      <animate attributeName="r" values="40;80;40" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">AUDIT</text>
   </g>
+  <!-- CVSS badge -->
+  <g transform="translate(175,148)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="60" height="40" rx="7" fill="url(#shieldCrit)"/>
+    <text x="30" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFE4E4">CVSS</text>
+    <text x="30" y="33" text-anchor="middle" font-family="Inter, monospace" font-size="18" font-weight="900" fill="#FFFFFF">9.8</text>
+  </g>
+  <!-- KPI card -->
+  <g transform="translate(432,130)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E0508" stroke="#E63946" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#F87171">CVSS SCORE</text>
+    <text x="60" y="66" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="900" fill="#F5F7FA">9.8</text>
+    <text x="60" y="86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">patch now</text>
+    <circle cx="108" cy="12" r="4" fill="#E63946">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- spark dots top-right -->
+  <g fill="#F87171">
+    <circle cx="530" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="546" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
 
-  <!-- P4: Human oversight (person + checkmark) -->
-  <g transform="translate(240,0)" filter="url(#softShadow)">
-    <rect x="-32" y="-36" width="64" height="64" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.5"/>
-    <circle cx="0" cy="-20" r="9" fill="#3A86FF"/>
-    <path d="-16 6 Q-16 -6 0 -6 Q16 -6 16 6 Z" fill="#3A86FF"/>
-    <path d="M-16 6 Q-16 -6 0 -6 Q16 -6 16 6 Z" fill="#3A86FF"/>
-    <g transform="translate(12,-26)">
-      <circle r="9" fill="#4ADE80" opacity="0.95"/>
-      <path d="M-4 0 L-1 3 L5 -4" stroke="#071226" stroke-width="2" fill="none" stroke-linecap="round"/>
+<!-- ===== CARD 02: CVE-2025-55182 React2Shell / 766 hosts (top-right, Amber/High) ===== -->
+<g transform="translate(612,80)">
+  <rect x="0" y="0" width="556" height="248" rx="14" fill="url(#cardB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" fill="#FFB703"/>
+  <rect x="0" y="0" width="556" height="4" fill="#FFB703" opacity="0.7"/>
+  <!-- Number badge -->
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#FFB703" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#FFB703">02</text>
+  </g>
+  <!-- Eyebrow + title -->
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="2.4">EXPLOIT IN THE WILD  /  HIGH</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">CVE-2025-55182 React2Shell</text>
+  </g>
+  <!-- Subtitle -->
+  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">766 Next.js hosts breached - credentials harvested</text>
+  <!-- Server box illustration -->
+  <g transform="translate(28,120)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="90" height="100" rx="8" fill="#1E1205" stroke="#FFB703" stroke-width="1.6"/>
+    <text x="45" y="18" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFD58A">Next.js</text>
+    <text x="45" y="31" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFB703">SSR Server</text>
+    <rect x="10" y="38" width="70" height="12" rx="2" fill="#3A1800" stroke="#FFB703" stroke-width="0.8"/>
+    <text x="45" y="48" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">SSTI VULN</text>
+    <circle cx="78" cy="10" r="7" fill="#FFB703">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="78" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0800">!</text>
+    <!-- Victim dots -->
+    <g fill="#FFB703" opacity="0.7">
+      <circle cx="20" cy="68" r="3"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="35" cy="78" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="55" cy="68" r="3"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="70" cy="78" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
     </g>
-    <text x="0" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">OVERSIGHT</text>
+    <text x="45" y="92" text-anchor="middle" font-family="Inter, monospace" font-size="7" fill="#D9C9AE">766 hosts</text>
+  </g>
+  <!-- Arrow + exfil cloud -->
+  <g transform="translate(130,158)">
+    <path d="M0 0 L52 0" stroke="#FFB703" stroke-width="2" stroke-dasharray="4 3" fill="none">
+      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.1s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="52,-5 64,0 52,5" fill="#FFB703"/>
+  </g>
+  <g transform="translate(206,142)" filter="url(#softShadow)">
+    <path d="M16 22 Q4 22 2 13 Q2 4 16 5 Q22 -5 38 -1 Q54 -5 60 5 Q74 4 74 13 Q72 22 60 22 Z" fill="#1E1205" stroke="#E63946" stroke-width="1.6"/>
+    <text x="38" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCA5A5">ATTACKER C2</text>
+    <text x="38" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="#FFD58A">AWS keys / tokens</text>
+    <circle cx="38" cy="30" r="5" fill="#E63946">
+      <animate attributeName="r" values="3;7;3" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- KPI card -->
+  <g transform="translate(420,130)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E1006" stroke="#FFB703" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">HOSTS HIT</text>
+    <text x="60" y="66" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="900" fill="#F5F7FA">766</text>
+    <text x="60" y="86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">cred theft</text>
+    <circle cx="108" cy="12" r="4" fill="#FFB703">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
   </g>
 </g>
 
-<!-- Band C KPI -->
-<g transform="translate(1000,530)" filter="url(#softShadow)">
-  <rect x="-82" y="-62" width="184" height="124" rx="14" fill="#071626" stroke="#3A86FF" stroke-width="2.2"/>
-  <text x="10" y="-36" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#3A86FF">PRINCIPLES</text>
-  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">4</text>
-  <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8FB8FF">Agentic AI security</text>
-  <circle cx="82" cy="-50" r="4" fill="#3A86FF">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/>
-  </circle>
+<!-- ===== CARD 03: AWS Agentic AI 4 Security Principles (bottom-left, Blue/Medium) ===== -->
+<g transform="translate(32,348)">
+  <rect x="0" y="0" width="564" height="242" rx="14" fill="url(#cardC)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" fill="#3A86FF"/>
+  <rect x="0" y="0" width="564" height="4" fill="#3A86FF" opacity="0.7"/>
+  <!-- Number badge -->
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#3A86FF" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#8FB8FF">03</text>
+  </g>
+  <!-- Eyebrow + title -->
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">AWS SECURITY GUIDANCE  /  MEDIUM</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Agentic AI: 4 Security Principles</text>
+  </g>
+  <!-- Subtitle -->
+  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">Least privilege, isolation, audit, human oversight</text>
+  <!-- 4 principle icons -->
+  <g transform="translate(28,120)">
+    <!-- connecting baseline -->
+    <line x1="20" y1="34" x2="300" y2="34" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.35"/>
+    <!-- P1: Least Privilege (lock) -->
+    <g filter="url(#softShadow)">
+      <rect x="0" y="0" width="58" height="58" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.4"/>
+      <rect x="17" y="26" width="24" height="18" rx="3" fill="#3A86FF"/>
+      <path d="M19 26 Q19 14 29 14 Q39 14 39 26" stroke="#3A86FF" stroke-width="2.2" fill="none"/>
+      <circle cx="29" cy="36" r="3" fill="#07172A"/>
+      <text x="29" y="70" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">MIN PRIV</text>
+    </g>
+    <!-- P2: Isolation -->
+    <g transform="translate(80,0)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="58" height="58" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.4"/>
+      <rect x="10" y="10" width="38" height="38" rx="3" fill="none" stroke="#3A86FF" stroke-width="1.4"/>
+      <rect x="18" y="18" width="22" height="22" rx="2" fill="#3A86FF" opacity="0.4"/>
+      <rect x="23" y="23" width="12" height="12" rx="1" fill="#8FB8FF"/>
+      <text x="29" y="70" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">ISOLATE</text>
+    </g>
+    <!-- P3: Audit -->
+    <g transform="translate(160,0)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="58" height="58" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.4"/>
+      <g stroke="#3A86FF" stroke-width="1.4" fill="none">
+        <line x1="12" y1="16" x2="46" y2="16"/>
+        <line x1="12" y1="26" x2="46" y2="26"/>
+        <line x1="12" y1="36" x2="30" y2="36"/>
+      </g>
+      <circle cx="40" cy="36" r="4" fill="#4ADE80">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="29" y="70" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">AUDIT</text>
+    </g>
+    <!-- P4: Human oversight -->
+    <g transform="translate(240,0)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="58" height="58" rx="10" fill="#07172A" stroke="#3A86FF" stroke-width="1.4"/>
+      <circle cx="29" cy="18" r="9" fill="#3A86FF"/>
+      <path d="M13 44 Q13 32 29 32 Q45 32 45 44 Z" fill="#3A86FF"/>
+      <g transform="translate(40,8)">
+        <circle r="8" fill="#4ADE80" opacity="0.95"/>
+        <path d="M-3 0 L0 3 L5 -4" stroke="#071226" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <text x="29" y="70" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">OVERSIGHT</text>
+    </g>
+  </g>
+  <!-- Source -->
+  <text x="20" y="225" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" fill="#7DA3D9">AWS Security Blog</text>
+  <!-- KPI card -->
+  <g transform="translate(430,120)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#8FB8FF">PRINCIPLES</text>
+    <text x="60" y="66" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="900" fill="#F5F7FA">4</text>
+    <text x="60" y="86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#8FB8FF">Agentic AI sec</text>
+    <circle cx="108" cy="12" r="4" fill="#3A86FF">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </g>
 
-<!-- Band C accent lines (static) -->
-<g stroke="#3A86FF" stroke-width="0.5" stroke-opacity="0.4" fill="none">
-  <path d="M20 476 L28 476"/>
-  <path d="M20 506 L28 506"/>
-  <path d="M20 536 L28 536"/>
+<!-- ===== CARD 04: vSphere BRICKSTORM Malware Defender Guide (bottom-right, Purple/Trend) ===== -->
+<g transform="translate(612,348)">
+  <rect x="0" y="0" width="556" height="242" rx="14" fill="url(#cardD)" stroke="#8B5CF6" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" fill="#8B5CF6"/>
+  <rect x="0" y="0" width="556" height="4" fill="#8B5CF6" opacity="0.7"/>
+  <!-- Number badge -->
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#8B5CF6" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#C4B5FD">04</text>
+  </g>
+  <!-- Eyebrow + title -->
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#C4B5FD" letter-spacing="2.4">CLOUD THREAT  /  TREND</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">vSphere BRICKSTORM Malware</text>
+  </g>
+  <!-- Subtitle -->
+  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#DDD6FE">Google Cloud defender guide for hypervisor attacks</text>
+  <!-- vSphere stack illustration -->
+  <g transform="translate(28,118)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="110" height="22" rx="4" fill="#1E1A4E" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="55" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C4B5FD">vSphere ESXi</text>
+    <rect x="0" y="28" width="110" height="22" rx="4" fill="#1E1A4E" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="55" y="43" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C4B5FD">Hypervisor</text>
+    <rect x="0" y="56" width="110" height="22" rx="4" fill="#1E1A4E" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="55" y="71" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C4B5FD">vCenter</text>
+    <rect x="0" y="84" width="110" height="22" rx="4" fill="#3D0F6E" stroke="#8B5CF6" stroke-width="1.4"/>
+    <text x="55" y="99" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#F5F7FA">BRICKSTORM</text>
+    <!-- animated threat pulse -->
+    <circle cx="100" cy="95" r="4" fill="#8B5CF6">
+      <animate attributeName="r" values="2;7;2" dur="2.0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Defense arrow -->
+  <g transform="translate(152,170)">
+    <path d="M0 0 L44 0" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 3" fill="none">
+      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.3s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="44,-5 56,0 44,5" fill="#8B5CF6"/>
+  </g>
+  <!-- Shield/defender icon -->
+  <g transform="translate(218,148)" filter="url(#softShadow)">
+    <path d="M32 6 L56 16 L56 36 Q56 54 32 62 Q8 54 8 36 L8 16 Z" fill="#14143A" stroke="#8B5CF6" stroke-width="2"/>
+    <path d="M32 8 L54 17 L54 35 Q54 52 32 60 Q10 52 10 35 L10 17 Z" fill="#1E1A4E"/>
+    <path d="M22 32 L28 38 L42 24" stroke="#4ADE80" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="32" y="76" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#C4B5FD">DEFENDER</text>
+  </g>
+  <!-- Source -->
+  <text x="20" y="225" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" fill="#9D7FE0">Google Cloud Blog</text>
+  <!-- KPI card -->
+  <g transform="translate(420,120)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#14143A" stroke="#8B5CF6" stroke-width="1.8"/>
+    <text x="60" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#C4B5FD">THREAT TYPE</text>
+    <text x="60" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F5F7FA">HYPER</text>
+    <text x="60" y="74" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F5F7FA">VISOR</text>
+    <text x="60" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#C4B5FD">backdoor</text>
+    <circle cx="108" cy="12" r="4" fill="#8B5CF6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </g>
 
-<!-- Bottom count badge -->
+<!-- Ambient severity indicator dots in header -->
+<g opacity="0.85">
+  <g fill="#F87171">
+    <rect x="210" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="222" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FFB703">
+    <rect x="790" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" repeatCount="indefinite"/></rect>
+    <rect x="802" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+</g>
+
+<!-- Bottom story count badge -->
 <rect x="110" y="606" width="170" height="20" rx="4" fill="#0A1226" stroke="#3A86FF" stroke-width="0.8" opacity="0.9"/>
 <text x="195" y="620" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="1">29 stories - 2026.04.03</text>
 
