@@ -186,7 +186,7 @@ Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습
 | SBOM 생성 | ✅ 권장 | 소프트웨어 구성 요소 추적 |
 | 자동 스캔 | ✅ 권장 | CI/CD 파이프라인 통합 |
 
-<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-09-17-NPM_Shai-Hulud_180_Large-scale_Analysis.svg' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
 
 ## 2. 2025년 최신 동향 및 후속 사건
 
