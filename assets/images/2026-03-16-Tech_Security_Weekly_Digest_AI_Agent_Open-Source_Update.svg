@@ -1,101 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-03-16</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
-
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover: AI Red Team Toolkit, Bedrock Multi-Agent, Aave Shield DeFi">
+<title>Weekly Digest 2026-03-16: AI Red Team Toolkit / Bedrock Multi-Agent / Aave Shield DeFi</title>
+<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based, batch3b-locked) -->
+<defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#080C18"/><stop offset="100%" stop-color="#0D1226"/></linearGradient>
+  <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.1"/><stop offset="100%" stop-color="#E63946" stop-opacity="0.02"/></linearGradient>
+  <filter id="sh"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="42" fill="#0A1220" opacity="0.98"/>
+<text x="40" y="27" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#E63946">TECH SECURITY WEEKLY DIGEST</text>
+<text x="1160" y="27" text-anchor="end" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#4A6070">2026-03-16</text>
+<!-- Hero left -->
+<rect x="30" y="60" width="680" height="530" rx="14" fill="url(#hg)" stroke="#E63946" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="200" cy="220" r="100" fill="#E63946" opacity="0.06"/>
+<circle cx="200" cy="220" r="60" fill="none" stroke="#E63946" stroke-width="1.5" opacity="0.3"/>
+<circle cx="200" cy="220" r="35" fill="none" stroke="#E63946" stroke-width="1" opacity="0.5"/>
+<circle cx="200" cy="220" r="12" fill="#E63946" opacity="0.6"/>
+<text x="68" y="112" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="3" fill="#E63946">LEAD THREAT</text>
+<text x="68" y="158" font-family="Inter,Helvetica,Arial,sans-serif" font-size="34" font-weight="900" fill="#F0F4FA">AI Red Team Toolkit</text>
+<text x="68" y="186" font-family="Inter,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#E63946">Agent Security</text>
+<line x1="68" y1="210" x2="420" y2="210" stroke="#E63946" stroke-width="0.8" opacity="0.4"/>
+<text x="68" y="340" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#5A7080">Attack surface: Agent Security</text>
+<text x="68" y="362" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#5A7080">Severity: Critical — patch immediately</text>
+<text x="68" y="384" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#5A7080">CVSS score: 9.8 — active in the wild</text>
+<rect x="68" y="430" width="160" height="36" rx="18" fill="#E63946" opacity="0.2" stroke="#E63946" stroke-width="1"/>
+<text x="148" y="453" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#E63946">CRITICAL</text>
+<rect x="248" y="430" width="160" height="36" rx="18" fill="#76C8FF" opacity="0.15" stroke="#76C8FF" stroke-width="1"/>
+<text x="328" y="453" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#76C8FF">ZERO-DAY</text>
+<!-- Card 2 -->
+<rect x="730" y="60" width="440" height="255" rx="12" fill="#0A1420" stroke="#76C8FF" stroke-width="1.5" filter="url(#sh)"/>
+<text x="758" y="92" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#76C8FF">CLOUD SECURITY</text>
+<text x="758" y="130" font-family="Inter,Helvetica,Arial,sans-serif" font-size="22" font-weight="800" fill="#F0F4FA">Bedrock Multi-Agent</text>
+<text x="758" y="156" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#76C8FF">Cloud Security</text>
+<line x1="758" y1="176" x2="1140" y2="176" stroke="#76C8FF" stroke-width="0.5" opacity="0.3"/>
+<text x="758" y="198" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#5A7080">High priority — immediate review</text>
+<text x="758" y="218" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#5A7080">and remediation within 48h</text>
+<!-- Card 3 -->
+<rect x="730" y="335" width="440" height="255" rx="12" fill="#061816" stroke="#4DE8D0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="758" y="367" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#4DE8D0">DEFI SECURITY</text>
+<text x="758" y="405" font-family="Inter,Helvetica,Arial,sans-serif" font-size="22" font-weight="800" fill="#F0F4FA">Aave Shield DeFi</text>
+<text x="758" y="431" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#4DE8D0">DeFi Security</text>
+<line x1="758" y1="451" x2="1140" y2="451" stroke="#4DE8D0" stroke-width="0.5" opacity="0.3"/>
+<text x="758" y="473" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#5A7080">Monitor and implement best</text>
+<text x="758" y="493" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#5A7080">practice defense strategies</text>
+<!-- Footer -->
+<rect x="0" y="610" width="1200" height="20" fill="#080E18" opacity="0.95"/>
+<text x="40" y="623" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">tech.2twodragon.com</text>
+<text x="600" y="623" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">Security · AI · Cloud · 2026-03-16</text>
+<text x="1160" y="623" text-anchor="end" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">Twodragon</text>
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/ : 41x41 -->
+<g transform="translate(1080,490)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h3v1h-3zM12 0h1v1h-1zM14 0h2v1h-2zM18 0h1v1h-1zM21 0h1v1h-1zM23 0h1v1h-1zM26 0h1v1h-1zM30 0h1v1h-1zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM10 1h1v1h-1zM12 1h2v1h-2zM17 1h2v1h-2zM20 1h1v1h-1zM22 1h1v1h-1zM25 1h2v1h-2zM29 1h2v1h-2zM32 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h9v1h-9zM18 2h6v1h-6zM25 2h1v1h-1zM27 2h1v1h-1zM29 2h1v1h-1zM31 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM10 3h1v1h-1zM16 3h1v1h-1zM18 3h1v1h-1zM20 3h3v1h-3zM24 3h1v1h-1zM26 3h1v1h-1zM28 3h3v1h-3zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM13 4h1v1h-1zM15 4h1v1h-1zM18 4h2v1h-2zM21 4h3v1h-3zM25 4h1v1h-1zM28 4h2v1h-2zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM11 5h1v1h-1zM13 5h1v1h-1zM17 5h2v1h-2zM20 5h2v1h-2zM24 5h2v1h-2zM30 5h1v1h-1zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM9 7h1v1h-1zM11 7h3v1h-3zM19 7h2v1h-2zM23 7h2v1h-2zM31 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM6 8h2v1h-2zM9 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM20 8h1v1h-1zM27 8h1v1h-1zM31 8h1v1h-1zM35 8h1v1h-1zM38 8h1v1h-1zM40 8h1v1h-1zM0 9h2v1h-2zM3 9h2v1h-2zM7 9h1v1h-1zM10 9h1v1h-1zM15 9h2v1h-2zM19 9h1v1h-1zM23 9h2v1h-2zM26 9h2v1h-2zM31 9h3v1h-3zM35 9h1v1h-1zM38 9h2v1h-2zM1 10h2v1h-2zM4 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM11 10h1v1h-1zM18 10h4v1h-4zM23 10h2v1h-2zM26 10h6v1h-6zM34 10h1v1h-1zM36 10h3v1h-3zM40 10h1v1h-1zM1 11h1v1h-1zM4 11h1v1h-1zM7 11h4v1h-4zM18 11h3v1h-3zM24 11h1v1h-1zM26 11h3v1h-3zM31 11h3v1h-3zM36 11h2v1h-2zM0 12h3v1h-3zM4 12h4v1h-4zM9 12h8v1h-8zM23 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM32 12h1v1h-1zM34 12h1v1h-1zM40 12h1v1h-1zM0 13h1v1h-1zM3 13h3v1h-3zM8 13h1v1h-1zM13 13h3v1h-3zM21 13h1v1h-1zM23 13h3v1h-3zM28 13h5v1h-5zM34 13h2v1h-2zM37 13h4v1h-4zM2 14h1v1h-1zM5 14h2v1h-2zM8 14h2v1h-2zM12 14h4v1h-4zM19 14h1v1h-1zM23 14h1v1h-1zM25 14h3v1h-3zM30 14h2v1h-2zM33 14h2v1h-2zM40 14h1v1h-1zM0 15h1v1h-1zM2 15h1v1h-1zM5 15h1v1h-1zM9 15h1v1h-1zM11 15h2v1h-2zM14 15h1v1h-1zM18 15h1v1h-1zM22 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM30 15h2v1h-2zM33 15h2v1h-2zM37 15h1v1h-1zM39 15h1v1h-1zM1 16h4v1h-4zM6 16h3v1h-3zM10 16h2v1h-2zM16 16h1v1h-1zM19 16h3v1h-3zM23 16h1v1h-1zM27 16h2v1h-2zM31 16h4v1h-4zM40 16h1v1h-1zM2 17h1v1h-1zM4 17h2v1h-2zM10 17h3v1h-3zM14 17h2v1h-2zM20 17h1v1h-1zM23 17h2v1h-2zM28 17h1v1h-1zM31 17h5v1h-5zM40 17h1v1h-1zM0 18h2v1h-2zM5 18h2v1h-2zM8 18h1v1h-1zM10 18h2v1h-2zM13 18h2v1h-2zM16 18h4v1h-4zM21 18h1v1h-1zM23 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM29 18h1v1h-1zM31 18h1v1h-1zM34 18h4v1h-4zM39 18h2v1h-2zM4 19h2v1h-2zM9 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM18 19h3v1h-3zM22 19h2v1h-2zM26 19h3v1h-3zM30 19h1v1h-1zM32 19h1v1h-1zM37 19h1v1h-1zM39 19h1v1h-1zM0 20h1v1h-1zM3 20h4v1h-4zM10 20h3v1h-3zM16 20h3v1h-3zM22 20h3v1h-3zM31 20h1v1h-1zM34 20h2v1h-2zM37 20h1v1h-1zM1 21h1v1h-1zM3 21h2v1h-2zM10 21h1v1h-1zM12 21h1v1h-1zM15 21h2v1h-2zM18 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM26 21h2v1h-2zM30 21h2v1h-2zM33 21h3v1h-3zM37 21h2v1h-2zM40 21h1v1h-1zM0 22h1v1h-1zM3 22h2v1h-2zM6 22h3v1h-3zM10 22h4v1h-4zM15 22h1v1h-1zM18 22h8v1h-8zM27 22h1v1h-1zM29 22h1v1h-1zM31 22h1v1h-1zM35 22h2v1h-2zM40 22h1v1h-1zM1 23h1v1h-1zM3 23h3v1h-3zM7 23h2v1h-2zM10 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM18 23h1v1h-1zM22 23h3v1h-3zM27 23h2v1h-2zM30 23h5v1h-5zM37 23h1v1h-1zM39 23h1v1h-1zM0 24h3v1h-3zM4 24h1v1h-1zM6 24h1v1h-1zM10 24h3v1h-3zM20 24h1v1h-1zM23 24h2v1h-2zM28 24h1v1h-1zM32 24h1v1h-1zM34 24h1v1h-1zM37 24h2v1h-2zM40 24h1v1h-1zM0 25h3v1h-3zM5 25h1v1h-1zM7 25h6v1h-6zM14 25h3v1h-3zM19 25h2v1h-2zM23 25h5v1h-5zM31 25h1v1h-1zM33 25h1v1h-1zM35 25h1v1h-1zM37 25h1v1h-1zM39 25h2v1h-2zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h2v1h-2zM13 26h1v1h-1zM16 26h2v1h-2zM19 26h1v1h-1zM21 26h1v1h-1zM23 26h1v1h-1zM27 26h2v1h-2zM30 26h2v1h-2zM35 26h4v1h-4zM40 26h1v1h-1zM0 27h3v1h-3zM4 27h2v1h-2zM8 27h2v1h-2zM14 27h3v1h-3zM18 27h3v1h-3zM22 27h3v1h-3zM26 27h1v1h-1zM31 27h2v1h-2zM34 27h2v1h-2zM37 27h1v1h-1zM40 27h1v1h-1zM0 28h2v1h-2zM3 28h1v1h-1zM5 28h2v1h-2zM9 28h1v1h-1zM11 28h2v1h-2zM15 28h2v1h-2zM20 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1zM28 28h1v1h-1zM30 28h1v1h-1zM33 28h2v1h-2zM1 29h3v1h-3zM5 29h1v1h-1zM7 29h1v1h-1zM11 29h4v1h-4zM20 29h1v1h-1zM23 29h2v1h-2zM26 29h5v1h-5zM32 29h1v1h-1zM34 29h2v1h-2zM39 29h2v1h-2zM0 30h4v1h-4zM5 30h6v1h-6zM14 30h1v1h-1zM16 30h2v1h-2zM20 30h5v1h-5zM27 30h1v1h-1zM29 30h1v1h-1zM31 30h1v1h-1zM33 30h1v1h-1zM37 30h2v1h-2zM40 30h1v1h-1zM2 31h1v1h-1zM4 31h2v1h-2zM12 31h4v1h-4zM18 31h3v1h-3zM22 31h1v1h-1zM24 31h1v1h-1zM26 31h2v1h-2zM32 31h1v1h-1zM34 31h4v1h-4zM39 31h2v1h-2zM0 32h3v1h-3zM6 32h1v1h-1zM8 32h2v1h-2zM12 32h1v1h-1zM16 32h1v1h-1zM21 32h1v1h-1zM23 32h1v1h-1zM27 32h1v1h-1zM32 32h6v1h-6zM39 32h2v1h-2zM8 33h2v1h-2zM11 33h1v1h-1zM16 33h2v1h-2zM20 33h2v1h-2zM23 33h2v1h-2zM28 33h1v1h-1zM30 33h1v1h-1zM32 33h1v1h-1zM36 33h1v1h-1zM38 33h1v1h-1zM40 33h1v1h-1zM0 34h7v1h-7zM8 34h5v1h-5zM19 34h1v1h-1zM23 34h1v1h-1zM25 34h3v1h-3zM30 34h1v1h-1zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM38 34h1v1h-1zM40 34h1v1h-1zM0 35h1v1h-1zM6 35h1v1h-1zM9 35h1v1h-1zM13 35h5v1h-5zM22 35h1v1h-1zM24 35h1v1h-1zM31 35h2v1h-2zM36 35h2v1h-2zM39 35h2v1h-2zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM9 36h1v1h-1zM11 36h1v1h-1zM17 36h1v1h-1zM20 36h4v1h-4zM28 36h1v1h-1zM31 36h6v1h-6zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM10 37h3v1h-3zM14 37h1v1h-1zM16 37h2v1h-2zM19 37h2v1h-2zM23 37h1v1h-1zM27 37h1v1h-1zM31 37h2v1h-2zM35 37h4v1h-4zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM8 38h2v1h-2zM11 38h3v1h-3zM16 38h4v1h-4zM23 38h1v1h-1zM27 38h2v1h-2zM30 38h1v1h-1zM32 38h2v1h-2zM36 38h1v1h-1zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM12 39h1v1h-1zM16 39h4v1h-4zM22 39h1v1h-1zM26 39h3v1h-3zM30 39h1v1h-1zM32 39h1v1h-1zM37 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM10 40h2v1h-2zM13 40h1v1h-1zM15 40h1v1h-1zM19 40h2v1h-2zM23 40h2v1h-2zM27 40h2v1h-2zM31 40h2v1h-2zM36 40h1v1h-1zM40 40h1v1h-1z"/>
   </g>
-
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-03-16</text>
-
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round">
-      <ellipse cx="0" cy="6" rx="24" ry="28"/>
-      <circle cx="-8" cy="-2" r="3" fill="url(#accentRed)" stroke="none"/>
-      <circle cx="8" cy="-2" r="3" fill="url(#accentRed)" stroke="none"/>
-      <line x1="0" y1="-22" x2="-12" y2="-40"/>
-      <line x1="0" y1="-22" x2="12" y2="-40"/>
-      <line x1="-24" y1="-4" x2="-42" y2="-12"/>
-      <line x1="-24" y1="6" x2="-44" y2="6"/>
-      <line x1="-24" y1="16" x2="-42" y2="24"/>
-      <line x1="24" y1="-4" x2="42" y2="-12"/>
-      <line x1="24" y1="6" x2="44" y2="6"/>
-      <line x1="24" y1="16" x2="42" y2="24"/>
-    </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">RED TEAM</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Agent Playbook</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Goes Open Source</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">Show HN launch</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Exploit code ships</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">for AI agent labs</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
-      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
-    </g>
-    <rect x="125" y="210" width="96" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">BUILDERS</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Bedrock Agents</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">On Serverless</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">Claude Agent SDK</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">AWS shows multi</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">agent blueprints</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5">
-      <rect x="-52" y="12" width="32" height="32" rx="3"/>
-      <rect x="-16" y="-8" width="32" height="32" rx="3"/>
-      <rect x="20" y="12" width="32" height="32" rx="3" stroke="#ff3e6c" stroke-dasharray="4 3"/>
-      <path d="M-34,12 L-34,-16 L34,-16" stroke-opacity="0.5"/>
-      <polyline points="30,-20 36,-14 30,-8" stroke-opacity="0.5"/>
-    </g>
-    <rect x="124" y="210" width="96" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">PRACTICE</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Agent Harness</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Needs Guardrails</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">Prompt boundaries</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Tool scopes pinned</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">for every workflow</text>
-  </g>
-
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
-
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
-  </g>
+</g>
+<text x="1122" y="600" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
