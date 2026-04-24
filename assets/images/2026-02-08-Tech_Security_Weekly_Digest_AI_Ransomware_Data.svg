@@ -1,134 +1,338 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - February 08, 2026</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
-    </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: Russia-linked Signal phishing targets politicians and journalists, BlackField ransomware reuses LockBit and Conti code, Vertical AI for cybersecurity domain, Zero Trust data-centric security strategy">
+<!-- profile: high-quality-cover (L13 Callouts, research-based, batch1-locked) -->
+<title>Weekly digest 2026-02-08: Signal Phishing (BfV/BSI), BlackField Ransomware, Vertical AI Security, Zero Trust Data</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#080E20"/>
+    <stop offset="55%" stop-color="#0B1228"/>
+    <stop offset="100%" stop-color="#100C30"/>
+  </linearGradient>
+  <linearGradient id="cardA" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2C0A12"/>
+    <stop offset="100%" stop-color="#1C0610"/>
+  </linearGradient>
+  <linearGradient id="cardB" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2A1A06"/>
+    <stop offset="100%" stop-color="#1C1004"/>
+  </linearGradient>
+  <linearGradient id="cardC" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0A1E3C"/>
+    <stop offset="100%" stop-color="#071530"/>
+  </linearGradient>
+  <linearGradient id="cardD" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0E1E38"/>
+    <stop offset="100%" stop-color="#081830"/>
+  </linearGradient>
+  <linearGradient id="ransomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#F59E0B"/>
+    <stop offset="100%" stop-color="#92400E"/>
+  </linearGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#10B981" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.5"/>
+  </pattern>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.75"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <!-- Grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+<!-- Ambient glows -->
+<circle cx="300" cy="230" r="130" fill="url(#glowRed)">
+  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="6.2s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="230" r="130" fill="url(#glowAmber)">
+  <animate attributeName="opacity" values="0.45;0.85;0.45" dur="5.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="300" cy="480" r="120" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.0s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="480" r="120" fill="url(#glowGreen)">
+  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="6.4s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Header bar -->
+<rect x="0" y="0" width="1200" height="56" fill="#040912" opacity="0.93"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.02.08</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.6s" repeatCount="indefinite"/>
+</rect>
+
+<!-- CARD 01: Signal Phishing — CRITICAL / Nation-State (top-left) -->
+<g transform="translate(32,80)">
+  <rect x="0" y="0" width="564" height="248" rx="14" fill="url(#cardA)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" rx="2" fill="#E63946"/>
+  <rect x="0" y="0" width="564" height="4" fill="#E63946" opacity="0.65"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#E63946" opacity="0.22"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F87171">01</text>
   </g>
-
-  <!-- Glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
-
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" letter-spacing="2.4">CRITICAL  /  NATION-STATE</text>
+    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Signal Phishing — BfV/BSI Alert</text>
   </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">February 08, 2026</text>
-
-  <!-- Card 1: SEC OPS -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#ef4444" stroke-width="1.8"/>
+  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FBB6BD">Russia-linked APT targets politicians, military, journalists</text>
+  <!-- Signal app mockup -->
+  <g transform="translate(26,116)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="68" height="108" rx="10" fill="#0D1B2E" stroke="#F87171" stroke-width="1.8"/>
+    <rect x="5" y="10" width="58" height="86" rx="3" fill="#120810"/>
+    <circle cx="34" cy="28" r="12" fill="#2979FF" opacity="0.85"/>
+    <text x="34" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFFFFF">S</text>
+    <rect x="10" y="46" width="34" height="9" rx="4" fill="#3A1018"/>
+    <rect x="14" y="60" width="38" height="9" rx="4" fill="#1A2A3C"/>
+    <rect x="10" y="74" width="30" height="9" rx="4" fill="#3A1018"/>
+    <g stroke="#F87171" stroke-width="2" fill="none" transform="translate(46,80)">
+      <path d="M0 -18 L0 0 Q0 8 -7 8 Q-14 8 -14 0"/>
+      <circle cx="0" cy="-18" r="2" fill="#F87171"/>
+    </g>
+    <circle cx="34" cy="100" r="3" fill="#2A3A56" stroke="#F87171" stroke-width="0.6"/>
   </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SEC OPS</text>
-  <!-- Card 2: CLOUD SEC -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#f59e0b" stroke-width="1.8" transform="scale(0.65)"/>
+  <!-- Target list -->
+  <g transform="translate(120,120)">
+    <circle cx="7" cy="7" r="4" fill="#E63946"/>
+    <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">Politicians</text>
+    <g transform="translate(0,22)">
+      <circle cx="7" cy="7" r="4" fill="#E63946"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">Military officers</text>
+    </g>
+    <g transform="translate(0,44)">
+      <circle cx="7" cy="7" r="4" fill="#E63946"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">Journalists</text>
+    </g>
+    <g transform="translate(0,66)">
+      <circle cx="7" cy="7" r="4" fill="#E63946" opacity="0.6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#F87171">MITRE T1566 Phishing</text>
+    </g>
   </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOUD SEC</text>
-  <!-- Card 3: THREAT INT -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+  <!-- KPI card 120x100 -->
+  <g transform="translate(426,128)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#F87171">SEVERITY</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">APT</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">BfV + BSI</text>
   </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <!-- Card 4: AI AGENT -->
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#22c55e" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#22c55e" stroke-width="1.2" opacity="0.5"/>
+  <g fill="#F87171">
+    <circle cx="530" cy="24" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="546" cy="24" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle>
   </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  <!-- Card 5: PATCH MGT -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">CVE</text>
+</g>
+
+<!-- CARD 02: BlackField Ransomware — HIGH / Ransomware (top-right) -->
+<g transform="translate(612,80)">
+  <rect x="0" y="0" width="556" height="248" rx="14" fill="url(#cardB)" stroke="#F59E0B" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" rx="2" fill="#F59E0B"/>
+  <rect x="0" y="0" width="556" height="4" fill="#F59E0B" opacity="0.65"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#F59E0B" opacity="0.22"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#FCD34D">02</text>
   </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
-
-  <!-- Threat map area -->
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
-
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FCD34D" letter-spacing="2.4">HIGH  /  RANSOMWARE</text>
+    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">BlackField Ransomware</text>
   </g>
-  <!-- Node: SEC OPS -->
-  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">SEC</text>
-  <!-- Node: CLOUD SEC -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOU</text>
-  <!-- Node: THREAT INT -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">THRE</text>
-  <!-- Node: AI AGENT -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">AI</text>
-  <!-- Node: PATCH MGT -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">PATC</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
+  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FDE68A">LockBit + Conti code reuse — RaaS evolution</text>
+  <!-- Code reuse illustration -->
+  <g transform="translate(26,116)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="80" height="30" rx="5" fill="#1A1000" stroke="#F59E0B" stroke-width="1.4"/>
+    <text x="40" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCD34D">LockBit</text>
+    <rect x="0" y="38" width="80" height="30" rx="5" fill="#1A1000" stroke="#F59E0B" stroke-width="1.4"/>
+    <text x="40" y="57" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCD34D">Conti</text>
+    <path d="M88 15 L106 38" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="3 2" fill="none"/>
+    <path d="M88 53 L106 38" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="3 2" fill="none"/>
+    <rect x="110" y="20" width="90" height="38" rx="6" fill="url(#ransomGrad)" opacity="0.9"/>
+    <text x="155" y="42" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#FFFFFF">BlackField</text>
+    <g transform="translate(215,90)" stroke="#F59E0B" stroke-width="1.8" fill="none">
+      <rect x="-14" y="-10" width="28" height="20" rx="3" fill="#2A1A00" stroke="#F59E0B"/>
+      <path d="M-7 -10 L-7 -18 Q0 -24 7 -18 L7 -10"/>
+      <circle cx="0" cy="-2" r="3" fill="#F59E0B"/>
+    </g>
+    <text x="0" y="100" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#F59E0B">.blackfield</text>
+  </g>
+  <!-- Attack bullets -->
+  <g transform="translate(248,120)">
+    <circle cx="7" cy="7" r="4" fill="#F59E0B"/>
+    <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">SMB lateral movement</text>
+    <g transform="translate(0,22)">
+      <circle cx="7" cy="7" r="4" fill="#F59E0B"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">VSS deletion</text>
+    </g>
+    <g transform="translate(0,44)">
+      <circle cx="7" cy="7" r="4" fill="#F59E0B"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">C2 exfiltration</text>
+    </g>
+    <g transform="translate(0,66)">
+      <circle cx="7" cy="7" r="4" fill="#F59E0B" opacity="0.6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#FCD34D">RaaS low-barrier entry</text>
+    </g>
+  </g>
+  <!-- KPI card -->
+  <g transform="translate(420,128)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E1000" stroke="#F59E0B" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FCD34D">CODE REUSE</text>
+    <text x="60" y="60" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">RaaS</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FDE68A">SK Shields EQST</text>
+  </g>
+</g>
 
-  <!-- Footer -->
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+<!-- CARD 03: Vertical AI for Cybersecurity — HIGH / AI (bottom-left) -->
+<g transform="translate(32,348)">
+  <rect x="0" y="0" width="564" height="242" rx="14" fill="url(#cardC)" stroke="#3B82F6" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" rx="2" fill="#3B82F6"/>
+  <rect x="0" y="0" width="564" height="4" fill="#3B82F6" opacity="0.65"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#3B82F6" opacity="0.22"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#93C5FD">03</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#93C5FD" letter-spacing="2.4">HIGH  /  AI SECURITY</text>
+    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Vertical AI for Cybersecurity</text>
+  </g>
+  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#BFDBFE">Domain-specific AI: MITRE ATT&amp;CK + CVE fine-tuning</text>
+  <!-- Neural hub -->
+  <g transform="translate(120,170)">
+    <circle r="28" fill="#0A1B2E" stroke="#3B82F6" stroke-width="2.2" filter="url(#softShadow)"/>
+    <text y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#93C5FD">CYBER</text>
+    <text y="8" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#93C5FD">AI</text>
+    <g stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.75">
+      <line x1="0" y1="0" x2="-62" y2="-38"/>
+      <line x1="0" y1="0" x2="-62" y2="38"/>
+      <line x1="0" y1="0" x2="62" y2="-38"/>
+      <line x1="0" y1="0" x2="62" y2="38"/>
+      <line x1="0" y1="0" x2="0" y2="-54"/>
+      <line x1="0" y1="0" x2="0" y2="54"/>
+    </g>
+    <g fill="#93C5FD">
+      <circle cx="-62" cy="-38" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-62" cy="38" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="62" cy="-38" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.3s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="62" cy="38" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="0" cy="-54" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></circle>
+      <circle cx="0" cy="54" r="7"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" begin="1.4s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+  <text x="120" y="232" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD">threat detection</text>
+  <!-- Capabilities -->
+  <g transform="translate(226,124)">
+    <circle cx="7" cy="7" r="4" fill="#3B82F6"/>
+    <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">Lower false positives</text>
+    <g transform="translate(0,22)">
+      <circle cx="7" cy="7" r="4" fill="#3B82F6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">OSINT + Dark Web feed</text>
+    </g>
+    <g transform="translate(0,44)">
+      <circle cx="7" cy="7" r="4" fill="#3B82F6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">Faster response time</text>
+    </g>
+    <g transform="translate(0,66)">
+      <circle cx="7" cy="7" r="4" fill="#3B82F6" opacity="0.6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#93C5FD">ATT&amp;CK fine-tuned model</text>
+    </g>
+  </g>
+  <!-- KPI card -->
+  <g transform="translate(426,118)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#0A1B2E" stroke="#3B82F6" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#93C5FD">ACCURACY</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">AI+</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BFDBFE">Vertical domain</text>
+  </g>
+</g>
 
-  <!-- Tags -->
-  <rect x="32" y="490" width="83" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="73" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">SEC OPS</text>
-  <rect x="127" y="490" width="101" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="177" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOUD SEC</text>
-  <rect x="240" y="490" width="110" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="295" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <rect x="362" y="490" width="92" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="408" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  <rect x="466" y="490" width="101" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="516" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
+<!-- CARD 04: Zero Trust Data Security — HIGH / Data (bottom-right) -->
+<g transform="translate(612,348)">
+  <rect x="0" y="0" width="556" height="242" rx="14" fill="url(#cardD)" stroke="#10B981" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" rx="2" fill="#10B981"/>
+  <rect x="0" y="0" width="556" height="4" fill="#10B981" opacity="0.65"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#10B981" opacity="0.22"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#6EE7B7">04</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#6EE7B7" letter-spacing="2.4">HIGH  /  STRATEGY</text>
+    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Zero Trust Data Security</text>
+  </g>
+  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#A7F3D0">Data-centric strategy with AWS cloud best practices</text>
+  <!-- ZT stack -->
+  <g transform="translate(26,118)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="24" rx="5" fill="#062018" stroke="#10B981" stroke-width="1.2"/>
+    <text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#6EE7B7">Verify Identity</text>
+    <rect x="0" y="30" width="120" height="24" rx="5" fill="#062018" stroke="#10B981" stroke-width="1.2"/>
+    <text x="60" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#6EE7B7">Least Privilege</text>
+    <rect x="0" y="60" width="120" height="24" rx="5" fill="#062018" stroke="#10B981" stroke-width="1.2"/>
+    <text x="60" y="76" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#6EE7B7">Micro-segment</text>
+    <rect x="0" y="90" width="120" height="24" rx="5" fill="#062018" stroke="#10B981" stroke-width="1.2"/>
+    <text x="60" y="106" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#6EE7B7">Encrypt + Monitor</text>
+    <path d="M130 12 L148 12 L148 102 L130 102" stroke="#10B981" stroke-width="1.4" fill="none" stroke-dasharray="3 2"/>
+    <text x="152" y="60" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#34D399">ZT</text>
+  </g>
+  <!-- Implementation bullets -->
+  <g transform="translate(246,120)">
+    <circle cx="7" cy="7" r="4" fill="#10B981"/>
+    <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#A7F3D0">NIST SP 800-207</text>
+    <g transform="translate(0,22)">
+      <circle cx="7" cy="7" r="4" fill="#10B981"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#A7F3D0">AWS data protection</text>
+    </g>
+    <g transform="translate(0,44)">
+      <circle cx="7" cy="7" r="4" fill="#10B981"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#A7F3D0">Continuous monitoring</text>
+    </g>
+    <g transform="translate(0,66)">
+      <circle cx="7" cy="7" r="4" fill="#10B981" opacity="0.6"/>
+      <text x="20" y="11" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#6EE7B7">Sigma detection rules</text>
+    </g>
+  </g>
+  <!-- KPI card -->
+  <g transform="translate(420,118)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#062018" stroke="#10B981" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#6EE7B7">FRAMEWORK</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="900" fill="#F5F7FA">Zero</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#34D399">Trust</text>
+  </g>
+  <g fill="#10B981">
+    <circle cx="520" cy="24" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" repeatCount="indefinite"/></circle>
+    <circle cx="536" cy="24" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
 
-  <!-- Bottom bar -->
-  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | February 08, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+<!-- Bottom strip -->
+<rect x="0" y="608" width="1200" height="22" fill="#040912" opacity="0.88"/>
+<text x="36" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#4A6080" letter-spacing="1.5">SIGNAL PHISHING  ·  BLACKFIELD RANSOMWARE  ·  VERTICAL AI  ·  ZERO TRUST</text>
+<text x="1164" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="500" fill="#4A6080" text-anchor="end" letter-spacing="1">tech.2twodragon.com</text>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/08/Tech_Security_Weekly_Digest_AI_Ransomware_Data/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM12 0h2v1h-2zM18 0h2v1h-2zM21 0h1v1h-1zM26 0h2v1h-2zM30 0h2v1h-2zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h2v1h-2zM16 1h2v1h-2zM23 1h1v1h-1zM27 1h3v1h-3zM32 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h1v1h-1zM16 2h2v1h-2zM19 2h1v1h-1zM21 2h3v1h-3zM26 2h1v1h-1zM29 2h1v1h-1zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h2v1h-2zM13 3h1v1h-1zM15 3h1v1h-1zM17 3h1v1h-1zM19 3h7v1h-7zM27 3h2v1h-2zM30 3h3v1h-3zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h3v1h-3zM16 4h2v1h-2zM19 4h1v1h-1zM25 4h1v1h-1zM27 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM11 5h1v1h-1zM14 5h2v1h-2zM17 5h3v1h-3zM24 5h1v1h-1zM26 5h2v1h-2zM30 5h3v1h-3zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM9 7h3v1h-3zM13 7h5v1h-5zM19 7h4v1h-4zM24 7h1v1h-1zM27 7h3v1h-3zM31 7h1v1h-1zM0 8h1v1h-1zM3 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM11 8h2v1h-2zM15 8h1v1h-1zM19 8h1v1h-1zM21 8h1v1h-1zM25 8h2v1h-2zM32 8h2v1h-2zM35 8h1v1h-1zM0 9h2v1h-2zM3 9h3v1h-3zM9 9h1v1h-1zM12 9h2v1h-2zM16 9h2v1h-2zM21 9h1v1h-1zM24 9h3v1h-3zM29 9h1v1h-1zM32 9h1v1h-1zM37 9h4v1h-4zM0 10h1v1h-1zM2 10h5v1h-5zM8 10h1v1h-1zM11 10h2v1h-2zM14 10h1v1h-1zM17 10h4v1h-4zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM30 10h2v1h-2zM35 10h5v1h-5zM0 11h1v1h-1zM2 11h4v1h-4zM7 11h1v1h-1zM11 11h3v1h-3zM16 11h1v1h-1zM18 11h1v1h-1zM21 11h1v1h-1zM24 11h3v1h-3zM28 11h1v1h-1zM33 11h2v1h-2zM36 11h1v1h-1zM38 11h1v1h-1zM40 11h1v1h-1zM3 12h6v1h-6zM10 12h1v1h-1zM13 12h1v1h-1zM15 12h3v1h-3zM19 12h3v1h-3zM25 12h11v1h-11zM37 12h1v1h-1zM39 12h1v1h-1zM0 13h1v1h-1zM8 13h1v1h-1zM10 13h2v1h-2zM16 13h2v1h-2zM20 13h1v1h-1zM22 13h2v1h-2zM25 13h1v1h-1zM27 13h1v1h-1zM30 13h4v1h-4zM37 13h2v1h-2zM0 14h1v1h-1zM4 14h1v1h-1zM6 14h2v1h-2zM12 14h1v1h-1zM14 14h1v1h-1zM16 14h4v1h-4zM21 14h1v1h-1zM23 14h1v1h-1zM27 14h2v1h-2zM30 14h1v1h-1zM34 14h1v1h-1zM37 14h4v1h-4zM0 15h1v1h-1zM2 15h2v1h-2zM5 15h1v1h-1zM7 15h2v1h-2zM10 15h5v1h-5zM17 15h2v1h-2zM20 15h4v1h-4zM25 15h2v1h-2zM28 15h5v1h-5zM34 15h2v1h-2zM1 16h1v1h-1zM6 16h2v1h-2zM9 16h3v1h-3zM17 16h1v1h-1zM22 16h1v1h-1zM27 16h1v1h-1zM29 16h1v1h-1zM31 16h2v1h-2zM35 16h1v1h-1zM39 16h1v1h-1zM0 17h1v1h-1zM3 17h3v1h-3zM9 17h1v1h-1zM11 17h1v1h-1zM13 17h5v1h-5zM19 17h1v1h-1zM21 17h1v1h-1zM23 17h2v1h-2zM26 17h3v1h-3zM34 17h2v1h-2zM37 17h4v1h-4zM2 18h1v1h-1zM4 18h4v1h-4zM9 18h3v1h-3zM15 18h1v1h-1zM17 18h1v1h-1zM22 18h1v1h-1zM25 18h1v1h-1zM33 18h2v1h-2zM36 18h1v1h-1zM40 18h1v1h-1zM0 19h1v1h-1zM2 19h1v1h-1zM5 19h1v1h-1zM8 19h2v1h-2zM11 19h2v1h-2zM14 19h1v1h-1zM16 19h1v1h-1zM19 19h3v1h-3zM25 19h1v1h-1zM29 19h1v1h-1zM32 19h4v1h-4zM37 19h1v1h-1zM40 19h1v1h-1zM3 20h4v1h-4zM8 20h3v1h-3zM12 20h4v1h-4zM17 20h1v1h-1zM19 20h2v1h-2zM22 20h3v1h-3zM26 20h2v1h-2zM32 20h3v1h-3zM38 20h2v1h-2zM1 21h3v1h-3zM8 21h1v1h-1zM11 21h1v1h-1zM14 21h4v1h-4zM19 21h4v1h-4zM25 21h1v1h-1zM29 21h1v1h-1zM34 21h1v1h-1zM38 21h3v1h-3zM0 22h11v1h-11zM15 22h6v1h-6zM24 22h2v1h-2zM28 22h1v1h-1zM31 22h1v1h-1zM33 22h4v1h-4zM38 22h2v1h-2zM0 23h2v1h-2zM4 23h2v1h-2zM7 23h5v1h-5zM15 23h2v1h-2zM18 23h5v1h-5zM25 23h2v1h-2zM28 23h1v1h-1zM30 23h1v1h-1zM34 23h1v1h-1zM38 23h2v1h-2zM0 24h3v1h-3zM5 24h2v1h-2zM8 24h5v1h-5zM16 24h2v1h-2zM19 24h3v1h-3zM23 24h3v1h-3zM27 24h3v1h-3zM31 24h5v1h-5zM37 24h1v1h-1zM39 24h1v1h-1zM1 25h2v1h-2zM5 25h1v1h-1zM9 25h1v1h-1zM11 25h2v1h-2zM14 25h1v1h-1zM17 25h1v1h-1zM19 25h4v1h-4zM24 25h3v1h-3zM28 25h2v1h-2zM31 25h1v1h-1zM34 25h1v1h-1zM37 25h1v1h-1zM39 25h1v1h-1zM0 26h3v1h-3zM4 26h1v1h-1zM6 26h3v1h-3zM10 26h1v1h-1zM12 26h2v1h-2zM15 26h3v1h-3zM20 26h1v1h-1zM23 26h1v1h-1zM25 26h2v1h-2zM28 26h1v1h-1zM30 26h1v1h-1zM32 26h5v1h-5zM39 26h2v1h-2zM0 27h1v1h-1zM4 27h2v1h-2zM8 27h1v1h-1zM12 27h1v1h-1zM14 27h2v1h-2zM17 27h2v1h-2zM20 27h3v1h-3zM24 27h4v1h-4zM29 27h1v1h-1zM32 27h1v1h-1zM40 27h1v1h-1zM0 28h2v1h-2zM4 28h1v1h-1zM6 28h2v1h-2zM10 28h1v1h-1zM14 28h1v1h-1zM17 28h1v1h-1zM21 28h4v1h-4zM26 28h2v1h-2zM29 28h2v1h-2zM32 28h2v1h-2zM35 28h1v1h-1zM3 29h1v1h-1zM5 29h1v1h-1zM8 29h2v1h-2zM12 29h2v1h-2zM17 29h1v1h-1zM19 29h3v1h-3zM24 29h2v1h-2zM27 29h1v1h-1zM29 29h3v1h-3zM35 29h1v1h-1zM37 29h2v1h-2zM40 29h1v1h-1zM0 30h1v1h-1zM4 30h1v1h-1zM6 30h2v1h-2zM9 30h3v1h-3zM13 30h1v1h-1zM17 30h1v1h-1zM22 30h4v1h-4zM35 30h1v1h-1zM38 30h3v1h-3zM4 31h1v1h-1zM7 31h1v1h-1zM9 31h1v1h-1zM14 31h1v1h-1zM16 31h2v1h-2zM21 31h1v1h-1zM24 31h1v1h-1zM26 31h1v1h-1zM29 31h1v1h-1zM31 31h3v1h-3zM36 31h2v1h-2zM0 32h1v1h-1zM2 32h3v1h-3zM6 32h2v1h-2zM10 32h2v1h-2zM14 32h1v1h-1zM20 32h1v1h-1zM25 32h3v1h-3zM31 32h6v1h-6zM38 32h1v1h-1zM40 32h1v1h-1zM8 33h2v1h-2zM13 33h1v1h-1zM16 33h5v1h-5zM24 33h2v1h-2zM27 33h6v1h-6zM36 33h5v1h-5zM0 34h7v1h-7zM9 34h7v1h-7zM18 34h2v1h-2zM21 34h2v1h-2zM25 34h2v1h-2zM28 34h1v1h-1zM30 34h1v1h-1zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM38 34h2v1h-2zM0 35h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM11 35h2v1h-2zM14 35h1v1h-1zM16 35h1v1h-1zM18 35h3v1h-3zM24 35h2v1h-2zM27 35h1v1h-1zM30 35h1v1h-1zM32 35h1v1h-1zM36 35h1v1h-1zM38 35h1v1h-1zM40 35h1v1h-1zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM14 36h2v1h-2zM18 36h3v1h-3zM26 36h5v1h-5zM32 36h6v1h-6zM39 36h1v1h-1zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM8 37h3v1h-3zM14 37h1v1h-1zM16 37h1v1h-1zM18 37h5v1h-5zM26 37h1v1h-1zM28 37h2v1h-2zM31 37h4v1h-4zM36 37h2v1h-2zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM9 38h3v1h-3zM13 38h2v1h-2zM17 38h2v1h-2zM20 38h2v1h-2zM23 38h4v1h-4zM28 38h1v1h-1zM30 38h2v1h-2zM36 38h5v1h-5zM0 39h1v1h-1zM6 39h1v1h-1zM10 39h9v1h-9zM21 39h3v1h-3zM25 39h2v1h-2zM28 39h6v1h-6zM35 39h1v1h-1zM39 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM10 40h6v1h-6zM18 40h5v1h-5zM24 40h1v1h-1zM29 40h1v1h-1zM31 40h7v1h-7zM39 40h1v1h-1z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>

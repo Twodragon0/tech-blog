@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: Microsoft AitM Phishing BEC, HashiCorp Agentic AI Zero Trust NHI, OpenAI PostgreSQL 800M users scaling">
+<title>Weekly digest 2026-01-23: Microsoft AitM Phishing (Critical), HashiCorp Zero Trust NHI (High), OpenAI PostgreSQL 800M users</title>
+<!-- profile: high-quality-cover (L22 Stacked Bands, research-based, batch1-locked) -->
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="50%" stop-color="#0C1430"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#2A0A0A"/>
+    <stop offset="100%" stop-color="#1E0D10"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1A1208"/>
+    <stop offset="100%" stop-color="#22160A"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#081A2A"/>
+    <stop offset="100%" stop-color="#0C1F30"/>
+  </linearGradient>
+  <radialGradient id="phishGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="dbGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#3B82F6" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="hexDot" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.9" fill="#3A1A1A" opacity="0.6"/>
+  </pattern>
+  <pattern id="gridLines" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M0 30 L30 30 M30 0 L30 30" stroke="#1A2A3A" stroke-width="0.4" opacity="0.5"/>
+  </pattern>
+  <pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.8" fill="#3A2A1A" opacity="0.55"/>
+  </pattern>
+</defs>
+
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+
+<!-- HEADER STRIPE -->
+<rect x="0" y="0" width="1200" height="24" fill="#0D1520" opacity="0.9"/>
+<text x="600" y="16" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="4" fill="#94A3B8">WEEKLY DIGEST</text>
+<text x="1150" y="16" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#64748B">2026.01.23</text>
+<text x="50" y="16" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#64748B">SECURITY + DEVSECOPS</text>
+
+<!-- ============================================================ -->
+<!-- BAND A: Microsoft AitM Phishing — CRITICAL (y=24 to 234) -->
+<!-- ============================================================ -->
+<g>
+  <rect x="0" y="24" width="1200" height="210" fill="url(#bandA)"/>
+  <rect x="0" y="24" width="1200" height="210" fill="url(#hexDot)" opacity="0.7"/>
+  <!-- Left accent bar: Critical red -->
+  <rect x="0" y="24" width="8" height="210" fill="#E63946"/>
+
+  <!-- Text block -->
+  <g filter="url(#textShadow)">
+    <text x="30" y="68" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">CRITICAL — PHISHING + BEC</text>
+    <text x="30" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft AitM Phishing</text>
+    <text x="30" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Energy sector : SharePoint abuse : MFA bypass</text>
+    <text x="30" y="168" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Adversary-in-the-Middle relay — FIDO2/Passkey required : 48h action window</text>
+  </g>
+
+  <!-- Illustration: AitM relay diagram -->
+  <g transform="translate(540,129)">
+    <!-- Attacker server glow -->
+    <circle cx="0" cy="0" r="72" fill="url(#phishGlow)">
+      <animate attributeName="r" values="55;80;55" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Victim -->
+    <g transform="translate(-170,0)">
+      <rect x="-28" y="-22" width="56" height="44" rx="6" fill="#1E0A0A" stroke="#F87171" stroke-width="1.8"/>
+      <text x="0" y="-5" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">USER</text>
+      <text x="0" y="10" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FDA4AF">MFA token</text>
+    </g>
+    <!-- Arrow victim -> AitM -->
+    <line x1="-142" y1="0" x2="-42" y2="0" stroke="#E63946" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <polygon points="-42,0 -52,-5 -52,5" fill="#E63946"/>
+    <!-- AitM proxy -->
+    <rect x="-38" y="-30" width="76" height="60" rx="8" fill="#2A0808" stroke="#E63946" stroke-width="2.2"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F87171">AitM</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FCA5A5">PROXY</text>
+    <text x="0" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FDA4AF">SharePoint</text>
+    <circle cx="-38" cy="-30" r="5" fill="#E63946" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Arrow AitM -> Microsoft 365 -->
+    <line x1="38" y1="0" x2="130" y2="0" stroke="#F87171" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <polygon points="130,0 120,-5 120,5" fill="#F87171"/>
+    <!-- Microsoft 365 -->
+    <g transform="translate(162,0)">
+      <rect x="-30" y="-22" width="60" height="44" rx="6" fill="#1E1020" stroke="#C084FC" stroke-width="1.8"/>
+      <text x="0" y="-5" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#C084FC">M365</text>
+      <text x="0" y="10" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="#DDD6FE">Entra ID</text>
+    </g>
+    <!-- Stolen token indicator -->
+    <text x="0" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#F87171">Session token stolen</text>
+    <!-- Moving packet animation -->
+    <circle r="4" fill="#E63946">
+      <animateMotion path="M-142,0 L-42,0" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4" fill="#F87171">
+      <animateMotion path="M38,0 L130,0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- KPI Card: Critical -->
+  <g transform="translate(990,129)" filter="url(#softShadow)">
+    <rect x="-80" y="-62" width="180" height="125" rx="14" fill="#1E0508" stroke="#E63946" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">SEVERITY</text>
+    <text x="10" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#F5F7FA">CRIT</text>
+    <text x="10" y="42" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">48h response : FIDO2</text>
+    <circle cx="10" cy="-44" r="5" fill="#E63946">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</g>
+
+<!-- ============================================================ -->
+<!-- BAND B: HashiCorp Agentic AI Zero Trust NHI — HIGH (y=234 to 444) -->
+<!-- ============================================================ -->
+<g>
+  <rect x="0" y="234" width="1200" height="210" fill="url(#bandB)"/>
+  <rect x="0" y="234" width="1200" height="210" fill="url(#circuitDot)" opacity="0.7"/>
+  <!-- Left accent bar: High orange -->
+  <rect x="0" y="234" width="8" height="210" fill="#F97316"/>
+
+  <g filter="url(#textShadow)">
+    <text x="30" y="278" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB923C">HIGH — AGENTIC AI SECURITY</text>
+    <text x="30" y="320" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">HashiCorp Zero Trust NHI</text>
+    <text x="30" y="352" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FED7AA">Non-Human Identity management for Agentic AI</text>
+    <text x="30" y="378" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Dynamic secrets : least-privilege : 30-day implementation window</text>
+  </g>
+
+  <!-- Illustration: Zero Trust NHI diagram -->
+  <g transform="translate(600,339)">
+    <!-- Central policy engine -->
+    <rect x="-48" y="-36" width="96" height="72" rx="10" fill="#1A1208" stroke="#F97316" stroke-width="2.2"/>
+    <text x="0" y="-12" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FB923C">ZERO TRUST</text>
+    <text x="0" y="4" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FED7AA">POLICY</text>
+    <text x="0" y="20" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FCA5A5">HashiCorp</text>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#F97316" stroke-width="0.8" stroke-dasharray="5 4" opacity="0.4">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- AI agents orbiting -->
+    <g>
+      <circle cx="110" cy="-30" r="20" fill="#1E1208" stroke="#F97316" stroke-width="1.6"/>
+      <text x="110" y="-24" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FB923C">AI</text>
+      <text x="110" y="-12" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FED7AA">Agent 1</text>
+      <line x1="48" y1="-18" x2="90" y2="-30" stroke="#F97316" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.7"/>
+    </g>
+    <g>
+      <circle cx="110" cy="40" r="20" fill="#1E1208" stroke="#F97316" stroke-width="1.6"/>
+      <text x="110" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FB923C">AI</text>
+      <text x="110" y="58" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FED7AA">Agent 2</text>
+      <line x1="48" y1="18" x2="90" y2="40" stroke="#F97316" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.7"/>
+    </g>
+    <g>
+      <circle cx="-120" cy="0" r="20" fill="#1E1208" stroke="#FBBF24" stroke-width="1.6"/>
+      <text x="-120" y="6" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FBBF24">VAULT</text>
+      <text x="-120" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="7" fill="#FED7AA">Secrets</text>
+      <line x1="-48" y1="0" x2="-100" y2="0" stroke="#FBBF24" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.7"/>
+    </g>
+
+    <!-- Dynamic secret token animations -->
+    <circle r="4" fill="#F97316" opacity="0.9">
+      <animateMotion path="M90,-30 L48,-18" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4" fill="#F97316" opacity="0.9">
+      <animateMotion path="M90,40 L48,18" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.5" fill="#FBBF24" opacity="0.9">
+      <animateMotion path="M-100,0 L-48,0" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- KPI Card: High -->
+  <g transform="translate(990,339)" filter="url(#softShadow)">
+    <rect x="-80" y="-62" width="180" height="125" rx="14" fill="#1E1005" stroke="#F97316" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FB923C">SEVERITY</text>
+    <text x="10" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#F5F7FA">HIGH</text>
+    <text x="10" y="42" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FED7AA">NHI : dynamic secrets</text>
+    <circle cx="10" cy="-44" r="5" fill="#F97316">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</g>
+
+<!-- ============================================================ -->
+<!-- BAND C: OpenAI PostgreSQL 800M users — MEDIUM (y=444 to 630) -->
+<!-- ============================================================ -->
+<g>
+  <rect x="0" y="444" width="1200" height="186" fill="url(#bandC)"/>
+  <rect x="0" y="444" width="1200" height="186" fill="url(#gridLines)" opacity="0.6"/>
+  <!-- Left accent bar: Medium blue -->
+  <rect x="0" y="444" width="8" height="186" fill="#3B82F6"/>
+
+  <g filter="url(#textShadow)">
+    <text x="30" y="488" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#60A5FA">MEDIUM — DB SCALING</text>
+    <text x="30" y="526" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">OpenAI PostgreSQL</text>
+    <text x="30" y="556" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">800M ChatGPT users — RDBMS scales beyond NoSQL</text>
+    <text x="30" y="580" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#CBD5E1">Citus sharding : PgBouncer : read replicas : 90-day planning horizon</text>
+  </g>
+
+  <!-- Illustration: PostgreSQL scaling diagram -->
+  <g transform="translate(580,534)">
+    <!-- Primary DB glow -->
+    <circle cx="0" cy="0" r="60" fill="url(#dbGlow)" opacity="0.8">
+      <animate attributeName="r" values="45;70;45" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Primary DB -->
+    <ellipse cx="0" cy="0" rx="38" ry="28" fill="#081A2A" stroke="#3B82F6" stroke-width="2.2"/>
+    <text x="0" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">POSTGRES</text>
+    <text x="0" y="10" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#BFDBFE">PRIMARY</text>
+
+    <!-- Replica shards -->
+    <g transform="translate(-150,-20)">
+      <ellipse cx="0" cy="0" rx="28" ry="20" fill="#0C1F30" stroke="#60A5FA" stroke-width="1.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD">SHARD 1</text>
+      <line x1="28" y1="0" x2="90" y2="6" stroke="#3B82F6" stroke-width="1.2" opacity="0.7"/>
+    </g>
+    <g transform="translate(-150,50)">
+      <ellipse cx="0" cy="0" rx="28" ry="20" fill="#0C1F30" stroke="#60A5FA" stroke-width="1.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD">SHARD 2</text>
+      <line x1="28" y1="0" x2="90" y2="-24" stroke="#3B82F6" stroke-width="1.2" opacity="0.7"/>
+    </g>
+    <g transform="translate(130,-20)">
+      <ellipse cx="0" cy="0" rx="28" ry="20" fill="#0C1F30" stroke="#60A5FA" stroke-width="1.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD">REPLICA</text>
+      <line x1="-28" y1="0" x2="-90" y2="6" stroke="#3B82F6" stroke-width="1.2" opacity="0.7"/>
+    </g>
+
+    <!-- Data flow animation -->
+    <rect x="-5" y="-3" width="30" height="6" rx="2" fill="url(#dataFlow)" opacity="0.7">
+      <animate attributeName="x" values="-90;80;-90" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- KPI Card: 800M -->
+  <g transform="translate(990,534)" filter="url(#softShadow)">
+    <rect x="-80" y="-62" width="180" height="112" rx="14" fill="#061018" stroke="#3B82F6" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#60A5FA">USERS</text>
+    <text x="10" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#F5F7FA">800M</text>
+    <text x="10" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BFDBFE">Citus sharding</text>
+  </g>
+</g>
+
+<!-- QR placeholder (will be replaced by add_cover_qr.py) -->
+<g transform="translate(1080,496)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF" opacity="0.08"/>
+</g>
+
+<!-- Global ambient animations -->
+<g opacity="0.85">
+  <!-- Band A sparkles -->
+  <g fill="#F87171">
+    <circle cx="800" cy="60" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="840" cy="80" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="870" cy="55" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="910" cy="75" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.9s" repeatCount="indefinite"/></circle>
+  </g>
+  <!-- Band B sparkles -->
+  <g fill="#FB923C">
+    <circle cx="780" cy="278" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" repeatCount="indefinite"/></circle>
+    <circle cx="830" cy="298" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="270" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <!-- Band C sparkles -->
+  <g fill="#60A5FA">
+    <circle cx="800" cy="488" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="850" cy="508" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="524" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="1.0s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+
+<!-- Band separator lines -->
+<line x1="0" y1="234" x2="1200" y2="234" stroke="#FFFFFF" stroke-width="0.3" opacity="0.1"/>
+<line x1="0" y1="444" x2="1200" y2="444" stroke="#FFFFFF" stroke-width="0.3" opacity="0.1"/>
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/01/23/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/ : 49x49 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(1.714286)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h1v1h-1zM16 0h2v1h-2zM22 0h3v1h-3zM27 0h1v1h-1zM29 0h4v1h-4zM34 0h4v1h-4zM40 0h1v1h-1zM42 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h2v1h-2zM11 1h4v1h-4zM19 1h1v1h-1zM21 1h8v1h-8zM34 1h3v1h-3zM38 1h3v1h-3zM42 1h1v1h-1zM48 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h1v1h-1zM11 2h1v1h-1zM16 2h2v1h-2zM19 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM26 2h2v1h-2zM29 2h1v1h-1zM31 2h1v1h-1zM34 2h2v1h-2zM37 2h1v1h-1zM39 2h2v1h-2zM42 2h1v1h-1zM44 2h3v1h-3zM48 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h2v1h-2zM12 3h1v1h-1zM14 3h1v1h-1zM17 3h1v1h-1zM20 3h4v1h-4zM25 3h1v1h-1zM27 3h3v1h-3zM31 3h3v1h-3zM35 3h3v1h-3zM39 3h1v1h-1zM42 3h1v1h-1zM44 3h3v1h-3zM48 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h2v1h-2zM14 4h1v1h-1zM16 4h1v1h-1zM18 4h2v1h-2zM21 4h6v1h-6zM30 4h2v1h-2zM36 4h2v1h-2zM42 4h1v1h-1zM44 4h3v1h-3zM48 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h2v1h-2zM13 5h1v1h-1zM16 5h1v1h-1zM18 5h1v1h-1zM20 5h3v1h-3zM26 5h1v1h-1zM29 5h1v1h-1zM31 5h2v1h-2zM35 5h1v1h-1zM38 5h1v1h-1zM42 5h1v1h-1zM48 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM40 6h1v1h-1zM42 6h7v1h-7zM10 7h1v1h-1zM16 7h1v1h-1zM21 7h2v1h-2zM26 7h2v1h-2zM29 7h2v1h-2zM32 7h2v1h-2zM35 7h1v1h-1zM37 7h3v1h-3zM0 8h1v1h-1zM3 8h8v1h-8zM12 8h5v1h-5zM22 8h5v1h-5zM28 8h2v1h-2zM34 8h3v1h-3zM38 8h4v1h-4zM44 8h1v1h-1zM46 8h3v1h-3zM0 9h3v1h-3zM7 9h1v1h-1zM10 9h5v1h-5zM17 9h5v1h-5zM25 9h7v1h-7zM33 9h3v1h-3zM37 9h7v1h-7zM46 9h2v1h-2zM0 10h2v1h-2zM4 10h1v1h-1zM6 10h2v1h-2zM9 10h1v1h-1zM11 10h1v1h-1zM16 10h1v1h-1zM18 10h2v1h-2zM22 10h1v1h-1zM25 10h1v1h-1zM27 10h3v1h-3zM31 10h1v1h-1zM34 10h3v1h-3zM43 10h1v1h-1zM45 10h4v1h-4zM2 11h2v1h-2zM5 11h1v1h-1zM8 11h2v1h-2zM13 11h1v1h-1zM15 11h2v1h-2zM19 11h4v1h-4zM24 11h3v1h-3zM29 11h2v1h-2zM32 11h1v1h-1zM34 11h1v1h-1zM37 11h1v1h-1zM40 11h2v1h-2zM43 11h4v1h-4zM1 12h1v1h-1zM4 12h3v1h-3zM8 12h1v1h-1zM12 12h3v1h-3zM16 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM27 12h2v1h-2zM30 12h1v1h-1zM32 12h1v1h-1zM36 12h3v1h-3zM41 12h1v1h-1zM44 12h2v1h-2zM1 13h2v1h-2zM4 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM12 13h2v1h-2zM15 13h6v1h-6zM23 13h2v1h-2zM26 13h2v1h-2zM29 13h2v1h-2zM33 13h1v1h-1zM36 13h1v1h-1zM38 13h2v1h-2zM42 13h2v1h-2zM45 13h1v1h-1zM47 13h1v1h-1zM2 14h3v1h-3zM6 14h4v1h-4zM11 14h1v1h-1zM14 14h5v1h-5zM22 14h1v1h-1zM25 14h1v1h-1zM33 14h1v1h-1zM35 14h3v1h-3zM40 14h1v1h-1zM46 14h3v1h-3zM2 15h1v1h-1zM8 15h1v1h-1zM11 15h3v1h-3zM15 15h4v1h-4zM20 15h1v1h-1zM22 15h1v1h-1zM26 15h4v1h-4zM32 15h4v1h-4zM42 15h2v1h-2zM45 15h2v1h-2zM48 15h1v1h-1zM1 16h1v1h-1zM3 16h1v1h-1zM5 16h3v1h-3zM10 16h2v1h-2zM15 16h1v1h-1zM19 16h2v1h-2zM24 16h2v1h-2zM27 16h1v1h-1zM31 16h2v1h-2zM34 16h1v1h-1zM36 16h5v1h-5zM44 16h1v1h-1zM46 16h2v1h-2zM1 17h1v1h-1zM5 17h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM14 17h1v1h-1zM17 17h3v1h-3zM22 17h1v1h-1zM25 17h1v1h-1zM27 17h5v1h-5zM33 17h2v1h-2zM37 17h1v1h-1zM39 17h4v1h-4zM44 17h3v1h-3zM0 18h3v1h-3zM4 18h4v1h-4zM9 18h2v1h-2zM12 18h1v1h-1zM16 18h1v1h-1zM24 18h1v1h-1zM26 18h7v1h-7zM35 18h2v1h-2zM38 18h1v1h-1zM40 18h2v1h-2zM43 18h4v1h-4zM48 18h1v1h-1zM2 19h1v1h-1zM4 19h2v1h-2zM9 19h1v1h-1zM11 19h2v1h-2zM14 19h1v1h-1zM23 19h1v1h-1zM25 19h2v1h-2zM28 19h2v1h-2zM32 19h3v1h-3zM37 19h3v1h-3zM41 19h2v1h-2zM45 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM6 20h1v1h-1zM13 20h2v1h-2zM16 20h6v1h-6zM23 20h2v1h-2zM28 20h1v1h-1zM35 20h2v1h-2zM38 20h2v1h-2zM42 20h2v1h-2zM48 20h1v1h-1zM0 21h1v1h-1zM3 21h1v1h-1zM8 21h2v1h-2zM15 21h1v1h-1zM17 21h1v1h-1zM19 21h2v1h-2zM22 21h2v1h-2zM26 21h1v1h-1zM28 21h1v1h-1zM30 21h2v1h-2zM33 21h2v1h-2zM36 21h8v1h-8zM46 21h2v1h-2zM0 22h1v1h-1zM2 22h1v1h-1zM4 22h7v1h-7zM15 22h3v1h-3zM19 22h2v1h-2zM22 22h5v1h-5zM29 22h1v1h-1zM31 22h5v1h-5zM39 22h7v1h-7zM48 22h1v1h-1zM1 23h1v1h-1zM3 23h2v1h-2zM8 23h1v1h-1zM11 23h1v1h-1zM15 23h3v1h-3zM19 23h4v1h-4zM26 23h2v1h-2zM30 23h2v1h-2zM34 23h2v1h-2zM38 23h1v1h-1zM40 23h1v1h-1zM44 23h1v1h-1zM46 23h1v1h-1zM3 24h2v1h-2zM6 24h1v1h-1zM8 24h1v1h-1zM11 24h1v1h-1zM13 24h2v1h-2zM17 24h1v1h-1zM21 24h2v1h-2zM24 24h1v1h-1zM26 24h1v1h-1zM28 24h1v1h-1zM30 24h1v1h-1zM32 24h2v1h-2zM36 24h3v1h-3zM40 24h1v1h-1zM42 24h1v1h-1zM44 24h1v1h-1zM47 24h2v1h-2zM1 25h4v1h-4zM8 25h3v1h-3zM14 25h4v1h-4zM19 25h4v1h-4zM26 25h1v1h-1zM29 25h2v1h-2zM32 25h2v1h-2zM35 25h2v1h-2zM38 25h1v1h-1zM40 25h1v1h-1zM44 25h3v1h-3zM1 26h10v1h-10zM13 26h4v1h-4zM18 26h2v1h-2zM22 26h5v1h-5zM31 26h3v1h-3zM35 26h2v1h-2zM39 26h6v1h-6zM48 26h1v1h-1zM2 27h2v1h-2zM5 27h1v1h-1zM7 27h1v1h-1zM9 27h3v1h-3zM20 27h2v1h-2zM24 27h3v1h-3zM29 27h2v1h-2zM35 27h1v1h-1zM37 27h1v1h-1zM41 27h2v1h-2zM44 27h3v1h-3zM1 28h1v1h-1zM3 28h1v1h-1zM5 28h2v1h-2zM9 28h2v1h-2zM13 28h1v1h-1zM16 28h2v1h-2zM20 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1zM31 28h3v1h-3zM36 28h4v1h-4zM41 28h2v1h-2zM44 28h1v1h-1zM46 28h1v1h-1zM48 28h1v1h-1zM1 29h2v1h-2zM4 29h2v1h-2zM8 29h1v1h-1zM10 29h3v1h-3zM15 29h2v1h-2zM18 29h3v1h-3zM22 29h3v1h-3zM27 29h1v1h-1zM30 29h2v1h-2zM33 29h3v1h-3zM37 29h1v1h-1zM39 29h1v1h-1zM41 29h3v1h-3zM46 29h2v1h-2zM1 30h3v1h-3zM5 30h2v1h-2zM9 30h1v1h-1zM11 30h4v1h-4zM16 30h1v1h-1zM19 30h1v1h-1zM24 30h1v1h-1zM26 30h1v1h-1zM29 30h1v1h-1zM31 30h3v1h-3zM35 30h2v1h-2zM38 30h1v1h-1zM40 30h1v1h-1zM42 30h1v1h-1zM48 30h1v1h-1zM0 31h2v1h-2zM3 31h3v1h-3zM7 31h2v1h-2zM10 31h1v1h-1zM13 31h1v1h-1zM15 31h1v1h-1zM17 31h2v1h-2zM21 31h1v1h-1zM24 31h2v1h-2zM29 31h1v1h-1zM32 31h1v1h-1zM35 31h1v1h-1zM39 31h2v1h-2zM45 31h1v1h-1zM47 31h2v1h-2zM6 32h2v1h-2zM15 32h1v1h-1zM18 32h3v1h-3zM24 32h1v1h-1zM33 32h1v1h-1zM35 32h2v1h-2zM38 32h2v1h-2zM41 32h1v1h-1zM43 32h2v1h-2zM2 33h3v1h-3zM11 33h1v1h-1zM15 33h1v1h-1zM17 33h8v1h-8zM26 33h1v1h-1zM29 33h1v1h-1zM31 33h1v1h-1zM33 33h3v1h-3zM37 33h2v1h-2zM40 33h2v1h-2zM43 33h5v1h-5zM1 34h1v1h-1zM3 34h2v1h-2zM6 34h1v1h-1zM8 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM17 34h2v1h-2zM21 34h2v1h-2zM24 34h3v1h-3zM28 34h3v1h-3zM32 34h3v1h-3zM37 34h3v1h-3zM41 34h3v1h-3zM45 34h1v1h-1zM48 34h1v1h-1zM0 35h1v1h-1zM2 35h1v1h-1zM4 35h1v1h-1zM7 35h1v1h-1zM10 35h2v1h-2zM15 35h3v1h-3zM21 35h4v1h-4zM26 35h2v1h-2zM32 35h4v1h-4zM38 35h2v1h-2zM41 35h1v1h-1zM43 35h6v1h-6zM1 36h2v1h-2zM4 36h1v1h-1zM6 36h2v1h-2zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM17 36h1v1h-1zM19 36h2v1h-2zM23 36h1v1h-1zM28 36h2v1h-2zM32 36h3v1h-3zM36 36h5v1h-5zM48 36h1v1h-1zM0 37h1v1h-1zM5 37h1v1h-1zM9 37h4v1h-4zM14 37h5v1h-5zM20 37h1v1h-1zM22 37h3v1h-3zM28 37h4v1h-4zM33 37h1v1h-1zM36 37h3v1h-3zM40 37h2v1h-2zM43 37h2v1h-2zM1 38h1v1h-1zM5 38h2v1h-2zM9 38h3v1h-3zM15 38h4v1h-4zM20 38h1v1h-1zM22 38h3v1h-3zM32 38h1v1h-1zM36 38h4v1h-4zM41 38h2v1h-2zM44 38h1v1h-1zM46 38h3v1h-3zM1 39h3v1h-3zM11 39h5v1h-5zM19 39h1v1h-1zM26 39h1v1h-1zM29 39h3v1h-3zM37 39h1v1h-1zM39 39h1v1h-1zM41 39h3v1h-3zM46 39h3v1h-3zM0 40h3v1h-3zM6 40h2v1h-2zM9 40h2v1h-2zM18 40h2v1h-2zM22 40h5v1h-5zM30 40h3v1h-3zM36 40h2v1h-2zM39 40h9v1h-9zM8 41h1v1h-1zM10 41h1v1h-1zM13 41h2v1h-2zM16 41h1v1h-1zM22 41h1v1h-1zM26 41h2v1h-2zM30 41h1v1h-1zM33 41h2v1h-2zM37 41h1v1h-1zM39 41h2v1h-2zM44 41h1v1h-1zM46 41h1v1h-1zM0 42h7v1h-7zM8 42h1v1h-1zM13 42h7v1h-7zM21 42h2v1h-2zM24 42h1v1h-1zM26 42h2v1h-2zM29 42h1v1h-1zM32 42h1v1h-1zM35 42h2v1h-2zM38 42h1v1h-1zM40 42h1v1h-1zM42 42h1v1h-1zM44 42h1v1h-1zM47 42h2v1h-2zM0 43h1v1h-1zM6 43h1v1h-1zM8 43h2v1h-2zM14 43h4v1h-4zM19 43h2v1h-2zM22 43h1v1h-1zM26 43h1v1h-1zM28 43h4v1h-4zM34 43h2v1h-2zM39 43h2v1h-2zM44 43h2v1h-2zM0 44h1v1h-1zM2 44h3v1h-3zM6 44h1v1h-1zM8 44h2v1h-2zM12 44h2v1h-2zM16 44h3v1h-3zM22 44h5v1h-5zM28 44h3v1h-3zM34 44h1v1h-1zM36 44h1v1h-1zM38 44h1v1h-1zM40 44h6v1h-6zM48 44h1v1h-1zM0 45h1v1h-1zM2 45h3v1h-3zM6 45h1v1h-1zM8 45h2v1h-2zM11 45h2v1h-2zM18 45h1v1h-1zM20 45h4v1h-4zM25 45h1v1h-1zM27 45h1v1h-1zM29 45h2v1h-2zM33 45h2v1h-2zM37 45h2v1h-2zM41 45h1v1h-1zM43 45h1v1h-1zM45 45h2v1h-2zM48 45h1v1h-1zM0 46h1v1h-1zM2 46h3v1h-3zM6 46h1v1h-1zM11 46h4v1h-4zM19 46h2v1h-2zM24 46h1v1h-1zM27 46h1v1h-1zM29 46h1v1h-1zM32 46h3v1h-3zM37 46h2v1h-2zM43 46h3v1h-3zM47 46h1v1h-1zM0 47h1v1h-1zM6 47h1v1h-1zM9 47h1v1h-1zM12 47h1v1h-1zM14 47h1v1h-1zM16 47h1v1h-1zM21 47h2v1h-2zM25 47h7v1h-7zM33 47h3v1h-3zM39 47h2v1h-2zM42 47h1v1h-1zM45 47h4v1h-4zM0 48h7v1h-7zM8 48h2v1h-2zM12 48h2v1h-2zM17 48h2v1h-2zM22 48h1v1h-1zM25 48h4v1h-4zM30 48h1v1h-1zM32 48h1v1h-1zM34 48h1v1h-1zM36 48h3v1h-3zM40 48h5v1h-5zM46 48h1v1h-1zM48 48h1v1h-1z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
+</svg>
