@@ -1,102 +1,275 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - 2026-04-13</title>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0e27"/>
-      <stop offset="1" stop-color="#1a1f3a"/>
-    </linearGradient>
-    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3e6c"/>
-      <stop offset="1" stop-color="#ff7a4a"/>
-    </linearGradient>
-    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5ba3ff"/>
-      <stop offset="1" stop-color="#9d6fff"/>
-    </linearGradient>
-    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00ff88"/>
-      <stop offset="1" stop-color="#00d4b2"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5ba3ff" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#5ba3ff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly security digest 2026-04-13: Marimo pre-auth RCE actively exploited, Adobe Acrobat CVE-2026-34621 zero-day patched, CPUID supply-chain breach distributes STX RAT via trojanized CPU-Z">
+<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based) -->
+<title>2026-04-13 digest: Marimo RCE (Critical active exploit), Adobe CVE-2026-34621 zero-day (Critical patched), CPUID STX RAT (Medium supply chain)</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0B1326"/>
+    <stop offset="55%" stop-color="#0D1530"/>
+    <stop offset="100%" stop-color="#141034"/>
+  </linearGradient>
+  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1A0610"/>
+    <stop offset="100%" stop-color="#0F0409"/>
+  </linearGradient>
+  <linearGradient id="trPanel" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0E1B38"/>
+    <stop offset="100%" stop-color="#091428"/>
+  </linearGradient>
+  <linearGradient id="brPanel" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1A1100"/>
+    <stop offset="100%" stop-color="#110C00"/>
+  </linearGradient>
+  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#E63946"/>
+    <stop offset="100%" stop-color="#7A0000"/>
+  </linearGradient>
+  <linearGradient id="gearGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3A86FF"/>
+    <stop offset="100%" stop-color="#1A56CC"/>
+  </linearGradient>
+  <linearGradient id="cveCard" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3D0808"/>
+    <stop offset="100%" stop-color="#1A0404"/>
+  </linearGradient>
+  <radialGradient id="hotRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="hotBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="hotAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.6"/>
+  </pattern>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+    <feOffset dx="2" dy="4"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="1" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="150" r="300" fill="url(#glow)"/>
-  <circle cx="1000" cy="500" r="260" fill="url(#glow)" opacity="0.6"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
-    <line x1="60" y1="95" x2="1140" y2="95"/>
-    <line x1="60" y1="555" x2="1140" y2="555"/>
+<!-- Ambient glows -->
+<circle cx="300" cy="300" r="160" fill="url(#hotRed)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="5.8s" repeatCount="indefinite"/>
+  <animate attributeName="r" values="160;178;160" dur="7.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="920" cy="200" r="110" fill="url(#hotBlue)">
+  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="6.2s" repeatCount="indefinite"/>
+  <animate attributeName="r" values="110;126;110" dur="8.1s" repeatCount="indefinite"/>
+</circle>
+<circle cx="920" cy="490" r="100" fill="url(#hotAmber)">
+  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.0s" repeatCount="indefinite"/>
+  <animate attributeName="r" values="100;116;100" dur="9.2s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Starfield -->
+<g fill="#8FB8FF">
+  <circle cx="160" cy="62" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="420" cy="70" r="1.0"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.4s" repeatCount="indefinite"/></circle>
+  <circle cx="720" cy="64" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.7s" repeatCount="indefinite"/></circle>
+  <circle cx="1040" cy="72" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.2s" repeatCount="indefinite"/></circle>
+  <circle cx="80" cy="340" r="1.1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.8s" repeatCount="indefinite"/></circle>
+  <circle cx="620" cy="310" r="1.2"><animate attributeName="opacity" values="0.2;0.95;0.2" dur="3.3s" repeatCount="indefinite"/></circle>
+</g>
+
+<!-- Top header stripe -->
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1160" y="36" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.04.13</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
+</rect>
+
+<!-- ================== HERO LEFT: Marimo Pre-Auth RCE — CRITICAL active ================== -->
+<rect x="32" y="80" width="600" height="510" rx="14" ry="14" fill="url(#heroPanel)" stroke="#E63946" stroke-width="1.8" opacity="0.98"/>
+<rect x="32" y="80" width="600" height="4" fill="#E63946" opacity="0.85">
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Hero eyebrow + title -->
+<text x="54" y="114" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E63946" letter-spacing="3">CRITICAL  /  ACTIVE EXPLOIT</text>
+<text x="54" y="150" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F8FAFC" filter="url(#textShadow)">Marimo Pre-Auth RCE</text>
+<text x="54" y="180" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="500" fill="#F09090">No auth required — full remote exec</text>
+<text x="54" y="208" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#BFC9D9">Credential theft confirmed  /  BleepingComputer  /  Apr 13</text>
+
+<!-- Cracked shield illustration -->
+<g transform="translate(54, 232)" filter="url(#softShadow)">
+  <!-- Shield body -->
+  <path d="M92,0 L168,40 L168,108 Q168,172 92,200 Q16,172 16,108 L16,40 Z" fill="url(#shieldGrad)" opacity="0.92"/>
+  <!-- Crack -->
+  <path d="M84,36 L100,84 L88,104 L110,148" stroke="#F8FAFC" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.95"/>
+  <path d="M100,84 L120,96" stroke="#F8FAFC" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <!-- Pulse ring -->
+  <ellipse cx="92" cy="104" rx="88" ry="108" fill="none" stroke="#E63946" stroke-width="1.4" opacity="0.4">
+    <animate attributeName="rx" values="88;110;88" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="108;132;108" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.05;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </ellipse>
+  <!-- Second pulse -->
+  <ellipse cx="92" cy="104" rx="75" ry="92" fill="none" stroke="#E63946" stroke-width="1" opacity="0.25">
+    <animate attributeName="rx" values="75;98;75" dur="2.2s" begin="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="92;116;92" dur="2.2s" begin="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.35;0.02;0.35" dur="2.2s" begin="0.7s" repeatCount="indefinite"/>
+  </ellipse>
+  <text x="92" y="236" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#E63946" letter-spacing="1.5">SHIELD BROKEN</text>
+</g>
+
+<!-- HTTP exploit chain -->
+<g transform="translate(270, 260)">
+  <rect x="0" y="0" width="100" height="38" rx="7" fill="#2A0808" stroke="#E63946" stroke-width="1.4"/>
+  <text x="50" y="24" text-anchor="middle" font-family="Monaco, monospace" font-size="12" fill="#E63946" font-weight="700">HTTP REQ</text>
+  <!-- Arrow -->
+  <line x1="100" y1="19" x2="136" y2="19" stroke="#E63946" stroke-width="2" opacity="0.9">
+    <animate attributeName="stroke-dasharray" values="4 3;0 7;4 3" dur="1.4s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="136,13 150,19 136,25" fill="#E63946" opacity="0.9"/>
+  <rect x="150" y="0" width="90" height="38" rx="7" fill="#3A0808" stroke="#E63946" stroke-width="2"/>
+  <text x="195" y="24" text-anchor="middle" font-family="Monaco, monospace" font-size="16" fill="#F8FAFC" font-weight="800">RCE</text>
+</g>
+
+<!-- Credential exfil tag -->
+<g transform="translate(270, 314)">
+  <rect x="0" y="0" width="240" height="28" rx="4" fill="#E63946" opacity="0.92"/>
+  <text x="12" y="19" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFF5F5">CREDENTIALS EXFILTRATED</text>
+</g>
+
+<!-- KPI card in hero -->
+<g transform="translate(54, 460)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="156" height="108" rx="12" fill="#1A0408" stroke="#E63946" stroke-width="2.2"/>
+  <text x="78" y="26" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#E63946">SEVERITY</text>
+  <text x="78" y="68" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="38" font-weight="900" fill="#E63946">CRIT</text>
+  <text x="78" y="90" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#F09090">pre-auth / patch now</text>
+  <circle cx="78" cy="102" r="5" fill="#E63946" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Source tag -->
+<g transform="translate(228, 554)">
+  <rect x="0" y="0" width="186" height="26" rx="3" fill="#E63946" opacity="0.95"/>
+  <text x="10" y="18" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFF5F5">ACTIVELY EXPLOITED NOW</text>
+</g>
+
+<!-- ================== TOP RIGHT: Adobe Acrobat CVE-2026-34621 ================== -->
+<rect x="652" y="80" width="516" height="248" rx="14" ry="14" fill="url(#trPanel)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="80" width="516" height="4" fill="#3A86FF" opacity="0.85">
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/>
+</rect>
+
+<text x="670" y="112" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">CRITICAL  /  ZERO-DAY PATCHED  /  02</text>
+<text x="670" y="142" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#F8FAFC" filter="url(#textShadow)">Adobe Acrobat CVE-2026-34621</text>
+<text x="670" y="168" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#CBD5E1">Actively exploited Reader zero-day — patch deployed</text>
+
+<!-- Gear with checkmark (patch applied) -->
+<g transform="translate(670, 182)" filter="url(#softShadow)">
+  <g>
+    <circle cx="44" cy="44" r="40" fill="none" stroke="#3A86FF" stroke-width="2" opacity="0.5"/>
+    <rect x="40" y="1" width="8" height="12" rx="3" fill="#3A86FF" opacity="0.7"/>
+    <rect x="40" y="75" width="8" height="12" rx="3" fill="#3A86FF" opacity="0.7"/>
+    <rect x="1" y="40" width="12" height="8" rx="3" fill="#3A86FF" opacity="0.7"/>
+    <rect x="75" y="40" width="12" height="8" rx="3" fill="#3A86FF" opacity="0.7"/>
+    <circle cx="44" cy="44" r="28" fill="url(#gearGrad)" opacity="0.9"/>
+    <path d="M30,44 L40,56 L60,30" stroke="#F8FAFC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 44 44" to="360 44 44" dur="18s" repeatCount="indefinite" additive="sum"/>
   </g>
+  <text x="44" y="104" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#3A86FF" letter-spacing="1">PATCH APPLIED</text>
+</g>
 
-  <text x="60" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#00ff88" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="1140" y="55" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#8b95b0" letter-spacing="2">2026-04-13</text>
+<!-- CVE badge -->
+<g transform="translate(786, 188)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="148" height="60" rx="10" fill="url(#cveCard)" stroke="#E63946" stroke-width="1.5"/>
+  <text x="74" y="24" text-anchor="middle" font-family="Monaco, monospace" font-size="10" font-weight="700" fill="#E63946" letter-spacing="0.8">CVE-2026-34621</text>
+  <text x="74" y="46" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#F8FAFC">Acrobat Reader</text>
+</g>
 
-  <g transform="translate(60, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,62,108,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentRed)" stroke-width="2.5" stroke-linecap="round">
-      <rect x="-28" y="-28" width="56" height="56" rx="6"/>
-      <rect x="-14" y="-14" width="28" height="28" rx="3"/>
-      <line x1="-36" y1="-14" x2="-28" y2="-14"/>
-      <line x1="-36" y1="0" x2="-28" y2="0"/>
-      <line x1="-36" y1="14" x2="-28" y2="14"/>
-      <line x1="28" y1="-14" x2="36" y2="-14"/>
-      <line x1="28" y1="0" x2="36" y2="0"/>
-      <line x1="28" y1="14" x2="36" y2="14"/>
-      <line x1="-14" y1="-36" x2="-14" y2="-28"/>
-      <line x1="0" y1="-36" x2="0" y2="-28"/>
-      <line x1="14" y1="-36" x2="14" y2="-28"/>
-      <line x1="-14" y1="28" x2="-14" y2="36"/>
-      <line x1="0" y1="28" x2="0" y2="36"/>
-      <line x1="14" y1="28" x2="14" y2="36"/>
-    </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(255,62,108,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ff3e6c" letter-spacing="3">SUPPLY</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPUID Breach</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">CPU-Z Trojanized</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ff7a4a" letter-spacing="1">STX RAT delivered</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">HWMonitor downloads</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">altered at source</text>
-  </g>
-  <g transform="translate(427, 125)">
-    <rect width="346" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(91,163,255,0.35)" stroke-width="1.5"/>
-    <g transform="translate(173, 92)" fill="none" stroke="url(#accentBlue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M0,-44 L50,40 L-50,40 Z"/>
-      <line x1="0" y1="-16" x2="0" y2="16" stroke-width="3.5"/>
-      <circle cx="0" cy="30" r="3.5" fill="url(#accentBlue)" stroke="none"/>
-    </g>
-    <rect x="125" y="210" width="96" height="24" rx="12" fill="rgba(91,163,255,0.18)"/>
-    <text x="173" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="3">CRITICAL</text>
-    <text x="173" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Marimo RCE</text>
-    <text x="173" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Under Exploit</text>
-    <text x="173" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9d6fff" letter-spacing="1">CVE-2026-39987</text>
-    <text x="173" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Pre-auth remote code</text>
-    <text x="173" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">executed in the wild</text>
-  </g>
-  <g transform="translate(795, 125)">
-    <rect width="345" height="410" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(0,255,136,0.35)" stroke-width="1.5"/>
-    <g transform="translate(172, 92)" fill="none" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-40,-22 L0,-40 L40,-22 L40,10 Q40,36 0,48 Q-40,36 -40,10 Z"/>
-      <polyline points="-18,4 -4,18 20,-8" stroke-width="3"/>
-    </g>
-    <rect x="132" y="210" width="80" height="24" rx="12" fill="rgba(0,255,136,0.18)"/>
-    <text x="172" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="3">PATCH</text>
-    <text x="172" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Adobe Acrobat</text>
-    <text x="172" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="23" font-weight="700" fill="#f0f4f8">Patches Zero-Day</text>
-    <text x="172" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#00d4b2" letter-spacing="1">CVE-2026-34621</text>
-    <text x="172" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">Active exploitation</text>
-    <text x="172" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b95b0">against PDF readers</text>
-  </g>
+<!-- KPI: 0-Day -->
+<g transform="translate(954, 192)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="140" height="108" rx="12" fill="#06101E" stroke="#3A86FF" stroke-width="2"/>
+  <text x="70" y="26" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#3A86FF">CVE</text>
+  <text x="70" y="58" text-anchor="middle" font-family="Monaco, monospace" font-size="15" font-weight="700" fill="#E63946">34621</text>
+  <text x="70" y="86" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="900" fill="#F8FAFC">0-Day</text>
+  <text x="70" y="104" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#90B8F0">update now</text>
+</g>
 
-  <text x="60" y="595" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#5ba3ff">tech.2twodragon.com</text>
+<!-- ================== BOTTOM RIGHT: CPUID/STX RAT Supply Chain ================== -->
+<rect x="652" y="344" width="516" height="246" rx="14" ry="14" fill="url(#brPanel)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="344" width="516" height="4" fill="#FFB703" opacity="0.85">
+  <animate attributeName="opacity" values="0.5;1;0.5" dur="3.6s" repeatCount="indefinite"/>
+</rect>
 
-  <g transform="translate(950, 578)">
-    <rect x="0" y="0" width="82" height="26" rx="13" fill="rgba(0,255,136,0.14)" stroke="rgba(0,255,136,0.4)"/>
-    <text x="41" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00ff88" letter-spacing="2">SECURITY</text>
-    <rect x="92" y="0" width="96" height="26" rx="13" fill="rgba(91,163,255,0.14)" stroke="rgba(91,163,255,0.4)"/>
-    <text x="140" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5ba3ff" letter-spacing="2">DEVSECOPS</text>
+<text x="670" y="376" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFC13B" letter-spacing="3">MEDIUM  /  SUPPLY CHAIN  /  03</text>
+<text x="670" y="406" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F8FAFC" filter="url(#textShadow)">CPUID Breach: STX RAT via CPU-Z</text>
+<text x="670" y="430" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#D4C090">Trojanized CPU-Z distributed STX remote access trojan</text>
+<text x="670" y="452" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#9AAA7A">24h window: Apr 9 15:00 UTC - Apr 10 10:00 UTC  /  The Hacker News</text>
+
+<!-- CPU chip icon -->
+<g transform="translate(670, 468)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="76" height="76" rx="7" fill="#1A1200" stroke="#FFB703" stroke-width="1.4" opacity="0.9"/>
+  <rect x="9" y="9" width="58" height="58" rx="3" fill="#222200" stroke="#FFB703" stroke-width="0.7" opacity="0.6"/>
+  <line x1="-10" y1="19" x2="0" y2="19" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="-10" y1="33" x2="0" y2="33" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="-10" y1="47" x2="0" y2="47" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="-10" y1="61" x2="0" y2="61" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="76" y1="19" x2="86" y2="19" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="76" y1="33" x2="86" y2="33" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="76" y1="47" x2="86" y2="47" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <line x1="76" y1="61" x2="86" y2="61" stroke="#FFB703" stroke-width="1.4" opacity="0.7"/>
+  <circle cx="38" cy="38" r="18" fill="#2A1A00" stroke="#FFB703" stroke-width="1.1" opacity="0.95"/>
+  <text x="38" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#FFB703">!</text>
+  <text x="38" y="98" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="700" fill="#FFB703" letter-spacing="1">TROJANIZED</text>
+</g>
+
+<!-- Arrow CPU-Z to STX RAT -->
+<g transform="translate(766, 490)">
+  <line x1="0" y1="0" x2="50" y2="0" stroke="#FFB703" stroke-width="1.8" stroke-dasharray="5 3" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.6s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="50,-6 64,0 50,6" fill="#FFB703" opacity="0.85"/>
+</g>
+
+<!-- STX RAT box -->
+<g transform="translate(838, 470)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="80" height="52" rx="7" fill="#2A1600" stroke="#FFB703" stroke-width="1.3" opacity="0.95"/>
+  <text x="40" y="20" text-anchor="middle" font-family="Monaco, monospace" font-size="9" font-weight="700" fill="#FFB703" letter-spacing="1.2">STX RAT</text>
+  <text x="40" y="40" text-anchor="middle" font-family="Monaco, monospace" font-size="16" fill="#FFB703" opacity="0.9">RAT</text>
+</g>
+
+<!-- KPI: 24h -->
+<g transform="translate(954, 460)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="140" height="106" rx="12" fill="#120A00" stroke="#FFB703" stroke-width="2"/>
+  <text x="70" y="26" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#FFB703">EXPOSURE</text>
+  <text x="70" y="72" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#F8FAFC">24h</text>
+  <text x="70" y="96" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#D4C090">attack window</text>
+  <circle cx="70" cy="104" r="5" fill="#FFB703" opacity="0.7">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Bottom accent line -->
+<rect x="0" y="628" width="1200" height="2" fill="#E63946" opacity="0.45"/>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/04/13/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h1v1h-1zM11 0h2v1h-2zM15 0h3v1h-3zM20 0h3v1h-3zM28 0h1v1h-1zM30 0h3v1h-3zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM14 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM23 1h1v1h-1zM29 1h2v1h-2zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h1v1h-1zM12 2h1v1h-1zM17 2h1v1h-1zM20 2h1v1h-1zM24 2h3v1h-3zM31 2h2v1h-2zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM13 3h1v1h-1zM15 3h2v1h-2zM19 3h3v1h-3zM25 3h5v1h-5zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h8v1h-8zM22 4h3v1h-3zM27 4h1v1h-1zM29 4h1v1h-1zM31 4h2v1h-2zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h6v1h-6zM17 5h6v1h-6zM24 5h1v1h-1zM28 5h1v1h-1zM30 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h1v1h-1zM12 7h3v1h-3zM17 7h1v1h-1zM19 7h1v1h-1zM24 7h1v1h-1zM26 7h1v1h-1zM29 7h1v1h-1zM31 7h2v1h-2zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM12 8h2v1h-2zM15 8h4v1h-4zM21 8h1v1h-1zM23 8h2v1h-2zM26 8h1v1h-1zM29 8h4v1h-4zM34 8h1v1h-1zM37 8h1v1h-1zM39 8h2v1h-2zM3 9h2v1h-2zM9 9h1v1h-1zM11 9h1v1h-1zM13 9h2v1h-2zM16 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM26 9h1v1h-1zM30 9h3v1h-3zM35 9h2v1h-2zM38 9h3v1h-3zM1 10h1v1h-1zM3 10h1v1h-1zM6 10h1v1h-1zM9 10h8v1h-8zM20 10h1v1h-1zM22 10h2v1h-2zM29 10h1v1h-1zM33 10h1v1h-1zM38 10h2v1h-2zM0 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM9 11h4v1h-4zM14 11h2v1h-2zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h2v1h-2zM27 11h1v1h-1zM32 11h3v1h-3zM36 11h1v1h-1zM39 11h1v1h-1zM3 12h2v1h-2zM6 12h1v1h-1zM8 12h1v1h-1zM10 12h2v1h-2zM13 12h1v1h-1zM15 12h3v1h-3zM19 12h2v1h-2zM22 12h1v1h-1zM24 12h2v1h-2zM28 12h4v1h-4zM35 12h1v1h-1zM37 12h3v1h-3zM0 13h2v1h-2zM3 13h1v1h-1zM5 13h1v1h-1zM8 13h1v1h-1zM16 13h2v1h-2zM20 13h2v1h-2zM23 13h6v1h-6zM30 13h1v1h-1zM33 13h2v1h-2zM37 13h1v1h-1zM39 13h2v1h-2zM0 14h1v1h-1zM4 14h3v1h-3zM8 14h1v1h-1zM10 14h4v1h-4zM15 14h1v1h-1zM19 14h3v1h-3zM23 14h1v1h-1zM25 14h1v1h-1zM28 14h2v1h-2zM31 14h2v1h-2zM34 14h3v1h-3zM38 14h3v1h-3zM2 15h4v1h-4zM7 15h3v1h-3zM11 15h2v1h-2zM15 15h2v1h-2zM18 15h1v1h-1zM21 15h3v1h-3zM26 15h1v1h-1zM32 15h1v1h-1zM34 15h1v1h-1zM36 15h2v1h-2zM2 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h1v1h-1zM24 16h2v1h-2zM30 16h3v1h-3zM36 16h2v1h-2zM39 16h1v1h-1zM0 17h2v1h-2zM7 17h3v1h-3zM11 17h1v1h-1zM13 17h1v1h-1zM15 17h2v1h-2zM19 17h7v1h-7zM32 17h2v1h-2zM35 17h1v1h-1zM37 17h1v1h-1zM2 18h1v1h-1zM4 18h1v1h-1zM6 18h5v1h-5zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM25 18h1v1h-1zM27 18h2v1h-2zM30 18h1v1h-1zM32 18h1v1h-1zM36 18h1v1h-1zM38 18h2v1h-2zM2 19h3v1h-3zM7 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM17 19h2v1h-2zM21 19h1v1h-1zM27 19h4v1h-4zM35 19h1v1h-1zM37 19h3v1h-3zM0 20h2v1h-2zM5 20h2v1h-2zM8 20h2v1h-2zM12 20h2v1h-2zM15 20h2v1h-2zM19 20h2v1h-2zM26 20h2v1h-2zM29 20h6v1h-6zM36 20h4v1h-4zM0 21h2v1h-2zM4 21h1v1h-1zM12 21h3v1h-3zM16 21h1v1h-1zM20 21h2v1h-2zM23 21h2v1h-2zM26 21h1v1h-1zM31 21h1v1h-1zM34 21h3v1h-3zM38 21h3v1h-3zM2 22h1v1h-1zM5 22h7v1h-7zM14 22h2v1h-2zM20 22h1v1h-1zM23 22h2v1h-2zM28 22h3v1h-3zM33 22h4v1h-4zM38 22h2v1h-2zM0 23h1v1h-1zM3 23h1v1h-1zM8 23h2v1h-2zM18 23h2v1h-2zM23 23h1v1h-1zM25 23h1v1h-1zM27 23h1v1h-1zM30 23h1v1h-1zM32 23h2v1h-2zM36 23h1v1h-1zM39 23h2v1h-2zM1 24h1v1h-1zM4 24h3v1h-3zM9 24h1v1h-1zM11 24h1v1h-1zM14 24h2v1h-2zM17 24h1v1h-1zM19 24h1v1h-1zM22 24h1v1h-1zM24 24h3v1h-3zM29 24h1v1h-1zM31 24h1v1h-1zM35 24h1v1h-1zM37 24h1v1h-1zM39 24h1v1h-1zM4 25h2v1h-2zM7 25h5v1h-5zM17 25h1v1h-1zM19 25h1v1h-1zM24 25h2v1h-2zM27 25h1v1h-1zM29 25h1v1h-1zM31 25h3v1h-3zM37 25h2v1h-2zM40 25h1v1h-1zM1 26h2v1h-2zM4 26h1v1h-1zM6 26h1v1h-1zM9 26h2v1h-2zM14 26h3v1h-3zM18 26h3v1h-3zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h2v1h-2zM31 26h2v1h-2zM34 26h1v1h-1zM37 26h1v1h-1zM39 26h2v1h-2zM0 27h1v1h-1zM4 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM12 27h3v1h-3zM16 27h1v1h-1zM19 27h5v1h-5zM26 27h2v1h-2zM30 27h8v1h-8zM39 27h1v1h-1zM4 28h1v1h-1zM6 28h2v1h-2zM10 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM18 28h5v1h-5zM25 28h4v1h-4zM31 28h3v1h-3zM36 28h2v1h-2zM39 28h1v1h-1zM1 29h1v1h-1zM3 29h1v1h-1zM7 29h3v1h-3zM12 29h3v1h-3zM19 29h2v1h-2zM22 29h1v1h-1zM25 29h2v1h-2zM29 29h2v1h-2zM35 29h1v1h-1zM37 29h1v1h-1zM39 29h1v1h-1zM0 30h1v1h-1zM2 30h2v1h-2zM6 30h6v1h-6zM13 30h1v1h-1zM15 30h2v1h-2zM18 30h2v1h-2zM25 30h4v1h-4zM32 30h4v1h-4zM2 31h3v1h-3zM8 31h2v1h-2zM12 31h1v1h-1zM14 31h6v1h-6zM22 31h1v1h-1zM24 31h1v1h-1zM27 31h3v1h-3zM31 31h1v1h-1zM34 31h1v1h-1zM36 31h5v1h-5zM1 32h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM8 32h2v1h-2zM12 32h1v1h-1zM15 32h1v1h-1zM17 32h2v1h-2zM23 32h2v1h-2zM26 32h2v1h-2zM29 32h2v1h-2zM32 32h7v1h-7zM40 32h1v1h-1zM8 33h2v1h-2zM15 33h1v1h-1zM17 33h1v1h-1zM20 33h4v1h-4zM27 33h3v1h-3zM32 33h1v1h-1zM36 33h1v1h-1zM38 33h3v1h-3zM0 34h7v1h-7zM8 34h3v1h-3zM12 34h2v1h-2zM15 34h1v1h-1zM18 34h1v1h-1zM20 34h1v1h-1zM23 34h2v1h-2zM28 34h2v1h-2zM31 34h2v1h-2zM34 34h1v1h-1zM36 34h4v1h-4zM0 35h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM10 35h1v1h-1zM14 35h1v1h-1zM16 35h2v1h-2zM20 35h1v1h-1zM24 35h2v1h-2zM28 35h1v1h-1zM30 35h1v1h-1zM32 35h1v1h-1zM36 35h1v1h-1zM39 35h1v1h-1zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM9 36h3v1h-3zM13 36h1v1h-1zM15 36h2v1h-2zM21 36h1v1h-1zM25 36h1v1h-1zM32 36h7v1h-7zM40 36h1v1h-1zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM8 37h3v1h-3zM16 37h2v1h-2zM19 37h1v1h-1zM22 37h1v1h-1zM26 37h2v1h-2zM29 37h3v1h-3zM36 37h2v1h-2zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM8 38h2v1h-2zM11 38h1v1h-1zM13 38h3v1h-3zM17 38h5v1h-5zM24 38h1v1h-1zM26 38h1v1h-1zM28 38h2v1h-2zM35 38h1v1h-1zM38 38h3v1h-3zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h2v1h-2zM12 39h3v1h-3zM16 39h2v1h-2zM19 39h1v1h-1zM21 39h2v1h-2zM24 39h1v1h-1zM26 39h1v1h-1zM28 39h1v1h-1zM32 39h2v1h-2zM36 39h2v1h-2zM39 39h1v1h-1zM0 40h7v1h-7zM8 40h2v1h-2zM12 40h1v1h-1zM14 40h1v1h-1zM16 40h3v1h-3zM20 40h4v1h-4zM25 40h1v1h-1zM30 40h1v1h-1zM32 40h3v1h-3zM37 40h3v1h-3z"/>
   </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
