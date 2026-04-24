@@ -122,23 +122,10 @@ def process_post_file(file_path: Path, generate_commands: bool = False) -> Dict:
 
     try:
         content = file_path.read_text(encoding="utf-8")
-        image_paths = extract_image_paths(content)
         post_info = extract_post_info(file_path)
         result["post_info"] = post_info
 
-        for img_path in image_paths:
-            img_result = check_image_file(img_path)
-            result["images"].append(img_result)
-
-            if not img_result["exists"]:
-                result["issues"].append(f"이미지 파일을 찾을 수 없습니다: {img_path}")
-
-            if img_result["has_korean"]:
-                result["issues"].append(
-                    f"이미지 파일명에 한글이 포함되어 있습니다: {img_path}"
-                )
-
-        # 메인 이미지 확인
+        # 메인 이미지 확인 (frontmatter image: 필드를 권위 있는 소스로 사용)
         if post_info["image"]:
             has_image, image_path = check_image_exists(post_info["image"])
             if not has_image:
@@ -147,6 +134,13 @@ def process_post_file(file_path: Path, generate_commands: bool = False) -> Dict:
                 )
                 if generate_commands:
                     result["gemini_command"] = generate_gemini_command(post_info)
+            else:
+                img_result = check_image_file(Path(post_info["image"]).name)
+                result["images"].append(img_result)
+                if img_result["has_korean"]:
+                    result["issues"].append(
+                        f"이미지 파일명에 한글이 포함되어 있습니다: {post_info['image']}"
+                    )
 
         return result
 
