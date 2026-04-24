@@ -1,144 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg1g" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1A0E2E"/>
-      <stop offset="100%" stop-color="#24122F"/>
-    </linearGradient>
-    <linearGradient id="bg2g" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#24122F"/>
-      <stop offset="100%" stop-color="#1A0E2E"/>
-    </linearGradient>
-    <linearGradient id="bg3g" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1A0E2E"/>
-      <stop offset="100%" stop-color="#24122F"/>
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E63946" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#BE123C" stop-opacity="0.7"/>
-    </linearGradient>
-    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#E63946" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#1A0E2E" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
-    </filter>
-    <filter id="textGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <pattern id="ledgerGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0L0 0 0 40" fill="none" stroke="#E63946" stroke-width="0.3" stroke-opacity="0.12"/>
-    </pattern>
-    <pattern id="circuitDot" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="1.2" fill="#E63946" fill-opacity="0.15"/>
-    </pattern>
-    <clipPath id="band1clip"><rect x="0" y="0" width="1200" height="210"/></clipPath>
-    <clipPath id="band2clip"><rect x="0" y="210" width="1200" height="210"/></clipPath>
-    <clipPath id="band3clip"><rect x="0" y="420" width="1200" height="210"/></clipPath>
-  </defs>
-
-  <!-- Band 1 -->
-  <rect x="0" y="0" width="1200" height="210" fill="url(#bg1g)"/>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#ledgerGrid)"/>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#glowCenter)" opacity="0.6"/>
-  <rect x="0" y="0" width="6" height="210" fill="url(#accentGrad)">
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-  </rect>
-  <text x="36" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="#E63946" letter-spacing="3" text-anchor="start" opacity="0.9">TECH SECURITY WEEKLY DIGEST</text>
-  <text x="36" y="100" font-family="'Segoe UI',Arial,sans-serif" font-size="42" font-weight="800"
-        fill="#FFFFFF" filter="url(#textGlow)" text-anchor="start">AI + Zero-Day</text>
-  <text x="36" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="20" font-weight="400"
-        fill="#FECDD3" opacity="0.85" text-anchor="start">Cloud Zero-Day Threat Digest</text>
-  <text x="36" y="185" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="500"
-        fill="#FCA5A5" opacity="0.7" text-anchor="start">March 28, 2026</text>
-  <!-- Band 1 right visual -->
-  <circle cx="980" cy="105" r="72" fill="#E63946" fill-opacity="0.08"/>
-  <circle cx="980" cy="105" r="52" fill="none" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="8 4"/>
-  <text x="980" y="95" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="700"
-        fill="#E63946" text-anchor="middle" opacity="0.9">BAND 1</text>
-  <text x="980" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="15" font-weight="600"
-        fill="#FFFFFF" text-anchor="middle" opacity="0.8">AI-Detected 0-Days</text>
-  <!-- Divider -->
-  <line x1="0" y1="210" x2="1200" y2="210" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.3"/>
-
-  <!-- Band 2 -->
-  <rect x="0" y="210" width="1200" height="210" fill="url(#bg2g)"/>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#circuitDot)"/>
-  <rect x="1194" y="210" width="6" height="210" fill="url(#accentGrad)">
-    <animate attributeName="opacity" values="1;0.7;1" dur="3.5s" repeatCount="indefinite"/>
-  </rect>
-  <text x="36" y="256" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="#E63946" letter-spacing="3" opacity="0.85">THREAT INTELLIGENCE</text>
-  <text x="36" y="302" font-family="'Segoe UI',Arial,sans-serif" font-size="32" font-weight="700"
-        fill="#FFFFFF" text-anchor="start">Cloud Exploits</text>
-  <!-- Badge cards row -->
-  <g transform="translate(36,330)">
-    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
-    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
-          fill="#E63946" text-anchor="middle" letter-spacing="1">SEVERITY</text>
-    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
-          fill="#FFFFFF" text-anchor="middle">CRITICAL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="AI agent tool-call SSRF zero-day bypass, AWS IMDS v2 bypass chain cloud zero-day, container supply chain Sigstore cosign">
+<title>Weekly digest 2026-03-28: AI agent SSRF zero-day, AWS IMDS v2 bypass, Sigstore cosign container</title>
+<defs>
+<linearGradient id="bgSpreadN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
+<linearGradient id="bandAN" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
+<linearGradient id="bandBN" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2A1A0C"/><stop offset="100%" stop-color="#1E1F0A"/></linearGradient>
+<linearGradient id="bandCN" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
+<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
+<pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="0.8" fill="#3A2A4E" opacity="0.55"/></pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bgSpreadN)"/>
+<g>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#bandAN)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="0" width="8" height="210" fill="#E63946"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">AI AGENT VULNERABILITY</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Tool-Call SSRF Bypass</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">SSRF via AI tool invocation</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">MCP server SSRF : agent trust boundary : cloud metadata exfil : IMDSv2 token leak</text>
   </g>
-  <g transform="translate(232,330)">
-    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
-    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
-          fill="#E63946" text-anchor="middle" letter-spacing="1">VECTOR</text>
-    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
-          fill="#FFFFFF" text-anchor="middle">Cloud RCE</text>
-  </g>
-  <g transform="translate(428,330)">
-    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
-    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
-          fill="#E63946" text-anchor="middle" letter-spacing="1">IMPACT</text>
-    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
-          fill="#FFFFFF" text-anchor="middle">Lateral</text>
-  </g>
-  <!-- Divider -->
-  <line x1="0" y1="420" x2="1200" y2="420" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.3"/>
-
-  <!-- Band 3 -->
-  <rect x="0" y="420" width="1200" height="210" fill="url(#bg3g)"/>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.7"/>
-  <rect x="0" y="420" width="6" height="210" fill="url(#accentGrad)" opacity="0.8">
-    <animate attributeName="opacity" values="0.8;0.5;0.8" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <text x="36" y="466" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
-        fill="#E63946" letter-spacing="3" opacity="0.85">ANALYSIS</text>
-  <text x="36" y="508" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700"
-        fill="#FFFFFF" text-anchor="start">Threat Hunting</text>
-  <!-- Tags -->
-  <g transform="translate(36,528)">
-    <g transform="translate(0,0)">
-      <rect width="40" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
-      <text x="20" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
-            fill="#FECDD3" text-anchor="middle">AI</text>
+  <g transform="translate(500,105)">
+    <circle r="60" fill="#E63946" fill-opacity="0.08"><animate attributeName="r" values="50;70;50" dur="3s" repeatCount="indefinite"/></circle>
+    <circle r="22" fill="#E63946" stroke="#FCA5A5" stroke-width="2" filter="url(#softShadow)"/>
+    <text y="4" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFF">AGENT</text>
+    <g stroke="#E63946" stroke-width="1" stroke-dasharray="2 3" fill="none" opacity="0.55">
+      <line x1="0" y1="0" x2="70" y2="-45"/><line x1="0" y1="0" x2="85" y2="0"/><line x1="0" y1="0" x2="70" y2="45"/>
+      <line x1="0" y1="0" x2="-70" y2="-45"/><line x1="0" y1="0" x2="-85" y2="0"/><line x1="0" y1="0" x2="-70" y2="45"/>
+      <line x1="0" y1="0" x2="40" y2="-70"/><line x1="0" y1="0" x2="-40" y2="-70"/>
     </g>
-    <g transform="translate(50,0)">
-      <rect width="64" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
-      <text x="32" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
-            fill="#FECDD3" text-anchor="middle">Cloud</text>
+    <g fill="#FCA5A5">
+      <circle cx="70" cy="-45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="85" cy="0" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="70" cy="45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-70" cy="-45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="-85" cy="0" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-70" cy="45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="40" cy="-70" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-40" cy="-70" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
     </g>
-    <g transform="translate(124,0)">
-      <rect width="88" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
-      <text x="44" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
-            fill="#FECDD3" text-anchor="middle">Zero-Day</text>
-    </g>
-    <g transform="translate(222,0)">
-      <rect width="72" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
-      <text x="36" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
-            fill="#FECDD3" text-anchor="middle">Threat</text>
+    <g fill="#FFF">
+      <circle r="1.6"><animateMotion path="M0 0 L70 -45" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L85 0" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-70 -45" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-85 0" dur="2.3s" repeatCount="indefinite"/></circle>
     </g>
   </g>
-  <!-- Brand watermark -->
-  <text x="36" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="400"
-        fill="#FCA5A5" opacity="0.5" text-anchor="start">tech.2twodragon.com</text>
-  <!-- Accent line bottom -->
-  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)" opacity="0.6"/>
-  <!-- QR code -->
-  <g transform="translate(1080,504)">
-    <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
-    <path fill="#0A1020" d="M0.0 0.0h14.34v2.05h-14.34z M16.39 0.0h2.05v2.05h-2.05z M24.59 0.0h2.05v2.05h-2.05z M28.68 0.0h10.24v2.05h-10.24z M47.12 0.0h2.05v2.05h-2.05z M53.27 0.0h2.05v2.05h-2.05z M57.37 0.0h2.05v2.05h-2.05z M61.46 0.0h2.05v2.05h-2.05z M69.66 0.0h14.34v2.05h-14.34z M0.0 2.05h2.05v2.05h-2.05z M12.29 2.05h2.05v2.05h-2.05z M20.49 2.05h6.15v2.05h-6.15z M32.78 2.05h4.1v2.05h-4.1z M38.93 2.05h4.1v2.05h-4.1z M49.17 2.05h2.05v2.05h-2.05z M57.37 2.05h2.05v2.05h-2.05z M61.46 2.05h4.1v2.05h-4.1z M69.66 2.05h2.05v2.05h-2.05z M81.95 2.05h2.05v2.05h-2.05z M0.0 4.1h2.05v2.05h-2.05z M4.1 4.1h6.15v2.05h-6.15z M12.29 4.1h2.05v2.05h-2.05z M18.44 4.1h2.05v2.05h-2.05z M22.54 4.1h2.05v2.05h-2.05z M28.68 4.1h6.15v2.05h-6.15z M38.93 4.1h2.05v2.05h-2.05z M43.02 4.1h2.05v2.05h-2.05z M47.12 4.1h6.15v2.05h-6.15z M59.41 4.1h4.1v2.05h-4.1z M69.66 4.1h2.05v2.05h-2.05z M73.76 4.1h6.15v2.05h-6.15z M81.95 4.1h2.05v2.05h-2.05z M0.0 6.15h2.05v2.05h-2.05z M4.1 6.15h6.15v2.05h-6.15z M12.29 6.15h2.05v2.05h-2.05z M16.39 6.15h2.05v2.05h-2.05z M20.49 6.15h4.1v2.05h-4.1z M26.63 6.15h2.05v2.05h-2.05z M34.83 6.15h12.29v2.05h-12.29z M53.27 6.15h2.05v2.05h-2.05z M57.37 6.15h4.1v2.05h-4.1z M63.51 6.15h2.05v2.05h-2.05z M69.66 6.15h2.05v2.05h-2.05z M73.76 6.15h6.15v2.05h-6.15z M81.95 6.15h2.05v2.05h-2.05z M0.0 8.2h2.05v2.05h-2.05z M4.1 8.2h6.15v2.05h-6.15z M12.29 8.2h2.05v2.05h-2.05z M16.39 8.2h2.05v2.05h-2.05z M22.54 8.2h4.1v2.05h-4.1z M28.68 8.2h2.05v2.05h-2.05z M32.78 8.2h6.15v2.05h-6.15z M45.07 8.2h4.1v2.05h-4.1z M51.22 8.2h8.2v2.05h-8.2z M65.56 8.2h2.05v2.05h-2.05z M69.66 8.2h2.05v2.05h-2.05z M73.76 8.2h6.15v2.05h-6.15z M81.95 8.2h2.05v2.05h-2.05z M0.0 10.24h2.05v2.05h-2.05z M12.29 10.24h2.05v2.05h-2.05z M16.39 10.24h2.05v2.05h-2.05z M20.49 10.24h2.05v2.05h-2.05z M26.63 10.24h4.1v2.05h-4.1z M34.83 10.24h2.05v2.05h-2.05z M38.93 10.24h2.05v2.05h-2.05z M43.02 10.24h2.05v2.05h-2.05z M53.27 10.24h2.05v2.05h-2.05z M63.51 10.24h2.05v2.05h-2.05z M69.66 10.24h2.05v2.05h-2.05z M81.95 10.24h2.05v2.05h-2.05z M0.0 12.29h14.34v2.05h-14.34z M16.39 12.29h2.05v2.05h-2.05z M20.49 12.29h2.05v2.05h-2.05z M24.59 12.29h2.05v2.05h-2.05z M28.68 12.29h2.05v2.05h-2.05z M32.78 12.29h2.05v2.05h-2.05z M36.88 12.29h2.05v2.05h-2.05z M40.98 12.29h2.05v2.05h-2.05z M45.07 12.29h2.05v2.05h-2.05z M49.17 12.29h2.05v2.05h-2.05z M53.27 12.29h2.05v2.05h-2.05z M57.37 12.29h2.05v2.05h-2.05z M61.46 12.29h2.05v2.05h-2.05z M65.56 12.29h2.05v2.05h-2.05z M69.66 12.29h14.34v2.05h-14.34z M16.39 14.34h4.1v2.05h-4.1z M28.68 14.34h2.05v2.05h-2.05z M32.78 14.34h4.1v2.05h-4.1z M43.02 14.34h4.1v2.05h-4.1z M55.32 14.34h2.05v2.05h-2.05z M59.41 14.34h2.05v2.05h-2.05z M63.51 14.34h2.05v2.05h-2.05z M0.0 16.39h2.05v2.05h-2.05z M8.2 16.39h2.05v2.05h-2.05z M12.29 16.39h6.15v2.05h-6.15z M22.54 16.39h2.05v2.05h-2.05z M28.68 16.39h2.05v2.05h-2.05z M32.78 16.39h4.1v2.05h-4.1z M40.98 16.39h6.15v2.05h-6.15z M57.37 16.39h4.1v2.05h-4.1z M63.51 16.39h2.05v2.05h-2.05z M67.61 16.39h10.24v2.05h-10.24z M81.95 16.39h2.05v2.05h-2.05z M0.0 18.44h8.2v2.05h-8.2z M10.24 18.44h2.05v2.05h-2.05z M16.39 18.44h6.15v2.05h-6.15z M26.63 18.44h8.2v2.05h-8.2z M36.88 18.44h2.05v2.05h-2.05z M40.98 18.44h2.05v2.05h-2.05z M47.12 18.44h2.05v2.05h-2.05z M51.22 18.44h2.05v2.05h-2.05z M55.32 18.44h2.05v2.05h-2.05z M59.41 18.44h4.1v2.05h-4.1z M67.61 18.44h10.24v2.05h-10.24z M4.1 20.49h2.05v2.05h-2.05z M12.29 20.49h2.05v2.05h-2.05z M20.49 20.49h2.05v2.05h-2.05z M28.68 20.49h2.05v2.05h-2.05z M34.83 20.49h4.1v2.05h-4.1z M43.02 20.49h2.05v2.05h-2.05z M47.12 20.49h2.05v2.05h-2.05z M53.27 20.49h6.15v2.05h-6.15z M61.46 20.49h2.05v2.05h-2.05z M65.56 20.49h2.05v2.05h-2.05z M71.71 20.49h2.05v2.05h-2.05z M81.95 20.49h2.05v2.05h-2.05z M2.05 22.54h4.1v2.05h-4.1z M10.24 22.54h2.05v2.05h-2.05z M20.49 22.54h8.2v2.05h-8.2z M32.78 22.54h4.1v2.05h-4.1z M38.93 22.54h6.15v2.05h-6.15z M47.12 22.54h4.1v2.05h-4.1z M53.27 22.54h2.05v2.05h-2.05z M59.41 22.54h8.2v2.05h-8.2z M73.76 22.54h4.1v2.05h-4.1z M0.0 24.59h2.05v2.05h-2.05z M10.24 24.59h4.1v2.05h-4.1z M18.44 24.59h2.05v2.05h-2.05z M26.63 24.59h2.05v2.05h-2.05z M34.83 24.59h2.05v2.05h-2.05z M43.02 24.59h4.1v2.05h-4.1z M49.17 24.59h2.05v2.05h-2.05z M55.32 24.59h8.2v2.05h-8.2z M65.56 24.59h2.05v2.05h-2.05z M71.71 24.59h2.05v2.05h-2.05z M79.9 24.59h4.1v2.05h-4.1z M0.0 26.63h2.05v2.05h-2.05z M4.1 26.63h2.05v2.05h-2.05z M16.39 26.63h2.05v2.05h-2.05z M22.54 26.63h6.15v2.05h-6.15z M32.78 26.63h2.05v2.05h-2.05z M38.93 26.63h6.15v2.05h-6.15z M51.22 26.63h4.1v2.05h-4.1z M63.51 26.63h2.05v2.05h-2.05z M73.76 26.63h2.05v2.05h-2.05z M81.95 26.63h2.05v2.05h-2.05z M4.1 28.68h4.1v2.05h-4.1z M12.29 28.68h6.15v2.05h-6.15z M22.54 28.68h4.1v2.05h-4.1z M28.68 28.68h2.05v2.05h-2.05z M34.83 28.68h4.1v2.05h-4.1z M40.98 28.68h2.05v2.05h-2.05z M55.32 28.68h2.05v2.05h-2.05z M61.46 28.68h4.1v2.05h-4.1z M67.61 28.68h12.29v2.05h-12.29z M81.95 28.68h2.05v2.05h-2.05z M2.05 30.73h8.2v2.05h-8.2z M14.34 30.73h2.05v2.05h-2.05z M20.49 30.73h2.05v2.05h-2.05z M30.73 30.73h2.05v2.05h-2.05z M34.83 30.73h4.1v2.05h-4.1z M43.02 30.73h2.05v2.05h-2.05z M49.17 30.73h2.05v2.05h-2.05z M53.27 30.73h14.34v2.05h-14.34z M71.71 30.73h2.05v2.05h-2.05z M0.0 32.78h10.24v2.05h-10.24z M12.29 32.78h12.29v2.05h-12.29z M26.63 32.78h2.05v2.05h-2.05z M34.83 32.78h2.05v2.05h-2.05z M38.93 32.78h2.05v2.05h-2.05z M43.02 32.78h10.24v2.05h-10.24z M57.37 32.78h4.1v2.05h-4.1z M65.56 32.78h2.05v2.05h-2.05z M71.71 32.78h2.05v2.05h-2.05z M79.9 32.78h2.05v2.05h-2.05z M4.1 34.83h4.1v2.05h-4.1z M10.24 34.83h2.05v2.05h-2.05z M16.39 34.83h2.05v2.05h-2.05z M20.49 34.83h4.1v2.05h-4.1z M26.63 34.83h2.05v2.05h-2.05z M30.73 34.83h2.05v2.05h-2.05z M38.93 34.83h2.05v2.05h-2.05z M43.02 34.83h6.15v2.05h-6.15z M51.22 34.83h4.1v2.05h-4.1z M57.37 34.83h6.15v2.05h-6.15z M67.61 34.83h8.2v2.05h-8.2z M77.85 34.83h2.05v2.05h-2.05z M81.95 34.83h2.05v2.05h-2.05z M0.0 36.88h2.05v2.05h-2.05z M6.15 36.88h4.1v2.05h-4.1z M12.29 36.88h4.1v2.05h-4.1z M22.54 36.88h6.15v2.05h-6.15z M32.78 36.88h4.1v2.05h-4.1z M40.98 36.88h2.05v2.05h-2.05z M47.12 36.88h4.1v2.05h-4.1z M55.32 36.88h4.1v2.05h-4.1z M61.46 36.88h2.05v2.05h-2.05z M69.66 36.88h4.1v2.05h-4.1z M75.8 36.88h2.05v2.05h-2.05z M79.9 36.88h4.1v2.05h-4.1z M2.05 38.93h2.05v2.05h-2.05z M8.2 38.93h2.05v2.05h-2.05z M14.34 38.93h2.05v2.05h-2.05z M18.44 38.93h2.05v2.05h-2.05z M24.59 38.93h2.05v2.05h-2.05z M34.83 38.93h8.2v2.05h-8.2z M45.07 38.93h2.05v2.05h-2.05z M53.27 38.93h4.1v2.05h-4.1z M65.56 38.93h4.1v2.05h-4.1z M71.71 38.93h2.05v2.05h-2.05z M75.8 38.93h2.05v2.05h-2.05z M81.95 38.93h2.05v2.05h-2.05z M0.0 40.98h2.05v2.05h-2.05z M4.1 40.98h10.24v2.05h-10.24z M16.39 40.98h6.15v2.05h-6.15z M24.59 40.98h2.05v2.05h-2.05z M36.88 40.98h2.05v2.05h-2.05z M40.98 40.98h2.05v2.05h-2.05z M45.07 40.98h2.05v2.05h-2.05z M51.22 40.98h4.1v2.05h-4.1z M57.37 40.98h2.05v2.05h-2.05z M63.51 40.98h2.05v2.05h-2.05z M75.8 40.98h2.05v2.05h-2.05z M79.9 40.98h4.1v2.05h-4.1z M0.0 43.02h2.05v2.05h-2.05z M6.15 43.02h2.05v2.05h-2.05z M10.24 43.02h2.05v2.05h-2.05z M16.39 43.02h4.1v2.05h-4.1z M24.59 43.02h2.05v2.05h-2.05z M28.68 43.02h4.1v2.05h-4.1z M51.22 43.02h2.05v2.05h-2.05z M57.37 43.02h2.05v2.05h-2.05z M61.46 43.02h2.05v2.05h-2.05z M65.56 43.02h2.05v2.05h-2.05z M69.66 43.02h2.05v2.05h-2.05z M73.76 43.02h2.05v2.05h-2.05z M77.85 43.02h2.05v2.05h-2.05z M81.95 43.02h2.05v2.05h-2.05z M6.15 45.07h2.05v2.05h-2.05z M12.29 45.07h2.05v2.05h-2.05z M16.39 45.07h4.1v2.05h-4.1z M22.54 45.07h2.05v2.05h-2.05z M28.68 45.07h4.1v2.05h-4.1z M43.02 45.07h8.2v2.05h-8.2z M53.27 45.07h4.1v2.05h-4.1z M59.41 45.07h4.1v2.05h-4.1z M67.61 45.07h2.05v2.05h-2.05z M81.95 45.07h2.05v2.05h-2.05z M0.0 47.12h2.05v2.05h-2.05z M4.1 47.12h6.15v2.05h-6.15z M18.44 47.12h6.15v2.05h-6.15z M26.63 47.12h6.15v2.05h-6.15z M34.83 47.12h6.15v2.05h-6.15z M43.02 47.12h2.05v2.05h-2.05z M49.17 47.12h2.05v2.05h-2.05z M59.41 47.12h4.1v2.05h-4.1z M69.66 47.12h8.2v2.05h-8.2z M81.95 47.12h2.05v2.05h-2.05z M6.15 49.17h2.05v2.05h-2.05z M10.24 49.17h12.29v2.05h-12.29z M28.68 49.17h2.05v2.05h-2.05z M34.83 49.17h2.05v2.05h-2.05z M38.93 49.17h12.29v2.05h-12.29z M55.32 49.17h2.05v2.05h-2.05z M59.41 49.17h2.05v2.05h-2.05z M63.51 49.17h6.15v2.05h-6.15z M75.8 49.17h2.05v2.05h-2.05z M79.9 49.17h2.05v2.05h-2.05z M0.0 51.22h2.05v2.05h-2.05z M4.1 51.22h4.1v2.05h-4.1z M10.24 51.22h2.05v2.05h-2.05z M14.34 51.22h2.05v2.05h-2.05z M18.44 51.22h2.05v2.05h-2.05z M24.59 51.22h6.15v2.05h-6.15z M34.83 51.22h4.1v2.05h-4.1z M47.12 51.22h2.05v2.05h-2.05z M51.22 51.22h2.05v2.05h-2.05z M55.32 51.22h2.05v2.05h-2.05z M61.46 51.22h2.05v2.05h-2.05z M65.56 51.22h4.1v2.05h-4.1z M71.71 51.22h4.1v2.05h-4.1z M77.85 51.22h4.1v2.05h-4.1z M10.24 53.27h6.15v2.05h-6.15z M22.54 53.27h2.05v2.05h-2.05z M26.63 53.27h4.1v2.05h-4.1z M32.78 53.27h4.1v2.05h-4.1z M40.98 53.27h2.05v2.05h-2.05z M45.07 53.27h8.2v2.05h-8.2z M55.32 53.27h4.1v2.05h-4.1z M65.56 53.27h2.05v2.05h-2.05z M73.76 53.27h2.05v2.05h-2.05z M81.95 53.27h2.05v2.05h-2.05z M0.0 55.32h6.15v2.05h-6.15z M14.34 55.32h2.05v2.05h-2.05z M18.44 55.32h4.1v2.05h-4.1z M30.73 55.32h2.05v2.05h-2.05z M34.83 55.32h10.24v2.05h-10.24z M49.17 55.32h2.05v2.05h-2.05z M53.27 55.32h8.2v2.05h-8.2z M63.51 55.32h6.15v2.05h-6.15z M71.71 55.32h6.15v2.05h-6.15z M0.0 57.37h4.1v2.05h-4.1z M8.2 57.37h2.05v2.05h-2.05z M12.29 57.37h4.1v2.05h-4.1z M18.44 57.37h2.05v2.05h-2.05z M22.54 57.37h6.15v2.05h-6.15z M30.73 57.37h2.05v2.05h-2.05z M40.98 57.37h8.2v2.05h-8.2z M55.32 57.37h2.05v2.05h-2.05z M59.41 57.37h4.1v2.05h-4.1z M67.61 57.37h6.15v2.05h-6.15z M79.9 57.37h4.1v2.05h-4.1z M0.0 59.41h2.05v2.05h-2.05z M4.1 59.41h8.2v2.05h-8.2z M20.49 59.41h2.05v2.05h-2.05z M24.59 59.41h2.05v2.05h-2.05z M28.68 59.41h2.05v2.05h-2.05z M38.93 59.41h2.05v2.05h-2.05z M45.07 59.41h2.05v2.05h-2.05z M49.17 59.41h2.05v2.05h-2.05z M53.27 59.41h2.05v2.05h-2.05z M57.37 59.41h2.05v2.05h-2.05z M63.51 59.41h4.1v2.05h-4.1z M73.76 59.41h8.2v2.05h-8.2z M6.15 61.46h2.05v2.05h-2.05z M10.24 61.46h8.2v2.05h-8.2z M20.49 61.46h2.05v2.05h-2.05z M24.59 61.46h2.05v2.05h-2.05z M30.73 61.46h4.1v2.05h-4.1z M38.93 61.46h2.05v2.05h-2.05z M43.02 61.46h2.05v2.05h-2.05z M47.12 61.46h4.1v2.05h-4.1z M57.37 61.46h6.15v2.05h-6.15z M65.56 61.46h4.1v2.05h-4.1z M71.71 61.46h2.05v2.05h-2.05z M77.85 61.46h2.05v2.05h-2.05z M81.95 61.46h2.05v2.05h-2.05z M6.15 63.51h6.15v2.05h-6.15z M14.34 63.51h8.2v2.05h-8.2z M24.59 63.51h2.05v2.05h-2.05z M30.73 63.51h2.05v2.05h-2.05z M34.83 63.51h2.05v2.05h-2.05z M38.93 63.51h6.15v2.05h-6.15z M47.12 63.51h2.05v2.05h-2.05z M53.27 63.51h2.05v2.05h-2.05z M59.41 63.51h4.1v2.05h-4.1z M67.61 63.51h2.05v2.05h-2.05z M71.71 63.51h2.05v2.05h-2.05z M0.0 65.56h4.1v2.05h-4.1z M8.2 65.56h6.15v2.05h-6.15z M16.39 65.56h2.05v2.05h-2.05z M24.59 65.56h2.05v2.05h-2.05z M28.68 65.56h2.05v2.05h-2.05z M32.78 65.56h4.1v2.05h-4.1z M43.02 65.56h4.1v2.05h-4.1z M49.17 65.56h4.1v2.05h-4.1z M55.32 65.56h6.15v2.05h-6.15z M63.51 65.56h12.29v2.05h-12.29z M79.9 65.56h4.1v2.05h-4.1z M16.39 67.61h2.05v2.05h-2.05z M26.63 67.61h2.05v2.05h-2.05z M32.78 67.61h8.2v2.05h-8.2z M55.32 67.61h4.1v2.05h-4.1z M63.51 67.61h4.1v2.05h-4.1z M73.76 67.61h2.05v2.05h-2.05z M77.85 67.61h2.05v2.05h-2.05z M81.95 67.61h2.05v2.05h-2.05z M0.0 69.66h14.34v2.05h-14.34z M16.39 69.66h4.1v2.05h-4.1z M22.54 69.66h2.05v2.05h-2.05z M28.68 69.66h4.1v2.05h-4.1z M36.88 69.66h2.05v2.05h-2.05z M43.02 69.66h14.34v2.05h-14.34z M59.41 69.66h2.05v2.05h-2.05z M65.56 69.66h2.05v2.05h-2.05z M69.66 69.66h2.05v2.05h-2.05z M73.76 69.66h4.1v2.05h-4.1z M81.95 69.66h2.05v2.05h-2.05z M0.0 71.71h2.05v2.05h-2.05z M12.29 71.71h2.05v2.05h-2.05z M20.49 71.71h2.05v2.05h-2.05z M26.63 71.71h6.15v2.05h-6.15z M40.98 71.71h4.1v2.05h-4.1z M49.17 71.71h4.1v2.05h-4.1z M57.37 71.71h10.24v2.05h-10.24z M73.76 71.71h4.1v2.05h-4.1z M0.0 73.76h2.05v2.05h-2.05z M4.1 73.76h6.15v2.05h-6.15z M12.29 73.76h2.05v2.05h-2.05z M16.39 73.76h8.2v2.05h-8.2z M26.63 73.76h6.15v2.05h-6.15z M38.93 73.76h2.05v2.05h-2.05z M47.12 73.76h2.05v2.05h-2.05z M51.22 73.76h2.05v2.05h-2.05z M61.46 73.76h16.39v2.05h-16.39z M79.9 73.76h4.1v2.05h-4.1z M0.0 75.8h2.05v2.05h-2.05z M4.1 75.8h6.15v2.05h-6.15z M12.29 75.8h2.05v2.05h-2.05z M26.63 75.8h2.05v2.05h-2.05z M32.78 75.8h6.15v2.05h-6.15z M45.07 75.8h2.05v2.05h-2.05z M51.22 75.8h6.15v2.05h-6.15z M71.71 75.8h2.05v2.05h-2.05z M75.8 75.8h6.15v2.05h-6.15z M0.0 77.85h2.05v2.05h-2.05z M4.1 77.85h6.15v2.05h-6.15z M12.29 77.85h2.05v2.05h-2.05z M20.49 77.85h6.15v2.05h-6.15z M28.68 77.85h2.05v2.05h-2.05z M36.88 77.85h2.05v2.05h-2.05z M40.98 77.85h2.05v2.05h-2.05z M47.12 77.85h2.05v2.05h-2.05z M51.22 77.85h8.2v2.05h-8.2z M63.51 77.85h6.15v2.05h-6.15z M75.8 77.85h2.05v2.05h-2.05z M81.95 77.85h2.05v2.05h-2.05z M0.0 79.9h2.05v2.05h-2.05z M12.29 79.9h2.05v2.05h-2.05z M24.59 79.9h4.1v2.05h-4.1z M32.78 79.9h2.05v2.05h-2.05z M36.88 79.9h2.05v2.05h-2.05z M40.98 79.9h4.1v2.05h-4.1z M47.12 79.9h2.05v2.05h-2.05z M53.27 79.9h14.34v2.05h-14.34z M71.71 79.9h2.05v2.05h-2.05z M75.8 79.9h2.05v2.05h-2.05z M79.9 79.9h4.1v2.05h-4.1z M0.0 81.95h14.34v2.05h-14.34z M16.39 81.95h4.1v2.05h-4.1z M22.54 81.95h2.05v2.05h-2.05z M32.78 81.95h4.1v2.05h-4.1z M38.93 81.95h12.29v2.05h-12.29z M55.32 81.95h2.05v2.05h-2.05z M59.41 81.95h2.05v2.05h-2.05z M63.51 81.95h12.29v2.05h-12.29z M79.9 81.95h2.05v2.05h-2.05z"/>
+  <g transform="translate(990,105)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">AI AGENT</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">SSRF</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">zero-day</text>
   </g>
+  <g transform="translate(990,105)"><circle cx="10" cy="-50" r="3" fill="#E63946"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+</g>
+<g>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#bandBN)"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+  <rect x="0" y="210" width="8" height="210" fill="#FFB703"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">CLOUD INFRASTRUCTURE</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">AWS IMDS v2 Bypass</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">Metadata service chain exploit</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">WAF bypass : hop-limit manipulation : token reuse : IMDSv2 hop=2 misconfiguration</text>
+  </g>
+  <g transform="translate(500,315)">
+    <path d="M-60 0 Q-70 -25 -45 -30 Q-40 -50 -10 -45 Q10 -60 30 -45 Q55 -50 60 -20 Q80 -15 70 10 Q65 25 40 25 L-40 25 Q-70 25 -60 0 Z" fill="#FFB703" fill-opacity="0.12" stroke="#FFB703" stroke-width="1.8"/>
+    <g fill="#FFB703" stroke="#FCD34D" stroke-width="1.2">
+      <polygon points="-30,-10 -18,-17 -6,-10 -6,4 -18,11 -30,4"/>
+      <polygon points="0,-10 12,-17 24,-10 24,4 12,11 0,4"/>
+      <polygon points="-15,10 -3,3 9,10 9,24 -3,31 -15,24"/>
+    </g>
+    <g fill="#FCD34D">
+      <circle cx="-18" cy="-3" r="2"/><circle cx="12" cy="-3" r="2"/><circle cx="-3" cy="17" r="2"/>
+    </g>
+    <text y="55" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFB703">K8s CLOUD</text>
+  </g>
+  <g transform="translate(990,315)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E1805" stroke="#FFB703" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">AWS</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">IMDSv2</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFD58A">bypass chain</text>
+  </g>
+  <g transform="translate(990,315)"><circle cx="10" cy="-50" r="3" fill="#FFB703"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+</g>
+<g>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#bandCN)"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+  <rect x="0" y="420" width="8" height="210" fill="#4ADE80"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">CONTAINER SECURITY</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Sigstore Cosign Verify</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Supply chain attestation</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Keyless signing : Rekor transparency log : cosign verify-attestation : SBOM sign</text>
+  </g>
+  <g transform="translate(500,525)">
+    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#4ADE80" fill-opacity="0.15" stroke="#4ADE80" stroke-width="2.4" filter="url(#softShadow)"/>
+    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#86EFAC" stroke-width="1" opacity="0.7"/>
+    <g transform="translate(0,-5)" stroke="#86EFAC" stroke-width="3" fill="none">
+      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
+    </g>
+    <text y="44" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">COSIGN</text>
+  </g>
+  <g transform="translate(990,525)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">SIGNED</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">SBOM</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#9FD3B0">attestation</text>
+  </g>
+  <g transform="translate(990,525)"><circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+</g>
+<g opacity="0.9">
+  <g fill="#E63946">
+    <circle cx="240" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="310" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="380" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="880" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#E63946" opacity="0.6">
+    <rect x="780" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FFB703">
+    <circle cx="560" cy="260" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="265" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="600" cy="268" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="272" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="640" cy="268" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="560" cy="370" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="375" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="600" cy="378" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#4ADE80">
+    <circle cx="260" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/></circle>
+    <circle cx="330" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="470" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#9FD3B0" opacity="0.9">
+    <rect x="770" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="790" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="810" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="830" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#E63946" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 95 L28 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 125 L28 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#FFB703" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 305 L28 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 335 L28 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+  </g>
+</g>
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <path fill="#0A1020" d="M0.0 0.0h14.341v2.049h-14.341z M20.488 0.0h6.146v2.049h-6.146z M30.732 0.0h2.049v2.049h-2.049z M34.829 0.0h6.146v2.049h-6.146z M45.073 0.0h12.293v2.049h-12.293z M61.463 0.0h4.098v2.049h-4.098z M69.659 0.0h14.341v2.049h-14.341z M0.0 2.049h2.049v2.049h-2.049z M12.293 2.049h2.049v2.049h-2.049z M18.439 2.049h4.098v2.049h-4.098z M30.732 2.049h2.049v2.049h-2.049z M36.878 2.049h2.049v2.049h-2.049z M40.976 2.049h8.195v2.049h-8.195z M51.22 2.049h10.244v2.049h-10.244z M65.561 2.049h2.049v2.049h-2.049z M69.659 2.049h2.049v2.049h-2.049z M81.951 2.049h2.049v2.049h-2.049z M0.0 4.098h2.049v2.049h-2.049z M4.098 4.098h6.146v2.049h-6.146z M12.293 4.098h2.049v2.049h-2.049z M18.439 4.098h4.098v2.049h-4.098z M26.634 4.098h6.146v2.049h-6.146z M36.878 4.098h4.098v2.049h-4.098z M47.122 4.098h2.049v2.049h-2.049z M51.22 4.098h2.049v2.049h-2.049z M59.415 4.098h2.049v2.049h-2.049z M65.561 4.098h2.049v2.049h-2.049z M69.659 4.098h2.049v2.049h-2.049z M73.756 4.098h6.146v2.049h-6.146z M81.951 4.098h2.049v2.049h-2.049z M0.0 6.146h2.049v2.049h-2.049z M4.098 6.146h6.146v2.049h-6.146z M12.293 6.146h2.049v2.049h-2.049z M18.439 6.146h6.146v2.049h-6.146z M26.634 6.146h2.049v2.049h-2.049z M32.78 6.146h12.293v2.049h-12.293z M47.122 6.146h12.293v2.049h-12.293z M61.463 6.146h6.146v2.049h-6.146z M69.659 6.146h2.049v2.049h-2.049z M73.756 6.146h6.146v2.049h-6.146z M81.951 6.146h2.049v2.049h-2.049z M0.0 8.195h2.049v2.049h-2.049z M4.098 8.195h6.146v2.049h-6.146z M12.293 8.195h2.049v2.049h-2.049z M18.439 8.195h6.146v2.049h-6.146z M26.634 8.195h2.049v2.049h-2.049z M34.829 8.195h6.146v2.049h-6.146z M45.073 8.195h2.049v2.049h-2.049z M51.22 8.195h6.146v2.049h-6.146z M65.561 8.195h2.049v2.049h-2.049z M69.659 8.195h2.049v2.049h-2.049z M73.756 8.195h6.146v2.049h-6.146z M81.951 8.195h2.049v2.049h-2.049z M0.0 10.244h2.049v2.049h-2.049z M12.293 10.244h2.049v2.049h-2.049z M16.39 10.244h8.195v2.049h-8.195z M26.634 10.244h2.049v2.049h-2.049z M30.732 10.244h2.049v2.049h-2.049z M34.829 10.244h6.146v2.049h-6.146z M49.171 10.244h2.049v2.049h-2.049z M53.268 10.244h4.098v2.049h-4.098z M61.463 10.244h6.146v2.049h-6.146z M69.659 10.244h2.049v2.049h-2.049z M81.951 10.244h2.049v2.049h-2.049z M0.0 12.293h14.341v2.049h-14.341z M16.39 12.293h2.049v2.049h-2.049z M20.488 12.293h2.049v2.049h-2.049z M24.585 12.293h2.049v2.049h-2.049z M28.683 12.293h2.049v2.049h-2.049z M32.78 12.293h2.049v2.049h-2.049z M36.878 12.293h2.049v2.049h-2.049z M40.976 12.293h2.049v2.049h-2.049z M45.073 12.293h2.049v2.049h-2.049z M49.171 12.293h2.049v2.049h-2.049z M53.268 12.293h2.049v2.049h-2.049z M57.366 12.293h2.049v2.049h-2.049z M61.463 12.293h2.049v2.049h-2.049z M65.561 12.293h2.049v2.049h-2.049z M69.659 12.293h14.341v2.049h-14.341z M18.439 14.341h4.098v2.049h-4.098z M28.683 14.341h8.195v2.049h-8.195z M40.976 14.341h6.146v2.049h-6.146z M49.171 14.341h2.049v2.049h-2.049z M55.317 14.341h6.146v2.049h-6.146z M63.512 14.341h2.049v2.049h-2.049z M0.0 16.39h2.049v2.049h-2.049z M6.146 16.39h2.049v2.049h-2.049z M10.244 16.39h4.098v2.049h-4.098z M16.39 16.39h2.049v2.049h-2.049z M20.488 16.39h6.146v2.049h-6.146z M28.683 16.39h2.049v2.049h-2.049z M38.927 16.39h2.049v2.049h-2.049z M43.024 16.39h2.049v2.049h-2.049z M51.22 16.39h4.098v2.049h-4.098z M65.561 16.39h4.098v2.049h-4.098z M71.707 16.39h2.049v2.049h-2.049z M0.0 18.439h2.049v2.049h-2.049z M4.098 18.439h2.049v2.049h-2.049z M8.195 18.439h4.098v2.049h-4.098z M14.341 18.439h2.049v2.049h-2.049z M18.439 18.439h2.049v2.049h-2.049z M22.537 18.439h8.195v2.049h-8.195z M32.78 18.439h4.098v2.049h-4.098z M43.024 18.439h2.049v2.049h-2.049z M49.171 18.439h6.146v2.049h-6.146z M59.415 18.439h2.049v2.049h-2.049z M65.561 18.439h8.195v2.049h-8.195z M75.805 18.439h8.195v2.049h-8.195z M0.0 20.488h2.049v2.049h-2.049z M4.098 20.488h2.049v2.049h-2.049z M10.244 20.488h6.146v2.049h-6.146z M18.439 20.488h2.049v2.049h-2.049z M24.585 20.488h8.195v2.049h-8.195z M34.829 20.488h8.195v2.049h-8.195z M45.073 20.488h2.049v2.049h-2.049z M49.171 20.488h2.049v2.049h-2.049z M53.268 20.488h2.049v2.049h-2.049z M61.463 20.488h4.098v2.049h-4.098z M71.707 20.488h8.195v2.049h-8.195z M2.049 22.537h2.049v2.049h-2.049z M10.244 22.537h2.049v2.049h-2.049z M16.39 22.537h2.049v2.049h-2.049z M20.488 22.537h2.049v2.049h-2.049z M28.683 22.537h2.049v2.049h-2.049z M36.878 22.537h2.049v2.049h-2.049z M43.024 22.537h2.049v2.049h-2.049z M49.171 22.537h4.098v2.049h-4.098z M57.366 22.537h2.049v2.049h-2.049z M67.61 22.537h4.098v2.049h-4.098z M73.756 22.537h2.049v2.049h-2.049z M77.854 22.537h4.098v2.049h-4.098z M2.049 24.585h14.341v2.049h-14.341z M18.439 24.585h2.049v2.049h-2.049z M22.537 24.585h2.049v2.049h-2.049z M26.634 24.585h6.146v2.049h-6.146z M34.829 24.585h2.049v2.049h-2.049z M38.927 24.585h2.049v2.049h-2.049z M43.024 24.585h2.049v2.049h-2.049z M49.171 24.585h8.195v2.049h-8.195z M59.415 24.585h14.341v2.049h-14.341z M75.805 24.585h2.049v2.049h-2.049z M79.902 24.585h4.098v2.049h-4.098z M2.049 26.634h4.098v2.049h-4.098z M10.244 26.634h2.049v2.049h-2.049z M18.439 26.634h4.098v2.049h-4.098z M26.634 26.634h4.098v2.049h-4.098z M45.073 26.634h8.195v2.049h-8.195z M55.317 26.634h4.098v2.049h-4.098z M61.463 26.634h8.195v2.049h-8.195z M75.805 26.634h4.098v2.049h-4.098z M0.0 28.683h2.049v2.049h-2.049z M4.098 28.683h4.098v2.049h-4.098z M10.244 28.683h4.098v2.049h-4.098z M16.39 28.683h4.098v2.049h-4.098z M22.537 28.683h2.049v2.049h-2.049z M28.683 28.683h2.049v2.049h-2.049z M34.829 28.683h2.049v2.049h-2.049z M40.976 28.683h2.049v2.049h-2.049z M49.171 28.683h2.049v2.049h-2.049z M61.463 28.683h2.049v2.049h-2.049z M69.659 28.683h2.049v2.049h-2.049z M75.805 28.683h8.195v2.049h-8.195z M4.098 30.732h2.049v2.049h-2.049z M8.195 30.732h4.098v2.049h-4.098z M16.39 30.732h6.146v2.049h-6.146z M24.585 30.732h4.098v2.049h-4.098z M30.732 30.732h2.049v2.049h-2.049z M34.829 30.732h2.049v2.049h-2.049z M38.927 30.732h2.049v2.049h-2.049z M43.024 30.732h4.098v2.049h-4.098z M49.171 30.732h8.195v2.049h-8.195z M59.415 30.732h8.195v2.049h-8.195z M69.659 30.732h4.098v2.049h-4.098z M4.098 32.78h24.585v2.049h-24.585z M32.78 32.78h4.098v2.049h-4.098z M38.927 32.78h4.098v2.049h-4.098z M45.073 32.78h4.098v2.049h-4.098z M59.415 32.78h2.049v2.049h-2.049z M63.512 32.78h4.098v2.049h-4.098z M71.707 32.78h2.049v2.049h-2.049z M79.902 32.78h2.049v2.049h-2.049z M2.049 34.829h2.049v2.049h-2.049z M8.195 34.829h4.098v2.049h-4.098z M14.341 34.829h2.049v2.049h-2.049z M28.683 34.829h2.049v2.049h-2.049z M32.78 34.829h2.049v2.049h-2.049z M38.927 34.829h2.049v2.049h-2.049z M47.122 34.829h14.341v2.049h-14.341z M69.659 34.829h4.098v2.049h-4.098z M75.805 34.829h8.195v2.049h-8.195z M0.0 36.878h2.049v2.049h-2.049z M6.146 36.878h2.049v2.049h-2.049z M10.244 36.878h8.195v2.049h-8.195z M22.537 36.878h2.049v2.049h-2.049z M30.732 36.878h2.049v2.049h-2.049z M36.878 36.878h2.049v2.049h-2.049z M43.024 36.878h2.049v2.049h-2.049z M53.268 36.878h2.049v2.049h-2.049z M61.463 36.878h2.049v2.049h-2.049z M67.61 36.878h4.098v2.049h-4.098z M73.756 36.878h2.049v2.049h-2.049z M81.951 36.878h2.049v2.049h-2.049z M2.049 38.927h4.098v2.049h-4.098z M8.195 38.927h2.049v2.049h-2.049z M22.537 38.927h4.098v2.049h-4.098z M30.732 38.927h8.195v2.049h-8.195z M40.976 38.927h2.049v2.049h-2.049z M45.073 38.927h2.049v2.049h-2.049z M53.268 38.927h4.098v2.049h-4.098z M59.415 38.927h4.098v2.049h-4.098z M65.561 38.927h8.195v2.049h-8.195z M75.805 38.927h2.049v2.049h-2.049z M81.951 38.927h2.049v2.049h-2.049z M0.0 40.976h2.049v2.049h-2.049z M10.244 40.976h4.098v2.049h-4.098z M16.39 40.976h4.098v2.049h-4.098z M28.683 40.976h4.098v2.049h-4.098z M34.829 40.976h6.146v2.049h-6.146z M47.122 40.976h4.098v2.049h-4.098z M55.317 40.976h2.049v2.049h-2.049z M61.463 40.976h2.049v2.049h-2.049z M65.561 40.976h6.146v2.049h-6.146z M77.854 40.976h4.098v2.049h-4.098z M0.0 43.024h2.049v2.049h-2.049z M8.195 43.024h4.098v2.049h-4.098z M16.39 43.024h2.049v2.049h-2.049z M22.537 43.024h4.098v2.049h-4.098z M34.829 43.024h4.098v2.049h-4.098z M43.024 43.024h2.049v2.049h-2.049z M51.22 43.024h4.098v2.049h-4.098z M59.415 43.024h2.049v2.049h-2.049z M69.659 43.024h2.049v2.049h-2.049z M77.854 43.024h6.146v2.049h-6.146z M2.049 45.073h4.098v2.049h-4.098z M10.244 45.073h12.293v2.049h-12.293z M24.585 45.073h2.049v2.049h-2.049z M34.829 45.073h8.195v2.049h-8.195z M49.171 45.073h4.098v2.049h-4.098z M57.366 45.073h2.049v2.049h-2.049z M63.512 45.073h2.049v2.049h-2.049z M67.61 45.073h8.195v2.049h-8.195z M77.854 45.073h4.098v2.049h-4.098z M0.0 47.122h2.049v2.049h-2.049z M4.098 47.122h4.098v2.049h-4.098z M18.439 47.122h2.049v2.049h-2.049z M24.585 47.122h6.146v2.049h-6.146z M36.878 47.122h10.244v2.049h-10.244z M51.22 47.122h4.098v2.049h-4.098z M57.366 47.122h2.049v2.049h-2.049z M61.463 47.122h2.049v2.049h-2.049z M71.707 47.122h2.049v2.049h-2.049z M77.854 47.122h2.049v2.049h-2.049z M81.951 47.122h2.049v2.049h-2.049z M0.0 49.171h8.195v2.049h-8.195z M12.293 49.171h2.049v2.049h-2.049z M16.39 49.171h2.049v2.049h-2.049z M20.488 49.171h2.049v2.049h-2.049z M24.585 49.171h2.049v2.049h-2.049z M28.683 49.171h8.195v2.049h-8.195z M38.927 49.171h6.146v2.049h-6.146z M47.122 49.171h6.146v2.049h-6.146z M55.317 49.171h6.146v2.049h-6.146z M63.512 49.171h10.244v2.049h-10.244z M75.805 49.171h4.098v2.049h-4.098z M0.0 51.22h6.146v2.049h-6.146z M18.439 51.22h8.195v2.049h-8.195z M30.732 51.22h2.049v2.049h-2.049z M34.829 51.22h2.049v2.049h-2.049z M38.927 51.22h8.195v2.049h-8.195z M49.171 51.22h6.146v2.049h-6.146z M57.366 51.22h4.098v2.049h-4.098z M63.512 51.22h2.049v2.049h-2.049z M69.659 51.22h2.049v2.049h-2.049z M75.805 51.22h2.049v2.049h-2.049z M79.902 51.22h2.049v2.049h-2.049z M2.049 53.268h4.098v2.049h-4.098z M12.293 53.268h2.049v2.049h-2.049z M16.39 53.268h4.098v2.049h-4.098z M30.732 53.268h6.146v2.049h-6.146z M40.976 53.268h2.049v2.049h-2.049z M47.122 53.268h2.049v2.049h-2.049z M51.22 53.268h4.098v2.049h-4.098z M57.366 53.268h2.049v2.049h-2.049z M61.463 53.268h2.049v2.049h-2.049z M65.561 53.268h4.098v2.049h-4.098z M71.707 53.268h4.098v2.049h-4.098z M79.902 53.268h4.098v2.049h-4.098z M4.098 55.317h2.049v2.049h-2.049z M8.195 55.317h4.098v2.049h-4.098z M22.537 55.317h4.098v2.049h-4.098z M28.683 55.317h10.244v2.049h-10.244z M40.976 55.317h6.146v2.049h-6.146z M49.171 55.317h8.195v2.049h-8.195z M59.415 55.317h2.049v2.049h-2.049z M65.561 55.317h2.049v2.049h-2.049z M69.659 55.317h2.049v2.049h-2.049z M0.0 57.366h4.098v2.049h-4.098z M12.293 57.366h2.049v2.049h-2.049z M18.439 57.366h2.049v2.049h-2.049z M22.537 57.366h2.049v2.049h-2.049z M26.634 57.366h2.049v2.049h-2.049z M32.78 57.366h4.098v2.049h-4.098z M40.976 57.366h8.195v2.049h-8.195z M53.268 57.366h4.098v2.049h-4.098z M59.415 57.366h4.098v2.049h-4.098z M65.561 57.366h2.049v2.049h-2.049z M71.707 57.366h2.049v2.049h-2.049z M79.902 57.366h2.049v2.049h-2.049z M8.195 59.415h2.049v2.049h-2.049z M22.537 59.415h2.049v2.049h-2.049z M26.634 59.415h10.244v2.049h-10.244z M38.927 59.415h2.049v2.049h-2.049z M43.024 59.415h2.049v2.049h-2.049z M51.22 59.415h2.049v2.049h-2.049z M55.317 59.415h10.244v2.049h-10.244z M67.61 59.415h6.146v2.049h-6.146z M75.805 59.415h4.098v2.049h-4.098z M81.951 59.415h2.049v2.049h-2.049z M0.0 61.463h2.049v2.049h-2.049z M8.195 61.463h2.049v2.049h-2.049z M12.293 61.463h12.293v2.049h-12.293z M26.634 61.463h2.049v2.049h-2.049z M32.78 61.463h4.098v2.049h-4.098z M38.927 61.463h4.098v2.049h-4.098z M45.073 61.463h2.049v2.049h-2.049z M51.22 61.463h2.049v2.049h-2.049z M55.317 61.463h4.098v2.049h-4.098z M71.707 61.463h2.049v2.049h-2.049z M77.854 61.463h6.146v2.049h-6.146z M4.098 63.512h4.098v2.049h-4.098z M10.244 63.512h2.049v2.049h-2.049z M14.341 63.512h2.049v2.049h-2.049z M18.439 63.512h10.244v2.049h-10.244z M30.732 63.512h2.049v2.049h-2.049z M34.829 63.512h10.244v2.049h-10.244z M47.122 63.512h2.049v2.049h-2.049z M53.268 63.512h2.049v2.049h-2.049z M59.415 63.512h2.049v2.049h-2.049z M65.561 63.512h4.098v2.049h-4.098z M73.756 63.512h4.098v2.049h-4.098z M0.0 65.561h2.049v2.049h-2.049z M6.146 65.561h2.049v2.049h-2.049z M12.293 65.561h2.049v2.049h-2.049z M22.537 65.561h2.049v2.049h-2.049z M26.634 65.561h2.049v2.049h-2.049z M30.732 65.561h2.049v2.049h-2.049z M38.927 65.561h2.049v2.049h-2.049z M47.122 65.561h2.049v2.049h-2.049z M51.22 65.561h8.195v2.049h-8.195z M63.512 65.561h12.293v2.049h-12.293z M77.854 65.561h2.049v2.049h-2.049z M81.951 65.561h2.049v2.049h-2.049z M16.39 67.61h6.146v2.049h-6.146z M24.585 67.61h4.098v2.049h-4.098z M36.878 67.61h2.049v2.049h-2.049z M43.024 67.61h2.049v2.049h-2.049z M49.171 67.61h2.049v2.049h-2.049z M61.463 67.61h6.146v2.049h-6.146z M73.756 67.61h10.244v2.049h-10.244z M0.0 69.659h14.341v2.049h-14.341z M18.439 69.659h4.098v2.049h-4.098z M24.585 69.659h2.049v2.049h-2.049z M34.829 69.659h2.049v2.049h-2.049z M38.927 69.659h2.049v2.049h-2.049z M57.366 69.659h4.098v2.049h-4.098z M65.561 69.659h2.049v2.049h-2.049z M69.659 69.659h2.049v2.049h-2.049z M73.756 69.659h2.049v2.049h-2.049z M77.854 69.659h4.098v2.049h-4.098z M0.0 71.707h2.049v2.049h-2.049z M12.293 71.707h2.049v2.049h-2.049z M16.39 71.707h2.049v2.049h-2.049z M24.585 71.707h8.195v2.049h-8.195z M34.829 71.707h2.049v2.049h-2.049z M38.927 71.707h8.195v2.049h-8.195z M49.171 71.707h2.049v2.049h-2.049z M53.268 71.707h4.098v2.049h-4.098z M61.463 71.707h2.049v2.049h-2.049z M65.561 71.707h2.049v2.049h-2.049z M73.756 71.707h2.049v2.049h-2.049z M77.854 71.707h2.049v2.049h-2.049z M81.951 71.707h2.049v2.049h-2.049z M0.0 73.756h2.049v2.049h-2.049z M4.098 73.756h6.146v2.049h-6.146z M12.293 73.756h2.049v2.049h-2.049z M18.439 73.756h2.049v2.049h-2.049z M24.585 73.756h2.049v2.049h-2.049z M28.683 73.756h6.146v2.049h-6.146z M38.927 73.756h4.098v2.049h-4.098z M45.073 73.756h2.049v2.049h-2.049z M55.317 73.756h4.098v2.049h-4.098z M61.463 73.756h2.049v2.049h-2.049z M65.561 73.756h12.293v2.049h-12.293z M79.902 73.756h2.049v2.049h-2.049z M0.0 75.805h2.049v2.049h-2.049z M4.098 75.805h6.146v2.049h-6.146z M12.293 75.805h2.049v2.049h-2.049z M16.39 75.805h4.098v2.049h-4.098z M22.537 75.805h2.049v2.049h-2.049z M30.732 75.805h4.098v2.049h-4.098z M38.927 75.805h6.146v2.049h-6.146z M57.366 75.805h4.098v2.049h-4.098z M63.512 75.805h8.195v2.049h-8.195z M73.756 75.805h2.049v2.049h-2.049z M77.854 75.805h2.049v2.049h-2.049z M81.951 75.805h2.049v2.049h-2.049z M0.0 77.854h2.049v2.049h-2.049z M4.098 77.854h6.146v2.049h-6.146z M12.293 77.854h2.049v2.049h-2.049z M18.439 77.854h6.146v2.049h-6.146z M26.634 77.854h4.098v2.049h-4.098z M36.878 77.854h2.049v2.049h-2.049z M40.976 77.854h4.098v2.049h-4.098z M47.122 77.854h8.195v2.049h-8.195z M57.366 77.854h2.049v2.049h-2.049z M61.463 77.854h4.098v2.049h-4.098z M73.756 77.854h2.049v2.049h-2.049z M77.854 77.854h6.146v2.049h-6.146z M0.0 79.902h2.049v2.049h-2.049z M12.293 79.902h2.049v2.049h-2.049z M20.488 79.902h4.098v2.049h-4.098z M26.634 79.902h2.049v2.049h-2.049z M32.78 79.902h6.146v2.049h-6.146z M43.024 79.902h4.098v2.049h-4.098z M51.22 79.902h4.098v2.049h-4.098z M57.366 79.902h12.293v2.049h-12.293z M71.707 79.902h2.049v2.049h-2.049z M79.902 79.902h2.049v2.049h-2.049z M0.0 81.951h14.341v2.049h-14.341z M16.39 81.951h8.195v2.049h-8.195z M26.634 81.951h2.049v2.049h-2.049z M32.78 81.951h2.049v2.049h-2.049z M38.927 81.951h8.195v2.049h-8.195z M49.171 81.951h2.049v2.049h-2.049z M59.415 81.951h2.049v2.049h-2.049z M63.512 81.951h14.341v2.049h-14.341z M79.902 81.951h2.049v2.049h-2.049z"/>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
