@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-23T01:56:10.213764+00:00",
+  "updated_at": "2026-04-24T01:53:42.795284+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/engagelab-sdk-flaw-exposed-50m-android.html",
-      "title": "EngageLab SDK Flaw Exposed 50M Android Users, Including 30M Crypto Wallets",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/uat-10362-targets-taiwanese-ngos-with.html",
-      "title": "UAT-10362 Targets Taiwanese NGOs with LucidRook Malware in Spear-Phishing Campai",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/09/the-agentic-soc-rethinking-secops-for-the-next-decade/",
-      "title": "The agentic SOC—Rethinking SecOps for the next decade",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-hybrid-p2p-botnet.html",
-      "title": "ThreatsDay Bulletin: Hybrid P2P Botnet, 13-Year-Old Apache RCE and 18 More Stori",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-lucidrook-malware-used-in-targeted-attacks-on-ngos-universities/",
-      "title": "New ‘LucidRook’ malware used in targeted attacks on NGOs, universities",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/09/developer-tools/escaping-the-fork-how-meta-modernized-webrtc-across-50-use-cases/",
-      "title": "Escaping the Fork: How Meta Modernized WebRTC Across 50+ Use Cases",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-samson-a-tyndalston-story/",
-      "title": "Strength and Destiny Collide: ‘Samson: A Tyndalston Story’ Arrives in the Cloud",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/understanding-amazon-bedrock-model-lifecycle/",
-      "title": "Understanding Amazon Bedrock model lifecycle",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/",
-      "title": "The future of managing agents at scale: AWS Agent Registry now in preview",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/",
-      "title": "Embed a live AI browser agent in your React app with Amazon Bedrock AgentCore",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/a-guide-to-architecting-reliable-gpu-infrastructure/",
-      "title": "A developer’s guide to architecting reliable GPU infrastructure at scale",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/securing-ai-inference-on-gke-with-model-armor/",
-      "title": "Guardrails at the gateway: Securing AI inference on GKE with Model Armor",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/serverless/cloud-run-worker-pools-at-estee-lauder-companies/",
-      "title": "How Estée Lauder Companies uses Cloud Run worker pools for its pull-based agenti",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/yanolja-aiops-strands-agent-on-agentcore/",
-      "title": "야놀자의 Strands SDK와 Bedrock AgentCore를 활용한 AIOps Agent 구축 사례",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-09-ask-copilot-in-security-assessments-now-available",
-      "title": "Ask Copilot in security assessments now available",
-      "published_date": "2026-04-10",
-      "expires_at": "2026-04-17T01:34:20.141032+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html",
       "title": "GlassWorm Campaign Uses Zig Dropper to Infect Multiple Developer IDEs",
@@ -1254,6 +1164,96 @@
       "title": "What’s new in GKE at Next ‘26",
       "published_date": "2026-04-23",
       "expires_at": "2026-04-30T01:56:10.213647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/unc6692-impersonates-it-helpdesk-via.html",
+      "title": "UNC6692 Impersonates IT Helpdesk via Microsoft Teams to Deploy SNOW Malware",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/bitwarden-cli-compromised-in-ongoing.html",
+      "title": "Bitwarden CLI Compromised in Ongoing Checkmarx Supply Chain Campaign",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-290m-defi-hack.html",
+      "title": "ThreatsDay Bulletin: $290M DeFi Hack, macOS LotL Abuse, ProxySmart SIM Farms +25",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-file-upload-bug-in-breeze-cache-wordpress-plugin/",
+      "title": "Hackers exploit file upload bug in Breeze Cache WordPress plugin",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/webinar-mythos-reality-check-beating.html",
+      "title": "[Webinar] Mythos Reality Check: Beating Automated Exploitation at AI Speed",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/",
+      "title": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Alrea",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-in-app-labels/",
+      "title": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubi",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-gpu-early-universe-astronomy/",
+      "title": "Making Sense of the Early Universe",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/what-is-a-tpu/",
+      "title": "Here’s how our TPUs power increasingly demanding AI workloads.",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-5",
+      "title": "Introducing GPT-5.5",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6692-social-engineering-custom-malware/",
+      "title": "Snow Flurries: How UNC6692 Employed Social Engineering to Deploy a Custom Malwar",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-23-copilot-chat-improvements-for-pull-requests",
+      "title": "Copilot Chat improvements for pull requests",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-23-global-pull-requests-dashboard-moves-to-opt-out-public-preview",
+      "title": "Global pull requests dashboard moves to opt-out public preview",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-23-copilot-cloud-agent-fields-added-to-usage-metrics",
+      "title": "Copilot cloud agent fields added to usage metrics",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-23-dependabot-graphs-for-python",
+      "title": "Dependabot-based dependency graphs for Python",
+      "published_date": "2026-04-24",
+      "expires_at": "2026-05-01T01:53:42.795175+00:00"
     }
   ]
 }
