@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: Mirai variant Nexcorium exploits CVE-2024-3721 on TBK DVR for DDoS botnet, Microsoft cross-tenant helpdesk impersonation to data exfiltration playbook, Grinex exchange 13.74M hack shutdown after intel agency claim">
-<!-- profile: high-quality-cover (L14 Timeline, research-based) -->
+<!-- profile: high-quality-cover (L14 Timeline v2, research-based) -->
 <title>Weekly digest 2026-04-19 timeline: Mirai Nexcorium (Apr 14), Helpdesk impersonation (Apr 16), Grinex 13.74M hack (Apr 18)</title>
 <defs>
   <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -8,33 +8,37 @@
     <stop offset="100%" stop-color="#131038"/>
   </linearGradient>
   <linearGradient id="colA" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#0E2038"/>
+    <stop offset="0%" stop-color="#122542"/>
     <stop offset="100%" stop-color="#0A1830"/>
   </linearGradient>
   <linearGradient id="colB" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#2A180A"/>
+    <stop offset="0%" stop-color="#2E1A0A"/>
     <stop offset="100%" stop-color="#1E1006"/>
   </linearGradient>
   <linearGradient id="colC" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#2A0F16"/>
+    <stop offset="0%" stop-color="#2E1016"/>
     <stop offset="100%" stop-color="#1E0A12"/>
   </linearGradient>
   <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
     <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.2"/>
-    <stop offset="35%" stop-color="#3A86FF" stop-opacity="0.85"/>
-    <stop offset="65%" stop-color="#FFB703" stop-opacity="0.85"/>
+    <stop offset="35%" stop-color="#3A86FF" stop-opacity="0.9"/>
+    <stop offset="65%" stop-color="#FFB703" stop-opacity="0.9"/>
     <stop offset="100%" stop-color="#E63946"/>
+  </linearGradient>
+  <linearGradient id="vaultGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3A0F1A"/>
+    <stop offset="100%" stop-color="#1E0A14"/>
   </linearGradient>
   <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
     <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.6"/>
     <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
   </radialGradient>
   <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.55"/>
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.6"/>
     <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
   </radialGradient>
   <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/>
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
     <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
   </radialGradient>
   <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -57,14 +61,14 @@
 <rect width="1200" height="630" fill="url(#bgSpread)"/>
 <rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-<circle cx="240" cy="380" r="130" fill="url(#glowBlue)">
-  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="6.4s" repeatCount="indefinite"/>
+<circle cx="240" cy="380" r="140" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6.4s" repeatCount="indefinite"/>
 </circle>
-<circle cx="620" cy="380" r="130" fill="url(#glowAmber)">
-  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="5.6s" repeatCount="indefinite"/>
+<circle cx="620" cy="380" r="140" fill="url(#glowAmber)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="5.6s" repeatCount="indefinite"/>
 </circle>
-<circle cx="1000" cy="380" r="130" fill="url(#glowRed)">
-  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="7.0s" repeatCount="indefinite"/>
+<circle cx="1000" cy="380" r="140" fill="url(#glowRed)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="7.0s" repeatCount="indefinite"/>
 </circle>
 
 <rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
@@ -74,12 +78,27 @@
   <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
 </rect>
 
+<!-- Starfield ambient dots (8 twinkles, upper area) -->
+<g fill="#8FB8FF">
+  <circle cx="160" cy="78" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="420" cy="86" r="1.0"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.4s" repeatCount="indefinite"/></circle>
+  <circle cx="720" cy="80" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.7s" repeatCount="indefinite"/></circle>
+  <circle cx="1040" cy="88" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.2s" repeatCount="indefinite"/></circle>
+</g>
+
 <g>
   <text x="60" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0" letter-spacing="3">THIS WEEK  /  APR 13 - 19</text>
   <text x="60" y="130" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA" filter="url(#textShadow)">Three Incidents Across Seven Days</text>
 </g>
 
-<line x1="60" y1="170" x2="1140" y2="170" stroke="url(#timelineGrad)" stroke-width="3.2" stroke-linecap="round"/>
+<!-- Timeline axis with gradient -->
+<line x1="60" y1="170" x2="1140" y2="170" stroke="url(#timelineGrad)" stroke-width="3.4" stroke-linecap="round"/>
+<!-- Moving traveler along axis -->
+<circle r="5" fill="#F5F7FA" stroke="#8FB8FF" stroke-width="1.4">
+  <animate attributeName="cx" values="60;1140;60" dur="11s" repeatCount="indefinite"/>
+  <animate attributeName="cy" values="170;170;170" dur="11s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
+</circle>
 
 <g font-family="Inter, monospace" font-size="10" font-weight="700" fill="#7DA3D9">
   <line x1="80" y1="163" x2="80" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
@@ -98,10 +117,11 @@
   <text x="1120" y="194" text-anchor="middle">APR 19</text>
 </g>
 
+<!-- Event anchor dots -->
 <g>
   <g transform="translate(240,170)">
-    <circle r="20" fill="url(#glowBlue)">
-      <animate attributeName="r" values="20;30;20" dur="2.8s" repeatCount="indefinite"/>
+    <circle r="22" fill="url(#glowBlue)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
     </circle>
     <circle r="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="3" filter="url(#softShadow)"/>
@@ -110,8 +130,8 @@
     </circle>
   </g>
   <g transform="translate(600,170)">
-    <circle r="20" fill="url(#glowAmber)">
-      <animate attributeName="r" values="20;30;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+    <circle r="22" fill="url(#glowAmber)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
     </circle>
     <circle r="10" fill="#1E1006" stroke="#FFB703" stroke-width="3" filter="url(#softShadow)"/>
@@ -120,8 +140,8 @@
     </circle>
   </g>
   <g transform="translate(980,170)">
-    <circle r="20" fill="url(#glowRed)">
-      <animate attributeName="r" values="20;30;20" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+    <circle r="22" fill="url(#glowRed)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
     </circle>
     <circle r="10" fill="#1E0A14" stroke="#E63946" stroke-width="3" filter="url(#softShadow)"/>
@@ -135,44 +155,67 @@
 <line x1="600" y1="180" x2="600" y2="216" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
 <line x1="980" y1="180" x2="980" y2="216" stroke="#E63946" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
 
+<!-- COL A: Mirai Nexcorium (Apr 14) with DVR camera scene -->
 <g transform="translate(72,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colA)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colA)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
   <rect x="0" y="0" width="336" height="4" fill="#3A86FF" opacity="0.7"/>
   <g filter="url(#textShadow)">
-    <text x="20" y="30" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">HIGH  /  BOTNET</text>
-    <text x="20" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Mirai Nexcorium</text>
-    <text x="20" y="82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#BFC9D9">TBK DVR takeover for DDoS</text>
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">HIGH  /  IoT BOTNET</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Mirai Nexcorium</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#BFC9D9">TBK DVR takeover - DDoS botnet</text>
   </g>
-  <g transform="translate(28,110)">
+  <!-- Scene: DVR camera icon + botnet spokes -->
+  <g transform="translate(168,140)">
+    <!-- DVR box -->
+    <g filter="url(#softShadow)">
+      <rect x="-42" y="-24" width="84" height="40" rx="4" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.6"/>
+      <circle cx="-28" cy="-12" r="3" fill="#E63946">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-18" cy="-12" r="3" fill="#FFB703"/>
+      <rect x="-8" y="-6" width="44" height="12" rx="2" fill="#1E2A48"/>
+      <text x="14" y="2" text-anchor="middle" font-family="Inter, monospace" font-size="6" font-weight="800" fill="#8FB8FF">TBK-DVR</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#8FB8FF">CAMERA DVR</text>
+    </g>
+    <!-- Botnet spokes (4 dots around) -->
+    <g stroke="#3A86FF" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.7">
+      <line x1="-42" y1="0" x2="-68" y2="-24"/>
+      <line x1="42" y1="0" x2="68" y2="-24"/>
+      <line x1="-42" y1="10" x2="-68" y2="24"/>
+      <line x1="42" y1="10" x2="68" y2="24"/>
+    </g>
+    <g fill="#8FB8FF">
+      <circle cx="-68" cy="-24" r="3.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="-24" r="3.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-68" cy="24" r="3.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="24" r="3.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+  <!-- Attack chain (3 steps instead of 4, tighter) -->
+  <g transform="translate(28,208)">
     <g>
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#3A86FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">1</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">CVE-2024-3721 scanning</text>
+      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">CVE-2024-3721 auth bypass</text>
     </g>
     <line x1="18" y1="38" x2="18" y2="50" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,54)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#3A86FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">TBK DVR auth bypass</text>
+      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Mirai drop + C2 register</text>
     </g>
     <line x1="18" y1="92" x2="18" y2="104" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#3A86FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Mirai drop + C2 register</text>
-    </g>
-    <line x1="18" y1="146" x2="18" y2="158" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,162)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#12283F" stroke="#8FB8FF" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="6" fill="#8FB8FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#0A1020">4</text>
+      <circle cx="18" cy="17" r="7" fill="#8FB8FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1020">3</text>
       <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">DDoS botnet launch</text>
     </g>
   </g>
-  <g transform="translate(28,332)" filter="url(#softShadow)">
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
     <rect x="0" y="0" width="280" height="32" rx="8" fill="#12283F" stroke="#3A86FF" stroke-width="1.6"/>
     <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#8FB8FF">CVE</text>
     <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="900" fill="#F5F7FA">2024-3721</text>
@@ -180,44 +223,75 @@
   </g>
 </g>
 
+<!-- COL B: Helpdesk impersonation (Apr 16) with phone call scene -->
 <g transform="translate(432,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
   <rect x="0" y="0" width="336" height="4" fill="#FFB703" opacity="0.7"/>
   <g filter="url(#textShadow)">
-    <text x="20" y="30" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFB703" letter-spacing="2.4">HIGH  /  PLAYBOOK</text>
-    <text x="20" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Helpdesk Impersonation</text>
-    <text x="20" y="82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FFD58A">Cross-tenant to data exfiltration</text>
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFB703" letter-spacing="2.4">HIGH  /  SOCIAL ENG</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Helpdesk Impersonation</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FFD58A">Cross-tenant to data exfiltration</text>
   </g>
-  <g transform="translate(28,110)">
+  <!-- Scene: phone handset + impersonator user + target user + MFA prompt -->
+  <g transform="translate(168,140)">
+    <!-- impersonator avatar (left, dark) -->
+    <g filter="url(#softShadow)">
+      <circle cx="-56" cy="0" r="14" fill="#2E1A0A" stroke="#FFB703" stroke-width="1.6"/>
+      <circle cx="-56" cy="-3" r="4" fill="#FFB703"/>
+      <path d="M-65 8 Q-56 3 -47 8 Q-47 14 -56 14 Q-65 14 -65 8 Z" fill="#FFB703"/>
+      <text x="-56" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FFD58A">IMPOSTOR</text>
+    </g>
+    <!-- phone wave -->
+    <g stroke="#FFB703" stroke-width="1.4" fill="none" opacity="0.85">
+      <path d="M-36 -4 Q-20 -8 -4 -4">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-36 0 Q-20 -4 -4 0"/>
+      <path d="M-36 4 Q-20 0 -4 4">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.6s" begin="0.4s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <!-- helpdesk / target user (right) -->
+    <g filter="url(#softShadow)">
+      <circle cx="56" cy="0" r="14" fill="#0F2538" stroke="#FFD58A" stroke-width="1.6"/>
+      <circle cx="56" cy="-3" r="4" fill="#FFD58A"/>
+      <path d="M47 8 Q56 3 65 8 Q65 14 56 14 Q47 14 47 8 Z" fill="#FFD58A"/>
+      <text x="56" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FFD58A">HELPDESK</text>
+    </g>
+    <!-- MFA prompt floating above -->
+    <g transform="translate(0,-36)">
+      <rect x="-26" y="-12" width="52" height="22" rx="4" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFB703">MFA RESET</text>
+      <circle cx="-26" cy="0" r="2.5" fill="#E63946">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  <!-- Attack chain (3 steps) -->
+  <g transform="translate(28,208)">
     <g>
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#FFB703"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#1A1202">1</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Helpdesk call impersonation</text>
+      <circle cx="18" cy="17" r="7" fill="#FFB703"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Helpdesk call + MFA reset</text>
     </g>
     <line x1="18" y1="38" x2="18" y2="50" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,54)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#FFB703"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#1A1202">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">MFA reset / token grant</text>
+      <circle cx="18" cy="17" r="7" fill="#FFB703"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Cross-tenant pivot</text>
     </g>
     <line x1="18" y1="92" x2="18" y2="104" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#FFB703"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#1A1202">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Cross-tenant pivot</text>
-    </g>
-    <line x1="18" y1="146" x2="18" y2="158" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,162)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#2A1A0C" stroke="#FFD58A" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="6" fill="#FFD58A"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#1A1202">4</text>
+      <circle cx="18" cy="17" r="7" fill="#FFD58A"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">3</text>
       <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Data exfiltration</text>
     </g>
   </g>
-  <g transform="translate(28,332)" filter="url(#softShadow)">
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
     <rect x="0" y="0" width="280" height="32" rx="8" fill="#2A1A0C" stroke="#FFB703" stroke-width="1.6"/>
     <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#FFB703">VECTOR</text>
     <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">Human Ops</text>
@@ -225,44 +299,74 @@
   </g>
 </g>
 
+<!-- COL C: Grinex hack (Apr 18) with vault scene -->
 <g transform="translate(792,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colC)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colC)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
   <rect x="0" y="0" width="336" height="4" fill="#E63946" opacity="0.7"/>
   <g filter="url(#textShadow)">
-    <text x="20" y="30" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2.4">HIGH  /  EXCHANGE</text>
-    <text x="20" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Grinex Exchange Shutdown</text>
-    <text x="20" y="82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FBB6BD">13.74M drained, intel agency claim</text>
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2.4">HIGH  /  EXCHANGE</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Grinex Exchange Shutdown</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FBB6BD">13.74M drained, intel agency claim</text>
   </g>
-  <g transform="translate(28,110)">
+  <!-- Scene: vault door ajar + coins escaping -->
+  <g transform="translate(168,140)">
+    <!-- vault frame -->
+    <g filter="url(#softShadow)">
+      <rect x="-50" y="-32" width="100" height="64" rx="4" fill="url(#vaultGrad)" stroke="#E63946" stroke-width="2"/>
+      <circle cx="-26" cy="0" r="12" fill="#1E0A14" stroke="#FCA5A5" stroke-width="1.4"/>
+      <!-- vault handle -->
+      <g stroke="#FCA5A5" stroke-width="1.6" fill="none">
+        <line x1="-26" y1="-8" x2="-26" y2="8"/>
+        <line x1="-34" y1="0" x2="-18" y2="0"/>
+        <line x1="-32" y1="-6" x2="-20" y2="6"/>
+        <line x1="-32" y1="6" x2="-20" y2="-6"/>
+      </g>
+      <!-- vault door partly open, showing inside -->
+      <rect x="2" y="-22" width="44" height="44" rx="2" fill="#3A0F1A" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="2 2"/>
+      <text x="24" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">EMPTY</text>
+    </g>
+    <!-- 3 coins escaping -->
+    <g>
+      <circle cx="56" cy="0" r="5" fill="#FFB703" stroke="#FB8500" stroke-width="1">
+        <animate attributeName="cx" values="50;76;50" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="60" cy="-8" r="4" fill="#FFB703" stroke="#FB8500" stroke-width="1">
+        <animate attributeName="cx" values="52;78;52" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="58" cy="10" r="4" fill="#FFB703" stroke="#FB8500" stroke-width="1">
+        <animate attributeName="cx" values="52;80;52" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0;1" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="0" y="48" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCA5A5">VAULT DRAINED</text>
+  </g>
+  <!-- Attack chain (3 steps) -->
+  <g transform="translate(28,208)">
     <g>
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A14" stroke="#E63946" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#E63946"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">1</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">UK + US sanctions</text>
+      <circle cx="18" cy="17" r="7" fill="#E63946"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Post-sanctions nation-state breach</text>
     </g>
     <line x1="18" y1="38" x2="18" y2="50" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,54)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A14" stroke="#E63946" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#E63946"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Nation-state breach alleged</text>
+      <circle cx="18" cy="17" r="7" fill="#E63946"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">13.74M USD drained</text>
     </g>
     <line x1="18" y1="92" x2="18" y2="104" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
     <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A14" stroke="#E63946" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="6" fill="#E63946"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFFFFF">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">13.74M USD drained</text>
-    </g>
-    <line x1="18" y1="146" x2="18" y2="158" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,162)">
       <rect x="0" y="0" width="280" height="34" rx="6" fill="#3A0F1A" stroke="#FCA5A5" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="6" fill="#FCA5A5"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#1A0005">4</text>
+      <circle cx="18" cy="17" r="7" fill="#FCA5A5"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A0005">3</text>
       <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Exchange shutdown</text>
     </g>
   </g>
-  <g transform="translate(28,332)" filter="url(#softShadow)">
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
     <rect x="0" y="0" width="280" height="32" rx="8" fill="#3A0F1A" stroke="#E63946" stroke-width="1.6"/>
     <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#F87171">LOSS</text>
     <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="900" fill="#F5F7FA">$13.74M</text>
@@ -270,6 +374,7 @@
   </g>
 </g>
 
+<!-- Ambient spark dots along timeline -->
 <g opacity="0.8">
   <g fill="#8FB8FF">
     <circle cx="340" cy="170" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></circle>
