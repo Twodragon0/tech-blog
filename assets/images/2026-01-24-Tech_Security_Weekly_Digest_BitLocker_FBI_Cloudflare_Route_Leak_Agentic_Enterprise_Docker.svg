@@ -1,0 +1,381 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: Microsoft BitLocker keys handed to FBI sparks encryption trust debate, Cloudflare BGP Route Leak RPKI analysis, CNCF Autonomous Enterprise 4 platform control pillars 2026, Docker identity crisis and container ecosystem future">
+<!-- profile: high-quality-cover (L13 Callouts, research-based, batch1-locked) -->
+<title>Weekly digest 2026-01-24: BitLocker FBI Key, Cloudflare Route Leak, CNCF Autonomous Enterprise, Docker 2026</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="55%" stop-color="#0D1530"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="cardA" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2A0F16"/>
+    <stop offset="100%" stop-color="#1E0A12"/>
+  </linearGradient>
+  <linearGradient id="cardB" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2A180A"/>
+    <stop offset="100%" stop-color="#1E1006"/>
+  </linearGradient>
+  <linearGradient id="cardC" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0E2038"/>
+    <stop offset="100%" stop-color="#0A1830"/>
+  </linearGradient>
+  <linearGradient id="cardD" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#14143A"/>
+    <stop offset="100%" stop-color="#0D0D30"/>
+  </linearGradient>
+  <linearGradient id="keyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#E63946"/>
+    <stop offset="100%" stop-color="#9B1C28"/>
+  </linearGradient>
+  <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FFB703"/>
+    <stop offset="100%" stop-color="#E88C00"/>
+  </linearGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/>
+  </pattern>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.8"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
+
+<circle cx="320" cy="220" r="120" fill="url(#glowRed)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="220" r="120" fill="url(#glowAmber)">
+  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="5.6s" repeatCount="indefinite"/>
+</circle>
+<circle cx="320" cy="480" r="120" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.0s" repeatCount="indefinite"/>
+</circle>
+<circle cx="900" cy="480" r="120" fill="url(#glowPurple)">
+  <animate attributeName="opacity" values="0.45;0.8;0.45" dur="6.2s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Header stripe -->
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.01.24</text>
+<rect x="0" y="54" width="1200" height="2" fill="#F87171" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
+</rect>
+
+<!-- CARD 01: BitLocker FBI (top-left) — CRITICAL / Red -->
+<g transform="translate(32,80)">
+  <rect x="0" y="0" width="564" height="248" rx="14" fill="url(#cardA)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" fill="#E63946"/>
+  <rect x="0" y="0" width="564" height="4" fill="#E63946" opacity="0.7"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#E63946" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F87171">01</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" letter-spacing="2.4">CRITICAL  /  ENCRYPTION</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">BitLocker Keys Handed to FBI</text>
+  </g>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FBB6BD">Microsoft discloses key escrow access — HN 705pts, 463 comments</text>
+
+  <!-- Lock illustration -->
+  <g transform="translate(26,118)" filter="url(#softShadow)">
+    <!-- lock body -->
+    <rect x="0" y="28" width="64" height="52" rx="8" fill="#1E0A12" stroke="#E63946" stroke-width="2"/>
+    <!-- shackle (open/cracked) -->
+    <path d="M16 28 L16 12 Q16 0 32 0 Q48 0 48 12 L48 28" stroke="#F87171" stroke-width="3" fill="none" stroke-dasharray="6 4">
+      <animate attributeName="stroke-dashoffset" values="0;-20" dur="2.2s" repeatCount="indefinite"/>
+    </path>
+    <!-- keyhole -->
+    <circle cx="32" cy="48" r="7" fill="#E63946" opacity="0.9"/>
+    <rect x="28" y="50" width="8" height="12" rx="2" fill="#E63946" opacity="0.9"/>
+    <!-- crack lines -->
+    <line x1="32" y1="28" x2="22" y2="42" stroke="#F87171" stroke-width="1.4" opacity="0.8"/>
+    <line x1="32" y1="28" x2="42" y2="38" stroke="#F87171" stroke-width="1.4" opacity="0.8"/>
+  </g>
+
+  <!-- FBI badge / key transfer arrow -->
+  <g transform="translate(118,124)" filter="url(#softShadow)">
+    <!-- Microsoft box -->
+    <rect x="0" y="8" width="72" height="36" rx="6" fill="#0D1F3C" stroke="#8FB8FF" stroke-width="1.2"/>
+    <text x="36" y="30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="800" fill="#8FB8FF">MICROSOFT</text>
+    <!-- arrow -->
+    <path d="M76 26 L106 26" stroke="#E63946" stroke-width="2.2" fill="none">
+      <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.4s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="106,22 114,26 106,30" fill="#E63946"/>
+    <!-- FBI box -->
+    <rect x="118" y="8" width="60" height="36" rx="6" fill="#1A0008" stroke="#E63946" stroke-width="1.6"/>
+    <text x="148" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#F87171">FBI</text>
+    <!-- key icon on arrow -->
+    <g transform="translate(86,14)">
+      <circle r="6" fill="url(#keyGrad)" stroke="#F87171" stroke-width="1"/>
+      <rect x="6" y="-2" width="12" height="4" rx="1" fill="url(#keyGrad)"/>
+      <rect x="14" y="2" width="3" height="4" rx="1" fill="#F87171"/>
+      <rect x="10" y="2" width="3" height="3" rx="1" fill="#F87171"/>
+    </g>
+    <!-- 3 laptops below -->
+    <g transform="translate(0,52)">
+      <rect x="4" y="0" width="40" height="26" rx="3" fill="#1E0A12" stroke="#F87171" stroke-width="1"/>
+      <rect x="4" y="26" width="40" height="4" rx="1" fill="#3A0A14"/>
+      <text x="24" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="#F87171">LAPTOP x3</text>
+      <circle cx="24" cy="32" r="1.5" fill="#F87171" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- KPI card -->
+  <g transform="translate(430,130)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#F87171">HN POINTS</text>
+    <text x="60" y="64" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">705</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">463 comments</text>
+  </g>
+
+  <!-- spark pulses -->
+  <g fill="#F87171">
+    <circle cx="530" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="546" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+
+<!-- CARD 02: Cloudflare BGP Route Leak (top-right) — HIGH / Amber -->
+<g transform="translate(612,80)">
+  <rect x="0" y="0" width="556" height="248" rx="14" fill="url(#cardB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="248" fill="#FFB703"/>
+  <rect x="0" y="0" width="556" height="4" fill="#FFB703" opacity="0.7"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#FFB703" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#FFB703">02</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="2.4">HIGH  /  BGP SECURITY</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Cloudflare BGP Route Leak</text>
+  </g>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Jan 22 incident — RPKI response analysis</text>
+
+  <!-- Network route diagram: leaked prefix -->
+  <g transform="translate(26,118)" filter="url(#softShadow)">
+    <!-- AS nodes -->
+    <circle cx="30" cy="50" r="22" fill="#1E1006" stroke="#FFB703" stroke-width="1.8"/>
+    <text x="30" y="54" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FFD58A">CF AS</text>
+    <!-- bad route arrow -->
+    <path d="M54 38 Q90 10 116 38" stroke="#E63946" stroke-width="2" fill="none" stroke-dasharray="5 3">
+      <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <!-- bad AS box -->
+    <rect x="116" y="22" width="52" height="32" rx="5" fill="#2A0F0A" stroke="#E63946" stroke-width="1.4"/>
+    <text x="142" y="41" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#F87171">LEAK AS</text>
+    <!-- RPKI shield -->
+    <g transform="translate(80,52)">
+      <path d="M14 0 L28 6 L28 20 Q28 30 14 36 Q0 30 0 20 L0 6 Z" fill="#0E2038" stroke="#FFB703" stroke-width="1.6"/>
+      <text x="14" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FFD58A">RPKI</text>
+      <text x="14" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="7" fill="#FFD58A">ROA</text>
+    </g>
+    <!-- correct route -->
+    <path d="M54 62 L76 62" stroke="#FFB703" stroke-width="1.8" fill="none"/>
+    <polygon points="76,58 84,62 76,66" fill="#FFB703"/>
+  </g>
+
+  <!-- BGP stats -->
+  <g transform="translate(220,126)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="110" height="78" rx="8" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
+    <text x="55" y="20" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#FFB703">TIMELINE</text>
+    <text x="10" y="40" font-family="Inter, monospace" font-size="9" fill="#FFD58A">Jan 22 ~14:00 UTC</text>
+    <text x="10" y="56" font-family="Inter, monospace" font-size="9" fill="#FFD58A">Leak detected</text>
+    <text x="10" y="70" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#F5F7FA">RPKI filtered</text>
+  </g>
+
+  <!-- KPI card -->
+  <g transform="translate(420,130)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#1E1006" stroke="#FFB703" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">BGP RISK</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="900" fill="#F5F7FA">RPKI</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">route origin auth</text>
+  </g>
+</g>
+
+<!-- CARD 03: CNCF Autonomous Enterprise (bottom-left) — MEDIUM / Blue -->
+<g transform="translate(32,348)">
+  <rect x="0" y="0" width="564" height="242" rx="14" fill="url(#cardC)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" fill="#3A86FF"/>
+  <rect x="0" y="0" width="564" height="4" fill="#3A86FF" opacity="0.7"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#3A86FF" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#8FB8FF">03</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">MEDIUM  /  PLATFORM ENG</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">CNCF Autonomous Enterprise</text>
+  </g>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">4 platform control pillars — 2026 forecast</text>
+
+  <!-- 4 pillars visual -->
+  <g transform="translate(26,118)" filter="url(#softShadow)">
+    <!-- Pillar 1 -->
+    <rect x="0" y="0" width="82" height="100" rx="6" fill="#0E2038" stroke="#3A86FF" stroke-width="1.2"/>
+    <rect x="0" y="0" width="82" height="6" rx="3" fill="#3A86FF" opacity="0.8"/>
+    <text x="41" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="18" font-weight="900" fill="#3A86FF">1</text>
+    <text x="41" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" font-weight="700" fill="#8FB8FF">SECURITY</text>
+    <text x="41" y="68" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">Zero-Trust</text>
+    <text x="41" y="80" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">Posture</text>
+    <!-- Pillar 2 -->
+    <rect x="90" y="0" width="82" height="100" rx="6" fill="#0E2038" stroke="#3A86FF" stroke-width="1.2"/>
+    <rect x="90" y="0" width="82" height="6" rx="3" fill="#3A86FF" opacity="0.8"/>
+    <text x="131" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="18" font-weight="900" fill="#3A86FF">2</text>
+    <text x="131" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" font-weight="700" fill="#8FB8FF">RESILIENCE</text>
+    <text x="131" y="68" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">Chaos Eng</text>
+    <text x="131" y="80" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">SRE</text>
+    <!-- Pillar 3 -->
+    <rect x="180" y="0" width="82" height="100" rx="6" fill="#0E2038" stroke="#3A86FF" stroke-width="1.2"/>
+    <rect x="180" y="0" width="82" height="6" rx="3" fill="#3A86FF" opacity="0.8"/>
+    <text x="221" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="18" font-weight="900" fill="#3A86FF">3</text>
+    <text x="221" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" font-weight="700" fill="#8FB8FF">AUTOMATION</text>
+    <text x="221" y="68" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">GitOps</text>
+    <text x="221" y="80" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">CI/CD</text>
+    <!-- Pillar 4 -->
+    <rect x="270" y="0" width="82" height="100" rx="6" fill="#0E2038" stroke="#3A86FF" stroke-width="1.2"/>
+    <rect x="270" y="0" width="82" height="6" rx="3" fill="#3A86FF" opacity="0.8"/>
+    <text x="311" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="18" font-weight="900" fill="#3A86FF">4</text>
+    <text x="311" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" font-weight="700" fill="#8FB8FF">OBSERV.</text>
+    <text x="311" y="68" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">eBPF</text>
+    <text x="311" y="80" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="8" fill="#BFC9D9">Telemetry</text>
+  </g>
+
+  <!-- agent pulse -->
+  <g transform="translate(396,162)">
+    <circle r="20" fill="#0A1B2E" stroke="#3A86FF" stroke-width="2" filter="url(#softShadow)"/>
+    <text y="5" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#8FB8FF">CNCF</text>
+    <g stroke="#3A86FF" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.65">
+      <line x1="0" y1="0" x2="-44" y2="-28"/>
+      <line x1="0" y1="0" x2="-44" y2="28"/>
+      <line x1="0" y1="0" x2="44" y2="-28"/>
+      <line x1="0" y1="0" x2="44" y2="28"/>
+    </g>
+    <g fill="#8FB8FF">
+      <circle cx="-44" cy="-28" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/></circle>
+      <circle cx="-44" cy="28" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="44" cy="-28" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>
+      <circle cx="44" cy="28" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="1.2s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+
+  <!-- KPI card -->
+  <g transform="translate(430,124)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.8"/>
+    <text x="60" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#8FB8FF">PILLARS</text>
+    <text x="60" y="64" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="900" fill="#F5F7FA">4</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#8FB8FF">platform control</text>
+  </g>
+</g>
+
+<!-- CARD 04: Docker Identity Crisis (bottom-right) — TREND / Purple -->
+<g transform="translate(612,348)">
+  <rect x="0" y="0" width="556" height="242" rx="14" fill="url(#cardD)" stroke="#8B5CF6" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="6" height="242" fill="#8B5CF6"/>
+  <rect x="0" y="0" width="556" height="4" fill="#8B5CF6" opacity="0.7"/>
+  <g transform="translate(20,18)">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="#8B5CF6" opacity="0.2"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#C4B5FD">04</text>
+  </g>
+  <g filter="url(#textShadow)">
+    <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#C4B5FD" letter-spacing="2.4">TREND  /  CONTAINER</text>
+    <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Docker Identity Crisis 2026</text>
+  </g>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#DDD6FE">Container pioneer vs. Kubernetes-native ecosystem</text>
+
+  <!-- Docker vs ecosystem diagram -->
+  <g transform="translate(26,118)" filter="url(#softShadow)">
+    <!-- Docker whale simplified -->
+    <rect x="0" y="16" width="100" height="64" rx="8" fill="#1E1A4E" stroke="#8B5CF6" stroke-width="1.6"/>
+    <text x="50" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#C4B5FD">DOCKER</text>
+    <!-- container stack bars -->
+    <rect x="10" y="44" width="26" height="8" rx="2" fill="#8B5CF6" opacity="0.9"/>
+    <rect x="10" y="54" width="26" height="8" rx="2" fill="#8B5CF6" opacity="0.7"/>
+    <rect x="10" y="64" width="26" height="8" rx="2" fill="#8B5CF6" opacity="0.5"/>
+    <rect x="44" y="44" width="26" height="8" rx="2" fill="#6D28D9" opacity="0.9"/>
+    <rect x="44" y="54" width="26" height="8" rx="2" fill="#6D28D9" opacity="0.7"/>
+    <rect x="44" y="64" width="26" height="8" rx="2" fill="#6D28D9" opacity="0.5"/>
+    <!-- vs arrow -->
+    <path d="M110 48 L138 48" stroke="#8B5CF6" stroke-width="2" fill="none" stroke-dasharray="4 3">
+      <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.6s" repeatCount="indefinite"/>
+    </path>
+    <text x="120" y="44" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#C4B5FD">vs</text>
+    <!-- k8s box -->
+    <rect x="142" y="16" width="96" height="64" rx="8" fill="#14143A" stroke="#C4B5FD" stroke-width="1.2"/>
+    <text x="190" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C4B5FD">k8s native</text>
+    <text x="190" y="52" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#DDD6FE">containerd</text>
+    <text x="190" y="64" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#DDD6FE">Podman</text>
+    <text x="190" y="76" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#DDD6FE">nerdctl</text>
+  </g>
+
+  <!-- timeline fork -->
+  <g transform="translate(290,144)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="110" height="72" rx="8" fill="#14143A" stroke="#8B5CF6" stroke-width="1.2"/>
+    <text x="55" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#C4B5FD">ECOSYSTEM</text>
+    <text x="55" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#DDD6FE">Compose v2</text>
+    <text x="55" y="48" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#DDD6FE">Docker Scout</text>
+    <text x="55" y="62" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#C4B5FD">rebrand pivot</text>
+  </g>
+
+  <!-- KPI card -->
+  <g transform="translate(420,124)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#14143A" stroke="#8B5CF6" stroke-width="1.8"/>
+    <text x="60" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#C4B5FD">LAUNCHED</text>
+    <text x="60" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">2013</text>
+    <text x="60" y="74" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#C4B5FD">still evolving</text>
+    <text x="60" y="88" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" fill="#DDD6FE">2026 pivot</text>
+  </g>
+
+  <!-- pulse dots -->
+  <g fill="#C4B5FD">
+    <circle cx="500" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" repeatCount="indefinite"/></circle>
+    <circle cx="516" cy="26" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+
+<!-- Ambient severity pulse bars -->
+<g opacity="0.85">
+  <g fill="#F87171">
+    <rect x="210" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="222" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FFB703">
+    <rect x="790" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" repeatCount="indefinite"/></rect>
+    <rect x="802" y="66" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+</g>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/ : 49x49 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(1.714286)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h3v1h-3zM12 0h3v1h-3zM17 0h1v1h-1zM19 0h1v1h-1zM21 0h1v1h-1zM24 0h1v1h-1zM28 0h2v1h-2zM31 0h1v1h-1zM33 0h1v1h-1zM35 0h1v1h-1zM37 0h1v1h-1zM40 0h1v1h-1zM42 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM11 1h4v1h-4zM17 1h1v1h-1zM19 1h10v1h-10zM30 1h1v1h-1zM34 1h2v1h-2zM38 1h3v1h-3zM42 1h1v1h-1zM48 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h3v1h-3zM15 2h1v1h-1zM18 2h3v1h-3zM22 2h2v1h-2zM25 2h2v1h-2zM28 2h1v1h-1zM30 2h2v1h-2zM34 2h3v1h-3zM39 2h2v1h-2zM42 2h1v1h-1zM44 2h3v1h-3zM48 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM13 3h1v1h-1zM16 3h3v1h-3zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM30 3h2v1h-2zM37 3h1v1h-1zM39 3h1v1h-1zM42 3h1v1h-1zM44 3h3v1h-3zM48 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM16 4h3v1h-3zM22 4h6v1h-6zM29 4h2v1h-2zM32 4h2v1h-2zM35 4h2v1h-2zM42 4h1v1h-1zM44 4h3v1h-3zM48 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM12 5h3v1h-3zM19 5h1v1h-1zM21 5h2v1h-2zM26 5h2v1h-2zM32 5h1v1h-1zM34 5h5v1h-5zM42 5h1v1h-1zM48 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM40 6h1v1h-1zM42 6h7v1h-7zM8 7h1v1h-1zM10 7h2v1h-2zM15 7h3v1h-3zM19 7h2v1h-2zM22 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM31 7h1v1h-1zM34 7h1v1h-1zM36 7h1v1h-1zM40 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h4v1h-4zM11 8h5v1h-5zM17 8h2v1h-2zM21 8h7v1h-7zM29 8h1v1h-1zM32 8h2v1h-2zM35 8h2v1h-2zM40 8h6v1h-6zM48 8h1v1h-1zM1 9h1v1h-1zM13 9h1v1h-1zM15 9h3v1h-3zM20 9h1v1h-1zM22 9h1v1h-1zM26 9h2v1h-2zM29 9h2v1h-2zM33 9h1v1h-1zM35 9h1v1h-1zM38 9h2v1h-2zM41 9h7v1h-7zM0 10h1v1h-1zM2 10h5v1h-5zM8 10h2v1h-2zM11 10h2v1h-2zM15 10h1v1h-1zM17 10h2v1h-2zM20 10h1v1h-1zM24 10h4v1h-4zM29 10h4v1h-4zM35 10h1v1h-1zM38 10h2v1h-2zM41 10h3v1h-3zM45 10h3v1h-3zM2 11h2v1h-2zM7 11h1v1h-1zM11 11h1v1h-1zM17 11h1v1h-1zM19 11h2v1h-2zM22 11h6v1h-6zM30 11h1v1h-1zM32 11h1v1h-1zM34 11h1v1h-1zM36 11h1v1h-1zM38 11h7v1h-7zM46 11h1v1h-1zM48 11h1v1h-1zM1 12h2v1h-2zM6 12h5v1h-5zM14 12h3v1h-3zM20 12h2v1h-2zM23 12h2v1h-2zM29 12h1v1h-1zM32 12h1v1h-1zM35 12h2v1h-2zM38 12h1v1h-1zM44 12h1v1h-1zM46 12h2v1h-2zM5 13h1v1h-1zM8 13h1v1h-1zM10 13h3v1h-3zM14 13h2v1h-2zM17 13h1v1h-1zM19 13h2v1h-2zM23 13h2v1h-2zM26 13h2v1h-2zM29 13h2v1h-2zM33 13h1v1h-1zM36 13h1v1h-1zM38 13h2v1h-2zM42 13h1v1h-1zM44 13h1v1h-1zM47 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h2v1h-2zM9 14h2v1h-2zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM19 14h1v1h-1zM22 14h2v1h-2zM31 14h1v1h-1zM33 14h1v1h-1zM37 14h1v1h-1zM39 14h1v1h-1zM41 14h3v1h-3zM1 15h5v1h-5zM9 15h2v1h-2zM13 15h1v1h-1zM15 15h1v1h-1zM17 15h1v1h-1zM21 15h6v1h-6zM28 15h2v1h-2zM33 15h4v1h-4zM38 15h3v1h-3zM43 15h2v1h-2zM46 15h2v1h-2zM1 16h1v1h-1zM4 16h4v1h-4zM11 16h2v1h-2zM19 16h1v1h-1zM21 16h1v1h-1zM23 16h2v1h-2zM29 16h8v1h-8zM38 16h1v1h-1zM40 16h1v1h-1zM42 16h4v1h-4zM0 17h2v1h-2zM3 17h3v1h-3zM8 17h1v1h-1zM10 17h5v1h-5zM16 17h3v1h-3zM20 17h1v1h-1zM23 17h1v1h-1zM26 17h2v1h-2zM30 17h1v1h-1zM33 17h1v1h-1zM36 17h1v1h-1zM38 17h2v1h-2zM42 17h2v1h-2zM45 17h1v1h-1zM0 18h1v1h-1zM3 18h1v1h-1zM5 18h4v1h-4zM10 18h1v1h-1zM12 18h1v1h-1zM15 18h5v1h-5zM27 18h2v1h-2zM31 18h3v1h-3zM37 18h2v1h-2zM40 18h3v1h-3zM45 18h2v1h-2zM0 19h1v1h-1zM2 19h1v1h-1zM5 19h1v1h-1zM11 19h1v1h-1zM14 19h6v1h-6zM21 19h2v1h-2zM24 19h1v1h-1zM27 19h1v1h-1zM30 19h1v1h-1zM32 19h1v1h-1zM36 19h1v1h-1zM40 19h2v1h-2zM43 19h2v1h-2zM46 19h1v1h-1zM0 20h1v1h-1zM2 20h2v1h-2zM5 20h4v1h-4zM12 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1zM22 20h3v1h-3zM26 20h2v1h-2zM32 20h5v1h-5zM40 20h1v1h-1zM43 20h4v1h-4zM0 21h1v1h-1zM2 21h2v1h-2zM5 21h1v1h-1zM7 21h2v1h-2zM10 21h2v1h-2zM18 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM25 21h2v1h-2zM30 21h2v1h-2zM33 21h1v1h-1zM35 21h1v1h-1zM38 21h2v1h-2zM41 21h2v1h-2zM48 21h1v1h-1zM1 22h2v1h-2zM4 22h5v1h-5zM12 22h2v1h-2zM15 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM22 22h5v1h-5zM28 22h3v1h-3zM33 22h1v1h-1zM36 22h1v1h-1zM38 22h9v1h-9zM1 23h4v1h-4zM8 23h1v1h-1zM15 23h1v1h-1zM17 23h2v1h-2zM22 23h1v1h-1zM26 23h1v1h-1zM31 23h1v1h-1zM33 23h4v1h-4zM38 23h3v1h-3zM44 23h4v1h-4zM1 24h4v1h-4zM6 24h1v1h-1zM8 24h3v1h-3zM12 24h2v1h-2zM15 24h3v1h-3zM22 24h1v1h-1zM24 24h1v1h-1zM26 24h2v1h-2zM29 24h2v1h-2zM32 24h1v1h-1zM34 24h7v1h-7zM42 24h1v1h-1zM44 24h5v1h-5zM0 25h1v1h-1zM3 25h2v1h-2zM8 25h1v1h-1zM14 25h1v1h-1zM16 25h2v1h-2zM19 25h4v1h-4zM26 25h1v1h-1zM29 25h2v1h-2zM32 25h2v1h-2zM35 25h2v1h-2zM38 25h1v1h-1zM40 25h1v1h-1zM44 25h3v1h-3zM1 26h1v1h-1zM3 26h6v1h-6zM10 26h2v1h-2zM13 26h1v1h-1zM16 26h1v1h-1zM22 26h5v1h-5zM29 26h2v1h-2zM32 26h2v1h-2zM37 26h1v1h-1zM40 26h5v1h-5zM47 26h1v1h-1zM0 27h1v1h-1zM4 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM14 27h1v1h-1zM16 27h1v1h-1zM18 27h1v1h-1zM23 27h1v1h-1zM25 27h1v1h-1zM27 27h1v1h-1zM29 27h1v1h-1zM32 27h1v1h-1zM34 27h1v1h-1zM36 27h3v1h-3zM46 27h3v1h-3zM0 28h3v1h-3zM5 28h3v1h-3zM9 28h1v1h-1zM12 28h1v1h-1zM14 28h2v1h-2zM18 28h10v1h-10zM32 28h1v1h-1zM34 28h3v1h-3zM41 28h2v1h-2zM46 28h3v1h-3zM1 29h1v1h-1zM7 29h2v1h-2zM10 29h1v1h-1zM14 29h2v1h-2zM17 29h2v1h-2zM22 29h1v1h-1zM24 29h7v1h-7zM32 29h2v1h-2zM38 29h1v1h-1zM41 29h2v1h-2zM44 29h3v1h-3zM3 30h1v1h-1zM6 30h3v1h-3zM11 30h4v1h-4zM16 30h1v1h-1zM20 30h2v1h-2zM25 30h1v1h-1zM29 30h2v1h-2zM33 30h1v1h-1zM35 30h1v1h-1zM39 30h2v1h-2zM44 30h1v1h-1zM1 31h2v1h-2zM4 31h2v1h-2zM8 31h2v1h-2zM11 31h3v1h-3zM15 31h1v1h-1zM19 31h2v1h-2zM22 31h2v1h-2zM26 31h3v1h-3zM30 31h1v1h-1zM32 31h2v1h-2zM35 31h1v1h-1zM39 31h1v1h-1zM42 31h3v1h-3zM46 31h1v1h-1zM48 31h1v1h-1zM0 32h1v1h-1zM2 32h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM9 32h2v1h-2zM13 32h1v1h-1zM16 32h1v1h-1zM19 32h1v1h-1zM21 32h2v1h-2zM26 32h3v1h-3zM31 32h6v1h-6zM41 32h1v1h-1zM43 32h1v1h-1zM47 32h2v1h-2zM0 33h2v1h-2zM3 33h1v1h-1zM5 33h1v1h-1zM7 33h1v1h-1zM10 33h2v1h-2zM13 33h1v1h-1zM17 33h1v1h-1zM20 33h2v1h-2zM23 33h4v1h-4zM28 33h2v1h-2zM31 33h1v1h-1zM33 33h1v1h-1zM35 33h1v1h-1zM38 33h4v1h-4zM44 33h2v1h-2zM0 34h4v1h-4zM6 34h2v1h-2zM10 34h3v1h-3zM15 34h2v1h-2zM18 34h4v1h-4zM25 34h1v1h-1zM29 34h1v1h-1zM33 34h1v1h-1zM36 34h1v1h-1zM38 34h4v1h-4zM43 34h4v1h-4zM0 35h1v1h-1zM3 35h1v1h-1zM5 35h1v1h-1zM10 35h1v1h-1zM12 35h2v1h-2zM15 35h1v1h-1zM18 35h2v1h-2zM22 35h1v1h-1zM26 35h1v1h-1zM30 35h3v1h-3zM34 35h3v1h-3zM38 35h1v1h-1zM41 35h2v1h-2zM44 35h1v1h-1zM46 35h2v1h-2zM0 36h1v1h-1zM3 36h1v1h-1zM6 36h7v1h-7zM15 36h2v1h-2zM19 36h4v1h-4zM27 36h1v1h-1zM32 36h1v1h-1zM35 36h4v1h-4zM41 36h1v1h-1zM45 36h4v1h-4zM0 37h3v1h-3zM7 37h6v1h-6zM14 37h1v1h-1zM20 37h1v1h-1zM22 37h6v1h-6zM29 37h2v1h-2zM32 37h2v1h-2zM36 37h3v1h-3zM40 37h2v1h-2zM43 37h2v1h-2zM47 37h1v1h-1zM1 38h1v1h-1zM5 38h4v1h-4zM12 38h1v1h-1zM14 38h4v1h-4zM19 38h2v1h-2zM22 38h1v1h-1zM25 38h1v1h-1zM28 38h3v1h-3zM36 38h1v1h-1zM38 38h2v1h-2zM43 38h2v1h-2zM46 38h1v1h-1zM1 39h3v1h-3zM9 39h1v1h-1zM11 39h4v1h-4zM18 39h4v1h-4zM23 39h2v1h-2zM26 39h2v1h-2zM31 39h3v1h-3zM35 39h4v1h-4zM43 39h4v1h-4zM0 40h3v1h-3zM6 40h2v1h-2zM16 40h2v1h-2zM21 40h7v1h-7zM29 40h2v1h-2zM32 40h2v1h-2zM35 40h2v1h-2zM40 40h5v1h-5zM46 40h1v1h-1zM8 41h2v1h-2zM12 41h4v1h-4zM17 41h4v1h-4zM22 41h1v1h-1zM26 41h8v1h-8zM35 41h1v1h-1zM38 41h3v1h-3zM44 41h1v1h-1zM47 41h1v1h-1zM0 42h7v1h-7zM8 42h1v1h-1zM10 42h4v1h-4zM17 42h2v1h-2zM20 42h3v1h-3zM24 42h1v1h-1zM26 42h2v1h-2zM29 42h3v1h-3zM35 42h1v1h-1zM37 42h1v1h-1zM40 42h1v1h-1zM42 42h1v1h-1zM44 42h1v1h-1zM47 42h1v1h-1zM0 43h1v1h-1zM6 43h1v1h-1zM12 43h2v1h-2zM16 43h3v1h-3zM21 43h2v1h-2zM26 43h2v1h-2zM30 43h1v1h-1zM32 43h1v1h-1zM36 43h1v1h-1zM40 43h1v1h-1zM44 43h1v1h-1zM46 43h3v1h-3zM0 44h1v1h-1zM2 44h3v1h-3zM6 44h1v1h-1zM8 44h1v1h-1zM10 44h1v1h-1zM12 44h2v1h-2zM16 44h1v1h-1zM20 44h8v1h-8zM29 44h1v1h-1zM32 44h1v1h-1zM36 44h1v1h-1zM39 44h6v1h-6zM46 44h1v1h-1zM48 44h1v1h-1zM0 45h1v1h-1zM2 45h3v1h-3zM6 45h1v1h-1zM10 45h1v1h-1zM13 45h2v1h-2zM16 45h1v1h-1zM19 45h3v1h-3zM23 45h1v1h-1zM27 45h5v1h-5zM33 45h1v1h-1zM38 45h4v1h-4zM45 45h1v1h-1zM48 45h1v1h-1zM0 46h1v1h-1zM2 46h3v1h-3zM6 46h1v1h-1zM11 46h1v1h-1zM13 46h1v1h-1zM17 46h1v1h-1zM19 46h1v1h-1zM21 46h2v1h-2zM26 46h3v1h-3zM30 46h1v1h-1zM33 46h1v1h-1zM36 46h1v1h-1zM38 46h1v1h-1zM40 46h1v1h-1zM42 46h2v1h-2zM46 46h3v1h-3zM0 47h1v1h-1zM6 47h1v1h-1zM12 47h1v1h-1zM14 47h2v1h-2zM17 47h1v1h-1zM22 47h1v1h-1zM24 47h3v1h-3zM28 47h2v1h-2zM31 47h2v1h-2zM34 47h1v1h-1zM37 47h1v1h-1zM39 47h1v1h-1zM46 47h2v1h-2zM0 48h7v1h-7zM8 48h2v1h-2zM12 48h1v1h-1zM15 48h2v1h-2zM19 48h1v1h-1zM21 48h1v1h-1zM23 48h1v1h-1zM25 48h2v1h-2zM29 48h2v1h-2zM32 48h2v1h-2zM35 48h2v1h-2zM38 48h1v1h-1zM42 48h3v1h-3zM46 48h3v1h-3z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
+</svg>

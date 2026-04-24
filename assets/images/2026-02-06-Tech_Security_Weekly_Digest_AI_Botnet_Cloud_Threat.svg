@@ -1,134 +1,387 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - February 06, 2026</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
-    </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: CrashFix ClickFix Python RAT targets enterprise systems, AISURU botnet sets 31.4 Tbps DDoS world record, Codespaces RCE plus AsyncRAT C2 plus BYOVD complex cloud threat">
+<!-- profile: high-quality-cover (L14 Timeline, research-based, batch1-locked) -->
+<title>Weekly digest 2026-02-06 timeline: CrashFix Python RAT (Feb 03), AISURU 31.4 Tbps DDoS (Feb 05), Codespaces RCE BYOVD (Feb 06)</title>
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1226"/>
+    <stop offset="55%" stop-color="#0D1530"/>
+    <stop offset="100%" stop-color="#131038"/>
+  </linearGradient>
+  <linearGradient id="colA" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#122542"/>
+    <stop offset="100%" stop-color="#0A1830"/>
+  </linearGradient>
+  <linearGradient id="colB" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1A2E0A"/>
+    <stop offset="100%" stop-color="#101E06"/>
+  </linearGradient>
+  <linearGradient id="colC" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2E1016"/>
+    <stop offset="100%" stop-color="#1E0A12"/>
+  </linearGradient>
+  <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.2"/>
+    <stop offset="35%" stop-color="#3A86FF" stop-opacity="0.9"/>
+    <stop offset="65%" stop-color="#22C55E" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#E63946"/>
+  </linearGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#22C55E" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/>
+  </pattern>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.8"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <!-- Grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+<!-- Ambient glow behind columns -->
+<circle cx="240" cy="390" r="140" fill="url(#glowBlue)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="620" cy="390" r="140" fill="url(#glowGreen)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="5.6s" repeatCount="indefinite"/>
+</circle>
+<circle cx="1000" cy="390" r="140" fill="url(#glowRed)">
+  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="7.0s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Header bar -->
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.02.06</text>
+<rect x="0" y="54" width="1200" height="2" fill="#8FB8FF" opacity="0.85">
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Starfield ambient dots (static) -->
+<g fill="#8FB8FF" opacity="0.5">
+  <circle cx="160" cy="78" r="1.2"/>
+  <circle cx="420" cy="86" r="1.0"/>
+  <circle cx="720" cy="80" r="1.3"/>
+  <circle cx="1040" cy="88" r="0.9"/>
+</g>
+
+<!-- Subtitle row -->
+<text x="60" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0" letter-spacing="3">THIS WEEK  /  JAN 31 - FEB 06</text>
+<text x="60" y="130" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA" filter="url(#textShadow)">CrashFix RAT, Record DDoS, Cloud RCE</text>
+
+<!-- Timeline axis at y=170 -->
+<line x1="60" y1="170" x2="1140" y2="170" stroke="url(#timelineGrad)" stroke-width="3.4" stroke-linecap="round"/>
+<!-- Moving traveler along axis -->
+<circle r="5" fill="#F5F7FA" stroke="#8FB8FF" stroke-width="1.4">
+  <animate attributeName="cx" values="60;1140;60" dur="11s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Date ticks: JAN 31 to FEB 06 (7 ticks) -->
+<g font-family="Inter, monospace" font-size="10" font-weight="700" fill="#7DA3D9">
+  <line x1="80" y1="163" x2="80" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="80" y="194" text-anchor="middle">JAN 31</text>
+  <line x1="240" y1="163" x2="240" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="240" y="194" text-anchor="middle">FEB 01</text>
+  <line x1="400" y1="163" x2="400" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="400" y="194" text-anchor="middle">FEB 02</text>
+  <line x1="560" y1="163" x2="560" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="560" y="194" text-anchor="middle" fill="#3A86FF">FEB 03</text>
+  <line x1="720" y1="163" x2="720" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="720" y="194" text-anchor="middle">FEB 04</text>
+  <line x1="900" y1="163" x2="900" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="900" y="194" text-anchor="middle" fill="#22C55E">FEB 05</text>
+  <line x1="1100" y1="163" x2="1100" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
+  <text x="1100" y="194" text-anchor="middle" fill="#F87171">FEB 06</text>
+</g>
+
+<!-- Event anchor dots: Col A at FEB 03 (x=560), Col B at FEB 05 (x=900), Col C at FEB 06 (x=1100) -->
+<g>
+  <g transform="translate(560,170)">
+    <circle r="22" fill="url(#glowBlue)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="3" filter="url(#softShadow)"/>
+    <circle r="3.5" fill="#8FB8FF">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
   </g>
-
-  <!-- Glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
-
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <g transform="translate(900,170)">
+    <circle r="22" fill="url(#glowGreen)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="10" fill="#0E2A14" stroke="#22C55E" stroke-width="3" filter="url(#softShadow)"/>
+    <circle r="3.5" fill="#86EFAC">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
   </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">February 06, 2026</text>
-
-  <!-- Card 1: SEC OPS -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#ef4444" stroke-width="1.8"/>
+  <g transform="translate(1100,170)">
+    <circle r="22" fill="url(#glowRed)">
+      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="10" fill="#1E0A14" stroke="#E63946" stroke-width="3" filter="url(#softShadow)"/>
+    <circle r="3.5" fill="#FCA5A5">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
   </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SEC OPS</text>
-  <!-- Card 2: CLOUD SEC -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#f59e0b" stroke-width="1.8" transform="scale(0.65)"/>
-  </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOUD SEC</text>
-  <!-- Card 3: THREAT INT -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
-  </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <!-- Card 4: AI AGENT -->
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#22c55e" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#22c55e" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#22c55e" stroke-width="1.2" opacity="0.5"/>
-  </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  <!-- Card 5: PATCH MGT -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">CVE</text>
-  </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
+</g>
 
-  <!-- Threat map area -->
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+<!-- Dashed drop lines from anchors to column tops -->
+<line x1="560" y1="180" x2="240" y2="216" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
+<line x1="900" y1="180" x2="620" y2="216" stroke="#22C55E" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
+<line x1="1100" y1="180" x2="1000" y2="216" stroke="#E63946" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
 
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
+<!-- COL A: CrashFix Python RAT (Feb 03) -->
+<g transform="translate(72,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colA)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#3A86FF" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">HIGH  /  AI MALWARE</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">CrashFix Python RAT</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#BFC9D9">ClickFix variant targets enterprise</text>
   </g>
-  <!-- Node: SEC OPS -->
-  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">SEC</text>
-  <!-- Node: CLOUD SEC -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOU</text>
-  <!-- Node: THREAT INT -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">THRE</text>
-  <!-- Node: AI AGENT -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">AI</text>
-  <!-- Node: PATCH MGT -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">PATC</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
+  <!-- Scene: terminal + payload drop -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <rect x="-52" y="-30" width="104" height="56" rx="5" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.6"/>
+      <circle cx="-40" cy="-18" r="3" fill="#E63946">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-30" cy="-18" r="3" fill="#FFB703"/>
+      <circle cx="-20" cy="-18" r="3" fill="#22C55E"/>
+      <rect x="-44" y="-8" width="60" height="4" rx="1" fill="#3A86FF" opacity="0.5"/>
+      <rect x="-44" y="0" width="44" height="4" rx="1" fill="#8FB8FF" opacity="0.35"/>
+      <rect x="-44" y="8" width="50" height="4" rx="1" fill="#3A86FF" opacity="0.4"/>
+      <text x="0" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#8FB8FF">PYTHON RAT</text>
+    </g>
+    <g stroke="#3A86FF" stroke-width="1.2" fill="none">
+      <line x1="-20" y1="28" x2="-40" y2="52" stroke-dasharray="3 2">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+      </line>
+      <line x1="0" y1="28" x2="0" y2="52" stroke-dasharray="3 2">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/>
+      </line>
+      <line x1="20" y1="28" x2="40" y2="52" stroke-dasharray="3 2">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <g>
+      <rect x="-48" y="52" width="16" height="14" rx="2" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1"/>
+      <text x="-40" y="63" text-anchor="middle" font-family="Inter, monospace" font-size="6" font-weight="800" fill="#3A86FF">PC</text>
+      <rect x="-8" y="52" width="16" height="14" rx="2" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1"/>
+      <text x="0" y="63" text-anchor="middle" font-family="Inter, monospace" font-size="6" font-weight="800" fill="#3A86FF">SRV</text>
+      <rect x="32" y="52" width="16" height="14" rx="2" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1"/>
+      <text x="40" y="63" text-anchor="middle" font-family="Inter, monospace" font-size="6" font-weight="800" fill="#3A86FF">DB</text>
+    </g>
+  </g>
+  <!-- Attack chain -->
+  <g transform="translate(28,208)">
+    <g>
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">ClickFix lure + clipboard hijack</text>
+    </g>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Python RAT drop via mshta</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#12283F" stroke="#8FB8FF" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#8FB8FF"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1020">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">C2 persistence + data theft</text>
+    </g>
+  </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#12283F" stroke="#3A86FF" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#8FB8FF">TYPE</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">CrashFix RAT</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#8FB8FF">HIGH</text>
+  </g>
+</g>
 
-  <!-- Footer -->
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+<!-- COL B: AISURU 31.4 Tbps DDoS Botnet (Feb 05) -->
+<g transform="translate(432,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colB)" stroke="#22C55E" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#22C55E" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#22C55E" letter-spacing="2.4">CRITICAL  /  BOTNET</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">AISURU DDoS Record</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#86EFAC">31.4 Tbps world record attack</text>
+  </g>
+  <!-- Scene: globe + attack rays -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <circle cx="0" cy="0" r="30" fill="#0E2A14" stroke="#22C55E" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="14" ry="30" fill="none" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+      <line x1="-30" y1="-10" x2="30" y2="-10" stroke="#22C55E" stroke-width="0.7" opacity="0.3"/>
+      <line x1="-30" y1="10" x2="30" y2="10" stroke="#22C55E" stroke-width="0.7" opacity="0.3"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#86EFAC">GLOBAL</text>
+    </g>
+    <g stroke="#22C55E" stroke-width="1.4" fill="none">
+      <line x1="-60" y1="-40" x2="-32" y2="-18">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-65" y1="0" x2="-32" y2="0">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.6s" begin="0.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-60" y1="40" x2="-32" y2="18">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="-40" x2="32" y2="-18">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.7s" begin="0.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="65" y1="0" x2="32" y2="0">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.3s" begin="0.5s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="40" x2="32" y2="18">
+        <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <text x="0" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="900" fill="#22C55E">31.4 Tbps</text>
+  </g>
+  <!-- Attack chain -->
+  <g transform="translate(28,208)">
+    <g>
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0E2A14" stroke="#22C55E" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#22C55E"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1202">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">AISURU/Kimwolf botnet compile</text>
+    </g>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#22C55E" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0E2A14" stroke="#22C55E" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#22C55E"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1202">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">IoT device mass exploitation</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#22C55E" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#163A1C" stroke="#86EFAC" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#86EFAC"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1202">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">31.4 Tbps flood world record</text>
+    </g>
+  </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#163A1C" stroke="#22C55E" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#22C55E">PEAK</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="900" fill="#F5F7FA">31.4 Tbps</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#22C55E">RECORD</text>
+  </g>
+</g>
 
-  <!-- Tags -->
-  <rect x="32" y="490" width="83" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="73" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">SEC OPS</text>
-  <rect x="127" y="490" width="101" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="177" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">CLOUD SEC</text>
-  <rect x="240" y="490" width="110" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="295" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <rect x="362" y="490" width="92" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="408" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">AI AGENT</text>
-  <rect x="466" y="490" width="101" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="516" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
+<!-- COL C: Codespaces RCE + AsyncRAT + BYOVD (Feb 06) -->
+<g transform="translate(792,216)">
+  <rect x="0" y="0" width="336" height="390" rx="14" fill="url(#colC)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
+  <rect x="0" y="0" width="336" height="4" fill="#E63946" opacity="0.7"/>
+  <g filter="url(#textShadow)">
+    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2.4">HIGH  /  CLOUD RCE</text>
+    <text x="20" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Codespaces RCE+BYOVD</text>
+    <text x="20" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FBB6BD">AsyncRAT C2 + driver abuse</text>
+  </g>
+  <!-- Scene: cloud with RCE exploit arrow + BYOVD badge -->
+  <g transform="translate(168,140)">
+    <g filter="url(#softShadow)">
+      <ellipse cx="0" cy="4" rx="38" ry="22" fill="#3A0F1A" stroke="#E63946" stroke-width="1.8"/>
+      <ellipse cx="-20" cy="-4" rx="18" ry="14" fill="#3A0F1A" stroke="#E63946" stroke-width="1.4"/>
+      <ellipse cx="20" cy="-4" rx="18" ry="14" fill="#3A0F1A" stroke="#E63946" stroke-width="1.4"/>
+      <ellipse cx="0" cy="-12" rx="14" ry="12" fill="#3A0F1A" stroke="#E63946" stroke-width="1.4"/>
+      <text x="0" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FCA5A5">CODESPACE</text>
+    </g>
+    <g>
+      <line x1="-70" y1="30" x2="-40" y2="10" stroke="#E63946" stroke-width="2.2" stroke-linecap="round">
+        <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+      </line>
+      <polygon points="-40,10 -52,18 -48,6" fill="#E63946">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+      </polygon>
+      <text x="-66" y="46" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FCA5A5">RCE</text>
+    </g>
+    <g transform="translate(52,18)">
+      <rect x="-18" y="-10" width="36" height="20" rx="3" fill="#1E0A14" stroke="#FCA5A5" stroke-width="1.2"/>
+      <text x="0" y="4" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="800" fill="#FCA5A5">BYOVD</text>
+    </g>
+    <text x="0" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCA5A5">MULTI-VECTOR</text>
+  </g>
+  <!-- Attack chain -->
+  <g transform="translate(28,208)">
+    <g>
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A14" stroke="#E63946" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#E63946"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Codespaces RCE initial access</text>
+    </g>
+    <line x1="18" y1="38" x2="18" y2="50" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,54)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A14" stroke="#E63946" stroke-width="1.2"/>
+      <circle cx="18" cy="17" r="7" fill="#E63946"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">AsyncRAT C2 + BYOVD pivot</text>
+    </g>
+    <line x1="18" y1="92" x2="18" y2="104" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
+    <g transform="translate(0,108)">
+      <rect x="0" y="0" width="280" height="34" rx="6" fill="#3A0F1A" stroke="#FCA5A5" stroke-width="1.4"/>
+      <circle cx="18" cy="17" r="7" fill="#FCA5A5"/>
+      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A0005">3</text>
+      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">EDR bypass + lateral movement</text>
+    </g>
+  </g>
+  <!-- KPI pill -->
+  <g transform="translate(28,348)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="32" rx="8" fill="#3A0F1A" stroke="#E63946" stroke-width="1.6"/>
+    <text x="14" y="21" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#F87171">CHAIN</text>
+    <text x="140" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#F5F7FA">RCE+RAT+BYOVD</text>
+    <text x="266" y="21" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#F87171">HIGH</text>
+  </g>
+</g>
 
-  <!-- Bottom bar -->
-  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | February 06, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+<!-- Ambient spark dots along timeline (static) -->
+<g opacity="0.5">
+  <circle cx="320" cy="170" r="1.2" fill="#8FB8FF"/>
+  <circle cx="460" cy="170" r="1.2" fill="#8FB8FF"/>
+  <circle cx="680" cy="170" r="1.2" fill="#86EFAC"/>
+  <circle cx="810" cy="170" r="1.2" fill="#86EFAC"/>
+  <circle cx="1010" cy="170" r="1.2" fill="#FCA5A5"/>
+</g>
+
+<!-- QR placeholder -->
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/06/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/ : 41x41 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(2.048780)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h1v1h-1zM14 0h2v1h-2zM18 0h1v1h-1zM21 0h2v1h-2zM25 0h6v1h-6zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h4v1h-4zM14 1h2v1h-2zM18 1h5v1h-5zM24 1h3v1h-3zM29 1h1v1h-1zM31 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h3v1h-3zM17 2h3v1h-3zM22 2h3v1h-3zM26 2h2v1h-2zM29 2h2v1h-2zM32 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM12 3h3v1h-3zM16 3h2v1h-2zM20 3h2v1h-2zM23 3h5v1h-5zM29 3h2v1h-2zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h4v1h-4zM13 4h2v1h-2zM17 4h1v1h-1zM19 4h1v1h-1zM25 4h1v1h-1zM27 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM12 5h1v1h-1zM14 5h4v1h-4zM19 5h1v1h-1zM21 5h1v1h-1zM26 5h1v1h-1zM31 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h4v1h-4zM13 7h3v1h-3zM17 7h1v1h-1zM19 7h4v1h-4zM24 7h1v1h-1zM27 7h3v1h-3zM31 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM13 8h3v1h-3zM17 8h1v1h-1zM20 8h4v1h-4zM28 8h2v1h-2zM31 8h1v1h-1zM33 8h5v1h-5zM40 8h1v1h-1zM2 9h2v1h-2zM5 9h1v1h-1zM8 9h1v1h-1zM10 9h2v1h-2zM14 9h3v1h-3zM18 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM27 9h1v1h-1zM30 9h1v1h-1zM33 9h1v1h-1zM35 9h3v1h-3zM39 9h2v1h-2zM0 10h2v1h-2zM3 10h1v1h-1zM6 10h1v1h-1zM8 10h2v1h-2zM11 10h1v1h-1zM13 10h1v1h-1zM15 10h2v1h-2zM21 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h3v1h-3zM32 10h1v1h-1zM40 10h1v1h-1zM0 11h3v1h-3zM5 11h1v1h-1zM8 11h1v1h-1zM11 11h1v1h-1zM14 11h1v1h-1zM17 11h8v1h-8zM29 11h1v1h-1zM31 11h7v1h-7zM40 11h1v1h-1zM1 12h6v1h-6zM9 12h2v1h-2zM12 12h1v1h-1zM14 12h1v1h-1zM17 12h1v1h-1zM20 12h3v1h-3zM26 12h2v1h-2zM29 12h2v1h-2zM33 12h1v1h-1zM35 12h1v1h-1zM39 12h1v1h-1zM0 13h1v1h-1zM2 13h2v1h-2zM7 13h1v1h-1zM10 13h1v1h-1zM12 13h1v1h-1zM15 13h5v1h-5zM21 13h1v1h-1zM24 13h1v1h-1zM26 13h4v1h-4zM31 13h1v1h-1zM34 13h3v1h-3zM39 13h2v1h-2zM0 14h2v1h-2zM5 14h3v1h-3zM9 14h1v1h-1zM11 14h1v1h-1zM14 14h2v1h-2zM18 14h2v1h-2zM23 14h2v1h-2zM27 14h1v1h-1zM33 14h2v1h-2zM36 14h3v1h-3zM40 14h1v1h-1zM2 15h1v1h-1zM4 15h2v1h-2zM10 15h1v1h-1zM12 15h1v1h-1zM15 15h7v1h-7zM23 15h1v1h-1zM26 15h2v1h-2zM29 15h2v1h-2zM32 15h1v1h-1zM35 15h1v1h-1zM37 15h1v1h-1zM40 15h1v1h-1zM2 16h1v1h-1zM6 16h1v1h-1zM9 16h1v1h-1zM14 16h1v1h-1zM17 16h1v1h-1zM20 16h1v1h-1zM22 16h1v1h-1zM29 16h1v1h-1zM31 16h2v1h-2zM35 16h1v1h-1zM39 16h1v1h-1zM0 17h2v1h-2zM3 17h1v1h-1zM5 17h1v1h-1zM7 17h2v1h-2zM10 17h1v1h-1zM12 17h1v1h-1zM16 17h2v1h-2zM19 17h1v1h-1zM23 17h1v1h-1zM25 17h2v1h-2zM28 17h1v1h-1zM30 17h1v1h-1zM33 17h6v1h-6zM40 17h1v1h-1zM3 18h4v1h-4zM9 18h1v1h-1zM11 18h3v1h-3zM15 18h2v1h-2zM18 18h1v1h-1zM20 18h5v1h-5zM26 18h2v1h-2zM29 18h2v1h-2zM32 18h1v1h-1zM34 18h2v1h-2zM38 18h3v1h-3zM1 19h2v1h-2zM4 19h1v1h-1zM7 19h2v1h-2zM13 19h1v1h-1zM16 19h1v1h-1zM19 19h3v1h-3zM29 19h1v1h-1zM32 19h4v1h-4zM37 19h1v1h-1zM40 19h1v1h-1zM0 20h2v1h-2zM4 20h3v1h-3zM8 20h1v1h-1zM11 20h3v1h-3zM15 20h1v1h-1zM24 20h1v1h-1zM26 20h4v1h-4zM31 20h1v1h-1zM33 20h1v1h-1zM37 20h1v1h-1zM39 20h2v1h-2zM1 21h1v1h-1zM4 21h2v1h-2zM8 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM18 21h2v1h-2zM22 21h6v1h-6zM30 21h1v1h-1zM32 21h5v1h-5zM38 21h1v1h-1zM40 21h1v1h-1zM0 22h2v1h-2zM4 22h1v1h-1zM6 22h4v1h-4zM13 22h1v1h-1zM15 22h1v1h-1zM21 22h3v1h-3zM26 22h2v1h-2zM29 22h2v1h-2zM32 22h1v1h-1zM36 22h1v1h-1zM40 22h1v1h-1zM1 23h1v1h-1zM5 23h1v1h-1zM8 23h4v1h-4zM14 23h5v1h-5zM21 23h1v1h-1zM24 23h1v1h-1zM29 23h4v1h-4zM35 23h1v1h-1zM37 23h1v1h-1zM39 23h2v1h-2zM0 24h1v1h-1zM3 24h2v1h-2zM6 24h1v1h-1zM10 24h2v1h-2zM14 24h1v1h-1zM17 24h1v1h-1zM20 24h3v1h-3zM24 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM32 24h2v1h-2zM35 24h1v1h-1zM38 24h1v1h-1zM0 25h2v1h-2zM3 25h3v1h-3zM7 25h1v1h-1zM10 25h2v1h-2zM18 25h1v1h-1zM23 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM32 25h2v1h-2zM35 25h2v1h-2zM38 25h1v1h-1zM40 25h1v1h-1zM1 26h1v1h-1zM3 26h1v1h-1zM5 26h3v1h-3zM10 26h1v1h-1zM13 26h6v1h-6zM20 26h2v1h-2zM23 26h6v1h-6zM32 26h1v1h-1zM35 26h1v1h-1zM40 26h1v1h-1zM1 27h1v1h-1zM5 27h1v1h-1zM7 27h1v1h-1zM9 27h2v1h-2zM12 27h1v1h-1zM16 27h6v1h-6zM24 27h1v1h-1zM26 27h4v1h-4zM31 27h2v1h-2zM37 27h1v1h-1zM39 27h1v1h-1zM0 28h2v1h-2zM4 28h1v1h-1zM6 28h3v1h-3zM12 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM21 28h4v1h-4zM26 28h2v1h-2zM29 28h2v1h-2zM32 28h2v1h-2zM35 28h1v1h-1zM39 28h2v1h-2zM0 29h1v1h-1zM2 29h1v1h-1zM5 29h1v1h-1zM7 29h4v1h-4zM15 29h1v1h-1zM18 29h3v1h-3zM25 29h1v1h-1zM27 29h3v1h-3zM33 29h8v1h-8zM6 30h4v1h-4zM11 30h5v1h-5zM17 30h2v1h-2zM20 30h3v1h-3zM25 30h6v1h-6zM32 30h2v1h-2zM36 30h1v1h-1zM40 30h1v1h-1zM2 31h2v1h-2zM9 31h1v1h-1zM12 31h3v1h-3zM17 31h1v1h-1zM21 31h1v1h-1zM24 31h1v1h-1zM26 31h1v1h-1zM28 31h2v1h-2zM32 31h2v1h-2zM36 31h2v1h-2zM0 32h2v1h-2zM6 32h5v1h-5zM12 32h1v1h-1zM17 32h1v1h-1zM19 32h1v1h-1zM22 32h2v1h-2zM28 32h2v1h-2zM31 32h7v1h-7zM8 33h3v1h-3zM13 33h3v1h-3zM18 33h2v1h-2zM21 33h1v1h-1zM23 33h1v1h-1zM26 33h1v1h-1zM28 33h2v1h-2zM31 33h2v1h-2zM36 33h2v1h-2zM40 33h1v1h-1zM0 34h7v1h-7zM8 34h4v1h-4zM13 34h1v1h-1zM15 34h1v1h-1zM17 34h1v1h-1zM20 34h1v1h-1zM23 34h5v1h-5zM29 34h1v1h-1zM31 34h2v1h-2zM34 34h1v1h-1zM36 34h2v1h-2zM40 34h1v1h-1zM0 35h1v1h-1zM6 35h1v1h-1zM12 35h7v1h-7zM22 35h3v1h-3zM26 35h4v1h-4zM31 35h2v1h-2zM36 35h2v1h-2zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM8 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h3v1h-3zM18 36h1v1h-1zM20 36h1v1h-1zM22 36h1v1h-1zM25 36h3v1h-3zM29 36h1v1h-1zM31 36h6v1h-6zM39 36h2v1h-2zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM9 37h1v1h-1zM11 37h3v1h-3zM15 37h3v1h-3zM23 37h5v1h-5zM35 37h1v1h-1zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM9 38h3v1h-3zM14 38h1v1h-1zM16 38h3v1h-3zM20 38h1v1h-1zM23 38h1v1h-1zM25 38h4v1h-4zM31 38h1v1h-1zM33 38h1v1h-1zM37 38h2v1h-2zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM13 39h2v1h-2zM19 39h1v1h-1zM21 39h1v1h-1zM23 39h1v1h-1zM26 39h1v1h-1zM29 39h2v1h-2zM32 39h4v1h-4zM37 39h1v1h-1zM39 39h2v1h-2zM0 40h7v1h-7zM8 40h2v1h-2zM12 40h1v1h-1zM16 40h7v1h-7zM24 40h1v1h-1zM29 40h1v1h-1zM31 40h9v1h-9z"/>
+  </g>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>

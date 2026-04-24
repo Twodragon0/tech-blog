@@ -1,134 +1,346 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Security Weekly Digest - February 01, 2026</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="60%" stop-color="#0f1628"/>
-      <stop offset="100%" stop-color="#141b2d"/>
-    </linearGradient>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
-    <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" opacity="0.7"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly metro map: AI discovers OpenSSL zero-days, OWASP Agentic AI Top 10, Fortinet SSO zero-day">
+<title>AI OpenSSL Zero-Day 12 CVEs, OWASP Agentic AI Top 10, Fortinet CVE-2026-24858</title>
+<!-- profile: high-quality-cover (L21 Metro Map, research-based, batch1-locked) -->
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0A1020"/>
+    <stop offset="50%" stop-color="#0C1630"/>
+    <stop offset="100%" stop-color="#0F1A3A"/>
+  </linearGradient>
+  <radialGradient id="pulseRed" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FF4D5E" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#E63946" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="pulseAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFC43D" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#FFA107" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#FFA107" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="pulseCyan" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#5FD3F3" stop-opacity="1"/>
+    <stop offset="60%" stop-color="#2AA8CE" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#2AA8CE" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="15" cy="15" r="0.7" fill="#2E3A66" opacity="0.55"/>
+  </pattern>
+  <filter id="stationShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
+    <feOffset dx="0" dy="2"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="120%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+    <feOffset dx="1" dy="1.5"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="url(#bgGrad)"/>
+<rect width="1200" height="630" fill="url(#dotGrid)"/>
 
-  <!-- Grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+<!-- Subtle grid guides -->
+<g opacity="0.09" stroke="#4A6AA0" stroke-width="0.6" fill="none">
+  <line x1="0" y1="170" x2="1200" y2="170"/>
+  <line x1="0" y1="330" x2="1200" y2="330"/>
+  <line x1="0" y1="490" x2="1200" y2="490"/>
+  <line x1="200" y1="0" x2="200" y2="630"/>
+  <line x1="400" y1="0" x2="400" y2="630"/>
+  <line x1="620" y1="0" x2="620" y2="630"/>
+  <line x1="850" y1="0" x2="850" y2="630"/>
+  <line x1="1050" y1="0" x2="1050" y2="630"/>
+</g>
+
+<!-- ===== HEADER ===== -->
+<g filter="url(#textShadow)">
+  <text x="60" y="52" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#E9EEF8" letter-spacing="1.2">WEEKLY SECURITY DIGEST
+    <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
+  </text>
+  <text x="60" y="78" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7A9BC4" letter-spacing="1.8">2026.02.01 — AI DISCOVERS OPENSSL ZERO-DAYS · OWASP AGENTIC AI · FORTINET SSO</text>
+</g>
+
+<!-- Legend top-right -->
+<g transform="translate(940,34)" filter="url(#textShadow)">
+  <rect x="-6" y="-20" width="244" height="62" rx="10" fill="#14213E" stroke="#3A4E82" stroke-width="1.2">
+    <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <!-- CRITICAL -->
+  <circle cx="12" cy="0" r="5" fill="#E63946">
+    <animate attributeName="r" values="5;6.5;5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="12" cy="0" r="10" fill="url(#pulseRed)" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="26" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">CRITICAL</text>
+  <!-- HIGH -->
+  <circle cx="104" cy="0" r="5" fill="#FFA107">
+    <animate attributeName="r" values="5;6.5;5" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="104" cy="0" r="10" fill="url(#pulseAmber)" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="118" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">HIGH</text>
+  <!-- INFO -->
+  <circle cx="178" cy="0" r="5" fill="#5FD3F3">
+    <animate attributeName="r" values="5;6.5;5" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="178" cy="0" r="10" fill="url(#pulseCyan)" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="192" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">INFO</text>
+  <text x="-2" y="26" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#5A7AB0">SEVERITY — 3 LINES / 15 STATIONS — 2026.02.01</text>
+</g>
+
+<!-- ==================== LINE 1: AI OpenSSL Zero-Day (RED) ==================== -->
+<!-- L1 badge -->
+<g transform="translate(26,170)">
+  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#E63946" filter="url(#stationShadow)"/>
+  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L1</text>
+</g>
+<!-- L1 track glow -->
+<line x1="55" y1="170" x2="1145" y2="170" stroke="#E63946" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+<!-- L1 track main -->
+<line x1="55" y1="170" x2="1145" y2="170" stroke="#E63946" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
+<!-- L1 track shimmer -->
+<line x1="55" y1="170" x2="1145" y2="170" stroke="#FF9AA2" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
+
+<!-- L1 terminus left -->
+<circle cx="70" cy="170" r="12" fill="#0C1630" stroke="#E63946" stroke-width="4"/>
+<circle cx="70" cy="170" r="5" fill="#E63946"/>
+
+<!-- L1 S1: AISLE System -->
+<g filter="url(#stationShadow)">
+  <circle cx="200" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
+  <circle cx="200" cy="170" r="7" fill="#FF4D5E"/>
+  <circle cx="200" cy="170" r="12" fill="url(#pulseRed)" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="200" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">AISLE</text>
+<text x="200" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">AI System</text>
+
+<!-- L1 S2: OpenSSL Target -->
+<g filter="url(#stationShadow)">
+  <circle cx="400" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
+  <circle cx="400" cy="170" r="7" fill="#FF4D5E"/>
+</g>
+<text x="400" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">OPENSSL</text>
+<text x="400" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Scan Target</text>
+<text x="400" y="194" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7A4040" text-anchor="middle">crypto lib</text>
+
+<!-- L1 S3: 12 CVEs Found (major station) -->
+<g filter="url(#stationShadow)">
+  <circle cx="620" cy="170" r="19" fill="#0C1630" stroke="#E63946" stroke-width="4.5"/>
+  <circle cx="620" cy="170" r="10" fill="#FF4D5E"/>
+  <circle cx="620" cy="170" r="17" fill="url(#pulseRed)" opacity="0.55">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.4s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="620" y="144" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#FF4D5E" text-anchor="middle">12 CVEs FOUND</text>
+<text x="620" y="129" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#E63946" text-anchor="middle">HISTORIC MILESTONE</text>
+<text x="620" y="200" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7A4040" text-anchor="middle">zero-days discovered</text>
+
+<!-- L1 S4: Patch Deploy -->
+<g filter="url(#stationShadow)">
+  <circle cx="850" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
+  <circle cx="850" cy="170" r="7" fill="#FF4D5E"/>
+</g>
+<text x="850" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">PATCH</text>
+<text x="850" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Deploy Now</text>
+
+<!-- L1 S5: Verified Secure -->
+<g filter="url(#stationShadow)">
+  <circle cx="1050" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
+  <circle cx="1050" cy="170" r="7" fill="#FF4D5E"/>
+</g>
+<text x="1050" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">VERIFIED</text>
+<text x="1050" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Secure</text>
+
+<!-- L1 terminus right -->
+<circle cx="1145" cy="170" r="12" fill="#0C1630" stroke="#E63946" stroke-width="4"/>
+<circle cx="1145" cy="170" r="5" fill="#E63946"/>
+
+<!-- L1 animated traveler -->
+<circle cx="70" cy="170" r="7" fill="#FF9AA2" opacity="0.9">
+  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="10s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2s" repeatCount="indefinite"/>
+</circle>
+
+<!-- L1 label -->
+<text x="62" y="215" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#E63946" font-weight="700">AI DISCOVERS OPENSSL ZERO-DAYS — AISLE RESEARCH SYSTEM — INFORMATIONAL / STRATEGIC</text>
+
+
+<!-- ==================== LINE 2: OWASP Agentic AI (AMBER) ==================== -->
+<!-- L2 badge -->
+<g transform="translate(26,330)">
+  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#FFA107" filter="url(#stationShadow)"/>
+  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L2</text>
+</g>
+<!-- L2 track glow -->
+<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFA107" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+<!-- L2 track main -->
+<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFA107" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
+<!-- L2 track shimmer -->
+<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFD060" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
+
+<!-- L2 terminus left -->
+<circle cx="70" cy="330" r="12" fill="#0C1630" stroke="#FFA107" stroke-width="4"/>
+<circle cx="70" cy="330" r="5" fill="#FFA107"/>
+
+<!-- L2 S1: Agent Threat Surface -->
+<g filter="url(#stationShadow)">
+  <circle cx="200" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
+  <circle cx="200" cy="330" r="7" fill="#FFC43D"/>
+  <circle cx="200" cy="330" r="12" fill="url(#pulseAmber)" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="200" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">AGENT THREAT</text>
+<text x="200" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Attack Surface</text>
+
+<!-- L2 S2: OWASP Top 10 Framework (major station) -->
+<g filter="url(#stationShadow)">
+  <circle cx="400" cy="330" r="19" fill="#0C1630" stroke="#FFA107" stroke-width="4.5"/>
+  <circle cx="400" cy="330" r="10" fill="#FFC43D"/>
+  <circle cx="400" cy="330" r="17" fill="url(#pulseAmber)" opacity="0.55">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="400" y="354" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#FFC43D" text-anchor="middle">OWASP TOP 10</text>
+<text x="400" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Agentic AI</text>
+<text x="400" y="305" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A7030" text-anchor="middle">official framework</text>
+
+<!-- L2 S3: Prompt Injection -->
+<g filter="url(#stationShadow)">
+  <circle cx="620" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
+  <circle cx="620" cy="330" r="7" fill="#FFC43D"/>
+</g>
+<text x="620" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">PROMPT INJ</text>
+<text x="620" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Top Risk #1</text>
+
+<!-- L2 S4: Tool Misuse -->
+<g filter="url(#stationShadow)">
+  <circle cx="850" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
+  <circle cx="850" cy="330" r="7" fill="#FFC43D"/>
+</g>
+<text x="850" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">TOOL MISUSE</text>
+<text x="850" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Attack Vector</text>
+
+<!-- L2 S5: Governance / NIST -->
+<g filter="url(#stationShadow)">
+  <circle cx="1050" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
+  <circle cx="1050" cy="330" r="7" fill="#FFC43D"/>
+</g>
+<text x="1050" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">GOVERNANCE</text>
+<text x="1050" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">NIST-based</text>
+
+<!-- L2 terminus right -->
+<circle cx="1145" cy="330" r="12" fill="#0C1630" stroke="#FFA107" stroke-width="4"/>
+<circle cx="1145" cy="330" r="5" fill="#FFA107"/>
+
+<!-- L2 animated traveler -->
+<circle cx="70" cy="330" r="7" fill="#FFD090" opacity="0.9">
+  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="12s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.4s" repeatCount="indefinite"/>
+</circle>
+
+<!-- L2 label -->
+<text x="62" y="395" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#FFA107" font-weight="700">OWASP AGENTIC AI TOP 10 — OFFICIAL FRAMEWORK — HIGH SEVERITY</text>
+
+
+<!-- ==================== LINE 3: Fortinet SSO Zero-Day (CYAN) ==================== -->
+<!-- L3 badge -->
+<g transform="translate(26,490)">
+  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#2AA8CE" filter="url(#stationShadow)"/>
+  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L3</text>
+</g>
+<!-- L3 track glow -->
+<line x1="55" y1="490" x2="1145" y2="490" stroke="#2AA8CE" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+<!-- L3 track main -->
+<line x1="55" y1="490" x2="1145" y2="490" stroke="#2AA8CE" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
+<!-- L3 track shimmer -->
+<line x1="55" y1="490" x2="1145" y2="490" stroke="#5FD3F3" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
+
+<!-- L3 terminus left -->
+<circle cx="70" cy="490" r="12" fill="#0C1630" stroke="#2AA8CE" stroke-width="4"/>
+<circle cx="70" cy="490" r="5" fill="#2AA8CE"/>
+
+<!-- L3 S1: CVE-2026-24858 (major station) -->
+<g filter="url(#stationShadow)">
+  <circle cx="200" cy="490" r="19" fill="#0C1630" stroke="#2AA8CE" stroke-width="4.5"/>
+  <circle cx="200" cy="490" r="10" fill="#5FD3F3"/>
+  <circle cx="200" cy="490" r="17" fill="url(#pulseCyan)" opacity="0.55">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="200" y="514" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="900" fill="#5FD3F3" text-anchor="middle">CVE-2026-24858</text>
+<text x="200" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Fortinet SSO</text>
+<text x="200" y="465" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#3A7090" text-anchor="middle">in-the-wild</text>
+
+<!-- L3 S2: Auth Bypass -->
+<g filter="url(#stationShadow)">
+  <circle cx="400" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
+  <circle cx="400" cy="490" r="7" fill="#5FD3F3"/>
+  <circle cx="400" cy="490" r="12" fill="url(#pulseCyan)" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+</g>
+<text x="400" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">AUTH BYPASS</text>
+<text x="400" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">FortiCloud SSO</text>
+
+<!-- L3 S3: FortiGate Access -->
+<g filter="url(#stationShadow)">
+  <circle cx="620" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
+  <circle cx="620" cy="490" r="7" fill="#5FD3F3"/>
+</g>
+<text x="620" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">FORTIGATE</text>
+<text x="620" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Firewall Breach</text>
+
+<!-- L3 S4: Lateral Movement -->
+<g filter="url(#stationShadow)">
+  <circle cx="850" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
+  <circle cx="850" cy="490" r="7" fill="#5FD3F3"/>
+</g>
+<text x="850" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">LATERAL MOVE</text>
+<text x="850" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Network Pivot</text>
+
+<!-- L3 S5: Patch Critical -->
+<g filter="url(#stationShadow)">
+  <circle cx="1050" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
+  <circle cx="1050" cy="490" r="7" fill="#5FD3F3"/>
+</g>
+<text x="1050" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">PATCH NOW</text>
+<text x="1050" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Critical Fix</text>
+
+<!-- L3 terminus right -->
+<circle cx="1145" cy="490" r="12" fill="#0C1630" stroke="#2AA8CE" stroke-width="4"/>
+<circle cx="1145" cy="490" r="5" fill="#2AA8CE"/>
+
+<!-- L3 animated traveler -->
+<circle cx="70" cy="490" r="7" fill="#90E8FF" opacity="0.9">
+  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="14s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.8s" repeatCount="indefinite"/>
+</circle>
+
+<!-- L3 label -->
+<text x="62" y="555" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#2AA8CE" font-weight="700">FORTINET CVE-2026-24858 FORTICLOUD SSO AUTH BYPASS — CRITICAL / IN-THE-WILD</text>
+
+<!-- ===== FOOTER ===== -->
+<rect x="0" y="583" width="1200" height="47" fill="#060E1E" opacity="0.88"/>
+<rect x="0" y="583" width="1200" height="1.5" fill="#1E3060" opacity="0.9"/>
+<text x="60" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0">tech.2twodragon.com · WEEKLY SECURITY DIGEST · 2026-02-01 · AI / OPENSSL / OWASP / FORTINET</text>
+<text x="1140" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0" text-anchor="end">L21 Metro Map</text>
+
+<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/ : 45x45 -->
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <g transform="scale(1.866667)" fill="#0A1020">
+    <path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h1v1h-1zM13 0h3v1h-3zM17 0h2v1h-2zM20 0h1v1h-1zM26 0h6v1h-6zM33 0h1v1h-1zM36 0h1v1h-1zM38 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM13 1h2v1h-2zM16 1h3v1h-3zM22 1h3v1h-3zM26 1h1v1h-1zM29 1h1v1h-1zM31 1h3v1h-3zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h7v1h-7zM17 2h1v1h-1zM19 2h2v1h-2zM22 2h3v1h-3zM26 2h1v1h-1zM28 2h1v1h-1zM30 2h2v1h-2zM33 2h1v1h-1zM35 2h1v1h-1zM38 2h1v1h-1zM40 2h3v1h-3zM44 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h2v1h-2zM16 3h1v1h-1zM19 3h3v1h-3zM24 3h2v1h-2zM28 3h1v1h-1zM30 3h2v1h-2zM35 3h2v1h-2zM38 3h1v1h-1zM40 3h3v1h-3zM44 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM11 4h1v1h-1zM15 4h1v1h-1zM20 4h5v1h-5zM26 4h5v1h-5zM33 4h4v1h-4zM38 4h1v1h-1zM40 4h3v1h-3zM44 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM17 5h1v1h-1zM19 5h2v1h-2zM24 5h2v1h-2zM27 5h6v1h-6zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h7v1h-7zM8 7h1v1h-1zM10 7h1v1h-1zM14 7h7v1h-7zM24 7h1v1h-1zM27 7h1v1h-1zM30 7h2v1h-2zM34 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h5v1h-5zM14 8h4v1h-4zM20 8h5v1h-5zM26 8h2v1h-2zM29 8h1v1h-1zM32 8h1v1h-1zM35 8h1v1h-1zM37 8h5v1h-5zM44 8h1v1h-1zM0 9h1v1h-1zM3 9h2v1h-2zM9 9h1v1h-1zM14 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h3v1h-3zM32 9h2v1h-2zM35 9h8v1h-8zM0 10h3v1h-3zM6 10h1v1h-1zM9 10h1v1h-1zM16 10h2v1h-2zM19 10h1v1h-1zM22 10h2v1h-2zM26 10h4v1h-4zM32 10h2v1h-2zM37 10h5v1h-5zM43 10h1v1h-1zM1 11h1v1h-1zM3 11h1v1h-1zM9 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM16 11h2v1h-2zM22 11h1v1h-1zM24 11h1v1h-1zM27 11h1v1h-1zM30 11h1v1h-1zM32 11h3v1h-3zM40 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h5v1h-5zM12 12h1v1h-1zM14 12h2v1h-2zM17 12h2v1h-2zM20 12h4v1h-4zM27 12h1v1h-1zM29 12h1v1h-1zM31 12h2v1h-2zM35 12h1v1h-1zM37 12h3v1h-3zM41 12h1v1h-1zM43 12h1v1h-1zM1 13h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM7 13h2v1h-2zM11 13h2v1h-2zM15 13h2v1h-2zM19 13h4v1h-4zM26 13h1v1h-1zM29 13h2v1h-2zM32 13h1v1h-1zM36 13h5v1h-5zM43 13h2v1h-2zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM12 14h2v1h-2zM16 14h1v1h-1zM21 14h1v1h-1zM26 14h1v1h-1zM28 14h2v1h-2zM36 14h5v1h-5zM42 14h2v1h-2zM0 15h5v1h-5zM8 15h2v1h-2zM13 15h2v1h-2zM18 15h2v1h-2zM23 15h2v1h-2zM28 15h1v1h-1zM31 15h4v1h-4zM36 15h2v1h-2zM39 15h2v1h-2zM43 15h2v1h-2zM1 16h1v1h-1zM5 16h2v1h-2zM8 16h1v1h-1zM11 16h3v1h-3zM15 16h4v1h-4zM27 16h1v1h-1zM30 16h6v1h-6zM37 16h3v1h-3zM0 17h1v1h-1zM2 17h1v1h-1zM4 17h2v1h-2zM12 17h3v1h-3zM16 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h4v1h-4zM33 17h1v1h-1zM35 17h2v1h-2zM38 17h4v1h-4zM43 17h1v1h-1zM0 18h1v1h-1zM2 18h2v1h-2zM5 18h3v1h-3zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h2v1h-2zM16 18h2v1h-2zM19 18h1v1h-1zM30 18h3v1h-3zM36 18h1v1h-1zM38 18h1v1h-1zM42 18h2v1h-2zM1 19h2v1h-2zM4 19h1v1h-1zM8 19h1v1h-1zM10 19h2v1h-2zM13 19h3v1h-3zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h2v1h-2zM28 19h1v1h-1zM32 19h1v1h-1zM34 19h1v1h-1zM36 19h1v1h-1zM43 19h1v1h-1zM1 20h2v1h-2zM4 20h7v1h-7zM12 20h1v1h-1zM15 20h4v1h-4zM20 20h6v1h-6zM27 20h1v1h-1zM30 20h1v1h-1zM32 20h2v1h-2zM36 20h7v1h-7zM44 20h1v1h-1zM0 21h1v1h-1zM4 21h1v1h-1zM8 21h2v1h-2zM13 21h3v1h-3zM17 21h1v1h-1zM19 21h2v1h-2zM24 21h1v1h-1zM26 21h1v1h-1zM29 21h2v1h-2zM32 21h2v1h-2zM35 21h2v1h-2zM40 21h3v1h-3zM0 22h2v1h-2zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h2v1h-2zM11 22h5v1h-5zM17 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM26 22h2v1h-2zM29 22h2v1h-2zM32 22h2v1h-2zM36 22h1v1h-1zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM0 23h2v1h-2zM4 23h1v1h-1zM8 23h1v1h-1zM11 23h2v1h-2zM14 23h1v1h-1zM19 23h2v1h-2zM24 23h2v1h-2zM30 23h1v1h-1zM34 23h3v1h-3zM40 23h1v1h-1zM43 23h2v1h-2zM1 24h2v1h-2zM4 24h6v1h-6zM12 24h3v1h-3zM16 24h1v1h-1zM18 24h7v1h-7zM27 24h1v1h-1zM29 24h1v1h-1zM32 24h2v1h-2zM35 24h7v1h-7zM43 24h2v1h-2zM0 25h1v1h-1zM2 25h1v1h-1zM5 25h1v1h-1zM9 25h3v1h-3zM13 25h2v1h-2zM17 25h2v1h-2zM20 25h1v1h-1zM22 25h3v1h-3zM26 25h1v1h-1zM29 25h2v1h-2zM32 25h2v1h-2zM36 25h3v1h-3zM42 25h2v1h-2zM0 26h4v1h-4zM6 26h1v1h-1zM14 26h2v1h-2zM17 26h1v1h-1zM20 26h2v1h-2zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM30 26h1v1h-1zM33 26h1v1h-1zM35 26h1v1h-1zM37 26h1v1h-1zM39 26h1v1h-1zM42 26h2v1h-2zM1 27h2v1h-2zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h3v1h-3zM13 27h3v1h-3zM17 27h2v1h-2zM20 27h1v1h-1zM22 27h2v1h-2zM25 27h1v1h-1zM31 27h4v1h-4zM36 27h2v1h-2zM39 27h3v1h-3zM3 28h2v1h-2zM6 28h2v1h-2zM11 28h2v1h-2zM15 28h1v1h-1zM18 28h1v1h-1zM20 28h2v1h-2zM26 28h2v1h-2zM31 28h2v1h-2zM34 28h1v1h-1zM37 28h1v1h-1zM39 28h2v1h-2zM44 28h1v1h-1zM1 29h1v1h-1zM4 29h1v1h-1zM7 29h1v1h-1zM9 29h2v1h-2zM14 29h1v1h-1zM16 29h4v1h-4zM21 29h3v1h-3zM26 29h1v1h-1zM28 29h5v1h-5zM35 29h1v1h-1zM37 29h1v1h-1zM39 29h1v1h-1zM41 29h1v1h-1zM44 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM4 30h1v1h-1zM6 30h3v1h-3zM13 30h1v1h-1zM15 30h1v1h-1zM18 30h2v1h-2zM21 30h4v1h-4zM26 30h5v1h-5zM33 30h1v1h-1zM35 30h1v1h-1zM39 30h3v1h-3zM43 30h1v1h-1zM1 31h2v1h-2zM4 31h1v1h-1zM8 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM14 31h1v1h-1zM16 31h1v1h-1zM19 31h3v1h-3zM23 31h1v1h-1zM25 31h3v1h-3zM32 31h1v1h-1zM34 31h1v1h-1zM38 31h3v1h-3zM43 31h1v1h-1zM0 32h1v1h-1zM2 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM14 32h2v1h-2zM17 32h1v1h-1zM21 32h1v1h-1zM24 32h4v1h-4zM29 32h1v1h-1zM31 32h2v1h-2zM36 32h4v1h-4zM41 32h1v1h-1zM43 32h1v1h-1zM0 33h1v1h-1zM2 33h3v1h-3zM11 33h2v1h-2zM14 33h1v1h-1zM19 33h1v1h-1zM22 33h3v1h-3zM26 33h2v1h-2zM29 33h5v1h-5zM35 33h1v1h-1zM37 33h1v1h-1zM39 33h1v1h-1zM41 33h3v1h-3zM4 34h1v1h-1zM6 34h4v1h-4zM11 34h1v1h-1zM13 34h1v1h-1zM15 34h1v1h-1zM17 34h2v1h-2zM20 34h3v1h-3zM25 34h1v1h-1zM28 34h3v1h-3zM32 34h1v1h-1zM34 34h2v1h-2zM40 34h1v1h-1zM42 34h2v1h-2zM1 35h4v1h-4zM8 35h1v1h-1zM15 35h2v1h-2zM19 35h2v1h-2zM22 35h1v1h-1zM25 35h1v1h-1zM27 35h1v1h-1zM32 35h1v1h-1zM37 35h4v1h-4zM43 35h1v1h-1zM0 36h1v1h-1zM3 36h2v1h-2zM6 36h1v1h-1zM9 36h1v1h-1zM11 36h1v1h-1zM13 36h4v1h-4zM18 36h1v1h-1zM20 36h5v1h-5zM26 36h2v1h-2zM29 36h2v1h-2zM32 36h1v1h-1zM34 36h1v1h-1zM36 36h5v1h-5zM42 36h1v1h-1zM44 36h1v1h-1zM8 37h1v1h-1zM10 37h2v1h-2zM14 37h1v1h-1zM17 37h1v1h-1zM20 37h1v1h-1zM24 37h1v1h-1zM26 37h8v1h-8zM35 37h2v1h-2zM40 37h3v1h-3zM0 38h7v1h-7zM8 38h2v1h-2zM11 38h1v1h-1zM14 38h2v1h-2zM18 38h3v1h-3zM22 38h1v1h-1zM24 38h8v1h-8zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM11 39h3v1h-3zM15 39h6v1h-6zM24 39h4v1h-4zM29 39h1v1h-1zM33 39h2v1h-2zM36 39h1v1h-1zM40 39h1v1h-1zM43 39h2v1h-2zM0 40h1v1h-1zM2 40h3v1h-3zM6 40h1v1h-1zM8 40h4v1h-4zM13 40h1v1h-1zM16 40h2v1h-2zM19 40h6v1h-6zM27 40h1v1h-1zM30 40h1v1h-1zM32 40h10v1h-10zM0 41h1v1h-1zM2 41h3v1h-3zM6 41h1v1h-1zM9 41h4v1h-4zM14 41h2v1h-2zM19 41h2v1h-2zM23 41h1v1h-1zM26 41h5v1h-5zM33 41h1v1h-1zM36 41h2v1h-2zM39 41h1v1h-1zM41 41h1v1h-1zM0 42h1v1h-1zM2 42h3v1h-3zM6 42h1v1h-1zM10 42h2v1h-2zM13 42h2v1h-2zM18 42h2v1h-2zM22 42h1v1h-1zM24 42h1v1h-1zM26 42h1v1h-1zM29 42h5v1h-5zM37 42h1v1h-1zM40 42h1v1h-1zM42 42h2v1h-2zM0 43h1v1h-1zM6 43h1v1h-1zM15 43h2v1h-2zM18 43h1v1h-1zM20 43h1v1h-1zM24 43h1v1h-1zM30 43h3v1h-3zM36 43h2v1h-2zM40 43h2v1h-2zM0 44h7v1h-7zM8 44h1v1h-1zM11 44h1v1h-1zM13 44h5v1h-5zM20 44h5v1h-5zM27 44h1v1h-1zM29 44h1v1h-1zM31 44h5v1h-5zM37 44h1v1h-1zM40 44h2v1h-2zM44 44h1v1h-1z"/>
   </g>
-
-  <!-- Glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.05" filter="url(#glow)"/>
-  <circle cx="1000" cy="300" r="180" fill="#3b82f6" opacity="0.06" filter="url(#glow)"/>
-
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="url(#hg)" opacity="0.9"/>
-  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
-  <g transform="translate(48,40)">
-    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </g>
-  <text x="80" y="44" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#f1f5f9">Security Weekly Digest</text>
-  <rect x="990" y="18" width="178" height="44" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="1079" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#94a3b8" text-anchor="middle">February 01, 2026</text>
-
-  <!-- Card 1: AI AGENT -->
-  <rect x="32" y="100" width="220" height="120" rx="8" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
-  <circle cx="52" cy="120" r="6" fill="#ef4444"/>
-  <g transform="translate(142,148)">
-    <circle cx="-12" cy="-8" r="4" fill="none" stroke="#ef4444" stroke-width="1.5"/><circle cx="12" cy="-8" r="4" fill="none" stroke="#ef4444" stroke-width="1.5"/><circle cx="0" cy="8" r="5" fill="none" stroke="#ef4444" stroke-width="1.8"/><line x1="-8" y1="-6" x2="-2" y2="6" stroke="#ef4444" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="-6" x2="2" y2="6" stroke="#ef4444" stroke-width="1.2" opacity="0.7"/><line x1="-8" y1="-8" x2="8" y2="-8" stroke="#ef4444" stroke-width="1.2" opacity="0.5"/>
-  </g>
-  <text x="142" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">AI AGENT</text>
-  <!-- Card 2: SEC OPS -->
-  <rect x="268" y="100" width="220" height="120" rx="8" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="288" cy="120" r="6" fill="#f59e0b"/>
-  <g transform="translate(378,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
-  </g>
-  <text x="378" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC OPS</text>
-  <!-- Card 3: THREAT INT -->
-  <rect x="504" y="100" width="220" height="120" rx="8" fill="#0a1020" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="524" cy="120" r="6" fill="#3b82f6"/>
-  <g transform="translate(614,148)">
-    <path d="M0,-16 L14,-8 L14,4 C14,12 8,16 0,20 C-8,16 -14,12 -14,4 L-14,-8 Z" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
-  </g>
-  <text x="614" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <!-- Card 4: CLOUD SEC -->
-  <rect x="740" y="100" width="200" height="120" rx="8" fill="#071a10" stroke="#22c55e" stroke-width="1.5"/>
-  <circle cx="760" cy="120" r="6" fill="#22c55e"/>
-  <g transform="translate(840,148)">
-    <path d="M-16,8 C-24,8 -26,-2 -20,-8 C-18,-18 -6,-22 4,-18 C8,-26 20,-26 24,-16 C30,-16 32,-8 28,0 C26,8 16,8 8,8 Z" fill="none" stroke="#22c55e" stroke-width="1.8" transform="scale(0.65)"/>
-  </g>
-  <text x="840" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">CLOUD SEC</text>
-  <!-- Card 5: PATCH MGT -->
-  <rect x="956" y="100" width="212" height="120" rx="8" fill="#071a20" stroke="#22d3ee" stroke-width="1.5"/>
-  <circle cx="976" cy="120" r="6" fill="#22d3ee"/>
-  <g transform="translate(1062,148)">
-    <path d="M0,-18 L16,12 L-16,12 Z" fill="none" stroke="#22d3ee" stroke-width="1.8"/><text x="0" y="6" font-family="Courier New" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">CVE</text>
-  </g>
-  <text x="1062" y="197" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
-
-  <!-- Threat map area -->
-  <rect x="32" y="240" width="1136" height="220" rx="10" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
-
-  <!-- Ambient dots -->
-  <g opacity="0.25">
-    <circle cx="180" cy="330" r="2" fill="#94a3b8"/><circle cx="200" cy="340" r="2" fill="#94a3b8"/>
-    <circle cx="550" cy="310" r="2" fill="#94a3b8"/><circle cx="570" cy="325" r="2" fill="#94a3b8"/>
-    <circle cx="750" cy="320" r="2" fill="#94a3b8"/><circle cx="900" cy="330" r="2" fill="#94a3b8"/>
-    <circle cx="350" cy="350" r="2" fill="#94a3b8"/><circle cx="1000" cy="340" r="2" fill="#94a3b8"/>
-  </g>
-  <!-- Node: AI AGENT -->
-  <circle cx="170" cy="340" r="22" fill="#1a0505" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle">AI</text>
-  <!-- Node: SEC OPS -->
-  <circle cx="370" cy="350" r="20" fill="#1a0d0d" stroke="#f59e0b" stroke-width="2"/>
-  <text x="370" y="354" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC</text>
-  <!-- Node: THREAT INT -->
-  <circle cx="580" cy="330" r="22" fill="#0a1020" stroke="#3b82f6" stroke-width="2"/>
-  <text x="580" y="334" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3b82f6" text-anchor="middle">THRE</text>
-  <!-- Node: CLOUD SEC -->
-  <circle cx="780" cy="355" r="18" fill="#071a10" stroke="#22c55e" stroke-width="2"/>
-  <text x="780" y="359" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">CLOU</text>
-  <!-- Node: PATCH MGT -->
-  <circle cx="980" cy="340" r="22" fill="#071a20" stroke="#22d3ee" stroke-width="2"/>
-  <text x="980" y="344" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#22d3ee" text-anchor="middle">PATC</text>
-  <line x1="192" y1="340" x2="350" y2="350" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="390" y1="350" x2="558" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="602" y1="330" x2="762" y2="355" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-  <line x1="798" y1="355" x2="958" y2="340" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.6" marker-end="url(#ar)"/>
-
-  <!-- Footer -->
-  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
-  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
-
-  <!-- Tags -->
-  <rect x="32" y="490" width="92" height="24" rx="4" fill="#1a0505" stroke="#ef4444" stroke-width="1"/>
-  <text x="78" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444" text-anchor="middle">AI AGENT</text>
-  <rect x="136" y="490" width="83" height="24" rx="4" fill="#1a0d0d" stroke="#f59e0b" stroke-width="1"/>
-  <text x="177" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">SEC OPS</text>
-  <rect x="231" y="490" width="110" height="24" rx="4" fill="#0a1020" stroke="#3b82f6" stroke-width="1"/>
-  <text x="286" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#3b82f6" text-anchor="middle">THREAT INT</text>
-  <rect x="353" y="490" width="101" height="24" rx="4" fill="#071a10" stroke="#22c55e" stroke-width="1"/>
-  <text x="403" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22c55e" text-anchor="middle">CLOUD SEC</text>
-  <rect x="466" y="490" width="101" height="24" rx="4" fill="#071a20" stroke="#22d3ee" stroke-width="1"/>
-  <text x="516" y="506" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">PATCH MGT</text>
-
-  <!-- Bottom bar -->
-  <circle cx="32" cy="545" r="4" fill="#ef4444" opacity="0.6"/>
-  <text x="46" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569">Security Weekly Digest | February 01, 2026</text>
-  <text x="1168" y="550" font-family="Arial,sans-serif" font-size="12" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
