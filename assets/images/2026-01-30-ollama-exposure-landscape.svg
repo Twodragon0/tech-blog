@@ -69,6 +69,7 @@
   <text x="80" y="370" font-size="14" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="2">AI EXPOSURE ANALYSIS</text>
   
   <rect x="80" y="402" width="90" height="36" rx="18" fill="rgba(108,92,231,0.25)" stroke="rgba(108,92,231,0.5)" stroke-width="1" />
+  <text x="125" y="425" font-size="12" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">Ollama</text>
   <rect x="186" y="402" width="120" height="36" rx="18" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.45)" stroke-width="1" />
   <text x="246" y="425" font-size="13" fill="rgba(255,255,255,0.85)" font-family="sans-serif" text-anchor="middle">AI Exposure</text>
   <rect x="322" y="402" width="130" height="36" rx="18" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1" />

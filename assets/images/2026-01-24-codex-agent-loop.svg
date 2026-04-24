@@ -34,6 +34,9 @@
   <polygon points="893,409 885,417 895,419" fill="rgba(108,92,231,0.4)" />
   <path d="M840 346 Q860 280 943 230" fill="none" stroke="rgba(0,206,201,0.5)" stroke-width="2" />
   <polygon points="940,227 950,235 942,238" fill="rgba(0,206,201,0.5)" />
+  <text x="970" y="205" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Think</text>
+  <text x="1085" y="385" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Act</text>
+  <text x="855" y="385" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Observe</text>
   <rect x="0" y="0" width="6" height="630" fill="url(#accent)" />
   <rect x="80" y="44" width="240" height="34" rx="17" fill="rgba(0,206,201,0.15)" stroke="rgba(0,206,201,0.4)" stroke-width="1" />
   <text x="200" y="66" font-family="Arial,sans-serif" font-size="13" fill="#00cec9" text-anchor="middle" letter-spacing="2">JANUARY 24, 2026</text>
