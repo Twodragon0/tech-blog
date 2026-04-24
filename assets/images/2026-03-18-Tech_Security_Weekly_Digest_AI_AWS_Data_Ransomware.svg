@@ -1,69 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover: AI Sandbox DNS Exfil, LeakNet Ransomware, GKE Multi-Cluster">
-<title>Weekly Digest 2026-03-18: AI Sandbox DNS Exfil / LeakNet Ransomware / GKE Multi-Cluster</title>
-<!-- profile: high-quality-cover (L21 Metro Map, research-based, batch3b-locked) -->
-<defs>
-  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#07090F"/><stop offset="100%" stop-color="#0C1020"/></linearGradient>
-  <filter id="sh"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<rect width="1200" height="630" fill="url(#bg)"/>
-<rect x="0" y="0" width="1200" height="42" fill="#0A1220" opacity="0.98"/>
-<text x="40" y="27" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#E63946">TECH SECURITY WEEKLY DIGEST</text>
-<text x="1160" y="27" text-anchor="end" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#4A6070">2026-03-18</text>
-<!-- Metro lines -->
-<path d="M120,180 Q300,180 360,290 Q420,400 600,400" fill="none" stroke="#E63946" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-<path d="M120,290 L600,290" fill="none" stroke="#F5A623" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-<path d="M120,400 Q300,400 360,290 Q420,180 600,180" fill="none" stroke="#4DE8D0" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-<!-- Station 1 -->
-<circle cx="120" cy="180" r="20" fill="#E63946" opacity="0.2" stroke="#E63946" stroke-width="2.5"/>
-<circle cx="120" cy="180" r="10" fill="#E63946"/>
-<rect x="150" y="110" width="320" height="130" rx="10" fill="#100A20" stroke="#E63946" stroke-width="1.5" filter="url(#sh)"/>
-<text x="175" y="138" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#E63946">BEDROCK/LANGSMITH FLAW</text>
-<text x="175" y="168" font-family="Inter,Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#F0F4FA">AI Sandbox DNS Exfil</text>
-<text x="175" y="192" font-family="Inter,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#E63946">Bedrock/LangSmith Flaw</text>
-<text x="175" y="212" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" fill="#5A7080">Critical — immediate action required</text>
-<!-- Station 2 -->
-<circle cx="120" cy="290" r="20" fill="#F5A623" opacity="0.2" stroke="#F5A623" stroke-width="2.5"/>
-<circle cx="120" cy="290" r="10" fill="#F5A623"/>
-<rect x="150" y="228" width="320" height="120" rx="10" fill="#0A1428" stroke="#F5A623" stroke-width="1.5" filter="url(#sh)"/>
-<text x="175" y="254" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#F5A623">CLICKFIX LOADER</text>
-<text x="175" y="282" font-family="Inter,Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#F0F4FA">LeakNet Ransomware</text>
-<text x="175" y="306" font-family="Inter,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#F5A623">ClickFix Loader</text>
-<text x="175" y="326" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" fill="#5A7080">High priority — patch within 24h</text>
-<!-- Station 3 -->
-<circle cx="120" cy="400" r="20" fill="#4DE8D0" opacity="0.2" stroke="#4DE8D0" stroke-width="2.5"/>
-<circle cx="120" cy="400" r="10" fill="#4DE8D0"/>
-<rect x="150" y="340" width="320" height="120" rx="10" fill="#061814" stroke="#4DE8D0" stroke-width="1.5" filter="url(#sh)"/>
-<text x="175" y="366" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#4DE8D0">INFERENCE GATEWAY</text>
-<text x="175" y="394" font-family="Inter,Helvetica,Arial,sans-serif" font-size="20" font-weight="800" fill="#F0F4FA">GKE Multi-Cluster</text>
-<text x="175" y="418" font-family="Inter,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#4DE8D0">Inference Gateway</text>
-<text x="175" y="438" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" fill="#5A7080">Monitor — implement defense</text>
-<!-- Right summary panel -->
-<rect x="660" y="60" width="510" height="530" rx="14" fill="#0B1020" stroke="#1E2840" stroke-width="1.5" filter="url(#sh)"/>
-<text x="700" y="98" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="3" fill="#3A5070">WEEKLY SUMMARY</text>
-<text x="700" y="145" font-family="Inter,Helvetica,Arial,sans-serif" font-size="28" font-weight="900" fill="#F0F4FA">3</text>
-<text x="730" y="145" font-family="Inter,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#4A6080"> key threats</text>
-<text x="700" y="175" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#5A7090">2026-03-18 — Weekly Digest</text>
-<line x1="700" y1="200" x2="1140" y2="200" stroke="#1E2840" stroke-width="1"/>
-<circle cx="718" cy="240" r="6" fill="#E63946"/>
-<text x="736" y="245" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#C0D0E0">AI Sandbox DNS Exfil</text>
-<circle cx="718" cy="275" r="6" fill="#F5A623"/>
-<text x="736" y="280" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#C0D0E0">LeakNet Ransomware</text>
-<circle cx="718" cy="310" r="6" fill="#4DE8D0"/>
-<text x="736" y="315" font-family="Inter,Helvetica,Arial,sans-serif" font-size="13" fill="#C0D0E0">GKE Multi-Cluster</text>
-<line x1="700" y1="340" x2="1140" y2="340" stroke="#1E2840" stroke-width="1"/>
-<text x="700" y="375" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#4A6080">Threat intelligence by Twodragon</text>
-<text x="700" y="397" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" fill="#4A6080">DevSecOps · Cloud Security · AI</text>
-<!-- Footer -->
-<rect x="0" y="610" width="1200" height="20" fill="#080E18" opacity="0.95"/>
-<text x="40" y="623" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">tech.2twodragon.com</text>
-<text x="600" y="623" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">Security · AI · Cloud · 2026-03-18</text>
-<text x="1160" y="623" text-anchor="end" font-family="Inter,Helvetica,Arial,sans-serif" font-size="9" fill="#3A4A5A">Twodragon</text>
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/ : 41x41 -->
-<g transform="translate(1080,490)">
-  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
-  <g transform="scale(2.048780)" fill="#0A1020">
-    <path d="M0 0h7v1h-7zM8 0h6v1h-6zM15 0h3v1h-3zM19 0h1v1h-1zM23 0h1v1h-1zM25 0h2v1h-2zM29 0h2v1h-2zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM12 1h1v1h-1zM16 1h1v1h-1zM20 1h3v1h-3zM25 1h1v1h-1zM29 1h1v1h-1zM32 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM12 2h1v1h-1zM16 2h2v1h-2zM19 2h2v1h-2zM22 2h2v1h-2zM25 2h3v1h-3zM29 2h1v1h-1zM31 2h1v1h-1zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h1v1h-1zM11 3h2v1h-2zM14 3h1v1h-1zM16 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h3v1h-3zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM12 4h2v1h-2zM15 4h2v1h-2zM19 4h1v1h-1zM21 4h3v1h-3zM25 4h2v1h-2zM28 4h3v1h-3zM32 4h1v1h-1zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM13 5h1v1h-1zM15 5h4v1h-4zM20 5h2v1h-2zM24 5h2v1h-2zM30 5h1v1h-1zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM11 7h4v1h-4zM16 7h1v1h-1zM19 7h2v1h-2zM23 7h2v1h-2zM31 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM6 8h2v1h-2zM9 8h2v1h-2zM13 8h2v1h-2zM16 8h1v1h-1zM20 8h1v1h-1zM27 8h1v1h-1zM31 8h1v1h-1zM35 8h1v1h-1zM38 8h1v1h-1zM40 8h1v1h-1zM0 9h1v1h-1zM5 9h1v1h-1zM8 9h1v1h-1zM10 9h4v1h-4zM15 9h2v1h-2zM19 9h1v1h-1zM23 9h2v1h-2zM26 9h2v1h-2zM31 9h3v1h-3zM35 9h1v1h-1zM38 9h1v1h-1zM40 9h1v1h-1zM2 10h1v1h-1zM5 10h2v1h-2zM9 10h4v1h-4zM15 10h2v1h-2zM18 10h4v1h-4zM23 10h2v1h-2zM26 10h6v1h-6zM36 10h3v1h-3zM40 10h1v1h-1zM0 11h1v1h-1zM3 11h2v1h-2zM7 11h1v1h-1zM9 11h1v1h-1zM15 11h2v1h-2zM18 11h3v1h-3zM24 11h1v1h-1zM26 11h3v1h-3zM31 11h4v1h-4zM36 11h2v1h-2zM0 12h3v1h-3zM6 12h3v1h-3zM11 12h3v1h-3zM15 12h2v1h-2zM20 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM34 12h1v1h-1zM40 12h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM8 13h3v1h-3zM16 13h1v1h-1zM20 13h2v1h-2zM25 13h1v1h-1zM27 13h7v1h-7zM35 13h1v1h-1zM37 13h4v1h-4zM2 14h2v1h-2zM5 14h2v1h-2zM8 14h2v1h-2zM11 14h2v1h-2zM14 14h3v1h-3zM20 14h1v1h-1zM23 14h1v1h-1zM25 14h3v1h-3zM30 14h5v1h-5zM40 14h1v1h-1zM2 15h2v1h-2zM8 15h3v1h-3zM12 15h3v1h-3zM18 15h3v1h-3zM22 15h1v1h-1zM26 15h1v1h-1zM30 15h5v1h-5zM37 15h1v1h-1zM39 15h1v1h-1zM3 16h4v1h-4zM12 16h3v1h-3zM17 16h1v1h-1zM20 16h2v1h-2zM23 16h1v1h-1zM27 16h2v1h-2zM32 16h3v1h-3zM40 16h1v1h-1zM0 17h1v1h-1zM2 17h2v1h-2zM5 17h1v1h-1zM9 17h2v1h-2zM13 17h1v1h-1zM15 17h1v1h-1zM17 17h2v1h-2zM20 17h1v1h-1zM23 17h2v1h-2zM28 17h2v1h-2zM31 17h5v1h-5zM40 17h1v1h-1zM1 18h3v1h-3zM6 18h3v1h-3zM10 18h4v1h-4zM15 18h1v1h-1zM19 18h1v1h-1zM21 18h3v1h-3zM25 18h1v1h-1zM27 18h1v1h-1zM31 18h1v1h-1zM34 18h4v1h-4zM39 18h2v1h-2zM0 19h4v1h-4zM7 19h6v1h-6zM14 19h1v1h-1zM16 19h2v1h-2zM19 19h2v1h-2zM22 19h2v1h-2zM26 19h3v1h-3zM30 19h1v1h-1zM32 19h1v1h-1zM37 19h1v1h-1zM39 19h1v1h-1zM6 20h1v1h-1zM9 20h2v1h-2zM12 20h4v1h-4zM17 20h1v1h-1zM21 20h4v1h-4zM26 20h1v1h-1zM31 20h1v1h-1zM34 20h1v1h-1zM36 20h2v1h-2zM1 21h4v1h-4zM7 21h2v1h-2zM12 21h1v1h-1zM16 21h1v1h-1zM20 21h1v1h-1zM22 21h2v1h-2zM27 21h1v1h-1zM31 21h1v1h-1zM33 21h3v1h-3zM40 21h1v1h-1zM1 22h3v1h-3zM6 22h2v1h-2zM9 22h1v1h-1zM14 22h1v1h-1zM18 22h8v1h-8zM27 22h1v1h-1zM29 22h1v1h-1zM31 22h1v1h-1zM36 22h1v1h-1zM38 22h1v1h-1zM40 22h1v1h-1zM3 23h2v1h-2zM7 23h1v1h-1zM11 23h1v1h-1zM14 23h3v1h-3zM18 23h1v1h-1zM22 23h1v1h-1zM27 23h2v1h-2zM30 23h5v1h-5zM37 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM4 24h4v1h-4zM9 24h1v1h-1zM11 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM20 24h1v1h-1zM24 24h1v1h-1zM28 24h1v1h-1zM32 24h1v1h-1zM34 24h1v1h-1zM39 24h2v1h-2zM1 25h1v1h-1zM3 25h3v1h-3zM7 25h1v1h-1zM9 25h6v1h-6zM19 25h2v1h-2zM23 25h5v1h-5zM31 25h1v1h-1zM33 25h1v1h-1zM35 25h1v1h-1zM37 25h1v1h-1zM2 26h1v1h-1zM5 26h2v1h-2zM9 26h1v1h-1zM12 26h6v1h-6zM19 26h1v1h-1zM21 26h1v1h-1zM23 26h1v1h-1zM27 26h2v1h-2zM30 26h2v1h-2zM33 26h6v1h-6zM40 26h1v1h-1zM0 27h2v1h-2zM8 27h1v1h-1zM11 27h3v1h-3zM15 27h1v1h-1zM18 27h3v1h-3zM22 27h3v1h-3zM26 27h1v1h-1zM31 27h2v1h-2zM34 27h2v1h-2zM37 27h1v1h-1zM39 27h2v1h-2zM0 28h1v1h-1zM3 28h1v1h-1zM6 28h1v1h-1zM8 28h5v1h-5zM14 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1zM28 28h1v1h-1zM30 28h1v1h-1zM32 28h1v1h-1zM34 28h1v1h-1zM1 29h1v1h-1zM3 29h1v1h-1zM9 29h3v1h-3zM14 29h3v1h-3zM24 29h1v1h-1zM26 29h7v1h-7zM34 29h2v1h-2zM39 29h2v1h-2zM0 30h2v1h-2zM6 30h3v1h-3zM11 30h2v1h-2zM16 30h1v1h-1zM18 30h2v1h-2zM21 30h2v1h-2zM24 30h1v1h-1zM27 30h1v1h-1zM29 30h1v1h-1zM31 30h1v1h-1zM33 30h1v1h-1zM37 30h2v1h-2zM40 30h1v1h-1zM3 31h3v1h-3zM7 31h1v1h-1zM13 31h2v1h-2zM18 31h1v1h-1zM22 31h3v1h-3zM26 31h3v1h-3zM34 31h4v1h-4zM39 31h2v1h-2zM0 32h12v1h-12zM14 32h2v1h-2zM17 32h1v1h-1zM19 32h1v1h-1zM21 32h1v1h-1zM27 32h1v1h-1zM31 32h7v1h-7zM39 32h2v1h-2zM8 33h2v1h-2zM11 33h2v1h-2zM14 33h1v1h-1zM18 33h1v1h-1zM20 33h2v1h-2zM23 33h3v1h-3zM28 33h3v1h-3zM32 33h1v1h-1zM36 33h1v1h-1zM38 33h1v1h-1zM40 33h1v1h-1zM0 34h7v1h-7zM8 34h4v1h-4zM14 34h2v1h-2zM17 34h3v1h-3zM23 34h1v1h-1zM27 34h1v1h-1zM29 34h1v1h-1zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM38 34h1v1h-1zM40 34h1v1h-1zM0 35h1v1h-1zM6 35h1v1h-1zM10 35h4v1h-4zM18 35h1v1h-1zM21 35h1v1h-1zM24 35h1v1h-1zM26 35h1v1h-1zM30 35h3v1h-3zM36 35h2v1h-2zM39 35h2v1h-2zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM11 36h2v1h-2zM15 36h1v1h-1zM17 36h2v1h-2zM20 36h2v1h-2zM23 36h1v1h-1zM25 36h2v1h-2zM28 36h1v1h-1zM31 36h6v1h-6zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM9 37h1v1h-1zM11 37h2v1h-2zM14 37h1v1h-1zM17 37h4v1h-4zM23 37h1v1h-1zM27 37h1v1h-1zM30 37h3v1h-3zM35 37h3v1h-3zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM8 38h4v1h-4zM13 38h1v1h-1zM15 38h1v1h-1zM17 38h1v1h-1zM19 38h1v1h-1zM23 38h1v1h-1zM27 38h2v1h-2zM30 38h1v1h-1zM32 38h2v1h-2zM36 38h3v1h-3zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h3v1h-3zM13 39h5v1h-5zM19 39h1v1h-1zM22 39h1v1h-1zM26 39h3v1h-3zM30 39h1v1h-1zM32 39h1v1h-1zM37 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM10 40h1v1h-1zM12 40h1v1h-1zM18 40h3v1h-3zM23 40h2v1h-2zM27 40h2v1h-2zM31 40h2v1h-2zM36 40h2v1h-2zM40 40h1v1h-1z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg1g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A0E2E"/>
+      <stop offset="100%" stop-color="#24122F"/>
+    </linearGradient>
+    <linearGradient id="bg2g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#24122F"/>
+      <stop offset="100%" stop-color="#1A0E2E"/>
+    </linearGradient>
+    <linearGradient id="bg3g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A0E2E"/>
+      <stop offset="100%" stop-color="#24122F"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E63946" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#BE123C" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E63946" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1A0E2E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="textGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="ledgerGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#E63946" stroke-width="0.3" stroke-opacity="0.12"/>
+    </pattern>
+    <pattern id="circuitDot" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.2" fill="#E63946" fill-opacity="0.15"/>
+    </pattern>
+    <clipPath id="band1clip"><rect x="0" y="0" width="1200" height="210"/></clipPath>
+    <clipPath id="band2clip"><rect x="0" y="210" width="1200" height="210"/></clipPath>
+    <clipPath id="band3clip"><rect x="0" y="420" width="1200" height="210"/></clipPath>
+  </defs>
+
+  <!-- Band 1 -->
+  <rect x="0" y="0" width="1200" height="210" fill="url(#bg1g)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#ledgerGrid)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#glowCenter)" opacity="0.6"/>
+  <rect x="0" y="0" width="6" height="210" fill="url(#accentGrad)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="36" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="#E63946" letter-spacing="3" text-anchor="start" opacity="0.9">TECH SECURITY WEEKLY DIGEST</text>
+  <text x="36" y="100" font-family="'Segoe UI',Arial,sans-serif" font-size="42" font-weight="800"
+        fill="#FFFFFF" filter="url(#textGlow)" text-anchor="start">AI + Ransomware</text>
+  <text x="36" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="20" font-weight="400"
+        fill="#FECDD3" opacity="0.85" text-anchor="start">AWS Data Breach Intelligence</text>
+  <text x="36" y="185" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="500"
+        fill="#FCA5A5" opacity="0.7" text-anchor="start">March 18, 2026</text>
+  <!-- Band 1 right visual -->
+  <circle cx="980" cy="105" r="72" fill="#E63946" fill-opacity="0.08"/>
+  <circle cx="980" cy="105" r="52" fill="none" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="8 4"/>
+  <text x="980" y="95" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="700"
+        fill="#E63946" text-anchor="middle" opacity="0.9">BAND 1</text>
+  <text x="980" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="15" font-weight="600"
+        fill="#FFFFFF" text-anchor="middle" opacity="0.8">AI Threats</text>
+  <!-- Divider -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Band 2 -->
+  <rect x="0" y="210" width="1200" height="210" fill="url(#bg2g)"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#circuitDot)"/>
+  <rect x="1194" y="210" width="6" height="210" fill="url(#accentGrad)">
+    <animate attributeName="opacity" values="1;0.7;1" dur="3.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="36" y="256" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="#E63946" letter-spacing="3" opacity="0.85">THREAT INTELLIGENCE</text>
+  <text x="36" y="302" font-family="'Segoe UI',Arial,sans-serif" font-size="32" font-weight="700"
+        fill="#FFFFFF" text-anchor="start">Ransomware Groups</text>
+  <!-- Badge cards row -->
+  <g transform="translate(36,330)">
+    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
+    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
+          fill="#E63946" text-anchor="middle" letter-spacing="1">SEVERITY</text>
+    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
+          fill="#FFFFFF" text-anchor="middle">CRITICAL</text>
   </g>
-</g>
-<text x="1122" y="600" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
+  <g transform="translate(232,330)">
+    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
+    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
+          fill="#E63946" text-anchor="middle" letter-spacing="1">VECTOR</text>
+    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
+          fill="#FFFFFF" text-anchor="middle">Cloud</text>
+  </g>
+  <g transform="translate(428,330)">
+    <rect width="180" height="60" rx="8" fill="#1A0E2E" stroke="#E63946" stroke-width="1" stroke-opacity="0.4" filter="url(#softShadow)"/>
+    <text x="90" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600"
+          fill="#E63946" text-anchor="middle" letter-spacing="1">IMPACT</text>
+    <text x="90" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800"
+          fill="#FFFFFF" text-anchor="middle">Extortion</text>
+  </g>
+  <!-- Divider -->
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#E63946" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Band 3 -->
+  <rect x="0" y="420" width="1200" height="210" fill="url(#bg3g)"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.7"/>
+  <rect x="0" y="420" width="6" height="210" fill="url(#accentGrad)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.5;0.8" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="36" y="466" font-family="'Segoe UI',Arial,sans-serif" font-size="13" font-weight="600"
+        fill="#E63946" letter-spacing="3" opacity="0.85">ANALYSIS</text>
+  <text x="36" y="508" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700"
+        fill="#FFFFFF" text-anchor="start">AWS Exposure</text>
+  <!-- Tags -->
+  <g transform="translate(36,528)">
+    <g transform="translate(0,0)">
+      <rect width="40" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
+      <text x="20" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
+            fill="#FECDD3" text-anchor="middle">AI</text>
+    </g>
+    <g transform="translate(50,0)">
+      <rect width="48" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
+      <text x="24" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
+            fill="#FECDD3" text-anchor="middle">AWS</text>
+    </g>
+    <g transform="translate(108,0)">
+      <rect width="104" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
+      <text x="52" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
+            fill="#FECDD3" text-anchor="middle">Ransomware</text>
+    </g>
+    <g transform="translate(222,0)">
+      <rect width="112" height="28" rx="14" fill="#E63946" fill-opacity="0.18" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
+      <text x="56" y="19" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600"
+            fill="#FECDD3" text-anchor="middle">Data Breach</text>
+    </g>
+  </g>
+  <!-- Brand watermark -->
+  <text x="36" y="610" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="400"
+        fill="#FCA5A5" opacity="0.5" text-anchor="start">tech.2twodragon.com</text>
+  <!-- Accent line bottom -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)" opacity="0.6"/>
+  <!-- QR code -->
+  <g transform="translate(1080,504)">
+    <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+    <path fill="#0A1020" d="M0.0 0.0h14.34v2.05h-14.34z M16.39 0.0h2.05v2.05h-2.05z M20.49 0.0h2.05v2.05h-2.05z M24.59 0.0h2.05v2.05h-2.05z M28.68 0.0h2.05v2.05h-2.05z M32.78 0.0h2.05v2.05h-2.05z M36.88 0.0h2.05v2.05h-2.05z M43.02 0.0h4.1v2.05h-4.1z M51.22 0.0h4.1v2.05h-4.1z M57.37 0.0h2.05v2.05h-2.05z M61.46 0.0h2.05v2.05h-2.05z M69.66 0.0h14.34v2.05h-14.34z M0.0 2.05h2.05v2.05h-2.05z M12.29 2.05h2.05v2.05h-2.05z M20.49 2.05h2.05v2.05h-2.05z M26.63 2.05h2.05v2.05h-2.05z M36.88 2.05h10.24v2.05h-10.24z M51.22 2.05h4.1v2.05h-4.1z M57.37 2.05h2.05v2.05h-2.05z M63.51 2.05h2.05v2.05h-2.05z M69.66 2.05h2.05v2.05h-2.05z M81.95 2.05h2.05v2.05h-2.05z M0.0 4.1h2.05v2.05h-2.05z M4.1 4.1h6.15v2.05h-6.15z M12.29 4.1h2.05v2.05h-2.05z M26.63 4.1h6.15v2.05h-6.15z M34.83 4.1h4.1v2.05h-4.1z M40.98 4.1h2.05v2.05h-2.05z M45.07 4.1h2.05v2.05h-2.05z M49.17 4.1h2.05v2.05h-2.05z M53.27 4.1h2.05v2.05h-2.05z M59.41 4.1h4.1v2.05h-4.1z M69.66 4.1h2.05v2.05h-2.05z M73.76 4.1h6.15v2.05h-6.15z M81.95 4.1h2.05v2.05h-2.05z M0.0 6.15h2.05v2.05h-2.05z M4.1 6.15h6.15v2.05h-6.15z M12.29 6.15h2.05v2.05h-2.05z M16.39 6.15h2.05v2.05h-2.05z M20.49 6.15h2.05v2.05h-2.05z M28.68 6.15h2.05v2.05h-2.05z M32.78 6.15h4.1v2.05h-4.1z M40.98 6.15h4.1v2.05h-4.1z M47.12 6.15h2.05v2.05h-2.05z M57.37 6.15h2.05v2.05h-2.05z M63.51 6.15h2.05v2.05h-2.05z M69.66 6.15h2.05v2.05h-2.05z M73.76 6.15h6.15v2.05h-6.15z M81.95 6.15h2.05v2.05h-2.05z M0.0 8.2h2.05v2.05h-2.05z M4.1 8.2h6.15v2.05h-6.15z M12.29 8.2h2.05v2.05h-2.05z M16.39 8.2h10.24v2.05h-10.24z M30.73 8.2h2.05v2.05h-2.05z M34.83 8.2h2.05v2.05h-2.05z M47.12 8.2h2.05v2.05h-2.05z M51.22 8.2h2.05v2.05h-2.05z M55.32 8.2h4.1v2.05h-4.1z M61.46 8.2h2.05v2.05h-2.05z M65.56 8.2h2.05v2.05h-2.05z M69.66 8.2h2.05v2.05h-2.05z M73.76 8.2h6.15v2.05h-6.15z M81.95 8.2h2.05v2.05h-2.05z M0.0 10.24h2.05v2.05h-2.05z M12.29 10.24h2.05v2.05h-2.05z M16.39 10.24h2.05v2.05h-2.05z M22.54 10.24h2.05v2.05h-2.05z M28.68 10.24h4.1v2.05h-4.1z M34.83 10.24h2.05v2.05h-2.05z M38.93 10.24h2.05v2.05h-2.05z M43.02 10.24h2.05v2.05h-2.05z M53.27 10.24h2.05v2.05h-2.05z M63.51 10.24h2.05v2.05h-2.05z M69.66 10.24h2.05v2.05h-2.05z M81.95 10.24h2.05v2.05h-2.05z M0.0 12.29h14.34v2.05h-14.34z M16.39 12.29h2.05v2.05h-2.05z M20.49 12.29h2.05v2.05h-2.05z M24.59 12.29h2.05v2.05h-2.05z M28.68 12.29h2.05v2.05h-2.05z M32.78 12.29h2.05v2.05h-2.05z M36.88 12.29h2.05v2.05h-2.05z M40.98 12.29h2.05v2.05h-2.05z M45.07 12.29h2.05v2.05h-2.05z M49.17 12.29h2.05v2.05h-2.05z M53.27 12.29h2.05v2.05h-2.05z M57.37 12.29h2.05v2.05h-2.05z M61.46 12.29h2.05v2.05h-2.05z M65.56 12.29h2.05v2.05h-2.05z M69.66 12.29h14.34v2.05h-14.34z M16.39 14.34h8.2v2.05h-8.2z M34.83 14.34h2.05v2.05h-2.05z M43.02 14.34h4.1v2.05h-4.1z M55.32 14.34h2.05v2.05h-2.05z M59.41 14.34h2.05v2.05h-2.05z M63.51 14.34h2.05v2.05h-2.05z M0.0 16.39h2.05v2.05h-2.05z M8.2 16.39h2.05v2.05h-2.05z M12.29 16.39h6.15v2.05h-6.15z M20.49 16.39h8.2v2.05h-8.2z M32.78 16.39h4.1v2.05h-4.1z M40.98 16.39h6.15v2.05h-6.15z M57.37 16.39h4.1v2.05h-4.1z M63.51 16.39h2.05v2.05h-2.05z M67.61 16.39h10.24v2.05h-10.24z M81.95 16.39h2.05v2.05h-2.05z M2.05 18.44h2.05v2.05h-2.05z M6.15 18.44h4.1v2.05h-4.1z M18.44 18.44h4.1v2.05h-4.1z M26.63 18.44h8.2v2.05h-8.2z M36.88 18.44h2.05v2.05h-2.05z M40.98 18.44h2.05v2.05h-2.05z M47.12 18.44h2.05v2.05h-2.05z M51.22 18.44h2.05v2.05h-2.05z M55.32 18.44h2.05v2.05h-2.05z M59.41 18.44h4.1v2.05h-4.1z M67.61 18.44h10.24v2.05h-10.24z M81.95 18.44h2.05v2.05h-2.05z M8.2 20.49h6.15v2.05h-6.15z M16.39 20.49h2.05v2.05h-2.05z M20.49 20.49h8.2v2.05h-8.2z M30.73 20.49h2.05v2.05h-2.05z M34.83 20.49h4.1v2.05h-4.1z M43.02 20.49h2.05v2.05h-2.05z M47.12 20.49h2.05v2.05h-2.05z M53.27 20.49h6.15v2.05h-6.15z M61.46 20.49h2.05v2.05h-2.05z M65.56 20.49h2.05v2.05h-2.05z M71.71 20.49h2.05v2.05h-2.05z M81.95 20.49h2.05v2.05h-2.05z M2.05 22.54h2.05v2.05h-2.05z M8.2 22.54h4.1v2.05h-4.1z M18.44 22.54h4.1v2.05h-4.1z M24.59 22.54h4.1v2.05h-4.1z M32.78 22.54h4.1v2.05h-4.1z M38.93 22.54h6.15v2.05h-6.15z M47.12 22.54h4.1v2.05h-4.1z M53.27 22.54h2.05v2.05h-2.05z M59.41 22.54h8.2v2.05h-8.2z M69.66 22.54h2.05v2.05h-2.05z M73.76 22.54h4.1v2.05h-4.1z M81.95 22.54h2.05v2.05h-2.05z M2.05 24.59h2.05v2.05h-2.05z M6.15 24.59h2.05v2.05h-2.05z M12.29 24.59h8.2v2.05h-8.2z M30.73 24.59h2.05v2.05h-2.05z M34.83 24.59h2.05v2.05h-2.05z M40.98 24.59h6.15v2.05h-6.15z M55.32 24.59h2.05v2.05h-2.05z M59.41 24.59h4.1v2.05h-4.1z M65.56 24.59h4.1v2.05h-4.1z M71.71 24.59h2.05v2.05h-2.05z M2.05 26.63h2.05v2.05h-2.05z M8.2 26.63h4.1v2.05h-4.1z M14.34 26.63h4.1v2.05h-4.1z M22.54 26.63h2.05v2.05h-2.05z M28.68 26.63h6.15v2.05h-6.15z M38.93 26.63h2.05v2.05h-2.05z M49.17 26.63h6.15v2.05h-6.15z M57.37 26.63h2.05v2.05h-2.05z M67.61 26.63h4.1v2.05h-4.1z M73.76 26.63h2.05v2.05h-2.05z M81.95 26.63h2.05v2.05h-2.05z M6.15 28.68h4.1v2.05h-4.1z M12.29 28.68h2.05v2.05h-2.05z M16.39 28.68h2.05v2.05h-2.05z M22.54 28.68h4.1v2.05h-4.1z M28.68 28.68h8.2v2.05h-8.2z M38.93 28.68h2.05v2.05h-2.05z M45.07 28.68h6.15v2.05h-6.15z M57.37 28.68h2.05v2.05h-2.05z M61.46 28.68h2.05v2.05h-2.05z M67.61 28.68h12.29v2.05h-12.29z M81.95 28.68h2.05v2.05h-2.05z M0.0 30.73h10.24v2.05h-10.24z M14.34 30.73h2.05v2.05h-2.05z M20.49 30.73h2.05v2.05h-2.05z M24.59 30.73h4.1v2.05h-4.1z M30.73 30.73h2.05v2.05h-2.05z M34.83 30.73h10.24v2.05h-10.24z M47.12 30.73h2.05v2.05h-2.05z M53.27 30.73h2.05v2.05h-2.05z M59.41 30.73h6.15v2.05h-6.15z M71.71 30.73h2.05v2.05h-2.05z M0.0 32.78h10.24v2.05h-10.24z M12.29 32.78h4.1v2.05h-4.1z M20.49 32.78h4.1v2.05h-4.1z M26.63 32.78h2.05v2.05h-2.05z M32.78 32.78h2.05v2.05h-2.05z M45.07 32.78h2.05v2.05h-2.05z M51.22 32.78h2.05v2.05h-2.05z M55.32 32.78h6.15v2.05h-6.15z M63.51 32.78h4.1v2.05h-4.1z M71.71 32.78h2.05v2.05h-2.05z M79.9 32.78h2.05v2.05h-2.05z M0.0 34.83h6.15v2.05h-6.15z M8.2 34.83h2.05v2.05h-2.05z M14.34 34.83h4.1v2.05h-4.1z M20.49 34.83h2.05v2.05h-2.05z M32.78 34.83h4.1v2.05h-4.1z M45.07 34.83h2.05v2.05h-2.05z M53.27 34.83h2.05v2.05h-2.05z M57.37 34.83h6.15v2.05h-6.15z M67.61 34.83h8.2v2.05h-8.2z M77.85 34.83h2.05v2.05h-2.05z M81.95 34.83h2.05v2.05h-2.05z M2.05 36.88h2.05v2.05h-2.05z M6.15 36.88h8.2v2.05h-8.2z M16.39 36.88h2.05v2.05h-2.05z M28.68 36.88h4.1v2.05h-4.1z M36.88 36.88h2.05v2.05h-2.05z M40.98 36.88h18.44v2.05h-18.44z M61.46 36.88h2.05v2.05h-2.05z M69.66 36.88h4.1v2.05h-4.1z M75.8 36.88h2.05v2.05h-2.05z M79.9 36.88h4.1v2.05h-4.1z M0.0 38.93h4.1v2.05h-4.1z M10.24 38.93h2.05v2.05h-2.05z M18.44 38.93h2.05v2.05h-2.05z M22.54 38.93h4.1v2.05h-4.1z M28.68 38.93h4.1v2.05h-4.1z M43.02 38.93h2.05v2.05h-2.05z M47.12 38.93h2.05v2.05h-2.05z M51.22 38.93h2.05v2.05h-2.05z M55.32 38.93h2.05v2.05h-2.05z M59.41 38.93h4.1v2.05h-4.1z M65.56 38.93h4.1v2.05h-4.1z M71.71 38.93h2.05v2.05h-2.05z M75.8 38.93h2.05v2.05h-2.05z M81.95 38.93h2.05v2.05h-2.05z M0.0 40.98h2.05v2.05h-2.05z M6.15 40.98h2.05v2.05h-2.05z M10.24 40.98h10.24v2.05h-10.24z M24.59 40.98h4.1v2.05h-4.1z M30.73 40.98h2.05v2.05h-2.05z M38.93 40.98h4.1v2.05h-4.1z M51.22 40.98h2.05v2.05h-2.05z M57.37 40.98h2.05v2.05h-2.05z M61.46 40.98h4.1v2.05h-4.1z M75.8 40.98h2.05v2.05h-2.05z M79.9 40.98h4.1v2.05h-4.1z M4.1 43.02h8.2v2.05h-8.2z M14.34 43.02h2.05v2.05h-2.05z M20.49 43.02h4.1v2.05h-4.1z M26.63 43.02h6.15v2.05h-6.15z M36.88 43.02h2.05v2.05h-2.05z M45.07 43.02h2.05v2.05h-2.05z M51.22 43.02h4.1v2.05h-4.1z M57.37 43.02h2.05v2.05h-2.05z M61.46 43.02h2.05v2.05h-2.05z M65.56 43.02h2.05v2.05h-2.05z M69.66 43.02h6.15v2.05h-6.15z M81.95 43.02h2.05v2.05h-2.05z M2.05 45.07h2.05v2.05h-2.05z M12.29 45.07h8.2v2.05h-8.2z M28.68 45.07h2.05v2.05h-2.05z M32.78 45.07h2.05v2.05h-2.05z M43.02 45.07h8.2v2.05h-8.2z M53.27 45.07h4.1v2.05h-4.1z M59.41 45.07h4.1v2.05h-4.1z M67.61 45.07h2.05v2.05h-2.05z M73.76 45.07h2.05v2.05h-2.05z M77.85 45.07h2.05v2.05h-2.05z M81.95 45.07h2.05v2.05h-2.05z M2.05 47.12h6.15v2.05h-6.15z M16.39 47.12h2.05v2.05h-2.05z M22.54 47.12h2.05v2.05h-2.05z M26.63 47.12h4.1v2.05h-4.1z M34.83 47.12h6.15v2.05h-6.15z M43.02 47.12h2.05v2.05h-2.05z M49.17 47.12h2.05v2.05h-2.05z M59.41 47.12h4.1v2.05h-4.1z M69.66 47.12h2.05v2.05h-2.05z M73.76 47.12h4.1v2.05h-4.1z M79.9 47.12h2.05v2.05h-2.05z M0.0 49.17h6.15v2.05h-6.15z M8.2 49.17h10.24v2.05h-10.24z M20.49 49.17h6.15v2.05h-6.15z M30.73 49.17h2.05v2.05h-2.05z M34.83 49.17h2.05v2.05h-2.05z M38.93 49.17h12.29v2.05h-12.29z M55.32 49.17h2.05v2.05h-2.05z M59.41 49.17h2.05v2.05h-2.05z M63.51 49.17h6.15v2.05h-6.15z M81.95 49.17h2.05v2.05h-2.05z M0.0 51.22h4.1v2.05h-4.1z M10.24 51.22h2.05v2.05h-2.05z M14.34 51.22h6.15v2.05h-6.15z M22.54 51.22h4.1v2.05h-4.1z M28.68 51.22h2.05v2.05h-2.05z M32.78 51.22h6.15v2.05h-6.15z M47.12 51.22h2.05v2.05h-2.05z M51.22 51.22h2.05v2.05h-2.05z M55.32 51.22h2.05v2.05h-2.05z M61.46 51.22h2.05v2.05h-2.05z M65.56 51.22h4.1v2.05h-4.1z M71.71 51.22h4.1v2.05h-4.1z M77.85 51.22h2.05v2.05h-2.05z M81.95 51.22h2.05v2.05h-2.05z M0.0 53.27h2.05v2.05h-2.05z M8.2 53.27h2.05v2.05h-2.05z M12.29 53.27h4.1v2.05h-4.1z M22.54 53.27h4.1v2.05h-4.1z M30.73 53.27h6.15v2.05h-6.15z M40.98 53.27h2.05v2.05h-2.05z M45.07 53.27h8.2v2.05h-8.2z M55.32 53.27h6.15v2.05h-6.15z M65.56 53.27h2.05v2.05h-2.05z M69.66 53.27h2.05v2.05h-2.05z M73.76 53.27h2.05v2.05h-2.05z M81.95 53.27h2.05v2.05h-2.05z M0.0 55.32h12.29v2.05h-12.29z M18.44 55.32h4.1v2.05h-4.1z M26.63 55.32h18.44v2.05h-18.44z M49.17 55.32h2.05v2.05h-2.05z M53.27 55.32h14.34v2.05h-14.34z M71.71 55.32h6.15v2.05h-6.15z M79.9 55.32h2.05v2.05h-2.05z M0.0 57.37h4.1v2.05h-4.1z M8.2 57.37h2.05v2.05h-2.05z M12.29 57.37h4.1v2.05h-4.1z M18.44 57.37h4.1v2.05h-4.1z M30.73 57.37h4.1v2.05h-4.1z M43.02 57.37h8.2v2.05h-8.2z M55.32 57.37h8.2v2.05h-8.2z M67.61 57.37h2.05v2.05h-2.05z M71.71 57.37h2.05v2.05h-2.05z M0.0 59.41h8.2v2.05h-8.2z M10.24 59.41h2.05v2.05h-2.05z M16.39 59.41h2.05v2.05h-2.05z M20.49 59.41h2.05v2.05h-2.05z M26.63 59.41h4.1v2.05h-4.1z M32.78 59.41h4.1v2.05h-4.1z M38.93 59.41h8.2v2.05h-8.2z M53.27 59.41h2.05v2.05h-2.05z M69.66 59.41h2.05v2.05h-2.05z M73.76 59.41h8.2v2.05h-8.2z M4.1 61.46h2.05v2.05h-2.05z M12.29 61.46h2.05v2.05h-2.05z M16.39 61.46h4.1v2.05h-4.1z M22.54 61.46h2.05v2.05h-2.05z M26.63 61.46h4.1v2.05h-4.1z M36.88 61.46h2.05v2.05h-2.05z M40.98 61.46h2.05v2.05h-2.05z M55.32 61.46h2.05v2.05h-2.05z M59.41 61.46h4.1v2.05h-4.1z M65.56 61.46h4.1v2.05h-4.1z M71.71 61.46h2.05v2.05h-2.05z M77.85 61.46h2.05v2.05h-2.05z M81.95 61.46h2.05v2.05h-2.05z M6.15 63.51h2.05v2.05h-2.05z M10.24 63.51h2.05v2.05h-2.05z M16.39 63.51h6.15v2.05h-6.15z M24.59 63.51h4.1v2.05h-4.1z M30.73 63.51h8.2v2.05h-8.2z M43.02 63.51h2.05v2.05h-2.05z M49.17 63.51h2.05v2.05h-2.05z M53.27 63.51h10.24v2.05h-10.24z M67.61 63.51h2.05v2.05h-2.05z M71.71 63.51h2.05v2.05h-2.05z M0.0 65.56h4.1v2.05h-4.1z M6.15 65.56h8.2v2.05h-8.2z M18.44 65.56h4.1v2.05h-4.1z M24.59 65.56h2.05v2.05h-2.05z M30.73 65.56h4.1v2.05h-4.1z M38.93 65.56h4.1v2.05h-4.1z M45.07 65.56h8.2v2.05h-8.2z M57.37 65.56h4.1v2.05h-4.1z M63.51 65.56h12.29v2.05h-12.29z M79.9 65.56h4.1v2.05h-4.1z M16.39 67.61h4.1v2.05h-4.1z M22.54 67.61h2.05v2.05h-2.05z M28.68 67.61h2.05v2.05h-2.05z M43.02 67.61h2.05v2.05h-2.05z M51.22 67.61h2.05v2.05h-2.05z M55.32 67.61h6.15v2.05h-6.15z M63.51 67.61h4.1v2.05h-4.1z M73.76 67.61h2.05v2.05h-2.05z M77.85 67.61h2.05v2.05h-2.05z M81.95 67.61h2.05v2.05h-2.05z M0.0 69.66h14.34v2.05h-14.34z M16.39 69.66h2.05v2.05h-2.05z M22.54 69.66h2.05v2.05h-2.05z M26.63 69.66h2.05v2.05h-2.05z M30.73 69.66h2.05v2.05h-2.05z M34.83 69.66h2.05v2.05h-2.05z M47.12 69.66h4.1v2.05h-4.1z M55.32 69.66h2.05v2.05h-2.05z M61.46 69.66h2.05v2.05h-2.05z M65.56 69.66h2.05v2.05h-2.05z M69.66 69.66h2.05v2.05h-2.05z M73.76 69.66h4.1v2.05h-4.1z M81.95 69.66h2.05v2.05h-2.05z M0.0 71.71h2.05v2.05h-2.05z M12.29 71.71h2.05v2.05h-2.05z M20.49 71.71h2.05v2.05h-2.05z M24.59 71.71h2.05v2.05h-2.05z M30.73 71.71h8.2v2.05h-8.2z M40.98 71.71h2.05v2.05h-2.05z M45.07 71.71h2.05v2.05h-2.05z M49.17 71.71h2.05v2.05h-2.05z M53.27 71.71h2.05v2.05h-2.05z M57.37 71.71h2.05v2.05h-2.05z M63.51 71.71h4.1v2.05h-4.1z M73.76 71.71h4.1v2.05h-4.1z M0.0 73.76h2.05v2.05h-2.05z M4.1 73.76h6.15v2.05h-6.15z M12.29 73.76h2.05v2.05h-2.05z M16.39 73.76h2.05v2.05h-2.05z M22.54 73.76h6.15v2.05h-6.15z M32.78 73.76h2.05v2.05h-2.05z M36.88 73.76h4.1v2.05h-4.1z M45.07 73.76h4.1v2.05h-4.1z M51.22 73.76h4.1v2.05h-4.1z M63.51 73.76h14.34v2.05h-14.34z M79.9 73.76h4.1v2.05h-4.1z M0.0 75.8h2.05v2.05h-2.05z M4.1 75.8h6.15v2.05h-6.15z M12.29 75.8h2.05v2.05h-2.05z M24.59 75.8h8.2v2.05h-8.2z M51.22 75.8h2.05v2.05h-2.05z M55.32 75.8h2.05v2.05h-2.05z M61.46 75.8h2.05v2.05h-2.05z M71.71 75.8h2.05v2.05h-2.05z M75.8 75.8h6.15v2.05h-6.15z M0.0 77.85h2.05v2.05h-2.05z M4.1 77.85h6.15v2.05h-6.15z M12.29 77.85h2.05v2.05h-2.05z M18.44 77.85h2.05v2.05h-2.05z M24.59 77.85h12.29v2.05h-12.29z M40.98 77.85h2.05v2.05h-2.05z M47.12 77.85h2.05v2.05h-2.05z M51.22 77.85h8.2v2.05h-8.2z M63.51 77.85h6.15v2.05h-6.15z M75.8 77.85h4.1v2.05h-4.1z M81.95 77.85h2.05v2.05h-2.05z M0.0 79.9h2.05v2.05h-2.05z M12.29 79.9h2.05v2.05h-2.05z M18.44 79.9h2.05v2.05h-2.05z M22.54 79.9h2.05v2.05h-2.05z M32.78 79.9h4.1v2.05h-4.1z M40.98 79.9h4.1v2.05h-4.1z M47.12 79.9h2.05v2.05h-2.05z M53.27 79.9h14.34v2.05h-14.34z M71.71 79.9h2.05v2.05h-2.05z M75.8 79.9h2.05v2.05h-2.05z M79.9 79.9h4.1v2.05h-4.1z M0.0 81.95h14.34v2.05h-14.34z M16.39 81.95h10.24v2.05h-10.24z M28.68 81.95h22.54v2.05h-22.54z M55.32 81.95h2.05v2.05h-2.05z M59.41 81.95h2.05v2.05h-2.05z M63.51 81.95h14.34v2.05h-14.34z M79.9 81.95h2.05v2.05h-2.05z"/>
+  </g>
 </svg>
