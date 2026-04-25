@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-24T01:53:42.795284+00:00",
+  "updated_at": "2026-04-25T01:31:53.991197+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html",
-      "title": "GlassWorm Campaign Uses Zig Dropper to Infect Multiple Developer IDEs",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/browser-extensions-are-new-ai.html",
-      "title": "Browser Extensions Are the New AI Consumption Channel That No One Is Talking Abo",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/google-rolls-out-dbsc-in-chrome-146-to.html",
-      "title": "Google Rolls Out DBSC in Chrome 146 to Block Session Theft on Windows",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/marimo-rce-flaw-cve-2026-39987.html",
-      "title": "Marimo RCE Flaw CVE-2026-39987 Exploited Within 10 Hours of Disclosure",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/backdoored-smart-slider-3-pro-update.html",
-      "title": "Backdoored Smart Slider 3 Pro Update Distributed via Compromised Nextend Servers",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/coreweave-agreement-anthropic-ai?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CoreWeave lands multi-year agreement with Anthropic to run AI workloads",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/data-curation-accelerators-for-google-data-cloud/",
-      "title": "Accelerating data curation with Google Data Cloud",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/accelerating-innovation-and-impact-across-the-public-sector/",
-      "title": "Accelerating innovation and impact across the public sector",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-sap-concur-automates-expense-reporting-with-agentic-ai/",
-      "title": "How SAP Concur automates expense reporting with agentic AI",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/how-to-get-your-agent-near-100-percent-accurate-data/",
-      "title": "Near-100% Accurate Data for your Agent with Comprehensive Context Engineering",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/introducing-querydata-for-near-100-percent-accurate-data-agents/",
-      "title": "QueryData helps agents turn natural language into queries for AlloyDB, Cloud SQL",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-10-enforcing-new-limits-and-retiring-opus-4-6-fast-from-copilot-pro",
-      "title": "Enforcing new limits and retiring Opus 4.6 Fast from Copilot Pro+",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-10-copilot-usage-metrics-now-aggregate-copilot-cloud-agent-active-user-counts",
-      "title": "Copilot usage metrics now aggregate Copilot cloud agent active user counts",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials",
-      "title": "Pausing new GitHub Copilot Pro trials",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-10-actions-workflows-are-limited-to-50-reruns",
-      "title": "Actions workflows are limited to 50 reruns",
-      "published_date": "2026-04-11",
-      "expires_at": "2026-04-18T01:27:30.774950+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html",
       "title": "Citizen Lab: Law Enforcement Used Webloc to Track 500 Million Devices via Ad Dat",
@@ -1254,6 +1164,96 @@
       "title": "Dependabot-based dependency graphs for Python",
       "published_date": "2026-04-24",
       "expires_at": "2026-05-01T01:53:42.795175+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/firestarter-backdoor-hit-federal-cisco.html",
+      "title": "FIRESTARTER Backdoor Hit Federal Cisco Firepower Device, Survives Security Patch",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/nasa-employees-duped-in-chinese.html",
+      "title": "NASA Employees Duped in Chinese Phishing Scheme Targeting U.S. Defense Software",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/protecting-your-secrets-from-tomorrows-quantum-risks/",
+      "title": "Protecting your secrets from tomorrow’s quantum risks",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/adt-confirms-data-breach-after-shinyhunters-leak-threat/",
+      "title": "ADT confirms data breach after ShinyHunters leak threat",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/bridging-ai-agent-authority-gap.html",
+      "title": "Bridging the AI Agent Authority Gap: Continuous Observability as the Decision En",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
+      "title": "8 Gemini tips for organizing your space (and life)",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-workforce-ai-agents-with-visier-and-amazon-quick/",
+      "title": "Building Workforce AI Agents with Visier and Amazon Quick",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up/",
+      "title": "260 things we announced at Google Cloud Next '26 – a recap",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-24-notice-about-upcoming-new-format-for-github-app-installation-tokens",
+      "title": "Notice about upcoming new format for GitHub App installation tokens",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-24-changes-to-notification-retention-and-archived-repository-watches",
+      "title": "Changes to notification retention and archived repository watches",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-24-gpt-5-5-is-generally-available-for-github-copilot",
+      "title": "GPT-5.5 is generally available for GitHub Copilot",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-24-inline-agent-mode-in-preview-and-more-in-github-copilot-for-jetbrains-ides",
+      "title": "Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://kubernetes.io/blog/2026/04/24/kubernetes-v1-36-fine-grained-kubelet-authorization-ga/",
+      "title": "Kubernetes v1.36: Fine-Grained Kubelet API Authorization Graduates to GA",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/vaneck-flags-dual-bullish-for-bitcoin",
+      "title": "VanEck Flags Dual Bullish Signals for Bitcoin as Funding Turns Negative, Hash Ra",
+      "published_date": "2026-04-25",
+      "expires_at": "2026-05-02T01:31:53.991072+00:00"
     }
   ]
 }
