@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly tech AI blockchain digest: DeepSeek R2 release, Solana TPS record, ETH L2 fee collapse">
-<title>Weekly tech AI blockchain digest 2026-02-02: DeepSeek R2, Solana TPS record, ETH L2 fees</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Apple A18 Pro MLX bug, Bitcoin weekend crash $19B liquidations, Montreal AI creativity paradox, DeFi incident, Claude Code tips, FOSDEM 2026">
+<title>2026-02-02: Apple MLX bug, Bitcoin -$19B liquidation, DeFi incident, Claude Code</title>
 <defs>
-<linearGradient id="bgSpreadJA07" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
-<linearGradient id="bandAJA07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
-<linearGradient id="bandBJA07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
-<linearGradient id="bandCJA07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0A1B35"/><stop offset="100%" stop-color="#0D2040"/></linearGradient>
+<linearGradient id="bgSpreadJF07" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
+<linearGradient id="bandAJF07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
+<linearGradient id="bandBJF07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
+<linearGradient id="bandCJF07" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
 <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
 <pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="0.8" fill="#3A2A4E" opacity="0.55"/></pattern>
 </defs>
-<rect width="1200" height="630" fill="url(#bgSpreadJA07)"/>
+<rect width="1200" height="630" fill="url(#bgSpreadJF07)"/>
 <g>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#bandAJA07)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#bandAJF07)"/>
   <rect x="0" y="0" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
   <rect x="0" y="0" width="8" height="210" fill="#A78BFA"/>
   <g filter="url(#textShadow)">
-    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">LLM RELEASE</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">DeepSeek R2</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">MoE 671B : reasoning model</text>
-    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Open weights MIT : math + code SOTA : inference 11x cheaper than o3 : MLA optimization</text>
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">APPLE A18 PRO</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">MLX Neural Engine Bug</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Dispatch thread stall</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">MLX on-device bug : attention kernel stall : mitigation via fallback path</text>
   </g>
   <g transform="translate(500,105)">
     <g stroke="#A78BFA" stroke-width="2" opacity="0.85">
@@ -35,72 +35,85 @@
       <circle cx="70" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
       <circle cx="70" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
     </g>
-    <text y="62" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">DEEPSEEK</text>
+    <text y="62" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">MLX</text>
   </g>
   <g transform="translate(990,105)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">PARAMS</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">671B</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#DDD6FE">MoE model</text>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">MLX</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">A18</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#DDD6FE">kernel bug</text>
   </g>
   <g transform="translate(990,105)"><circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
 </g>
 <g>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#bandBJA07)"/>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
-  <rect x="0" y="210" width="8" height="210" fill="#4ADE80"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#bandBJF07)"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="210" width="8" height="210" fill="#E63946"/>
   <g filter="url(#textShadow)">
-    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">SOLANA THROUGHPUT</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">TPS Record</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">65,000 TPS sustained</text>
-    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Firedancer v1.1 : parallel execution : Agave validator : mainnet stress test</text>
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">BITCOIN CRASH</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Weekend $19B Liquidation</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">BTC flash drop</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Perp funding flip : $19B liquidations in 6h : open interest -22% Monday</text>
   </g>
   <g transform="translate(500,315)">
-    <line x1="-85" y1="40" x2="95" y2="40" stroke="#4ADE80" stroke-width="1" opacity="0.5"/>
-    <rect x="-75" y="10" width="20" height="30" rx="2" fill="#4ADE80" opacity="0.5"><animate attributeName="height" values="20;30;20" dur="1.6s" repeatCount="indefinite"/><animate attributeName="y" values="20;10;20" dur="1.6s" repeatCount="indefinite"/></rect><rect x="-47" y="-15" width="20" height="55" rx="2" fill="#4ADE80" opacity="0.58"><animate attributeName="height" values="45;55;45" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="-5;-15;-5" dur="1.8s" repeatCount="indefinite"/></rect><rect x="-19" y="0" width="20" height="40" rx="2" fill="#4ADE80" opacity="0.66"><animate attributeName="height" values="30;40;30" dur="2.0s" repeatCount="indefinite"/><animate attributeName="y" values="10;0;10" dur="2.0s" repeatCount="indefinite"/></rect><rect x="9" y="-30" width="20" height="70" rx="2" fill="#4ADE80" opacity="0.74"><animate attributeName="height" values="60;70;60" dur="2.2s" repeatCount="indefinite"/><animate attributeName="y" values="-20;-30;-20" dur="2.2s" repeatCount="indefinite"/></rect><rect x="37" y="-45" width="20" height="85" rx="2" fill="#4ADE80" opacity="0.8200000000000001"><animate attributeName="height" values="75;85;75" dur="2.4000000000000004s" repeatCount="indefinite"/><animate attributeName="y" values="-35;-45;-35" dur="2.4000000000000004s" repeatCount="indefinite"/></rect><rect x="65" y="-22" width="20" height="62" rx="2" fill="#4ADE80" opacity="0.9"><animate attributeName="height" values="52;62;52" dur="2.6s" repeatCount="indefinite"/><animate attributeName="y" values="-12;-22;-12" dur="2.6s" repeatCount="indefinite"/></rect>
-    <text y="58" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#86EFAC">TPS</text>
-  </g>
-  <g transform="translate(990,315)" filter="url(#softShadow)">
-    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">TPS</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">65K</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#9FD3B0">mainnet peak</text>
-  </g>
-  <g transform="translate(990,315)"><circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
-</g>
-<g>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#bandCJA07)"/>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
-  <rect x="0" y="420" width="8" height="210" fill="#60A5FA"/>
-  <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">ETH LAYER 2</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">L2 Fee Collapse</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Base + Arbitrum &lt; $0.01</text>
-    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Blob capacity doubled : EIP-7623 calldata cost : rollup fee median $0.004</text>
-  </g>
-  <g transform="translate(500,525)">
-    <g stroke="#60A5FA" stroke-width="0.4" opacity="0.3">
+    <g stroke="#E63946" stroke-width="0.4" opacity="0.3">
       <line x1="-90" y1="-40" x2="90" y2="-40"/><line x1="-90" y1="-15" x2="90" y2="-15"/>
       <line x1="-90" y1="10" x2="90" y2="10"/><line x1="-90" y1="35" x2="90" y2="35"/>
     </g>
-    <path d="M-90 -30 L-60 -20 L-30 -25 L0 -5 L30 5 L60 20 L90 35" stroke="#60A5FA" stroke-width="2.5" fill="none">
+    <path d="M-90 -30 L-60 -20 L-30 -25 L0 -5 L30 5 L60 20 L90 35" stroke="#E63946" stroke-width="2.5" fill="none">
       <animate attributeName="stroke-dasharray" values="0 400;400 0" dur="3.2s" repeatCount="indefinite"/>
     </path>
-    <path d="M-90 -30 L-60 -20 L-30 -25 L0 -5 L30 5 L60 20 L90 35 L90 40 L-90 40 Z" fill="#60A5FA" fill-opacity="0.12"/>
-    <g fill="#93C5FD">
+    <path d="M-90 -30 L-60 -20 L-30 -25 L0 -5 L30 5 L60 20 L90 35 L90 40 L-90 40 Z" fill="#E63946" fill-opacity="0.12"/>
+    <g fill="#FCA5A5">
       <circle cx="-90" cy="-30" r="3"/><circle cx="-60" cy="-20" r="3"/><circle cx="-30" cy="-25" r="3"/>
       <circle cx="0" cy="-5" r="3"/><circle cx="30" cy="5" r="3"/><circle cx="60" cy="20" r="3"/>
       <circle cx="90" cy="35" r="4"><animate attributeName="r" values="3;6;3" dur="1.8s" repeatCount="indefinite"/></circle>
     </g>
-    <text x="90" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">-12.3%</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#E63946">-12.3%</text>
+  </g>
+  <g transform="translate(990,315)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">LIQD</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">$19B</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">weekend</text>
+  </g>
+  <g transform="translate(990,315)"><circle cx="10" cy="-50" r="3" fill="#E63946"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+</g>
+<g>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#bandCJF07)"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+  <rect x="0" y="420" width="8" height="210" fill="#4ADE80"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">DEFI + DEV TOOLS</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">DeFi Incident + Claude Code</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">FOSDEM 2026 highlights</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">DeFi bridge exploit : Claude Code field notes : FOSDEM security/K8s tracks</text>
+  </g>
+  <g transform="translate(500,525)">
+    <g stroke="#4ADE80" stroke-width="1" stroke-dasharray="3 4" fill="none" opacity="0.6">
+      <line x1="-80" y1="0" x2="-20" y2="-35"/><line x1="-80" y1="0" x2="-20" y2="0"/><line x1="-80" y1="0" x2="-20" y2="35"/>
+      <line x1="-20" y1="-35" x2="50" y2="-55"/><line x1="-20" y1="-35" x2="50" y2="-20"/>
+      <line x1="-20" y1="0" x2="50" y2="15"/><line x1="-20" y1="35" x2="50" y2="55"/><line x1="-20" y1="35" x2="50" y2="25"/>
+    </g>
+    <g fill="#4ADE80" opacity="0.9">
+      <circle cx="-80" cy="0" r="12" stroke="#86EFAC" stroke-width="1.4"><animate attributeName="r" values="10;14;10" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-20" cy="-35" r="6"/><circle cx="-20" cy="0" r="6"/><circle cx="-20" cy="35" r="6"/>
+      <circle cx="50" cy="-55" r="5" opacity="0.8"/><circle cx="50" cy="-20" r="5" opacity="0.8"/><circle cx="50" cy="15" r="5" opacity="0.8"/><circle cx="50" cy="55" r="5" opacity="0.8"/><circle cx="50" cy="25" r="5" opacity="0.8"/>
+    </g>
+    <g fill="#F5F7FA">
+      <circle r="2"><animateMotion path="M-80 0 L-20 -35" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M-80 0 L-20 0" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M-80 0 L-20 35" dur="2.3s" repeatCount="indefinite"/></circle>
+    </g>
+    <text x="-80" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">WALLET</text>
   </g>
   <g transform="translate(990,525)" filter="url(#softShadow)">
-    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1628" stroke="#60A5FA" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">USD MEDIAN</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">0.4c</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">L2 tx fee</text>
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
+    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">2026</text>
+    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">FOS</text>
+    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#9FD3B0">DeFi + CC</text>
   </g>
-  <g transform="translate(990,525)"><circle cx="10" cy="-50" r="3" fill="#60A5FA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+  <g transform="translate(990,525)"><circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
 </g>
 <g opacity="0.9">
   <g fill="#A78BFA">
@@ -115,7 +128,7 @@
     <rect x="800" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
     <rect x="820" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
   </g>
-  <g fill="#4ADE80">
+  <g fill="#F87171">
     <circle cx="560" cy="260" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
     <circle cx="580" cy="265" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
     <circle cx="600" cy="268" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
@@ -125,13 +138,13 @@
     <circle cx="580" cy="375" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
     <circle cx="600" cy="378" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
   </g>
-  <g fill="#60A5FA">
+  <g fill="#4ADE80">
     <circle cx="260" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/></circle>
     <circle cx="330" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
     <circle cx="400" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
     <circle cx="470" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
   </g>
-  <g fill="#BFDBFE" opacity="0.9">
+  <g fill="#9FD3B0" opacity="0.9">
     <rect x="770" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
     <rect x="790" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
     <rect x="810" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
@@ -141,11 +154,11 @@
     <path d="M20 95 L28 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 125 L28 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
   </g>
-  <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+  <g stroke="#E63946" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 305 L28 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 335 L28 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
   </g>
-  <g stroke="#60A5FA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+  <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
   </g>
