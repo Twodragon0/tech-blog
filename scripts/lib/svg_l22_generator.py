@@ -115,12 +115,14 @@ def band(
     mini_value: str = "",
     mini_label: str = "",
     mini_sub: str = "",
+    context: str = "",
 ) -> str:
     """Build a single horizontal band. ``idx`` 0/1/2 maps to y 0/210/420.
 
     Optional ``mini_value``/``mini_label``/``mini_sub`` render a 100x95
     secondary card to the left of the main metric card. ``badge_extra``
-    is raw SVG appended inside the main metric card group.
+    is raw SVG appended inside the main metric card group. Optional
+    ``context`` adds a 5th italic text line below the detail line.
     """
     y = idx * 210
     yc = y + 105
@@ -128,6 +130,7 @@ def band(
     head_y = y + 86
     metric_y = y + 118
     detail_y = y + 146
+    context_y = y + 168
     pat = theme["pattern"]
     bid = ["bandA", "bandB", "bandC"][idx]
     main_size = 72 if len(badge_value) <= 3 else 60
@@ -139,6 +142,13 @@ def band(
     <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{34 if len(mini_value)<=4 else 24}" font-weight="900" fill="#F5F7FA">{mini_value}</text>
     <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="{theme["metric"]}">{mini_sub}</text>
   </g>'''
+    context_line = ""
+    if context:
+        context_line = (
+            f'<text x="30" y="{context_y}" font-family="Inter, Helvetica, Arial, sans-serif" '
+            f'font-size="12" font-weight="500" font-style="italic" fill-opacity="0.7" '
+            f'fill="{theme["detail"]}">{context}</text>'
+        )
     return f'''<g>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{bid}{sfx})"/>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{pat})" opacity="0.6"/>
@@ -148,6 +158,7 @@ def band(
     <text x="30" y="{head_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">{headline}</text>
     <text x="30" y="{metric_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="{theme["metric"]}">{metric}</text>
     <text x="30" y="{detail_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="{theme["detail"]}">{detail}</text>
+    {context_line}
   </g>
   {visual_svg}
   {mini_card}
@@ -163,6 +174,10 @@ def band(
     <circle cx="10" cy="-50" r="3" fill="{theme["accent"]}"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
     <circle cx="-58" cy="-50" r="2" fill="{theme["soft"]}"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
     <circle cx="78" cy="-50" r="2" fill="{theme["soft"]}"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="{theme["accent"]}" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
+    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="{theme["soft"]}" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="62" y="-62" width="14" height="2" rx="1" fill="{theme["accent"]}" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
+    <rect x="65" y="-58" width="9" height="2" rx="1" fill="{theme["soft"]}" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
 </g>'''
 
@@ -172,6 +187,7 @@ def v_wallet_forensic(cx: int, yc: int, accent: str, soft: str) -> str:
     """Blockchain/wallet nodes connected in forensic fund flow."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="78" fill="{accent}" fill-opacity="0.06"><animate attributeName="r" values="68;88;68" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle r="92" fill="none" stroke="{accent}" stroke-width="0.4" stroke-opacity="0.25" stroke-dasharray="2 6"/>
     <g stroke="{accent}" stroke-width="1" stroke-dasharray="3 4" fill="none" opacity="0.6">
       <line x1="-80" y1="0" x2="-20" y2="-35"/><line x1="-80" y1="0" x2="-20" y2="0"/><line x1="-80" y1="0" x2="-20" y2="35"/>
       <line x1="-20" y1="-35" x2="50" y2="-55"/><line x1="-20" y1="-35" x2="50" y2="-20"/>
@@ -192,9 +208,24 @@ def v_wallet_forensic(cx: int, yc: int, accent: str, soft: str) -> str:
       <circle r="1.8"><animateMotion path="M-20 0 L50 15" dur="2.0s" repeatCount="indefinite"/></circle>
       <circle r="1.8"><animateMotion path="M-20 35 L50 55" dur="2.2s" repeatCount="indefinite"/></circle>
     </g>
+    <g fill="{soft}" opacity="0.7">
+      <circle cx="-92" cy="-30" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-92" cy="30" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="-70" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="70" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.3s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="-60" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="60" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="20" cy="-72" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="20" cy="72" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" begin="1.0s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.5" stroke-opacity="0.45" fill="none">
+      <path d="M-90 -70 L-78 -70"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+      <path d="M-90 70 L-78 70"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.5s" repeatCount="indefinite"/></path>
+    </g>
     <text x="-80" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">SOURCE</text>
     <text x="50" y="78" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">MIXERS</text>
     <text x="-15" y="-58" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}">HOPS</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">on-chain trace : 3 hops</text>
   </g>'''
 
 
@@ -202,6 +233,7 @@ def v_senate_columns(cx: int, yc: int, accent: str, soft: str = "") -> str:
     """Senate columns with gavel + animated regulation pulse."""
     soft = soft or accent
     return f'''<g transform="translate({cx},{yc})">
+    <rect x="-95" y="-65" width="180" height="120" rx="6" fill="{accent}" fill-opacity="0.04" stroke="{accent}" stroke-width="0.6" stroke-opacity="0.4"/>
     <g stroke="{accent}" stroke-width="1.8" fill="{accent}" fill-opacity="0.12">
       <rect x="-75" y="-40" width="10" height="70" rx="1"/>
       <rect x="-50" y="-40" width="10" height="70" rx="1"/>
@@ -210,6 +242,11 @@ def v_senate_columns(cx: int, yc: int, accent: str, soft: str = "") -> str:
       <rect x="25" y="-40" width="10" height="70" rx="1"/>
       <path d="M-85 -45 L50 -45 L50 -52 L-85 -52 Z"/>
       <path d="M-85 30 L50 30 L50 38 L-85 38 Z"/>
+    </g>
+    <g stroke="{soft}" stroke-width="0.6" stroke-opacity="0.5" fill="none">
+      <line x1="-78" y1="-40" x2="-78" y2="30"/><line x1="-53" y1="-40" x2="-53" y2="30"/>
+      <line x1="-28" y1="-40" x2="-28" y2="30"/><line x1="-3" y1="-40" x2="-3" y2="30"/>
+      <line x1="22" y1="-40" x2="22" y2="30"/>
     </g>
     <g fill="{soft}" opacity="0.9">
       <circle cx="-70" cy="-46" r="2"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/></circle>
@@ -223,7 +260,19 @@ def v_senate_columns(cx: int, yc: int, accent: str, soft: str = "") -> str:
       <rect x="-3" y="10" width="6" height="35" fill="{accent}" opacity="0.8"/>
       <animate attributeName="transform" values="translate(72,-5) rotate(25);translate(72,-5) rotate(-10);translate(72,-5) rotate(25)" dur="2.4s" repeatCount="indefinite"/>
     </g>
+    <g fill="{soft}" opacity="0.6">
+      <circle cx="-90" cy="-58" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-72" cy="-58" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-54" cy="-58" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="78" cy="-58" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="78" cy="50" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <path d="M-90 50 L-78 50"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+      <path d="M-90 60 L-72 60"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></path>
+    </g>
     <text y="56" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">REGULATION</text>
+    <text y="72" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">5 columns : 1 gavel</text>
   </g>'''
 
 
@@ -251,7 +300,22 @@ def v_price_chart(cx: int, yc: int, accent: str, soft: str) -> str:
       <rect x="-72" y="-50" width="14" height="3" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></rect>
       <rect x="-52" y="-50" width="14" height="3" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.6s" repeatCount="indefinite"/></rect>
     </g>
+    <g fill="{soft}" opacity="0.7">
+      <rect x="-90" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" repeatCount="indefinite"/></rect>
+      <rect x="-72" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.2s" repeatCount="indefinite"/></rect>
+      <rect x="-54" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></rect>
+      <rect x="-36" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" begin="0.6s" repeatCount="indefinite"/></rect>
+      <rect x="-18" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></rect>
+      <rect x="0" y="44" width="6" height="6" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="1.0s" repeatCount="indefinite"/></rect>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <line x1="-95" y1="-50" x2="-95" y2="40"><animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/></line>
+      <line x1="95" y1="-50" x2="95" y2="40"><animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></line>
+    </g>
+    <text x="-92" y="-12" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">vol</text>
+    <text x="-92" y="14" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">avg</text>
     <text x="90" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">DOWNTREND</text>
+    <text x="-90" y="60" text-anchor="start" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">7d ohlc : RSI 29</text>
   </g>'''
 
 
@@ -287,7 +351,16 @@ def v_network_nodes(cx: int, yc: int, accent: str, soft: str, label: str = "INFR
       <circle r="2"><animateMotion path="M0 0 L-60 60" dur="2.3s" repeatCount="indefinite"/></circle>
       <circle r="2"><animateMotion path="M0 0 L-95 -10" dur="2.4s" repeatCount="indefinite"/></circle>
       <circle r="2"><animateMotion path="M0 0 L30 -72" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L60 60" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-30 -72" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-80 -50" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-85 30" dur="2.7s" repeatCount="indefinite"/></circle>
     </g>
+    <g stroke="{soft}" stroke-width="0.5" stroke-opacity="0.4" fill="none">
+      <circle r="42"><animate attributeName="r" values="36;52;36" dur="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle r="56"><animate attributeName="r" values="48;68;48" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.75">10 endpoints : 12 routes</text>
   </g>'''
 
 
@@ -308,7 +381,21 @@ def v_browser_cve(cx: int, yc: int, accent: str, soft: str, label: str = "CVE") 
     <rect x="-75" y="-22" width="6" height="72" fill="{soft}" opacity="0.4">
       <animate attributeName="x" values="-75;65;-75" dur="3.6s" repeatCount="indefinite"/>
     </rect>
+    <g fill="{soft}" opacity="0.7">
+      <circle cx="-65" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-35" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="35" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="65" cy="44" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <line x1="-78" y1="-58" x2="-50" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite"/></line>
+      <line x1="50" y1="-58" x2="78" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.4s" repeatCount="indefinite"/></line>
+    </g>
+    <text x="-60" y="-58" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">URL</text>
     <text y="62" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{label}</text>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">scan ack : 1 alert</text>
   </g>'''
 
 
@@ -340,7 +427,22 @@ def v_router_mesh(cx: int, yc: int, accent: str, soft: str) -> str:
     </g>
     <circle r="18" fill="{accent}" stroke="{soft}" stroke-width="2" filter="url(#softShadow)"/>
     <text y="4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FFF">HUB</text>
+    <g fill="{soft}" opacity="0.7">
+      <circle cx="-90" cy="-58" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="90" cy="-58" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-90" cy="58" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="90" cy="58" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="0.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.45" fill="none">
+      <path d="M-95 0 L-83 0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite"/></path>
+      <path d="M83 0 L95 0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" begin="0.5s" repeatCount="indefinite"/></path>
+    </g>
+    <text x="-70" y="-54" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">R1</text>
+    <text x="70" y="-54" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">R2</text>
+    <text x="-70" y="62" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">R3</text>
+    <text x="70" y="62" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">R4</text>
     <text y="74" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">SOHO MESH</text>
+    <text y="88" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">4 nodes : 1 hub : 8 links</text>
   </g>'''
 
 
@@ -366,7 +468,21 @@ def v_code_bars(cx: int, yc: int, accent: str, soft: str, caption: str = "CODE")
     <rect x="-86" y="-50" width="178" height="3" fill="{accent}" opacity="0.4">
       <animate attributeName="y" values="-50;46;-50" dur="3.2s" repeatCount="indefinite"/>
     </rect>
+    <g fill="{soft}" opacity="0.65">
+      <circle cx="-86" cy="-40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="-20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="0" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+      <path d="M-94 -54 L-78 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="1.8s" repeatCount="indefinite"/></path>
+      <path d="M82 -54 L94 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" begin="0.3s" repeatCount="indefinite"/></path>
+    </g>
+    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">5 lines</text>
+    <text x="80" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">live</text>
     <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{caption}</text>
+    <text y="82" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">cursor : line 5 col 14</text>
   </g>'''
 
 
@@ -386,7 +502,21 @@ def v_shield(cx: int, yc: int, accent: str, soft: str, label: str = "SHIELD") ->
       <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
       <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
     </g>
+    <g fill="{soft}" opacity="0.55">
+      <circle cx="-65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.35" fill="none">
+      <path d="M-78 -68 L-66 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/></path>
+      <path d="M66 -68 L78 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
+    </g>
+    <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">verified</text>
     <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{label}</text>
+    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">3 rings : signed by CA</text>
   </g>'''
 
 
@@ -413,6 +543,19 @@ def v_lock_cve(cx: int, yc: int, accent: str, soft: str, cvss: str = "9.8") -> s
       <path d="M-44 30 L-38 26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.0s" repeatCount="indefinite"/></path>
       <path d="M44 30 L38 26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.6s" repeatCount="indefinite"/></path>
     </g>
+    <g fill="{soft}" opacity="0.55">
+      <circle cx="-72" cy="-30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="72" cy="-30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-72" cy="30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="72" cy="30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="-65" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="-65" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <line x1="-86" y1="0" x2="-74" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" repeatCount="indefinite"/></line>
+      <line x1="74" y1="0" x2="86" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.5s" repeatCount="indefinite"/></line>
+    </g>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">CVSS : critical scope</text>
   </g>'''
 
 
@@ -439,8 +582,19 @@ def v_cloud_k8s(cx: int, yc: int, accent: str, soft: str) -> str:
     <g fill="{soft}" opacity="0.6">
       <circle cx="-50" cy="-38" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
       <circle cx="50" cy="-38" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-70" cy="-15" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="70" cy="-15" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-60" cy="32" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="60" cy="32" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="1.2s" repeatCount="indefinite"/></circle>
     </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <line x1="-90" y1="-58" x2="-78" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite"/></line>
+      <line x1="78" y1="-58" x2="90" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.4s" repeatCount="indefinite"/></line>
+    </g>
+    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">3 pods</text>
+    <text x="86" y="-58" text-anchor="end" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">healthy</text>
     <text y="60" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">K8s CLOUD</text>
+    <text y="74" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">3 nodes : workload identity</text>
   </g>'''
 
 
@@ -470,13 +624,30 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
     <g fill="{soft}" opacity="0.75">
       <circle cx="-90" cy="-50" r="1.5"/><circle cx="-90" cy="-25" r="1.5"/><circle cx="-90" cy="0" r="1.5"/>
     </g>
+    <g fill="{accent}" opacity="0.7">
+      <rect x="-95" y="-58" width="6" height="2" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></rect>
+      <rect x="-85" y="-58" width="6" height="2" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></rect>
+      <rect x="-75" y="-58" width="6" height="2" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></rect>
+    </g>
+    <g fill="{soft}" opacity="0.65">
+      <circle cx="100" cy="-50" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="100" cy="-25" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="100" cy="0" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="100" cy="20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+      <line x1="-90" y1="48" x2="100" y2="48"><animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/></line>
+    </g>
+    <text x="-90" y="-56" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{accent}" opacity="0.7">peak</text>
+    <text x="100" y="-56" text-anchor="end" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{accent}" opacity="0.7">+24%</text>
     <text y="58" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{soft}">{caption}</text>
+    <text y="72" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">6 buckets : qoq trend</text>
   </g>'''
 
 
 # --- Decorative ambient layer ---
 def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict) -> str:
-    """Rich animated ambient overlay (~60 lines) tied to each band's accent."""
+    """Rich animated ambient overlay (~150 lines) tied to each band's accent."""
     def band_layer(theme: dict, y_center: int, edge_y_start: int) -> str:
         a = theme["accent"]
         s = theme["soft"]
@@ -491,6 +662,11 @@ def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict) -> str:
     <circle cx="860" cy="{y_center - 50}" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
     <circle cx="240" cy="{y_center + 42}" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
     <circle cx="320" cy="{y_center + 42}" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="{y_center - 70}" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="{y_center + 70}" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="{y_center - 78}" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="{y_center - 24}" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="{y_center + 24}" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
   </g>
   <g fill="{a}" opacity="0.6">
     <rect x="780" y="{y_center - 78}" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
@@ -507,9 +683,19 @@ def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict) -> str:
     <path d="M20 {edge_y_start} L28 {edge_y_start}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 {edge_y_start + 30} L28 {edge_y_start + 30}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
     <path d="M20 {edge_y_start + 60} L28 {edge_y_start + 60}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+    <path d="M20 {edge_y_start + 90} L28 {edge_y_start + 90}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></path>
+    <path d="M1180 {edge_y_start} L1172 {edge_y_start}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></path>
+    <path d="M1180 {edge_y_start + 30} L1172 {edge_y_start + 30}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.5s" repeatCount="indefinite"/></path>
+    <path d="M1180 {edge_y_start + 60} L1172 {edge_y_start + 60}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M1180 {edge_y_start + 90} L1172 {edge_y_start + 90}"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></path>
   </g>
   <g stroke="{s}" stroke-width="0.6" stroke-opacity="0.3" fill="none">
     <circle cx="500" cy="{y_center}" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="{y_center}" r="60" stroke-dasharray="2 4"><animate attributeName="r" values="40;80;40" dur="3.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="{a}" opacity="0.55">
+    <rect x="120" y="{y_center - 90}" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
+    <rect x="640" y="{y_center + 90}" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
   </g>'''
 
     return f'''<g opacity="0.9">
@@ -580,6 +766,7 @@ def render_bands_svg(
             mini_value=cfg.get("mini_value", ""),
             mini_label=cfg.get("mini_label", ""),
             mini_sub=cfg.get("mini_sub", ""),
+            context=cfg.get("context", ""),
         ))
     bands_svg = "\n".join(body_parts)
     deco = deco_layer(t0, t1, t2)

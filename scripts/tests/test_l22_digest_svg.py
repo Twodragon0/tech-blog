@@ -119,7 +119,7 @@ intro
     assert "bandCL22" in svg_text
     # Line count in the documented operating range for the L22 layout.
     line_count = svg_text.count("\n") + 1
-    assert 100 <= line_count <= 400, f"unexpected line count: {line_count}"
+    assert 100 <= line_count <= 500, f"unexpected line count: {line_count}"
 
 
 def test_l22_render_bands_svg_requires_three_bands():
