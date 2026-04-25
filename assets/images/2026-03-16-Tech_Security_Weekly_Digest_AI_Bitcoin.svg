@@ -23,11 +23,21 @@
   <rect x="0" y="0" width="1200" height="210" fill="url(#bandAMA01)"/>
   <rect x="0" y="0" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
   <rect x="0" y="0" width="8" height="210" fill="#4ADE80"/>
+  <g transform="translate(120,48)" opacity="0.85">
+    <circle r="18" fill="none" stroke="#4ADE80" stroke-width="1.6" stroke-opacity="0.7"><animate attributeName="r" values="16;20;16" dur="3s" repeatCount="indefinite"/></circle>
+    <circle r="13" fill="#4ADE80" fill-opacity="0.18"/>
+    <text y="5" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#4ADE80">B</text>
+    <line x1="-4" y1="-13" x2="-4" y2="-9" stroke="#4ADE80" stroke-width="1.6"/>
+    <line x1="4" y1="-13" x2="4" y2="-9" stroke="#4ADE80" stroke-width="1.6"/>
+    <line x1="-4" y1="9" x2="-4" y2="13" stroke="#4ADE80" stroke-width="1.6"/>
+    <line x1="4" y1="9" x2="4" y2="13" stroke="#4ADE80" stroke-width="1.6"/>
+  </g>
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">ONCHAIN FORENSICS</text>
     <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Argentina Libra Token</text>
     <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">$18M drained : 9 wallets</text>
     <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Rug pull on-chain analysis : sniper bot route : presidential endorsement scam</text>
+    
     
   </g>
   <g transform="translate(480,105)">
@@ -73,6 +83,7 @@
     <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#86EFAC" opacity="0.7">on-chain trace : 3 hops</text>
   </g>
   
+  
   <g transform="translate(990,105)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
     <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">DRAINED</text>
@@ -90,16 +101,19 @@
     <rect x="62" y="-62" width="14" height="2" rx="1" fill="#4ADE80" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
     <rect x="65" y="-58" width="9" height="2" rx="1" fill="#86EFAC" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
+  
 </g>
 <g>
   <rect x="0" y="210" width="1200" height="210" fill="url(#bandBMA01)"/>
   <rect x="0" y="210" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
   <rect x="0" y="210" width="8" height="210" fill="#FFB703"/>
+  
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">STABLECOIN REGULATION</text>
     <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Global Stablecoin Reg</text>
     <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">GENIUS Act + EU MiCA</text>
     <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">US Senate Banking hearing : reserve audit mandate : 180-day compliance window</text>
+    
     
   </g>
   <g transform="translate(500,315)">
@@ -145,6 +159,7 @@
     <text y="72" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFB703" opacity="0.7">5 columns : 1 gavel</text>
   </g>
   
+  
   <g transform="translate(990,315)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E1805" stroke="#FFB703" stroke-width="2.2"/>
     <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">DAYS</text>
@@ -162,16 +177,27 @@
     <rect x="62" y="-62" width="14" height="2" rx="1" fill="#FFB703" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
     <rect x="65" y="-58" width="9" height="2" rx="1" fill="#FCD34D" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
+  
 </g>
 <g>
   <rect x="0" y="420" width="1200" height="210" fill="url(#bandCMA01)"/>
   <rect x="0" y="420" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
   <rect x="0" y="420" width="8" height="210" fill="#E63946"/>
+  <g transform="translate(140,467)" opacity="0.85">
+    <circle r="18" fill="none" stroke="#E63946" stroke-width="1.6" stroke-opacity="0.7"><animate attributeName="r" values="16;20;16" dur="3s" repeatCount="indefinite"/></circle>
+    <circle r="13" fill="#E63946" fill-opacity="0.18"/>
+    <text y="5" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#E63946">B</text>
+    <line x1="-4" y1="-13" x2="-4" y2="-9" stroke="#E63946" stroke-width="1.6"/>
+    <line x1="4" y1="-13" x2="4" y2="-9" stroke="#E63946" stroke-width="1.6"/>
+    <line x1="-4" y1="9" x2="-4" y2="13" stroke="#E63946" stroke-width="1.6"/>
+    <line x1="4" y1="9" x2="4" y2="13" stroke="#E63946" stroke-width="1.6"/>
+  </g>
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">CRYPTO MARKET</text>
     <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BTC -12% Correction</text>
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">$88K to $77K drawdown</text>
     <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">ETF outflow $2.1B : 7-day RSI=29 : Q1 sentiment cooling</text>
+    
     
   </g>
   <g transform="translate(500,525)">
@@ -214,6 +240,7 @@
     <text x="-90" y="60" text-anchor="start" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.7">7d ohlc : RSI 29</text>
   </g>
   
+  
   <g transform="translate(990,525)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
     <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">BTC</text>
@@ -231,6 +258,7 @@
     <rect x="62" y="-62" width="14" height="2" rx="1" fill="#E63946" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
     <rect x="65" y="-58" width="9" height="2" rx="1" fill="#FCA5A5" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
+  
 </g>
 <g opacity="0.9">
   <g fill="#4ADE80">
@@ -372,6 +400,7 @@
     <rect x="640" y="615" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
   </g>
 </g>
+
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
   <path fill="#0A1020" d="M0.0 0.0h15.892v2.27h-15.892z M18.162 0.0h2.27v2.27h-2.27z M24.973 0.0h4.541v2.27h-4.541z M34.054 0.0h2.27v2.27h-2.27z M38.595 0.0h6.811v2.27h-6.811z M52.216 0.0h2.27v2.27h-2.27z M56.757 0.0h6.811v2.27h-6.811z M68.108 0.0h15.892v2.27h-15.892z M0.0 2.27h2.27v2.27h-2.27z M13.622 2.27h2.27v2.27h-2.27z M22.703 2.27h4.541v2.27h-4.541z M34.054 2.27h6.811v2.27h-6.811z M43.135 2.27h2.27v2.27h-2.27z M47.676 2.27h2.27v2.27h-2.27z M54.486 2.27h2.27v2.27h-2.27z M63.568 2.27h2.27v2.27h-2.27z M68.108 2.27h2.27v2.27h-2.27z M81.73 2.27h2.27v2.27h-2.27z M0.0 4.541h2.27v2.27h-2.27z M4.541 4.541h6.811v2.27h-6.811z M13.622 4.541h2.27v2.27h-2.27z M20.432 4.541h2.27v2.27h-2.27z M24.973 4.541h4.541v2.27h-4.541z M38.595 4.541h4.541v2.27h-4.541z M45.405 4.541h4.541v2.27h-4.541z M52.216 4.541h4.541v2.27h-4.541z M59.027 4.541h6.811v2.27h-6.811z M68.108 4.541h2.27v2.27h-2.27z M72.649 4.541h6.811v2.27h-6.811z M81.73 4.541h2.27v2.27h-2.27z M0.0 6.811h2.27v2.27h-2.27z M4.541 6.811h6.811v2.27h-6.811z M13.622 6.811h2.27v2.27h-2.27z M18.162 6.811h2.27v2.27h-2.27z M22.703 6.811h4.541v2.27h-4.541z M29.514 6.811h6.811v2.27h-6.811z M43.135 6.811h2.27v2.27h-2.27z M52.216 6.811h2.27v2.27h-2.27z M56.757 6.811h4.541v2.27h-4.541z M68.108 6.811h2.27v2.27h-2.27z M72.649 6.811h6.811v2.27h-6.811z M81.73 6.811h2.27v2.27h-2.27z M0.0 9.081h2.27v2.27h-2.27z M4.541 9.081h6.811v2.27h-6.811z M13.622 9.081h2.27v2.27h-2.27z M18.162 9.081h2.27v2.27h-2.27z M24.973 9.081h11.351v2.27h-11.351z M45.405 9.081h4.541v2.27h-4.541z M52.216 9.081h2.27v2.27h-2.27z M59.027 9.081h6.811v2.27h-6.811z M68.108 9.081h2.27v2.27h-2.27z M72.649 9.081h6.811v2.27h-6.811z M81.73 9.081h2.27v2.27h-2.27z M0.0 11.351h2.27v2.27h-2.27z M13.622 11.351h2.27v2.27h-2.27z M18.162 11.351h6.811v2.27h-6.811z M36.324 11.351h9.081v2.27h-9.081z M54.486 11.351h4.541v2.27h-4.541z M68.108 11.351h2.27v2.27h-2.27z M81.73 11.351h2.27v2.27h-2.27z M0.0 13.622h15.892v2.27h-15.892z M18.162 13.622h2.27v2.27h-2.27z M22.703 13.622h2.27v2.27h-2.27z M27.243 13.622h2.27v2.27h-2.27z M31.784 13.622h2.27v2.27h-2.27z M36.324 13.622h2.27v2.27h-2.27z M40.865 13.622h2.27v2.27h-2.27z M45.405 13.622h2.27v2.27h-2.27z M49.946 13.622h2.27v2.27h-2.27z M54.486 13.622h2.27v2.27h-2.27z M59.027 13.622h2.27v2.27h-2.27z M63.568 13.622h2.27v2.27h-2.27z M68.108 13.622h15.892v2.27h-15.892z M18.162 15.892h6.811v2.27h-6.811z M34.054 15.892h2.27v2.27h-2.27z M38.595 15.892h2.27v2.27h-2.27z M43.135 15.892h2.27v2.27h-2.27z M47.676 15.892h2.27v2.27h-2.27z M54.486 15.892h2.27v2.27h-2.27z M59.027 15.892h4.541v2.27h-4.541z M0.0 18.162h2.27v2.27h-2.27z M9.081 18.162h2.27v2.27h-2.27z M13.622 18.162h6.811v2.27h-6.811z M24.973 18.162h6.811v2.27h-6.811z M34.054 18.162h2.27v2.27h-2.27z M38.595 18.162h2.27v2.27h-2.27z M43.135 18.162h15.892v2.27h-15.892z M63.568 18.162h13.622v2.27h-13.622z M81.73 18.162h2.27v2.27h-2.27z M6.811 20.432h4.541v2.27h-4.541z M15.892 20.432h2.27v2.27h-2.27z M20.432 20.432h4.541v2.27h-4.541z M27.243 20.432h2.27v2.27h-2.27z M31.784 20.432h2.27v2.27h-2.27z M40.865 20.432h2.27v2.27h-2.27z M45.405 20.432h4.541v2.27h-4.541z M61.297 20.432h4.541v2.27h-4.541z M72.649 20.432h9.081v2.27h-9.081z M0.0 22.703h11.351v2.27h-11.351z M13.622 22.703h2.27v2.27h-2.27z M20.432 22.703h4.541v2.27h-4.541z M29.514 22.703h2.27v2.27h-2.27z M34.054 22.703h2.27v2.27h-2.27z M45.405 22.703h2.27v2.27h-2.27z M52.216 22.703h13.622v2.27h-13.622z M70.378 22.703h4.541v2.27h-4.541z M11.351 24.973h2.27v2.27h-2.27z M18.162 24.973h13.622v2.27h-13.622z M38.595 24.973h2.27v2.27h-2.27z M47.676 24.973h2.27v2.27h-2.27z M52.216 24.973h4.541v2.27h-4.541z M59.027 24.973h4.541v2.27h-4.541z M65.838 24.973h2.27v2.27h-2.27z M77.189 24.973h4.541v2.27h-4.541z M6.811 27.243h4.541v2.27h-4.541z M13.622 27.243h4.541v2.27h-4.541z M20.432 27.243h6.811v2.27h-6.811z M34.054 27.243h2.27v2.27h-2.27z M38.595 27.243h4.541v2.27h-4.541z M47.676 27.243h9.081v2.27h-9.081z M63.568 27.243h6.811v2.27h-6.811z M74.919 27.243h2.27v2.27h-2.27z M79.459 27.243h4.541v2.27h-4.541z M2.27 29.514h2.27v2.27h-2.27z M9.081 29.514h2.27v2.27h-2.27z M15.892 29.514h6.811v2.27h-6.811z M24.973 29.514h11.351v2.27h-11.351z M38.595 29.514h2.27v2.27h-2.27z M52.216 29.514h13.622v2.27h-13.622z M72.649 29.514h4.541v2.27h-4.541z M0.0 31.784h2.27v2.27h-2.27z M4.541 31.784h2.27v2.27h-2.27z M9.081 31.784h6.811v2.27h-6.811z M18.162 31.784h2.27v2.27h-2.27z M27.243 31.784h2.27v2.27h-2.27z M34.054 31.784h2.27v2.27h-2.27z M38.595 31.784h2.27v2.27h-2.27z M52.216 31.784h2.27v2.27h-2.27z M56.757 31.784h9.081v2.27h-9.081z M70.378 31.784h11.351v2.27h-11.351z M9.081 34.054h4.541v2.27h-4.541z M15.892 34.054h6.811v2.27h-6.811z M24.973 34.054h6.811v2.27h-6.811z M36.324 34.054h6.811v2.27h-6.811z M45.405 34.054h4.541v2.27h-4.541z M54.486 34.054h2.27v2.27h-2.27z M59.027 34.054h2.27v2.27h-2.27z M63.568 34.054h2.27v2.27h-2.27z M70.378 34.054h4.541v2.27h-4.541z M77.189 34.054h6.811v2.27h-6.811z M0.0 36.324h4.541v2.27h-4.541z M6.811 36.324h4.541v2.27h-4.541z M13.622 36.324h2.27v2.27h-2.27z M27.243 36.324h2.27v2.27h-2.27z M38.595 36.324h2.27v2.27h-2.27z M43.135 36.324h13.622v2.27h-13.622z M63.568 36.324h6.811v2.27h-6.811z M72.649 36.324h11.351v2.27h-11.351z M4.541 38.595h4.541v2.27h-4.541z M15.892 38.595h4.541v2.27h-4.541z M27.243 38.595h9.081v2.27h-9.081z M43.135 38.595h2.27v2.27h-2.27z M47.676 38.595h2.27v2.27h-2.27z M52.216 38.595h13.622v2.27h-13.622z M72.649 38.595h4.541v2.27h-4.541z M79.459 38.595h2.27v2.27h-2.27z M0.0 40.865h2.27v2.27h-2.27z M4.541 40.865h2.27v2.27h-2.27z M9.081 40.865h6.811v2.27h-6.811z M18.162 40.865h9.081v2.27h-9.081z M31.784 40.865h9.081v2.27h-9.081z M45.405 40.865h4.541v2.27h-4.541z M52.216 40.865h4.541v2.27h-4.541z M59.027 40.865h4.541v2.27h-4.541z M70.378 40.865h2.27v2.27h-2.27z M74.919 40.865h4.541v2.27h-4.541z M0.0 43.135h13.622v2.27h-13.622z M27.243 43.135h4.541v2.27h-4.541z M38.595 43.135h2.27v2.27h-2.27z M47.676 43.135h2.27v2.27h-2.27z M52.216 43.135h2.27v2.27h-2.27z M61.297 43.135h4.541v2.27h-4.541z M70.378 43.135h4.541v2.27h-4.541z M77.189 43.135h4.541v2.27h-4.541z M2.27 45.405h2.27v2.27h-2.27z M6.811 45.405h2.27v2.27h-2.27z M11.351 45.405h11.351v2.27h-11.351z M24.973 45.405h2.27v2.27h-2.27z M31.784 45.405h13.622v2.27h-13.622z M47.676 45.405h2.27v2.27h-2.27z M52.216 45.405h4.541v2.27h-4.541z M61.297 45.405h11.351v2.27h-11.351z M77.189 45.405h2.27v2.27h-2.27z M2.27 47.676h11.351v2.27h-11.351z M18.162 47.676h11.351v2.27h-11.351z M34.054 47.676h2.27v2.27h-2.27z M52.216 47.676h2.27v2.27h-2.27z M56.757 47.676h2.27v2.27h-2.27z M61.297 47.676h2.27v2.27h-2.27z M70.378 47.676h4.541v2.27h-4.541z M79.459 47.676h2.27v2.27h-2.27z M0.0 49.946h2.27v2.27h-2.27z M6.811 49.946h9.081v2.27h-9.081z M18.162 49.946h4.541v2.27h-4.541z M29.514 49.946h2.27v2.27h-2.27z M34.054 49.946h9.081v2.27h-9.081z M45.405 49.946h4.541v2.27h-4.541z M52.216 49.946h4.541v2.27h-4.541z M59.027 49.946h9.081v2.27h-9.081z M70.378 49.946h11.351v2.27h-11.351z M2.27 52.216h2.27v2.27h-2.27z M9.081 52.216h2.27v2.27h-2.27z M20.432 52.216h20.432v2.27h-20.432z M43.135 52.216h2.27v2.27h-2.27z M47.676 52.216h2.27v2.27h-2.27z M54.486 52.216h2.27v2.27h-2.27z M59.027 52.216h2.27v2.27h-2.27z M68.108 52.216h6.811v2.27h-6.811z M77.189 52.216h2.27v2.27h-2.27z M0.0 54.486h4.541v2.27h-4.541z M9.081 54.486h13.622v2.27h-13.622z M27.243 54.486h6.811v2.27h-6.811z M38.595 54.486h2.27v2.27h-2.27z M43.135 54.486h11.351v2.27h-11.351z M61.297 54.486h2.27v2.27h-2.27z M65.838 54.486h6.811v2.27h-6.811z M74.919 54.486h4.541v2.27h-4.541z M81.73 54.486h2.27v2.27h-2.27z M0.0 56.757h2.27v2.27h-2.27z M4.541 56.757h6.811v2.27h-6.811z M18.162 56.757h2.27v2.27h-2.27z M29.514 56.757h2.27v2.27h-2.27z M34.054 56.757h4.541v2.27h-4.541z M40.865 56.757h4.541v2.27h-4.541z M47.676 56.757h6.811v2.27h-6.811z M56.757 56.757h11.351v2.27h-11.351z M70.378 56.757h6.811v2.27h-6.811z M6.811 59.027h11.351v2.27h-11.351z M29.514 59.027h2.27v2.27h-2.27z M34.054 59.027h2.27v2.27h-2.27z M45.405 59.027h2.27v2.27h-2.27z M52.216 59.027h2.27v2.27h-2.27z M56.757 59.027h2.27v2.27h-2.27z M61.297 59.027h6.811v2.27h-6.811z M77.189 59.027h2.27v2.27h-2.27z M6.811 61.297h2.27v2.27h-2.27z M20.432 61.297h4.541v2.27h-4.541z M27.243 61.297h2.27v2.27h-2.27z M34.054 61.297h6.811v2.27h-6.811z M45.405 61.297h4.541v2.27h-4.541z M52.216 61.297h4.541v2.27h-4.541z M63.568 61.297h2.27v2.27h-2.27z M68.108 61.297h2.27v2.27h-2.27z M72.649 61.297h2.27v2.27h-2.27z M77.189 61.297h4.541v2.27h-4.541z M0.0 63.568h6.811v2.27h-6.811z M13.622 63.568h18.162v2.27h-18.162z M34.054 63.568h9.081v2.27h-9.081z M47.676 63.568h9.081v2.27h-9.081z M63.568 63.568h11.351v2.27h-11.351z M77.189 63.568h6.811v2.27h-6.811z M18.162 65.838h2.27v2.27h-2.27z M24.973 65.838h2.27v2.27h-2.27z M34.054 65.838h2.27v2.27h-2.27z M49.946 65.838h4.541v2.27h-4.541z M56.757 65.838h4.541v2.27h-4.541z M63.568 65.838h2.27v2.27h-2.27z M72.649 65.838h2.27v2.27h-2.27z M79.459 65.838h2.27v2.27h-2.27z M0.0 68.108h15.892v2.27h-15.892z M18.162 68.108h2.27v2.27h-2.27z M22.703 68.108h2.27v2.27h-2.27z M29.514 68.108h2.27v2.27h-2.27z M34.054 68.108h2.27v2.27h-2.27z M45.405 68.108h2.27v2.27h-2.27z M49.946 68.108h6.811v2.27h-6.811z M59.027 68.108h2.27v2.27h-2.27z M63.568 68.108h2.27v2.27h-2.27z M68.108 68.108h2.27v2.27h-2.27z M72.649 68.108h2.27v2.27h-2.27z M79.459 68.108h2.27v2.27h-2.27z M0.0 70.378h2.27v2.27h-2.27z M13.622 70.378h2.27v2.27h-2.27z M20.432 70.378h2.27v2.27h-2.27z M31.784 70.378h2.27v2.27h-2.27z M38.595 70.378h11.351v2.27h-11.351z M54.486 70.378h2.27v2.27h-2.27z M59.027 70.378h6.811v2.27h-6.811z M72.649 70.378h6.811v2.27h-6.811z M81.73 70.378h2.27v2.27h-2.27z M0.0 72.649h2.27v2.27h-2.27z M4.541 72.649h6.811v2.27h-6.811z M13.622 72.649h2.27v2.27h-2.27z M18.162 72.649h4.541v2.27h-4.541z M27.243 72.649h4.541v2.27h-4.541z M34.054 72.649h2.27v2.27h-2.27z M38.595 72.649h2.27v2.27h-2.27z M45.405 72.649h6.811v2.27h-6.811z M54.486 72.649h2.27v2.27h-2.27z M63.568 72.649h18.162v2.27h-18.162z M0.0 74.919h2.27v2.27h-2.27z M4.541 74.919h6.811v2.27h-6.811z M13.622 74.919h2.27v2.27h-2.27z M20.432 74.919h2.27v2.27h-2.27z M27.243 74.919h2.27v2.27h-2.27z M34.054 74.919h4.541v2.27h-4.541z M40.865 74.919h2.27v2.27h-2.27z M45.405 74.919h2.27v2.27h-2.27z M49.946 74.919h4.541v2.27h-4.541z M56.757 74.919h4.541v2.27h-4.541z M65.838 74.919h6.811v2.27h-6.811z M79.459 74.919h4.541v2.27h-4.541z M0.0 77.189h2.27v2.27h-2.27z M4.541 77.189h6.811v2.27h-6.811z M13.622 77.189h2.27v2.27h-2.27z M20.432 77.189h4.541v2.27h-4.541z M29.514 77.189h6.811v2.27h-6.811z M40.865 77.189h2.27v2.27h-2.27z M47.676 77.189h9.081v2.27h-9.081z M61.297 77.189h2.27v2.27h-2.27z M65.838 77.189h4.541v2.27h-4.541z M0.0 79.459h2.27v2.27h-2.27z M13.622 79.459h2.27v2.27h-2.27z M24.973 79.459h2.27v2.27h-2.27z M29.514 79.459h4.541v2.27h-4.541z M38.595 79.459h2.27v2.27h-2.27z M45.405 79.459h6.811v2.27h-6.811z M59.027 79.459h2.27v2.27h-2.27z M72.649 79.459h2.27v2.27h-2.27z M77.189 79.459h4.541v2.27h-4.541z M0.0 81.73h15.892v2.27h-15.892z M18.162 81.73h9.081v2.27h-9.081z M29.514 81.73h2.27v2.27h-2.27z M34.054 81.73h2.27v2.27h-2.27z M38.595 81.73h18.162v2.27h-18.162z M61.297 81.73h2.27v2.27h-2.27z M65.838 81.73h6.811v2.27h-6.811z M77.189 81.73h6.811v2.27h-6.811z"/>

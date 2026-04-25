@@ -122,6 +122,7 @@ def band(
     mini2_value: str = "",
     mini2_label: str = "",
     mini2_sub: str = "",
+    extras: List[dict] = None,
 ) -> str:
     """Build a single horizontal band. ``idx`` 0/1/2 maps to y 0/210/420.
 
@@ -204,10 +205,12 @@ def band(
       <animate attributeName="opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
     </circle>
   </g>'''
+    extras_svg = render_extras(extras or [])
     return f'''<g>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{bid}{sfx})"/>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{pat})" opacity="0.6"/>
   <rect x="0" y="{y}" width="8" height="210" fill="{theme["accent"]}"/>
+  {extras_svg}
   <g filter="url(#textShadow)">
     <text x="30" y="{label_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="{theme["label"]}">{label}</text>
     <text x="30" y="{head_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">{headline}</text>
@@ -703,6 +706,171 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
   </g>'''
 
 
+# --- Topic motif library (per-post signature accents) ---
+def motif_bitcoin(x: int, y: int, color: str) -> str:
+    """Bitcoin Bsymbol coin badge centred at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <circle r="18" fill="none" stroke="{color}" stroke-width="1.6" stroke-opacity="0.7"><animate attributeName="r" values="16;20;16" dur="3s" repeatCount="indefinite"/></circle>
+    <circle r="13" fill="{color}" fill-opacity="0.18"/>
+    <text y="5" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="{color}">B</text>
+    <line x1="-4" y1="-13" x2="-4" y2="-9" stroke="{color}" stroke-width="1.6"/>
+    <line x1="4" y1="-13" x2="4" y2="-9" stroke="{color}" stroke-width="1.6"/>
+    <line x1="-4" y1="9" x2="-4" y2="13" stroke="{color}" stroke-width="1.6"/>
+    <line x1="4" y1="9" x2="4" y2="13" stroke="{color}" stroke-width="1.6"/>
+  </g>'''
+
+
+def motif_apple(x: int, y: int, color: str) -> str:
+    """Stylised apple silhouette with leaf at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <path d="M -10 -2 C -14 -10, -4 -16, 0 -10 C 4 -16, 14 -10, 10 -2 C 14 8, 6 16, 0 14 C -6 16, -14 8, -10 -2 Z" fill="{color}" fill-opacity="0.55" stroke="{color}" stroke-width="1.2"/>
+    <path d="M 0 -10 C 2 -14, 7 -16, 8 -12 C 6 -10, 2 -8, 0 -10 Z" fill="{color}" stroke="none" opacity="0.85"/>
+    <circle cx="-3" cy="-4" r="1.2" fill="#F5F7FA" opacity="0.7"/>
+  </g>'''
+
+
+def motif_flag_strip(x: int, y: int, color1: str, color2: str) -> str:
+    """3-stripe flag motif near (x, y) for nation-state context."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <rect x="-26" y="-12" width="52" height="8" fill="{color1}" fill-opacity="0.7"/>
+    <rect x="-26" y="-4" width="52" height="8" fill="#F5F7FA" fill-opacity="0.4"/>
+    <rect x="-26" y="4" width="52" height="8" fill="{color2}" fill-opacity="0.7"/>
+    <line x1="-30" y1="-14" x2="-30" y2="14" stroke="{color1}" stroke-width="1.4"/>
+    <circle cx="-30" cy="-14" r="1.4" fill="{color1}"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+  </g>'''
+
+
+def motif_hex_cluster(x: int, y: int, color: str) -> str:
+    """Hexagonal node cluster (Kubernetes-style) at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85" fill="none" stroke="{color}" stroke-width="1.4">
+    <path d="M 0 -16 L 14 -8 L 14 8 L 0 16 L -14 8 L -14 -8 Z" stroke-opacity="0.85"/>
+    <path d="M 22 -8 L 30 -4 L 30 4 L 22 8 L 14 4 L 14 -4 Z" stroke-opacity="0.55"/>
+    <path d="M -22 -8 L -14 -4 L -14 4 L -22 8 L -30 4 L -30 -4 Z" stroke-opacity="0.55"/>
+    <circle cx="0" cy="0" r="2.2" fill="{color}" stroke="none"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="22" cy="0" r="1.4" fill="{color}" stroke="none" opacity="0.7"/>
+    <circle cx="-22" cy="0" r="1.4" fill="{color}" stroke="none" opacity="0.7"/>
+  </g>'''
+
+
+def motif_dollar(x: int, y: int, color: str) -> str:
+    """Dollar sign coin for finance/FinOps context at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <circle r="16" fill="none" stroke="{color}" stroke-width="1.4" stroke-opacity="0.7"><animate attributeName="r" values="14;18;14" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle r="11" fill="{color}" fill-opacity="0.16"/>
+    <text y="5" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="900" fill="{color}">$</text>
+    <path d="M -16 8 L -10 14 L 16 14" stroke="{color}" stroke-width="1" fill="none" stroke-opacity="0.6"/>
+  </g>'''
+
+
+def motif_quantum(x: int, y: int, color: str) -> str:
+    """Quantum Q with orbital rings at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85" fill="none" stroke="{color}" stroke-width="1.2">
+    <ellipse rx="20" ry="8" stroke-opacity="0.6"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/></ellipse>
+    <ellipse rx="20" ry="8" stroke-opacity="0.5" transform="rotate(60)"/>
+    <ellipse rx="20" ry="8" stroke-opacity="0.5" transform="rotate(-60)"/>
+    <circle r="6" fill="{color}" fill-opacity="0.3" stroke-opacity="0.8"/>
+    <text y="4" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="900" fill="{color}" stroke="none">Q</text>
+  </g>'''
+
+
+def motif_chatgpt(x: int, y: int, color: str) -> str:
+    """Chat bubble with three dots (OpenAI/ChatGPT) at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <path d="M -16 -10 Q -16 -14 -12 -14 L 12 -14 Q 16 -14 16 -10 L 16 4 Q 16 8 12 8 L -4 8 L -10 14 L -10 8 L -12 8 Q -16 8 -16 4 Z" fill="{color}" fill-opacity="0.25" stroke="{color}" stroke-width="1.2"/>
+    <circle cx="-7" cy="-3" r="1.6" fill="{color}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></circle>
+    <circle cx="0" cy="-3" r="1.6" fill="{color}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="7" cy="-3" r="1.6" fill="{color}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>'''
+
+
+def motif_lock_chain(x: int, y: int, color: str) -> str:
+    """Padlock with chain link for ransomware/encryption context at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <path d="M -7 -4 L -7 -10 Q -7 -16 0 -16 Q 7 -16 7 -10 L 7 -4" fill="none" stroke="{color}" stroke-width="1.6"/>
+    <rect x="-10" y="-4" width="20" height="16" rx="2" fill="{color}" fill-opacity="0.3" stroke="{color}" stroke-width="1.4"/>
+    <circle cx="0" cy="4" r="1.6" fill="{color}"/>
+    <line x1="0" y1="4" x2="0" y2="9" stroke="{color}" stroke-width="1.4"/>
+    <circle cx="-22" cy="0" r="3" fill="none" stroke="{color}" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="22" cy="0" r="3" fill="none" stroke="{color}" stroke-width="1.2" opacity="0.6"/>
+  </g>'''
+
+
+def motif_browser_window(x: int, y: int, color: str) -> str:
+    """Browser window with traffic-light dots for browser CVE context at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85">
+    <rect x="-22" y="-14" width="44" height="28" rx="2" fill="none" stroke="{color}" stroke-width="1.4"/>
+    <line x1="-22" y1="-7" x2="22" y2="-7" stroke="{color}" stroke-width="1" opacity="0.7"/>
+    <circle cx="-18" cy="-10" r="1.4" fill="{color}" opacity="0.85"/>
+    <circle cx="-13" cy="-10" r="1.4" fill="{color}" opacity="0.65"/>
+    <circle cx="-8" cy="-10" r="1.4" fill="{color}" opacity="0.45"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" fill="{color}">CVE</text>
+  </g>'''
+
+
+def motif_supply_chain(x: int, y: int, color: str) -> str:
+    """Connected package boxes for supply-chain context at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85" fill="none" stroke="{color}" stroke-width="1.3">
+    <rect x="-26" y="-6" width="12" height="12" stroke-opacity="0.85"/>
+    <rect x="-6" y="-6" width="12" height="12" stroke-opacity="0.85"/>
+    <rect x="14" y="-6" width="12" height="12" stroke-opacity="0.85"/>
+    <line x1="-14" y1="0" x2="-6" y2="0" stroke-dasharray="2 2"/>
+    <line x1="6" y1="0" x2="14" y2="0" stroke-dasharray="2 2"/>
+    <circle cx="-20" cy="0" r="1.4" fill="{color}" stroke="none"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="20" cy="0" r="1.4" fill="{color}" stroke="none"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>'''
+
+
+def motif_robot_agent(x: int, y: int, color: str) -> str:
+    """Robot/AI agent head silhouette for AI agent context at (x, y)."""
+    return f'''<g transform="translate({x},{y})" opacity="0.85" fill="none" stroke="{color}" stroke-width="1.4">
+    <rect x="-12" y="-10" width="24" height="20" rx="3" stroke-opacity="0.85"/>
+    <line x1="0" y1="-14" x2="0" y2="-10"/>
+    <circle cx="0" cy="-14" r="1.6" fill="{color}" stroke="none"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-5" cy="-3" r="1.6" fill="{color}" stroke="none"/>
+    <circle cx="5" cy="-3" r="1.6" fill="{color}" stroke="none"/>
+    <line x1="-4" y1="5" x2="4" y2="5"/>
+    <line x1="-12" y1="-2" x2="-16" y2="-2"/>
+    <line x1="12" y1="-2" x2="16" y2="-2"/>
+  </g>'''
+
+
+# --- Motif dispatcher ---
+_MOTIF_REGISTRY = {
+    "bitcoin": motif_bitcoin,
+    "apple": motif_apple,
+    "flag_strip": motif_flag_strip,
+    "hex_cluster": motif_hex_cluster,
+    "dollar": motif_dollar,
+    "quantum": motif_quantum,
+    "chatgpt": motif_chatgpt,
+    "lock_chain": motif_lock_chain,
+    "browser_window": motif_browser_window,
+    "supply_chain": motif_supply_chain,
+    "robot_agent": motif_robot_agent,
+}
+
+
+def render_motif(spec: dict) -> str:
+    """Render a single motif from a spec dict.
+
+    Spec keys: ``name`` (required, key in _MOTIF_REGISTRY), ``x``, ``y`` (required),
+    ``color`` (required), ``color2`` (optional, only used by flag_strip).
+    """
+    fn = _MOTIF_REGISTRY.get(spec["name"])
+    if fn is None:
+        return ""
+    if spec["name"] == "flag_strip":
+        return fn(spec["x"], spec["y"], spec["color"], spec.get("color2", spec["color"]))
+    return fn(spec["x"], spec["y"], spec["color"])
+
+
+def render_extras(extras: List[dict]) -> str:
+    """Render a list of motif specs into a single SVG fragment."""
+    if not extras:
+        return ""
+    return "\n".join(render_motif(spec) for spec in extras)
+
+
 # --- Decorative ambient layer ---
 def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standard") -> str:
     """Rich animated ambient overlay (~150 lines) tied to each band's accent.
@@ -888,6 +1056,7 @@ def render_bands_svg(
             mini2_value=cfg.get("mini2_value", ""),
             mini2_label=cfg.get("mini2_label", ""),
             mini2_sub=cfg.get("mini2_sub", ""),
+            extras=cfg.get("extras"),
         ))
     bands_svg = "\n".join(body_parts)
     deco = deco_layer(t0, t1, t2, tier=tier)
