@@ -1,0 +1,55 @@
+# SVG Visual Baseline Auto-Refresh
+#
+# Runs ONLY on push to main (i.e., after a PR merge), never on PRs.
+# Path filter mirrors visual-regression.yml so refresh fires exactly when
+# verify would detect drift.
+#
+# Infinite-loop guard: the auto-commit carries "[skip ci]" in its message.
+# GitHub Actions natively skips ALL workflow runs triggered by commits whose
+# message contains "[skip ci]", so neither this workflow nor visual-regression
+# will re-run on the baseline-refresh commit.
+
+name: SVG Visual Baseline Refresh
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/images/**.svg"
+      - "scripts/lib/svg_l22_generator.py"
+      - "scripts/svg_visual_baseline.py"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-baselines:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Capture baselines
+        run: python3 scripts/svg_visual_baseline.py --capture
+
+      - name: Commit refreshed baselines (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/visual-baselines/ manifest.json
+          if git diff --cached --quiet; then
+            echo "No baseline changes — skipping commit."
+          else
+            git commit -m "chore(visual): auto-refresh baselines after SVG/generator changes [skip ci]"
+            git push
+          fi
