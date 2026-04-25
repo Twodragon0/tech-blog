@@ -116,6 +116,12 @@ def band(
     mini_label: str = "",
     mini_sub: str = "",
     context: str = "",
+    tier: str = "standard",
+    metric_b: str = "",
+    detail_b: str = "",
+    mini2_value: str = "",
+    mini2_label: str = "",
+    mini2_sub: str = "",
 ) -> str:
     """Build a single horizontal band. ``idx`` 0/1/2 maps to y 0/210/420.
 
@@ -123,6 +129,11 @@ def band(
     secondary card to the left of the main metric card. ``badge_extra``
     is raw SVG appended inside the main metric card group. Optional
     ``context`` adds a 5th italic text line below the detail line.
+
+    ``tier="ultra"`` enables headline-grade enrichment: a second mini-card
+    to the right of the main metric card (``mini2_*``), an extra metric/
+    detail line pair (``metric_b`` / ``detail_b``), denser decoration, and
+    a section divider line below the band.
     """
     y = idx * 210
     yc = y + 105
@@ -134,6 +145,7 @@ def band(
     pat = theme["pattern"]
     bid = ["bandA", "bandB", "bandC"][idx]
     main_size = 72 if len(badge_value) <= 3 else 60
+    is_ultra = tier == "ultra"
     mini_card = ""
     if mini_value:
         mini_card = f'''<g transform="translate(870,{yc})" filter="url(#softShadow)">
@@ -142,6 +154,37 @@ def band(
     <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{34 if len(mini_value)<=4 else 24}" font-weight="900" fill="#F5F7FA">{mini_value}</text>
     <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="{theme["metric"]}">{mini_sub}</text>
   </g>'''
+    mini2_card = ""
+    if is_ultra and mini2_value:
+        # Second mini card sits to the right of the main metric card (centred at x=1110).
+        mini2_card = f'''<g transform="translate(1110,{yc})" filter="url(#softShadow)">
+    <rect x="-44" y="-48" width="88" height="96" rx="10" fill="{theme["card"]}" stroke="{theme["accent"]}" stroke-width="1.4" stroke-opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="{theme["label"]}">{mini2_label}</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{30 if len(mini2_value)<=4 else 22}" font-weight="900" fill="#F5F7FA">{mini2_value}</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="{theme["metric"]}">{mini2_sub}</text>
+    <line x1="-32" y1="38" x2="32" y2="38" stroke="{theme["accent"]}" stroke-width="0.6" stroke-opacity="0.45"/>
+    <circle cx="0" cy="-40" r="1.6" fill="{theme["soft"]}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+  </g>'''
+    extra_text_lines = ""
+    if is_ultra and (metric_b or detail_b):
+        # Compress detail line to make room for two extra rows above the (optional) context.
+        detail_y = y + 144
+        m2_y = y + 162
+        d2_y = y + 178
+        if metric_b:
+            extra_text_lines += (
+                f'<text x="30" y="{m2_y}" font-family="Inter, Helvetica, Arial, sans-serif" '
+                f'font-size="13" font-weight="700" fill="{theme["metric"]}">{metric_b}</text>'
+            )
+        if detail_b:
+            extra_text_lines += (
+                f'<text x="30" y="{d2_y}" font-family="Inter, Helvetica, Arial, sans-serif" '
+                f'font-size="12" font-weight="500" fill="{theme["detail"]}" fill-opacity="0.85">{detail_b}</text>'
+            )
+        # Push optional context further down when present.
+        context_y = y + 196
     context_line = ""
     if context:
         context_line = (
@@ -149,6 +192,18 @@ def band(
             f'font-size="12" font-weight="500" font-style="italic" fill-opacity="0.7" '
             f'fill="{theme["detail"]}">{context}</text>'
         )
+    divider = ""
+    if is_ultra and idx < 2:
+        # Animated section divider line between bands.
+        dy = (idx + 1) * 210
+        divider = f'''<g opacity="0.85">
+    <line x1="20" y1="{dy}" x2="1180" y2="{dy}" stroke="{theme["accent"]}" stroke-width="0.7" stroke-opacity="0.55" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="600" cy="{dy}" r="2.2" fill="{theme["accent"]}">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>'''
     return f'''<g>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{bid}{sfx})"/>
   <rect x="0" y="{y}" width="1200" height="210" fill="url(#{pat})" opacity="0.6"/>
@@ -158,10 +213,12 @@ def band(
     <text x="30" y="{head_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">{headline}</text>
     <text x="30" y="{metric_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="{theme["metric"]}">{metric}</text>
     <text x="30" y="{detail_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="{theme["detail"]}">{detail}</text>
+    {extra_text_lines}
     {context_line}
   </g>
   {visual_svg}
   {mini_card}
+  {mini2_card}
   <g transform="translate(990,{yc})" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="{theme["card"]}" stroke="{theme["accent"]}" stroke-width="2.2"/>
     <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="{theme["label"]}">{badge_label}</text>
@@ -179,6 +236,7 @@ def band(
     <rect x="62" y="-62" width="14" height="2" rx="1" fill="{theme["accent"]}" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
     <rect x="65" y="-58" width="9" height="2" rx="1" fill="{theme["soft"]}" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
+  {divider}
 </g>'''
 
 
@@ -646,8 +704,14 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
 
 
 # --- Decorative ambient layer ---
-def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict) -> str:
-    """Rich animated ambient overlay (~150 lines) tied to each band's accent."""
+def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standard") -> str:
+    """Rich animated ambient overlay (~150 lines) tied to each band's accent.
+
+    When ``tier="ultra"`` the layer doubles its density with a second
+    multi-tempo overlay row of pulsing dots, drift bars, and a vertical
+    inter-band streak channel — matching the headline-grade reference.
+    """
+    is_ultra = tier == "ultra"
     def band_layer(theme: dict, y_center: int, edge_y_start: int) -> str:
         a = theme["accent"]
         s = theme["soft"]
@@ -698,11 +762,56 @@ def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict) -> str:
     <rect x="640" y="{y_center + 90}" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
   </g>'''
 
+    ultra_layer = ""
+    if is_ultra:
+        a0, s0 = theme_a["accent"], theme_a["soft"]
+        a1, s1 = theme_b["accent"], theme_b["soft"]
+        a2, s2 = theme_c["accent"], theme_c["soft"]
+        ultra_layer = f'''<g opacity="0.85">
+  <g fill="{a0}" opacity="0.7">
+    <circle cx="500" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.3s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="1.2s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="{a1}" opacity="0.7">
+    <circle cx="500" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="1.0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="{a2}" opacity="0.7">
+    <circle cx="500" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" begin="1.1s" repeatCount="indefinite"/></circle>
+  </g>
+  <g stroke-width="0.5" stroke-opacity="0.4" fill="none">
+    <rect x="700" y="40" width="36" height="2" fill="{a0}" stroke="none"><animate attributeName="x" values="700;1000;700" dur="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="6.4s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="250" width="36" height="2" fill="{a1}" stroke="none"><animate attributeName="x" values="1000;700;1000" dur="6.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="6.8s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="460" width="36" height="2" fill="{a2}" stroke="none"><animate attributeName="x" values="700;1000;700" dur="7.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="7.2s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="{s0}" opacity="0.6">
+    <circle cx="60" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="270" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="480" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.7s" begin="1.0s" repeatCount="indefinite"/></circle>
+    <circle cx="1140" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="1140" cy="480" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <g stroke="{s1}" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+    <line x1="640" y1="200" x2="640" y2="220"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" repeatCount="indefinite"/></line>
+    <line x1="660" y1="200" x2="660" y2="220"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></line>
+    <line x1="640" y1="410" x2="640" y2="430"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.0s" begin="0.7s" repeatCount="indefinite"/></line>
+    <line x1="660" y1="410" x2="660" y2="430"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="1.1s" repeatCount="indefinite"/></line>
+  </g>
+</g>'''
     return f'''<g opacity="0.9">
   {band_layer(theme_a, 105, 95)}
   {band_layer(theme_b, 315, 305)}
   {band_layer(theme_c, 525, 515)}
-</g>'''
+</g>
+{ultra_layer}'''
 
 
 # --- Full 3-band SVG assembly ---
@@ -712,6 +821,7 @@ def render_bands_svg(
     title: str,
     url: str,
     bands_cfg: List[dict],
+    tier: str = "standard",
 ) -> str:
     """Render a complete L22 stacked-bands cover SVG.
 
@@ -723,7 +833,12 @@ def render_bands_svg(
         bands_cfg: List of exactly 3 dicts, each with keys:
             theme, label, headline, metric, detail,
             badge_value, badge_label, badge_sub, visual.
-            Optional: mini_value, mini_label, mini_sub, badge_extra.
+            Optional: mini_value, mini_label, mini_sub, badge_extra,
+            metric_b, detail_b, mini2_value, mini2_label, mini2_sub.
+        tier: ``"standard"`` (default) or ``"ultra"``. Ultra adds a 2nd
+            mini-card, an extra metric/detail row, animated section
+            dividers, and denser ambient decoration to match the
+            headline-grade ``2026-04-21`` reference quality.
 
     Returns:
         Complete ``<svg>...</svg>`` string ready to write to disk.
@@ -767,9 +882,15 @@ def render_bands_svg(
             mini_label=cfg.get("mini_label", ""),
             mini_sub=cfg.get("mini_sub", ""),
             context=cfg.get("context", ""),
+            tier=tier,
+            metric_b=cfg.get("metric_b", ""),
+            detail_b=cfg.get("detail_b", ""),
+            mini2_value=cfg.get("mini2_value", ""),
+            mini2_label=cfg.get("mini2_label", ""),
+            mini2_sub=cfg.get("mini2_sub", ""),
         ))
     bands_svg = "\n".join(body_parts)
-    deco = deco_layer(t0, t1, t2)
+    deco = deco_layer(t0, t1, t2, tier=tier)
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="{aria}">
 <title>{title}</title>
