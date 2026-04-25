@@ -126,3 +126,4 @@ htmlcov/
 
 # OMX (oh-my-codex) local state - not for commit
 .omx/
+tests/visual-diffs/
