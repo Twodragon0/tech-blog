@@ -1,0 +1,56 @@
+# SVG Visual Regression Workflow
+#
+# Rendering tool: qlmanage (macOS Quick Look) — macOS-only.
+# Runner: macos-latest — required to match baselines captured on macOS.
+# Using ubuntu-latest with rsvg-convert would produce different SHA256s
+# against the existing qlmanage-captured baselines, causing false positives.
+#
+# Verify mode: re-renders each SVG with qlmanage, SHA256-compares against
+# committed baseline PNGs in tests/visual-baselines/. Exits 1 on any drift.
+
+name: SVG Visual Regression
+
+on:
+  push:
+    paths:
+      - "assets/images/**.svg"
+      - "scripts/lib/svg_l22_generator.py"
+      - "scripts/svg_visual_baseline.py"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "assets/images/**.svg"
+      - "scripts/lib/svg_l22_generator.py"
+      - "scripts/svg_visual_baseline.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-regression:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # qlmanage is part of macOS and available on macos-latest runners.
+      # No additional rendering tool installation is needed.
+
+      - name: Run visual regression verify
+        run: python3 scripts/svg_visual_baseline.py --verify
+
+      - name: Upload diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diffs
+          path: tests/visual-diffs/
+          if-no-files-found: ignore
