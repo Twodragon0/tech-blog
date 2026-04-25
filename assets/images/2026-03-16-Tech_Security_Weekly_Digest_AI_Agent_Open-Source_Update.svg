@@ -5,10 +5,18 @@
 <linearGradient id="bandAMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
 <linearGradient id="bandBMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0A1B35"/><stop offset="100%" stop-color="#0D2040"/></linearGradient>
 <linearGradient id="bandCMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
+<linearGradient id="streakAMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0"/><stop offset="50%" stop-color="#4ADE80" stop-opacity="0.85"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakBMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60A5FA" stop-opacity="0"/><stop offset="50%" stop-color="#60A5FA" stop-opacity="0.85"/><stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakCMA02" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0"/><stop offset="50%" stop-color="#A78BFA" stop-opacity="0.85"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
+<radialGradient id="glowAMA02" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.55"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowBMA02" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#60A5FA" stop-opacity="0.55"/><stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowCMA02" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
 <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
 <pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="0.8" fill="#3A2A4E" opacity="0.55"/></pattern>
+<pattern id="hexGridMA02" x="0" y="0" width="28" height="32" patternUnits="userSpaceOnUse"><path d="M14 0 L28 8 L28 24 L14 32 L0 24 L0 8 Z" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
+<pattern id="radarRippleMA02" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="14" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
 </defs>
 <rect width="1200" height="630" fill="url(#bgSpreadMA02)"/>
 <g>
@@ -21,7 +29,8 @@
     <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">GitHub : 12 attack modules</text>
     <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Prompt injection suite : MCP red-team probe : 2.4K stars in 48h</text>
   </g>
-  <g transform="translate(500,105)">
+  <g transform="translate(640,105)">
+    <rect x="-92" y="-56" width="184" height="116" rx="8" fill="#4ADE80" fill-opacity="0.05" stroke="#4ADE80" stroke-width="1.2" stroke-opacity="0.5"/>
     <g stroke="#4ADE80" stroke-width="2" opacity="0.85">
       <line x1="-80" y1="-40" x2="-30" y2="-40"/><line x1="-25" y1="-40" x2="40" y2="-40"/>
       <line x1="-80" y1="-20" x2="-10" y2="-20"/><line x1="-5" y1="-20" x2="55" y2="-20"/>
@@ -29,21 +38,38 @@
       <line x1="-80" y1="20" x2="-20" y2="20"/><line x1="-15" y1="20" x2="30" y2="20"/>
       <line x1="-80" y1="40" x2="-50" y2="40"/><line x1="-45" y1="40" x2="50" y2="40"/>
     </g>
-    <rect x="-82" y="-50" width="4" height="110" fill="#4ADE80" opacity="0.6"/>
+    <rect x="-86" y="-50" width="4" height="104" fill="#4ADE80" opacity="0.6"/>
     <g fill="#86EFAC">
-      <circle cx="70" cy="-40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
-      <circle cx="70" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
-      <circle cx="70" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="-40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="-20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
     </g>
-    <text y="62" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">RED-TEAM</text>
+    <rect x="-86" y="-50" width="178" height="3" fill="#4ADE80" opacity="0.4">
+      <animate attributeName="y" values="-50;46;-50" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">RED-TEAM</text>
+  </g>
+  <g transform="translate(870,105)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1B2E" stroke="#4ADE80" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#4ADE80">STARS</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">2.4K</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#9FD3B0">48h GitHub</text>
   </g>
   <g transform="translate(990,105)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">MODULES</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">12</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#9FD3B0">attack types</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">MODULES</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">12</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#9FD3B0">attack types</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#4ADE80" stroke-width="0.8" stroke-opacity="0.5"/>
+    
   </g>
-  <g transform="translate(990,105)"><circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+  <g transform="translate(990,105)">
+    <circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+  </g>
 </g>
 <g>
   <rect x="0" y="210" width="1200" height="210" fill="url(#bandBMA02)"/>
@@ -55,39 +81,57 @@
     <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Orchestrator + 8 sub-agents</text>
     <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Tool-call routing : memory sharing : fallback chain : Bedrock Agents SDK</text>
   </g>
-  <g transform="translate(500,315)">
-    <circle r="60" fill="#60A5FA" fill-opacity="0.08"><animate attributeName="r" values="50;70;50" dur="3s" repeatCount="indefinite"/></circle>
-    <circle r="22" fill="#60A5FA" stroke="#93C5FD" stroke-width="2" filter="url(#softShadow)"/>
-    <text y="4" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFF">LEAD</text>
-    <g stroke="#60A5FA" stroke-width="1" stroke-dasharray="2 3" fill="none" opacity="0.55">
-      <line x1="0" y1="0" x2="70" y2="-45"/><line x1="0" y1="0" x2="85" y2="0"/><line x1="0" y1="0" x2="70" y2="45"/>
-      <line x1="0" y1="0" x2="-70" y2="-45"/><line x1="0" y1="0" x2="-85" y2="0"/><line x1="0" y1="0" x2="-70" y2="45"/>
-      <line x1="0" y1="0" x2="40" y2="-70"/><line x1="0" y1="0" x2="-40" y2="-70"/>
+  <g transform="translate(640,315)">
+    <circle r="80" fill="#60A5FA" fill-opacity="0.08"><animate attributeName="r" values="60;90;60" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle r="32" fill="#60A5FA" stroke="#93C5FD" stroke-width="2" filter="url(#softShadow)"/>
+    <text y="-2" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFF">LEAD</text>
+    <text y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD">C2 HUB</text>
+    <g stroke="#60A5FA" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="3 4" fill="none">
+      <line x1="0" y1="0" x2="80" y2="-50"/><line x1="0" y1="0" x2="95" y2="-10"/><line x1="0" y1="0" x2="85" y2="30"/>
+      <line x1="0" y1="0" x2="60" y2="60"/><line x1="0" y1="0" x2="-60" y2="60"/><line x1="0" y1="0" x2="-85" y2="30"/>
+      <line x1="0" y1="0" x2="-95" y2="-10"/><line x1="0" y1="0" x2="-80" y2="-50"/>
+      <line x1="0" y1="0" x2="-30" y2="-72"/><line x1="0" y1="0" x2="30" y2="-72"/>
     </g>
     <g fill="#93C5FD">
-      <circle cx="70" cy="-45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-      <circle cx="85" cy="0" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
-      <circle cx="70" cy="45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/></circle>
-      <circle cx="-70" cy="-45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
-      <circle cx="-85" cy="0" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></circle>
-      <circle cx="-70" cy="45" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
-      <circle cx="40" cy="-70" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
-      <circle cx="-40" cy="-70" r="4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="80" cy="-50" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="95" cy="-10" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="85" cy="30" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="60" cy="60" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-60" cy="60" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-85" cy="30" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-95" cy="-10" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="-80" cy="-50" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="-72" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="-72" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.7s" repeatCount="indefinite"/></circle>
     </g>
     <g fill="#FFF">
-      <circle r="1.6"><animateMotion path="M0 0 L70 -45" dur="1.9s" repeatCount="indefinite"/></circle>
-      <circle r="1.6"><animateMotion path="M0 0 L85 0" dur="2.1s" repeatCount="indefinite"/></circle>
-      <circle r="1.6"><animateMotion path="M0 0 L-70 -45" dur="2.0s" repeatCount="indefinite"/></circle>
-      <circle r="1.6"><animateMotion path="M0 0 L-85 0" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L80 -50" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L95 -10" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L85 30" dur="2.2s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L-60 60" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L-95 -10" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L30 -72" dur="2.1s" repeatCount="indefinite"/></circle>
     </g>
+  </g>
+  <g transform="translate(870,315)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1628" stroke="#60A5FA" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#93C5FD">BEDROCK</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">SDK</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFDBFE">agents v2</text>
   </g>
   <g transform="translate(990,315)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1628" stroke="#60A5FA" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">AGENTS</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">8</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">sub-agents</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">AGENTS</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">8</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BFDBFE">sub-agents</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#60A5FA" stroke-width="0.8" stroke-opacity="0.5"/>
+    
   </g>
-  <g transform="translate(990,315)"><circle cx="10" cy="-50" r="3" fill="#60A5FA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+  <g transform="translate(990,315)">
+    <circle cx="10" cy="-50" r="3" fill="#60A5FA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#93C5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#93C5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+  </g>
 </g>
 <g>
   <rect x="0" y="420" width="1200" height="210" fill="url(#bandCMA02)"/>
@@ -99,68 +143,135 @@
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">$8B TVL protected</text>
     <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Flash loan guard : circuit breaker : 3-of-5 multisig : Trail of Bits audit</text>
   </g>
-  <g transform="translate(500,525)">
+  <g transform="translate(640,525)">
+    <circle r="78" fill="#A78BFA" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
     <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#A78BFA" fill-opacity="0.15" stroke="#A78BFA" stroke-width="2.4" filter="url(#softShadow)"/>
     <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#C4B5FD" stroke-width="1" opacity="0.7"/>
+    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#C4B5FD" stroke-width="0.6" opacity="0.5"/>
     <g transform="translate(0,-5)" stroke="#C4B5FD" stroke-width="3" fill="none">
       <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
     </g>
-    <text y="44" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">AAVE</text>
+    <g fill="#C4B5FD" opacity="0.7">
+      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">AAVE</text>
+  </g>
+  <g transform="translate(870,525)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">MULTISIG</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">3of5</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">governance</text>
   </g>
   <g transform="translate(990,525)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
-    <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">TVL</text>
-    <text x="10" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">$8B</text>
-    <text x="10" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#DDD6FE">secured</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">TVL</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">$8B</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">secured</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
+    
   </g>
-  <g transform="translate(990,525)"><circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle></g>
+  <g transform="translate(990,525)">
+    <circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+  </g>
 </g>
 <g opacity="0.9">
   <g fill="#4ADE80">
-    <circle cx="240" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="310" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
-    <circle cx="380" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
-    <circle cx="820" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite"/></circle>
-    <circle cx="880" cy="168" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
   </g>
   <g fill="#4ADE80" opacity="0.6">
-    <rect x="780" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
-    <rect x="800" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
-    <rect x="820" y="30" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="780" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
   </g>
-  <g fill="#93C5FD">
-    <circle cx="560" cy="260" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="580" cy="265" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
-    <circle cx="600" cy="268" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
-    <circle cx="620" cy="272" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
-    <circle cx="640" cy="268" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
-    <circle cx="560" cy="370" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="580" cy="375" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
-    <circle cx="600" cy="378" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
-  </g>
-  <g fill="#A78BFA">
-    <circle cx="260" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/></circle>
-    <circle cx="330" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
-    <circle cx="400" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
-    <circle cx="470" cy="442" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
-  </g>
-  <g fill="#DDD6FE" opacity="0.9">
-    <rect x="770" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
-    <rect x="790" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
-    <rect x="810" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
-    <rect x="830" y="440" width="4" height="4" rx="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  <g fill="#86EFAC" opacity="0.85">
+    <rect x="730" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
   </g>
   <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 95 L28 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 125 L28 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 155 L28 155"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#86EFAC" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="105" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#60A5FA">
+    <circle cx="240" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#60A5FA" opacity="0.6">
+    <rect x="780" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#93C5FD" opacity="0.85">
+    <rect x="730" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
   </g>
   <g stroke="#60A5FA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 305 L28 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 335 L28 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 365 L28 365"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#93C5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="315" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA">
+    <circle cx="240" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.6">
+    <rect x="780" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#C4B5FD" opacity="0.85">
+    <rect x="730" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
   </g>
   <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 575 L28 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#C4B5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="525" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
   </g>
 </g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">

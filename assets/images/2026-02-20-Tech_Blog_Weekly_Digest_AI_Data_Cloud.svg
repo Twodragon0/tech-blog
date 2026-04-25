@@ -1,196 +1,274 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>TECH SIGNAL MAP</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e1030"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <radialGradient id="rg1" cx="30%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="rg2" cx="70%" cy="60%" r="50%">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#94a3b8" opacity="0.18"/>
-    </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="20"/>
-    </filter>
-    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6"/>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#020617" flood-opacity="0.6"/>
-    </filter>
-    <style>
-      @keyframes pulse {
-        0%, 100% { opacity: 0.6; r: 4; }
-        50% { opacity: 1; r: 6; }
-      }
-      .status-dot { animation: pulse 2.4s ease-in-out infinite; }
-    </style>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#rg1)"/>
-  <rect width="1200" height="630" fill="url(#rg2)"/>
-  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
-  <!-- Dashed orbital ring decoration -->
-  <circle cx="600" cy="330" r="280" fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 12" opacity="0.18"/>
-  <circle cx="600" cy="330" r="260" fill="#ef4444" opacity="0.06" filter="url(#glow)"/>
-  <circle cx="600" cy="330" r="180" fill="#22d3ee" opacity="0.07" filter="url(#glow)"/>
-  <!-- Corner bracket decorations -->
-  <polyline points="20,20 20,60 60,60" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.45"/>
-  <polyline points="1180,20 1180,60 1140,60" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.45"/>
-  <polyline points="20,610 20,570 60,570" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.45"/>
-  <polyline points="1180,610 1180,570 1140,570" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.45"/>
-  <!-- Background grid -->
-  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
-    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="AI alignment research, EKS Flyte ML workflow, Docker security, Cloud Native">
+<title>2026-02-20: AI alignment, EKS Flyte, Docker security, Cloud Native</title>
+<defs>
+<linearGradient id="bgSpreadFB20" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
+<linearGradient id="bandAFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
+<linearGradient id="bandBFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
+<linearGradient id="bandCFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2A1A0C"/><stop offset="100%" stop-color="#1E1F0A"/></linearGradient>
+<linearGradient id="streakAFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0"/><stop offset="50%" stop-color="#A78BFA" stop-opacity="0.85"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakBFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0"/><stop offset="50%" stop-color="#4ADE80" stop-opacity="0.85"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakCFB20" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0"/><stop offset="50%" stop-color="#FFB703" stop-opacity="0.85"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></linearGradient>
+<radialGradient id="glowAFB20" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowBFB20" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.55"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowCFB20" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.55"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient>
+<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
+<pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="0.8" fill="#3A2A4E" opacity="0.55"/></pattern>
+<pattern id="hexGridFB20" x="0" y="0" width="28" height="32" patternUnits="userSpaceOnUse"><path d="M14 0 L28 8 L28 24 L14 32 L0 24 L0 8 Z" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
+<pattern id="radarRippleFB20" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="14" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bgSpreadFB20)"/>
+<g>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#bandAFB20)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="0" width="8" height="210" fill="#A78BFA"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI ALIGNMENT</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Latest Research Wave</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Constitutional + RLHF</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Constitutional AI updates : safety-first RLHF : open-eval benchmarks</text>
   </g>
-  <!-- ECG / waveform strip -->
-  <polyline points="70,476 110,476 120,456 132,496 144,462 156,476 200,476 210,456 222,496 234,462 246,476 290,476 300,456 312,496 324,462 336,476 500,476 600,476 700,476 800,476 900,476 1000,476 1130,476" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.22" stroke-linejoin="round"/>
-  <!-- Threat level indicator -->
-  <text x="70" y="466" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" opacity="0.6">THREAT</text>
-  <rect x="70" y="468" width="12" height="5" rx="1" fill="#ef4444" opacity="0.5"/>
-  <rect x="86" y="468" width="12" height="5" rx="1" fill="#f59e0b" opacity="0.45"/>
-  <rect x="102" y="468" width="12" height="5" rx="1" fill="#22c55e" opacity="0.35"/>
-  <rect x="118" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.3"/>
-  <rect x="134" y="468" width="12" height="5" rx="1" fill="#334155" opacity="0.2"/>
-  <!-- Circuit trace decorative lines -->
-  <polyline points="80,420 120,420 120,460 180,460" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
-  <circle cx="80" cy="420" r="3" fill="#ef4444" opacity="0.6"/>
-  <circle cx="180" cy="460" r="3" fill="#22d3ee" opacity="0.6"/>
-  <polyline points="1120,200 1080,200 1080,240 1020,240" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5"/>
-  <circle cx="1120" cy="200" r="3" fill="#f59e0b" opacity="0.6"/>
-  <circle cx="1020" cy="240" r="3" fill="#334155" opacity="0.7"/>
-  <polyline points="200,560 240,560 240,590 300,590" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
-  <circle cx="200" cy="560" r="3" fill="#ef4444" opacity="0.5"/>
-  <circle cx="300" cy="590" r="3" fill="#22d3ee" opacity="0.45"/>
-  <polyline points="900,80 940,80 940,110 1000,110" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.4"/>
-  <circle cx="900" cy="80" r="3" fill="#f59e0b" opacity="0.5"/>
-  <circle cx="1000" cy="110" r="3" fill="#22d3ee" opacity="0.45"/>
-  <!-- Fractured crack lines from center -->
-  <line x1="600" y1="330" x2="160" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.25"/>
-  <line x1="600" y1="330" x2="1040" y2="110" stroke="#22d3ee" stroke-width="1.5" opacity="0.25"/>
-  <line x1="600" y1="330" x2="600" y2="560" stroke="#f59e0b" stroke-width="1.5" opacity="0.20"/>
-  <!-- Central hexagon -->
-  <polygon points="600,270 660,300 660,360 600,390 540,360 540,300" fill="#111827" stroke="#3b82f6" stroke-width="3" filter="url(#shadow)"/>
-  <polygon points="600,286 634,304 634,342 600,360 566,342 566,304" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="600" y="336" font-family="'Courier New',Courier,monospace" font-size="11" font-weight="700" fill="#e2e8f0" text-anchor="middle">CORE</text>
-  <!-- Orbit ring -->
-  <circle cx="600" cy="330" r="148" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="8 6" opacity="0.5"/>
-  <line x1="600" y1="330" x2="452" y2="210" stroke="#ef4444" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
-  <g transform="translate(452 210)" filter="url(#shadow)">
-    <circle r="52" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
-    <path d="M-16 10 C-28 10 -32 -2 -32 -10 C-32 -20 -24 -26 -14 -26 C-10 -36 0 -42 10 -42 C24 -42 32 -32 32 -26 C40 -26 44 -20 44 -10 C44 -2 40 10 28 10 Z" fill="#0b1628" stroke="#ef4444" stroke-width="2" transform="scale(0.7)"/>
-    <text x="0" y="82" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ef4444" text-anchor="middle">CLOUD</text>
+  <g transform="translate(640,105)">
+    <rect x="-92" y="-56" width="184" height="116" rx="8" fill="#A78BFA" fill-opacity="0.05" stroke="#A78BFA" stroke-width="1.2" stroke-opacity="0.5"/>
+    <g stroke="#A78BFA" stroke-width="2" opacity="0.85">
+      <line x1="-80" y1="-40" x2="-30" y2="-40"/><line x1="-25" y1="-40" x2="40" y2="-40"/>
+      <line x1="-80" y1="-20" x2="-10" y2="-20"/><line x1="-5" y1="-20" x2="55" y2="-20"/>
+      <line x1="-80" y1="0" x2="-40" y2="0"/><line x1="-35" y1="0" x2="60" y2="0"/>
+      <line x1="-80" y1="20" x2="-20" y2="20"/><line x1="-15" y1="20" x2="30" y2="20"/>
+      <line x1="-80" y1="40" x2="-50" y2="40"/><line x1="-45" y1="40" x2="50" y2="40"/>
+    </g>
+    <rect x="-86" y="-50" width="4" height="104" fill="#A78BFA" opacity="0.6"/>
+    <g fill="#C4B5FD">
+      <circle cx="74" cy="-40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="-20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <rect x="-86" y="-50" width="178" height="3" fill="#A78BFA" opacity="0.4">
+      <animate attributeName="y" values="-50;46;-50" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">ALIGN</text>
   </g>
-  <line x1="600" y1="330" x2="748" y2="210" stroke="#22d3ee" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
-  <g transform="translate(748 210)" filter="url(#shadow)">
-    <circle r="52" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
-    <rect x="-28" y="-20" width="56" height="40" rx="8" fill="#111c35" stroke="#22d3ee" stroke-width="2"/><circle cx="0" cy="-4" r="14" fill="#12345c" stroke="#22d3ee" stroke-width="1.5"/><text x="0" y="1" font-family="Arial" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
-    <text x="0" y="82" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
+  <g transform="translate(870,105)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">METHOD</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">RLHF</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">safety-first</text>
   </g>
-  <line x1="600" y1="330" x2="600" y2="478" stroke="#f59e0b" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
-  <g transform="translate(600 478)" filter="url(#shadow)">
-    <circle r="52" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
-    <circle r="18" fill="#f59e0b" opacity="0.18"/><circle r="8" fill="#f59e0b" opacity="0.3"/>
-    <text x="0" y="82" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">DOCKER</text>
+  <g transform="translate(990,105)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">ALIGN</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">CAI</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">2026 wave</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
+    
   </g>
-  <rect x="90" y="62" width="196" height="32" rx="6" fill="#3b82f6" opacity="0.18"/>
-  <text x="188" y="83" font-family="'Courier New',Courier,monospace" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle" letter-spacing="2">WEEKLY DIGEST</text>
-  <text x="90" y="134" font-family="Arial,sans-serif" font-size="44" font-weight="700" fill="#f8fafc">TECH SIGNAL MAP</text>
-  <text x="90" y="170" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">CLOUD  AI  DOCKER</text>
-  <!-- Node status sidebar -->
-  <rect x="1128" y="200" width="56" height="120" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.85"/>
-  <text x="1156" y="218" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569" text-anchor="middle">STATUS</text>
-  <circle cx="1144" cy="232" r="4" class="status-dot" fill="#22c55e" opacity="0.8"/>
-  <text x="1156" y="236" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">AUTH</text>
-  <circle cx="1144" cy="252" r="4" class="status-dot" fill="#3b82f6" opacity="0.8"/>
-  <text x="1156" y="256" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">NET</text>
-  <circle cx="1144" cy="272" r="4" class="status-dot" fill="#f59e0b" opacity="0.7"/>
-  <text x="1156" y="276" font-family="'Courier New',Courier,monospace" font-size="8" fill="#64748b">SCAN</text>
-  <circle cx="1144" cy="292" r="4" fill="#334155" opacity="0.5"/>
-  <text x="1156" y="296" font-family="'Courier New',Courier,monospace" font-size="8" fill="#475569">LOG</text>
-  <!-- Network topology mini-map -->
-  <rect x="310" y="195" width="100" height="56" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.75"/>
-  <text x="360" y="210" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">TOPOLOGY</text>
-  <circle cx="330" cy="232" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.6"/>
-  <circle cx="360" cy="224" r="5" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.6"/>
-  <circle cx="390" cy="232" r="5" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
-  <line x1="335" y1="232" x2="355" y2="224" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <line x1="365" y1="224" x2="385" y2="232" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <line x1="335" y1="232" x2="385" y2="232" stroke="#334155" stroke-width="1" stroke-dasharray="2 3" opacity="0.35"/>
-  <text x="330" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">A</text>
-  <text x="358" y="215" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">B</text>
-  <text x="388" y="244" font-family="'Courier New',Courier,monospace" font-size="6" fill="#475569" opacity="0.7">C</text>
-  <!-- Threat matrix panel -->
-  <rect x="70" y="195" width="90" height="88" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity="0.8"/>
-  <text x="115" y="211" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569" text-anchor="middle">THREAT</text>
-  <rect x="80" y="216" width="14" height="14" rx="2" fill="#ef4444" opacity="0.7"/>
-  <rect x="98" y="216" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
-  <rect x="116" y="216" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
-  <rect x="134" y="216" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
-  <rect x="80" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.5"/>
-  <rect x="98" y="234" width="14" height="14" rx="2" fill="#ef4444" opacity="0.6"/>
-  <rect x="116" y="234" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.4"/>
-  <rect x="134" y="234" width="14" height="14" rx="2" fill="#22c55e" opacity="0.35"/>
-  <rect x="80" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.3"/>
-  <rect x="98" y="252" width="14" height="14" rx="2" fill="#22c55e" opacity="0.4"/>
-  <rect x="116" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.25"/>
-  <rect x="134" y="252" width="14" height="14" rx="2" fill="#334155" opacity="0.2"/>
-  <text x="80" y="280" font-family="'Courier New',Courier,monospace" font-size="7" fill="#475569">HIGH MED LOW</text>
-  <!-- Signal meter bars -->
-  <text x="90" y="506" font-family="'Courier New',Courier,monospace" font-size="9" fill="#475569" opacity="0.7">SIGNAL</text>
-  <rect x="90" y="510" width="30" height="8" rx="1" fill="#3b82f6" opacity="0.7"/>
-  <rect x="126" y="512" width="30" height="6" rx="1" fill="#3b82f6" opacity="0.55"/>
-  <rect x="162" y="513" width="30" height="5" rx="1" fill="#3b82f6" opacity="0.4"/>
-  <rect x="198" y="514" width="30" height="4" rx="1" fill="#3b82f6" opacity="0.28"/>
-  <rect x="234" y="515" width="30" height="3" rx="1" fill="#3b82f6" opacity="0.18"/>
-  <!-- Mini hex cluster (top-right decoration) -->
-  <g opacity="0.12" fill="none" stroke="#3b82f6" stroke-width="1">
-    <polygon points="1080,110 1094,118 1094,134 1080,142 1066,134 1066,118"/>
-    <polygon points="1104,96 1118,104 1118,120 1104,128 1090,120 1090,104"/>
-    <polygon points="1056,96 1070,104 1070,120 1056,128 1042,120 1042,104"/>
-    <polygon points="1080,82 1094,90 1094,106 1080,114 1066,106 1066,90"/>
-    <polygon points="1104,124 1118,132 1118,148 1104,156 1090,148 1090,132"/>
-    <polygon points="1056,124 1070,132 1070,148 1056,156 1042,148 1042,132"/>
-  </g>
-  <!-- Scan line + ambient dots -->
-  <line x1="70" y1="522" x2="1130" y2="522" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="3 9" opacity="0.2"/>
-  <g opacity="0.3">
-    <circle cx="360" cy="503" r="2" fill="#94a3b8"/>
-    <circle cx="400" cy="513" r="1.5" fill="#94a3b8"/>
-    <circle cx="620" cy="498" r="2" fill="#94a3b8"/>
-    <circle cx="660" cy="508" r="1.5" fill="#94a3b8"/>
-    <circle cx="800" cy="503" r="2" fill="#94a3b8"/>
-    <circle cx="940" cy="501" r="1.5" fill="#94a3b8"/>
-  </g>
-  <!-- Data readout panel -->
-  <rect x="880" y="538" width="290" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.8"/>
-  <text x="896" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#3b82f6" opacity="0.7">SYS:OK</text>
-  <text x="944" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
-  <text x="958" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NODES:3</text>
-  <text x="1030" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#475569">&#x2502;</text>
-  <text x="1044" y="554" font-family="'Courier New',Courier,monospace" font-size="10" fill="#64748b">NET:ACTIVE</text>
-  <circle cx="90" cy="558" r="4" class="status-dot" fill="#3b82f6" opacity="0.6"/>
-  <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text x="110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8">February 20, 2026</text>
-  <text x="1110" y="574" font-family="'Courier New',Courier,monospace" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/20/Tech_Blog_Weekly_Digest_AI_Data_Cloud/ : 37x37 -->
-<g transform="translate(1080,504)">
-  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
-  <g transform="scale(2.270270)" fill="#0A1020">
-    <path d="M0 0h7v1h-7zM10 0h1v1h-1zM16 0h1v1h-1zM19 0h1v1h-1zM21 0h1v1h-1zM25 0h2v1h-2zM30 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h2v1h-2zM15 1h1v1h-1zM17 1h1v1h-1zM20 1h2v1h-2zM25 1h2v1h-2zM28 1h1v1h-1zM30 1h1v1h-1zM36 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM11 2h4v1h-4zM21 2h4v1h-4zM26 2h3v1h-3zM30 2h1v1h-1zM32 2h3v1h-3zM36 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h2v1h-2zM13 3h2v1h-2zM17 3h2v1h-2zM20 3h2v1h-2zM24 3h2v1h-2zM30 3h1v1h-1zM32 3h3v1h-3zM36 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM17 4h1v1h-1zM19 4h1v1h-1zM21 4h1v1h-1zM23 4h1v1h-1zM25 4h1v1h-1zM28 4h1v1h-1zM30 4h1v1h-1zM32 4h3v1h-3zM36 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM15 5h1v1h-1zM17 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h2v1h-2zM30 5h1v1h-1zM36 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h7v1h-7zM8 7h1v1h-1zM19 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1zM8 8h3v1h-3zM14 8h2v1h-2zM21 8h3v1h-3zM25 8h3v1h-3zM29 8h2v1h-2zM33 8h3v1h-3zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM9 9h3v1h-3zM14 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM25 9h3v1h-3zM31 9h3v1h-3zM35 9h1v1h-1zM0 10h2v1h-2zM3 10h4v1h-4zM9 10h1v1h-1zM11 10h3v1h-3zM17 10h2v1h-2zM22 10h1v1h-1zM25 10h6v1h-6zM32 10h1v1h-1zM34 10h3v1h-3zM0 11h1v1h-1zM5 11h1v1h-1zM9 11h4v1h-4zM15 11h2v1h-2zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM26 11h1v1h-1zM28 11h1v1h-1zM30 11h1v1h-1zM33 11h1v1h-1zM36 11h1v1h-1zM0 12h7v1h-7zM8 12h1v1h-1zM10 12h5v1h-5zM16 12h1v1h-1zM18 12h2v1h-2zM23 12h2v1h-2zM27 12h1v1h-1zM30 12h1v1h-1zM34 12h1v1h-1zM36 12h1v1h-1zM0 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM9 13h1v1h-1zM12 13h2v1h-2zM15 13h1v1h-1zM19 13h3v1h-3zM23 13h3v1h-3zM27 13h2v1h-2zM31 13h1v1h-1zM33 13h1v1h-1zM2 14h2v1h-2zM5 14h2v1h-2zM8 14h1v1h-1zM10 14h2v1h-2zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h2v1h-2zM22 14h1v1h-1zM24 14h1v1h-1zM26 14h2v1h-2zM29 14h1v1h-1zM31 14h3v1h-3zM36 14h1v1h-1zM0 15h1v1h-1zM3 15h1v1h-1zM9 15h1v1h-1zM11 15h1v1h-1zM15 15h2v1h-2zM23 15h1v1h-1zM26 15h3v1h-3zM30 15h2v1h-2zM33 15h2v1h-2zM36 15h1v1h-1zM2 16h1v1h-1zM6 16h3v1h-3zM10 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM17 16h1v1h-1zM20 16h8v1h-8zM29 16h2v1h-2zM34 16h1v1h-1zM36 16h1v1h-1zM0 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM10 17h3v1h-3zM18 17h4v1h-4zM23 17h1v1h-1zM26 17h3v1h-3zM31 17h1v1h-1zM33 17h1v1h-1zM35 17h1v1h-1zM0 18h3v1h-3zM4 18h8v1h-8zM15 18h1v1h-1zM17 18h3v1h-3zM21 18h1v1h-1zM23 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM30 18h1v1h-1zM33 18h2v1h-2zM36 18h1v1h-1zM0 19h2v1h-2zM4 19h2v1h-2zM8 19h1v1h-1zM10 19h1v1h-1zM12 19h5v1h-5zM18 19h1v1h-1zM22 19h2v1h-2zM27 19h7v1h-7zM36 19h1v1h-1zM1 20h2v1h-2zM5 20h3v1h-3zM9 20h1v1h-1zM12 20h1v1h-1zM14 20h1v1h-1zM16 20h3v1h-3zM20 20h1v1h-1zM24 20h7v1h-7zM32 20h3v1h-3zM2 21h1v1h-1zM4 21h1v1h-1zM7 21h3v1h-3zM11 21h2v1h-2zM15 21h3v1h-3zM19 21h1v1h-1zM22 21h2v1h-2zM25 21h1v1h-1zM27 21h2v1h-2zM32 21h1v1h-1zM34 21h2v1h-2zM1 22h3v1h-3zM6 22h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM13 22h1v1h-1zM15 22h1v1h-1zM20 22h2v1h-2zM27 22h1v1h-1zM29 22h1v1h-1zM31 22h3v1h-3zM36 22h1v1h-1zM0 23h1v1h-1zM2 23h1v1h-1zM5 23h1v1h-1zM7 23h1v1h-1zM10 23h2v1h-2zM13 23h1v1h-1zM18 23h2v1h-2zM22 23h2v1h-2zM26 23h4v1h-4zM31 23h3v1h-3zM0 24h2v1h-2zM5 24h2v1h-2zM8 24h1v1h-1zM11 24h2v1h-2zM14 24h3v1h-3zM19 24h3v1h-3zM24 24h2v1h-2zM30 24h1v1h-1zM32 24h1v1h-1zM35 24h2v1h-2zM0 25h4v1h-4zM7 25h1v1h-1zM10 25h3v1h-3zM15 25h1v1h-1zM18 25h4v1h-4zM23 25h1v1h-1zM26 25h1v1h-1zM28 25h1v1h-1zM31 25h1v1h-1zM33 25h1v1h-1zM0 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM10 26h3v1h-3zM15 26h1v1h-1zM17 26h2v1h-2zM22 26h1v1h-1zM25 26h1v1h-1zM27 26h2v1h-2zM30 26h1v1h-1zM35 26h2v1h-2zM0 27h1v1h-1zM2 27h1v1h-1zM4 27h2v1h-2zM7 27h1v1h-1zM9 27h2v1h-2zM12 27h1v1h-1zM14 27h1v1h-1zM18 27h1v1h-1zM24 27h1v1h-1zM26 27h2v1h-2zM29 27h1v1h-1zM33 27h3v1h-3zM0 28h1v1h-1zM3 28h4v1h-4zM8 28h1v1h-1zM11 28h3v1h-3zM15 28h4v1h-4zM20 28h1v1h-1zM22 28h5v1h-5zM28 28h7v1h-7zM36 28h1v1h-1zM8 29h2v1h-2zM11 29h1v1h-1zM15 29h1v1h-1zM17 29h1v1h-1zM19 29h5v1h-5zM25 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM35 29h1v1h-1zM0 30h7v1h-7zM15 30h1v1h-1zM19 30h1v1h-1zM21 30h3v1h-3zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h1v1h-1zM35 30h2v1h-2zM0 31h1v1h-1zM6 31h1v1h-1zM9 31h2v1h-2zM13 31h1v1h-1zM15 31h2v1h-2zM19 31h2v1h-2zM22 31h2v1h-2zM26 31h1v1h-1zM28 31h1v1h-1zM32 31h1v1h-1zM35 31h1v1h-1zM0 32h1v1h-1zM2 32h3v1h-3zM6 32h1v1h-1zM9 32h2v1h-2zM13 32h2v1h-2zM17 32h1v1h-1zM19 32h1v1h-1zM21 32h2v1h-2zM24 32h1v1h-1zM26 32h7v1h-7zM34 32h2v1h-2zM0 33h1v1h-1zM2 33h3v1h-3zM6 33h1v1h-1zM11 33h1v1h-1zM13 33h1v1h-1zM15 33h1v1h-1zM23 33h1v1h-1zM26 33h1v1h-1zM28 33h3v1h-3zM34 33h3v1h-3zM0 34h1v1h-1zM2 34h3v1h-3zM6 34h1v1h-1zM9 34h4v1h-4zM14 34h4v1h-4zM20 34h2v1h-2zM24 34h1v1h-1zM27 34h2v1h-2zM34 34h3v1h-3zM0 35h1v1h-1zM6 35h1v1h-1zM10 35h1v1h-1zM12 35h2v1h-2zM16 35h1v1h-1zM18 35h3v1h-3zM26 35h2v1h-2zM29 35h2v1h-2zM32 35h2v1h-2zM36 35h1v1h-1zM0 36h7v1h-7zM8 36h1v1h-1zM11 36h2v1h-2zM14 36h3v1h-3zM18 36h1v1h-1zM20 36h1v1h-1zM23 36h2v1h-2zM28 36h1v1h-1zM31 36h1v1h-1zM33 36h1v1h-1zM36 36h1v1h-1z"/>
+  <g transform="translate(990,105)">
+    <circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
   </g>
 </g>
-<text x="1122" y="614" font-family="Inter,Helvetica,Arial,sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
+<g>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#bandBFB20)"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+  <rect x="0" y="210" width="8" height="210" fill="#4ADE80"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">EKS + FLYTE</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">ML Workflow on K8s</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Flyte 1.13 + EKS</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Flyte 1.13 typed workflows : EKS GPU pool : data lineage : MLOps maturity</text>
+  </g>
+  <g transform="translate(640,315)">
+    <circle r="80" fill="#4ADE80" fill-opacity="0.06"><animate attributeName="r" values="64;86;64" dur="3.4s" repeatCount="indefinite"/></circle>
+    <path d="M-60 0 Q-70 -25 -45 -30 Q-40 -50 -10 -45 Q10 -60 30 -45 Q55 -50 60 -20 Q80 -15 70 10 Q65 25 40 25 L-40 25 Q-70 25 -60 0 Z" fill="#4ADE80" fill-opacity="0.12" stroke="#4ADE80" stroke-width="1.8"/>
+    <g fill="#4ADE80" stroke="#86EFAC" stroke-width="1.2">
+      <polygon points="-30,-10 -18,-17 -6,-10 -6,4 -18,11 -30,4"/>
+      <polygon points="0,-10 12,-17 24,-10 24,4 12,11 0,4"/>
+      <polygon points="-15,10 -3,3 9,10 9,24 -3,31 -15,24"/>
+    </g>
+    <g fill="#86EFAC">
+      <circle cx="-18" cy="-3" r="2.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="12" cy="-3" r="2.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-3" cy="17" r="2.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#FFF">
+      <circle r="1.6"><animateMotion path="M-18 -3 L12 -3" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M12 -3 L-3 17" dur="2.2s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M-3 17 L-18 -3" dur="2.6s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#86EFAC" opacity="0.6">
+      <circle cx="-50" cy="-38" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="-38" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="60" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">K8s CLOUD</text>
+  </g>
+  <g transform="translate(870,315)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1B2E" stroke="#4ADE80" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#4ADE80">POOL</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">GPU</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#9FD3B0">EKS managed</text>
+  </g>
+  <g transform="translate(990,315)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">FLYTE</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">1.13</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#9FD3B0">EKS</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#4ADE80" stroke-width="0.8" stroke-opacity="0.5"/>
+    
+  </g>
+  <g transform="translate(990,315)">
+    <circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+<g>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#bandCFB20)"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
+  <rect x="0" y="420" width="8" height="210" fill="#FFB703"/>
+  <g filter="url(#textShadow)">
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">DOCKER + CN</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Hardening + Trends</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">Distroless + supply chain</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Docker BuildKit hardening : distroless base : Cloud Native 2026 outlook</text>
+  </g>
+  <g transform="translate(640,525)">
+    <circle r="78" fill="#FFB703" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
+    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#FFB703" fill-opacity="0.15" stroke="#FFB703" stroke-width="2.4" filter="url(#softShadow)"/>
+    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#FCD34D" stroke-width="1" opacity="0.7"/>
+    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#FCD34D" stroke-width="0.6" opacity="0.5"/>
+    <g transform="translate(0,-5)" stroke="#FCD34D" stroke-width="3" fill="none">
+      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
+    </g>
+    <g fill="#FCD34D" opacity="0.7">
+      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFB703">DOCKER</text>
+  </g>
+  <g transform="translate(870,525)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E1805" stroke="#FFB703" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#FFB703">BASE</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="900" fill="#F5F7FA">distro</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">distroless</text>
+  </g>
+  <g transform="translate(990,525)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E1805" stroke="#FFB703" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">DOCKER</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">BK</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFD58A">BuildKit</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#FFB703" stroke-width="0.8" stroke-opacity="0.5"/>
+    
+  </g>
+  <g transform="translate(990,525)">
+    <circle cx="10" cy="-50" r="3" fill="#FFB703"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#FCD34D"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#FCD34D"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+<g opacity="0.9">
+  <g fill="#A78BFA">
+    <circle cx="240" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.6">
+    <rect x="780" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#C4B5FD" opacity="0.85">
+    <rect x="730" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 95 L28 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 125 L28 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 155 L28 155"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#C4B5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="105" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#4ADE80">
+    <circle cx="240" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#4ADE80" opacity="0.6">
+    <rect x="780" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#86EFAC" opacity="0.85">
+    <rect x="730" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 305 L28 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 335 L28 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 365 L28 365"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#86EFAC" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="315" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#FFB703">
+    <circle cx="240" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#FFB703" opacity="0.6">
+    <rect x="780" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FCD34D" opacity="0.85">
+    <rect x="730" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#FFB703" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 575 L28 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#FCD34D" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="525" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  </g>
+</g>
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <path fill="#0A1020" d="M0.0 0.0h15.892v2.27h-15.892z M24.973 0.0h2.27v2.27h-2.27z M29.514 0.0h15.892v2.27h-15.892z M47.676 0.0h6.811v2.27h-6.811z M63.568 0.0h2.27v2.27h-2.27z M68.108 0.0h15.892v2.27h-15.892z M0.0 2.27h2.27v2.27h-2.27z M13.622 2.27h2.27v2.27h-2.27z M24.973 2.27h2.27v2.27h-2.27z M38.595 2.27h2.27v2.27h-2.27z M45.405 2.27h2.27v2.27h-2.27z M56.757 2.27h9.081v2.27h-9.081z M68.108 2.27h2.27v2.27h-2.27z M81.73 2.27h2.27v2.27h-2.27z M0.0 4.541h2.27v2.27h-2.27z M4.541 4.541h6.811v2.27h-6.811z M13.622 4.541h2.27v2.27h-2.27z M18.162 4.541h4.541v2.27h-4.541z M24.973 4.541h9.081v2.27h-9.081z M47.676 4.541h9.081v2.27h-9.081z M59.027 4.541h6.811v2.27h-6.811z M68.108 4.541h2.27v2.27h-2.27z M72.649 4.541h6.811v2.27h-6.811z M81.73 4.541h2.27v2.27h-2.27z M0.0 6.811h2.27v2.27h-2.27z M4.541 6.811h6.811v2.27h-6.811z M13.622 6.811h2.27v2.27h-2.27z M18.162 6.811h4.541v2.27h-4.541z M24.973 6.811h2.27v2.27h-2.27z M29.514 6.811h2.27v2.27h-2.27z M34.054 6.811h9.081v2.27h-9.081z M49.946 6.811h2.27v2.27h-2.27z M54.486 6.811h11.351v2.27h-11.351z M68.108 6.811h2.27v2.27h-2.27z M72.649 6.811h6.811v2.27h-6.811z M81.73 6.811h2.27v2.27h-2.27z M0.0 9.081h2.27v2.27h-2.27z M4.541 9.081h6.811v2.27h-6.811z M13.622 9.081h2.27v2.27h-2.27z M18.162 9.081h4.541v2.27h-4.541z M24.973 9.081h2.27v2.27h-2.27z M31.784 9.081h2.27v2.27h-2.27z M38.595 9.081h2.27v2.27h-2.27z M43.135 9.081h2.27v2.27h-2.27z M47.676 9.081h2.27v2.27h-2.27z M52.216 9.081h2.27v2.27h-2.27z M56.757 9.081h2.27v2.27h-2.27z M63.568 9.081h2.27v2.27h-2.27z M68.108 9.081h2.27v2.27h-2.27z M72.649 9.081h6.811v2.27h-6.811z M81.73 9.081h2.27v2.27h-2.27z M0.0 11.351h2.27v2.27h-2.27z M13.622 11.351h2.27v2.27h-2.27z M18.162 11.351h2.27v2.27h-2.27z M45.405 11.351h6.811v2.27h-6.811z M54.486 11.351h4.541v2.27h-4.541z M61.297 11.351h2.27v2.27h-2.27z M68.108 11.351h2.27v2.27h-2.27z M81.73 11.351h2.27v2.27h-2.27z M0.0 13.622h15.892v2.27h-15.892z M18.162 13.622h2.27v2.27h-2.27z M22.703 13.622h2.27v2.27h-2.27z M27.243 13.622h2.27v2.27h-2.27z M31.784 13.622h2.27v2.27h-2.27z M36.324 13.622h2.27v2.27h-2.27z M40.865 13.622h2.27v2.27h-2.27z M45.405 13.622h2.27v2.27h-2.27z M49.946 13.622h2.27v2.27h-2.27z M54.486 13.622h2.27v2.27h-2.27z M59.027 13.622h2.27v2.27h-2.27z M63.568 13.622h2.27v2.27h-2.27z M68.108 13.622h15.892v2.27h-15.892z M18.162 15.892h2.27v2.27h-2.27z M22.703 15.892h2.27v2.27h-2.27z M31.784 15.892h4.541v2.27h-4.541z M43.135 15.892h2.27v2.27h-2.27z M47.676 15.892h2.27v2.27h-2.27z M52.216 15.892h2.27v2.27h-2.27z M59.027 15.892h6.811v2.27h-6.811z M0.0 18.162h2.27v2.27h-2.27z M4.541 18.162h11.351v2.27h-11.351z M27.243 18.162h9.081v2.27h-9.081z M52.216 18.162h2.27v2.27h-2.27z M56.757 18.162h6.811v2.27h-6.811z M68.108 18.162h11.351v2.27h-11.351z M2.27 20.432h9.081v2.27h-9.081z M18.162 20.432h2.27v2.27h-2.27z M27.243 20.432h2.27v2.27h-2.27z M34.054 20.432h4.541v2.27h-4.541z M40.865 20.432h6.811v2.27h-6.811z M52.216 20.432h2.27v2.27h-2.27z M56.757 20.432h2.27v2.27h-2.27z M63.568 20.432h2.27v2.27h-2.27z M70.378 20.432h2.27v2.27h-2.27z M77.189 20.432h4.541v2.27h-4.541z M0.0 22.703h6.811v2.27h-6.811z M9.081 22.703h13.622v2.27h-13.622z M24.973 22.703h2.27v2.27h-2.27z M29.514 22.703h2.27v2.27h-2.27z M38.595 22.703h4.541v2.27h-4.541z M49.946 22.703h2.27v2.27h-2.27z M56.757 22.703h13.622v2.27h-13.622z M72.649 22.703h2.27v2.27h-2.27z M77.189 22.703h6.811v2.27h-6.811z M0.0 24.973h2.27v2.27h-2.27z M11.351 24.973h2.27v2.27h-2.27z M15.892 24.973h2.27v2.27h-2.27z M22.703 24.973h2.27v2.27h-2.27z M27.243 24.973h2.27v2.27h-2.27z M36.324 24.973h2.27v2.27h-2.27z M40.865 24.973h2.27v2.27h-2.27z M45.405 24.973h6.811v2.27h-6.811z M59.027 24.973h6.811v2.27h-6.811z M68.108 24.973h2.27v2.27h-2.27z M81.73 24.973h2.27v2.27h-2.27z M0.0 27.243h2.27v2.27h-2.27z M4.541 27.243h4.541v2.27h-4.541z M13.622 27.243h2.27v2.27h-2.27z M24.973 27.243h4.541v2.27h-4.541z M38.595 27.243h4.541v2.27h-4.541z M45.405 27.243h2.27v2.27h-2.27z M49.946 27.243h2.27v2.27h-2.27z M54.486 27.243h20.432v2.27h-20.432z M79.459 27.243h4.541v2.27h-4.541z M0.0 29.514h2.27v2.27h-2.27z M4.541 29.514h6.811v2.27h-6.811z M20.432 29.514h2.27v2.27h-2.27z M27.243 29.514h4.541v2.27h-4.541z M43.135 29.514h4.541v2.27h-4.541z M52.216 29.514h6.811v2.27h-6.811z M63.568 29.514h2.27v2.27h-2.27z M70.378 29.514h2.27v2.27h-2.27z M4.541 31.784h4.541v2.27h-4.541z M13.622 31.784h2.27v2.27h-2.27z M18.162 31.784h9.081v2.27h-9.081z M29.514 31.784h2.27v2.27h-2.27z M34.054 31.784h2.27v2.27h-2.27z M38.595 31.784h4.541v2.27h-4.541z M47.676 31.784h4.541v2.27h-4.541z M54.486 31.784h2.27v2.27h-2.27z M59.027 31.784h4.541v2.27h-4.541z M65.838 31.784h2.27v2.27h-2.27z M70.378 31.784h6.811v2.27h-6.811z M81.73 31.784h2.27v2.27h-2.27z M2.27 34.054h4.541v2.27h-4.541z M11.351 34.054h2.27v2.27h-2.27z M18.162 34.054h2.27v2.27h-2.27z M22.703 34.054h4.541v2.27h-4.541z M31.784 34.054h2.27v2.27h-2.27z M45.405 34.054h9.081v2.27h-9.081z M68.108 34.054h6.811v2.27h-6.811z M81.73 34.054h2.27v2.27h-2.27z M4.541 36.324h20.432v2.27h-20.432z M29.514 36.324h6.811v2.27h-6.811z M38.595 36.324h2.27v2.27h-2.27z M45.405 36.324h18.162v2.27h-18.162z M65.838 36.324h4.541v2.27h-4.541z M77.189 36.324h2.27v2.27h-2.27z M81.73 36.324h2.27v2.27h-2.27z M0.0 38.595h2.27v2.27h-2.27z M6.811 38.595h2.27v2.27h-2.27z M11.351 38.595h2.27v2.27h-2.27z M15.892 38.595h2.27v2.27h-2.27z M20.432 38.595h4.541v2.27h-4.541z M31.784 38.595h4.541v2.27h-4.541z M40.865 38.595h6.811v2.27h-6.811z M52.216 38.595h2.27v2.27h-2.27z M59.027 38.595h2.27v2.27h-2.27z M63.568 38.595h2.27v2.27h-2.27z M70.378 38.595h2.27v2.27h-2.27z M79.459 38.595h2.27v2.27h-2.27z M0.0 40.865h2.27v2.27h-2.27z M4.541 40.865h2.27v2.27h-2.27z M13.622 40.865h4.541v2.27h-4.541z M20.432 40.865h2.27v2.27h-2.27z M29.514 40.865h9.081v2.27h-9.081z M40.865 40.865h2.27v2.27h-2.27z M45.405 40.865h6.811v2.27h-6.811z M59.027 40.865h13.622v2.27h-13.622z M74.919 40.865h2.27v2.27h-2.27z M79.459 40.865h4.541v2.27h-4.541z M0.0 43.135h13.622v2.27h-13.622z M20.432 43.135h13.622v2.27h-13.622z M36.324 43.135h2.27v2.27h-2.27z M40.865 43.135h2.27v2.27h-2.27z M47.676 43.135h6.811v2.27h-6.811z M63.568 43.135h11.351v2.27h-11.351z M81.73 43.135h2.27v2.27h-2.27z M2.27 45.405h4.541v2.27h-4.541z M11.351 45.405h6.811v2.27h-6.811z M20.432 45.405h2.27v2.27h-2.27z M27.243 45.405h2.27v2.27h-2.27z M31.784 45.405h2.27v2.27h-2.27z M36.324 45.405h6.811v2.27h-6.811z M45.405 45.405h2.27v2.27h-2.27z M54.486 45.405h15.892v2.27h-15.892z M72.649 45.405h6.811v2.27h-6.811z M6.811 47.676h4.541v2.27h-4.541z M15.892 47.676h2.27v2.27h-2.27z M22.703 47.676h6.811v2.27h-6.811z M31.784 47.676h2.27v2.27h-2.27z M38.595 47.676h2.27v2.27h-2.27z M43.135 47.676h6.811v2.27h-6.811z M52.216 47.676h2.27v2.27h-2.27z M56.757 47.676h4.541v2.27h-4.541z M74.919 47.676h2.27v2.27h-2.27z M79.459 47.676h2.27v2.27h-2.27z M4.541 49.946h4.541v2.27h-4.541z M11.351 49.946h4.541v2.27h-4.541z M20.432 49.946h6.811v2.27h-6.811z M29.514 49.946h6.811v2.27h-6.811z M45.405 49.946h4.541v2.27h-4.541z M61.297 49.946h2.27v2.27h-2.27z M65.838 49.946h2.27v2.27h-2.27z M70.378 49.946h6.811v2.27h-6.811z M81.73 49.946h2.27v2.27h-2.27z M2.27 52.216h6.811v2.27h-6.811z M11.351 52.216h2.27v2.27h-2.27z M15.892 52.216h2.27v2.27h-2.27z M20.432 52.216h6.811v2.27h-6.811z M29.514 52.216h2.27v2.27h-2.27z M34.054 52.216h2.27v2.27h-2.27z M40.865 52.216h4.541v2.27h-4.541z M47.676 52.216h6.811v2.27h-6.811z M59.027 52.216h2.27v2.27h-2.27z M63.568 52.216h4.541v2.27h-4.541z M70.378 52.216h4.541v2.27h-4.541z M0.0 54.486h6.811v2.27h-6.811z M9.081 54.486h2.27v2.27h-2.27z M13.622 54.486h4.541v2.27h-4.541z M20.432 54.486h2.27v2.27h-2.27z M31.784 54.486h4.541v2.27h-4.541z M38.595 54.486h2.27v2.27h-2.27z M47.676 54.486h11.351v2.27h-11.351z M63.568 54.486h6.811v2.27h-6.811z M72.649 54.486h2.27v2.27h-2.27z M77.189 54.486h2.27v2.27h-2.27z M81.73 54.486h2.27v2.27h-2.27z M0.0 56.757h2.27v2.27h-2.27z M4.541 56.757h4.541v2.27h-4.541z M18.162 56.757h4.541v2.27h-4.541z M24.973 56.757h2.27v2.27h-2.27z M40.865 56.757h6.811v2.27h-6.811z M52.216 56.757h2.27v2.27h-2.27z M61.297 56.757h4.541v2.27h-4.541z M0.0 59.027h2.27v2.27h-2.27z M4.541 59.027h2.27v2.27h-2.27z M9.081 59.027h2.27v2.27h-2.27z M13.622 59.027h2.27v2.27h-2.27z M18.162 59.027h2.27v2.27h-2.27z M22.703 59.027h6.811v2.27h-6.811z M34.054 59.027h2.27v2.27h-2.27z M38.595 59.027h4.541v2.27h-4.541z M49.946 59.027h2.27v2.27h-2.27z M56.757 59.027h2.27v2.27h-2.27z M61.297 59.027h4.541v2.27h-4.541z M68.108 59.027h2.27v2.27h-2.27z M79.459 59.027h4.541v2.27h-4.541z M0.0 61.297h2.27v2.27h-2.27z M6.811 61.297h2.27v2.27h-2.27z M11.351 61.297h2.27v2.27h-2.27z M18.162 61.297h2.27v2.27h-2.27z M34.054 61.297h4.541v2.27h-4.541z M40.865 61.297h2.27v2.27h-2.27z M45.405 61.297h6.811v2.27h-6.811z M54.486 61.297h2.27v2.27h-2.27z M61.297 61.297h6.811v2.27h-6.811z M72.649 61.297h2.27v2.27h-2.27z M79.459 61.297h2.27v2.27h-2.27z M0.0 63.568h2.27v2.27h-2.27z M4.541 63.568h15.892v2.27h-15.892z M24.973 63.568h6.811v2.27h-6.811z M34.054 63.568h9.081v2.27h-9.081z M45.405 63.568h2.27v2.27h-2.27z M49.946 63.568h11.351v2.27h-11.351z M63.568 63.568h15.892v2.27h-15.892z M81.73 63.568h2.27v2.27h-2.27z M18.162 65.838h4.541v2.27h-4.541z M24.973 65.838h2.27v2.27h-2.27z M38.595 65.838h2.27v2.27h-2.27z M43.135 65.838h4.541v2.27h-4.541z M49.946 65.838h4.541v2.27h-4.541z M56.757 65.838h2.27v2.27h-2.27z M61.297 65.838h4.541v2.27h-4.541z M72.649 65.838h4.541v2.27h-4.541z M79.459 65.838h2.27v2.27h-2.27z M0.0 68.108h15.892v2.27h-15.892z M22.703 68.108h4.541v2.27h-4.541z M29.514 68.108h2.27v2.27h-2.27z M34.054 68.108h6.811v2.27h-6.811z M45.405 68.108h4.541v2.27h-4.541z M59.027 68.108h2.27v2.27h-2.27z M63.568 68.108h2.27v2.27h-2.27z M68.108 68.108h2.27v2.27h-2.27z M72.649 68.108h2.27v2.27h-2.27z M77.189 68.108h2.27v2.27h-2.27z M81.73 68.108h2.27v2.27h-2.27z M0.0 70.378h2.27v2.27h-2.27z M13.622 70.378h2.27v2.27h-2.27z M18.162 70.378h2.27v2.27h-2.27z M22.703 70.378h2.27v2.27h-2.27z M36.324 70.378h2.27v2.27h-2.27z M43.135 70.378h11.351v2.27h-11.351z M59.027 70.378h6.811v2.27h-6.811z M72.649 70.378h4.541v2.27h-4.541z M79.459 70.378h2.27v2.27h-2.27z M0.0 72.649h2.27v2.27h-2.27z M4.541 72.649h6.811v2.27h-6.811z M13.622 72.649h2.27v2.27h-2.27z M18.162 72.649h6.811v2.27h-6.811z M27.243 72.649h4.541v2.27h-4.541z M38.595 72.649h2.27v2.27h-2.27z M43.135 72.649h2.27v2.27h-2.27z M54.486 72.649h2.27v2.27h-2.27z M59.027 72.649h15.892v2.27h-15.892z M77.189 72.649h4.541v2.27h-4.541z M0.0 74.919h2.27v2.27h-2.27z M4.541 74.919h6.811v2.27h-6.811z M13.622 74.919h2.27v2.27h-2.27z M18.162 74.919h9.081v2.27h-9.081z M29.514 74.919h4.541v2.27h-4.541z M36.324 74.919h2.27v2.27h-2.27z M45.405 74.919h4.541v2.27h-4.541z M52.216 74.919h2.27v2.27h-2.27z M61.297 74.919h2.27v2.27h-2.27z M65.838 74.919h4.541v2.27h-4.541z M72.649 74.919h4.541v2.27h-4.541z M79.459 74.919h4.541v2.27h-4.541z M0.0 77.189h2.27v2.27h-2.27z M4.541 77.189h6.811v2.27h-6.811z M13.622 77.189h2.27v2.27h-2.27z M18.162 77.189h6.811v2.27h-6.811z M31.784 77.189h9.081v2.27h-9.081z M45.405 77.189h4.541v2.27h-4.541z M54.486 77.189h2.27v2.27h-2.27z M61.297 77.189h4.541v2.27h-4.541z M77.189 77.189h6.811v2.27h-6.811z M0.0 79.459h2.27v2.27h-2.27z M13.622 79.459h2.27v2.27h-2.27z M20.432 79.459h6.811v2.27h-6.811z M29.514 79.459h2.27v2.27h-2.27z M34.054 79.459h4.541v2.27h-4.541z M40.865 79.459h2.27v2.27h-2.27z M45.405 79.459h4.541v2.27h-4.541z M59.027 79.459h11.351v2.27h-11.351z M72.649 79.459h2.27v2.27h-2.27z M81.73 79.459h2.27v2.27h-2.27z M0.0 81.73h15.892v2.27h-15.892z M18.162 81.73h2.27v2.27h-2.27z M22.703 81.73h9.081v2.27h-9.081z M34.054 81.73h2.27v2.27h-2.27z M38.595 81.73h6.811v2.27h-6.811z M49.946 81.73h2.27v2.27h-2.27z M54.486 81.73h9.081v2.27h-9.081z M65.838 81.73h2.27v2.27h-2.27z M72.649 81.73h11.351v2.27h-11.351z"/>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
