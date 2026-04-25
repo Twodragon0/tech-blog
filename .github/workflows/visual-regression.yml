@@ -42,13 +42,16 @@ jobs:
           python-version: "3.11"
 
       # qlmanage is part of macOS and available on macos-latest runners.
-      # No additional rendering tool installation is needed.
+      # Pillow + numpy are required for per-pixel diff mode.
+
+      - name: Install Python dependencies
+        run: pip install --quiet pillow numpy
 
       - name: Run visual regression verify
         run: python3 scripts/svg_visual_baseline.py --verify
 
-      - name: Upload diffs on failure
-        if: failure()
+      - name: Upload diff report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: visual-diffs

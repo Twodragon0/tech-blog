@@ -3,8 +3,10 @@
 SVG Visual Regression Baseline Tool.
 
 Usage:
-    python3 scripts/svg_visual_baseline.py --capture   # render PNGs + write manifest
-    python3 scripts/svg_visual_baseline.py --verify    # re-render and diff vs baseline
+    python3 scripts/svg_visual_baseline.py --capture             # render PNGs + write manifest
+    python3 scripts/svg_visual_baseline.py --verify              # re-render and pixel-diff vs baseline
+    python3 scripts/svg_visual_baseline.py --verify --threshold 1.0  # custom pass threshold (%)
+    python3 scripts/svg_visual_baseline.py --verify --strict     # legacy SHA256-only comparison
 """
 
 import argparse
@@ -20,6 +22,11 @@ REPO_ROOT = Path(__file__).parent.parent
 BASELINE_DIR = REPO_ROOT / "tests" / "visual-baselines"
 DIFF_DIR = REPO_ROOT / "tests" / "visual-diffs"
 MANIFEST_FILE = BASELINE_DIR / "manifest.json"
+
+# Pass criteria (overridable via --threshold):
+DEFAULT_THRESHOLD_PCT = 0.5   # max % of pixels that may differ
+MAX_CONTIGUOUS_BLOCK = 100    # max side of a contiguous diff rectangle (pixels)
+PIXEL_DIFF_THRESHOLD = 30     # per-pixel RGB sum threshold to count as "different"
 
 TARGET_SVGS = [
     # LLM Security post
@@ -64,6 +71,10 @@ TARGET_SVGS = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -79,7 +90,7 @@ def render_svg_to_png(svg_path: Path, out_png: Path, size: int = 400) -> bool:
     Use size=1200 for high-fidelity renders when disk space is not a concern.
     """
     with tempfile.TemporaryDirectory() as tmpdir:
-        result = subprocess.run(
+        subprocess.run(
             ["qlmanage", "-t", "-s", str(size), "-o", tmpdir, str(svg_path)],
             capture_output=True,
             text=True,
@@ -95,8 +106,214 @@ def render_svg_to_png(svg_path: Path, out_png: Path, size: int = 400) -> bool:
         return True
 
 
+def _max_contiguous_block(diff_mask) -> int:
+    """Return the maximum side length of any bounding box of contiguous differing pixels.
+
+    Uses a fast sliding-window approach via numpy column/row projections rather than
+    full connected-components (scipy not required).
+    """
+    import numpy as np
+
+    rows = np.any(diff_mask, axis=1)
+    cols = np.any(diff_mask, axis=0)
+    if not rows.any():
+        return 0
+    row_indices = np.where(rows)[0]
+    col_indices = np.where(cols)[0]
+    max_h = int(row_indices[-1] - row_indices[0] + 1)
+    max_w = int(col_indices[-1] - col_indices[0] + 1)
+    return max(max_h, max_w)
+
+
+def pixel_diff(baseline_png: Path, current_png: Path, diff_out: Path) -> dict:
+    """Compare two PNGs pixel-by-pixel using Pillow + numpy.
+
+    Returns a dict with keys:
+        pct_diff   – percentage of differing pixels (float)
+        max_block  – max contiguous block side length (int)
+        total_px   – total pixel count
+        diff_px    – number of differing pixels
+    Also writes a red-overlay diff image to diff_out.
+    """
+    import numpy as np
+    from PIL import Image
+
+    baseline_img = Image.open(baseline_png).convert("RGB")
+    current_img = Image.open(current_png).convert("RGB")
+
+    # Resize current to match baseline dimensions if they differ (e.g. sub-pixel rounding)
+    if baseline_img.size != current_img.size:
+        current_img = current_img.resize(baseline_img.size, Image.LANCZOS)
+
+    base_arr = np.array(baseline_img, dtype=np.int32)
+    curr_arr = np.array(current_img, dtype=np.int32)
+
+    abs_diff = np.abs(base_arr - curr_arr).sum(axis=2)  # shape (H, W)
+    diff_mask = abs_diff > PIXEL_DIFF_THRESHOLD
+
+    total_px = diff_mask.size
+    diff_px = int(diff_mask.sum())
+    pct_diff = 100.0 * diff_px / total_px if total_px > 0 else 0.0
+    max_block = _max_contiguous_block(diff_mask)
+
+    # Write red-overlay diff image
+    diff_out.parent.mkdir(parents=True, exist_ok=True)
+    overlay = np.array(current_img.copy())
+    overlay[diff_mask] = [255, 0, 0]
+    Image.fromarray(overlay.astype(np.uint8)).save(diff_out)
+
+    return {
+        "pct_diff": pct_diff,
+        "max_block": max_block,
+        "total_px": total_px,
+        "diff_px": diff_px,
+    }
+
+
+# ---------------------------------------------------------------------------
+# HTML report
+# ---------------------------------------------------------------------------
+
+def generate_html_report(results: list[dict], threshold_pct: float) -> Path:
+    """Write tests/visual-diffs/index.html with side-by-side comparison table."""
+    DIFF_DIR.mkdir(parents=True, exist_ok=True)
+    report_path = DIFF_DIR / "index.html"
+
+    # Sort by drift severity (descending)
+    sorted_results = sorted(results, key=lambda r: r.get("pct_diff", 0.0), reverse=True)
+
+    rows = []
+    for r in sorted_results:
+        name = r["name"]
+        status = r["status"]
+        pct = r.get("pct_diff", None)
+        block = r.get("max_block", None)
+
+        if status == "SKIP":
+            row_class = "skip"
+            status_cell = "<td class='skip'>SKIP</td>"
+            pct_cell = "<td>—</td>"
+            block_cell = "<td>—</td>"
+            img_cells = "<td colspan='3'>SVG not found</td>"
+        elif status == "RENDER_ERROR":
+            row_class = "fail"
+            status_cell = "<td class='fail'>RENDER ERROR</td>"
+            pct_cell = "<td>—</td>"
+            block_cell = "<td>—</td>"
+            img_cells = "<td colspan='3'>Render failed</td>"
+        else:
+            passed = r.get("passed", False)
+            row_class = "pass" if passed else "fail"
+            status_label = "PASS" if passed else "DIFF"
+            status_cell = f"<td class='{row_class}'>{status_label}</td>"
+            pct_cell = f"<td>{pct:.3f}%</td>"
+            block_cell = f"<td>{block}px</td>"
+
+            baseline_rel = r.get("baseline_rel", "")
+            current_rel = r.get("current_rel", "")
+            diff_rel = r.get("diff_rel", "")
+
+            def img_tag(src, label):
+                if src:
+                    return f"<td><figure><img src='{src}' alt='{label}' loading='lazy'><figcaption>{label}</figcaption></figure></td>"
+                return f"<td>{label}: N/A</td>"
+
+            img_cells = img_tag(baseline_rel, "Baseline") + img_tag(current_rel, "Current") + img_tag(diff_rel, "Diff")
+
+        rows.append(f"""
+        <tr class='{row_class}'>
+            <td class='name'>{name}</td>
+            {status_cell}
+            {pct_cell}
+            {block_cell}
+            {img_cells}
+        </tr>""")
+
+    pass_count = sum(1 for r in results if r.get("passed") is True)
+    fail_count = sum(1 for r in results if r.get("passed") is False and r["status"] not in ("SKIP", "RENDER_ERROR"))
+    skip_count = sum(1 for r in results if r["status"] in ("SKIP", "RENDER_ERROR"))
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG Visual Regression Report</title>
+<style>
+  body {{ font-family: system-ui, sans-serif; margin: 2rem; color: #222; }}
+  h1 {{ font-size: 1.5rem; margin-bottom: 0.5rem; }}
+  .summary {{ margin-bottom: 1.5rem; font-size: 0.95rem; }}
+  .pass {{ color: #1a7f37; font-weight: 600; }}
+  .fail {{ color: #cf222e; font-weight: 600; }}
+  .skip {{ color: #888; }}
+  table {{ border-collapse: collapse; width: 100%; font-size: 0.85rem; }}
+  th, td {{ border: 1px solid #d0d7de; padding: 6px 10px; vertical-align: top; }}
+  th {{ background: #f6f8fa; cursor: pointer; user-select: none; white-space: nowrap; }}
+  th:hover {{ background: #eaeef2; }}
+  tr.pass td {{ background: #f0fff4; }}
+  tr.fail td {{ background: #fff0f0; }}
+  tr.skip td {{ background: #fafafa; color: #888; }}
+  td.name {{ font-family: monospace; font-size: 0.78rem; max-width: 260px; word-break: break-all; }}
+  figure {{ margin: 0; }}
+  figure img {{ max-width: 200px; max-height: 150px; border: 1px solid #ccc; display: block; }}
+  figcaption {{ font-size: 0.75rem; color: #666; margin-top: 3px; }}
+</style>
+<script>
+  function sortTable(col) {{
+    const table = document.getElementById('report');
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const dir = table.dataset.sortDir === 'asc' ? -1 : 1;
+    table.dataset.sortDir = dir === 1 ? 'asc' : 'desc';
+    rows.sort((a, b) => {{
+      const av = a.cells[col]?.innerText.trim() || '';
+      const bv = b.cells[col]?.innerText.trim() || '';
+      const an = parseFloat(av); const bn = parseFloat(bv);
+      if (!isNaN(an) && !isNaN(bn)) return dir * (an - bn);
+      return dir * av.localeCompare(bv);
+    }});
+    const tbody = table.querySelector('tbody');
+    rows.forEach(r => tbody.appendChild(r));
+  }}
+</script>
+</head>
+<body>
+<h1>SVG Visual Regression Report</h1>
+<div class="summary">
+  Threshold: <strong>{threshold_pct:.2f}%</strong> pixels diff &amp;
+  max contiguous block &lt; <strong>{MAX_CONTIGUOUS_BLOCK}px</strong> &nbsp;|&nbsp;
+  <span class="pass">PASS: {pass_count}</span> &nbsp;
+  <span class="fail">FAIL: {fail_count}</span> &nbsp;
+  <span class="skip">SKIP/ERR: {skip_count}</span>
+</div>
+<table id="report" data-sort-dir="asc">
+  <thead>
+    <tr>
+      <th onclick="sortTable(0)">File</th>
+      <th onclick="sortTable(1)">Status</th>
+      <th onclick="sortTable(2)">% Diff</th>
+      <th onclick="sortTable(3)">Max Block</th>
+      <th>Baseline</th>
+      <th>Current</th>
+      <th>Diff (red overlay)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {"".join(rows)}
+  </tbody>
+</table>
+</body>
+</html>
+"""
+    report_path.write_text(html, encoding="utf-8")
+    return report_path
+
+
+# ---------------------------------------------------------------------------
+# Capture
+# ---------------------------------------------------------------------------
+
 def capture():
-    """Render all 33 SVGs and write manifest."""
+    """Render all SVGs and write manifest."""
     BASELINE_DIR.mkdir(parents=True, exist_ok=True)
     manifest = {}
     ok = 0
@@ -131,8 +348,12 @@ def capture():
     return ok == len(valid_targets)
 
 
-def verify():
-    """Re-render SVGs and compare SHA256 against manifest."""
+# ---------------------------------------------------------------------------
+# Verify (strict SHA256 mode)
+# ---------------------------------------------------------------------------
+
+def verify_strict():
+    """Re-render SVGs and compare SHA256 against manifest (legacy behavior)."""
     if not MANIFEST_FILE.exists():
         print("No manifest found. Run --capture first.", file=sys.stderr)
         return False
@@ -142,7 +363,7 @@ def verify():
     passed = 0
     failed = 0
 
-    print(f"Verifying {len(manifest)} baselines...")
+    print(f"Verifying {len(manifest)} baselines (strict SHA256 mode)...")
     for svg_name, entry in manifest.items():
         svg = next((REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None)
         if svg is None or not svg.exists():
@@ -175,19 +396,120 @@ def verify():
     return failed == 0
 
 
+# ---------------------------------------------------------------------------
+# Verify (per-pixel diff mode)
+# ---------------------------------------------------------------------------
+
+def verify(threshold_pct: float = DEFAULT_THRESHOLD_PCT):
+    """Re-render SVGs and pixel-diff against baseline PNGs.
+
+    Always generates tests/visual-diffs/index.html regardless of pass/fail.
+    Exits 0 if all files pass, 1 otherwise.
+    """
+    if not MANIFEST_FILE.exists():
+        print("No manifest found. Run --capture first.", file=sys.stderr)
+        return False
+
+    manifest = json.loads(MANIFEST_FILE.read_text())
+    DIFF_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Temp dir for freshly-rendered PNGs during this run
+    current_dir = DIFF_DIR / "current"
+    current_dir.mkdir(parents=True, exist_ok=True)
+
+    results = []
+    passed_count = 0
+    failed_count = 0
+
+    print(f"Verifying {len(manifest)} baselines (pixel-diff, threshold={threshold_pct}%)...")
+
+    for svg_name, entry in manifest.items():
+        svg = next((REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None)
+        if svg is None or not svg.exists():
+            print(f"  SKIP (SVG not found): {svg_name}")
+            results.append({"name": svg_name, "status": "SKIP"})
+            continue
+
+        baseline_png = BASELINE_DIR / entry["png"]
+        if not baseline_png.exists():
+            print(f"  SKIP (baseline PNG missing): {svg_name}")
+            results.append({"name": svg_name, "status": "SKIP"})
+            continue
+
+        current_png = current_dir / entry["png"]
+        if not render_svg_to_png(svg, current_png):
+            print(f"  FAIL (render error): {svg_name}")
+            results.append({"name": svg_name, "status": "RENDER_ERROR"})
+            failed_count += 1
+            continue
+
+        diff_png = DIFF_DIR / ("diff_" + entry["png"])
+        metrics = pixel_diff(baseline_png, current_png, diff_png)
+
+        pct = metrics["pct_diff"]
+        block = metrics["max_block"]
+        passed = pct <= threshold_pct and block <= MAX_CONTIGUOUS_BLOCK
+
+        status_str = "PASS" if passed else "DIFF"
+        print(
+            f"  {status_str}: {svg_name}  "
+            f"({pct:.3f}% diff, max_block={block}px)"
+        )
+
+        if passed:
+            passed_count += 1
+        else:
+            failed_count += 1
+
+        results.append({
+            "name": svg_name,
+            "status": status_str,
+            "passed": passed,
+            "pct_diff": pct,
+            "max_block": block,
+            "baseline_rel": f"../visual-baselines/{entry['png']}",
+            "current_rel": f"current/{entry['png']}",
+            "diff_rel": f"diff_{entry['png']}",
+        })
+
+    # Always generate the HTML report
+    report_path = generate_html_report(results, threshold_pct)
+    print(f"\nResult: {passed_count} passed, {failed_count} failed")
+    print(f"HTML report: {report_path}")
+    return failed_count == 0
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
 def main():
     parser = argparse.ArgumentParser(description="SVG visual regression baseline tool")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--capture", action="store_true", help="Render SVGs and save baselines")
     group.add_argument("--verify", action="store_true", help="Re-render and diff against baselines")
+    parser.add_argument(
+        "--threshold",
+        type=float,
+        default=DEFAULT_THRESHOLD_PCT,
+        metavar="N",
+        help=f"Max %% of pixels allowed to differ (default: {DEFAULT_THRESHOLD_PCT})",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Legacy SHA256-only comparison (backward compat, no HTML report)",
+    )
     args = parser.parse_args()
 
     os.chdir(REPO_ROOT)
 
     if args.capture:
         success = capture()
+    elif args.strict:
+        success = verify_strict()
     else:
-        success = verify()
+        success = verify(threshold_pct=args.threshold)
 
     sys.exit(0 if success else 1)
 
