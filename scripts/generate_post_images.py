@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from io import StringIO
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import frontmatter
@@ -2063,8 +2063,292 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
         return False
 
 
+# --- L22 stacked-bands cover for Weekly Digest posts ---
+_DIGEST_TITLE_PATTERN = re.compile(
+    r"Weekly\s+Digest|주간\s*다이제스트|Tech_Security_Weekly_Digest|Daily_Tech_Digest",
+    re.IGNORECASE,
+)
+
+# Boilerplate H2 sections that appear in every digest and are not topics.
+_DIGEST_BOILERPLATE_HEADINGS = {
+    "서론",
+    "📊 빠른 참조",
+    "빠른 참조",
+    "경영진 브리핑",
+    "위험 스코어카드",
+    "트렌드 분석",
+    "실무 체크리스트",
+    "이번 주 다이제스트",
+    "참고 자료",
+    "기타 주목할 뉴스",
+}
+
+# Keyword -> (theme, visual_factory_name, label) routing for L22 bands.
+# Order matters: more specific keywords first.
+_L22_KEYWORD_ROUTES = [
+    ("ransomware", "red", "v_network_nodes", "RANSOMWARE", "RaaS"),
+    ("랜섬웨어", "red", "v_network_nodes", "RANSOMWARE", "RaaS"),
+    ("supply chain", "amber", "v_network_nodes", "SUPPLY CHAIN", "CHAIN"),
+    ("공급망", "amber", "v_network_nodes", "SUPPLY CHAIN", "CHAIN"),
+    ("zero-day", "amber", "v_lock_cve", "ZERO-DAY", "0-DAY"),
+    ("zero day", "amber", "v_lock_cve", "ZERO-DAY", "0-DAY"),
+    ("제로데이", "amber", "v_lock_cve", "ZERO-DAY", "0-DAY"),
+    ("cve-", "amber", "v_lock_cve", "VULNERABILITY", "CVE"),
+    ("cvss", "amber", "v_lock_cve", "VULNERABILITY", "CVE"),
+    ("kubernetes", "green", "v_cloud_k8s", "KUBERNETES", "K8s"),
+    ("k8s", "green", "v_cloud_k8s", "KUBERNETES", "K8s"),
+    ("helm", "green", "v_cloud_k8s", "KUBERNETES", "HELM"),
+    ("container", "green", "v_cloud_k8s", "CONTAINER", "CTR"),
+    ("컨테이너", "green", "v_cloud_k8s", "CONTAINER", "CTR"),
+    ("aws", "blue", "v_cloud_k8s", "AWS CLOUD", "AWS"),
+    ("azure", "blue", "v_cloud_k8s", "AZURE CLOUD", "AZ"),
+    ("gcp", "blue", "v_cloud_k8s", "GCP CLOUD", "GCP"),
+    ("cloud", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
+    ("클라우드", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
+    ("prompt injection", "purple", "v_code_bars", "AI SECURITY", "LLM"),
+    ("llm", "purple", "v_code_bars", "LLM", "LLM"),
+    ("ai agent", "purple", "v_code_bars", "AI AGENT", "AGENT"),
+    ("ai/ml", "purple", "v_code_bars", "AI ML", "AI"),
+    ("ai ", "purple", "v_code_bars", "AI", "AI"),
+    ("blockchain", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
+    ("블록체인", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
+    ("bitcoin", "amber", "v_price_chart", "CRYPTO MARKET", "BTC"),
+    ("btc", "amber", "v_price_chart", "CRYPTO MARKET", "BTC"),
+    ("ethereum", "amber", "v_price_chart", "CRYPTO MARKET", "ETH"),
+    ("wallet", "green", "v_wallet_forensic", "WALLET", "WLT"),
+    ("stablecoin", "amber", "v_senate_columns", "STABLECOIN", "REG"),
+    ("regulation", "amber", "v_senate_columns", "REGULATION", "REG"),
+    ("규제", "amber", "v_senate_columns", "REGULATION", "REG"),
+    ("phishing", "red", "v_browser_cve", "PHISHING", "PSH"),
+    ("피싱", "red", "v_browser_cve", "PHISHING", "PSH"),
+    ("browser", "amber", "v_browser_cve", "BROWSER", "BRW"),
+    ("router", "green", "v_router_mesh", "NETWORK", "NET"),
+    ("botnet", "red", "v_router_mesh", "BOTNET", "BOT"),
+    ("malware", "red", "v_network_nodes", "MALWARE", "MAL"),
+    ("멀웨어", "red", "v_network_nodes", "MALWARE", "MAL"),
+    ("trojan", "red", "v_network_nodes", "MALWARE", "TRJ"),
+    ("breach", "red", "v_bar_graph", "DATA BREACH", "BRC"),
+    ("유출", "red", "v_bar_graph", "DATA BREACH", "BRC"),
+    ("zero trust", "green", "v_shield", "ZERO TRUST", "ZT"),
+    ("제로트러스트", "green", "v_shield", "ZERO TRUST", "ZT"),
+    ("iam", "amber", "v_lock_cve", "IAM", "IAM"),
+    ("identity", "amber", "v_lock_cve", "IDENTITY", "ID"),
+    ("patch", "green", "v_shield", "PATCH", "PT"),
+    ("패치", "green", "v_shield", "PATCH", "PT"),
+    ("devsecops", "green", "v_shield", "DEVSECOPS", "DSO"),
+    ("devops", "blue", "v_code_bars", "DEVOPS", "DEV"),
+    ("ci/cd", "amber", "v_code_bars", "CI/CD", "CICD"),
+    ("finops", "amber", "v_bar_graph", "FINOPS", "FIN"),
+    ("compliance", "blue", "v_shield", "COMPLIANCE", "CMP"),
+]
+
+# Default theme rotation when keyword routing returns fewer than 3 hits.
+_L22_FALLBACK_ROTATION = [
+    ("red", "v_network_nodes", "SECURITY", "SEC"),
+    ("amber", "v_lock_cve", "VULNERABILITY", "VLN"),
+    ("green", "v_shield", "DEFENSE", "DEF"),
+]
+
+
+def _is_digest_post(post_info: Dict) -> bool:
+    """Return True when the post matches the weekly digest pattern."""
+    title = str(post_info.get("title", ""))
+    filename = str(post_info.get("filename", ""))
+    if _DIGEST_TITLE_PATTERN.search(title) or _DIGEST_TITLE_PATTERN.search(filename):
+        return True
+    # Fallback: security/devsecops category with date-named digest pattern.
+    category = str(post_info.get("category", "")).lower()
+    if category in {"security", "devsecops"} and re.search(
+        r"\d{4}-\d{2}-\d{2}-(?:Tech_Security_)?(?:Weekly|Daily).*Digest",
+        filename,
+        re.IGNORECASE,
+    ):
+        return True
+    return False
+
+
+def _extract_digest_topics(content: str, max_topics: int = 3) -> List[str]:
+    """Extract up to ``max_topics`` topic strings from digest body H2/H3 sections.
+
+    Skips boilerplate sections (e.g. 서론, 빠른 참조). Prefers numbered
+    section subheadings (e.g. ``### 1.1 ...``) when present, falling back
+    to the section title itself.
+    """
+    if not content:
+        return []
+
+    topics: List[str] = []
+    seen: set = set()
+
+    # Walk sections starting at "## " headings. For each non-boilerplate
+    # section, collect either its first ### subheading or the H2 itself.
+    section_pattern = re.compile(
+        r"^##\s+([^\n]+)\n(.*?)(?=^##\s+|\Z)", re.MULTILINE | re.DOTALL
+    )
+    for match in section_pattern.finditer(content):
+        h2_title = match.group(1).strip()
+        h2_clean = re.sub(r"^\d+\.\s*", "", h2_title).strip()
+        if any(bp in h2_clean for bp in _DIGEST_BOILERPLATE_HEADINGS):
+            continue
+        body = match.group(2)
+        h3_match = re.search(r"^###\s+([^\n]+)", body, re.MULTILINE)
+        if h3_match:
+            topic = h3_match.group(1).strip()
+            # Strip leading numbering like "1.1 " or "1.2 ".
+            topic = re.sub(r"^\d+(?:\.\d+)?\s+", "", topic).strip()
+        else:
+            topic = h2_clean
+        if topic and topic not in seen:
+            seen.add(topic)
+            topics.append(topic)
+        if len(topics) >= max_topics:
+            break
+
+    return topics
+
+
+def _route_l22_band(topic: str, used_themes: set) -> dict:
+    """Pick a theme + visual + label from a topic string via keyword match."""
+    lower = topic.lower()
+    for keyword, theme, visual_name, label, badge_label in _L22_KEYWORD_ROUTES:
+        if keyword in lower:
+            return {
+                "theme": theme,
+                "visual_name": visual_name,
+                "label": label,
+                "badge_label": badge_label,
+            }
+    # Fallback: pick the first rotation entry whose theme is not yet used.
+    for theme, visual_name, label, badge_label in _L22_FALLBACK_ROTATION:
+        if theme not in used_themes:
+            return {
+                "theme": theme,
+                "visual_name": visual_name,
+                "label": label,
+                "badge_label": badge_label,
+            }
+    # Absolute fallback.
+    return {
+        "theme": "blue",
+        "visual_name": "v_code_bars",
+        "label": "TECH",
+        "badge_label": "INFO",
+    }
+
+
+def _trim_l22_text(text: str, limit: int) -> str:
+    """Trim text to ``limit`` chars without breaking a trailing word too hard."""
+    text = text.strip()
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"
+
+
+def _build_l22_band_cfg(topic: str, route: dict) -> dict:
+    """Compose a single render_bands_svg band dict from a topic + route."""
+    from scripts.lib import svg_l22_generator as _l22
+
+    visual_fn = getattr(_l22, route["visual_name"])
+    accent = _l22.THEMES[route["theme"]]["accent"]
+    soft = _l22.THEMES[route["theme"]]["soft"]
+    # All visuals share the same (cx=500, yc=105) origin; band() shifts the
+    # group vertically per index, so the same yc works for every band.
+    try:
+        visual_svg = visual_fn(500, 105, accent, soft)
+    except TypeError:
+        # v_senate_columns has a different signature (no soft).
+        visual_svg = visual_fn(500, 105, accent)
+
+    headline = _trim_l22_text(topic, 36)
+    metric = _trim_l22_text(topic, 48)
+    return {
+        "theme": route["theme"],
+        "label": route["label"],
+        "headline": headline,
+        "metric": metric,
+        "detail": _trim_l22_text(topic, 96),
+        "badge_value": route["badge_label"][:4] or "INFO",
+        "badge_label": route["badge_label"],
+        "badge_sub": "highlighted",
+        "visual": visual_svg,
+    }
+
+
+def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
+    """Generate an L22 stacked-bands SVG cover for a Weekly Digest post.
+
+    Extracts up to three topic headings from the post body, routes each
+    to a themed band via keyword heuristics, and writes the rendered
+    SVG to ``output_path`` (with ``.svg`` suffix).
+    """
+    try:
+        from scripts.lib import svg_l22_generator as _l22
+    except Exception as exc:  # pragma: no cover - import guard
+        log_message(f"❌ L22 generator import 실패: {exc}", "ERROR")
+        return False
+
+    try:
+        content = post_info.get("content", "") or ""
+        title = post_info.get("title", "") or ""
+        filename = post_info.get("filename", "") or ""
+
+        topics = _extract_digest_topics(content, max_topics=3)
+        # Backfill from title tokens / tags if too few topics found.
+        if len(topics) < 3:
+            extra = _extract_visual_tokens(post_info, limit=6)
+            for tok in extra:
+                if tok and tok not in topics:
+                    topics.append(tok)
+                if len(topics) >= 3:
+                    break
+        # Final guard: pad with generic placeholders.
+        while len(topics) < 3:
+            topics.append("Security Update")
+
+        bands_cfg = []
+        used_themes: set = set()
+        for topic in topics[:3]:
+            route = _route_l22_band(topic, used_themes)
+            used_themes.add(route["theme"])
+            bands_cfg.append(_build_l22_band_cfg(topic, route))
+
+        # Build URL from filename (YYYY-MM-DD-Slug.md -> /posts/YYYY/MM/DD/Slug/).
+        url = "https://tech.2twodragon.com/"
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.+)\.md", filename)
+        if m:
+            yyyy, mm, dd, slug = m.groups()
+            slug_url = slug.replace("_", "-")
+            url = f"https://tech.2twodragon.com/posts/{yyyy}/{mm}/{dd}/{slug_url}/"
+
+        sfx = "L22"
+        aria = _trim_l22_text(title, 200) or "Weekly digest cover"
+        svg_title = _trim_l22_text(title, 240) or "Weekly digest"
+
+        svg = _l22.render_bands_svg(
+            sfx=sfx,
+            aria=_escape_svg_text(aria),
+            title=_escape_svg_text(svg_title),
+            url=url,
+            bands_cfg=bands_cfg,
+        )
+        svg = validate_and_fix_svg(svg)
+
+        output_svg = output_path.with_suffix(".svg")
+        with open(output_svg, "w", encoding="utf-8") as f:
+            f.write(svg)
+        log_message(f"✅ L22 Digest SVG 생성 완료: {output_svg.name}", "SUCCESS")
+        return True
+
+    except Exception as exc:
+        log_message(f"❌ L22 Digest SVG 생성 실패: {exc}", "ERROR")
+        return False
+
+
 def process_post(
-    post_file: Path, force: bool = False, optimize_only: bool = False
+    post_file: Path,
+    force: bool = False,
+    optimize_only: bool = False,
+    svg_only: bool = False,
 ) -> bool:
     """단일 포스팅 처리"""
     log_message(f"📄 포스팅 처리 시작: {post_file.name}")
@@ -2076,6 +2360,23 @@ def process_post(
 
     image_path = post_info.get("image", "")
     has_image, image_file = check_image_exists(image_path)
+
+    # --svg-only: regenerate ONLY the SVG cover. For weekly digest posts
+    # this routes through the L22 generator; otherwise it falls back to
+    # the standard SVG cover. PNG/WebP/AVIF steps are skipped entirely.
+    if svg_only:
+        if not image_path:
+            post_stem = post_file.stem
+            image_path = f"/assets/images/{post_stem}.svg"
+        output_path = IMAGES_DIR / Path(image_path).name
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        if _is_digest_post(post_info):
+            log_message("🎨 L22 Digest SVG (--svg-only) 생성 시도...", "INFO")
+            ok = generate_l22_digest_svg(post_info, output_path)
+        else:
+            log_message("🎨 SVG 폴백 (--svg-only) 생성 시도...", "INFO")
+            ok = generate_fallback_svg(post_info, output_path)
+        return ok
 
     if optimize_only:
         if has_image and image_file:
@@ -2113,13 +2414,15 @@ def process_post(
         image_generated = generate_image_with_gemini(prompt, output_path)
 
     if not image_generated:
-        # Use Digest-style SVG for Weekly Digest posts
-        is_digest = "Digest" in post_file.name or "Weekly_Digest" in post_info.get(
-            "title", ""
-        )
-        if is_digest:
-            log_message("🎨 Digest SVG 이미지 생성 시도...", "INFO")
-            image_generated = generate_digest_svg(post_info, output_path)
+        # Weekly digest posts route through the L22 stacked-bands generator
+        # first (content-driven covers), then fall through to the legacy
+        # threat-signal-map digest SVG, then to the generic fallback.
+        if _is_digest_post(post_info):
+            log_message("🎨 L22 Digest SVG 이미지 생성 시도...", "INFO")
+            image_generated = generate_l22_digest_svg(post_info, output_path)
+            if not image_generated:
+                log_message("🎨 Digest SVG 이미지 생성 시도...", "INFO")
+                image_generated = generate_digest_svg(post_info, output_path)
         if not image_generated:
             log_message("🎨 SVG 폴백 이미지 생성 시도...", "INFO")
             image_generated = generate_fallback_svg(post_info, output_path)
@@ -2206,6 +2509,11 @@ def main():
         "--regenerate-section-banners",
         action="store_true",
         help="공통 섹션 배너 SVG를 재생성",
+    )
+    parser.add_argument(
+        "--svg-only",
+        action="store_true",
+        help="SVG 커버만 재생성 (PNG/WebP/AVIF 변환 등 비-SVG 단계는 건너뜀)",
     )
 
     args = parser.parse_args()
@@ -2326,7 +2634,10 @@ def main():
                     continue
 
             if process_post(
-                post_file, force=args.force, optimize_only=args.optimize_only
+                post_file,
+                force=args.force,
+                optimize_only=args.optimize_only,
+                svg_only=args.svg_only,
             ):
                 success_count += 1
         except Exception as e:
