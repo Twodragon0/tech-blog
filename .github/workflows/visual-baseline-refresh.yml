@@ -19,6 +19,7 @@ on:
       - "assets/images/**.svg"
       - "scripts/lib/svg_l22_generator.py"
       - "scripts/svg_visual_baseline.py"
+  workflow_dispatch:
 
 permissions:
   contents: write
