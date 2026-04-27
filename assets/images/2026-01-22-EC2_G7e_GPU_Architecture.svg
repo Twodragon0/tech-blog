@@ -52,6 +52,7 @@
   <rect x="80" y="320" width="120" height="3" rx="2" fill="url(#accent)" />
   <text x="80" y="370" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,153,0,0.8)" letter-spacing="3">AWS ARCHITECTURE</text>
   <rect x="80" y="400" width="80" height="28" rx="14" fill="rgba(255,153,0,0.15)" stroke="rgba(255,153,0,0.4)" stroke-width="1" />
+  <text x="120" y="419" font-family="Arial,sans-serif" font-size="13" fill="#ff9900" text-anchor="middle">EC2</text>
   <rect x="172" y="400" width="55" height="28" rx="14" fill="rgba(118,185,0,0.15)" stroke="rgba(118,185,0,0.4)" stroke-width="1" />
   <text x="199" y="419" font-family="Arial,sans-serif" font-size="13" fill="#76b900" text-anchor="middle">GPU</text>
   <rect x="239" y="400" width="110" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
