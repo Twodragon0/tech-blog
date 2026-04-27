@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>CLAUDE CODE OPENCODE 38</title>
+  <title>CLAUDE CODE OPENCODE BEST PRACTICES 2026</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b1120"/>
@@ -12,7 +12,7 @@
     </linearGradient>
     <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
       <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#fbbf24" opacity="0.15"/>
+      <circle cx="18" cy="18" r="1.2" fill="#a78bfa" opacity="0.15"/>
     </pattern>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="10" result="blur"/>
@@ -27,14 +27,14 @@
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#fbbf24" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#d97706" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="202" cy="150" r="190" fill="#a78bfa" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#7c3aed" opacity="0.08" filter="url(#sg)"/>
   <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
   <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
   <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#fbbf24" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#a78bfa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
   <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="758" y="124" width="108" height="12" rx="6" fill="#fbbf24" opacity="0.28"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#a78bfa" opacity="0.28"/>
   <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
   <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
   
@@ -42,53 +42,53 @@
   <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
 
   <g transform="translate(917,270)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#fbbf24" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#fbbf24" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="96" fill="#0f172a" stroke="#a78bfa" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
     <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-    <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="#fbbf24" stroke-width="3"/>
-    <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5 3"/>
-    <polygon points="20,-5 28,0 20,5" fill="#fbbf24"/>
-    <polygon points="-20,5 -28,0 -20,-5" fill="#fbbf24"/>
-    <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
-    <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
-    <line x1="-35" y1="0" x2="-28" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
-    <line x1="28" y1="0" x2="35" y2="0" stroke="#fbbf24" stroke-width="1.5" opacity="0.4"/>
+    <path d="M-20,0 A20 20 0 0 1 20,0" fill="none" stroke="#a78bfa" stroke-width="3"/>
+    <path d="M20,0 A20 20 0 0 1 -20,0" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="5 3"/>
+    <polygon points="20,-5 28,0 20,5" fill="#a78bfa"/>
+    <polygon points="-20,5 -28,0 -20,-5" fill="#a78bfa"/>
+    <rect x="-55" y="-8" width="20" height="16" rx="3" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+    <rect x="35" y="-8" width="20" height="16" rx="3" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+    <line x1="-35" y1="0" x2="-28" y2="0" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+    <line x1="28" y1="0" x2="35" y2="0" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
   </g>
   <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#fbbf24" opacity="0.2" stroke="#fbbf24" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="middle">DEVOPS</text>
+    <rect width="164" height="36" rx="18" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
   </g>
   <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">CLAUDE CODE OPENCODE</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">38</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">BEST PRACTICES 2026</text>
   <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">MCP / DEVOPS / CLAUDE CODE</text>
   <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
   <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 3824601289DB</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">38 best practices for Claude Code and OpenCode AI-assisted development workflows.</text>
   <g transform="translate(84 474)">
-    <rect width="110" height="38" rx="19" fill="#fbbf24" opacity="0.16" stroke="#fbbf24" stroke-width="1.2"/>
+    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
     <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">MCP</text>
   </g>
   <g transform="translate(208 474)">
-    <rect width="110" height="38" rx="19" fill="#fbbf24" opacity="0.16" stroke="#fbbf24" stroke-width="1.2"/>
+    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
     <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVOPS</text>
   </g>
   <g transform="translate(332 474)">
-    <rect width="144" height="38" rx="19" fill="#fbbf24" opacity="0.16" stroke="#fbbf24" stroke-width="1.2"/>
+    <rect width="144" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
     <text x="72.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLAUDE CODE</text>
   </g>
   <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.2"/>
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">DEVOPS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">DEVSECOPS</text>
   </g>
   <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.2"/>
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
   <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.2"/>
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">09</text>
   </g>
