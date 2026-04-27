@@ -57,8 +57,8 @@
     <rect width="164" height="36" rx="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.2"/>
     <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
   </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">AI AGENT STATEFUL</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">RUNTIME</text>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">AI AGENT SECURITY</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">ARCHITECTURE GUIDE</text>
   <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">AI AGENT / DEVSECOPS / OWASP</text>
   <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
   <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM B0E6F37E3DA4</text>
