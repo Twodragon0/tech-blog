@@ -240,7 +240,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="SVG compliance linter")
     parser.add_argument(
         "--files",
-        default="assets/images/2026-*.svg",
+        default=["assets/images/2026-*.svg"],
         help=(
             "Glob pattern OR space-separated list of file paths to scan "
             "(default: assets/images/2026-*.svg). "
