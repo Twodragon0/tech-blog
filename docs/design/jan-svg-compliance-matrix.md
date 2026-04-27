@@ -119,3 +119,7 @@ Legend: ✅ Compliant | ⚠️ Minor issue | ❌ Major issue
 - **No file** contains the generic generator placeholder description `"Clean technical cover with stronger depth, hierarchy, and category-specific structure."` — the spec's most feared issue (§5 Family A note) did not materialise; all 18 Family A descriptions are topic-specific.
 - **Family B footer**: files use `x="80" y="545"` (learning-path, roadmap-structure, tools-stack) or `x="80" y="615"` (EC2, K8s, Linux, Network). Spec says `y="615"` — the three Jan-10 files use `y=545` which is one minor deviation but within the footer bar (`<rect y="520" h="110">`), so functionally acceptable.
 - Accent-color errors are concentrated in the Cloud Security Course series (6W, 7W, 8W all use red instead of blue) — likely a batch-generation error with wrong template applied.
+
+---
+
+*Cross-reference: See also [feb-svg-compliance-matrix.md](feb-svg-compliance-matrix.md), [mar-svg-compliance-matrix.md](mar-svg-compliance-matrix.md), [apr-svg-compliance-matrix.md](apr-svg-compliance-matrix.md)*
