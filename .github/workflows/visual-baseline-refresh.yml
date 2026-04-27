@@ -4,6 +4,10 @@
 # Path filter mirrors visual-regression.yml so refresh fires exactly when
 # verify would detect drift.
 #
+# Runner: ubuntu-22.04 (pinned) — must match visual-regression.yml exactly.
+# Mixing runner versions between capture and verify produces false positives.
+# See docs/visual-regression-deps.md for the upgrade procedure.
+#
 # Infinite-loop guard: the auto-commit carries "[skip ci]" in its message.
 # GitHub Actions natively skips ALL workflow runs triggered by commits whose
 # message contains "[skip ci]", so neither this workflow nor visual-regression
@@ -26,7 +30,7 @@ permissions:
 
 jobs:
   refresh-baselines:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -44,7 +48,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
 
       - name: Install Python deps
-        run: pip install pillow numpy
+        run: pip install --quiet -r requirements-visual.txt
 
       - name: Capture baselines
         run: python3 scripts/svg_visual_baseline.py --capture

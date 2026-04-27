@@ -1,8 +1,12 @@
 # SVG Visual Regression Workflow
 #
 # Rendering tool: rsvg-convert (librsvg) — deterministic across macOS and Linux.
-# Runner: ubuntu-latest — faster + cheaper than macos-latest, and rsvg-convert
-# produces byte-identical output to local macOS renders given the same input.
+# Runner: ubuntu-22.04 (pinned) — avoids librsvg version drift across Ubuntu
+#   releases. ubuntu-latest would silently upgrade the runner image and change
+#   rendered output, invalidating all baselines.
+# librsvg version in ubuntu-22.04: 2.52.x (jammy). If runner is ever bumped,
+#   re-capture all baselines first (see docs/visual-regression-deps.md).
+# Python deps: pinned in requirements-visual.txt, managed by Renovate.
 #
 # Verify mode: re-renders each SVG with rsvg-convert, pixel-diffs against
 # committed baseline PNGs in tests/visual-baselines/. Exits 1 on drift.
@@ -29,7 +33,7 @@ permissions:
 
 jobs:
   visual-regression:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -44,7 +48,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
 
       - name: Install Python dependencies
-        run: pip install --quiet pillow numpy
+        run: pip install --quiet -r requirements-visual.txt
 
       - name: Run visual regression verify
         run: python3 scripts/svg_visual_baseline.py --verify --threshold 0.1
