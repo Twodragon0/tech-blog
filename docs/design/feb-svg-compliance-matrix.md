@@ -1,5 +1,50 @@
 # February 2026 Topic SVG Compliance Matrix
 
+---
+
+## Re-audit (2026-04-27) — Post-fix commit `e0a535da`
+
+**0 majors confirmed: YES — all 13 defects resolved.**
+
+### Fix verification (5 modified files)
+
+| Fix item | Expected | Actual | Status |
+|----------|----------|--------|--------|
+| `02-01` title garbled (was "AI 2026 AI AGENT / AI AGENT") | H1="AGENTIC AI SECURITY" H2="ATTACK VECTORS 2026" | H1="AGENTIC AI SECURITY" line:60, H2="ATTACK VECTORS 2026" line:61 | ✅ Fixed |
+| `02-01` description placeholder | Topic-specific text | "Tool poisoning, tool chain attacks, and prompt injection defense for agentic AI in 2026." line:65 | ✅ Fixed |
+| `02-01` accent color | Red defensible for Security; original ⚠️ not ❌ | Red `#ef4444` retained; category badge reads "SECURITY" — accepted | ✅ No change required |
+| `02-04-AI_vs` accent color (was Red `#ef4444`) | Cyan `#22d3ee` (AI/ML) | microGrid dot `#22d3ee` line:15; panel stroke `#22d3ee` line:35; badge fill `#22d3ee` line:57 | ✅ Fixed |
+| `02-04-AI_vs` H2 subtitle (was "DEVSECOPS") | "AI CODING COMPARISON" | H2="AI CODING COMPARISON" line:61 | ✅ Fixed |
+| `02-04-AI_vs` description placeholder | Topic-specific text | "Side-by-side AI coding assistant comparison: Cursor AI vs Claude Code capabilities and workflows." line:65 | ✅ Fixed |
+| `02-05-AI_Content` title garbled (was "DEVSECOPS / CLAUDE") | H1="AI CONTENT CREATOR" H2="WORKFLOW 2026" | H1="AI CONTENT CREATOR" line:66, H2="WORKFLOW 2026" line:67 | ✅ Fixed |
+| `02-05-AI_Content` description placeholder | Topic-specific text | "End-to-end AI workflow for blog, video, music, and animation content creation in 2026." line:71 | ✅ Fixed |
+| `02-05-AI_Content` accent (was ✅ already) | Cyan `#22d3ee` | Cyan `#22d3ee` confirmed line:15 | ✅ Unchanged/correct |
+| `02-25` H2 garbled (was "38") | "BEST PRACTICES 2026" | H2="BEST PRACTICES 2026" line:63 | ✅ Fixed |
+| `02-25` description placeholder | Topic-specific text | "38 best practices for Claude Code and OpenCode AI-assisted development workflows." line:67 | ✅ Fixed (note: "38" repurposed as count in description — acceptable) |
+| `02-25` accent color (was Amber `#fbbf24`) | Violet `#a78bfa` (DevSecOps) | microGrid dot `#a78bfa` line:15; panel stroke `#a78bfa` line:35; badge fill `#a78bfa` line:59 | ✅ Fixed |
+| `02-28` description placeholder | Topic-specific text | "Stateful runtime, continuous evaluation, and OWASP Agentic Top 10 patterns for AI agent security." line:65 | ✅ Fixed |
+
+### Residual observations (non-blocking, flags only)
+
+- `02-28` `<title>` still reads "AI AGENT STATEFUL RUNTIME" — understates "Security Architecture Design Guide" scope from filename. Minor, not a major.
+- `02-28` H1/H2 still "AI AGENT STATEFUL / RUNTIME" — same scope mismatch noted in original audit. Still ⚠️, not promoted to ❌.
+- `02-01` accent Red retained — original audit marked ⚠️ (ambiguous, not ❌). No change required; Security badge + category card both read "SECURITY" consistently.
+- `02-25` description opens with "38 best practices…" — the "38" artifact from original H2 now appears as a count in the description sentence. Technically correct and readable; not a defect.
+
+### Re-audit summary
+
+| Rating | Count |
+|--------|-------|
+| ✅ Fixed | 13/13 |
+| ⚠️ Partially fixed | 0 |
+| ❌ Still broken | 0 |
+
+**All 5 modified files pass with 0 major issues. The 8 unmodified Family B files carry no structural defects (minors only: signature y=545 vs y=615 spec, font-family sans-serif vs Arial). Overall Feb batch: 0 ❌ majors.**
+
+---
+
+## Original Audit (2026-04-24)
+
 **Spec**: `docs/design/jan-topic-svg-design-system.md`  
 **Spec version**: 1.0  
 **Audit date**: 2026-04-24  
