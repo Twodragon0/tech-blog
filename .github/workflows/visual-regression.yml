@@ -28,6 +28,10 @@ on:
       - "scripts/svg_visual_baseline.py"
   workflow_dispatch:
 
+concurrency:
+  group: visual-regression-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
