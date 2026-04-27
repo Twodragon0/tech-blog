@@ -238,13 +238,16 @@ def test_process_post_file_reports_missing_front_matter_image(tmp_path):
 def test_process_post_file_reports_korean_image_filename(tmp_path):
     img_dir = tmp_path / "assets" / "images"
     img_dir.mkdir(parents=True)
+    # Create the Korean-named image so check_image_exists finds it
+    (img_dir / "한글파일.svg").write_text("<svg/>", encoding="utf-8")
     post = tmp_path / "2025-01-01-korean.md"
     post.write_text(
-        "---\ntitle: Test\n---\n\n![img](/assets/images/한글파일.svg)\n",
+        "---\ntitle: Test\nimage: /assets/images/한글파일.svg\n---\nBody.\n",
         encoding="utf-8",
     )
-    with patch("verify_images_unified.IMAGES_DIR", img_dir):
-        result = process_post_file(post)
+    with patch("verify_images_unified.PROJECT_ROOT", tmp_path):
+        with patch("verify_images_unified.IMAGES_DIR", img_dir):
+            result = process_post_file(post)
     assert any("한글이 포함" in issue for issue in result["issues"])
 
 

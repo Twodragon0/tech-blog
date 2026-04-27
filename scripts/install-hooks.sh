@@ -33,8 +33,26 @@ if [ -n "$CHANGED_PY" ]; then
   echo "[pre-commit] Passed."
 fi
 
-# 3. SVG quality gate
+# 3. SVG quality gate (size bands — warnings only, does not block)
 sh "$REPO_ROOT/scripts/check_svg_precommit.sh"
+
+# 4. SVG compliance linter (placeholder text, accent/category mismatch, missing signature — blocks commit)
+STAGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/2026-[^/]+\.svg$' || true)
+if [ -n "$STAGED_SVGS" ]; then
+  echo "[pre-commit] Running SVG compliance linter..."
+  # Convert newline-separated list to space-separated args
+  SVG_ARGS=""
+  for f in $STAGED_SVGS; do
+    SVG_ARGS="$SVG_ARGS $f"
+  done
+  python3 "$REPO_ROOT/scripts/lint_svg_compliance.py" --files $SVG_ARGS
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] SVG compliance violations found. Fix before committing."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] SVG compliance: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"

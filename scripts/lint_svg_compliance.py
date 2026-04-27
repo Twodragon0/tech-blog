@@ -241,7 +241,13 @@ def main() -> None:
     parser.add_argument(
         "--files",
         default="assets/images/2026-*.svg",
-        help="Glob pattern for files to scan (default: assets/images/2026-*.svg)",
+        help=(
+            "Glob pattern OR space-separated list of file paths to scan "
+            "(default: assets/images/2026-*.svg). "
+            "When called from pre-commit, pass staged paths as positional-style "
+            "via nargs so the hook can forward them directly."
+        ),
+        nargs="+",
     )
     parser.add_argument(
         "--report",
@@ -250,11 +256,22 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # Resolve glob relative to repo root regardless of cwd
     script_dir = Path(__file__).resolve().parent
     repo_root = script_dir.parent
-    pattern = str(repo_root / args.files)
-    files = sorted(glob.glob(pattern))
+
+    # If a single token was passed and it looks like a glob pattern (contains *
+    # or ?), expand it relative to repo root.  Otherwise treat every token as
+    # a literal file path (pre-commit hook passes staged paths directly).
+    raw = args.files  # always a list due to nargs="+"
+    if len(raw) == 1 and ("*" in raw[0] or "?" in raw[0]):
+        pattern = str(repo_root / raw[0])
+        files = sorted(glob.glob(pattern))
+    else:
+        # Absolute paths → use as-is; relative paths → resolve from repo root
+        files = sorted(
+            str(repo_root / p) if not os.path.isabs(p) else p
+            for p in raw
+        )
 
     if not files:
         print(f"No files matched: {pattern}")

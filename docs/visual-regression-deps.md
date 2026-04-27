@@ -45,6 +45,10 @@ Before merging a Renovate PR for these deps:
 4. If diffs are structural (layout changes) rather than expected, investigate
    before merging.
 
+## Local pre-commit SVG gate
+
+`scripts/lint_svg_compliance.py` runs automatically on staged `assets/images/2026-*.svg` files before every commit (installed via `bash scripts/install-hooks.sh`); violations block the commit. CI enforces the same check via `.github/workflows/svg-lint.yml`. Bypass locally with `git commit --no-verify` if needed.
+
 ## Current pinned versions
 
 | Dependency | Pinned range | Source |
