@@ -26,7 +26,7 @@ permissions:
 
 jobs:
   refresh-baselines:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -39,6 +39,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Install rsvg-convert
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
 
       - name: Install Python deps
         run: pip install pillow numpy

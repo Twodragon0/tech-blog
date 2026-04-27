@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -83,25 +84,91 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
-def render_svg_to_png(svg_path: Path, out_png: Path, size: int = 400) -> bool:
-    """Render SVG to PNG using qlmanage (macOS Quick Look).
+# Render dimensions for the 1200x630 OG canvas SVGs.
+# rsvg-convert is deterministic across macOS and Linux given identical inputs,
+# whereas qlmanage produces hardware-dependent output between Mac models.
+RENDER_WIDTH = 1200
+RENDER_HEIGHT = 630
 
-    Size 400px keeps each PNG ~200KB (35 files ≈ 7MB total, within 10MB budget).
-    Use size=1200 for high-fidelity renders when disk space is not a concern.
+_renderer_warned = {"qlmanage_fallback": False}
+
+
+def _select_renderer() -> str:
+    """Return 'rsvg-convert' if available, else 'qlmanage' (macOS fallback).
+
+    Emits a one-time warning when falling back to qlmanage, since baselines
+    captured with qlmanage are non-deterministic across Mac models.
     """
-    with tempfile.TemporaryDirectory() as tmpdir:
-        subprocess.run(
-            ["qlmanage", "-t", "-s", str(size), "-o", tmpdir, str(svg_path)],
+    if shutil.which("rsvg-convert"):
+        return "rsvg-convert"
+    if shutil.which("qlmanage"):
+        if not _renderer_warned["qlmanage_fallback"]:
+            print(
+                "  WARNING: rsvg-convert not found; falling back to qlmanage. "
+                "Install with `brew install librsvg` for deterministic renders.",
+                file=sys.stderr,
+            )
+            _renderer_warned["qlmanage_fallback"] = True
+        return "qlmanage"
+    print(
+        "  ERROR: Neither rsvg-convert nor qlmanage is available. "
+        "Install rsvg-convert: `brew install librsvg` (macOS) or "
+        "`sudo apt-get install -y librsvg2-bin` (Linux).",
+        file=sys.stderr,
+    )
+    return ""
+
+
+def render_svg_to_png(
+    svg_path: Path,
+    out_png: Path,
+    width: int = RENDER_WIDTH,
+    height: int = RENDER_HEIGHT,
+) -> bool:
+    """Render SVG to a fixed-dimension PNG.
+
+    Prefers `rsvg-convert` (deterministic across macOS and Linux). Falls back to
+    `qlmanage` on macOS when rsvg-convert is unavailable, with a warning.
+    """
+    renderer = _select_renderer()
+    if not renderer:
+        return False
+
+    out_png.parent.mkdir(parents=True, exist_ok=True)
+
+    if renderer == "rsvg-convert":
+        result = subprocess.run(
+            [
+                "rsvg-convert",
+                "-w", str(width),
+                "-h", str(height),
+                "-o", str(out_png),
+                str(svg_path),
+            ],
             capture_output=True,
             text=True,
         )
-        # qlmanage outputs <name>.svg.png
+        if result.returncode != 0 or not out_png.exists():
+            print(
+                f"  ERROR: rsvg-convert failed for {svg_path.name}: "
+                f"{result.stderr.strip()}",
+                file=sys.stderr,
+            )
+            return False
+        return True
+
+    # qlmanage fallback (macOS only). Note: qlmanage uses a single -s for
+    # bounding box, so we pass the larger dimension to ensure the canvas fits.
+    with tempfile.TemporaryDirectory() as tmpdir:
+        subprocess.run(
+            ["qlmanage", "-t", "-s", str(max(width, height)), "-o", tmpdir, str(svg_path)],
+            capture_output=True,
+            text=True,
+        )
         produced = list(Path(tmpdir).glob("*.png"))
         if not produced:
             print(f"  ERROR: qlmanage produced no output for {svg_path.name}", file=sys.stderr)
             return False
-        # Move to final destination
-        out_png.parent.mkdir(parents=True, exist_ok=True)
         produced[0].rename(out_png)
         return True
 
@@ -327,7 +394,8 @@ def capture():
         else:
             print(f"  SKIP (not found): {rel}", file=sys.stderr)
 
-    print(f"Rendering {len(valid_targets)} SVGs with qlmanage...")
+    renderer = _select_renderer() or "(none)"
+    print(f"Rendering {len(valid_targets)} SVGs with {renderer} at {RENDER_WIDTH}x{RENDER_HEIGHT}...")
     for svg in valid_targets:
         out_png = BASELINE_DIR / (svg.stem + ".png")
         print(f"  {svg.name} -> {out_png.name}", end=" ", flush=True)

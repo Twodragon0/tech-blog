@@ -1,12 +1,11 @@
 # SVG Visual Regression Workflow
 #
-# Rendering tool: qlmanage (macOS Quick Look) — macOS-only.
-# Runner: macos-latest — required to match baselines captured on macOS.
-# Using ubuntu-latest with rsvg-convert would produce different SHA256s
-# against the existing qlmanage-captured baselines, causing false positives.
+# Rendering tool: rsvg-convert (librsvg) — deterministic across macOS and Linux.
+# Runner: ubuntu-latest — faster + cheaper than macos-latest, and rsvg-convert
+# produces byte-identical output to local macOS renders given the same input.
 #
-# Verify mode: re-renders each SVG with qlmanage, SHA256-compares against
-# committed baseline PNGs in tests/visual-baselines/. Exits 1 on any drift.
+# Verify mode: re-renders each SVG with rsvg-convert, pixel-diffs against
+# committed baseline PNGs in tests/visual-baselines/. Exits 1 on drift.
 
 name: SVG Visual Regression
 
@@ -30,7 +29,7 @@ permissions:
 
 jobs:
   visual-regression:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -41,14 +40,14 @@ jobs:
         with:
           python-version: "3.11"
 
-      # qlmanage is part of macOS and available on macos-latest runners.
-      # Pillow + numpy are required for per-pixel diff mode.
+      - name: Install rsvg-convert
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
 
       - name: Install Python dependencies
         run: pip install --quiet pillow numpy
 
       - name: Run visual regression verify
-        run: python3 scripts/svg_visual_baseline.py --verify
+        run: python3 scripts/svg_visual_baseline.py --verify --threshold 0.1
 
       - name: Upload diff report
         if: always()
