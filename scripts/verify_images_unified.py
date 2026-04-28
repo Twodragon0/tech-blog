@@ -6,9 +6,11 @@
 - 포스팅 파일의 이미지 경로와 실제 파일 매칭
 - 관련 없는 이미지 확인
 - Gemini CLI 명령어 생성 (선택사항)
+- SVG XML 유효성 검사 및 자동 수정 (--svg-validate / --svg-fix)
 """
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -214,6 +216,102 @@ def run_unused_report() -> List[str]:
     return unused
 
 
+def _xmllint_check(path: Path) -> Optional[str]:
+    """xmllint --noout 실행 후 stderr 반환 (유효하면 None)."""
+    result = subprocess.run(
+        ["xmllint", "--noout", str(path)],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode == 0:
+        return None
+    return result.stderr.strip()
+
+
+# Regex: & NOT already part of a valid XML/HTML entity reference
+_BARE_AMP_RE = re.compile(r"&(?!(?:[a-zA-Z]+|#\d+|#x[0-9A-Fa-f]+);)")
+
+# Regex: text content between > and < where < is immediately followed by digit or space
+# Capture group 1 = content before the stray <, group 2 = the char after <
+_STRAY_LT_RE = re.compile(r">([^<]*)<([0-9 ])")
+
+
+def _fix_svg_text(content: str) -> str:
+    """Apply conservative auto-fixes to SVG text content.
+
+    Pass 1: replace bare & with &amp;
+    Pass 2: replace stray < (followed by digit or space) inside text nodes with &lt;
+            Iterates until no more matches to handle adjacent occurrences.
+    """
+    # Pass 1: bare ampersands
+    content = _BARE_AMP_RE.sub("&amp;", content)
+
+    # Pass 2: stray < before digit/space inside text runs, iterate until stable
+    while True:
+        new_content = _STRAY_LT_RE.sub(lambda m: ">" + m.group(1) + "&lt;" + m.group(2), content)
+        if new_content == content:
+            break
+        content = new_content
+
+    return content
+
+
+def run_svg_validate(fix: bool = False) -> Dict:
+    """Validate all SVGs under assets/images/ with xmllint.
+
+    Returns a dict with keys:
+      scanned, invalid_before, fixed, still_broken, details
+    where details is a list of dicts per invalid file.
+    """
+    svg_files = sorted(IMAGES_DIR.rglob("*.svg"))
+    total = len(svg_files)
+    invalid_before = []
+    fixed = []
+    still_broken = []
+
+    for svg_path in svg_files:
+        err = _xmllint_check(svg_path)
+        if err is None:
+            continue
+        invalid_before.append(svg_path)
+
+        if not fix:
+            continue
+
+        # Attempt auto-fix
+        original = svg_path.read_text(encoding="utf-8")
+        patched = _fix_svg_text(original)
+
+        if patched == original:
+            still_broken.append((svg_path, err))
+            continue
+
+        # Write patched content to a temp check
+        import tempfile
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".svg", delete=False, encoding="utf-8"
+        ) as tmp:
+            tmp.write(patched)
+            tmp_path = Path(tmp.name)
+
+        recheck_err = _xmllint_check(tmp_path)
+        tmp_path.unlink(missing_ok=True)
+
+        if recheck_err is None:
+            svg_path.write_text(patched, encoding="utf-8")
+            fixed.append(svg_path)
+        else:
+            still_broken.append((svg_path, recheck_err))
+
+    return {
+        "scanned": total,
+        "invalid_before": len(invalid_before),
+        "fixed": fixed,
+        "still_broken": still_broken,
+    }
+
+
 def main():
     """메인 함수"""
     import argparse
@@ -245,6 +343,16 @@ def main():
         "--unused", action="store_true", help="참조되지 않는 이미지 파일 목록"
     )
     parser.add_argument(
+        "--svg-validate",
+        action="store_true",
+        help="assets/images/ 내 모든 SVG의 XML 유효성 검사 (xmllint 필요)",
+    )
+    parser.add_argument(
+        "--svg-fix",
+        action="store_true",
+        help="--svg-validate와 함께 사용: 유효하지 않은 SVG를 자동 수정 시도 (& → &amp;, stray < → &lt;)",
+    )
+    parser.add_argument(
         "--move-unused-to-archive",
         action="store_true",
         help="미사용 이미지를 assets/images/_unused_archive/ 로 이동 (--unused와 함께 사용)",
@@ -263,6 +371,36 @@ def main():
     if not IMAGES_DIR.exists():
         print(f"❌ 이미지 디렉토리를 찾을 수 없습니다: {IMAGES_DIR}")
         sys.exit(1)
+
+    if args.svg_validate:
+        print("SVG XML 유효성 검사 중...\n")
+        report = run_svg_validate(fix=args.svg_fix)
+        print("=" * 80)
+        print("SVG 유효성 검사 결과")
+        print("=" * 80)
+        print(f"스캔한 SVG 파일: {report['scanned']}")
+        print(f"유효하지 않은 파일 (수정 전): {report['invalid_before']}")
+        if args.svg_fix:
+            print(f"자동 수정 완료: {len(report['fixed'])}")
+            print(f"수동 수정 필요: {len(report['still_broken'])}")
+        print()
+        if report["fixed"]:
+            print("자동 수정된 파일:")
+            for p in report["fixed"]:
+                print(f"  [fixed] {p.name}")
+        if report["still_broken"]:
+            print("수동 수정 필요한 파일:")
+            for p, err in report["still_broken"]:
+                first_line = err.splitlines()[0] if err else "unknown error"
+                print(f"  [broken] {p.name}")
+                print(f"           {first_line}")
+        if not report["fixed"] and not report["still_broken"]:
+            if report["invalid_before"] == 0:
+                print("모든 SVG 파일이 유효합니다.")
+            else:
+                print("유효하지 않은 파일이 있습니다. --svg-fix 플래그로 자동 수정을 시도하세요.")
+        print("=" * 80)
+        sys.exit(0 if report["still_broken"] == [] else 1)
 
     if args.unused:
         unused = run_unused_report()

@@ -28,6 +28,7 @@ import requests
 from scripts.lib import image_utils as _image_utils
 from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
+from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text, is_valid_svg as _is_valid_svg
 
 try:
     from PIL import Image
@@ -1444,7 +1445,7 @@ def _render_cover_metric_cards(
         cards.append(
             f'''  <g transform="translate({x} 536)">
     <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="{accent}" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">{label}</text>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">{_escape_xml_text(label)}</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">{_escape_svg_text(value)}</text>
   </g>'''
         )
@@ -1541,7 +1542,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
   </g>
   <g transform="translate(84 66)">
     <rect width="164" height="36" rx="18" fill="{config["accent"]}" opacity="0.2" stroke="{config["accent"]}" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{config["accent"]}" text-anchor="middle">{category_label}</text>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="{config["accent"]}" text-anchor="middle">{_escape_xml_text(category_label)}</text>
   </g>
   <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">{_escape_svg_text(headline_lines[0])}</text>
   <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">{_escape_svg_text(headline_lines[1])}</text>
@@ -1553,7 +1554,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 {_render_cover_metric_cards(category_label, config["accent"], tokens, len(tags))}
   <g transform="translate(1030 74)">
     <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">{date_str}</text>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">{_escape_xml_text(date_str)}</text>
   </g>
   <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
   <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
@@ -1563,6 +1564,10 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
         svg_content = validate_and_fix_svg(svg_content)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg_content)
+
+        ok, err = _is_valid_svg(output_svg)
+        if not ok:
+            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
 
         log_message(f"✅ SVG 폴백 이미지 생성 완료: {output_svg.name}", "SUCCESS")
         return True
@@ -1717,7 +1722,7 @@ def generate_section_banner_svg(filename: str) -> str:
         .replace("{secondary}", secondary)
     )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>{filename[:-4]}</title>
+  <title>{_escape_xml_text(filename[:-4])}</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#08101f"/>
@@ -2009,7 +2014,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
             '  <text font-family="Arial, sans-serif" font-size="16" font-weight="700">'
         )
         for nc, x_pos in zip(node_configs, positions):
-            labels_svg += f'<tspan x="{x_pos}" y="448" fill="{nc["color"]}" text-anchor="middle">{nc["label"]}</tspan>'
+            labels_svg += f'<tspan x="{x_pos}" y="448" fill="{nc["color"]}" text-anchor="middle">{_escape_xml_text(nc["label"])}</tspan>'
         labels_svg += "</text>\n"
 
         # Connection dots between nodes
@@ -2043,17 +2048,21 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-{glows}  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">{subtitle}</tspan></text>
+{glows}  <text x="90" y="164" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc"><tspan font-size="52">THREAT SIGNAL MAP</tspan><tspan x="92" dy="40" font-size="20" fill="#cbd5e1">{_escape_xml_text(subtitle)}</tspan></text>
   <line x1="180" y1="340" x2="1020" y2="340" stroke="#475569" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
 {nodes_svg}{labels_svg}{dots_svg}
   <rect x="70" y="532" width="1060" height="1.5" fill="#334155" opacity="0.8"/>
-  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">{date_display}</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
+  <text font-family="Arial, sans-serif" font-size="14" fill="#94a3b8"><tspan x="90" y="574">{_escape_xml_text(date_display)}</tspan><tspan x="1110" y="574" text-anchor="end">tech.2twodragon.com</tspan></text>
 </svg>"""
 
         output_svg = output_path.with_suffix(".svg")
         svg = validate_and_fix_svg(svg)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg)
+
+        ok, err = _is_valid_svg(output_svg)
+        if not ok:
+            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
 
         log_message(f"✅ Digest SVG 이미지 생성 완료: {output_svg.name}", "SUCCESS")
         return True
@@ -2336,6 +2345,11 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         output_svg = output_path.with_suffix(".svg")
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg)
+
+        ok, err = _is_valid_svg(output_svg)
+        if not ok:
+            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
+
         log_message(f"✅ L22 Digest SVG 생성 완료: {output_svg.name}", "SUCCESS")
         return True
 

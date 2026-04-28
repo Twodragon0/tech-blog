@@ -199,7 +199,7 @@
   <rect x="0" y="420" width="8" height="210" fill="#FFB703"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">AUDIT & DISCLOSURE</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">AUDIT &amp; DISCLOSURE</text>
     <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">CRI-O · Net-NTLMv1</text>
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">CRI-O completes external security audit · 0 critical</text>
     <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Net-NTLMv1 rainbow tables released · legacy auth risk</text>

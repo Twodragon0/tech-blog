@@ -209,7 +209,7 @@
   <rect x="0" y="420" width="8" height="210" fill="#60A5FA"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">RECOVERY & PREVENTION</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">RECOVERY &amp; PREVENTION</text>
     <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">ALB 5XX · Health</text>
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Target Group health check fail · all instances unhealthy</text>
     <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Rollback SOP · canary deploy · circuit breaker setup</text>
