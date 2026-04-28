@@ -75,7 +75,7 @@
     WEEKLY THREAT DIGEST
     <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
   </text>
-  <text x="60" y="82" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#8899BB" letter-spacing="0.8">2026.01.25  |  VMware KEV  ·  Fortinet SSO  ·  Sandworm DynoWiper</text>
+  <text x="60" y="82" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#8899BB" letter-spacing="0.8">2026.01.25  |  VMware KEV  -  Fortinet SSO  -  Sandworm DynoWiper</text>
 </g>
 
 <!-- Legend top-right -->
@@ -334,7 +334,7 @@
 
 <!-- Footer date stamp -->
 <g filter="url(#textShadow)">
-  <text x="60" y="610" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#4A6090" letter-spacing="0.6">DevSecOps Weekly  |  CISA KEV  ·  Zero-Day  ·  APT  ·  ICS/OT</text>
+  <text x="60" y="610" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#4A6090" letter-spacing="0.6">DevSecOps Weekly  |  CISA KEV  -  Zero-Day  -  APT  -  ICS/OT</text>
   <text x="1140" y="610" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#3A5080" text-anchor="end">tech.2twodragon.com</text>
 </g>
 

@@ -101,7 +101,7 @@
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" letter-spacing="2.4">CRITICAL  /  ENCRYPTION</text>
     <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">BitLocker Keys Handed to FBI</text>
   </g>
-  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FBB6BD">Microsoft discloses key escrow access — HN 705pts, 463 comments</text>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FBB6BD">Microsoft discloses key escrow access -- HN 705pts, 463 comments</text>
 
   <!-- Lock illustration -->
   <g transform="translate(26,118)" filter="url(#softShadow)">
@@ -176,7 +176,7 @@
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="2.4">HIGH  /  BGP SECURITY</text>
     <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Cloudflare BGP Route Leak</text>
   </g>
-  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Jan 22 incident — RPKI response analysis</text>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Jan 22 incident -- RPKI response analysis</text>
 
   <!-- Network route diagram: leaked prefix -->
   <g transform="translate(26,118)" filter="url(#softShadow)">
@@ -232,7 +232,7 @@
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">MEDIUM  /  PLATFORM ENG</text>
     <text x="74" y="58" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">CNCF Autonomous Enterprise</text>
   </g>
-  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">4 platform control pillars — 2026 forecast</text>
+  <text x="20" y="102" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">4 platform control pillars -- 2026 forecast</text>
 
   <!-- 4 pillars visual -->
   <g transform="translate(26,118)" filter="url(#softShadow)">

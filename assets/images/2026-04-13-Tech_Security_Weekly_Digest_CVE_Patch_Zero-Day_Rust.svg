@@ -105,7 +105,7 @@
 <!-- Hero eyebrow + title -->
 <text x="54" y="114" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E63946" letter-spacing="3">CRITICAL  /  ACTIVE EXPLOIT</text>
 <text x="54" y="150" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F8FAFC" filter="url(#textShadow)">Marimo Pre-Auth RCE</text>
-<text x="54" y="180" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="500" fill="#F09090">No auth required — full remote exec</text>
+<text x="54" y="180" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="500" fill="#F09090">No auth required -- full remote exec</text>
 <text x="54" y="208" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#BFC9D9">Credential theft confirmed  /  BleepingComputer  /  Apr 13</text>
 
 <!-- Cracked shield illustration -->
@@ -174,7 +174,7 @@
 
 <text x="670" y="112" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">CRITICAL  /  ZERO-DAY PATCHED  /  02</text>
 <text x="670" y="142" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#F8FAFC" filter="url(#textShadow)">Adobe Acrobat CVE-2026-34621</text>
-<text x="670" y="168" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#CBD5E1">Actively exploited Reader zero-day — patch deployed</text>
+<text x="670" y="168" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#CBD5E1">Actively exploited Reader zero-day -- patch deployed</text>
 
 <!-- Gear with checkmark (patch applied) -->
 <g transform="translate(670, 182)" filter="url(#softShadow)">

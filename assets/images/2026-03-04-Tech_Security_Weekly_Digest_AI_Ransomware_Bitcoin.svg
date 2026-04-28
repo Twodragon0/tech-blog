@@ -75,7 +75,7 @@
     WEEKLY SECURITY
     <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
   </text>
-  <text x="60" y="84" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#7A90C0" letter-spacing="2">METRO THREAT MAP — 2026.03.04</text>
+  <text x="60" y="84" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#7A90C0" letter-spacing="2">METRO THREAT MAP -- 2026.03.04</text>
 </g>
 
 <!-- Legend top-right -->

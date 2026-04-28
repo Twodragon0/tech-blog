@@ -26,10 +26,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">OWASP UPDATE</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Top 10 · 2025</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Supply Chain Failures · Cryptographic Failures added</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Software supply chain now #3 · Post-Quantum awareness</text>
-    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">Injection still #1 · Broken Access Control #2</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">SecureCode v2.0 · 1,215 security coding examples</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Top 10 - 2025</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Supply Chain Failures - Cryptographic Failures added</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Software supply chain now #3 - Post-Quantum awareness</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">Injection still #1 - Broken Access Control #2</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">SecureCode v2.0 - 1,215 security coding examples</text>
     
   </g>
   <g transform="translate(690,105)">
@@ -113,9 +113,9 @@
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AGENTIC AI SECURITY</text>
     <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">AI Agent Top 10</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Prompt Injection · Excessive Agency · Data Leakage</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Prompt Injection - Excessive Agency - Data Leakage</text>
     <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">OWASP Agentic AI threat taxonomy 2025 guide</text>
-    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Tool poisoning · Indirect prompt injection</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Memory manipulation · supply chain ML risk</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Tool poisoning - Indirect prompt injection</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Memory manipulation - supply chain ML risk</text>
     
   </g>
   <g transform="translate(690,315)">
@@ -197,10 +197,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">TOOLING &amp; STANDARDS</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Dependabot · SBOM</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Dependabot - SBOM</text>
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Post-Quantum cryptography adoption roadmap</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">GitHub Advanced Security · CodeQL · secret scanning</text>
-    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Dependabot auto-merge · weekly schedule</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">SLSA Level 3 supply chain provenance target</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">GitHub Advanced Security - CodeQL - secret scanning</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Dependabot auto-merge - weekly schedule</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">SLSA Level 3 supply chain provenance target</text>
     
   </g>
   <g transform="translate(690,525)">

@@ -26,10 +26,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">GCP IAM SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Min Privilege · VPC</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Workload Identity · Org policy constraints</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">VPC service controls · resource hierarchy design</text>
-    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Service account rotation · key-less auth</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">BeyondCorp · context-aware access enforcement</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Min Privilege - VPC</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Workload Identity - Org policy constraints</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">VPC service controls - resource hierarchy design</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Service account rotation - key-less auth</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">BeyondCorp - context-aware access enforcement</text>
     
   </g>
   <g transform="translate(690,105)">
@@ -122,10 +122,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">GKE KUBERNETES</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Pod Security · SCC</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Security Command Center · threat detection</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">GKE Autopilot · Binary Authorization · Workload ID</text>
-    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0">Container scanning · Artifact Registry signing</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#BFC9D9" fill-opacity="0.85">Network policy · Calico · Dataplane V2 eBPF</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Pod Security - SCC</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Security Command Center - threat detection</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">GKE Autopilot - Binary Authorization - Workload ID</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0">Container scanning - Artifact Registry signing</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#BFC9D9" fill-opacity="0.85">Network policy - Calico - Dataplane V2 eBPF</text>
     
   </g>
   <g transform="translate(690,315)">
@@ -212,10 +212,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">DEFENSE IN DEPTH</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Cloud SQL · Encrypt</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">CMEK · Cloud KMS · data-at-rest encryption</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Cloud Armor WAF · DDoS protection · reCAPTCHA</text>
-    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Cloud Storage bucket lock · retention policy</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">VPC flow logs · Cloud Audit Logs · SIEM export</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Cloud SQL - Encrypt</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">CMEK - Cloud KMS - data-at-rest encryption</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Cloud Armor WAF - DDoS protection - reCAPTCHA</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Cloud Storage bucket lock - retention policy</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">VPC flow logs - Cloud Audit Logs - SIEM export</text>
     
   </g>
   <g transform="translate(690,525)">

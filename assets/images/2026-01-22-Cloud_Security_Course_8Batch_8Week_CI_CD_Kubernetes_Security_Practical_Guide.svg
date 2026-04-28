@@ -26,10 +26,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">CI/CD PIPELINE SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Trivy · Snyk · Vault</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Image scan in CI · secret rotation · SBOM generation</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Pre-merge gates · failed-scan blocks deploy · SLA enforced</text>
-    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0">ArgoCD GitOps · Jenkins shared-library security</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#BFC9D9" fill-opacity="0.85">Vault dynamic secrets · short-TTL DB credentials</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Trivy - Snyk - Vault</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">Image scan in CI - secret rotation - SBOM generation</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">Pre-merge gates - failed-scan blocks deploy - SLA enforced</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0">ArgoCD GitOps - Jenkins shared-library security</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#BFC9D9" fill-opacity="0.85">Vault dynamic secrets - short-TTL DB credentials</text>
     
   </g>
   <g transform="translate(690,105)">
@@ -117,10 +117,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">KUBERNETES NETWORK</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">NetworkPolicy · RBAC</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Default-deny ingress · namespace isolation enforced</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Calico CNI · eBPF dataplane · L7 policy authoring</text>
-    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Pod Security Standards · Restricted profile enforced</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">Service mesh mTLS · Istio/Linkerd integration ready</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">NetworkPolicy - RBAC</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Default-deny ingress - namespace isolation enforced</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Calico CNI - eBPF dataplane - L7 policy authoring</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Pod Security Standards - Restricted profile enforced</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">Service mesh mTLS - Istio/Linkerd integration ready</text>
     
   </g>
   <g transform="translate(690,315)">
@@ -207,10 +207,10 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI-ASSISTED DEVSECOPS</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Cursor · Claude</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">AI code-review · auto-patch suggestions · threat triage</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">LLM-powered SAST · false-positive reduction in pipeline</text>
-    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Auto remediation · contextual fix generation in PRs</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Threat model derivation · attack path visualization</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Cursor - Claude</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">AI code-review - auto-patch suggestions - threat triage</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">LLM-powered SAST - false-positive reduction in pipeline</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Auto remediation - contextual fix generation in PRs</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Threat model derivation - attack path visualization</text>
     
   </g>
   <g transform="translate(690,525)">

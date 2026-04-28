@@ -31,7 +31,7 @@
   <rect x="240" y="45" width="420" height="55" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
   <text x="265" y="68" fill="#fef2f2" font-size="11" font-weight="bold">[1]</text>
   <text x="290" y="68" fill="#f1f5f9" font-size="13" font-weight="bold">Microsoft Account Auto-Backup (Default)</text>
-  <text x="290" y="88" fill="#fca5a5" font-size="11">Stored on MS servers — accessible via law enforcement request</text>
+  <text x="290" y="88" fill="#fca5a5" font-size="11">Stored on MS servers -- accessible via law enforcement request</text>
 
   <!-- Path 2: Active Directory -->
   <line x1="170" y1="80" x2="200" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
@@ -39,7 +39,7 @@
   <rect x="240" y="115" width="420" height="55" rx="8" fill="url(#amberGrad)" filter="url(#shadow)"/>
   <text x="265" y="138" fill="#fef3c7" font-size="11" font-weight="bold">[2]</text>
   <text x="290" y="138" fill="#f1f5f9" font-size="13" font-weight="bold">Active Directory (Enterprise)</text>
-  <text x="290" y="158" fill="#fde68a" font-size="11">Managed by organization — org-level access</text>
+  <text x="290" y="158" fill="#fde68a" font-size="11">Managed by organization -- org-level access</text>
 
   <!-- Path 3: Azure AD -->
   <line x1="170" y1="80" x2="200" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
@@ -55,7 +55,7 @@
   <rect x="240" y="255" width="420" height="55" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
   <text x="265" y="278" fill="#dcfce7" font-size="11" font-weight="bold">[4]</text>
   <text x="290" y="278" fill="#f1f5f9" font-size="13" font-weight="bold">Local Storage Only (Manual Setup)</text>
-  <text x="290" y="298" fill="#bbf7d0" font-size="11">User-only access — no third-party access possible</text>
+  <text x="290" y="298" fill="#bbf7d0" font-size="11">User-only access -- no third-party access possible</text>
 
   <!-- Legend -->
   <rect x="180" y="340" width="15" height="15" rx="3" fill="#dc2626"/>

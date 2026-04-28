@@ -194,7 +194,7 @@
 <rect x="443" y="448" width="313" height="50" rx="8" fill="#0C0C00" stroke="#F5C518" stroke-width="1.2" opacity="0.95"/>
 <text x="599" y="467" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#C8B840" text-anchor="middle" letter-spacing="1">FIREFOX CVEs DISCOVERED</text>
 <text x="599" y="489" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5C518" text-anchor="middle">22 CVEs</text>
-<text x="599" y="540" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#8A8040" text-anchor="middle" opacity="0.8">Severity: Medium — patch review advised</text>
+<text x="599" y="540" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#8A8040" text-anchor="middle" opacity="0.8">Severity: Medium -- patch review advised</text>
 
 <!-- ===================== COLUMN C: USDC $1.8T ===================== -->
 <rect x="806" y="215" width="353" height="360" rx="10" fill="url(#colC)" opacity="0.9" filter="url(#softShadow)"/>
@@ -237,7 +237,7 @@
 <rect x="0" y="585" width="1200" height="45" fill="#030710" opacity="0.96"/>
 <rect x="0" y="585" width="1200" height="1" fill="#3A86FF" opacity="0.4"/>
 <text x="36" y="612" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#4A6A9A" letter-spacing="1.5">TECH SECURITY WEEKLY</text>
-<text x="600" y="612" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#3A5070" text-anchor="middle">AI Security · Browser CVE · Stablecoin Finance</text>
+<text x="600" y="612" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#3A5070" text-anchor="middle">AI Security - Browser CVE - Stablecoin Finance</text>
 <text x="1164" y="612" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" fill="#4A6A9A" text-anchor="end" letter-spacing="1">tech.2twodragon.com</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/ : 41x41 -->

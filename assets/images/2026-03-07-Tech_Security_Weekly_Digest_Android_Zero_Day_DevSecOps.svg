@@ -114,8 +114,8 @@
   <text x="30" y="42" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5" fill="#22D3EE">ANDROID SECURITY</text>
   <text x="30" y="84" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F0F6FF">129 CVEs Patched</text>
   <text x="30" y="116" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#7DD3FC">Qualcomm Zero-Day CVE-2026-21385 Active Exploitation</text>
-  <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Memory corruption in display driver · 234 chipsets affected · Commercial spyware targeting</text>
-  <text x="30" y="168" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">CVSS 7.8 · Patch level 2026-03-05 required · MDM policy enforcement recommended</text>
+  <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Memory corruption in display driver - 234 chipsets affected - Commercial spyware targeting</text>
+  <text x="30" y="168" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">CVSS 7.8 - Patch level 2026-03-05 required - MDM policy enforcement recommended</text>
 </g>
 
 <!-- Band A KPI card -->
@@ -165,8 +165,8 @@
   <text x="30" y="252" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5" fill="#E63946">VMWARE ACTIVE EXPLOITATION</text>
   <text x="30" y="294" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F0F6FF">Aria Operations KEV</text>
   <text x="30" y="326" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#FCA5A5">CVE-2026-22719 CISA KEV Listed Unauthenticated RCE</text>
-  <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Arbitrary command execution without authentication · Virtualization infrastructure at risk</text>
-  <text x="30" y="378" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">Patch immediately · Restrict network access · Audit privilege escalation paths</text>
+  <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Arbitrary command execution without authentication - Virtualization infrastructure at risk</text>
+  <text x="30" y="378" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">Patch immediately - Restrict network access - Audit privilege escalation paths</text>
 </g>
 
 <!-- Band B KPI card -->
@@ -209,9 +209,9 @@
 <g filter="url(#textGlow)">
   <text x="30" y="462" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5" fill="#F97316">DEVSECOPS REPORT 2026</text>
   <text x="30" y="504" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F0F6FF">87% Orgs Exposed</text>
-  <text x="30" y="536" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#FDBA74">Datadog Report · Production Vulns · 278-Day Dependency Lag</text>
-  <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">87% orgs have exploitable vulns in prod · VoidLink K8s malware · CI/CD token leaks</text>
-  <text x="30" y="588" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">Shorten patch SLA · Automate vuln scanning · Harden container runtime detection</text>
+  <text x="30" y="536" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#FDBA74">Datadog Report - Production Vulns - 278-Day Dependency Lag</text>
+  <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">87% orgs have exploitable vulns in prod - VoidLink K8s malware - CI/CD token leaks</text>
+  <text x="30" y="588" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748B">Shorten patch SLA - Automate vuln scanning - Harden container runtime detection</text>
 </g>
 
 <!-- Band C KPI card -->
@@ -230,7 +230,7 @@
 <!-- ===== FOOTER ===== -->
 <rect x="8" y="608" width="1192" height="22" fill="#000" fill-opacity="0.4"/>
 <text x="20" y="623" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1" fill="#475569">tech.2twodragon.com</text>
-<text x="1180" y="623" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1" fill="#475569">Android · VMware KEV · DevSecOps</text>
+<text x="1180" y="623" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1" fill="#475569">Android - VMware KEV - DevSecOps</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/ : 41x41 -->
 <g transform="translate(1080,504)" filter="url(#softShadow)">

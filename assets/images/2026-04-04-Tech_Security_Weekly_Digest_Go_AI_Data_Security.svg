@@ -136,10 +136,10 @@
 
 <!-- Hero text block -->
 <g filter="url(#textShadow)">
-  <text x="56" y="122" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.4" fill="#3A86FF">PHP WEBSHELL — CRITICAL</text>
+  <text x="56" y="122" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.4" fill="#3A86FF">PHP WEBSHELL -- CRITICAL</text>
   <text x="56" y="166" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="900" fill="#F5F7FA">Cron Cookie RCE</text>
   <text x="56" y="200" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#9ABCD9">PHP webshell persists on Linux via cron</text>
-  <text x="56" y="226" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#5A7A9A">Cookie-controlled exec · cron reinstall · Microsoft Defender Research</text>
+  <text x="56" y="226" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#5A7A9A">Cookie-controlled exec - cron reinstall - Microsoft Defender Research</text>
 </g>
 
 <!-- Hero illustration: terminal + cron + RCE chain -->
@@ -160,7 +160,7 @@
   <text x="16" y="70" font-family="Monaco, monospace" font-size="10" fill="#7A9ABF">*/5 * * * *  php /tmp/.cache.php</text>
   <text x="16" y="90" font-family="Monaco, monospace" font-size="11" fill="#4ADE80">$</text>
   <text x="28" y="90" font-family="Monaco, monospace" font-size="11" fill="#BFC9D9">curl -H "Cookie: x=eval(cmd)" http://target/</text>
-  <text x="16" y="110" font-family="Monaco, monospace" font-size="10" fill="#E63946">HTTP/1.1 200 OK — RCE confirmed</text>
+  <text x="16" y="110" font-family="Monaco, monospace" font-size="10" fill="#E63946">HTTP/1.1 200 OK -- RCE confirmed</text>
   <text x="16" y="130" font-family="Monaco, monospace" font-size="11" fill="#4ADE80">$</text>
   <text x="28" y="130" font-family="Monaco, monospace" font-size="11" fill="#BFC9D9">whoami</text>
   <text x="16" y="150" font-family="Monaco, monospace" font-size="11" fill="#E63946">www-data</text>
@@ -266,10 +266,10 @@
 
 <!-- Card 1 text -->
 <g filter="url(#textShadow)">
-  <text x="674" y="116" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" fill="#E63946">TA416 APT — HIGH</text>
+  <text x="674" y="116" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" fill="#E63946">TA416 APT -- HIGH</text>
   <text x="674" y="152" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA">PlugX + OAuth Phishing</text>
   <text x="674" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#C9A0A8">China-linked TA416 targets European govts</text>
-  <text x="674" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#7A6A70">2yr dormancy ended · DarkPeony resurgence · MFA bypass</text>
+  <text x="674" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#7A6A70">2yr dormancy ended - DarkPeony resurgence - MFA bypass</text>
 </g>
 
 <!-- Card 1 KPI -->
@@ -332,15 +332,15 @@
     <animate attributeName="width" values="80;200;80" dur="4s" repeatCount="indefinite"/>
   </rect>
   <text x="14" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="7" fill="#8A8A50">6,000+ extensions fingerprinted silently</text>
-  <text x="14" y="114" font-family="Monaco, monospace" font-size="7" fill="#5A5A30">data harvested · user profiling · covert telemetry</text>
+  <text x="14" y="114" font-family="Monaco, monospace" font-size="7" fill="#5A5A30">data harvested - user profiling - covert telemetry</text>
 </g>
 
 <!-- Card 2 text -->
 <g filter="url(#textShadow)">
-  <text x="674" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" fill="#FFB703">LINKEDIN SCAN — MEDIUM</text>
+  <text x="674" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2" fill="#FFB703">LINKEDIN SCAN -- MEDIUM</text>
   <text x="674" y="414" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#F5F7FA">6,000+ Extensions Scanned</text>
   <text x="674" y="440" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#C9B070">LinkedIn silently fingerprints Chrome extensions</text>
-  <text x="674" y="462" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#7A6A40">Covert telemetry · user data collection · BleepingComputer</text>
+  <text x="674" y="462" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#7A6A40">Covert telemetry - user data collection - BleepingComputer</text>
 </g>
 
 <!-- Card 2 KPI -->

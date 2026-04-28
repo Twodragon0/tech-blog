@@ -65,10 +65,10 @@
   <rect x="0" y="0" width="8" height="210" fill="#4ADE80"/>
 
   <g filter="url(#textShadow)">
-    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#4ADE80">VERTICAL AI SECURITY  ·  2026.02.23</text>
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#4ADE80">VERTICAL AI SECURITY  -  2026.02.23</text>
     <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">SOC Automation via Domain AI</text>
     <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#9FD3B0">SK Shieldus : MITRE ATT&amp;CK trained : XDR log analysis</text>
-    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">False positive reduction · TTP-based behavior detection · SOAR playbook integration</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">False positive reduction - TTP-based behavior detection - SOAR playbook integration</text>
   </g>
 
   <!-- AI neural node illustration -->
@@ -139,10 +139,10 @@
   <rect x="0" y="210" width="8" height="210" fill="#E63946"/>
 
   <g filter="url(#textShadow)">
-    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#F87171">RANSOMWARE  ·  CODE REUSE ANALYSIS</text>
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#F87171">RANSOMWARE  -  CODE REUSE ANALYSIS</text>
     <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BlackField : Conti + LockBit 3.0</text>
     <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FBB6BD">Leaked source reuse : fast variant cycle : attribution loss</text>
-    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9CE">VSS deletion · T1486 · T1490 · RaaS ecosystem proliferation</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9CE">VSS deletion - T1486 - T1490 - RaaS ecosystem proliferation</text>
   </g>
 
   <!-- Ransomware radial threat illustration -->
@@ -192,7 +192,7 @@
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
     <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">SEVERITY</text>
     <text x="10" y="20" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="52" font-weight="900" fill="#F5F7FA">CRIT</text>
-    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">VSS del · weeks-to-variant</text>
+    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FBB6BD">VSS del - weeks-to-variant</text>
   </g>
 
   <g fill="#F87171">
@@ -211,10 +211,10 @@
   <rect x="0" y="420" width="8" height="210" fill="#F59E0B"/>
 
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#F59E0B">BLOCKCHAIN  ·  CRYPTO RISK</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#F59E0B">BLOCKCHAIN  -  CRYPTO RISK</text>
     <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BTC -5% + $11B Russia Evasion</text>
     <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FDE68A">5 exchanges busted : low-liquidity window exploit</text>
-    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#E0D5B6">Bitcoin $65K -5% in 2h · OFAC sanctions evasion network · AML failure</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#E0D5B6">Bitcoin $65K -5% in 2h - OFAC sanctions evasion network - AML failure</text>
   </g>
 
   <!-- BTC price crash chart -->
@@ -261,7 +261,7 @@
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E1400" stroke="#F59E0B" stroke-width="2.2"/>
     <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F59E0B">EVASION VOL.</text>
     <text x="10" y="26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">$11B</text>
-    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">5 platforms · OFAC targets</text>
+    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">5 platforms - OFAC targets</text>
   </g>
 </g>
 

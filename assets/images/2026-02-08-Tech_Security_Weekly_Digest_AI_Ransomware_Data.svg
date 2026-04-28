@@ -97,7 +97,7 @@
   </g>
   <g filter="url(#textShadow)">
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F87171" letter-spacing="2.4">CRITICAL  /  NATION-STATE</text>
-    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Signal Phishing — BfV/BSI Alert</text>
+    <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">Signal Phishing -- BfV/BSI Alert</text>
   </g>
   <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FBB6BD">Russia-linked APT targets politicians, military, journalists</text>
   <!-- Signal app mockup -->
@@ -158,7 +158,7 @@
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FCD34D" letter-spacing="2.4">HIGH  /  RANSOMWARE</text>
     <text x="74" y="57" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">BlackField Ransomware</text>
   </g>
-  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FDE68A">LockBit + Conti code reuse — RaaS evolution</text>
+  <text x="20" y="98" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FDE68A">LockBit + Conti code reuse -- RaaS evolution</text>
   <!-- Code reuse illustration -->
   <g transform="translate(26,116)" filter="url(#softShadow)">
     <rect x="0" y="0" width="80" height="30" rx="5" fill="#1A1000" stroke="#F59E0B" stroke-width="1.4"/>
@@ -324,7 +324,7 @@
 
 <!-- Bottom strip -->
 <rect x="0" y="608" width="1200" height="22" fill="#040912" opacity="0.88"/>
-<text x="36" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#4A6080" letter-spacing="1.5">SIGNAL PHISHING  ·  BLACKFIELD RANSOMWARE  ·  VERTICAL AI  ·  ZERO TRUST</text>
+<text x="36" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#4A6080" letter-spacing="1.5">SIGNAL PHISHING  -  BLACKFIELD RANSOMWARE  -  VERTICAL AI  -  ZERO TRUST</text>
 <text x="1164" y="622" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="500" fill="#4A6080" text-anchor="end" letter-spacing="1">tech.2twodragon.com</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/08/Tech_Security_Weekly_Digest_AI_Ransomware_Data/ : 41x41 -->

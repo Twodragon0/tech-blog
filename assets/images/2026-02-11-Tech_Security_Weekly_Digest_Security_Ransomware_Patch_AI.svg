@@ -101,7 +101,7 @@
 <text x="52" y="180" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="900" fill="#E63946">CVE-2026-21643</text>
 
 <!-- Hero subtitle -->
-<text x="52" y="208" font-family="Arial,sans-serif" font-size="12.5" fill="#90A8C0" letter-spacing="0.3">Unauthenticated access via SQL injection — emergency patch</text>
+<text x="52" y="208" font-family="Arial,sans-serif" font-size="12.5" fill="#90A8C0" letter-spacing="0.3">Unauthenticated access via SQL injection -- emergency patch</text>
 
 <!-- SHIELD ILLUSTRATION -->
 <path d="M332 236 L424 268 L424 342 Q424 396 332 428 Q240 396 240 342 L240 268 Z" fill="url(#shieldBodyGrad)" stroke="#E63946" stroke-width="2.5" filter="url(#softShadow)">
@@ -177,7 +177,7 @@
 <text x="699" y="113" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">HIGH</text>
 
 <text x="672" y="139" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Reynolds Ransomware</text>
-<text x="672" y="159" font-family="Arial,sans-serif" font-size="12" fill="#F4A623">BYOVD — EDR Bypass via Embedded Driver</text>
+<text x="672" y="159" font-family="Arial,sans-serif" font-size="12" fill="#F4A623">BYOVD -- EDR Bypass via Embedded Driver</text>
 <text x="672" y="176" font-family="Arial,sans-serif" font-size="10" fill="#7A8080" letter-spacing="0.2">Vulnerable driver bundled in payload; silences EDR before encryption</text>
 
 <!-- EDR bypass visual -->

@@ -132,7 +132,7 @@
 <!-- Hero eyebrow + title -->
 <text x="54" y="114" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FF6B80" letter-spacing="3">CRITICAL  /  CVE-2026-21509</text>
 <text x="54" y="148" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#F8FAFC" filter="url(#txtGlow)">MS Office Zero-Day</text>
-<text x="54" y="176" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#CBD5E1">Protected View bypass — active exploitation</text>
+<text x="54" y="176" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#CBD5E1">Protected View bypass -- active exploitation</text>
 
 <!-- Stage labels -->
 <text x="62" y="200" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#7DA3D9" font-weight="600">01 LURE</text>
@@ -319,7 +319,7 @@
   <rect x="0" y="0" width="480" height="68" rx="8" ry="8" fill="#1A1020" stroke="#FF6B35" stroke-width="1.2"/>
   <text x="14" y="24" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#FF8C5A" font-weight="700" letter-spacing="1">REMEDIATION</text>
   <text x="14" y="50" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F8FAFC">Upgrade to v1.1.15+</text>
-  <text x="220" y="50" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#8FA3B8"> — PoC in wild, patch now</text>
+  <text x="220" y="50" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#8FA3B8"> -- PoC in wild, patch now</text>
   <rect x="450" y="10" width="20" height="48" rx="4" fill="#E63946" opacity="0.9">
     <animate attributeName="opacity" values="0.7;1;0.7" dur="2.0s" repeatCount="indefinite"/>
   </rect>
@@ -333,7 +333,7 @@
 
 <text x="672" y="376" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#06D6A0" letter-spacing="3">GARTNER  /  BEST PRACTICE</text>
 <text x="672" y="402" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F8FAFC" filter="url(#txtGlow)">CTEM Framework</text>
-<text x="672" y="420" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#A5B8C8">Continuous Threat Exposure Management — 5 stages</text>
+<text x="672" y="420" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#A5B8C8">Continuous Threat Exposure Management -- 5 stages</text>
 
 <!-- CTEM 5-stage horizontal bars -->
 <g transform="translate(672,434)">

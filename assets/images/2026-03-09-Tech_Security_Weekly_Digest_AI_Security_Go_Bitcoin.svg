@@ -418,7 +418,7 @@
 <!-- Footer bar -->
 <rect x="0" y="596" width="1200" height="34" fill="#0A0F1E" opacity="0.85"/>
 <text x="60" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0">tech.2twodragon.com</text>
-<text x="600" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0" text-anchor="middle">AI Agent Security · Bitcoin Strategy · Agent Safehouse</text>
+<text x="600" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0" text-anchor="middle">AI Agent Security - Bitcoin Strategy - Agent Safehouse</text>
 <text x="1140" y="618" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#4A6AA0" text-anchor="end">2026.03.09</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/ : 41x41 -->

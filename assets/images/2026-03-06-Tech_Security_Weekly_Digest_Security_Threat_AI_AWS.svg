@@ -113,7 +113,7 @@
 <!-- Hero text -->
 <text x="52" y="112" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#E63946">CRITICAL EXPLOIT  /  ACTIVELY EXPLOITED</text>
 <text x="52" y="138" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" font-weight="800" fill="#FFFFFF">Cisco SD-WAN CVE-2026-20122</text>
-<text x="52" y="160" font-family="Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="400" fill="#8CAAD4">Catalyst SD-WAN Manager — arbitrary file overwrite</text>
+<text x="52" y="160" font-family="Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="400" fill="#8CAAD4">Catalyst SD-WAN Manager -- arbitrary file overwrite</text>
 
 <!-- HERO ILLUSTRATION -->
 <!-- Router body -->
@@ -193,7 +193,7 @@
 <line x1="200" y1="420" x2="260" y2="455" stroke="#2A5090" stroke-width="1" opacity="0.4"/>
 <line x1="260" y1="455" x2="330" y2="415" stroke="#2A5090" stroke-width="1" opacity="0.4"/>
 <line x1="330" y1="415" x2="370" y2="310" stroke="#E63946" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
-<text x="170" y="465" font-family="Helvetica Neue,Arial,sans-serif" font-size="8" fill="#6A8ABE" opacity="0.7">WAN fabric — lateral movement risk</text>
+<text x="170" y="465" font-family="Helvetica Neue,Arial,sans-serif" font-size="8" fill="#6A8ABE" opacity="0.7">WAN fabric -- lateral movement risk</text>
 
 <!-- Hero description -->
 <text x="52" y="492" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" fill="#8CAAD4">Authenticated attacker overwrites arbitrary files across</text>
@@ -227,7 +227,7 @@
 
 <text x="672" y="109" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="2.5" fill="#FF9500">PHISHING PLATFORM TAKEDOWN</text>
 <text x="672" y="130" font-family="Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Tycoon 2FA PhaaS Dismantled</text>
-<text x="672" y="149" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="400" fill="#AABBD4">Europol-led op — AitM bypasses MFA at scale</text>
+<text x="672" y="149" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="400" fill="#AABBD4">Europol-led op -- AitM bypasses MFA at scale</text>
 
 <!-- Card 1 illustration: phishing hook + 2FA token + chain -->
 <g transform="translate(672,158)">
@@ -288,7 +288,7 @@
 
 <text x="672" y="373" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="2.5" fill="#00C2FF">AI FRONTIER  /  OPENAI</text>
 <text x="672" y="394" font-family="Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">GPT-5.4 Released</text>
-<text x="672" y="413" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="400" fill="#AABBD4">Native computer use · 1M token context window</text>
+<text x="672" y="413" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="400" fill="#AABBD4">Native computer use - 1M token context window</text>
 
 <!-- Card 2 illustration: neural network nodes -->
 <g transform="translate(668,424)">

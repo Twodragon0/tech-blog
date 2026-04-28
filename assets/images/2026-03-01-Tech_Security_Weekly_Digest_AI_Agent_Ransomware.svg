@@ -122,9 +122,9 @@
   <text x="430" y="75" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.5" fill="#FF6B7A">OT SECURITY / RANSOMWARE</text>
   <text x="430" y="112" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#F5F7FA">Gentlemen Ransomware</text>
   <text x="430" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#E08090">OT Network Attack + Double Extortion</text>
-  <text x="430" y="166" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#998899">Purdue model segmentation · IT/OT convergence risk</text>
-  <text x="430" y="186" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#998899">MITRE ATT&amp;CK mapped · spear-phishing to PLC pivot</text>
-  <text x="430" y="208" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#776677">SK Shieldus Security Report · Dec 2025</text>
+  <text x="430" y="166" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#998899">Purdue model segmentation - IT/OT convergence risk</text>
+  <text x="430" y="186" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#998899">MITRE ATT&amp;CK mapped - spear-phishing to PLC pivot</text>
+  <text x="430" y="208" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#776677">SK Shieldus Security Report - Dec 2025</text>
 </g>
 
 <!-- KPI Card A -->
@@ -197,9 +197,9 @@
   <text x="430" y="282" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.5" fill="#76C8FF">NVIDIA AGENTIC AI</text>
   <text x="430" y="320" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA">Autonomous Network AI-RAN</text>
   <text x="430" y="350" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#6AB4E8">Blueprint: Self-Optimizing Telecom Infrastructure</text>
-  <text x="430" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8899AA">Agentic AI managing RAN in real-time · zero-touch ops</text>
-  <text x="430" y="394" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8899AA">Commercial validation · AI-native 5G/6G readiness</text>
-  <text x="430" y="416" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#667788">NVIDIA Blueprint · Agentic Communications Network</text>
+  <text x="430" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8899AA">Agentic AI managing RAN in real-time - zero-touch ops</text>
+  <text x="430" y="394" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8899AA">Commercial validation - AI-native 5G/6G readiness</text>
+  <text x="430" y="416" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#667788">NVIDIA Blueprint - Agentic Communications Network</text>
 </g>
 
 <!-- KPI Card B -->
@@ -262,8 +262,8 @@
   <text x="430" y="492" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.5" fill="#4DE8D0">AWS / AGENTIC AI PLATFORM</text>
   <text x="430" y="526" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#F5F7FA">MCP Registry for Agent Tools</text>
   <text x="430" y="552" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#38C8B8">Unified tool management for AI agents on AWS</text>
-  <text x="430" y="574" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7799AA">Amazon Bedrock · multi-agent orchestration · MCP standard</text>
-  <text x="430" y="596" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#557788">AWS Korea · Agentic AI Platform Update</text>
+  <text x="430" y="574" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7799AA">Amazon Bedrock - multi-agent orchestration - MCP standard</text>
+  <text x="430" y="596" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#557788">AWS Korea - Agentic AI Platform Update</text>
 </g>
 
 <!-- KPI Card C -->
@@ -276,7 +276,7 @@
 <!-- FOOTER -->
 <rect x="0" y="610" width="1200" height="20" fill="#080E18" opacity="0.95"/>
 <text x="40" y="623" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" fill="#3A4A5A">tech.2twodragon.com</text>
-<text x="600" y="623" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" fill="#3A4A5A">Security · AI · Cloud · 2026.03.01</text>
+<text x="600" y="623" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" fill="#3A4A5A">Security - AI - Cloud - 2026.03.01</text>
 <text x="1160" y="623" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" fill="#3A4A5A">Twodragon</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/ : 41x41 -->

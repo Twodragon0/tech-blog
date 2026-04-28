@@ -63,7 +63,7 @@
     <text x="30" y="122" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">Infostealer: AI Token Theft</text>
     <text x="30" y="154" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#9FD3B0">Agent configs + gateway tokens exfiltrated</text>
     <text x="30" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">.env / config.yaml / agent.json / OAuth tokens / API keys</text>
-    <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8BA3C0">MITRE T1552 · Source: The Hacker News · Impact: HIGH</text>
+    <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8BA3C0">MITRE T1552 - Source: The Hacker News - Impact: HIGH</text>
   </g>
 
   <!-- Attack chain: workstation -> stealer -> C2 -> agent impersonation -->
@@ -140,7 +140,7 @@
     <text x="30" y="332" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">25 Recovery Attack Vectors</text>
     <text x="30" y="364" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FBB6BD">Bitwarden / Dashlane / LastPass</text>
     <text x="30" y="390" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D9C9CE">Master password recovery / memory scraping / vault export flaws</text>
-    <text x="30" y="412" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9B8A9E">Source: The Hacker News · Impact: HIGH</text>
+    <text x="30" y="412" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9B8A9E">Source: The Hacker News - Impact: HIGH</text>
   </g>
 
   <!-- Vault lock illustration -->
@@ -189,7 +189,7 @@
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
     <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#F87171">ATTACK VECTORS</text>
     <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">25</text>
-    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">Recovery · Memory · Export</text>
+    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">Recovery - Memory - Export</text>
   </g>
 
   <circle cx="560" cy="290" r="1.2" fill="#F87171"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
@@ -206,7 +206,7 @@
     <text x="30" y="498" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4" fill="#38BDF8">AWS SERVERLESS SECURITY</text>
     <text x="30" y="534" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="800" fill="#F5F7FA">AI-Powered Defense-in-Depth</text>
     <text x="30" y="562" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#BAE6FD">Lambda + GuardDuty + WAF + CloudWatch AI</text>
-    <text x="30" y="585" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7DD3FC">Source: AWS Security Blog · Impact: MEDIUM</text>
+    <text x="30" y="585" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7DD3FC">Source: AWS Security Blog - Impact: MEDIUM</text>
   </g>
 
   <!-- Concentric defense rings -->
@@ -258,7 +258,7 @@
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#061826" stroke="#38BDF8" stroke-width="2.2"/>
     <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#38BDF8">LAYERS</text>
     <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">4</text>
-    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BAE6FD">WAF · GD · Lambda · CW AI</text>
+    <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BAE6FD">WAF - GD - Lambda - CW AI</text>
   </g>
 
   <circle cx="820" cy="500" r="1.2" fill="#38BDF8"><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"/></circle>

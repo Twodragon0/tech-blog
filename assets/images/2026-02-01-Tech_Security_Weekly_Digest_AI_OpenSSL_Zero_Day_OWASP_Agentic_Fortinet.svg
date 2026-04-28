@@ -60,7 +60,7 @@
   <text x="60" y="52" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#E9EEF8" letter-spacing="1.2">WEEKLY SECURITY DIGEST
     <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
   </text>
-  <text x="60" y="78" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7A9BC4" letter-spacing="1.8">2026.02.01 — AI DISCOVERS OPENSSL ZERO-DAYS · OWASP AGENTIC AI · FORTINET SSO</text>
+  <text x="60" y="78" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7A9BC4" letter-spacing="1.8">2026.02.01 -- AI DISCOVERS OPENSSL ZERO-DAYS - OWASP AGENTIC AI - FORTINET SSO</text>
 </g>
 
 <!-- Legend top-right -->
@@ -92,7 +92,7 @@
     <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite"/>
   </circle>
   <text x="192" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">INFO</text>
-  <text x="-2" y="26" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#5A7AB0">SEVERITY — 3 LINES / 15 STATIONS — 2026.02.01</text>
+  <text x="-2" y="26" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#5A7AB0">SEVERITY -- 3 LINES / 15 STATIONS -- 2026.02.01</text>
 </g>
 
 <!-- ==================== LINE 1: AI OpenSSL Zero-Day (RED) ==================== -->
@@ -171,7 +171,7 @@
 </circle>
 
 <!-- L1 label -->
-<text x="62" y="215" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#E63946" font-weight="700">AI DISCOVERS OPENSSL ZERO-DAYS — AISLE RESEARCH SYSTEM — INFORMATIONAL / STRATEGIC</text>
+<text x="62" y="215" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#E63946" font-weight="700">AI DISCOVERS OPENSSL ZERO-DAYS -- AISLE RESEARCH SYSTEM -- INFORMATIONAL / STRATEGIC</text>
 
 
 <!-- ==================== LINE 2: OWASP Agentic AI (AMBER) ==================== -->
@@ -249,7 +249,7 @@
 </circle>
 
 <!-- L2 label -->
-<text x="62" y="395" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#FFA107" font-weight="700">OWASP AGENTIC AI TOP 10 — OFFICIAL FRAMEWORK — HIGH SEVERITY</text>
+<text x="62" y="395" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#FFA107" font-weight="700">OWASP AGENTIC AI TOP 10 -- OFFICIAL FRAMEWORK -- HIGH SEVERITY</text>
 
 
 <!-- ==================== LINE 3: Fortinet SSO Zero-Day (CYAN) ==================== -->
@@ -327,12 +327,12 @@
 </circle>
 
 <!-- L3 label -->
-<text x="62" y="555" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#2AA8CE" font-weight="700">FORTINET CVE-2026-24858 FORTICLOUD SSO AUTH BYPASS — CRITICAL / IN-THE-WILD</text>
+<text x="62" y="555" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#2AA8CE" font-weight="700">FORTINET CVE-2026-24858 FORTICLOUD SSO AUTH BYPASS -- CRITICAL / IN-THE-WILD</text>
 
 <!-- ===== FOOTER ===== -->
 <rect x="0" y="583" width="1200" height="47" fill="#060E1E" opacity="0.88"/>
 <rect x="0" y="583" width="1200" height="1.5" fill="#1E3060" opacity="0.9"/>
-<text x="60" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0">tech.2twodragon.com · WEEKLY SECURITY DIGEST · 2026-02-01 · AI / OPENSSL / OWASP / FORTINET</text>
+<text x="60" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0">tech.2twodragon.com - WEEKLY SECURITY DIGEST - 2026-02-01 - AI / OPENSSL / OWASP / FORTINET</text>
 <text x="1140" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0" text-anchor="end">L21 Metro Map</text>
 
 <!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/ : 45x45 -->

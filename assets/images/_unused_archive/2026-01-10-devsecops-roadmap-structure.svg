@@ -40,14 +40,14 @@
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Learn the Foundations</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Programming Languages</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Scripting (Bash, PowerShell)</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• CIA Triad</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Authentication/Authorization</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Encryption</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Network Security</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• OWASP Top 10</text>
-    <text x="10" y="265" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Editors</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Programming Languages</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Scripting (Bash, PowerShell)</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* CIA Triad</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Authentication/Authorization</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Encryption</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Network Security</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* OWASP Top 10</text>
+    <text x="10" y="265" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Editors</text>
   </g>
   
   <!-- Section 2: Managing Threats & Risks -->
@@ -57,13 +57,13 @@
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Managing Threats</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Threat Modeling</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• STRIDE, PASTA</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Vulnerability Scanning</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Supply Chain Security</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SBOM</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Dependency Management</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Build Pipeline</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Threat Modeling</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* STRIDE, PASTA</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Vulnerability Scanning</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Supply Chain Security</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* SBOM</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Dependency Management</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Build Pipeline</text>
   </g>
   
   <!-- Section 3: Secure Architecture -->
@@ -73,13 +73,13 @@
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Secure Architecture</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Defense in Depth</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Zero Trust</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Secure API Design</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Cloud Security</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Container Security</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Network Segmentation</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Incident Response</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Defense in Depth</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Zero Trust</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Secure API Design</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Cloud Security</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Container Security</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Network Segmentation</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Incident Response</text>
   </g>
   
   <!-- Section 4: Governance -->
@@ -89,13 +89,13 @@
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Governance</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• NIST Framework</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• ISO 27001</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SOC 2</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Audit &amp; Compliance</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Risk Quantification</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Enterprise Operations</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• PKI Design</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* NIST Framework</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* ISO 27001</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* SOC 2</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Audit &amp; Compliance</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Risk Quantification</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Enterprise Operations</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* PKI Design</text>
   </g>
   
   <!-- Section 5: DevSecOps Tools -->
@@ -105,13 +105,13 @@
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">DevSecOps Tools</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SIEM</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Burp Suite</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Wireshark, Nmap</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Vulnerability Scanning Tools</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SOAR</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• DDoS Mitigation</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• IDS/IPS</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* SIEM</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Burp Suite</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Wireshark, Nmap</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* Vulnerability Scanning Tools</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* SOAR</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* DDoS Mitigation</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">* IDS/IPS</text>
   </g>
   
   <!-- Connecting lines -->

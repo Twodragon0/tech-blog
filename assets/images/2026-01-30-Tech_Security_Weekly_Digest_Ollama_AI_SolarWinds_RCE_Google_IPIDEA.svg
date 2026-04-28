@@ -169,7 +169,7 @@
     <text x="74" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FF8C5A" letter-spacing="2.4">CRITICAL  /  RCE</text>
     <text x="74" y="60" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#F5F7FA">SolarWinds WHD 6 CVEs</text>
   </g>
-  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FFBD99">CVSS 9.8 x4 — unauth deserialization RCE + auth bypass</text>
+  <text x="20" y="100" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#FFBD99">CVSS 9.8 x4 -- unauth deserialization RCE + auth bypass</text>
 
   <!-- CVE severity bars -->
   <g transform="translate(20,114)" filter="url(#softShadow)">

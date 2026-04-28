@@ -74,10 +74,10 @@
 
   <!-- Text block -->
   <g filter="url(#textShadow)">
-    <text x="30" y="68" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">CRITICAL — PHISHING + BEC</text>
+    <text x="30" y="68" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">CRITICAL -- PHISHING + BEC</text>
     <text x="30" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft AitM Phishing</text>
     <text x="30" y="142" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Energy sector : SharePoint abuse : MFA bypass</text>
-    <text x="30" y="168" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Adversary-in-the-Middle relay — FIDO2/Passkey required : 48h action window</text>
+    <text x="30" y="168" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Adversary-in-the-Middle relay -- FIDO2/Passkey required : 48h action window</text>
   </g>
 
   <!-- Illustration: AitM relay diagram -->
@@ -146,7 +146,7 @@
   <rect x="0" y="234" width="8" height="210" fill="#F97316"/>
 
   <g filter="url(#textShadow)">
-    <text x="30" y="278" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB923C">HIGH — AGENTIC AI SECURITY</text>
+    <text x="30" y="278" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB923C">HIGH -- AGENTIC AI SECURITY</text>
     <text x="30" y="320" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">HashiCorp Zero Trust NHI</text>
     <text x="30" y="352" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FED7AA">Non-Human Identity management for Agentic AI</text>
     <text x="30" y="378" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Dynamic secrets : least-privilege : 30-day implementation window</text>
@@ -217,9 +217,9 @@
   <rect x="0" y="444" width="8" height="186" fill="#3B82F6"/>
 
   <g filter="url(#textShadow)">
-    <text x="30" y="488" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#60A5FA">MEDIUM — DB SCALING</text>
+    <text x="30" y="488" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#60A5FA">MEDIUM -- DB SCALING</text>
     <text x="30" y="526" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F5F7FA">OpenAI PostgreSQL</text>
-    <text x="30" y="556" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">800M ChatGPT users — RDBMS scales beyond NoSQL</text>
+    <text x="30" y="556" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">800M ChatGPT users -- RDBMS scales beyond NoSQL</text>
     <text x="30" y="580" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#CBD5E1">Citus sharding : PgBouncer : read replicas : 90-day planning horizon</text>
   </g>
 
