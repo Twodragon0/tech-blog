@@ -36,7 +36,36 @@ fi
 # 3. SVG quality gate (size bands — warnings only, does not block)
 sh "$REPO_ROOT/scripts/check_svg_precommit.sh"
 
-# 4. SVG compliance linter (placeholder text, accent/category mismatch, missing signature — blocks commit)
+# 4. SVG XML well-formedness check
+echo "[pre-commit] Validating SVG XML well-formedness..."
+SVG_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.svg$' || true)
+if [ -n "$SVG_FILES" ]; then
+  if ! command -v xmllint >/dev/null 2>&1; then
+    echo "[pre-commit] WARNING: xmllint not found, skipping SVG XML validation"
+  else
+    BROKEN=0
+    for svg in $SVG_FILES; do
+      if [ -f "$svg" ]; then
+        if ! xmllint --noout "$svg" 2>/tmp/svg-xmllint-error.$$; then
+          echo "[pre-commit] BROKEN SVG: $svg"
+          sed -n '1,5p' /tmp/svg-xmllint-error.$$ | sed 's/^/    /'
+          BROKEN=$((BROKEN + 1))
+        fi
+      fi
+    done
+    rm -f /tmp/svg-xmllint-error.$$
+    if [ "$BROKEN" -gt 0 ]; then
+      echo ""
+      echo "[pre-commit] FAIL: $BROKEN SVG file(s) have XML errors."
+      echo "  Most common cause: unescaped & (use &amp;) or < (use &lt;) in text content."
+      echo "  To auto-fix: python3 scripts/verify_images_unified.py --svg-validate --svg-fix"
+      exit 1
+    fi
+    echo "[pre-commit] SVG XML validation: OK"
+  fi
+fi
+
+# 5. SVG compliance linter (placeholder text, accent/category mismatch, missing signature — blocks commit)
 STAGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/2026-[^/]+\.svg$' || true)
 if [ -n "$STAGED_SVGS" ]; then
   echo "[pre-commit] Running SVG compliance linter..."
