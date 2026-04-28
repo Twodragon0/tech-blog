@@ -32,7 +32,13 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt-get update -qq && sudo apt-get install -y libxml2-utils
           pip install -q pyyaml frontmatter 2>/dev/null || true
+
+      - name: Validate SVG XML well-formedness
+        run: |
+          echo "Validating SVG XML well-formedness via xmllint..."
+          python3 scripts/verify_images_unified.py --svg-validate
 
       - name: Auto-fix and check SVG quality
         run: |
