@@ -1,279 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Cloud Security Course 7 Week 6 cover featuring Cloudflare edge defense and GitHub security controls">
-<title>Cloud Security Course 7 Week 6: Cloudflare and GitHub Security</title>
-<!-- profile: high-quality-cover (2025 upgraded) -->
-<defs>
-  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#07111F"/>
-    <stop offset="50%" stop-color="#0B1630"/>
-    <stop offset="100%" stop-color="#111B3F"/>
-  </linearGradient>
-  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#F97316"/>
-    <stop offset="100%" stop-color="#FB923C"/>
-  </linearGradient>
-  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#1B120C"/>
-    <stop offset="100%" stop-color="#27140B"/>
-  </linearGradient>
-  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#0D1324"/>
-    <stop offset="100%" stop-color="#10182C"/>
-  </linearGradient>
-  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#0C1623"/>
-    <stop offset="100%" stop-color="#112033"/>
-  </linearGradient>
-  <radialGradient id="edgeGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FB923C" stop-opacity="0.55"/>
-    <stop offset="100%" stop-color="#FB923C" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="gitGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="synthGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
-  </radialGradient>
-  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
-    <feOffset dx="1" dy="3"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
-    <feOffset dx="0" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <pattern id="gridA" x="0" y="0" width="32" height="16" patternUnits="userSpaceOnUse">
-    <path d="M0 16 L32 16" stroke="#53311D" stroke-width="0.5" opacity="0.45"/>
-    <path d="M32 0 L32 16" stroke="#53311D" stroke-width="0.5" opacity="0.45"/>
-  </pattern>
-  <pattern id="gridB" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
-    <circle cx="9" cy="9" r="0.8" fill="#1F334E" opacity="0.6"/>
-  </pattern>
-  <pattern id="gridC" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-    <path d="M10 2 L18 7 L18 15 L10 18 L2 15 L2 7 Z" fill="none" stroke="#21344A" stroke-width="0.6" opacity="0.4"/>
-  </pattern>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>7 6 CLOUDFLARE GITHUB CLOUD</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="52%" stop-color="#121a2f" />
+      <stop offset="100%" stop-color="#170f25" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86" />
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25" />
+      <circle cx="18" cy="18" r="1.2" fill="#ef4444" opacity="0.15" />
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36" />
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42" />
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#microGrid)" />
+  <circle cx="202" cy="150" r="190" fill="#ef4444" opacity="0.08" filter="url(#sg)" />
+  <circle cx="1020" cy="486" r="220" fill="#991b1b" opacity="0.08" filter="url(#sg)" />
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)" />
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24" />
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22" />
+  <rect x="760" y="116" width="352" height="312" rx="28" fill="url(#panel)" stroke="#ef4444" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)" />
+  <rect x="778" y="134" width="316" height="276" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1" />
+  <rect x="782" y="136" width="108" height="12" rx="6" fill="#ef4444" opacity="0.28" />
+  <rect x="904" y="136" width="72" height="12" rx="6" fill="#334155" opacity="0.55" />
+  <rect x="988" y="136" width="48" height="12" rx="6" fill="#334155" opacity="0.35" />
+  
+  <path d="M712 178 C780 150 850 150 936 190" fill="none" stroke="#60a5fa" stroke-width="1.3" opacity="0.26" />
+  <path d="M724 414 C796 438 870 438 948 398" fill="none" stroke="#c084fc" stroke-width="1.2" opacity="0.22" />
 
-<rect width="1200" height="630" fill="url(#bgSpread)"/>
-<rect x="0" y="0" width="1200" height="4" fill="#FB923C" opacity="0.8"/>
-<rect x="0" y="0" width="1200" height="210" fill="url(#bandA)"/>
-<rect x="0" y="0" width="1200" height="210" fill="url(#gridA)" opacity="0.6"/>
-<rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
-<rect x="0" y="210" width="1200" height="210" fill="url(#gridB)" opacity="0.75"/>
-<rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
-<rect x="0" y="420" width="1200" height="210" fill="url(#gridC)" opacity="0.65"/>
-<rect x="0" y="0" width="8" height="210" fill="#F97316"/>
-<rect x="0" y="210" width="8" height="210" fill="#22C55E"/>
-<rect x="0" y="420" width="8" height="210" fill="#60A5FA"/>
-<line x1="0" y1="210" x2="1200" y2="210" stroke="#243447" stroke-width="1.5"/>
-<line x1="0" y1="420" x2="1200" y2="420" stroke="#243447" stroke-width="1.5"/>
+  <g transform="translate(936,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#ef4444" stroke-width="2.6" opacity="0.94" />
+    <circle r="124" fill="none" stroke="#ef4444" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8" />
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1" />
 
-<g filter="url(#textShadow)">
-  <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB923C">EDGE SECURITY LAB</text>
-  <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">Cloud Security Course 7</text>
-  <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FED7AA">Week 6 : Cloudflare Defense Plane</text>
-  <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D8E1EC">WAF : Zero Trust : TLS : Bot mitigation</text>
-  <text x="30" y="172" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#95A7BD">DNS shielded edge and policy enforcement</text>
-</g>
-
-<g transform="translate(650,105)">
-  <circle cx="40" cy="0" r="96" fill="url(#edgeGlow)"/>
-  <rect x="-170" y="-70" width="390" height="140" rx="18" fill="url(#heroPanel)" opacity="0.12" stroke="#FB923C" stroke-width="1.8"/>
-  <g filter="url(#softShadow)">
-    <circle cx="-118" cy="-10" r="28" fill="#131D2B" stroke="#FB923C" stroke-width="1.8"/>
-    <text x="-118" y="-14" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDBA74">INTERNET</text>
-    <text x="-118" y="4" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#FCD7B2">CLIENT</text>
-
-    <rect x="-45" y="-32" width="76" height="44" rx="8" fill="#161F2D" stroke="#FB923C" stroke-width="1.8"/>
-    <text x="-7" y="-14" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FB923C">DNS</text>
-    <text x="-7" y="4" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FED7AA">ANYCAST</text>
-
-    <path d="M70 -18 C56 -42, 20 -42, 8 -20 C-6 -24, -18 -14, -18 0 C-18 18, -2 28, 20 28 L88 28 C110 28, 126 16, 126 -4 C126 -22, 112 -34, 94 -34 C86 -50, 54 -52, 38 -38 C26 -42, 10 -36, 6 -24" fill="#172231" stroke="#FB923C" stroke-width="2.2"/>
-    <path d="M44 -8 L60 8 L82 -22" fill="none" stroke="#FB923C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="54" y="53" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FDBA74">TLS</text>
-
-    <rect x="142" y="-54" width="74" height="34" rx="7" fill="#1B130E" stroke="#FB923C" stroke-width="1.5"/>
-    <text x="179" y="-33" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FB923C">WAF</text>
-
-    <rect x="142" y="-8" width="74" height="34" rx="7" fill="#1B130E" stroke="#FB923C" stroke-width="1.5"/>
-    <text x="179" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FB923C">BOT</text>
-
-    <rect x="142" y="38" width="74" height="34" rx="7" fill="#1B130E" stroke="#FB923C" stroke-width="1.5"/>
-    <text x="179" y="59" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FB923C">CACHE</text>
-
-    <rect x="234" y="-54" width="104" height="34" rx="7" fill="#111A26" stroke="#60A5FA" stroke-width="1.5"/>
-    <text x="286" y="-33" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#93C5FD">ZERO</text>
-
-    <rect x="234" y="-8" width="104" height="34" rx="7" fill="#111A26" stroke="#60A5FA" stroke-width="1.5"/>
-    <text x="286" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#93C5FD">TRUST</text>
-
-    <rect x="234" y="38" width="104" height="34" rx="7" fill="#111A26" stroke="#60A5FA" stroke-width="1.5"/>
-    <text x="286" y="59" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#93C5FD">POLICY</text>
+    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#ef4444" stroke-width="3" />
+    <path d="M-12,2 L-4,12 L16,-10" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="-50" cy="-30" r="8" fill="#ef4444" opacity="0.3" />
+    <circle cx="50" cy="-30" r="8" fill="#ef4444" opacity="0.3" />
+    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4" />
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#ef4444" stroke-width="1.5" opacity="0.4" />
   </g>
-
-  <line x1="-88" y1="-10" x2="-45" y2="-10" stroke="#FB923C" stroke-width="1.8" stroke-dasharray="4 4"/>
-  <polygon points="-45,-15 -35,-10 -45,-5" fill="#FB923C"/>
-  <line x1="31" y1="-10" x2="112" y2="-10" stroke="#FB923C" stroke-width="1.8" stroke-dasharray="4 4"/>
-  <polygon points="112,-15 122,-10 112,-5" fill="#FB923C"/>
-  <line x1="216" y1="-37" x2="234" y2="-37" stroke="#60A5FA" stroke-width="1.4"/>
-  <line x1="216" y1="9" x2="234" y2="9" stroke="#60A5FA" stroke-width="1.4"/>
-  <line x1="216" y1="55" x2="234" y2="55" stroke="#60A5FA" stroke-width="1.4"/>
-  <text x="360" y="-36" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FDBA74">EDGE</text>
-  <text x="360" y="-22" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FDBA74">FIREWALL</text>
-  <text x="360" y="10" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD">RATE</text>
-  <text x="360" y="24" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD">LIMIT</text>
-</g>
-
-<g transform="translate(990,105)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#120E0B" stroke="#FB923C" stroke-width="2.2"/>
-  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FB923C">FOCUS</text>
-  <text x="10" y="10" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F8FAFC">CLOUDFLARE</text>
-  <text x="10" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#FED7AA">EDGE HARDEN</text>
-  <text x="10" y="58" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDBA74">L7 + IDENTITY</text>
-</g>
-
-<text x="884" y="34" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74" opacity="0.85">DNSSEC</text>
-<text x="940" y="34" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74" opacity="0.85">mTLS</text>
-<text x="1006" y="34" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD" opacity="0.85">SOC</text>
-<text x="1050" y="34" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD" opacity="0.85">logs</text>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#22C55E">REPO SECURITY LAB</text>
-  <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">GitHub Secure Delivery</text>
-  <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#86EFAC">CodeQL : Secrets : Branch protection</text>
-  <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C3D5E7">PR review gates and Actions trust boundaries</text>
-</g>
-
-<g transform="translate(650,315)">
-  <circle cx="36" cy="0" r="94" fill="url(#gitGlow)"/>
-  <rect x="-156" y="-72" width="396" height="144" rx="18" fill="#0D1829" opacity="0.88" stroke="#22C55E" stroke-width="1.8"/>
-  <g filter="url(#softShadow)">
-    <rect x="-130" y="-28" width="82" height="56" rx="8" fill="#111827" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="-89" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#86EFAC">REPO</text>
-    <text x="-89" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#D1FAE5">main</text>
-
-    <rect x="-12" y="-28" width="82" height="56" rx="8" fill="#111827" stroke="#60A5FA" stroke-width="1.8"/>
-    <text x="29" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#93C5FD">PR</text>
-    <text x="29" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#DBEAFE">review</text>
-
-    <rect x="106" y="-62" width="88" height="44" rx="8" fill="#0E1D18" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="150" y="-39" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#22C55E">CODEQL</text>
-    <text x="150" y="-24" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#BBF7D0">SAST</text>
-
-    <rect x="106" y="18" width="88" height="44" rx="8" fill="#1A1024" stroke="#C084FC" stroke-width="1.8"/>
-    <text x="150" y="41" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#D8B4FE">SECRETS</text>
-    <text x="150" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#E9D5FF">SCAN</text>
-
-    <rect x="226" y="-28" width="92" height="56" rx="8" fill="#10201B" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="272" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#86EFAC">ACTIONS</text>
-    <text x="272" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#D1FAE5">OIDC</text>
-
-    <rect x="336" y="-62" width="78" height="44" rx="8" fill="#152033" stroke="#60A5FA" stroke-width="1.8"/>
-    <text x="375" y="-39" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#93C5FD">SBOM</text>
-    <text x="375" y="-24" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#DBEAFE">ATTEST</text>
-
-    <rect x="336" y="18" width="78" height="44" rx="8" fill="#1A1F2E" stroke="#F59E0B" stroke-width="1.8"/>
-    <text x="375" y="41" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCD34D">PROTECT</text>
-    <text x="375" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FDE68A">RULES</text>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.2" />
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">SECURITY</text>
   </g>
-
-  <line x1="-48" y1="0" x2="-12" y2="0" stroke="#22C55E" stroke-width="1.8" stroke-dasharray="4 4"/>
-  <polygon points="-12,-5 -2,0 -12,5" fill="#22C55E"/>
-  <line x1="70" y1="0" x2="106" y2="-40" stroke="#60A5FA" stroke-width="1.6" stroke-dasharray="4 4"/>
-  <line x1="70" y1="0" x2="106" y2="40" stroke="#C084FC" stroke-width="1.6" stroke-dasharray="4 4"/>
-  <line x1="194" y1="-40" x2="226" y2="0" stroke="#22C55E" stroke-width="1.6" stroke-dasharray="4 4"/>
-  <line x1="194" y1="40" x2="226" y2="0" stroke="#C084FC" stroke-width="1.6" stroke-dasharray="4 4"/>
-  <line x1="318" y1="0" x2="336" y2="-40" stroke="#60A5FA" stroke-width="1.5"/>
-  <line x1="318" y1="0" x2="336" y2="40" stroke="#F59E0B" stroke-width="1.5"/>
-  <text x="438" y="-6" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#86EFAC">MERGE</text>
-  <text x="438" y="10" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#86EFAC">SAFE</text>
-</g>
-
-<g transform="translate(990,315)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0C1513" stroke="#22C55E" stroke-width="2.2"/>
-  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#22C55E">FOCUS</text>
-  <text x="10" y="10" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F8FAFC">GITHUB</text>
-  <text x="10" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#BBF7D0">SHIFT LEFT</text>
-  <text x="10" y="58" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#86EFAC">CI + REVIEW</text>
-</g>
-
-<text x="882" y="244" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC" opacity="0.9">push</text>
-<text x="922" y="244" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD" opacity="0.9">scan</text>
-<text x="964" y="244" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D" opacity="0.9">sign</text>
-<text x="1008" y="244" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#BBF7D0" opacity="0.9">deploy</text>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#60A5FA">COURSE SYNTHESIS</text>
-  <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">Defense in Depth</text>
-  <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Edge controls plus repo controls</text>
-  <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C7D5E5">Traffic, identity, code, and release integrity</text>
-</g>
-
-<g transform="translate(642,524)">
-  <circle cx="34" cy="0" r="96" fill="url(#synthGlow)"/>
-  <rect x="-166" y="-78" width="406" height="156" rx="18" fill="#0E1A2B" opacity="0.9" stroke="#60A5FA" stroke-width="1.8"/>
-  <line x1="-120" y1="0" x2="194" y2="0" stroke="#35577C" stroke-width="2" stroke-dasharray="6 6"/>
-  <g filter="url(#softShadow)">
-    <circle cx="-102" cy="0" r="26" fill="#102033" stroke="#60A5FA" stroke-width="1.8"/>
-    <text x="-102" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#93C5FD">1</text>
-    <text x="-102" y="45" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#BFDBFE">Ingress</text>
-
-    <circle cx="-10" cy="0" r="26" fill="#102033" stroke="#60A5FA" stroke-width="1.8"/>
-    <text x="-10" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#93C5FD">2</text>
-    <text x="-10" y="45" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#BFDBFE">Identity</text>
-
-    <circle cx="82" cy="0" r="26" fill="#102033" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="82" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#86EFAC">3</text>
-    <text x="82" y="45" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#BBF7D0">Code</text>
-
-    <circle cx="174" cy="0" r="26" fill="#102033" stroke="#F59E0B" stroke-width="1.8"/>
-    <text x="174" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="16" font-weight="900" fill="#FCD34D">4</text>
-    <text x="174" y="45" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDE68A">Release</text>
-
-    <rect x="-134" y="-62" width="64" height="22" rx="11" fill="#12253A" stroke="#60A5FA" stroke-width="1.2"/>
-    <text x="-102" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#93C5FD">DNS</text>
-
-    <rect x="-42" y="-62" width="64" height="22" rx="11" fill="#12253A" stroke="#60A5FA" stroke-width="1.2"/>
-    <text x="-10" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#93C5FD">Access</text>
-
-    <rect x="50" y="-62" width="64" height="22" rx="11" fill="#11261B" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="82" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#86EFAC">CodeQL</text>
-
-    <rect x="142" y="-62" width="64" height="22" rx="11" fill="#2A1C07" stroke="#F59E0B" stroke-width="1.2"/>
-    <text x="174" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCD34D">OIDC</text>
-
-    <rect x="-134" y="60" width="64" height="22" rx="11" fill="#12253A" stroke="#60A5FA" stroke-width="1.2"/>
-    <text x="-102" y="75" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#93C5FD">WAF</text>
-
-    <rect x="-42" y="60" width="64" height="22" rx="11" fill="#12253A" stroke="#60A5FA" stroke-width="1.2"/>
-    <text x="-10" y="75" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#93C5FD">Review</text>
-
-    <rect x="50" y="60" width="64" height="22" rx="11" fill="#11261B" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="82" y="75" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#86EFAC">Secrets</text>
-
-    <rect x="142" y="60" width="64" height="22" rx="11" fill="#2A1C07" stroke="#F59E0B" stroke-width="1.2"/>
-    <text x="174" y="75" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCD34D">Attest</text>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">7 6 CLOUDFLARE GITHUB</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">CLOUD</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">CLOUD / SECURITY / AWS</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9" />
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM FD73C568056D</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="110" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2" />
+    </g>
+  <g transform="translate(208 474)">
+    <rect width="114" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2" />
+    </g>
+  <g transform="translate(336 474)">
+    <rect width="110" height="38" rx="19" fill="#ef4444" opacity="0.16" stroke="#ef4444" stroke-width="1.2" />
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">AWS</text>
   </g>
-</g>
-
-<g transform="translate(990,525)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0B1523" stroke="#60A5FA" stroke-width="2.2"/>
-  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#60A5FA">OUTPUT</text>
-  <text x="10" y="2" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="900" fill="#F8FAFC">WEEK 6</text>
-  <text x="10" y="30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FED7AA">CLOUDFLARE</text>
-  <text x="10" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#BBF7D0">GITHUB</text>
-  <text x="10" y="68" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">SECURITY</text>
-</g>
-
-<text x="860" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD" opacity="0.95">course</text>
-<text x="910" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD" opacity="0.95">security</text>
-<text x="974" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC" opacity="0.95">devsecops</text>
-<text x="1060" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74" opacity="0.95">edge</text>
-<text x="1098" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC" opacity="0.95">repo</text>
-<text x="1140" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D" opacity="0.95">integrity</text>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2" />
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2" />
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#ef4444" stroke-opacity="0.35" stroke-width="1.2" />
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">06</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2" />
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5" />
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

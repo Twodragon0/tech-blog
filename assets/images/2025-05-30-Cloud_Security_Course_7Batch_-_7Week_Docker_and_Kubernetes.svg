@@ -1,301 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role='img' aria-label="High quality cover for Cloud Security Course Cohort 7 Week 7 covering Docker and Kubernetes fundamentals">
-<title>Cloud Security Course Cohort 7 Week 7: Understanding Docker and Kubernetes</title>
-<!-- profile: high-quality-cover (2025 upgraded) -->
-<defs>
-  <linearGradient id='bgSpread' x1='0%' y1='0%' x2='100%' y2='100%'>
-    <stop offset='0%' stop-color='#07111F'/>
-    <stop offset='52%' stop-color='#0B1730'/>
-    <stop offset='100%' stop-color='#101B3E'/>
-  </linearGradient>
-  <linearGradient id='heroPanel' x1='0%' y1='0%' x2='100%' y2='0%'>
-    <stop offset='0%' stop-color='#0D2233'/>
-    <stop offset='48%' stop-color='#12314B'/>
-    <stop offset='100%' stop-color='#173B58'/>
-  </linearGradient>
-  <linearGradient id='bandA' x1='0%' y1='0%' x2='100%' y2='0%'>
-    <stop offset='0%' stop-color='#071F2A'/>
-    <stop offset='100%' stop-color='#0B2B39'/>
-  </linearGradient>
-  <linearGradient id='bandB' x1='0%' y1='0%' x2='100%' y2='0%'>
-    <stop offset='0%' stop-color='#0C132C'/>
-    <stop offset='100%' stop-color='#111C3F'/>
-  </linearGradient>
-  <linearGradient id='bandC' x1='0%' y1='0%' x2='100%' y2='0%'>
-    <stop offset='0%' stop-color='#101721'/>
-    <stop offset='100%' stop-color='#162232'/>
-  </linearGradient>
-  <radialGradient id='dockerGlow' cx='50%' cy='50%' r='50%'>
-    <stop offset='0%' stop-color='#38BDF8' stop-opacity='0.55'/>
-    <stop offset='100%' stop-color='#38BDF8' stop-opacity='0'/>
-  </radialGradient>
-  <radialGradient id='k8sGlow' cx='50%' cy='50%' r='50%'>
-    <stop offset='0%' stop-color='#60A5FA' stop-opacity='0.55'/>
-    <stop offset='100%' stop-color='#60A5FA' stop-opacity='0'/>
-  </radialGradient>
-  <radialGradient id='opsGlow' cx='50%' cy='50%' r='50%'>
-    <stop offset='0%' stop-color='#22C55E' stop-opacity='0.45'/>
-    <stop offset='100%' stop-color='#22C55E' stop-opacity='0'/>
-  </radialGradient>
-  <filter id='softShadow' x='-10%' y='-10%' width='130%' height='130%'>
-    <feGaussianBlur in='SourceAlpha' stdDeviation='2.5'/>
-    <feOffset dx='1' dy='3'/>
-    <feComponentTransfer><feFuncA type='linear' slope='0.55'/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge>
-  </filter>
-  <filter id='textShadow' x='-5%' y='-5%' width='110%' height='110%'>
-    <feGaussianBlur in='SourceAlpha' stdDeviation='1.2'/>
-    <feOffset dx='0' dy='1.5'/>
-    <feComponentTransfer><feFuncA type='linear' slope='0.85'/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge>
-  </filter>
-  <pattern id='gridA' x='0' y='0' width='40' height='20' patternUnits='userSpaceOnUse'>
-    <path d='M0 20 L40 20' stroke='#123344' stroke-width='0.4' opacity='0.55'/>
-    <path d='M40 0 L40 20' stroke='#123344' stroke-width='0.4' opacity='0.55'/>
-  </pattern>
-  <pattern id='gridB' x='0' y='0' width='18' height='18' patternUnits='userSpaceOnUse'>
-    <circle cx='9' cy='9' r='0.8' fill='#22356A' opacity='0.55'/>
-  </pattern>
-  <pattern id='gridC' x='0' y='0' width='16' height='16' patternUnits='userSpaceOnUse'>
-    <circle cx='8' cy='8' r='0.75' fill='#22433A' opacity='0.55'/>
-  </pattern>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>7 7 DOCKER KUBERNETES DEVSECOPS</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#60a5fa" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#60a5fa" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#1d4ed8" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="760" y="116" width="352" height="312" rx="28" fill="url(#panel)" stroke="#60a5fa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="778" y="134" width="316" height="276" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="782" y="136" width="108" height="12" rx="6" fill="#60a5fa" opacity="0.28"/>
+  <rect x="904" y="136" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="988" y="136" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M712 178 C780 150 850 150 936 190" fill="none" stroke="#60a5fa" stroke-width="1.3" opacity="0.26"/>
+  <path d="M724 414 C796 438 870 438 948 398" fill="none" stroke="#c084fc" stroke-width="1.2" opacity="0.22"/>
 
-<rect width='1200' height='630' fill='url(#bgSpread)'/>
-<rect x='0' y='0' width='1200' height='4' fill='#38BDF8' opacity='0.7'/>
-<text x='1180' y='28' text-anchor='end' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' letter-spacing='1.6' fill='#9FB7D9'>COHORT 7  WEEK 7</text>
+  <g transform="translate(936,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#60a5fa" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#60a5fa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-<g>
-  <rect x='0' y='0' width='1200' height='210' fill='url(#bandA)'/>
-  <rect x='0' y='0' width='1200' height='210' fill='url(#gridA)' opacity='0.55'/>
-  <rect x='0' y='0' width='8' height='210' fill='#38BDF8'/>
-
-  <g filter='url(#textShadow)'>
-    <text x='30' y='44' font-family='Inter, Helvetica, Arial, sans-serif' font-size='18' font-weight='700' letter-spacing='2.4' fill='#67E8F9'>DOCKER FUNDAMENTALS</text>
-    <text x='30' y='86' font-family='Inter, Helvetica, Arial, sans-serif' font-size='36' font-weight='800' fill='#F5F7FA'>Cloud Security Course : Docker Basics</text>
-    <text x='30' y='118' font-family='Inter, Helvetica, Arial, sans-serif' font-size='20' font-weight='600' fill='#A5F3FC'>Image layers : container runtime : registry flow</text>
-    <text x='30' y='146' font-family='Inter, Helvetica, Arial, sans-serif' font-size='15' font-weight='500' fill='#B7CBDD'>Build once : run anywhere : isolate process, filesystem, network</text>
-    <text x='30' y='172' font-family='Inter, Helvetica, Arial, sans-serif' font-size='13' font-weight='600' fill='#7FA7C6'>TOPIC A</text>
+    <polygon points="0,-45 40,-20 40,20 0,45 -40,20 -40,-20" fill="none" stroke="#60a5fa" stroke-width="3"/>
+    <circle r="12" fill="#60a5fa" opacity="0.3"/>
+    <line x1="0" y1="-12" x2="0" y2="-38" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="10" y1="6" x2="34" y2="16" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="-10" y1="6" x2="-34" y2="16" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="0" cy="-38" r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
+    <circle cx="-34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
   </g>
-
-  <g transform='translate(575,104)'>
-    <circle cx='0' cy='0' r='88' fill='url(#dockerGlow)'>
-      <animate attributeName='r' values='64;94;64' dur='3.2s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.45;0.12;0.45' dur='3.2s' repeatCount='indefinite'/>
-    </circle>
-
-    <g filter='url(#softShadow)'>
-      <rect x='-182' y='-40' width='92' height='44' rx='8' fill='#0A2431' stroke='#38BDF8' stroke-width='1.7'/>
-      <text x='-136' y='-16' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#A5F3FC'>SOURCE</text>
-      <text x='-136' y='0' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#9CC7D9'>app code</text>
-
-      <line x1='-90' y1='-18' x2='-66' y2='-18' stroke='#38BDF8' stroke-width='1.5'/>
-      <polygon points='-66,-22 -58,-18 -66,-14' fill='#38BDF8'/>
-
-      <rect x='-58' y='-52' width='112' height='68' rx='10' fill='url(#heroPanel)' stroke='#67E8F9' stroke-width='2.2'/>
-      <text x='-2' y='-26' text-anchor='middle' font-family='Inter, monospace' font-size='12' font-weight='800' fill='#E0F7FF'>DOCKER BUILD</text>
-      <text x='-2' y='-8' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C0E8F7'>FROM base</text>
-      <text x='-2' y='7' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C0E8F7'>COPY deps</text>
-      <text x='-2' y='22' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C0E8F7'>RUN app</text>
-
-      <rect x='-38' y='34' width='80' height='12' rx='3' fill='#0F3344' stroke='#67E8F9' stroke-width='1'/>
-      <rect x='-34' y='30' width='72' height='10' rx='3' fill='#12465D' stroke='#8BE4FF' stroke-width='1'/>
-      <rect x='-30' y='18' width='64' height='10' rx='3' fill='#16708D' stroke='#B5EEFF' stroke-width='1'/>
-      <text x='2' y='61' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B5EEFF'>layer stack</text>
-
-      <line x1='54' y1='-18' x2='80' y2='-18' stroke='#38BDF8' stroke-width='1.5'/>
-      <polygon points='80,-22 88,-18 80,-14' fill='#38BDF8'/>
-
-      <rect x='88' y='-40' width='92' height='44' rx='8' fill='#0A2431' stroke='#22C55E' stroke-width='1.7'/>
-      <text x='134' y='-16' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#86EFAC'>CONTAINER</text>
-      <text x='134' y='0' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#9FD6B7'>runtime</text>
-    </g>
-
-    <circle r='4' fill='#38BDF8' opacity='0.95'>
-      <animateMotion path='M-182,-18 L180,-18' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0;1;1;0' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#60a5fa" opacity="0.2" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#60a5fa" text-anchor="middle">KUBERNETES</text>
   </g>
-
-  <g transform='translate(990,105)' filter='url(#softShadow)'>
-    <rect x='-80' y='-65' width='180' height='125' rx='14' fill='#071821' stroke='#38BDF8' stroke-width='2.2'/>
-    <text x='10' y='-32' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='13' font-weight='700' letter-spacing='2' fill='#67E8F9'>WEEK</text>
-    <text x='10' y='26' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='68' font-weight='900' fill='#F5F7FA'>07</text>
-    <text x='10' y='50' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='600' fill='#A5F3FC'>docker intro</text>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">7 7 DOCKER KUBERNETES</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">DEVSECOPS</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">DEVSECOPS / KUBERNETES / CLOUD</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM EAC79BC955BD</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="124" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
   </g>
-
-  <g fill='#38BDF8' opacity='0.5'>
-    <circle cx='412' cy='178' r='1.5'/>
-    <circle cx='474' cy='178' r='1.5'/>
-    <circle cx='536' cy='178' r='1.5'/>
+  <g transform="translate(222 474)">
+    <rect width="134" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">KUBERNETES</text>
   </g>
-</g>
-
-<g>
-  <rect x='0' y='210' width='1200' height='210' fill='url(#bandB)'/>
-  <rect x='0' y='210' width='1200' height='210' fill='url(#gridB)' opacity='0.7'/>
-  <rect x='0' y='210' width='8' height='210' fill='#60A5FA'/>
-
-  <g filter='url(#textShadow)'>
-    <text x='30' y='254' font-family='Inter, Helvetica, Arial, sans-serif' font-size='18' font-weight='700' letter-spacing='2.4' fill='#93C5FD'>KUBERNETES ARCHITECTURE</text>
-    <text x='30' y='296' font-family='Inter, Helvetica, Arial, sans-serif' font-size='36' font-weight='800' fill='#F5F7FA'>Control Plane : Nodes : Pods</text>
-    <text x='30' y='328' font-family='Inter, Helvetica, Arial, sans-serif' font-size='20' font-weight='600' fill='#BFDBFE'>API server : scheduler : controller manager</text>
-    <text x='30' y='356' font-family='Inter, Helvetica, Arial, sans-serif' font-size='15' font-weight='500' fill='#C6D5EE'>Desired state meets runtime state through declarative orchestration</text>
+  <g transform="translate(370 474)">
+    <rect width="110" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
   </g>
-
-  <g transform='translate(700,315)'>
-    <circle cx='0' cy='0' r='94' fill='url(#k8sGlow)'>
-      <animate attributeName='r' values='68;100;68' dur='3.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.4;0.1;0.4' dur='3.6s' repeatCount='indefinite'/>
-    </circle>
-
-    <g filter='url(#softShadow)'>
-      <polygon points='0,-54 46,-27 46,27 0,54 -46,27 -46,-27' fill='#0F1C3F' stroke='#60A5FA' stroke-width='2.2'/>
-      <text x='0' y='-18' text-anchor='middle' font-family='Inter, monospace' font-size='12' font-weight='800' fill='#BFDBFE'>CONTROL</text>
-      <text x='0' y='-2' text-anchor='middle' font-family='Inter, monospace' font-size='12' font-weight='800' fill='#BFDBFE'>PLANE</text>
-      <text x='0' y='18' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#9FC3FF'>desired state</text>
-
-      <rect x='-160' y='-38' width='92' height='54' rx='8' fill='#0D1734' stroke='#60A5FA' stroke-width='1.7'/>
-      <text x='-114' y='-16' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#93C5FD'>API</text>
-      <text x='-114' y='0' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B9D4FF'>server</text>
-      <text x='-114' y='15' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B9D4FF'>authz</text>
-
-      <rect x='68' y='-38' width='92' height='54' rx='8' fill='#0D1734' stroke='#60A5FA' stroke-width='1.7'/>
-      <text x='114' y='-16' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#93C5FD'>SCHED</text>
-      <text x='114' y='0' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B9D4FF'>placement</text>
-      <text x='114' y='15' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B9D4FF'>fit</text>
-
-      <rect x='-176' y='54' width='106' height='66' rx='10' fill='#0B1836' stroke='#22C55E' stroke-width='1.8'/>
-      <text x='-123' y='76' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#86EFAC'>NODE A</text>
-      <text x='-123' y='93' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B6E9C3'>pod 1</text>
-      <text x='-123' y='108' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B6E9C3'>pod 2</text>
-
-      <rect x='70' y='54' width='106' height='66' rx='10' fill='#0B1836' stroke='#22C55E' stroke-width='1.8'/>
-      <text x='123' y='76' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#86EFAC'>NODE B</text>
-      <text x='123' y='93' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B6E9C3'>pod 3</text>
-      <text x='123' y='108' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#B6E9C3'>pod 4</text>
-
-      <line x1='-68' y1='-10' x2='-46' y2='-10' stroke='#60A5FA' stroke-width='1.5' stroke-dasharray='3 2'/>
-      <line x1='46' y1='-10' x2='68' y2='-10' stroke='#60A5FA' stroke-width='1.5' stroke-dasharray='3 2'/>
-      <line x1='-10' y1='54' x2='-70' y2='74' stroke='#22C55E' stroke-width='1.3' stroke-dasharray='3 3'/>
-      <line x1='10' y1='54' x2='70' y2='74' stroke='#22C55E' stroke-width='1.3' stroke-dasharray='3 3'/>
-    </g>
-
-    <circle r='4' fill='#60A5FA' opacity='0.95'>
-      <animateMotion path='M-160,-10 L-46,-10 L0,-10 L114,-10' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0;1;1;0' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle r='4' fill='#22C55E' opacity='0.95'>
-      <animateMotion path='M0,54 L-123,86' dur='2.3s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0;1;1;0' dur='2.3s' repeatCount='indefinite'/>
-    </circle>
-    <circle r='4' fill='#22C55E' opacity='0.95'>
-      <animateMotion path='M0,54 L123,86' dur='2.3s' begin='0.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0;1;1;0' dur='2.3s' begin='0.6s' repeatCount='indefinite'/>
-    </circle>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">KUBERNETES</text>
   </g>
-
-  <g transform='translate(990,315)' filter='url(#softShadow)'>
-    <rect x='-80' y='-65' width='180' height='125' rx='14' fill='#0A1127' stroke='#60A5FA' stroke-width='2.2'/>
-    <text x='10' y='-30' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='13' font-weight='700' letter-spacing='2' fill='#93C5FD'>FOCUS</text>
-    <text x='10' y='20' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='40' font-weight='900' fill='#F5F7FA'>K8s</text>
-    <text x='10' y='46' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='600' fill='#BFDBFE'>cluster model</text>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
-
-  <g fill='#60A5FA' opacity='0.5'>
-    <circle cx='486' cy='265' r='1.2'/>
-    <circle cx='526' cy='270' r='1.2'/>
-    <circle cx='566' cy='265' r='1.2'/>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">06</text>
   </g>
-</g>
-
-<g>
-  <rect x='0' y='420' width='1200' height='210' fill='url(#bandC)'/>
-  <rect x='0' y='420' width='1200' height='210' fill='url(#gridC)' opacity='0.65'/>
-  <rect x='0' y='420' width='8' height='210' fill='#22C55E'/>
-
-  <g filter='url(#textShadow)'>
-    <text x='30' y='464' font-family='Inter, Helvetica, Arial, sans-serif' font-size='18' font-weight='700' letter-spacing='2.4' fill='#4ADE80'>SECURITY AND OPERATIONS</text>
-    <text x='30' y='506' font-family='Inter, Helvetica, Arial, sans-serif' font-size='36' font-weight='800' fill='#F5F7FA'>Deploy : Service : Scale : Observe</text>
-    <text x='30' y='538' font-family='Inter, Helvetica, Arial, sans-serif' font-size='20' font-weight='600' fill='#86EFAC'>Namespace boundaries : rollout flow : least privilege habits</text>
-    <text x='30' y='566' font-family='Inter, Helvetica, Arial, sans-serif' font-size='15' font-weight='500' fill='#C4D3D0'>From local container practice to cluster level operational thinking</text>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
   </g>
-
-  <g transform='translate(540,526)'>
-    <circle cx='132' cy='0' r='76' fill='url(#opsGlow)'>
-      <animate attributeName='r' values='56;84;56' dur='3.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.42;0.05;0.42' dur='3.8s' repeatCount='indefinite'/>
-    </circle>
-
-    <g filter='url(#softShadow)'>
-      <rect x='-92' y='-34' width='92' height='54' rx='8' fill='#0B1D18' stroke='#22C55E' stroke-width='1.7'/>
-      <text x='-46' y='-12' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#86EFAC'>DEPLOY</text>
-      <text x='-46' y='5' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C7F2D3'>replicas</text>
-      <text x='-46' y='19' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C7F2D3'>rollout</text>
-
-      <line x1='0' y1='-8' x2='24' y2='-8' stroke='#22C55E' stroke-width='1.5' stroke-dasharray='3 2'/>
-      <polygon points='24,-12 30,-8 24,-4' fill='#22C55E'/>
-
-      <rect x='30' y='-40' width='110' height='66' rx='10' fill='#102228' stroke='#4ADE80' stroke-width='2'/>
-      <text x='85' y='-18' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#BBF7D0'>SERVICE MESH</text>
-      <text x='85' y='0' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#D6FBE1'>traffic</text>
-      <text x='85' y='15' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#D6FBE1'>stable vip</text>
-
-      <line x1='140' y1='-8' x2='166' y2='-8' stroke='#22C55E' stroke-width='1.5' stroke-dasharray='3 2'/>
-      <polygon points='166,-12 172,-8 166,-4' fill='#22C55E'/>
-
-      <rect x='172' y='-34' width='92' height='54' rx='8' fill='#0B1D18' stroke='#22C55E' stroke-width='1.7'/>
-      <text x='218' y='-12' text-anchor='middle' font-family='Inter, monospace' font-size='11' font-weight='800' fill='#86EFAC'>OBSERVE</text>
-      <text x='218' y='5' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C7F2D3'>logs</text>
-      <text x='218' y='19' text-anchor='middle' font-family='Inter, monospace' font-size='9' fill='#C7F2D3'>events</text>
-
-      <rect x='54' y='48' width='62' height='30' rx='6' fill='#0E1B22' stroke='#60A5FA' stroke-width='1.3'/>
-      <text x='85' y='67' text-anchor='middle' font-family='Inter, monospace' font-size='10' font-weight='800' fill='#93C5FD'>POD A</text>
-
-      <rect x='128' y='48' width='62' height='30' rx='6' fill='#0E1B22' stroke='#60A5FA' stroke-width='1.3'/>
-      <text x='159' y='67' text-anchor='middle' font-family='Inter, monospace' font-size='10' font-weight='800' fill='#93C5FD'>POD B</text>
-
-      <line x1='85' y1='26' x2='85' y2='48' stroke='#60A5FA' stroke-width='1.2' stroke-dasharray='3 2'/>
-      <line x1='159' y1='26' x2='159' y2='48' stroke='#60A5FA' stroke-width='1.2' stroke-dasharray='3 2'/>
-    </g>
-
-    <circle r='4' fill='#22C55E' opacity='0.95'>
-      <animateMotion path='M-92,-8 L264,-8' dur='3.0s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0;1;1;0' dur='3.0s' repeatCount='indefinite'/>
-    </circle>
-  </g>
-
-  <g transform='translate(990,525)' filter='url(#softShadow)'>
-    <rect x='-80' y='-65' width='180' height='125' rx='14' fill='#081511' stroke='#22C55E' stroke-width='2.2'/>
-    <text x='10' y='-30' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='13' font-weight='700' letter-spacing='2' fill='#4ADE80'>LAB</text>
-    <text x='10' y='12' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='28' font-weight='900' fill='#F5F7FA'>Docker</text>
-    <text x='10' y='38' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='28' font-weight='900' fill='#F5F7FA'>K8s</text>
-    <text x='10' y='58' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='600' fill='#86EFAC'>ops mindset</text>
-  </g>
-
-  <g fill='#22C55E' opacity='0.5'>
-    <circle cx='300' cy='450' r='1.5'/>
-    <circle cx='370' cy='450' r='1.5'/>
-    <circle cx='440' cy='450' r='1.5'/>
-    <circle cx='510' cy='450' r='1.5'/>
-  </g>
-</g>
-
-<line x1='0' y1='210' x2='1200' y2='210' stroke='#1D2940' stroke-width='1.5'/>
-<line x1='0' y1='420' x2='1200' y2='420' stroke='#1D2940' stroke-width='1.5'/>
-
-<g transform='translate(42,592)' filter='url(#textShadow)'>
-  <text x='0' y='0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='700' fill='#D8E4F1'>Cloud Security Course Cohort 7</text>
-  <text x='248' y='0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='700' fill='#8FB7D9'>week seven</text>
-  <text x='336' y='0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='700' fill='#67E8F9'>docker</text>
-  <text x='392' y='0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='700' fill='#93C5FD'>kubernetes</text>
-  <text x='488' y='0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='700' fill='#86EFAC'>foundations</text>
-</g>
-
-<g transform='translate(1044,534)' filter='url(#softShadow)'>
-  <rect x='-8' y='-8' width='108' height='84' rx='8' fill='#FFFFFF'/>
-  <rect x='4' y='4' width='80' height='56' rx='4' fill='#F3F6FA'/>
-  <text x='44' y='28' text-anchor='middle' font-family='Inter, monospace' font-size='12' font-weight='700' fill='#93A4B8'>SCAN</text>
-  <text x='44' y='44' text-anchor='middle' font-family='Inter, monospace' font-size='10' fill='#93A4B8'>FULL POST</text>
-</g>
-<text x='1096' y='618' text-anchor='middle' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' fill='#F5F7FA'>scan / full post</text>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

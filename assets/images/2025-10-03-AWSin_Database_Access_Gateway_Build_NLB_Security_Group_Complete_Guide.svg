@@ -1,322 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role='img' aria-label="High quality cover for AWS database access gateway with network load balancer and security groups">
-<title>AWS database access gateway cover with NLB and security group layered design</title>
-<!-- profile: high-quality-cover (2025 upgraded) -->
-<defs>
-  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#07111F"/>
-    <stop offset="45%" stop-color="#0A1830"/>
-    <stop offset="100%" stop-color="#141734"/>
-  </linearGradient>
-  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#113846" stop-opacity="0.82"/>
-    <stop offset="55%" stop-color="#10253D" stop-opacity="0.9"/>
-    <stop offset="100%" stop-color="#2A1638" stop-opacity="0.86"/>
-  </linearGradient>
-  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#0A2019"/>
-    <stop offset="100%" stop-color="#0E2A27"/>
-  </linearGradient>
-  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#22130C"/>
-    <stop offset="100%" stop-color="#27110E"/>
-  </linearGradient>
-  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#0B1129"/>
-    <stop offset="100%" stop-color="#141339"/>
-  </linearGradient>
-  <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.62"/>
-    <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowB" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.6"/>
-    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowC" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#818CF8" stop-opacity="0.58"/>
-    <stop offset="100%" stop-color="#818CF8" stop-opacity="0"/>
-  </radialGradient>
-  <filter id="softShadow" x="-12%" y="-12%" width="128%" height="128%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
-    <feOffset dx="1" dy="3"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.55"/>
-    </feComponentTransfer>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-  <filter id="textShadow" x="-6%" y="-6%" width="112%" height="112%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
-    <feOffset dx="0" dy="1.5"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.82"/>
-    </feComponentTransfer>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-  <pattern id="gridA" x="0" y="0" width="42" height="18" patternUnits="userSpaceOnUse">
-    <path d="M0 18 L42 18" stroke="#18453E" stroke-width="0.45" opacity="0.48"/>
-    <path d="M42 0 L42 18" stroke="#18453E" stroke-width="0.45" opacity="0.48"/>
-  </pattern>
-  <pattern id="dotB" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
-    <circle cx="9" cy="9" r="0.8" fill="#5A2D14" opacity="0.48"/>
-  </pattern>
-  <pattern id="lineC" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-    <path d="M0 24 L24 0" stroke="#242C5A" stroke-width="0.45" opacity="0.45"/>
-  </pattern>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>AWS NLB + SECURITY GROUP</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#34d399" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#34d399" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#059669" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="720" y="132" width="388" height="292" rx="28" fill="url(#panel)" stroke="#34d399" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="742" y="152" width="108" height="12" rx="6" fill="#34d399" opacity="0.28"/>
+  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#67e8f9" stroke-width="1.3" opacity="0.24"/>
+  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.22"/>
 
-<rect width="1200" height="630" fill="url(#bgSpread)"/>
-<rect x="394" y="42" width="474" height="546" rx="28" fill="url(#heroPanel)" opacity="0.24" stroke="#6EE7D8" stroke-opacity="0.22" stroke-width="1.2"/>
-<rect x="0" y="0" width="1200" height="4" fill="#2DD4BF" opacity="0.72"/>
+  <g transform="translate(914,278)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#34d399" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#34d399" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-<g>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#bandA)"/>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#gridA)" opacity="0.68"/>
-  <rect x="0" y="0" width="8" height="210" fill="#2DD4BF"/>
-</g>
-
-<g>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#dotB)" opacity="0.72"/>
-  <rect x="0" y="210" width="8" height="210" fill="#F59E0B"/>
-</g>
-
-<g>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#lineC)" opacity="0.68"/>
-  <rect x="0" y="420" width="8" height="210" fill="#818CF8"/>
-</g>
-
-<line x1="0" y1="210" x2="1200" y2="210" stroke="#1C2A38" stroke-width="1.4"/>
-<line x1="0" y1="420" x2="1200" y2="420" stroke="#1C2A38" stroke-width="1.4"/>
-
-<text x="1176" y="26" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6" fill="#A5F3FC">CLOUD GUIDE</text>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="46" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.3" fill="#5EEAD4">SAFE DB ENTRY</text>
-  <text x="30" y="88" font-family="Inter, Helvetica, Arial, sans-serif" font-size="35" font-weight="800" fill="#F5F7FA">AWS Database Access Gateway</text>
-  <text x="30" y="120" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#99F6E4">NLB + Security Group</text>
-  <text x="30" y="148" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C7D7DE">Preserve source IP : narrow blast radius : private data path</text>
-  <text x="30" y="172" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#94A3B8">Pattern for secure service to database traffic</text>
-</g>
-
-<g transform="translate(0,0)">
-  <circle cx="652" cy="108" r="88" fill="url(#glowA)">
-    <animate attributeName="r" values="68;96;68" dur="3.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.45;0.14;0.45" dur="3.2s" repeatCount="indefinite"/>
-  </circle>
-
-  <g filter="url(#softShadow)">
-    <rect x="438" y="72" width="106" height="74" rx="10" fill="#0B1817" stroke="#2DD4BF" stroke-width="1.8"/>
-    <circle cx="461" cy="94" r="5" fill="#2DD4BF" opacity="0.78"/>
-    <circle cx="478" cy="94" r="5" fill="#2DD4BF" opacity="0.5"/>
-    <circle cx="495" cy="94" r="5" fill="#2DD4BF" opacity="0.34"/>
-    <text x="491" y="118" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#5EEAD4">APP TIER</text>
-    <text x="491" y="136" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#BAF7EE">ECS EKS EC2</text>
-
-    <rect x="596" y="68" width="112" height="82" rx="12" fill="#0C1720" stroke="#67E8F9" stroke-width="2"/>
-    <rect x="620" y="88" width="64" height="10" rx="5" fill="#0F2A35"/>
-    <circle cx="620" cy="112" r="7" fill="#67E8F9" opacity="0.8"/>
-    <circle cx="652" cy="112" r="7" fill="#67E8F9" opacity="0.55"/>
-    <circle cx="684" cy="112" r="7" fill="#67E8F9" opacity="0.35"/>
-    <text x="652" y="94" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#A5F3FC">NLB</text>
-    <text x="652" y="136" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#CDEFF5">TCP pass through</text>
-
-    <path d="M808 74 L840 86 L840 112 C840 131 827 144 808 152 C789 144 776 131 776 112 L776 86 Z" fill="#12211D" stroke="#34D399" stroke-width="2"/>
-    <path d="M808 90 L808 128" stroke="#86EFAC" stroke-width="3"/>
-    <path d="M792 104 L824 104" stroke="#86EFAC" stroke-width="3"/>
-    <text x="808" y="94" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#4ADE80">SG</text>
-    <text x="808" y="142" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#C7F9D8">allowlist</text>
-
-    <rect x="884" y="72" width="110" height="74" rx="10" fill="#12161D" stroke="#93C5FD" stroke-width="1.8"/>
-    <ellipse cx="939" cy="90" rx="22" ry="8" fill="#1A2330" stroke="#93C5FD" stroke-width="1.1"/>
-    <rect x="917" y="90" width="44" height="24" fill="#1A2330" stroke="#93C5FD" stroke-width="1.1"/>
-    <ellipse cx="939" cy="114" rx="22" ry="8" fill="#1A2330" stroke="#93C5FD" stroke-width="1.1"/>
-    <text x="939" y="126" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#BFDBFE">DB</text>
-    <text x="939" y="140" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#DCEAFE">RDS Aurora</text>
+    <path d="M-30,15 C-50,15 -55,0 -55,-12 C-55,-28 -42,-38 -28,-38 C-22,-52 -8,-60 8,-60 C28,-60 42,-48 44,-38 C56,-38 64,-28 64,-16 C64,0 56,15 38,15 Z" fill="none" stroke="#34d399" stroke-width="3"/>
+    <line x1="-20" y1="30" x2="-20" y2="45" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="10" y1="30" x2="10" y2="50" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="35" y1="30" x2="35" y2="42" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <rect x="-30" y="48" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="0" y="52" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+    <rect x="25" y="45" width="20" height="14" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
   </g>
-
-  <line x1="544" y1="109" x2="596" y2="109" stroke="#2DD4BF" stroke-width="2.2"/>
-  <polygon points="596,104 604,109 596,114" fill="#2DD4BF"/>
-  <line x1="708" y1="109" x2="776" y2="109" stroke="#34D399" stroke-width="2.2"/>
-  <polygon points="776,104 784,109 776,114" fill="#34D399"/>
-  <line x1="840" y1="109" x2="884" y2="109" stroke="#93C5FD" stroke-width="2.2"/>
-  <polygon points="884,104 892,109 884,114" fill="#93C5FD"/>
-
-  <circle r="4" fill="#2DD4BF" opacity="0.92">
-    <animateMotion path="M544 109 L994 109" dur="2.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-
-  <text x="570" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#8CF6E8">TCP 5432</text>
-  <text x="650" y="166" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#BAF7EE">source IP kept</text>
-  <text x="808" y="166" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#BBF7D0">app only</text>
-  <text x="938" y="166" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#DCEAFE">private subnets</text>
-  <text x="617" y="58" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#7DD3FC">target group</text>
-  <text x="620" y="153" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#7DD3FC">az-a</text>
-  <text x="684" y="153" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#7DD3FC">az-b</text>
-</g>
-
-<g transform="translate(990,105)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="184" height="126" rx="14" fill="#081312" stroke="#2DD4BF" stroke-width="2.2"/>
-  <text x="12" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#5EEAD4">PATTERN</text>
-  <text x="12" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">NLB + SG</text>
-  <text x="12" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#99F6E4">L4 CONTROL</text>
-  <text x="12" y="54" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#A5F3FC">AWS</text>
-</g>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="256" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.3" fill="#FBBF24">POLICY LAYER</text>
-  <text x="30" y="298" font-family="Inter, Helvetica, Arial, sans-serif" font-size="35" font-weight="800" fill="#F5F7FA">Security Group Guardrails</text>
-  <text x="30" y="330" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#FCD34D">Allow only app tiers : health checks : db ports</text>
-  <text x="30" y="358" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C8B8">Block wide CIDR and keep entry points explicit</text>
-</g>
-
-<g transform="translate(0,0)">
-  <circle cx="670" cy="315" r="92" fill="url(#glowB)">
-    <animate attributeName="r" values="68;98;68" dur="3.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.44;0.12;0.44" dur="3.6s" repeatCount="indefinite"/>
-  </circle>
-
-  <g filter="url(#softShadow)">
-    <rect x="458" y="256" width="426" height="118" rx="14" fill="#1C120D" stroke="#F59E0B" stroke-width="2"/>
-    <line x1="570" y1="256" x2="570" y2="374" stroke="#6B3A1D" stroke-width="1"/>
-    <line x1="676" y1="256" x2="676" y2="374" stroke="#6B3A1D" stroke-width="1"/>
-    <line x1="764" y1="256" x2="764" y2="374" stroke="#6B3A1D" stroke-width="1"/>
-    <line x1="458" y1="286" x2="884" y2="286" stroke="#6B3A1D" stroke-width="1"/>
-    <line x1="458" y1="315" x2="884" y2="315" stroke="#6B3A1D" stroke-width="1"/>
-    <line x1="458" y1="344" x2="884" y2="344" stroke="#6B3A1D" stroke-width="1"/>
-
-    <text x="514" y="276" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FCD34D">RULE</text>
-    <text x="622" y="276" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FCD34D">SOURCE</text>
-    <text x="720" y="276" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FCD34D">PORT</text>
-    <text x="824" y="276" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FCD34D">ACTION</text>
-
-    <text x="514" y="305" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#F5F7FA">app-sg</text>
-    <text x="622" y="305" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">app tier</text>
-    <text x="720" y="305" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">5432</text>
-    <text x="824" y="305" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#4ADE80">allow</text>
-
-    <text x="514" y="334" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#F5F7FA">hc-sg</text>
-    <text x="622" y="334" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">health</text>
-    <text x="720" y="334" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">5432</text>
-    <text x="824" y="334" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#4ADE80">allow</text>
-
-    <rect x="775" y="349" width="98" height="20" rx="10" fill="#2B0909" stroke="#EF4444" stroke-width="1.2"/>
-    <text x="514" y="363" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#F5F7FA">0.0.0.0/0</text>
-    <text x="622" y="363" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">public</text>
-    <text x="720" y="363" text-anchor="middle" font-family="Inter, monospace" font-size="11" fill="#E7DDD1">any</text>
-    <text x="824" y="363" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F87171">deny</text>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#34d399" opacity="0.2" stroke="#34d399" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle">CLOUD</text>
   </g>
-
-  <g filter="url(#softShadow)">
-    <path d="M912 266 L944 278 L944 304 C944 323 931 336 912 344 C893 336 880 323 880 304 L880 278 Z" fill="#261A09" stroke="#FBBF24" stroke-width="1.8"/>
-    <path d="M912 286 L912 320" stroke="#FCD34D" stroke-width="3"/>
-    <path d="M896 302 L928 302" stroke="#FCD34D" stroke-width="3"/>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">AWS NLB + SECURITY</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">GROUP</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">ZERO TRUST / CLOUD / SECURITY</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 4789CADA6EB3</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="134" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">ZERO TRUST</text>
   </g>
-
-  <circle cx="842" cy="359" r="4" fill="#EF4444">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/>
-  </circle>
-
-  <text x="913" y="366" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">sg inbound</text>
-  <text x="913" y="382" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">sg outbound</text>
-  <text x="458" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">stateful</text>
-  <text x="548" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">least privilege</text>
-</g>
-
-<g transform="translate(990,315)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="184" height="126" rx="14" fill="#1B0F09" stroke="#F59E0B" stroke-width="2.2"/>
-  <text x="12" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FCD34D">CHECKS</text>
-  <text x="12" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">3 RULES</text>
-  <text x="12" y="38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FDBA74">NO PUBLIC</text>
-</g>
-
-<g filter="url(#textShadow)">
-  <text x="30" y="466" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.3" fill="#A5B4FC">PRIVATE DATA PLANE</text>
-  <text x="30" y="508" font-family="Inter, Helvetica, Arial, sans-serif" font-size="35" font-weight="800" fill="#F5F7FA">RDS or Aurora in Private Subnets</text>
-  <text x="30" y="540" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#C7D2FE">Multi AZ target group : failover ready : audit friendly</text>
-  <text x="30" y="568" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C8D1F1">Logs, routes, and IAM boundaries stay separate</text>
-</g>
-
-<g transform="translate(0,0)">
-  <circle cx="680" cy="523" r="88" fill="url(#glowC)">
-    <animate attributeName="r" values="66;94;66" dur="3.9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.42;0.1;0.42" dur="3.9s" repeatCount="indefinite"/>
-  </circle>
-
-  <g filter="url(#softShadow)">
-    <rect x="500" y="470" width="98" height="88" rx="12" fill="#0D1530" stroke="#818CF8" stroke-width="1.8"/>
-    <text x="549" y="496" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#A5B4FC">reader-a</text>
-    <text x="549" y="514" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#D6DBFF">replica</text>
-
-    <rect x="760" y="470" width="98" height="88" rx="12" fill="#0D1530" stroke="#818CF8" stroke-width="1.8"/>
-    <text x="809" y="496" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#A5B4FC">reader-b</text>
-    <text x="809" y="514" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#D6DBFF">replica</text>
-
-    <polygon points="680,462 724,488 724,540 680,566 636,540 636,488" fill="#11183D" stroke="#A5B4FC" stroke-width="2"/>
-    <ellipse cx="680" cy="499" rx="26" ry="9" fill="#162048" stroke="#A5B4FC" stroke-width="1"/>
-    <rect x="654" y="499" width="52" height="26" fill="#162048" stroke="#A5B4FC" stroke-width="1"/>
-    <ellipse cx="680" cy="525" rx="26" ry="9" fill="#162048" stroke="#A5B4FC" stroke-width="1"/>
-    <text x="680" y="487" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#C7D2FE">writer</text>
-    <text x="680" y="548" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#E0E7FF">primary</text>
-
-    <rect x="468" y="566" width="116" height="26" rx="13" fill="#0A1026" stroke="#6366F1" stroke-width="1.4"/>
-    <rect x="620" y="566" width="120" height="26" rx="13" fill="#0A1026" stroke="#6366F1" stroke-width="1.4"/>
-    <text x="526" y="583" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A5B4FC">subnet-a</text>
-    <text x="680" y="583" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A5B4FC">subnet-b</text>
-
-    <rect x="414" y="500" width="74" height="54" rx="10" fill="#0A1124" stroke="#60A5FA" stroke-width="1.5"/>
-    <path d="M434 532 L446 520 L458 532 L470 520" stroke="#60A5FA" stroke-width="2" fill="none"/>
-    <text x="451" y="548" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">route</text>
-
-    <rect x="892" y="482" width="108" height="72" rx="12" fill="#0B1326" stroke="#7C93FF" stroke-width="1.5"/>
-    <text x="946" y="505" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#A5B4FC">flow logs</text>
-    <text x="946" y="522" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#D6DBFF">cw logs</text>
-    <path d="M922 535 L934 523 L944 531 L956 519 L968 531" stroke="#A5B4FC" stroke-width="1.5" fill="none"/>
-
-    <path d="M598 514 L636 514" stroke="#818CF8" stroke-width="1.8" stroke-dasharray="4 3"/>
-    <path d="M724 514 L760 514" stroke="#818CF8" stroke-width="1.8" stroke-dasharray="4 3"/>
-    <path d="M680 566 L680 592" stroke="#818CF8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <g transform="translate(232 474)">
+    <rect width="110" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
   </g>
-
-  <circle r="4" fill="#A5B4FC" opacity="0.95">
-    <animateMotion path="M598 514 L760 514" dur="2.7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;0" dur="2.7s" repeatCount="indefinite"/>
-  </circle>
-
-  <text x="618" y="500" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C7D2FE">target group</text>
-  <text x="748" y="500" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C7D2FE">health</text>
-  <text x="716" y="610" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C7D2FE">failover</text>
-</g>
-
-<g transform="translate(990,525)" filter="url(#softShadow)">
-  <rect x="-80" y="-65" width="184" height="126" rx="14" fill="#090E23" stroke="#818CF8" stroke-width="2.2"/>
-  <text x="12" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#A5B4FC">CHECKLIST</text>
-  <text x="12" y="8" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="900" fill="#F5F7FA">4 LAYERS</text>
-  <text x="-32" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#C7D2FE">NLB</text>
-  <text x="0" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#C7D2FE">SG</text>
-  <text x="32" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#C7D2FE">DB</text>
-  <text x="64" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#C7D2FE">LOGS</text>
-</g>
-
-<g filter="url(#softShadow)">
-  <rect x="54" y="592" width="92" height="22" rx="11" fill="#0A1522" stroke="#2DD4BF" stroke-width="1.2"/>
-  <rect x="160" y="592" width="96" height="22" rx="11" fill="#0A1522" stroke="#2DD4BF" stroke-width="1.2"/>
-  <rect x="270" y="592" width="94" height="22" rx="11" fill="#1B130C" stroke="#F59E0B" stroke-width="1.2"/>
-  <rect x="378" y="592" width="84" height="22" rx="11" fill="#1B130C" stroke="#F59E0B" stroke-width="1.2"/>
-  <rect x="476" y="592" width="86" height="22" rx="11" fill="#0B1129" stroke="#818CF8" stroke-width="1.2"/>
-  <rect x="576" y="592" width="92" height="22" rx="11" fill="#0B1129" stroke="#818CF8" stroke-width="1.2"/>
-  <text x="100" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#99F6E4">source ip</text>
-  <text x="208" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#99F6E4">private only</text>
-  <text x="317" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">tcp health</text>
-  <text x="420" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">db port</text>
-  <text x="519" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C7D2FE">multi az</text>
-  <text x="622" y="607" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#C7D2FE">audit path</text>
-</g>
+  <g transform="translate(356 474)">
+    <rect width="114" height="38" rx="19" fill="#34d399" opacity="0.16" stroke="#34d399" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
+  </g>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">CLOUD</text>
+  </g>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+  </g>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+  </g>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

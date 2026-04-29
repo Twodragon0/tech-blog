@@ -1,325 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role='img' aria-label='High quality cover for incident analysis of the NPM Shai-Hulud worm supply chain attack affecting 180 packages'>
-<title>NPM Shai-Hulud worm incident cover: 180 compromised packages and large scale supply chain attack analysis</title>
-<!-- profile: high-quality-cover (2025 upgraded) -->
-<defs>
-  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#07111F"/>
-    <stop offset="45%" stop-color="#0B1830"/>
-    <stop offset="100%" stop-color="#120F2D"/>
-  </linearGradient>
-  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#23090E"/>
-    <stop offset="55%" stop-color="#2C0F18"/>
-    <stop offset="100%" stop-color="#231136"/>
-  </linearGradient>
-  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#171028"/>
-    <stop offset="100%" stop-color="#24142F"/>
-  </linearGradient>
-  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#091827"/>
-    <stop offset="100%" stop-color="#102332"/>
-  </linearGradient>
-  <radialGradient id="wormGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#F97316" stop-opacity="0.55"/>
-    <stop offset="55%" stop-color="#EF4444" stop-opacity="0.20"/>
-    <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="telemetryGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#A855F7" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="defendGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#22C55E" stop-opacity="0.48"/>
-    <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
-  </radialGradient>
-  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
-    <feOffset dx="1" dy="3"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
-    <feOffset dx="0" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <pattern id="gridTop" x="0" y="0" width="42" height="18" patternUnits="userSpaceOnUse">
-    <path d="M0 18 L42 18" stroke="#3A1622" stroke-width="0.45" opacity="0.55"/>
-    <path d="M42 0 L42 18" stroke="#3A1622" stroke-width="0.45" opacity="0.55"/>
-  </pattern>
-  <pattern id="dotMid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
-    <circle cx="9" cy="9" r="0.85" fill="#4A2A63" opacity="0.55"/>
-  </pattern>
-  <pattern id="hexLow" x="0" y="0" width="22" height="20" patternUnits="userSpaceOnUse">
-    <circle cx="11" cy="10" r="0.9" fill="#22465B" opacity="0.5"/>
-  </pattern>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>NPM SHAI HULUD 180 INCIDENT</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="52%" stop-color="#121a2f"/>
+      <stop offset="100%" stop-color="#170f25"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
+    </linearGradient>
+    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
+      <circle cx="18" cy="18" r="1.2" fill="#f87171" opacity="0.15"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#microGrid)"/>
+  <circle cx="202" cy="150" r="190" fill="#f87171" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="1020" cy="486" r="220" fill="#b91c1c" opacity="0.08" filter="url(#sg)"/>
+  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
+  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
+  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#f87171" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
+  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="758" y="124" width="108" height="12" rx="6" fill="#f87171" opacity="0.28"/>
+  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+  
+  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
+  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
 
-<rect width="1200" height="630" fill="url(#bgSpread)"/>
-<rect x="0" y="0" width="1200" height="4" fill="#CB2D3E" opacity="0.85"/>
+  <g transform="translate(917,270)" filter="url(#shadow)">
+    <circle r="96" fill="#0f172a" stroke="#f87171" stroke-width="2.6" opacity="0.94"/>
+    <circle r="124" fill="none" stroke="#f87171" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
 
-<g>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#heroPanel)"/>
-  <rect x="0" y="0" width="1200" height="210" fill="url(#gridTop)" opacity="0.62"/>
-  <rect x="0" y="0" width="8" height="210" fill="#EF4444"/>
-  <g filter="url(#textShadow)">
-    <text x="34" y="46" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB7185">NPM SUPPLY CHAIN INCIDENT</text>
-    <text x="34" y="92" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="900" fill="#F8FAFC">SHAI-HULUD WORM</text>
-    <text x="34" y="126" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#FDBA74">180 packages compromised</text>
-    <text x="34" y="154" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D7C6D2">self-spread via maintainer token theft</text>
-    <text x="34" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8FA2B6">incident analysis</text>
+    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#f87171" stroke-width="3"/>
+    <path d="M-12,2 L-4,12 L16,-10" stroke="#f87171" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
+    <circle cx="50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
+    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
+    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
   </g>
-
-  <g transform="translate(690,106)">
-    <circle cx="0" cy="0" r="104" fill="url(#wormGlow)">
-      <animate attributeName="r" values="86;114;86" dur="3.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.55;0.18;0.55" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-
-    <g stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-126 -47 C-80 -40 -52 -28 -18 -10" stroke="#FB7185" stroke-dasharray="5 4"/>
-      <path d="M-160 15 C-110 12 -60 8 -18 3" stroke="#F97316" stroke-dasharray="5 4"/>
-      <path d="M-126 81 C-85 60 -54 44 -18 18" stroke="#FDBA74" stroke-dasharray="5 4"/>
-      <path d="M18 -10 C48 -26 82 -42 127 -47" stroke="#F43F5E" stroke-dasharray="5 4"/>
-      <path d="M18 3 C58 10 103 12 156 15" stroke="#FB7185" stroke-dasharray="5 4"/>
-      <path d="M18 18 C54 40 87 60 127 81" stroke="#F97316" stroke-dasharray="5 4"/>
-    </g>
-
-    <g filter="url(#softShadow)">
-      <rect x="-40" y="-36" width="80" height="72" rx="12" fill="#140A14" stroke="#F97316" stroke-width="2.2"/>
-      <text x="0" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="800" fill="#FDBA74">npm</text>
-      <text x="0" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#FCD7AA">registry</text>
-
-      <rect x="-170" y="-70" width="88" height="46" rx="8" fill="#18090E" stroke="#EF4444" stroke-width="1.8"/>
-      <text x="-126" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FCA5A5">publish</text>
-      <text x="-126" y="-31" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#EAB0B8">script</text>
-
-      <rect x="-210" y="-8" width="92" height="46" rx="8" fill="#170D14" stroke="#F97316" stroke-width="1.8"/>
-      <text x="-164" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDBA74">token</text>
-      <text x="-164" y="31" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FBD2A1">env</text>
-
-      <rect x="-170" y="56" width="88" height="46" rx="8" fill="#140A19" stroke="#A855F7" stroke-width="1.8"/>
-      <text x="-126" y="79" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#D8B4FE">steal</text>
-      <text x="-126" y="95" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#E9D5FF">.npmrc</text>
-
-      <rect x="84" y="-70" width="88" height="46" rx="8" fill="#130B1A" stroke="#FB7185" stroke-width="1.8"/>
-      <text x="128" y="-47" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDA4AF">git</text>
-      <text x="128" y="-31" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FFD0D8">hook</text>
-
-      <rect x="120" y="-8" width="92" height="46" rx="8" fill="#190B0F" stroke="#EF4444" stroke-width="2"/>
-      <text x="166" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FB7185">worm</text>
-      <text x="166" y="31" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FDB4BC">republish</text>
-
-      <rect x="84" y="56" width="88" height="46" rx="8" fill="#09181B" stroke="#22D3EE" stroke-width="1.8"/>
-      <text x="128" y="79" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#67E8F9">CI</text>
-      <text x="128" y="95" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A5F3FC">exfil</text>
-    </g>
-
-    <circle r="4" fill="#F97316" opacity="0.95">
-      <animateMotion path="M-165 15 C-110 12 -58 7 0 0 C58 7 110 12 166 15 C112 28 54 40 0 70 C-52 40 -108 28 -165 15" dur="4.6s" repeatCount="indefinite"/>
-    </circle>
-
-    <g filter="url(#softShadow)">
-      <rect x="-182" y="116" width="64" height="24" rx="12" fill="#160C12" stroke="#F97316" stroke-width="1.2"/>
-      <text x="-150" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74">popular</text>
-      <rect x="-110" y="116" width="46" height="24" rx="12" fill="#160C12" stroke="#F97316" stroke-width="1.2"/>
-      <text x="-87" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74">pkg</text>
-      <rect x="-52" y="116" width="62" height="24" rx="12" fill="#180A12" stroke="#FB7185" stroke-width="1.2"/>
-      <text x="-21" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDA4AF">trusted</text>
-      <rect x="20" y="116" width="56" height="24" rx="12" fill="#180A12" stroke="#FB7185" stroke-width="1.2"/>
-      <text x="48" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDA4AF">scope</text>
-      <rect x="88" y="116" width="50" height="24" rx="12" fill="#111018" stroke="#A855F7" stroke-width="1.2"/>
-      <text x="113" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#D8B4FE">deps</text>
-      <rect x="146" y="116" width="70" height="24" rx="12" fill="#09181B" stroke="#22D3EE" stroke-width="1.2"/>
-      <text x="181" y="132" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#67E8F9">cascade</text>
-    </g>
+  <g transform="translate(84 66)">
+    <rect width="164" height="36" rx="18" fill="#f87171" opacity="0.2" stroke="#f87171" stroke-width="1.2"/>
+    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f87171" text-anchor="middle">INCIDENT</text>
   </g>
-
-  <g transform="translate(990,105)" filter="url(#softShadow)">
-    <rect x="-80" y="-65" width="182" height="126" rx="14" fill="#10070C" stroke="#EF4444" stroke-width="2.2"/>
-    <text x="11" y="-31" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FB7185">PACKAGES</text>
-    <text x="11" y="30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F8FAFC">180</text>
-    <text x="11" y="53" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FDBA74">compromised chain</text>
+  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">NPM SHAI HULUD 180</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">INCIDENT</text>
+  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">INCIDENT / SECURITY / NPM</text>
+  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 30448061CE71</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
+  <g transform="translate(84 474)">
+    <rect width="114" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">INCIDENT</text>
   </g>
-</g>
-
-<g>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
-  <rect x="0" y="210" width="1200" height="210" fill="url(#dotMid)" opacity="0.72"/>
-  <rect x="0" y="210" width="8" height="210" fill="#A855F7"/>
-  <g filter="url(#textShadow)">
-    <text x="34" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C084FC">PROPAGATION LOOP</text>
-    <text x="34" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">publish, install, steal, republish</text>
-    <text x="34" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D6C9E8">malicious preinstall and postinstall stages</text>
+  <g transform="translate(212 474)">
+    <rect width="114" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
+    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
   </g>
-
-  <g transform="translate(556,316)">
-    <circle cx="54" cy="-4" r="112" fill="url(#telemetryGlow)">
-      <animate attributeName="r" values="92;120;92" dur="3.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.40;0.16;0.40" dur="3.8s" repeatCount="indefinite"/>
-    </circle>
-
-    <g filter="url(#softShadow)">
-      <rect x="-220" y="-34" width="96" height="54" rx="8" fill="#120A18" stroke="#A855F7" stroke-width="1.8"/>
-      <text x="-172" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#D8B4FE">publish</text>
-      <text x="-172" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#E9D5FF">package</text>
-
-      <rect x="-108" y="-34" width="96" height="54" rx="8" fill="#160A15" stroke="#F97316" stroke-width="1.8"/>
-      <text x="-60" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDBA74">install</text>
-      <text x="-60" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FCD7AA">script</text>
-
-      <rect x="4" y="-34" width="96" height="54" rx="8" fill="#180B13" stroke="#EF4444" stroke-width="2"/>
-      <text x="52" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FDA4AF">steal</text>
-      <text x="52" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FFD0D8">token</text>
-
-      <rect x="116" y="-34" width="96" height="54" rx="8" fill="#14111E" stroke="#22D3EE" stroke-width="1.8"/>
-      <text x="164" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#67E8F9">tamper</text>
-      <text x="164" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A5F3FC">repos</text>
-
-      <rect x="228" y="-34" width="96" height="54" rx="8" fill="#170A16" stroke="#F43F5E" stroke-width="1.8"/>
-      <text x="276" y="-10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FB7185">republish</text>
-      <text x="276" y="8" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#FDA4AF">wave</text>
-    </g>
-
-    <g stroke-linecap="round" stroke-linejoin="round">
-      <line x1="-124" y1="-7" x2="-108" y2="-7" stroke="#A855F7" stroke-width="2"/>
-      <polygon points="-108,-12 -100,-7 -108,-2" fill="#A855F7"/>
-      <line x1="-12" y1="-7" x2="4" y2="-7" stroke="#F97316" stroke-width="2"/>
-      <polygon points="4,-12 12,-7 4,-2" fill="#F97316"/>
-      <line x1="100" y1="-7" x2="116" y2="-7" stroke="#EF4444" stroke-width="2"/>
-      <polygon points="116,-12 124,-7 116,-2" fill="#EF4444"/>
-      <line x1="212" y1="-7" x2="228" y2="-7" stroke="#22D3EE" stroke-width="2"/>
-      <polygon points="228,-12 236,-7 228,-2" fill="#22D3EE"/>
-    </g>
-
-    <text x="52" y="-56" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#C084FC">trust</text>
-    <text x="52" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#FB7185">break</text>
-
-    <circle r="4" fill="#F97316">
-      <animateMotion path="M-220,-7 L324,-7" dur="3.0s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" dur="3.0s" repeatCount="indefinite"/>
-    </circle>
+  <g transform="translate(340 474)">
+    <rect width="110" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
+    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">NPM</text>
   </g>
-
-  <g transform="translate(988,315)" filter="url(#softShadow)">
-    <rect x="-84" y="-66" width="188" height="132" rx="14" fill="#120C21" stroke="#A855F7" stroke-width="2.2"/>
-    <text x="10" y="-34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C084FC">IOC</text>
-
-    <rect x="-62" y="-16" width="10" height="10" rx="2" fill="#FB7185"/>
-    <text x="-44" y="-8" font-family="Inter, monospace" font-size="12" font-weight="700" fill="#F8FAFC">env vars</text>
-
-    <rect x="-62" y="2" width="10" height="10" rx="2" fill="#F97316"/>
-    <text x="-44" y="10" font-family="Inter, monospace" font-size="12" font-weight="700" fill="#F8FAFC">.npmrc</text>
-
-    <rect x="-62" y="20" width="10" height="10" rx="2" fill="#22D3EE"/>
-    <text x="-44" y="28" font-family="Inter, monospace" font-size="12" font-weight="700" fill="#F8FAFC">git creds</text>
-
-    <rect x="-62" y="38" width="10" height="10" rx="2" fill="#A855F7"/>
-    <text x="-44" y="46" font-family="Inter, monospace" font-size="12" font-weight="700" fill="#F8FAFC">CI logs</text>
-
-    <rect x="-62" y="56" width="10" height="10" rx="2" fill="#FB7185"/>
-    <text x="-44" y="64" font-family="Inter, monospace" font-size="12" font-weight="700" fill="#F8FAFC">hooks</text>
-
-    <rect x="22" y="20" width="58" height="26" rx="13" fill="#1D112A" stroke="#F97316" stroke-width="1.2"/>
-    <text x="51" y="37" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74">PAT</text>
-
-    <rect x="22" y="52" width="78" height="26" rx="13" fill="#1D112A" stroke="#EF4444" stroke-width="1.2"/>
-    <text x="61" y="69" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDA4AF">npm token</text>
+  <g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">INCIDENT</text>
   </g>
-</g>
-
-<g>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#hexLow)" opacity="0.66"/>
-  <rect x="0" y="420" width="8" height="210" fill="#22C55E"/>
-  <g filter="url(#textShadow)">
-    <text x="34" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">DEFENDER PLAYBOOK</text>
-    <text x="34" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">revoke all npm and git tokens</text>
-    <text x="34" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#86EFAC">rotate CI secrets and lock publish flow</text>
-    <text x="34" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C6DFD3">require provenance, 2FA, least privilege</text>
+  <g transform="translate(246 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
-
-  <g transform="translate(630,525)">
-    <circle cx="0" cy="0" r="88" fill="url(#defendGlow)">
-      <animate attributeName="r" values="72;96;72" dur="3.9s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.46;0.14;0.46" dur="3.9s" repeatCount="indefinite"/>
-    </circle>
-
-    <g stroke="#2DD4BF" stroke-width="1.2" stroke-opacity="0.55">
-      <line x1="0" y1="0" x2="-92" y2="-50"/>
-      <line x1="0" y1="0" x2="0" y2="-102"/>
-      <line x1="0" y1="0" x2="92" y2="-50"/>
-      <line x1="0" y1="0" x2="-92" y2="50"/>
-      <line x1="0" y1="0" x2="0" y2="102"/>
-      <line x1="0" y1="0" x2="92" y2="50"/>
-    </g>
-
-    <g filter="url(#softShadow)">
-      <polygon points="0,-62 56,-30 56,30 0,62 -56,30 -56,-30" fill="#0B1E1B" stroke="#22C55E" stroke-width="2.2"/>
-      <polygon points="0,-38 34,-18 34,18 0,38 -34,18 -34,-18" fill="#103327" stroke="#86EFAC" stroke-width="1.4"/>
-      <text x="0" y="-8" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="800" fill="#D1FAE5">block</text>
-      <text x="0" y="10" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#86EFAC">rogue</text>
-      <text x="0" y="27" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A7F3D0">publish</text>
-
-      <circle cx="-92" cy="-50" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="-92" y="-46" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">2FA</text>
-
-      <circle cx="0" cy="-102" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="0" y="-98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">OIDC</text>
-
-      <circle cx="92" cy="-50" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="92" y="-46" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">sig</text>
-
-      <circle cx="-92" cy="50" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="-92" y="54" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">pin</text>
-
-      <circle cx="0" cy="102" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="0" y="106" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">SBOM</text>
-
-      <circle cx="92" cy="50" r="19" fill="#08211D" stroke="#2DD4BF" stroke-width="1.6"/>
-      <text x="92" y="54" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#99F6E4">scan</text>
-    </g>
-
-    <g filter="url(#softShadow)">
-      <rect x="-156" y="118" width="60" height="24" rx="12" fill="#0A1E1C" stroke="#22C55E" stroke-width="1.1"/>
-      <text x="-126" y="134" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC">verify</text>
-
-      <rect x="-88" y="118" width="62" height="24" rx="12" fill="#0A1E1C" stroke="#22C55E" stroke-width="1.1"/>
-      <text x="-57" y="134" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC">scripts</text>
-
-      <rect x="-18" y="118" width="58" height="24" rx="12" fill="#0A1E1C" stroke="#22C55E" stroke-width="1.1"/>
-      <text x="11" y="134" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC">owner</text>
-
-      <rect x="48" y="118" width="56" height="24" rx="12" fill="#0A1E1C" stroke="#22C55E" stroke-width="1.1"/>
-      <text x="76" y="134" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC">audit</text>
-
-      <rect x="112" y="118" width="48" height="24" rx="12" fill="#0A1E1C" stroke="#22C55E" stroke-width="1.1"/>
-      <text x="136" y="134" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#86EFAC">diff</text>
-
-      <rect x="-126" y="148" width="58" height="24" rx="12" fill="#0A1E1C" stroke="#2DD4BF" stroke-width="1.1"/>
-      <text x="-97" y="164" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#99F6E4">tokens</text>
-
-      <rect x="-58" y="148" width="50" height="24" rx="12" fill="#0A1E1C" stroke="#2DD4BF" stroke-width="1.1"/>
-      <text x="-33" y="164" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#99F6E4">blast</text>
-
-      <rect x="2" y="148" width="60" height="24" rx="12" fill="#0A1E1C" stroke="#2DD4BF" stroke-width="1.1"/>
-      <text x="32" y="164" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#99F6E4">radius</text>
-    </g>
+  <g transform="translate(408 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
   </g>
-
-  <g transform="translate(990,525)" filter="url(#softShadow)">
-    <rect x="-80" y="-65" width="182" height="126" rx="14" fill="#071913" stroke="#22C55E" stroke-width="2.2"/>
-    <text x="11" y="-31" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">FIRST</text>
-    <text x="11" y="19" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="56" font-weight="900" fill="#F8FAFC">4</text>
-    <text x="11" y="38" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#A7F3D0">revoke</text>
-    <text x="11" y="52" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#A7F3D0">rotate</text>
-    <text x="11" y="66" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#A7F3D0">verify</text>
-    <text x="11" y="80" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="700" fill="#A7F3D0">republish clean</text>
+  <g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
   </g>
-</g>
-
-<line x1="0" y1="210" x2="1200" y2="210" stroke="#1B2740" stroke-width="1.5"/>
-<line x1="0" y1="420" x2="1200" y2="420" stroke="#1B2740" stroke-width="1.5"/>
+  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
