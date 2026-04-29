@@ -189,6 +189,25 @@ def _is_high_quality_cover_svg(raw_svg: str) -> bool:
     return any(marker in raw_svg for marker in markers)
 
 
+_STACKED_BANDS_BAND_RE = re.compile(r'id="band[A-C][A-Za-z0-9]+"')
+_STACKED_BANDS_STREAK_RE = re.compile(r'id="streak[A-B][A-Za-z0-9]+"')
+
+
+def _is_stacked_bands_cover_svg(raw_svg: str) -> bool:
+    """Return True when the SVG uses the stacked-bands legacy cover profile.
+
+    These SVGs (batch w8, digest AB1, etc.) have 42-61 text nodes — an
+    intermediate tier between regular covers (~30 nodes) and the HQ dashboard
+    covers (69-106 nodes). Detection requires BOTH band[A-C] AND streak[A-B]
+    id patterns to avoid false-matching the L22 dashboard which uses
+    id="bandA-L22" style suffixes.
+    """
+    return bool(
+        _STACKED_BANDS_BAND_RE.search(raw_svg)
+        and _STACKED_BANDS_STREAK_RE.search(raw_svg)
+    )
+
+
 def check_title_truncation(title: str) -> List[str]:
     """Detect frontmatter titles that appear to have been truncated mid-phrase.
 
@@ -380,14 +399,27 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
         return [f"⚠️ Invalid SVG XML: {image_path}"]
 
     is_hq_cover = _is_high_quality_cover_svg(raw_svg)
+    is_stacked_bands = not is_hq_cover and _is_stacked_bands_cover_svg(raw_svg)
     # HQ dashboard covers (threat signal map style) are deliberately
     # information-dense — stats labels, data viz annotations, terminal
     # snippets. Observed distribution on 2026-03/04 weekly digests:
     # 69-106 text nodes, 815-1588 chars. Thresholds calibrated ~10% above
     # the natural max so true outliers (e.g., auto-generation bugs that
     # produce >150 nodes) still trip the guard.
-    text_node_limit = 115 if is_hq_cover else 40
-    total_char_limit = 1700 if is_hq_cover else 800
+    #
+    # Stacked-bands covers (w8 batch, AB1 digest variants) are an intermediate
+    # tier: 42-61 text nodes, up to ~1200 chars. Limits set ~25% above the
+    # observed max (75 nodes / 1300 chars) to catch genuine runaway generation
+    # while silencing these intentional false positives.
+    if is_hq_cover:
+        text_node_limit = 115
+        total_char_limit = 1700
+    elif is_stacked_bands:
+        text_node_limit = 75
+        total_char_limit = 1300
+    else:
+        text_node_limit = 40
+        total_char_limit = 800
 
     text_nodes = [
         " ".join((node.itertext())).strip()

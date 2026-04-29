@@ -9,16 +9,70 @@ on:
       - 'package-lock.json'
       - 'Gemfile'
       - 'Gemfile.lock'
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
   contents: read
   issues: write
 
+concurrency:
+  group: security-audit-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      contents: read
+    outputs:
+      should-audit: ${{ steps.set-output.outputs.should-audit }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+        with:
+          fetch-depth: 2
+
+      - name: Check changed files
+        id: filter
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d  # v4
+        with:
+          filters: |
+            should-audit:
+              - 'package.json'
+              - 'package-lock.json'
+              - 'Gemfile'
+              - 'Gemfile.lock'
+
+      - name: Set output
+        id: set-output
+        run: |
+          if [ "${{ github.event_name }}" == "schedule" ] || [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "should-audit=true" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "push" ] || [ "${{ github.event_name }}" == "pull_request" ]; then
+            if [ "${{ steps.filter.outputs.should-audit }}" == "true" ]; then
+              echo "should-audit=true" >> $GITHUB_OUTPUT
+            else
+              echo "should-audit=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "should-audit=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Output decision
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Filter output: ${{ steps.filter.outputs.should-audit }}"
+          echo "Should audit: ${{ steps.set-output.outputs.should-audit }}"
+
   npm-audit:
     name: npm Security Audit
-    if: github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false'
+    needs: check-changes
+    if: (github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false') && needs.check-changes.outputs.should-audit == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -73,7 +127,8 @@ jobs:
 
   bundle-audit:
     name: Ruby Gem Security Audit
-    if: github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false'
+    needs: check-changes
+    if: (github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false') && needs.check-changes.outputs.should-audit == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -123,3 +178,25 @@ jobs:
                 body: `bundle-audit detected vulnerabilities in Ruby gems.\n\nRun \`bundle audit check --update\` locally for details.\nRun \`bundle update [gem_name]\` to update affected gems.`
               });
             }
+
+  summary:
+    name: Security Audit Summary
+    needs: [check-changes, npm-audit, bundle-audit]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    permissions:
+      contents: read
+    steps:
+      - name: Evaluate audit results
+        run: |
+          NPM="${{ needs.npm-audit.result }}"
+          BUNDLE="${{ needs.bundle-audit.result }}"
+          echo "## Security Audit Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- npm audit: $NPM" >> $GITHUB_STEP_SUMMARY
+          echo "- bundle audit: $BUNDLE" >> $GITHUB_STEP_SUMMARY
+          if [ "$NPM" = "failure" ] || [ "$BUNDLE" = "failure" ]; then
+            echo "❌ One or more audits failed"
+            exit 1
+          fi
+          echo "✅ Security audit clean (or skipped — no dependency changes)"

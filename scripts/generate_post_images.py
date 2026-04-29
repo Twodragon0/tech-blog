@@ -30,6 +30,48 @@ from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
 from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text, is_valid_svg as _is_valid_svg
 
+_SANITIZE_WARNED = False
+
+
+def _sanitize_svg_forbidden_chars(svg_path: Path) -> None:
+    """Post-write sanitizer: strip forbidden chars from SVG <text>/<tspan> content.
+
+    Lazily imports fix_svg_file to avoid breaking test fixtures that mock imports.
+    Never raises — generation must not fail because of the sanitizer.
+    """
+    global _SANITIZE_WARNED
+    try:
+        try:
+            from scripts.fix_svg_forbidden_chars import fix_svg_file
+        except ImportError:
+            if not _SANITIZE_WARNED:
+                log_message(
+                    "WARNING: scripts.fix_svg_forbidden_chars not importable; "
+                    "forbidden-char sanitization skipped",
+                    "WARNING",
+                )
+                _SANITIZE_WARNED = True
+            return
+
+        result = fix_svg_file(svg_path, dry_run=False)
+        if result.get("error"):
+            log_message(
+                f"WARNING: forbidden-char sanitizer error on {svg_path.name}: {result['error']}",
+                "WARNING",
+            )
+        elif result.get("modified"):
+            log_message(
+                f"Forbidden chars sanitized: {svg_path.name} "
+                f"(forbidden={result['forbidden_replacements']}, "
+                f"korean={result['korean_replacements']})",
+                "SUCCESS",
+            )
+    except Exception as exc:
+        log_message(
+            f"WARNING: _sanitize_svg_forbidden_chars failed for {svg_path}: {exc}",
+            "WARNING",
+        )
+
 try:
     from PIL import Image
 
@@ -1564,6 +1606,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
         svg_content = validate_and_fix_svg(svg_content)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg_content)
+        _sanitize_svg_forbidden_chars(output_svg)
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
@@ -1777,6 +1820,7 @@ def regenerate_section_banners() -> int:
         svg_content = validate_and_fix_svg(generate_section_banner_svg(filename))
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(svg_content)
+        _sanitize_svg_forbidden_chars(output_path)
         generated += 1
     log_message(f"✅ 섹션 배너 재생성 완료: {generated}개", "SUCCESS")
     return generated
@@ -2059,6 +2103,7 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
         svg = validate_and_fix_svg(svg)
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg)
+        _sanitize_svg_forbidden_chars(output_svg)
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
@@ -2345,6 +2390,7 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         output_svg = output_path.with_suffix(".svg")
         with open(output_svg, "w", encoding="utf-8") as f:
             f.write(svg)
+        _sanitize_svg_forbidden_chars(output_svg)
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
