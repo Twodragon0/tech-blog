@@ -1316,7 +1316,462 @@ def _illust_chip(cx: int, cy: int, accent: str, halo: str) -> str:
   </g>'''
 
 
-# Map normalised category to illustration function.
+# --- Extended per-topic illustrations (2025 upgrade pass) ----------------
+def _illust_finops_chart(cx: int, cy: int, accent: str, halo: str) -> str:
+    """FinOps cost bar chart with $ icon and savings trend."""
+    bars = []
+    heights = [54, 70, 60, 88, 70, 48]
+    labels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"]
+    for i, h in enumerate(heights):
+        x = -90 + i * 30
+        bars.append(
+            f'<rect x="{x}" y="{30 - h}" width="22" height="{h}" rx="3" fill="{accent}" opacity="{0.5 + i*0.06}"/>'
+            f'<text x="{x+11}" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#94a3b8">{labels[i]}</text>'
+        )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-110" y="-72" width="220" height="144" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    <circle cx="-86" cy="-46" r="14" fill="{accent}" fill-opacity="0.32" stroke="{accent}" stroke-width="2"/>
+    <text x="-86" y="-41" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="900" fill="#f8fafc">$</text>
+    <text x="-66" y="-42" text-anchor="start" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.75">FINOPS COST</text>
+    <g stroke="{accent}" stroke-width="0.6" opacity="0.3">
+      <line x1="-100" y1="-30" x2="100" y2="-30"/>
+      <line x1="-100" y1="0" x2="100" y2="0"/>
+      <line x1="-100" y1="30" x2="100" y2="30"/>
+    </g>
+    {"".join(bars)}
+    <path d="M-80 -16 L-50 -22 L-20 -8 L10 -36 L40 -22 L70 -50" stroke="{halo}" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+    <text x="100" y="-58" text-anchor="end" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="{halo}" opacity="0.85">-22% Q2</text>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">SPEND TREND</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">6 months : -22% YoY</text>
+  </g>'''
+
+
+def _illust_mfa_devices(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Phone + key + TOTP code dots + checkmark."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-86" y="-66" width="68" height="120" rx="10" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    <rect x="-78" y="-58" width="52" height="92" rx="3" fill="{accent}" fill-opacity="0.16" stroke="{accent}" stroke-width="1"/>
+    <text x="-52" y="-26" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.85">TOTP</text>
+    <g fill="#f8fafc">
+      <rect x="-72" y="-14" width="8" height="12" rx="1"/>
+      <rect x="-62" y="-14" width="8" height="12" rx="1"/>
+      <rect x="-52" y="-14" width="8" height="12" rx="1"/>
+      <rect x="-42" y="-14" width="8" height="12" rx="1"/>
+      <rect x="-32" y="-14" width="8" height="12" rx="1"/>
+    </g>
+    <text x="-52" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="900" fill="{accent}" letter-spacing="2">847291</text>
+    <circle cx="-52" cy="40" r="6" fill="{halo}" opacity="0.7"/>
+    <g transform="translate(20 -20)">
+      <rect x="0" y="-8" width="36" height="16" rx="3" fill="{halo}" fill-opacity="0.7" stroke="{halo}" stroke-width="1.4"/>
+      <rect x="36" y="-3" width="20" height="6" rx="1" fill="{halo}"/>
+      <circle cx="14" cy="0" r="3" fill="#0f172a"/>
+      <text x="28" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#0f172a">FIDO2</text>
+    </g>
+    <g transform="translate(38 24)">
+      <circle r="20" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="2"/>
+      <path d="M-9 1 L-3 8 L11 -8" stroke="{accent}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">MFA STACK</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">TOTP : passkey : verified</text>
+  </g>'''
+
+
+def _illust_zero_trust(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Concentric verification rings + lock + verify arrow."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="98" fill="none" stroke="{accent}" stroke-width="1.6" stroke-dasharray="4 6" opacity="0.4"/>
+    <circle r="74" fill="none" stroke="{accent}" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.55"/>
+    <circle r="48" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    <path d="M-12 -6 Q-12 -22 0 -22 Q12 -22 12 -6" stroke="{accent}" stroke-width="3" fill="none"/>
+    <rect x="-18" y="-6" width="36" height="32" rx="4" fill="{accent}" fill-opacity="0.32" stroke="{accent}" stroke-width="2"/>
+    <circle cy="6" r="3" fill="{halo}"/>
+    <rect x="-1.5" y="6" width="3" height="10" fill="{halo}"/>
+    <text x="-104" y="-90" text-anchor="start" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.85">USER</text>
+    <text x="-78" y="-66" text-anchor="start" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" opacity="0.7">VERIFY</text>
+    <text x="-58" y="-42" text-anchor="start" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" opacity="0.6">CONTEXT</text>
+    <path d="M-90 -78 L-32 -22" stroke="{halo}" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.55" marker-end="url(#sgArrow)"/>
+    <text y="86" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">ZERO TRUST</text>
+    <text y="102" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">3 rings : verify-every</text>
+  </g>'''
+
+
+def _illust_incident_timeline(cx: int, cy: int, accent: str, halo: str) -> str:
+    """4-step horizontal timeline with red spike."""
+    steps = [("DETECT", -90), ("TRIAGE", -30), ("CONTAIN", 30), ("CLOSE", 90)]
+    parts = []
+    for i, (lbl, x) in enumerate(steps):
+        parts.append(
+            f'<circle cx="{x}" cy="0" r="10" fill="{accent}" fill-opacity="0.34" stroke="{accent}" stroke-width="2"/>'
+            f'<text x="{x}" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#f8fafc">{i+1}</text>'
+            f'<text x="{x}" y="28" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="{halo}" opacity="0.85">{lbl}</text>'
+        )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-114" y="-72" width="228" height="144" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.5" stroke-dasharray="2 4"/>
+    {"".join(parts)}
+    <path d="M-100 -50 L-90 -50 L-86 -56 L-80 -38 L-72 -58 L-66 -44 L-58 -50 L100 -50" stroke="#ef4444" stroke-width="1.8" fill="none" opacity="0.85"/>
+    <text x="-100" y="-58" text-anchor="start" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" opacity="0.7">TRAFFIC</text>
+    <text x="100" y="-58" text-anchor="end" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#ef4444" opacity="0.85">SPIKE</text>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">INCIDENT TIMELINE</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">4 phases : 1 spike</text>
+  </g>'''
+
+
+def _illust_isms_audit(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Clipboard + 5 checkmarks + stamp."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-58" y="-78" width="116" height="148" rx="10" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    <rect x="-22" y="-86" width="44" height="20" rx="4" fill="{accent}" fill-opacity="0.34" stroke="{accent}" stroke-width="1.6"/>
+    <text x="0" y="-72" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">ISMS-P</text>
+    <g stroke="{halo}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-44 -44 L-38 -38 L-28 -50"/>
+      <path d="M-44 -22 L-38 -16 L-28 -28"/>
+      <path d="M-44 0 L-38 6 L-28 -6"/>
+      <path d="M-44 22 L-38 28 L-28 16"/>
+      <path d="M-44 44 L-38 50 L-28 38"/>
+    </g>
+    <g fill="{halo}" opacity="0.55">
+      <rect x="-22" y="-50" width="60" height="3" rx="1"/>
+      <rect x="-22" y="-28" width="50" height="3" rx="1"/>
+      <rect x="-22" y="-6" width="58" height="3" rx="1"/>
+      <rect x="-22" y="16" width="46" height="3" rx="1"/>
+      <rect x="-22" y="38" width="54" height="3" rx="1"/>
+    </g>
+    <g transform="translate(36 50) rotate(-12)">
+      <rect x="-18" y="-10" width="36" height="20" rx="3" fill="none" stroke="#ef4444" stroke-width="2.2"/>
+      <text y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#ef4444">PASS</text>
+    </g>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">AUDIT CHECKLIST</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">5 controls : verified</text>
+  </g>'''
+
+
+def _illust_ai_agent(cx: int, cy: int, accent: str, halo: str) -> str:
+    """AI agent: head silhouette + neural net grid + circuit."""
+    nodes = [(-44, -34), (-44, 0), (-44, 34), (0, -52), (0, 0), (0, 52), (44, -34), (44, 0), (44, 34)]
+    node_svg = "".join(f'<circle cx="{x}" cy="{y}" r="5" fill="{halo}" stroke="{accent}" stroke-width="1.2"/>' for x, y in nodes)
+    edges = []
+    for x1, y1 in nodes[:3]:
+        for x2, y2 in nodes[3:6]:
+            edges.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>')
+    for x1, y1 in nodes[3:6]:
+        for x2, y2 in nodes[6:]:
+            edges.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>')
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-94" y="-78" width="188" height="156" rx="16" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    {"".join(edges)}
+    {node_svg}
+    <circle cx="0" cy="0" r="14" fill="{accent}" fill-opacity="0.3" stroke="{accent}" stroke-width="2"/>
+    <text y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="900" fill="#f8fafc">AI</text>
+    <text y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">AGENT NETWORK</text>
+    <text y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">9 nodes : 18 edges</text>
+  </g>'''
+
+
+def _illust_database_layers(cx: int, cy: int, accent: str, halo: str) -> str:
+    """3 stacked DB cylinders + IAM gateway arrow."""
+    cyls = []
+    for i, y in enumerate([-44, 0, 44]):
+        cyls.append(
+            f'<ellipse cx="20" cy="{y-12}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
+            f'<rect x="-26" y="{y-12}" width="92" height="22" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>'
+            f'<ellipse cx="20" cy="{y+10}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
+        )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    {"".join(cyls)}
+    <text x="20" y="-38" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">PRIMARY</text>
+    <text x="20" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">REPLICA</text>
+    <text x="20" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">BACKUP</text>
+    <g transform="translate(-90 0)">
+      <rect x="-20" y="-22" width="40" height="44" rx="4" fill="{halo}" fill-opacity="0.32" stroke="{halo}" stroke-width="1.6"/>
+      <text y="-4" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="900" fill="#f8fafc">IAM</text>
+      <text y="10" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="{halo}">GATE</text>
+    </g>
+    <line x1="-70" y1="0" x2="-26" y2="0" stroke="{halo}" stroke-width="1.6" stroke-dasharray="3 3" marker-end="url(#sgArrow)"/>
+    <text y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">DB ACCESS GATEWAY</text>
+    <text y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">3 tiers : 1 IAM gate</text>
+  </g>'''
+
+
+def _illust_email_dmarc(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Envelope with SPF/DKIM/DMARC verification rows."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-90" y="-58" width="180" height="116" rx="10" fill="#0f172a" stroke="{accent}" stroke-width="2.6" opacity="0.96"/>
+    <path d="M-90 -58 L0 14 L90 -58" stroke="{accent}" stroke-width="1.8" fill="none" stroke-opacity="0.55"/>
+    <g font-family="Arial,sans-serif" font-size="10" font-weight="700">
+      <g transform="translate(-72 24)">
+        <circle r="7" fill="{halo}" fill-opacity="0.5" stroke="{halo}" stroke-width="1.4"/>
+        <path d="M-3 0 L-1 2 L3 -2" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <text x="14" y="3" fill="#f8fafc">SPF</text>
+      </g>
+      <g transform="translate(-12 24)">
+        <circle r="7" fill="{halo}" fill-opacity="0.5" stroke="{halo}" stroke-width="1.4"/>
+        <path d="M-3 0 L-1 2 L3 -2" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <text x="14" y="3" fill="#f8fafc">DKIM</text>
+      </g>
+      <g transform="translate(54 24)">
+        <circle r="7" fill="{halo}" fill-opacity="0.5" stroke="{halo}" stroke-width="1.4"/>
+        <path d="M-3 0 L-1 2 L3 -2" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <text x="-14" y="3" text-anchor="end" fill="#f8fafc">DMARC</text>
+      </g>
+      <text x="0" y="46" text-anchor="middle" font-size="8" fill="{halo}" opacity="0.7">policy = reject  |  align = strict</text>
+    </g>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">EMAIL TRUST</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">SPF + DKIM + DMARC</text>
+  </g>'''
+
+
+def _illust_npm_packages(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Central npm package + 7 satellite packages with 2 poison edges."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="98" fill="none" stroke="{accent}" stroke-width="1.1" stroke-opacity="0.4"/>
+    <g stroke="{accent}" stroke-width="1.2" stroke-opacity="0.55" fill="none">
+      <line x1="0" y1="0" x2="-72" y2="-48"/>
+      <line x1="0" y1="0" x2="0" y2="-78"/>
+      <line x1="0" y1="0" x2="72" y2="-48"/>
+      <line x1="0" y1="0" x2="84" y2="14"/>
+      <line x1="0" y1="0" x2="60" y2="64"/>
+      <line x1="0" y1="0" x2="-60" y2="64"/>
+      <line x1="0" y1="0" x2="-84" y2="14"/>
+    </g>
+    <g stroke="#ef4444" stroke-width="1.7" stroke-dasharray="3 3" fill="none">
+      <line x1="0" y1="0" x2="-72" y2="-48"/>
+      <line x1="0" y1="0" x2="60" y2="64"/>
+    </g>
+    <rect x="-22" y="-22" width="44" height="44" rx="6" fill="{accent}" fill-opacity="0.32" stroke="{accent}" stroke-width="2.4"/>
+    <text y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#f8fafc">NPM</text>
+    <g stroke="{halo}" stroke-width="1.2">
+      <rect x="-84" y="-58" width="24" height="20" rx="3" fill="{halo}" fill-opacity="0.55"/>
+      <rect x="-12" y="-90" width="24" height="20" rx="3" fill="{halo}" fill-opacity="0.55"/>
+      <rect x="60" y="-58" width="24" height="20" rx="3" fill="{halo}" fill-opacity="0.55"/>
+      <rect x="72" y="4" width="24" height="20" rx="3" fill="{halo}" fill-opacity="0.55"/>
+      <rect x="48" y="54" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.6"/>
+      <rect x="-72" y="54" width="24" height="20" rx="3" fill="{halo}" fill-opacity="0.55"/>
+      <rect x="-96" y="4" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.6"/>
+    </g>
+    <text y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">PACKAGE GRAPH</text>
+    <text y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#ef4444" opacity="0.85">2 poisoned edges</text>
+  </g>'''
+
+
+def _illust_kubernetes_cluster(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Hexagon cluster + 6 pod dots + control-plane badge."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <polygon points="0,-86 74,-44 74,42 0,84 -74,42 -74,-44" fill="#0f172a" stroke="{accent}" stroke-width="2.6" opacity="0.96"/>
+    <polygon points="0,-58 50,-30 50,28 0,56 -50,28 -50,-30" fill="none" stroke="{accent}" stroke-width="1.6" stroke-opacity="0.45"/>
+    <g fill="{halo}" stroke="{accent}" stroke-width="1.2">
+      <circle cx="0" cy="-44" r="9"/>
+      <circle cx="44" cy="-22" r="9"/>
+      <circle cx="44" cy="22" r="9"/>
+      <circle cx="0" cy="44" r="9"/>
+      <circle cx="-44" cy="22" r="9"/>
+      <circle cx="-44" cy="-22" r="9"/>
+    </g>
+    <circle cx="0" cy="0" r="14" fill="{accent}" fill-opacity="0.42" stroke="{accent}" stroke-width="2"/>
+    <text y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" fill="#f8fafc">CTL</text>
+    <text y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">K8S CLUSTER</text>
+    <text y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">6 pods : 1 control-plane</text>
+  </g>'''
+
+
+def _illust_ci_pipeline(cx: int, cy: int, accent: str, halo: str) -> str:
+    """4-stage build/test/scan/deploy pipeline + lock at scan."""
+    stages = [("BUILD", -78), ("TEST", -26), ("SCAN", 26), ("DEPLOY", 78)]
+    boxes = []
+    for i, (lbl, x) in enumerate(stages):
+        boxes.append(
+            f'<rect x="{x-22}" y="-18" width="44" height="36" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.6"/>'
+            f'<text x="{x}" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">{lbl}</text>'
+        )
+        if i < len(stages) - 1:
+            nx = stages[i+1][1] - 22
+            boxes.append(
+                f'<line x1="{x+22}" y1="0" x2="{nx}" y2="0" stroke="{halo}" stroke-width="2" marker-end="url(#sgArrow)"/>'
+            )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-110" y="-72" width="220" height="144" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    {"".join(boxes)}
+    <path d="M22 -34 Q22 -48 36 -48 Q50 -48 50 -34" stroke="{halo}" stroke-width="2" fill="none"/>
+    <rect x="14" y="-34" width="36" height="22" rx="3" fill="{halo}" fill-opacity="0.42" stroke="{halo}" stroke-width="1.4"/>
+    <text x="32" y="-20" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#f8fafc">SEC</text>
+    <text y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">CI/CD PIPELINE</text>
+    <text y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">4 stages : 1 gate</text>
+  </g>'''
+
+
+def _illust_cloudflare_globe(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Globe with WAF wave + 5 server nodes around."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="68" fill="#0f172a" stroke="{accent}" stroke-width="2.6" opacity="0.94"/>
+    <ellipse cx="0" cy="0" rx="68" ry="24" fill="none" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="68" ry="46" fill="none" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.4"/>
+    <line x1="-68" y1="0" x2="68" y2="0" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.6"/>
+    <path d="M-90 -48 Q-60 -56 -30 -48 T 30 -48 T 90 -48" stroke="{accent}" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M-90 48 Q-60 56 -30 48 T 30 48 T 90 48" stroke="{accent}" stroke-width="2" fill="none" opacity="0.5"/>
+    <g fill="{halo}" stroke="{accent}" stroke-width="1.2">
+      <rect x="-104" y="-12" width="18" height="24" rx="2"/>
+      <rect x="86" y="-12" width="18" height="24" rx="2"/>
+      <rect x="-12" y="-104" width="24" height="18" rx="2"/>
+      <rect x="-12" y="86" width="24" height="18" rx="2"/>
+      <rect x="62" y="-72" width="20" height="20" rx="2"/>
+    </g>
+    <text y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="900" fill="#f8fafc" opacity="0.85">EDGE</text>
+    <text y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">GLOBAL EDGE NET</text>
+    <text y="136" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">5 PoPs : WAF on</text>
+  </g>'''
+
+
+def _illust_aws_services(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Row of 6 AWS service chips connected."""
+    chips = ["S3", "EC2", "IAM", "VPC", "RDS", "EKS"]
+    parts = []
+    for i, lbl in enumerate(chips):
+        x = -100 + i * 40
+        parts.append(
+            f'<rect x="{x-16}" y="-16" width="32" height="32" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.4"/>'
+            f'<text x="{x}" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#f8fafc">{lbl}</text>'
+        )
+        if i < len(chips) - 1:
+            parts.append(
+                f'<line x1="{x+16}" y1="0" x2="{x+24}" y2="0" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.7"/>'
+            )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-118" y="-58" width="236" height="116" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    <text x="-110" y="-32" text-anchor="start" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.7">AWS SERVICES</text>
+    {"".join(parts)}
+    <line x1="-100" y1="32" x2="100" y2="32" stroke="{halo}" stroke-width="1" opacity="0.4"/>
+    <text x="-100" y="46" text-anchor="start" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" opacity="0.7">REGION ap-northeast-2</text>
+    <text y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">AWS SERVICE STACK</text>
+    <text y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">6 services : 1 region</text>
+  </g>'''
+
+
+def _illust_telco_sim(cx: int, cy: int, accent: str, halo: str) -> str:
+    """SIM card + eSIM badge + IMEI label."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <path d="M-72 -50 L48 -50 L72 -26 L72 70 L-72 70 Z" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    <rect x="-44" y="-22" width="88" height="64" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.6"/>
+    <g stroke="{accent}" stroke-width="1.2" opacity="0.6" fill="none">
+      <line x1="-44" y1="-6" x2="44" y2="-6"/>
+      <line x1="-44" y1="10" x2="44" y2="10"/>
+      <line x1="-44" y1="26" x2="44" y2="26"/>
+      <line x1="-22" y1="-22" x2="-22" y2="42"/>
+      <line x1="0" y1="-22" x2="0" y2="42"/>
+      <line x1="22" y1="-22" x2="22" y2="42"/>
+    </g>
+    <text x="0" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="{halo}">SIM / USIM</text>
+    <g transform="translate(50 -68)">
+      <rect x="-28" y="-12" width="56" height="22" rx="11" fill="{halo}" fill-opacity="0.7" stroke="{halo}" stroke-width="1.4"/>
+      <text y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#0f172a">eSIM</text>
+    </g>
+    <text x="-72" y="-66" text-anchor="start" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" opacity="0.7">IMEI 35-209900-176148-1</text>
+    <text y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">TELCO IDENTITY</text>
+    <text y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">SIM + eSIM + IMEI</text>
+  </g>'''
+
+
+def _illust_zscaler_ssl(cx: int, cy: int, accent: str, halo: str) -> str:
+    """SSL inspection lock + sandbox box + arrows."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-110" y="-50" width="80" height="100" rx="10" fill="#0f172a" stroke="{accent}" stroke-width="2" opacity="0.94"/>
+    <text x="-70" y="-30" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.7">CLIENT</text>
+    <path d="M-90 -10 Q-90 -22 -78 -22 Q-66 -22 -66 -10" stroke="{accent}" stroke-width="2.4" fill="none"/>
+    <rect x="-94" y="-10" width="32" height="26" rx="4" fill="{accent}" fill-opacity="0.32" stroke="{accent}" stroke-width="2"/>
+    <circle cx="-78" cy="0" r="3" fill="{halo}"/>
+    <text x="-70" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#f8fafc">SSL</text>
+    <line x1="-30" y1="0" x2="6" y2="0" stroke="{halo}" stroke-width="1.6" stroke-dasharray="3 3" marker-end="url(#sgArrow)"/>
+    <text x="-12" y="-8" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="{halo}" opacity="0.7">decrypt</text>
+    <rect x="6" y="-50" width="100" height="100" rx="10" fill="#0f172a" stroke="{accent}" stroke-width="2" opacity="0.94"/>
+    <text x="56" y="-30" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.7">SANDBOX</text>
+    <rect x="20" y="-14" width="72" height="50" rx="4" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>
+    <g fill="{halo}">
+      <circle cx="34" cy="0" r="2.5"/>
+      <circle cx="46" cy="0" r="2.5"/>
+      <circle cx="58" cy="0" r="2.5"/>
+      <circle cx="70" cy="0" r="2.5"/>
+      <circle cx="82" cy="0" r="2.5"/>
+      <rect x="30" y="14" width="56" height="3" rx="1" opacity="0.55"/>
+      <rect x="30" y="22" width="42" height="3" rx="1" opacity="0.45"/>
+    </g>
+    <text x="56" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#f8fafc">ATP / AI scan</text>
+    <text y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">SSL INSPECT + SANDBOX</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">decrypt -&gt; detonate -&gt; verdict</text>
+  </g>'''
+
+
+def _illust_macos_device(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Laptop silhouette with security mark + MDM."""
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <path d="M-78 -30 L-78 36 L78 36 L78 -30 Z" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
+    <rect x="-70" y="-22" width="140" height="50" rx="3" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.4"/>
+    <path d="M-94 38 L94 38 L102 50 L-102 50 Z" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.96"/>
+    <rect x="-14" y="40" width="28" height="6" rx="2" fill="{accent}" fill-opacity="0.45"/>
+    <g fill="{halo}" font-family="Arial,sans-serif" font-size="7" font-weight="700">
+      <text x="-62" y="-8" opacity="0.7">DEVICE</text>
+      <text x="-62" y="2" opacity="0.55">macOS 14.5</text>
+      <text x="-62" y="12" opacity="0.55">Apple Silicon</text>
+      <text x="-62" y="22" opacity="0.55">FileVault: ON</text>
+    </g>
+    <g transform="translate(40 0)">
+      <circle r="20" fill="{accent}" fill-opacity="0.32" stroke="{accent}" stroke-width="2"/>
+      <path d="M0,-12 L9,-8 L9,2 C9,9 0,14 0,14 C0,14 -9,9 -9,2 L-9,-8 Z" fill="none" stroke="#f8fafc" stroke-width="1.8"/>
+      <path d="M-3,0 L-1,2 L3,-2" stroke="#f8fafc" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(-86 -54)">
+      <rect x="0" y="0" width="36" height="16" rx="3" fill="{halo}" fill-opacity="0.7"/>
+      <text x="18" y="11" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="900" fill="#0f172a">MDM</text>
+    </g>
+    <text y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">macOS DEVICE</text>
+    <text y="96" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">MDM enrolled : compliant</text>
+  </g>'''
+
+
+def _illust_conference(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Stage + audience dots + 3 talk boxes."""
+    audience = []
+    for r in range(4):
+        for c in range(11):
+            audience.append(
+                f'<circle cx="{-100 + c * 20}" cy="{40 + r * 12}" r="3" fill="{halo}" opacity="{0.35 + (c % 3) * 0.15}"/>'
+            )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-110" y="-72" width="220" height="160" rx="12" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    <rect x="-90" y="-58" width="180" height="78" rx="6" fill="{accent}" fill-opacity="0.16" stroke="{accent}" stroke-width="1.6"/>
+    <g font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#f8fafc">
+      <rect x="-82" y="-50" width="50" height="22" rx="3" fill="{accent}" fill-opacity="0.36"/>
+      <text x="-57" y="-35" text-anchor="middle">AWSKRUG</text>
+      <rect x="-24" y="-50" width="48" height="22" rx="3" fill="{halo}" fill-opacity="0.42"/>
+      <text x="0" y="-35" text-anchor="middle" fill="#0f172a">OWASP</text>
+      <rect x="32" y="-50" width="50" height="22" rx="3" fill="{accent}" fill-opacity="0.36"/>
+      <text x="57" y="-35" text-anchor="middle">DATADOG</text>
+    </g>
+    <text x="0" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="{halo}" opacity="0.85">2025 PREVIEW</text>
+    {"".join(audience)}
+    <text y="106" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">CONFERENCE STAGE</text>
+    <text y="122" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">3 talks : audience x44</text>
+  </g>'''
+
+
+
+# Map normalised category to illustration function (defined after all
+# illustration functions so forward references are resolved).
 SINGLE_ILLUSTRATIONS = {
     "shield": _illust_shield,
     "cloud": _illust_cloud,
@@ -1324,24 +1779,90 @@ SINGLE_ILLUSTRATIONS = {
     "chart": _illust_chart,
     "network": _illust_network,
     "chip": _illust_chip,
+    "npm": _illust_npm_packages,
+    "k8s": _illust_kubernetes_cluster,
+    "pipeline": _illust_ci_pipeline,
+    "globe": _illust_cloudflare_globe,
+    "aws": _illust_aws_services,
+    "finops": _illust_finops_chart,
+    "mfa": _illust_mfa_devices,
+    "ztna": _illust_zero_trust,
+    "incident_timeline": _illust_incident_timeline,
+    "isms": _illust_isms_audit,
+    "agent": _illust_ai_agent,
+    "database": _illust_database_layers,
+    "email": _illust_email_dmarc,
+    "sim": _illust_telco_sim,
+    "ssl": _illust_zscaler_ssl,
+    "macos": _illust_macos_device,
+    "conference": _illust_conference,
 }
 
 
 def _pick_illustration(category: str, title: str) -> str:
-    """Map (category, title) -> SINGLE_ILLUSTRATIONS key."""
+    """Map (category, title) -> SINGLE_ILLUSTRATIONS key.
+
+    Order is significant: more-specific topic keywords are tested before
+    broader category fallbacks so per-post visual variety is maximised.
+    """
     text = (category + " " + title).lower()
-    if any(k in text for k in ("kubernetes", "k8s", "minikube", "docker", "container", "karpenter", "cluster")):
+    # SIM / telco identity (must come before generic security / mfa)
+    if any(k in text for k in ("skt", "usim", "esim", "imei", "telco", "sim card")):
+        return "sim"
+    # macOS / Kandji / Apple device management
+    if any(k in text for k in ("kandji", "macos", " mdm", "apple device", "mdm ")):
+        return "macos"
+    # Cloudflare global incident / outage
+    if any(k in text for k in ("cloudflare global", "cloudflare 11", "cloudflare incident", "global outage", "cloudflare ")):
+        return "globe"
+    # Incident / post-mortem timeline
+    if any(k in text for k in ("post-mortem", "post_mortem", "postmortem", "incident response", "11/18", "outage")):
+        return "incident_timeline"
+    # NPM / supply chain / package
+    if any(k in text for k in ("npm", "shai-hulud", "self_replication", "self-replicating", "worm", "supply chain", "supply_chain", "package breach")):
+        return "npm"
+    # Kubernetes / Karpenter / k8s tooling
+    if any(k in text for k in ("kubernetes", "k8s", "minikube", "k9s", "karpenter")):
+        return "k8s"
+    # CI/CD pipeline
+    if any(k in text for k in ("ci/cd", "ci_cd", "pipeline", "github actions", "github_advanced", "amazon q", "ghas")):
+        return "pipeline"
+    # Email / DMARC / SendGrid
+    if any(k in text for k in ("dmarc", "spf", "dkim", "sendgrid", "smtp", "email delivery", "email_delivery")):
+        return "email"
+    # Zero Trust / ZTNA
+    if any(k in text for k in ("ztna", "zero trust", "zero-trust")):
+        return "ztna"
+    # Zscaler / SSL inspection / sandbox
+    if any(k in text for k in ("zscaler", "ssl inspection", "ssl_inspection", "sandbox")):
+        return "ssl"
+    # MFA / passkey / OTP
+    if any(k in text for k in ("mfa", "passkey", "fido2", "totp", "2fa", " otp", "otp ")):
+        return "mfa"
+    # ISMS / audit / compliance
+    if any(k in text for k in ("isms", "isms-p", "audit", "compliance", "soc2", "iso27001")):
+        return "isms"
+    # AI agent / secretary
+    if any(k in text for k in ("ai secretary", "ai agent", " agent ", "llm", "claude", "openai", "gpt")):
+        return "agent"
+    # Database / NLB / RDS / gateway
+    if any(k in text for k in ("database", " rds ", "nlb", "db gateway", "database access", "gateway")):
+        return "database"
+    # Conference / review / preview
+    if any(k in text for k in ("conference", "awskrug", "owasp", "datadog", "preview", "review")):
+        return "conference"
+    # FinOps / cost
+    if any(k in text for k in ("finops", "cost-opt", "cost optim", "savings", "budget")):
+        return "finops"
+    # AWS service stack (control tower, guardduty, vpc, security hub)
+    if any(k in text for k in ("aws", "control tower", "guardduty", "vpc", "security hub", "control_tower")):
+        return "aws"
+    # Generic cloud
+    if any(k in text for k in ("cloud", "docker", "container")):
         return "cloud"
-    if any(k in text for k in ("npm", "supply chain", "shai-hulud", "worm", "self_replication", "package")):
-        return "network"
-    if any(k in text for k in ("ai", "agent", "secretary", "amazon q", "datadog ", "siem")):
-        return "chip"
-    if any(k in text for k in ("finops", "report", "review", "conference", "preview")):
-        return "chart"
-    if any(k in text for k in ("incident", "post-mortem", "post_mortem", "outage", "cloudflare", "rce", "cve", "vulnerability")):
+    # CVE / RCE / vulnerability
+    if any(k in text for k in ("rce", "cve", "vulnerability", "exploit")):
         return "lock"
-    if any(k in text for k in ("aws", "cloud", "vpc", "control tower", "guardduty", "isms", "zscaler")):
-        return "cloud"
     return "shield"
 
 
@@ -1519,17 +2040,17 @@ def render_single_svg(
   <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
   <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>'''
 
-    # Decorative dot labels (around the illustration ring) — pumps text-node
-    # density toward 60-90 so the SVG comfortably passes HQ tier checks.
+    # Decorative ring corner ticks — kept at heroPanel corners (outside the
+    # illustration's ~110px radius) so they never overlap with the artwork.
     ring_labels = []
     for i, (rx, ry, lbl) in enumerate([
-        (842, 202, "01"), (988, 202, "02"), (842, 360, "03"), (988, 360, "04"),
-        (914, 192, "PRI"), (914, 372, "SEC"),
+        (740, 162, "01"), (1090, 162, "02"),
+        (740, 412, "03"), (1090, 412, "04"),
     ]):
         ring_labels.append(
             f'<text x="{rx}" y="{ry}" font-family="Arial,sans-serif" '
             f'font-size="9" font-weight="700" fill="{halo}" '
-            f'text-anchor="middle" opacity="0.7">{lbl}</text>'
+            f'text-anchor="middle" opacity="0.55">{lbl}</text>'
         )
     ring_labels_svg = "\n  ".join(ring_labels)
 
@@ -1543,13 +2064,14 @@ def render_single_svg(
             )
     halftone_svg = "\n  ".join(halftone)
 
-    # Decorative text grid bottom-right small tag labels (extra density).
+    # Decorative micro-spec strip ABOVE the illustration (inside the
+    # heroPanel header band, y=152..164). Keeps the density high without
+    # colliding with the centred illustration or the bottom status_svg.
     side_labels = []
     for i, (sx, sy, txt) in enumerate([
-        (740, 392, "STATUS"), (810, 392, "OK"),
-        (740, 410, "REGION"), (810, 410, "ASIA"),
-        (900, 392, "VERSION"), (980, 392, "v1"),
-        (900, 410, "BUILD"),   (980, 410, "STAB"),
+        (740, 178, "STATUS"), (816, 178, "OK"),
+        (864, 178, "VER"),    (910, 178, "v1.0"),
+        (962, 178, "BUILD"),  (1024, 178, "STAB"),
     ]):
         side_labels.append(
             f'<text x="{sx}" y="{sy}" font-family="Arial,sans-serif" '
@@ -1572,31 +2094,9 @@ def render_single_svg(
         )
     edge_labels_svg = "\n  ".join(edge_labels)
 
-    # Right-panel status cluster (mini key/value rows under the illustration
-    # zone) — bumps text density and matches the data-dense reference.
-    status_rows = []
-    status_data = [
-        (740, 268, "STAGE",   "01"),
-        (740, 286, "SCOPE",   "GLOBAL"),
-        (740, 304, "ZONE",    "AP-NE"),
-        (900, 268, "TIER",    "HQ"),
-        (900, 286, "DEPTH",   "L2"),
-        (900, 304, "FANOUT",  "x4"),
-        (740, 332, "INDEX",   "00"),
-        (900, 332, "DRIFT",   "0.0"),
-    ]
-    for sx, sy, lbl, val in status_data:
-        status_rows.append(
-            f'<text x="{sx}" y="{sy}" font-family="Arial,sans-serif" '
-            f'font-size="9" font-weight="700" fill="#94a3b8" '
-            f'opacity="0.75">{_xml_escape(lbl)}</text>'
-        )
-        status_rows.append(
-            f'<text x="{sx + 56}" y="{sy}" font-family="Arial,sans-serif" '
-            f'font-size="9" font-weight="700" fill="{halo}" '
-            f'opacity="0.85">{_xml_escape(val)}</text>'
-        )
-    status_svg = "\n  ".join(status_rows)
+    # Status cluster removed — the new per-topic illustrations carry their
+    # own captions and would collide with a mid-panel status grid.
+    status_svg = ""
 
     qr_dec = _qr_grid_decorative(742, 156, accent)
 
@@ -1661,6 +2161,9 @@ def render_single_svg(
     <filter id="singleShadow" x="-30%" y="-30%" width="180%" height="180%">
       <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
     </filter>
+    <marker id="sgArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="{halo}" opacity="0.85"/>
+    </marker>
   </defs>'''
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="{_xml_escape(aria)}">

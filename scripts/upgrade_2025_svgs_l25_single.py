@@ -327,23 +327,223 @@ def derive_tags(fm: dict, headline: str, category: str) -> list[str]:
     return out[:4]
 
 
-def derive_body_line(fm: dict, headline: str) -> str:
+def _english_word_count(text: str) -> int:
+    return len(re.findall(r"[A-Za-z]{3,}", text or ""))
+
+
+# Per-category fallback bodies (used when neither excerpt nor image_alt are
+# usable English sentences). Keep concise (< 100 chars).
+CATEGORY_FALLBACK_BODY = {
+    "security":   "Practitioner security playbook with field-tested controls.",
+    "devsecops":  "Field-tested DevSecOps integration patterns for CI and runtime.",
+    "devops":     "Hands-on DevOps tooling and runtime-ops practical notes.",
+    "cloud":      "Cloud architecture, IAM, and workload-protection field notes.",
+    "kubernetes": "Kubernetes cluster, workload, and runtime hardening guide.",
+    "finops":     "FinOps cost-attribution and savings-strategy playbook.",
+    "incident":   "Incident response timeline, root cause and follow-up actions.",
+    "ai":         "Enterprise AI service security and agent-pattern field notes.",
+}
+
+
+def derive_body_line(fm: dict, headline: str, category: str = "") -> str:
     """One-line body summary for the cover (ASCII-flat, <= ~115 chars).
+
+    Priority:
+      1. ``image_alt`` (always English in 2025 posts)
+      2. ``excerpt`` / ``description`` if it has >= 5 meaningful English words
+      3. Category-specific fallback sentence
+      4. Headline (last resort)
 
     Truncates at the last word boundary <= 115 chars and STRIPS any trailing
     ellipsis to avoid the check_posts.py "truncated text" warning. Trailing
-    punctuation (",.") is also trimmed for visual cleanliness.
+    punctuation (",.;:") is also trimmed for visual cleanliness.
     """
+    candidates: list[str] = []
+    img_alt = fm.get("image_alt") or ""
+    if img_alt:
+        candidates.append(to_ascii_title(str(img_alt)))
     raw = fm.get("excerpt") or fm.get("description") or ""
-    text = to_ascii_title(str(raw))
+    candidates.append(to_ascii_title(str(raw)))
+
+    text = ""
+    for c in candidates:
+        if c and _english_word_count(c) >= 5:
+            text = c
+            break
+
     if not text:
-        text = headline
+        cat_key = (category or "").lower()
+        for k, v in CATEGORY_FALLBACK_BODY.items():
+            if k in cat_key:
+                text = v
+                break
+    if not text:
+        text = CATEGORY_FALLBACK_BODY["security"]
+
     if len(text) > 115:
         head = text[:115]
         if " " in head:
             head = head.rsplit(" ", 1)[0]
         text = head
     return text.rstrip(",.;: ").strip()
+
+
+# ---------------------------------------------------------------------------
+# Per-post illustration + stats overrides (manually curated for variety)
+# ---------------------------------------------------------------------------
+
+# Maps post stem -> SINGLE_ILLUSTRATIONS key in svg_l22_generator. When a
+# stem is not present, the generator falls back to ``_pick_illustration``
+# keyword routing.
+PER_POST_ILLUSTRATION = {
+    "2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance":
+        "sim",
+    "2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage":
+        "mfa",
+    "2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops":
+        "finops",
+    "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide":
+        "macos",
+    "2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide":
+        "isms",
+    "2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA":
+        "ztna",
+    "2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security":
+        "globe",
+    "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS":
+        "pipeline",
+    "2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding":
+        "k8s",
+    "2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide":
+        "k8s",
+    "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide":
+        "email",
+    "2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide":
+        "pipeline",
+    "2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration":
+        "pipeline",
+    "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection":
+        "npm",
+    "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future":
+        "conference",
+    "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis":
+        "npm",
+    "2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution":
+        "k8s",
+    "2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide":
+        "database",
+    "2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide":
+        "agent",
+    "2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block":
+        "ssl",
+    "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned":
+        "globe",
+    "2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap":
+        "pipeline",
+    "2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo":
+        "aws",
+    "2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer":
+        "aws",
+    "2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy":
+        "finops",
+    "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence":
+        "conference",
+    "2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response":
+        "isms",
+    "2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security":
+        "ztna",
+}
+
+
+# Maps post stem -> 3 stat dicts for the bottom strip.
+# Each value is a tuple of (label, value) with ASCII text only.
+PER_POST_STATS = {
+    "2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance":
+        [("INCIDENT", "SKT"), ("ACTION", "USIM"), ("CONTROL", "MFA")],
+    "2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage":
+        [("METHOD", "PASSKEY"), ("BACKUP", "TOTP"), ("RISK", "PUBLIC")],
+    "2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops":
+        [("BATCH", "7"), ("WEEK", "3"), ("TOPIC", "FINOPS")],
+    "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide":
+        [("TOOL", "KANDJI"), ("OS", "MACOS"), ("CONTROL", "MDM")],
+    "2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide":
+        [("BATCH", "7"), ("WEEK", "4"), ("AUDIT", "ISMS")],
+    "2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA":
+        [("BATCH", "7"), ("WEEK", "5"), ("MODEL", "ZTNA")],
+    "2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security":
+        [("BATCH", "7"), ("WEEK", "6"), ("STACK", "CF+GH")],
+    "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS":
+        [("TOOL", "AMAZON Q"), ("STACK", "GHAS"), ("MODE", "DEV")],
+    "2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding":
+        [("BATCH", "7"), ("WEEK", "7"), ("STACK", "K8S")],
+    "2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide":
+        [("STACK", "K8S"), ("TOOL", "MINIKUBE"), ("VIEW", "K9S")],
+    "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide":
+        [("VENDOR", "SENDGRID"), ("CONTROL", "DMARC"), ("ALIGN", "STRICT")],
+    "2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide":
+        [("BATCH", "7"), ("WEEK", "8"), ("STACK", "CI/CD")],
+    "2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration":
+        [("BATCH", "7"), ("WEEK", "9"), ("MODEL", "DEVSEC")],
+    "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection":
+        [("ECOSYSTEM", "NPM"), ("PACKAGES", "20"), ("VECTOR", "MALWARE")],
+    "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future":
+        [("EVENT", "REINFORCE"), ("YEAR", "2025"), ("FOCUS", "CLOUD")],
+    "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis":
+        [("WORM", "SHAI-HUL"), ("PACKAGES", "180"), ("VECTOR", "SUPPLY")],
+    "2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution":
+        [("TOOL", "KARPENTER"), ("VERSION", "v1.5.3"), ("EVENT", "INCIDENT")],
+    "2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide":
+        [("STACK", "RDS"), ("FRONT", "NLB"), ("CONTROL", "SG")],
+    "2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide":
+        [("AGENT", "AI-SEC"), ("RISK", "LEAK"), ("CONTROL", "GUARD")],
+    "2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block":
+        [("VENDOR", "ZSCALER"), ("MODE", "SSL"), ("STAGE", "SANDBOX")],
+    "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned":
+        [("EVENT", "11/18"), ("VENDOR", "CF"), ("SEVERITY", "GLOBAL")],
+    "2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap":
+        [("BATCH", "8"), ("PHASE", "OT"), ("TRACK", "DEVSEC")],
+    "2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo":
+        [("BATCH", "8"), ("WEEK", "1"), ("FOCUS", "INFRA")],
+    "2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer":
+        [("BATCH", "8"), ("WEEK", "2"), ("STACK", "VPC+GD")],
+    "2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy":
+        [("BATCH", "8"), ("WEEK", "3"), ("FOCUS", "FINOPS")],
+    "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence":
+        [("EVENT", "DEC-12"), ("TALKS", "3"), ("YEAR", "2025")],
+    "2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response":
+        [("BATCH", "8"), ("WEEK", "4"), ("AUDIT", "ISMS-P")],
+    "2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security":
+        [("BATCH", "8"), ("WEEK", "5"), ("STACK", "SCP+SIEM")],
+}
+
+
+CATEGORY_DEFAULT_STATS = {
+    "security":   [("DOMAIN", "SECURITY"), ("MODE", "DEFENSE"), ("PHASE", "ACTIVE")],
+    "devsecops":  [("DOMAIN", "DEVSECOPS"), ("STAGE", "PIPELINE"), ("PHASE", "INTEGR")],
+    "devops":     [("DOMAIN", "DEVOPS"), ("STAGE", "BUILD"), ("PHASE", "DEPLOY")],
+    "cloud":      [("DOMAIN", "CLOUD"), ("MODE", "CTRL"), ("PHASE", "AUDIT")],
+    "kubernetes": [("DOMAIN", "K8S"), ("UNIT", "POD"), ("PHASE", "READY")],
+    "finops":     [("DOMAIN", "FINOPS"), ("MODE", "OPTIM"), ("PHASE", "REVIEW")],
+    "incident":   [("DOMAIN", "INCIDENT"), ("STAGE", "RESPOND"), ("PHASE", "REVIEW")],
+    "ai":         [("DOMAIN", "AI"), ("MODE", "AGENT"), ("PHASE", "EVAL")],
+}
+
+
+def derive_stats(post_path: Path, category: str, tags: list) -> list:
+    """Build the 3 bottom-stat dicts for the cover.
+
+    Priority: per-post override -> category default -> generic CATEGORY/SIGNALS/TAGS.
+    """
+    rows = PER_POST_STATS.get(post_path.stem)
+    if not rows:
+        cat = (category or "security").lower()
+        for k, v in CATEGORY_DEFAULT_STATS.items():
+            if k in cat:
+                rows = v
+                break
+    if not rows:
+        rows = CATEGORY_DEFAULT_STATS["security"]
+    return [{"label": lbl, "value": val} for lbl, val in rows]
 
 
 def derive_post_url(post_path: Path, fm: dict) -> str:
@@ -465,13 +665,14 @@ def process_job(job: PostJob) -> tuple[str, str, dict]:
         headline = derive_headline(job.post_path, job.fm)
         category = derive_category(job.fm, headline)
         tag_line = derive_tag_line(category, headline, job.fm)
-        body_line = derive_body_line(job.fm, headline)
+        body_line = derive_body_line(job.fm, headline, category)
         tags = derive_tags(job.fm, headline, category)
         visual_id = derive_visual_id(job.post_path)
         date_label = derive_date_label(job.post_path)
         url = derive_post_url(job.post_path, job.fm)
         aria = derive_aria(headline, category)
         title_attr = headline
+        stats = derive_stats(job.post_path, category, tags)
 
         sfx = "X" + visual_id[:4]
 
@@ -485,6 +686,8 @@ def process_job(job: PostJob) -> tuple[str, str, dict]:
         elif "Cloud_" in stem and category.lower() != "kubernetes":
             theme_key = "cloud"
 
+        illus_key = PER_POST_ILLUSTRATION.get(job.post_path.stem, "")
+
         svg_xml = l22.render_single_svg(
             sfx=sfx,
             aria=aria,
@@ -497,6 +700,8 @@ def process_job(job: PostJob) -> tuple[str, str, dict]:
             tags=tags,
             visual_id=visual_id,
             date_label=date_label,
+            stats=stats,
+            illustration_key=illus_key,
             theme_key=theme_key,
         )
 

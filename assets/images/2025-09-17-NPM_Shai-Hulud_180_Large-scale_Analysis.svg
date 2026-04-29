@@ -21,6 +21,9 @@
     <filter id="singleShadow" x="-30%" y="-30%" width="180%" height="180%">
       <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
     </filter>
+    <marker id="sgArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ef4444" opacity="0.85"/>
+    </marker>
   </defs>
 <rect width="1200" height="630" fill="url(#bgSpreadX29C8)"/>
 <rect width="1200" height="630" fill="url(#microGridX29C8)"/>
@@ -85,20 +88,16 @@
   <circle cx="1080" cy="120" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
   <circle cx="1094" cy="120" r="1.4" fill="#ef4444" opacity="0.18"/>
   <circle cx="1108" cy="120" r="1.4" fill="#ef4444" opacity="0.26"/>
-<text x="842" y="202" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">01</text>
-  <text x="988" y="202" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">02</text>
-  <text x="842" y="360" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">03</text>
-  <text x="988" y="360" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">04</text>
-  <text x="914" y="192" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">PRI</text>
-  <text x="914" y="372" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">SEC</text>
-<text x="740" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STATUS</text>
-  <text x="810" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">OK</text>
-  <text x="740" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">REGION</text>
-  <text x="810" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">ASIA</text>
-  <text x="900" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">VERSION</text>
-  <text x="980" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">v1</text>
-  <text x="900" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">BUILD</text>
-  <text x="980" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STAB</text>
+<text x="740" y="162" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.55">01</text>
+  <text x="1090" y="162" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.55">02</text>
+  <text x="740" y="412" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.55">03</text>
+  <text x="1090" y="412" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.55">04</text>
+<text x="740" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STATUS</text>
+  <text x="816" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">OK</text>
+  <text x="864" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">VER</text>
+  <text x="910" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">v1.0</text>
+  <text x="962" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">BUILD</text>
+  <text x="1024" y="178" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STAB</text>
 <text x="40" y="380" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">00</text>
   <text x="40" y="410" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">01</text>
   <text x="40" y="440" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">02</text>
@@ -108,50 +107,36 @@
   <text x="1160" y="410" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">RUN</text>
   <text x="1160" y="440" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">OK</text>
   <text x="1160" y="470" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">RUN</text>
-<text x="740" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">STAGE</text>
-  <text x="796" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">01</text>
-  <text x="740" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">SCOPE</text>
-  <text x="796" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">GLOBAL</text>
-  <text x="740" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">ZONE</text>
-  <text x="796" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">AP-NE</text>
-  <text x="900" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">TIER</text>
-  <text x="956" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">HQ</text>
-  <text x="900" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">DEPTH</text>
-  <text x="956" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">L2</text>
-  <text x="900" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">FANOUT</text>
-  <text x="956" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">x4</text>
-  <text x="740" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">INDEX</text>
-  <text x="796" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">00</text>
-  <text x="900" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">DRIFT</text>
-  <text x="956" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">0.0</text>
+
 <g transform="translate(914,278)" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="#f97316" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="98" fill="none" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.4"/>
+    <circle r="98" fill="none" stroke="#f97316" stroke-width="1.1" stroke-opacity="0.4"/>
     <g stroke="#f97316" stroke-width="1.2" stroke-opacity="0.55" fill="none">
-      <line x1="-72" y1="-20" x2="-12" y2="-50"/>
-      <line x1="-72" y1="-20" x2="-12" y2="0"/>
-      <line x1="-72" y1="-20" x2="-12" y2="40"/>
-      <line x1="-12" y1="-50" x2="60" y2="-60"/>
-      <line x1="-12" y1="0" x2="60" y2="0"/>
-      <line x1="-12" y1="0" x2="60" y2="-30"/>
-      <line x1="-12" y1="40" x2="60" y2="60"/>
+      <line x1="0" y1="0" x2="-72" y2="-48"/>
+      <line x1="0" y1="0" x2="0" y2="-78"/>
+      <line x1="0" y1="0" x2="72" y2="-48"/>
+      <line x1="0" y1="0" x2="84" y2="14"/>
+      <line x1="0" y1="0" x2="60" y2="64"/>
+      <line x1="0" y1="0" x2="-60" y2="64"/>
+      <line x1="0" y1="0" x2="-84" y2="14"/>
     </g>
-    <g fill="#f97316">
-      <circle cx="-72" cy="-20" r="14" stroke="#ef4444" stroke-width="1.6"/>
-      <circle cx="-12" cy="-50" r="8"/>
-      <circle cx="-12" cy="0" r="8"/>
-      <circle cx="-12" cy="40" r="8"/>
+    <g stroke="#ef4444" stroke-width="1.7" stroke-dasharray="3 3" fill="none">
+      <line x1="0" y1="0" x2="-72" y2="-48"/>
+      <line x1="0" y1="0" x2="60" y2="64"/>
     </g>
-    <g fill="#ef4444">
-      <circle cx="60" cy="-60" r="6"/>
-      <circle cx="60" cy="-30" r="6"/>
-      <circle cx="60" cy="0" r="6"/>
-      <circle cx="60" cy="60" r="6"/>
+    <rect x="-22" y="-22" width="44" height="44" rx="6" fill="#f97316" fill-opacity="0.32" stroke="#f97316" stroke-width="2.4"/>
+    <text y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#f8fafc">NPM</text>
+    <g stroke="#ef4444" stroke-width="1.2">
+      <rect x="-84" y="-58" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.55"/>
+      <rect x="-12" y="-90" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.55"/>
+      <rect x="60" y="-58" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.55"/>
+      <rect x="72" y="4" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.55"/>
+      <rect x="48" y="54" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.6"/>
+      <rect x="-72" y="54" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.55"/>
+      <rect x="-96" y="4" width="24" height="20" rx="3" fill="#ef4444" fill-opacity="0.6"/>
     </g>
-    <text x="-72" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444">SOURCE</text>
-    <text x="60" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444">FANOUT</text>
-    <text y="-86" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#f97316" opacity="0.85">PROPAGATION GRAPH</text>
-    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#ef4444" opacity="0.7">3 hops : 4 leaves</text>
+    <text y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#f97316" opacity="0.85">PACKAGE GRAPH</text>
+    <text y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#ef4444" opacity="0.85">2 poisoned edges</text>
   </g>
 <g transform="translate(84 66)">
     <rect width="160" height="36" rx="18" fill="#f97316" opacity="0.22" stroke="#f97316" stroke-width="1.2"/>
@@ -162,7 +147,7 @@
 <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">INCIDENT / SHAI / HULUD</text>
   <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
   <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 29C8A3C6C4E0</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">NPM Shai-Hulud . 180 , , SBOM 2FA</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">NPM Shai-Hulud Self-Replicating Worm Attack Complete Analysis of Large-Scale</text>
 <g transform="translate(84 474)">
     <rect width="110" height="38" rx="19" fill="#f97316" fill-opacity="0.16" stroke="#f97316" stroke-width="1.2"/>
     <text x="55" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">NPM</text>
@@ -181,18 +166,18 @@
   </g>
 <g transform="translate(84 536)">
     <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">INCIDENT</text>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">WORM</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">SHAI-HUL</text>
   </g>
   <g transform="translate(246 536)">
     <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">PACKAGES</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">180</text>
   </g>
   <g transform="translate(408 536)">
     <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
+    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">VECTOR</text>
+    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">SUPPLY</text>
   </g>
 <g transform="translate(1030 74)">
     <rect width="130" height="34" rx="17" fill="#b45309" opacity="0.22" stroke="#f97316" stroke-width="1.2"/>
