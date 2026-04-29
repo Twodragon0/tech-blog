@@ -1,99 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>NPM SHAI HULUD 180 INCIDENT</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="incident Shai-Hulud npm Worm">
+<title>Shai-Hulud npm Worm</title>
+<!-- profile: high-quality-cover (2025 upgraded L25-single) -->
+<defs>
+    <linearGradient id="bgSpreadX29C8" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b1120"/>
       <stop offset="52%" stop-color="#121a2f"/>
       <stop offset="100%" stop-color="#170f25"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="heroPanelX29C8" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
       <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
     </linearGradient>
-    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+    <pattern id="microGridX29C8" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
       <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#f87171" opacity="0.15"/>
+      <circle cx="18" cy="18" r="1.2" fill="#f97316" opacity="0.18"/>
     </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="sgBlur" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="36"/>
     </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+    <filter id="singleShadow" x="-30%" y="-30%" width="180%" height="180%">
       <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
     </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#f87171" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#b91c1c" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
+<rect width="1200" height="630" fill="url(#bgSpreadX29C8)"/>
+<rect width="1200" height="630" fill="url(#microGridX29C8)"/>
+<circle cx="202" cy="150" r="190" fill="#f97316" opacity="0.08" filter="url(#sgBlur)"/>
+  <circle cx="1020" cy="486" r="220" fill="#b45309" opacity="0.08" filter="url(#sgBlur)"/>
+  <circle cx="920" cy="160" r="140" fill="#ef4444" opacity="0.05" filter="url(#sgBlur)"/>
   <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
   <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#f87171" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
-  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="758" y="124" width="108" height="12" rx="6" fill="#f87171" opacity="0.28"/>
-  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
-  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
-  
-  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
-  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
-
-  <g transform="translate(917,270)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#f87171" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#f87171" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
-
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#f87171" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#f87171" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
+  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#ef4444" stroke-width="1.3" opacity="0.24"/>
+  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f97316" stroke-width="1.2" opacity="0.22"/>
+<rect x="720" y="132" width="388" height="292" rx="28" fill="url(#heroPanelX29C8)" stroke="#f97316" stroke-opacity="0.28" stroke-width="1.4" filter="url(#singleShadow)"/>
+  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="742" y="152" width="108" height="12" rx="6" fill="#f97316" opacity="0.28"/>
+  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
+  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
+<g><rect x="742" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="750" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="758" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="766" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="782" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="798" y="156" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="742" y="164" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="774" y="164" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="164" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="798" y="164" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="742" y="172" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="758" y="172" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="774" y="172" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="172" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="742" y="180" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="774" y="180" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="782" y="180" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="180" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="798" y="180" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="742" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="750" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="758" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="766" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="798" y="188" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="758" y="196" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="766" y="196" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="774" y="196" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="782" y="196" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="196" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="742" y="204" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="750" y="204" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="782" y="204" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="204" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="750" y="212" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="758" y="212" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="774" y="212" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="790" y="212" width="6" height="6" fill="#f97316" opacity="0.42"/><rect x="798" y="212" width="6" height="6" fill="#f97316" opacity="0.42"/></g>
+<circle cx="1010" cy="60" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="60" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="60" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="60" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="60" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="60" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="60" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="60" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1010" cy="72" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="72" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="72" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="72" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="72" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="72" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="72" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="72" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1010" cy="84" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="84" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="84" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="84" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="84" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="84" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="84" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="84" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1010" cy="96" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="96" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="96" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="96" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="96" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="96" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="96" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="96" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1010" cy="108" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="108" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="108" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="108" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="108" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="108" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="108" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="108" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1010" cy="120" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1024" cy="120" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1038" cy="120" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1052" cy="120" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1066" cy="120" r="1.4" fill="#ef4444" opacity="0.26"/>
+  <circle cx="1080" cy="120" r="1.4" fill="#ef4444" opacity="0.33999999999999997"/>
+  <circle cx="1094" cy="120" r="1.4" fill="#ef4444" opacity="0.18"/>
+  <circle cx="1108" cy="120" r="1.4" fill="#ef4444" opacity="0.26"/>
+<text x="842" y="202" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">01</text>
+  <text x="988" y="202" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">02</text>
+  <text x="842" y="360" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">03</text>
+  <text x="988" y="360" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">04</text>
+  <text x="914" y="192" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">PRI</text>
+  <text x="914" y="372" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" text-anchor="middle" opacity="0.7">SEC</text>
+<text x="740" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STATUS</text>
+  <text x="810" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">OK</text>
+  <text x="740" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">REGION</text>
+  <text x="810" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">ASIA</text>
+  <text x="900" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">VERSION</text>
+  <text x="980" y="392" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">v1</text>
+  <text x="900" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">BUILD</text>
+  <text x="980" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.7">STAB</text>
+<text x="40" y="380" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">00</text>
+  <text x="40" y="410" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">01</text>
+  <text x="40" y="440" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">02</text>
+  <text x="40" y="470" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">03</text>
+  <text x="40" y="500" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">04</text>
+  <text x="1160" y="380" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">OK</text>
+  <text x="1160" y="410" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">RUN</text>
+  <text x="1160" y="440" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">OK</text>
+  <text x="1160" y="470" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#475569" opacity="0.7" text-anchor="middle">RUN</text>
+<text x="740" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">STAGE</text>
+  <text x="796" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">01</text>
+  <text x="740" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">SCOPE</text>
+  <text x="796" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">GLOBAL</text>
+  <text x="740" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">ZONE</text>
+  <text x="796" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">AP-NE</text>
+  <text x="900" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">TIER</text>
+  <text x="956" y="268" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">HQ</text>
+  <text x="900" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">DEPTH</text>
+  <text x="956" y="286" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">L2</text>
+  <text x="900" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">FANOUT</text>
+  <text x="956" y="304" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">x4</text>
+  <text x="740" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">INDEX</text>
+  <text x="796" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">00</text>
+  <text x="900" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" opacity="0.75">DRIFT</text>
+  <text x="956" y="332" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#ef4444" opacity="0.85">0.0</text>
+<g transform="translate(914,278)" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="#f97316" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <circle r="98" fill="none" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.4"/>
+    <g stroke="#f97316" stroke-width="1.2" stroke-opacity="0.55" fill="none">
+      <line x1="-72" y1="-20" x2="-12" y2="-50"/>
+      <line x1="-72" y1="-20" x2="-12" y2="0"/>
+      <line x1="-72" y1="-20" x2="-12" y2="40"/>
+      <line x1="-12" y1="-50" x2="60" y2="-60"/>
+      <line x1="-12" y1="0" x2="60" y2="0"/>
+      <line x1="-12" y1="0" x2="60" y2="-30"/>
+      <line x1="-12" y1="40" x2="60" y2="60"/>
+    </g>
+    <g fill="#f97316">
+      <circle cx="-72" cy="-20" r="14" stroke="#ef4444" stroke-width="1.6"/>
+      <circle cx="-12" cy="-50" r="8"/>
+      <circle cx="-12" cy="0" r="8"/>
+      <circle cx="-12" cy="40" r="8"/>
+    </g>
+    <g fill="#ef4444">
+      <circle cx="60" cy="-60" r="6"/>
+      <circle cx="60" cy="-30" r="6"/>
+      <circle cx="60" cy="0" r="6"/>
+      <circle cx="60" cy="60" r="6"/>
+    </g>
+    <text x="-72" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444">SOURCE</text>
+    <text x="60" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ef4444">FANOUT</text>
+    <text y="-86" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#f97316" opacity="0.85">PROPAGATION GRAPH</text>
+    <text y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#ef4444" opacity="0.7">3 hops : 4 leaves</text>
   </g>
-  <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#f87171" opacity="0.2" stroke="#f87171" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f87171" text-anchor="middle">INCIDENT</text>
+<g transform="translate(84 66)">
+    <rect width="160" height="36" rx="18" fill="#f97316" opacity="0.22" stroke="#f97316" stroke-width="1.2"/>
+    <text x="80" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f97316" text-anchor="middle">INCIDENT</text>
   </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">NPM SHAI HULUD 180</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">INCIDENT</text>
-  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">INCIDENT / SECURITY / NPM</text>
+<text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">SHAI-HULUD NPM</text>
+  <text x="84" y="232" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#dbeafe" letter-spacing="0.5">WORM</text>
+<text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">INCIDENT / SHAI / HULUD</text>
   <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
-  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 30448061CE71</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
-  <g transform="translate(84 474)">
-    <rect width="114" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">INCIDENT</text>
+  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 29C8A3C6C4E0</text>
+  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">NPM Shai-Hulud . 180 , , SBOM 2FA</text>
+<g transform="translate(84 474)">
+    <rect width="110" height="38" rx="19" fill="#f97316" fill-opacity="0.16" stroke="#f97316" stroke-width="1.2"/>
+    <text x="55" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">NPM</text>
   </g>
-  <g transform="translate(212 474)">
-    <rect width="114" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY</text>
+  <g transform="translate(208 474)">
+    <rect width="241" height="38" rx="19" fill="#f97316" fill-opacity="0.16" stroke="#f97316" stroke-width="1.2"/>
+    <text x="120" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SUPPLY-CHAIN-ATTACK</text>
   </g>
-  <g transform="translate(340 474)">
-    <rect width="110" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">NPM</text>
+  <g transform="translate(463 474)">
+    <rect width="110" height="38" rx="19" fill="#f97316" fill-opacity="0.16" stroke="#f97316" stroke-width="1.2"/>
+    <text x="55" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">WORM</text>
   </g>
-  <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+  <g transform="translate(587 474)">
+    <rect width="219" height="38" rx="19" fill="#f97316" fill-opacity="0.16" stroke="#f97316" stroke-width="1.2"/>
+    <text x="109" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">SECURITY-INCIDENT</text>
+  </g>
+<g transform="translate(84 536)">
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">INCIDENT</text>
   </g>
   <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
   </g>
   <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
+    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f97316" stroke-opacity="0.4" stroke-width="1.2"/>
     <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
     <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">04</text>
   </g>
-  <g transform="translate(1030 74)">
-    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+<g transform="translate(1030 74)">
+    <rect width="130" height="34" rx="17" fill="#b45309" opacity="0.22" stroke="#f97316" stroke-width="1.2"/>
+    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#e2e8f0" text-anchor="middle">September 17, 2025</text>
   </g>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
   <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<g transform="translate(1080,504)" filter="url(#softShadow)">
+  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
+  <path fill="#0A1020" d="M0.0 0.0h11.094v1.585h-11.094z M14.264 0.0h1.585v1.585h-1.585z M17.434 0.0h3.17v1.585h-3.17z M22.189 0.0h3.17v1.585h-3.17z M31.698 0.0h1.585v1.585h-1.585z M34.868 0.0h11.094v1.585h-11.094z M47.547 0.0h4.755v1.585h-4.755z M53.887 0.0h3.17v1.585h-3.17z M60.226 0.0h1.585v1.585h-1.585z M64.981 0.0h3.17v1.585h-3.17z M72.906 0.0h11.094v1.585h-11.094z M0.0 1.585h1.585v1.585h-1.585z M9.509 1.585h1.585v1.585h-1.585z M12.679 1.585h1.585v1.585h-1.585z M15.849 1.585h1.585v1.585h-1.585z M19.019 1.585h4.755v1.585h-4.755z M25.358 1.585h1.585v1.585h-1.585z M31.698 1.585h3.17v1.585h-3.17z M36.453 1.585h4.755v1.585h-4.755z M42.792 1.585h1.585v1.585h-1.585z M45.962 1.585h1.585v1.585h-1.585z M49.132 1.585h3.17v1.585h-3.17z M53.887 1.585h1.585v1.585h-1.585z M57.057 1.585h1.585v1.585h-1.585z M61.811 1.585h3.17v1.585h-3.17z M66.566 1.585h3.17v1.585h-3.17z M72.906 1.585h1.585v1.585h-1.585z M82.415 1.585h1.585v1.585h-1.585z M0.0 3.17h1.585v1.585h-1.585z M3.17 3.17h4.755v1.585h-4.755z M9.509 3.17h1.585v1.585h-1.585z M12.679 3.17h3.17v1.585h-3.17z M17.434 3.17h1.585v1.585h-1.585z M20.604 3.17h1.585v1.585h-1.585z M25.358 3.17h6.34v1.585h-6.34z M33.283 3.17h1.585v1.585h-1.585z M38.038 3.17h1.585v1.585h-1.585z M44.377 3.17h3.17v1.585h-3.17z M50.717 3.17h3.17v1.585h-3.17z M55.472 3.17h1.585v1.585h-1.585z M61.811 3.17h3.17v1.585h-3.17z M68.151 3.17h1.585v1.585h-1.585z M72.906 3.17h1.585v1.585h-1.585z M76.075 3.17h4.755v1.585h-4.755z M82.415 3.17h1.585v1.585h-1.585z M0.0 4.755h1.585v1.585h-1.585z M3.17 4.755h4.755v1.585h-4.755z M9.509 4.755h1.585v1.585h-1.585z M12.679 4.755h6.34v1.585h-6.34z M20.604 4.755h3.17v1.585h-3.17z M30.113 4.755h1.585v1.585h-1.585z M33.283 4.755h3.17v1.585h-3.17z M39.623 4.755h4.755v1.585h-4.755z M45.962 4.755h1.585v1.585h-1.585z M49.132 4.755h9.509v1.585h-9.509z M61.811 4.755h6.34v1.585h-6.34z M69.736 4.755h1.585v1.585h-1.585z M72.906 4.755h1.585v1.585h-1.585z M76.075 4.755h4.755v1.585h-4.755z M82.415 4.755h1.585v1.585h-1.585z M0.0 6.34h1.585v1.585h-1.585z M3.17 6.34h4.755v1.585h-4.755z M9.509 6.34h1.585v1.585h-1.585z M19.019 6.34h1.585v1.585h-1.585z M22.189 6.34h1.585v1.585h-1.585z M25.358 6.34h1.585v1.585h-1.585z M28.528 6.34h3.17v1.585h-3.17z M33.283 6.34h15.849v1.585h-15.849z M50.717 6.34h1.585v1.585h-1.585z M55.472 6.34h4.755v1.585h-4.755z M63.396 6.34h4.755v1.585h-4.755z M72.906 6.34h1.585v1.585h-1.585z M76.075 6.34h4.755v1.585h-4.755z M82.415 6.34h1.585v1.585h-1.585z M0.0 7.925h1.585v1.585h-1.585z M9.509 7.925h1.585v1.585h-1.585z M14.264 7.925h3.17v1.585h-3.17z M20.604 7.925h4.755v1.585h-4.755z M38.038 7.925h1.585v1.585h-1.585z M44.377 7.925h1.585v1.585h-1.585z M47.547 7.925h4.755v1.585h-4.755z M53.887 7.925h1.585v1.585h-1.585z M58.642 7.925h4.755v1.585h-4.755z M66.566 7.925h1.585v1.585h-1.585z M72.906 7.925h1.585v1.585h-1.585z M82.415 7.925h1.585v1.585h-1.585z M0.0 9.509h11.094v1.585h-11.094z M12.679 9.509h1.585v1.585h-1.585z M15.849 9.509h1.585v1.585h-1.585z M19.019 9.509h1.585v1.585h-1.585z M22.189 9.509h1.585v1.585h-1.585z M25.358 9.509h1.585v1.585h-1.585z M28.528 9.509h1.585v1.585h-1.585z M31.698 9.509h1.585v1.585h-1.585z M34.868 9.509h1.585v1.585h-1.585z M38.038 9.509h1.585v1.585h-1.585z M41.208 9.509h1.585v1.585h-1.585z M44.377 9.509h1.585v1.585h-1.585z M47.547 9.509h1.585v1.585h-1.585z M50.717 9.509h1.585v1.585h-1.585z M53.887 9.509h1.585v1.585h-1.585z M57.057 9.509h1.585v1.585h-1.585z M60.226 9.509h1.585v1.585h-1.585z M63.396 9.509h1.585v1.585h-1.585z M66.566 9.509h1.585v1.585h-1.585z M69.736 9.509h1.585v1.585h-1.585z M72.906 9.509h11.094v1.585h-11.094z M12.679 11.094h1.585v1.585h-1.585z M15.849 11.094h4.755v1.585h-4.755z M28.528 11.094h3.17v1.585h-3.17z M34.868 11.094h4.755v1.585h-4.755z M44.377 11.094h1.585v1.585h-1.585z M47.547 11.094h4.755v1.585h-4.755z M53.887 11.094h1.585v1.585h-1.585z M64.981 11.094h3.17v1.585h-3.17z M0.0 12.679h1.585v1.585h-1.585z M9.509 12.679h1.585v1.585h-1.585z M12.679 12.679h6.34v1.585h-6.34z M22.189 12.679h4.755v1.585h-4.755z M28.528 12.679h4.755v1.585h-4.755z M38.038 12.679h7.925v1.585h-7.925z M47.547 12.679h3.17v1.585h-3.17z M53.887 12.679h4.755v1.585h-4.755z M66.566 12.679h3.17v1.585h-3.17z M71.321 12.679h3.17v1.585h-3.17z M77.66 12.679h4.755v1.585h-4.755z M1.585 14.264h3.17v1.585h-3.17z M6.34 14.264h1.585v1.585h-1.585z M11.094 14.264h3.17v1.585h-3.17z M17.434 14.264h3.17v1.585h-3.17z M22.189 14.264h1.585v1.585h-1.585z M25.358 14.264h6.34v1.585h-6.34z M45.962 14.264h3.17v1.585h-3.17z M50.717 14.264h12.679v1.585h-12.679z M64.981 14.264h6.34v1.585h-6.34z M72.906 14.264h3.17v1.585h-3.17z M77.66 14.264h1.585v1.585h-1.585z M80.83 14.264h1.585v1.585h-1.585z M1.585 15.849h4.755v1.585h-4.755z M7.925 15.849h3.17v1.585h-3.17z M12.679 15.849h12.679v1.585h-12.679z M28.528 15.849h1.585v1.585h-1.585z M33.283 15.849h1.585v1.585h-1.585z M39.623 15.849h1.585v1.585h-1.585z M45.962 15.849h1.585v1.585h-1.585z M50.717 15.849h1.585v1.585h-1.585z M57.057 15.849h1.585v1.585h-1.585z M63.396 15.849h1.585v1.585h-1.585z M72.906 15.849h1.585v1.585h-1.585z M76.075 15.849h4.755v1.585h-4.755z M1.585 17.434h1.585v1.585h-1.585z M4.755 17.434h4.755v1.585h-4.755z M11.094 17.434h1.585v1.585h-1.585z M14.264 17.434h3.17v1.585h-3.17z M19.019 17.434h3.17v1.585h-3.17z M23.774 17.434h1.585v1.585h-1.585z M26.943 17.434h14.264v1.585h-14.264z M44.377 17.434h11.094v1.585h-11.094z M61.811 17.434h1.585v1.585h-1.585z M64.981 17.434h1.585v1.585h-1.585z M69.736 17.434h3.17v1.585h-3.17z M76.075 17.434h1.585v1.585h-1.585z M1.585 19.019h1.585v1.585h-1.585z M6.34 19.019h4.755v1.585h-4.755z M17.434 19.019h1.585v1.585h-1.585z M20.604 19.019h3.17v1.585h-3.17z M25.358 19.019h6.34v1.585h-6.34z M34.868 19.019h1.585v1.585h-1.585z M38.038 19.019h3.17v1.585h-3.17z M44.377 19.019h4.755v1.585h-4.755z M50.717 19.019h4.755v1.585h-4.755z M57.057 19.019h1.585v1.585h-1.585z M60.226 19.019h1.585v1.585h-1.585z M63.396 19.019h1.585v1.585h-1.585z M69.736 19.019h1.585v1.585h-1.585z M72.906 19.019h1.585v1.585h-1.585z M76.075 19.019h1.585v1.585h-1.585z M80.83 19.019h1.585v1.585h-1.585z M0.0 20.604h3.17v1.585h-3.17z M11.094 20.604h1.585v1.585h-1.585z M17.434 20.604h1.585v1.585h-1.585z M22.189 20.604h3.17v1.585h-3.17z M31.698 20.604h1.585v1.585h-1.585z M34.868 20.604h1.585v1.585h-1.585z M38.038 20.604h3.17v1.585h-3.17z M44.377 20.604h6.34v1.585h-6.34z M52.302 20.604h1.585v1.585h-1.585z M55.472 20.604h1.585v1.585h-1.585z M58.642 20.604h1.585v1.585h-1.585z M63.396 20.604h1.585v1.585h-1.585z M66.566 20.604h3.17v1.585h-3.17z M74.491 20.604h1.585v1.585h-1.585z M79.245 20.604h1.585v1.585h-1.585z M82.415 20.604h1.585v1.585h-1.585z M6.34 22.189h6.34v1.585h-6.34z M14.264 22.189h1.585v1.585h-1.585z M19.019 22.189h3.17v1.585h-3.17z M28.528 22.189h3.17v1.585h-3.17z M34.868 22.189h6.34v1.585h-6.34z M49.132 22.189h1.585v1.585h-1.585z M52.302 22.189h3.17v1.585h-3.17z M57.057 22.189h4.755v1.585h-4.755z M63.396 22.189h3.17v1.585h-3.17z M68.151 22.189h7.925v1.585h-7.925z M77.66 22.189h1.585v1.585h-1.585z M0.0 23.774h3.17v1.585h-3.17z M12.679 23.774h1.585v1.585h-1.585z M20.604 23.774h1.585v1.585h-1.585z M23.774 23.774h1.585v1.585h-1.585z M28.528 23.774h3.17v1.585h-3.17z M36.453 23.774h7.925v1.585h-7.925z M47.547 23.774h4.755v1.585h-4.755z M53.887 23.774h1.585v1.585h-1.585z M58.642 23.774h4.755v1.585h-4.755z M64.981 23.774h4.755v1.585h-4.755z M77.66 23.774h3.17v1.585h-3.17z M82.415 23.774h1.585v1.585h-1.585z M4.755 25.358h1.585v1.585h-1.585z M7.925 25.358h3.17v1.585h-3.17z M12.679 25.358h4.755v1.585h-4.755z M19.019 25.358h1.585v1.585h-1.585z M22.189 25.358h7.925v1.585h-7.925z M31.698 25.358h1.585v1.585h-1.585z M36.453 25.358h1.585v1.585h-1.585z M41.208 25.358h3.17v1.585h-3.17z M45.962 25.358h1.585v1.585h-1.585z M49.132 25.358h1.585v1.585h-1.585z M53.887 25.358h6.34v1.585h-6.34z M61.811 25.358h1.585v1.585h-1.585z M64.981 25.358h1.585v1.585h-1.585z M69.736 25.358h1.585v1.585h-1.585z M74.491 25.358h3.17v1.585h-3.17z M79.245 25.358h1.585v1.585h-1.585z M3.17 26.943h1.585v1.585h-1.585z M12.679 26.943h1.585v1.585h-1.585z M15.849 26.943h1.585v1.585h-1.585z M20.604 26.943h4.755v1.585h-4.755z M28.528 26.943h3.17v1.585h-3.17z M33.283 26.943h1.585v1.585h-1.585z M36.453 26.943h1.585v1.585h-1.585z M39.623 26.943h1.585v1.585h-1.585z M44.377 26.943h4.755v1.585h-4.755z M52.302 26.943h1.585v1.585h-1.585z M57.057 26.943h3.17v1.585h-3.17z M63.396 26.943h4.755v1.585h-4.755z M71.321 26.943h1.585v1.585h-1.585z M77.66 26.943h1.585v1.585h-1.585z M82.415 26.943h1.585v1.585h-1.585z M0.0 28.528h1.585v1.585h-1.585z M9.509 28.528h4.755v1.585h-4.755z M15.849 28.528h6.34v1.585h-6.34z M28.528 28.528h3.17v1.585h-3.17z M36.453 28.528h1.585v1.585h-1.585z M41.208 28.528h1.585v1.585h-1.585z M44.377 28.528h3.17v1.585h-3.17z M49.132 28.528h4.755v1.585h-4.755z M55.472 28.528h1.585v1.585h-1.585z M60.226 28.528h1.585v1.585h-1.585z M64.981 28.528h1.585v1.585h-1.585z M69.736 28.528h3.17v1.585h-3.17z M74.491 28.528h3.17v1.585h-3.17z M79.245 28.528h1.585v1.585h-1.585z M82.415 28.528h1.585v1.585h-1.585z M1.585 30.113h3.17v1.585h-3.17z M11.094 30.113h1.585v1.585h-1.585z M17.434 30.113h1.585v1.585h-1.585z M22.189 30.113h7.925v1.585h-7.925z M34.868 30.113h6.34v1.585h-6.34z M42.792 30.113h6.34v1.585h-6.34z M50.717 30.113h1.585v1.585h-1.585z M55.472 30.113h1.585v1.585h-1.585z M61.811 30.113h1.585v1.585h-1.585z M64.981 30.113h1.585v1.585h-1.585z M69.736 30.113h3.17v1.585h-3.17z M77.66 30.113h1.585v1.585h-1.585z M80.83 30.113h3.17v1.585h-3.17z M0.0 31.698h1.585v1.585h-1.585z M4.755 31.698h6.34v1.585h-6.34z M14.264 31.698h4.755v1.585h-4.755z M22.189 31.698h1.585v1.585h-1.585z M26.943 31.698h4.755v1.585h-4.755z M34.868 31.698h6.34v1.585h-6.34z M44.377 31.698h6.34v1.585h-6.34z M55.472 31.698h4.755v1.585h-4.755z M64.981 31.698h1.585v1.585h-1.585z M68.151 31.698h3.17v1.585h-3.17z M74.491 31.698h4.755v1.585h-4.755z M0.0 33.283h3.17v1.585h-3.17z M6.34 33.283h1.585v1.585h-1.585z M11.094 33.283h1.585v1.585h-1.585z M15.849 33.283h6.34v1.585h-6.34z M25.358 33.283h3.17v1.585h-3.17z M34.868 33.283h1.585v1.585h-1.585z M41.208 33.283h1.585v1.585h-1.585z M44.377 33.283h11.094v1.585h-11.094z M57.057 33.283h17.434v1.585h-17.434z M76.075 33.283h1.585v1.585h-1.585z M79.245 33.283h1.585v1.585h-1.585z M0.0 34.868h1.585v1.585h-1.585z M9.509 34.868h4.755v1.585h-4.755z M15.849 34.868h1.585v1.585h-1.585z M19.019 34.868h7.925v1.585h-7.925z M30.113 34.868h1.585v1.585h-1.585z M38.038 34.868h4.755v1.585h-4.755z M44.377 34.868h1.585v1.585h-1.585z M49.132 34.868h1.585v1.585h-1.585z M52.302 34.868h6.34v1.585h-6.34z M60.226 34.868h1.585v1.585h-1.585z M66.566 34.868h12.679v1.585h-12.679z M4.755 36.453h1.585v1.585h-1.585z M11.094 36.453h1.585v1.585h-1.585z M14.264 36.453h4.755v1.585h-4.755z M20.604 36.453h1.585v1.585h-1.585z M25.358 36.453h1.585v1.585h-1.585z M33.283 36.453h1.585v1.585h-1.585z M36.453 36.453h1.585v1.585h-1.585z M39.623 36.453h1.585v1.585h-1.585z M44.377 36.453h1.585v1.585h-1.585z M47.547 36.453h1.585v1.585h-1.585z M50.717 36.453h1.585v1.585h-1.585z M53.887 36.453h3.17v1.585h-3.17z M58.642 36.453h1.585v1.585h-1.585z M63.396 36.453h3.17v1.585h-3.17z M68.151 36.453h3.17v1.585h-3.17z M74.491 36.453h1.585v1.585h-1.585z M77.66 36.453h1.585v1.585h-1.585z M0.0 38.038h3.17v1.585h-3.17z M4.755 38.038h11.094v1.585h-11.094z M19.019 38.038h7.925v1.585h-7.925z M31.698 38.038h1.585v1.585h-1.585z M34.868 38.038h11.094v1.585h-11.094z M47.547 38.038h4.755v1.585h-4.755z M53.887 38.038h1.585v1.585h-1.585z M57.057 38.038h4.755v1.585h-4.755z M63.396 38.038h4.755v1.585h-4.755z M69.736 38.038h9.509v1.585h-9.509z M6.34 39.623h1.585v1.585h-1.585z M12.679 39.623h1.585v1.585h-1.585z M17.434 39.623h4.755v1.585h-4.755z M23.774 39.623h3.17v1.585h-3.17z M31.698 39.623h1.585v1.585h-1.585z M34.868 39.623h4.755v1.585h-4.755z M44.377 39.623h4.755v1.585h-4.755z M50.717 39.623h1.585v1.585h-1.585z M57.057 39.623h3.17v1.585h-3.17z M63.396 39.623h7.925v1.585h-7.925z M76.075 39.623h3.17v1.585h-3.17z M82.415 39.623h1.585v1.585h-1.585z M1.585 41.208h1.585v1.585h-1.585z M6.34 41.208h1.585v1.585h-1.585z M9.509 41.208h1.585v1.585h-1.585z M12.679 41.208h1.585v1.585h-1.585z M17.434 41.208h1.585v1.585h-1.585z M20.604 41.208h12.679v1.585h-12.679z M36.453 41.208h3.17v1.585h-3.17z M41.208 41.208h1.585v1.585h-1.585z M44.377 41.208h1.585v1.585h-1.585z M49.132 41.208h7.925v1.585h-7.925z M58.642 41.208h4.755v1.585h-4.755z M68.151 41.208h3.17v1.585h-3.17z M72.906 41.208h1.585v1.585h-1.585z M76.075 41.208h1.585v1.585h-1.585z M80.83 41.208h1.585v1.585h-1.585z M1.585 42.792h3.17v1.585h-3.17z M6.34 42.792h1.585v1.585h-1.585z M12.679 42.792h1.585v1.585h-1.585z M15.849 42.792h4.755v1.585h-4.755z M22.189 42.792h1.585v1.585h-1.585z M26.943 42.792h1.585v1.585h-1.585z M33.283 42.792h6.34v1.585h-6.34z M44.377 42.792h1.585v1.585h-1.585z M47.547 42.792h1.585v1.585h-1.585z M52.302 42.792h1.585v1.585h-1.585z M58.642 42.792h1.585v1.585h-1.585z M61.811 42.792h6.34v1.585h-6.34z M69.736 42.792h1.585v1.585h-1.585z M76.075 42.792h4.755v1.585h-4.755z M82.415 42.792h1.585v1.585h-1.585z M0.0 44.377h1.585v1.585h-1.585z M6.34 44.377h9.509v1.585h-9.509z M19.019 44.377h4.755v1.585h-4.755z M26.943 44.377h3.17v1.585h-3.17z M38.038 44.377h7.925v1.585h-7.925z M47.547 44.377h3.17v1.585h-3.17z M53.887 44.377h6.34v1.585h-6.34z M64.981 44.377h15.849v1.585h-15.849z M3.17 45.962h3.17v1.585h-3.17z M7.925 45.962h1.585v1.585h-1.585z M14.264 45.962h7.925v1.585h-7.925z M23.774 45.962h1.585v1.585h-1.585z M31.698 45.962h6.34v1.585h-6.34z M41.208 45.962h7.925v1.585h-7.925z M50.717 45.962h1.585v1.585h-1.585z M55.472 45.962h1.585v1.585h-1.585z M58.642 45.962h1.585v1.585h-1.585z M61.811 45.962h1.585v1.585h-1.585z M64.981 45.962h3.17v1.585h-3.17z M69.736 45.962h4.755v1.585h-4.755z M76.075 45.962h1.585v1.585h-1.585z M82.415 45.962h1.585v1.585h-1.585z M0.0 47.547h3.17v1.585h-3.17z M4.755 47.547h1.585v1.585h-1.585z M7.925 47.547h3.17v1.585h-3.17z M15.849 47.547h1.585v1.585h-1.585z M19.019 47.547h4.755v1.585h-4.755z M26.943 47.547h3.17v1.585h-3.17z M33.283 47.547h1.585v1.585h-1.585z M36.453 47.547h1.585v1.585h-1.585z M44.377 47.547h3.17v1.585h-3.17z M55.472 47.547h3.17v1.585h-3.17z M60.226 47.547h1.585v1.585h-1.585z M64.981 47.547h1.585v1.585h-1.585z M69.736 47.547h1.585v1.585h-1.585z M72.906 47.547h3.17v1.585h-3.17z M77.66 47.547h1.585v1.585h-1.585z M82.415 47.547h1.585v1.585h-1.585z M0.0 49.132h1.585v1.585h-1.585z M4.755 49.132h1.585v1.585h-1.585z M12.679 49.132h1.585v1.585h-1.585z M19.019 49.132h7.925v1.585h-7.925z M28.528 49.132h7.925v1.585h-7.925z M38.038 49.132h1.585v1.585h-1.585z M41.208 49.132h3.17v1.585h-3.17z M45.962 49.132h1.585v1.585h-1.585z M49.132 49.132h4.755v1.585h-4.755z M58.642 49.132h1.585v1.585h-1.585z M66.566 49.132h4.755v1.585h-4.755z M72.906 49.132h1.585v1.585h-1.585z M76.075 49.132h1.585v1.585h-1.585z M80.83 49.132h3.17v1.585h-3.17z M1.585 50.717h3.17v1.585h-3.17z M6.34 50.717h1.585v1.585h-1.585z M9.509 50.717h1.585v1.585h-1.585z M12.679 50.717h1.585v1.585h-1.585z M15.849 50.717h1.585v1.585h-1.585z M20.604 50.717h1.585v1.585h-1.585z M25.358 50.717h3.17v1.585h-3.17z M30.113 50.717h3.17v1.585h-3.17z M38.038 50.717h4.755v1.585h-4.755z M45.962 50.717h4.755v1.585h-4.755z M55.472 50.717h3.17v1.585h-3.17z M64.981 50.717h3.17v1.585h-3.17z M69.736 50.717h6.34v1.585h-6.34z M77.66 50.717h6.34v1.585h-6.34z M1.585 52.302h1.585v1.585h-1.585z M7.925 52.302h1.585v1.585h-1.585z M11.094 52.302h1.585v1.585h-1.585z M15.849 52.302h4.755v1.585h-4.755z M22.189 52.302h3.17v1.585h-3.17z M26.943 52.302h1.585v1.585h-1.585z M30.113 52.302h1.585v1.585h-1.585z M36.453 52.302h1.585v1.585h-1.585z M41.208 52.302h1.585v1.585h-1.585z M45.962 52.302h4.755v1.585h-4.755z M52.302 52.302h11.094v1.585h-11.094z M66.566 52.302h4.755v1.585h-4.755z M74.491 52.302h3.17v1.585h-3.17z M79.245 52.302h3.17v1.585h-3.17z M0.0 53.887h4.755v1.585h-4.755z M7.925 53.887h4.755v1.585h-4.755z M17.434 53.887h1.585v1.585h-1.585z M20.604 53.887h3.17v1.585h-3.17z M25.358 53.887h3.17v1.585h-3.17z M31.698 53.887h1.585v1.585h-1.585z M34.868 53.887h1.585v1.585h-1.585z M38.038 53.887h4.755v1.585h-4.755z M44.377 53.887h1.585v1.585h-1.585z M57.057 53.887h4.755v1.585h-4.755z M63.396 53.887h3.17v1.585h-3.17z M69.736 53.887h3.17v1.585h-3.17z M76.075 53.887h4.755v1.585h-4.755z M4.755 55.472h1.585v1.585h-1.585z M7.925 55.472h1.585v1.585h-1.585z M11.094 55.472h1.585v1.585h-1.585z M14.264 55.472h3.17v1.585h-3.17z M22.189 55.472h1.585v1.585h-1.585z M30.113 55.472h6.34v1.585h-6.34z M38.038 55.472h1.585v1.585h-1.585z M41.208 55.472h3.17v1.585h-3.17z M45.962 55.472h1.585v1.585h-1.585z M49.132 55.472h3.17v1.585h-3.17z M53.887 55.472h1.585v1.585h-1.585z M58.642 55.472h3.17v1.585h-3.17z M63.396 55.472h3.17v1.585h-3.17z M69.736 55.472h1.585v1.585h-1.585z M72.906 55.472h1.585v1.585h-1.585z M76.075 55.472h3.17v1.585h-3.17z M0.0 57.057h1.585v1.585h-1.585z M4.755 57.057h3.17v1.585h-3.17z M9.509 57.057h1.585v1.585h-1.585z M14.264 57.057h3.17v1.585h-3.17z M19.019 57.057h1.585v1.585h-1.585z M26.943 57.057h1.585v1.585h-1.585z M31.698 57.057h1.585v1.585h-1.585z M34.868 57.057h3.17v1.585h-3.17z M41.208 57.057h1.585v1.585h-1.585z M49.132 57.057h3.17v1.585h-3.17z M53.887 57.057h1.585v1.585h-1.585z M57.057 57.057h1.585v1.585h-1.585z M61.811 57.057h3.17v1.585h-3.17z M68.151 57.057h3.17v1.585h-3.17z M76.075 57.057h3.17v1.585h-3.17z M82.415 57.057h1.585v1.585h-1.585z M3.17 58.642h4.755v1.585h-4.755z M11.094 58.642h3.17v1.585h-3.17z M15.849 58.642h4.755v1.585h-4.755z M22.189 58.642h1.585v1.585h-1.585z M30.113 58.642h3.17v1.585h-3.17z M41.208 58.642h7.925v1.585h-7.925z M52.302 58.642h1.585v1.585h-1.585z M55.472 58.642h1.585v1.585h-1.585z M58.642 58.642h1.585v1.585h-1.585z M64.981 58.642h15.849v1.585h-15.849z M82.415 58.642h1.585v1.585h-1.585z M0.0 60.226h6.34v1.585h-6.34z M9.509 60.226h3.17v1.585h-3.17z M15.849 60.226h1.585v1.585h-1.585z M23.774 60.226h1.585v1.585h-1.585z M26.943 60.226h1.585v1.585h-1.585z M30.113 60.226h1.585v1.585h-1.585z M33.283 60.226h1.585v1.585h-1.585z M38.038 60.226h4.755v1.585h-4.755z M50.717 60.226h1.585v1.585h-1.585z M53.887 60.226h1.585v1.585h-1.585z M57.057 60.226h9.509v1.585h-9.509z M68.151 60.226h4.755v1.585h-4.755z M74.491 60.226h1.585v1.585h-1.585z M77.66 60.226h3.17v1.585h-3.17z M0.0 61.811h3.17v1.585h-3.17z M4.755 61.811h1.585v1.585h-1.585z M7.925 61.811h1.585v1.585h-1.585z M12.679 61.811h3.17v1.585h-3.17z M17.434 61.811h1.585v1.585h-1.585z M20.604 61.811h4.755v1.585h-4.755z M26.943 61.811h1.585v1.585h-1.585z M30.113 61.811h1.585v1.585h-1.585z M33.283 61.811h4.755v1.585h-4.755z M41.208 61.811h9.509v1.585h-9.509z M52.302 61.811h3.17v1.585h-3.17z M58.642 61.811h1.585v1.585h-1.585z M64.981 61.811h1.585v1.585h-1.585z M68.151 61.811h4.755v1.585h-4.755z M77.66 61.811h6.34v1.585h-6.34z M3.17 63.396h9.509v1.585h-9.509z M14.264 63.396h1.585v1.585h-1.585z M23.774 63.396h7.925v1.585h-7.925z M33.283 63.396h1.585v1.585h-1.585z M38.038 63.396h3.17v1.585h-3.17z M44.377 63.396h1.585v1.585h-1.585z M47.547 63.396h3.17v1.585h-3.17z M53.887 63.396h4.755v1.585h-4.755z M60.226 63.396h1.585v1.585h-1.585z M66.566 63.396h1.585v1.585h-1.585z M72.906 63.396h3.17v1.585h-3.17z M80.83 63.396h1.585v1.585h-1.585z M0.0 64.981h3.17v1.585h-3.17z M12.679 64.981h3.17v1.585h-3.17z M17.434 64.981h4.755v1.585h-4.755z M25.358 64.981h1.585v1.585h-1.585z M28.528 64.981h3.17v1.585h-3.17z M33.283 64.981h1.585v1.585h-1.585z M36.453 64.981h1.585v1.585h-1.585z M41.208 64.981h7.925v1.585h-7.925z M52.302 64.981h1.585v1.585h-1.585z M55.472 64.981h1.585v1.585h-1.585z M58.642 64.981h1.585v1.585h-1.585z M64.981 64.981h3.17v1.585h-3.17z M71.321 64.981h6.34v1.585h-6.34z M82.415 64.981h1.585v1.585h-1.585z M0.0 66.566h3.17v1.585h-3.17z M4.755 66.566h12.679v1.585h-12.679z M20.604 66.566h1.585v1.585h-1.585z M25.358 66.566h4.755v1.585h-4.755z M31.698 66.566h6.34v1.585h-6.34z M42.792 66.566h1.585v1.585h-1.585z M47.547 66.566h3.17v1.585h-3.17z M52.302 66.566h1.585v1.585h-1.585z M58.642 66.566h1.585v1.585h-1.585z M63.396 66.566h3.17v1.585h-3.17z M68.151 66.566h3.17v1.585h-3.17z M72.906 66.566h3.17v1.585h-3.17z M82.415 66.566h1.585v1.585h-1.585z M1.585 68.151h3.17v1.585h-3.17z M11.094 68.151h1.585v1.585h-1.585z M14.264 68.151h1.585v1.585h-1.585z M19.019 68.151h1.585v1.585h-1.585z M22.189 68.151h3.17v1.585h-3.17z M26.943 68.151h1.585v1.585h-1.585z M30.113 68.151h4.755v1.585h-4.755z M36.453 68.151h6.34v1.585h-6.34z M47.547 68.151h1.585v1.585h-1.585z M50.717 68.151h4.755v1.585h-4.755z M58.642 68.151h1.585v1.585h-1.585z M61.811 68.151h7.925v1.585h-7.925z M72.906 68.151h1.585v1.585h-1.585z M76.075 68.151h3.17v1.585h-3.17z M4.755 69.736h1.585v1.585h-1.585z M9.509 69.736h1.585v1.585h-1.585z M14.264 69.736h7.925v1.585h-7.925z M23.774 69.736h1.585v1.585h-1.585z M26.943 69.736h1.585v1.585h-1.585z M31.698 69.736h1.585v1.585h-1.585z M38.038 69.736h7.925v1.585h-7.925z M49.132 69.736h1.585v1.585h-1.585z M55.472 69.736h6.34v1.585h-6.34z M64.981 69.736h3.17v1.585h-3.17z M69.736 69.736h7.925v1.585h-7.925z M79.245 69.736h3.17v1.585h-3.17z M12.679 71.321h11.094v1.585h-11.094z M25.358 71.321h9.509v1.585h-9.509z M36.453 71.321h3.17v1.585h-3.17z M44.377 71.321h6.34v1.585h-6.34z M52.302 71.321h19.019v1.585h-19.019z M76.075 71.321h6.34v1.585h-6.34z M0.0 72.906h11.094v1.585h-11.094z M15.849 72.906h1.585v1.585h-1.585z M19.019 72.906h3.17v1.585h-3.17z M30.113 72.906h3.17v1.585h-3.17z M34.868 72.906h1.585v1.585h-1.585z M38.038 72.906h1.585v1.585h-1.585z M41.208 72.906h1.585v1.585h-1.585z M44.377 72.906h1.585v1.585h-1.585z M49.132 72.906h4.755v1.585h-4.755z M57.057 72.906h1.585v1.585h-1.585z M60.226 72.906h3.17v1.585h-3.17z M64.981 72.906h1.585v1.585h-1.585z M68.151 72.906h3.17v1.585h-3.17z M72.906 72.906h1.585v1.585h-1.585z M76.075 72.906h1.585v1.585h-1.585z M0.0 74.491h1.585v1.585h-1.585z M9.509 74.491h1.585v1.585h-1.585z M14.264 74.491h1.585v1.585h-1.585z M19.019 74.491h3.17v1.585h-3.17z M23.774 74.491h9.509v1.585h-9.509z M34.868 74.491h1.585v1.585h-1.585z M38.038 74.491h1.585v1.585h-1.585z M44.377 74.491h3.17v1.585h-3.17z M50.717 74.491h1.585v1.585h-1.585z M58.642 74.491h3.17v1.585h-3.17z M63.396 74.491h1.585v1.585h-1.585z M66.566 74.491h4.755v1.585h-4.755z M76.075 74.491h3.17v1.585h-3.17z M82.415 74.491h1.585v1.585h-1.585z M0.0 76.075h1.585v1.585h-1.585z M3.17 76.075h4.755v1.585h-4.755z M9.509 76.075h1.585v1.585h-1.585z M14.264 76.075h4.755v1.585h-4.755z M20.604 76.075h1.585v1.585h-1.585z M25.358 76.075h1.585v1.585h-1.585z M30.113 76.075h1.585v1.585h-1.585z M36.453 76.075h15.849v1.585h-15.849z M53.887 76.075h1.585v1.585h-1.585z M57.057 76.075h1.585v1.585h-1.585z M63.396 76.075h1.585v1.585h-1.585z M69.736 76.075h7.925v1.585h-7.925z M0.0 77.66h1.585v1.585h-1.585z M3.17 77.66h4.755v1.585h-4.755z M9.509 77.66h1.585v1.585h-1.585z M14.264 77.66h7.925v1.585h-7.925z M23.774 77.66h3.17v1.585h-3.17z M28.528 77.66h1.585v1.585h-1.585z M36.453 77.66h4.755v1.585h-4.755z M42.792 77.66h1.585v1.585h-1.585z M45.962 77.66h6.34v1.585h-6.34z M55.472 77.66h1.585v1.585h-1.585z M58.642 77.66h1.585v1.585h-1.585z M63.396 77.66h4.755v1.585h-4.755z M69.736 77.66h1.585v1.585h-1.585z M74.491 77.66h1.585v1.585h-1.585z M82.415 77.66h1.585v1.585h-1.585z M0.0 79.245h1.585v1.585h-1.585z M3.17 79.245h4.755v1.585h-4.755z M9.509 79.245h1.585v1.585h-1.585z M15.849 79.245h4.755v1.585h-4.755z M22.189 79.245h4.755v1.585h-4.755z M28.528 79.245h3.17v1.585h-3.17z M38.038 79.245h3.17v1.585h-3.17z M44.377 79.245h3.17v1.585h-3.17z M53.887 79.245h1.585v1.585h-1.585z M57.057 79.245h3.17v1.585h-3.17z M61.811 79.245h1.585v1.585h-1.585z M68.151 79.245h1.585v1.585h-1.585z M74.491 79.245h3.17v1.585h-3.17z M80.83 79.245h3.17v1.585h-3.17z M0.0 80.83h1.585v1.585h-1.585z M9.509 80.83h1.585v1.585h-1.585z M14.264 80.83h1.585v1.585h-1.585z M25.358 80.83h4.755v1.585h-4.755z M31.698 80.83h3.17v1.585h-3.17z M44.377 80.83h3.17v1.585h-3.17z M49.132 80.83h4.755v1.585h-4.755z M58.642 80.83h3.17v1.585h-3.17z M64.981 80.83h4.755v1.585h-4.755z M71.321 80.83h6.34v1.585h-6.34z M79.245 80.83h1.585v1.585h-1.585z M82.415 80.83h1.585v1.585h-1.585z M0.0 82.415h11.094v1.585h-11.094z M12.679 82.415h1.585v1.585h-1.585z M20.604 82.415h1.585v1.585h-1.585z M23.774 82.415h1.585v1.585h-1.585z M33.283 82.415h6.34v1.585h-6.34z M42.792 82.415h1.585v1.585h-1.585z M47.547 82.415h3.17v1.585h-3.17z M53.887 82.415h4.755v1.585h-4.755z M61.811 82.415h1.585v1.585h-1.585z M64.981 82.415h1.585v1.585h-1.585z M68.151 82.415h6.34v1.585h-6.34z M76.075 82.415h4.755v1.585h-4.755z"/>
+</g>
+<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
