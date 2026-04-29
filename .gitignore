@@ -127,3 +127,7 @@ htmlcov/
 # OMX (oh-my-codex) local state - not for commit
 .omx/
 tests/visual-diffs/
+
+# SVG upgrade pipeline runtime artifacts
+assets/images/.backup/
+scripts/upgrade_2025_svgs.failures

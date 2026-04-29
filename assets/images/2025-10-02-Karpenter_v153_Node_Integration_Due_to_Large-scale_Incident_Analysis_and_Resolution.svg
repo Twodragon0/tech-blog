@@ -1,99 +1,292 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>KARPENTER V1 5 3 INCIDENT</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="52%" stop-color="#121a2f"/>
-      <stop offset="100%" stop-color="#170f25"/>
-    </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
-      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
-    </linearGradient>
-    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#f87171" opacity="0.15"/>
-    </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="36"/>
-    </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#f87171" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#b91c1c" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
-  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
-  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="736" y="104" width="362" height="326" rx="28" fill="url(#panel)" stroke="#f87171" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
-  <rect x="754" y="122" width="326" height="290" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="758" y="124" width="108" height="12" rx="6" fill="#f87171" opacity="0.28"/>
-  <rect x="880" y="124" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
-  <rect x="964" y="124" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
-  
-  <path d="M724 152 C822 126 922 136 1020 202" fill="none" stroke="#f59e0b" stroke-width="1.3" opacity="0.24"/>
-  <path d="M706 420 C782 454 878 462 968 410" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="High-quality cover about a Karpenter v1.5.3 node consolidation outage, cascading drains, and recovery guardrails">
+<title>Karpenter v1.5.3 node consolidation outage analysis and recovery</title>
+<!-- profile: high-quality-cover (2025 upgraded) -->
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#08111F"/>
+    <stop offset="45%" stop-color="#0B1730"/>
+    <stop offset="100%" stop-color="#111827"/>
+  </linearGradient>
+  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#111C34"/>
+    <stop offset="100%" stop-color="#0F2742"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#26110E"/>
+    <stop offset="100%" stop-color="#2B1820"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#111A2E"/>
+    <stop offset="100%" stop-color="#16233A"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0D1B1F"/>
+    <stop offset="100%" stop-color="#132629"/>
+  </linearGradient>
+  <radialGradient id="alertGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#F97316" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="stormGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="fixGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#34D399" stop-opacity="0.48"/>
+    <stop offset="100%" stop-color="#34D399" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.55"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.6"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.82"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <pattern id="gridA" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+    <path d="M0 20 L40 20" stroke="#4A2820" stroke-width="0.45" opacity="0.55"/>
+    <path d="M40 0 L40 20" stroke="#4A2820" stroke-width="0.45" opacity="0.55"/>
+  </pattern>
+  <pattern id="gridB" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.9" fill="#2E4670" opacity="0.5"/>
+  </pattern>
+  <pattern id="gridC" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.8" fill="#224B46" opacity="0.52"/>
+  </pattern>
+</defs>
 
-  <g transform="translate(917,270)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#f87171" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#f87171" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect x="0" y="0" width="1200" height="4" fill="#F97316" opacity="0.75"/>
+<rect x="0" y="0" width="1200" height="210" fill="url(#bandA)"/>
+<rect x="0" y="0" width="1200" height="210" fill="url(#gridA)" opacity="0.65"/>
+<rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
+<rect x="0" y="210" width="1200" height="210" fill="url(#gridB)" opacity="0.72"/>
+<rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
+<rect x="0" y="420" width="1200" height="210" fill="url(#gridC)" opacity="0.7"/>
+<rect x="0" y="0" width="8" height="210" fill="#F97316"/>
+<rect x="0" y="210" width="8" height="210" fill="#60A5FA"/>
+<rect x="0" y="420" width="8" height="210" fill="#34D399"/>
+<line x1="0" y1="210" x2="1200" y2="210" stroke="#1E2E43" stroke-width="1.5"/>
+<line x1="0" y1="420" x2="1200" y2="420" stroke="#1E2E43" stroke-width="1.5"/>
 
-    <path d="M0,-50 L40,-35 L40,10 C40,35 0,55 0,55 C0,55 -40,35 -40,10 L-40,-35 Z" fill="none" stroke="#f87171" stroke-width="3"/>
-    <path d="M-12,2 L-4,12 L16,-10" stroke="#f87171" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <circle cx="50" cy="-30" r="8" fill="#f87171" opacity="0.3"/>
-    <line x1="-42" y1="-26" x2="-20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
-    <line x1="42" y1="-26" x2="20" y2="-15" stroke="#f87171" stroke-width="1.5" opacity="0.4"/>
+<g filter="url(#textShadow)">
+  <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FB923C">INCIDENT ANALYSIS</text>
+  <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F8FAFC">Karpenter v1.5.3</text>
+  <text x="30" y="122" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F8FAFC">Node Consolidation Outage</text>
+  <text x="30" y="154" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FDBA74">autoscaled nodes drained too fast</text>
+  <text x="30" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D5C3B7">disruption budgets missed : cascading restart window</text>
+  <text x="1030" y="28" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2" fill="#94A3B8">incident postmortem</text>
+</g>
+
+<g transform="translate(625,106)">
+  <circle cx="0" cy="0" r="88" fill="url(#alertGlow)">
+    <animate attributeName="r" values="64;94;64" dur="3.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.45;0.12;0.45" dur="3.0s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="-208" y="-72" width="360" height="144" rx="18" fill="url(#heroPanel)" stroke="#334155" stroke-width="1.4" filter="url(#softShadow)"/>
+  <g filter="url(#softShadow)">
+    <rect x="-170" y="-42" width="92" height="48" rx="8" fill="#151E30" stroke="#60A5FA" stroke-width="1.8"/>
+    <text x="-124" y="-20" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#93C5FD">NODEPOOL</text>
+    <text x="-124" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#BFDBFE">spot-a</text>
+
+    <rect x="-170" y="18" width="92" height="48" rx="8" fill="#151E30" stroke="#60A5FA" stroke-width="1.8"/>
+    <text x="-124" y="40" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#93C5FD">NODEPOOL</text>
+    <text x="-124" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#BFDBFE">spot-b</text>
+
+    <rect x="-16" y="-52" width="92" height="42" rx="8" fill="#1A2437" stroke="#F59E0B" stroke-width="1.8"/>
+    <text x="30" y="-28" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FBBF24">POD SET</text>
+    <text x="30" y="-14" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#FDE68A">api</text>
+
+    <rect x="-16" y="10" width="92" height="42" rx="8" fill="#1A2437" stroke="#F59E0B" stroke-width="1.8"/>
+    <text x="30" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FBBF24">POD SET</text>
+    <text x="30" y="48" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#FDE68A">worker</text>
+
+    <rect x="122" y="-22" width="106" height="54" rx="9" fill="#2B1410" stroke="#F97316" stroke-width="2.2"/>
+    <text x="175" y="-2" text-anchor="middle" font-family="Inter, monospace" font-size="12" font-weight="900" fill="#FDBA74">CONSOLIDATE</text>
+    <text x="175" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#FED7AA">underutilized</text>
   </g>
-  <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#f87171" opacity="0.2" stroke="#f87171" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#f87171" text-anchor="middle">INCIDENT</text>
+
+  <line x1="-78" y1="-18" x2="-16" y2="-30" stroke="#60A5FA" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="-78" y1="42" x2="-16" y2="32" stroke="#60A5FA" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="76" y1="-30" x2="122" y2="-4" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="76" y1="32" x2="122" y2="10" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+  <path d="M228 5 L284 5" stroke="#EF4444" stroke-width="2.6" stroke-dasharray="5 4">
+    <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.9s" repeatCount="indefinite"/>
+  </path>
+  <polygon points="284,-3 296,5 284,13" fill="#EF4444"/>
+  <rect x="296" y="-28" width="100" height="66" rx="10" fill="#2A0F12" stroke="#EF4444" stroke-width="2.1" filter="url(#softShadow)"/>
+  <text x="346" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="13" font-weight="900" fill="#FCA5A5">DRAIN</text>
+  <text x="346" y="14" text-anchor="middle" font-family="Inter, monospace" font-size="10" fill="#FECACA">too many at once</text>
+  <circle cx="346" cy="5" r="36" fill="none" stroke="#EF4444" stroke-width="0.9">
+    <animate attributeName="r" values="28;52;28" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.85;0;0.85" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<g transform="translate(995,104)" filter="url(#softShadow)">
+  <rect x="-82" y="-66" width="184" height="126" rx="16" fill="#110C10" stroke="#F97316" stroke-width="2.1"/>
+  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FB923C">BLAST RADIUS</text>
+  <text x="10" y="24" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="70" font-weight="900" fill="#F8FAFC">78</text>
+  <text x="10" y="48" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDBA74">nodes rotated</text>
+  <text x="10" y="64" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FED7AA">24 min hot path</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="444" y="187" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A7F3D0">ready</text>
+  <text x="512" y="187" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74">draining</text>
+  <text x="592" y="187" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">evicted</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">FAILURE PATH</text>
+  <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">scheduler pressure</text>
+  <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">pending pods : cold starts : retries</text>
+  <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C7D2FE">termination loop : replacement lag : SLO burn</text>
+</g>
+
+<g transform="translate(600,316)">
+  <circle cx="0" cy="0" r="92" fill="url(#stormGlow)">
+    <animate attributeName="r" values="70;98;70" dur="3.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.42;0.1;0.42" dur="3.4s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="-212" y="-64" width="424" height="128" rx="16" fill="#0F1B31" stroke="#375173" stroke-width="1.4" filter="url(#softShadow)"/>
+  <line x1="-168" y1="18" x2="160" y2="18" stroke="#5B7FB0" stroke-width="2"/>
+  <line x1="-168" y1="-18" x2="160" y2="-18" stroke="#233B5E" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+  <circle cx="-150" cy="18" r="8" fill="#60A5FA"/>
+  <circle cx="-78" cy="-8" r="8" fill="#F59E0B"/>
+  <circle cx="-8" cy="18" r="8" fill="#EF4444"/>
+  <circle cx="68" cy="-8" r="8" fill="#F97316"/>
+  <circle cx="146" cy="18" r="8" fill="#34D399"/>
+
+  <path d="M-150 18 C-122 18 -106 -8 -78 -8" stroke="#60A5FA" stroke-width="2.4" fill="none"/>
+  <path d="M-78 -8 C-48 -8 -38 18 -8 18" stroke="#F59E0B" stroke-width="2.4" fill="none"/>
+  <path d="M-8 18 C22 18 38 -8 68 -8" stroke="#EF4444" stroke-width="2.4" fill="none"/>
+  <path d="M68 -8 C96 -8 116 18 146 18" stroke="#34D399" stroke-width="2.4" fill="none"/>
+
+  <rect x="-180" y="-50" width="54" height="20" rx="10" fill="#15233D" stroke="#355784" stroke-width="1"/>
+  <rect x="-108" y="-50" width="54" height="20" rx="10" fill="#1F2535" stroke="#B77A15" stroke-width="1"/>
+  <rect x="-38" y="-50" width="54" height="20" rx="10" fill="#2A1518" stroke="#EF4444" stroke-width="1"/>
+  <rect x="38" y="-50" width="54" height="20" rx="10" fill="#2D1710" stroke="#F97316" stroke-width="1"/>
+  <rect x="116" y="-50" width="54" height="20" rx="10" fill="#0D2520" stroke="#34D399" stroke-width="1"/>
+
+  <text x="-150" y="-36" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#BFDBFE">00</text>
+  <text x="-78" y="-36" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FDE68A">05</text>
+  <text x="-8" y="-36" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCA5A5">10</text>
+  <text x="68" y="-36" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FDBA74">15</text>
+  <text x="146" y="-36" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A7F3D0">20</text>
+
+  <text x="-150" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#BFDBFE">scale in</text>
+  <text x="-78" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDE68A">drain</text>
+  <text x="-8" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">pending</text>
+  <text x="68" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FDBA74">recreate</text>
+  <text x="146" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A7F3D0">stabilize</text>
+
+  <circle r="4" fill="#E0F2FE">
+    <animateMotion path="M-150 18 C-122 18 -106 -8 -78 -8 C-48 -8 -38 18 -8 18 C22 18 38 -8 68 -8 C96 -8 116 18 146 18" dur="3.0s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<g transform="translate(995,315)" filter="url(#softShadow)">
+  <rect x="-82" y="-66" width="184" height="126" rx="16" fill="#0C1324" stroke="#60A5FA" stroke-width="2.1"/>
+  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">SYMPTOMS</text>
+  <text x="10" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" fill="#F8FAFC">P95</text>
+  <text x="10" y="42" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#BFDBFE">latency x4</text>
+  <text x="10" y="58" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#C7D2FE">queue growth</text>
+  <text x="10" y="72" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#C7D2FE">HPA surge</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="398" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">api</text>
+  <text x="446" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">web</text>
+  <text x="494" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">jobs</text>
+  <text x="548" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">cache</text>
+  <text x="600" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FBBF24">PDB</text>
+  <text x="640" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">miss</text>
+  <text x="690" y="392" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A5B4FC">AZ skew</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#34D399">RESOLUTION</text>
+  <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">guard consolidation</text>
+  <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#A7F3D0">budgeted drains : staged rollout</text>
+  <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#CFEFE6">pin critical pools : raise headroom : verify PDBs</text>
+</g>
+
+<g transform="translate(575,525)">
+  <circle cx="0" cy="0" r="94" fill="url(#fixGlow)">
+    <animate attributeName="r" values="68;98;68" dur="3.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.44;0.08;0.44" dur="3.8s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="-228" y="-74" width="456" height="148" rx="18" fill="#0D1E21" stroke="#2B514B" stroke-width="1.4" filter="url(#softShadow)"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="-192" y="-28" width="86" height="56" rx="8" fill="#10241E" stroke="#34D399" stroke-width="1.8"/>
+    <text x="-149" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#6EE7B7">FREEZE</text>
+    <text x="-149" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A7F3D0">consolidation off</text>
+
+    <rect x="-86" y="-28" width="86" height="56" rx="8" fill="#10241E" stroke="#34D399" stroke-width="1.8"/>
+    <text x="-43" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#6EE7B7">BUFFER</text>
+    <text x="-43" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A7F3D0">min spare capacity</text>
+
+    <rect x="20" y="-28" width="86" height="56" rx="8" fill="#10241E" stroke="#34D399" stroke-width="1.8"/>
+    <text x="63" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#6EE7B7">ROLL</text>
+    <text x="63" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A7F3D0">canary first</text>
+
+    <rect x="126" y="-28" width="86" height="56" rx="8" fill="#10241E" stroke="#34D399" stroke-width="1.8"/>
+    <text x="169" y="-6" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#6EE7B7">VERIFY</text>
+    <text x="169" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#A7F3D0">PDB and probes</text>
   </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">KARPENTER V1 5 3</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">INCIDENT</text>
-  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">INCIDENT / KUBERNETES / CLOUD</text>
-  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
-  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 2AED5C669C07</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
-  <g transform="translate(84 474)">
-    <rect width="114" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">INCIDENT</text>
-  </g>
-  <g transform="translate(212 474)">
-    <rect width="134" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">KUBERNETES</text>
-  </g>
-  <g transform="translate(360 474)">
-    <rect width="110" height="38" rx="19" fill="#f87171" opacity="0.16" stroke="#f87171" stroke-width="1.2"/>
-    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
-  </g>
-  <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">INCIDENT</text>
-  </g>
-  <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
-  </g>
-  <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#f87171" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">06</text>
-  </g>
-  <g transform="translate(1030 74)">
-    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
-  </g>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+
+  <line x1="-106" y1="0" x2="-86" y2="0" stroke="#34D399" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="0" y1="0" x2="20" y2="0" stroke="#34D399" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="106" y1="0" x2="126" y2="0" stroke="#34D399" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+  <path d="M-192 48 C-120 82 -24 82 52 48 C108 26 154 26 212 48" stroke="#34D399" stroke-width="2.2" fill="none" stroke-dasharray="5 4">
+    <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4" fill="#D1FAE5">
+    <animateMotion path="M-192 48 C-120 82 -24 82 52 48 C108 26 154 26 212 48" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <rect x="-30" y="38" width="132" height="28" rx="14" fill="#0F2A24" stroke="#34D399" stroke-width="1.2"/>
+  <text x="36" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A7F3D0">RESTORE</text>
+  <text x="112" y="56" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#A7F3D0">measured re-enable</text>
+</g>
+
+<g transform="translate(995,525)" filter="url(#softShadow)">
+  <rect x="-82" y="-66" width="184" height="126" rx="16" fill="#091614" stroke="#34D399" stroke-width="2.1"/>
+  <text x="10" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#6EE7B7">OUTCOME</text>
+  <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="900" fill="#F8FAFC">0</text>
+  <text x="10" y="46" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#A7F3D0">unplanned drains</text>
+  <text x="10" y="62" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#CFEFE6">after guardrails</text>
+  <text x="10" y="76" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#CFEFE6">runbook updated</text>
+</g>
+
+<g opacity="0.52">
+  <circle cx="232" cy="175" r="1.5" fill="#F97316"/>
+  <circle cx="304" cy="175" r="1.5" fill="#F97316"/>
+  <circle cx="376" cy="175" r="1.5" fill="#F97316"/>
+  <circle cx="248" cy="392" r="1.5" fill="#60A5FA"/>
+  <circle cx="320" cy="392" r="1.5" fill="#60A5FA"/>
+  <circle cx="392" cy="392" r="1.5" fill="#60A5FA"/>
+  <circle cx="232" cy="602" r="1.5" fill="#34D399"/>
+  <circle cx="304" cy="602" r="1.5" fill="#34D399"/>
+  <circle cx="376" cy="602" r="1.5" fill="#34D399"/>
+</g>
 </svg>

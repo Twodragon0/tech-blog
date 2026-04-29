@@ -1,102 +1,350 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>7 9 DEVSECOPS PIPELINE</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="52%" stop-color="#121a2f"/>
-      <stop offset="100%" stop-color="#170f25"/>
-    </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
-      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
-    </linearGradient>
-    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#a78bfa" opacity="0.15"/>
-    </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="36"/>
-    </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#a78bfa" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#6d28d9" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
-  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
-  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="720" y="132" width="388" height="292" rx="28" fill="url(#panel)" stroke="#a78bfa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
-  <rect x="738" y="150" width="352" height="256" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="742" y="152" width="108" height="12" rx="6" fill="#a78bfa" opacity="0.28"/>
-  <rect x="864" y="152" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
-  <rect x="948" y="152" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
-  
-  <path d="M704 148 C792 118 892 122 980 176" fill="none" stroke="#67e8f9" stroke-width="1.3" opacity="0.24"/>
-  <path d="M716 430 C804 462 914 458 1010 390" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role='img' aria-label='High quality cover for Cloud Security Cohort 7 Week 09 DevSecOps integrated review with code, pipeline, and runtime security controls'>
+<title>Cloud Security Cohort 7 Week 09 DevSecOps Integrated Review</title>
+<!-- profile: high-quality-cover (2025 upgraded) -->
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#09111F"/>
+    <stop offset="48%" stop-color="#0C1730"/>
+    <stop offset="100%" stop-color="#111827"/>
+  </linearGradient>
+  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0F172A"/>
+    <stop offset="55%" stop-color="#12233F"/>
+    <stop offset="100%" stop-color="#102A43"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#071C1B"/>
+    <stop offset="100%" stop-color="#0C2B28"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1A1322"/>
+    <stop offset="100%" stop-color="#211A31"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0A162D"/>
+    <stop offset="100%" stop-color="#10213D"/>
+  </linearGradient>
+  <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#14B8A6" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowB" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowC" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.55"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <filter id="textShadow" x="-6%" y="-6%" width="112%" height="112%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.1"/>
+    <feOffset dx="0" dy="1.4"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.85"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <pattern id="gridTop" x="0" y="0" width="42" height="18" patternUnits="userSpaceOnUse">
+    <path d="M0 18 L42 18" stroke="#1B4B49" stroke-width="0.45" opacity="0.45"/>
+    <path d="M42 0 L42 18" stroke="#1B4B49" stroke-width="0.45" opacity="0.45"/>
+  </pattern>
+  <pattern id="gridMid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.9" fill="#5B426F" opacity="0.42"/>
+  </pattern>
+  <pattern id="gridBot" x="0" y="0" width="22" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="11" cy="9" r="0.85" fill="#365C93" opacity="0.42"/>
+  </pattern>
+</defs>
 
-  <g transform="translate(914,278)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#a78bfa" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect x="0" y="0" width="1200" height="4" fill="#22D3EE" opacity="0.75"/>
+<rect x="0" y="0" width="1200" height="210" fill="url(#bandA)"/>
+<rect x="0" y="0" width="1200" height="210" fill="url(#gridTop)" opacity="0.62"/>
+<rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
+<rect x="0" y="210" width="1200" height="210" fill="url(#gridMid)" opacity="0.72"/>
+<rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
+<rect x="0" y="420" width="1200" height="210" fill="url(#gridBot)" opacity="0.66"/>
+<rect x="0" y="0" width="8" height="210" fill="#14B8A6"/>
+<rect x="0" y="210" width="8" height="210" fill="#F59E0B"/>
+<rect x="0" y="420" width="8" height="210" fill="#60A5FA"/>
+<line x1="0" y1="210" x2="1200" y2="210" stroke="#223248" stroke-width="1.5"/>
+<line x1="0" y1="420" x2="1200" y2="420" stroke="#223248" stroke-width="1.5"/>
 
-    <circle cx="-60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <circle cx="60" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
-    <line x1="-38" y1="0" x2="-22" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <line x1="22" y1="0" x2="38" y2="0" stroke="#a78bfa" stroke-width="2"/>
-    <polygon points="-25,-4 -18,0 -25,4" fill="#a78bfa"/>
-    <polygon points="35,-4 42,0 35,4" fill="#a78bfa"/>
-    <path d="M-8,-35 L0,-25 L8,-35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
-    <path d="M-8,35 L0,25 L8,35" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+<circle cx="690" cy="118" r="96" fill="url(#glowA)">
+  <animate attributeName="r" values="82;104;82" dur="3.2s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.45;0.12;0.45" dur="3.2s" repeatCount="indefinite"/>
+</circle>
+<circle cx="607" cy="314" r="120" fill="url(#glowB)">
+  <animate attributeName="r" values="102;132;102" dur="3.8s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.32;0.08;0.32" dur="3.8s" repeatCount="indefinite"/>
+</circle>
+<circle cx="650" cy="520" r="110" fill="url(#glowC)">
+  <animate attributeName="r" values="94;122;94" dur="4.1s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.35;0.08;0.35" dur="4.1s" repeatCount="indefinite"/>
+</circle>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="34" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4" fill="#67E8F9">CLOUD SECURITY COHORT 7</text>
+  <text x="1170" y="34" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.6" fill="#BFDBFE">WEEK 09</text>
+  <text x="30" y="78" font-family="Inter, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="#F8FAFC">DevSecOps Integrated Review</text>
+  <text x="30" y="108" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#B6C8E3">Cloud controls from code to runtime</text>
+  <text x="1170" y="108" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#7DD3FC">COURSE RECAP</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.5" fill="#2DD4BF">SHIFT LEFT</text>
+  <text x="30" y="176" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F8FAFC">CODE TO PR</text>
+  <text x="30" y="202" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#B7DAD7">Threat model : SAST : SCA : Secrets : IaC lint</text>
+</g>
+
+<g transform="translate(456,142)" filter="url(#softShadow)">
+  <path d="M210 -60 L252 -28 L252 18 C252 57 228 82 210 94 C192 82 168 57 168 18 L168 -28 Z" fill="#0C2523" stroke="#2DD4BF" stroke-width="2.2"/>
+  <path d="M210 -34 L224 -12 L252 -8 L232 11 L238 38 L210 24 L182 38 L188 11 L168 -8 L196 -12 Z" fill="#14B8A6" opacity="0.18" stroke="#67E8F9" stroke-width="1.1"/>
+  <line x1="20" y1="-3" x2="413" y2="-3" stroke="#2DD4BF" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle r="4" fill="#67E8F9">
+    <animateMotion path="M20,-3 L413,-3" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <g transform="translate(0,-28)">
+    <rect x="0" y="0" width="58" height="50" rx="8" fill="#0B1619" stroke="#2DD4BF" stroke-width="1.7"/>
+    <text x="29" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#CCFBF1">IDE</text>
+    <text x="29" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#8FE7DE">commit</text>
   </g>
-  <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">DEVSECOPS</text>
+
+  <g transform="translate(66,-28)">
+    <rect x="0" y="0" width="58" height="50" rx="8" fill="#0B1619" stroke="#2DD4BF" stroke-width="1.7"/>
+    <text x="29" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#CCFBF1">PR</text>
+    <text x="29" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#8FE7DE">review</text>
   </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">7 9 DEVSECOPS</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">PIPELINE</text>
-  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">PIPELINE / DEVSECOPS / CLOUD</text>
-  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
-  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 4E9938954DF7</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
-  <g transform="translate(84 474)">
-    <rect width="114" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
-    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">PIPELINE</text>
+
+  <g transform="translate(132,-28)">
+    <rect x="0" y="0" width="62" height="50" rx="8" fill="#0C2320" stroke="#14B8A6" stroke-width="2"/>
+    <text x="31" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#2DD4BF">SAST</text>
+    <text x="31" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#99F6E4">rules</text>
   </g>
-  <g transform="translate(212 474)">
-    <rect width="124" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
-    <text x="62.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">DEVSECOPS</text>
+
+  <g transform="translate(201,-28)">
+    <rect x="0" y="0" width="62" height="50" rx="8" fill="#0C2320" stroke="#14B8A6" stroke-width="2"/>
+    <text x="31" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#2DD4BF">SCA</text>
+    <text x="31" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#99F6E4">deps</text>
   </g>
-  <g transform="translate(350 474)">
-    <rect width="110" height="38" rx="19" fill="#a78bfa" opacity="0.16" stroke="#a78bfa" stroke-width="1.2"/>
-    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">CLOUD</text>
+
+  <g transform="translate(270,-28)">
+    <rect x="0" y="0" width="70" height="50" rx="8" fill="#102926" stroke="#5EEAD4" stroke-width="1.9"/>
+    <text x="35" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#99F6E4">SECRETS</text>
+    <text x="35" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#CCFBF1">vault</text>
   </g>
-  <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">DEVSECOPS</text>
+
+  <g transform="translate(347,-28)">
+    <rect x="0" y="0" width="58" height="50" rx="8" fill="#102926" stroke="#5EEAD4" stroke-width="1.9"/>
+    <text x="29" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#99F6E4">IAC</text>
+    <text x="29" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#CCFBF1">tfsec</text>
   </g>
-  <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+
+  <g transform="translate(412,-28)">
+    <rect x="0" y="0" width="64" height="50" rx="8" fill="#0E1F2C" stroke="#67E8F9" stroke-width="2"/>
+    <text x="32" y="19" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#E0F2FE">MERGE</text>
+    <text x="32" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#93C5FD">gate</text>
   </g>
-  <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#a78bfa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
+</g>
+
+<g transform="translate(985,134)" filter="url(#softShadow)">
+  <rect x="-78" y="-55" width="182" height="118" rx="16" fill="#081514" stroke="#2DD4BF" stroke-width="2.2"/>
+  <text x="13" y="-22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#2DD4BF">LEFT GATES</text>
+  <text x="13" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="68" font-weight="900" fill="#F8FAFC">05</text>
+  <text x="13" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#99F6E4">stop flaws early</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="922" y="196" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#5EEAD4">OWASP</text>
+  <text x="976" y="196" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#5EEAD4">CWE</text>
+  <text x="1020" y="196" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#5EEAD4">policy</text>
+  <text x="1076" y="196" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#5EEAD4">baseline</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="256" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.5" fill="#FBBF24">PIPELINE GOVERNANCE</text>
+  <text x="30" y="288" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F8FAFC">BUILD TO RELEASE</text>
+  <text x="30" y="314" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D7C8E8">SBOM : signing : provenance : registry policy</text>
+</g>
+
+<g transform="translate(596,315)" filter="url(#softShadow)">
+  <rect x="-178" y="-72" width="356" height="144" rx="22" fill="url(#heroPanel)" stroke="#7C3AED" stroke-width="1.6"/>
+  <text x="0" y="-48" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">INTEGRATED DELIVERY CHAIN</text>
+
+  <g transform="translate(0,-6)">
+    <circle cx="-38" cy="-12" r="22" fill="#1D4ED8" opacity="0.18"/>
+    <circle cx="-12" cy="-18" r="28" fill="#1D4ED8" opacity="0.24"/>
+    <circle cx="18" cy="-12" r="22" fill="#1D4ED8" opacity="0.18"/>
+    <rect x="-54" y="-12" width="88" height="32" rx="16" fill="#1E3A8A" opacity="0.28"/>
+    <path d="M-22 -10 L0 -28 L22 -10 L22 14 C22 33 10 46 0 53 C-10 46 -22 33 -22 14 Z" fill="#0B2138" stroke="#93C5FD" stroke-width="1.8"/>
+    <path d="M0 -19 L9 -5 L24 -2 L13 9 L16 25 L0 17 L-16 25 L-13 9 L-24 -2 L-9 -5 Z" fill="#60A5FA" opacity="0.28" stroke="#BFDBFE" stroke-width="1"/>
   </g>
-  <g transform="translate(1030 74)">
-    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
+
+  <line x1="-136" y1="42" x2="138" y2="42" stroke="#FBBF24" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle r="3.8" fill="#FDE68A">
+    <animateMotion path="M-136,42 L138,42" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <g transform="translate(-138,18)">
+    <rect x="0" y="0" width="48" height="40" rx="8" fill="#1E1B33" stroke="#A78BFA" stroke-width="1.6"/>
+    <text x="24" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#DDD6FE">CI</text>
+    <text x="24" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#C4B5FD">unit</text>
   </g>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+
+  <g transform="translate(-82,18)">
+    <rect x="0" y="0" width="56" height="40" rx="8" fill="#1E1B33" stroke="#A78BFA" stroke-width="1.6"/>
+    <text x="28" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#DDD6FE">BUILD</text>
+    <text x="28" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#C4B5FD">image</text>
+  </g>
+
+  <g transform="translate(-18,18)">
+    <rect x="0" y="0" width="56" height="40" rx="8" fill="#2A1E22" stroke="#F59E0B" stroke-width="1.8"/>
+    <text x="28" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCD34D">SBOM</text>
+    <text x="28" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FDE68A">cyclonedx</text>
+  </g>
+
+  <g transform="translate(46,18)">
+    <rect x="0" y="0" width="56" height="40" rx="8" fill="#1E1B33" stroke="#60A5FA" stroke-width="1.8"/>
+    <text x="28" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#BFDBFE">SIGN</text>
+    <text x="28" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#93C5FD">cosign</text>
+  </g>
+
+  <g transform="translate(110,18)">
+    <rect x="0" y="0" width="58" height="40" rx="8" fill="#1E1B33" stroke="#60A5FA" stroke-width="1.8"/>
+    <text x="29" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#BFDBFE">ATTEST</text>
+    <text x="29" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#93C5FD">slsa</text>
+  </g>
+
+  <g transform="translate(176,18)">
+    <rect x="0" y="0" width="62" height="40" rx="8" fill="#0F2035" stroke="#22D3EE" stroke-width="1.8"/>
+    <text x="31" y="17" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#CFFAFE">RELEASE</text>
+    <text x="31" y="30" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#BAE6FD">approve</text>
+  </g>
+
+  <text x="-16" y="-1" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#E2E8F0">TRUST</text>
+  <text x="16" y="-1" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#E2E8F0">CHAIN</text>
+  <text x="0" y="18" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#BFDBFE">verify</text>
+</g>
+
+<g transform="translate(985,315)" filter="url(#softShadow)">
+  <rect x="-78" y="-55" width="182" height="118" rx="16" fill="#150F1F" stroke="#F59E0B" stroke-width="2.2"/>
+  <text x="13" y="-22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FBBF24">SUPPLY CHAIN</text>
+  <text x="13" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="68" font-weight="900" fill="#F8FAFC">04</text>
+  <text x="13" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FDE68A">proof points</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="915" y="388" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">artifact</text>
+  <text x="974" y="388" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">digest</text>
+  <text x="1028" y="388" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">policy</text>
+  <text x="1082" y="388" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCD34D">admission</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="466" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.5" fill="#60A5FA">RUNTIME DEFENSE</text>
+  <text x="30" y="498" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#F8FAFC">DEPLOY TO RESPOND</text>
+  <text x="30" y="524" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#C7D7F2">K8s : IAM : WAF : eBPF : SIEM : IR drill</text>
+</g>
+
+<g transform="translate(610,524)" filter="url(#softShadow)">
+  <polygon points="0,-58 50,-29 50,29 0,58 -50,29 -50,-29" fill="#0E2038" stroke="#60A5FA" stroke-width="2"/>
+  <circle cx="0" cy="0" r="84" fill="none" stroke="#1D4ED8" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.65"/>
+  <circle r="3.5" fill="#BFDBFE">
+    <animateMotion path="M84,0 A84,84 0 1,1 -84,0 A84,84 0 1,1 84,0" dur="8s" repeatCount="indefinite"/>
+  </circle>
+
+  <g transform="translate(0,-92)">
+    <circle cx="0" cy="0" r="28" fill="#0C2035" stroke="#60A5FA" stroke-width="1.8"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#BFDBFE">K8s</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" fill="#93C5FD">pods</text>
+  </g>
+
+  <g transform="translate(-86,-26)">
+    <circle cx="0" cy="0" r="24" fill="#0C2035" stroke="#60A5FA" stroke-width="1.6"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#BFDBFE">IAM</text>
+    <text x="0" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#93C5FD">least</text>
+  </g>
+
+  <g transform="translate(86,-26)">
+    <circle cx="0" cy="0" r="24" fill="#132126" stroke="#2DD4BF" stroke-width="1.6"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#99F6E4">WAF</text>
+    <text x="0" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#CCFBF1">edge</text>
+  </g>
+
+  <g transform="translate(-86,54)">
+    <circle cx="0" cy="0" r="24" fill="#171B31" stroke="#A78BFA" stroke-width="1.6"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#DDD6FE">eBPF</text>
+    <text x="0" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#C4B5FD">trace</text>
+  </g>
+
+  <g transform="translate(0,92)">
+    <circle cx="0" cy="0" r="24" fill="#221A17" stroke="#F59E0B" stroke-width="1.6"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FCD34D">SIEM</text>
+    <text x="0" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FDE68A">alert</text>
+  </g>
+
+  <g transform="translate(86,54)">
+    <circle cx="0" cy="0" r="24" fill="#251B1B" stroke="#F87171" stroke-width="1.6"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FECACA">IR</text>
+    <text x="0" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="8" fill="#FCA5A5">playbook</text>
+  </g>
+
+  <line x1="0" y1="-64" x2="0" y2="-30" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+  <line x1="-64" y1="-19" x2="-40" y2="-10" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+  <line x1="64" y1="-19" x2="40" y2="-10" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+  <line x1="-64" y1="40" x2="-42" y2="22" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+  <line x1="0" y1="64" x2="0" y2="32" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+  <line x1="64" y1="40" x2="42" y2="22" stroke="#60A5FA" stroke-width="1.2" opacity="0.65"/>
+</g>
+
+<g transform="translate(985,526)" filter="url(#softShadow)">
+  <rect x="-78" y="-55" width="182" height="118" rx="16" fill="#0A162A" stroke="#60A5FA" stroke-width="2.2"/>
+  <text x="13" y="-22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#60A5FA">RUN OPS</text>
+  <text x="13" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="68" font-weight="900" fill="#F8FAFC">06</text>
+  <text x="13" y="50" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#BFDBFE">control loops</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="34" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">identity</text>
+  <text x="110" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">network</text>
+  <text x="190" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">image</text>
+  <text x="248" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">runtime</text>
+  <text x="320" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">logs</text>
+  <text x="366" y="604" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#93C5FD">backup</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="518" y="604" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">detect</text>
+  <text x="584" y="604" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">isolate</text>
+  <text x="650" y="604" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">patch</text>
+  <text x="716" y="604" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">verify</text>
+  <text x="786" y="604" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#BFDBFE">recover</text>
+</g>
+
+<g opacity="0.55">
+  <circle cx="278" cy="187" r="1.4" fill="#5EEAD4"/>
+  <circle cx="346" cy="187" r="1.4" fill="#5EEAD4"/>
+  <circle cx="414" cy="187" r="1.4" fill="#5EEAD4"/>
+  <circle cx="272" cy="395" r="1.4" fill="#FCD34D"/>
+  <circle cx="340" cy="395" r="1.4" fill="#FCD34D"/>
+  <circle cx="408" cy="395" r="1.4" fill="#FCD34D"/>
+  <circle cx="272" cy="582" r="1.4" fill="#93C5FD"/>
+  <circle cx="340" cy="582" r="1.4" fill="#93C5FD"/>
+  <circle cx="408" cy="582" r="1.4" fill="#93C5FD"/>
+</g>
 </svg>

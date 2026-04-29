@@ -1,101 +1,317 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <title>KUBERNETES MINIKUBE K9S</title>
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1120"/>
-      <stop offset="52%" stop-color="#121a2f"/>
-      <stop offset="100%" stop-color="#170f25"/>
-    </linearGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96"/>
-      <stop offset="100%" stop-color="#111827" stop-opacity="0.86"/>
-    </linearGradient>
-    <pattern id="microGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#334155" stroke-width="1" opacity="0.25"/>
-      <circle cx="18" cy="18" r="1.2" fill="#60a5fa" opacity="0.15"/>
-    </pattern>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="sg" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="36"/>
-    </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#020617" flood-opacity="0.42"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#microGrid)"/>
-  <circle cx="202" cy="150" r="190" fill="#60a5fa" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="1020" cy="486" r="220" fill="#1d4ed8" opacity="0.08" filter="url(#sg)"/>
-  <circle cx="920" cy="160" r="140" fill="#38bdf8" opacity="0.04" filter="url(#sg)"/>
-  <path d="M0 96 C224 46 426 44 654 118 L654 630 L0 630 Z" fill="#020617" opacity="0.24"/>
-  <path d="M0 526 C248 490 426 486 654 548" fill="none" stroke="#475569" stroke-width="1.2" opacity="0.22"/>
-  <rect x="760" y="116" width="352" height="312" rx="28" fill="url(#panel)" stroke="#60a5fa" stroke-opacity="0.28" stroke-width="1.4" filter="url(#shadow)"/>
-  <rect x="778" y="134" width="316" height="276" rx="22" fill="none" stroke="#334155" stroke-opacity="0.7" stroke-width="1"/>
-  <rect x="782" y="136" width="108" height="12" rx="6" fill="#60a5fa" opacity="0.28"/>
-  <rect x="904" y="136" width="72" height="12" rx="6" fill="#334155" opacity="0.55"/>
-  <rect x="988" y="136" width="48" height="12" rx="6" fill="#334155" opacity="0.35"/>
-  
-  <path d="M712 178 C780 150 850 150 936 190" fill="none" stroke="#60a5fa" stroke-width="1.3" opacity="0.26"/>
-  <path d="M724 414 C796 438 870 438 948 398" fill="none" stroke="#c084fc" stroke-width="1.2" opacity="0.22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role='img' aria-label='High quality cover for a Minikube and K9s hands-on Kubernetes guide with troubleshooting and testing workflow'>
+<title>Kubernetes Minikube and K9s hands-on guide cover with troubleshooting and practical testing</title>
+<!-- profile: high-quality-cover (2025 upgraded) -->
+<defs>
+  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#07111F"/>
+    <stop offset="45%" stop-color="#0B1730"/>
+    <stop offset="100%" stop-color="#12132C"/>
+  </linearGradient>
+  <linearGradient id="heroPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0E1B35"/>
+    <stop offset="100%" stop-color="#18294F"/>
+  </linearGradient>
+  <linearGradient id="bandA" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0A1B18"/>
+    <stop offset="100%" stop-color="#0E2A22"/>
+  </linearGradient>
+  <linearGradient id="bandB" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0C1328"/>
+    <stop offset="100%" stop-color="#111B3A"/>
+  </linearGradient>
+  <linearGradient id="bandC" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#1B130A"/>
+    <stop offset="100%" stop-color="#2B1B0F"/>
+  </linearGradient>
+  <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#22C55E" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+    <feOffset dx="1" dy="3"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.55"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+    <feOffset dx="0" dy="1.5"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.85"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <pattern id="gridA" x="0" y="0" width="40" height="18" patternUnits="userSpaceOnUse">
+    <path d="M0 18 L40 18" stroke="#1F3D34" stroke-width="0.45" opacity="0.55"/>
+    <path d="M40 0 L40 18" stroke="#1F3D34" stroke-width="0.45" opacity="0.55"/>
+  </pattern>
+  <pattern id="gridB" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+    <circle cx="11" cy="11" r="0.8" fill="#263A74" opacity="0.55"/>
+  </pattern>
+  <pattern id="gridC" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.9" fill="#5B3C16" opacity="0.4"/>
+  </pattern>
+</defs>
 
-  <g transform="translate(936,270)" filter="url(#shadow)">
-    <circle r="96" fill="#0f172a" stroke="#60a5fa" stroke-width="2.6" opacity="0.94"/>
-    <circle r="124" fill="none" stroke="#60a5fa" stroke-opacity="0.15" stroke-width="1.2" stroke-dasharray="8 8"/>
-    <circle r="54" fill="none" stroke="#e2e8f0" stroke-opacity="0.15" stroke-width="1"/>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
 
-    <polygon points="0,-45 40,-20 40,20 0,45 -40,20 -40,-20" fill="none" stroke="#60a5fa" stroke-width="3"/>
-    <circle r="12" fill="#60a5fa" opacity="0.3"/>
-    <line x1="0" y1="-12" x2="0" y2="-38" stroke="#60a5fa" stroke-width="2"/>
-    <line x1="10" y1="6" x2="34" y2="16" stroke="#60a5fa" stroke-width="2"/>
-    <line x1="-10" y1="6" x2="-34" y2="16" stroke="#60a5fa" stroke-width="2"/>
-    <circle cx="0" cy="-38" r="5" fill="#60a5fa" opacity="0.5"/>
-    <circle cx="34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
-    <circle cx="-34" cy="16" r="5" fill="#60a5fa" opacity="0.5"/>
-  </g>
-  <g transform="translate(84 66)">
-    <rect width="164" height="36" rx="18" fill="#60a5fa" opacity="0.2" stroke="#60a5fa" stroke-width="1.2"/>
-    <text x="82" y="23" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#60a5fa" text-anchor="middle">KUBERNETES</text>
-  </g>
-  <text x="84" y="170" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#f8fafc" letter-spacing="0.5">KUBERNETES MINIKUBE</text>
-  <text x="84" y="232" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="#dbeafe" letter-spacing="0.5">K9S</text>
-  <text x="84" y="288" font-family="Arial,sans-serif" font-size="18" fill="#cbd5e1">KUBERNETES / MINIKUBE / K9S</text>
-  <rect x="84" y="314" width="520" height="1.5" fill="#334155" opacity="0.9"/>
-  <text x="84" y="344" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#94a3b8">VISUAL SYSTEM 9972F3D5E447</text>
-  <text x="84" y="372" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Clean technical cover with stronger depth, hierarchy, and category-specific structure.</text>
-  <g transform="translate(84 474)">
-    <rect width="134" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
-    <text x="67.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">KUBERNETES</text>
-  </g>
-  <g transform="translate(232 474)">
-    <rect width="114" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
-    <text x="57.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">MINIKUBE</text>
-  </g>
-  <g transform="translate(360 474)">
-    <rect width="110" height="38" rx="19" fill="#60a5fa" opacity="0.16" stroke="#60a5fa" stroke-width="1.2"/>
-    <text x="55.0" y="24" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">K9S</text>
-  </g>
-  <g transform="translate(84 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">CATEGORY</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">KUBERNETES</text>
-  </g>
-  <g transform="translate(246 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">SIGNALS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
-  </g>
-  <g transform="translate(408 536)">
-    <rect width="144" height="58" rx="16" fill="#111827" fill-opacity="0.78" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="1.2"/>
-    <text x="18" y="24" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#94a3b8">TAGS</text>
-    <text x="18" y="43" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#f8fafc">05</text>
-  </g>
-  <g transform="translate(1030 74)">
-    <rect width="130" height="34" rx="17" fill="#1d4ed8" opacity="0.18" stroke="#3b82f6" stroke-width="1.2"/>
-    <text x="65" y="22" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#bfdbfe" text-anchor="middle">April 14, 2026</text>
-  </g>
-  <line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+<rect x="0" y="0" width="1200" height="210" fill="url(#bandA)"/>
+<rect x="0" y="0" width="1200" height="210" fill="url(#gridA)" opacity="0.6"/>
+<rect x="0" y="0" width="8" height="210" fill="#22C55E"/>
+
+<rect x="0" y="210" width="1200" height="210" fill="url(#bandB)"/>
+<rect x="0" y="210" width="1200" height="210" fill="url(#gridB)" opacity="0.8"/>
+<rect x="0" y="210" width="8" height="210" fill="#60A5FA"/>
+
+<rect x="0" y="420" width="1200" height="210" fill="url(#bandC)"/>
+<rect x="0" y="420" width="1200" height="210" fill="url(#gridC)" opacity="0.75"/>
+<rect x="0" y="420" width="8" height="210" fill="#F59E0B"/>
+
+<line x1="0" y1="210" x2="1200" y2="210" stroke="#20304C" stroke-width="1.5"/>
+<line x1="0" y1="420" x2="1200" y2="420" stroke="#20304C" stroke-width="1.5"/>
+
+<circle cx="690" cy="100" r="110" fill="url(#glowGreen)"/>
+<circle cx="700" cy="315" r="120" fill="url(#glowBlue)"/>
+<circle cx="700" cy="525" r="110" fill="url(#glowAmber)"/>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="42" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#34D399">LAB SETUP</text>
+  <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">Minikube + K9s Hands-on</text>
+  <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#A7F3D0">Local Kubernetes from boot to ready</text>
+  <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#C7D2FE">Troubleshooting paths plus smoke tests</text>
+</g>
+
+<g transform="translate(44,106)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="260" height="80" rx="12" fill="#081018" stroke="#22C55E" stroke-width="1.8"/>
+  <rect x="0" y="0" width="260" height="18" rx="12" fill="#0D1A25"/>
+  <circle cx="16" cy="9" r="3" fill="#EF4444"/>
+  <circle cx="28" cy="9" r="3" fill="#F59E0B"/>
+  <circle cx="40" cy="9" r="3" fill="#22C55E"/>
+  <text x="16" y="38" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#86EFAC">PROFILE</text>
+  <text x="92" y="38" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#F8FAFC">minikube</text>
+  <text x="16" y="54" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#86EFAC">start</text>
+  <text x="92" y="54" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#BFDBFE">--driver=docker</text>
+  <text x="16" y="70" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#86EFAC">STATUS</text>
+  <text x="92" y="70" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#F8FAFC">Running</text>
+  <text x="170" y="38" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#60A5FA">kubectl</text>
+  <text x="170" y="54" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#F8FAFC">get nodes</text>
+  <text x="170" y="70" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#86EFAC">Ready</text>
+</g>
+
+<g transform="translate(615,104)" filter="url(#softShadow)">
+  <polygon points="0,-76 72,-38 72,38 0,76 -72,38 -72,-38" fill="url(#heroPanel)" stroke="#60A5FA" stroke-width="2"/>
+  <text x="0" y="-48" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="1.8" fill="#93C5FD">CLUSTER</text>
+  <rect x="-54" y="-22" width="108" height="28" rx="8" fill="#0B172C" stroke="#22C55E" stroke-width="1.6"/>
+  <text x="0" y="-4" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#86EFAC">control-plane</text>
+
+  <line x1="0" y1="8" x2="-70" y2="36" stroke="#60A5FA" stroke-width="1.4" opacity="0.75"/>
+  <line x1="0" y1="8" x2="70" y2="36" stroke="#60A5FA" stroke-width="1.4" opacity="0.75"/>
+  <line x1="0" y1="-8" x2="-82" y2="-46" stroke="#60A5FA" stroke-width="1.4" opacity="0.55"/>
+  <line x1="0" y1="-8" x2="82" y2="-46" stroke="#60A5FA" stroke-width="1.4" opacity="0.55"/>
+
+  <rect x="-126" y="-62" width="66" height="22" rx="6" fill="#0A1528" stroke="#60A5FA" stroke-width="1.2"/>
+  <text x="-93" y="-48" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#BFDBFE">coredns</text>
+
+  <rect x="60" y="-62" width="72" height="22" rx="6" fill="#0A1528" stroke="#60A5FA" stroke-width="1.2"/>
+  <text x="96" y="-48" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#BFDBFE">api-server</text>
+
+  <rect x="-122" y="30" width="66" height="22" rx="6" fill="#0A1528" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="-89" y="44" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#A7F3D0">scheduler</text>
+
+  <rect x="-46" y="52" width="48" height="22" rx="6" fill="#0A1528" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="-22" y="66" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#A7F3D0">web</text>
+
+  <rect x="12" y="52" width="42" height="22" rx="6" fill="#0A1528" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="33" y="66" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#A7F3D0">svc</text>
+
+  <rect x="64" y="30" width="62" height="22" rx="6" fill="#0A1528" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="95" y="44" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#A7F3D0">ingress</text>
+
+  <rect x="-28" y="82" width="56" height="22" rx="6" fill="#0A1528" stroke="#F59E0B" stroke-width="1.2"/>
+  <text x="0" y="96" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCD34D">kubelet</text>
+</g>
+
+<g transform="translate(990,106)" filter="url(#softShadow)">
+  <rect x="-84" y="-64" width="184" height="126" rx="14" fill="#071218" stroke="#22C55E" stroke-width="2.2"/>
+  <text x="8" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#34D399">READY</text>
+  <text x="8" y="28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F8FAFC">1 / 1</text>
+  <text x="8" y="52" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#A7F3D0">docker driver</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">LIVE VIEW</text>
+  <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">K9s dashboard</text>
+  <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Pods, logs, events, shell</text>
+  <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#CBD5E1">Fast read on drift and failure</text>
+</g>
+
+<g transform="translate(458,240)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="430" height="132" rx="14" fill="url(#heroPanel)" stroke="#60A5FA" stroke-width="1.8"/>
+  <rect x="0" y="0" width="430" height="22" rx="14" fill="#0B172C"/>
+  <circle cx="16" cy="11" r="3" fill="#EF4444"/>
+  <circle cx="28" cy="11" r="3" fill="#F59E0B"/>
+  <circle cx="40" cy="11" r="3" fill="#22C55E"/>
+
+  <text x="16" y="40" font-family="IBM Plex Mono, Menlo, monospace" font-size="12" font-weight="700" fill="#E2E8F0">K9s</text>
+  <text x="62" y="40" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#93C5FD">ctx</text>
+  <text x="94" y="40" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#F8FAFC">minikube</text>
+  <text x="212" y="40" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#93C5FD">ns</text>
+  <text x="238" y="40" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#F8FAFC">default</text>
+
+  <text x="16" y="62" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#93C5FD">NAME</text>
+  <text x="174" y="62" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#93C5FD">READY</text>
+  <text x="238" y="62" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#93C5FD">STATUS</text>
+  <text x="330" y="62" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#93C5FD">CPU</text>
+  <text x="382" y="62" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#93C5FD">MEM</text>
+
+  <rect x="10" y="70" width="410" height="18" rx="6" fill="#39131A" opacity="0.82"/>
+  <text x="16" y="83" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#F8FAFC">web-app</text>
+  <text x="174" y="83" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCA5A5">0/1</text>
+  <text x="238" y="83" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCA5A5">CrashLoop</text>
+  <text x="330" y="83" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCA5A5">42m</text>
+  <text x="382" y="83" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCA5A5">72Mi</text>
+
+  <rect x="10" y="90" width="410" height="16" rx="6" fill="#0A1830" opacity="0.58"/>
+  <text x="16" y="102" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">api</text>
+  <text x="174" y="102" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#86EFAC">1/1</text>
+  <text x="238" y="102" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#86EFAC">Running</text>
+  <text x="330" y="102" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">18m</text>
+  <text x="382" y="102" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">61Mi</text>
+
+  <rect x="10" y="108" width="410" height="16" rx="6" fill="#0A1830" opacity="0.52"/>
+  <text x="16" y="120" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">redis</text>
+  <text x="174" y="120" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#86EFAC">1/1</text>
+  <text x="238" y="120" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#86EFAC">Running</text>
+  <text x="330" y="120" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">11m</text>
+  <text x="382" y="120" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">38Mi</text>
+
+  <rect x="10" y="126" width="410" height="0" rx="6" fill="#0A1830" opacity="0"/>
+  <text x="16" y="138" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">job-smoke</text>
+  <text x="174" y="138" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCD34D">0/1</text>
+  <text x="238" y="138" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#FCD34D">Completed</text>
+  <text x="330" y="138" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">3m</text>
+  <text x="382" y="138" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#E2E8F0">12Mi</text>
+
+  <rect x="14" y="148" width="64" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+  <rect x="84" y="148" width="48" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+  <rect x="138" y="148" width="54" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+  <rect x="198" y="148" width="76" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+  <rect x="280" y="148" width="58" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+  <rect x="344" y="148" width="58" height="18" rx="8" fill="#0F1E38" stroke="#60A5FA" stroke-width="1"/>
+
+  <text x="25" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">DESCRIBE</text>
+  <text x="95" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">LOGS</text>
+  <text x="149" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">SHELL</text>
+  <text x="209" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">PORTFWD</text>
+  <text x="291" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">EVENTS</text>
+  <text x="355" y="161" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BFDBFE">FILTER</text>
+</g>
+
+<g transform="translate(1000,315)" filter="url(#softShadow)">
+  <rect x="-90" y="-64" width="182" height="126" rx="14" fill="#081325" stroke="#60A5FA" stroke-width="2.1"/>
+  <text x="1" y="-30" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">SIGNALS</text>
+  <text x="-34" y="6" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">pods</text>
+  <text x="40" y="6" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="900" fill="#F8FAFC">04</text>
+  <text x="-24" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">restarts</text>
+  <text x="46" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#FCA5A5">01</text>
+</g>
+
+<g filter="url(#textShadow)">
+  <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FBBF24">FIX + TEST</text>
+  <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">Inspect, patch, probe, repeat</text>
+  <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FCD34D">From failed pod to green path</text>
+</g>
+
+<g transform="translate(430,525)" filter="url(#softShadow)">
+  <rect x="-34" y="-30" width="96" height="58" rx="10" fill="#24170D" stroke="#F59E0B" stroke-width="1.8"/>
+  <text x="14" y="-6" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="800" fill="#FCD34D">ISSUE</text>
+  <text x="14" y="14" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#F8FAFC">image pull</text>
+
+  <line x1="62" y1="-1" x2="98" y2="-1" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <polygon points="98,-6 108,-1 98,4" fill="#F59E0B"/>
+
+  <rect x="108" y="-30" width="96" height="58" rx="10" fill="#0E1B35" stroke="#60A5FA" stroke-width="1.8"/>
+  <text x="156" y="-6" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="800" fill="#93C5FD">INSPECT</text>
+  <text x="156" y="14" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#F8FAFC">describe</text>
+
+  <line x1="204" y1="-1" x2="240" y2="-1" stroke="#60A5FA" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <polygon points="240,-6 250,-1 240,4" fill="#60A5FA"/>
+
+  <rect x="250" y="-30" width="96" height="58" rx="10" fill="#102217" stroke="#22C55E" stroke-width="1.8"/>
+  <text x="298" y="-6" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="800" fill="#86EFAC">PATCH</text>
+  <text x="298" y="14" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#F8FAFC">apply</text>
+
+  <line x1="346" y1="-1" x2="382" y2="-1" stroke="#22C55E" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <polygon points="382,-6 392,-1 382,4" fill="#22C55E"/>
+
+  <rect x="392" y="-30" width="104" height="58" rx="10" fill="#0B172C" stroke="#34D399" stroke-width="1.8"/>
+  <text x="444" y="-6" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" font-weight="800" fill="#86EFAC">PROBE</text>
+  <text x="444" y="14" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10" fill="#F8FAFC">curl /healthz</text>
+</g>
+
+<g transform="translate(40,566)" filter="url(#softShadow)">
+  <rect x="0" y="0" width="1120" height="42" rx="14" fill="#120F0A" stroke="#5B3C16" stroke-width="1.2"/>
+  <text x="18" y="17" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FCD34D">CHECKS</text>
+
+  <rect x="78" y="8" width="90" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="93" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">kubectl logs</text>
+
+  <rect x="178" y="8" width="112" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="193" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">kubectl describe</text>
+
+  <rect x="300" y="8" width="96" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="315" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">kubectl exec</text>
+
+  <rect x="406" y="8" width="96" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="421" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">port-forward</text>
+
+  <rect x="512" y="8" width="94" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="528" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">service reach</text>
+
+  <rect x="616" y="8" width="86" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="632" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">dns lookup</text>
+
+  <rect x="712" y="8" width="92" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="728" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">restart count</text>
+
+  <rect x="814" y="8" width="94" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="830" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">resource cap</text>
+
+  <rect x="918" y="8" width="82" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="934" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">readiness</text>
+
+  <rect x="1010" y="8" width="68" height="22" rx="11" fill="#1A130C" stroke="#F59E0B" stroke-width="1"/>
+  <text x="1026" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#FDE68A">liveness</text>
+
+  <rect x="1088" y="8" width="82" height="22" rx="11" fill="#102217" stroke="#22C55E" stroke-width="1"/>
+  <text x="1104" y="23" font-family="IBM Plex Mono, Menlo, monospace" font-size="9" fill="#BBF7D0">smoke pass</text>
+</g>
+
+<g opacity="0.55">
+  <circle cx="250" cy="178" r="1.5" fill="#22C55E"/>
+  <circle cx="320" cy="178" r="1.5" fill="#22C55E"/>
+  <circle cx="390" cy="178" r="1.5" fill="#22C55E"/>
+  <circle cx="255" cy="388" r="1.5" fill="#60A5FA"/>
+  <circle cx="324" cy="388" r="1.5" fill="#60A5FA"/>
+  <circle cx="393" cy="388" r="1.5" fill="#60A5FA"/>
+  <circle cx="300" cy="450" r="1.5" fill="#F59E0B"/>
+  <circle cx="370" cy="450" r="1.5" fill="#F59E0B"/>
+  <circle cx="440" cy="450" r="1.5" fill="#F59E0B"/>
+</g>
 </svg>
