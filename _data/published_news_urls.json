@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-28T02:06:36.191804+00:00",
+  "updated_at": "2026-04-29T02:08:14.322745+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/secure-ai-agent-access-patterns-to-aws-resources-using-model-context-protocol/",
-      "title": "Secure AI agent access patterns to AWS resources using Model Context Protocol",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/new-php-composer-flaws-enable-arbitrary.html",
-      "title": "New PHP Composer Flaws Enable Arbitrary Command Execution — Patches Released",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/google-adds-rust-based-dns-parser-into.html",
-      "title": "Google Adds Rust-Based DNS Parser into Pixel 10 Modem to Enhance Security",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/ai-driven-pushpaganda-scam-exploits.html",
-      "title": "AI-Driven Pushpaganda Scam Exploits Google Discover to Spread Scareware and Ad F",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-windows-protections-for-malicious-remote-desktop-files/",
-      "title": "Microsoft adds Windows protections for malicious Remote Desktop files",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/ai-economy-forum/",
-      "title": "Bringing people together at AI for the Economy Forum",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/navigating-the-generative-ai-journey-the-path-to-value-framework-from-aws/",
-      "title": "Navigating the generative AI journey: The Path-to-Value framework from AWS",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/use-case-based-deployments-on-sagemaker-jumpstart/",
-      "title": "Use-case based deployments on SageMaker JumpStart",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/best-practices-to-run-inference-on-amazon-sagemaker-hyperpod/",
-      "title": "Best practices to run inference on Amazon SageMaker HyperPod",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-guidesly-built-ai-generated-trip-reports-for-outdoor-guides-on-aws/",
-      "title": "How Guidesly built AI-generated trip reports for outdoor guides on AWS",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/securing-the-ai-era-across-the-public-sector/",
-      "title": "Securing the AI era across the public sector",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-graph/",
-      "title": "Introducing BigQuery Graph: Unlock hidden relationships in your data",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquery-graph-with-kineviz-graphxr/",
-      "title": "Scaling unstructured enterprise knowledge with BigQuery Graph, and Kineviz Graph",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/the-unified-graph-solution-with-spanner-graph-and-bigquery-graph/",
-      "title": "From operational to analytical: The unified Spanner Graph and BigQuery Graph sol",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-interconnect-is-now-generally-available-with-a-new-option-to-simplify-last-mile-connectivity/",
-      "title": "AWS Interconnect is now generally available, with a new option to simplify last-",
-      "published_date": "2026-04-15",
-      "expires_at": "2026-04-22T01:33:53.262305+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/n8n-webhooks-abused-since-october-2025.html",
       "title": "n8n Webhooks Abused Since October 2025 to Deliver Malware via Phishing Emails",
@@ -1248,6 +1158,96 @@
       "title": "GitHub Copilot code review will start consuming GitHub Actions minutes on June 1",
       "published_date": "2026-04-28",
       "expires_at": "2026-05-05T02:06:36.191695+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/researchers-discover-critical-github.html",
+      "title": "Researchers Discover Critical GitHub CVE-2026-3854 RCE Flaw Exploitable via Sing",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/brazilian-lofygang-resurfaces-after.html",
+      "title": "Brazilian LofyGang Resurfaces After Three Years With Minecraft LofyStealer Campa",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/vect-20-ransomware-irreversibly.html",
+      "title": "VECT 2.0 Ransomware Irreversibly Destroys Files Over 131KB on Windows, Linux, ES",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/what-the-march-2026-threat-technique-catalog-update-means-for-your-aws-environment/",
+      "title": "What the March 2026 Threat Technique Catalog update means for your AWS environme",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/why-secure-data-movement-is-zero-trust.html",
+      "title": "Why Secure Data Movement Is the Zero Trust Bottleneck Nobody Talks About",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/",
+      "title": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language ",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/translate/fun-facts-google-translate-20-years/",
+      "title": "Celebrating 20 years of Google Translate: Fun facts, tips and new features to tr",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/connecting-agents-to-decisions-277dee8ddb40?source=rss----3c87dc14372f---4",
+      "title": "Connecting Agents to Decisions",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/manufacturing-simulation-first/",
+      "title": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/migrating-a-text-agent-to-a-voice-assistant-with-amazon-nova-2-sonic/",
+      "title": "Migrating a text agent to a voice assistant with Amazon Nova 2 Sonic",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/welcome-to-the-agentic-era-public-sector-highlights-and-reflections-from-next-26/",
+      "title": "Welcome to the agentic era: Public sector highlights and reflections from Next ‘",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-managed-mcp-servers-are-available-for-everyone/",
+      "title": "50+ fully managed MCP servers now available for Google Cloud services",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/de/topics/offentlicher-sektor/google-cloud-und-das-bsi-c3a-framework-wie-wir-digitale-souveranitat-in-deutschland-konkret-machen/",
+      "title": "Google Cloud und das BSI C3A-Framework: Wie wir Digitale Souveränität in Deutsch",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/top-announcements-of-the-whats-next-with-aws-2026/",
+      "title": "Top announcements of the What’s Next with AWS, 2026",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentic-ai-product-gtm-with-aws-marketplace/",
+      "title": "AI Native 제품의 GTM 을 위한 과금 모델 통합 전략",
+      "published_date": "2026-04-29",
+      "expires_at": "2026-05-06T02:08:14.322629+00:00"
     }
   ]
 }
