@@ -130,4 +130,5 @@ tests/visual-diffs/
 
 # SVG upgrade pipeline runtime artifacts
 assets/images/.backup/
-scripts/upgrade_2025_svgs.failures
+assets/images/.backup_l25/
+scripts/upgrade_2025_svgs_l25_single.failures

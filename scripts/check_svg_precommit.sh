@@ -32,7 +32,7 @@ if [ -z "$CHANGED_SVGS" ]; then
 fi
 
 is_high_quality_cover() {
-  grep -qE 'sceneGlow1|sceneGlow2|@keyframes [^ ]*floatUp|clipPath id="[^"]*clip"' "$1"
+  grep -qE 'sceneGlow1|sceneGlow2|@keyframes [^ ]*floatUp|clipPath id="[^"]*clip"|profile: high-quality-cover|id="bgSpread"|id="heroPanel"' "$1"
 }
 
 SVG_WARN=0
