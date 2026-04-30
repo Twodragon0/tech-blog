@@ -5,6 +5,7 @@
 
   <!-- FOUC prevention: apply theme immediately before first paint (inline required) -->
   <script id="theme-init">(function(){var t=localStorage.getItem('theme');if(!t||t==='system'){t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
+  {% include font-face.html %}
   <!-- Google Analytics: lazy-loaded by assets/js/head-runtime.js#loadGoogleAnalytics
        via requestIdleCallback so it does not block LCP. PageSpeed report flagged
        eager + idle dual-load as 305 KiB unused JS / 1374ms script-eval; the
@@ -175,13 +176,9 @@
   <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | absolute_url }}">
 
-  <!-- Fonts: Noto Sans KR (CSP-safe non-blocking load via JS) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" id="gfonts">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
+  <!-- Fonts: Noto Sans KR self-hosted via 2-tier woff2 subset (font-face.html, included above). -->
   <script>
-    // CSP-safe deferred CSS/font loading (replaces inline onload handlers)
+    // CSP-safe deferred CSS loading (replaces inline onload handlers).
     // NOTE: .deferred-css links are defined *below* this script; query them after DOM is ready.
     (function () {
       function setMediaAll(link) {
@@ -229,40 +226,8 @@
       function wireDeferredCss() {
         document.querySelectorAll('link.deferred-css').forEach(promotePrintStylesheet);
       }
-      function wireGoogleFonts() {
-        var gf = document.getElementById('gfonts');
-        if (!gf || gf.media === 'all') {
-          return;
-        }
-        try {
-          if (gf.sheet) {
-            setMediaAll(gf);
-            return;
-          }
-        } catch (e) { /* ignore */ }
-        gf.addEventListener('load', function () {
-          setMediaAll(this);
-        });
-        requestAnimationFrame(function () {
-          try {
-            if (gf.sheet) {
-              setMediaAll(gf);
-            }
-          } catch (e2) { /* ignore */ }
-        });
-        setTimeout(function () {
-          setMediaAll(gf);
-        }, 2500);
-      }
       function onReady() {
-        wireGoogleFonts();
         wireDeferredCss();
-      }
-      var gfEarly = document.getElementById('gfonts');
-      if (gfEarly) {
-        gfEarly.addEventListener('load', function () {
-          setMediaAll(this);
-        });
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', onReady);
