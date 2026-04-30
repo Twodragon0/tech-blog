@@ -5,13 +5,13 @@
 
   <!-- FOUC prevention: apply theme immediately before first paint (inline required) -->
   <script id="theme-init">(function(){var t=localStorage.getItem('theme');if(!t||t==='system'){t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
-  <!-- Google Analytics (gtag.js) -->
-  {% if site.google_analytics and site.google_analytics != "" %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ site.google_analytics }}');
-  </script>
-  {% endif %}
+  <!-- Google Analytics: lazy-loaded by assets/js/head-runtime.js#loadGoogleAnalytics
+       via requestIdleCallback so it does not block LCP. PageSpeed report flagged
+       eager + idle dual-load as 305 KiB unused JS / 1374ms script-eval; the
+       eager <script async src="gtag/js?id=..."> tag was removed 2026-05 to keep
+       only the deferred idle path. The head-runtime.js script element retains
+       the data-ga-id attribute used by loadGoogleAnalytics(). -->
+
 
   <!-- Console Filter Module (deferred to reduce FID impact) -->
   <script src="{{ '/assets/js/console-filter.js' | relative_url }}" defer></script>
@@ -261,7 +261,11 @@
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
   {% if site.sentry_dsn and site.sentry_dsn != "" %}
   <link rel="preconnect" href="https://browser.sentry-cdn.com" crossorigin>
+  <!-- Sentry ingest endpoint: actual error reporting target (PageSpeed: 310ms LCP savings) -->
+  <link rel="preconnect" href="https://o4510686170710016.ingest.us.sentry.io" crossorigin>
   {% endif %}
+  <!-- Vercel Analytics & Speed Insights endpoint (PageSpeed: 340ms LCP savings) -->
+  <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin>
   <!-- Google Translate: dns-prefetch only (script lazy-loaded on user interaction) -->
   <link rel="dns-prefetch" href="https://translate.google.com">
   <link rel="dns-prefetch" href="https://translate.googleapis.com">
