@@ -163,6 +163,83 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
     generate_svg_image,
 )
 
+# Re-export L20 hero dispatch helpers (new weekly-digest cover style).
+from scripts.news.l20_dispatch import (  # noqa: E402,F401
+    extract_three_stories,
+    generate_l20_digest_svg,
+    route_theme,
+    route_visual_id,
+    _infer_kpi,
+)
+
+# Feature flag: enable the L20 Hero+2-Card cover for weekly digests.
+# Defaults to ON so future digests use the new style. Set USE_L20_HERO=0
+# (or "false"/"") to fall back to the existing generate_svg_image path.
+L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
+    "0",
+    "false",
+    "",
+}
+
+
+def _render_l20_svg_string(post_info: Dict) -> str:
+    """Render an L20 Hero+2-Card SVG and return its string contents.
+
+    Wraps :mod:`scripts.news.l20_dispatch` so the legacy
+    ``generate_svg_image`` path (which returns a string) keeps the same
+    contract. Returns an empty string on any failure so callers can fall
+    back to the legacy generator without crashing the publisher.
+    """
+    try:
+        from scripts.lib.svg_l20_hero import render_l20_hero
+        from scripts.news.l20_dispatch import (
+            _action_for,
+            _build_story,
+            _date_str_from_filename,
+            _post_url_from_filename,
+            extract_three_stories,
+        )
+    except Exception as _exc:
+        logging.debug(f"L20 import failed, falling back: {_exc}")
+        return ""
+
+    try:
+        title = str(post_info.get("title", "") or "")
+        excerpt = str(post_info.get("excerpt", "") or "")
+        filename = str(post_info.get("filename", "") or "")
+
+        h, tr, br = extract_three_stories(title, excerpt)
+        hero_story = _build_story(
+            headline=h["headline"],
+            subheadline=h["subheadline"],
+            index=0,
+            severity_label="HIGH",
+            action=_action_for(h["headline"]),
+        )
+        tr_story = _build_story(
+            headline=tr["headline"],
+            subheadline=tr["subheadline"],
+            index=1,
+            severity_label="HIGH",
+        )
+        br_story = _build_story(
+            headline=br["headline"],
+            subheadline=br["subheadline"],
+            index=2,
+            severity_label="MEDIUM",
+        )
+        return render_l20_hero(
+            date_str=_date_str_from_filename(filename) or "",
+            hero=hero_story,
+            top_right=tr_story,
+            bottom_right=br_story,
+            url=_post_url_from_filename(filename),
+            post_title=title or "Weekly Digest",
+        )
+    except Exception as _exc:
+        logging.warning(f"L20 SVG render failed, falling back: {_exc}")
+        return ""
+
 # ---------------------------------------------------------------------------
 # Module-level __setattr__ / __getattr__ to proxy mutable config state.
 #
@@ -406,8 +483,33 @@ def main():
     for cat, items in categorized.items():
         print(f"   - {cat}: {len(items)} items")
 
-    # Generate SVG
-    svg_content = generate_svg_image(now, categorized, selected)
+    # Generate SVG. The L20 Hero+2-Card cover is the new default for
+    # weekly-digest posts (mode == "security"); the existing
+    # generate_svg_image path remains for tech-blog mode and as the
+    # fallback when USE_L20_HERO=0/false/"" disables the new style.
+    if L20_HERO_ENABLED and args.mode == "security":
+        post_info_for_l20 = {
+            "title": post_content.split("\n", 1)[0]
+            if post_content.startswith("title:") else "",
+            "filename": post_filename,
+            "excerpt": "",
+            "content": post_content,
+        }
+        # Recover the title / excerpt from the rendered front-matter.
+        m_title = re.search(r'^title:\s*"?([^\n"]+)"?\s*$', post_content, re.MULTILINE)
+        m_excerpt = re.search(
+            r'^excerpt:\s*"?([^\n"]+)"?\s*$', post_content, re.MULTILINE
+        )
+        if m_title:
+            post_info_for_l20["title"] = m_title.group(1).strip()
+        if m_excerpt:
+            post_info_for_l20["excerpt"] = m_excerpt.group(1).strip()
+        svg_content = _render_l20_svg_string(post_info_for_l20)
+        if not svg_content:
+            # Hard fallback: never block publishing on cover failure.
+            svg_content = generate_svg_image(now, categorized, selected)
+    else:
+        svg_content = generate_svg_image(now, categorized, selected)
 
     # Existing post protection
     if post_path.exists():
