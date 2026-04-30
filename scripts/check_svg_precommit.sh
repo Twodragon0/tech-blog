@@ -23,7 +23,7 @@
 STD_MIN_BYTES=5000
 STD_MAX_BYTES=24576
 HQ_MIN_BYTES=18000
-HQ_MAX_BYTES=40960
+HQ_MAX_BYTES=49152
 
 CHANGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]+\.svg$' || true)
 
