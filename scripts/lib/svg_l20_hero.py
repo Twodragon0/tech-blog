@@ -59,9 +59,9 @@ THEMES: Dict[str, Dict[str, str]] = {
         "accent": "#4ADE80",
         "accent_soft": "#86EFAC",
         "accent_text": "#A7F3D0",
-        "kpi_bg": "#062012",
-        "panel_grad_a": "#062012",
-        "panel_grad_b": "#04150B",
+        "kpi_bg": "#08160E",
+        "panel_grad_a": "#08160E",
+        "panel_grad_b": "#04100A",
         "label_color": "#4ADE80",
         "halo_id": "hotGreen",
     },
@@ -69,9 +69,9 @@ THEMES: Dict[str, Dict[str, str]] = {
         "accent": "#A78BFA",
         "accent_soft": "#C4B5FD",
         "accent_text": "#DDD6FE",
-        "kpi_bg": "#160629",
-        "panel_grad_a": "#1B0E36",
-        "panel_grad_b": "#10081E",
+        "kpi_bg": "#110629",
+        "panel_grad_a": "#110629",
+        "panel_grad_b": "#0A0418",
         "label_color": "#C4B5FD",
         "halo_id": "hotPurple",
     },
@@ -458,9 +458,9 @@ def _defs() -> str:
         '<linearGradient id="heroPanelAmber" x1="0%" y1="0%" x2="0%" y2="100%">'
         '<stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#120E06"/></linearGradient>'
         '<linearGradient id="heroPanelGreen" x1="0%" y1="0%" x2="0%" y2="100%">'
-        '<stop offset="0%" stop-color="#062012"/><stop offset="100%" stop-color="#04150B"/></linearGradient>'
+        '<stop offset="0%" stop-color="#08160E"/><stop offset="100%" stop-color="#04100A"/></linearGradient>'
         '<linearGradient id="heroPanelPurple" x1="0%" y1="0%" x2="0%" y2="100%">'
-        '<stop offset="0%" stop-color="#1B0E36"/><stop offset="100%" stop-color="#10081E"/></linearGradient>'
+        '<stop offset="0%" stop-color="#110629"/><stop offset="100%" stop-color="#0A0418"/></linearGradient>'
         '<radialGradient id="hotRed" cx="50%" cy="50%" r="50%">'
         '<stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/>'
         '<stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient>'
@@ -637,6 +637,10 @@ def render_l20_hero(
     parts.append(
         f'<rect x="32" y="80" width="600" height="510" rx="14" ry="14" '
         f'fill="url(#{hero_grad})" stroke="{hero_accent}" stroke-width="1.8" opacity="0.98"/>'
+    )
+    # Ambient hero glow — brightens left-center area so pHash brightness aligns with 04-08 reference
+    parts.append(
+        f'<circle cx="160" cy="300" r="240" fill="url(#{hero_t["halo_id"]})" opacity="0.28"/>'
     )
     parts.append(
         f'<rect x="32" y="80" width="600" height="4" fill="{hero_accent}" opacity="0.85">'
