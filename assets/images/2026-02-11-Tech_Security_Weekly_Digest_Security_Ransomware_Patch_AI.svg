@@ -1,297 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Fortinet Critical SQLi patch, Reynolds ransomware BYOVD EDR bypass, DPRK LinkedIn infiltration">
-<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based, batch1-locked) -->
-<title>Fortinet Critical SQLi Patch, Ransomware BYOVD, DPRK LinkedIn Infiltration - 2026.02.11</title>
-<defs>
-  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#090E1F"/>
-    <stop offset="55%" stop-color="#0B1228"/>
-    <stop offset="100%" stop-color="#0F1530"/>
-  </linearGradient>
-  <linearGradient id="heroPanelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#1A0E1E"/>
-    <stop offset="100%" stop-color="#120A1C"/>
-  </linearGradient>
-  <linearGradient id="topRightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#14120A"/>
-    <stop offset="100%" stop-color="#100E08"/>
-  </linearGradient>
-  <linearGradient id="botRightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#0A1325"/>
-    <stop offset="100%" stop-color="#0C1630"/>
-  </linearGradient>
-  <linearGradient id="kpiRed" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#B02020" stop-opacity="0.95"/>
-    <stop offset="100%" stop-color="#7A1010" stop-opacity="0.9"/>
-  </linearGradient>
-  <linearGradient id="kpiAmber" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#C47A08" stop-opacity="0.95"/>
-    <stop offset="100%" stop-color="#8A5206" stop-opacity="0.9"/>
-  </linearGradient>
-  <linearGradient id="kpiBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#1A5CA8" stop-opacity="0.95"/>
-    <stop offset="100%" stop-color="#103A72" stop-opacity="0.9"/>
-  </linearGradient>
-  <linearGradient id="dbBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#2A1040"/>
-    <stop offset="100%" stop-color="#1A0828"/>
-  </linearGradient>
-  <linearGradient id="dbTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#4A2268"/>
-    <stop offset="100%" stop-color="#381850"/>
-  </linearGradient>
-  <linearGradient id="shieldBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#4A0E18"/>
-    <stop offset="100%" stop-color="#2E0810"/>
-  </linearGradient>
-  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#E63946" stop-opacity="0.4"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#F4A623" stop-opacity="0.38"/>
-    <stop offset="100%" stop-color="#F4A623" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.38"/>
-    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dotGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-    <circle cx="18" cy="18" r="0.85" fill="#2A3560" opacity="0.55"/>
-  </pattern>
-  <filter id="softShadow" x="-15%" y="-15%" width="135%" height="135%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-    <feOffset dx="2" dy="4"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <clipPath id="heroClip"><rect x="32" y="80" width="600" height="510" rx="10"/></clipPath>
-  <clipPath id="topRightClip"><rect x="652" y="80" width="516" height="248" rx="10"/></clipPath>
-  <clipPath id="botRightClip"><rect x="652" y="344" width="516" height="246" rx="10"/></clipPath>
-</defs>
-
-<!-- GLOBAL BACKGROUND -->
-<rect width="1200" height="630" fill="url(#bgGrad)"/>
-<rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.75"/>
-
-<!-- HEADER BAR -->
-<rect x="0" y="0" width="1200" height="72" fill="#080C1A" opacity="0.97"/>
-<rect x="0" y="70" width="1200" height="2" fill="#1A2236"/>
-<rect x="0" y="0" width="4" height="72" fill="#E63946"/>
-<text x="32" y="41" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="4" fill="#4A6FA5">TECH SECURITY WEEKLY</text>
-<text x="32" y="59" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#334060" letter-spacing="3">DIGEST</text>
-<text x="1168" y="36" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="end" letter-spacing="1">2026.02.11</text>
-<text x="1168" y="56" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#506070" text-anchor="end" letter-spacing="2">26 STORIES</text>
-
-<!-- ===== HERO PANEL LEFT 600x510 at (32,80) ===== -->
-<rect x="32" y="80" width="600" height="510" rx="10" fill="url(#heroPanelGrad)"/>
-<!-- Hero 4px top stripe: CRITICAL red -->
-<rect x="32" y="80" width="600" height="4" rx="2" fill="#E63946"/>
-<!-- Ambient glow -->
-<circle cx="332" cy="320" r="190" fill="url(#glowRed)" opacity="0.55">
-  <animate attributeName="opacity" values="0.4;0.75;0.4" dur="6.5s" repeatCount="indefinite"/>
-  <animate attributeName="r" values="190;215;190" dur="8.2s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Hero eyebrow badge -->
-<rect x="52" y="100" width="84" height="22" rx="4" fill="#E63946" opacity="0.92"/>
-<text x="94" y="115" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">CRITICAL</text>
-
-<!-- Hero title -->
-<text x="52" y="150" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="900" fill="#FFFFFF" filter="url(#softShadow)">Fortinet Critical SQLi</text>
-<text x="52" y="180" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="900" fill="#E63946">CVE-2026-21643</text>
-
-<!-- Hero subtitle -->
-<text x="52" y="208" font-family="Arial,sans-serif" font-size="12.5" fill="#90A8C0" letter-spacing="0.3">Unauthenticated access via SQL injection -- emergency patch</text>
-
-<!-- SHIELD ILLUSTRATION -->
-<path d="M332 236 L424 268 L424 342 Q424 396 332 428 Q240 396 240 342 L240 268 Z" fill="url(#shieldBodyGrad)" stroke="#E63946" stroke-width="2.5" filter="url(#softShadow)">
-  <animate attributeName="stroke-opacity" values="0.55;1.0;0.55" dur="3.2s" repeatCount="indefinite"/>
-</path>
-<path d="M332 252 L412 280 L412 342 Q412 388 332 416 Q252 388 252 342 L252 280 Z" fill="none" stroke="#FF6B6B" stroke-width="1.2" opacity="0.4"/>
-<!-- Warning exclamation -->
-<text x="332" y="366" font-family="Arial,sans-serif" font-size="60" fill="#E63946" text-anchor="middle" opacity="0.92">!</text>
-<text x="332" y="316" font-family="Arial,sans-serif" font-size="11" fill="#FF8888" text-anchor="middle" font-weight="700" letter-spacing="1.5">UNPATCHED</text>
-<!-- Pulse ring -->
-<ellipse cx="332" cy="340" rx="90" ry="96" fill="none" stroke="#E63946" stroke-width="1.2" opacity="0.25">
-  <animate attributeName="rx" values="90;110;90" dur="4.0s" repeatCount="indefinite"/>
-  <animate attributeName="ry" values="96;116;96" dur="4.0s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.25;0.6;0.25" dur="4.0s" repeatCount="indefinite"/>
-</ellipse>
-
-<!-- DATABASE (SQLi target) -->
-<ellipse cx="332" cy="456" rx="40" ry="11" fill="#4A2268"/>
-<rect x="292" y="435" width="80" height="28" fill="url(#dbBodyGrad)"/>
-<ellipse cx="332" cy="435" rx="40" ry="11" fill="url(#dbTopGrad)"/>
-<text x="332" y="432" font-family="Arial,sans-serif" font-size="8" fill="#9060C8" text-anchor="middle" letter-spacing="0.8">DATABASE</text>
-<!-- SQLi crack -->
-<path d="M315 428 L332 448 L325 443 L340 462" stroke="#E63946" stroke-width="2" fill="none" stroke-dasharray="3,2">
-  <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
-</path>
-<text x="332" y="478" font-family="Arial,sans-serif" font-size="9.5" fill="#7030A0" text-anchor="middle" letter-spacing="0.8">SQL INJECTION</text>
-
-<!-- Attack path arrows (hand-drawn dashes) -->
-<path d="M218 286 Q262 286 258 340" stroke="#FF4444" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.65">
-  <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.3s" repeatCount="indefinite"/>
-</path>
-<path d="M446 286 Q402 286 406 340" stroke="#FF4444" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.65">
-  <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.3s" repeatCount="indefinite"/>
-</path>
-<!-- Attacker nodes -->
-<circle cx="196" cy="272" r="17" fill="#3A0810" stroke="#E63946" stroke-width="1.5"/>
-<text x="196" y="277" font-family="Arial,sans-serif" font-size="13" fill="#E63946" text-anchor="middle">H</text>
-<text x="196" y="302" font-family="Arial,sans-serif" font-size="8.5" fill="#804040" text-anchor="middle">ATTACKER</text>
-<circle cx="468" cy="272" r="17" fill="#3A0810" stroke="#E63946" stroke-width="1.5"/>
-<text x="468" y="277" font-family="Arial,sans-serif" font-size="13" fill="#E63946" text-anchor="middle">H</text>
-<text x="468" y="302" font-family="Arial,sans-serif" font-size="8.5" fill="#804040" text-anchor="middle">ATTACKER</text>
-
-<!-- Hero KPI row -->
-<rect x="52" y="498" width="168" height="62" rx="6" fill="url(#kpiRed)" filter="url(#softShadow)"/>
-<text x="136" y="519" font-family="Arial,sans-serif" font-size="9.5" fill="#FFB0B0" text-anchor="middle" letter-spacing="1.5">SEVERITY</text>
-<text x="136" y="540" font-family="Arial,sans-serif" font-size="19" font-weight="900" fill="#FFFFFF" text-anchor="middle">CRITICAL</text>
-<text x="136" y="554" font-family="Arial,sans-serif" font-size="8.5" fill="#FF8888" text-anchor="middle">CVSS 9.8</text>
-
-<rect x="234" y="498" width="150" height="62" rx="6" fill="#1C0A30" stroke="#6020A0" stroke-width="1"/>
-<text x="309" y="519" font-family="Arial,sans-serif" font-size="9.5" fill="#9060C0" text-anchor="middle" letter-spacing="1">VECTOR</text>
-<text x="309" y="540" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#C890FF" text-anchor="middle">NETWORK</text>
-<text x="309" y="554" font-family="Arial,sans-serif" font-size="8.5" fill="#7040A0" text-anchor="middle">No Auth Required</text>
-
-<rect x="398" y="498" width="212" height="62" rx="6" fill="#1A0A12" stroke="#782222" stroke-width="1"/>
-<text x="504" y="519" font-family="Arial,sans-serif" font-size="9.5" fill="#904040" text-anchor="middle" letter-spacing="1">AFFECTED</text>
-<text x="504" y="540" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#FF8888" text-anchor="middle">FORTIGATE</text>
-<text x="504" y="554" font-family="Arial,sans-serif" font-size="8.5" fill="#7A3030" text-anchor="middle">FortiOS / FortiProxy</text>
-
-<!-- Panel vertical separator -->
-<rect x="640" y="80" width="4" height="510" rx="2" fill="#151E30"/>
-
-<!-- ===== TOP-RIGHT PANEL 516x248 at (652,80) — Ransomware BYOVD ===== -->
-<rect x="652" y="80" width="516" height="248" rx="10" fill="url(#topRightGrad)"/>
-<!-- Stripe: amber -->
-<rect x="652" y="80" width="516" height="4" rx="2" fill="#F4A623"/>
-<!-- Ambient glow -->
-<circle cx="905" cy="204" r="95" fill="url(#glowAmber)" opacity="0.42">
-  <animate attributeName="opacity" values="0.28;0.6;0.28" dur="5.8s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Eyebrow -->
-<rect x="672" y="100" width="55" height="19" rx="3" fill="#C47A08" opacity="0.92"/>
-<text x="699" y="113" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">HIGH</text>
-
-<text x="672" y="139" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Reynolds Ransomware</text>
-<text x="672" y="159" font-family="Arial,sans-serif" font-size="12" fill="#F4A623">BYOVD -- EDR Bypass via Embedded Driver</text>
-<text x="672" y="176" font-family="Arial,sans-serif" font-size="10" fill="#7A8080" letter-spacing="0.2">Vulnerable driver bundled in payload; silences EDR before encryption</text>
-
-<!-- EDR bypass visual -->
-<!-- Shield with X (EDR killed) -->
-<rect x="882" y="100" width="52" height="52" rx="6" fill="#1A1804" stroke="#F4A623" stroke-width="1.5"/>
-<line x1="894" y1="112" x2="922" y2="140" stroke="#F4A623" stroke-width="2.5" opacity="0.85"/>
-<line x1="922" y1="112" x2="894" y2="140" stroke="#F4A623" stroke-width="2.5" opacity="0.85"/>
-<text x="908" y="166" font-family="Arial,sans-serif" font-size="8" fill="#907040" text-anchor="middle">EDR KILLED</text>
-
-<!-- Driver icon -->
-<rect x="948" y="106" width="44" height="40" rx="4" fill="#0A1804" stroke="#80C040" stroke-width="1"/>
-<text x="970" y="130" font-family="Arial,sans-serif" font-size="17" fill="#80C040" text-anchor="middle">D</text>
-<text x="970" y="148" font-family="Arial,sans-serif" font-size="7" fill="#4A7030" text-anchor="middle">DRIVER</text>
-
-<!-- Arrow driver->EDR -->
-<path d="M948 126 L937 126" stroke="#F4A623" stroke-width="1.5" fill="none">
-  <animate attributeName="opacity" values="0.35;1.0;0.35" dur="1.8s" repeatCount="indefinite"/>
-</path>
-
-<!-- Ransomware lock -->
-<rect x="1006" y="98" width="56" height="58" rx="7" fill="#1A0C00" stroke="#F4A623" stroke-width="2"/>
-<path d="M1022 124 L1022 116 Q1022 106 1034 106 Q1046 106 1046 116 L1046 124" stroke="#F4A623" stroke-width="2" fill="none"/>
-<rect x="1024" y="124" width="20" height="16" rx="3" fill="#F4A623" opacity="0.82"/>
-<text x="1034" y="177" font-family="Arial,sans-serif" font-size="8" fill="#907040" text-anchor="middle">ENCRYPTED</text>
-
-<!-- KPI row -->
-<rect x="672" y="192" width="160" height="46" rx="5" fill="url(#kpiAmber)"/>
-<text x="752" y="209" font-family="Arial,sans-serif" font-size="9" fill="#FFF0C0" text-anchor="middle" letter-spacing="1">TECHNIQUE</text>
-<text x="752" y="228" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">BYOVD</text>
-
-<rect x="846" y="192" width="144" height="46" rx="5" fill="#1A1200" stroke="#806010" stroke-width="1"/>
-<text x="918" y="209" font-family="Arial,sans-serif" font-size="9" fill="#907030" text-anchor="middle" letter-spacing="1">IMPACT</text>
-<text x="918" y="228" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#F4A623" text-anchor="middle">EDR BLIND SPOT</text>
-
-<!-- Panel horizontal separator -->
-<rect x="652" y="332" width="516" height="4" rx="2" fill="#10182A"/>
-<rect x="652" y="336" width="516" height="4" rx="2" fill="#0C1220"/>
-
-<!-- ===== BOTTOM-RIGHT PANEL 516x246 at (652,344) — DPRK LinkedIn ===== -->
-<rect x="652" y="344" width="516" height="246" rx="10" fill="url(#botRightGrad)"/>
-<!-- Stripe: blue -->
-<rect x="652" y="344" width="516" height="4" rx="2" fill="#3A86FF"/>
-<!-- Ambient glow -->
-<circle cx="905" cy="462" r="95" fill="url(#glowBlue)" opacity="0.38">
-  <animate attributeName="opacity" values="0.22;0.52;0.22" dur="7.2s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Eyebrow -->
-<rect x="672" y="363" width="60" height="19" rx="3" fill="#1A5CA8" opacity="0.92"/>
-<text x="702" y="376" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">MEDIUM</text>
-
-<text x="672" y="404" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">DPRK LinkedIn Infiltration</text>
-<text x="672" y="422" font-family="Arial,sans-serif" font-size="12" fill="#3A86FF">IT Worker Account Takeover</text>
-<text x="672" y="439" font-family="Arial,sans-serif" font-size="10" fill="#608090" letter-spacing="0.2">Stolen profiles + verified badges bypass hiring checks</text>
-
-<!-- LinkedIn fake profile mockup -->
-<rect x="870" y="360" width="108" height="76" rx="6" fill="#0A1830" stroke="#1A5CA8" stroke-width="1.5"/>
-<circle cx="894" cy="384" r="12" fill="#142A50" stroke="#3A86FF" stroke-width="1"/>
-<text x="894" y="389" font-family="Arial,sans-serif" font-size="10" fill="#3A86FF" text-anchor="middle">?</text>
-<rect x="910" y="377" width="52" height="6" rx="2" fill="#1E3A60"/>
-<rect x="910" y="389" width="38" height="5" rx="2" fill="#142840"/>
-<!-- Verified badge (fake) -->
-<circle cx="956" cy="374" r="8" fill="#204090" stroke="#3A86FF" stroke-width="1"/>
-<text x="956" y="378" font-family="Arial,sans-serif" font-size="8" fill="#FFFFFF" text-anchor="middle">v</text>
-<text x="924" y="434" font-family="Arial,sans-serif" font-size="7.5" fill="#406080" text-anchor="middle">SPOOFED PROFILE</text>
-
-<!-- Arrow to company -->
-<path d="M978 400 L1056 400" stroke="#3A86FF" stroke-width="1.5" stroke-dasharray="4,2" fill="none">
-  <animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite"/>
-</path>
-<!-- Company building -->
-<rect x="1058" y="375" width="48" height="48" rx="4" fill="#0A1830" stroke="#3A86FF" stroke-width="1"/>
-<rect x="1065" y="384" width="9" height="9" rx="1" fill="#1A3A60"/>
-<rect x="1080" y="384" width="9" height="9" rx="1" fill="#1A3A60"/>
-<rect x="1065" y="399" width="9" height="9" rx="1" fill="#1A3A60"/>
-<rect x="1080" y="399" width="9" height="9" rx="1" fill="#1A3A60"/>
-<text x="1082" y="434" font-family="Arial,sans-serif" font-size="7.5" fill="#204060" text-anchor="middle">CORP</text>
-
-<!-- MITRE tags -->
-<rect x="672" y="456" width="70" height="17" rx="3" fill="#0A1830" stroke="#1A3A60" stroke-width="1"/>
-<text x="707" y="468" font-family="Arial,sans-serif" font-size="7.5" fill="#3A70A8" text-anchor="middle">T1586.003</text>
-<rect x="750" y="456" width="52" height="17" rx="3" fill="#0A1830" stroke="#1A3A60" stroke-width="1"/>
-<text x="776" y="468" font-family="Arial,sans-serif" font-size="7.5" fill="#3A70A8" text-anchor="middle">T1566</text>
-<rect x="810" y="456" width="50" height="17" rx="3" fill="#0A1830" stroke="#1A3A60" stroke-width="1"/>
-<text x="835" y="468" font-family="Arial,sans-serif" font-size="7.5" fill="#3A70A8" text-anchor="middle">T1078</text>
-
-<!-- KPI row -->
-<rect x="672" y="482" width="158" height="46" rx="5" fill="url(#kpiBlue)"/>
-<text x="751" y="499" font-family="Arial,sans-serif" font-size="9" fill="#C0D8FF" text-anchor="middle" letter-spacing="1">THREAT ACTOR</text>
-<text x="751" y="518" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">DPRK / LAZARUS</text>
-
-<rect x="844" y="482" width="156" height="46" rx="5" fill="#081122" stroke="#1A3060" stroke-width="1"/>
-<text x="922" y="499" font-family="Arial,sans-serif" font-size="9" fill="#3A5880" text-anchor="middle" letter-spacing="1">VECTOR</text>
-<text x="922" y="518" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#3A86FF" text-anchor="middle">SOCIAL ENG.</text>
-
-<!-- FOOTER -->
-<rect x="0" y="600" width="1200" height="30" fill="#070B18" opacity="0.95"/>
-<rect x="0" y="600" width="1200" height="1.5" fill="#18223A"/>
-<text x="32" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#2E4060" letter-spacing="1">SECURITY: 5</text>
-<rect x="118" y="611" width="1" height="12" fill="#18223A"/>
-<text x="128" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#2E4060" letter-spacing="1">AI/ML: 4</text>
-<rect x="192" y="611" width="1" height="12" fill="#18223A"/>
-<text x="202" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#2E4060" letter-spacing="1">CLOUD: 4</text>
-<rect x="266" y="611" width="1" height="12" fill="#18223A"/>
-<text x="276" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#2E4060" letter-spacing="1">DEVOPS: 3</text>
-<rect x="348" y="611" width="1" height="12" fill="#18223A"/>
-<text x="358" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#2E4060" letter-spacing="1">BLOCKCHAIN: 5</text>
-<text x="1168" y="619" font-family="Arial,sans-serif" font-size="9.5" fill="#243650" text-anchor="end">tech.2twodragon.com</text>
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/11/Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI/ : 41x41 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover 2026.02.11: Reynolds BYOVD Ransomware, DPRK LinkedIn Lure, Fortinet CVE-2026-21643">
+<!-- profile: high-quality-cover (L20 Hero+2-Card) -->
+<title>Weekly digest 2026-02-11: NK LinkedIn infiltration, Reynolds ransomware, Fortinet CVE</title>
+<defs><linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0B1326"/><stop offset="55%" stop-color="#0D1530"/><stop offset="100%" stop-color="#141034"/></linearGradient><linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A0A08"/><stop offset="100%" stop-color="#110608"/></linearGradient><linearGradient id="heroPanelBlue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0A1A30"/><stop offset="100%" stop-color="#071426"/></linearGradient><linearGradient id="heroPanelAmber" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#120E06"/></linearGradient><linearGradient id="heroPanelGreen" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#062012"/><stop offset="100%" stop-color="#04150B"/></linearGradient><linearGradient id="heroPanelPurple" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1B0E36"/><stop offset="100%" stop-color="#10081E"/></linearGradient><radialGradient id="hotRed" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient><radialGradient id="hotBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/><stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/></radialGradient><radialGradient id="hotAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient><radialGradient id="hotGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.45"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient><radialGradient id="hotPurple" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.45"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><pattern id="envGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/></pattern><filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="textShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="1" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#envGrid)"/>
+<circle cx="310" cy="310" r="160" fill="url(#hotRed)"><animate attributeName="opacity" values="0.6;1;0.6" dur="5.8s" repeatCount="indefinite"/></circle><circle cx="950" cy="210" r="120" fill="url(#hotBlue)"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="6.4s" repeatCount="indefinite"/></circle><circle cx="970" cy="480" r="110" fill="url(#hotAmber)"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.1s" repeatCount="indefinite"/></circle><g fill="#8FB8FF"><circle cx="180" cy="70" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" repeatCount="indefinite"/></circle><circle cx="440" cy="62" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></circle><circle cx="740" cy="68" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.9s" repeatCount="indefinite"/></circle><circle cx="1060" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.1s" repeatCount="indefinite"/></circle><circle cx="90" cy="580" r="1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.7s" repeatCount="indefinite"/></circle><circle cx="550" cy="590" r="0.8"><animate attributeName="opacity" values="0.2;0.75;0.2" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></circle></g>
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.02.11</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/></rect>
+<rect x="32" y="80" width="600" height="510" rx="14" ry="14" fill="url(#heroPanel)" stroke="#E63946" stroke-width="1.8" opacity="0.98"/>
+<rect x="32" y="80" width="600" height="4" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="54" y="112" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F87171" letter-spacing="3">RANSOMWARE  /  01</text>
+<text x="54" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#F8FAFC">Reynolds BYOVD Ransomware</text>
+<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#FBB6BD">Embedded vulnerable driver disables EDR before encryption</text>
+</g>
+<g transform="translate(332,360)"><g transform="translate(-100,-90)" filter="url(#softShadow)"><rect x="0" y="32" width="80" height="64" rx="8" fill="#E63946"/><path d="M14 32 L14 16 Q40 -6 66 16 L66 32" stroke="#E63946" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="40" cy="60" r="6" fill="#FFFFFF"/><rect x="38" y="62" width="4" height="14" fill="#FFFFFF"/><text x="40" y="116" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#F87171">LOCKED</text></g><g transform="translate(20,-90)" filter="url(#softShadow)"><rect x="0" y="0" width="180" height="180" rx="8" fill="#0A0C16" stroke="#E63946" stroke-width="1.4"/><text x="90" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#F87171">RANSOM NOTE</text><line x1="14" y1="32" x2="166" y2="32" stroke="#E63946" stroke-width="0.8" opacity="0.6"/><g font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FCA5A5"><text x="14" y="50">Files encrypted: 100%</text><text x="14" y="68">AES-256 + RSA-4096</text><text x="14" y="86">Backups deleted</text><text x="14" y="104">Volume shadow wiped</text></g><rect x="14" y="118" width="152" height="22" rx="3" fill="#2A0808" stroke="#E63946" stroke-width="1.2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/></rect><text x="90" y="133" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFFFFF">PAY OR LOSE DATA</text><g transform="translate(14,148)" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFB703"><rect x="0" y="0" width="152" height="20" rx="3" fill="#1A1208" stroke="#FFB703" stroke-width="1"/><text x="76" y="14" text-anchor="middle">countdown  /  72h window</text></g></g></g>
+<g transform="translate(54,548)">
+<rect x="0" y="0" width="280" height="24" rx="3" fill="#E63946" opacity="0.95"/>
+<text x="140" y="17" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">BLOCK SIGNED VULN DRIVERS</text>
+</g>
+<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  2026.02.11</text>
+<rect x="652" y="80" width="516" height="248" rx="14" ry="14" fill="url(#heroPanelBlue)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="80" width="516" height="4" fill="#3A86FF" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">NATION STATE  /  02</text>
+<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">DPRK LinkedIn Lure</text>
+<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">Fake recruiters infiltrate firms posing as senior IT pros</text>
+</g>
+<g transform="translate(800,230)"><g transform="translate(-160,-50)" filter="url(#softShadow)"><ellipse cx="40" cy="6" rx="40" ry="8" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><rect x="0" y="6" width="80" height="56" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><ellipse cx="40" cy="62" rx="40" ry="8" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><ellipse cx="40" cy="22" rx="40" ry="6" fill="none" stroke="#2CCCE4" stroke-width="0.8" opacity="0.6"/><ellipse cx="40" cy="40" rx="40" ry="6" fill="none" stroke="#2CCCE4" stroke-width="0.8" opacity="0.6"/><text x="40" y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#2CCCE4">DB / S3</text><text x="40" y="98" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="#7ED4E5">PII  /  secrets</text></g><g transform="translate(80,-50)" filter="url(#softShadow)"><rect x="0" y="0" width="80" height="80" rx="8" fill="#1E0A0A" stroke="#3A86FF" stroke-width="2"/><text x="40" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#60A5FA">ATTACKER</text><g transform="translate(20,32)" stroke="#60A5FA" stroke-width="1.6" fill="none"><circle cx="20" cy="10" r="8"/><path d="M6 32 Q20 22 34 32"/></g><text x="40" y="74" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FCA5A5">offshore relay</text></g><g stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="4 3" fill="none"><path d="M-80 -10 L80 -10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/></path><path d="M-80 0 L80 0"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.4s" begin="0.2s" repeatCount="indefinite"/></path><path d="M-80 10 L80 10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" begin="0.4s" repeatCount="indefinite"/></path></g><g fill="#60A5FA"><circle r="2.4"><animateMotion path="M-80 -10 L80 -10" dur="2s" repeatCount="indefinite"/></circle><circle r="2.4"><animateMotion path="M-80 0 L80 0" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></circle><circle r="2.4"><animateMotion path="M-80 10 L80 10" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle></g><text x="0" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#3A86FF" letter-spacing="2">DATA EXFILTRATION</text></g>
+<g transform="translate(1094,168)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#071426" stroke="#3A86FF" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7DA3D9">ACTOR</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">DPRK</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFC9D9">LinkedIn lure</text></g>
+<rect x="652" y="344" width="516" height="246" rx="14" ry="14" fill="url(#heroPanelAmber)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="344" width="516" height="4" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="3">CRITICAL CVE  /  03</text>
+<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Fortinet CVE-2026-21643</text>
+<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Critical SQLi in FortiOS gets emergency vendor patch</text>
+</g>
+<g transform="translate(800,490)" filter="url(#softShadow)"><rect x="-160" y="-110" width="320" height="220" rx="10" fill="#0A0C16" stroke="#FFB703" stroke-width="1.4" opacity="0.95"/><text x="0" y="-86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFD58A" letter-spacing="2">CVE REGRESSION CHAIN</text><g transform="translate(-140,-70)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#1E0A14" stroke="#FFD58A" stroke-width="1.2"/><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFD58A">PRIOR CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FFD58A">Original flaw  /  patched</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#FFD58A" opacity="0.8">Partial fix earlier</text><rect x="226" y="6" width="48" height="14" rx="3" fill="#7A0000" stroke="#FFB703" stroke-width="1"><animate attributeName="opacity" values="0.7;1;0.7" dur="1.6s" repeatCount="indefinite"/></rect><text x="250" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFE4E6">PATCHED</text></g><g transform="translate(-12,-12)"><path d="M0 0 L0 22 L-6 14 M0 22 L6 14" stroke="#FFB703" stroke-width="1.8" fill="none" stroke-linecap="round"/><text x="14" y="14" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FFD58A">REGRESSED</text></g><g transform="translate(-140,16)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#2A0808" stroke="#FFB703" stroke-width="2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/></rect><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F5F7FA">NEW CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FFB703">Active exploitation</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#E0C0A0" opacity="0.8">Production hosts at risk</text><rect x="232" y="6" width="42" height="14" rx="3" fill="#FFB703"><animate attributeName="opacity" values="0.8;1;0.8" dur="1.2s" repeatCount="indefinite"/></rect><text x="253" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">ACTIVE</text></g><g transform="translate(-140,80)"><rect x="0" y="0" width="280" height="22" rx="4" fill="#0E1220" stroke="#3A86FF" stroke-width="1"/><text x="140" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#8FB8FF">PATCH UPSTREAM NOW</text></g></g>
+<g transform="translate(1094,452)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#1A1208" stroke="#FFB703" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">CVE</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">SQLi</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">FortiOS critical</text></g>
+<g opacity="0.85"><g fill="#F87171"><circle cx="1104" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle></g><g fill="#7DA3D9"><circle cx="1104" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></circle><circle cx="1124" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle></g><g fill="#FFD58A"><circle cx="1104" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></circle></g><g stroke="#E63946" stroke-width="0.5" fill="none"><path d="M20 230 L28 230"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path><path d="M20 300 L28 300"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.3s" repeatCount="indefinite"/></path><path d="M20 370 L28 370"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></path><path d="M20 440 L28 440"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></path></g></g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
-  <g transform="scale(2.048780)" fill="#0A1020">
-    <path d="M0 0h7v1h-7zM8 0h3v1h-3zM13 0h2v1h-2zM19 0h2v1h-2zM22 0h1v1h-1zM28 0h1v1h-1zM30 0h3v1h-3zM34 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h3v1h-3zM15 1h3v1h-3zM21 1h3v1h-3zM26 1h1v1h-1zM30 1h1v1h-1zM34 1h1v1h-1zM40 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h2v1h-2zM12 2h3v1h-3zM16 2h1v1h-1zM18 2h3v1h-3zM24 2h2v1h-2zM30 2h3v1h-3zM34 2h1v1h-1zM36 2h3v1h-3zM40 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h6v1h-6zM18 3h1v1h-1zM20 3h3v1h-3zM25 3h5v1h-5zM32 3h1v1h-1zM34 3h1v1h-1zM36 3h3v1h-3zM40 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM18 4h1v1h-1zM23 4h2v1h-2zM26 4h2v1h-2zM29 4h1v1h-1zM31 4h2v1h-2zM34 4h1v1h-1zM36 4h3v1h-3zM40 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM11 5h1v1h-1zM15 5h1v1h-1zM17 5h6v1h-6zM24 5h1v1h-1zM28 5h1v1h-1zM30 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h7v1h-7zM8 7h1v1h-1zM11 7h2v1h-2zM14 7h1v1h-1zM17 7h1v1h-1zM19 7h1v1h-1zM24 7h1v1h-1zM26 7h1v1h-1zM29 7h1v1h-1zM31 7h2v1h-2zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM9 8h2v1h-2zM12 8h7v1h-7zM21 8h1v1h-1zM23 8h2v1h-2zM26 8h1v1h-1zM29 8h4v1h-4zM34 8h1v1h-1zM37 8h1v1h-1zM39 8h2v1h-2zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM9 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM26 9h1v1h-1zM30 9h3v1h-3zM35 9h2v1h-2zM38 9h1v1h-1zM1 10h3v1h-3zM6 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM16 10h1v1h-1zM20 10h1v1h-1zM22 10h2v1h-2zM25 10h2v1h-2zM29 10h1v1h-1zM33 10h2v1h-2zM38 10h2v1h-2zM0 11h1v1h-1zM4 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM15 11h2v1h-2zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h2v1h-2zM27 11h1v1h-1zM32 11h1v1h-1zM36 11h1v1h-1zM39 11h2v1h-2zM1 12h2v1h-2zM5 12h2v1h-2zM9 12h1v1h-1zM12 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM19 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM28 12h5v1h-5zM35 12h1v1h-1zM37 12h4v1h-4zM2 13h2v1h-2zM8 13h2v1h-2zM11 13h2v1h-2zM17 13h1v1h-1zM21 13h1v1h-1zM23 13h4v1h-4zM28 13h1v1h-1zM30 13h2v1h-2zM33 13h2v1h-2zM37 13h1v1h-1zM39 13h2v1h-2zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h3v1h-3zM13 14h1v1h-1zM15 14h3v1h-3zM21 14h1v1h-1zM25 14h1v1h-1zM29 14h1v1h-1zM31 14h2v1h-2zM34 14h3v1h-3zM38 14h3v1h-3zM0 15h1v1h-1zM2 15h2v1h-2zM5 15h1v1h-1zM7 15h3v1h-3zM12 15h3v1h-3zM16 15h1v1h-1zM18 15h5v1h-5zM24 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM32 15h1v1h-1zM34 15h1v1h-1zM36 15h2v1h-2zM1 16h1v1h-1zM3 16h4v1h-4zM10 16h2v1h-2zM16 16h1v1h-1zM18 16h2v1h-2zM22 16h1v1h-1zM24 16h2v1h-2zM27 16h1v1h-1zM30 16h3v1h-3zM36 16h2v1h-2zM39 16h1v1h-1zM0 17h1v1h-1zM3 17h2v1h-2zM8 17h2v1h-2zM12 17h1v1h-1zM14 17h1v1h-1zM16 17h2v1h-2zM20 17h1v1h-1zM23 17h3v1h-3zM32 17h2v1h-2zM35 17h1v1h-1zM37 17h1v1h-1zM0 18h2v1h-2zM3 18h1v1h-1zM5 18h3v1h-3zM11 18h1v1h-1zM13 18h1v1h-1zM15 18h3v1h-3zM20 18h2v1h-2zM27 18h2v1h-2zM30 18h1v1h-1zM32 18h1v1h-1zM36 18h1v1h-1zM38 18h2v1h-2zM0 19h1v1h-1zM2 19h4v1h-4zM7 19h3v1h-3zM11 19h3v1h-3zM16 19h1v1h-1zM19 19h2v1h-2zM22 19h1v1h-1zM27 19h4v1h-4zM35 19h1v1h-1zM37 19h3v1h-3zM0 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM10 20h2v1h-2zM13 20h1v1h-1zM15 20h2v1h-2zM18 20h3v1h-3zM26 20h2v1h-2zM29 20h6v1h-6zM36 20h4v1h-4zM0 21h1v1h-1zM2 21h1v1h-1zM7 21h2v1h-2zM11 21h6v1h-6zM18 21h1v1h-1zM20 21h2v1h-2zM23 21h2v1h-2zM26 21h1v1h-1zM31 21h1v1h-1zM34 21h7v1h-7zM1 22h12v1h-12zM14 22h1v1h-1zM16 22h1v1h-1zM20 22h1v1h-1zM23 22h2v1h-2zM28 22h3v1h-3zM33 22h2v1h-2zM37 22h1v1h-1zM39 22h1v1h-1zM1 23h1v1h-1zM4 23h1v1h-1zM7 23h4v1h-4zM13 23h2v1h-2zM16 23h1v1h-1zM18 23h2v1h-2zM25 23h1v1h-1zM27 23h1v1h-1zM30 23h1v1h-1zM32 23h2v1h-2zM0 24h1v1h-1zM2 24h1v1h-1zM4 24h1v1h-1zM6 24h3v1h-3zM11 24h1v1h-1zM17 24h1v1h-1zM19 24h1v1h-1zM22 24h1v1h-1zM24 24h3v1h-3zM29 24h1v1h-1zM31 24h1v1h-1zM35 24h1v1h-1zM37 24h1v1h-1zM0 25h1v1h-1zM8 25h1v1h-1zM11 25h1v1h-1zM14 25h2v1h-2zM17 25h1v1h-1zM19 25h1v1h-1zM24 25h2v1h-2zM27 25h1v1h-1zM29 25h1v1h-1zM31 25h3v1h-3zM37 25h4v1h-4zM0 26h1v1h-1zM3 26h4v1h-4zM8 26h3v1h-3zM12 26h2v1h-2zM15 26h2v1h-2zM18 26h3v1h-3zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h2v1h-2zM31 26h2v1h-2zM34 26h1v1h-1zM37 26h1v1h-1zM39 26h2v1h-2zM3 27h3v1h-3zM8 27h5v1h-5zM19 27h5v1h-5zM26 27h2v1h-2zM30 27h3v1h-3zM34 27h4v1h-4zM39 27h1v1h-1zM0 28h2v1h-2zM4 28h1v1h-1zM6 28h2v1h-2zM11 28h1v1h-1zM13 28h1v1h-1zM16 28h1v1h-1zM18 28h5v1h-5zM25 28h4v1h-4zM31 28h3v1h-3zM36 28h2v1h-2zM39 28h1v1h-1zM1 29h2v1h-2zM4 29h2v1h-2zM8 29h1v1h-1zM11 29h2v1h-2zM14 29h1v1h-1zM16 29h2v1h-2zM19 29h1v1h-1zM22 29h5v1h-5zM29 29h2v1h-2zM32 29h1v1h-1zM35 29h1v1h-1zM37 29h1v1h-1zM39 29h1v1h-1zM0 30h1v1h-1zM2 30h2v1h-2zM6 30h3v1h-3zM11 30h2v1h-2zM16 30h1v1h-1zM18 30h1v1h-1zM20 30h1v1h-1zM25 30h4v1h-4zM32 30h4v1h-4zM5 31h1v1h-1zM7 31h2v1h-2zM15 31h1v1h-1zM17 31h3v1h-3zM22 31h1v1h-1zM28 31h2v1h-2zM31 31h1v1h-1zM34 31h1v1h-1zM36 31h5v1h-5zM1 32h1v1h-1zM6 32h1v1h-1zM8 32h4v1h-4zM13 32h1v1h-1zM16 32h3v1h-3zM21 32h1v1h-1zM24 32h1v1h-1zM26 32h1v1h-1zM29 32h2v1h-2zM32 32h7v1h-7zM40 32h1v1h-1zM8 33h2v1h-2zM11 33h1v1h-1zM14 33h1v1h-1zM19 33h2v1h-2zM23 33h1v1h-1zM27 33h2v1h-2zM32 33h1v1h-1zM36 33h1v1h-1zM38 33h3v1h-3zM0 34h7v1h-7zM8 34h3v1h-3zM13 34h2v1h-2zM17 34h1v1h-1zM23 34h2v1h-2zM28 34h1v1h-1zM31 34h2v1h-2zM34 34h1v1h-1zM36 34h4v1h-4zM0 35h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM10 35h1v1h-1zM12 35h2v1h-2zM16 35h1v1h-1zM18 35h3v1h-3zM24 35h2v1h-2zM28 35h1v1h-1zM32 35h1v1h-1zM36 35h1v1h-1zM39 35h1v1h-1zM0 36h1v1h-1zM2 36h3v1h-3zM6 36h1v1h-1zM9 36h3v1h-3zM14 36h3v1h-3zM18 36h1v1h-1zM25 36h2v1h-2zM29 36h1v1h-1zM32 36h7v1h-7zM40 36h1v1h-1zM0 37h1v1h-1zM2 37h3v1h-3zM6 37h1v1h-1zM8 37h3v1h-3zM12 37h1v1h-1zM17 37h3v1h-3zM26 37h2v1h-2zM29 37h1v1h-1zM31 37h1v1h-1zM36 37h1v1h-1zM38 37h1v1h-1zM40 37h1v1h-1zM0 38h1v1h-1zM2 38h3v1h-3zM6 38h1v1h-1zM8 38h2v1h-2zM12 38h4v1h-4zM18 38h4v1h-4zM24 38h1v1h-1zM26 38h1v1h-1zM28 38h2v1h-2zM35 38h1v1h-1zM37 38h4v1h-4zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h3v1h-3zM13 39h1v1h-1zM15 39h3v1h-3zM19 39h1v1h-1zM21 39h2v1h-2zM24 39h1v1h-1zM26 39h1v1h-1zM28 39h1v1h-1zM32 39h2v1h-2zM36 39h2v1h-2zM39 39h1v1h-1zM0 40h7v1h-7zM8 40h1v1h-1zM17 40h1v1h-1zM20 40h4v1h-4zM25 40h1v1h-1zM30 40h1v1h-1zM32 40h3v1h-3zM39 40h1v1h-1z"/>
-  </g>
+  <path fill="#0A1020" d="M0.0 0.0h14.341v2.049h-14.341z M16.39 0.0h6.146v2.049h-6.146z M26.634 0.0h4.098v2.049h-4.098z M38.927 0.0h4.098v2.049h-4.098z M45.073 0.0h2.049v2.049h-2.049z M57.366 0.0h2.049v2.049h-2.049z M61.463 0.0h6.146v2.049h-6.146z M69.659 0.0h14.341v2.049h-14.341z M0.0 2.049h2.049v2.049h-2.049z M12.293 2.049h2.049v2.049h-2.049z M16.39 2.049h6.146v2.049h-6.146z M30.732 2.049h6.146v2.049h-6.146z M43.024 2.049h6.146v2.049h-6.146z M53.268 2.049h2.049v2.049h-2.049z M61.463 2.049h2.049v2.049h-2.049z M69.659 2.049h2.049v2.049h-2.049z M81.951 2.049h2.049v2.049h-2.049z M0.0 4.098h2.049v2.049h-2.049z M4.098 4.098h6.146v2.049h-6.146z M12.293 4.098h2.049v2.049h-2.049z M18.439 4.098h4.098v2.049h-4.098z M24.585 4.098h6.146v2.049h-6.146z M32.78 4.098h2.049v2.049h-2.049z M36.878 4.098h6.146v2.049h-6.146z M49.171 4.098h4.098v2.049h-4.098z M61.463 4.098h6.146v2.049h-6.146z M69.659 4.098h2.049v2.049h-2.049z M73.756 4.098h6.146v2.049h-6.146z M81.951 4.098h2.049v2.049h-2.049z M0.0 6.146h2.049v2.049h-2.049z M4.098 6.146h6.146v2.049h-6.146z M12.293 6.146h2.049v2.049h-2.049z M16.39 6.146h12.293v2.049h-12.293z M36.878 6.146h2.049v2.049h-2.049z M40.976 6.146h6.146v2.049h-6.146z M51.22 6.146h10.244v2.049h-10.244z M65.561 6.146h2.049v2.049h-2.049z M69.659 6.146h2.049v2.049h-2.049z M73.756 6.146h6.146v2.049h-6.146z M81.951 6.146h2.049v2.049h-2.049z M0.0 8.195h2.049v2.049h-2.049z M4.098 8.195h6.146v2.049h-6.146z M12.293 8.195h2.049v2.049h-2.049z M22.537 8.195h2.049v2.049h-2.049z M28.683 8.195h2.049v2.049h-2.049z M36.878 8.195h2.049v2.049h-2.049z M47.122 8.195h4.098v2.049h-4.098z M53.268 8.195h4.098v2.049h-4.098z M59.415 8.195h2.049v2.049h-2.049z M63.512 8.195h4.098v2.049h-4.098z M69.659 8.195h2.049v2.049h-2.049z M73.756 8.195h6.146v2.049h-6.146z M81.951 8.195h2.049v2.049h-2.049z M0.0 10.244h2.049v2.049h-2.049z M12.293 10.244h2.049v2.049h-2.049z M18.439 10.244h2.049v2.049h-2.049z M22.537 10.244h2.049v2.049h-2.049z M30.732 10.244h2.049v2.049h-2.049z M34.829 10.244h12.293v2.049h-12.293z M49.171 10.244h2.049v2.049h-2.049z M57.366 10.244h2.049v2.049h-2.049z M61.463 10.244h4.098v2.049h-4.098z M69.659 10.244h2.049v2.049h-2.049z M81.951 10.244h2.049v2.049h-2.049z M0.0 12.293h14.341v2.049h-14.341z M16.39 12.293h2.049v2.049h-2.049z M20.488 12.293h2.049v2.049h-2.049z M24.585 12.293h2.049v2.049h-2.049z M28.683 12.293h2.049v2.049h-2.049z M32.78 12.293h2.049v2.049h-2.049z M36.878 12.293h2.049v2.049h-2.049z M40.976 12.293h2.049v2.049h-2.049z M45.073 12.293h2.049v2.049h-2.049z M49.171 12.293h2.049v2.049h-2.049z M53.268 12.293h2.049v2.049h-2.049z M57.366 12.293h2.049v2.049h-2.049z M61.463 12.293h2.049v2.049h-2.049z M65.561 12.293h2.049v2.049h-2.049z M69.659 12.293h14.341v2.049h-14.341z M16.39 14.341h2.049v2.049h-2.049z M22.537 14.341h4.098v2.049h-4.098z M28.683 14.341h2.049v2.049h-2.049z M34.829 14.341h2.049v2.049h-2.049z M38.927 14.341h2.049v2.049h-2.049z M49.171 14.341h2.049v2.049h-2.049z M53.268 14.341h2.049v2.049h-2.049z M59.415 14.341h2.049v2.049h-2.049z M63.512 14.341h4.098v2.049h-4.098z M0.0 16.39h2.049v2.049h-2.049z M4.098 16.39h4.098v2.049h-4.098z M10.244 16.39h6.146v2.049h-6.146z M18.439 16.39h4.098v2.049h-4.098z M24.585 16.39h14.341v2.049h-14.341z M43.024 16.39h2.049v2.049h-2.049z M47.122 16.39h4.098v2.049h-4.098z M53.268 16.39h2.049v2.049h-2.049z M59.415 16.39h8.195v2.049h-8.195z M69.659 16.39h2.049v2.049h-2.049z M75.805 16.39h2.049v2.049h-2.049z M79.902 16.39h4.098v2.049h-4.098z M2.049 18.439h2.049v2.049h-2.049z M6.146 18.439h2.049v2.049h-2.049z M10.244 18.439h2.049v2.049h-2.049z M14.341 18.439h2.049v2.049h-2.049z M18.439 18.439h2.049v2.049h-2.049z M26.634 18.439h2.049v2.049h-2.049z M32.78 18.439h2.049v2.049h-2.049z M36.878 18.439h4.098v2.049h-4.098z M43.024 18.439h2.049v2.049h-2.049z M47.122 18.439h2.049v2.049h-2.049z M53.268 18.439h2.049v2.049h-2.049z M61.463 18.439h6.146v2.049h-6.146z M71.707 18.439h4.098v2.049h-4.098z M77.854 18.439h2.049v2.049h-2.049z M2.049 20.488h6.146v2.049h-6.146z M12.293 20.488h2.049v2.049h-2.049z M20.488 20.488h2.049v2.049h-2.049z M24.585 20.488h2.049v2.049h-2.049z M32.78 20.488h2.049v2.049h-2.049z M40.976 20.488h2.049v2.049h-2.049z M45.073 20.488h4.098v2.049h-4.098z M51.22 20.488h4.098v2.049h-4.098z M59.415 20.488h2.049v2.049h-2.049z M67.61 20.488h4.098v2.049h-4.098z M77.854 20.488h4.098v2.049h-4.098z M0.0 22.537h2.049v2.049h-2.049z M8.195 22.537h2.049v2.049h-2.049z M14.341 22.537h2.049v2.049h-2.049z M18.439 22.537h2.049v2.049h-2.049z M30.732 22.537h4.098v2.049h-4.098z M36.878 22.537h2.049v2.049h-2.049z M40.976 22.537h2.049v2.049h-2.049z M45.073 22.537h2.049v2.049h-2.049z M49.171 22.537h4.098v2.049h-4.098z M55.317 22.537h2.049v2.049h-2.049z M65.561 22.537h2.049v2.049h-2.049z M73.756 22.537h2.049v2.049h-2.049z M79.902 22.537h4.098v2.049h-4.098z M2.049 24.585h4.098v2.049h-4.098z M10.244 24.585h4.098v2.049h-4.098z M18.439 24.585h2.049v2.049h-2.049z M24.585 24.585h2.049v2.049h-2.049z M30.732 24.585h2.049v2.049h-2.049z M34.829 24.585h2.049v2.049h-2.049z M38.927 24.585h2.049v2.049h-2.049z M45.073 24.585h2.049v2.049h-2.049z M51.22 24.585h2.049v2.049h-2.049z M57.366 24.585h10.244v2.049h-10.244z M71.707 24.585h2.049v2.049h-2.049z M75.805 24.585h8.195v2.049h-8.195z M4.098 26.634h4.098v2.049h-4.098z M16.39 26.634h4.098v2.049h-4.098z M22.537 26.634h4.098v2.049h-4.098z M34.829 26.634h2.049v2.049h-2.049z M43.024 26.634h2.049v2.049h-2.049z M47.122 26.634h8.195v2.049h-8.195z M57.366 26.634h2.049v2.049h-2.049z M61.463 26.634h4.098v2.049h-4.098z M67.61 26.634h4.098v2.049h-4.098z M75.805 26.634h2.049v2.049h-2.049z M79.902 26.634h4.098v2.049h-4.098z M0.0 28.683h2.049v2.049h-2.049z M4.098 28.683h2.049v2.049h-2.049z M12.293 28.683h6.146v2.049h-6.146z M26.634 28.683h2.049v2.049h-2.049z M30.732 28.683h6.146v2.049h-6.146z M43.024 28.683h2.049v2.049h-2.049z M51.22 28.683h2.049v2.049h-2.049z M59.415 28.683h2.049v2.049h-2.049z M63.512 28.683h4.098v2.049h-4.098z M69.659 28.683h6.146v2.049h-6.146z M77.854 28.683h6.146v2.049h-6.146z M0.0 30.732h2.049v2.049h-2.049z M4.098 30.732h4.098v2.049h-4.098z M10.244 30.732h2.049v2.049h-2.049z M14.341 30.732h6.146v2.049h-6.146z M24.585 30.732h6.146v2.049h-6.146z M32.78 30.732h2.049v2.049h-2.049z M36.878 30.732h10.244v2.049h-10.244z M49.171 30.732h2.049v2.049h-2.049z M53.268 30.732h2.049v2.049h-2.049z M57.366 30.732h2.049v2.049h-2.049z M65.561 30.732h2.049v2.049h-2.049z M69.659 30.732h2.049v2.049h-2.049z M73.756 30.732h4.098v2.049h-4.098z M2.049 32.78h2.049v2.049h-2.049z M6.146 32.78h8.195v2.049h-8.195z M20.488 32.78h4.098v2.049h-4.098z M32.78 32.78h2.049v2.049h-2.049z M36.878 32.78h4.098v2.049h-4.098z M45.073 32.78h2.049v2.049h-2.049z M49.171 32.78h4.098v2.049h-4.098z M55.317 32.78h2.049v2.049h-2.049z M61.463 32.78h6.146v2.049h-6.146z M73.756 32.78h4.098v2.049h-4.098z M79.902 32.78h2.049v2.049h-2.049z M0.0 34.829h2.049v2.049h-2.049z M6.146 34.829h4.098v2.049h-4.098z M16.39 34.829h4.098v2.049h-4.098z M24.585 34.829h2.049v2.049h-2.049z M28.683 34.829h2.049v2.049h-2.049z M32.78 34.829h4.098v2.049h-4.098z M40.976 34.829h2.049v2.049h-2.049z M47.122 34.829h6.146v2.049h-6.146z M65.561 34.829h4.098v2.049h-4.098z M71.707 34.829h2.049v2.049h-2.049z M75.805 34.829h2.049v2.049h-2.049z M0.0 36.878h4.098v2.049h-4.098z M6.146 36.878h2.049v2.049h-2.049z M10.244 36.878h6.146v2.049h-6.146z M22.537 36.878h2.049v2.049h-2.049z M26.634 36.878h2.049v2.049h-2.049z M30.732 36.878h6.146v2.049h-6.146z M40.976 36.878h4.098v2.049h-4.098z M55.317 36.878h4.098v2.049h-4.098z M61.463 36.878h2.049v2.049h-2.049z M65.561 36.878h2.049v2.049h-2.049z M73.756 36.878h2.049v2.049h-2.049z M77.854 36.878h4.098v2.049h-4.098z M0.0 38.927h2.049v2.049h-2.049z M4.098 38.927h8.195v2.049h-8.195z M14.341 38.927h6.146v2.049h-6.146z M22.537 38.927h6.146v2.049h-6.146z M32.78 38.927h2.049v2.049h-2.049z M38.927 38.927h4.098v2.049h-4.098z M45.073 38.927h2.049v2.049h-2.049z M55.317 38.927h8.195v2.049h-8.195z M71.707 38.927h2.049v2.049h-2.049z M75.805 38.927h6.146v2.049h-6.146z M0.0 40.976h2.049v2.049h-2.049z M8.195 40.976h2.049v2.049h-2.049z M12.293 40.976h2.049v2.049h-2.049z M20.488 40.976h4.098v2.049h-4.098z M26.634 40.976h2.049v2.049h-2.049z M30.732 40.976h4.098v2.049h-4.098z M36.878 40.976h6.146v2.049h-6.146z M53.268 40.976h4.098v2.049h-4.098z M59.415 40.976h12.293v2.049h-12.293z M73.756 40.976h8.195v2.049h-8.195z M0.0 43.024h2.049v2.049h-2.049z M4.098 43.024h2.049v2.049h-2.049z M14.341 43.024h4.098v2.049h-4.098z M22.537 43.024h12.293v2.049h-12.293z M36.878 43.024h2.049v2.049h-2.049z M40.976 43.024h4.098v2.049h-4.098z M47.122 43.024h4.098v2.049h-4.098z M53.268 43.024h2.049v2.049h-2.049z M63.512 43.024h2.049v2.049h-2.049z M69.659 43.024h14.341v2.049h-14.341z M2.049 45.073h24.585v2.049h-24.585z M28.683 45.073h2.049v2.049h-2.049z M32.78 45.073h2.049v2.049h-2.049z M40.976 45.073h2.049v2.049h-2.049z M47.122 45.073h4.098v2.049h-4.098z M57.366 45.073h6.146v2.049h-6.146z M67.61 45.073h4.098v2.049h-4.098z M75.805 45.073h2.049v2.049h-2.049z M79.902 45.073h2.049v2.049h-2.049z M2.049 47.122h2.049v2.049h-2.049z M8.195 47.122h2.049v2.049h-2.049z M14.341 47.122h8.195v2.049h-8.195z M26.634 47.122h4.098v2.049h-4.098z M32.78 47.122h2.049v2.049h-2.049z M36.878 47.122h4.098v2.049h-4.098z M51.22 47.122h2.049v2.049h-2.049z M55.317 47.122h2.049v2.049h-2.049z M61.463 47.122h2.049v2.049h-2.049z M65.561 47.122h4.098v2.049h-4.098z M0.0 49.171h2.049v2.049h-2.049z M4.098 49.171h2.049v2.049h-2.049z M8.195 49.171h2.049v2.049h-2.049z M12.293 49.171h6.146v2.049h-6.146z M22.537 49.171h2.049v2.049h-2.049z M34.829 49.171h2.049v2.049h-2.049z M38.927 49.171h2.049v2.049h-2.049z M45.073 49.171h2.049v2.049h-2.049z M49.171 49.171h6.146v2.049h-6.146z M59.415 49.171h2.049v2.049h-2.049z M63.512 49.171h2.049v2.049h-2.049z M71.707 49.171h2.049v2.049h-2.049z M75.805 49.171h2.049v2.049h-2.049z M0.0 51.22h2.049v2.049h-2.049z M16.39 51.22h2.049v2.049h-2.049z M22.537 51.22h2.049v2.049h-2.049z M28.683 51.22h4.098v2.049h-4.098z M34.829 51.22h2.049v2.049h-2.049z M38.927 51.22h2.049v2.049h-2.049z M49.171 51.22h4.098v2.049h-4.098z M55.317 51.22h2.049v2.049h-2.049z M59.415 51.22h2.049v2.049h-2.049z M63.512 51.22h6.146v2.049h-6.146z M75.805 51.22h8.195v2.049h-8.195z M0.0 53.268h2.049v2.049h-2.049z M6.146 53.268h8.195v2.049h-8.195z M16.39 53.268h6.146v2.049h-6.146z M24.585 53.268h4.098v2.049h-4.098z M30.732 53.268h4.098v2.049h-4.098z M36.878 53.268h6.146v2.049h-6.146z M49.171 53.268h2.049v2.049h-2.049z M53.268 53.268h2.049v2.049h-2.049z M57.366 53.268h4.098v2.049h-4.098z M63.512 53.268h4.098v2.049h-4.098z M69.659 53.268h2.049v2.049h-2.049z M75.805 53.268h2.049v2.049h-2.049z M79.902 53.268h4.098v2.049h-4.098z M6.146 55.317h6.146v2.049h-6.146z M16.39 55.317h10.244v2.049h-10.244z M38.927 55.317h10.244v2.049h-10.244z M53.268 55.317h4.098v2.049h-4.098z M61.463 55.317h6.146v2.049h-6.146z M69.659 55.317h8.195v2.049h-8.195z M79.902 55.317h2.049v2.049h-2.049z M0.0 57.366h4.098v2.049h-4.098z M8.195 57.366h2.049v2.049h-2.049z M12.293 57.366h4.098v2.049h-4.098z M22.537 57.366h2.049v2.049h-2.049z M26.634 57.366h2.049v2.049h-2.049z M32.78 57.366h2.049v2.049h-2.049z M36.878 57.366h10.244v2.049h-10.244z M51.22 57.366h8.195v2.049h-8.195z M63.512 57.366h6.146v2.049h-6.146z M73.756 57.366h4.098v2.049h-4.098z M79.902 57.366h2.049v2.049h-2.049z M2.049 59.415h4.098v2.049h-4.098z M8.195 59.415h4.098v2.049h-4.098z M16.39 59.415h2.049v2.049h-2.049z M22.537 59.415h4.098v2.049h-4.098z M28.683 59.415h2.049v2.049h-2.049z M32.78 59.415h4.098v2.049h-4.098z M38.927 59.415h2.049v2.049h-2.049z M45.073 59.415h10.244v2.049h-10.244z M59.415 59.415h4.098v2.049h-4.098z M65.561 59.415h2.049v2.049h-2.049z M71.707 59.415h2.049v2.049h-2.049z M75.805 59.415h2.049v2.049h-2.049z M79.902 59.415h2.049v2.049h-2.049z M0.0 61.463h2.049v2.049h-2.049z M4.098 61.463h4.098v2.049h-4.098z M12.293 61.463h6.146v2.049h-6.146z M22.537 61.463h4.098v2.049h-4.098z M32.78 61.463h2.049v2.049h-2.049z M36.878 61.463h2.049v2.049h-2.049z M40.976 61.463h2.049v2.049h-2.049z M51.22 61.463h8.195v2.049h-8.195z M65.561 61.463h8.195v2.049h-8.195z M10.244 63.512h2.049v2.049h-2.049z M14.341 63.512h4.098v2.049h-4.098z M30.732 63.512h2.049v2.049h-2.049z M34.829 63.512h6.146v2.049h-6.146z M45.073 63.512h2.049v2.049h-2.049z M57.366 63.512h4.098v2.049h-4.098z M63.512 63.512h2.049v2.049h-2.049z M69.659 63.512h2.049v2.049h-2.049z M73.756 63.512h10.244v2.049h-10.244z M2.049 65.561h2.049v2.049h-2.049z M12.293 65.561h2.049v2.049h-2.049z M16.39 65.561h8.195v2.049h-8.195z M26.634 65.561h2.049v2.049h-2.049z M32.78 65.561h6.146v2.049h-6.146z M43.024 65.561h2.049v2.049h-2.049z M49.171 65.561h2.049v2.049h-2.049z M53.268 65.561h2.049v2.049h-2.049z M59.415 65.561h4.098v2.049h-4.098z M65.561 65.561h14.341v2.049h-14.341z M81.951 65.561h2.049v2.049h-2.049z M16.39 67.61h4.098v2.049h-4.098z M22.537 67.61h2.049v2.049h-2.049z M28.683 67.61h2.049v2.049h-2.049z M38.927 67.61h4.098v2.049h-4.098z M47.122 67.61h2.049v2.049h-2.049z M55.317 67.61h4.098v2.049h-4.098z M65.561 67.61h2.049v2.049h-2.049z M73.756 67.61h2.049v2.049h-2.049z M77.854 67.61h6.146v2.049h-6.146z M0.0 69.659h14.341v2.049h-14.341z M16.39 69.659h6.146v2.049h-6.146z M26.634 69.659h4.098v2.049h-4.098z M34.829 69.659h2.049v2.049h-2.049z M47.122 69.659h4.098v2.049h-4.098z M57.366 69.659h2.049v2.049h-2.049z M63.512 69.659h4.098v2.049h-4.098z M69.659 69.659h2.049v2.049h-2.049z M73.756 69.659h8.195v2.049h-8.195z M0.0 71.707h2.049v2.049h-2.049z M12.293 71.707h2.049v2.049h-2.049z M16.39 71.707h2.049v2.049h-2.049z M20.488 71.707h2.049v2.049h-2.049z M24.585 71.707h4.098v2.049h-4.098z M32.78 71.707h2.049v2.049h-2.049z M36.878 71.707h6.146v2.049h-6.146z M49.171 71.707h4.098v2.049h-4.098z M57.366 71.707h2.049v2.049h-2.049z M65.561 71.707h2.049v2.049h-2.049z M73.756 71.707h2.049v2.049h-2.049z M79.902 71.707h2.049v2.049h-2.049z M0.0 73.756h2.049v2.049h-2.049z M4.098 73.756h6.146v2.049h-6.146z M12.293 73.756h2.049v2.049h-2.049z M18.439 73.756h6.146v2.049h-6.146z M28.683 73.756h6.146v2.049h-6.146z M36.878 73.756h2.049v2.049h-2.049z M51.22 73.756h4.098v2.049h-4.098z M59.415 73.756h2.049v2.049h-2.049z M65.561 73.756h14.341v2.049h-14.341z M81.951 73.756h2.049v2.049h-2.049z M0.0 75.805h2.049v2.049h-2.049z M4.098 75.805h6.146v2.049h-6.146z M12.293 75.805h2.049v2.049h-2.049z M16.39 75.805h6.146v2.049h-6.146z M24.585 75.805h2.049v2.049h-2.049z M34.829 75.805h6.146v2.049h-6.146z M53.268 75.805h4.098v2.049h-4.098z M59.415 75.805h2.049v2.049h-2.049z M63.512 75.805h2.049v2.049h-2.049z M73.756 75.805h2.049v2.049h-2.049z M77.854 75.805h2.049v2.049h-2.049z M81.951 75.805h2.049v2.049h-2.049z M0.0 77.854h2.049v2.049h-2.049z M4.098 77.854h6.146v2.049h-6.146z M12.293 77.854h2.049v2.049h-2.049z M16.39 77.854h4.098v2.049h-4.098z M24.585 77.854h8.195v2.049h-8.195z M36.878 77.854h8.195v2.049h-8.195z M49.171 77.854h2.049v2.049h-2.049z M53.268 77.854h2.049v2.049h-2.049z M57.366 77.854h4.098v2.049h-4.098z M71.707 77.854h2.049v2.049h-2.049z M75.805 77.854h8.195v2.049h-8.195z M0.0 79.902h2.049v2.049h-2.049z M12.293 79.902h2.049v2.049h-2.049z M18.439 79.902h6.146v2.049h-6.146z M26.634 79.902h2.049v2.049h-2.049z M30.732 79.902h6.146v2.049h-6.146z M38.927 79.902h2.049v2.049h-2.049z M43.024 79.902h4.098v2.049h-4.098z M49.171 79.902h2.049v2.049h-2.049z M53.268 79.902h2.049v2.049h-2.049z M57.366 79.902h2.049v2.049h-2.049z M65.561 79.902h4.098v2.049h-4.098z M73.756 79.902h4.098v2.049h-4.098z M79.902 79.902h2.049v2.049h-2.049z M0.0 81.951h14.341v2.049h-14.341z M16.39 81.951h2.049v2.049h-2.049z M34.829 81.951h2.049v2.049h-2.049z M40.976 81.951h8.195v2.049h-8.195z M51.22 81.951h2.049v2.049h-2.049z M61.463 81.951h2.049v2.049h-2.049z M65.561 81.951h6.146v2.049h-6.146z M79.902 81.951h2.049v2.049h-2.049z"/>
 </g>
 <text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>

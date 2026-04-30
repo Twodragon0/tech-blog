@@ -1,346 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly metro map: AI discovers OpenSSL zero-days, OWASP Agentic AI Top 10, Fortinet SSO zero-day">
-<title>AI OpenSSL Zero-Day 12 CVEs, OWASP Agentic AI Top 10, Fortinet CVE-2026-24858</title>
-<!-- profile: high-quality-cover (L21 Metro Map, research-based, batch1-locked) -->
-<defs>
-  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#0A1020"/>
-    <stop offset="50%" stop-color="#0C1630"/>
-    <stop offset="100%" stop-color="#0F1A3A"/>
-  </linearGradient>
-  <radialGradient id="pulseRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FF4D5E" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#E63946" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="pulseAmber" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FFC43D" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#FFA107" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#FFA107" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="pulseCyan" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#5FD3F3" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#2AA8CE" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#2AA8CE" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-    <circle cx="15" cy="15" r="0.7" fill="#2E3A66" opacity="0.55"/>
-  </pattern>
-  <filter id="stationShadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
-    <feOffset dx="0" dy="2"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="120%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-    <feOffset dx="1" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-
-<!-- Background -->
-<rect width="1200" height="630" fill="url(#bgGrad)"/>
-<rect width="1200" height="630" fill="url(#dotGrid)"/>
-
-<!-- Subtle grid guides -->
-<g opacity="0.09" stroke="#4A6AA0" stroke-width="0.6" fill="none">
-  <line x1="0" y1="170" x2="1200" y2="170"/>
-  <line x1="0" y1="330" x2="1200" y2="330"/>
-  <line x1="0" y1="490" x2="1200" y2="490"/>
-  <line x1="200" y1="0" x2="200" y2="630"/>
-  <line x1="400" y1="0" x2="400" y2="630"/>
-  <line x1="620" y1="0" x2="620" y2="630"/>
-  <line x1="850" y1="0" x2="850" y2="630"/>
-  <line x1="1050" y1="0" x2="1050" y2="630"/>
-</g>
-
-<!-- ===== HEADER ===== -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover 2026.02.01: AISLE Finds 12 OpenSSL 0-Days, OWASP Agentic AI, Fortinet FortiCloud SSO">
+<!-- profile: high-quality-cover (L20 Hero+2-Card) -->
+<title>Weekly digest 2026-02-01: AISLE OpenSSL 12 zero-days, OWASP Agentic AI, Fortinet SSO</title>
+<defs><linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0B1326"/><stop offset="55%" stop-color="#0D1530"/><stop offset="100%" stop-color="#141034"/></linearGradient><linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A0A08"/><stop offset="100%" stop-color="#110608"/></linearGradient><linearGradient id="heroPanelBlue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0A1A30"/><stop offset="100%" stop-color="#071426"/></linearGradient><linearGradient id="heroPanelAmber" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#120E06"/></linearGradient><linearGradient id="heroPanelGreen" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#062012"/><stop offset="100%" stop-color="#04150B"/></linearGradient><linearGradient id="heroPanelPurple" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1B0E36"/><stop offset="100%" stop-color="#10081E"/></linearGradient><radialGradient id="hotRed" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient><radialGradient id="hotBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/><stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/></radialGradient><radialGradient id="hotAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient><radialGradient id="hotGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.45"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient><radialGradient id="hotPurple" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.45"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><pattern id="envGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/></pattern><filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="textShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="1" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#envGrid)"/>
+<circle cx="310" cy="310" r="160" fill="url(#hotRed)"><animate attributeName="opacity" values="0.6;1;0.6" dur="5.8s" repeatCount="indefinite"/></circle><circle cx="950" cy="210" r="120" fill="url(#hotBlue)"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="6.4s" repeatCount="indefinite"/></circle><circle cx="970" cy="480" r="110" fill="url(#hotAmber)"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.1s" repeatCount="indefinite"/></circle><g fill="#8FB8FF"><circle cx="180" cy="70" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" repeatCount="indefinite"/></circle><circle cx="440" cy="62" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></circle><circle cx="740" cy="68" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.9s" repeatCount="indefinite"/></circle><circle cx="1060" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.1s" repeatCount="indefinite"/></circle><circle cx="90" cy="580" r="1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.7s" repeatCount="indefinite"/></circle><circle cx="550" cy="590" r="0.8"><animate attributeName="opacity" values="0.2;0.75;0.2" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></circle></g>
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.02.01</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/></rect>
+<rect x="32" y="80" width="600" height="510" rx="14" ry="14" fill="url(#heroPanel)" stroke="#E63946" stroke-width="1.8" opacity="0.98"/>
+<rect x="32" y="80" width="600" height="4" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
 <g filter="url(#textShadow)">
-  <text x="60" y="52" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#E9EEF8" letter-spacing="1.2">WEEKLY SECURITY DIGEST
-    <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
-  </text>
-  <text x="60" y="78" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7A9BC4" letter-spacing="1.8">2026.02.01 -- AI DISCOVERS OPENSSL ZERO-DAYS - OWASP AGENTIC AI - FORTINET SSO</text>
+<text x="54" y="112" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F87171" letter-spacing="3">HISTORIC FIRST  /  01</text>
+<text x="54" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#F8FAFC">AISLE Finds 12 OpenSSL 0-Days</text>
+<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#FBB6BD">AI system discovers all 12 fresh OpenSSL flaws / first-ever</text>
 </g>
-
-<!-- Legend top-right -->
-<g transform="translate(940,34)" filter="url(#textShadow)">
-  <rect x="-6" y="-20" width="244" height="62" rx="10" fill="#14213E" stroke="#3A4E82" stroke-width="1.2">
-    <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <!-- CRITICAL -->
-  <circle cx="12" cy="0" r="5" fill="#E63946">
-    <animate attributeName="r" values="5;6.5;5" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="12" cy="0" r="10" fill="url(#pulseRed)" opacity="0.6">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <text x="26" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">CRITICAL</text>
-  <!-- HIGH -->
-  <circle cx="104" cy="0" r="5" fill="#FFA107">
-    <animate attributeName="r" values="5;6.5;5" dur="2.4s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="104" cy="0" r="10" fill="url(#pulseAmber)" opacity="0.6">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.4s" repeatCount="indefinite"/>
-  </circle>
-  <text x="118" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">HIGH</text>
-  <!-- INFO -->
-  <circle cx="178" cy="0" r="5" fill="#5FD3F3">
-    <animate attributeName="r" values="5;6.5;5" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="178" cy="0" r="10" fill="url(#pulseCyan)" opacity="0.6">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <text x="192" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">INFO</text>
-  <text x="-2" y="26" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#5A7AB0">SEVERITY -- 3 LINES / 15 STATIONS -- 2026.02.01</text>
+<g transform="translate(332,360)" filter="url(#softShadow)"><rect x="-160" y="-110" width="320" height="220" rx="10" fill="#0A0C16" stroke="#E63946" stroke-width="1.4" opacity="0.95"/><text x="0" y="-86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2">CVE REGRESSION CHAIN</text><g transform="translate(-140,-70)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#1E0A14" stroke="#F87171" stroke-width="1.2"/><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F87171">PRIOR CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FBB6BD">Original flaw  /  patched</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#FBB6BD" opacity="0.8">Partial fix earlier</text><rect x="226" y="6" width="48" height="14" rx="3" fill="#7A0000" stroke="#E63946" stroke-width="1"><animate attributeName="opacity" values="0.7;1;0.7" dur="1.6s" repeatCount="indefinite"/></rect><text x="250" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFE4E6">PATCHED</text></g><g transform="translate(-12,-12)"><path d="M0 0 L0 22 L-6 14 M0 22 L6 14" stroke="#E63946" stroke-width="1.8" fill="none" stroke-linecap="round"/><text x="14" y="14" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#F87171">REGRESSED</text></g><g transform="translate(-140,16)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#2A0808" stroke="#E63946" stroke-width="2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/></rect><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F5F7FA">NEW CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FFB703">Active exploitation</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#E0C0A0" opacity="0.8">Production hosts at risk</text><rect x="232" y="6" width="42" height="14" rx="3" fill="#E63946"><animate attributeName="opacity" values="0.8;1;0.8" dur="1.2s" repeatCount="indefinite"/></rect><text x="253" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">ACTIVE</text></g><g transform="translate(-140,80)"><rect x="0" y="0" width="280" height="22" rx="4" fill="#0E1220" stroke="#3A86FF" stroke-width="1"/><text x="140" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#8FB8FF">PATCH UPSTREAM NOW</text></g></g>
+<g transform="translate(54,548)">
+<rect x="0" y="0" width="280" height="24" rx="3" fill="#E63946" opacity="0.95"/>
+<text x="140" y="17" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">PATCH OPENSSL ASAP</text>
 </g>
-
-<!-- ==================== LINE 1: AI OpenSSL Zero-Day (RED) ==================== -->
-<!-- L1 badge -->
-<g transform="translate(26,170)">
-  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#E63946" filter="url(#stationShadow)"/>
-  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L1</text>
+<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  2026.02.01</text>
+<rect x="652" y="80" width="516" height="248" rx="14" ry="14" fill="url(#heroPanelBlue)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="80" width="516" height="4" fill="#3A86FF" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">FRAMEWORK  /  02</text>
+<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">OWASP Agentic AI</text>
+<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">OWASP ships Top 10 risk framework for autonomous agents</text>
 </g>
-<!-- L1 track glow -->
-<line x1="55" y1="170" x2="1145" y2="170" stroke="#E63946" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
-<!-- L1 track main -->
-<line x1="55" y1="170" x2="1145" y2="170" stroke="#E63946" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
-<!-- L1 track shimmer -->
-<line x1="55" y1="170" x2="1145" y2="170" stroke="#FF9AA2" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
-
-<!-- L1 terminus left -->
-<circle cx="70" cy="170" r="12" fill="#0C1630" stroke="#E63946" stroke-width="4"/>
-<circle cx="70" cy="170" r="5" fill="#E63946"/>
-
-<!-- L1 S1: AISLE System -->
-<g filter="url(#stationShadow)">
-  <circle cx="200" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
-  <circle cx="200" cy="170" r="7" fill="#FF4D5E"/>
-  <circle cx="200" cy="170" r="12" fill="url(#pulseRed)" opacity="0.7">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
-  </circle>
+<g transform="translate(800,230)"><circle cx="-110" cy="0" r="30" fill="#1A1208" stroke="#3A86FF" stroke-width="1.8" filter="url(#softShadow)"><animate attributeName="opacity" values="0.85;1;0.85" dur="3s" repeatCount="indefinite"/></circle><text x="-110" y="-4" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#60A5FA">AI</text><text x="-110" y="10" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#3A86FF">AGENT</text><circle cx="-110" cy="0" r="38" fill="none" stroke="#3A86FF" stroke-width="1"><animate attributeName="r" values="32;46;32" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="2.2s" repeatCount="indefinite"/></circle><g transform="translate(-50,-32)" font-family="Inter, monospace" font-size="8" font-weight="700"><rect x="0" y="0" width="68" height="20" rx="3" fill="#1A1208" stroke="#3A86FF" stroke-width="1"/><text x="34" y="14" text-anchor="middle" fill="#60A5FA">DARK APP</text><rect x="0" y="26" width="68" height="20" rx="3" fill="#1A1208" stroke="#3A86FF" stroke-width="1" opacity="0.85"/><text x="34" y="40" text-anchor="middle" fill="#60A5FA">SHADOW ID</text><rect x="0" y="52" width="68" height="20" rx="3" fill="#1A1208" stroke="#3A86FF" stroke-width="1" opacity="0.7"/><text x="34" y="66" text-anchor="middle" fill="#60A5FA">UNMANAGED</text><line x1="-50" y1="0" x2="0" y2="10" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.6"/><line x1="-50" y1="0" x2="0" y2="36" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/><line x1="-50" y1="0" x2="0" y2="62" stroke="#3A86FF" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.4"/></g><g transform="translate(60,-40)" filter="url(#softShadow)"><rect x="0" y="0" width="140" height="90" rx="6" fill="#0A0C16" stroke="#E63946" stroke-width="1.4"/><text x="70" y="18" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#F87171">EXPOSED FLEET</text><text x="70" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="#FCA5A5">scaled abuse surface</text><g transform="translate(8,42)" fill="#3A86FF"><rect x="0" y="0" width="14" height="10" rx="2"/><rect x="18" y="0" width="14" height="10" rx="2" opacity="0.85"/><rect x="36" y="0" width="14" height="10" rx="2" opacity="0.7"/><rect x="54" y="0" width="14" height="10" rx="2" opacity="0.55"/><rect x="72" y="0" width="14" height="10" rx="2" opacity="0.4"><animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.4s" repeatCount="indefinite"/></rect><rect x="90" y="0" width="14" height="10" rx="2" opacity="0.25"><animate attributeName="opacity" values="0.1;0.5;0.1" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></rect><rect x="108" y="0" width="14" height="10" rx="2" opacity="0.2"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="2s" begin="0.5s" repeatCount="indefinite"/></rect></g><text x="70" y="74" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#3A86FF">automated abuse vector</text></g></g>
+<g transform="translate(1094,168)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#071426" stroke="#3A86FF" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7DA3D9">OWASP</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#F5F7FA">Top 10</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFC9D9">Agentic AI</text></g>
+<rect x="652" y="344" width="516" height="246" rx="14" ry="14" fill="url(#heroPanelAmber)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="344" width="516" height="4" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="3">ZERO-DAY  /  03</text>
+<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Fortinet FortiCloud SSO</text>
+<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Zero-day SSO bypass leaks tenant tokens / patch shipped</text>
 </g>
-<text x="200" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">AISLE</text>
-<text x="200" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">AI System</text>
-
-<!-- L1 S2: OpenSSL Target -->
-<g filter="url(#stationShadow)">
-  <circle cx="400" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
-  <circle cx="400" cy="170" r="7" fill="#FF4D5E"/>
-</g>
-<text x="400" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">OPENSSL</text>
-<text x="400" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Scan Target</text>
-<text x="400" y="194" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7A4040" text-anchor="middle">crypto lib</text>
-
-<!-- L1 S3: 12 CVEs Found (major station) -->
-<g filter="url(#stationShadow)">
-  <circle cx="620" cy="170" r="19" fill="#0C1630" stroke="#E63946" stroke-width="4.5"/>
-  <circle cx="620" cy="170" r="10" fill="#FF4D5E"/>
-  <circle cx="620" cy="170" r="17" fill="url(#pulseRed)" opacity="0.55">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.4s" repeatCount="indefinite"/>
-  </circle>
-</g>
-<text x="620" y="144" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#FF4D5E" text-anchor="middle">12 CVEs FOUND</text>
-<text x="620" y="129" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#E63946" text-anchor="middle">HISTORIC MILESTONE</text>
-<text x="620" y="200" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7A4040" text-anchor="middle">zero-days discovered</text>
-
-<!-- L1 S4: Patch Deploy -->
-<g filter="url(#stationShadow)">
-  <circle cx="850" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
-  <circle cx="850" cy="170" r="7" fill="#FF4D5E"/>
-</g>
-<text x="850" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">PATCH</text>
-<text x="850" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Deploy Now</text>
-
-<!-- L1 S5: Verified Secure -->
-<g filter="url(#stationShadow)">
-  <circle cx="1050" cy="170" r="14" fill="#0C1630" stroke="#E63946" stroke-width="3.5"/>
-  <circle cx="1050" cy="170" r="7" fill="#FF4D5E"/>
-</g>
-<text x="1050" y="148" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FF7B85" text-anchor="middle">VERIFIED</text>
-<text x="1050" y="134" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C87070" text-anchor="middle">Secure</text>
-
-<!-- L1 terminus right -->
-<circle cx="1145" cy="170" r="12" fill="#0C1630" stroke="#E63946" stroke-width="4"/>
-<circle cx="1145" cy="170" r="5" fill="#E63946"/>
-
-<!-- L1 animated traveler -->
-<circle cx="70" cy="170" r="7" fill="#FF9AA2" opacity="0.9">
-  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="10s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2s" repeatCount="indefinite"/>
-</circle>
-
-<!-- L1 label -->
-<text x="62" y="215" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#E63946" font-weight="700">AI DISCOVERS OPENSSL ZERO-DAYS -- AISLE RESEARCH SYSTEM -- INFORMATIONAL / STRATEGIC</text>
-
-
-<!-- ==================== LINE 2: OWASP Agentic AI (AMBER) ==================== -->
-<!-- L2 badge -->
-<g transform="translate(26,330)">
-  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#FFA107" filter="url(#stationShadow)"/>
-  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L2</text>
-</g>
-<!-- L2 track glow -->
-<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFA107" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
-<!-- L2 track main -->
-<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFA107" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
-<!-- L2 track shimmer -->
-<line x1="55" y1="330" x2="1145" y2="330" stroke="#FFD060" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
-
-<!-- L2 terminus left -->
-<circle cx="70" cy="330" r="12" fill="#0C1630" stroke="#FFA107" stroke-width="4"/>
-<circle cx="70" cy="330" r="5" fill="#FFA107"/>
-
-<!-- L2 S1: Agent Threat Surface -->
-<g filter="url(#stationShadow)">
-  <circle cx="200" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
-  <circle cx="200" cy="330" r="7" fill="#FFC43D"/>
-  <circle cx="200" cy="330" r="12" fill="url(#pulseAmber)" opacity="0.7">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/>
-  </circle>
-</g>
-<text x="200" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">AGENT THREAT</text>
-<text x="200" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Attack Surface</text>
-
-<!-- L2 S2: OWASP Top 10 Framework (major station) -->
-<g filter="url(#stationShadow)">
-  <circle cx="400" cy="330" r="19" fill="#0C1630" stroke="#FFA107" stroke-width="4.5"/>
-  <circle cx="400" cy="330" r="10" fill="#FFC43D"/>
-  <circle cx="400" cy="330" r="17" fill="url(#pulseAmber)" opacity="0.55">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.8s" repeatCount="indefinite"/>
-  </circle>
-</g>
-<text x="400" y="354" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="900" fill="#FFC43D" text-anchor="middle">OWASP TOP 10</text>
-<text x="400" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Agentic AI</text>
-<text x="400" y="305" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A7030" text-anchor="middle">official framework</text>
-
-<!-- L2 S3: Prompt Injection -->
-<g filter="url(#stationShadow)">
-  <circle cx="620" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
-  <circle cx="620" cy="330" r="7" fill="#FFC43D"/>
-</g>
-<text x="620" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">PROMPT INJ</text>
-<text x="620" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Top Risk #1</text>
-
-<!-- L2 S4: Tool Misuse -->
-<g filter="url(#stationShadow)">
-  <circle cx="850" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
-  <circle cx="850" cy="330" r="7" fill="#FFC43D"/>
-</g>
-<text x="850" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">TOOL MISUSE</text>
-<text x="850" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">Attack Vector</text>
-
-<!-- L2 S5: Governance / NIST -->
-<g filter="url(#stationShadow)">
-  <circle cx="1050" cy="330" r="14" fill="#0C1630" stroke="#FFA107" stroke-width="3.5"/>
-  <circle cx="1050" cy="330" r="7" fill="#FFC43D"/>
-</g>
-<text x="1050" y="354" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FFD060" text-anchor="middle">GOVERNANCE</text>
-<text x="1050" y="368" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#C8A040" text-anchor="middle">NIST-based</text>
-
-<!-- L2 terminus right -->
-<circle cx="1145" cy="330" r="12" fill="#0C1630" stroke="#FFA107" stroke-width="4"/>
-<circle cx="1145" cy="330" r="5" fill="#FFA107"/>
-
-<!-- L2 animated traveler -->
-<circle cx="70" cy="330" r="7" fill="#FFD090" opacity="0.9">
-  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="12s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.4s" repeatCount="indefinite"/>
-</circle>
-
-<!-- L2 label -->
-<text x="62" y="395" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#FFA107" font-weight="700">OWASP AGENTIC AI TOP 10 -- OFFICIAL FRAMEWORK -- HIGH SEVERITY</text>
-
-
-<!-- ==================== LINE 3: Fortinet SSO Zero-Day (CYAN) ==================== -->
-<!-- L3 badge -->
-<g transform="translate(26,490)">
-  <rect x="-14" y="-16" width="32" height="32" rx="6" fill="#2AA8CE" filter="url(#stationShadow)"/>
-  <text x="2" y="11" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle">L3</text>
-</g>
-<!-- L3 track glow -->
-<line x1="55" y1="490" x2="1145" y2="490" stroke="#2AA8CE" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
-<!-- L3 track main -->
-<line x1="55" y1="490" x2="1145" y2="490" stroke="#2AA8CE" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
-<!-- L3 track shimmer -->
-<line x1="55" y1="490" x2="1145" y2="490" stroke="#5FD3F3" stroke-width="2.5" stroke-linecap="round" opacity="0.45" stroke-dasharray="6 10"/>
-
-<!-- L3 terminus left -->
-<circle cx="70" cy="490" r="12" fill="#0C1630" stroke="#2AA8CE" stroke-width="4"/>
-<circle cx="70" cy="490" r="5" fill="#2AA8CE"/>
-
-<!-- L3 S1: CVE-2026-24858 (major station) -->
-<g filter="url(#stationShadow)">
-  <circle cx="200" cy="490" r="19" fill="#0C1630" stroke="#2AA8CE" stroke-width="4.5"/>
-  <circle cx="200" cy="490" r="10" fill="#5FD3F3"/>
-  <circle cx="200" cy="490" r="17" fill="url(#pulseCyan)" opacity="0.55">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
-  </circle>
-</g>
-<text x="200" y="514" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="900" fill="#5FD3F3" text-anchor="middle">CVE-2026-24858</text>
-<text x="200" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Fortinet SSO</text>
-<text x="200" y="465" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#3A7090" text-anchor="middle">in-the-wild</text>
-
-<!-- L3 S2: Auth Bypass -->
-<g filter="url(#stationShadow)">
-  <circle cx="400" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
-  <circle cx="400" cy="490" r="7" fill="#5FD3F3"/>
-  <circle cx="400" cy="490" r="12" fill="url(#pulseCyan)" opacity="0.7">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
-  </circle>
-</g>
-<text x="400" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">AUTH BYPASS</text>
-<text x="400" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">FortiCloud SSO</text>
-
-<!-- L3 S3: FortiGate Access -->
-<g filter="url(#stationShadow)">
-  <circle cx="620" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
-  <circle cx="620" cy="490" r="7" fill="#5FD3F3"/>
-</g>
-<text x="620" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">FORTIGATE</text>
-<text x="620" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Firewall Breach</text>
-
-<!-- L3 S4: Lateral Movement -->
-<g filter="url(#stationShadow)">
-  <circle cx="850" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
-  <circle cx="850" cy="490" r="7" fill="#5FD3F3"/>
-</g>
-<text x="850" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">LATERAL MOVE</text>
-<text x="850" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Network Pivot</text>
-
-<!-- L3 S5: Patch Critical -->
-<g filter="url(#stationShadow)">
-  <circle cx="1050" cy="490" r="14" fill="#0C1630" stroke="#2AA8CE" stroke-width="3.5"/>
-  <circle cx="1050" cy="490" r="7" fill="#5FD3F3"/>
-</g>
-<text x="1050" y="514" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#5FD3F3" text-anchor="middle">PATCH NOW</text>
-<text x="1050" y="528" font-family="Helvetica, Arial, sans-serif" font-size="9.5" fill="#4AA0C0" text-anchor="middle">Critical Fix</text>
-
-<!-- L3 terminus right -->
-<circle cx="1145" cy="490" r="12" fill="#0C1630" stroke="#2AA8CE" stroke-width="4"/>
-<circle cx="1145" cy="490" r="5" fill="#2AA8CE"/>
-
-<!-- L3 animated traveler -->
-<circle cx="70" cy="490" r="7" fill="#90E8FF" opacity="0.9">
-  <animate attributeName="cx" values="70;200;400;620;850;1050;1145;70" dur="14s" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.8s" repeatCount="indefinite"/>
-</circle>
-
-<!-- L3 label -->
-<text x="62" y="555" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#2AA8CE" font-weight="700">FORTINET CVE-2026-24858 FORTICLOUD SSO AUTH BYPASS -- CRITICAL / IN-THE-WILD</text>
-
-<!-- ===== FOOTER ===== -->
-<rect x="0" y="583" width="1200" height="47" fill="#060E1E" opacity="0.88"/>
-<rect x="0" y="583" width="1200" height="1.5" fill="#1E3060" opacity="0.9"/>
-<text x="60" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0">tech.2twodragon.com - WEEKLY SECURITY DIGEST - 2026-02-01 - AI / OPENSSL / OWASP / FORTINET</text>
-<text x="1140" y="611" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4A6AA0" text-anchor="end">L21 Metro Map</text>
-
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/ : 45x45 -->
+<g transform="translate(800,490)"><g transform="translate(-160,-50)" filter="url(#softShadow)"><ellipse cx="40" cy="6" rx="40" ry="8" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><rect x="0" y="6" width="80" height="56" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><ellipse cx="40" cy="62" rx="40" ry="8" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.6"/><ellipse cx="40" cy="22" rx="40" ry="6" fill="none" stroke="#2CCCE4" stroke-width="0.8" opacity="0.6"/><ellipse cx="40" cy="40" rx="40" ry="6" fill="none" stroke="#2CCCE4" stroke-width="0.8" opacity="0.6"/><text x="40" y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#2CCCE4">DB / S3</text><text x="40" y="98" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="#7ED4E5">PII  /  secrets</text></g><g transform="translate(80,-50)" filter="url(#softShadow)"><rect x="0" y="0" width="80" height="80" rx="8" fill="#1E0A0A" stroke="#FFB703" stroke-width="2"/><text x="40" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFD58A">ATTACKER</text><g transform="translate(20,32)" stroke="#FFD58A" stroke-width="1.6" fill="none"><circle cx="20" cy="10" r="8"/><path d="M6 32 Q20 22 34 32"/></g><text x="40" y="74" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FCA5A5">offshore relay</text></g><g stroke="#FFB703" stroke-width="1.4" stroke-dasharray="4 3" fill="none"><path d="M-80 -10 L80 -10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/></path><path d="M-80 0 L80 0"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.4s" begin="0.2s" repeatCount="indefinite"/></path><path d="M-80 10 L80 10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" begin="0.4s" repeatCount="indefinite"/></path></g><g fill="#FFD58A"><circle r="2.4"><animateMotion path="M-80 -10 L80 -10" dur="2s" repeatCount="indefinite"/></circle><circle r="2.4"><animateMotion path="M-80 0 L80 0" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></circle><circle r="2.4"><animateMotion path="M-80 10 L80 10" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle></g><text x="0" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#FFB703" letter-spacing="2">DATA EXFILTRATION</text></g>
+<g transform="translate(1094,452)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#1A1208" stroke="#FFB703" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">BYPASS</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">SSO</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">FortiCloud 0day</text></g>
+<g opacity="0.85"><g fill="#F87171"><circle cx="1104" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle></g><g fill="#7DA3D9"><circle cx="1104" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></circle><circle cx="1124" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle></g><g fill="#FFD58A"><circle cx="1104" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></circle></g><g stroke="#E63946" stroke-width="0.5" fill="none"><path d="M20 230 L28 230"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path><path d="M20 300 L28 300"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.3s" repeatCount="indefinite"/></path><path d="M20 370 L28 370"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></path><path d="M20 440 L28 440"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></path></g></g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
-  <g transform="scale(1.866667)" fill="#0A1020">
-    <path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h1v1h-1zM13 0h3v1h-3zM17 0h2v1h-2zM20 0h1v1h-1zM26 0h6v1h-6zM33 0h1v1h-1zM36 0h1v1h-1zM38 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM13 1h2v1h-2zM16 1h3v1h-3zM22 1h3v1h-3zM26 1h1v1h-1zM29 1h1v1h-1zM31 1h3v1h-3zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h7v1h-7zM17 2h1v1h-1zM19 2h2v1h-2zM22 2h3v1h-3zM26 2h1v1h-1zM28 2h1v1h-1zM30 2h2v1h-2zM33 2h1v1h-1zM35 2h1v1h-1zM38 2h1v1h-1zM40 2h3v1h-3zM44 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h2v1h-2zM16 3h1v1h-1zM19 3h3v1h-3zM24 3h2v1h-2zM28 3h1v1h-1zM30 3h2v1h-2zM35 3h2v1h-2zM38 3h1v1h-1zM40 3h3v1h-3zM44 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM11 4h1v1h-1zM15 4h1v1h-1zM20 4h5v1h-5zM26 4h5v1h-5zM33 4h4v1h-4zM38 4h1v1h-1zM40 4h3v1h-3zM44 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM17 5h1v1h-1zM19 5h2v1h-2zM24 5h2v1h-2zM27 5h6v1h-6zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h7v1h-7zM8 7h1v1h-1zM10 7h1v1h-1zM14 7h7v1h-7zM24 7h1v1h-1zM27 7h1v1h-1zM30 7h2v1h-2zM34 7h1v1h-1zM0 8h1v1h-1zM4 8h1v1h-1zM6 8h5v1h-5zM14 8h4v1h-4zM20 8h5v1h-5zM26 8h2v1h-2zM29 8h1v1h-1zM32 8h1v1h-1zM35 8h1v1h-1zM37 8h5v1h-5zM44 8h1v1h-1zM0 9h1v1h-1zM3 9h2v1h-2zM9 9h1v1h-1zM14 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h3v1h-3zM32 9h2v1h-2zM35 9h8v1h-8zM0 10h3v1h-3zM6 10h1v1h-1zM9 10h1v1h-1zM16 10h2v1h-2zM19 10h1v1h-1zM22 10h2v1h-2zM26 10h4v1h-4zM32 10h2v1h-2zM37 10h5v1h-5zM43 10h1v1h-1zM1 11h1v1h-1zM3 11h1v1h-1zM9 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM16 11h2v1h-2zM22 11h1v1h-1zM24 11h1v1h-1zM27 11h1v1h-1zM30 11h1v1h-1zM32 11h3v1h-3zM40 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h5v1h-5zM12 12h1v1h-1zM14 12h2v1h-2zM17 12h2v1h-2zM20 12h4v1h-4zM27 12h1v1h-1zM29 12h1v1h-1zM31 12h2v1h-2zM35 12h1v1h-1zM37 12h3v1h-3zM41 12h1v1h-1zM43 12h1v1h-1zM1 13h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM7 13h2v1h-2zM11 13h2v1h-2zM15 13h2v1h-2zM19 13h4v1h-4zM26 13h1v1h-1zM29 13h2v1h-2zM32 13h1v1h-1zM36 13h5v1h-5zM43 13h2v1h-2zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM12 14h2v1h-2zM16 14h1v1h-1zM21 14h1v1h-1zM26 14h1v1h-1zM28 14h2v1h-2zM36 14h5v1h-5zM42 14h2v1h-2zM0 15h5v1h-5zM8 15h2v1h-2zM13 15h2v1h-2zM18 15h2v1h-2zM23 15h2v1h-2zM28 15h1v1h-1zM31 15h4v1h-4zM36 15h2v1h-2zM39 15h2v1h-2zM43 15h2v1h-2zM1 16h1v1h-1zM5 16h2v1h-2zM8 16h1v1h-1zM11 16h3v1h-3zM15 16h4v1h-4zM27 16h1v1h-1zM30 16h6v1h-6zM37 16h3v1h-3zM0 17h1v1h-1zM2 17h1v1h-1zM4 17h2v1h-2zM12 17h3v1h-3zM16 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h4v1h-4zM33 17h1v1h-1zM35 17h2v1h-2zM38 17h4v1h-4zM43 17h1v1h-1zM0 18h1v1h-1zM2 18h2v1h-2zM5 18h3v1h-3zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h2v1h-2zM16 18h2v1h-2zM19 18h1v1h-1zM30 18h3v1h-3zM36 18h1v1h-1zM38 18h1v1h-1zM42 18h2v1h-2zM1 19h2v1h-2zM4 19h1v1h-1zM8 19h1v1h-1zM10 19h2v1h-2zM13 19h3v1h-3zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h2v1h-2zM28 19h1v1h-1zM32 19h1v1h-1zM34 19h1v1h-1zM36 19h1v1h-1zM43 19h1v1h-1zM1 20h2v1h-2zM4 20h7v1h-7zM12 20h1v1h-1zM15 20h4v1h-4zM20 20h6v1h-6zM27 20h1v1h-1zM30 20h1v1h-1zM32 20h2v1h-2zM36 20h7v1h-7zM44 20h1v1h-1zM0 21h1v1h-1zM4 21h1v1h-1zM8 21h2v1h-2zM13 21h3v1h-3zM17 21h1v1h-1zM19 21h2v1h-2zM24 21h1v1h-1zM26 21h1v1h-1zM29 21h2v1h-2zM32 21h2v1h-2zM35 21h2v1h-2zM40 21h3v1h-3zM0 22h2v1h-2zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h2v1h-2zM11 22h5v1h-5zM17 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM26 22h2v1h-2zM29 22h2v1h-2zM32 22h2v1h-2zM36 22h1v1h-1zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM0 23h2v1h-2zM4 23h1v1h-1zM8 23h1v1h-1zM11 23h2v1h-2zM14 23h1v1h-1zM19 23h2v1h-2zM24 23h2v1h-2zM30 23h1v1h-1zM34 23h3v1h-3zM40 23h1v1h-1zM43 23h2v1h-2zM1 24h2v1h-2zM4 24h6v1h-6zM12 24h3v1h-3zM16 24h1v1h-1zM18 24h7v1h-7zM27 24h1v1h-1zM29 24h1v1h-1zM32 24h2v1h-2zM35 24h7v1h-7zM43 24h2v1h-2zM0 25h1v1h-1zM2 25h1v1h-1zM5 25h1v1h-1zM9 25h3v1h-3zM13 25h2v1h-2zM17 25h2v1h-2zM20 25h1v1h-1zM22 25h3v1h-3zM26 25h1v1h-1zM29 25h2v1h-2zM32 25h2v1h-2zM36 25h3v1h-3zM42 25h2v1h-2zM0 26h4v1h-4zM6 26h1v1h-1zM14 26h2v1h-2zM17 26h1v1h-1zM20 26h2v1h-2zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM30 26h1v1h-1zM33 26h1v1h-1zM35 26h1v1h-1zM37 26h1v1h-1zM39 26h1v1h-1zM42 26h2v1h-2zM1 27h2v1h-2zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h3v1h-3zM13 27h3v1h-3zM17 27h2v1h-2zM20 27h1v1h-1zM22 27h2v1h-2zM25 27h1v1h-1zM31 27h4v1h-4zM36 27h2v1h-2zM39 27h3v1h-3zM3 28h2v1h-2zM6 28h2v1h-2zM11 28h2v1h-2zM15 28h1v1h-1zM18 28h1v1h-1zM20 28h2v1h-2zM26 28h2v1h-2zM31 28h2v1h-2zM34 28h1v1h-1zM37 28h1v1h-1zM39 28h2v1h-2zM44 28h1v1h-1zM1 29h1v1h-1zM4 29h1v1h-1zM7 29h1v1h-1zM9 29h2v1h-2zM14 29h1v1h-1zM16 29h4v1h-4zM21 29h3v1h-3zM26 29h1v1h-1zM28 29h5v1h-5zM35 29h1v1h-1zM37 29h1v1h-1zM39 29h1v1h-1zM41 29h1v1h-1zM44 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM4 30h1v1h-1zM6 30h3v1h-3zM13 30h1v1h-1zM15 30h1v1h-1zM18 30h2v1h-2zM21 30h4v1h-4zM26 30h5v1h-5zM33 30h1v1h-1zM35 30h1v1h-1zM39 30h3v1h-3zM43 30h1v1h-1zM1 31h2v1h-2zM4 31h1v1h-1zM8 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM14 31h1v1h-1zM16 31h1v1h-1zM19 31h3v1h-3zM23 31h1v1h-1zM25 31h3v1h-3zM32 31h1v1h-1zM34 31h1v1h-1zM38 31h3v1h-3zM43 31h1v1h-1zM0 32h1v1h-1zM2 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM14 32h2v1h-2zM17 32h1v1h-1zM21 32h1v1h-1zM24 32h4v1h-4zM29 32h1v1h-1zM31 32h2v1h-2zM36 32h4v1h-4zM41 32h1v1h-1zM43 32h1v1h-1zM0 33h1v1h-1zM2 33h3v1h-3zM11 33h2v1h-2zM14 33h1v1h-1zM19 33h1v1h-1zM22 33h3v1h-3zM26 33h2v1h-2zM29 33h5v1h-5zM35 33h1v1h-1zM37 33h1v1h-1zM39 33h1v1h-1zM41 33h3v1h-3zM4 34h1v1h-1zM6 34h4v1h-4zM11 34h1v1h-1zM13 34h1v1h-1zM15 34h1v1h-1zM17 34h2v1h-2zM20 34h3v1h-3zM25 34h1v1h-1zM28 34h3v1h-3zM32 34h1v1h-1zM34 34h2v1h-2zM40 34h1v1h-1zM42 34h2v1h-2zM1 35h4v1h-4zM8 35h1v1h-1zM15 35h2v1h-2zM19 35h2v1h-2zM22 35h1v1h-1zM25 35h1v1h-1zM27 35h1v1h-1zM32 35h1v1h-1zM37 35h4v1h-4zM43 35h1v1h-1zM0 36h1v1h-1zM3 36h2v1h-2zM6 36h1v1h-1zM9 36h1v1h-1zM11 36h1v1h-1zM13 36h4v1h-4zM18 36h1v1h-1zM20 36h5v1h-5zM26 36h2v1h-2zM29 36h2v1h-2zM32 36h1v1h-1zM34 36h1v1h-1zM36 36h5v1h-5zM42 36h1v1h-1zM44 36h1v1h-1zM8 37h1v1h-1zM10 37h2v1h-2zM14 37h1v1h-1zM17 37h1v1h-1zM20 37h1v1h-1zM24 37h1v1h-1zM26 37h8v1h-8zM35 37h2v1h-2zM40 37h3v1h-3zM0 38h7v1h-7zM8 38h2v1h-2zM11 38h1v1h-1zM14 38h2v1h-2zM18 38h3v1h-3zM22 38h1v1h-1zM24 38h8v1h-8zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h1v1h-1zM11 39h3v1h-3zM15 39h6v1h-6zM24 39h4v1h-4zM29 39h1v1h-1zM33 39h2v1h-2zM36 39h1v1h-1zM40 39h1v1h-1zM43 39h2v1h-2zM0 40h1v1h-1zM2 40h3v1h-3zM6 40h1v1h-1zM8 40h4v1h-4zM13 40h1v1h-1zM16 40h2v1h-2zM19 40h6v1h-6zM27 40h1v1h-1zM30 40h1v1h-1zM32 40h10v1h-10zM0 41h1v1h-1zM2 41h3v1h-3zM6 41h1v1h-1zM9 41h4v1h-4zM14 41h2v1h-2zM19 41h2v1h-2zM23 41h1v1h-1zM26 41h5v1h-5zM33 41h1v1h-1zM36 41h2v1h-2zM39 41h1v1h-1zM41 41h1v1h-1zM0 42h1v1h-1zM2 42h3v1h-3zM6 42h1v1h-1zM10 42h2v1h-2zM13 42h2v1h-2zM18 42h2v1h-2zM22 42h1v1h-1zM24 42h1v1h-1zM26 42h1v1h-1zM29 42h5v1h-5zM37 42h1v1h-1zM40 42h1v1h-1zM42 42h2v1h-2zM0 43h1v1h-1zM6 43h1v1h-1zM15 43h2v1h-2zM18 43h1v1h-1zM20 43h1v1h-1zM24 43h1v1h-1zM30 43h3v1h-3zM36 43h2v1h-2zM40 43h2v1h-2zM0 44h7v1h-7zM8 44h1v1h-1zM11 44h1v1h-1zM13 44h5v1h-5zM20 44h5v1h-5zM27 44h1v1h-1zM29 44h1v1h-1zM31 44h5v1h-5zM37 44h1v1h-1zM40 44h2v1h-2zM44 44h1v1h-1z"/>
-  </g>
+  <path fill="#0A1020" d="M0.0 0.0h13.067v1.867h-13.067z M14.933 0.0h3.733v1.867h-3.733z M20.533 0.0h1.867v1.867h-1.867z M24.267 0.0h5.6v1.867h-5.6z M31.733 0.0h3.733v1.867h-3.733z M37.333 0.0h1.867v1.867h-1.867z M48.533 0.0h11.2v1.867h-11.2z M61.6 0.0h1.867v1.867h-1.867z M67.2 0.0h1.867v1.867h-1.867z M70.933 0.0h13.067v1.867h-13.067z M0.0 1.867h1.867v1.867h-1.867z M11.2 1.867h1.867v1.867h-1.867z M24.267 1.867h3.733v1.867h-3.733z M29.867 1.867h5.6v1.867h-5.6z M41.067 1.867h5.6v1.867h-5.6z M48.533 1.867h1.867v1.867h-1.867z M54.133 1.867h1.867v1.867h-1.867z M57.867 1.867h5.6v1.867h-5.6z M65.333 1.867h1.867v1.867h-1.867z M70.933 1.867h1.867v1.867h-1.867z M82.133 1.867h1.867v1.867h-1.867z M0.0 3.733h1.867v1.867h-1.867z M3.733 3.733h5.6v1.867h-5.6z M11.2 3.733h1.867v1.867h-1.867z M16.8 3.733h13.067v1.867h-13.067z M31.733 3.733h1.867v1.867h-1.867z M35.467 3.733h3.733v1.867h-3.733z M41.067 3.733h5.6v1.867h-5.6z M48.533 3.733h1.867v1.867h-1.867z M52.267 3.733h1.867v1.867h-1.867z M56.0 3.733h3.733v1.867h-3.733z M61.6 3.733h1.867v1.867h-1.867z M65.333 3.733h1.867v1.867h-1.867z M70.933 3.733h1.867v1.867h-1.867z M74.667 3.733h5.6v1.867h-5.6z M82.133 3.733h1.867v1.867h-1.867z M0.0 5.6h1.867v1.867h-1.867z M3.733 5.6h5.6v1.867h-5.6z M11.2 5.6h1.867v1.867h-1.867z M14.933 5.6h1.867v1.867h-1.867z M22.4 5.6h3.733v1.867h-3.733z M29.867 5.6h1.867v1.867h-1.867z M35.467 5.6h5.6v1.867h-5.6z M44.8 5.6h3.733v1.867h-3.733z M52.267 5.6h1.867v1.867h-1.867z M56.0 5.6h3.733v1.867h-3.733z M65.333 5.6h3.733v1.867h-3.733z M70.933 5.6h1.867v1.867h-1.867z M74.667 5.6h5.6v1.867h-5.6z M82.133 5.6h1.867v1.867h-1.867z M0.0 7.467h1.867v1.867h-1.867z M3.733 7.467h5.6v1.867h-5.6z M11.2 7.467h1.867v1.867h-1.867z M14.933 7.467h1.867v1.867h-1.867z M20.533 7.467h1.867v1.867h-1.867z M28.0 7.467h1.867v1.867h-1.867z M37.333 7.467h9.333v1.867h-9.333z M48.533 7.467h9.333v1.867h-9.333z M61.6 7.467h7.467v1.867h-7.467z M70.933 7.467h1.867v1.867h-1.867z M74.667 7.467h5.6v1.867h-5.6z M82.133 7.467h1.867v1.867h-1.867z M0.0 9.333h1.867v1.867h-1.867z M11.2 9.333h1.867v1.867h-1.867z M14.933 9.333h3.733v1.867h-3.733z M22.4 9.333h3.733v1.867h-3.733z M28.0 9.333h1.867v1.867h-1.867z M31.733 9.333h1.867v1.867h-1.867z M35.467 9.333h3.733v1.867h-3.733z M44.8 9.333h3.733v1.867h-3.733z M50.4 9.333h11.2v1.867h-11.2z M70.933 9.333h1.867v1.867h-1.867z M82.133 9.333h1.867v1.867h-1.867z M0.0 11.2h13.067v1.867h-13.067z M14.933 11.2h1.867v1.867h-1.867z M18.667 11.2h1.867v1.867h-1.867z M22.4 11.2h1.867v1.867h-1.867z M26.133 11.2h1.867v1.867h-1.867z M29.867 11.2h1.867v1.867h-1.867z M33.6 11.2h1.867v1.867h-1.867z M37.333 11.2h1.867v1.867h-1.867z M41.067 11.2h1.867v1.867h-1.867z M44.8 11.2h1.867v1.867h-1.867z M48.533 11.2h1.867v1.867h-1.867z M52.267 11.2h1.867v1.867h-1.867z M56.0 11.2h1.867v1.867h-1.867z M59.733 11.2h1.867v1.867h-1.867z M63.467 11.2h1.867v1.867h-1.867z M67.2 11.2h1.867v1.867h-1.867z M70.933 11.2h13.067v1.867h-13.067z M14.933 13.067h1.867v1.867h-1.867z M18.667 13.067h1.867v1.867h-1.867z M26.133 13.067h13.067v1.867h-13.067z M44.8 13.067h1.867v1.867h-1.867z M50.4 13.067h1.867v1.867h-1.867z M56.0 13.067h3.733v1.867h-3.733z M63.467 13.067h1.867v1.867h-1.867z M0.0 14.933h1.867v1.867h-1.867z M7.467 14.933h1.867v1.867h-1.867z M11.2 14.933h9.333v1.867h-9.333z M26.133 14.933h7.467v1.867h-7.467z M37.333 14.933h9.333v1.867h-9.333z M48.533 14.933h3.733v1.867h-3.733z M54.133 14.933h1.867v1.867h-1.867z M59.733 14.933h1.867v1.867h-1.867z M65.333 14.933h1.867v1.867h-1.867z M69.067 14.933h9.333v1.867h-9.333z M82.133 14.933h1.867v1.867h-1.867z M0.0 16.8h1.867v1.867h-1.867z M5.6 16.8h3.733v1.867h-3.733z M16.8 16.8h1.867v1.867h-1.867z M26.133 16.8h1.867v1.867h-1.867z M33.6 16.8h1.867v1.867h-1.867z M39.2 16.8h1.867v1.867h-1.867z M44.8 16.8h1.867v1.867h-1.867z M48.533 16.8h1.867v1.867h-1.867z M52.267 16.8h5.6v1.867h-5.6z M59.733 16.8h3.733v1.867h-3.733z M65.333 16.8h14.933v1.867h-14.933z M0.0 18.667h5.6v1.867h-5.6z M11.2 18.667h1.867v1.867h-1.867z M16.8 18.667h1.867v1.867h-1.867z M29.867 18.667h3.733v1.867h-3.733z M35.467 18.667h1.867v1.867h-1.867z M41.067 18.667h3.733v1.867h-3.733z M48.533 18.667h7.467v1.867h-7.467z M59.733 18.667h3.733v1.867h-3.733z M69.067 18.667h9.333v1.867h-9.333z M80.267 18.667h1.867v1.867h-1.867z M1.867 20.533h1.867v1.867h-1.867z M5.6 20.533h1.867v1.867h-1.867z M16.8 20.533h1.867v1.867h-1.867z M22.4 20.533h1.867v1.867h-1.867z M26.133 20.533h1.867v1.867h-1.867z M29.867 20.533h3.733v1.867h-3.733z M41.067 20.533h1.867v1.867h-1.867z M44.8 20.533h1.867v1.867h-1.867z M50.4 20.533h1.867v1.867h-1.867z M56.0 20.533h1.867v1.867h-1.867z M59.733 20.533h5.6v1.867h-5.6z M74.667 20.533h1.867v1.867h-1.867z M0.0 22.4h1.867v1.867h-1.867z M3.733 22.4h1.867v1.867h-1.867z M7.467 22.4h1.867v1.867h-1.867z M11.2 22.4h9.333v1.867h-9.333z M22.4 22.4h1.867v1.867h-1.867z M26.133 22.4h3.733v1.867h-3.733z M31.733 22.4h3.733v1.867h-3.733z M37.333 22.4h7.467v1.867h-7.467z M50.4 22.4h1.867v1.867h-1.867z M54.133 22.4h1.867v1.867h-1.867z M57.867 22.4h3.733v1.867h-3.733z M65.333 22.4h1.867v1.867h-1.867z M69.067 22.4h5.6v1.867h-5.6z M76.533 22.4h1.867v1.867h-1.867z M80.267 22.4h1.867v1.867h-1.867z M1.867 24.267h1.867v1.867h-1.867z M5.6 24.267h1.867v1.867h-1.867z M9.333 24.267h1.867v1.867h-1.867z M13.067 24.267h3.733v1.867h-3.733z M20.533 24.267h3.733v1.867h-3.733z M28.0 24.267h3.733v1.867h-3.733z M35.467 24.267h7.467v1.867h-7.467z M48.533 24.267h1.867v1.867h-1.867z M54.133 24.267h3.733v1.867h-3.733z M59.733 24.267h1.867v1.867h-1.867z M67.2 24.267h9.333v1.867h-9.333z M80.267 24.267h3.733v1.867h-3.733z M0.0 26.133h1.867v1.867h-1.867z M3.733 26.133h1.867v1.867h-1.867z M11.2 26.133h1.867v1.867h-1.867z M16.8 26.133h1.867v1.867h-1.867z M22.4 26.133h3.733v1.867h-3.733z M29.867 26.133h1.867v1.867h-1.867z M39.2 26.133h1.867v1.867h-1.867z M48.533 26.133h1.867v1.867h-1.867z M52.267 26.133h3.733v1.867h-3.733z M67.2 26.133h9.333v1.867h-9.333z M78.4 26.133h3.733v1.867h-3.733z M0.0 28.0h9.333v1.867h-9.333z M14.933 28.0h3.733v1.867h-3.733z M24.267 28.0h3.733v1.867h-3.733z M33.6 28.0h3.733v1.867h-3.733z M42.933 28.0h3.733v1.867h-3.733z M52.267 28.0h1.867v1.867h-1.867z M57.867 28.0h7.467v1.867h-7.467z M67.2 28.0h3.733v1.867h-3.733z M72.8 28.0h3.733v1.867h-3.733z M80.267 28.0h3.733v1.867h-3.733z M1.867 29.867h1.867v1.867h-1.867z M9.333 29.867h3.733v1.867h-3.733z M14.933 29.867h1.867v1.867h-1.867z M20.533 29.867h5.6v1.867h-5.6z M28.0 29.867h7.467v1.867h-7.467z M50.4 29.867h1.867v1.867h-1.867z M56.0 29.867h11.2v1.867h-11.2z M69.067 29.867h5.6v1.867h-5.6z M0.0 31.733h1.867v1.867h-1.867z M3.733 31.733h1.867v1.867h-1.867z M7.467 31.733h3.733v1.867h-3.733z M22.4 31.733h5.6v1.867h-5.6z M29.867 31.733h1.867v1.867h-1.867z M42.933 31.733h1.867v1.867h-1.867z M48.533 31.733h1.867v1.867h-1.867z M52.267 31.733h7.467v1.867h-7.467z M61.6 31.733h1.867v1.867h-1.867z M65.333 31.733h3.733v1.867h-3.733z M70.933 31.733h7.467v1.867h-7.467z M80.267 31.733h1.867v1.867h-1.867z M0.0 33.6h1.867v1.867h-1.867z M3.733 33.6h3.733v1.867h-3.733z M9.333 33.6h5.6v1.867h-5.6z M16.8 33.6h1.867v1.867h-1.867z M20.533 33.6h1.867v1.867h-1.867z M24.267 33.6h3.733v1.867h-3.733z M29.867 33.6h3.733v1.867h-3.733z M35.467 33.6h1.867v1.867h-1.867z M56.0 33.6h5.6v1.867h-5.6z M67.2 33.6h1.867v1.867h-1.867z M70.933 33.6h1.867v1.867h-1.867z M78.4 33.6h3.733v1.867h-3.733z M1.867 35.467h3.733v1.867h-3.733z M7.467 35.467h1.867v1.867h-1.867z M14.933 35.467h1.867v1.867h-1.867z M18.667 35.467h3.733v1.867h-3.733z M24.267 35.467h5.6v1.867h-5.6z M35.467 35.467h1.867v1.867h-1.867z M41.067 35.467h1.867v1.867h-1.867z M46.667 35.467h3.733v1.867h-3.733z M52.267 35.467h1.867v1.867h-1.867z M59.733 35.467h1.867v1.867h-1.867z M63.467 35.467h1.867v1.867h-1.867z M67.2 35.467h1.867v1.867h-1.867z M80.267 35.467h1.867v1.867h-1.867z M1.867 37.333h3.733v1.867h-3.733z M7.467 37.333h13.067v1.867h-13.067z M22.4 37.333h1.867v1.867h-1.867z M28.0 37.333h7.467v1.867h-7.467z M37.333 37.333h11.2v1.867h-11.2z M50.4 37.333h1.867v1.867h-1.867z M56.0 37.333h1.867v1.867h-1.867z M59.733 37.333h3.733v1.867h-3.733z M67.2 37.333h13.067v1.867h-13.067z M82.133 37.333h1.867v1.867h-1.867z M0.0 39.2h1.867v1.867h-1.867z M7.467 39.2h1.867v1.867h-1.867z M14.933 39.2h3.733v1.867h-3.733z M24.267 39.2h5.6v1.867h-5.6z M31.733 39.2h1.867v1.867h-1.867z M35.467 39.2h3.733v1.867h-3.733z M44.8 39.2h1.867v1.867h-1.867z M48.533 39.2h1.867v1.867h-1.867z M54.133 39.2h3.733v1.867h-3.733z M59.733 39.2h3.733v1.867h-3.733z M65.333 39.2h3.733v1.867h-3.733z M74.667 39.2h5.6v1.867h-5.6z M0.0 41.067h3.733v1.867h-3.733z M7.467 41.067h1.867v1.867h-1.867z M11.2 41.067h1.867v1.867h-1.867z M14.933 41.067h3.733v1.867h-3.733z M20.533 41.067h9.333v1.867h-9.333z M31.733 41.067h1.867v1.867h-1.867z M37.333 41.067h1.867v1.867h-1.867z M41.067 41.067h1.867v1.867h-1.867z M44.8 41.067h1.867v1.867h-1.867z M48.533 41.067h3.733v1.867h-3.733z M54.133 41.067h3.733v1.867h-3.733z M59.733 41.067h3.733v1.867h-3.733z M67.2 41.067h1.867v1.867h-1.867z M70.933 41.067h1.867v1.867h-1.867z M74.667 41.067h3.733v1.867h-3.733z M80.267 41.067h1.867v1.867h-1.867z M0.0 42.933h3.733v1.867h-3.733z M7.467 42.933h1.867v1.867h-1.867z M14.933 42.933h1.867v1.867h-1.867z M20.533 42.933h3.733v1.867h-3.733z M26.133 42.933h1.867v1.867h-1.867z M35.467 42.933h3.733v1.867h-3.733z M44.8 42.933h3.733v1.867h-3.733z M56.0 42.933h1.867v1.867h-1.867z M63.467 42.933h5.6v1.867h-5.6z M74.667 42.933h1.867v1.867h-1.867z M80.267 42.933h3.733v1.867h-3.733z M1.867 44.8h3.733v1.867h-3.733z M7.467 44.8h11.2v1.867h-11.2z M22.4 44.8h5.6v1.867h-5.6z M29.867 44.8h1.867v1.867h-1.867z M33.6 44.8h13.067v1.867h-13.067z M50.4 44.8h1.867v1.867h-1.867z M54.133 44.8h1.867v1.867h-1.867z M59.733 44.8h3.733v1.867h-3.733z M65.333 44.8h13.067v1.867h-13.067z M80.267 44.8h3.733v1.867h-3.733z M0.0 46.667h1.867v1.867h-1.867z M3.733 46.667h1.867v1.867h-1.867z M9.333 46.667h1.867v1.867h-1.867z M16.8 46.667h5.6v1.867h-5.6z M24.267 46.667h3.733v1.867h-3.733z M31.733 46.667h3.733v1.867h-3.733z M37.333 46.667h1.867v1.867h-1.867z M41.067 46.667h5.6v1.867h-5.6z M48.533 46.667h1.867v1.867h-1.867z M54.133 46.667h3.733v1.867h-3.733z M59.733 46.667h3.733v1.867h-3.733z M67.2 46.667h5.6v1.867h-5.6z M78.4 46.667h3.733v1.867h-3.733z M0.0 48.533h7.467v1.867h-7.467z M11.2 48.533h1.867v1.867h-1.867z M26.133 48.533h3.733v1.867h-3.733z M31.733 48.533h1.867v1.867h-1.867z M37.333 48.533h3.733v1.867h-3.733z M42.933 48.533h3.733v1.867h-3.733z M48.533 48.533h1.867v1.867h-1.867z M52.267 48.533h1.867v1.867h-1.867z M56.0 48.533h1.867v1.867h-1.867z M61.6 48.533h1.867v1.867h-1.867z M65.333 48.533h1.867v1.867h-1.867z M69.067 48.533h1.867v1.867h-1.867z M72.8 48.533h1.867v1.867h-1.867z M78.4 48.533h3.733v1.867h-3.733z M1.867 50.4h3.733v1.867h-3.733z M7.467 50.4h1.867v1.867h-1.867z M13.067 50.4h1.867v1.867h-1.867z M16.8 50.4h5.6v1.867h-5.6z M24.267 50.4h5.6v1.867h-5.6z M31.733 50.4h3.733v1.867h-3.733z M37.333 50.4h1.867v1.867h-1.867z M41.067 50.4h3.733v1.867h-3.733z M46.667 50.4h1.867v1.867h-1.867z M57.867 50.4h7.467v1.867h-7.467z M67.2 50.4h3.733v1.867h-3.733z M72.8 50.4h5.6v1.867h-5.6z M5.6 52.267h3.733v1.867h-3.733z M11.2 52.267h3.733v1.867h-3.733z M20.533 52.267h3.733v1.867h-3.733z M28.0 52.267h1.867v1.867h-1.867z M33.6 52.267h1.867v1.867h-1.867z M37.333 52.267h3.733v1.867h-3.733z M48.533 52.267h3.733v1.867h-3.733z M57.867 52.267h3.733v1.867h-3.733z M63.467 52.267h1.867v1.867h-1.867z M69.067 52.267h1.867v1.867h-1.867z M72.8 52.267h3.733v1.867h-3.733z M82.133 52.267h1.867v1.867h-1.867z M1.867 54.133h1.867v1.867h-1.867z M7.467 54.133h1.867v1.867h-1.867z M13.067 54.133h1.867v1.867h-1.867z M16.8 54.133h3.733v1.867h-3.733z M26.133 54.133h1.867v1.867h-1.867z M29.867 54.133h7.467v1.867h-7.467z M39.2 54.133h5.6v1.867h-5.6z M48.533 54.133h1.867v1.867h-1.867z M52.267 54.133h9.333v1.867h-9.333z M65.333 54.133h1.867v1.867h-1.867z M69.067 54.133h1.867v1.867h-1.867z M72.8 54.133h1.867v1.867h-1.867z M76.533 54.133h1.867v1.867h-1.867z M82.133 54.133h1.867v1.867h-1.867z M0.0 56.0h1.867v1.867h-1.867z M3.733 56.0h1.867v1.867h-1.867z M7.467 56.0h1.867v1.867h-1.867z M11.2 56.0h5.6v1.867h-5.6z M24.267 56.0h1.867v1.867h-1.867z M28.0 56.0h1.867v1.867h-1.867z M33.6 56.0h3.733v1.867h-3.733z M39.2 56.0h7.467v1.867h-7.467z M48.533 56.0h9.333v1.867h-9.333z M61.6 56.0h1.867v1.867h-1.867z M65.333 56.0h1.867v1.867h-1.867z M72.8 56.0h5.6v1.867h-5.6z M80.267 56.0h1.867v1.867h-1.867z M1.867 57.867h3.733v1.867h-3.733z M7.467 57.867h1.867v1.867h-1.867z M14.933 57.867h1.867v1.867h-1.867z M18.667 57.867h1.867v1.867h-1.867z M22.4 57.867h1.867v1.867h-1.867z M26.133 57.867h1.867v1.867h-1.867z M29.867 57.867h1.867v1.867h-1.867z M35.467 57.867h5.6v1.867h-5.6z M42.933 57.867h1.867v1.867h-1.867z M46.667 57.867h5.6v1.867h-5.6z M59.733 57.867h1.867v1.867h-1.867z M63.467 57.867h1.867v1.867h-1.867z M70.933 57.867h5.6v1.867h-5.6z M80.267 57.867h1.867v1.867h-1.867z M0.0 59.733h1.867v1.867h-1.867z M3.733 59.733h1.867v1.867h-1.867z M11.2 59.733h1.867v1.867h-1.867z M14.933 59.733h1.867v1.867h-1.867z M26.133 59.733h3.733v1.867h-3.733z M31.733 59.733h1.867v1.867h-1.867z M39.2 59.733h1.867v1.867h-1.867z M44.8 59.733h7.467v1.867h-7.467z M54.133 59.733h1.867v1.867h-1.867z M57.867 59.733h3.733v1.867h-3.733z M67.2 59.733h7.467v1.867h-7.467z M76.533 59.733h1.867v1.867h-1.867z M80.267 59.733h1.867v1.867h-1.867z M0.0 61.6h1.867v1.867h-1.867z M3.733 61.6h5.6v1.867h-5.6z M20.533 61.6h3.733v1.867h-3.733z M26.133 61.6h1.867v1.867h-1.867z M35.467 61.6h1.867v1.867h-1.867z M41.067 61.6h5.6v1.867h-5.6z M48.533 61.6h3.733v1.867h-3.733z M54.133 61.6h9.333v1.867h-9.333z M65.333 61.6h1.867v1.867h-1.867z M69.067 61.6h1.867v1.867h-1.867z M72.8 61.6h1.867v1.867h-1.867z M76.533 61.6h5.6v1.867h-5.6z M7.467 63.467h1.867v1.867h-1.867z M11.2 63.467h7.467v1.867h-7.467z M20.533 63.467h1.867v1.867h-1.867z M24.267 63.467h1.867v1.867h-1.867z M28.0 63.467h1.867v1.867h-1.867z M31.733 63.467h3.733v1.867h-3.733z M37.333 63.467h5.6v1.867h-5.6z M46.667 63.467h1.867v1.867h-1.867z M52.267 63.467h5.6v1.867h-5.6z M59.733 63.467h1.867v1.867h-1.867z M63.467 63.467h3.733v1.867h-3.733z M74.667 63.467h1.867v1.867h-1.867z M78.4 63.467h3.733v1.867h-3.733z M1.867 65.333h7.467v1.867h-7.467z M14.933 65.333h1.867v1.867h-1.867z M28.0 65.333h3.733v1.867h-3.733z M35.467 65.333h3.733v1.867h-3.733z M41.067 65.333h1.867v1.867h-1.867z M46.667 65.333h1.867v1.867h-1.867z M50.4 65.333h1.867v1.867h-1.867z M59.733 65.333h1.867v1.867h-1.867z M69.067 65.333h7.467v1.867h-7.467z M80.267 65.333h1.867v1.867h-1.867z M0.0 67.2h1.867v1.867h-1.867z M5.6 67.2h3.733v1.867h-3.733z M11.2 67.2h1.867v1.867h-1.867z M16.8 67.2h1.867v1.867h-1.867z M20.533 67.2h1.867v1.867h-1.867z M24.267 67.2h7.467v1.867h-7.467z M33.6 67.2h1.867v1.867h-1.867z M37.333 67.2h9.333v1.867h-9.333z M48.533 67.2h3.733v1.867h-3.733z M54.133 67.2h3.733v1.867h-3.733z M59.733 67.2h1.867v1.867h-1.867z M63.467 67.2h1.867v1.867h-1.867z M67.2 67.2h9.333v1.867h-9.333z M78.4 67.2h1.867v1.867h-1.867z M82.133 67.2h1.867v1.867h-1.867z M14.933 69.067h1.867v1.867h-1.867z M18.667 69.067h3.733v1.867h-3.733z M26.133 69.067h1.867v1.867h-1.867z M31.733 69.067h1.867v1.867h-1.867z M37.333 69.067h1.867v1.867h-1.867z M44.8 69.067h1.867v1.867h-1.867z M48.533 69.067h14.933v1.867h-14.933z M65.333 69.067h3.733v1.867h-3.733z M74.667 69.067h5.6v1.867h-5.6z M0.0 70.933h13.067v1.867h-13.067z M14.933 70.933h3.733v1.867h-3.733z M20.533 70.933h1.867v1.867h-1.867z M26.133 70.933h3.733v1.867h-3.733z M33.6 70.933h5.6v1.867h-5.6z M41.067 70.933h1.867v1.867h-1.867z M44.8 70.933h14.933v1.867h-14.933z M67.2 70.933h1.867v1.867h-1.867z M70.933 70.933h1.867v1.867h-1.867z M74.667 70.933h3.733v1.867h-3.733z M80.267 70.933h1.867v1.867h-1.867z M0.0 72.8h1.867v1.867h-1.867z M11.2 72.8h1.867v1.867h-1.867z M16.8 72.8h1.867v1.867h-1.867z M20.533 72.8h5.6v1.867h-5.6z M28.0 72.8h11.2v1.867h-11.2z M44.8 72.8h7.467v1.867h-7.467z M54.133 72.8h1.867v1.867h-1.867z M61.6 72.8h3.733v1.867h-3.733z M67.2 72.8h1.867v1.867h-1.867z M74.667 72.8h1.867v1.867h-1.867z M80.267 72.8h3.733v1.867h-3.733z M0.0 74.667h1.867v1.867h-1.867z M3.733 74.667h5.6v1.867h-5.6z M11.2 74.667h1.867v1.867h-1.867z M14.933 74.667h7.467v1.867h-7.467z M24.267 74.667h1.867v1.867h-1.867z M29.867 74.667h3.733v1.867h-3.733z M35.467 74.667h11.2v1.867h-11.2z M50.4 74.667h1.867v1.867h-1.867z M56.0 74.667h1.867v1.867h-1.867z M59.733 74.667h18.667v1.867h-18.667z M0.0 76.533h1.867v1.867h-1.867z M3.733 76.533h5.6v1.867h-5.6z M11.2 76.533h1.867v1.867h-1.867z M16.8 76.533h7.467v1.867h-7.467z M26.133 76.533h3.733v1.867h-3.733z M35.467 76.533h3.733v1.867h-3.733z M42.933 76.533h1.867v1.867h-1.867z M48.533 76.533h9.333v1.867h-9.333z M61.6 76.533h1.867v1.867h-1.867z M67.2 76.533h3.733v1.867h-3.733z M72.8 76.533h1.867v1.867h-1.867z M76.533 76.533h1.867v1.867h-1.867z M0.0 78.4h1.867v1.867h-1.867z M3.733 78.4h5.6v1.867h-5.6z M11.2 78.4h1.867v1.867h-1.867z M18.667 78.4h3.733v1.867h-3.733z M24.267 78.4h3.733v1.867h-3.733z M33.6 78.4h3.733v1.867h-3.733z M41.067 78.4h1.867v1.867h-1.867z M44.8 78.4h1.867v1.867h-1.867z M48.533 78.4h1.867v1.867h-1.867z M54.133 78.4h9.333v1.867h-9.333z M69.067 78.4h1.867v1.867h-1.867z M74.667 78.4h1.867v1.867h-1.867z M78.4 78.4h3.733v1.867h-3.733z M0.0 80.267h1.867v1.867h-1.867z M11.2 80.267h1.867v1.867h-1.867z M28.0 80.267h3.733v1.867h-3.733z M33.6 80.267h1.867v1.867h-1.867z M37.333 80.267h1.867v1.867h-1.867z M44.8 80.267h1.867v1.867h-1.867z M56.0 80.267h5.6v1.867h-5.6z M67.2 80.267h3.733v1.867h-3.733z M74.667 80.267h3.733v1.867h-3.733z M0.0 82.133h13.067v1.867h-13.067z M14.933 82.133h1.867v1.867h-1.867z M20.533 82.133h1.867v1.867h-1.867z M24.267 82.133h9.333v1.867h-9.333z M37.333 82.133h9.333v1.867h-9.333z M50.4 82.133h1.867v1.867h-1.867z M54.133 82.133h1.867v1.867h-1.867z M57.867 82.133h9.333v1.867h-9.333z M69.067 82.133h1.867v1.867h-1.867z M74.667 82.133h3.733v1.867h-3.733z M82.133 82.133h1.867v1.867h-1.867z"/>
 </g>
 <text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>
 </svg>
