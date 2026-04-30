@@ -149,6 +149,11 @@
     }
 
     var load = function () {
+      if (window.__adsenseLoadInitiated) {
+        return;
+      }
+      window.__adsenseLoadInitiated = true;
+
       try {
         window.adsbygoogle = window.adsbygoogle || [];
         window.adsbygoogle.pauseAdRequests = 0;
@@ -180,7 +185,44 @@
       }
     };
 
-    if ('requestIdleCallback' in window) {
+    function installIntersectionObserver(el) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          io.disconnect();
+          load();
+        }
+      }, { rootMargin: '200px 0px' });
+      io.observe(el);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var slot = document.querySelector('.adsbygoogle');
+      if (slot) {
+        // Slot already in DOM — observe it directly.
+        installIntersectionObserver(slot);
+      } else {
+        // Slot not yet in DOM — watch for its insertion, bail after 30 s.
+        var mutationTimeout = setTimeout(function () {
+          mo.disconnect();
+          // No slot appeared within 30 s; fall back to idle / load event.
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(load, { timeout: 5000 });
+          } else {
+            window.addEventListener('load', load, { once: true });
+          }
+        }, 30000);
+
+        var mo = new MutationObserver(function () {
+          var found = document.querySelector('.adsbygoogle');
+          if (found) {
+            mo.disconnect();
+            clearTimeout(mutationTimeout);
+            installIntersectionObserver(found);
+          }
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
+      }
+    } else if ('requestIdleCallback' in window) {
       requestIdleCallback(load, { timeout: 5000 });
     } else {
       window.addEventListener('load', load, { once: true });
