@@ -1061,11 +1061,24 @@ def render_bands_svg(
     bands_svg = "\n".join(body_parts)
     deco = deco_layer(t0, t1, t2, tier=tier)
 
+    # Per-band ambient-glow circles (ultra tier only) — reuse existing glowA/B/C{sfx} radialGradients.
+    # Positioned upper-left of each band (y centers: 120, 330, 540) so glow sits behind band content.
+    ambient_glow = ""
+    if tier == "ultra":
+        ambient_glow = (
+            f'<g opacity="1">\n'
+            f'  <circle cx="200" cy="120" r="180" fill="url(#glowA{sfx})" opacity="0.22"/>\n'
+            f'  <circle cx="200" cy="330" r="180" fill="url(#glowB{sfx})" opacity="0.22"/>\n'
+            f'  <circle cx="200" cy="540" r="180" fill="url(#glowC{sfx})" opacity="0.22"/>\n'
+            f'</g>'
+        )
+
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="{aria}">
 <title>{title}</title>
 {defs}
 <rect width="1200" height="630" fill="url(#bgSpread{sfx})"/>
 {bands_svg}
+{ambient_glow}
 {deco}
 {qr_block(url)}
 </svg>'''
