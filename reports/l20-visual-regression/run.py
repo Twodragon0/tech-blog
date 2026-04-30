@@ -18,8 +18,9 @@ import datetime
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# PIL
-from PIL import Image
+# PIL is required only for the rendering path (compute_phash). The gate-logic
+# helpers (check_strict_gate, parse_args, categorize) are pure and import-safe
+# without PIL, so we lazy-import inside compute_phash.
 import io
 
 # --- Config ---
@@ -88,8 +89,9 @@ def render_svg_to_png(svg_path: Path, png_path: Path) -> str | None:
         return str(e)
 
 
-def compute_phash(img: Image.Image) -> int:
+def compute_phash(img: "Image.Image") -> int:
     """8x8 perceptual hash: resize to 8x8 grayscale, compare each pixel to mean."""
+    from PIL import Image  # lazy import — keeps gate-logic tests import-safe
     small = img.convert("L").resize((8, 8), Image.LANCZOS)
     pixels = list(small.getdata())
     mean = sum(pixels) / len(pixels)
@@ -110,6 +112,7 @@ def phash_hex(h: int) -> str:
 
 def analyze_png(png_path: Path) -> dict:
     """Compute metrics from a rendered PNG."""
+    from PIL import Image  # lazy import — only the rendering path needs PIL
     data = png_path.read_bytes()
     sha256 = hashlib.sha256(data).hexdigest()
     size_kb = len(data) / 1024
