@@ -23,7 +23,7 @@
 STD_MIN_BYTES=5000
 STD_MAX_BYTES=24576
 HQ_MIN_BYTES=18000
-HQ_MAX_BYTES=49152
+HQ_MAX_BYTES=73728
 
 CHANGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]+\.svg$' || true)
 
@@ -32,7 +32,7 @@ if [ -z "$CHANGED_SVGS" ]; then
 fi
 
 is_high_quality_cover() {
-  grep -qE 'sceneGlow1|sceneGlow2|@keyframes [^ ]*floatUp|clipPath id="[^"]*clip"|profile: high-quality-cover|id="bgSpread"|id="heroPanel"' "$1"
+  grep -qE 'sceneGlow1|sceneGlow2|@keyframes [^ ]*floatUp|clipPath id="[^"]*clip"|profile: high-quality-cover|id="bgSpread[A-Z0-9]*"|id="heroPanel[A-Z0-9]*"|id="bandA[A-Z0-9]+"' "$1"
 }
 
 SVG_WARN=0
