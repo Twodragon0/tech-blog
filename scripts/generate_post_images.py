@@ -30,6 +30,15 @@ from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
 from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text, is_valid_svg as _is_valid_svg
 
+try:
+    from scripts.news.l20_dispatch import (
+        L20_HERO_ENABLED,
+        generate_l20_digest_svg as _generate_l20_digest_svg,
+    )
+except Exception:
+    L20_HERO_ENABLED = False
+    _generate_l20_digest_svg = None
+
 _SANITIZE_WARNED = False
 
 
@@ -2431,8 +2440,19 @@ def process_post(
         output_path = IMAGES_DIR / Path(image_path).name
         output_path.parent.mkdir(parents=True, exist_ok=True)
         if _is_digest_post(post_info):
-            log_message("🎨 L22 Digest SVG (--svg-only) 생성 시도...", "INFO")
-            ok = generate_l22_digest_svg(post_info, output_path)
+            if L20_HERO_ENABLED and _generate_l20_digest_svg is not None:
+                log_message("🎨 L20 Digest SVG (--svg-only) 생성 시도...", "INFO")
+                try:
+                    ok = _generate_l20_digest_svg(post_info, output_path)
+                except Exception as _exc:
+                    log_message(f"⚠️ L20 Digest SVG 실패, L22로 폴백: {_exc}", "WARNING")
+                    ok = False
+                if not ok:
+                    log_message("🎨 L22 Digest SVG (--svg-only 폴백) 생성 시도...", "INFO")
+                    ok = generate_l22_digest_svg(post_info, output_path)
+            else:
+                log_message("🎨 L22 Digest SVG (--svg-only) 생성 시도...", "INFO")
+                ok = generate_l22_digest_svg(post_info, output_path)
         else:
             log_message("🎨 SVG 폴백 (--svg-only) 생성 시도...", "INFO")
             ok = generate_fallback_svg(post_info, output_path)
@@ -2474,12 +2494,18 @@ def process_post(
         image_generated = generate_image_with_gemini(prompt, output_path)
 
     if not image_generated:
-        # Weekly digest posts route through the L22 stacked-bands generator
-        # first (content-driven covers), then fall through to the legacy
-        # threat-signal-map digest SVG, then to the generic fallback.
+        # Weekly digest posts: L20 (if enabled) → L22 → legacy digest → fallback.
         if _is_digest_post(post_info):
-            log_message("🎨 L22 Digest SVG 이미지 생성 시도...", "INFO")
-            image_generated = generate_l22_digest_svg(post_info, output_path)
+            if L20_HERO_ENABLED and _generate_l20_digest_svg is not None:
+                log_message("🎨 L20 Digest SVG 이미지 생성 시도...", "INFO")
+                try:
+                    image_generated = _generate_l20_digest_svg(post_info, output_path)
+                except Exception as _exc:
+                    log_message(f"⚠️ L20 Digest SVG 실패, L22로 폴백: {_exc}", "WARNING")
+                    image_generated = False
+            if not image_generated:
+                log_message("🎨 L22 Digest SVG 이미지 생성 시도...", "INFO")
+                image_generated = generate_l22_digest_svg(post_info, output_path)
             if not image_generated:
                 log_message("🎨 Digest SVG 이미지 생성 시도...", "INFO")
                 image_generated = generate_digest_svg(post_info, output_path)
