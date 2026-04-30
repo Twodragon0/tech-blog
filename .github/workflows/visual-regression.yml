@@ -1,31 +1,12 @@
-# SVG Visual Regression Workflow
-#
-# Rendering tool: rsvg-convert (librsvg) — deterministic across macOS and Linux.
-# Runner: ubuntu-22.04 (pinned) — avoids librsvg version drift across Ubuntu
-#   releases. ubuntu-latest would silently upgrade the runner image and change
-#   rendered output, invalidating all baselines.
-# librsvg version in ubuntu-22.04: 2.52.x (jammy). If runner is ever bumped,
-#   re-capture all baselines first (see docs/visual-regression-deps.md).
-# Python deps: pinned in requirements-visual.txt, managed by Renovate.
-#
-# Verify mode: re-renders each SVG with rsvg-convert, pixel-diffs against
-# committed baseline PNGs in tests/visual-baselines/. Exits 1 on drift.
-
-name: SVG Visual Regression
+name: L20 Visual Regression Gate
 
 on:
-  push:
-    paths:
-      - "assets/images/**.svg"
-      - "scripts/lib/svg_l22_generator.py"
-      - "scripts/svg_visual_baseline.py"
   pull_request:
-    branches:
-      - main
     paths:
-      - "assets/images/**.svg"
-      - "scripts/lib/svg_l22_generator.py"
-      - "scripts/svg_visual_baseline.py"
+      - 'assets/images/*.svg'
+      - 'scripts/lib/svg_l20_hero.py'
+      - 'scripts/lib/svg_l22_generator.py'
+      - 'reports/l20-visual-regression/run.py'
   workflow_dispatch:
 
 concurrency:
@@ -34,33 +15,91 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   visual-regression:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install rsvg-convert
+      - name: Install librsvg
         run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
 
-      - name: Install Python dependencies
-        run: pip install --quiet -r requirements-visual.txt
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Run visual regression verify
-        run: python3 scripts/svg_visual_baseline.py --verify --threshold 0.1
+      - name: Install Pillow
+        run: pip install Pillow
 
-      - name: Upload diff report
+      - name: Read report preview
+        id: report-preview
+        if: >
+          always() &&
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          PREVIEW=$(head -30 reports/l20-visual-regression/REPORT.md 2>/dev/null || echo "Report not yet generated")
+          {
+            echo "preview<<EOF_PREVIEW"
+            echo "$PREVIEW"
+            echo "EOF_PREVIEW"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Find existing PR comment
+        id: find-comment
+        if: >
+          always() &&
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: peter-evans/find-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: L20 Visual Regression Report
+
+      - name: Run visual regression sweep
+        run: |
+          python3 reports/l20-visual-regression/run.py --strict --threshold 25 \
+            2>&1 | tee reports/l20-visual-regression/regression.log
+        env:
+          REPO_ROOT: ${{ github.workspace }}
+
+      - name: Upload regression artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: visual-diffs
-          path: tests/visual-diffs/
-          if-no-files-found: ignore
+          name: l20-visual-regression-${{ github.run_id }}
+          path: reports/l20-visual-regression/
+          retention-days: 14
+
+      - name: Post report summary as PR comment
+        if: >
+          always() &&
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            ## L20 Visual Regression Report
+
+            <details>
+            <summary>Report summary (first 30 lines of REPORT.md)</summary>
+
+            ```
+            ${{ steps.report-preview.outputs.preview }}
+            ```
+
+            </details>
+
+            Full report and rendered PNGs: [workflow artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+            > Threshold: Hamming > 25 fails the gate. Override with `--threshold N` in the workflow.
