@@ -111,35 +111,62 @@
     }
   }
 
+  /**
+   * Lazy-loads Google Analytics on the first user interaction, with a 10-12s
+   * idle safety-net fallback. Rationale:
+   *   - Bots and bouncers (no interaction within 10s) skip GA entirely,
+   *     reducing main-thread cost (152 KB transfer + 1374ms eval per
+   *     PageSpeed report) AND noise in analytics data.
+   *   - Real readers trigger pointermove / scroll / keydown / touchstart /
+   *     click within seconds, so the page_view event still fires.
+   *   - {capture: true, passive: true} ensures we never block scroll
+   *     responsiveness while waiting.
+   *   - The single __gaLoadInitiated guard ensures exactly one fetch.
+   */
   function loadGoogleAnalytics() {
-    if (!gaId) {
-      return;
-    }
+    if (!gaId) return;
+    if (window.__gaLoadInitiated) return;
 
     var load = function () {
+      if (window.__gaLoadInitiated) return;
+      window.__gaLoadInitiated = true;
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
       script.onload = function () {
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
-
+        function gtag() { window.dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', gaId, { send_page_view: false });
         gtag('event', 'page_view', {
           page_path: window.location.pathname + window.location.search,
         });
       };
-
       document.head.appendChild(script);
     };
 
+    // First-interaction trigger (pointermove/scroll/keydown/touchstart) - whichever fires first
+    var INTERACTION_EVENTS = ['pointermove', 'scroll', 'keydown', 'touchstart', 'click'];
+    var fired = false;
+    var loadOnce = function () {
+      if (fired) return;
+      fired = true;
+      INTERACTION_EVENTS.forEach(function (ev) {
+        window.removeEventListener(ev, loadOnce, { passive: true, capture: true });
+      });
+      load();
+    };
+    INTERACTION_EVENTS.forEach(function (ev) {
+      window.addEventListener(ev, loadOnce, { passive: true, capture: true });
+    });
+
+    // Safety net: load after 10s of inactivity so GA still captures non-bouncing
+    // pageviews where the user reads without scrolling.
+    var idleFallback = function () { loadOnce(); };
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(load, { timeout: 3000 });
+      requestIdleCallback(function () { setTimeout(idleFallback, 10000); }, { timeout: 5000 });
     } else {
-      window.addEventListener('load', load, { once: true });
+      setTimeout(idleFallback, 12000);
     }
   }
 
