@@ -286,6 +286,11 @@
   </g>
   
 </g>
+<g opacity="1">
+  <circle cx="200" cy="120" r="180" fill="url(#glowAAP27)" opacity="0.22"/>
+  <circle cx="200" cy="330" r="180" fill="url(#glowBAP27)" opacity="0.22"/>
+  <circle cx="200" cy="540" r="180" fill="url(#glowCAP27)" opacity="0.22"/>
+</g>
 <g opacity="0.9">
   <g fill="#E63946">
     <circle cx="240" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
