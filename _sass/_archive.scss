@@ -533,8 +533,10 @@
 }
 
 [data-theme="dark"] .tab-count {
-  background: var(--color-bg-tertiary);
-  color: var(--color-text-tertiary);
+  /* WCAG AA: dark-theme override matching the light-theme contrast lift. */
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
 }
 
 [data-theme="dark"] .posts-empty,
