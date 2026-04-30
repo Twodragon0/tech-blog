@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-29T02:08:14.322745+00:00",
+  "updated_at": "2026-04-30T02:08:01.957195+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/n8n-webhooks-abused-since-october-2025.html",
-      "title": "n8n Webhooks Abused Since October 2025 to Deliver Malware via Phishing Emails",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/critical-nginx-ui-auth-bypass-flaw-now-actively-exploited-in-the-wild/",
-      "title": "Critical Nginx UI auth bypass flaw now actively exploited in the wild",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/critical-nginx-ui-vulnerability-cve.html",
-      "title": "Actively Exploited nginx-ui Flaw (CVE-2026-33032) Enables Full Nginx Server Take",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/april-patch-tuesday-fixes-critical.html",
-      "title": "April Patch Tuesday Fixes Critical Flaws Across SAP, Adobe, Microsoft, Fortinet,",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-agingfly-malware-used-in-attacks-on-ukraine-govt-hospitals/",
-      "title": "New AgingFly malware used in attacks on Ukraine govt, hospitals",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-polar-scaled-tiles-in-zodiac-6cebb5948a1a?source=rss----3c87dc14372f---4",
-      "title": "Frontend Engineering at Palantir: Polar Scaled Tiles in Zodiac",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
-      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/lowest-token-cost-ai-factories/",
-      "title": "Rethinking AI TCO: Why Cost per Token Is the Only Metric That Matters",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/",
-      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-nab-adobe-premiere-color-mode/",
-      "title": "New Adobe Premiere Color Grading Mode Accelerated on NVIDIA GPUs",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-cisos-can-pursue-technical-and-cultural-resilience-q-a/",
-      "title": "Cloud CISO Perspectives: How CISOs can pursue technical and cultural resilience ",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
-      "title": "Cool stuff Google Cloud customers built, April edition: BMW big on SLMs, MLB’s S",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-tts-on-google-cloud/",
-      "title": "Guide to prompting Gemini 3.1 Flash TTS (text-to-speech)",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/europe-data-leak-landscape/",
-      "title": "The German Cyber Criminal Überfall: Shifts in Europe's Data Leak Landscape",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/troubleshooting-amazon-efs-nfs-io-hang-security-group-outbound/",
-      "title": "Amazon EFS 트러블슈팅, NFS I/O Hang 과 Security Group Outbound 규칙의 상관관계",
-      "published_date": "2026-04-16",
-      "expires_at": "2026-04-23T01:56:18.886280+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/newly-discovered-powmix-botnet-hits.html",
       "title": "Newly Discovered PowMix Botnet Hits Czech Workers Using Randomized C2 Traffic",
@@ -1248,6 +1158,96 @@
       "title": "AI Native 제품의 GTM 을 위한 과금 모델 통합 전략",
       "published_date": "2026-04-29",
       "expires_at": "2026-05-06T02:08:14.322629+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/sap-npm-packages-compromised-by-mini.html",
+      "title": "SAP-Related npm Packages Compromised in Credential-Stealing Supply Chain Attack",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/new-wave-of-dprk-attacks-uses-ai.html",
+      "title": "New Wave of DPRK Attacks Uses AI-Inserted npm Malware, Fake Firms, and RATs",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/designing-trust-and-safety-into-amazon-bedrock-powered-applications/",
+      "title": "Designing trust and safety into Amazon Bedrock powered applications",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/official-sap-npm-packages-compromised-to-steal-credentials/",
+      "title": "Official SAP npm packages compromised to steal credentials",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/popular-wordpress-redirect-plugin-hid-dormant-backdoor-for-years/",
+      "title": "Popular WordPress redirect plugin hid dormant backdoor for years",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age",
+      "title": "Building the compute infrastructure for the Intelligence Age",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cybersecurity-in-the-intelligence-age",
+      "title": "Cybersecurity in the Intelligence Age",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/extracting-contract-insights-with-pwcs-ai-driven-annotation-on-aws/",
+      "title": "Extracting contract insights with PwC’s AI-driven annotation on AWS",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/organizing-agents-memory-at-scale-namespace-design-patterns-in-agentcore-memory/",
+      "title": "Organizing Agents’ memory at scale: Namespace design patterns in AgentCore Memor",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-ai-ready-data-vanguards-virtual-analyst-journey/",
+      "title": "Building AI-ready data: Vanguard’s Virtual Analyst journey",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/the-top-startup-announcement-from-next26/",
+      "title": "The founder’s AI foundation: The top announcements for startups from Next ‘26",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/how-ukg-taps-workforce-intelligence-with-the-agentic-data-cloud/",
+      "title": "UKG unlocks real-time workforce intelligence at scale with the Agentic Data Clou",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/build-production-apps-in-2-weeks-with-aws-ai-dlc/",
+      "title": "AWS AI-DLC 기반 라포랩스 사내 배포 플랫폼 Raploy 구축 사례",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/ko-splade-neural-sparse-opensearch-hybrid/",
+      "title": "한국어 파인튜닝된 SPLADE 기반 Neural Sparse 모델과 Amazon OpenSearch 하이브리드 검색 벤치마크",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/governing-mcp-tool-calls-in-dotnet-with-the-agent-governance-toolkit/",
+      "title": "Governing MCP tool calls in .NET with the Agent Governance Toolkit",
+      "published_date": "2026-04-30",
+      "expires_at": "2026-05-07T02:08:01.957088+00:00"
     }
   ]
 }
