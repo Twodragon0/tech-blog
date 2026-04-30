@@ -254,10 +254,35 @@
     }
   }
 
-  // Activate non-blocking Google Fonts (media="print" → "all")
-  var gfonts = document.getElementById('gfonts');
-  if (gfonts) {
-    gfonts.media = 'all';
+  function loadFontTier2() {
+    if (window.__fontTier2Loaded) {
+      return;
+    }
+    window.__fontTier2Loaded = true;
+
+    var trigger = function () {
+      if (!('FontFace' in window) || !document.fonts) {
+        return;
+      }
+      ['400', '700'].forEach(function (weight) {
+        try {
+          var f = new FontFace(
+            'Noto Sans KR',
+            "url('/assets/fonts/noto-sans-kr-" + weight + "-tier2.woff2') format('woff2')",
+            { style: 'normal', weight: weight, display: 'swap' }
+          );
+          f.load().then(function (loaded) {
+            document.fonts.add(loaded);
+          }).catch(function () { /* ignore network/decoding errors */ });
+        } catch (_e) { /* ignore */ }
+      });
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(trigger, { timeout: 5000 });
+    } else {
+      setTimeout(trigger, 2000);
+    }
   }
 
   applyTheme();
@@ -265,6 +290,7 @@
   bindCssFallback();
   markBodyLoaded();
   registerServiceWorker();
+  loadFontTier2();
   loadGoogleAnalytics();
   loadAdsense();
   loadKakaoSdk();

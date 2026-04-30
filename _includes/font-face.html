@@ -1,0 +1,27 @@
+{%- comment -%}
+  Self-hosted Noto Sans KR — 2-tier woff2 subset.
+  Tier-1 (this @font-face): top ~1k Hangul syllables + Latin + Jamo + symbols (~200 KB / weight, eager preload).
+  Tier-2 (lazy): remaining ~10k Hangul syllables (~480-500 KB / weight, injected by head-runtime.js after idle).
+  Both tiers claim the same unicode-range U+AC00-U+D7A3 so the browser uses whichever face has the requested glyph.
+  See scripts/build/generate_noto_2tier_subset.py for the source pipeline.
+{%- endcomment -%}
+<style>
+  @font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/noto-sans-kr-400-tier1.woff2') format('woff2');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
+  }
+  @font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/noto-sans-kr-700-tier1.woff2') format('woff2');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
+  }
+  /* Tier-2 (rare Hangul syllables) is lazy-loaded by head-runtime.js#loadFontTier2 after idle. */
+</style>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-tier1.woff2">
