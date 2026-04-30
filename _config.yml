@@ -214,7 +214,10 @@ social:
   links:
     - "https://github.com/Twodragon0"
 
-# Exclude
+# Exclude (controls files Jekyll publishes to _site/)
+# IMPORTANT: Excluding repo metadata reduces accidentally indexable URLs
+# (e.g. /docs/, /tests/, /package.json) that contribute to GSC's
+# "Crawled - currently not indexed" bucket without adding SEO value.
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -232,6 +235,27 @@ exclude:
   - data/
   - output/
   - assets/images/_unused_archive
+  # Project metadata and developer docs (not user-facing content)
+  - AGENTS.md
+  - CLAUDE.md
+  - MEMORY.md
+  - OPENCODE.md
+  - SECURITY.md
+  - IMPLEMENTATION_SUMMARY.md
+  - analysis_report.json
+  - package.json
+  - package-lock.json
+  - pyproject.toml
+  - renovate.json
+  - requirements-visual.txt
+  - static-analysis.datadog.yml
+  - docs/
+  - notes/
+  - tests/
+  - reports/
+  - prisma/
+  - api/AGENTS.md
+  - api/__tests__/
 
 # Build optimization
 keep_files: []

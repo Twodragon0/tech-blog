@@ -84,7 +84,7 @@ toc: true
 | Part 10 | 자동화 — Headless, Writer/Reviewer, Fan-out | BP-35~38 |
 | Part 11 | 실패 패턴 — 자기 진단 체크리스트, 직감 개발 | - |
 
-> 관련 포스트: [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/Claude_MD_Security_Guide/) | [AI vs Claude Code: AI 코딩 어시스턴트 심층 비교](/posts/2026/02/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/)
+> 관련 포스트: [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/28/Claude_MD_Security_Guide/) | [AI vs Claude Code: AI 코딩 어시스턴트 심층 비교](/posts/2026/02/04/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/)
 
 ---
 
