@@ -43,8 +43,26 @@ layout: null
       <category>{{ tag | xml_escape }}</category>
       {% endfor %}
       {% if post.image %}
-      <media:content url="{{ site.url }}{{ site.baseurl }}{{ post.image }}" medium="image"/>
-      <media:thumbnail url="{{ site.url }}{{ site.baseurl }}{{ post.image }}"/>
+      {%- comment -%}
+        Swap .svg → .png/_og.png for feed media: most RSS readers (Feedly,
+        Inoreader, Apple News) cannot render inline SVG previews. Mirrors the
+        logic in _includes/head.html and _plugins/svg_to_png_og.rb so feed
+        media:content stays in lockstep with og:image.
+      {%- endcomment -%}
+      {% assign feed_image = post.image %}
+      {% if feed_image contains '.svg' %}
+        {% assign feed_image_png = feed_image | replace: '.svg', '.png' %}
+        {% assign feed_image_og_png = feed_image | replace: '.svg', '_og.png' %}
+        {% assign feed_png_file = site.static_files | where: 'path', feed_image_png | first %}
+        {% assign feed_og_png_file = site.static_files | where: 'path', feed_image_og_png | first %}
+        {% if feed_png_file %}{% assign feed_image = feed_image_png %}{% elsif feed_og_png_file %}{% assign feed_image = feed_image_og_png %}{% endif %}
+      {% endif %}
+      {% assign feed_image_mime = 'image/png' %}
+      {% if feed_image contains '.jpg' or feed_image contains '.jpeg' %}{% assign feed_image_mime = 'image/jpeg' %}{% endif %}
+      {% if feed_image contains '.webp' %}{% assign feed_image_mime = 'image/webp' %}{% endif %}
+      {% if feed_image contains '.svg' %}{% assign feed_image_mime = 'image/svg+xml' %}{% endif %}
+      <media:content url="{{ site.url }}{{ site.baseurl }}{{ feed_image }}" medium="image" type="{{ feed_image_mime }}" width="1200" height="630"/>
+      <media:thumbnail url="{{ site.url }}{{ site.baseurl }}{{ feed_image }}" width="1200" height="630"/>
       {% endif %}
     </item>
     {% endfor %}

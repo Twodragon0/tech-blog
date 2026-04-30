@@ -98,7 +98,9 @@
   {% endif %}
   <!-- OG image: SVG to PNG conversion by _plugins/svg_to_png_og.rb -->
   <!-- SEO meta tags (og:image, twitter:card) output by jekyll-seo-tag plugin -->
-  <!-- KakaoTalk/Tistory use standard Open Graph tags -->
+  <!-- KakaoTalk/Tistory use standard Open Graph tags. KakaoTalk reads only the
+       first 64 KB of the document, so og:image* must be emitted early — they
+       sit inside the <head> block above the inline <style> blocks. -->
   {% assign og_image = page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
   {% if og_image contains '.svg' %}
   {% assign og_image_png = og_image | replace: '.svg', '.png' %}
@@ -113,20 +115,43 @@
   {% assign og_image = '/assets/images/og-default.png' %}
   {% endif %}
   {% endif %}
-  <meta property="og:image" content="{{ og_image | absolute_url }}">
-  <meta property="og:image:url" content="{{ og_image | absolute_url }}">
-  <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">
+  {% comment %}
+    Cache-bust query for the social-platform fetcher: appended to og:image so
+    KakaoTalk/Twitter/Facebook scrapers re-fetch when the post content
+    changes. Keyed off page.last_modified_at when present, otherwise post.date,
+    otherwise site build time. Skip the bust for the og-default fallback so it
+    doesn't accumulate per-post cache entries on the platforms.
+  {% endcomment %}
+  {% if og_image contains 'og-default' %}
+    {% assign og_image_url = og_image | absolute_url %}
+  {% else %}
+    {% assign og_cache_key = page.last_modified_at | default: page.date | default: site.time | date: '%s' %}
+    {% assign og_image_url = og_image | absolute_url | append: '?v=' | append: og_cache_key %}
+  {% endif %}
+  {% assign og_image_mime = 'image/png' %}
+  {% if og_image contains '.jpg' or og_image contains '.jpeg' %}{% assign og_image_mime = 'image/jpeg' %}{% endif %}
+  {% if og_image contains '.webp' %}{% assign og_image_mime = 'image/webp' %}{% endif %}
+  <meta property="og:image" content="{{ og_image_url }}">
+  <meta property="og:image:url" content="{{ og_image_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="{% if og_image contains '.png' %}image/png{% elsif og_image contains '.jpg' or og_image contains '.jpeg' %}image/jpeg{% elsif og_image contains '.webp' %}image/webp{% else %}image/png{% endif %}">
-  <meta property="og:image:alt" content="{{ page.image_alt | default: page.title }}">
+  <meta property="og:image:type" content="{{ og_image_mime }}">
+  <meta property="og:image:alt" content="{{ page.image_alt | default: page.title | default: site.title }}">
+  {% if page.layout == 'post' and page.last_modified_at %}
+  <meta property="og:updated_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+  {% elsif page.layout == 'post' %}
+  <meta property="og:updated_time" content="{{ page.date | date_to_xmlschema }}">
+  {% endif %}
 
-  <!-- KakaoTalk -->
-  <meta property="thumbnail:url" content="{{ og_image | absolute_url }}">
-  {% if og_image contains '.png' or og_image contains '.jpg' or og_image contains '.jpeg' %}
+  <!-- KakaoTalk: thumbnail:url + width/height. Always emit dimensions so
+       KakaoTalk renders the large-thumbnail layout instead of falling back. -->
+  <meta property="thumbnail:url" content="{{ og_image_url }}">
   <meta property="thumbnail:width" content="1200">
   <meta property="thumbnail:height" content="630">
-  {% endif %}
+  <!-- KakaoTalk app-link: web fallback URL for shared messages opened in app -->
+  <meta property="al:web:url" content="{{ share_url }}">
+  <meta property="al:web:should_fallback" content="true">
 
   <meta name="format-detection" content="telephone=no">
 
@@ -138,7 +163,7 @@
   <meta name="twitter:description" content="{{ share_description }}">
   <meta name="twitter:url" content="{{ share_url }}">
   <meta name="twitter:domain" content="{{ site.url | replace: 'https://', '' | replace: 'http://', '' }}">
-  <meta name="twitter:image" content="{{ og_image | absolute_url }}">
+  <meta name="twitter:image" content="{{ og_image_url }}">
   <meta name="twitter:image:alt" content="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title | default: site.title }}{% endif %}">
 
   <!-- RSS Feed -->
