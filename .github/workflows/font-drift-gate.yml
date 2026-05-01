@@ -1,0 +1,56 @@
+name: Font Drift Gate
+
+on:
+  pull_request:
+    paths:
+      - 'assets/fonts/**'
+  workflow_dispatch:
+
+concurrency:
+  group: font-drift-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  font-drift:
+    name: woff2 drift check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check for override label
+        id: label-check
+        run: |
+          LABELS='${{ toJson(github.event.pull_request.labels.*.name) }}'
+          echo "labels=$LABELS"
+          if echo "$LABELS" | grep -q 'font-drift-allowed'; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Label 'font-drift-allowed' is set — skipping font drift gate."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute changed files
+        id: diff
+        if: steps.label-check.outputs.skip == 'false'
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          # Fall back to HEAD~1 for workflow_dispatch where no PR base is available
+          if [ -z "$BASE" ]; then
+            BASE="HEAD~1"
+          fi
+          CHANGED=$(git diff --name-only "$BASE".."$HEAD" | tr '\n' ',' | sed 's/,$//')
+          echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "Changed files: $CHANGED"
+
+      - name: Run font drift gate
+        if: steps.label-check.outputs.skip == 'false'
+        run: |
+          python3 scripts/dev/check_font_drift.py \
+            --changed-files '${{ steps.diff.outputs.changed }}'

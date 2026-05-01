@@ -193,3 +193,27 @@ NOTO_VF_URL='https://github.com/notofonts/noto-cjk/raw/<commit-sha>/Sans/Variabl
 - `_includes/head.html` — integration point (just after the `theme-init` script)
 - `assets/js/head-runtime.js#loadFontTier2` — lazy tier-2 loader
 - `vercel.json:34` — CSP without Google Fonts hosts; `vercel.json:184-198` — woff2 cache headers
+
+## 9. Why Not Git LFS?
+
+**Short answer:** The four woff2 files (~1.34 MiB total) have been touched in only two commits across the project's entire history. LFS would add per-build bandwidth cost on Vercel (~5–10 s per build, ~400 MiB/month) and contributor friction (`git lfs install` required after clone), with negligible repo-size benefit at today's scale.
+
+The full cost-benefit analysis — including clone time metrics, Vercel build budget, and GitHub LFS bandwidth projections — lives in [`docs/optimization/WOFF2_LFS_DECISION.md`](./WOFF2_LFS_DECISION.md). The recommendation is to stay in the main git pack and enforce the rule that woff2 files may only change when the generator or corpus also changes.
+
+**The CI discipline that replaces LFS migration:**
+
+Instead of LFS, a dedicated CI gate enforces the invariant that no woff2 can enter the history without a corresponding source change:
+
+- **`.gitattributes`** marks `assets/fonts/*.woff2` as `binary` so git never attempts a text diff on font files and CRLF normalization is suppressed on Windows clones.
+- **`.github/workflows/font-drift-gate.yml`** triggers on every PR that touches `assets/fonts/**`. If any `*.woff2` appears in the diff, at least one of the following must also appear:
+  - `scripts/build/generate_noto_2tier_subset.py`
+  - `scripts/build/noto_subset_top1k.txt`
+- **`scripts/dev/check_font_drift.py`** implements the same logic as a pure-stdlib CLI so the gate can be verified locally without CI:
+  ```bash
+  python3 scripts/dev/check_font_drift.py \
+      --changed-files 'assets/fonts/noto-sans-kr-400-tier1.woff2'
+  # exit 1 — fonts changed without generator/corpus update
+  ```
+- **Override:** For intentional font swaps that don't change the generator (e.g. an upstream Noto upstream bump committed separately), a maintainer can apply the `font-drift-allowed` label to the PR to bypass the gate.
+
+Revisit the LFS decision if any of the triggers in `WOFF2_LFS_DECISION.md §6` becomes true (≥5 woff2-touching commits in 90 days, total woff2 size >5 MiB, etc.). Next scheduled review: 2027-04-30.
