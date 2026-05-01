@@ -1,0 +1,2 @@
+# Treat woff2 as binary — prevents text-mode diffs and CRLF mangling
+assets/fonts/*.woff2 binary
