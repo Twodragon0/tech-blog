@@ -45,7 +45,7 @@
 }
 
 /* Section banner images */
-.post-article .post-content img[src*="section-"] {
+.post-article .post-content img.is-section-image {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -206,7 +206,7 @@
 }
 
 /* SVG 헤더 이미지는 aspect-ratio 제거 */
-.post-header .post-image img[src$=".svg"] {
+.post-header .post-image img.is-svg-image {
   aspect-ratio: auto;
   object-fit: contain;
   background-color: transparent;
@@ -902,7 +902,7 @@
 }
 
 /* SVG 다이어그램: CLS 방지를 위해 최소 높이 확보 */
-.post-content img[src$=".svg"] {
+.post-content img.is-svg-image {
   aspect-ratio: auto;
   object-fit: contain;
   background-color: transparent;
