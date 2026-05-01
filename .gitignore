@@ -70,6 +70,9 @@ __pycache__/
 output/
 video_generation_log.txt
 
+# Noto woff2 regeneration stamp (local build state, not for commit)
+.noto-subset.stamp
+
 # Temporary files
 *.tmp
 *.bak
