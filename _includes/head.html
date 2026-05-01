@@ -524,8 +524,16 @@
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선, 하지만 스크립트는 defer로 로딩) -->
   {% include sentry.html %}
   
-  <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용, 최하단으로 이동) -->
-  <!-- Note: Analytics는 페이지 로드 후 실행되도록 defer 사용 -->
+  <!-- Vercel Analytics & Speed Insights: NOT WIRED (no-op, doc only — perf/vercel-analytics-defer PR)
+       Analysis (2026-04-30): Only preconnect + dns-prefetch hints exist for va.vercel-scripts.com
+       (added in PR #319). No <script> tag or SDK initialisation has ever been added.
+       The Vercel Analytics dashboard may show zero events because the @vercel/analytics
+       script is never loaded. To enable deferred loading (mirror of GA #322 / Kakao #324 /
+       Sentry #327), add loadVercelAnalytics() to assets/js/head-runtime.js and call it in
+       the IIFE init sequence at the bottom of that file.
+       Preconnect hints above are kept — they cost ~0 bytes and shave ~340 ms TTFB if the
+       SDK is wired in the future. -->
+  <!-- perf/vercel-analytics-defer: no action taken; Vercel Analytics was not previously loaded -->
   
   <!-- Performance Monitoring -->
   {% include performance-monitor.html %}
