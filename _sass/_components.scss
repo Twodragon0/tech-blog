@@ -163,6 +163,11 @@
   text-decoration: none;
   color: inherit;
   height: 100%;
+  /* Style&Layout perf: scope layout/style invalidation to the card so that
+   * `home-posts-filter.js` toggling `display` on each card does not invalidate
+   * the whole `.posts-list` grid (PageSpeed audit 2026-04-30 — see
+   * `docs/optimization/STYLE_LAYOUT_ANALYSIS.md`). */
+  contain: layout style;
 }
 
 .post-card-image {
