@@ -11,9 +11,6 @@
   var gaId = (scriptEl && scriptEl.getAttribute('data-ga-id')) || '';
   var adsenseClient = (scriptEl && scriptEl.getAttribute('data-adsense-client')) || '';
   var kakaoAppKey = (scriptEl && scriptEl.getAttribute('data-kakao-app-key')) || '';
-  var sentryDsn = (scriptEl && scriptEl.getAttribute('data-sentry-dsn')) || '';
-  var sentryProductionHost = (scriptEl && scriptEl.getAttribute('data-sentry-production-host')) || '';
-  var sentryAllowedHosts = (scriptEl && scriptEl.getAttribute('data-sentry-allowed-hosts')) || '';
 
   function runWhenBodyAvailable(callback) {
     if (document.body) {
@@ -326,57 +323,6 @@
     }
   }
 
-  /**
-   * Lazy-loads Sentry SDK on the first user interaction with a 10-12 s idle
-   * safety-net fallback. Mirrors loadGoogleAnalytics (PR #322) and
-   * loadKakaoSdk (PR #324). Bots and bouncers skip the ~30 KB SDK + 143 ms
-   * reflow cost entirely.
-   */
-  function loadSentry() {
-    if (!sentryDsn) return;
-    if (window.__sentryLoadInitiated) return;
-
-    var load = function () {
-      if (window.__sentryLoadInitiated) return;
-      window.__sentryLoadInitiated = true;
-      // 1. Load Sentry bundle from CDN with SRI
-      var bundleScript = document.createElement('script');
-      bundleScript.src = 'https://browser.sentry-cdn.com/9.5.0/bundle.min.js';
-      bundleScript.integrity = 'sha384-5uFF6g91sxV2Go9yGCIngIx1AD3yg6buf0YFt7PSNheVk6CneEMSH6Eap5+e+8gt';
-      bundleScript.crossOrigin = 'anonymous';
-      bundleScript.onload = function () {
-        // 2. Load our sentry-init script after the bundle is available
-        var initScript = document.createElement('script');
-        initScript.src = '/assets/js/sentry-init.js';
-        initScript.dataset.sentryDsn = sentryDsn;
-        initScript.dataset.productionHost = sentryProductionHost;
-        initScript.dataset.allowedHosts = sentryAllowedHosts;
-        document.head.appendChild(initScript);
-      };
-      document.head.appendChild(bundleScript);
-    };
-
-    var INTERACTION_EVENTS = ['pointermove', 'scroll', 'keydown', 'touchstart', 'click'];
-    var fired = false;
-    var loadOnce = function () {
-      if (fired) return;
-      fired = true;
-      INTERACTION_EVENTS.forEach(function (ev) {
-        window.removeEventListener(ev, loadOnce, { passive: true, capture: true });
-      });
-      load();
-    };
-    INTERACTION_EVENTS.forEach(function (ev) {
-      window.addEventListener(ev, loadOnce, { passive: true, capture: true });
-    });
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(function () { setTimeout(loadOnce, 10000); }, { timeout: 5000 });
-    } else {
-      setTimeout(loadOnce, 12000);
-    }
-  }
-
   function loadFontTier2() {
     if (window.__fontTier2Loaded) {
       return;
@@ -417,5 +363,4 @@
   loadGoogleAnalytics();
   loadAdsense();
   loadKakaoSdk();
-  loadSentry();
 })();

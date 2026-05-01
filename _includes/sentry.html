@@ -1,7 +1,13 @@
 {% if site.sentry_dsn and site.sentry_dsn != "" %}
-<!-- Sentry SDK: lazy-loaded via assets/js/head-runtime.js#loadSentry on first user
-     interaction (mirrors GA PR #322 and Kakao PR #324 defer pattern).
-     DSN and host config are passed via data-* attrs on the head-runtime-script element
-     in _includes/head.html. No eager <script> tags here — bots and bouncers skip the
-     ~30 KB SDK + 143 ms forced-reflow cost entirely. -->
+<!-- Sentry SDK: 기본 에러 추적만 (번들 크기 최소화: ~20KB vs ~70KB) -->
+<!-- Defer loading to reduce FID (First Input Delay) -->
+<script
+  src="https://browser.sentry-cdn.com/9.5.0/bundle.min.js"
+  integrity="sha384-5uFF6g91sxV2Go9yGCIngIx1AD3yg6buf0YFt7PSNheVk6CneEMSH6Eap5+e+8gt"
+  crossorigin="anonymous"
+  defer
+></script>
+<script src="{{ '/assets/js/sentry-init.js' | relative_url }}" data-sentry-dsn="{{ site.sentry_dsn }}" data-production-host="tech.2twodragon.com" data-allowed-hosts="tech.2twodragon.com,www.tech.2twodragon.com,twodragon0.github.io" defer></script>
+{% else %}
+<!-- Sentry disabled: sentry_dsn not configured in _config.yml -->
 {% endif %}
