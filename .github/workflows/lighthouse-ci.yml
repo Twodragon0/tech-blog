@@ -1,0 +1,165 @@
+# Lighthouse perf gate
+#
+# Runs Lighthouse against the PR head AND the PR base, computes the median
+# LCP per URL across 3 runs, and fails when head_LCP - base_LCP exceeds
+# the threshold (default: 200 ms). CLS / TBT / FCP shown for context only.
+#
+# Coexists with .github/workflows/lighthouse.yml (which runs absolute
+# threshold checks on push to main); this workflow is a *regression* gate
+# scoped to PR diffs.
+
+name: Lighthouse perf gate
+
+on:
+  pull_request:
+    paths:
+      - "_includes/**"
+      - "_layouts/**"
+      - "_sass/**"
+      - "assets/**"
+      - "_config.yml"
+      - "Gemfile.lock"
+      - "vercel.json"
+      - "_plugins/**"
+      - "scripts/dev/compare_lighthouse_runs.py"
+      - ".github/workflows/lighthouse-ci.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: lighthouse-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  lighthouse-perf-gate:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.pull_request.labels.*.name, 'perf-regression-allowed')
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache lhci + npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/lhci
+            ~/.npm
+          key: lhci-${{ runner.os }}-${{ hashFiles('**/package.json', '**/Gemfile.lock') }}
+          restore-keys: |
+            lhci-${{ runner.os }}-
+
+      - name: Install Lighthouse CLI
+        run: |
+          npm install -g lighthouse@12.x @lhci/cli@0.14.x serve@14
+          lighthouse --version
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build PR head site
+        run: bundle exec jekyll build --destination _site_head
+        env:
+          JEKYLL_ENV: production
+
+      - name: Run Lighthouse on head
+        run: |
+          mkdir -p lhci-head
+          npx serve _site_head -l 4000 --single &
+          SERVER_PID=$!
+          for _ in $(seq 1 15); do
+            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
+            sleep 1
+          done
+          for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
+            for run_id in 1 2 3; do
+              lighthouse "$url" \
+                --output=json \
+                --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
+                --quiet \
+                --chrome-flags="--headless --no-sandbox --disable-gpu" \
+                --preset=desktop || true
+            done
+          done
+          kill $SERVER_PID 2>/dev/null || true
+
+      - name: Checkout PR base
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base-checkout
+          fetch-depth: 1
+
+      - name: Build PR base site
+        working-directory: base-checkout
+        run: |
+          bundle install
+          bundle exec jekyll build --destination ../_site_base
+        env:
+          JEKYLL_ENV: production
+
+      - name: Run Lighthouse on base
+        run: |
+          mkdir -p lhci-base
+          npx serve _site_base -l 4000 --single &
+          SERVER_PID=$!
+          for _ in $(seq 1 15); do
+            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
+            sleep 1
+          done
+          for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
+            for run_id in 1 2 3; do
+              lighthouse "$url" \
+                --output=json \
+                --output-path="lhci-base/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
+                --quiet \
+                --chrome-flags="--headless --no-sandbox --disable-gpu" \
+                --preset=desktop || true
+            done
+          done
+          kill $SERVER_PID 2>/dev/null || true
+
+      - name: Compare LCP head vs base
+        id: compare
+        run: |
+          python3 scripts/dev/compare_lighthouse_runs.py \
+            --base-dir lhci-base \
+            --head-dir lhci-head \
+            --threshold-lcp-ms 200 \
+            --output-md lighthouse-comparison.md
+          # The script's exit code IS the gate.
+
+      - name: Upload Lighthouse artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-${{ github.run_id }}
+          path: |
+            lhci-base/
+            lhci-head/
+            lighthouse-comparison.md
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Comment on PR with results
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: lighthouse-comparison.md
+          edit-mode: replace
+          comment-id: lighthouse-perf-gate
