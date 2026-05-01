@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-04-30T02:08:01.957195+00:00",
+  "updated_at": "2026-05-01T02:11:34.467699+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/newly-discovered-powmix-botnet-hits.html",
-      "title": "Newly Discovered PowMix Botnet Hits Czech Workers Using Randomized C2 Traffic",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-17-year-old-excel.html",
-      "title": "ThreatsDay Bulletin: Defender 0-Day, SonicWall Brute-Force, 17-Year-Old Excel RC",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/operation-poweroff-identifies-75k-ddos-users-takes-down-53-domains/",
-      "title": "Operation PowerOFF identifies 75k DDoS users, takes down 53 domains",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/zionsiphon-malware-designed-to-sabotage-water-treatment-systems/",
-      "title": "ZionSiphon malware designed to sabotage water treatment systems",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/webinar-find-and-eliminate-orphaned-non.html",
-      "title": "[Webinar] Find and Eliminate Orphaned Non-Human Identities in Your Environment",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-chrome/",
-      "title": "A new way to explore the web with AI Mode in Chrome",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/16/developer-tools/capacity-efficiency-at-meta-how-unified-ai-agents-optimize-performance-at-hyperscale/",
-      "title": "Capacity Efficiency at Meta: How Unified AI Agents Optimize Performance at Hyper",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/",
-      "title": "New ways to create personalized images in the Gemini app",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/16/security/post-quantum-cryptography-migration-at-meta-framework-lessons-and-takeaways/",
-      "title": "Post-Quantum Cryptography Migration at Meta: Framework, Lessons, and Takeaways",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-pragmata/",
-      "title": "No Need for Space Gear — Capcom’s ‘PRAGMATA’ Joins GeForce NOW on Launch Day",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/infrastructure/wpp-humanoid-robots-ai-training/",
-      "title": "How WPP accelerates humanoid robot training 10x with G4 VMs",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/templates-in-bigquery-studio-notebook-gallery/",
-      "title": "Go from blank slate to analysis with BigQuery Studio notebook gallery templates",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/media-entertainment/agentic-media-and-entertainment-is-here-see-how-our-ecosystem-helps-build-it/",
-      "title": "Building the agentic future: A spotlight on Google Cloud’s media & entertainment",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/",
-      "title": "Introducing Anthropic’s Claude Opus 4.7 model in Amazon Bedrock",
-      "published_date": "2026-04-17",
-      "expires_at": "2026-04-24T01:52:07.937641+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/three-microsoft-defender-zero-days.html",
       "title": "Three Microsoft Defender Zero-Days Actively Exploited; Two Still Unpatched",
@@ -1248,6 +1158,96 @@
       "title": "Governing MCP tool calls in .NET with the Agent Governance Toolkit",
       "published_date": "2026-04-30",
       "expires_at": "2026-05-07T02:08:01.957088+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/pytorch-lightning-compromised-in-pypi.html",
+      "title": "PyTorch Lightning and Intercom-client Hit in Supply Chain Attacks to Steal Crede",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-sms-blaster-busts.html",
+      "title": "ThreatsDay Bulletin: SMS Blaster Busts, OpenEMR Flaws, 600K Roblox Hacks and 25 ",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/new-python-backdoor-uses-tunneling.html",
+      "title": "New Python Backdoor Uses Tunneling Service to Steal Browser and Cloud Credential",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/04/etherrat-distribution-spoofing.html",
+      "title": "EtherRAT Distribution Spoofing Administrative Tools via GitHub Facades",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/30/whats-new-updated-or-recently-released-in-microsoft-security/",
+      "title": "What’s new, updated, or recently released in Microsoft Security",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/ready-set-build-with-the-nhs-federated-data-platform-41405fa4c226?source=rss----3c87dc14372f---4",
+      "title": "Ready, Set, Build with the NHS Federated Data Platform",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-may-2026-games-list/",
+      "title": "It’s Gonna Be May: 16 Games Hit the Cloud This Month, With More NVIDIA GeForce R",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/ai-co-clinician/",
+      "title": "Enabling a new model for healthcare with AI co-clinician",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/reinforcement-fine-tuning-with-llm-as-a-judge/",
+      "title": "Reinforcement fine-tuning with LLM-as-a-judge",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-generative-ai-model-agility-solution-a-comprehensive-guide-to-migrating-llms-for-generative-ai-production/",
+      "title": "AWS Generative AI Model Agility Solution: A comprehensive guide to migrating LLM",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-next-26-why-we-re-multicloud-and-multi-ai/",
+      "title": "Cloud CISO Perspectives: At Next ‘26, why we’re multicloud and multi-AI",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month/",
+      "title": "What Google Cloud announced in AI this month",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/amazon-bedrock-langgraph-qa-automation/",
+      "title": "키다리스튜디오의 QA 테스트 케이스 생성 자동화 — Amazon Bedrock과 LangGraph 활용 사례",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/from-security-blocked-to-prod-ready-clickhouse-on-docker-hardened-images/",
+      "title": "From Security Blocked to Prod Ready: ClickHouse on Docker Hardened Images",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-04-30-github-copilot-in-visual-studio-april-update",
+      "title": "GitHub Copilot in Visual Studio — April update",
+      "published_date": "2026-05-01",
+      "expires_at": "2026-05-08T02:11:34.467587+00:00"
     }
   ]
 }
