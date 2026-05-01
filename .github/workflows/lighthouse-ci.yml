@@ -1,8 +1,9 @@
 # Lighthouse perf gate
 #
 # Runs Lighthouse against the PR head AND the PR base, computes the median
-# LCP per URL across 3 runs, and fails when head_LCP - base_LCP exceeds
-# the threshold (default: 200 ms). CLS / TBT / FCP shown for context only.
+# LCP per URL across 5 runs (+ 1 discarded warm-cache prerun), and fails
+# when head_LCP - base_LCP exceeds the threshold (default: 200 ms).
+# CLS / TBT / FCP shown for context only.
 #
 # Coexists with .github/workflows/lighthouse.yml (which runs absolute
 # threshold checks on push to main); this workflow is a *regression* gate
@@ -86,7 +87,15 @@ jobs:
             sleep 1
           done
           for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
-            for run_id in 1 2 3; do
+            # Warm-cache prerun: warms OS file cache, Node module cache, and
+            # the local server's slab. Result is discarded. Eliminates the
+            # cold-start outlier that caused the +721 ms false positive in
+            # PR #326.
+            lighthouse "$url" --output=json --output-path=/dev/null --quiet \
+              --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
+
+            # 5 measured runs (odd number → stable median, no tie-breaks).
+            for run_id in 1 2 3 4 5; do
               lighthouse "$url" \
                 --output=json \
                 --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
@@ -122,7 +131,15 @@ jobs:
             sleep 1
           done
           for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
-            for run_id in 1 2 3; do
+            # Warm-cache prerun: warms OS file cache, Node module cache, and
+            # the local server's slab. Result is discarded. Eliminates the
+            # cold-start outlier that caused the +721 ms false positive in
+            # PR #326.
+            lighthouse "$url" --output=json --output-path=/dev/null --quiet \
+              --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
+
+            # 5 measured runs (odd number → stable median, no tie-breaks).
+            for run_id in 1 2 3 4 5; do
               lighthouse "$url" \
                 --output=json \
                 --output-path="lhci-base/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
