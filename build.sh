@@ -7,6 +7,10 @@ export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
 export LANGUAGE=C.UTF-8
 
+# Pinned Noto Sans KR variable font source (notofonts/noto-cjk @f8d1575)
+# Update this SHA when bumping the upstream Noto release (see docs/optimization/NOTO_SANS_SELF_HOST_RUNBOOK.md §3).
+export NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf'
+
 # Logging function
 log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" >&2
@@ -30,6 +34,31 @@ log "  Bundler version: $(bundle -v)"
 log "  Working directory: $(pwd)"
 log "  LANG: $LANG"
 log "  LC_ALL: $LC_ALL"
+
+# ---------------------------------------------------------------------------
+# Noto Sans KR woff2 subset regeneration (conditional, graceful failure)
+# ---------------------------------------------------------------------------
+if [ -f "scripts/build/generate_noto_2tier_subset.py" ]; then
+  log "Checking Noto Sans KR woff2 subset freshness..."
+  STAMP=".noto-subset.stamp"
+  NEEDS_REGEN=0
+  if [ ! -f "assets/fonts/noto-sans-kr-400-tier1.woff2" ]; then NEEDS_REGEN=1; fi
+  if [ ! -f "assets/fonts/noto-sans-kr-700-tier2.woff2" ]; then NEEDS_REGEN=1; fi
+  if [ ! -f "$STAMP" ] || [ "scripts/build/generate_noto_2tier_subset.py" -nt "$STAMP" ] || [ "scripts/build/noto_subset_top1k.txt" -nt "$STAMP" ]; then
+    NEEDS_REGEN=1
+  fi
+  if [ "$NEEDS_REGEN" = "1" ]; then
+    log "Regenerating Noto woff2 subsets (NOTO_VF_URL=${NOTO_VF_URL})..."
+    # Ensure fonttools[woff] is available (graceful failure if pip not on PATH)
+    pip install --quiet 'fonttools[woff]>=4.55.0' 2>/dev/null || true
+    python3 scripts/build/generate_noto_2tier_subset.py || {
+      log "WARN: Noto regeneration failed; using existing woff2 files (build continues)"
+    }
+    touch "$STAMP"
+  else
+    log "Noto woff2 subsets are up-to-date; skipping regeneration"
+  fi
+fi
 
 log "Generating favicons..."
 if ! python3 scripts/generate_favicon.py; then

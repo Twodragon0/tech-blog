@@ -39,7 +39,37 @@ Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `C
 
 ## 3. Regenerate
 
-Reproducible regeneration:
+### Automatic regeneration in CI/Vercel
+
+`build.sh` automatically checks whether the woff2 files need to be regenerated before every Jekyll build. The check uses a stamp file (`.noto-subset.stamp`) to avoid redundant work.
+
+**When regen runs** (any of these conditions triggers it):
+- Any of the 4 woff2 files is missing from `assets/fonts/`
+- The stamp file (`.noto-subset.stamp`) does not exist
+- `scripts/build/generate_noto_2tier_subset.py` is newer than the stamp
+- `scripts/build/noto_subset_top1k.txt` is newer than the stamp
+
+**When regen is skipped** (cache hit):
+- All 4 woff2 files exist AND the stamp is newer than both input files — regen outputs ~0 s overhead
+
+**Stamp-file invariants**:
+- The stamp is written (via `touch "$STAMP"`) after a successful or attempted regeneration
+- `.noto-subset.stamp` is listed in `.gitignore` — it is a local build artifact, never committed
+- On a fresh Vercel/CI clone all 4 woff2 files are present in the repo (committed), so the stamp is absent but mtime of committed files equals checkout time — the stamp is created immediately and subsequent builds skip regen unless inputs change
+
+**Graceful-failure path**: if `fonttools[woff]` installation fails or the upstream URL is unreachable, the regeneration step prints a warning but does NOT abort the build. The last-known-good woff2 files already in the repo are used. This prevents a temporary upstream outage from breaking production deploys.
+
+**Cost**: ~10 s when regeneration is needed (font download + subsetting), ~0 s on cache hit.
+
+`build.sh` also exports the pinned upstream URL so every invocation uses the same source:
+
+```bash
+export NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf'
+```
+
+To bump the pin: update the SHA in `build.sh`, regenerate locally, commit the new woff2 files, and push.
+
+### Manual regeneration
 
 ```bash
 cd /Users/yong/Desktop/personal/tech-blog
@@ -52,7 +82,7 @@ ls -lh assets/fonts/noto-sans-kr-*.woff2
 For deterministic CI reproducibility, pin the Noto upstream source:
 
 ```bash
-NOTO_VF_URL='https://github.com/notofonts/noto-cjk/raw/<commit-sha>/.../NotoSansKR-VF.ttf' \
+NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/<commit-sha>/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf' \
   python3 scripts/build/generate_noto_2tier_subset.py
 ```
 
