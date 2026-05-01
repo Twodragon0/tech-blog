@@ -1,0 +1,57 @@
+{% comment %}
+post-image.html — Render an <img> with deterministic CSS class hooks.
+
+Parameters:
+  src      (required) Image URL or path.
+  alt      (required) Alt text.
+  class    (optional) Extra classes to prepend.
+  loading  (optional) loading attribute value; defaults to "lazy".
+  width    (optional) width attribute value.
+  height   (optional) height attribute value.
+
+Injected classes (based on src):
+  is-svg-image      — src ends with .svg
+  is-section-image  — src path segment starts with "section-"
+  is-news-card-image — src path contains "news-card"
+  is-raster-image   — src ends with .png / .jpg / .jpeg / .webp / .avif
+                       (applied when none of the above match)
+
+Usage:
+  {% include post-image.html src="/assets/images/foo.svg" alt="Diagram" %}
+  {% include post-image.html src=page.image alt=page.title loading="eager" width="800" height="450" %}
+{% endcomment %}
+
+{% assign _pi_src = include.src | default: '' %}
+{% assign _pi_alt = include.alt | default: '' %}
+{% assign _pi_loading = include.loading | default: 'lazy' %}
+{% assign _pi_extra = include.class | default: '' %}
+
+{% comment %}Compute type classes from src{% endcomment %}
+{% assign _pi_src_lower = _pi_src | downcase %}
+{% assign _pi_classes = _pi_extra %}
+
+{% if _pi_src_lower contains '.svg' %}
+  {% assign _pi_classes = _pi_classes | append: ' is-svg-image' %}
+{% elsif _pi_src_lower contains '.png' or _pi_src_lower contains '.jpg' or _pi_src_lower contains '.jpeg' or _pi_src_lower contains '.webp' or _pi_src_lower contains '.avif' %}
+  {% assign _pi_classes = _pi_classes | append: ' is-raster-image' %}
+{% endif %}
+
+{% if _pi_src contains '/section-' or _pi_src contains 'section-' %}
+  {% assign _pi_classes = _pi_classes | append: ' is-section-image' %}
+{% endif %}
+
+{% if _pi_src contains 'news-card' %}
+  {% assign _pi_classes = _pi_classes | append: ' is-news-card-image' %}
+{% endif %}
+
+{% assign _pi_classes = _pi_classes | strip %}
+
+{% if include.width and include.height %}
+<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}" height="{{ include.height }}">
+{% elsif include.width %}
+<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}">
+{% elsif include.height %}
+<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" height="{{ include.height }}">
+{% else %}
+<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}">
+{% endif %}
