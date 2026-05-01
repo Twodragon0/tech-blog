@@ -256,28 +256,70 @@
     }
   }
 
+  /**
+   * Lazy-loads the Kakao JavaScript SDK on the first user interaction with a
+   * 10-12 s idle safety-net fallback. Mirrors loadGoogleAnalytics (PR #322).
+   *
+   * Rationale: the only reason we ship Kakao SDK is the Kakao share button.
+   * Clicking the share button is itself an interaction event, so deferring
+   * the SDK behind the same interaction-listener cluster never blocks the
+   * actual user flow. Bots and bouncers (no interaction) skip the ~30 KB
+   * SDK transfer + Kakao.init() entirely.
+   *
+   * Concurrency: __kakaoLoadInitiated guards against double-fetch when the
+   * idle fallback races with a real interaction.
+   */
   function loadKakaoSdk() {
     if (!kakaoAppKey) {
       return;
     }
+    if (window.__kakaoLoadInitiated) {
+      return;
+    }
 
     var load = function () {
+      if (window.__kakaoLoadInitiated) {
+        return;
+      }
+      window.__kakaoLoadInitiated = true;
       var script = document.createElement('script');
       script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
       script.integrity = 'sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4kykhOQv0b17OH4S';
       script.crossOrigin = 'anonymous';
       script.onload = function () {
-        if (window.Kakao && !window.Kakao.isInitialized()) {
-          window.Kakao.init(kakaoAppKey);
-        }
+        try {
+          if (window.Kakao && !window.Kakao.isInitialized()) {
+            window.Kakao.init(kakaoAppKey);
+          }
+        } catch (_e) { /* ignore init errors */ }
       };
       document.head.appendChild(script);
     };
 
+    var INTERACTION_EVENTS = ['pointermove', 'scroll', 'keydown', 'touchstart', 'click'];
+    var fired = false;
+    var loadOnce = function () {
+      if (fired) {
+        return;
+      }
+      fired = true;
+      INTERACTION_EVENTS.forEach(function (ev) {
+        window.removeEventListener(ev, loadOnce, { passive: true, capture: true });
+      });
+      load();
+    };
+    INTERACTION_EVENTS.forEach(function (ev) {
+      window.addEventListener(ev, loadOnce, { passive: true, capture: true });
+    });
+
+    // 10-12 s idle safety-net so non-interactive readers can still share
+    // (the share button itself counts as interaction, so this rarely fires)
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(load, { timeout: 3000 });
+      requestIdleCallback(function () {
+        setTimeout(loadOnce, 10000);
+      }, { timeout: 5000 });
     } else {
-      window.addEventListener('load', load, { once: true });
+      setTimeout(loadOnce, 12000);
     }
   }
 
