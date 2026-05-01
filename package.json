@@ -5,7 +5,8 @@
   "main": "sw.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:js": "vitest run",
     "vercel-build": "./build.sh",
     "index-posts": "node scripts/index_posts.mjs",
     "index-posts:dry": "node scripts/index_posts.mjs --dry-run",
@@ -18,7 +19,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "terser": "^5.46.1"
+    "jsdom": "^25.0.1",
+    "terser": "^5.46.1",
+    "vitest": "^2.1.9"
   },
   "dependencies": {
     "fuse.js": "^7.3.0"
