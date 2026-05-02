@@ -123,9 +123,13 @@
   });
 
   function highlightCurrentSection() {
+    // Split into read-only PASS 1 + write-only PASS 2 to avoid forced
+    // synchronous layout inside the scroll-driven rAF loop. See
+    // docs/optimization/IIFE_THRASH_AUDIT.md.
     const scrollPosition = window.pageYOffset + 100;
+    let activeIndex = -1;
 
-    tocItems.forEach(item => {
+    tocItems.forEach((item, idx) => {
       const href = item.getAttribute('href');
       if (!href) return;
 
@@ -144,16 +148,21 @@
         });
       }
 
-      if (section) {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
+      if (!section) return;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          tocItems.forEach(i => i.classList.remove('active'));
-          item.classList.add('active');
-        }
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        activeIndex = idx; // last match wins (matches original behavior)
       }
     });
+
+    if (activeIndex !== -1) {
+      tocItems.forEach((item, idx) => {
+        item.classList.toggle('active', idx === activeIndex);
+      });
+    }
   }
 
   highlightCurrentSection();
