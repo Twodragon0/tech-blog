@@ -152,13 +152,30 @@ title: Home
           <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
             {% if post.image and post.image != "" %}
             <div class="post-card-image">
-              {% comment %}OG format variants (plugin already converts .svg→_og.png){% endcomment %}
+              {% comment %}
+                OG format variants. The svg_to_png_og.rb plugin rewrites SVG
+                inputs to _og.png at pre_render. Modern-format <source>s only
+                emit when the corresponding file exists, so missing variants
+                don't fire 404s in the browser console.
+              {% endcomment %}
               {% assign card_img = post.image | relative_url %}
-              {% assign card_webp = card_img | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
-              {% assign card_avif = card_img | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+              {% assign avif_file = nil %}
+              {% assign webp_file = nil %}
+              {% if post.image contains '.png' %}
+                {% assign avif_check = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+                {% assign webp_check = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+                {% assign avif_file = site.static_files | where: 'path', avif_check | first %}
+                {% assign webp_file = site.static_files | where: 'path', webp_check | first %}
+                {% assign card_avif = avif_check | relative_url %}
+                {% assign card_webp = webp_check | relative_url %}
+              {% endif %}
               <picture>
+                {% if avif_file %}
                 <source srcset="{{ card_avif }}" type="image/avif">
+                {% endif %}
+                {% if webp_file %}
                 <source srcset="{{ card_webp }}" type="image/webp">
+                {% endif %}
                 <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
               </picture>
             </div>

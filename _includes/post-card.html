@@ -4,15 +4,42 @@
     {% if post.image and post.image != "" %}
     <div class="post-card-image">
       {% comment %}CLS 최적화: aspect-ratio를 CSS에서 이미 처리하므로 width/height는 생략{% endcomment %}
-      {% comment %}OG format variants (plugin already converts .svg→_og.png){% endcomment %}
+      {% comment %}
+        OG format variants. The svg_to_png_og.rb plugin rewrites SVG inputs to
+        _og.png at pre_render. AVIF/WEBP/_card variants are only emitted when
+        the file actually exists in the build, so missing variants don't fire
+        404s in the browser console.
+      {% endcomment %}
       {% assign card_img = post.image | relative_url %}
-      {% assign card_webp = card_img | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
-      {% assign card_avif = card_img | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
-      {% assign card_sm_avif = card_img | replace: '_og.png', '_card.avif' | replace: '.png', '_card.avif' %}
-      {% assign card_sm_webp = card_img | replace: '_og.png', '_card.webp' | replace: '.png', '_card.webp' %}
+      {% if post.image contains '.png' %}
+        {% assign avif_path = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+        {% assign webp_path = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+        {% assign card_avif_path = post.image | replace: '_og.png', '_card.avif' | replace: '.png', '_card.avif' %}
+        {% assign card_webp_path = post.image | replace: '_og.png', '_card.webp' | replace: '.png', '_card.webp' %}
+        {% assign avif_file = site.static_files | where: 'path', avif_path | first %}
+        {% assign webp_file = site.static_files | where: 'path', webp_path | first %}
+        {% assign card_avif_file = site.static_files | where: 'path', card_avif_path | first %}
+        {% assign card_webp_file = site.static_files | where: 'path', card_webp_path | first %}
+        {% assign card_avif = avif_path | relative_url %}
+        {% assign card_webp = webp_path | relative_url %}
+        {% assign card_sm_avif = card_avif_path | relative_url %}
+        {% assign card_sm_webp = card_webp_path | relative_url %}
+      {% endif %}
       <picture>
+        {% if avif_file %}
+          {% if card_avif_file %}
         <source srcset="{{ card_sm_avif }} 525w, {{ card_avif }} 1120w" type="image/avif" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px">
+          {% else %}
+        <source srcset="{{ card_avif }}" type="image/avif">
+          {% endif %}
+        {% endif %}
+        {% if webp_file %}
+          {% if card_webp_file %}
         <source srcset="{{ card_sm_webp }} 525w, {{ card_webp }} 1120w" type="image/webp" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px">
+          {% else %}
+        <source srcset="{{ card_webp }}" type="image/webp">
+          {% endif %}
+        {% endif %}
         <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="525" height="276" style="aspect-ratio: 525/276" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 525px" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
       </picture>
     </div>

@@ -81,13 +81,28 @@ layout: default
       {% else %}
         {% assign image_alt_text = page.title | escape %}
       {% endif %}
-      {% comment %}OG format variants (plugin already converts .svg→_og.png){% endcomment %}
+      {% comment %}
+        OG format variants. The svg_to_png_og.rb plugin rewrites SVG inputs to
+        _og.png at pre_render. AVIF/WEBP variants are only emitted when the
+        file actually exists in the build to avoid 404s in the browser
+        console; <picture> falls through to <img> for the available format.
+      {% endcomment %}
       {% assign svg_path = page.image_svg | default: "" | relative_url %}
-      {% assign webp_path = image_path | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
-      {% assign avif_path = image_path | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+      {% if page.image contains '.png' %}
+        {% assign webp_check = page.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+        {% assign avif_check = page.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
+        {% assign webp_file = site.static_files | where: 'path', webp_check | first %}
+        {% assign avif_file = site.static_files | where: 'path', avif_check | first %}
+        {% assign webp_path = webp_check | relative_url %}
+        {% assign avif_path = avif_check | relative_url %}
+      {% endif %}
       <picture>
+        {% if avif_file %}
         <source srcset="{{ avif_path }}" type="image/avif">
+        {% endif %}
+        {% if webp_file %}
         <source srcset="{{ webp_path }}" type="image/webp">
+        {% endif %}
         <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" data-svg-src="{{ svg_path }}" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
       </picture>
     </div>
