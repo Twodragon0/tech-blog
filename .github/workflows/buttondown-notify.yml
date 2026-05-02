@@ -60,9 +60,10 @@ jobs:
             echo "$NEW_POSTS"
             echo "has_new_posts=true" >> $GITHUB_OUTPUT
             
-            # Count posts
-            POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || echo "0")
-            echo "post_count=$POST_COUNT" >> $GITHUB_OUTPUT
+            # Count posts (grep -c emits "0" + exit 1 on no-match, so chaining
+            # `|| echo 0` writes two lines and breaks GITHUB_OUTPUT parsing)
+            POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || true)
+            echo "post_count=${POST_COUNT:-0}" >> $GITHUB_OUTPUT
             
             # Encode all posts as JSON array (more reliable than multiline)
             # Convert each post path to base64 and store as JSON array
