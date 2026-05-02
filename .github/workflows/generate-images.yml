@@ -38,6 +38,9 @@ concurrency:
   group: generate-images-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   generate-images:
     runs-on: ubuntu-latest

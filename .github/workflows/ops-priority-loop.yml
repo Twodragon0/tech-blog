@@ -11,6 +11,9 @@ concurrency:
   group: ops-priority-loop
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   ops-checks:
     if: github.event_name != 'schedule' || vars.OPS_PRIORITY_LOOP_SCHEDULE == 'true'

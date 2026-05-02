@@ -8,6 +8,9 @@ on:
 permissions:
   contents: read
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   post-category-digest:
     if: github.event_name != 'schedule' || vars.SLACK_CATEGORY_DIGEST_SCHEDULE != 'false'
