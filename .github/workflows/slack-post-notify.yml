@@ -50,8 +50,8 @@ jobs:
             exit 0
           fi
           echo "has_posts=true" >> "$GITHUB_OUTPUT"
-          POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || echo "0")
-          echo "count=$POST_COUNT" >> "$GITHUB_OUTPUT"
+          POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || true)
+          echo "count=${POST_COUNT:-0}" >> "$GITHUB_OUTPUT"
           python3 scripts/build_slack_post_message.py "$NEW_POSTS" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via Bot API

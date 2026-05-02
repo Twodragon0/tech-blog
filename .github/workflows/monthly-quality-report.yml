@@ -44,13 +44,17 @@ jobs:
         run: |
           echo "🖼️ Running image verification..."
           python3 scripts/verify_images_unified.py --all 2>&1 | tee /tmp/image-report.txt || true
-          echo "image_issues=$(grep -c '❌\|⚠️' /tmp/image-report.txt || echo 0)" >> $GITHUB_OUTPUT
+          # grep -c emits "0" + exit 1 on no-match, so a `|| echo 0` chain
+          # writes two lines and breaks GITHUB_OUTPUT parsing. Use `|| true`.
+          IMAGE_ISSUES=$(grep -c '❌\|⚠️' /tmp/image-report.txt 2>/dev/null || true)
+          echo "image_issues=${IMAGE_ISSUES:-0}" >> "$GITHUB_OUTPUT"
 
       - name: Check posts
         run: |
           echo "📝 Running post quality check..."
           python3 scripts/check_posts.py 2>&1 | tee /tmp/post-report.txt || true
-          echo "post_issues=$(grep -c '⚠️' /tmp/post-report.txt || echo 0)" >> $GITHUB_OUTPUT
+          POST_ISSUES=$(grep -c '⚠️' /tmp/post-report.txt 2>/dev/null || true)
+          echo "post_issues=${POST_ISSUES:-0}" >> "$GITHUB_OUTPUT"
 
       - name: Generate quality report and issue body
         id: report
