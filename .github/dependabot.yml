@@ -37,6 +37,11 @@ updates:
       include: "scope"
 
   # GitHub Actions updates
+  #
+  # SHA-pinned third-party actions (peter-evans/*, ruby/setup-ruby) and
+  # GitHub-owned actions/* are bumped automatically. Updates are grouped
+  # so 24+ pinned references don't generate a separate PR per action
+  # each week.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -45,6 +50,10 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
     open-pull-requests-limit: 3
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "github-actions"
