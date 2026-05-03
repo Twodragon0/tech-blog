@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-02T01:59:39.155510+00:00",
+  "updated_at": "2026-05-03T02:02:17.303112+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/1374m-hack-shuts-down-sanctioned-grinex.html",
-      "title": "$13.74M Hack Shuts Down Sanctioned Grinex Exchange After Intelligence Claims",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/18/crosstenant-helpdesk-impersonation-data-exfiltration-human-operated-intrusion-playbook/",
-      "title": "Cross‑tenant helpdesk impersonation to data exfiltration: A human-operated intru",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/mirai-variant-nexcorium-exploits-cve.html",
-      "title": "Mirai Variant Nexcorium Exploits CVE-2024-3721 to Hijack TBK DVRs for DDoS Botne",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/critical-flaw-in-protobuf-library-enables-javascript-code-execution/",
-      "title": "Critical flaw in Protobuf library enables JavaScript code execution",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-teams-right-click-paste-broken-by-edge-update-bug/",
-      "title": "Microsoft Teams right-click paste broken by Edge update bug",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/warren-claims-sec-atkins-likely-misled-congress-over-enforcement-data?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Warren claims SEC’s Atkins likely misled Congress over enforcement data",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/solana-futures-open-interest-rose-by-20-this-week-is-100-sol-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Solana futures open interest rose by 20% this week: Is $100 SOL next?",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/iran-btc-strategic-usdt-dominate-oil-tolls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Iran views BTC as a strategic asset, but USDt still dominates oil tolls: BPI",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/poland-parliament-fails-again-to-override-presidential-veto-crypto-bill?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Poland parliament fails again to override presidential veto on crypto bill",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/stablecoins-behave-fx-markets-liquidity-splits-eco-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Stablecoins behave like FX markets as liquidity splits: Eco CEO",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28676",
-      "title": "Show GN: Paperclip + Gastown에서 영감을 받은, “영구기관” 컨셉의 오픈소스 AI 에이전트 프레임워크",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28675",
-      "title": "분리된 구간 집합 위에서 계산하는 계산기",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28674",
-      "title": "일본 철도가 이렇게 뛰어난 이유",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28673",
-      "title": "Kdenlive 현황",
-      "published_date": "2026-04-19",
-      "expires_at": "2026-04-26T01:54:55.514134+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/apple-account-change-alerts-abused-to-send-phishing-emails/",
       "title": "Apple account change alerts abused to send phishing emails",
@@ -1248,6 +1158,96 @@
       "title": "Ubuntu infrastructure has been down for more than a day",
       "published_date": "2026-05-02",
       "expires_at": "2026-05-09T01:59:39.155419+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/critrical-cpanel-flaw-mass-exploited-in-sorry-ransomware-attacks/",
+      "title": "Critrical cPanel flaw mass-exploited in \"Sorry\" ransomware attacks",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/trellix-confirms-source-code-breach.html",
+      "title": "Trellix Confirms Source Code Breach With Unauthorized Repository Access",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/consentfix-v3-attacks-target-azure-with-automated-oauth-abuse/",
+      "title": "ConsentFix v3 attacks target Azure with automated OAuth abuse",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/01/cve-2026-31431-copy-fail-vulnerability-enables-linux-root-privilege-escalation/",
+      "title": "CVE-2026-31431: Copy Fail vulnerability enables Linux root privilege escalation ",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/new-bluekit-phishing-kit-features-ai-assistant/",
+      "title": "New Bluekit Phishing Kit Features AI Assistant",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/linux-copy-fail-a-trivially-exploitable-bug?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US CISA adds ‘insane’ Linux Copy Fail flaw to watch list",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/a16z-sides-with-cftc-against-states-seeking-to-ban-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "A16z sides with CFTC against states seeking to ban prediction markets",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/riot-posts-167m-in-q1-revenue-as-data-center-arm-pulls-in-33m-in-first-quarter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Riot posts $167M in Q1 revenue as data center arm pulls in $33M in first quarter",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ethereum-foundation-sells-another-10000-eth-to-bitmine-in-third-otc-deal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ethereum Foundation sells another 10,000 ETH to BitMine in third OTC deal",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kraken-parent-payward-closes-bitnomial-deal-to-expand-us-crypto-derivatives?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kraken parent Payward closes Bitnomial deal to expand US crypto derivatives",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29111",
+      "title": "알고리듬 채용에서의 AI 자기선호: 실증 증거와 시사점",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29110",
+      "title": "NetHack 5.0.0 릴리스 노트",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29109",
+      "title": "Ask.com이 종료됨",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29108",
+      "title": "VS Code가 사용 여부와 관계없이 커밋에 &#039;Co-Authored-by Copilot&#039;을 삽입",
+      "published_date": "2026-05-03",
+      "expires_at": "2026-05-10T02:02:17.303005+00:00"
     }
   ]
 }
