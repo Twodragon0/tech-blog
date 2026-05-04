@@ -156,7 +156,10 @@ title: Home
                 OG format variants. The svg_to_png_og.rb plugin rewrites SVG
                 inputs to _og.png at pre_render. Modern-format <source>s only
                 emit when the corresponding file exists, so missing variants
-                don't fire 404s in the browser console.
+                don't fire 404s in the browser console. `sizes` tells the
+                browser the rendered card width (~525px) so it can request the
+                smallest available source — partially mitigates "image too
+                large" PSI flag for the 1120x630 OG variant. (2026-05-04)
               {% endcomment %}
               {% assign card_img = post.image | relative_url %}
               {% assign avif_file = nil %}
@@ -171,12 +174,12 @@ title: Home
               {% endif %}
               <picture>
                 {% if avif_file %}
-                <source srcset="{{ card_avif }}" type="image/avif">
+                <source srcset="{{ card_avif }}" type="image/avif" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
                 {% endif %}
                 {% if webp_file %}
-                <source srcset="{{ card_webp }}" type="image/webp">
+                <source srcset="{{ card_webp }}" type="image/webp" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
                 {% endif %}
-                <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
+                <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
               </picture>
             </div>
             {% endif %}

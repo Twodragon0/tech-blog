@@ -248,14 +248,15 @@
   <link rel="prefetch" href="{{ "/assets/js/main-search.js" | relative_url }}" as="script">
   {% comment %}OG AVIF 이미지 preload 제거: 소셜 메타에만 사용되며 페이지 렌더에 미사용 -> "preloaded but not used" 경고 방지 (2026-04-17){% endcomment %}
 
-  <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
+  <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화)
+       Sentry / Vercel SDKs are lazy-loaded after first interaction, so eager
+       preconnect was flagged as "unused" by PageSpeed (no requests on initial
+       load). Downgraded to dns-prefetch — keeps DNS warmed without blocking
+       the critical path. (2026-05-04) -->
   {% if site.sentry_dsn and site.sentry_dsn != "" %}
-  <link rel="preconnect" href="https://browser.sentry-cdn.com" crossorigin>
-  <!-- Sentry ingest endpoint: actual error reporting target (PageSpeed: 310ms LCP savings) -->
-  <link rel="preconnect" href="https://o4510686170710016.ingest.us.sentry.io" crossorigin>
+  <link rel="dns-prefetch" href="https://browser.sentry-cdn.com">
+  <link rel="dns-prefetch" href="https://o4510686170710016.ingest.us.sentry.io">
   {% endif %}
-  <!-- Vercel Analytics & Speed Insights endpoint (PageSpeed: 340ms LCP savings) -->
-  <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin>
   <!-- Google Translate: dns-prefetch only (script lazy-loaded on user interaction) -->
   <link rel="dns-prefetch" href="https://translate.google.com">
   <link rel="dns-prefetch" href="https://translate.googleapis.com">
