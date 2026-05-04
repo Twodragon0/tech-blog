@@ -1,90 +1,6 @@
 {
-  "updated_at": "2026-05-03T02:02:17.303112+00:00",
+  "updated_at": "2026-05-04T02:02:54.256685+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/apple-account-change-alerts-abused-to-send-phishing-emails/",
-      "title": "Apple account change alerts abused to send phishing emails",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/nist-to-stop-rating-non-priority-flaws-due-to-volume-increase/",
-      "title": "NIST to stop rating non-priority flaws due to volume increase",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/04/19/palantir-posts-mini-manifesto-denouncing-regressive-and-harmful-cultures/",
-      "title": "Palantir posts mini-manifesto denouncing inclusivity and ‘regressive’ cultures",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28699",
-      "title": "Vercel 2026년 4월 보안 사고",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/stablecoins-not-a-threat-to-banking-sector-in-the-near-term-moody-s?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Stablecoins not a threat to banks in the near-term: Moody's analyst",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-cycle-dramatically-underperform-halving?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "2024 BTC cycle 'dramatically' underperforming previous halvings: Analyst",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kelp-exploit-non-isolated-defi-lending?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kelp exploit highlights problem with non-isolated DeFi lending: Crypto execs",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/alcoa-sells-massena-smelter-nydig-bitcoin-mining-ai-data-centers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Aluminum giant Alcoa to sell dormant smelter to Bitcoin miner NYDIG: Report",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ravedao-denies-manipulation-binance-bitget-probe-rave-trading?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "RaveDAO denies manipulation as Binance, Bitget probe RAVE trading activity",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28703",
-      "title": "프로그래밍의 일곱 가지 원형 언어 (2022)",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28702",
-      "title": "iroh - 공개키 기반 초고속 P2P 네트워크 연결 라이브러리 오픈소스",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28701",
-      "title": "모든 공개 Notion 페이지가 모든 편집자의 이메일 주소를 유출",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28700",
-      "title": "Vercel, 내부 시스템 침해 발생했다고 밝혀",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28698",
-      "title": "아빠의 뇌: 아버지됨이 남성의 마음을 어떻게 재구성하는가",
-      "published_date": "2026-04-20",
-      "expires_at": "2026-04-27T01:55:51.806174+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/sglang-cve-2026-5760-cvss-98-enables.html",
       "title": "SGLang CVE-2026-5760 (CVSS 9.8) Enables RCE via Malicious GGUF Model Files",
@@ -1248,6 +1164,96 @@
       "title": "VS Code가 사용 여부와 관계없이 커밋에 &#039;Co-Authored-by Copilot&#039;을 삽입",
       "published_date": "2026-05-03",
       "expires_at": "2026-05-10T02:02:17.303005+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/",
+      "title": "Instructure confirms data breach, ShinyHunters claims attack",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-defender-wrongly-flags-digicert-certs-as-trojan-win32-cerdigentadha/",
+      "title": "Microsoft Defender wrongly flags DigiCert certs as Trojan:Win32/Cerdigent.A!dha",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
+      "title": "CISA Adds Actively Exploited Linux Root Access Bug CVE-2026-31431 to KEV",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/telegram-mini-apps-abused-for-crypto-scams-android-malware-delivery/",
+      "title": "Telegram Mini Apps abused for crypto scams, Android malware delivery",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/us-military-reaches-deals-with-7-tech-companies-to-use-their-ai-on-classified-systems/",
+      "title": "US Military Reaches Deals With 7 Tech Companies to Use Their AI on Classified Sy",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategy-takes-a-bitcoin-buying-breather-ahead-of-q1-earnings-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy takes Bitcoin buying breather ahead of Q1 earnings report",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/americans-distrust-crypto-ai-as-industry-super-pacs-flood-midterms-poll-finds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Americans distrust crypto, AI as industry super PACs flood midterms, poll finds",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/irans-largest-crypto-exchange-founded-by-sons-of-family-tied-to-supreme-leaders-reuters?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Iran’s largest crypto exchange founded by sons of family tied to supreme leaders",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/new-york-forces-uphold-to-pay-5m-over-fraudulent-crypto-investment-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "New York forces Uphold to pay $5M over fraudulent crypto investment scheme",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-industry-will-be-just-fine-if-clarity-act-doesnt-pass-chris-perkins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto industry will be ‘just fine’ if CLARITY Act doesn’t pass: Chris Perkins",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29140",
+      "title": "GPT-5.5 vs GPT-5.4 vs Opus 4.7 - 실제 코딩 작업 56개 벤치마크 비교",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29139",
+      "title": "Barman - PostgreSQL용 백업 및 복구 관리자",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29138",
+      "title": "Kimi K2.6가 코딩 챌린지에서 Claude, GPT-5.5, Gemini를 이김",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29137",
+      "title": "수백만 줄의 Haskell: Mercury의 프로덕션 엔지니어링",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29136",
+      "title": "Mercedes-Benz, 물리 버튼을 되돌리겠다고 약속함",
+      "published_date": "2026-05-04",
+      "expires_at": "2026-05-11T02:02:54.256584+00:00"
     }
   ]
 }
