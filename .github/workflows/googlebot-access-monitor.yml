@@ -1,0 +1,109 @@
+name: Googlebot Access Monitor
+
+# Daily probe of the production site as Googlebot. Alerts via Slack when
+# Vercel Attack Challenge Mode (or any other crawler-blocking config) is
+# detected, since that silently kills GSC indexing.
+#
+# Background: 2026-05-04 incident — Attack Challenge Mode was re-enabled
+# in the Vercel dashboard, blocking Googlebot with HTTP 429 + challenge
+# header on every URL including sitemap.xml. GSC reported 0 impressions
+# until the mode was disabled. See
+# docs/troubleshooting/VERCEL_SECURITY_CHECKPOINT_FIX.md.
+
+on:
+  schedule:
+    - cron: "0 2 * * *"  # 02:00 UTC = 11:00 KST daily
+  workflow_dispatch:
+
+concurrency:
+  group: googlebot-access-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+        with:
+          fetch-depth: 1
+
+      - name: Probe production site as Googlebot
+        id: probe
+        shell: bash
+        run: |
+          set +e
+          bash scripts/check_googlebot_access.sh "https://tech.2twodragon.com" \
+            > /tmp/probe.txt 2>&1
+          status=$?
+          set -e
+          {
+            echo 'output<<PROBE_EOF'
+            cat /tmp/probe.txt
+            echo 'PROBE_EOF'
+          } >> "$GITHUB_OUTPUT"
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          cat /tmp/probe.txt
+          exit $status
+
+      - name: Notify Slack on failure
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          PROBE_OUTPUT: ${{ steps.probe.outputs.output }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_CHANNEL_ID:-}" ]; then
+            echo "::warning::SLACK_BOT_TOKEN or SLACK_CHANNEL_ID not configured, skipping notification"
+            exit 0
+          fi
+          payload=$(python3 -c '
+          import json, os
+          probe = os.environ.get("PROBE_OUTPUT", "(no output)")
+          run_url = os.environ.get("RUN_URL", "")
+          channel = os.environ.get("SLACK_CHANNEL_ID", "")
+          message = (
+              ":rotating_light: *Googlebot access probe failed*\n"
+              "tech.2twodragon.com is returning HTTP 429 / challenge to "
+              "Googlebot. Likely cause: Vercel Attack Challenge Mode is "
+              "enabled — disable at "
+              "https://vercel.com/twodragon0s-projects/tech-blog/settings/security\n"
+              f"Run: {run_url}\n"
+              f"```\n{probe[-1500:]}\n```"
+          )
+          print(json.dumps({
+              "channel": channel,
+              "text": message,
+              "unfurl_links": False,
+              "unfurl_media": False,
+          }, ensure_ascii=False))
+          ')
+          HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" \
+            "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$payload")
+          echo "Slack response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
+            if [ "$ok" = "True" ]; then
+              echo "Slack notification sent successfully"
+            else
+              error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
+              echo "::warning::Slack API error: $error"
+            fi
+          else
+            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            cat /tmp/slack_resp.txt || true
+          fi
