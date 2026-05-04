@@ -369,6 +369,118 @@ def _extract_digest_title_labels(
     return normalized_labels[:3]
 
 
+# ---------------------------------------------------------------------------
+# Excerpt theme detection — 5 variants keyed on dominant signal keywords.
+# Priority order: more specific keywords first to avoid over-matching.
+# ---------------------------------------------------------------------------
+
+_EXCERPT_THEME_KEYWORDS: list[tuple[str, list[str]]] = [
+    # Variant A: Ransomware / active threat-heavy
+    (
+        "ransomware",
+        [
+            "랜섬웨어", "ransomware", "멀웨어", "malware", "botnet", "봇넷",
+            "trojan", "트로이", "worm", "웜",
+        ],
+    ),
+    # Variant B: AI / LLM-heavy
+    (
+        "ai_llm",
+        [
+            "llm", "ai 에이전트", "ai agent", "생성형 ai", "generative ai",
+            "gpt", "claude", "gemini", "langchain", "rag", "프롬프트",
+        ],
+    ),
+    # Variant C: CVE / Patch-heavy
+    (
+        "cve_patch",
+        [
+            "cve-", "취약점", "vulnerability", "patch", "패치", "exploit",
+            "익스플로잇", "zero-day", "제로데이", "rce",
+        ],
+    ),
+    # Variant D: Cloud / Kubernetes-heavy
+    (
+        "cloud_k8s",
+        [
+            "kubernetes", "k8s", "쿠버네티스", "aws", "azure", "gcp",
+            "클라우드", "cloud", "eks", "aks", "gke", "terraform",
+        ],
+    ),
+    # Variant E: generic fallback (no theme match needed — lowest priority)
+    ("generic", []),
+]
+
+# Second sentences for security mode (indexed by theme)
+_EXCERPT_SECOND_SECURITY: dict[str, str] = {
+    "ransomware": (
+        " 랜섬웨어 감염 경로·피해 규모·복구 절차와 함께 조직 방어를 위한"
+        " 우선순위 대응 체크리스트를 제시합니다."
+    ),
+    "ai_llm": (
+        " AI 에이전트 보안, LLM 공급망 위협, 프롬프트 인젝션 대응 전략과"
+        " DevSecOps 파이프라인 통합 방안을 다룹니다."
+    ),
+    "cve_patch": (
+        " 이번 주 긴급 CVE·패치 현황, 공격 벡터 분석, CVSS 우선순위별"
+        " 신속 적용 가이드를 함께 정리합니다."
+    ),
+    "cloud_k8s": (
+        " AWS·Azure·GCP 신규 보안 기능, 쿠버네티스 클러스터 강화 포인트와"
+        " 클라우드 설정 오류 방지 체크리스트를 다룹니다."
+    ),
+    "generic": (
+        " 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고,"
+        " 경영진 보고용 우선순위·대응 체크리스트를 함께 제시합니다."
+    ),
+}
+
+# Second sentences for tech mode (indexed by theme)
+_EXCERPT_SECOND_TECH: dict[str, str] = {
+    "ransomware": (
+        " 보안 사고 대응 자동화, 인시던트 리포팅, 복구 파이프라인 구축 등"
+        " DevSecOps 실무 적용 사례를 함께 다룹니다."
+    ),
+    "ai_llm": (
+        " LLM 기반 개발 도구, AI 코딩 어시스턴트 활용법과 엔지니어링 팀의"
+        " AI 도입 모범 사례를 함께 다룹니다."
+    ),
+    "cve_patch": (
+        " 취약점 스캔 자동화, 의존성 패치 파이프라인, SCA·SAST 도구 통합 등"
+        " 실무 보안 DevOps 가이드를 다룹니다."
+    ),
+    "cloud_k8s": (
+        " 클라우드 네이티브 아키텍처, 쿠버네티스 운영 최적화, IaC 보안 모범 사례와"
+        " 비용 절감 전략을 함께 정리합니다."
+    ),
+    "generic": (
+        " 오픈소스, 클라우드 인프라, AI 도구 등 최신 개발 트렌드와"
+        " 실무 적용 사례를 함께 다룹니다."
+    ),
+}
+
+
+def _select_excerpt_variant(
+    title_keywords: str,
+    topics: list[str] | None,
+) -> str:
+    """주제 신호를 분석해 5가지 excerpt 변형 중 하나를 선택한다.
+
+    입력이 같으면 항상 같은 변형을 반환한다(결정론적). 우선순위 순서로
+    키워드를 탐색하며, 첫 번째 매칭된 테마를 반환한다. 매칭이 없으면
+    'generic'을 반환한다.
+    """
+    signal = " ".join(
+        [title_keywords.lower()] + [t.lower() for t in (topics or [])]
+    )
+    for theme, keywords in _EXCERPT_THEME_KEYWORDS:
+        if theme == "generic":
+            return "generic"
+        if any(kw in signal for kw in keywords):
+            return theme
+    return "generic"
+
+
 def _build_clean_excerpt(
     title_keywords: str,
     date_str: str,
@@ -376,20 +488,23 @@ def _build_clean_excerpt(
     mode: str,
     topics: list[str] | None = None,
 ) -> str:
-    """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 보장"""
+    """품질 검증된 excerpt 생성 - 조사 자동 보정, 150-200자 보장, 5가지 테마 변형"""
     # 조사 보정: 받침 여부에 따라 을/를 선택
     last_char = title_keywords.rstrip()[-1] if title_keywords.rstrip() else ""
     particle = "을" if _has_batchim(last_char) else "를"
 
+    # 테마 기반 second 문장 선택 (결정론적)
+    theme = _select_excerpt_variant(title_keywords, topics)
+
     if mode == "tech":
         first = f"{title_keywords}{particle} 중심으로 {date_str} 주요 기술 블로그 뉴스 {total}건과 개발자 관점의 적용 포인트를 정리합니다."
-        # 보충 문장: topics에서 키워드 추가 또는 고정 확장
+        # 보충 문장: topics에서 키워드 추가 또는 테마 기반 선택
         extra_topics = [t for t in (topics or []) if t not in title_keywords][:3]
         if extra_topics:
             kw = ", ".join(extra_topics)
             second = f" {kw} 등 최신 개발 트렌드와 실무 적용 사례를 함께 다룹니다."
         else:
-            second = " 오픈소스, 클라우드 인프라, AI 도구 등 실무 관련 개발 트렌드와 적용 사례를 함께 다룹니다."
+            second = _EXCERPT_SECOND_TECH[theme]
     else:
         first = f"{title_keywords}{particle} 중심으로 {date_str} 주요 보안/기술 뉴스 {total}건과 대응 우선순위를 정리합니다."
         extra_topics = [t for t in (topics or []) if t not in title_keywords][:3]
@@ -399,7 +514,7 @@ def _build_clean_excerpt(
                 f" {kw} 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
             )
         else:
-            second = " 취약점 패치, 클라우드 보안, 공급망 위협 등 DevSecOps 실무 대응 방안을 함께 다룹니다."
+            second = _EXCERPT_SECOND_SECURITY[theme]
 
     excerpt = first + second
 

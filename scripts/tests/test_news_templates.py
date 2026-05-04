@@ -12,6 +12,7 @@ from auto_publish_news import (
     SVG_TEMPLATE_HUB_SPOKE,
     SVG_TEMPLATE_TIMELINE,
     _apply_trend_kr_map,
+    _build_clean_excerpt,
     _deduplicate_crypto_stories,
     _escape_svg_text,
     _extract_key_topics,
@@ -26,6 +27,7 @@ from auto_publish_news import (
     _generate_security_analysis_template,
     _generate_security_brief_template,
     _generate_trend_analysis,
+    _select_excerpt_variant,
     _select_svg_template,
     _table_summary,
     _to_english_svg_text,
@@ -3096,4 +3098,223 @@ class TestPracticalPointsUniqueness:
         outputs = [_generate_devops_template(it) for it in items]
         assert len(set(outputs)) >= 5, (
             f"Weekly digest bullets lack diversity: only {len(set(outputs))} unique"
+        )
+
+
+# ===========================================================================
+# _select_excerpt_variant + _build_clean_excerpt
+# ===========================================================================
+
+
+class TestSelectExcerptVariant:
+    """Tests for _select_excerpt_variant() — theme detection and determinism."""
+
+    # ------------------------------------------------------------------
+    # Variant A: ransomware / malware-heavy
+    # ------------------------------------------------------------------
+    @pytest.mark.parametrize(
+        "title,topics",
+        [
+            ("랜섬웨어 공격 그룹 분석 및 대응", None),
+            ("Ransomware group targets critical infrastructure", None),
+            ("악성코드 멀웨어 변종 탐지", ["malware", "botnet"]),
+        ],
+    )
+    def test_ransomware_variant(self, title, topics):
+        variant = _select_excerpt_variant(title, topics)
+        assert variant == "ransomware", f"Expected ransomware, got {variant!r}"
+
+    # ------------------------------------------------------------------
+    # Variant B: AI / LLM-heavy
+    # ------------------------------------------------------------------
+    @pytest.mark.parametrize(
+        "title,topics",
+        [
+            ("LLM 공급망 공격 탐지 기법", None),
+            ("AI 에이전트 보안 취약점 분석", None),
+            ("GPT 기반 프롬프트 인젝션 공격", ["llm", "rag"]),
+        ],
+    )
+    def test_ai_llm_variant(self, title, topics):
+        variant = _select_excerpt_variant(title, topics)
+        assert variant == "ai_llm", f"Expected ai_llm, got {variant!r}"
+
+    # ------------------------------------------------------------------
+    # Variant C: CVE / patch-heavy
+    # ------------------------------------------------------------------
+    @pytest.mark.parametrize(
+        "title,topics",
+        [
+            ("CVE-2026-1234 긴급 패치 권고", None),
+            ("취약점 패치 적용 가이드라인", None),
+            ("Zero-day exploit in popular library", ["exploit", "rce"]),
+        ],
+    )
+    def test_cve_patch_variant(self, title, topics):
+        variant = _select_excerpt_variant(title, topics)
+        assert variant == "cve_patch", f"Expected cve_patch, got {variant!r}"
+
+    # ------------------------------------------------------------------
+    # Variant D: cloud / Kubernetes-heavy
+    # ------------------------------------------------------------------
+    @pytest.mark.parametrize(
+        "title,topics",
+        [
+            ("Kubernetes RBAC 설정 오류 보안 강화", None),
+            ("AWS S3 보안 설정 모범 사례", None),
+            ("GCP 클라우드 네이티브 보안 가이드", ["k8s", "terraform"]),
+        ],
+    )
+    def test_cloud_k8s_variant(self, title, topics):
+        variant = _select_excerpt_variant(title, topics)
+        assert variant == "cloud_k8s", f"Expected cloud_k8s, got {variant!r}"
+
+    # ------------------------------------------------------------------
+    # Variant E: generic fallback
+    # ------------------------------------------------------------------
+    def test_generic_fallback_variant(self):
+        variant = _select_excerpt_variant("주간 보안 뉴스 다이제스트", None)
+        assert variant == "generic", f"Expected generic, got {variant!r}"
+
+    # ------------------------------------------------------------------
+    # Determinism — same input always yields same variant
+    # ------------------------------------------------------------------
+    def test_same_input_same_variant(self):
+        title = "CVE-2026-9999 패치 권고"
+        v1 = _select_excerpt_variant(title, None)
+        v2 = _select_excerpt_variant(title, None)
+        assert v1 == v2, "Non-deterministic: same input produced different variants"
+
+    # ------------------------------------------------------------------
+    # Diversity — 5 distinct inputs produce at least 4 different variants
+    # ------------------------------------------------------------------
+    def test_diversity_across_themes(self):
+        inputs = [
+            ("랜섬웨어 botnet 탐지", None),
+            ("LLM 기반 공격 분석", ["ai agent"]),
+            ("CVE-2026-5678 긴급 패치", None),
+            ("kubernetes 클러스터 보안", None),
+            ("주간 보안 동향 요약", None),
+        ]
+        variants = [_select_excerpt_variant(t, top) for t, top in inputs]
+        unique_variants = set(variants)
+        assert len(unique_variants) >= 4, (
+            f"Expected at least 4 distinct variants, got {len(unique_variants)}: {variants}"
+        )
+
+
+class TestBuildCleanExcerptVariants:
+    """Tests for _build_clean_excerpt() — theme-keyword variant selection."""
+
+    _DATE = "2026-05-04"
+    _TOTAL = 15
+
+    # ------------------------------------------------------------------
+    # Variant A keywords appear for ransomware-heavy input (security mode)
+    # ------------------------------------------------------------------
+    def test_ransomware_excerpt_security_mode(self):
+        excerpt = _build_clean_excerpt(
+            "랜섬웨어 공격 분석",
+            self._DATE,
+            self._TOTAL,
+            "security",
+            topics=None,
+        )
+        assert any(
+            kw in excerpt
+            for kw in ("랜섬웨어", "감염 경로", "복구")
+        ), f"Variant A keywords missing in: {excerpt!r}"
+        assert len(excerpt) <= 200
+
+    # ------------------------------------------------------------------
+    # Variant B keywords appear for AI/LLM-heavy input (security mode)
+    # ------------------------------------------------------------------
+    def test_ai_llm_excerpt_security_mode(self):
+        excerpt = _build_clean_excerpt(
+            "LLM 공급망 위협 분석",
+            self._DATE,
+            self._TOTAL,
+            "security",
+            topics=None,
+        )
+        assert any(
+            kw in excerpt
+            for kw in ("AI 에이전트", "LLM", "프롬프트")
+        ), f"Variant B keywords missing in: {excerpt!r}"
+        assert len(excerpt) <= 200
+
+    # ------------------------------------------------------------------
+    # Variant C keywords appear for CVE/patch-heavy input (security mode)
+    # ------------------------------------------------------------------
+    def test_cve_patch_excerpt_security_mode(self):
+        excerpt = _build_clean_excerpt(
+            "CVE-2026-1234 취약점 패치",
+            self._DATE,
+            self._TOTAL,
+            "security",
+            topics=None,
+        )
+        assert any(
+            kw in excerpt
+            for kw in ("CVE", "패치", "긴급")
+        ), f"Variant C keywords missing in: {excerpt!r}"
+        assert len(excerpt) <= 200
+
+    # ------------------------------------------------------------------
+    # Variant D keywords appear for cloud/K8s-heavy input (security mode)
+    # ------------------------------------------------------------------
+    def test_cloud_k8s_excerpt_security_mode(self):
+        excerpt = _build_clean_excerpt(
+            "kubernetes 클러스터 보안 강화",
+            self._DATE,
+            self._TOTAL,
+            "security",
+            topics=None,
+        )
+        assert any(
+            kw in excerpt
+            for kw in ("AWS", "쿠버네티스", "클라우드", "GCP", "Azure")
+        ), f"Variant D keywords missing in: {excerpt!r}"
+        assert len(excerpt) <= 200
+
+    # ------------------------------------------------------------------
+    # Variant E (generic) used for non-matching input (security mode)
+    # ------------------------------------------------------------------
+    def test_generic_excerpt_security_mode(self):
+        excerpt = _build_clean_excerpt(
+            "주간 보안 다이제스트",
+            self._DATE,
+            self._TOTAL,
+            "security",
+            topics=None,
+        )
+        assert any(
+            kw in excerpt
+            for kw in ("공격 경로", "영향 자산", "체크리스트", "우선순위")
+        ), f"Variant E keywords missing in: {excerpt!r}"
+        assert len(excerpt) <= 200
+
+    # ------------------------------------------------------------------
+    # All excerpts respect 150-200 char bounds (spot-check across variants)
+    # ------------------------------------------------------------------
+    @pytest.mark.parametrize(
+        "title,mode",
+        [
+            ("랜섬웨어 botnet 대응", "security"),
+            ("LLM 에이전트 보안", "security"),
+            ("CVE-2026-0001 패치", "security"),
+            ("AWS kubernetes 설정", "security"),
+            ("주간 보안 요약", "security"),
+            ("LLM 개발 트렌드", "tech"),
+            ("kubernetes 운영 최적화", "tech"),
+            ("주간 기술 블로그", "tech"),
+        ],
+    )
+    def test_excerpt_length_bounds(self, title, mode):
+        excerpt = _build_clean_excerpt(title, self._DATE, self._TOTAL, mode)
+        assert len(excerpt) >= 150, (
+            f"Excerpt too short ({len(excerpt)}): {excerpt!r}"
+        )
+        assert len(excerpt) <= 200, (
+            f"Excerpt too long ({len(excerpt)}): {excerpt!r}"
         )
