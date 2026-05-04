@@ -103,7 +103,18 @@ layout: default
         {% if webp_file %}
         <source srcset="{{ webp_path }}" type="image/webp">
         {% endif %}
-        <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" data-svg-src="{{ svg_path }}" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
+        {% comment %}
+          Add `is-svg-image` class hook when the rendered src is an SVG so
+          .post-header .post-image img.is-svg-image overrides the default
+          16:9 cover crop with aspect-ratio:auto + object-fit:contain. SVG
+          covers (e.g. L20 Hero+2-Card) are 1200x630, not 1200x675, so
+          without this override they get clipped on the top/bottom.
+        {% endcomment %}
+        {% assign hero_class = 'clickable-image' %}
+        {% if image_path contains '.svg' %}
+          {% assign hero_class = hero_class | append: ' is-svg-image' %}
+        {% endif %}
+        <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="{{ hero_class }}" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" data-svg-src="{{ svg_path }}" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
       </picture>
     </div>
     {% endif %}
