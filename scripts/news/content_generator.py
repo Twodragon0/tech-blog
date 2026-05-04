@@ -49,6 +49,25 @@ def _html_escape_quotes(text: str) -> str:
     return text.replace("&", "&amp;").replace('"', "&quot;").replace("'", "&#x27;")
 
 
+def _yaml_escape_dq(text: str) -> str:
+    """Escape a string for use inside a YAML double-quoted scalar.
+
+    YAML double-quoted scalars require backslash-escaping for both `\\` and
+    `"`. Unescaped inner `"` terminate the string early and Jekyll bails out
+    on the post with `did not find expected key while parsing a block
+    mapping at line 2 column 1`. This bit auto-published digest titles like:
+
+        title: "중요한 cPanel 취약점이 \"Sorry\", Trellix, ..."
+
+    where the inner Korean quote characters survived translation and broke
+    every downstream parser.
+
+    Order matters: escape `\\` first so we don't double-escape backslashes
+    we add for `"`.
+    """
+    return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
     if mode == "tech-blog":
         category_labels = {
@@ -923,19 +942,33 @@ def generate_post_content(
     # a single-quoted arg prematurely). Use double-quoted outer + entity encoding.
     safe_title = _html_escape_quotes(title_keywords)
 
+    # YAML frontmatter values are emitted inside double-quoted scalars; inner `"`
+    # characters (and stray `\`) must be backslash-escaped or Jekyll skips the
+    # whole post. Centralize the escape here rather than inside every builder so
+    # the contract is "builders return the natural string, the frontmatter site
+    # encodes it for YAML."
+    yaml_title = _yaml_escape_dq(title_keywords)
+    yaml_excerpt = _yaml_escape_dq(
+        _build_clean_excerpt(title_keywords, date_str, total, "security", topics)
+    )
+    yaml_description = _yaml_escape_dq(
+        _build_clean_description(title_keywords, source_list, date_str, total, "security")
+    )
+    yaml_image_alt = _yaml_escape_dq(_build_clean_image_alt(title_keywords, "security"))
+
     content = f'''---
 layout: post
-title: "{title_keywords}"
+title: "{yaml_title}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "security", topics)}"
-description: "{_build_clean_description(title_keywords, source_list, date_str, total, "security")}"
+excerpt: "{yaml_excerpt}"
+description: "{yaml_description}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_build_clean_image_alt(title_keywords, "security")}"
+image_alt: "{yaml_image_alt}"
 toc: true
 ---
 
@@ -1296,19 +1329,29 @@ def generate_tech_blog_content(
     # Escape quotes in title before Liquid injection (same guard as security template)
     safe_title = _html_escape_quotes(title_keywords)
 
+    # YAML double-quoted scalar escape — see security-mode block for rationale.
+    yaml_title = _yaml_escape_dq(f"기술 블로그 주간 다이제스트: {title_keywords}")
+    yaml_excerpt = _yaml_escape_dq(
+        _build_clean_excerpt(title_keywords, date_str, total, "tech", topics)
+    )
+    yaml_description = _yaml_escape_dq(
+        _build_clean_description(title_keywords, source_list, date_str, total, "tech")
+    )
+    yaml_image_alt = _yaml_escape_dq(_build_clean_image_alt(title_keywords, "tech"))
+
     content = f'''---
 layout: post
-title: "기술 블로그 주간 다이제스트: {title_keywords}"
+title: "{yaml_title}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
-excerpt: "{_build_clean_excerpt(title_keywords, date_str, total, "tech", topics)}"
-description: "{_build_clean_description(title_keywords, source_list, date_str, total, "tech")}"
+excerpt: "{yaml_excerpt}"
+description: "{yaml_description}"
 keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "{_build_clean_image_alt(title_keywords, "tech")}"
+image_alt: "{yaml_image_alt}"
 toc: true
 ---
 
