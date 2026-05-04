@@ -401,10 +401,17 @@
       });
     };
 
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(trigger, { timeout: 5000 });
+    var schedule = function () {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(trigger, { timeout: 5000 });
+      } else {
+        setTimeout(trigger, 2000);
+      }
+    };
+    if (document.readyState === 'complete') {
+      schedule();
     } else {
-      setTimeout(trigger, 2000);
+      window.addEventListener('load', schedule, { once: true });
     }
   }
 

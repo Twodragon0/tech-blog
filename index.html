@@ -164,20 +164,36 @@ title: Home
               {% assign card_img = post.image | relative_url %}
               {% assign avif_file = nil %}
               {% assign webp_file = nil %}
+              {% assign card_avif_file = nil %}
+              {% assign card_webp_file = nil %}
               {% if post.image contains '.png' %}
                 {% assign avif_check = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
                 {% assign webp_check = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
+                {% assign card_avif_check = post.image | replace: '_og.png', '_card.avif' | replace: '.png', '_card.avif' %}
+                {% assign card_webp_check = post.image | replace: '_og.png', '_card.webp' | replace: '.png', '_card.webp' %}
                 {% assign avif_file = site.static_files | where: 'path', avif_check | first %}
                 {% assign webp_file = site.static_files | where: 'path', webp_check | first %}
+                {% assign card_avif_file = site.static_files | where: 'path', card_avif_check | first %}
+                {% assign card_webp_file = site.static_files | where: 'path', card_webp_check | first %}
                 {% assign card_avif = avif_check | relative_url %}
                 {% assign card_webp = webp_check | relative_url %}
+                {% assign card_sm_avif = card_avif_check | relative_url %}
+                {% assign card_sm_webp = card_webp_check | relative_url %}
               {% endif %}
               <picture>
                 {% if avif_file %}
+                  {% if card_avif_file %}
+                <source srcset="{{ card_sm_avif }} 525w, {{ card_avif }} 1120w" type="image/avif" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
+                  {% else %}
                 <source srcset="{{ card_avif }}" type="image/avif" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
+                  {% endif %}
                 {% endif %}
                 {% if webp_file %}
+                  {% if card_webp_file %}
+                <source srcset="{{ card_sm_webp }} 525w, {{ card_webp }} 1120w" type="image/webp" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
+                  {% else %}
                 <source srcset="{{ card_webp }}" type="image/webp" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px">
+                  {% endif %}
                 {% endif %}
                 <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" data-fallback="{{ '/assets/images/og-default.png' | relative_url }}">
               </picture>

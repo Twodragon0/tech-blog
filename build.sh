@@ -115,6 +115,17 @@ if ! python3 scripts/build/backfill_og_modern_variants.py; then
     log "WARN: modern-format backfill reported errors; build continues with whatever variants exist on disk"
 fi
 
+# ---------------------------------------------------------------------------
+# Backfill responsive _card.avif / _card.webp (525w) from _og.png. Unlocks
+# the post-card srcset path so listing pages serve a 525w-class image to
+# mobile/laptop instead of the full 1120w OG (PSI flag: ~94 KiB savings).
+# Idempotent (skip-if-exists). Soft failure on missing Pillow.
+# ---------------------------------------------------------------------------
+log "Backfilling _card.avif / _card.webp variants (skip-if-exists)..."
+if ! python3 scripts/build/backfill_card_variants.py; then
+    log "WARN: card-variant backfill reported errors; build continues with whatever variants exist on disk"
+fi
+
 # Inject Sentry DSN from Vercel env var (if set, overrides _config.yml)
 if [ -n "$SENTRY_DSN" ]; then
     log "Injecting Sentry DSN from environment variable..."
