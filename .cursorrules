@@ -395,6 +395,24 @@ aws ec2 describe-instances --region us-east-1 --profile my-secret-profile
 - 비교표: Before/After, 솔루션 비교
 - 차트: 데이터 시각화 (필요시)
 
+### Escape 정책: 하나의 sink, 하나의 인코딩 (Karpathy rule)
+
+자동 발행 파이프라인은 같은 포스트 안에서 세 개의 서로 다른 파서로 텍스트를 흘려보냅니다. 각 sink 의 grammar 가 다르므로 인코딩을 섞으면 silent build failure 또는 깨진 렌더가 발생합니다.
+
+| Sink | Helper | 적용 위치 |
+|---|---|---|
+| YAML scalar (frontmatter) | `_yaml_escape_dq` | `title:` `excerpt:` `description:` `image_alt:` |
+| HTML attribute (Liquid include arg) | `_html_escape_quotes` | `{% include card.html title="..." %}` |
+| SVG `<text>` element | `_escape_svg_text` | `<text>...</text>` `<title>` `<desc>` `aria-label="..."` |
+
+**규칙:**
+1. **Sink 의 경계에서 단 한 번만 escape**. 빌더 내부에서 escape 하지 않음 — 같은 값이 두 sink 에 들어갈 때 한 sink 의 인코딩이 다른 sink 에 새는 걸 방지.
+2. **`.replace('"', '\\"')` 같은 inline escape 금지** — 위의 helper 만 사용. helper 가 escape 순서 (backslash 먼저, ampersand 먼저) 를 캡슐화함.
+3. **HTML entity 를 YAML 에 넣지 않음**. `&quot;Sorry&quot;` 가 그대로 렌더됨 — 독자에게 보이는 문자가 됨.
+4. **새 필드 추가 시**: 목적지 sink 식별 → 표에서 helper 선택 → adversarial 입력으로 yaml/xml/html 라운드트립 회귀 테스트 추가 (`scripts/tests/test_blogwatcher_yaml_escape.py` 참고).
+
+상세 매트릭스, 과거 실패 사례, anti-pattern 은 `docs/guides/escape-policy.md` 참조.
+
 ## 보안 관련 작성 규칙
 
 ### 민감 정보 처리
