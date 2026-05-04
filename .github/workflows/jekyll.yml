@@ -196,6 +196,21 @@ jobs:
           python3 scripts/fix_malformed_liquid_includes.py --check
           echo "✅ Liquid include syntax check passed"
 
+      - name: Front-matter quote gate (unescaped inner DQ)
+        run: |
+          echo "🔍 Checking front matter title/excerpt for unescaped inner double-quotes..."
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            CHANGED=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || true)
+            if [ -n "$CHANGED" ]; then
+              python3 scripts/validators/check_frontmatter_quotes.py $CHANGED
+            else
+              echo "No _posts/*.md changed, skipping"
+            fi
+          else
+            python3 scripts/validators/check_frontmatter_quotes.py
+          fi
+          echo "✅ Front-matter quote gate passed"
+
       - name: Validate posts (severity, front matter, links)
         if: github.event_name == 'pull_request'
         run: |
