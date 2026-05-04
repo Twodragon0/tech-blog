@@ -76,6 +76,7 @@ from scripts.news.config import (  # noqa: E402,F401
 # Re-export content generator functions
 from scripts.news.content_generator import (  # noqa: E402,F401
     _apply_trend_kr_map,
+    _build_clean_excerpt,
     _build_digest_title,
     _html_escape_quotes,
     _determine_severity,
@@ -97,6 +98,7 @@ from scripts.news.content_generator import (  # noqa: E402,F401
     _korean_brief_summary,
     _korean_display_title,
     _run_post_quality_gate,
+    _select_excerpt_variant,
     _table_summary,
     _translate_to_korean_deepseek,
     _truncate_korean_sentence,
