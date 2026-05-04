@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Threat_Data.svg
 image_alt: "FIRESTARTER, NASA - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

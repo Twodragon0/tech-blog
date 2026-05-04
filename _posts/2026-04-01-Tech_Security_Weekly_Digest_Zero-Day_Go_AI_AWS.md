@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-01-Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS.svg
 image_alt: "Android Developer, TrueConf, AWS - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

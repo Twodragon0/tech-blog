@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go.svg
 image_alt: "Winter 2025 SOC 1, SystemBC C2, 22 BRIDGE - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.svg
 image_alt: "Grinex, Mirai Nexcorium - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

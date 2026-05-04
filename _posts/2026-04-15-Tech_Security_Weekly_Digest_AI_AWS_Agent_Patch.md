@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-15-Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch.svg
 image_alt: "Model Context, PHP Composer, Google, Pixel 10 - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html
