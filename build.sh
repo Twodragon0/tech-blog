@@ -70,6 +70,21 @@ if ! python3 scripts/generate_favicon.py; then
 fi
 
 # ---------------------------------------------------------------------------
+# Rasterize SVG cover images (image: /assets/images/foo.svg in any post's
+# front matter) that lack an _og.png companion. Must run BEFORE the modern-
+# variants step below — that one derives _og.{webp,avif} from _og.png, so
+# fresh PNGs from this step feed it within the same build.
+#
+# Backend cascade (rsvg-convert → cairosvg → soft-fail). A thin runtime
+# without librsvg keeps building; the only consequence is SVG-only posts
+# fall through to <img src="...svg"> via the is-svg-image class hook.
+# ---------------------------------------------------------------------------
+log "Rasterizing SVG covers without _og.png (skip-if-exists)..."
+if ! python3 scripts/build/rasterize_svg_covers.py; then
+    log "WARN: SVG → PNG rasterization reported errors; build continues with whatever covers exist on disk"
+fi
+
+# ---------------------------------------------------------------------------
 # Backfill _og.avif / _og.webp from any _og.png that lacks modern variants.
 # Idempotent (skip-if-exists), so steady-state builds add zero overhead;
 # only fires when a new post lands an _og.png without companion variants.
