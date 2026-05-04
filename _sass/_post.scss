@@ -3224,7 +3224,8 @@ ins.adsbygoogle-noablate {
 @media (max-width: 767px) {
   .post-article {
     max-width: 100%;
-    padding: 1.25rem 1rem;
+    /* Top padding removed: .main-content already supplies 1.5rem above */
+    padding: 0 1rem 1.25rem;
   }
   
   .post-header {
@@ -3460,7 +3461,7 @@ ins.adsbygoogle-noablate {
 /* === SMALL MOBILE (< 480px) === */
 @media (max-width: 479px) {
   .post-article {
-    padding: 1rem 0.875rem;
+    padding: 0 0.875rem 1rem;
   }
   
   .post-title {
