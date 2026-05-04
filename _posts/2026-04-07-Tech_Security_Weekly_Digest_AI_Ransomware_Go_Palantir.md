@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-07-Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir.svg
 image_alt: "REvil GangCrab - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

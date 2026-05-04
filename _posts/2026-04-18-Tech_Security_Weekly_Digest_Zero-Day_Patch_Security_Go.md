@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go.svg
 image_alt: "Microsoft Defender, ETL, Google, 2025 - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

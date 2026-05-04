@@ -1137,6 +1137,156 @@
       "source": "/posts/2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/",
       "destination": "/posts/2026/01/17/AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/",
       "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/",
+      "destination": "/posts/2026/04/05/Week1_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/02/Tech_Security_Weekly_Digest_AI_Malware/",
+      "destination": "/posts/2026/04/05/Week1_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/",
+      "destination": "/posts/2026/04/05/Week1_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/",
+      "destination": "/posts/2026/04/05/Week1_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/",
+      "destination": "/posts/2026/04/05/Week1_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/06/Tech_Security_Weekly_Digest_Patch_AI/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/07/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/08/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/09/Tech_Security_Weekly_Digest_Cloud_Botnet_AI_Malware/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/",
+      "destination": "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/13/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/14/Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/15/Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/16/Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/17/Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/",
+      "destination": "/posts/2026/04/19/Week3_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/23/Tech_Security_Weekly_Digest_AI_Docker_Go_API/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/24/Tech_Security_Weekly_Digest_Malware_AI_Go_Threat/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/25/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/26/Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/27/Tech_Security_Weekly_Digest_AI_Agent/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/",
+      "destination": "/posts/2026/04/30/Week4_April_2026_Security_Digest/",
+      "statusCode": 301
     }
   ],
   "rewrites": [

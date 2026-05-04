@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.svg
 image_alt: "Cisco FMC CVE-2025-55182, agentic AI security principles - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

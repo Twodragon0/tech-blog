@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI.svg
 image_alt: "Citizen Lab surveillance, cryptocurrency fraud, ChatGPT Pro pricing - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html

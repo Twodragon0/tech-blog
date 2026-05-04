@@ -12,6 +12,8 @@ comments: true
 image: /assets/images/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API.svg
 image_alt: "KICS Docker VS, npm, Harvester, Microsoft Graph - security digest overview"
 toc: true
+sitemap:
+  exclude: yes
 ---
 
 {% include ai-summary-card.html
