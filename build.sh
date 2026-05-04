@@ -69,6 +69,17 @@ if ! python3 scripts/generate_favicon.py; then
     fi
 fi
 
+# ---------------------------------------------------------------------------
+# Backfill _og.avif / _og.webp from any _og.png that lacks modern variants.
+# Idempotent (skip-if-exists), so steady-state builds add zero overhead;
+# only fires when a new post lands an _og.png without companion variants.
+# Soft failure: missing Pillow logs a warning and the build continues.
+# ---------------------------------------------------------------------------
+log "Backfilling _og.avif / _og.webp variants (skip-if-exists)..."
+if ! python3 scripts/build/backfill_og_modern_variants.py; then
+    log "WARN: modern-format backfill reported errors; build continues with whatever variants exist on disk"
+fi
+
 # Inject Sentry DSN from Vercel env var (if set, overrides _config.yml)
 if [ -n "$SENTRY_DSN" ]; then
     log "Injecting Sentry DSN from environment variable..."
