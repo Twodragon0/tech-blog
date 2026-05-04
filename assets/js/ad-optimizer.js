@@ -35,12 +35,16 @@
     container.appendChild(adElement);
 
     // MutationObserver로 광고 로드 감지 (iframe 추가 감지)
-    const observer = new MutationObserver(function(mutations) {
+    // offsetHeight 읽기는 requestAnimationFrame에 묶어 강제 레이아웃을 회피.
+    const observer = new MutationObserver(function() {
       const iframe = container.querySelector('iframe');
-      if (iframe && iframe.offsetHeight > 0) {
-        container.style.minHeight = 'auto';
-        observer.disconnect();
-      }
+      if (!iframe) return;
+      requestAnimationFrame(function() {
+        if (iframe.offsetHeight > 0) {
+          container.style.minHeight = 'auto';
+          observer.disconnect();
+        }
+      });
     });
 
     observer.observe(container, {
@@ -139,39 +143,45 @@
     }
   }
 
-  // 초기화
-  function init() {
-    // DOM 로드 완료 후 실행
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', optimizeAds);
+  // 초기화: window.load + requestIdleCallback 으로 지연하여
+  // optimizeAds()의 layout-mutating 작업이 LCP 직후 critical path를
+  // 떠나도록 한다 (PSI: forced reflow 38ms 출처 회피).
+  function scheduleOptimize(delay) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(optimizeAds, { timeout: delay });
     } else {
-      optimizeAds();
+      setTimeout(optimizeAds, delay);
     }
+  }
 
-    // AdSense 스크립트 로드 후에도 실행
-    if (window.adsbygoogle) {
-      // 이미 로드된 경우
-      setTimeout(optimizeAds, 1000);
-    } else {
-      // MutationObserver로 전역 변수 추가 감지
-      const adSenseObserver = new MutationObserver(function() {
-        if (window.adsbygoogle) {
+  function init() {
+    var runOnLoad = function () {
+      scheduleOptimize(2000);
+
+      if (window.adsbygoogle) {
+        scheduleOptimize(2500);
+      } else {
+        var adSenseObserver = new MutationObserver(function () {
+          if (window.adsbygoogle) {
+            adSenseObserver.disconnect();
+            scheduleOptimize(1500);
+          }
+        });
+        adSenseObserver.observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+        setTimeout(function () {
           adSenseObserver.disconnect();
-          setTimeout(optimizeAds, 1000);
-        }
-      });
+          scheduleOptimize(0);
+        }, 5000);
+      }
+    };
 
-      // window 객체에 adsbygoogle 추가를 간접 감지하기 위해 document 변화 관찰
-      adSenseObserver.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-      });
-
-      // 5초 후 타임아웃
-      setTimeout(function() {
-        adSenseObserver.disconnect();
-        optimizeAds(); // 타임아웃 후에도 실행
-      }, 5000);
+    if (document.readyState === 'complete') {
+      runOnLoad();
+    } else {
+      window.addEventListener('load', runOnLoad, { once: true });
     }
   }
 
