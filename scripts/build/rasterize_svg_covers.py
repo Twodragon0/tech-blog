@@ -34,6 +34,7 @@ Exit codes:
 """
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 import subprocess
@@ -117,17 +118,79 @@ def _convert_via_cairosvg(svg: Path, png: Path) -> None:
     )
 
 
-def _pick_backend():
-    if shutil.which("rsvg-convert"):
+def _pick_backend(force: str | None = None):
+    """Return (backend_name, convert_callable) for the requested backend.
+
+    Parameters
+    ----------
+    force:
+        ``None`` or ``"auto"``  — existing cascade: rsvg-convert → cairosvg
+                                  → (None, None) soft-fail.
+        ``"rsvg-convert"``       — only try rsvg; hard-fail (SystemExit 1) if
+                                   rsvg-convert is not on PATH.
+        ``"cairosvg"``           — only try cairosvg; hard-fail (SystemExit 1)
+                                   if the import fails.
+    """
+    if force in (None, "auto"):
+        # Original cascade — soft-fail when neither is available.
+        if shutil.which("rsvg-convert"):
+            return "rsvg-convert", _convert_via_rsvg
+        try:
+            import cairosvg  # noqa: F401  — probe only
+            return "cairosvg", _convert_via_cairosvg
+        except Exception:  # noqa: BLE001 — libcairo missing is the common case
+            return None, None
+
+    if force == "rsvg-convert":
+        if not shutil.which("rsvg-convert"):
+            print(
+                "ERROR: --backend rsvg-convert requested but rsvg-convert is not "
+                "on PATH. Install librsvg2-bin (apt) or librsvg (brew).",
+                file=sys.stderr,
+            )
+            raise SystemExit(1)
         return "rsvg-convert", _convert_via_rsvg
-    try:
-        import cairosvg  # noqa: F401  — probe only
-        return "cairosvg", _convert_via_cairosvg
-    except Exception:  # noqa: BLE001 — libcairo missing is the common case
-        return None, None
+
+    if force == "cairosvg":
+        try:
+            import cairosvg  # noqa: F401  — probe only
+            return "cairosvg", _convert_via_cairosvg
+        except Exception as exc:  # noqa: BLE001
+            print(
+                f"ERROR: --backend cairosvg requested but import failed: {exc}. "
+                "Install cairosvg (pip) and ensure libcairo is available.",
+                file=sys.stderr,
+            )
+            raise SystemExit(1)
+
+    # Should never reach here; argparse choices= guards this.
+    raise ValueError(f"Unknown backend: {force!r}")
 
 
-def main() -> int:
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Rasterize SVG cover images to _og.png companions.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "--backend",
+        choices=["auto", "rsvg-convert", "cairosvg"],
+        default="auto",
+        help=(
+            "Rasterization backend to use. "
+            "'auto' (default) tries rsvg-convert then cairosvg and soft-fails "
+            "if neither is available. "
+            "'rsvg-convert' and 'cairosvg' force that backend and exit 1 if "
+            "it is unavailable."
+        ),
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = _parse_args(argv)
+    force = None if args.backend == "auto" else args.backend
+
     if not IMG_DIR.is_dir():
         print(f"ERROR: {IMG_DIR} not found", file=sys.stderr)
         return 1
@@ -137,7 +200,7 @@ def main() -> int:
         print("SVG covers: 0 missing _og.png (nothing to do)")
         return 0
 
-    backend, convert = _pick_backend()
+    backend, convert = _pick_backend(force=force)
     if backend is None:
         print(
             f"WARN: rsvg-convert and cairosvg both unavailable — "
@@ -171,4 +234,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
