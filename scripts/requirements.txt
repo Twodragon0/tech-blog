@@ -25,7 +25,7 @@ TTS>=0.20.0; python_version < "3.14"
 
 # 비디오/SVG 처리 (선택적)
 moviepy>=1.0.3
-cairosvg>=2.5.0
+cairosvg>=2.7.0,<3.0
 
 # AWS 아키텍처 다이어그램 생성
 diagrams>=0.23.0

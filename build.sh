@@ -36,6 +36,26 @@ log "  LANG: $LANG"
 log "  LC_ALL: $LC_ALL"
 
 # ---------------------------------------------------------------------------
+# Vercel-side build dependencies (AL2023 / RPM-based image only).
+# Moved out of vercel.json installCommand to stay under its 256-char hard
+# limit. The dnf/yum guard means this block silently skips on macOS / CI
+# Ubuntu runners where the same dependencies are pre-installed via Homebrew
+# (rsvg) or the workflow's apt-get step.
+# ---------------------------------------------------------------------------
+if command -v dnf >/dev/null 2>&1 || command -v yum >/dev/null 2>&1; then
+    log "Installing Vercel build dependencies (RPM-based runtime detected)..."
+    # rsvg-convert (cascade priority 1 for rasterize_svg_covers.py)
+    (dnf install -y --quiet librsvg2-tools 2>/dev/null \
+     || yum install -y --quiet librsvg2-tools 2>/dev/null \
+     || true)
+    # Pillow (favicon) + cairosvg (cascade priority 2 fallback)
+    (python3 -m pip install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' 2>/dev/null \
+     || pip3 install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' 2>/dev/null \
+     || true)
+    log "  rsvg-convert: $(command -v rsvg-convert 2>/dev/null || echo 'not installed (cascade falls through to cairosvg)')"
+fi
+
+# ---------------------------------------------------------------------------
 # Noto Sans KR woff2 subset regeneration (conditional, graceful failure)
 # ---------------------------------------------------------------------------
 if [ -f "scripts/build/generate_noto_2tier_subset.py" ]; then
