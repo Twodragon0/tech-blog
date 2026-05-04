@@ -4,7 +4,7 @@
   "buildCommand": "chmod +x build.sh && ./build.sh",
   "outputDirectory": "_site",
   "crons": [],
-  "installCommand": "(python3 -m pip install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' || pip3 install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' || true) && npm ci || npm install && bundle install --full-index --jobs 4 --retry 3",
+  "installCommand": "(dnf install -y --quiet librsvg2-tools 2>/dev/null || yum install -y --quiet librsvg2-tools 2>/dev/null || true) && (python3 -m pip install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' || pip3 install --quiet --no-cache-dir --break-system-packages Pillow 'cairosvg>=2.7.0,<3.0' || true) && npm ci || npm install && bundle install --full-index --jobs 4 --retry 3",
   "build": {
     "env": {
       "LANG": "C.UTF-8",
