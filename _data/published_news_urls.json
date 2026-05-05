@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-04T02:02:54.256685+00:00",
+  "updated_at": "2026-05-05T02:03:37.112822+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/sglang-cve-2026-5760-cvss-98-enables.html",
-      "title": "SGLang CVE-2026-5760 (CVSS 9.8) Enables RCE via Malicious GGUF Model Files",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/weekly-recap-vercel-hack-push-fraud.html",
-      "title": "⚡ Weekly Recap: Vercel Hack, Push Fraud, QEMU Abused, New Android RATs Emerge & ",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/kelpdao-suffers-290-million-heist-tied-to-lazarus-hackers/",
-      "title": "KelpDAO suffers $290 million heist tied to Lazarus hackers",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/chinas-apple-app-store-infiltrated-by-crypto-stealing-wallet-apps/",
-      "title": "China's Apple App Store infiltrated by crypto-stealing wallet apps",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/why-most-ai-deployments-stall-after-demo.html",
-      "title": "Why Most AI Deployments Stall After the Demo",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
-      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence W",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-manufacturing-hannover-messe/",
-      "title": "NVIDIA and Partners Showcase the Future of AI-Driven Manufacturing at Hannover M",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-generative-ai-inference-on-amazon-sagemaker-ai-with-g7e-instances/",
-      "title": "Accelerate Generative AI Inference on Amazon SageMaker AI with G7e Instances",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/toolsimulator-scalable-tool-testing-for-ai-agents/",
-      "title": "ToolSimulator: scalable tool testing for AI agents",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/omnichannel-ordering-with-amazon-bedrock-agentcore-and-amazon-nova-2-sonic/",
-      "title": "Omnichannel ordering with Amazon Bedrock AgentCore and Amazon Nova 2 Sonic",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-opus-4-7-in-amazon-bedrock-aws-interconnect-ga-and-more-april-20-2026/",
-      "title": "AWS Weekly Roundup: Claude Opus 4.7 in Amazon Bedrock, AWS Interconnect GA, and ",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals",
-      "title": "Changes to GitHub Copilot plans for individuals",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-20-sunsetting-sha-1-in-https-on-github",
-      "title": "Sunsetting SHA-1 in HTTPS on GitHub",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/writing-nodejs-addons-with-dotnet-native-aot/",
-      "title": "Writing Node.js addons with .NET Native AOT",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/04/20/from-public-static-void-main-to-golden-kubestronaut-the-art-of-unlearning/",
-      "title": "From public static void main to Golden Kubestronaut: The Art of unlearning",
-      "published_date": "2026-04-21",
-      "expires_at": "2026-04-28T01:52:46.331431+00:00"
-    },
     {
       "url": "https://aws.amazon.com/blogs/security/winter-2025-soc-1-report-is-now-available-with-184-services-in-scope/",
       "title": "Winter 2025 SOC 1 report is now available with 184 services in scope",
@@ -1254,6 +1164,96 @@
       "title": "Mercedes-Benz, 물리 버튼을 되돌리겠다고 약속함",
       "published_date": "2026-05-04",
       "expires_at": "2026-05-11T02:02:54.256584+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/phishing-campaign-hits-80-orgs-using.html",
+      "title": "Phishing Campaign Hits 80+ Orgs Using SimpleHelp and ScreenConnect RMM Tools",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/progress-patches-critical-moveit.html",
+      "title": "Progress Patches Critical MOVEit Automation Bug Enabling Authentication Bypass",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/weekly-recap-ai-powered-phishing.html",
+      "title": "⚡ Weekly Recap: AI-Powered Phishing, Android Spying Tool, Linux Exploit, GitHub ",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/securing-open-proxies-in-your-aws-environment/",
+      "title": "Securing open proxies in your AWS environment",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/weaver-e-cology-critical-bug-exploited-in-attacks-since-march/",
+      "title": "Weaver E-cology critical bug exploited in attacks since March",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/",
+      "title": "The latest AI news we announced in April 2026",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/",
+      "title": "Beyond BI: How the Dataset Q&A feature of Amazon Quick powers the next generatio",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-agent-quality-loop-agentcore-optimization-now-in-preview/",
+      "title": "Introducing the agent quality loop: AgentCore Optimization now in preview",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/",
+      "title": "Agent-guided workflows to accelerate model customization in Amazon SageMaker AI",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/managed-apache-airflow-scaling-data-and-ai-workloads/",
+      "title": "Scaling data and AI with Managed Service for Apache Airflow",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/firestore-agentic-ai-search-and-mongodb-compatibility/",
+      "title": "Firestore at Next '26: Unlock agentic development, search and MongoDB compatibil",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/chrome-enterprise-introduces-new-integrations-for-healthcare/",
+      "title": "Chrome Enterprise introduces new integrations for healthcare",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-whats-next-with-aws-2026-amazon-quick-openai-partnership-and-more-may-4-2026/",
+      "title": "AWS Weekly Roundup: What’s Next with AWS 2026, Amazon Quick, OpenAI partnership,",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/microsoft-agent-framework-building-blocks-for-ai-part-3/",
+      "title": "Microsoft Agent Framework – Building Blocks for AI Part 3",
+      "published_date": "2026-05-05",
+      "expires_at": "2026-05-12T02:03:37.112721+00:00"
     }
   ]
 }
