@@ -21,7 +21,8 @@ sitemap:
   <!-- Static Pages (HTML only, exclude CSS/JS/XML/feeds) -->
   {% for page in site.pages %}
     {% assign ext = page.url | split: '.' | last %}
-    {% unless page.sitemap.exclude == 'yes'
+    {% unless page.sitemap == false
+      or page.sitemap.exclude == 'yes'
       or page.url == '/feed.xml'
       or page.url == '/sitemap.xml'
       or page.url == '/robots.txt'
@@ -52,7 +53,7 @@ sitemap:
 
   <!-- Blog Posts with Image Sitemap -->
   {% for post in site.posts %}
-    {% unless post.sitemap.exclude == 'yes' %}
+    {% unless post.sitemap == false or post.sitemap.exclude == 'yes' %}
     {% assign post_date = post.date | date: '%s' | plus: 0 %}
     {% assign current_date = site.time | date: '%s' | plus: 0 %}
     {% assign days_since = current_date | minus: post_date | divided_by: 86400 %}
