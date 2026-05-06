@@ -45,14 +45,18 @@ Jekyll::Hooks.register :site, :post_write do |site|
   baseurl = site.config['baseurl'].to_s
   tags_json = render_tags_json(tag_index, baseurl)
   cats_json = render_categories_json(site, category_index, static_paths)
+  archive_json = render_archive_json(posts, baseurl)
 
   dest = site.dest
   File.write(File.join(dest, 'tags-data.json'), tags_json)
   File.write(File.join(dest, 'categories-data.json'), cats_json)
+  File.write(File.join(dest, 'archive-data.json'), archive_json)
 
   Jekyll.logger.info('LazyData:',
     "tags=#{tag_index.count(&:itself)} categories=#{category_index.count { |_, v| !v.empty? }} " \
-    "(tags=#{tags_json.bytesize / 1024}KB cats=#{cats_json.bytesize / 1024}KB)"
+    "archive_posts=#{posts.length} " \
+    "(tags=#{tags_json.bytesize / 1024}KB cats=#{cats_json.bytesize / 1024}KB " \
+    "archive=#{archive_json.bytesize / 1024}KB)"
   )
 end
 
@@ -155,6 +159,54 @@ def render_categories_json(site, cat_index, static_paths)
   end
 
   JSON.generate(hash)
+end
+
+def render_archive_json(posts, baseurl)
+  # Group by year → month → posts. Posts are already date-sorted DESC by
+  # Jekyll, so sub-arrays come out newest-first within each month bucket.
+  years = {}
+  posts.each do |post|
+    year = post.date.strftime('%Y')
+    month = post.date.strftime('%m')
+    years[year] ||= {}
+    years[year][month] ||= []
+    years[year][month] << archive_post_payload(post, baseurl)
+  end
+
+  # Emit years newest-first to match the visible archive page ordering.
+  ordered = {}
+  years.keys.sort.reverse.each do |y|
+    months = years[y]
+    ordered_months = {}
+    months.keys.sort.reverse.each do |m|
+      ordered_months[m] = months[m]
+    end
+    ordered[y] = ordered_months
+  end
+  JSON.generate(ordered)
+end
+
+def archive_post_payload(post, baseurl)
+  tags = Array(post.data['tags'] || [])
+  cats_str = build_category_string(post)
+  excerpt_short = sanitize_excerpt_short(post.data['excerpt'])
+
+  {
+    't'    => post.data['title'].to_s,
+    'u'    => prefix_with_baseurl(post.url, baseurl),
+    'd'    => post.date.strftime('%m. %d'),
+    'x'    => post.date.iso8601,
+    'c'    => primary_category(post),
+    'cs'   => cats_str,
+    'tags' => tags.first(3).map(&:to_s),
+    'ex'   => excerpt_short
+  }
+end
+
+def sanitize_excerpt_short(excerpt)
+  return '' unless excerpt
+  stripped = excerpt.to_s.gsub(/<[^>]+>/, '').gsub(/\s+/, ' ').strip
+  stripped.length > 80 ? "#{stripped[0, 77]}..." : stripped
 end
 
 def build_related_tags(posts, current_tag)

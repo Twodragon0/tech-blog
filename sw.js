@@ -139,6 +139,36 @@ self.addEventListener('message', (event) => {
   }
 });
 
+// Lazy-render data endpoints — stale-while-revalidate so first render
+// uses the cached blob immediately and a background fetch refreshes it
+// for the next visit. Cuts perceived load time for repeat visitors and
+// keeps the categories/tags/archive pages usable offline.
+const LAZY_DATA_PATHS = new Set([
+  '/tags-data.json',
+  '/categories-data.json',
+  '/archive-data.json'
+]);
+
+async function staleWhileRevalidate(request) {
+  let cache;
+  try {
+    cache = await caches.open(DYNAMIC_CACHE);
+  } catch (_) {
+    return fetch(request);
+  }
+  const cached = await cache.match(request).catch(() => null);
+  const networkPromise = fetch(request).then((response) => {
+    if (response && response.ok && request.method === 'GET') {
+      cache.put(request, response.clone()).catch(() => {});
+    }
+    return response;
+  }).catch(() => cached || new Response('{}', {
+    status: 200,
+    headers: { 'Content-Type': 'application/json; charset=utf-8' }
+  }));
+  return cached || networkPromise;
+}
+
 // 네트워크 우선, 캐시 fallback 전략
 self.addEventListener('fetch', (event) => {
   const { request } = event;
@@ -156,6 +186,12 @@ self.addEventListener('fetch', (event) => {
 
   // 같은 출처만 캐시
   if (url.origin !== location.origin) {
+    return;
+  }
+
+  // Lazy-render data files — stale-while-revalidate
+  if (LAZY_DATA_PATHS.has(url.pathname)) {
+    event.respondWith(staleWhileRevalidate(request));
     return;
   }
 

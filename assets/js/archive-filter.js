@@ -7,11 +7,129 @@
   }
 
   var filterBtns = document.querySelectorAll('.archive-filter');
-  var items = Array.prototype.slice.call(document.querySelectorAll('.archive-item'));
   var years = document.querySelectorAll('.archive-year');
   var months = document.querySelectorAll('.archive-month');
   var emptyMsg = document.querySelector('.archive-empty');
   var visibleCounter = document.getElementById('archive-visible-count');
+  // Items are hydrated from /archive-data.json — start empty, refresh
+  // after the JSON is rendered into the DOM.
+  var items = [];
+
+  // Derive baseurl from the current path so /archive/ → '' on Vercel
+  // and /tech-blog/archive/ → '/tech-blog' on the GH Pages backup.
+  var baseUrl = location.pathname.replace(/\/archive\/?.*$/, '');
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderItem(post) {
+    var title = post.t || '';
+    var titleLower = title.toLowerCase();
+    var tagsArr = Array.isArray(post.tags) ? post.tags : [];
+    var tagStr = tagsArr.map(function (t) { return String(t).toLowerCase(); }).join(' ');
+    var cats = post.cs || (post.c ? String(post.c).toLowerCase() : '');
+    var excerpt = post.ex || '';
+
+    var cat = post.c || '';
+    var catBadge = '';
+    if (cat) {
+      var catClass = cat.toLowerCase().replace(/\s+/g, '-');
+      catBadge = '<span class="category-badge ' + escapeHtml(catClass) + '">' +
+        escapeHtml(cat) + '</span>';
+    }
+
+    var tagChips = '';
+    if (tagsArr.length > 0) {
+      tagChips = '<span class="archive-tag-chips" aria-label="태그">';
+      for (var i = 0; i < tagsArr.length; i++) {
+        tagChips += '<span class="archive-tag-chip" data-tag="' +
+          escapeHtml(String(tagsArr[i]).toLowerCase()) + '">' +
+          escapeHtml(tagsArr[i]) + '</span>';
+      }
+      tagChips += '</span>';
+    }
+
+    var excerptSpan = '';
+    if (excerpt) {
+      excerptSpan = '<span class="archive-item-excerpt" aria-hidden="true">' +
+        escapeHtml(excerpt) + '</span>';
+    }
+
+    return '<li class="archive-item" ' +
+      'data-categories="' + escapeHtml(cats.trim()) + '" ' +
+      'data-title="' + escapeHtml(titleLower) + '" ' +
+      'data-tags="' + escapeHtml(tagStr) + '" ' +
+      'data-excerpt="' + escapeHtml(excerpt) + '">' +
+      '<time datetime="' + escapeHtml(post.x) + '">' + escapeHtml(post.d) + '</time>' +
+      catBadge +
+      '<a href="' + escapeHtml(post.u) + '" class="archive-item-title">' + escapeHtml(title) + '</a>' +
+      tagChips +
+      excerptSpan +
+      '</li>';
+  }
+
+  function hydrateAll(data) {
+    if (!data) return;
+    Object.keys(data).forEach(function (year) {
+      var yearSection = document.querySelector('.archive-year[data-year="' + year + '"]');
+      if (!yearSection) return;
+      var monthsData = data[year];
+      Object.keys(monthsData).forEach(function (month) {
+        var monthEl = yearSection.querySelector('.archive-month[data-month="' + month + '"]');
+        if (!monthEl) return;
+        var ul = monthEl.querySelector('.archive-list');
+        if (!ul) return;
+        var posts = monthsData[month] || [];
+        var html = '';
+        for (var i = 0; i < posts.length; i++) html += renderItem(posts[i]);
+        ul.innerHTML = html;
+        ul.removeAttribute('aria-busy');
+      });
+      yearSection.setAttribute('data-loaded', '1');
+    });
+    // Refresh DOM cache after hydration so the filter runs over the
+    // freshly-injected rows.
+    items = Array.prototype.slice.call(document.querySelectorAll('.archive-item'));
+    bindTagChipClicks();
+    applyFilters(false);
+  }
+
+  function bindTagChipClicks() {
+    document.querySelectorAll('.archive-tag-chip').forEach(function (chip) {
+      if (chip.__bound) return;
+      chip.__bound = true;
+      chip.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tag = chip.getAttribute('data-tag') || '';
+        if (!tag) return;
+        searchInput.value = tag;
+        currentSearch = tag;
+        if (kbdHint) kbdHint.style.display = 'none';
+        applyFilters(true);
+        var toolbar = document.querySelector('.archive-toolbar');
+        if (toolbar) toolbar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  }
+
+  function loadArchiveData() {
+    fetch(baseUrl + '/archive-data.json', { credentials: 'same-origin' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('archive-data.json HTTP ' + r.status);
+        return r.json();
+      })
+      .then(hydrateAll)
+      .catch(function () {
+        // Network failure: leave the page in its empty stub state. The
+        // visible count drops to zero — better than crashing the filter.
+      });
+  }
 
   // ── localStorage persistence ─────────────────────────────────────
   var LS_FILTER = 'archive_filter';
@@ -164,22 +282,11 @@
   }
 
   // ── Tag chip clicks (filter by tag via search) ───────────────────
-  document.querySelectorAll('.archive-tag-chip').forEach(function (chip) {
-    chip.addEventListener('click', function (e) {
-      e.preventDefault();
-      var tag = chip.getAttribute('data-tag') || '';
-      if (!tag) return;
-      searchInput.value = tag;
-      currentSearch = tag;
-      if (kbdHint) kbdHint.style.display = 'none';
-      applyFilters(true);
-      // Scroll to toolbar
-      var toolbar = document.querySelector('.archive-toolbar');
-      if (toolbar) {
-        toolbar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  });
+  // Note: chips are injected by hydrateAll() after archive-data.json
+  // loads, so the binding happens inside hydrateAll(). The static-page
+  // delegated handler stays here only for any chip that might exist
+  // outside the hydrated containers.
+  bindTagChipClicks();
 
   // ── Smooth scroll for in-page anchors ───────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
@@ -273,4 +380,9 @@
 
   // ── Initial filter application (no animation on first load) ──────
   applyFilters(false);
+
+  // ── Lazy hydration: fetch archive-data.json and render items ─────
+  // Items render asynchronously so the initial paint shows the year
+  // headers immediately, with rows filling in after JSON arrives.
+  loadArchiveData();
 })();

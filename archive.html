@@ -97,8 +97,18 @@ page_modifier: page--utility
     </div>
   </div>
 
+  {%- comment -%}
+    Year/month containers are emitted as stubs. Per-post <li> rows are
+    fetched from /archive-data.json and rendered by archive-filter.js
+    after page load. Cuts the inline post-row markup (~180 KB) entirely
+    while keeping anchor targets (`#year-2026`) and the year-pill nav
+    functional.
+
+    `data-year` / `data-month` on each container lets the JS find the
+    right slot without a Liquid loop on the client.
+  {%- endcomment -%}
   {%- for year in postsByYear -%}
-  <section class="archive-year" data-year="{{ year.name }}">
+  <section class="archive-year" data-year="{{ year.name }}" data-loaded="0">
     <h2 id="year-{{ year.name }}" class="archive-year-header">
       <span class="archive-year-name">{{ year.name }}</span>
       <span class="archive-year-count">{{ year.items.size }}개 글</span>
@@ -106,7 +116,7 @@ page_modifier: page--utility
 
     {%- assign postsByMonth = year.items | group_by_exp: "post", "post.date | date: '%m'" -%}
     {%- for month in postsByMonth -%}
-    <div class="archive-month">
+    <div class="archive-month" data-month="{{ month.name }}">
       <h3 class="archive-month-header">
         {%- assign month_num = month.name | plus: 0 -%}
         {%- case month_num -%}
@@ -116,45 +126,7 @@ page_modifier: page--utility
         {%- endcase -%}
         <span class="archive-month-count">{{ month.items.size }}</span>
       </h3>
-      <ul class="archive-list">
-        {%- for post in month.items -%}
-        {%- assign post_cats = "" -%}
-        {%- if post.categories -%}
-          {%- for c in post.categories -%}
-            {%- assign post_cats = post_cats | append: c | downcase | append: " " -%}
-          {%- endfor -%}
-        {%- elsif post.category -%}
-          {%- assign post_cats = post.category | downcase -%}
-        {%- endif -%}
-        {%- assign post_tags_str = "" -%}
-        {%- for t in post.tags -%}{%- assign post_tags_str = post_tags_str | append: t | downcase -%}{%- unless forloop.last -%}{%- assign post_tags_str = post_tags_str | append: " " -%}{%- endunless -%}{%- endfor -%}
-        {%- assign post_excerpt_raw = post.excerpt | strip_html | strip_newlines | truncate: 80 -%}
-        {%- assign post_words = post.content | strip_html | number_of_words -%}
-        {%- assign post_read_min = post_words | divided_by: 200 | plus: 1 -%}
-        <li class="archive-item"
-            data-categories="{{ post_cats | strip }}"
-            data-title="{{ post.title | downcase | escape }}"
-            data-tags="{{ post_tags_str }}"
-            data-excerpt="{{ post_excerpt_raw | escape }}"
-            data-read="{{ post_read_min }}">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m. %d" }}</time>
-          {%- if post.category -%}
-          <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
-          {%- elsif post.categories.first -%}
-          <span class="category-badge {{ post.categories.first | downcase | replace: ' ', '-' }}">{{ post.categories.first }}</span>
-          {%- endif -%}
-          <a href="{{ post.url | relative_url }}" class="archive-item-title">{{ post.title | escape }}</a>
-          {%- if post.tags.size > 0 -%}
-          <span class="archive-tag-chips" aria-label="태그">
-            {%- for t in post.tags limit:3 -%}<span class="archive-tag-chip" data-tag="{{ t | downcase }}">{{ t }}</span>{%- endfor -%}
-          </span>
-          {%- endif -%}
-          {%- if post_excerpt_raw != "" -%}
-          <span class="archive-item-excerpt" aria-hidden="true">{{ post_excerpt_raw }}</span>
-          {%- endif -%}
-        </li>
-        {%- endfor -%}
-      </ul>
+      <ul class="archive-list" aria-busy="true"></ul>
     </div>
     {%- endfor -%}
     <a href="#archive-top" class="archive-back-top" aria-label="페이지 상단으로 이동">
