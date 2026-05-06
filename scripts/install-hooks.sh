@@ -1,12 +1,41 @@
 #!/bin/sh
-# Install project git hooks into .git/hooks/
+# Install project git hooks.
+#
+# Strategy: keep canonical hook sources in .githooks/ (tracked in git) and
+# either (a) set core.hooksPath so git reads them directly, or (b) copy them
+# into .git/hooks/ for pre-commit (which has extra inline logic not shared
+# with the .githooks/ version).
+#
 # Run once after cloning or when hooks change: bash scripts/install-hooks.sh
+# Re-run whenever scripts/install-hooks.sh itself is updated.
 
 set -e
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-HOOK_FILE="$REPO_ROOT/.git/hooks/pre-commit"
 
-echo "[install-hooks] Installing pre-commit hook..."
+# ---------------------------------------------------------------------------
+# core.hooksPath — point git at the tracked .githooks/ directory so that the
+# pre-push hook (and any future hooks added there) are picked up automatically
+# without copying them into .git/hooks/.  This is the canonical install method
+# for hooks with a tracked source.
+# ---------------------------------------------------------------------------
+echo "[install-hooks] Configuring core.hooksPath=.githooks ..."
+git -C "$REPO_ROOT" config core.hooksPath .githooks
+
+# Ensure the .githooks/pre-push hook (already tracked) is executable.
+if [ -f "$REPO_ROOT/.githooks/pre-push" ]; then
+  chmod +x "$REPO_ROOT/.githooks/pre-push"
+  echo "[install-hooks] .githooks/pre-push is ready."
+fi
+
+# ---------------------------------------------------------------------------
+# pre-commit — this hook contains inline shell logic that is NOT in a separate
+# .githooks/ script, so we continue to write it into .git/hooks/.  When
+# core.hooksPath is set, .git/hooks/ is ignored; to keep pre-commit working we
+# ALSO write it into .githooks/pre-commit below.
+# ---------------------------------------------------------------------------
+HOOK_FILE="$REPO_ROOT/.githooks/pre-commit"
+
+echo "[install-hooks] Installing pre-commit hook into .githooks/ ..."
 
 cat > "$HOOK_FILE" << 'HOOK'
 #!/bin/sh
@@ -85,4 +114,10 @@ fi
 HOOK
 
 chmod +x "$HOOK_FILE"
-echo "[install-hooks] Done. Hook written to $HOOK_FILE"
+echo "[install-hooks] Done."
+echo ""
+echo "  pre-commit : $HOOK_FILE"
+echo "  pre-push   : $REPO_ROOT/.githooks/pre-push (via core.hooksPath)"
+echo ""
+echo "  Emergency push bypass: SKIP_VARIANT_CHECK=1 git push"
+echo "  Disable auto-commit of raster variants: TECH_BLOG_NO_AUTO_COMMIT=1"

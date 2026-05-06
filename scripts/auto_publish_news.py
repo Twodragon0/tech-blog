@@ -306,6 +306,126 @@ sys.modules[__name__] = _ConfigProxy(_this_module)
 
 
 # ---------------------------------------------------------------------------
+# Raster variant generation + auto-commit helpers
+# ---------------------------------------------------------------------------
+
+def _generate_and_commit_raster_variants(
+    svg_path: Path,
+    post_path: Path,
+    post_stem: str,
+    no_commit: bool = False,
+) -> None:
+    """Generate _og.avif/_og.webp/_card.avif/_card.webp from the existing
+    _og.png, then stage and commit the new files together with the SVG and
+    post markdown.
+
+    Behaviour:
+    - Soft-fails silently when Pillow is unavailable (Vercel will backfill).
+    - Skips the commit when no_commit=True or TECH_BLOG_NO_AUTO_COMMIT=1.
+    - Uses explicit file paths for git add (never `git add .`).
+    - Does NOT push; the caller's publish flow handles that.
+    - Idempotent: already-existing variants are not re-generated.
+    """
+    import subprocess as _sp
+
+    images_dir = svg_path.parent
+    base = svg_path.stem  # e.g. "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go"
+    png_path = images_dir / f"{base}_og.png"
+
+    produced: list[Path] = []
+
+    # Always include the SVG and post file that were just written.
+    if svg_path.exists():
+        produced.append(svg_path)
+    if post_path.exists():
+        produced.append(post_path)
+    if png_path.exists():
+        produced.append(png_path)
+
+    # Generate modern-format OG variants + card variants from _og.png.
+    if png_path.exists():
+        try:
+            from PIL import Image  # type: ignore
+            with Image.open(png_path) as src:
+                rgb = src.convert("RGB")
+
+                # _og.avif / _og.webp  (1200x630)
+                for suffix, fmt, quality in [
+                    ("_og.avif", "AVIF", 60),
+                    ("_og.webp", "WEBP", 80),
+                ]:
+                    dest = images_dir / f"{base}{suffix}"
+                    if not dest.exists():
+                        try:
+                            rgb.save(dest, fmt, quality=quality)
+                            produced.append(dest)
+                            print(f"✅ Created {dest.name}")
+                        except Exception as _e:
+                            logging.warning(f"Could not generate {dest.name}: {_e}")
+
+                # _card.avif / _card.webp  (525x295)
+                resized = rgb.resize((525, 295), Image.Resampling.LANCZOS)
+                for suffix, fmt, quality in [
+                    ("_card.avif", "AVIF", 60),
+                    ("_card.webp", "WEBP", 80),
+                ]:
+                    dest = images_dir / f"{base}{suffix}"
+                    if not dest.exists():
+                        try:
+                            resized.save(dest, fmt, quality=quality)
+                            produced.append(dest)
+                            print(f"✅ Created {dest.name}")
+                        except Exception as _e:
+                            logging.warning(f"Could not generate {dest.name}: {_e}")
+        except ImportError:
+            logging.info("Pillow not available — avif/webp variants will be generated at Vercel build time")
+
+    if no_commit:
+        logging.debug("Auto-commit skipped (--no-commit / TECH_BLOG_NO_AUTO_COMMIT=1)")
+        return
+
+    if not produced:
+        logging.debug("No raster variant files to commit.")
+        return
+
+    # Only commit files that are either untracked or modified.
+    try:
+        result = _sp.run(
+            ["git", "status", "--porcelain", "--"] + [str(p) for p in produced],
+            capture_output=True,
+            text=True,
+            cwd=str(svg_path.parent.parent.parent),  # repo root
+        )
+        to_add = [
+            str(p) for p in produced
+            if any(str(p.name) in line for line in result.stdout.splitlines())
+        ]
+    except Exception as _e:
+        logging.warning(f"git status probe failed: {_e}; staging all produced files")
+        to_add = [str(p) for p in produced]
+
+    if not to_add:
+        print("ℹ️  Raster variants already committed — nothing to add.")
+        return
+
+    try:
+        _sp.run(["git", "add", "--"] + to_add, check=True, cwd=str(svg_path.parent.parent.parent))
+        _sp.run(
+            [
+                "git",
+                "commit",
+                "-m",
+                f"chore(images): auto-add raster variants for {post_stem}",
+            ],
+            check=True,
+            cwd=str(svg_path.parent.parent.parent),
+        )
+        print(f"✅ Committed {len(to_add)} raster variant file(s) for {post_stem}")
+    except _sp.CalledProcessError as _e:
+        logging.warning(f"Auto-commit of raster variants failed: {_e}")
+
+
+# ---------------------------------------------------------------------------
 # Main function
 # ---------------------------------------------------------------------------
 
@@ -359,6 +479,12 @@ def main():
         type=str,
         default="",
         help="Override output image filename (e.g., 2026-02-21-...svg)",
+    )
+    parser.add_argument(
+        "--no-commit",
+        action="store_true",
+        default=os.getenv("TECH_BLOG_NO_AUTO_COMMIT", "") in {"1", "true", "yes"},
+        help="Skip auto-commit of generated raster variants (also: TECH_BLOG_NO_AUTO_COMMIT=1)",
     )
     args = parser.parse_args()
 
@@ -584,6 +710,17 @@ def main():
 
     # Generate PNG for Open Graph social previews
     _convert_svg_to_og_png(svg_path)
+
+    # Generate avif/webp variants (Pillow) and auto-commit all raster files.
+    # Use the SVG stem (e.g. "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go")
+    # as the commit subject.
+    _post_stem = svg_path.stem
+    _generate_and_commit_raster_variants(
+        svg_path=svg_path,
+        post_path=post_path,
+        post_stem=_post_stem,
+        no_commit=args.no_commit,
+    )
 
     print(f"\n\U0001f389 Auto publish completed! (mode: {args.mode})")
 
