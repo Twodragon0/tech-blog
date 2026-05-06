@@ -249,6 +249,7 @@ exclude:
   - renovate.json
   - requirements-visual.txt
   - static-analysis.datadog.yml
+  - vitest.config.js
   - docs/
   - notes/
   - tests/
