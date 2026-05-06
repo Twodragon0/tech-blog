@@ -5,10 +5,13 @@ sitemap: false
 ---
 {%- assign all_tags = site.posts | map: "tags" | flatten | compact | uniq | sort_natural -%}
 {
+{%- assign emitted = 0 -%}
 {%- for tag in all_tags -%}
 {%- assign tag_str = tag | append: "" -%}
 {%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" -%}
 {%- if tag_posts.size == 0 -%}{%- continue -%}{%- endif -%}
+{%- if emitted > 0 -%},{%- endif -%}
+{%- assign emitted = emitted | plus: 1 -%}
 {%- assign related_candidates = "" | split: "" -%}
 {%- for post in tag_posts -%}
 {%- for ptag in post.tags -%}
@@ -29,6 +32,6 @@ sitemap: false
 "x": {{ post.date | date_to_xmlschema | jsonify }},
 "c": {%- if post.category -%}{{ post.category | jsonify }}{%- elsif post.categories.first -%}{{ post.categories.first | jsonify }}{%- else -%}""{%- endif -%}
 }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
-}{%- unless forloop.last -%},{%- endunless -%}
+}
 {%- endfor -%}
 }

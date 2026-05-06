@@ -26,6 +26,7 @@ sitemap: false
 {%- endcomment -%}
 {
 {%- assign cats = site.category_list -%}
+{%- assign emitted = 0 -%}
 {%- for cat in cats -%}
 {%- assign cat_name_lower = cat.name | downcase -%}
 {%- assign cat_posts = "" | split: "" -%}
@@ -65,6 +66,8 @@ sitemap: false
   {%- if post_matched -%}{%- assign cat_posts = cat_posts | push: post -%}{%- endif -%}
 {%- endfor -%}
 {%- if cat_posts.size == 0 -%}{%- continue -%}{%- endif -%}
+{%- if emitted > 0 -%},{%- endif -%}
+{%- assign emitted = emitted | plus: 1 -%}
 "{{ cat.name }}": {
 "name": {{ cat.name | jsonify }},
 "title": {{ cat.title | jsonify }},
@@ -117,6 +120,6 @@ sitemap: false
 }{%- unless forloop.last -%},{%- endunless -%}
 {%- endfor -%}
 ]
-}{%- unless forloop.last -%},{%- endunless -%}
+}
 {%- endfor -%}
 }
