@@ -17,6 +17,11 @@ on:
       - 'index.html'
       - 'index.md'
       - 'feed.xml'
+      - 'archive.html'
+      - 'categories.html'
+      - 'tags.html'
+      - 'categories-data.json'
+      - 'tags-data.json'
   workflow_dispatch:
 
 permissions:
