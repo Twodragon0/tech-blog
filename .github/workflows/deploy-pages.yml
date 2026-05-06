@@ -23,6 +23,9 @@ on:
       - 'tags.html'
       - 'categories-data.json'
       - 'tags-data.json'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'sw.js'
   workflow_dispatch:
 
 permissions:
