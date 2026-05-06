@@ -378,11 +378,12 @@
     });
   }
 
-  // ── Initial filter application (no animation on first load) ──────
-  applyFilters(false);
+  // Skip the initial applyFilters call. Items[] is empty until
+  // /archive-data.json hydrates; running the filter against an empty
+  // set would briefly flash the "no results" empty state and reset
+  // the visible counter to 0. hydrateAll() invokes applyFilters(false)
+  // after rendering, so the first filter pass runs on the real data.
 
   // ── Lazy hydration: fetch archive-data.json and render items ─────
-  // Items render asynchronously so the initial paint shows the year
-  // headers immediately, with rows filling in after JSON arrives.
   loadArchiveData();
 })();
