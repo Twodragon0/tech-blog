@@ -12,7 +12,7 @@ sitemap:
 
   <!-- Homepage -->
   <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
+    <loc>{{ site.url }}/</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -43,7 +43,7 @@ sitemap:
       or page.url contains '.js.map'
     %}
     <url>
-      <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+      <loc>{{ site.url }}{{ page.url }}</loc>
       <lastmod>{{ page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema }}</lastmod>
       <changefreq>{% if page.url contains '/about' or page.url contains '/support' %}monthly{% else %}weekly{% endif %}</changefreq>
       <priority>{% if page.url contains '/about' %}0.8{% elsif page.url contains '/categories' or page.url contains '/tags' or page.url contains '/archive' %}0.7{% elsif page.url contains '/certifications' %}0.7{% else %}0.6{% endif %}</priority>
@@ -58,7 +58,7 @@ sitemap:
     {% assign current_date = site.time | date: '%s' | plus: 0 %}
     {% assign days_since = current_date | minus: post_date | divided_by: 86400 %}
     <url>
-      <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
+      <loc>{{ site.url }}{{ post.url }}</loc>
       <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
       <changefreq>{% if days_since < 7 %}daily{% elsif days_since < 30 %}weekly{% elsif days_since < 180 %}monthly{% else %}yearly{% endif %}</changefreq>
       <priority>{% if days_since < 7 %}0.9{% elsif days_since < 30 %}0.8{% elsif days_since < 180 %}0.7{% else %}0.5{% endif %}</priority>
@@ -79,7 +79,7 @@ sitemap:
         {% if sm_png_file %}{% assign sm_image = sm_image_png %}{% elsif sm_og_png_file %}{% assign sm_image = sm_image_og_png %}{% endif %}
       {% endif %}
       <image:image>
-        <image:loc>{{ site.url }}{{ site.baseurl }}{{ sm_image }}</image:loc>
+        <image:loc>{{ site.url }}{{ sm_image }}</image:loc>
         <image:title>{{ post.title | xml_escape }}</image:title>
         <image:caption>{{ post.image_alt | default: post.excerpt | strip_html | strip_newlines | truncate: 160 | xml_escape }}</image:caption>
       </image:image>

@@ -55,8 +55,20 @@
     {% assign raw_description = site.description %}
   {% endif %}
   {% assign share_description = raw_description | strip_html | strip_newlines | normalize_whitespace | truncate: 200 | escape %}
-  {% assign canonical_url = page.url | absolute_url | replace: 'index.html', '' %}
-  {% assign share_url = page.url | absolute_url %}
+  {%- comment -%}
+    Canonical URL must always point to the Vercel production host
+    (https://tech.2twodragon.com), never to the GH Pages backup
+    (which gets built with `--baseurl "/tech-blog"`). Use site.url
+    directly without site.baseurl so:
+      - Vercel prod (baseurl = "")  → https://tech.2twodragon.com{page.url}
+      - GH Pages backup (baseurl="/tech-blog") → ALSO emits the prod URL,
+        telling Google the canonical lives on Vercel (not the backup).
+    Previously this used `page.url | absolute_url` which prepends BOTH
+    site.url AND site.baseurl, producing https://tech.2twodragon.com/tech-blog/...
+    on the GH Pages backup — a non-existent URL that GSC rejected.
+  {%- endcomment -%}
+  {% assign canonical_url = site.url | append: page.url | replace: 'index.html', '' %}
+  {% assign share_url = site.url | append: page.url %}
 
   <!-- SEO -->
   <title>{% if page.title %}{{ page.title | escape }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -123,11 +135,18 @@
     otherwise site build time. Skip the bust for the og-default fallback so it
     doesn't accumulate per-post cache entries on the platforms.
   {% endcomment %}
+  {%- comment -%}
+    og:image must be an absolute URL on the canonical Vercel host
+    (matches canonical_url). Using `absolute_url` would attach the
+    /tech-blog/ baseurl on the GH Pages backup, producing a 404 when
+    Facebook/Twitter/KakaoTalk fetch the preview image. Use site.url
+    directly to keep the URL pointing at the production CDN.
+  {%- endcomment -%}
   {% if og_image contains 'og-default' %}
-    {% assign og_image_url = og_image | absolute_url %}
+    {% assign og_image_url = site.url | append: og_image %}
   {% else %}
     {% assign og_cache_key = page.last_modified_at | default: page.date | default: site.time | date: '%s' %}
-    {% assign og_image_url = og_image | absolute_url | append: '?v=' | append: og_cache_key %}
+    {% assign og_image_url = site.url | append: og_image | append: '?v=' | append: og_cache_key %}
   {% endif %}
   {% assign og_image_mime = 'image/png' %}
   {% if og_image contains '.jpg' or og_image contains '.jpeg' %}{% assign og_image_mime = 'image/jpeg' %}{% endif %}
@@ -390,10 +409,10 @@
     "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
     "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}",
     "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
-    "url": "{{ page.url | absolute_url }}",
+    "url": "{{ site.url }}{{ page.url }}",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "{{ page.url | absolute_url }}"
+      "@id": "{{ site.url }}{{ page.url }}"
     },
     "inLanguage": "ko-KR",
     "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
@@ -411,12 +430,12 @@
       "name": "{{ site.title }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ site.logo | absolute_url }}"
+        "url": "{{ site.url }}{{ site.logo }}"
       }
     }{% if page.image %},
     "image": {
       "@type": "ImageObject",
-      "url": "{{ page.image | absolute_url }}",
+      "url": "{{ site.url }}{{ page.image }}",
       "width": {{ site.og_image_width | default: 1200 }},
       "height": {{ site.og_image_height | default: 630 }}
     }{% endif %}{% if page.category %},
