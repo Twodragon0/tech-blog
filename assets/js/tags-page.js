@@ -316,18 +316,138 @@
   }
 
   /* -------------------------------------------------------
-     Related tag pills — scroll to section on click
+     Related tag pills — scroll to section on click (delegated
+     because pills are injected dynamically by lazy-render below)
   ------------------------------------------------------- */
-  document.querySelectorAll('.tag-related-pill').forEach(function (pill) {
-    pill.addEventListener('click', function (e) {
-      var slug = pill.getAttribute('data-related-tag');
-      if (!slug) return;
-      var target = document.getElementById(slug);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+  document.addEventListener('click', function (e) {
+    var pill = e.target.closest && e.target.closest('.tag-related-pill');
+    if (!pill) return;
+    var slug = pill.getAttribute('data-related-tag');
+    if (!slug) return;
+    var target = document.getElementById(slug);
+    if (target) {
+      e.preventDefault();
+      ensureSectionLoaded(target);
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
+
+  /* -------------------------------------------------------
+     Lazy-render: tag-section content is shipped as stubs to keep
+     the HTML payload small. Real post lists come from
+     /tags-data.json on first interaction or first scroll into view.
+  ------------------------------------------------------- */
+  var tagsDataPromise = null;
+  function loadTagsData() {
+    if (tagsDataPromise) return tagsDataPromise;
+    tagsDataPromise = fetch(
+      (document.querySelector('base')?.href || '/') + 'tags-data.json',
+      { credentials: 'same-origin' }
+    )
+      .then(function (r) {
+        if (!r.ok) throw new Error('tags-data.json HTTP ' + r.status);
+        return r.json();
+      })
+      .catch(function (err) {
+        // Reset so a later trigger can retry once the network recovers.
+        tagsDataPromise = null;
+        return null;
+      });
+    return tagsDataPromise;
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderSection(section, tagData) {
+    if (!section || !tagData) return;
+    if (section.getAttribute('data-loaded') === '1') return;
+
+    var relatedEl = section.querySelector('.tag-related');
+    if (relatedEl && Array.isArray(tagData.related) && tagData.related.length > 0) {
+      var pills = '<span class="tag-related-label">관련:</span>';
+      for (var i = 0; i < tagData.related.length; i++) {
+        var rname = tagData.related[i];
+        var rslug = rname.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-가-힣ㄱ-ㅎㅏ-ㅣ]/g, '');
+        pills += '<a href="#' + escapeHtml(rslug) + '" class="tag-related-pill" data-related-tag="' +
+          escapeHtml(rslug) + '">' + escapeHtml(rname) + '</a>';
+      }
+      relatedEl.innerHTML = pills;
+      relatedEl.hidden = false;
+    }
+
+    var listEl = section.querySelector('.tag-section-list');
+    if (listEl && Array.isArray(tagData.posts)) {
+      var html = '';
+      for (var j = 0; j < tagData.posts.length; j++) {
+        var p = tagData.posts[j];
+        var catBadge = '';
+        if (p.c) {
+          var catLower = String(p.c).toLowerCase();
+          catBadge = '<span class="category-badge ' + escapeHtml(catLower) + '">' +
+            escapeHtml(p.c) + '</span>';
+        }
+        html += '<li class="tag-section-item">' +
+          '<time datetime="' + escapeHtml(p.x) + '">' + escapeHtml(p.d) + '</time>' +
+          catBadge +
+          '<a href="' + escapeHtml(p.u) + '">' + escapeHtml(p.t) + '</a>' +
+          '</li>';
+      }
+      listEl.innerHTML = html;
+      listEl.removeAttribute('aria-busy');
+    }
+
+    section.setAttribute('data-loaded', '1');
+  }
+
+  function ensureSectionLoaded(section) {
+    if (!section || section.getAttribute('data-loaded') === '1') return;
+    var slug = section.getAttribute('data-section-tag');
+    if (!slug) return;
+    loadTagsData().then(function (data) {
+      if (!data) return;
+      renderSection(section, data[slug]);
+    });
+  }
+
+  // First interaction (click on tag pill) → preload data eagerly.
+  tagCloud.addEventListener('click', function () { loadTagsData(); }, { once: true });
+
+  // Section visibility → render on first scroll into view.
+  if ('IntersectionObserver' in window) {
+    var sectionObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          ensureSectionLoaded(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '300px 0px' });
+
+    sections.forEach(function (sec) { sectionObserver.observe(sec); });
+  } else {
+    // Fallback: fire-and-forget render on idle.
+    (window.requestIdleCallback || function (cb) { setTimeout(cb, 1000); })(function () {
+      sections.forEach(ensureSectionLoaded);
+    });
+  }
+
+  // Hash-link navigation (e.g. /tags/#kubernetes) → render before scroll.
+  function loadFromHash() {
+    if (!location.hash) return;
+    var slug = location.hash.replace(/^#/, '');
+    var target = document.getElementById(slug);
+    if (target && target.classList.contains('tag-section')) {
+      ensureSectionLoaded(target);
+    }
+  }
+  loadFromHash();
+  window.addEventListener('hashchange', loadFromHash);
 
 })();

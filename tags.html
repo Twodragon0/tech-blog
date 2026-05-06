@@ -168,49 +168,27 @@ page_modifier: page--utility
     {%- endfor -%}
   </div>
 
-  <!-- Posts by Tag -->
+  <!-- Posts by Tag (lazy-rendered: only stubs in HTML; populated from /tags-data.json on demand) -->
+  {%- comment -%}
+    Section stubs only — header + post count + slot for related/list. Full
+    content (post list + related tags) is fetched from /tags-data.json by
+    tags-page.js on first interaction or when scrolled into view via
+    IntersectionObserver. Cuts ~600 KB from this page's HTML payload.
+  {%- endcomment -%}
   {%- for tag in all_tags -%}
   {%- assign tag_str = tag | append: "" -%}
   {%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" -%}
   {%- if tag_posts.size > 0 -%}
-
-  {%- assign related_candidates = "" | split: "" -%}
-  {%- for post in tag_posts -%}
-    {%- for ptag in post.tags -%}
-      {%- assign ptag_str = ptag | append: "" -%}
-      {%- unless ptag_str == tag_str -%}
-        {%- assign related_candidates = related_candidates | push: ptag_str -%}
-      {%- endunless -%}
-    {%- endfor -%}
-  {%- endfor -%}
-  {%- assign related_tags = related_candidates | uniq | slice: 0, 5 -%}
-
-  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}">
+  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}" data-tag-name="{{ tag_str }}" data-loaded="0">
     <div class="tag-section-header">
       <span class="tag">{{ tag_str }}</span>
       <span class="tag-section-count">{{ tag_posts.size }}개 글</span>
     </div>
-    {%- if related_tags.size > 0 -%}
-    <div class="tag-related" aria-label="관련 태그">
-      <span class="tag-related-label">관련:</span>
-      {%- for rtag in related_tags -%}
-      {%- assign rtag_str = rtag | append: "" -%}
-      <a href="#{{ rtag_str | slugify }}" class="tag-related-pill" data-related-tag="{{ rtag_str | slugify }}">{{ rtag_str }}</a>
-      {%- endfor -%}
-    </div>
-    {%- endif -%}
-    <ul class="tag-section-list">
-      {%- for post in tag_posts -%}
-      <li class="tag-section-item">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
-        {%- if post.category -%}
-        <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
-        {%- elsif post.categories.first -%}
-        <span class="category-badge {{ post.categories.first | downcase }}">{{ post.categories.first }}</span>
-        {%- endif -%}
-        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    <div class="tag-related" aria-label="관련 태그" hidden></div>
+    <ul class="tag-section-list" aria-busy="true">
+      <li class="tag-section-loading" aria-hidden="true">
+        <span>불러오는 중…</span>
       </li>
-      {%- endfor -%}
     </ul>
     <a href="#tags-top" class="tag-section-top" aria-label="태그 페이지 상단으로 이동">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -223,4 +201,4 @@ page_modifier: page--utility
   {%- endfor -%}
 </div>
 
-<script src="{{ '/assets/js/tags-page.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/tags-page.js' | relative_url }}" defer></script>
