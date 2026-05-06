@@ -175,28 +175,16 @@ page_modifier: page--utility
     tags-page.js on first interaction or when scrolled into view via
     IntersectionObserver. Cuts ~600 KB from this page's HTML payload.
   {%- endcomment -%}
+  {%- comment -%}
+    Minimal stubs (~140 bytes each) — header + count only. Related-tag
+    chips, post list, and the "back to top" link are injected by
+    tags-page.js once the section enters view.
+  {%- endcomment -%}
   {%- for tag in all_tags -%}
   {%- assign tag_str = tag | append: "" -%}
   {%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" -%}
   {%- if tag_posts.size > 0 -%}
-  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}" data-tag-name="{{ tag_str }}" data-loaded="0">
-    <div class="tag-section-header">
-      <span class="tag">{{ tag_str }}</span>
-      <span class="tag-section-count">{{ tag_posts.size }}개 글</span>
-    </div>
-    <div class="tag-related" aria-label="관련 태그" hidden></div>
-    <ul class="tag-section-list" aria-busy="true">
-      <li class="tag-section-loading" aria-hidden="true">
-        <span>불러오는 중…</span>
-      </li>
-    </ul>
-    <a href="#tags-top" class="tag-section-top" aria-label="태그 페이지 상단으로 이동">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <polyline points="18 15 12 9 6 15"/>
-      </svg>
-      맨 위로
-    </a>
-  </section>
+  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}" data-tag-name="{{ tag_str }}" data-loaded="0"><div class="tag-section-header"><span class="tag">{{ tag_str }}</span><span class="tag-section-count">{{ tag_posts.size }}개 글</span></div></section>
   {%- endif -%}
   {%- endfor -%}
 </div>

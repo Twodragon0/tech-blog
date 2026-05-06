@@ -365,26 +365,39 @@
       .replace(/'/g, '&#39;');
   }
 
+  function slugify(s) {
+    return String(s || '').toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-가-힣ㄱ-ㅎㅏ-ㅣ]/g, '');
+  }
+
   function renderSection(section, tagData) {
     if (!section || !tagData) return;
     if (section.getAttribute('data-loaded') === '1') return;
 
-    var relatedEl = section.querySelector('.tag-related');
-    if (relatedEl && Array.isArray(tagData.related) && tagData.related.length > 0) {
-      var pills = '<span class="tag-related-label">관련:</span>';
+    var afterHeader = section.querySelector('.tag-section-header');
+    if (!afterHeader) return;
+    var frag = document.createDocumentFragment();
+
+    if (Array.isArray(tagData.related) && tagData.related.length > 0) {
+      var related = document.createElement('div');
+      related.className = 'tag-related';
+      related.setAttribute('aria-label', '관련 태그');
+      var pillsHtml = '<span class="tag-related-label">관련:</span>';
       for (var i = 0; i < tagData.related.length; i++) {
         var rname = tagData.related[i];
-        var rslug = rname.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-가-힣ㄱ-ㅎㅏ-ㅣ]/g, '');
-        pills += '<a href="#' + escapeHtml(rslug) + '" class="tag-related-pill" data-related-tag="' +
+        var rslug = slugify(rname);
+        pillsHtml += '<a href="#' + escapeHtml(rslug) + '" class="tag-related-pill" data-related-tag="' +
           escapeHtml(rslug) + '">' + escapeHtml(rname) + '</a>';
       }
-      relatedEl.innerHTML = pills;
-      relatedEl.hidden = false;
+      related.innerHTML = pillsHtml;
+      frag.appendChild(related);
     }
 
-    var listEl = section.querySelector('.tag-section-list');
-    if (listEl && Array.isArray(tagData.posts)) {
-      var html = '';
+    var ul = document.createElement('ul');
+    ul.className = 'tag-section-list';
+    if (Array.isArray(tagData.posts)) {
+      var listHtml = '';
       for (var j = 0; j < tagData.posts.length; j++) {
         var p = tagData.posts[j];
         var catBadge = '';
@@ -393,16 +406,24 @@
           catBadge = '<span class="category-badge ' + escapeHtml(catLower) + '">' +
             escapeHtml(p.c) + '</span>';
         }
-        html += '<li class="tag-section-item">' +
+        listHtml += '<li class="tag-section-item">' +
           '<time datetime="' + escapeHtml(p.x) + '">' + escapeHtml(p.d) + '</time>' +
           catBadge +
           '<a href="' + escapeHtml(p.u) + '">' + escapeHtml(p.t) + '</a>' +
           '</li>';
       }
-      listEl.innerHTML = html;
-      listEl.removeAttribute('aria-busy');
+      ul.innerHTML = listHtml;
     }
+    frag.appendChild(ul);
 
+    var top = document.createElement('a');
+    top.href = '#tags-top';
+    top.className = 'tag-section-top';
+    top.setAttribute('aria-label', '태그 페이지 상단으로 이동');
+    top.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>맨 위로';
+    frag.appendChild(top);
+
+    section.appendChild(frag);
     section.setAttribute('data-loaded', '1');
   }
 
