@@ -184,7 +184,8 @@ page_modifier: page--utility
   {%- assign tag_str = tag | append: "" -%}
   {%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" -%}
   {%- if tag_posts.size > 0 -%}
-  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}" data-tag-name="{{ tag_str }}" data-loaded="0"><div class="tag-section-header"><span class="tag">{{ tag_str }}</span><span class="tag-section-count">{{ tag_posts.size }}개 글</span></div></section>
+  {%- assign tag_reserved_h = tag_posts.size | times: 44 | plus: 80 -%}
+  <section id="{{ tag_str | slugify }}" class="tag-section" data-section-tag="{{ tag_str | slugify }}" data-tag-name="{{ tag_str }}" data-loaded="0" style="min-height: {{ tag_reserved_h }}px; contain-intrinsic-size: auto {{ tag_reserved_h }}px;"><div class="tag-section-header"><span class="tag">{{ tag_str }}</span><span class="tag-section-count">{{ tag_posts.size }}개 글</span></div></section>
   {%- endif -%}
   {%- endfor -%}
 </div>

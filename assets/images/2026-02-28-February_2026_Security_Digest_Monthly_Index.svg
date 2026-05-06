@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="February 2026 Monthly Security Index">
+  <title>February 2026 Security Digest Monthly Index</title>
+  <defs>
+    <linearGradient id="bgF" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0f1628"/>
+      <stop offset="100%" stop-color="#141b2d"/>
+    </linearGradient>
+    <linearGradient id="hgF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="badgeF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="bandFwk1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f0a0a"/>
+      <stop offset="100%" stop-color="#1a0808"/>
+    </linearGradient>
+    <linearGradient id="bandFwk2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f1a08"/>
+      <stop offset="100%" stop-color="#1a1606"/>
+    </linearGradient>
+    <linearGradient id="bandFwk3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a1f10"/>
+      <stop offset="100%" stop-color="#08180c"/>
+    </linearGradient>
+    <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgF)"/>
+
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="0.5">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <circle cx="200" cy="320" r="200" fill="#ef4444" opacity="0.07" filter="url(#glowF)"/>
+  <circle cx="600" cy="350" r="180" fill="#f59e0b" opacity="0.06" filter="url(#glowF)"/>
+  <circle cx="1000" cy="320" r="200" fill="#22c55e" opacity="0.07" filter="url(#glowF)"/>
+
+  <rect x="0" y="0" width="1200" height="80" fill="url(#hgF)" opacity="0.95"/>
+  <rect x="0" y="78" width="1200" height="2" fill="#334155" opacity="0.8"/>
+  <g transform="translate(48,40)">
+    <path d="M0,-22 L18,-12 L18,3 C18,13 10,20 0,24 C-10,20 -18,13 -18,3 L-18,-12 Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M-7,1 L-2,6 L8,-5" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="44" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#f1f5f9">Monthly Security Digest Index</text>
+  <rect x="980" y="18" width="188" height="44" rx="6" fill="url(#badgeF)"/>
+  <text x="1074" y="48" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#f8fafc" text-anchor="middle">February 2026</text>
+
+  <text x="600" y="148" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#f1f5f9" text-anchor="middle">February 2026 Security Digest</text>
+  <text x="600" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="500" fill="#94a3b8" text-anchor="middle">Codespaces RoguePilot - UAC-0050 RMS - Next.js C2 - Container Escape</text>
+
+  <rect x="32" y="220" width="368" height="160" rx="10" fill="url(#bandFwk1)" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="60" cy="248" r="6" fill="#ef4444"/>
+  <text x="80" y="252" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ef4444" letter-spacing="2">WEEK 1-2</text>
+  <text x="60" y="295" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fee2e2">RoguePilot Worm</text>
+  <text x="60" y="325" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">GitHub Codespaces token theft chain;</text>
+  <text x="60" y="345" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">supply-chain pivot to private repos.</text>
+  <text x="60" y="365" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#fca5a5" letter-spacing="1">3 weekly digests covered</text>
+
+  <rect x="416" y="220" width="368" height="160" rx="10" fill="url(#bandFwk2)" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="444" cy="248" r="6" fill="#f59e0b"/>
+  <text x="464" y="252" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#f59e0b" letter-spacing="2">WEEK 3</text>
+  <text x="444" y="295" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fef3c7">UAC-0050 RMS Backdoor</text>
+  <text x="444" y="325" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">UA-CERT advisory; Remote Manipulator</text>
+  <text x="444" y="345" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">System abused for long-dwell access.</text>
+  <text x="444" y="365" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#fcd34d" letter-spacing="1">2 weekly digests covered</text>
+
+  <rect x="800" y="220" width="368" height="160" rx="10" fill="url(#bandFwk3)" stroke="#22c55e" stroke-width="1.5"/>
+  <circle cx="828" cy="248" r="6" fill="#22c55e"/>
+  <text x="848" y="252" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#22c55e" letter-spacing="2">WEEK 4</text>
+  <text x="828" y="295" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#dcfce7">Next.js + Container Risks</text>
+  <text x="828" y="325" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">SSR cache abused as C2; container</text>
+  <text x="828" y="345" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#94a3b8">escape via runc syscall path traversal.</text>
+  <text x="828" y="365" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#86efac" letter-spacing="1">3 weekly digests covered</text>
+
+  <rect x="32" y="402" width="1136" height="48" rx="8" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+  <text x="56" y="432" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fca5a5">8</text>
+  <text x="78" y="432" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">weekly digests</text>
+  <text x="220" y="432" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fcd34d">28</text>
+  <text x="245" y="432" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">CVEs tracked</text>
+  <text x="380" y="432" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#86efac">11</text>
+  <text x="405" y="432" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">DevSecOps response actions</text>
+  <text x="640" y="432" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#22c55e">100%</text>
+  <text x="685" y="432" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">English-only filenames - WCAG AA</text>
+
+  <rect x="0" y="472" width="1200" height="158" fill="#080c18" opacity="0.95"/>
+  <rect x="0" y="472" width="1200" height="2" fill="#1e293b"/>
+
+  <text x="32" y="510" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fca5a5" letter-spacing="2">TOPICS</text>
+  <text x="32" y="540" font-family="Arial,sans-serif" font-size="14" font-weight="500" fill="#cbd5e1">GitHub Codespaces - UAC-0050 - Next.js SSR - runc - Container Escape - Supply Chain</text>
+
+  <text x="32" y="595" font-family="Arial,sans-serif" font-size="13" font-weight="500" fill="#64748b">DevSecOps Threat Intelligence - February 2026 Monthly Rollup</text>
+  <text x="1168" y="595" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>

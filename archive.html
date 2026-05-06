@@ -116,6 +116,7 @@ page_modifier: page--utility
 
     {%- assign postsByMonth = year.items | group_by_exp: "post", "post.date | date: '%m'" -%}
     {%- for month in postsByMonth -%}
+    {%- assign month_reserved_h = month.items.size | times: 76 -%}
     <div class="archive-month" data-month="{{ month.name }}">
       <h3 class="archive-month-header">
         {%- assign month_num = month.name | plus: 0 -%}
@@ -126,7 +127,7 @@ page_modifier: page--utility
         {%- endcase -%}
         <span class="archive-month-count">{{ month.items.size }}</span>
       </h3>
-      <ul class="archive-list" aria-busy="true"></ul>
+      <ul class="archive-list" aria-busy="true" style="min-height: {{ month_reserved_h }}px; contain-intrinsic-size: auto {{ month_reserved_h }}px;"></ul>
     </div>
     {%- endfor -%}
     <a href="#archive-top" class="archive-back-top" aria-label="페이지 상단으로 이동">

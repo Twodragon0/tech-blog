@@ -57,8 +57,16 @@
       imgSrc = img.replace(/\.svg$/i, '_og.png');
     }
 
+    // post.img may be foo.svg, foo.png, OR foo_og.png (after the
+    // svg_to_png_og.rb Jekyll plugin rewrote post.image at :pre_render).
+    // Strip any of those tails to recover the stem, then append the
+    // variant suffix. Same logic as compute_image_flags in the plugin.
     function variant(suffix) {
-      return img.replace(/\.svg$/i, suffix).replace(/\.png$/i, suffix);
+      var base = img
+        .replace(/_og\.png$/i, '')
+        .replace(/\.png$/i, '')
+        .replace(/\.svg$/i, '');
+      return base + suffix;
     }
 
     var sources = '';

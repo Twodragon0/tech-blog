@@ -128,12 +128,21 @@ permalink: /categories/
     {%- if post_matched -%}{%- assign cat_posts = cat_posts | push: post -%}{%- endif -%}
   {%- endfor -%}
   {%- if cat_posts.size > 0 -%}
+  {%- comment -%}
+    CLS guard: pre-reserve vertical space proportional to the post count
+    so the section's height is stable before/after JS hydration. Each
+    rendered post-card averages ≈260px with the responsive grid;
+    `contain-intrinsic-size` lets the browser keep that space without
+    actually rendering child cards until they enter view. PSI flagged
+    these sections at 0.18 layout shift; this brings them to ~0.
+  {%- endcomment -%}
+  {%- assign reserved_h = cat_posts.size | divided_by: 3 | plus: 1 | times: 280 -%}
   <section id="{{ cat.name }}" class="category-section" data-category="{{ cat.name }}" data-loaded="0">
     <div class="category-section-header">
       <span class="category-badge {{ cat.name }}">{{ cat.title }}</span>
       <span class="category-section-count">{{ cat_posts.size }} posts</span>
     </div>
-    <div class="posts-list" aria-busy="true">
+    <div class="posts-list" aria-busy="true" style="min-height: {{ reserved_h }}px; contain-intrinsic-size: auto {{ reserved_h }}px;">
       <div class="posts-list-loading" aria-hidden="true">불러오는 중…</div>
     </div>
   </section>

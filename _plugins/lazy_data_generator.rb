@@ -306,12 +306,21 @@ end
 def compute_image_flags(img_path, static_paths)
   return { png: 0, avif: 0, webp: 0, card_avif: 0, card_webp: 0 } if img_path.empty?
 
+  # post.data['image'] may already have been rewritten from `.svg` to
+  # `_og.png` by _plugins/svg_to_png_og.rb (which runs at :pre_render,
+  # before this :post_write hook). Strip any of {.svg, _og.png, .png}
+  # to recover the base stem, then append each variant suffix.
+  base = img_path.dup
+  base = base.sub(/_og\.png\z/i, '')
+             .sub(/\.png\z/i, '')
+             .sub(/\.svg\z/i, '')
+
   variants = {
-    png:       img_path.sub(/\.svg\z/i, '_og.png'),
-    avif:      img_path.sub(/\.svg\z/i, '_og.avif').sub(/\.png\z/i, '_og.avif'),
-    webp:      img_path.sub(/\.svg\z/i, '_og.webp').sub(/\.png\z/i, '_og.webp'),
-    card_avif: img_path.sub(/\.svg\z/i, '_card.avif').sub(/\.png\z/i, '_card.avif'),
-    card_webp: img_path.sub(/\.svg\z/i, '_card.webp').sub(/\.png\z/i, '_card.webp')
+    png:       "#{base}_og.png",
+    avif:      "#{base}_og.avif",
+    webp:      "#{base}_og.webp",
+    card_avif: "#{base}_card.avif",
+    card_webp: "#{base}_card.webp"
   }
 
   variants.transform_values do |path|
