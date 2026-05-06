@@ -261,38 +261,38 @@ title: Home
   <section class="categories-section">
     <h2>Categories</h2>
     <div class="category-grid">
-      {% for cat in site.category_list %}
-      {% assign cat_posts = "" | split: "" %}
-      {% assign cat_name_lower = cat.name | downcase %}
-      {% for post in site.posts %}
-        {% assign post_matched = false %}
-        {% if post.category and post.category != "" %}
-          {% assign post_cat_lower = post.category | downcase | strip %}
-          {% if post_cat_lower == cat_name_lower %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% endif %}
-        {% unless post_matched %}
-          {% if post.categories %}
-            {% for post_cat in post.categories %}
-              {% assign post_cat_lower = post_cat | downcase | strip %}
-              {% if post_cat_lower == cat_name_lower %}
-                {% assign post_matched = true %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-            {% unless post_matched %}
-              {% assign post_cat_lower = post.categories | downcase | strip %}
-              {% if post_cat_lower == cat_name_lower %}
-                {% assign post_matched = true %}
-              {% endif %}
-            {% endunless %}
-          {% endif %}
-        {% endunless %}
-        {% if post_matched %}
-          {% assign cat_posts = cat_posts | push: post %}
-        {% endif %}
-      {% endfor %}
+      {%- for cat in site.category_list -%}
+      {%- assign cat_posts = "" | split: "" -%}
+      {%- assign cat_name_lower = cat.name | downcase -%}
+      {%- for post in site.posts -%}
+        {%- assign post_matched = false -%}
+        {%- if post.category and post.category != "" -%}
+          {%- assign post_cat_lower = post.category | downcase | strip -%}
+          {%- if post_cat_lower == cat_name_lower -%}
+            {%- assign post_matched = true -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- unless post_matched -%}
+          {%- if post.categories -%}
+            {%- for post_cat in post.categories -%}
+              {%- assign post_cat_lower = post_cat | downcase | strip -%}
+              {%- if post_cat_lower == cat_name_lower -%}
+                {%- assign post_matched = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- unless post_matched -%}
+              {%- assign post_cat_lower = post.categories | downcase | strip -%}
+              {%- if post_cat_lower == cat_name_lower -%}
+                {%- assign post_matched = true -%}
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endunless -%}
+        {%- if post_matched -%}
+          {%- assign cat_posts = cat_posts | push: post -%}
+        {%- endif -%}
+      {%- endfor -%}
       <a href="{{ '/categories/' | relative_url }}#{{ cat.name }}" class="category-card card">
         <div class="category-icon {{ cat.name }}">
           {% case cat.icon %}

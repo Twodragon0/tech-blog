@@ -6,161 +6,148 @@ permalink: /categories/
 ---
 <div class="categories-page">
   <div class="category-grid" style="margin-bottom: 3rem;">
-    {% for cat in site.category_list %}
-    {% comment %} Count posts for this category {% endcomment %}
-    {% assign cat_posts = "" | split: "" %}
-    {% assign cat_name_lower = cat.name | downcase %}
-    {% for post in site.posts %}
-      {% assign post_matched = false %}
-      {% comment %} Check post.category (singular) first {% endcomment %}
-      {% if post.category and post.category != "" %}
-        {% assign post_cat_lower = post.category | downcase | strip %}
-        {% if post_cat_lower == cat_name_lower %}
-          {% assign post_matched = true %}
-        {% endif %}
-      {% endif %}
-      {% comment %} Check post.categories (plural) if not matched yet {% endcomment %}
-      {% unless post_matched %}
-        {% if post.categories %}
-          {% comment %} Try to iterate - works for both arrays and single values {% endcomment %}
-          {% for post_cat in post.categories %}
-            {% assign post_cat_lower = post_cat | downcase | strip %}
-            {% if post_cat_lower == cat_name_lower %}
-              {% assign post_matched = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          {% comment %} If iteration didn't work (string case), check directly {% endcomment %}
-          {% unless post_matched %}
-            {% assign post_cat_lower = post.categories | downcase | strip %}
-            {% if post_cat_lower == cat_name_lower %}
-              {% assign post_matched = true %}
-            {% endif %}
-          {% endunless %}
-        {% endif %}
-      {% endunless %}
-      {% unless post_matched %}
-        {% assign classifier = post.title | append: ' ' | append: post.excerpt | downcase %}
-        {% if post.tags %}
-          {% assign classifier = classifier | append: ' ' | append: post.tags | downcase %}
-        {% endif %}
-
-        {% if cat_name_lower == 'devops' %}
-          {% if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% elsif cat_name_lower == 'kubernetes' %}
-          {% if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% elsif cat_name_lower == 'blockchain' %}
-          {% if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% endif %}
-      {% endunless %}
-      {% if post_matched %}
-        {% assign cat_posts = cat_posts | push: post %}
-      {% endif %}
-    {% endfor %}
+    {%- for cat in site.category_list -%}
+    {%- assign cat_posts = "" | split: "" -%}
+    {%- assign cat_name_lower = cat.name | downcase -%}
+    {%- for post in site.posts -%}
+      {%- assign post_matched = false -%}
+      {%- if post.category and post.category != "" -%}
+        {%- assign post_cat_lower = post.category | downcase | strip -%}
+        {%- if post_cat_lower == cat_name_lower -%}
+          {%- assign post_matched = true -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- unless post_matched -%}
+        {%- if post.categories -%}
+          {%- for post_cat in post.categories -%}
+            {%- assign post_cat_lower = post_cat | downcase | strip -%}
+            {%- if post_cat_lower == cat_name_lower -%}
+              {%- assign post_matched = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- unless post_matched -%}
+            {%- assign post_cat_lower = post.categories | downcase | strip -%}
+            {%- if post_cat_lower == cat_name_lower -%}
+              {%- assign post_matched = true -%}
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endunless -%}
+      {%- unless post_matched -%}
+        {%- assign classifier = post.title | append: ' ' | append: post.excerpt | downcase -%}
+        {%- if post.tags -%}
+          {%- assign classifier = classifier | append: ' ' | append: post.tags | downcase -%}
+        {%- endif -%}
+        {%- if cat_name_lower == 'devops' -%}
+          {%- if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' -%}
+            {%- assign post_matched = true -%}
+          {%- endif -%}
+        {%- elsif cat_name_lower == 'kubernetes' -%}
+          {%- if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' -%}
+            {%- assign post_matched = true -%}
+          {%- endif -%}
+        {%- elsif cat_name_lower == 'blockchain' -%}
+          {%- if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' -%}
+            {%- assign post_matched = true -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endunless -%}
+      {%- if post_matched -%}
+        {%- assign cat_posts = cat_posts | push: post -%}
+      {%- endif -%}
+    {%- endfor -%}
     <a href="#{{ cat.name }}" class="category-card card">
       <div class="category-icon {{ cat.name }}">
-        {% case cat.icon %}
-          {% when 'shield' %}
+        {%- case cat.icon -%}
+          {%- when 'shield' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          {% when 'code' %}
+          {%- when 'code' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          {% when 'cloud' %}
+          {%- when 'cloud' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          {% when 'cube' %}
+          {%- when 'cube' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          {% when 'chart' %}
+          {%- when 'chart' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-          {% when 'alert' %}
+          {%- when 'alert' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          {% when 'certificate' %}
+          {%- when 'certificate' -%}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
-        {% endcase %}
+        {%- endcase -%}
       </div>
       <h3>{{ cat.title }}</h3>
       <p>{{ cat.description }}</p>
       <span class="post-count">{{ cat_posts.size }} posts</span>
     </a>
-    {% endfor %}
+    {%- endfor -%}
   </div>
 
-  {% for cat in site.category_list %}
-  {% comment %} Get posts for this category {% endcomment %}
-  {% assign cat_posts = "" | split: "" %}
-  {% assign cat_name_lower = cat.name | downcase %}
-  {% for post in site.posts %}
-    {% assign post_matched = false %}
-    {% comment %} Check post.category (singular) first {% endcomment %}
-    {% if post.category and post.category != "" %}
-      {% assign post_cat_lower = post.category | downcase | strip %}
-      {% if post_cat_lower == cat_name_lower %}
-        {% assign post_matched = true %}
-      {% endif %}
-    {% endif %}
-    {% comment %} Check post.categories (plural) if not matched yet {% endcomment %}
-    {% unless post_matched %}
-      {% if post.categories %}
-        {% comment %} Check if categories is an array {% endcomment %}
-        {% assign categories_size = post.categories | size %}
-        {% if categories_size > 0 %}
-          {% comment %} It's an array, check each category {% endcomment %}
-          {% for post_cat in post.categories %}
-            {% assign post_cat_lower = post_cat | downcase | strip %}
-            {% if post_cat_lower == cat_name_lower %}
-              {% assign post_matched = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        {% else %}
-          {% comment %} It's a string, check directly {% endcomment %}
-          {% assign post_cat_lower = post.categories | downcase | strip %}
-          {% if post_cat_lower == cat_name_lower %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% endif %}
-      {% endif %}
-    {% endunless %}
-    {% unless post_matched %}
-      {% assign classifier = post.title | append: ' ' | append: post.excerpt | downcase %}
-      {% if post.tags %}
-        {% assign classifier = classifier | append: ' ' | append: post.tags | downcase %}
-      {% endif %}
-
-      {% if cat_name_lower == 'devops' %}
-        {% if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' %}
-          {% assign post_matched = true %}
-        {% endif %}
-      {% elsif cat_name_lower == 'kubernetes' %}
-        {% if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' %}
-          {% assign post_matched = true %}
-        {% endif %}
-      {% elsif cat_name_lower == 'blockchain' %}
-        {% if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' %}
-          {% assign post_matched = true %}
-        {% endif %}
-      {% endif %}
-    {% endunless %}
-    {% if post_matched %}
-      {% assign cat_posts = cat_posts | push: post %}
-    {% endif %}
-  {% endfor %}
-  {% if cat_posts.size > 0 %}
+  {%- for cat in site.category_list -%}
+  {%- assign cat_posts = "" | split: "" -%}
+  {%- assign cat_name_lower = cat.name | downcase -%}
+  {%- for post in site.posts -%}
+    {%- assign post_matched = false -%}
+    {%- if post.category and post.category != "" -%}
+      {%- assign post_cat_lower = post.category | downcase | strip -%}
+      {%- if post_cat_lower == cat_name_lower -%}
+        {%- assign post_matched = true -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- unless post_matched -%}
+      {%- if post.categories -%}
+        {%- assign categories_size = post.categories | size -%}
+        {%- if categories_size > 0 -%}
+          {%- for post_cat in post.categories -%}
+            {%- assign post_cat_lower = post_cat | downcase | strip -%}
+            {%- if post_cat_lower == cat_name_lower -%}
+              {%- assign post_matched = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- assign post_cat_lower = post.categories | downcase | strip -%}
+          {%- if post_cat_lower == cat_name_lower -%}
+            {%- assign post_matched = true -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endunless -%}
+    {%- unless post_matched -%}
+      {%- assign classifier = post.title | append: ' ' | append: post.excerpt | downcase -%}
+      {%- if post.tags -%}
+        {%- assign classifier = classifier | append: ' ' | append: post.tags | downcase -%}
+      {%- endif -%}
+      {%- if cat_name_lower == 'devops' -%}
+        {%- if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' -%}
+          {%- assign post_matched = true -%}
+        {%- endif -%}
+      {%- elsif cat_name_lower == 'kubernetes' -%}
+        {%- if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' -%}
+          {%- assign post_matched = true -%}
+        {%- endif -%}
+      {%- elsif cat_name_lower == 'blockchain' -%}
+        {%- if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' -%}
+          {%- assign post_matched = true -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endunless -%}
+    {%- if post_matched -%}
+      {%- assign cat_posts = cat_posts | push: post -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if cat_posts.size > 0 -%}
   <section id="{{ cat.name }}" class="category-section">
     <div class="category-section-header">
       <span class="category-badge {{ cat.name }}">{{ cat.title }}</span>
       <span class="category-section-count">{{ cat_posts.size }} posts</span>
     </div>
     <div class="posts-list">
-      {% for post in cat_posts %}
+      {%- for post in cat_posts -%}
         {% include post-card.html post=post %}
-      {% endfor %}
+      {%- endfor -%}
     </div>
   </section>
-  {% endif %}
-  {% endfor %}
+  {%- endif -%}
+  {%- endfor -%}
 </div>
