@@ -12,8 +12,7 @@ comments: true
 image: /assets/images/2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.svg
 image_alt: "2 8500 Drift, QR, New FortiClient EMS - security digest overview"
 toc: true
-sitemap:
-  exclude: yes
+sitemap: false
 ---
 
 {% include ai-summary-card.html

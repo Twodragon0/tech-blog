@@ -12,8 +12,7 @@ comments: true
 image: /assets/images/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir.svg
 image_alt: "Apple, NIST, Palantir, '' - security digest overview"
 toc: true
-sitemap:
-  exclude: yes
+sitemap: false
 ---
 
 {% include ai-summary-card.html

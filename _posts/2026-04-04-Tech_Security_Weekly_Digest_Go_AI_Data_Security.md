@@ -12,8 +12,7 @@ comments: true
 image: /assets/images/2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security.svg
 image_alt: "TA416 PlugX, Microsoft, Linux, LinkedIn 6000+ accounts - security digest overview"
 toc: true
-sitemap:
-  exclude: yes
+sitemap: false
 ---
 
 {% include ai-summary-card.html
