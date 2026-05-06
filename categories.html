@@ -83,16 +83,22 @@ permalink: /categories/
     {%- endfor -%}
   </div>
 
+  {%- comment -%}
+    Per-category section stubs. Real post-card lists are fetched from
+    /categories-data.json and rendered by categories-page.js on first
+    scroll into view (IntersectionObserver, 300px rootMargin) or on
+    hash-link navigation. Cuts ≈600 KB of post-card HTML from the
+    initial payload while keeping the header and post count visible
+    immediately for orientation.
+  {%- endcomment -%}
   {%- for cat in site.category_list -%}
-  {%- assign cat_posts = "" | split: "" -%}
   {%- assign cat_name_lower = cat.name | downcase -%}
+  {%- assign cat_posts = "" | split: "" -%}
   {%- for post in site.posts -%}
     {%- assign post_matched = false -%}
     {%- if post.category and post.category != "" -%}
       {%- assign post_cat_lower = post.category | downcase | strip -%}
-      {%- if post_cat_lower == cat_name_lower -%}
-        {%- assign post_matched = true -%}
-      {%- endif -%}
+      {%- if post_cat_lower == cat_name_lower -%}{%- assign post_matched = true -%}{%- endif -%}
     {%- endif -%}
     {%- unless post_matched -%}
       {%- if post.categories -%}
@@ -100,54 +106,39 @@ permalink: /categories/
         {%- if categories_size > 0 -%}
           {%- for post_cat in post.categories -%}
             {%- assign post_cat_lower = post_cat | downcase | strip -%}
-            {%- if post_cat_lower == cat_name_lower -%}
-              {%- assign post_matched = true -%}
-              {%- break -%}
-            {%- endif -%}
+            {%- if post_cat_lower == cat_name_lower -%}{%- assign post_matched = true -%}{%- break -%}{%- endif -%}
           {%- endfor -%}
         {%- else -%}
           {%- assign post_cat_lower = post.categories | downcase | strip -%}
-          {%- if post_cat_lower == cat_name_lower -%}
-            {%- assign post_matched = true -%}
-          {%- endif -%}
+          {%- if post_cat_lower == cat_name_lower -%}{%- assign post_matched = true -%}{%- endif -%}
         {%- endif -%}
       {%- endif -%}
     {%- endunless -%}
     {%- unless post_matched -%}
       {%- assign classifier = post.title | append: ' ' | append: post.excerpt | downcase -%}
-      {%- if post.tags -%}
-        {%- assign classifier = classifier | append: ' ' | append: post.tags | downcase -%}
-      {%- endif -%}
+      {%- if post.tags -%}{%- assign classifier = classifier | append: ' ' | append: post.tags | downcase -%}{%- endif -%}
       {%- if cat_name_lower == 'devops' -%}
-        {%- if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' -%}
-          {%- assign post_matched = true -%}
-        {%- endif -%}
+        {%- if classifier contains 'devops' or classifier contains 'ci/cd' or classifier contains 'cicd' or classifier contains 'pipeline' or classifier contains 'github actions' or classifier contains 'automation' or classifier contains 'terraform' or classifier contains 'ansible' -%}{%- assign post_matched = true -%}{%- endif -%}
       {%- elsif cat_name_lower == 'kubernetes' -%}
-        {%- if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' -%}
-          {%- assign post_matched = true -%}
-        {%- endif -%}
+        {%- if classifier contains 'kubernetes' or classifier contains 'k8s' or classifier contains 'eks' -%}{%- assign post_matched = true -%}{%- endif -%}
       {%- elsif cat_name_lower == 'blockchain' -%}
-        {%- if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' -%}
-          {%- assign post_matched = true -%}
-        {%- endif -%}
+        {%- if classifier contains 'blockchain' or classifier contains 'bitcoin' or classifier contains 'crypto' or classifier contains 'ethereum' or classifier contains 'web3' -%}{%- assign post_matched = true -%}{%- endif -%}
       {%- endif -%}
     {%- endunless -%}
-    {%- if post_matched -%}
-      {%- assign cat_posts = cat_posts | push: post -%}
-    {%- endif -%}
+    {%- if post_matched -%}{%- assign cat_posts = cat_posts | push: post -%}{%- endif -%}
   {%- endfor -%}
   {%- if cat_posts.size > 0 -%}
-  <section id="{{ cat.name }}" class="category-section">
+  <section id="{{ cat.name }}" class="category-section" data-category="{{ cat.name }}" data-loaded="0">
     <div class="category-section-header">
       <span class="category-badge {{ cat.name }}">{{ cat.title }}</span>
       <span class="category-section-count">{{ cat_posts.size }} posts</span>
     </div>
-    <div class="posts-list">
-      {%- for post in cat_posts -%}
-        {% include post-card.html post=post %}
-      {%- endfor -%}
+    <div class="posts-list" aria-busy="true">
+      <div class="posts-list-loading" aria-hidden="true">불러오는 중…</div>
     </div>
   </section>
   {%- endif -%}
   {%- endfor -%}
 </div>
+
+<script src="{{ '/assets/js/categories-page.js' | relative_url }}" defer></script>
