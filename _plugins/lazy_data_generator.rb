@@ -42,7 +42,8 @@ Jekyll::Hooks.register :site, :post_write do |site|
   tag_index = build_tag_index(posts)
   category_index = build_category_index(posts, site.config['category_list'] || [])
 
-  tags_json = render_tags_json(tag_index)
+  baseurl = site.config['baseurl'].to_s
+  tags_json = render_tags_json(tag_index, baseurl)
   cats_json = render_categories_json(site, category_index, static_paths)
 
   dest = site.dest
@@ -115,7 +116,7 @@ def classifier_match?(post, keywords)
   keywords.any? { |kw| cl.include?(kw) }
 end
 
-def render_tags_json(tag_index)
+def render_tags_json(tag_index, baseurl)
   sorted = tag_index.keys.sort_by { |t| t.to_s.downcase }
 
   hash = {}
@@ -129,7 +130,7 @@ def render_tags_json(tag_index)
     hash[slug] = {
       'name' => tag.to_s,
       'related' => related,
-      'posts' => posts.map { |p| simple_post_payload(p) }
+      'posts' => posts.map { |p| simple_post_payload(p, baseurl) }
     }
   end
 
@@ -174,10 +175,10 @@ def build_related_tags(posts, current_tag)
   result
 end
 
-def simple_post_payload(post)
+def simple_post_payload(post, baseurl)
   {
     't' => post.data['title'].to_s,
-    'u' => post.url.to_s,
+    'u' => prefix_with_baseurl(post.url, baseurl),
     'd' => post.date.strftime('%Y. %m. %d'),
     'x' => post.date.iso8601,
     'c' => primary_category(post)
