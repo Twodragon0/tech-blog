@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-05T02:03:37.112822+00:00",
+  "updated_at": "2026-05-06T02:02:52.150570+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/winter-2025-soc-1-report-is-now-available-with-184-services-in-scope/",
-      "title": "Winter 2025 SOC 1 report is now available with 184 services in scope",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/systembc-c2-server-reveals-1570-victims.html",
-      "title": "SystemBC C2 Server Reveals 1,570+ Victims in The Gentlemen Ransomware Operation",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/22-bridgebreak-flaws-expose-20000.html",
-      "title": "22 BRIDGE:BREAK Flaws Expose Thousands of Lantronix and Silex Serial-to-IP Conve",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/ransomware-negotiator-pleads-guilty-to.html",
-      "title": "Ransomware Negotiator Pleads Guilty to Aiding BlackCat Attacks in 2023",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/5-places-where-mature-socs-keep-mttr.html",
-      "title": "5 Places where Mature SOCs Keep MTTR Fast and Others Waste Time",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/04/21/ml-applications/modernizing-the-facebook-groups-search-to-unlock-the-power-of-community-knowledge/",
-      "title": "Modernizing the Facebook Groups Search to Unlock the Power of Community Knowledg",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://blog.google/products/ads-commerce/ads-advisor-google-ads/",
-      "title": "3 new ways Ads Advisor is making Google Ads safer and faster",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/",
-      "title": "From developer desks to the whole organization: Running Claude Cowork in Amazon ",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/end-to-end-lineage-with-dvc-and-amazon-sagemaker-ai-mlflow-apps/",
-      "title": "End-to-end lineage with DVC and Amazon SageMaker AI MLflow apps",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard",
-      "title": "QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/building-the-foundation-for-ai-across-the-public-sector-through-our-partner-ecosystem/",
-      "title": "Building the foundation for AI across the public sector through our partner ecos",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/partners/2026-partners-of-the-year-winners-next26/",
-      "title": "Announcing our 2026 Google Cloud Partners of the Year",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/join-our-next26-developer-livestreams/",
-      "title": "From keynote to the terminal: Join our Next ‘26 developer livestreams",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/training-certifications/gear-up-to-get-the-most-out-of-ai-learning-at-google-cloud-next26/",
-      "title": "GEAR up to get the most out of AI learning at Google Cloud Next ‘26",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-the-builders-hub-from-the-google-developer-program/",
-      "title": "Introducing the Builders Hub from the Google Developer Program",
-      "published_date": "2026-04-22",
-      "expires_at": "2026-04-29T01:52:02.442485+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/malicious-kics-docker-images-and-vs.html",
       "title": "Malicious KICS Docker Images and VS Code Extensions Hit Checkmarx Supply Chain",
@@ -1254,6 +1164,96 @@
       "title": "Microsoft Agent Framework – Building Blocks for AI Part 3",
       "published_date": "2026-05-05",
       "expires_at": "2026-05-12T02:03:37.112721+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/critical-apache-http2-flaw-cve-2026.html",
+      "title": "Critical Apache HTTP/2 Flaw (CVE-2026-23918) Enables DoS and Potential RCE",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/daemon-tools-supply-chain-attack.html",
+      "title": "DAEMON Tools Supply Chain Attack Compromises Official Installers with Malware",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/china-linked-uat-8302-targets.html",
+      "title": "China-Linked UAT-8302 Targets Governments Using Shared APT Malware Across Region",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-ai-traffic-analysis-dashboards-for-aws-waf/",
+      "title": "Introducing AI traffic analysis dashboards for AWS WAF",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-stealthy-quasar-linux-malware-targets-software-developers/",
+      "title": "New stealthy Quasar Linux malware targets software developers",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/",
+      "title": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Fu",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-5-instant",
+      "title": "GPT-5.5 Instant: smarter, clearer, and more personalized",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/",
+      "title": "How Hapag-Lloyd uses Amazon Bedrock to transform customer feedback into actionab",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/",
+      "title": "Streamlining generative AI development with MLflow v3.10 on Amazon SageMaker AI",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/public-sector-momentum-and-mission-impact-at-google-cloud-next-26/",
+      "title": "Public sector momentum and mission impact at Google Cloud Next ‘26",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/five-guides-to-building-and-scaling-production-ready-ai-agents/",
+      "title": "Five must-have guides to move agents into production with Gemini Enterprise Agen",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/introducing-agent-gateway-isv-ecosystem-for-security-and-governance/",
+      "title": "Introducing Agent Gateway ISV ecosystem for security and governance",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/cloud-engineers-ai-toolkit-sign-up-now-for-a-developer-workshop-near-you/",
+      "title": "Cloud Engineer’s AI Toolkit: Sign up Now for a Developer Workshop Near You!",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/modernize-your-workflows-amazon-workspaces-now-gives-ai-agents-their-own-desktop-preview/",
+      "title": "Modernize your workflows: Amazon WorkSpaces now gives AI agents their own deskto",
+      "published_date": "2026-05-06",
+      "expires_at": "2026-05-13T02:02:52.150460+00:00"
     }
   ]
 }
