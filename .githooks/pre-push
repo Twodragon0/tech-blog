@@ -1,0 +1,46 @@
+#!/bin/sh
+# pre-push hook: verify raster variant fallback chain for all posts with
+# image: fields that are being pushed.
+#
+# Tracked version lives at .githooks/pre-push.
+# Install with:  git config core.hooksPath .githooks
+# Or run once:   bash scripts/install-hooks.sh  (re-run after changes)
+#
+# Emergency bypass:  SKIP_VARIANT_CHECK=1 git push
+
+if [ "${SKIP_VARIANT_CHECK:-0}" = "1" ]; then
+  echo "[pre-push] SKIP_VARIANT_CHECK=1 — skipping image variant check."
+  exit 0
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+CHECKER="$REPO_ROOT/scripts/check_post_image_variants.py"
+
+if [ ! -f "$CHECKER" ]; then
+  echo "[pre-push] WARNING: $CHECKER not found — skipping variant check."
+  exit 0
+fi
+
+# Read the push ref pairs from stdin: <local_ref> <local_sha> <remote_ref> <remote_sha>
+# We check per-refspec so the scope stays tight (only posts in each push).
+EXIT_CODE=0
+
+while read local_ref local_sha remote_ref remote_sha; do
+  # Skip branch deletions (local_sha == 0000...0)
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+
+  # When pushing a new branch the remote sha is all zeros; diff against empty tree.
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    remote_sha="$(git hash-object -t tree /dev/null)"
+  fi
+
+  python3 "$CHECKER" --changed-only "$remote_sha" "$local_sha"
+  RESULT=$?
+  if [ "$RESULT" -ne 0 ]; then
+    EXIT_CODE=$RESULT
+  fi
+done
+
+exit $EXIT_CODE
