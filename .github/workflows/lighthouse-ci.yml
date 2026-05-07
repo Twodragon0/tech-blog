@@ -44,18 +44,18 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout PR head
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
 
       - name: Setup Node 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6
         with:
           node-version: "20"
 
       - name: Cache lhci + npm
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4
         with:
           path: |
             ~/.cache/lhci
@@ -110,7 +110,7 @@ jobs:
           kill $SERVER_PID 2>/dev/null || true
 
       - name: Checkout PR base
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
         with:
           ref: ${{ github.event.pull_request.base.sha }}
           path: base-checkout
@@ -165,7 +165,7 @@ jobs:
 
       - name: Upload Lighthouse artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
         with:
           name: lighthouse-${{ github.run_id }}
           path: |
