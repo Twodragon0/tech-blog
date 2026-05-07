@@ -11,6 +11,7 @@ keywords: [weekly-rollup, security-news, weekly-digest, 2026, April, DevSecOps, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-04-30-Week4_April_2026_Security_Digest.svg
+image_alt: "Week4 April 2026 Security Digest"
 toc: true
 ---
 

@@ -11,6 +11,7 @@ keywords: [monthly-index, security-news, weekly-digest, 2026, DevSecOps, Cloud-S
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-28-February_2026_Security_Digest_Monthly_Index.svg
+image_alt: "February 2026 Security Digest Monthly Index"
 toc: true
 ---
 
