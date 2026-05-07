@@ -94,4 +94,49 @@ else
   fi
 fi
 
+# ---------------------------------------------------------------------------
+# 3. Liquid include attribute-quote conflict check
+#    (ASCII apostrophe / double-quote inside single-/double-quoted attributes)
+# ---------------------------------------------------------------------------
+if [ "${SKIP_LIQUID_CHECK:-0}" = "1" ]; then
+  echo "[pre-push] SKIP_LIQUID_CHECK=1 — skipping liquid include check."
+else
+  LIQUID_CHECKER="$REPO_ROOT/scripts/fix_malformed_liquid_includes.py"
+  if [ ! -f "$LIQUID_CHECKER" ]; then
+    echo "[pre-push] WARNING: $LIQUID_CHECKER not found — skipping liquid check."
+  else
+    # Run only when _posts/*.md files are being pushed
+    POSTS_CHANGED=0
+    for ref_tuple in $REFS; do
+      local_sha=$(echo "$ref_tuple" | cut -d: -f2)
+      remote_sha=$(echo "$ref_tuple" | cut -d: -f4)
+
+      if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+        continue
+      fi
+      if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+        remote_sha="$(git hash-object -t tree /dev/null)"
+      fi
+
+      if git diff --name-only "$remote_sha" "$local_sha" 2>/dev/null \
+            | grep -q "^_posts/.*\.md$"; then
+        POSTS_CHANGED=1
+        break
+      fi
+    done
+
+    if [ "$POSTS_CHANGED" = "1" ]; then
+      echo "[pre-push] Post files changed — checking Liquid include attribute quotes ..."
+      python3 "$LIQUID_CHECKER" --check
+      RESULT=$?
+      if [ "$RESULT" -ne 0 ]; then
+        echo "[pre-push] FAIL: Liquid include attribute-quote conflicts detected."
+        echo "[pre-push] Run: python3 scripts/fix_malformed_liquid_includes.py"
+        echo "[pre-push] Or bypass: SKIP_LIQUID_CHECK=1 git push"
+        EXIT_CODE=$RESULT
+      fi
+    fi
+  fi
+fi
+
 exit $EXIT_CODE
