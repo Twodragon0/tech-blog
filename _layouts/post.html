@@ -208,22 +208,23 @@ layout: default
             same AVIF/WebP/PNG detection applies. Missing variants gracefully
             fall through to the next format; a final default OG image catches
             posts whose raster variants haven't been generated/committed yet.
+            Suffix stripping covers .svg, .png, _og.png so the <source> branch
+            emits in BOTH plugin-on (Vercel rewrites .svg→_og.png) and
+            safe-mode (GH Pages keeps .svg) builds.
           {% endcomment %}
           {% assign rcard_img = post.image | relative_url %}
-          {% if post.image contains '.png' %}
-            {% assign rcard_avif_path = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' %}
-            {% assign rcard_webp_path = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' %}
-            {% assign rcard_sm_avif_path = post.image | replace: '_og.png', '_card.avif' | replace: '.png', '_card.avif' %}
-            {% assign rcard_sm_webp_path = post.image | replace: '_og.png', '_card.webp' | replace: '.png', '_card.webp' %}
-            {% assign rcard_avif_file = site.static_files | where: 'path', rcard_avif_path | first %}
-            {% assign rcard_webp_file = site.static_files | where: 'path', rcard_webp_path | first %}
-            {% assign rcard_sm_avif_file = site.static_files | where: 'path', rcard_sm_avif_path | first %}
-            {% assign rcard_sm_webp_file = site.static_files | where: 'path', rcard_sm_webp_path | first %}
-            {% assign rcard_avif = rcard_avif_path | relative_url %}
-            {% assign rcard_webp = rcard_webp_path | relative_url %}
-            {% assign rcard_sm_avif = rcard_sm_avif_path | relative_url %}
-            {% assign rcard_sm_webp = rcard_sm_webp_path | relative_url %}
-          {% endif %}
+          {% assign rcard_avif_path = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' | replace: '.svg', '_og.avif' %}
+          {% assign rcard_webp_path = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' | replace: '.svg', '_og.webp' %}
+          {% assign rcard_sm_avif_path = post.image | replace: '_og.png', '_card.avif' | replace: '.png', '_card.avif' | replace: '.svg', '_card.avif' %}
+          {% assign rcard_sm_webp_path = post.image | replace: '_og.png', '_card.webp' | replace: '.png', '_card.webp' | replace: '.svg', '_card.webp' %}
+          {% assign rcard_avif_file = site.static_files | where: 'path', rcard_avif_path | first %}
+          {% assign rcard_webp_file = site.static_files | where: 'path', rcard_webp_path | first %}
+          {% assign rcard_sm_avif_file = site.static_files | where: 'path', rcard_sm_avif_path | first %}
+          {% assign rcard_sm_webp_file = site.static_files | where: 'path', rcard_sm_webp_path | first %}
+          {% assign rcard_avif = rcard_avif_path | relative_url %}
+          {% assign rcard_webp = rcard_webp_path | relative_url %}
+          {% assign rcard_sm_avif = rcard_sm_avif_path | relative_url %}
+          {% assign rcard_sm_webp = rcard_sm_webp_path | relative_url %}
           <div class="related-post-image">
             <picture>
               {% if rcard_avif_file %}
