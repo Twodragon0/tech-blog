@@ -1,0 +1,85 @@
+name: IndexNow Ping
+
+# Trigger: after deploy-pages workflow completes on main branch
+# Only runs when content-related files change (handled via workflow_run + paths filtering below)
+on:
+  workflow_run:
+    workflows: ["Deploy Jekyll to GitHub Pages"]
+    types:
+      - completed
+    branches:
+      - main
+
+  # Allow manual trigger for testing / forced re-submit
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (print payload, no HTTP requests)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  ping:
+    name: Submit sitemap to IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    # Only run when the triggering workflow succeeded (skip on failed deploys)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+
+      - name: Check if content files changed
+        id: check_files
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          # Get the commit SHA that triggered the upstream workflow
+          COMMIT_SHA="${{ github.event.workflow_run.head_sha }}"
+          echo "Checking files changed in commit $COMMIT_SHA"
+
+          # List files changed vs parent commit
+          git fetch origin "$COMMIT_SHA" --depth=2 2>/dev/null || true
+          CHANGED=$(git diff --name-only "$COMMIT_SHA^" "$COMMIT_SHA" 2>/dev/null || echo "")
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          # Ping only when content-relevant files changed
+          if echo "$CHANGED" | grep -qE '^(_posts/|sitemap\.xml|_config\.yml)'; then
+            echo "should_ping=true" >> "$GITHUB_OUTPUT"
+            echo "Content files changed -> will ping IndexNow"
+          else
+            echo "should_ping=false" >> "$GITHUB_OUTPUT"
+            echo "No content files changed -> skipping IndexNow ping"
+          fi
+
+      - name: Set up Python
+        if: >
+          github.event_name == 'workflow_dispatch' ||
+          steps.check_files.outputs.should_ping == 'true'
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2f  # v5
+        with:
+          python-version: '3.12'
+
+      - name: Ping IndexNow
+        if: >
+          github.event_name == 'workflow_dispatch' ||
+          steps.check_files.outputs.should_ping == 'true'
+        env:
+          # INDEXNOW_KEY is NOT a secret — it is a public ownership token.
+          # The key value must match the .txt file deployed to the site root.
+          INDEXNOW_KEY: "890b921a9bdd4a155d198c6c0487a14f"
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            python3 scripts/indexnow_ping.py --dry-run
+          else
+            python3 scripts/indexnow_ping.py
+          fi
+        # Ping failure must NOT block the deploy pipeline
+        continue-on-error: true
