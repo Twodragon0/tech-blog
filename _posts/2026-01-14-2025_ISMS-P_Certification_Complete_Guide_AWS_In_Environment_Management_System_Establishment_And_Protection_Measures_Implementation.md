@@ -417,11 +417,11 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 
 | 제목 | 카테고리 | 링크 |
 |-----|---------|------|
-| AWS Security Hub 완벽 가이드 | Security | /posts/aws-security-hub-guide/ |
-| IAM 최소 권한 원칙 구현 | Security | /posts/iam-least-privilege/ |
-| KMS 암호화 키 관리 전략 | Security | /posts/kms-key-management/ |
-| CloudTrail 로그 분석 및 위협 탐지 | Security | /posts/cloudtrail-log-analysis/ |
-| Terraform으로 AWS 보안 자동화 | DevOps | /posts/terraform-aws-security-automation/ |
+| AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 | Security | [블로그 포스트](/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/) |
+| AWS IAM 최소 권한 원칙 구현 가이드 | Security | [블로그 포스트](/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/) |
+| AWS KMS 암호화 키 관리 전략 | Security | [AWS KMS 공식 문서](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) |
+| CloudTrail 로그 분석 및 위협 탐지 | Security | [블로그 포스트](/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/) |
+| Terraform으로 AWS 보안 자동화 | DevOps | [Terraform AWS Provider 공식 문서](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) |
 
 #### 보안 도구 및 오픈소스
 
