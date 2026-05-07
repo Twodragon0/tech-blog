@@ -54,14 +54,40 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: '3.11'
+
+      - name: Setup Node
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6
+        with:
+          node-version: '20'
+
+      - name: Install system dependencies (librsvg2-bin)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+
+      - name: Install Python build dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install Pillow 'cairosvg>=2.7.0,<3.0' 'fonttools[woff]>=4.55.0'
+
+      - name: Install Node build dependencies (terser)
+        run: npm ci || npm install
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6
 
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Build with Jekyll (via build.sh for parity with Vercel)
+        run: |
+          chmod +x build.sh
+          ./build.sh
         env:
           JEKYLL_ENV: production
+          BASEURL: ${{ steps.pages.outputs.base_path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
