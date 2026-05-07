@@ -1,17 +1,36 @@
 #!/usr/bin/env python3
-"""Pre-commit guard: block posts whose JSON-LD front-matter fields contain ASCII
-double-quotes.
+"""Pre-commit guard: block posts whose JSON-LD front-matter fields contain
+problematic quote characters, or whose Liquid include attributes contain
+typographic (curly) quotes that break the Liquid tokeniser.
 
 Scans `_posts/*.md` files (given as CLI arguments or auto-discovered from
-staged files) for raw ASCII double-quotes inside the decoded value of the
-four YAML fields that jekyll-seo-tag injects into JSON-LD structured data:
+staged files) and performs two checks:
+
+Check 1 — Front-matter field quote safety
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Detects both ASCII double-quotes AND typographic (curly) quote characters
+inside the decoded value of the four YAML fields that jekyll-seo-tag injects
+into JSON-LD structured data:
 
     title, excerpt, description, image_alt
 
-Both raw ``"`` in the YAML source and YAML-escaped ``\"`` are detected because
-jekyll-seo-tag emits both as a raw ``"`` in the JSON-LD block, causing
-JSON.parse failures and "crawled — currently not indexed" outcomes in Google
-Search Console.
+Characters that trigger a violation:
+
+    - U+0022  ``"``    ASCII double-quote
+    - U+201C  ``\u201c``  LEFT DOUBLE QUOTATION MARK
+    - U+201D  ``\u201d``  RIGHT DOUBLE QUOTATION MARK
+    - U+2018  ``\u2018``  LEFT SINGLE QUOTATION MARK
+    - U+2019  ``\u2019``  RIGHT SINGLE QUOTATION MARK
+
+Korean body text is intentionally excluded from this check — curly quotes
+are natural there and do not appear inside Liquid attribute strings.
+
+Check 2 — Liquid include attribute line scan
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scans every line of the post body for lines that contain a ``{% include %}``
+tag and also contain any typographic quote character.  Even a single curly
+quote inside a Liquid attribute value causes a token-break that aborts the
+Jekyll build (regression: 2026-05-06 build failure, fixed in f86ad2d3).
 
 Usage
 -----
@@ -43,6 +62,14 @@ CHECKED_FIELDS = frozenset({"title", "excerpt", "description", "image_alt"})
 
 # Max characters of the offending value to show in the error message.
 _SNIPPET_LEN = 80
+
+# Typographic (curly) quote characters that must not appear in front-matter
+# fields or inside Liquid include attributes.
+_CURLY_QUOTES = "\u201c\u201d\u2018\u2019"
+
+# Regex to detect a Liquid include tag anywhere on a line.
+import re as _re
+_LIQUID_INCLUDE_RE = _re.compile(r"\{%-?\s*include\s")
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -87,9 +114,20 @@ def _parse_frontmatter_fields(raw: str) -> dict[str, str]:
 
 
 def check_file(path: Path) -> List[Tuple[str, str]]:
-    """Check a single post file for ASCII double-quotes in the target fields.
+    """Check a single post file for quote violations.
 
-    Returns a list of ``(field_name, snippet)`` tuples for each violation.
+    Two checks are performed:
+
+    1. Front-matter fields (title/excerpt/description/image_alt):
+       - ASCII double-quote (U+0022) — breaks JSON-LD
+       - Typographic double-quotes (U+201C / U+201D) — break Liquid attributes
+       - Typographic single-quotes (U+2018 / U+2019) — break Liquid attributes
+
+    2. Body lines containing ``{% include %}`` tags:
+       - Any typographic (curly) quote on the same line triggers a violation.
+       Korean body text that does NOT contain include tags is excluded.
+
+    Returns a list of ``(label, snippet)`` tuples for each violation.
     An empty list means the file is clean.
     """
     try:
@@ -97,16 +135,40 @@ def check_file(path: Path) -> List[Tuple[str, str]]:
     except OSError:
         return []
 
-    raw_fm = _extract_frontmatter(text)
-    if raw_fm is None:
-        return []
-
-    fields = _parse_frontmatter_fields(raw_fm)
     violations: List[Tuple[str, str]] = []
-    for field, value in fields.items():
-        if '"' in value:
-            snippet = value[:_SNIPPET_LEN]
-            violations.append((field, snippet))
+
+    # ------------------------------------------------------------------
+    # Check 1: front-matter fields
+    # ------------------------------------------------------------------
+    raw_fm = _extract_frontmatter(text)
+    if raw_fm is not None:
+        fields = _parse_frontmatter_fields(raw_fm)
+        for field, value in fields.items():
+            bad_chars = [c for c in ('"',) + tuple(_CURLY_QUOTES) if c in value]
+            if bad_chars:
+                snippet = value[:_SNIPPET_LEN]
+                violations.append((field, snippet))
+
+    # ------------------------------------------------------------------
+    # Check 2: Liquid include lines with curly quotes in body
+    # ------------------------------------------------------------------
+    # Find where the body starts (after the closing --- of front-matter).
+    body_start = 0
+    if text.startswith("---"):
+        end_fm = text.find("\n---", 3)
+        if end_fm != -1:
+            body_start = end_fm + 4  # skip past the closing \n---
+
+    body = text[body_start:]
+    for lineno, line in enumerate(body.splitlines(), start=1):
+        if _LIQUID_INCLUDE_RE.search(line):
+            curly_found = [c for c in _CURLY_QUOTES if c in line]
+            if curly_found:
+                snippet = line.strip()[:_SNIPPET_LEN]
+                violations.append(
+                    (f"include_line:{lineno}", snippet)
+                )
+
     return violations
 
 
@@ -153,14 +215,23 @@ def main(argv: list[str] | None = None) -> int:
                 f"\n[check_post_quote_safety] FAIL: {path}",
                 flush=True,
             )
-            for field, snippet in violations:
-                print(
-                    f"  field '{field}' contains ASCII double-quote (\"):\n"
-                    f"    {snippet!r}",
-                    flush=True,
-                )
+            for label, snippet in violations:
+                if label.startswith("include_line:"):
+                    print(
+                        f"  Liquid include line ({label}) contains curly/typographic quote:\n"
+                        f"    {snippet!r}",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        f"  field '{label}' contains problematic quote character:\n"
+                        f"    {snippet!r}",
+                        flush=True,
+                    )
             print(
-                "  Fix: replace inner \" with ' in the above field(s).\n"
+                "  Fix: python3 scripts/fix_malformed_liquid_includes.py\n"
+                "       또는 sanitize_quotes_for_yaml() 통과시킬 것\n"
+                "  (front-matter fields: replace curly/ASCII quotes with ASCII apostrophe ')\n"
                 "  Bypass (emergency only): SKIP_QUOTE_CHECK=1 git commit ...",
                 flush=True,
             )

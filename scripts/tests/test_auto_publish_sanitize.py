@@ -59,15 +59,17 @@ class TestSanitizeQuotesForYaml:
         assert sanitize_quotes_for_yaml(text) == text
 
     # ------------------------------------------------------------------
-    # 3. Korean curly/fullwidth quotes are preserved
+    # 3. Curly quotes normalised; fullwidth (U+FF02) preserved
     # ------------------------------------------------------------------
 
-    def test_left_double_quotation_mark_preserved(self):
-        """\u201c (U+201C) is NOT ASCII double-quote, must be kept as-is."""
+    def test_left_double_quotation_mark_normalised(self):
+        """U+201C LEFT DOUBLE QUOTATION MARK is now normalised to ASCII apostrophe."""
         text = "\u201cSmart quote\u201d"
         result = sanitize_quotes_for_yaml(text)
-        assert "\u201c" in result
-        assert "\u201d" in result
+        # Curly quotes are removed (normalised), NOT preserved
+        assert "\u201c" not in result
+        assert "\u201d" not in result
+        assert "'" in result
 
     def test_fullwidth_quotation_preserved(self):
         """Fullwidth double-quote (U+FF02) is kept as-is."""
@@ -75,13 +77,14 @@ class TestSanitizeQuotesForYaml:
         result = sanitize_quotes_for_yaml(text)
         assert "\uff02" in result
 
-    def test_mixed_curly_and_ascii(self):
-        """Only ASCII \" (U+0022) is replaced; curly quotes survive."""
+    def test_mixed_curly_and_ascii_all_normalised(self):
+        """Both ASCII \" (U+0022) and curly quotes are replaced with apostrophe."""
         text = '\u201cSmart\u201d and "ascii" here'
         result = sanitize_quotes_for_yaml(text)
         assert '"' not in result          # ASCII dq gone
-        assert "\u201c" in result         # curly left quote still there
-        assert "\u201d" in result         # curly right quote still there
+        assert "\u201c" not in result     # curly left quote normalised
+        assert "\u201d" not in result     # curly right quote normalised
+        assert "'" in result              # replaced with apostrophe
 
     # ------------------------------------------------------------------
     # 4. HTML entity &quot; and literal \u0022 decoded then sanitized
@@ -110,3 +113,76 @@ class TestSanitizeQuotesForYaml:
     def test_none_like_empty(self):
         # The function signature accepts str; passing empty is the safe test
         assert sanitize_quotes_for_yaml("") == ""
+
+    # ------------------------------------------------------------------
+    # 6. Curly / typographic quote normalisation (new behaviour)
+    # ------------------------------------------------------------------
+
+    def test_curly_double_quote_left_normalized(self):
+        """U+201C LEFT DOUBLE QUOTATION MARK is normalised to ASCII apostrophe."""
+        result = sanitize_quotes_for_yaml("Next \u201c26\u201d release")
+        assert "\u201c" not in result
+        assert "'" in result
+
+    def test_curly_double_quote_right_normalized(self):
+        """U+201D RIGHT DOUBLE QUOTATION MARK is normalised to ASCII apostrophe."""
+        result = sanitize_quotes_for_yaml("version \u201d1.0\u201d end")
+        assert "\u201d" not in result
+        assert "'" in result
+
+    def test_curly_single_quote_left_normalized(self):
+        """U+2018 LEFT SINGLE QUOTATION MARK is normalised to ASCII apostrophe."""
+        result = sanitize_quotes_for_yaml("Next \u201826\u2019 release")
+        assert "\u2018" not in result
+        assert "'" in result
+
+    def test_curly_single_quote_right_normalized(self):
+        """U+2019 RIGHT SINGLE QUOTATION MARK is normalised to ASCII apostrophe."""
+        result = sanitize_quotes_for_yaml("it\u2019s fine")
+        assert "\u2019" not in result
+        assert "'" in result
+
+    def test_html_entity_curly_quotes_decoded(self):
+        """HTML entities &ldquo; &rdquo; &lsquo; &rsquo; decoded and normalised."""
+        result = sanitize_quotes_for_yaml(
+            "&ldquo;hello&rdquo; and &lsquo;world&rsquo;"
+        )
+        # No curly quote code points remain
+        assert "\u201c" not in result
+        assert "\u201d" not in result
+        assert "\u2018" not in result
+        assert "\u2019" not in result
+        # No raw ASCII double-quote either
+        assert '"' not in result
+        # All replaced with apostrophe
+        assert "'" in result
+
+    def test_html_entity_numeric_curly_quotes_decoded(self):
+        """HTML numeric entities &#8216; &#8217; &#8220; &#8221; decoded and normalised."""
+        result = sanitize_quotes_for_yaml(
+            "&#8220;double&#8221; and &#8216;single&#8217;"
+        )
+        assert "\u201c" not in result
+        assert "\u201d" not in result
+        assert "\u2018" not in result
+        assert "\u2019" not in result
+        assert '"' not in result
+        assert "'" in result
+
+    def test_idempotent_on_pre_normalized(self):
+        """Applying sanitize_quotes_for_yaml twice gives identical result."""
+        original = "Next \u201826 \u201Crelease\u201D has &ldquo;patch&rdquo;"
+        once = sanitize_quotes_for_yaml(original)
+        twice = sanitize_quotes_for_yaml(once)
+        assert once == twice
+
+    def test_mixed_curly_and_ascii_all_normalized(self):
+        """ASCII dq, curly dq, and curly sq all normalised in one pass."""
+        result = sanitize_quotes_for_yaml(
+            'say "hi" and \u201chello\u201d and \u2018world\u2019'
+        )
+        assert '"' not in result
+        assert "\u201c" not in result
+        assert "\u201d" not in result
+        assert "\u2018" not in result
+        assert "\u2019" not in result

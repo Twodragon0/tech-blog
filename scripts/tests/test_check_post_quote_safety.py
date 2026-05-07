@@ -156,33 +156,137 @@ class TestCleanPostPasses:
 
 
 # ---------------------------------------------------------------------------
-# 4. Korean curly/fullwidth quotes are NOT flagged
+# 4. Curly quotes in front-matter ARE now flagged; body without include OK
 # ---------------------------------------------------------------------------
 
 
-class TestKoreanCurlyQuotesPass:
-    def test_left_double_quotation_mark(self, tmp_path: Path):
-        """\u201c (U+201C LEFT DOUBLE QUOTATION MARK) must not trigger."""
+class TestCurlyQuotesFrontmatterBehavior:
+    def test_left_double_quotation_mark_in_field_blocked(self, tmp_path: Path):
+        """U+201C in a front-matter title field is NOW blocked (new behaviour)."""
         p = _make_post(tmp_path, 'title: "\u201cSorry\u201d attack"')
-        assert check_file(p) == []
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0] == "title"
 
-    def test_right_double_quotation_mark(self, tmp_path: Path):
-        """\u201d (U+201D RIGHT DOUBLE QUOTATION MARK) must not trigger."""
+    def test_right_double_quotation_mark_in_field_blocked(self, tmp_path: Path):
+        """U+201D in a front-matter title field is NOW blocked (new behaviour)."""
         p = _make_post(tmp_path, 'title: "Smart \u201cquotes\u201d here"')
-        assert check_file(p) == []
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0] == "title"
 
-    def test_mixed_curly_and_ascii_only_ascii_triggers(self, tmp_path: Path):
-        """Curly quotes pass, but ASCII \" inside the same field still triggers."""
+    def test_mixed_curly_and_ascii_both_trigger(self, tmp_path: Path):
+        """Both curly quotes AND ASCII \" in the same field — one violation reported."""
         content = '---\ntitle: "\u201cSmart\u201d and \\"ascii\\" quotes"\nlayout: post\n---\nBody\n'
         p = tmp_path / "2026-05-01-test.md"
         p.write_text(content, encoding="utf-8")
         violations = check_file(p)
-        # The curly quote character is fine, but \" decoded to " triggers
+        # The field contains both curly and ASCII quotes — flagged once (for the field)
         assert len(violations) == 1
+        assert violations[0][0] == "title"
 
 
 # ---------------------------------------------------------------------------
-# 5. SKIP_QUOTE_CHECK=1 bypass
+# 5. Curly / typographic quotes in front-matter fields → blocked
+# ---------------------------------------------------------------------------
+
+
+class TestCurlyQuotesBlocked:
+    def test_field_with_curly_double_quote_blocked(self, tmp_path: Path):
+        """U+201C / U+201D in a front-matter field triggers a violation."""
+        p = _make_post(
+            tmp_path,
+            'title: "Next \u201c26\u201d release"',
+        )
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0] == "title"
+
+    def test_field_with_curly_single_quote_blocked(self, tmp_path: Path):
+        """U+2018 / U+2019 in a front-matter field triggers a violation."""
+        p = _make_post(
+            tmp_path,
+            'title: "Next \u201826\u2019 release"',
+        )
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0] == "title"
+
+    def test_field_with_curly_right_single_quote_blocked(self, tmp_path: Path):
+        """U+2019 RIGHT SINGLE QUOTATION MARK in excerpt triggers a violation."""
+        p = _make_post(
+            tmp_path,
+            'excerpt: "Google\u2019s new feature"',
+        )
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0] == "excerpt"
+
+    def test_main_exits_1_for_curly_quote(self, tmp_path: Path):
+        """main() returns exit code 1 for curly quote in front-matter field."""
+        p = _make_post(
+            tmp_path,
+            'title: "Next \u201826\u2019 release"',
+        )
+        assert main([str(p)]) == 1
+
+    def test_clean_post_with_korean_body_passes(self, tmp_path: Path):
+        """Curly quotes in Korean body text (not in front-matter) must NOT trigger."""
+        body = (
+            "이 기능은 \u201c혁신적\u201d이라고 불립니다. "
+            "사용자\u2019s 경험을 향상시킵니다."
+        )
+        p = _make_post(
+            tmp_path,
+            "title: Clean title\nexcerpt: Clean excerpt.",
+            body=body,
+        )
+        assert check_file(p) == []
+
+    def test_include_attribute_with_curly_quote_blocked(self, tmp_path: Path):
+        """Liquid include line with curly quote in attribute value triggers violation."""
+        body = (
+            "Some intro text.\n"
+            "{% include digest_item.html title='Next \u201826 release' %}\n"
+            "Ending text."
+        )
+        p = _make_post(
+            tmp_path,
+            "title: Clean title\nexcerpt: Clean excerpt.",
+            body=body,
+        )
+        violations = check_file(p)
+        assert len(violations) == 1
+        assert violations[0][0].startswith("include_line:")
+
+    def test_include_without_curly_quote_passes(self, tmp_path: Path):
+        """Liquid include line with only ASCII quotes does not trigger."""
+        body = (
+            "{% include digest_item.html title='Next 26 release' %}\n"
+        )
+        p = _make_post(
+            tmp_path,
+            "title: Clean title\nexcerpt: Clean excerpt.",
+            body=body,
+        )
+        assert check_file(p) == []
+
+    def test_korean_body_without_include_curly_passes(self, tmp_path: Path):
+        """Korean body curly quotes on non-include lines do not trigger."""
+        body = (
+            "이것은 \u201c테스트\u201d 문서입니다.\n"
+            "{% include digest_item.html title='normal title' %}\n"
+        )
+        p = _make_post(
+            tmp_path,
+            "title: Clean\nexcerpt: OK.",
+            body=body,
+        )
+        assert check_file(p) == []
+
+
+# ---------------------------------------------------------------------------
+# 6. SKIP_QUOTE_CHECK=1 bypass
 # ---------------------------------------------------------------------------
 
 

@@ -74,27 +74,63 @@ def _yaml_escape_dq(text: str) -> str:
 
 
 def sanitize_quotes_for_yaml(text: str) -> str:
-    """Replace ASCII double-quotes inside a YAML string value with single
-    quotes, so the value never produces escaped \\\" in YAML and never breaks
-    JSON-LD when emitted by jekyll-seo-tag.
+    """Normalise all quote characters inside a YAML string value to ASCII
+    single quote (U+0027), so the value never produces escaped \\\" in YAML
+    and never breaks JSON-LD emitted by jekyll-seo-tag.
 
-    Preserves Korean fullwidth quotes (\u201c\u2026\u201d) and curly quotes
-    (\u201c \u201d); only touches ASCII \" (U+0022). Idempotent.
+    Characters handled (all mapped to ASCII apostrophe ``'``):
 
-    Also decodes upstream feed artefacts before sanitising:
-      - HTML entity ``&quot;`` → single quote
-      - Unicode escape ``\\u0022`` literal in the string → single quote
+    ASCII / HTML entities
+    ~~~~~~~~~~~~~~~~~~~~~~
+    - U+0022 ``"``    ASCII double-quote (raw)
+    - ``&quot;``       HTML entity → decoded → U+0022 → ``'``
+    - ``\\u0022``      literal escape sequence → ``'``
+
+    Typographic / curly double-quotes
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - U+201C ``\u201c``  LEFT DOUBLE QUOTATION MARK
+    - U+201D ``\u201d``  RIGHT DOUBLE QUOTATION MARK
+    - ``&#8220;``         HTML numeric entity for U+201C
+    - ``&#8221;``         HTML numeric entity for U+201D
+    - ``&ldquo;``         HTML named entity for U+201C
+    - ``&rdquo;``         HTML named entity for U+201D
+
+    Typographic / curly single-quotes
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - U+2018 ``\u2018``  LEFT SINGLE QUOTATION MARK
+    - U+2019 ``\u2019``  RIGHT SINGLE QUOTATION MARK
+    - ``&#8216;``         HTML numeric entity for U+2018
+    - ``&#8217;``         HTML numeric entity for U+2019
+    - ``&lsquo;``         HTML named entity for U+2018
+    - ``&rsquo;``         HTML named entity for U+2019
+
+    Idempotent: applying twice to already-normalised text yields the same result.
+
+    Fullwidth double-quote (U+FF02) is NOT touched — it has its own distinct
+    code point and does not interfere with YAML or JSON-LD parsers.
     """
     if not text:
         return text
-    # Decode upstream feed artefacts first
+    # Step 1: decode upstream feed artefacts (HTML entities → Unicode characters).
+    # html.unescape handles both numeric (&#8220;) and named (&ldquo;) entities.
     import html as _html_mod
-    decoded = _html_mod.unescape(text)          # &quot; → "
-    decoded = decoded.replace("\\u0022", "'")   # literal \u0022 sequence → '
-    # Replace ASCII double-quote (U+0022) with single quote.
-    # Fullwidth and curly quote characters have different code points and are
-    # left untouched because they don't interfere with YAML or JSON-LD parsers.
-    return decoded.replace('"', "'")
+    decoded = _html_mod.unescape(text)
+
+    # Step 2: decode literal \\u0022 escape sequence that some feeds emit.
+    decoded = decoded.replace("\\u0022", "'")
+
+    # Step 3: replace all quote code points with ASCII apostrophe.
+    # Order does not matter here since each replacement is independent.
+    # ASCII double-quote (U+0022)
+    decoded = decoded.replace('"', "'")
+    # Typographic double-quotes (U+201C / U+201D)
+    decoded = decoded.replace("\u201c", "'")
+    decoded = decoded.replace("\u201d", "'")
+    # Typographic single-quotes (U+2018 / U+2019)
+    decoded = decoded.replace("\u2018", "'")
+    decoded = decoded.replace("\u2019", "'")
+
+    return decoded
 
 
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
