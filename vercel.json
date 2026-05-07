@@ -395,7 +395,7 @@
     },
     {
       "source": "/posts/2025/05/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/",
-      "destination": "/posts/2025/05/02/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/",
+      "destination": "/posts/2025/05/01/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/",
       "statusCode": 301
     },
     {
@@ -410,32 +410,32 @@
     },
     {
       "source": "/posts/2025/05/Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/",
-      "destination": "/posts/2025/05/16/Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/",
+      "destination": "/posts/2025/05/15/Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/",
       "statusCode": 301
     },
     {
       "source": "/posts/2025/05/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/",
-      "destination": "/posts/2025/05/23/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/",
+      "destination": "/posts/2025/05/22/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/",
       "statusCode": 301
     },
     {
       "source": "/posts/2025/05/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/",
-      "destination": "/posts/2025/05/24/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/",
+      "destination": "/posts/2025/05/23/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/",
       "statusCode": 301
     },
     {
       "source": "/posts/2025/05/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/",
-      "destination": "/posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/",
+      "destination": "/posts/2025/05/29/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/",
       "statusCode": 301
     },
     {
       "source": "/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/",
-      "destination": "/posts/2025/05/30/Kubernetes_Minikube_and_K9s_Practice_Guide/",
+      "destination": "/posts/2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide/",
       "statusCode": 301
     },
     {
       "source": "/posts/2025/05/30/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/",
-      "destination": "/posts/2025/05/30/Kubernetes_Minikube_and_K9s_Practice_Guide/",
+      "destination": "/posts/2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide/",
       "statusCode": 301
     },
     {
@@ -480,7 +480,7 @@
     },
     {
       "source": "/posts/2025/10/AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide/",
-      "destination": "/posts/2025/10/03/AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide/",
+      "destination": "/posts/2025/10/02/AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide/",
       "statusCode": 301
     },
     {
@@ -710,7 +710,7 @@
     },
     {
       "source": "/posts/2025/05/Kubernetes_Minikube_and_K9s_Practice_Guide/",
-      "destination": "/posts/2025/05/30/Kubernetes_Minikube_and_K9s_Practice_Guide/",
+      "destination": "/posts/2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide/",
       "statusCode": 301
     },
     {
@@ -820,12 +820,12 @@
     },
     {
       "source": "/posts/2026/02/Weekly_Tech_Security_Digest_AI_Cloud_Risk/",
-      "destination": "/posts/2026/02/17/Weekly_Tech_Security_Digest_AI_Cloud_Risk/",
+      "destination": "/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/",
       "statusCode": 301
     },
     {
       "source": "/posts/2026/02/Krebs_Security_Digest_Kimwolf_Patch_Tuesday/",
-      "destination": "/posts/2026/02/18/Krebs_Security_Digest_Kimwolf_Patch_Tuesday/",
+      "destination": "/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/",
       "statusCode": 301
     },
     {
@@ -840,7 +840,7 @@
     },
     {
       "source": "/posts/2026/02/Tech_Blog_Weekly_Digest_AI_Data_Cloud/",
-      "destination": "/posts/2026/02/20/Tech_Blog_Weekly_Digest_AI_Data_Cloud/",
+      "destination": "/posts/2026/02/19/Tech_Blog_Weekly_Digest_AI_Data_Cloud/",
       "statusCode": 301
     },
     {
@@ -850,7 +850,7 @@
     },
     {
       "source": "/posts/2026/02/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/",
-      "destination": "/posts/2026/02/21/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/",
+      "destination": "/posts/2026/02/20/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/",
       "statusCode": 301
     },
     {
