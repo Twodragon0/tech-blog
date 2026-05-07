@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-06T02:02:52.150570+00:00",
+  "updated_at": "2026-05-07T02:05:58.222446+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/malicious-kics-docker-images-and-vs.html",
-      "title": "Malicious KICS Docker Images and VS Code Extensions Hit Checkmarx Supply Chain",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/self-propagating-supply-chain-worm.html",
-      "title": "Self-Propagating Supply Chain Worm Hijacks npm Packages to Steal Developer Token",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/harvester-deploys-linux-gogra-backdoor.html",
-      "title": "Harvester Deploys Linux GoGra Backdoor in South Asia Using Microsoft Graph API",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/22/ai-powered-defense-for-an-ai-accelerated-threat-landscape/",
-      "title": "AI-powered defense for an AI-accelerated threat landscape",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/apple-fixes-ios-bug-that-retained-deleted-notification-data/",
-      "title": "Apple fixes iOS bug that retained deleted notification data",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/frontend-engineering-at-palantir-engineering-multilingual-collaboration-58217e196bed?source=rss----3c87dc14372f---4",
-      "title": "Frontend Engineering at Palantir: Engineering Multilingual Collaboration",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://openai.com/index/making-chatgpt-better-for-clinicians",
-      "title": "Making ChatGPT better for clinicians",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/earth-day-2026-ai-accelerated-computing/",
-      "title": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/google-cloud-agentic-physical-ai-factories/",
-      "title": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/",
-      "title": "We're launching two specialized TPUs for the agentic era.",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/level-up-your-agents-announcing-googles-official-skills-repository/",
-      "title": "Level Up Your Agents: Announcing Google's Official Skills Repository",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/next-26-hands-on-10-codelabs-to-build-featured-tech/",
-      "title": "Next '26 Hands-On: 10 Codelabs to Build Featured Tech",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/whats-new-in-compute-at-next26/",
-      "title": "What’s new with compute: Scaling core and agentic workloads",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26/",
-      "title": "What’s next in Google AI infrastructure: Scaling for the agentic era",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/whats-new-in-gke-at-next26/",
-      "title": "What’s new in GKE at Next ‘26",
-      "published_date": "2026-04-23",
-      "expires_at": "2026-04-30T01:56:10.213647+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/unc6692-impersonates-it-helpdesk-via.html",
       "title": "UNC6692 Impersonates IT Helpdesk via Microsoft Teams to Deploy SNOW Malware",
@@ -1254,6 +1164,96 @@
       "title": "Modernize your workflows: Amazon WorkSpaces now gives AI agents their own deskto",
       "published_date": "2026-05-06",
       "expires_at": "2026-05-13T02:02:52.150460+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/mirai-based-xlabsv1-botnet-exploits-adb.html",
+      "title": "Mirai-Based xlabs_v1 Botnet Exploits ADB to Hijack IoT Devices for DDoS Attacks",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/new-compliance-guide-available-iso-iec-420012023-on-aws/",
+      "title": "New compliance guide available: ISO/IEC 42001:2023 on AWS",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/muddywater-uses-microsoft-teams-to.html",
+      "title": "MuddyWater Uses Microsoft Teams to Steal Credentials in False Flag Ransomware At",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-abuse-google-ads-for-godaddy-managewp-login-phishing/",
+      "title": "Hackers abuse Google ads for GoDaddy ManageWP login phishing",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/the-hacker-news-launches-cybersecurity.html",
+      "title": "The Hacker News Launches 'Cybersecurity Stars Awards 2026' — Submissions Now Ope",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/gardening-tips/",
+      "title": "5 gardening tips you can try right in Search",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
+      "title": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for ",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
+      "title": "Cost effective deployment of vision-language models for pet behavior detection o",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/ServiceNow-AI/correctness-before-corrections",
+      "title": "vLLM V0 to V1: Correctness Before Corrections in RL",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/05/06/anthropic-signs-elon-musk-s-spacex-for-colossus-1-compute-ahead-of-june-ipo",
+      "title": "Anthropic signs Elon Musk's SpaceX for Colossus 1 compute ahead of June IPO",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/retail/how-breuninger-boosted-sales-with-its-be-your-own-model-ai/",
+      "title": "Fitting the future: How Breuninger boosted sales with its \"be your own model\" AI",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/6x-faster-migration-from-tensorflow-to-jax/",
+      "title": "Pioneering AI-assisted code migration: How Google achieved 6x faster migration f",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/the-blueprint-doist-stream-of-consciousness-ai-task-list-creation/",
+      "title": "The Blueprint: Translating stream-of-conscious speech into responsive, actionabl",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/whats-new-in-iam-security-governance-and-runtime-defense/",
+      "title": "What's new in IAM: Security, governance, and runtime defense",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/google-named-a-leader-in-the-2026-gartner-magic-quadrant-for-cyberthreat-intelligence-technologies/",
+      "title": "Google named a Leader in the 2026 Gartner® Magic Quadrant™ for Cyberthreat Intel",
+      "published_date": "2026-05-07",
+      "expires_at": "2026-05-14T02:05:58.222334+00:00"
     }
   ]
 }
