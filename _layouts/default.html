@@ -13,7 +13,7 @@
 
   {% include footer.html %}
   {% include subscribe-float.html %}
-  {% if page.layout == 'post' %}
+  {% if page.layout == 'post' and site.chatbot_enabled %}
   {% include chat-widget.html %}
   <script src="{{ '/assets/js/chat-widget-loader.js' | relative_url }}" data-chat-src="{{ '/assets/js/chat-widget.js' | relative_url }}" defer></script>
   {% endif %}

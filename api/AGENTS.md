@@ -1,7 +1,14 @@
 <!-- Parent: ../AGENTS.md -->
 # api/ — AI Agent Guidelines
 
-**Last updated**: 2026-04-08
+**Last updated**: 2026-05-06
+
+> **Status: client calls disabled (2026-05-06).** As part of the GH Pages
+> permanent migration plan (option A), client-side invocation of `/api/chat`,
+> `/api/search`, and `/api/markdown` was disabled. The function source is
+> retained for rollback. Re-enable by flipping `chatbot_enabled` and
+> `search_api_enabled` to `true` in `_config.yml` and reverting the
+> short-circuit in `assets/js/main-search.js#serverSearch()`.
 
 Vercel Serverless Functions for the blog's dynamic features.
 

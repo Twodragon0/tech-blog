@@ -35,7 +35,8 @@
     let searchData = [];
     let searchDataLoaded = false;
     let fuseInstance = null;
-    let serverSearchController = null;
+    // serverSearchController removed — serverSearch() is disabled during the
+    // GH Pages permanent migration. See its body for context.
     let searchDebounceTimer = null;
     let activeResultIndex = -1;
 
@@ -114,20 +115,13 @@
     }
 
     async function serverSearch(query) {
-      if (serverSearchController) serverSearchController.abort();
-      serverSearchController = new AbortController();
-      try {
-        const resp = await fetch(`${baseUrl}/api/search?q=${encodeURIComponent(query)}`, {
-          signal: serverSearchController.signal,
-          headers: { 'Accept': 'application/json' },
-        });
-        if (!resp.ok) return null;
-        const data = await resp.json();
-        return data.results || [];
-      } catch (err) {
-        if (err.name === 'AbortError') return null;
-        return null;
-      }
+      // Server-side full-text search via /api/search is disabled during the
+      // GH Pages permanent migration (api/* Vercel Functions deactivated).
+      // Client-side Fuse.js search continues to power the result list; this
+      // short-circuit prevents wasteful 404 fetches on every keystroke.
+      // Re-enable by reverting this function once /api/search is live again
+      // and `site.search_api_enabled` is flipped back to `true` in _config.yml.
+      return null;
     }
 
     function escapeHtml(str) {
