@@ -1,0 +1,36 @@
+{
+  "snapshot_date": "2026-05-07",
+  "sitemap_total_urls": 153,
+  "sitemap_post_urls": 138,
+  "vercel_redirects": 181,
+  "gsc_chart_summary": {
+    "period_start": "2026-02-06",
+    "period_end": "2026-05-01",
+    "days": 85,
+    "last_indexed_count": 0,
+    "first_date_zero_indexed": "2026-02-22",
+    "last_date_with_impressions": "2026-02-18",
+    "total_impressions_period": 10,
+    "avg_not_indexed": 152.8
+  },
+  "gsc_categories_2026_05_07": {
+    "not_found_404": 17,
+    "page_with_redirect": 4,
+    "blocked_by_robots": 2,
+    "alternate_canonical": 2,
+    "noindex": 1,
+    "crawled_not_indexed": 126
+  },
+  "fixes_applied_this_session": {
+    "commits_pushed": 11,
+    "last_modified_at_added": 167,
+    "broken_links_fixed_isms_p": 5,
+    "vercel_redirects_fixed": 13,
+    "json_ld_parse_errors_fixed": 1,
+    "image_alt_added": 7,
+    "quote_safety_regression_finds": 1,
+    "sanitize_quotes_for_yaml_introduced": true,
+    "pre_commit_quote_guard_added": true
+  },
+  "monitoring_command": "python3 scripts/check_post_quote_safety.py _posts/*.md && curl -s https://tech.2twodragon.com/sitemap.xml | grep -c \"<loc>\""
+}
