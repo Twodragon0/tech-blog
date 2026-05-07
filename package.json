@@ -25,5 +25,9 @@
   },
   "dependencies": {
     "fuse.js": "^7.3.0"
+  },
+  "overrides": {
+    "vite": "^6.4.2",
+    "esbuild": "^0.25.0"
   }
 }
