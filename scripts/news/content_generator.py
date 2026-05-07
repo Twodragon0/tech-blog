@@ -751,11 +751,16 @@ def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
                 return fallback
         if len(title) <= 80:
             return title
+        # Over 80 chars: trim at word boundary rather than silently falling through
+        trimmed = title[:77].rstrip(" ,.")
+        logging.info(f"[Title QA] trimmed to 80 chars: {trimmed!r}")
+        return trimmed
 
     label_title = ", ".join(_extract_digest_title_labels(news_items, mode=mode))
     if label_title:
         return label_title[:80].rstrip(" ,.")
 
+    # _extract_meaningful_topics already caps at 80 chars internally
     return _extract_meaningful_topics(news_items, mode=mode)
 
 
@@ -1387,7 +1392,10 @@ def generate_post_content(
     # Escape quotes in title before Liquid injection to prevent parser breakage
     # (e.g. headlines containing inner single quotes like '퇴행적' would terminate
     # a single-quoted arg prematurely). Use double-quoted outer + entity encoding.
-    safe_title = _html_escape_quotes(title_keywords)
+    # Cap at 80 chars to prevent Liquid include parser errors from overly long
+    # ai-summary-card title= attribute values (regression: 2026-05-06).
+    _capped_title = title_keywords[:80].rstrip(" ,.") if len(title_keywords) > 80 else title_keywords
+    safe_title = _html_escape_quotes(_capped_title)
 
     # YAML front-matter fields that feed into JSON-LD (title, excerpt,
     # description, image_alt) use sanitize_quotes_for_yaml so that ASCII `"`
@@ -1786,8 +1794,17 @@ def generate_tech_blog_content(
         f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
     )
 
-    # Escape quotes in title before Liquid injection (same guard as security template)
-    safe_title = _html_escape_quotes(title_keywords)
+    # Escape quotes in title before Liquid injection (same guard as security template).
+    # The tech-blog include prepends "기술 블로그 주간 다이제스트: " (17 chars), so cap
+    # title_keywords at 63 chars to keep the full attribute value within 80 chars.
+    _TECH_PREFIX_LEN = len("기술 블로그 주간 다이제스트: ")  # 17
+    _tech_title_cap = 80 - _TECH_PREFIX_LEN
+    _capped_tech_title = (
+        title_keywords[:_tech_title_cap].rstrip(" ,.")
+        if len(title_keywords) > _tech_title_cap
+        else title_keywords
+    )
+    safe_title = _html_escape_quotes(_capped_tech_title)
 
     # Use sanitize_quotes_for_yaml (not _yaml_escape_dq) for the 4 JSON-LD
     # fields so ASCII `"` is replaced with `'` rather than backslash-escaped.
