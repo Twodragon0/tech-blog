@@ -2,6 +2,7 @@
 layout: post
 title: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows"
 date: 2026-05-02 10:58:29 +0900
+last_modified_at: 2026-05-02T01:59:40Z
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, AWS]
 excerpt: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows를 중심으로 2026년 05월 02일 주요 보안/기술 뉴스 19건과 대응 우선순위를 정리합니다. Go, Security, AWS 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

@@ -3,6 +3,7 @@
 layout: post
 title: "JWT 인증 위협, 암호화폐 유출 사고, 금융 AI 거버넌스"
 date: 2026-03-04 14:05:06 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  JWT,  Blockchain,  AI-Governance]

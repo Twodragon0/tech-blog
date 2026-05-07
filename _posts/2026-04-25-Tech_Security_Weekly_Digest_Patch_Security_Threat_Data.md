@@ -2,6 +2,7 @@
 layout: post
 title: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터"
 date: 2026-04-25 10:30:43 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Security, Threat, Data]
 excerpt: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터를 중심으로 2026년 04월 25일 주요 보안/기술 뉴스 24건과 대응 우선순위를 정리합니다. Patch, Security, Threat 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

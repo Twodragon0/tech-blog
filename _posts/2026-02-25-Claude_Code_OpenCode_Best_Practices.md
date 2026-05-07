@@ -3,6 +3,7 @@
 layout: post
 title: 'Claude Code & OpenCode 실전 가이드: 38가지 베스트 프랙티스'
 date: 2026-02-25 10:00:00 +0900
+last_modified_at: 2026-04-30T15:37:20+09:00
 categories:
 - devops
 comments: true

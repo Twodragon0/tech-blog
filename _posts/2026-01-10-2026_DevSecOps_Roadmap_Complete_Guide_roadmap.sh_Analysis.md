@@ -6,6 +6,7 @@ categories:
 - security
 comments: true
 date: 2026-01-10 10:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST
   CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화, 단계별 학습 경로, SAST/DAST/IAST 도구 스택,
   공급망 보안(SBOM) 강화까지 전문가 성장 가이드.

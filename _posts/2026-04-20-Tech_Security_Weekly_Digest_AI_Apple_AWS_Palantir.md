@@ -2,6 +2,7 @@
 layout: post
 title: "Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'"
 date: 2026-04-20 10:53:57 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Apple, AWS, Palantir]
 excerpt: "Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'를 중심으로 2026년 04월 20일 주요 보안/기술 뉴스 14건과 대응 우선순위를 정리합니다. AI, AWS 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

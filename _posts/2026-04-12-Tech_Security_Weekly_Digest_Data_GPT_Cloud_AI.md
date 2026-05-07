@@ -2,6 +2,7 @@
 layout: post
 title: "Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기"
 date: 2026-04-12 10:49:10 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, GPT, Cloud, AI]
 excerpt: "Citizen Lab 스파이웨어 공개, 국제 공조 단속 2만 명 이상 암호화폐 사기 적발, ChatGPT·Claude AI 안전성 논란을 중심으로 2026년 04월 12일 주요 보안·기술 뉴스 15건과 DevSecOps 실무 대응 우선순위 및 탐지 포인트를 정리합니다."

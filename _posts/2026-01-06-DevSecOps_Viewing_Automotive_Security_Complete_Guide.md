@@ -6,6 +6,7 @@ categories:
 - security
 comments: true
 date: 2026-01-06 14:59:11 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협
   분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합, 규제 컴플라이언스(ISO 21434, UN R155/R156),
   SAST/DAST/SBOM 도구 스택까지 실무 정리.

@@ -2,6 +2,7 @@
 layout: post
 title: "AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시"
 date: 2026-03-16 10:27:53 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Open-Source, Update]
 excerpt: "AI 에이전트 레드팀 오픈소스 도구 분석, AWS Bedrock 멀티에이전트 보안 아키텍처, Aave Shield DeFi 출시 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."

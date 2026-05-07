@@ -3,6 +3,7 @@
 layout: post
 title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
 date: 2026-02-27 12:28:30 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain, Go]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Botnet,  Blockchain,  Go]

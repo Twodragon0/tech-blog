@@ -2,6 +2,7 @@
 layout: post
 title: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
 date: 2026-04-23 10:52:45 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Docker, Go, API]
 excerpt: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph를 중심으로 2026년 04월 23일 주요 보안/기술 뉴스 30건과 대응 우선순위를 정리합니다. AI, Go, API 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

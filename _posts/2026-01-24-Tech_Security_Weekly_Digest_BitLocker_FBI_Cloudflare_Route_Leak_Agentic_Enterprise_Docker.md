@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-24 10:00:00 +0900
+last_modified_at: 2026-04-24T21:30:07+09:00
 description: '2026년 1월 24일 주요 기술/보안 뉴스: Microsoft FBI BitLocker 암호화 복구 키 제공 논란과 암호화 신뢰성 재검토, Cloudflare 1월 22일 BGP Route Leak 사건 상세 분석과 RPKI 대응, CNCF 자율 기업 4가지 플랫폼 제어 기둥...'
 excerpt: "Microsoft FBI BitLocker 암호화 복구 키 제공 논란, Cloudflare 1월 22일 BGP Route Leak 사건 RPKI 대응 분석, CNCF 자율 기업 플랫폼 제어 기둥 등 2026년 1월 24일 주요 기술·보안 뉴스를 DevSecOps 실무 관점에서 정리합니다."
 image: /assets/images/2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker.svg

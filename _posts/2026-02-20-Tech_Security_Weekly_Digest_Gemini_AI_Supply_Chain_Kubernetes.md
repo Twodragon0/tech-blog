@@ -3,6 +3,7 @@
 layout: post
 title: "Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화"
 date: 2026-02-20 09:00:00 +0900
+last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Gemini,  AI,  Supply-Chain,  Kubernetes]

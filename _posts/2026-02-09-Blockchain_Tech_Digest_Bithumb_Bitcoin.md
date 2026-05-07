@@ -4,6 +4,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-09 13:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "Bithumb 44억 달러 규모 비트코인 오송금 운영 보안 실패 분석, Bitcoin $71K 기관 매수 회복 동향, 게임보이 3D 셰이더 구현 사례, 2026년 AI·UX 트렌드 전망까지 2026년 02월 09일 블록체인·테크 다이제스트를 실무 관점으로 상세 정리합니다."
 excerpt: "Bithumb 44억 달러 규모 비트코인 오송금 운영 보안 실패 분석, Bitcoin $71K 기관 매수 회복 동향, 게임보이 3D 셰이더 구현 사례, 2026년 AI·UX 트렌드 전망까지 2026년 02월 09일 블록체인·테크 다이제스트를 실무 관점으로 상세 정리합니다."
 image: /assets/images/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.svg

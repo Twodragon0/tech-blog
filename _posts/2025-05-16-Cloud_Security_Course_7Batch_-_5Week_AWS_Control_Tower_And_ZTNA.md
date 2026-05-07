@@ -3,6 +3,7 @@
 layout: post
 title: 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA
 date: 2025-05-16 00:53:10 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - cloud
 tags:

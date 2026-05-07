@@ -7,6 +7,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-08 16:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: 블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석(Bybit 15억 달러), 스마트 컨트랙트
   보안 도구(Slither/Mythril/Securify/Medusa), CI/CD 파이프라인 통합, 주요 위협(Reentrancy, 51% 공격),
   Fuzz 테스트까지 DevSecOps 실무 정리.

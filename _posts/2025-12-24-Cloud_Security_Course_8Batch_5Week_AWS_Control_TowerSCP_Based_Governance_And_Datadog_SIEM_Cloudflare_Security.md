@@ -3,6 +3,7 @@
 layout: post
 title: '클라우드 보안 8기 5주차: AWS Control Tower, Datadog SIEM'
 date: 2025-12-24 19:13:05 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - cloud
 tags:

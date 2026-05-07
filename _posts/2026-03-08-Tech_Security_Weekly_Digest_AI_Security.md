@@ -3,6 +3,7 @@
 layout: post
 title: "OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향"
 date: 2026-03-08 12:33:37 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Security]

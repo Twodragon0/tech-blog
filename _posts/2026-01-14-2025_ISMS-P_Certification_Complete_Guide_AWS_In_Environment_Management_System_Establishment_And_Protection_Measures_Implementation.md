@@ -8,6 +8,7 @@ certifications:
 - isms-p
 comments: true
 date: 2026-01-14 10:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "2025년 개정 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경 관리체계 수립 방법, 보호대책 구현 절차, NIST CSF 2.0 연계 전략, AI 보안 요구사항, CIS Benchmark 준수까지 DevSecOps 실무 관점의 단계별 가이드를 제공합니다."
 excerpt: "2025년 개정 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경 관리체계 수립 방법, 보호대책 구현 절차, NIST CSF 2.0 연계 전략, AI 보안 요구사항, CIS Benchmark 준수까지 DevSecOps 실무 관점의 단계별 가이드를 제공합니다."
 image: /assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg

@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 4월 4주차 보안 다이제스트 주간 롤업 (4/20~4/30)"
 date: 2026-04-30 23:00:00 +0900
+last_modified_at: 2026-05-04T16:01:09+09:00
 categories: [security, devsecops]
 tags: [weekly-rollup, security-news, weekly-digest, 2026, April, supply-chain, npm, ransomware, quantum, FIRESTARTER]
 excerpt: "2026년 4월 4주차(4/20~4/30) 발행된 보안 주간 다이제스트 11건 통합 롤업. Apple 피싱, SGLang CVE-2026-5760, SystemBC C2, KICS 악성 Docker 이미지, 자체 전파 npm 웜, FIRESTARTER 백도어, 스턱스넷 변종, Robinhood 피싱, LofyGang, VECT 2.0 랜섬웨어, SAP npm·북한 공급망 공격까지 4월 마지막 주 주요 위협을 종합 정리합니다."

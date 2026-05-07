@@ -2,6 +2,7 @@
 layout: post
 title: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
 date: 2026-04-27 17:06:33 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent]
 excerpt: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙을 중심으로 2026년 04월 27일 주요 보안/기술 뉴스 14건과 대응 우선순위를 정리합니다. AI, Agent 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다. 보안 담당자를 위한 핵심 위협 정보와 실무 대응 가이드를 한눈에 확인하세요."

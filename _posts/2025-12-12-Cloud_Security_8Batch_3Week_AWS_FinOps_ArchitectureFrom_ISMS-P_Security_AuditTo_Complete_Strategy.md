@@ -3,6 +3,7 @@
 layout: post
 title: '클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
 date: 2025-12-12 14:45:05 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - finops
 tags:

@@ -8,6 +8,7 @@ certifications:
 - aws-saa
 comments: true
 date: 2026-01-08 19:58:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),
   GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치(SSRF, Data Masking),
   Jekyll 블로그 보안 강화까지 실무 정리.

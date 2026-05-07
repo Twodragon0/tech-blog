@@ -2,6 +2,7 @@
 layout: post
 title: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향"
 date: 2026-02-26 11:05:21 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS, API]
 excerpt: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 26일 주간 보안 다이제스트입니다."

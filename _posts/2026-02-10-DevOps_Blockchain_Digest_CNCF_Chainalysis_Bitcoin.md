@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-10 13:10:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안 통합, Bitcoin $70K 회복 동향 등을 DevOps·블록체인 실무 관점으로 정리한 2026-02-10 주간 다이제스트입니다."
 excerpt: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안 통합, Bitcoin $70K 회복 동향 등을 DevOps·블록체인 실무 관점으로 정리한 2026-02-10 주간 다이제스트입니다."
 image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg

@@ -2,6 +2,7 @@
 layout: post
 title: "Cisco FMC CVE-2025-55182·에이전트 AI 보안 원칙: 주간 보안 다이제스트"
 date: 2026-04-03 10:26:39 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AWS, AI]
 excerpt: "Cisco FMC CVE-2025-55182(CVSS 9.8) 원격 시스템 침해 익스플로잇 분석, 에이전트 AI 시스템을 위한 네 가지 핵심 보안 원칙과 AWS 보안 업데이트를 중심으로 2026년 04월 03일 주요 보안·기술 뉴스 29건과 DevSecOps 대응 우선순위를 정리합니다."

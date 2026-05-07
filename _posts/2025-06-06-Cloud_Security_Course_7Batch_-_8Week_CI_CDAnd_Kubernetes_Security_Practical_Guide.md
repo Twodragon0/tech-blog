@@ -3,6 +3,7 @@
 layout: post
 title: '클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드'
 date: 2025-06-06 19:45:40 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - kubernetes
 tags:

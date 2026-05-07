@@ -2,6 +2,7 @@
 layout: post
 title: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium"
 date: 2026-04-19 10:52:41 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, CVE, Botnet]
 excerpt: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium를 중심으로 2026년 04월 19일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다. AI, Data, CVE 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

@@ -3,6 +3,7 @@
 layout: post
 title: "LLM 보안 실무 가이드 2026: 프롬프트 인젝션, RAG 보안, MCP 위협 대응"
 date: 2026-03-07 18:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [LLM-Security, Prompt-Injection, RAG-Security, MCP-Security, AI-Security, OWASP, '2026']
 keywords: [LLM-Security,  Prompt-Injection,  RAG-Security,  MCP-Security,  AI-Security,  OWASP,  2026]

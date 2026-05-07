@@ -3,6 +3,7 @@
 layout: post
 title: "AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석"
 date: 2026-02-19 12:36:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AWS,  Security,  Zero-Day,  CVE]

@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 4월 3주차 보안 다이제스트 주간 롤업 (4/13~4/19)"
 date: 2026-04-19 23:00:00 +0900
+last_modified_at: 2026-05-04T16:01:09+09:00
 categories: [security, devsecops]
 tags: [weekly-rollup, security-news, weekly-digest, 2026, April, ransomware, botnet, CVE, nginx, AI]
 excerpt: "2026년 4월 3주차(4/13~4/19) 발행된 보안 주간 다이제스트 7건 통합 롤업. CPUID 공급망 침해(CPU-Z 변조), JanelaRAT 신규 멀웨어, n8n Webhooks 피싱 악용, Nginx UI 인증 우회(CVE-2026-33032), PowMix 봇넷, Mirai 변종 Nexcorium 등 주요 위협과 DevSecOps 대응 포인트를 통합 정리합니다."

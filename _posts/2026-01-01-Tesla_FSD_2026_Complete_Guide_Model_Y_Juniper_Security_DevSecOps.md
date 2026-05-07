@@ -7,6 +7,7 @@ categories:
 - cloud
 comments: true
 date: 2026-01-01 10:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: 테슬라 FSD 2026 완벽 가이드. FSD v14.2.1 개선사항(긴급 차량 대응, 속도 프로파일), Model Y Juniper($49,990부터,
   HW4, 4680 배터리, 357마일), Hardware 4 아키텍처(500+ TOPS), 자동차 보안 취약점 분석, DevSecOps 대응(OTA
   보안, SBOM, Secure Boot)까지 상세 정리.

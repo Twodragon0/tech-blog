@@ -2,6 +2,7 @@
 layout: post
 title: "CPU-Z 변조·Marimo RCE 취약점·Adobe Acrobat 악용: 주간 보안 다이제스트"
 date: 2026-04-13 10:53:41 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Zero-Day, Rust]
 excerpt: "CPUID 공급망 침해로 변조된 CPU-Z 배포, Marimo 사전 인증 RCE 치명적 취약점, Adobe Acrobat 악용 중인 제로데이를 중심으로 2026년 04월 13일 주요 보안·기술 뉴스 15건과 DevSecOps 실무 대응 우선순위 및 패치 가이드를 정리합니다."

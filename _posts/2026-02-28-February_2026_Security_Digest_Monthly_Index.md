@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 2월 보안 다이제스트 월간 인덱스"
 date: 2026-02-28 23:59:00 +0900
+last_modified_at: 2026-05-04T16:01:06+09:00
 categories: [security, devsecops]
 tags: [monthly-index, security-news, weekly-digest, 2026]
 excerpt: "2026년 2월 한 달간 발행된 보안 주간 다이제스트 종합 인덱스. OpenSSL AI 자동 탐지·공급망 공격·랜섬웨어 진화부터 APT28·Lazarus·UAC-0050 위협 행위자 분석까지 총 22개 다이제스트를 주차별로 정리하여 월간 보안 트렌드와 핵심 대응 포인트를 실무 관점에서 한눈에 파악할 수 있도록 구성합니다."

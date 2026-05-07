@@ -5,6 +5,7 @@ categories:
 - incident
 comments: true
 date: 2025-10-02 17:25:43 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "Karpenter v1.5.3 업그레이드 후 공격적 노드 통합 정책으로 발생한 대규모 장애 분석기. 장애 원인 진단, PodDisruptionBudget 적용을 통한 재발 방지 방안, Karpenter 운영 모범 사례, EKS 클러스터 안정성 강화 전략을 실무 경험 기반으로 정리합니다."
 excerpt: "Karpenter v1.5.3 업그레이드 후 공격적 노드 통합 정책으로 발생한 대규모 장애 분석기. 장애 원인 진단, PodDisruptionBudget 적용을 통한 재발 방지 방안, Karpenter 운영 모범 사례, EKS 클러스터 안정성 강화 전략을 실무 경험 기반으로 정리합니다."
 image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg

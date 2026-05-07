@@ -3,6 +3,7 @@
 layout: post
 title: "Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안"
 date: 2026-02-13 12:39:45 +0900
+last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Go,  Security,  Agent]

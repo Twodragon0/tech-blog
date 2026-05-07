@@ -2,6 +2,7 @@
 layout: post
 title: "AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화"
 date: 2026-03-27 10:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Trust, Cloud, FinOps]
 excerpt: "AWS IAM Identity Center + SCP 기반 Zero Trust 구현, GCP Workload Identity Federation 보안 강화, FinOps Spot 인스턴스 비용 최적화, Terraform IaC 보안 스캔 등 2026년 3월 27일 주요 보안 뉴스와 DevSecOps 대응 우선순위를 정리합니다."

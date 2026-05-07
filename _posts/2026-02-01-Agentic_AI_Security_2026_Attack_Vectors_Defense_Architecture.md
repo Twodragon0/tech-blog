@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-01 19:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: AI Agent Tool Poisoning, Agentic Tool Chain Attack, Prompt Injection
   방어, Chrome Agentic Security, CrowdStrike Falcon Agentic Defense, LLM 취약점 진단, JWT
   서명키 유출 대응 등 2026년 에이전틱 AI 보안의 모든 것을 다루는 실무 가이드.

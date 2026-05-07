@@ -3,6 +3,7 @@
 layout: post
 title: '[12월 컨퍼런스] AWSKRUG, OWASP, Datadog: 2025년 AI와 보안 공존'
 date: 2025-12-17 12:26:37 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - cloud
 tags:

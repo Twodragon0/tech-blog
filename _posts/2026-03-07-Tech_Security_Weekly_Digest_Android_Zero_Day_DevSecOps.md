@@ -3,6 +3,7 @@
 layout: post
 title: "Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증"
 date: 2026-03-07 12:00:00 +0900
+last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Android, Zero-Day, Kubernetes, Supply-Chain]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Android,  Zero-Day,  Kubernetes,  Supply-Chain]

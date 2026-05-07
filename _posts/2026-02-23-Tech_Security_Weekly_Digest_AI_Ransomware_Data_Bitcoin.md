@@ -3,6 +3,7 @@
 layout: post
 title: "Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향"
 date: 2026-02-23 12:39:51 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Ransomware,  Zero-Trust,  OT-Security,  Bitcoin]

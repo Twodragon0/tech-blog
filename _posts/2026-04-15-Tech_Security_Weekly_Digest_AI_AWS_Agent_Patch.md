@@ -2,6 +2,7 @@
 layout: post
 title: "Model Context, 새로운 PHP Composer, Google, Pixel 10 모뎀 보안"
 date: 2026-04-15 10:30:48 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Agent, Patch]
 excerpt: "AWS Model Context Protocol 기반 AI 에이전트 접근 패턴, PHP Composer 임의 명령어 실행 취약점(패치 배포), Google Pixel 10 모뎀의 Rust 기반 DNS 파서 적용을 중심으로 2026년 04월 15일 주요 보안·DevSecOps 뉴스 30건과 대응 우선순위를 정리합니다."

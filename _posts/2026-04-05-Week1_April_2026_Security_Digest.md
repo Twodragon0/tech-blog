@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 4월 1주차 보안 다이제스트 주간 롤업 (4/1~4/5)"
 date: 2026-04-05 23:00:00 +0900
+last_modified_at: 2026-05-04T16:01:09+09:00
 categories: [security, devsecops]
 tags: [weekly-rollup, security-news, weekly-digest, 2026, April, Zero-Day, AWS, AI, supply-chain]
 excerpt: "2026년 4월 1주차(4/1~4/5) 발행된 보안 주간 다이제스트 5건 통합 롤업. Android Developer 검증 제도, TrueConf 제로데이(CVE-2026-3502), AWS LZA 컴플라이언스, Axios npm 공급망 공격, 디바이스 코드 피싱 37배 급증 등 주요 보안 이슈와 DevSecOps 실무 대응 포인트를 주차 단위로 종합 정리합니다."

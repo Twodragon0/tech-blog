@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-22 12:30:28 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "주요 보안 벤더 최신 동향 심층 분석. VS Code 터널 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI 관리 전략, HashiCorp-AWS 클라우드 운영 간소화 기능 등 2026년 1월 보안 업계 핵심 이슈를 DevSecOps 관점으로 정리합니다."
 excerpt: "주요 보안 벤더 최신 동향 심층 분석. VS Code 터널 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI 관리 전략, HashiCorp-AWS 클라우드 운영 간소화 기능 등 2026년 1월 보안 업계 핵심 이슈를 DevSecOps 관점으로 정리합니다."
 image: /assets/images/2026-01-22-Security_Vendor_Blog_Weekly_Review.svg

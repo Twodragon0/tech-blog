@@ -3,6 +3,7 @@
 layout: post
 title: "2026년 2월 2주차: Microsoft Zero-Day 6건, Apple 패치, Ivanti EPMM"
 date: 2026-02-14 09:00:00 +0900
+last_modified_at: 2026-04-02T09:15:16+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, Zero-Day, Patch-Tuesday, CVE-2026-21510, CVE-2026-20700, Ivanti-EPMM, Ransomware, AI-Security, Supply-Chain, Kubernetes, "2026"]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  Zero-Day,  Patch-Tuesday,  CVE-2026-21510,  CVE-2026-20700,  Ivanti-EPMM,  Ransomware,  AI-Security,  Supply-Chain,  Kubernetes,  "2026"]

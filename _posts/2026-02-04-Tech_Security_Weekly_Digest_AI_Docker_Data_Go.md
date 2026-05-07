@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-04 12:30:55 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: '2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs 보안...'
 excerpt: "Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs 보안 원칙 등 2026년 2월 4일 주요 보안 뉴스를 분석합니다."
 image: /assets/images/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg

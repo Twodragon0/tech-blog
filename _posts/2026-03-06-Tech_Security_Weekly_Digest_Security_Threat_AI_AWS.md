@@ -3,6 +3,7 @@
 layout: post
 title: "CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석"
 date: 2026-03-06 12:29:02 +0900
+last_modified_at: 2026-03-31T12:28:24+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Security,  Threat,  AI,  AWS]

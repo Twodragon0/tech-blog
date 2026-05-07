@@ -3,6 +3,7 @@
 layout: post
 title: '클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
 date: 2025-12-05 17:07:53 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - cloud
 tags:

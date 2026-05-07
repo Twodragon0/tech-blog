@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-02 10:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "Notepad++ 국가 지원 공급망 공격(T1195), SK쉴더스 11-1월 보안 리포트(Vertical AI·BlackField/Sinobi/Gentlemen 랜섬웨어·제로트러스트·JWT 보안) 종합 분석, HashiCorp Boundary 0.21 패스워드리스 RDP까지 2026년 2월 2일 주요 위협 정리."
 excerpt: "Notepad++ 국가 지원 공급망 공격(T1195), SK쉴더스 11-1월 보안 리포트(Vertical AI·BlackField/Sinobi/Gentlemen 랜섬웨어·제로트러스트·JWT 보안) 종합 분석, HashiCorp Boundary 0.21 패스워드리스 RDP까지 2026년 2월 2일 주요 위협 정리."
 image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg

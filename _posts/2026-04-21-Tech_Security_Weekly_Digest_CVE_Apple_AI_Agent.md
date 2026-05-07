@@ -2,6 +2,7 @@
 layout: post
 title: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
 date: 2026-04-21 10:49:41 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Apple, AI, Agent]
 excerpt: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스를 중심으로 2026년 04월 21일 주요 보안/기술 뉴스 25건과 대응 우선순위를 정리합니다. Apple, AI, Agent 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

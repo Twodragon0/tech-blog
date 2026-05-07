@@ -7,6 +7,7 @@ categories:
 - kubernetes
 comments: true
 date: 2026-01-15 18:25:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: '클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes 보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies, RBAC), 최신 K8s...'
 excerpt: "클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔·Secret 관리·비루트 실행), Kubernetes 보안 아키텍처(Pod Security Standards·User Namespaces·Network Policies·RBAC), 최신 K8s 보안 기능까지 실전 가이드를 제공합니다."
 image: /assets/images/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.svg

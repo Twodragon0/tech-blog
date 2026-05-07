@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 1월 보안 다이제스트 월간 인덱스"
 date: 2026-01-31 23:59:00 +0900
+last_modified_at: 2026-05-04T16:01:06+09:00
 categories: [security, devsecops]
 tags: [monthly-index, security-news, weekly-digest, 2026]
 excerpt: "2026년 1월 한 달간 발행된 보안 주간 다이제스트 종합 인덱스. Microsoft AitM 피싱·VMware KEV·Zero-Day 긴급 패치부터 AI 에이전트 보안 위협·OT 공격까지 총 9개 다이제스트를 주차별로 정리하여 월간 보안 트렌드와 핵심 대응 포인트를 실무 관점에서 한눈에 파악할 수 있도록 구성합니다."

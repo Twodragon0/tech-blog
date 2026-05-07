@@ -2,6 +2,7 @@
 layout: post
 title: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고"
 date: 2026-04-18 10:28:03 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, Security, Go]
 excerpt: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고를 중심으로 2026년 04월 18일 주요 보안/기술 뉴스 27건과 대응 우선순위를 정리합니다. Zero-Day, Patch, Security 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

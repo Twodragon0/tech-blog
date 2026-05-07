@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-02-06 12:30:12 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: '2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf 31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석,...'
 excerpt: "CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf 31.4 Tbps DDoS 기록 경신, Codespaces RCE·AsyncRAT C2·BYOVD 복합 위협 등 2026년 02월 06일 주요 보안 뉴스와 DevSecOps 대응 방안을 정리합니다."
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg

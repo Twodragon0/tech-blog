@@ -2,6 +2,7 @@
 layout: post
 title: "랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석"
 date: 2026-03-29 09:00:00 +0900
+last_modified_at: 2026-04-23T23:18:14+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware, LLM, Kubernetes]
 excerpt: "랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 멀티스텝 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, Next.js 인증 우회 등 2026년 3월 29일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."

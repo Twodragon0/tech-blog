@@ -2,6 +2,7 @@
 layout: post
 title: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어"
 date: 2026-04-29 11:06:47 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, AI, Ransomware, Update]
 excerpt: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어를 중심으로 2026년 04월 29일 주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다. CVE, AI, Ransomware 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

@@ -2,6 +2,7 @@
 layout: post
 title: "TA416 PlugX·LinkedIn 6천+ 계정 표적: 주간 보안 다이제스트 2026-04-04"
 date: 2026-04-04 10:21:41 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Data, Security]
 excerpt: "중국 연계 TA416의 PlugX 멀웨어 캠페인이 Microsoft·Linux·LinkedIn 플랫폼을 통해 6,000개 이상 계정을 표적으로 삼은 사례와 방어 전략을 중심으로 2026년 04월 04일 주요 보안·기술 뉴스 24건과 DevSecOps 대응 우선순위를 정리합니다."

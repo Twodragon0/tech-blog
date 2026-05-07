@@ -3,6 +3,7 @@
 layout: post
 title: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
 date: 2026-03-15 10:24:40 +0900
+last_modified_at: 2026-03-31T12:28:24+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, SupplyChain, AI-Security, Bitcoin]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AWS,  SupplyChain,  AI-Security,  Bitcoin]

@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-25 10:00:00 +0900
+last_modified_at: 2026-04-24T21:30:07+09:00
 description: '2026년 1월 25일 주요 기술/보안 뉴스: CISA KEV 추가 VMware vCenter CVE-2024-37079 활성 익스플로잇 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT 폴란드 전력망...'
 excerpt: "CISA KEV 추가 VMware vCenter CVE-2024-37079 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT 폴란드 전력망 DynoWiper 공격 등 2026년 1월 25일 주요 보안 뉴스를 분석합니다."
 image: /assets/images/2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents.svg

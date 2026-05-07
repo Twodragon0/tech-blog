@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-28 18:30:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 description: "AI 에이전트(Claude Code·Cursor·Copilot)와 협업하는 프로젝트 보안 가이드. CLAUDE.md 작성법, Never Hardcode Secrets 원칙, 로그 마스킹 구현, 입력 검증, Pre-commit 자동화 설정까지 DevSecOps 실무 중심으로 단계별 정리합니다."
 excerpt: "AI 에이전트(Claude Code·Cursor·Copilot)와 협업하는 프로젝트 보안 가이드. CLAUDE.md 작성법, Never Hardcode Secrets 원칙, 로그 마스킹 구현, 입력 검증, Pre-commit 자동화 설정까지 DevSecOps 실무 중심으로 단계별 정리합니다."
 image: /assets/images/2026-01-28-Claude_MD_Security_Guide.svg

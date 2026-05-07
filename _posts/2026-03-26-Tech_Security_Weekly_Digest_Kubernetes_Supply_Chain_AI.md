@@ -2,6 +2,7 @@
 layout: post
 title: "Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어"
 date: 2026-03-26 10:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Kubernetes, Supply-Chain, AI-Agent]
 excerpt: "Kubernetes RBAC 우회 취약점과 Cilium/eBPF 네트워크 정책, SLSA/SBOM 기반 공급망 보안 프레임워크, AI 에이전트 프롬프트 인젝션 공격 방어, CVE 패치 자동화 등 2026년 03월 26일 주요 보안/기술 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."

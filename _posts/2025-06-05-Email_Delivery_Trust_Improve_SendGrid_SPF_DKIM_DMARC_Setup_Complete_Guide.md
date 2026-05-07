@@ -3,6 +3,7 @@
 layout: post
 title: '이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
 date: 2025-06-05 15:04:29 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - security
 tags:

@@ -2,6 +2,7 @@
 layout: post
 title: "Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드"
 date: 2026-04-01 10:48:40 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Go, AI, AWS]
 excerpt: "Android Developer 긴급 보안 업데이트, TrueConf 제로데이 취약점 분석, 동남아시아 정부 기관 대상 APT 공격 캠페인, AWS 신규 규정 준수 가이드를 중심으로 2026년 04월 01일 주요 보안·기술 뉴스 30건과 DevSecOps 대응 우선순위를 정리합니다."

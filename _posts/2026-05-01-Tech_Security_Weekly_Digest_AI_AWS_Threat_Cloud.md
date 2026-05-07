@@ -2,6 +2,7 @@
 layout: post
 title: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어"
 date: 2026-05-01 11:10:05 +0900
+last_modified_at: 2026-05-01T02:11:35Z
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Threat, Cloud]
 excerpt: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어를 중심으로 2026년 05월 01일 주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다. AI, AWS, Cloud 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."

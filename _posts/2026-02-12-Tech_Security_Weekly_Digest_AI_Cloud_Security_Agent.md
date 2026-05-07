@@ -3,6 +3,7 @@
 layout: post
 title: "공급망 침해 사례, Windows 보안 업데이트, APT36 분석"
 date: 2026-02-12 12:41:50 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Cloud,  Security,  Agent]

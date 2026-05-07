@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-17 13:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: 2025-2026년 최신 연구 논문과 벤치마크를 기반으로 한 AI 코딩 어시스턴트 종합 비교 분석. Gemini, Claude
   Code, ChatGPT, OpenCode, DeepSeek의 SWE-Bench, HumanEval 성능, 재현성 문제, 멀티링구얼 지원, 실무
   활용 가이드까지 실무 중심 정리.

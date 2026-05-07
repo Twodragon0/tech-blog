@@ -3,6 +3,7 @@
 layout: post
 title: "AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략"
 date: 2026-02-17 12:35:29 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI-Agent, Password-Manager, Serverless]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI-Agent,  Password-Manager,  Serverless]

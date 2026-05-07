@@ -3,6 +3,7 @@
 layout: post
 title: "제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략"
 date: 2026-03-02 12:29:39 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
 keywords: [Security-Weekly,  DevSecOps,  Zero-Trust,  Crypto-Regulation,  Weekly-Digest,  2026]

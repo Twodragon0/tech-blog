@@ -2,6 +2,7 @@
 layout: post
 title: "GlassWorm·Chrome 146 DBSC·브라우저 확장 AI 위협: 주간 보안 다이제스트"
 date: 2026-04-11 10:25:28 +0900
+last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, CVE, Update]
 excerpt: "GlassWorm Zig 드로퍼를 통한 IDE 감염 경로 분석, Chrome 146 DBSC 기반 Windows 세션 쿠키 탈취 차단 메커니즘, 브라우저 확장 AI 소비 채널 보안 위협을 중심으로 2026년 04월 11일 주요 보안·기술 뉴스 26건과 DevSecOps 대응 우선순위를 정리합니다."

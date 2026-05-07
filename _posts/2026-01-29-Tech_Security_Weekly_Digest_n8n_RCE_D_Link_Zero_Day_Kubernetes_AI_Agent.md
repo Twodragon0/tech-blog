@@ -6,6 +6,7 @@ categories:
 - devsecops
 comments: true
 date: 2026-01-29 10:00:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 description: '2026년 1월 29일 보안 뉴스: n8n 워크플로우 RCE 취약점(CVE-2026-1470, CVSS 9.9), D-Link 단종 장비 Zero-Day(CVE-2026-0625), Kubernetes AI 에이전트 보안 과제, Infomaniak Swiss Sovereign...'
 excerpt: "n8n 워크플로우 RCE 취약점(CVE-2026-1470, CVSS 9.9), D-Link 단종 장비 Zero-Day(CVE-2026-0625), Kubernetes AI 에이전트 보안 과제, Infomaniak 스위스 주권 클라우드 등 2026년 1월 29일 주요 보안 뉴스를 분석합니다."
 image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg

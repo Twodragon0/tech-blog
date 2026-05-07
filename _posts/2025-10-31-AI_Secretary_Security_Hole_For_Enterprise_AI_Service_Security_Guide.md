@@ -5,6 +5,7 @@ categories:
 - security
 comments: true
 date: 2025-10-31 19:19:44 +0900
+last_modified_at: 2026-04-21T11:40:32+09:00
 description: "AI 시대 기업 보안의 새로운 위협과 대응 전략. Shadow AI 확산, 딥페이크 사기, Rogue AI Agents 위험성, 기업 AI 서비스 보안 정책 수립 프레임워크, AI 거버넌스 체계 구축, 직원 보안 인식 교육까지 2025년 AI 보안 현황을 실무 관점에서 정리합니다."
 excerpt: "AI 시대 기업 보안의 새로운 위협과 대응 전략. Shadow AI 확산, 딥페이크 사기, Rogue AI Agents 위험성, 기업 AI 서비스 보안 정책 수립 프레임워크, AI 거버넌스 체계 구축, 직원 보안 인식 교육까지 2025년 AI 보안 현황을 실무 관점에서 정리합니다."
 image: /assets/images/2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide.svg

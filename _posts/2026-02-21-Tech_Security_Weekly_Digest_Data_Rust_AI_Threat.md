@@ -3,6 +3,7 @@
 layout: post
 title: "CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안"
 date: 2026-02-21 00:12:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Vulnerability, AI, Security, AWS]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Vulnerability,  AI,  Security,  AWS]

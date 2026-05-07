@@ -3,6 +3,7 @@
 layout: post
 title: "데일리 테크: LLM 추론 최적화, Windows 네이티브 개발, 크립토 동향"
 date: 2026-02-16 10:00:00 +0900
+last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [devops, devsecops, finops]
 tags: [Daily-Digest, Tech-Newsletter, AI-Inference, Windows-Dev, Surveillance-Tech, UI-Library, Crypto-Market, RSS, "2026"]
 keywords: [Daily-Digest,  Tech-Newsletter,  AI-Inference,  Windows-Dev,  Surveillance-Tech,  UI-Library,  Crypto-Market,  RSS,  "2026"]

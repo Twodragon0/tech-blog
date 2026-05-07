@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 4월 2주차 보안 다이제스트 주간 롤업 (4/6~4/12)"
 date: 2026-04-12 23:00:00 +0900
+last_modified_at: 2026-05-04T16:01:09+09:00
 categories: [security, devsecops]
 tags: [weekly-rollup, security-news, weekly-digest, 2026, April, APT, ransomware, botnet, supply-chain]
 excerpt: "2026년 4월 2주차(4/6~4/12) 발행된 보안 주간 다이제스트 7건 통합 롤업. Drift 해킹(2.85억 달러), 이란·북한 연계 한국 표적 APT, APT28 DNS 하이재킹, Masjesu IoT 봇넷, GlassWorm Zig 드로퍼, Citizen Lab 스파이웨어 공개 등 주요 위협과 DevSecOps 대응 포인트를 주차 단위로 통합 정리합니다."
