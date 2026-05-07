@@ -1,8 +1,64 @@
 # Google Search Console Indexing Fixes
 
 **작성일**: 2026-04-30
-**대상**: 129 URLs not indexed (GSC coverage report)
+**최종 갱신**: 2026-05-07 (재진단 + 자동화 fix 추가)
+**대상**: 152 URLs not indexed (GSC coverage report)
 **목표**: 카테고리별 indexing 실패 원인 진단 및 수정
+
+## 2026-05-07 재진단 및 자동화 Fix
+
+### 카테고리별 변화 (2026-04-30 → 2026-05-07)
+
+| 카테고리 | 04-30 | 05-07 | Δ | 비고 |
+|----------|-------|-------|---|------|
+| Not found (404) | 16 | 17 | +1 | 신규 broken placeholder 5건 식별 → 수정 |
+| Page with redirect | 4 | 4 | 0 | 정상 (vercel.json 301) |
+| Alternate page with proper canonical | 3 | 2 | -1 | 개선 |
+| Blocked by robots.txt | 2 | 2 | 0 | 의도된 차단 (vendor / node_modules) |
+| Excluded by 'noindex' | 1 | 1 | 0 | 의도된 차단 (`/llms.txt`, `/llms-full.txt`) |
+| **Crawled — currently not indexed** | **103** | **126** | **+23** | **악화 — 콘텐츠 신호 보강 필요** |
+| **합계** | **129** | **152** | +23 | |
+
+### 자동화로 적용한 Fix
+
+#### A. `last_modified_at` 일괄 추가 (167 posts) — Google 재크롤 신호
+
+**문제**: 모든 포스트의 front-matter에 `last_modified_at` 항목 부재 (이전 문서 line 106 권장이 미적용 상태였음). `sitemap.xml`은 이미 `{{ post.last_modified_at | default: post.date }}` 패턴을 사용하므로 항목만 추가하면 자동으로 `<lastmod>`에 반영.
+
+**수정**: `scripts/add_last_modified_at.py` 신규 (211줄). `git log -1 --format=%cI -- <path>`로 각 파일의 마지막 commit timestamp 추출 → `date:` 직후 `last_modified_at:` 삽입. 기존 값이 있으면 더 최신 값 보존.
+
+**결과**: 167 / 167 적용. `<lastmod>` 정확도 향상 → Google 재크롤 큐 우선순위 상승 기대.
+
+**커밋**: `2474bddc feat(seo): add last_modified_at to all posts (Google recrawl signal)`
+
+#### B. ISMS-P 포스트의 5건 placeholder 링크 수정
+
+**문제**: `_posts/2026-01-14-2025_ISMS-P_Certification_*.md` line 420-424에 AI가 자동 생성한 가짜 슬러그 5건이 404 발생:
+- `/posts/aws-security-hub-guide/`
+- `/posts/iam-least-privilege/`
+- `/posts/kms-key-management/`
+- `/posts/cloudtrail-log-analysis/`
+- `/posts/terraform-aws-security-automation/`
+
+**수정**: 실재하는 `/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_*` 또는 AWS/Terraform 공식 문서로 교체.
+
+**부산물**: `scripts/check_broken_links.py` 신규 — 향후 깨진 내부 링크 자동 감사용.
+
+**커밋**: `bf3ab7e6 fix(content): replace 5 broken placeholder links in ISMS-P post`
+
+### Crawled — currently not indexed +23 악화에 대한 분석
+
+이전 문서 line 80-103의 "장기 개선" 항목 중 **2개**가 자동화로 진행됨:
+1. ✅ **유사 weekly digest 통합** — 4월 daily 4건이 weekly rollup 1건으로 통합 (커밋 `2dcdc3e0`).
+2. ✅ **last_modified_at 추가** — 위 A.
+
+남은 **자동화 불가** 개선 (사용자 액션 필요):
+1. **외부 백링크 확보** — GitHub README, Tistory, LinkedIn 등에 inbound 링크 추가.
+2. **GSC 수동 색인 요청** — 우선순위 포스트 5-10건에 대해 GSC URL Inspection → "색인 요청".
+3. **Vercel Attack Challenge Mode 비활성화** — 메모리 `feedback_vercel_challenge_mode.md`에 따르면 Googlebot이 차단되어 크롤링은 되어도 추가 신호 수집 불가. GSC 색인 거부의 핵심 원인 후보.
+4. **콘텐츠 unique value 강화** — weekly digest의 자체 commentary 비중 확대 (현재는 외부 뉴스 요약 비중이 높음).
+
+
 
 ## GSC Coverage Report 요약
 
