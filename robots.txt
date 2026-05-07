@@ -11,6 +11,14 @@ User-agent: *
 Allow: /
 Disallow: /vendor/
 Disallow: /node_modules/
+# llms.txt / llms-full.txt are duplicate-content companions of the
+# blog content. We keep them reachable for AI crawlers (which look up
+# the /.well-known-style path directly) but prevent search engines
+# from indexing them as standalone pages — replaces the X-Robots-Tag
+# header that Vercel applied via vercel.json (no longer needed once
+# we serve from GH Pages, which can't set custom response headers).
+Disallow: /llms.txt
+Disallow: /llms-full.txt
 
 User-agent: GPTBot
 Allow: /
