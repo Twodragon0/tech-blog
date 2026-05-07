@@ -25,6 +25,8 @@ original_url: https://twodragon.tistory.com/702
 series: "Cloud Security Course 8기"
 series_order: 3
 series_total: 9
+redirect_from:
+  - /posts/2025/12/Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'

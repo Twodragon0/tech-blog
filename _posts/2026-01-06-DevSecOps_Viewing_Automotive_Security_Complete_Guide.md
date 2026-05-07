@@ -24,6 +24,8 @@ tags:
 - Supply-Chain-Security
 title: 'DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
 toc: true
+redirect_from:
+  - /posts/2026/01/DevSecOps_Viewing_Automotive_Security_Complete_Guide/
 ---
 {%- include ai-summary-card.html
   title='DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'

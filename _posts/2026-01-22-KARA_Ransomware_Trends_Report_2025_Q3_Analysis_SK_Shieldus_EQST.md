@@ -28,6 +28,8 @@ tags:
 keywords: [Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps]
 title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
 toc: true
+redirect_from:
+  - /posts/2026/01/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/
 ---
 {%- include ai-summary-card.html
   title='2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'

@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.svg
 image_alt: "AI red team tooling, Bedrock multi-agent workflows, and Aave Shield digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/
 ---
 
 {% include ai-summary-card.html

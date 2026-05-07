@@ -27,6 +27,8 @@ tags:
 keywords: [AI, Generative-AI, Music-Video, DevSecOps, Security, Midjourney, Suno, VEO-3]
 title: 'AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법'
 toc: true
+redirect_from:
+  - /posts/2026/01/AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective/
 ---
 {%- include ai-summary-card.html
   title='AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법'

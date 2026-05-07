@@ -32,6 +32,8 @@ tags:
 keywords: [Security-Weekly, BitLocker, FBI, Encryption, Route-Leak, BGP, Cloudflare, Agentic-AI]
 title: "BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 24일)'

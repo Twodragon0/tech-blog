@@ -25,6 +25,8 @@ tags:
 keywords: [CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines, AI-Agent, Prompt-Engineering, 2026]
 title: 'CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
 toc: true
+redirect_from:
+  - /posts/2026/01/Claude_MD_Security_Guide/
 ---
 {%- include ai-summary-card.html
   title='CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'

@@ -24,6 +24,8 @@ toc: true
 series: "Cloud Security Course 7기"
 series_order: 7
 series_total: 7
+redirect_from:
+  - /posts/2025/06/Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'

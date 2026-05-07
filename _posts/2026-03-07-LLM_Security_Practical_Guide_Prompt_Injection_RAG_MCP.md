@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.svg
 image_alt: "LLM Security Practical Guide 2026 Prompt Injection RAG MCP"
 toc: true
+redirect_from:
+  - /posts/2026/03/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/
 ---
 {% include ai-summary-card.html
   title='LLM 보안 실무 가이드 2026'

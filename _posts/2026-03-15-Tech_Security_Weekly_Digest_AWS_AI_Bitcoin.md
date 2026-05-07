@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest March 15 2026 GlassWorm Supply Chain AWS IAM AI Agent Bitcoin"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/
 ---
 {% include ai-summary-card.html
   title='GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전'

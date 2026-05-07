@@ -27,6 +27,8 @@ original_url: https://twodragon.tistory.com/703
 series: "Cloud Security Course 8기"
 series_order: 4
 series_total: 9
+redirect_from:
+  - /posts/2025/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'

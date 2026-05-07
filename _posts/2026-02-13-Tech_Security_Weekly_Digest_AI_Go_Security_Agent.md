@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent.svg
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 13일 AI Go 보안"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Go_Security_Agent/
 ---
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio, FinOps'

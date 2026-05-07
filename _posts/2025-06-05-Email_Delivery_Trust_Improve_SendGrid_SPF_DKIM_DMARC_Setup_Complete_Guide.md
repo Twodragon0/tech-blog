@@ -23,6 +23,8 @@ image_alt: 'Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Comp
   Guide'
 audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.mp3
 original_url: https://twodragon.tistory.com/688
+redirect_from:
+  - /posts/2025/06/Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide/
 ---
 {%- include ai-summary-card.html
   title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'

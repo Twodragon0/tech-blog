@@ -26,6 +26,8 @@ tags:
 keywords: [Security-Vendor-News, DevSecOps, Cloud-Security, Hashicorp, Cloudflare, Snyk, Jamf, Zero-Trust]
 title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
 toc: true
+redirect_from:
+  - /posts/2026/01/Security_Vendor_Blog_Weekly_Review/
 ---
 {%- include ai-summary-card.html
   title='보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)'

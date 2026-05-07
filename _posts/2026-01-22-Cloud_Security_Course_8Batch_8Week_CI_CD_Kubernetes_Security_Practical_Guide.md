@@ -31,6 +31,8 @@ tags:
 keywords: [CI/CD, Kubernetes, DevSecOps, K8s-Security, Cloud-Security, ArgoCD, Jenkins, Network-Policies]
 title: "클라우드 보안 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드"
 toc: true
+redirect_from:
+  - /posts/2026/01/Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide/
 ---
 {%- include ai-summary-card.html
   title='🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드'

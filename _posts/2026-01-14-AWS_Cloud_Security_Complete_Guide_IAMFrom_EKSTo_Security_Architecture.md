@@ -28,6 +28,8 @@ tags:
 keywords: [AWS, Security, IAM, VPC, S3, RDS, EKS, CloudTrail]
 title: 'AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
 toc: true
+redirect_from:
+  - /posts/2026/01/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/
 ---
 {%- include ai-summary-card.html
   title='AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'

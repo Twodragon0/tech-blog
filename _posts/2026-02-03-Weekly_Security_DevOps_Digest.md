@@ -36,6 +36,8 @@ tags:
 keywords: [Security-Weekly, AI, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf]
 title: '주간 보안·DevOps 다이제스트: AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
 toc: true
+redirect_from:
+  - /posts/2026/02/Weekly_Security_DevOps_Digest/
 ---
 {%- include ai-summary-card.html
   title='Weekly Security & DevOps Digest (2026년 02월 03일)'

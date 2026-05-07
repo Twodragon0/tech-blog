@@ -26,6 +26,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Docker, CVE-2025-11953, Metro4Shell, RCE, AI-Agent-Security]
 title: '2026년 2월 보안 다이제스트: Docker AI 취약점, CVE-2025-11953'
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Docker_Data_Go/
 ---
 {%- include ai-summary-card.html
   title='주간 기술 보안 다이제스트 (2026년 02월 04일)'

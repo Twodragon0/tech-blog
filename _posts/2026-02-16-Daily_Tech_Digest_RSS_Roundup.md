@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-02-16-Daily_Tech_Digest_RSS_Roundup.svg
 image_alt: "Daily Tech Digest RSS Roundup"
 toc: true
+redirect_from:
+  - /posts/2026/02/Daily_Tech_Digest_RSS_Roundup/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag finops">FinOps</span>

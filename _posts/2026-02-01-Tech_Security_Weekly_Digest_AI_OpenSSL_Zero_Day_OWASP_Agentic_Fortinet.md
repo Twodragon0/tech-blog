@@ -30,6 +30,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet]
 title: "AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 02월 01일)'

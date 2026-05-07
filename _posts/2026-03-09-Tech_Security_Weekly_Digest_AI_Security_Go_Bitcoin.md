@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go Bitcoin"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
 ---
 {% include ai-summary-card.html
   title='AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse'

@@ -13,6 +13,14 @@ comments: true
 image: /assets/images/2026-04-12-Week2_April_2026_Security_Digest.svg
 image_alt: "Week2 April 2026 Security Digest"
 toc: true
+redirect_from:
+  - /posts/2026/04/06/Tech_Security_Weekly_Digest_Patch_AI/
+  - /posts/2026/04/07/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
+  - /posts/2026/04/08/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/
+  - /posts/2026/04/09/Tech_Security_Weekly_Digest_Cloud_Botnet_AI_Malware/
+  - /posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/
+  - /posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
+  - /posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
 ---
 
 {% include ai-summary-card.html

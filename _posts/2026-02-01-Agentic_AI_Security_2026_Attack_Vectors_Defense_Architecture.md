@@ -29,6 +29,8 @@ tags:
 keywords: [Agentic-AI, AI-Security, Tool-Poisoning, Prompt-Injection, LLM-Security, Supply-Chain, Zero-Trust, DevSecOps]
 title: '에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드'
 toc: true
+redirect_from:
+  - /posts/2026/02/Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture/
 ---
 {%- include ai-summary-card.html
   title='에이전틱 AI 보안 2026: 공격 벡터와 방어 아키텍처'

@@ -13,6 +13,18 @@ comments: true
 image: /assets/images/2026-04-30-Week4_April_2026_Security_Digest.svg
 image_alt: "Week4 April 2026 Security Digest"
 toc: true
+redirect_from:
+  - /posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
+  - /posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
+  - /posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
+  - /posts/2026/04/23/Tech_Security_Weekly_Digest_AI_Docker_Go_API/
+  - /posts/2026/04/24/Tech_Security_Weekly_Digest_Malware_AI_Go_Threat/
+  - /posts/2026/04/25/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
+  - /posts/2026/04/26/Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go/
+  - /posts/2026/04/27/Tech_Security_Weekly_Digest_AI_Agent/
+  - /posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/
+  - /posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
+  - /posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/
 ---
 
 {% include ai-summary-card.html

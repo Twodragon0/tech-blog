@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.svg
 image_alt: "Ransomware evolution, LLM jailbreak attacks, Kubernetes supply chain threats weekly digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/
 ---
 
 {% include ai-summary-card.html

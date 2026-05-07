@@ -13,6 +13,14 @@ comments: true
 image: /assets/images/2026-04-19-Week3_April_2026_Security_Digest.svg
 image_alt: "Week3 April 2026 Security Digest"
 toc: true
+redirect_from:
+  - /posts/2026/04/13/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/
+  - /posts/2026/04/14/Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data/
+  - /posts/2026/04/15/Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/
+  - /posts/2026/04/16/Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch/
+  - /posts/2026/04/17/Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware/
+  - /posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
+  - /posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
 ---
 
 {% include ai-summary-card.html

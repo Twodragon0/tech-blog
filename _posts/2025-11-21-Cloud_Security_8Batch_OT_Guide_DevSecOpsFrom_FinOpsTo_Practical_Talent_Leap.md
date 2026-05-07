@@ -23,6 +23,8 @@ toc: true
 series: "Cloud Security Course 8기"
 series_order: 1
 series_total: 9
+redirect_from:
+  - /posts/2025/11/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'

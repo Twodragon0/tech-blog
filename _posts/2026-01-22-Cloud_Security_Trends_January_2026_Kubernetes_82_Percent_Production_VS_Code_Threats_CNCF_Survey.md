@@ -27,6 +27,8 @@ tags:
 keywords: [Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1]
 title: '2026년 1월 클라우드 보안: Kubernetes 프로덕션 채택률 82% 도달, VS Code 위협, CNCF 조사'
 toc: true
+redirect_from:
+  - /posts/2026/01/Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey/
 ---
 {%- include ai-summary-card.html
   title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가'

@@ -28,6 +28,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security]
 title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 31일)'

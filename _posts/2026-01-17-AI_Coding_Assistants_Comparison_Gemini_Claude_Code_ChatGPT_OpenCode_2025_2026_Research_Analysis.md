@@ -32,6 +32,9 @@ tags:
 keywords: [AI, Coding-Assistants, Gemini, Claude-Code, ChatGPT, OpenCode, DeepSeek, SWE-Bench]
 title: 'AI 코딩 어시스턴트 비교: Gemini, Claude Code, ChatGPT, OpenCode 2026'
 toc: true
+redirect_from:
+  - /posts/2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/
+  - /posts/2026/01/AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/
 ---
 {%- include ai-summary-card.html
   title='AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가'

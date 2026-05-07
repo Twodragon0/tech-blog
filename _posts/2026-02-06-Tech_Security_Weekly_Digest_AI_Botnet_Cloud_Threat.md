@@ -25,6 +25,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud]
 title: "CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/
 ---
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: CrashFix RAT, 초대형 DDoS, Codespaces RCE'

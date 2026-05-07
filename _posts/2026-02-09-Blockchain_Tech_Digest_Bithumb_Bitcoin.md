@@ -26,6 +26,8 @@ tags:
 - AI-UX
 title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K'
 toc: true
+redirect_from:
+  - /posts/2026/02/Blockchain_Tech_Digest_Bithumb_Bitcoin/
 ---
 
 {% include ai-summary-card.html

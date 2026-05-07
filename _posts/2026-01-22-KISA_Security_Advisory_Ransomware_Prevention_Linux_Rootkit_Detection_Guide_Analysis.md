@@ -27,6 +27,8 @@ tags:
 keywords: [KISA, Ransomware, Linux-Rootkit, Security-Advisory, Incident-Prevention, Backup, Phishing, E-commerce-Security]
 title: 'KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'
 toc: true
+redirect_from:
+  - /posts/2026/01/KISA_Security_Advisory_Ransomware_Prevention_Linux_Rootkit_Detection_Guide_Analysis/
 ---
 {%- include ai-summary-card.html
   title='KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'

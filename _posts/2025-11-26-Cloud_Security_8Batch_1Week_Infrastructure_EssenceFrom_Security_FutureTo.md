@@ -22,6 +22,8 @@ toc: true
 series: "Cloud Security Course 8기"
 series_order: 2
 series_total: 9
+redirect_from:
+  - /posts/2025/11/Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'

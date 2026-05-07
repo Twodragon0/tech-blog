@@ -30,6 +30,8 @@ tags:
 keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI]
 title: "Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 23일)'

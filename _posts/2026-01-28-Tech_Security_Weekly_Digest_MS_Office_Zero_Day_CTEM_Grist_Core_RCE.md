@@ -27,6 +27,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE]
 title: "Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 28일)'

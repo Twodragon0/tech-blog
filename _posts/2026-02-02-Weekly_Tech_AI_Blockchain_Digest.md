@@ -27,6 +27,10 @@ tags:
 keywords: [Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit]
 title: '기술·AI·블록체인: Apple MLX, Bitcoin 급락, DeFi 보안 2026'
 toc: true
+redirect_from:
+  - /posts/2026/02/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
+  - /posts/2026/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
+  - /posts/2026/02/Weekly_Tech_AI_Blockchain_Digest/
 ---
 {%- include ai-summary-card.html
   title='Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)'

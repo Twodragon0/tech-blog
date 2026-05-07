@@ -14,6 +14,8 @@ image: /assets/images/2026-04-01-Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS.
 image_alt: "Android Developer, TrueConf, AWS - security digest overview"
 toc: true
 sitemap: false
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/
 ---
 
 {% include ai-summary-card.html

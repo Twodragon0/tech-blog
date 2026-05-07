@@ -20,6 +20,9 @@ tags:
 keywords: [npm, Supply-Chain-Attack, Worm, Security-Incident]
 title: "NPM 'Shai-Hulud' 웜: 180개 패키지 침해, 대규모 공급망 공격 분석"
 toc: true
+redirect_from:
+  - /posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/
+  - /posts/2025/09/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/
 ---
 {%- include ai-summary-card.html
   title="NPM &quot;Shai-Hulud&quot; 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석"

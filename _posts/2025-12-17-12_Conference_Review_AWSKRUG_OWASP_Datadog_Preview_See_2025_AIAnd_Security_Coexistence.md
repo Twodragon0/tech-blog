@@ -21,6 +21,8 @@ author: Twodragon
 comments: true
 image_alt: 'December Conference Review: Previewing 2025 AI and Security Coexistence with'
 original_url: https://twodragon.tistory.com/704
+redirect_from:
+  - /posts/2025/12/12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence/
 ---
 {%- include ai-summary-card.html
   title='[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'

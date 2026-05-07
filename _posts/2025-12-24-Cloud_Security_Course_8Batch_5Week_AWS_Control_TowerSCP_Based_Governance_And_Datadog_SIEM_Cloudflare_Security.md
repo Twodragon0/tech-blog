@@ -27,6 +27,8 @@ original_url: https://twodragon.tistory.com/706
 series: "Cloud Security Course 8기"
 series_order: 6
 series_total: 9
+redirect_from:
+  - /posts/2025/12/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안'

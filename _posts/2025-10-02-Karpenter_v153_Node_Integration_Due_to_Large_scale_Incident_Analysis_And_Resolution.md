@@ -23,6 +23,8 @@ tags:
 keywords: [Karpenter, Kubernetes, AWS, Post-Mortem, Incident, EKS]
 title: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
 toc: true
+redirect_from:
+  - /posts/2025/10/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/
 ---
 {%- include ai-summary-card.html
   title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'

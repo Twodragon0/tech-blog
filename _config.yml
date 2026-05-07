@@ -47,6 +47,9 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  # Honours `redirect_from:` front-matter arrays. Used to replace the
+  # vercel.json redirects block when serving from GitHub Pages backup.
+  - jekyll-redirect-from
 
 # Feed Settings
 feed:

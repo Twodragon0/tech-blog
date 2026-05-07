@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.svg
 image_alt: "AI agent security threats, cloud zero-day vulnerabilities, container supply chain attacks digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
 ---
 
 {% include ai-summary-card.html

@@ -25,6 +25,8 @@ tags:
 - Conference
 title: "AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 \U0001F6E1️"
 toc: true
+redirect_from:
+  - /posts/2025/09/AWS_reInforce_2025_Cloud_Security_Current_and_Future/
 ---
 
 {%- include ai-summary-card.html

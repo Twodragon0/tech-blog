@@ -24,6 +24,8 @@ tags:
 keywords: [Security-Digest, Cloud-Digest, AI-Agent-Security, Supply-Chain, AWS, Agentic-AI, AI, VirusTotal]
 title: '2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI'
 toc: true
+redirect_from:
+  - /posts/2026/02/Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span>

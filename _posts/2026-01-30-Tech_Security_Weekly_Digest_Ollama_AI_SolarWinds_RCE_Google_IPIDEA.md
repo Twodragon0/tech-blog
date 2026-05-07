@@ -30,6 +30,8 @@ tags:
 keywords: [Security-Weekly, Ollama, LLMjacking, SolarWinds, CVE-2025-40551, CVE-2025-40552, IPIDEA, Residential-Proxy]
 title: "Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 30일)'

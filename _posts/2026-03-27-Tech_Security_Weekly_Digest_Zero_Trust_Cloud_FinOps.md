@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.svg
 image_alt: "AWS IAM Zero Trust, GCP Workload Identity security, FinOps cost optimization digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
 ---
 
 {% include ai-summary-card.html

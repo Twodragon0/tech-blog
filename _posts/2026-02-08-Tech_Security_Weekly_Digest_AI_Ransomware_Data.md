@@ -26,6 +26,8 @@ tags:
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust]
 title: "Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Ransomware_Data/
 ---
 {% include ai-summary-card.html
   title='기술·보안 주간 다이제스트: Signal 피싱, BlackField 랜섬웨어, 데이터 보안'

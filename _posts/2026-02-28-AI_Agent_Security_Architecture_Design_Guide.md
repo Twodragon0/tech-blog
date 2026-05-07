@@ -29,6 +29,8 @@ tags:
 keywords: [AI-Agent, AI-Security, Stateful-Runtime, Continuous-Evaluation, OWASP, Prompt-Injection, Bedrock, Vertex-AI]
 title: 'AI Agent 보안 아키텍처: Stateful Runtime & Continuous Evaluation'
 toc: true
+redirect_from:
+  - /posts/2026/02/AI_Agent_Security_Architecture_Design_Guide/
 ---
 {%- include ai-summary-card.html
   title='AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation'

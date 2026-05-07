@@ -24,6 +24,8 @@ tags:
 keywords: [OWASP, Security, Top10, AI, DevSecOps, Application Security]
 title: 'OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
 toc: true
+redirect_from:
+  - /posts/2026/01/OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security/
 ---
 {%- include ai-summary-card.html
   title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'

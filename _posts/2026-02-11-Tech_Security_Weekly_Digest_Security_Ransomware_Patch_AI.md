@@ -32,6 +32,8 @@ tags:
 - AI
 title: "랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI/
 ---
 
 {% include ai-summary-card.html

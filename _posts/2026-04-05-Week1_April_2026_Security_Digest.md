@@ -13,6 +13,12 @@ comments: true
 image: /assets/images/2026-04-05-Week1_April_2026_Security_Digest.svg
 image_alt: "Week1 April 2026 Security Digest"
 toc: true
+redirect_from:
+  - /posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/
+  - /posts/2026/04/02/Tech_Security_Weekly_Digest_AI_Malware/
+  - /posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
+  - /posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/
+  - /posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/
 ---
 
 {% include ai-summary-card.html

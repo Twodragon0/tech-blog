@@ -23,6 +23,8 @@ tags:
 keywords: [DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API, Chainalysis, Bitcoin]
 title: 'DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
 toc: true
+redirect_from:
+  - /posts/2026/02/DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag devops">DevOps</span>

@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg
 image_alt: "기술 보안 주간 다이제스트 2026년 2월 20일 Gemini AI 공급망 Kubernetes"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/
 ---
 {% include ai-summary-card.html
   title='Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화'

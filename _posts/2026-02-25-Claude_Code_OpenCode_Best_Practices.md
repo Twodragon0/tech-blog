@@ -24,6 +24,8 @@ tags:
 keywords: [Claude-Code, OpenCode, Best-Practices, AI-Agent, Prompt-Engineering, Agent-Teams, MCP, AI-Coding]
 author: Twodragon
 toc: true
+redirect_from:
+  - /posts/2026/02/Claude_Code_OpenCode_Best_Practices/
 ---
 {% include ai-summary-card.html
   title='Claude Code & OpenCode Best Practices: 38가지 실전 가이드'

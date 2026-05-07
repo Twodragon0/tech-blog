@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.svg
 image_alt: "Kubernetes RBAC bypass, SLSA supply chain security, AI agent prompt injection defense digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
 ---
 
 {% include ai-summary-card.html

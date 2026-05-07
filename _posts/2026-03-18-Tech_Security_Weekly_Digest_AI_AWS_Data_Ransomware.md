@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware.svg
 image_alt: "AI sandbox DNS exfiltration and multi cluster security overview"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
 ---
 
 {% include ai-summary-card.html

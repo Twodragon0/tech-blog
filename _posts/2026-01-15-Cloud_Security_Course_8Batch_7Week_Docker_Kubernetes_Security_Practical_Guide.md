@@ -31,6 +31,8 @@ tags:
 keywords: [Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s]
 title: "클라우드 보안 8기 7주차: Docker & Kubernetes 보안 실전 가이드"
 toc: true
+redirect_from:
+  - /posts/2026/01/Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/
 ---
 {%- include ai-summary-card.html
   title='🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드'

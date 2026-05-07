@@ -33,6 +33,8 @@ tags:
 keywords: [Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm]
 title: "VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 25일)'

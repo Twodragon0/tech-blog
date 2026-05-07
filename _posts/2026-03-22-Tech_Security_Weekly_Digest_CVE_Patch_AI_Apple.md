@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.svg
 image_alt: "Signal phishing, Oracle identity RCE, and Trivy supply chain worm digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/
 ---
 
 {% include ai-summary-card.html

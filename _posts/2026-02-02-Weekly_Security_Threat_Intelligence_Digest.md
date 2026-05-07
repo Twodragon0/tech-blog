@@ -27,6 +27,8 @@ tags:
 keywords: [Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus]
 title: '보안 위협 인텔리전스: Notepad++ 공급망 공격, SK쉴더스, HashiCorp'
 toc: true
+redirect_from:
+  - /posts/2026/02/Weekly_Security_Threat_Intelligence_Digest/
 ---
 {%- include ai-summary-card.html
   title='Weekly Security Threat Intelligence Digest (2026년 02월 02일)'

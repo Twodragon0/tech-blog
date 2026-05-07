@@ -14,6 +14,8 @@ image: /assets/images/2026-04-11-Tech_Security_Weekly_Digest_AI_Go_CVE_Update.sv
 image_alt: "GlassWorm Zig dropper, Chrome 146 DBSC, browser extension AI - security digest overview"
 toc: true
 sitemap: false
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
 ---
 
 {% include ai-summary-card.html

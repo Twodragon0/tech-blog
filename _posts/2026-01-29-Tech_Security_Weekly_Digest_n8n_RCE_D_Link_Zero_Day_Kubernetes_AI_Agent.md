@@ -31,6 +31,8 @@ tags:
 keywords: [Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes]
 title: "n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 29일)'

@@ -20,6 +20,8 @@ tags:
 keywords: [Passkey, OTP, Password-Manager, Authentication]
 title: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법
 toc: true
+redirect_from:
+  - /posts/2025/04/Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage/
 ---
 {%- include ai-summary-card.html
   title='공용 PC에서도 안전하게! 패스키, OTP, 강력한 암호 관리 활용법'

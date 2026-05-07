@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-23-Tech_Security_Weekly_Digest_Ransomware.svg
 image_alt: "Gentlemen ransomware, zero trust visibility, and EQST threat insight digest"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware/
 ---
 
 {% include ai-summary-card.html

@@ -23,6 +23,8 @@ tags:
 keywords: [AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry]
 title: 'AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS'
 toc: true
+redirect_from:
+  - /posts/2026/02/AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag devsecops">DevSecOps</span>

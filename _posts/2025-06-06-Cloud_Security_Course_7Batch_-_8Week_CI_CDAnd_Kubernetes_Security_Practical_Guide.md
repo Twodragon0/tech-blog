@@ -28,6 +28,8 @@ original_url: https://twodragon.tistory.com/689
 series: "Cloud Security Course 7기"
 series_order: 6
 series_total: 7
+redirect_from:
+  - /posts/2025/06/Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide/
 ---
 {%- include ai-summary-card.html
   title='클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드'

@@ -34,6 +34,8 @@ tags:
 keywords: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering]
 title: '클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처, DevSecOps'
 toc: true
+redirect_from:
+  - /posts/2026/01/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
 ---
 {%- include ai-summary-card.html
   title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'

@@ -28,6 +28,8 @@ tags:
 - Cloud-Security
 title: 'Zscaler 완벽 가이드: SSL 검사와 샌드박스로 Zero Trust 웹 보안 강화'
 toc: true
+redirect_from:
+  - /posts/2025/11/Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block/
 ---
 
 {%- include ai-summary-card.html

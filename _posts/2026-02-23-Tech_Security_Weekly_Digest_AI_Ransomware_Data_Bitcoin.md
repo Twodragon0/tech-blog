@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest February 23 2026 AI Ransomware Data"
 toc: true
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/
 ---
 {% include ai-summary-card.html
   title='Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향'

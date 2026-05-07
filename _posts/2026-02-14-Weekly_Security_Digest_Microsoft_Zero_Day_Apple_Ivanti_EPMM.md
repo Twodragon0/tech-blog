@@ -14,6 +14,8 @@ comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
 image_alt: "Microsoft zero day, Apple patch, and Ivanti EPMM attack digest"
 toc: true
+redirect_from:
+  - /posts/2026/02/Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>

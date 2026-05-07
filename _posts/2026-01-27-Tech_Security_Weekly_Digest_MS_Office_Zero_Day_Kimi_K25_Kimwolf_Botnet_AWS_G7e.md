@@ -29,6 +29,8 @@ tags:
 keywords: [Security-Weekly, Zero-Day, Microsoft-Office, Kimi-K25, AI-Agents, Kimwolf-Botnet, AWS-G7e, NVIDIA-Blackwell]
 title: "MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 27일)'

@@ -30,6 +30,8 @@ tags:
 keywords: [CSPM, DataDog, AWS, Security, Compliance, Monitoring, Automation, Misconfiguration]
 title: 'CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
 toc: true
+redirect_from:
+  - /posts/2026/01/CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring/
 ---
 {%- include ai-summary-card.html
   title='CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'

@@ -24,6 +24,8 @@ tags:
 keywords: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]
 title: '2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
 toc: true
+redirect_from:
+  - /posts/2026/01/2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis/
 ---
 {% capture ai_categories_html %}
 <span class="category-tag devsecops">DevSecOps</span>

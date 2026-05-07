@@ -13,6 +13,8 @@ comments: true
 image: /assets/images/2026-03-19-Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch.svg
 image_alt: "Zero day firewall breach and patch response overview"
 toc: true
+redirect_from:
+  - /posts/2026/03/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/
 ---
 
 {% include ai-summary-card.html

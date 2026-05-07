@@ -29,6 +29,8 @@ tags:
 keywords: [Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity]
 title: "AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks"
 toc: true
+redirect_from:
+  - /posts/2026/01/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/
 ---
 {%- include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 01월 26일)'
