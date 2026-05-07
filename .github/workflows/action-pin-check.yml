@@ -1,0 +1,40 @@
+name: Action Pin Check
+
+# Validates that all GitHub Actions `uses:` references across .github/workflows/
+# use consistent 40-char SHA pins. Floating tags (@v1, @v2) generate warnings.
+# On PRs that touch workflow files, existence is verified via the GitHub API.
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-pins:
+    name: Validate action pin consistency
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: '3.12'
+
+      - name: Check action pin consistency (with SHA existence verification)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/check_workflow_action_pins.py --check-existence

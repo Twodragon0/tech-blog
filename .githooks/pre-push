@@ -1,46 +1,97 @@
 #!/bin/sh
-# pre-push hook: verify raster variant fallback chain for all posts with
-# image: fields that are being pushed.
+# pre-push hook:
+#   1. Verify raster variant fallback chain for all posts with image: fields.
+#   2. Check GitHub Actions action-pin consistency (SHA vs floating tags).
 #
 # Tracked version lives at .githooks/pre-push.
 # Install with:  git config core.hooksPath .githooks
 # Or run once:   bash scripts/install-hooks.sh  (re-run after changes)
 #
-# Emergency bypass:  SKIP_VARIANT_CHECK=1 git push
-
-if [ "${SKIP_VARIANT_CHECK:-0}" = "1" ]; then
-  echo "[pre-push] SKIP_VARIANT_CHECK=1 — skipping image variant check."
-  exit 0
-fi
+# Emergency bypass:  SKIP_VARIANT_CHECK=1 SKIP_PIN_CHECK=1 git push
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-CHECKER="$REPO_ROOT/scripts/check_post_image_variants.py"
 
-if [ ! -f "$CHECKER" ]; then
-  echo "[pre-push] WARNING: $CHECKER not found — skipping variant check."
-  exit 0
-fi
+# ---------------------------------------------------------------------------
+# Read push refspecs once — we need them for both checks.
+# ---------------------------------------------------------------------------
+REFS=""
+while read local_ref local_sha remote_ref remote_sha; do
+  REFS="$REFS $local_ref:$local_sha:$remote_ref:$remote_sha"
+done
 
-# Read the push ref pairs from stdin: <local_ref> <local_sha> <remote_ref> <remote_sha>
-# We check per-refspec so the scope stays tight (only posts in each push).
 EXIT_CODE=0
 
-while read local_ref local_sha remote_ref remote_sha; do
-  # Skip branch deletions (local_sha == 0000...0)
-  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
-    continue
-  fi
+# ---------------------------------------------------------------------------
+# 1. Image variant check
+# ---------------------------------------------------------------------------
+if [ "${SKIP_VARIANT_CHECK:-0}" = "1" ]; then
+  echo "[pre-push] SKIP_VARIANT_CHECK=1 — skipping image variant check."
+else
+  CHECKER="$REPO_ROOT/scripts/check_post_image_variants.py"
+  if [ ! -f "$CHECKER" ]; then
+    echo "[pre-push] WARNING: $CHECKER not found — skipping variant check."
+  else
+    for ref_tuple in $REFS; do
+      local_ref=$(echo "$ref_tuple" | cut -d: -f1)
+      local_sha=$(echo "$ref_tuple" | cut -d: -f2)
+      remote_sha=$(echo "$ref_tuple" | cut -d: -f4)
 
-  # When pushing a new branch the remote sha is all zeros; diff against empty tree.
-  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
-    remote_sha="$(git hash-object -t tree /dev/null)"
-  fi
+      if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+        continue
+      fi
+      if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+        remote_sha="$(git hash-object -t tree /dev/null)"
+      fi
 
-  python3 "$CHECKER" --changed-only "$remote_sha" "$local_sha"
-  RESULT=$?
-  if [ "$RESULT" -ne 0 ]; then
-    EXIT_CODE=$RESULT
+      python3 "$CHECKER" --changed-only "$remote_sha" "$local_sha"
+      RESULT=$?
+      if [ "$RESULT" -ne 0 ]; then
+        EXIT_CODE=$RESULT
+      fi
+    done
   fi
-done
+fi
+
+# ---------------------------------------------------------------------------
+# 2. Action-pin consistency check (only when workflow files are being pushed)
+# ---------------------------------------------------------------------------
+if [ "${SKIP_PIN_CHECK:-0}" = "1" ]; then
+  echo "[pre-push] SKIP_PIN_CHECK=1 — skipping action pin check."
+else
+  PIN_CHECKER="$REPO_ROOT/scripts/check_workflow_action_pins.py"
+  if [ ! -f "$PIN_CHECKER" ]; then
+    echo "[pre-push] WARNING: $PIN_CHECKER not found — skipping pin check."
+  else
+    # Determine whether any pushed commit touches .github/workflows/
+    WORKFLOWS_CHANGED=0
+    for ref_tuple in $REFS; do
+      local_sha=$(echo "$ref_tuple" | cut -d: -f2)
+      remote_sha=$(echo "$ref_tuple" | cut -d: -f4)
+
+      if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+        continue
+      fi
+      if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+        remote_sha="$(git hash-object -t tree /dev/null)"
+      fi
+
+      if git diff --name-only "$remote_sha" "$local_sha" 2>/dev/null \
+            | grep -q "\.github/workflows/"; then
+        WORKFLOWS_CHANGED=1
+        break
+      fi
+    done
+
+    if [ "$WORKFLOWS_CHANGED" = "1" ]; then
+      echo "[pre-push] Workflow files changed — checking action pins ..."
+      python3 "$PIN_CHECKER"
+      RESULT=$?
+      if [ "$RESULT" -ne 0 ]; then
+        echo "[pre-push] FAIL: action pin inconsistencies detected. Fix or use SKIP_PIN_CHECK=1."
+        EXIT_CODE=$RESULT
+      fi
+    fi
+  fi
+fi
 
 exit $EXIT_CODE
