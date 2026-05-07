@@ -931,6 +931,273 @@ def _generate_executive_and_risk_sections(
     )
 
 
+# ---------------------------------------------------------------------------
+# Analyst commentary (per-post unique 1-paragraph human-style framing).
+# ---------------------------------------------------------------------------
+
+# Opening sentence patterns. Selected deterministically by hash(seed) % len.
+# Each pattern accepts {date_str} as a placeholder (None means no date).
+_COMMENTARY_OPENING_PATTERNS: List[str] = [
+    "이번 분석 사이클에서 가장 먼저 눈에 띄는 신호는",
+    "오늘의 우선순위를 한 가지로 좁히면",
+    "{date_str} 디지스트의 중심축은",
+    "현장 운영 관점에서 보면",
+    "이번 주기를 한 줄로 정리하면",
+]
+
+# Phrases that indicate the LLM produced placeholder/boilerplate output.
+# Reject the response and skip emitting the section if any of these appear.
+_COMMENTARY_PLACEHOLDER_BLOCKLIST: List[str] = [
+    "AI/ML 파이프라인",
+    "본 디지스트는",
+    "검토하세요",
+    "오늘 정리한 디지스트는",
+    "이번 디지스트는 다음과 같이",
+    "전반적인 보안 관점에서",
+    "{",  # raw template token leaked through
+    "}",
+]
+
+
+def _commentary_top_headlines(news_items: List[Dict]) -> List[Dict]:
+    """Pick top-3 news items by priority_score (or first 3 if missing)."""
+    if not news_items:
+        return []
+    scored = [item for item in news_items if item.get("priority_score") is not None]
+    if scored:
+        ranked = sorted(
+            scored,
+            key=lambda it: float(it.get("priority_score", 0) or 0),
+            reverse=True,
+        )
+        return ranked[:3]
+    return list(news_items[:3])
+
+
+def _commentary_category_stats(news_items: List[Dict]) -> Dict[str, int]:
+    """Count items per coarse category bucket."""
+    counts: Dict[str, int] = {
+        "security": 0,
+        "ai": 0,
+        "cloud": 0,
+        "devops": 0,
+        "blockchain": 0,
+    }
+    for item in news_items:
+        cat = str(item.get("category", "")).lower()
+        if cat in counts:
+            counts[cat] += 1
+    return counts
+
+
+def _build_commentary_prompt(
+    headlines: List[Dict],
+    stats: Dict[str, int],
+    date_str: str,
+    pattern: str,
+) -> str:
+    """Build the LLM prompt for the per-post analyst commentary."""
+    headline_lines = []
+    for idx, item in enumerate(headlines, 1):
+        title = (item.get("title", "") or "").strip()[:140]
+        source = (
+            item.get("source_name") or item.get("source") or "Unknown"
+        )
+        headline_lines.append(f"{idx}. {title}  ({source})")
+    headlines_block = "\n".join(headline_lines) if headline_lines else "(헤드라인 없음)"
+
+    pattern_resolved = pattern.replace("{date_str}", date_str)
+
+    return (
+        "당신은 한국 DevSecOps 시니어 엔지니어 'Twodragon'이다.\n"
+        f"오늘 {date_str} 디지스트의 상위 3개 헤드라인을 보고,\n"
+        "이번 주기를 관통하는 '한 줄 평'을 한국어로 작성하라.\n\n"
+        "상위 헤드라인:\n"
+        f"{headlines_block}\n\n"
+        "카테고리 통계: "
+        f"보안 {stats.get('security', 0)}건 / "
+        f"AI {stats.get('ai', 0)}건 / "
+        f"클라우드 {stats.get('cloud', 0)}건 / "
+        f"DevOps {stats.get('devops', 0)}건 / "
+        f"블록체인 {stats.get('blockchain', 0)}건\n\n"
+        "조건:\n"
+        "- 200-350자, 1 paragraph.\n"
+        "- 외부 출처 인용 금지. 본인 시점만.\n"
+        "- 'DevSecOps 실무자가 이번 주기에 가장 먼저 봐야 할 신호'를 한 가지로 좁혀서 명시.\n"
+        "- Markdown 강조(**굵게**) 1-2회, 일반 prose.\n"
+        f"- 시작 문장은 다음으로 시작한다: {pattern_resolved}\n"
+        "- 'AI', '보안' 같은 광범위 단어 단독 사용 회피. 구체 명사(예: GitHub Actions, AWS IAM, eBPF)만 사용.\n"
+        "- 큰따옴표 금지 (작은따옴표 또는 backtick 사용).\n"
+        "- 불릿(-) 또는 번호 목록 금지. 한 문단 prose만.\n"
+        "- 마크다운 헤더(##) 출력 금지. 본문만 출력."
+    )
+
+
+def _commentary_llm_call(prompt: str) -> str:
+    """Invoke LLM chain (Gemini CLI -> Gemini API -> DeepSeek -> Claude).
+
+    Returns empty string on failure. Routing is intentionally Gemini-first
+    because Gemini CLI is free.
+    """
+    # 1. Gemini CLI / Gemini REST (free or near-free).
+    try:
+        if check_gemini_available():
+            content = _gemini_call(prompt, timeout=30)
+            if content and len(content.strip()) >= 80:
+                return content.strip()
+    except Exception as e:
+        logging.debug(f"Gemini commentary call failed: {e}")
+
+    # 2. DeepSeek API (cached).
+    try:
+        from scripts.news.enhancer import enhance_with_deepseek
+
+        if _allow_deepseek():
+            # Reuse enhance_with_deepseek by passing a synthetic item that
+            # carries the prompt as the title. enhancer wraps its own template
+            # but we want the raw prompt -> direct REST call instead.
+            api_key = os.getenv("DEEPSEEK_API_KEY", "")
+            if api_key:
+                import requests  # type: ignore
+
+                response = requests.post(
+                    "https://api.deepseek.com/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": "deepseek-chat",
+                        "messages": [{"role": "user", "content": prompt}],
+                        "temperature": 0.7,
+                        "max_tokens": 500,
+                    },
+                    timeout=30,
+                )
+                if response.status_code == 200:
+                    data = response.json()
+                    content = (
+                        data.get("choices", [{}])[0]
+                        .get("message", {})
+                        .get("content", "")
+                        .strip()
+                    )
+                    if content and len(content) >= 80:
+                        return content
+    except Exception as e:
+        logging.debug(f"DeepSeek commentary call failed: {e}")
+
+    # 3. Claude API (last resort - costs money).
+    try:
+        from scripts.news.config import _CLAUDE_API_KEY, _CLAUDE_MODEL
+
+        api_key = _CLAUDE_API_KEY
+        if api_key:
+            import requests  # type: ignore
+
+            response = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json",
+                },
+                json={
+                    "model": _CLAUDE_MODEL,
+                    "max_tokens": 600,
+                    "temperature": 0.5,
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+                timeout=30,
+            )
+            if response.status_code == 200:
+                data = response.json()
+                parts = data.get("content", [])
+                text_parts = [
+                    p.get("text", "") for p in parts if p.get("type") == "text"
+                ]
+                content = "\n".join(text_parts).strip()
+                if content and len(content) >= 80:
+                    return content
+    except Exception as e:
+        logging.debug(f"Claude commentary call failed: {e}")
+
+    return ""
+
+
+def _validate_commentary(text: str) -> Optional[str]:
+    """Validate LLM commentary output. Returns cleaned text or None on failure.
+
+    Rejection criteria:
+      - Contains placeholder/boilerplate phrases
+      - Length outside [150, 450] chars after sanitization
+      - Empty after stripping
+    """
+    if not text:
+        return None
+
+    cleaned = text.strip()
+
+    # Strip leading markdown bullets / numbering / headers if present.
+    cleaned = re.sub(r"^\s*#{1,6}\s+", "", cleaned)
+    # Strip wrapping quotes/code fences.
+    cleaned = cleaned.strip("`").strip()
+    if (cleaned.startswith('"') and cleaned.endswith('"')) or (
+        cleaned.startswith("'") and cleaned.endswith("'")
+    ):
+        cleaned = cleaned[1:-1].strip()
+
+    # Collapse multiple lines into one paragraph (keep \n only as space).
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
+    # Reject if any blocklist phrase appears (case-sensitive Korean phrases).
+    for forbidden in _COMMENTARY_PLACEHOLDER_BLOCKLIST:
+        if forbidden in cleaned:
+            return None
+
+    # Sanitize ASCII double quotes per project convention (commentary is body
+    # text, not YAML, so this is purely a style normalization).
+    cleaned = sanitize_quotes_for_yaml(cleaned)
+
+    # Length guard. We allow some tolerance both directions.
+    if len(cleaned) < 150 or len(cleaned) > 450:
+        return None
+
+    return cleaned
+
+
+def _generate_unique_post_commentary(
+    news_items: List[Dict],
+    date_str: str,
+    mode: str = "security",
+    seed: Optional[str] = None,
+) -> Optional[str]:
+    """Generate a 200-350 char Korean commentary for a digest post.
+
+    Returns None if LLM unavailable or output fails quality checks
+    (placeholder pattern, < 150 chars, contains forbidden boilerplate).
+    The caller must skip emitting the section when None.
+    """
+    headlines = _commentary_top_headlines(news_items)
+    if not headlines:
+        return None
+
+    stats = _commentary_category_stats(news_items)
+
+    seed_value = seed if seed is not None else date_str
+    digest = hashlib.sha1(seed_value.encode("utf-8")).hexdigest()
+    pattern_idx = int(digest[:8], 16) % len(_COMMENTARY_OPENING_PATTERNS)
+    pattern = _COMMENTARY_OPENING_PATTERNS[pattern_idx]
+
+    prompt = _build_commentary_prompt(headlines, stats, date_str, pattern)
+
+    raw = _commentary_llm_call(prompt)
+    if not raw:
+        return None
+
+    return _validate_commentary(raw)
+
+
 def _run_post_quality_gate(post_path: Path, target: int = 80) -> None:
     try:
         from upgrade_digest_post_quality import process_file as _upgrade_post
@@ -1285,6 +1552,18 @@ toc: true
     content += _generate_executive_and_risk_sections(
         rendered_items, mode="security", counts=_rendered_counts
     )
+
+    # Per-post analyst commentary (LLM-generated unique 1-paragraph framing).
+    # Inserted between the risk scorecard and the news sections. If the LLM
+    # is unavailable or the output fails the placeholder/length guards, we
+    # skip the section entirely (no boilerplate fallback).
+    commentary = _generate_unique_post_commentary(
+        rendered_items,
+        date.strftime("%Y-%m-%d"),
+        mode="security",
+    )
+    if commentary:
+        content += f"## 분석가 시점\n\n{commentary}\n\n"
 
     # Append pre-built news sections.
     content += news_sections
