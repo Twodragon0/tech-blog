@@ -105,6 +105,7 @@ from scripts.news.content_generator import (  # noqa: E402,F401
     generate_news_section,
     generate_post_content,
     generate_tech_blog_content,
+    sanitize_quotes_for_yaml,
 )
 
 # Re-export enhancer functions

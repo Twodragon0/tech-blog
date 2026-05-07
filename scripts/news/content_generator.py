@@ -64,8 +64,37 @@ def _yaml_escape_dq(text: str) -> str:
 
     Order matters: escape `\\` first so we don't double-escape backslashes
     we add for `"`.
+
+    NOTE: For YAML front-matter fields that feed into JSON-LD (title, excerpt,
+    description, image_alt), prefer ``sanitize_quotes_for_yaml`` instead.
+    That helper replaces `"` with `'` so jekyll-seo-tag never emits
+    backslash-escaped quotes into the structured-data block.
     """
     return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def sanitize_quotes_for_yaml(text: str) -> str:
+    """Replace ASCII double-quotes inside a YAML string value with single
+    quotes, so the value never produces escaped \\\" in YAML and never breaks
+    JSON-LD when emitted by jekyll-seo-tag.
+
+    Preserves Korean fullwidth quotes (\u201c\u2026\u201d) and curly quotes
+    (\u201c \u201d); only touches ASCII \" (U+0022). Idempotent.
+
+    Also decodes upstream feed artefacts before sanitising:
+      - HTML entity ``&quot;`` → single quote
+      - Unicode escape ``\\u0022`` literal in the string → single quote
+    """
+    if not text:
+        return text
+    # Decode upstream feed artefacts first
+    import html as _html_mod
+    decoded = _html_mod.unescape(text)          # &quot; → "
+    decoded = decoded.replace("\\u0022", "'")   # literal \u0022 sequence → '
+    # Replace ASCII double-quote (U+0022) with single quote.
+    # Fullwidth and curly quote characters have different code points and are
+    # left untouched because they don't interfere with YAML or JSON-LD parsers.
+    return decoded.replace('"', "'")
 
 
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
@@ -1057,19 +1086,20 @@ def generate_post_content(
     # a single-quoted arg prematurely). Use double-quoted outer + entity encoding.
     safe_title = _html_escape_quotes(title_keywords)
 
-    # YAML frontmatter values are emitted inside double-quoted scalars; inner `"`
-    # characters (and stray `\`) must be backslash-escaped or Jekyll skips the
-    # whole post. Centralize the escape here rather than inside every builder so
-    # the contract is "builders return the natural string, the frontmatter site
-    # encodes it for YAML."
-    yaml_title = _yaml_escape_dq(title_keywords)
-    yaml_excerpt = _yaml_escape_dq(
+    # YAML front-matter fields that feed into JSON-LD (title, excerpt,
+    # description, image_alt) use sanitize_quotes_for_yaml so that ASCII `"`
+    # is replaced with `'` before insertion.  This prevents jekyll-seo-tag
+    # from emitting backslash-escaped quotes into the BlogPosting structured
+    # data block, which caused JSON.parse failures and "crawled — not indexed"
+    # outcomes in Google Search Console.
+    yaml_title = sanitize_quotes_for_yaml(title_keywords)
+    yaml_excerpt = sanitize_quotes_for_yaml(
         _build_clean_excerpt(title_keywords, date_str, total, "security", topics)
     )
-    yaml_description = _yaml_escape_dq(
+    yaml_description = sanitize_quotes_for_yaml(
         _build_clean_description(title_keywords, source_list, date_str, total, "security")
     )
-    yaml_image_alt = _yaml_escape_dq(_build_clean_image_alt(title_keywords, "security"))
+    yaml_image_alt = sanitize_quotes_for_yaml(_build_clean_image_alt(title_keywords, "security"))
 
     content = f'''---
 layout: post
@@ -1444,15 +1474,17 @@ def generate_tech_blog_content(
     # Escape quotes in title before Liquid injection (same guard as security template)
     safe_title = _html_escape_quotes(title_keywords)
 
-    # YAML double-quoted scalar escape — see security-mode block for rationale.
-    yaml_title = _yaml_escape_dq(f"기술 블로그 주간 다이제스트: {title_keywords}")
-    yaml_excerpt = _yaml_escape_dq(
+    # Use sanitize_quotes_for_yaml (not _yaml_escape_dq) for the 4 JSON-LD
+    # fields so ASCII `"` is replaced with `'` rather than backslash-escaped.
+    # See security-mode block above for full rationale.
+    yaml_title = sanitize_quotes_for_yaml(f"기술 블로그 주간 다이제스트: {title_keywords}")
+    yaml_excerpt = sanitize_quotes_for_yaml(
         _build_clean_excerpt(title_keywords, date_str, total, "tech", topics)
     )
-    yaml_description = _yaml_escape_dq(
+    yaml_description = sanitize_quotes_for_yaml(
         _build_clean_description(title_keywords, source_list, date_str, total, "tech")
     )
-    yaml_image_alt = _yaml_escape_dq(_build_clean_image_alt(title_keywords, "tech"))
+    yaml_image_alt = sanitize_quotes_for_yaml(_build_clean_image_alt(title_keywords, "tech"))
 
     content = f'''---
 layout: post
