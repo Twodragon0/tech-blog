@@ -13,14 +13,14 @@
       {% assign card_img = post.image | relative_url %}
       {% comment %}
         Compute variant paths regardless of whether post.image ends in .svg
-        or .png/_og.png. _plugins/svg_to_png_og.rb rewrites .svg → _og.png at
-        :pre_render where the plugin runs (Vercel), but in safe-mode builds
-        (GH Pages backup) custom plugins are disabled and post.image stays
-        .svg. The previous gating on `contains '.png'` skipped the entire
-        <source> branch in the safe-mode case, suppressing AVIF/WebP for
-        every post. Strip every recognized suffix and append the variant
-        tails — the {% if avif_file %} guard around <source> still hides
-        non-existent variants, so this is purely additive.
+        or .png/_og.png. svg_to_png_og.rb rewrites .svg into _og.png at
+        :pre_render in plugin-on environments (Vercel), but in safe-mode
+        builds (GH Pages backup) custom plugins are disabled and post.image
+        stays .svg. The previous gating on `contains .png` skipped the
+        source branch in safe-mode, suppressing AVIF/WebP for every post.
+        Strip every recognized suffix and append the variant tails — the
+        avif_file guard around the source element still hides non-existent
+        variants, so this is purely additive.
       {% endcomment %}
       {% assign avif_path = post.image | replace: '_og.png', '_og.avif' | replace: '.png', '_og.avif' | replace: '.svg', '_og.avif' %}
       {% assign webp_path = post.image | replace: '_og.png', '_og.webp' | replace: '.png', '_og.webp' | replace: '.svg', '_og.webp' %}
