@@ -374,7 +374,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|yandexbot|baiduspider|duckduckbot|slurp|applebot|facebookexternalhit|twitterbot|linkedinbot|rogerbot|semrushbot|ahrefsbot).*"
+          "value": ".*([Gg]ooglebot|[Bb]ingbot|[Yy]andex[Bb]ot|[Bb]aiduspider|[Dd]uck[Dd]uck[Bb]ot|[Ss]lurp|[Aa]pplebot|[Ff]acebookexternalhit|[Tt]witterbot|[Ll]inked[Ii]n[Bb]ot|[Rr]ogerbot|[Ss]emrush[Bb]ot|[Aa]hrefs[Bb]ot).*"
         }
       ],
       "headers": [
