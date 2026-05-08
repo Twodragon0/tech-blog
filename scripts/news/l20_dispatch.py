@@ -401,7 +401,15 @@ _FILENAME_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})-(.+?)(?:\.svg|\.md)?$")
 
 
 def _post_url_from_filename(filename: str) -> str:
-    """Reconstruct the canonical post URL from a YYYY-MM-DD-Slug.* filename."""
+    """Reconstruct the canonical post URL from a YYYY-MM-DD-Slug.* filename.
+
+    The Jekyll permalink config (`_config.yml`) is
+    ``/posts/:year/:month/:day/:title/`` and the ``:title`` placeholder is
+    Jekyll's slug derived directly from the filename — i.e. underscores
+    are preserved, not converted to hyphens. A previous version of this
+    function did ``slug.replace("_", "-")`` which produced a 404 URL in
+    every QR code on every weekly digest cover. That bug is fixed here.
+    """
     if not filename:
         return "https://tech.2twodragon.com/"
     name = Path(filename).name
@@ -409,8 +417,7 @@ def _post_url_from_filename(filename: str) -> str:
     if not m:
         return "https://tech.2twodragon.com/"
     yyyy, mm, dd, slug = m.groups()
-    slug_url = slug.replace("_", "-")
-    return f"https://tech.2twodragon.com/posts/{yyyy}/{mm}/{dd}/{slug_url}/"
+    return f"https://tech.2twodragon.com/posts/{yyyy}/{mm}/{dd}/{slug}/"
 
 
 def _date_str_from_filename(filename: str, fallback: str = "") -> str:

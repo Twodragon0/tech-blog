@@ -210,10 +210,12 @@ class TestGenerateL20DigestSvg:
         assert content.startswith("<svg")
         assert 'viewBox="0 0 1200 630"' in content
         # The dispatcher must hand the renderer the canonical post URL.
+        # Underscores are preserved per Jekyll's permalink config — earlier
+        # ``slug.replace("_", "-")`` produced 404 URLs in every QR.
         assert (
             captured["url"]
             == "https://tech.2twodragon.com/posts/2026/04/30/"
-            "Tech-Security-Weekly-Digest-Ransomware/"
+            "Tech_Security_Weekly_Digest_Ransomware/"
         )
         # date_str follows the L20 dotted format.
         assert captured["date_str"] == "2026.04.30"

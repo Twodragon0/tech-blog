@@ -19,8 +19,25 @@ from scripts.news.config import (
 )
 
 
+# Hangul code-points: precomposed syllables + jamo (Hangul Jamo, Compat Jamo).
+# Stripped from every <text> value via _escape_svg_text — see English-only-SVG
+# rule in CLAUDE.md and the check-svg quality gate.
+_HANGUL_RE = re.compile(r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]+")
+
+
 def _escape_svg_text(text: str) -> str:
-    """SVG 텍스트 이스케이프 처리"""
+    """SVG 텍스트 이스케이프 + 한글 강제 제거.
+
+    English-only SVG guarantee: any Hangul run is stripped before XML
+    escaping so the rendered cover never carries Korean code-points.
+    Repeated separators left by the strip are collapsed.
+    """
+    if not text:
+        return ""
+    text = _HANGUL_RE.sub("", str(text))
+    text = re.sub(r"\s{2,}", " ", text)
+    text = re.sub(r"(,\s*){2,}", ", ", text)
+    text = re.sub(r"^[\s,;:.\-]+|[\s,;:.\-]+$", "", text)
     return (
         text.replace("&", "&amp;")
         .replace("<", "&lt;")

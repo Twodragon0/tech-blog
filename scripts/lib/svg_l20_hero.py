@@ -13,14 +13,25 @@ Public API:
   - ``THEMES``: 5-theme palette (red, blue, amber, green, purple).
   - ``render_l20_hero(date_str, hero, top_right, bottom_right, url, post_title)``.
 
+English-only guarantee: ``_escape`` strips Hangul (U+AC00..U+D7A3 plus the
+jamo blocks) before XML escaping. Even if upstream callers leak Korean
+into headline / subheadline / aria text, the rendered SVG is guaranteed
+ASCII-only — defense in depth for the check-svg quality gate.
+
 The 8 visual builders (``vb_*``) each return a ``<g transform="translate(cx,cy)">``
 SVG string and are theme-aware via the THEMES palette.
 """
 from __future__ import annotations
 
+import re
 from typing import Dict
 
 from scripts.lib import svg_l22_generator as l22
+
+# Hangul code-points: precomposed syllables + jamo (Hangul Jamo, Compat Jamo).
+# Anything in this set is hard-stripped from <text> values to keep covers
+# ASCII-friendly per the project's English-only-SVG rule (CLAUDE.md).
+_HANGUL_RE = re.compile(r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]+")
 
 
 # --- Theme palette ---
@@ -79,12 +90,35 @@ THEMES: Dict[str, Dict[str, str]] = {
 
 
 # --- Helpers ---
+def _strip_hangul(text: str) -> str:
+    """Remove every Hangul run, collapsing surrounding whitespace.
+
+    Defense-in-depth for the English-only SVG rule: even if upstream code
+    forgets to translate a headline, the rendered cover stays ASCII.
+    Repeated separators left behind by the strip (e.g., ", , ,") are
+    collapsed back to a single ``, `` so the layout reads naturally.
+    """
+    if not text:
+        return ""
+    cleaned = _HANGUL_RE.sub("", str(text))
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)
+    cleaned = re.sub(r"^[\s,;:.\-]+|[\s,;:.\-]+$", "", cleaned)
+    return cleaned
+
+
 def _escape(text: str) -> str:
-    """Minimal XML escape for user-provided strings."""
+    """Minimal XML escape with Hangul stripped first.
+
+    Order matters: strip Hangul *before* the XML escape so we never emit
+    raw Korean code-points inside ``<text>``. The check-svg quality gate
+    forbids them.
+    """
     if text is None:
         return ""
+    text = _strip_hangul(str(text))
     return (
-        str(text)
+        text
         .replace("&", "&amp;")
         .replace("<", "&lt;")
         .replace(">", "&gt;")
