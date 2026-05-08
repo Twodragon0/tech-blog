@@ -121,7 +121,7 @@ DevSecOps 실무자에게 이 사건은 몇 가지 중요한 함의를 제공합
   title="신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장"
   url="https://www.bleepingcomputer.com/news/security/traffic-violation-scams-switch-to-qr-codes-in-new-phishing-texts/"
   image="https://www.bleepstatic.com/content/hl-images/2026/04/05/hacker-qrcodes.jpg"
-  summary="미국 전역에서 사기범들이 주 법원을 사칭한 가짜 교통 위반 \"Notice of Default\" 문자를 발송하며, QR 코드를 스캔하도록 유도해 피싱 사이트로 연결해 금전과 개인정보를 탈취하고 있습니다."
+  summary="미국 전역에서 사기범들이 주 법원을 사칭한 가짜 교통 위반 \”Notice of Default\” 문자를 발송하며, QR 코드를 스캔하도록 유도해 피싱 사이트로 연결해 금전과 개인정보를 탈취하고 있습니다."
   source="BleepingComputer"
   severity="High"
 %}
@@ -179,7 +179,7 @@ DevSecOps 관점에서 이 취약점은 다음과 같은 직접적 영향을 미
 ### 2.1 Crypto 변호사 "Drift 사건은 '민사상 과실'에 해당할 수 있다"고 밝혀
 
 {% include news-card.html
-  title="Crypto 변호사 \"Drift 사건은 '민사상 과실'에 해당할 수 있다\"고 밝혀"
+  title="Crypto 변호사 \”Drift 사건은 '민사상 과실'에 해당할 수 있다\”고 밝혀"
   url="https://cointelegraph.com/news/crypto-attorney-says-drift-incident-may-qualify-as-civil-negligence?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDVmNzMtOTMwZi03MzUzLTk2ZWYtOTQ0ZDQwNDI2MGJiLmpwZw==.jpg"
   summary="북한 해커 조직이 개입된 것으로 추정되는 2억 8천만 달러 규모의 Drift Protocol 공격에 대해, 한 암호화폐 변호사는 이 사건이 '민사상 과실'에 해당할 수 있다고 지적했습니다."

@@ -98,7 +98,7 @@ summary_card:
   title="연구진, 단일 Git Push로 악용 가능한 GitHub CVE-2026-3854 원격 코드 실행 취약점 발견"
   url="https://thehackernews.com/2026/04/researchers-discover-critical-github.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgztlzahKA2HwUQiNDerhbX2l415JinNIW5jaU5tgskPVHqpMhba_NorYL9SSWRzLdSPjSnsxZKQic97f8H2Bx2G0Dsjb58dcdFuZoL0c5Gno3BVvYa4vi62_PNr1Qh-kBYED7YbTPw3fqQklMmnoPV0b1KYaienKHzIAtBuktMqyVCxGU0u8Hkd-zzYeNU/s1600/github.jpg"
-  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 치명적인 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다. 이 결함은 명령 인젝션(Command Injection)으로, 저장소에 푸시 접근 권한이 있는 인증된 사용자가 단 한 번의 \"git push\" 명령으로 원격 코드 실행"
+  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 치명적인 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다. 이 결함은 명령 인젝션(Command Injection)으로, 저장소에 푸시 접근 권한이 있는 인증된 사용자가 단 한 번의 \”git push\” 명령으로 원격 코드 실행"
   source="The Hacker News"
   severity="Critical"
 %}
@@ -338,7 +338,7 @@ Palantir의 Ontology 기반 소프트웨어는 재난 대응부터 원자력 에
   title="에이전틱 시대에 오신 것을 환영합니다: Next '26에서 본 공공 부문의 주요 내용과 성찰"
   url="https://cloud.google.com/blog/topics/public-sector/welcome-to-the-agentic-era-public-sector-highlights-and-reflections-from-next-26/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/Next_in_line_26.max-1000x1000.jpg"
-  summary="Google Cloud Next '26에서 공공 부문 리더들이 AI와 에이전트를 활용해 영향력을 확장하는 사례를 공유했습니다. 로스앤젤레스시의 Ted Ross CIO와 미국의 Jeremy Walsh CAIO가 참여한 \"공공 부문의 에이전틱 트랜스포메이션\" 세션이 주목받았습니다."
+  summary="Google Cloud Next '26에서 공공 부문 리더들이 AI와 에이전트를 활용해 영향력을 확장하는 사례를 공유했습니다. 로스앤젤레스시의 Ted Ross CIO와 미국의 Jeremy Walsh CAIO가 참여한 \”공공 부문의 에이전틱 트랜스포메이션\” 세션이 주목받았습니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

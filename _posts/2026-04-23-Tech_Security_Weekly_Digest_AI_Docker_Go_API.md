@@ -460,10 +460,10 @@ GitHub CLI v2.91.0부터 제품 개선을 위해 익명의 사용 원격 측정 
 ### 5.1 FBI 국장 Kash Patel, Bitcoin 2026 컨퍼런스에서 "비트코인에 대한 전쟁 종식"에 관해 연설한다
 
 {% include news-card.html
-  title="FBI 국장 Kash Patel, Bitcoin 2026 컨퍼런스에서 \"비트코인에 대한 전쟁 종식\"에 관해 연설한다"
+  title="FBI 국장 Kash Patel, Bitcoin 2026 컨퍼런스에서 \”비트코인에 대한 전쟁 종식\”에 관해 연설한다"
   url="https://bitcoinmagazine.com/conference/fbi-director-kash-patel-to-speak-at-bitcoin-2026-conference-about-ending-the-war-on-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/bitcoin-2026-conference-get-your-1.jpg"
-  summary="FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 \"비트코인에 대한 전쟁 종식\"을 주제로 발표할 예정입니다. Patel은 이 패널에서 법률, 정부, Bitcoin 업계 인사들과 함께 'Code Is Free Speech: Ending The War On Bitcoin'을 논의합니다."
+  summary="FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 \”비트코인에 대한 전쟁 종식\”을 주제로 발표할 예정입니다. Patel은 이 패널에서 법률, 정부, Bitcoin 업계 인사들과 함께 'Code Is Free Speech: Ending The War On Bitcoin'을 논의합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}

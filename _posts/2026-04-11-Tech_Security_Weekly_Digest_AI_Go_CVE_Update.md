@@ -98,7 +98,7 @@ summary_card:
   title="GlassWorm 캠페인, Zig 드로퍼로 다중 개발자 IDE 감염 시도"
   url="https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioOU2XpKmyRPz5kTr4GhD1YLJ2t7F6yv7bQD1upkiwmGwmzirnDAz92GvtjckyoBhBjaRqeR9XPm6e0yHdKLowfDDgZNkRlCvCneJEncgiviFu7PgD4wQg3Bo5JDhgg6JTytg_fY2M-iKeykCLebOdStW4A76JKnPbEQazihNOhKOdM9Ou8keMBh4IY4jo/s1600/software.jpg"
-  summary="GlassWorm 캠페인이 새로운 Zig dropper를 사용해 개발자 시스템의 모든 IDE를 은밀하게 감염시키는 방식으로 진화했습니다. 이 기법은 WakaTime으로 위장한 \"specstudio.code-wakatime-activity-tracker\"라는 Open VSX 확장 프로그램에서 발견되었습니다."
+  summary="GlassWorm 캠페인이 새로운 Zig dropper를 사용해 개발자 시스템의 모든 IDE를 은밀하게 감염시키는 방식으로 진화했습니다. 이 기법은 WakaTime으로 위장한 \”specstudio.code-wakatime-activity-tracker\”라는 Open VSX 확장 프로그램에서 발견되었습니다."
   source="The Hacker News"
   severity="Medium"
 %}

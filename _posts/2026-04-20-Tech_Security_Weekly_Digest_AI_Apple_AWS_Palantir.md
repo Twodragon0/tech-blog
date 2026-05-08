@@ -202,7 +202,7 @@ Moody's 애널리스트에 따르면 수익이 발생하는 스테이블코인(S
 ### 2.2 분석가 "2024년 BTC 사이클, 이전 반감기 대비 '극적으로' 부진
 
 {% include news-card.html
-  title="분석가 \"2024년 BTC 사이클, 이전 반감기 대비 '극적으로' 부진"
+  title="분석가 \”2024년 BTC 사이클, 이전 반감기 대비 '극적으로' 부진"
   url="https://cointelegraph.com/news/bitcoin-cycle-dramatically-underperform-halving?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZGE2ZTUtMWMwNS03OGVhLTlmMzUtYWQ5MGM1M2Y4MGI3LmpwZw==.jpg"
   summary="Galaxy의 Alex Thorn에 따르면 각 Bitcoin halving cycle마다 변동성과 상승폭이 감소하고 있지만 2024년 BTC 사이클은 이전 halving에 비해 '극적으로' 부진한 성과를 보이고 있습니다. 이러한 새로운 역학 관계가 영구적이지 않을 수 있다고 분석했습니다."
