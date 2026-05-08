@@ -135,3 +135,8 @@ tests/visual-diffs/
 assets/images/.backup/
 assets/images/.backup_l25/
 scripts/upgrade_2025_svgs_l25_single.failures
+
+# Migration verification artifacts (executor)
+_site_baseline/
+_site_migrated/
+_site_test/
