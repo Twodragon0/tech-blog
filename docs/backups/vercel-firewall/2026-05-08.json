@@ -1,0 +1,107 @@
+{
+  "changes": [],
+  "crs": {
+    "gen": {
+      "action": "log",
+      "active": true
+    },
+    "java": {
+      "action": "log",
+      "active": false
+    },
+    "lfi": {
+      "action": "log",
+      "active": false
+    },
+    "ma": {
+      "action": "log",
+      "active": false
+    },
+    "php": {
+      "action": "log",
+      "active": false
+    },
+    "rce": {
+      "action": "log",
+      "active": true
+    },
+    "rfi": {
+      "action": "log",
+      "active": false
+    },
+    "sd": {
+      "action": "log",
+      "active": false
+    },
+    "sf": {
+      "action": "log",
+      "active": false
+    },
+    "sqli": {
+      "action": "log",
+      "active": true
+    },
+    "xss": {
+      "action": "log",
+      "active": true
+    }
+  },
+  "firewallEnabled": true,
+  "ips": [],
+  "managedRules": {
+    "ai_bots": {
+      "action": "deny",
+      "active": true
+    },
+    "bot_protection": {
+      "action": "log",
+      "active": true
+    }
+  },
+  "ownerId": "team_K7Ut1NIGYRvAfP68LYpOLBcA",
+  "projectKey": "prj_AONcZXgpIpZ8YXjupW9547FdTJEr#active",
+  "rules": [
+    {
+      "action": {
+        "mitigate": {
+          "action": "rate_limit",
+          "actionDuration": null,
+          "rateLimit": {
+            "action": "rate_limit",
+            "algo": "fixed_window",
+            "keys": [
+              "ip",
+              "ja4",
+              "header:user-agent"
+            ],
+            "limit": 2000,
+            "window": 60
+          },
+          "redirect": null
+        }
+      },
+      "active": true,
+      "conditionGroup": [
+        {
+          "conditions": [
+            {
+              "op": "sub",
+              "type": "path",
+              "value": "/"
+            },
+            {
+              "neg": true,
+              "op": "sub",
+              "type": "path",
+              "value": "/api/auth"
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "name": "all-path-2000rpm",
+      "valid": true,
+      "validationErrors": null
+    }
+  ]
+}
