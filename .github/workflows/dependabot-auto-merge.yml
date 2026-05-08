@@ -1,0 +1,68 @@
+name: Dependabot Auto-Merge
+
+# Auto-approve and squash-merge low-risk Dependabot PRs once required
+# checks pass. Major-version bumps still need manual review.
+#
+# Triggers only when the PR author is dependabot[bot]. Uses the metadata
+# action to introspect update-type and refuses anything classified as
+# `version-update:semver-major`.
+#
+# Required repo settings:
+#   - Settings → General → "Allow auto-merge" enabled
+#   - Settings → Branches → main protection: required checks list MUST
+#     include the gates we depend on (Jekyll site CI, check-svg,
+#     lighthouse-ci, vitest, sentry-release).
+#
+# Author trust:
+#   We pin dependabot/fetch-metadata to a SHA so a renamed action repo
+#   cannot exfiltrate secrets via this workflow (rule from
+#   .github/workflows/action-pin-check.yml).
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Get Dependabot metadata
+        id: meta
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7  # v2.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Approve PR (patch + minor only)
+        if: |
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor'
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge (patch + minor only)
+        if: |
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor'
+        run: gh pr merge --auto --squash --delete-branch "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on major bumps (manual review needed)
+        if: steps.meta.outputs.update-type == 'version-update:semver-major'
+        run: |
+          gh pr comment "$PR_URL" --body "**Major version bump detected** ($DEP_NAME $PREV → $NEW). Auto-merge is disabled for major versions — please review breaking changes manually before merging."
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEP_NAME: ${{ steps.meta.outputs.dependency-names }}
+          PREV: ${{ steps.meta.outputs.previous-version }}
+          NEW: ${{ steps.meta.outputs.new-version }}
