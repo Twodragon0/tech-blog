@@ -23,30 +23,24 @@ title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩
 toc: true
 redirect_from:
   - /posts/2026/02/Security_Digest_SolarWinds_UNC3886_LLM_Attack/
+summary_card:
+  title: "2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격"
+  period: "2026-02-10"
+  audience: "DevOps/DevSecOps/Cloud 보안 담당자"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "Security-Digest"
+    - "SolarWinds-RCE"
+    - "UNC3886"
+    - "LLM-Safety"
+    - "UNC1069"
+    - "CVE-2025-40551"
+  highlights:
+    - { source: "핵심 요약", title: "SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전" }
 ---
-{% capture ai_categories_html %}
-<span class="category-tag security">Security</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Security-Digest</span>
-<span class="tag">SolarWinds-RCE</span>
-<span class="tag">UNC3886</span>
-<span class="tag">LLM-Safety</span>
-<span class="tag">UNC1069</span>
-<span class="tag">CVE-2025-40551</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>핵심 요약</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전</li>
-{% endcapture %}
 
-{% include ai-summary-card.html
-  title="2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026-02-10"
-  audience="DevOps/DevSecOps/Cloud 보안 담당자"
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 [AI & 클라우드] 다이제스트 [2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트](/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS)에서 Meta Prometheus 클러스터, Google OTLP, AWS Claude Bedrock 통합을 심층 분석합니다.
 

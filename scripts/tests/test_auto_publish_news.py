@@ -117,47 +117,49 @@ _TEST_DATE = __import__("datetime").datetime(2026, 4, 20, 10, 0, 0,
 
 
 class TestGeneratePostContentQuoteSafety:
-    """Regression tests: ai-summary-card title arg must not contain literal inner '."""
+    """Regression tests for summary_card.title quote handling.
 
-    def test_title_arg_uses_double_quote_outer(self):
-        """The title= arg in generated include must use double-quote outer."""
+    Post-2026-05-08: ai-summary-card now reads from `page.summary_card` in
+    frontmatter (Option A). The legacy `title="..."` include attribute no
+    longer exists; equivalent guards now apply to YAML scalar safety.
+    """
+
+    def _parse_summary_card(self, content: str) -> dict:
+        import yaml as _yaml
+
+        fm_block = content.split("---", 2)[1]
+        front = _yaml.safe_load(fm_block) or {}
+        return front.get("summary_card") or {}
+
+    def test_body_uses_bare_include(self):
+        """Body must use the bare include form, no legacy attribute residue."""
         items = _make_security_items_with_single_quotes()
         content = generate_post_content(items, _make_categorized(items), _TEST_DATE)
-        # Find the title= line in the include block
-        match = re.search(r'\{%[- ]* include ai-summary-card\.html(.*?)%\}', content, re.DOTALL)
-        assert match, "ai-summary-card include block not found in generated content"
-        include_block = match.group(0)
-        # title= must be double-quoted outer
-        assert re.search(r'\btitle="', include_block), (
-            "title= arg should use double-quote outer in ai-summary-card include.\n"
-            f"Include block:\n{include_block}"
+        assert "{% include ai-summary-card.html %}" in content, (
+            "Body should use bare include form after Option A migration"
+        )
+        assert "categories_html=" not in content, (
+            "Legacy categories_html= attribute should not appear"
         )
 
-    def test_title_arg_no_literal_single_quote(self):
-        """No literal unescaped single quote inside the title= value."""
+    def test_summary_card_title_yaml_safe(self):
+        """summary_card.title must round-trip through yaml.safe_load cleanly."""
         items = _make_security_items_with_single_quotes()
         content = generate_post_content(items, _make_categorized(items), _TEST_DATE)
-        match = re.search(r'title="([^"]*)"', content)
-        assert match, "title=\"...\" pattern not found in generated content"
-        title_value = match.group(1)
-        assert "'" not in title_value, (
-            f"Literal single quote found in title= value: {title_value!r}\n"
-            "This would cause a Liquid parse error."
-        )
+        sc = self._parse_summary_card(content)
+        assert sc, "summary_card block missing from frontmatter"
+        title = sc.get("title", "")
+        assert title, "summary_card.title is empty"
 
-    def test_title_arg_single_quote_encoded_as_entity(self):
-        """Single quotes from headline are encoded as &#x27; in the title= value."""
+    def test_summary_card_categories_present(self):
+        """summary_card.categories must contain expected security/devsecops chips."""
         items = _make_security_items_with_single_quotes()
         content = generate_post_content(items, _make_categorized(items), _TEST_DATE)
-        # The title keywords derived from the items should encode single quotes
-        match = re.search(r'title="([^"]*)"', content)
-        if match:
-            title_value = match.group(1)
-            # If the title contains what would have been a single quote, it must be &#x27;
-            if "퇴행적" in title_value or "Palantir" in title_value:
-                assert "&#x27;" in title_value, (
-                    f"Expected &#x27; encoding for inner single quotes in: {title_value!r}"
-                )
+        sc = self._parse_summary_card(content)
+        cats = sc.get("categories", [])
+        classes = {c.get("class") for c in cats}
+        assert "security" in classes
+        assert "devsecops" in classes
 
 
 # ---------------------------------------------------------------------------
@@ -165,7 +167,7 @@ class TestGeneratePostContentQuoteSafety:
 # ---------------------------------------------------------------------------
 
 class TestGenerateTechBlogContentQuoteSafety:
-    """Same regression tests for the tech-blog variant."""
+    """Same regression coverage for the tech-blog variant under Option A."""
 
     def _make_tech_items(self):
         return [
@@ -199,30 +201,41 @@ class TestGenerateTechBlogContentQuoteSafety:
             "tech": items,
         }
 
-    def test_title_arg_uses_double_quote_outer(self):
+    def _parse_summary_card(self, content: str) -> dict:
+        import yaml as _yaml
+
+        fm_block = content.split("---", 2)[1]
+        front = _yaml.safe_load(fm_block) or {}
+        return front.get("summary_card") or {}
+
+    def test_body_uses_bare_include(self):
         items = self._make_tech_items()
         content = generate_tech_blog_content(
             items, self._make_tech_categorized(items), _TEST_DATE
         )
-        match = re.search(r'\{%[- ]* include ai-summary-card\.html(.*?)%\}', content, re.DOTALL)
-        assert match, "ai-summary-card include block not found in tech blog content"
-        include_block = match.group(0)
-        assert re.search(r'\btitle="', include_block), (
-            "title= arg should use double-quote outer in ai-summary-card include.\n"
-            f"Include block:\n{include_block}"
+        assert "{% include ai-summary-card.html %}" in content
+        assert "categories_html=" not in content
+
+    def test_summary_card_title_has_tech_prefix(self):
+        items = self._make_tech_items()
+        content = generate_tech_blog_content(
+            items, self._make_tech_categorized(items), _TEST_DATE
+        )
+        sc = self._parse_summary_card(content)
+        title = sc.get("title", "")
+        assert title.startswith("기술 블로그 주간 다이제스트:"), (
+            f"Tech-blog summary_card.title missing prefix: {title!r}"
         )
 
-    def test_title_arg_no_literal_single_quote(self):
+    def test_summary_card_categories_present(self):
         items = self._make_tech_items()
         content = generate_tech_blog_content(
             items, self._make_tech_categorized(items), _TEST_DATE
         )
-        match = re.search(r'title="([^"]*)"', content)
-        assert match, "title=\"...\" pattern not found in tech blog content"
-        title_value = match.group(1)
-        assert "'" not in title_value, (
-            f"Literal single quote found in title= value: {title_value!r}"
-        )
+        sc = self._parse_summary_card(content)
+        classes = {c.get("class") for c in sc.get("categories", [])}
+        assert "tech" in classes
+        assert "devops" in classes
 
 
 # ---------------------------------------------------------------------------

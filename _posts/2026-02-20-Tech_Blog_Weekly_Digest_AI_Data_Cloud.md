@@ -13,16 +13,29 @@ comments: true
 image: /assets/images/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg
 image_alt: "기술 블로그 주간 다이제스트 2026년 2월 20일"
 toc: true
+summary_card:
+  title: "AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향"
+  period: "2026-02-20 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "tech", label: "기술" }
+    - { class: "devops", label: "DevOps" }
+  tags:
+    - "Tech-Blog"
+    - "Weekly-Digest"
+    - "Developer"
+    - "2026"
+    - "AI"
+    - "Data"
+    - "Cloud"
+    - "Go"
+  highlights:
+    - { source: "포인트 1", title: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
 
-{% include ai-summary-card.html
-  title='AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향'
-  categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">Tech-Blog</span> <span class="tag">Weekly-Digest</span> <span class="tag">Developer</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Data</span> <span class="tag">Cloud</span> <span class="tag">Go</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-02-20 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 보안 다이제스트 [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes)에서 AI 공급망 공격 신규 벡터, Kubernetes Ingress NGINX 은퇴 이슈, DevSecOps 위협 대응을 심층 분석합니다.
 

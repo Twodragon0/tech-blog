@@ -16,15 +16,28 @@ image_alt: "Tech Security Weekly Digest February 27 2026 AI Botnet Blockchain"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/
+summary_card:
+  title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
+  period: "2026-02-27 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "AI"
+    - "Botnet"
+    - "Blockchain"
+  highlights:
+    - { source: "포인트 1", title: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Botnet</span> <span class="tag">Blockchain</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-02-27 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

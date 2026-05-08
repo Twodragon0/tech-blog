@@ -26,15 +26,32 @@ author: Twodragon
 toc: true
 redirect_from:
   - /posts/2026/02/Claude_Code_OpenCode_Best_Practices/
+summary_card:
+  title: "Claude Code & OpenCode Best Practices: 38가지 실전 가이드"
+  period: "2026-02-25"
+  audience: "AI 코딩 도구 사용자, 개발자, DevOps 엔지니어"
+  categories:
+    - { class: "devops", label: "DevOps" }
+    - { class: "tech", label: "AI Coding" }
+  tags:
+    - "Claude-Code"
+    - "OpenCode"
+    - "Best-Practices"
+    - "AI-Agent"
+    - "Agent-Teams"
+    - "MCP"
+    - "Prompt-Engineering"
+  highlights:
+    - { source: "환경 설정", title: "필수 환경 변수, 권한 관리, MCP 서버 연동, 플러그인 확장 (BP-01~05)" }
+    - { source: "CLAUDE.md", title: "프로젝트별 생성, 배치 위치별 역할 구분, 간결하게 유지하는 원칙 (BP-06~10)" }
+    - { source: "프롬프팅", title: "검증 수단 제공, 구체적 컨텍스트, Opus 4.6 최적 활용법 (BP-11~15)" }
+    - { source: "워크플로우", title: "탐색-계획-구현-커밋 4단계, 실행 모드 선택, 비용 최적화 (BP-16~19)" }
+    - { source: "세션 관리", title: "컨텍스트 공격적 관리, 서브에이전트 위임, 체크포인트 활용 (BP-20~24)" }
+    - { source: "에이전트 팀", title: "Subagent vs 팀 선택, 적정 규모 3-5명, 파일 충돌 방지 (BP-25~29)" }
+    - { source: "Hook & Skills", title: "결정적 실행을 위한 Hook, 도메인 지식 Skill 분리 (BP-30~31)" }
+    - { source: "자동화", title: "Headless 모드, Writer/Reviewer 패턴, Fan-out 패턴 (BP-35~38)" }
 ---
-{% include ai-summary-card.html
-  title='Claude Code & OpenCode Best Practices: 38가지 실전 가이드'
-  categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag tech">AI Coding</span>'
-  tags_html='<span class="tag">Claude-Code</span> <span class="tag">OpenCode</span> <span class="tag">Best-Practices</span> <span class="tag">AI-Agent</span> <span class="tag">Agent-Teams</span> <span class="tag">MCP</span> <span class="tag">Prompt-Engineering</span>'
-  highlights_html='<li><strong>환경 설정</strong>: 필수 환경 변수, 권한 관리, MCP 서버 연동, 플러그인 확장 (BP-01~05)</li><li><strong>CLAUDE.md</strong>: 프로젝트별 생성, 배치 위치별 역할 구분, 간결하게 유지하는 원칙 (BP-06~10)</li><li><strong>프롬프팅</strong>: 검증 수단 제공, 구체적 컨텍스트, Opus 4.6 최적 활용법 (BP-11~15)</li><li><strong>워크플로우</strong>: 탐색-계획-구현-커밋 4단계, 실행 모드 선택, 비용 최적화 (BP-16~19)</li><li><strong>세션 관리</strong>: 컨텍스트 공격적 관리, 서브에이전트 위임, 체크포인트 활용 (BP-20~24)</li><li><strong>에이전트 팀</strong>: Subagent vs 팀 선택, 적정 규모 3-5명, 파일 충돌 방지 (BP-25~29)</li><li><strong>Hook & Skills</strong>: 결정적 실행을 위한 Hook, 도메인 지식 Skill 분리 (BP-30~31)</li><li><strong>자동화</strong>: Headless 모드, Writer/Reviewer 패턴, Fan-out 패턴 (BP-35~38)</li>'
-  period='2026-02-25'
-  audience='AI 코딩 도구 사용자, 개발자, DevOps 엔지니어'
-%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

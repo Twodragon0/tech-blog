@@ -14,17 +14,28 @@ comments: true
 image: /assets/images/2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat.svg
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 21일"
 toc: true
+summary_card:
+  title: "CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안"
+  period: "2026-02-21 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "Vulnerability"
+    - "AI"
+    - "Security"
+  highlights:
+    - { source: "보안 뉴스", title: "The Hacker News, SK쉴더스 보안 리포트 등 15건의 취약점, AI, 클라우드 보안 관련 DevSecOps 실무 위협 분석" }
+    - { source: "실무 관점", title: "영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "운영 체계", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Vulnerability</span> <span class="tag">AI</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>보안 뉴스</strong>: The Hacker News, SK쉴더스 보안 리포트 등 15건의 취약점, AI, 클라우드 보안 관련 DevSecOps 실무 위협 분석</li>
-      <li><strong>실무 관점</strong>: 영향 범위와 우선순위를 함께 점검해야 합니다</li>
-      <li><strong>운영 체계</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-02-21 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

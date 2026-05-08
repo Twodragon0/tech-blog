@@ -26,33 +26,27 @@ title: '2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, A
 toc: true
 redirect_from:
   - /posts/2026/02/Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic/
+summary_card:
+  title: "2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI"
+  period: "2026-02-09"
+  audience: "DevOps/DevSecOps/Cloud 보안 담당자"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "Security-Digest"
+    - "Cloud-Digest"
+    - "AI-Agent-Security"
+    - "Supply-Chain"
+    - "AWS"
+    - "Agentic-AI"
+    - "AI"
+    - "VirusTotal"
+  highlights:
+    - { source: "핵심 요약", title: "AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS" }
 ---
-{% capture ai_categories_html %}
-<span class="category-tag security">Security</span>
-<span class="category-tag cloud">Cloud</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Security-Digest</span>
-<span class="tag">Cloud-Digest</span>
-<span class="tag">AI-Agent-Security</span>
-<span class="tag">Supply-Chain</span>
-<span class="tag">AWS</span>
-<span class="tag">Agentic-AI</span>
-<span class="tag">AI</span>
-<span class="tag">VirusTotal</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>핵심 요약</strong>: AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS</li>
-{% endcapture %}
 
-{% include ai-summary-card.html
-  title="2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026-02-09"
-  audience="DevOps/DevSecOps/Cloud 보안 담당자"
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 [블록체인 & 테크] 다이제스트 [2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K](/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin)에서 Bithumb 오송금 사고, Bitcoin $71K 회복, 임베디드 최적화를 심층 분석합니다.
 

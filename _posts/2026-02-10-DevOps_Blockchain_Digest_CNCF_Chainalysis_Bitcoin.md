@@ -25,32 +25,26 @@ title: 'DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitco
 toc: true
 redirect_from:
   - /posts/2026/02/DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin/
+summary_card:
+  title: "2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
+  period: "2026-02-10"
+  audience: "DevOps/DevSecOps/Cloud 보안 담당자"
+  categories:
+    - { class: "devops", label: "DevOps" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "DevOps-Digest"
+    - "Blockchain-Digest"
+    - "CNCF"
+    - "Kubernetes"
+    - "Cluster-API"
+    - "Chainalysis"
+    - "Bitcoin"
+  highlights:
+    - { source: "핵심 요약", title: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트," }
 ---
-{% capture ai_categories_html %}
-<span class="category-tag devops">DevOps</span>
-<span class="category-tag devsecops">DevSecOps</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">DevOps-Digest</span>
-<span class="tag">Blockchain-Digest</span>
-<span class="tag">CNCF</span>
-<span class="tag">Kubernetes</span>
-<span class="tag">Cluster-API</span>
-<span class="tag">Chainalysis</span>
-<span class="tag">Bitcoin</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>핵심 요약</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,</li>
-{% endcapture %}
 
-{% include ai-summary-card.html
-  title="2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026-02-10"
-  audience="DevOps/DevSecOps/Cloud 보안 담당자"
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 [AI & 클라우드] 다이제스트 [2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트](/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS)에서 Meta Prometheus 클러스터, Google OTLP, AWS Claude Bedrock 통합을 심층 분석합니다.
 

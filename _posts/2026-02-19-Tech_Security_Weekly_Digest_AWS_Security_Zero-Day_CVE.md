@@ -16,15 +16,28 @@ image_alt: "AWS security update, zero day response, and CVE review digest"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE/
+summary_card:
+  title: "기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
+  period: "2026-02-19 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "AWS"
+    - "Security"
+    - "Zero-Day"
+  highlights:
+    - { source: "포인트 1", title: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 202" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Zero-Day</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 202</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-02-19 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

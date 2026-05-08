@@ -16,38 +16,33 @@ image_alt: "Microsoft zero day, Apple patch, and Ivanti EPMM attack digest"
 toc: true
 redirect_from:
   - /posts/2026/02/Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM/
+summary_card:
+  title: "2026년 2월 2주차 보안 위협 종합 분석"
+  period: "2026년 2월 8일 ~ 2월 14일"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Zero-Day"
+    - "Patch-Tuesday"
+    - "CVE-2026-21510"
+    - "CVE-2026-20700"
+    - "Ivanti-EPMM"
+    - "Ransomware"
+    - "AI-Security"
+    - "Supply-Chain"
+    - "2026"
+  highlights:
+    - { source: "Microsoft", title: "Patch Tuesday 6건 Zero-Day 긴급 패치 - CVE-2026-21510 Windows Shell 보안 기능 우회" }
+    - { source: "Apple", title: "CVE-2026-20700 dyld 메모리 손상 Zero-Day - 고도 표적 공격에 악용" }
+    - { source: "Ivanti", title: "EPMM CVE-2026-1281 (CVSS 9.8) - 83% 공격이 단일 방탄 호스팅 IP에서 발생" }
+    - { source: "SAP", title: "CVE-2026-0488 (CVSS 9.9) SQL Injection - 전체 DB 탈취 가능" }
+    - { source: "랜섬웨어", title: "2026년 글로벌 피해 $74B 전망, AI 기반 RaaS 90% 자동화" }
 ---
-{% capture ai_categories_html %}
-<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Security-Weekly</span>
-<span class="tag">Zero-Day</span>
-<span class="tag">Patch-Tuesday</span>
-<span class="tag">CVE-2026-21510</span>
-<span class="tag">CVE-2026-20700</span>
-<span class="tag">Ivanti-EPMM</span>
-<span class="tag">Ransomware</span>
-<span class="tag">AI-Security</span>
-<span class="tag">Supply-Chain</span>
-<span class="tag">2026</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>Microsoft</strong>: Patch Tuesday 6건 Zero-Day 긴급 패치 - CVE-2026-21510 Windows Shell 보안 기능 우회</li>
-<li><strong>Apple</strong>: CVE-2026-20700 dyld 메모리 손상 Zero-Day - 고도 표적 공격에 악용</li>
-<li><strong>Ivanti</strong>: EPMM CVE-2026-1281 (CVSS 9.8) - 83% 공격이 단일 방탄 호스팅 IP에서 발생</li>
-<li><strong>SAP</strong>: CVE-2026-0488 (CVSS 9.9) SQL Injection - 전체 DB 탈취 가능</li>
-<li><strong>랜섬웨어</strong>: 2026년 글로벌 피해 $74B 전망, AI 기반 RaaS 90% 자동화</li>
-{% endcapture %}
 
-{% include ai-summary-card.html
-  title="2026년 2월 2주차 보안 위협 종합 분석"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026년 2월 8일 ~ 2월 14일"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
-%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

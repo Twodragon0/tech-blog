@@ -378,8 +378,22 @@ def _is_separator_compatible(attrs: dict[str, str]) -> tuple[bool, str]:
     return True, ""
 
 
-def migrate_post(content: str, path: str = "<input>") -> MigrationResult:
-    """Forward migration: include-with-attrs → frontmatter + bare include."""
+def migrate_post(
+    content: str,
+    path: str = "<input>",
+    *,
+    allow_separator_divergence: bool = False,
+) -> MigrationResult:
+    """Forward migration: include-with-attrs → frontmatter + bare include.
+
+    `allow_separator_divergence=True` bypasses _is_separator_compatible. The
+    summary_card render branch always uses canonical `\\n      ` separators,
+    so on legacy posts whose include attributes used single-space or single-
+    newline separators (e.g., output of scripts/unify_ai_summary_block.py)
+    the rendered HTML will gain canonical whitespace between chips. This is
+    a deliberate cosmetic-only delta — the content extracted via BS4 is
+    structurally identical.
+    """
     fm_split = split_frontmatter(content)
     if fm_split is None:
         return MigrationResult(path, "skipped", "no frontmatter")
@@ -408,9 +422,10 @@ def migrate_post(content: str, path: str = "<input>") -> MigrationResult:
             path, "failed", f"missing attributes: {sorted(missing)}"
         )
 
-    compat, why = _is_separator_compatible(attrs)
-    if not compat:
-        return MigrationResult(path, "skipped", f"separator-incompatible: {why}")
+    if not allow_separator_divergence:
+        compat, why = _is_separator_compatible(attrs)
+        if not compat:
+            return MigrationResult(path, "skipped", f"separator-incompatible: {why}")
 
     sc = build_summary_card(attrs)
     sc_yaml = emit_summary_card_yaml(sc)
@@ -546,6 +561,18 @@ def main(argv: list[str] | None = None) -> int:
         help="Reverse migration (frontmatter → include attrs).",
     )
     parser.add_argument(
+        "--allow-separator-divergence",
+        action="store_true",
+        help=(
+            "Bypass the byte-identity separator check. The summary_card "
+            "render path always emits canonical chip separators, so legacy "
+            "posts using single-space or single-newline separators will "
+            "gain canonical whitespace — a cosmetic-only delta. Use to "
+            "migrate the residual fallback posts left from "
+            "unify_ai_summary_block.py output."
+        ),
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Print one line per file processed.",
@@ -561,15 +588,22 @@ def main(argv: list[str] | None = None) -> int:
         print(f"No posts matched glob: {args.posts_glob}", file=sys.stderr)
         return 1
 
-    fn = reverse_post if args.reverse else migrate_post
-
     counts = {"migrated": 0, "reversed": 0, "skipped": 0, "failed": 0}
     failures: list[MigrationResult] = []
+
+    def _run_one(content: str, path: str) -> MigrationResult:
+        if args.reverse:
+            return reverse_post(content, path)
+        return migrate_post(
+            content,
+            path,
+            allow_separator_divergence=args.allow_separator_divergence,
+        )
 
     for path in paths:
         with open(path, encoding="utf-8") as f:
             content = f.read()
-        result = fn(content, path)
+        result = _run_one(content, path)
         counts[result.status] = counts.get(result.status, 0) + 1
         if result.status == "failed":
             failures.append(result)

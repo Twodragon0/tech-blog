@@ -9,7 +9,7 @@ import sys
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from scripts.news.analyzer import (
     extract_cve_id,
@@ -131,6 +131,54 @@ def sanitize_quotes_for_yaml(text: str) -> str:
     decoded = decoded.replace("\u2019", "'")
 
     return decoded
+
+
+def _emit_summary_card_yaml(
+    title: str,
+    period: str,
+    audience: str,
+    categories: List[Tuple[str, str]],
+    tags: List[str],
+    highlights: List[Tuple[str, str]],
+) -> str:
+    """Emit a `summary_card:` YAML block for post frontmatter.
+
+    Mirrors scripts/migrate_summary_cards_to_frontmatter.py.emit_summary_card_yaml
+    so newly-generated posts are byte-compatible with retroactively-migrated
+    ones, and the ai-summary-card include's `page.summary_card` branch is the
+    only render path for fresh content. Only `\\` and `"` are YAML-escaped;
+    HTML entities in highlight source/title are preserved verbatim because
+    the include template emits them raw (without `| escape`) — see the
+    `{% if page.summary_card %}` branch in _includes/ai-summary-card.html.
+    """
+    def esc(s: str) -> str:
+        return _yaml_escape_dq(s)
+
+    lines: List[str] = ["summary_card:"]
+    lines.append(f'  title: "{esc(title)}"')
+    if period:
+        lines.append(f'  period: "{esc(period)}"')
+    if audience:
+        lines.append(f'  audience: "{esc(audience)}"')
+    if categories:
+        lines.append("  categories:")
+        for cls, label in categories:
+            lines.append(f'    - {{ class: "{esc(cls)}", label: "{esc(label)}" }}')
+    else:
+        lines.append("  categories: []")
+    if tags:
+        lines.append("  tags:")
+        for t in tags:
+            lines.append(f'    - "{esc(t)}"')
+    else:
+        lines.append("  tags: []")
+    if highlights:
+        lines.append("  highlights:")
+        for src, ttl in highlights:
+            lines.append(f'    - {{ source: "{esc(src)}", title: "{esc(ttl)}" }}')
+    else:
+        lines.append("  highlights: []")
+    return "\n".join(lines)
 
 
 def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -> str:
@@ -1340,22 +1388,19 @@ def generate_post_content(
     blockchain_news = categorized.get("blockchain", [])[:3]
     tech_news = categorized.get("tech", [])[:3]
 
-    # 핵심 하이라이트 생성
-    highlights = []
+    # 핵심 하이라이트 생성 — Option A: structured data for summary_card YAML.
+    # html.escape is preserved so the include template's raw `{{ h.source }}` /
+    # `{{ h.title }}` render produces the same HTML output as the legacy
+    # include-with-attributes path used to.
+    highlights_data: List[Tuple[str, str]] = []
     for item in (security_news + cloud_news)[:4]:
         source = item.get("source_name", item.get("source", "Unknown"))
         title = _korean_display_title(item)
         if len(title) > 60:
             title = title[:60].rsplit(" ", 1)[0].rstrip(" ,.")
-        source = html.escape(source)
-        title = html.escape(title)
-        highlights.append(f"<li><strong>{source}</strong>: {title}</li>")
-
-    highlights_html = (
-        "\n      ".join(highlights)
-        if highlights
-        else "<li>오늘의 주요 뉴스를 확인하세요</li>"
-    )
+        highlights_data.append((html.escape(source), html.escape(title)))
+    if not highlights_data:
+        highlights_data = [("", "오늘의 주요 뉴스를 확인하세요")]
 
     topics = _extract_key_topics(news_items)
 
@@ -1377,25 +1422,30 @@ def generate_post_content(
     )[:3]
     source_list = ", ".join(top_sources)
 
-    # Generate Jekyll include tag for AI summary card - dynamic tags from actual content
-    categories_html = '<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-    # Build tags from actual topics instead of hardcoding
+    # Summary card structured data (Option A — no include attributes).
+    categories_data: List[Tuple[str, str]] = [
+        ("security", "보안"),
+        ("devsecops", "DevSecOps"),
+    ]
     dynamic_tags = ["Security-Weekly"]
     for topic in topics[:4]:
         if topic not in dynamic_tags:
             dynamic_tags.append(topic)
     dynamic_tags.append(str(date.year))
-    tags_html = "\n      ".join(
-        f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
-    )
+    tags_data: List[str] = list(dynamic_tags[:6])
 
-    # Escape quotes in title before Liquid injection to prevent parser breakage
-    # (e.g. headlines containing inner single quotes like '퇴행적' would terminate
-    # a single-quoted arg prematurely). Use double-quoted outer + entity encoding.
-    # Cap at 80 chars to prevent Liquid include parser errors from overly long
-    # ai-summary-card title= attribute values (regression: 2026-05-06).
+    # Cap at 80 chars to keep summary_card.title and downstream display lengths
+    # bounded (regression guard: 2026-05-06 Liquid include parser overflow).
     _capped_title = title_keywords[:80].rstrip(" ,.") if len(title_keywords) > 80 else title_keywords
-    safe_title = _html_escape_quotes(_capped_title)
+
+    summary_card_yaml = _emit_summary_card_yaml(
+        title=_capped_title,
+        period=f"{date_str} (24시간)",
+        audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트",
+        categories=categories_data,
+        tags=tags_data,
+        highlights=highlights_data,
+    )
 
     # YAML front-matter fields that feed into JSON-LD (title, excerpt,
     # description, image_alt) use sanitize_quotes_for_yaml so that ASCII `"`
@@ -1426,16 +1476,10 @@ comments: true
 image: /assets/images/{image_filename}
 image_alt: "{yaml_image_alt}"
 toc: true
+{summary_card_yaml}
 ---
 
-{{% include ai-summary-card.html
-  title="{safe_title}"
-  categories_html='{categories_html}'
-  tags_html='{tags_html}'
-  highlights_html='{highlights_html}'
-  period='{date_str} (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}}
+{{% include ai-summary-card.html %}}
 
 ---
 
@@ -1766,37 +1810,31 @@ def generate_tech_blog_content(
     )[:3]
     source_list = ", ".join(top_sources)
 
-    # Build highlights from top items
-    highlights = []
+    # Build highlights structured data (Option A — see security mode for rationale).
+    highlights_data: List[Tuple[str, str]] = []
     for item in news_items[:4]:
-        source = html.escape(item.get("source_name", item.get("source", "Unknown")))
+        source = item.get("source_name", item.get("source", "Unknown"))
         title = _korean_display_title(item)
         if len(title) > 60:
             title = title[:60].rsplit(" ", 1)[0].rstrip(" ,.")
-        title = html.escape(title)
-        highlights.append(f"<li><strong>{source}</strong>: {title}</li>")
+        highlights_data.append((html.escape(source), html.escape(title)))
+    if not highlights_data:
+        highlights_data = [("", "이번 주 주요 기술 뉴스를 확인하세요")]
 
-    highlights_html = (
-        "\n      ".join(highlights)
-        if highlights
-        else "<li>이번 주 주요 기술 뉴스를 확인하세요</li>"
-    )
-
-    # Generate Jekyll include tag for AI summary card - dynamic tags from actual content
-    categories_html = '<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
-    # Build tags from actual topics
+    # Summary card structured data (Option A — no include attributes).
+    categories_data: List[Tuple[str, str]] = [
+        ("tech", "기술"),
+        ("devops", "DevOps"),
+    ]
     dynamic_tags = ["Tech-Blog"]
     for topic in topics[:4]:
         if topic not in dynamic_tags:
             dynamic_tags.append(topic)
     dynamic_tags.append(str(date.year))
-    tags_html = "\n      ".join(
-        f'<span class="tag">{t}</span>' for t in dynamic_tags[:6]
-    )
+    tags_data: List[str] = list(dynamic_tags[:6])
 
-    # Escape quotes in title before Liquid injection (same guard as security template).
-    # The tech-blog include prepends "기술 블로그 주간 다이제스트: " (17 chars), so cap
-    # title_keywords at 63 chars to keep the full attribute value within 80 chars.
+    # The tech-blog summary_card.title prepends "기술 블로그 주간 다이제스트: "
+    # (17 chars). Keep total length <= 80 chars (regression guard 2026-05-06).
     _TECH_PREFIX_LEN = len("기술 블로그 주간 다이제스트: ")  # 17
     _tech_title_cap = 80 - _TECH_PREFIX_LEN
     _capped_tech_title = (
@@ -1804,7 +1842,15 @@ def generate_tech_blog_content(
         if len(title_keywords) > _tech_title_cap
         else title_keywords
     )
-    safe_title = _html_escape_quotes(_capped_tech_title)
+
+    summary_card_yaml = _emit_summary_card_yaml(
+        title=f"기술 블로그 주간 다이제스트: {_capped_tech_title}",
+        period=f"{date_str} (24시간)",
+        audience="소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO",
+        categories=categories_data,
+        tags=tags_data,
+        highlights=highlights_data,
+    )
 
     # Use sanitize_quotes_for_yaml (not _yaml_escape_dq) for the 4 JSON-LD
     # fields so ASCII `"` is replaced with `'` rather than backslash-escaped.
@@ -1832,16 +1878,10 @@ comments: true
 image: /assets/images/{image_filename}
 image_alt: "{yaml_image_alt}"
 toc: true
+{summary_card_yaml}
 ---
 
-{{% include ai-summary-card.html
-  title="기술 블로그 주간 다이제스트: {safe_title}"
-  categories_html='{categories_html}'
-  tags_html='{tags_html}'
-  highlights_html='{highlights_html}'
-  period='{date_str} (24시간)'
-  audience='소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO'
-%}}
+{{% include ai-summary-card.html %}}
 
 ---
 

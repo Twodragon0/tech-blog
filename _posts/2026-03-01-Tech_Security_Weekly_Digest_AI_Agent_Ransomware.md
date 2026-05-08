@@ -16,15 +16,28 @@ image_alt: "Tech Security Weekly Digest March 01 2026 AI Agent Ransomware"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/
+summary_card:
+  title: "기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응"
+  period: "2026-03-01 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "AI"
+    - "Agent"
+    - "Ransomware"
+  highlights:
+    - { source: "포인트 1", title: "NVIDIA Agentic AI 자율 네트워크 블루프린트, SK쉴더스 Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 구현 등 7건 심층 분석" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Agent</span> <span class="tag">Ransomware</span>'
-  highlights_html='<li><strong>포인트 1</strong>: NVIDIA Agentic AI 자율 네트워크 블루프린트, SK쉴더스 Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 구현 등 7건 심층 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-03-01 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

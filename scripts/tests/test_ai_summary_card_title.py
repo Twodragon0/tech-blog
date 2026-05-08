@@ -160,11 +160,20 @@ class TestSafeTitlePipeline:
 
 
 class TestGeneratePostContentTitleLength:
-    """generate_post_content must produce ai-summary-card title= <= 80 chars."""
+    """generate_post_content must produce summary_card.title <= 80 chars.
+
+    Post-2026-05-08: the ai-summary-card include is now driven by a
+    `summary_card:` block in the post frontmatter (Option A migration). The
+    legacy `title="..."` include attribute no longer exists; the length cap
+    now applies to `page.summary_card.title` instead.
+    """
 
     def test_security_title_attr_under_80_chars(self):
-        from auto_publish_news import generate_post_content
         import datetime
+
+        import yaml
+
+        from auto_publish_news import generate_post_content
 
         # 3 headlines, each 26 chars after truncation, to stress the cap
         items = _make_items(
@@ -186,16 +195,20 @@ class TestGeneratePostContentTitleLength:
                                  tzinfo=datetime.timezone.utc)
         content = generate_post_content(items, categorized, date)
 
-        # Find all ai-summary-card include blocks
-        blocks = re.findall(
-            r'\{%[- ]*\s*include ai-summary-card\.html(.*?)%\}',
-            content,
-            re.DOTALL,
+        fm_block = content.split("---", 2)[1]
+        front = yaml.safe_load(fm_block) or {}
+        sc = front.get("summary_card") or {}
+        title_val = sc.get("title", "")
+        assert title_val, "summary_card.title is missing in generated frontmatter"
+        assert len(title_val) <= _MAX_TITLE_LEN, (
+            f"summary_card.title too long ({len(title_val)} > {_MAX_TITLE_LEN}): "
+            f"{title_val!r}"
         )
-        assert blocks, "No ai-summary-card include block found"
-        for block in blocks:
-            title_val = _extract_title_attr("{%" + block + "%}")
-            assert len(title_val) <= _MAX_TITLE_LEN, (
-                f"title= attribute too long ({len(title_val)} > {_MAX_TITLE_LEN}): "
-                f"{title_val!r}"
-            )
+
+        # Body must use the bare include form (no attribute residue).
+        assert "{% include ai-summary-card.html %}" in content, (
+            "Body should use bare include form after Option A migration"
+        )
+        assert "categories_html=" not in content, (
+            "Legacy categories_html= attribute should not appear"
+        )

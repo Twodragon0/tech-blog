@@ -53,22 +53,22 @@ def _clean_summary_text(text: str) -> str:
     return cleaned
 
 
-def _categories_html(categories: list[str]) -> str:
-    chips: list[str] = []
+def _categories_data(categories: list[str]) -> list[tuple[str, str]]:
+    out: list[tuple[str, str]] = []
     for raw in categories[:3]:
         key = str(raw).strip().lower()
         css, label = CATEGORY_LABEL.get(key, ("tech", str(raw).strip()))
-        chips.append(f'<span class="category-tag {css}">{label}</span>')
-    return " ".join(chips) if chips else '<span class="category-tag tech">기술</span>'
+        out.append((css, label))
+    return out or [("tech", "기술")]
 
 
-def _tags_html(tags: list[str]) -> str:
+def _tags_data(tags: list[str]) -> list[str]:
     if not tags:
-        return '<span class="tag">요약</span>'
-    return " ".join(f'<span class="tag">{t}</span>' for t in tags[:8])
+        return ["요약"]
+    return [str(t).strip() for t in tags[:8] if str(t).strip()]
 
 
-def _highlights_html(excerpt: str, summary_lines: list[str]) -> str:
+def _highlights_data(excerpt: str, summary_lines: list[str]) -> list[tuple[str, str]]:
     points: list[str] = []
     for line in summary_lines:
         if line:
@@ -90,29 +90,73 @@ def _highlights_html(excerpt: str, summary_lines: list[str]) -> str:
                 "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다"
             )
 
-    return (
-        f"<li><strong>포인트 1</strong>: {points[0]}</li> "
-        f"<li><strong>포인트 2</strong>: {points[1]}</li> "
-        f"<li><strong>포인트 3</strong>: {points[2]}</li>"
-    )
+    return [
+        (f"포인트 {idx + 1}", point) for idx, point in enumerate(points[:3])
+    ]
 
 
-def _build_include(front: dict[str, Any], summary_lines: list[str]) -> str:
+def _yaml_escape_dq(text: str) -> str:
+    """Escape `\\` and `"` for safe inclusion inside YAML double-quoted scalar."""
+    return (text or "").replace("\\", "\\\\").replace('"', '\\"')
+
+
+def _emit_summary_card_yaml(
+    title: str,
+    period: str,
+    audience: str,
+    categories: list[tuple[str, str]],
+    tags: list[str],
+    highlights: list[tuple[str, str]],
+) -> str:
+    """Mirror scripts/news/content_generator._emit_summary_card_yaml.
+
+    Kept locally to avoid a cross-package import at module load time.
+    """
+    def esc(s: str) -> str:
+        return _yaml_escape_dq(s)
+
+    lines: list[str] = ["summary_card:"]
+    lines.append(f'  title: "{esc(title)}"')
+    if period:
+        lines.append(f'  period: "{esc(period)}"')
+    if audience:
+        lines.append(f'  audience: "{esc(audience)}"')
+    if categories:
+        lines.append("  categories:")
+        for cls, label in categories:
+            lines.append(f'    - {{ class: "{esc(cls)}", label: "{esc(label)}" }}')
+    else:
+        lines.append("  categories: []")
+    if tags:
+        lines.append("  tags:")
+        for t in tags:
+            lines.append(f'    - "{esc(t)}"')
+    else:
+        lines.append("  tags: []")
+    if highlights:
+        lines.append("  highlights:")
+        for src, ttl in highlights:
+            lines.append(f'    - {{ source: "{esc(src)}", title: "{esc(ttl)}" }}')
+    else:
+        lines.append("  highlights: []")
+    return "\n".join(lines)
+
+
+def _build_summary_card_yaml(front: dict[str, Any], summary_lines: list[str]) -> str:
+    """Build the `summary_card:` YAML block for injection into frontmatter."""
     title = str(front.get("title", "최신 기술 동향 요약")).strip()
     categories = _to_list(front.get("categories") or front.get("category"))
     tags = _to_list(front.get("tags"))
     excerpt = str(front.get("excerpt", "")).strip()
     date_value = str(front.get("date", "")).split(" ")[0]
     period = f"{date_value} (24시간)" if date_value else "최근 24시간"
-    return (
-        "{% include ai-summary-card.html\n"
-        f"  title='{_escape_attr(title)}'\n"
-        f"  categories_html='{_escape_attr(_categories_html(categories))}'\n"
-        f"  tags_html='{_escape_attr(_tags_html(tags))}'\n"
-        f"  highlights_html='{_escape_attr(_highlights_html(excerpt, summary_lines))}'\n"
-        f"  period='{_escape_attr(period)}'\n"
-        "  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'\n"
-        "%}"
+    return _emit_summary_card_yaml(
+        title=title,
+        period=period,
+        audience="보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자",
+        categories=_categories_data(categories),
+        tags=_tags_data(tags),
+        highlights=_highlights_data(excerpt, summary_lines),
     )
 
 
@@ -187,6 +231,27 @@ def _remove_all_includes(body: str) -> str:
     return re.sub(r"\n?\{%\s*include\s+ai-summary-card\.html[\s\S]*?%\}\n?", "\n", body)
 
 
+_SUMMARY_CARD_BLOCK_RE = re.compile(
+    r"\nsummary_card:\s*\n(?:[ \t].*\n|\n)*",
+)
+
+
+def _replace_or_append_summary_card(fm_raw: str, sc_yaml: str) -> str:
+    """Replace existing summary_card block in fm_raw with sc_yaml, else append.
+
+    fm_raw is the inner frontmatter text (between the leading and trailing
+    `---\\n` fences) — i.e. parts[1] from `content.split("---", 2)`.
+    """
+    sc_block = "\n" + sc_yaml + "\n"
+    if _SUMMARY_CARD_BLOCK_RE.search(fm_raw):
+        return _SUMMARY_CARD_BLOCK_RE.sub(sc_block, fm_raw, count=1)
+    # Append before the trailing newline so the closing fence stays on its
+    # own line.
+    if fm_raw.endswith("\n"):
+        return fm_raw + sc_yaml + "\n"
+    return fm_raw + "\n" + sc_yaml + "\n"
+
+
 def process_post(path: Path) -> bool:
     content = path.read_text(encoding="utf-8")
     if not content.startswith("---\n"):
@@ -197,20 +262,31 @@ def process_post(path: Path) -> bool:
 
     fm_raw = parts[1]
     body = parts[2]
+
+    # Idempotency guard (post-2026-05-08): once a post carries a
+    # `summary_card:` block (from content_generator.py or
+    # migrate_summary_cards_to_frontmatter.py), this script must not touch
+    # it. The structured highlights from those sources are richer than the
+    # synthetic "포인트 N" placeholders this normalizer would emit, and a
+    # blind rewrite would clobber the curated source/title pairs.
+    if re.search(r"^summary_card:\s*$", fm_raw, re.MULTILINE):
+        return False
+
     front_data = yaml.safe_load(fm_raw)
     front = front_data if isinstance(front_data, dict) else {}
 
     body = _normalize_summary_section(body)
     summary_lines = _extract_summary_lines(body)
-    include_block = _build_include(front, summary_lines)
+    sc_yaml = _build_summary_card_yaml(front, summary_lines)
 
     body = _remove_summary_heading_section(body)
     body = _remove_all_includes(body)
     body = body.lstrip("\n")
-    body = include_block + "\n\n" + body
+    body = "{% include ai-summary-card.html %}\n\n" + body
     body = re.sub(r"\n{3,}", "\n\n", body)
 
-    new_content = f"---{fm_raw}---\n\n{body}"
+    new_fm_raw = _replace_or_append_summary_card(fm_raw, sc_yaml)
+    new_content = f"---{new_fm_raw}---\n\n{body}"
     if new_content != content:
         _ = path.write_text(new_content, encoding="utf-8")
         return True

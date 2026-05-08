@@ -16,15 +16,28 @@ image_alt: "Tech Security Weekly Digest March 04 2026 JWT Auth Crypto AI Governa
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/
+summary_card:
+  title: "기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스"
+  period: "2026-03-04 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "JWT"
+    - "Blockchain"
+    - "AI-Governance"
+  highlights:
+    - { source: "포인트 1", title: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">JWT</span> <span class="tag">Blockchain</span> <span class="tag">AI-Governance</span>'
-  highlights_html='<li><strong>포인트 1</strong>: JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-03-04 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

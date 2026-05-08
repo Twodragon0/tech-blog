@@ -25,32 +25,26 @@ title: 'AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS'
 toc: true
 redirect_from:
   - /posts/2026/02/AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS/
+summary_card:
+  title: "2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트"
+  period: "2026-02-10"
+  audience: "DevOps/DevSecOps/Cloud 보안 담당자"
+  categories:
+    - { class: "devsecops", label: "DevSecOps" }
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AI-Digest"
+    - "Cloud-Digest"
+    - "Meta-Prometheus"
+    - "Google-OTLP"
+    - "AWS"
+    - "ChatGPT"
+    - "OpenTelemetry"
+  highlights:
+    - { source: "핵심 요약", title: "Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus" }
 ---
-{% capture ai_categories_html %}
-<span class="category-tag devsecops">DevSecOps</span>
-<span class="category-tag cloud">Cloud</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">AI-Digest</span>
-<span class="tag">Cloud-Digest</span>
-<span class="tag">Meta-Prometheus</span>
-<span class="tag">Google-OTLP</span>
-<span class="tag">AWS</span>
-<span class="tag">ChatGPT</span>
-<span class="tag">OpenTelemetry</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>핵심 요약</strong>: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus</li>
-{% endcapture %}
 
-{% include ai-summary-card.html
-  title="2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026-02-10"
-  audience="DevOps/DevSecOps/Cloud 보안 담당자"
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 [DevOps & 블록체인] 다이제스트 [2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin](/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin)에서 CNCF 프로젝트 현황, Cluster API v1.12, Bitcoin $70K 동향을 심층 분석합니다.
 

@@ -17,15 +17,28 @@ toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/
   - /posts/2026/02/Weekly_Tech_Security_Digest_AI_Cloud_Risk/
+summary_card:
+  title: "기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어"
+  period: "2026-02-17 (24시간)"
+  audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Weekly-Digest"
+    - "2026"
+    - "AI-Agent"
+    - "Password-Manager"
+    - "Serverless"
+  highlights:
+    - { source: "포인트 1", title: "Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석" }
+    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
+    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
 ---
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI-Agent</span> <span class="tag">Password-Manager</span> <span class="tag">Serverless</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
-  period='2026-02-17 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 보안 다이제스트 [AI 에이전트 보안, Patch Tuesday 분석, 클라우드 비용 최적화](/2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk)에서 Kimwolf 봇넷, Patch Tuesday 취약점 대응, 클라우드 비용 최적화를 심층 분석합니다.
 
