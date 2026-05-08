@@ -22,37 +22,47 @@
 const SEO_BOT_RE =
   /googlebot|bingbot|yandexbot|baiduspider|duckduckbot|slurp|applebot|facebookexternalhit|twitterbot|linkedinbot|rogerbot|semrushbot|ahrefsbot/i;
 
-export const config = {
-  /**
-   * 정적 에셋(css, js, images, fonts) 및 Vercel 내부 경로는
-   * middleware 실행에서 제외하여 불필요한 오버헤드 방지.
-   */
-  matcher: '/((?!assets|_next/static|_next/image|favicon\\.ico|api).*)',
-};
+// Path filtering happens inside middleware() — Vercel's config.matcher uses
+// path-to-regexp which does NOT support negative lookahead `(?!...)`.
+// An earlier `matcher: '/((?!assets|...).*)'` triggered
+// `Error: Unhandled type: "ColonToken" :` and broke every deploy after
+// commit aaad1f9f. With matcher removed, Vercel runs middleware on every
+// request; we cheaply early-return for static assets.
+const SKIP_PREFIXES = [
+  '/assets/',
+  '/_next/',
+  '/api/',
+];
+
+const SKIP_EXACT = new Set([
+  '/favicon.ico',
+  '/robots.txt',
+  '/sitemap.xml',
+]);
+
+function shouldSkip(pathname) {
+  if (SKIP_EXACT.has(pathname)) return true;
+  for (const prefix of SKIP_PREFIXES) {
+    if (pathname.startsWith(prefix)) return true;
+  }
+  return false;
+}
 
 export default function middleware(request) {
-  const ua = request.headers.get('user-agent') || '';
+  const url = new URL(request.url);
+  if (shouldSkip(url.pathname)) {
+    return;
+  }
 
+  const ua = request.headers.get('user-agent') || '';
   if (!SEO_BOT_RE.test(ua)) {
     // 일반 사용자: passthrough (헤더 변경 없음)
     return;
   }
 
-  // 봇 감지: 캐시 힌트 + 식별 헤더 추가
-  // NextResponse 없이 Response 헤더를 조작하는 Vercel Edge 방식.
-  // undefined를 반환하면 Vercel이 원래 요청을 그대로 처리하므로
-  // 헤더 오버라이드는 vercel.json의 has matcher 룰에 위임한다.
-  //
-  // 참고: Edge Middleware에서 헤더를 추가하려면 Response를 직접 반환해야 하지만
-  // static 파일 서빙에서 body를 재구성하는 것은 불가능하므로
-  // 여기서는 식별 로그용 헤더만 request에 주입하는 방식을 사용한다.
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-seo-bot-ua', ua.slice(0, 100));
-
-  return new Request(request.url, {
-    method: request.method,
-    headers: requestHeaders,
-    body: request.body,
-    redirect: request.redirect,
-  });
+  // 봇 감지: vercel.json의 has matcher 룰이 응답 헤더를 추가한다.
+  // Edge Middleware에서 정적 파일 body를 재구성하지 않고 통과시키려면
+  // undefined 반환이 가장 안전하다. 이전에는 `new Request(...)` 를
+  // 반환했지만 Vercel은 Request 반환을 무시하므로 의미 없는 동작이었다.
+  return;
 }
