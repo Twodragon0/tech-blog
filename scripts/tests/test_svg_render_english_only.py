@@ -234,7 +234,19 @@ class TestQrPathDataRoundTrip:
     Without a stdlib QR *decoder* this is the strongest equality check we
     can run in pure Python — and it transitively proves the encoded payload
     because ``gen_qr`` is deterministic for a given URL.
+
+    Skipped when the optional ``qrcode`` library is not installed: in that
+    case ``gen_qr`` returns the empty string and the round-trip check is
+    vacuous. The check-svg CI workflow installs ``qrcode`` so this test
+    runs there; local environments without the dep are also fine.
     """
+
+    @pytest.fixture(autouse=True)
+    def _require_qrcode(self):
+        from scripts.lib.svg_l22_generator import QRCODE_AVAILABLE
+
+        if not QRCODE_AVAILABLE:
+            pytest.skip("qrcode library not installed")
 
     def _extract_qr_path_d(self, svg_text: str) -> str:
         # qr_block emits exactly one ``<g transform="translate(1080,504)" ...>``
