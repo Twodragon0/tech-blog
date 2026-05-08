@@ -240,7 +240,7 @@ mitre_attack:
   title="차세대 아메리칸 센추리를 위한 동력: US 에너지 장관 크리스 라이트와 NVIDIA의 이안 벅이 제네시스 미션에 대해 논하다"
   url="https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/"
   image="https://blogs.nvidia.com/wp-content/uploads/2019/06/DC-skyline-842x450.jpg"
-  summary="미국 에너지부 장관 Chris Wright과 NVIDIA 부사장 Ian Buck은 SCSP AI+ Expo에서 AI가 필요한 에너지를 스스로 구축할 것이라고 주장했습니다. 이들은 \"Powering the Next American Century\"라는 제목의 대담에서 미국의 미래를 위한 AI와 에너지의 시너지를 강조했습니다."
+  summary="미국 에너지부 장관 Chris Wright과 NVIDIA 부사장 Ian Buck은 SCSP AI+ Expo에서 AI가 필요한 에너지를 스스로 구축할 것이라고 주장했습니다. 이들은 \”Powering the Next American Century\”라는 제목의 대담에서 미국의 미래를 위한 AI와 에너지의 시너지를 강조했습니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
