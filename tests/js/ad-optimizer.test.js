@@ -5,7 +5,7 @@
 // requested ad format, (c) does not double-wrap an already-wrapped slot,
 // and (d) applies CSS containment hints to the ad element itself.
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
@@ -15,17 +15,23 @@ const SCRIPT_PATH = resolve(__dirname, '../../assets/js/ad-optimizer.js');
 const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8');
 
 function runScript() {
+  // ad-optimizer.js defers optimizeAds() through requestIdleCallback /
+  // setTimeout(2000) to keep layout-mutating work off the LCP critical path
+  // (see comment in init()). Fake timers let us flush that deferred pass
+  // synchronously inside each test without changing production behavior.
   // eslint-disable-next-line no-new-func
   new Function('window', 'document', SCRIPT_SOURCE)(window, document);
+  vi.runOnlyPendingTimers();
 }
 
 describe('ad-optimizer.js', () => {
   beforeEach(() => {
-    // Default-ready DOM so optimizeAds() runs synchronously.
+    vi.useFakeTimers();
     document.body.innerHTML = '';
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     document.body.innerHTML = '';
   });
 
