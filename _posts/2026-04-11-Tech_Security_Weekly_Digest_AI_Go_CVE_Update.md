@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
+summary_card:
+  title: "GlassWorm 캠페인, Zig, 브라우저 확장 프로그램은 아무도 논의하지, Google, Windows에서 세션 도난"
+  period: "2026년 04월 11일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Go"
+    - "CVE"
+    - "Update"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "GlassWorm 캠페인, Zig 드로퍼로 다중 개발자 IDE 감염 시도" }
+    - { source: "The Hacker News", title: "브라우저 확장 프로그램은 아무도 논의하지 않는 새로운 AI 소비 채널입니다" }
+    - { source: "The Hacker News", title: "Google, Windows에서 세션 도난 차단을 위해 Chrome 146에 DBSC 배포" }
+    - { source: "Google Cloud Blog", title: "Google Data Cloud로 데이터 큐레이션 가속화" }
 ---
 
-{% include ai-summary-card.html
-  title='GlassWorm 캠페인, Zig, 브라우저 확장 프로그램은 아무도 논의하지, Google, Windows에서 세션 도난'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Go</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Update</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: GlassWorm 캠페인, Zig 드로퍼로 다중 개발자 IDE 감염 시도</li>
-      <li><strong>The Hacker News</strong>: 브라우저 확장 프로그램은 아무도 논의하지 않는 새로운 AI 소비 채널입니다</li>
-      <li><strong>The Hacker News</strong>: Google, Windows에서 세션 도난 차단을 위해 Chrome 146에 DBSC 배포</li>
-      <li><strong>Google Cloud Blog</strong>: Google Data Cloud로 데이터 큐레이션 가속화</li>'
-  period='2026년 04월 11일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

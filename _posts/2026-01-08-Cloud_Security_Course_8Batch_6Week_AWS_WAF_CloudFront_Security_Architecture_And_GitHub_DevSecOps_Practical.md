@@ -36,25 +36,28 @@ title: '클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처
 toc: true
 redirect_from:
   - /posts/2026/01/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
+summary_card:
+  title: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전"
+  audience: "보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "AWS"
+    - "CloudFront"
+    - "DevSecOps"
+    - "GitHub"
+    - "GitHub-Actions"
+    - "Security-Engineering"
+    - "Tech-Blog"
+    - "WAF"
+  highlights:
+    - { source: "AWS WAF/CloudFront 보안 아키텍처", title: "CloudFront와 S3 간 안전한 연결(OAI/OAC), WAF 규칙 설정(SQL Injection, XSS, Rate Limiting), Geo-blocking, IP 화이트리스트/블랙리스트, 커스텀 규칙 로직" }
+    - { source: "GitHub DevSecOps 실전", title: "GitHub Actions를 통한 자동화된 보안 검사, CodeQL 정적 분석, Dependabot 의존성 취약점 스캔, Secret Scanning, Advanced Security 기능 활용" }
+    - { source: "실전 보안 패치 사례", title: "SSRF(Server-Side Request Forgery) 취약점 수정, Data Masking 구현, 입력 검증 강화, 보안 헤더 설정(CSP, HSTS, X-Frame-Options)" }
+    - { source: "테크 블로그 보안 개선", title: "Jekyll 블로그 보안 강화, CodeQL 기반 취약점 진단 및 수정, UI 개선 및 보안 패치, 실무 적용 케이스 스터디" }
+    - { source: "Amazon Q Developer 활용", title: "AI 기반 코드 보안 검토, 취약점 제안 및 수정 가이드, 개발 생산성 향상" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">CloudFront</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">GitHub</span>
-      <span class="tag">GitHub-Actions</span>
-      <span class="tag">Security-Engineering</span>
-      <span class="tag">Tech-Blog</span>
-      <span class="tag">WAF</span>'
-  highlights_html='<li><strong>AWS WAF/CloudFront 보안 아키텍처</strong>: CloudFront와 S3 간 안전한 연결(OAI/OAC), WAF 규칙 설정(SQL Injection, XSS, Rate Limiting), Geo-blocking, IP 화이트리스트/블랙리스트, 커스텀 규칙 로직</li>
-      <li><strong>GitHub DevSecOps 실전</strong>: GitHub Actions를 통한 자동화된 보안 검사, CodeQL 정적 분석, Dependabot 의존성 취약점 스캔, Secret Scanning, Advanced Security 기능 활용</li>
-      <li><strong>실전 보안 패치 사례</strong>: SSRF(Server-Side Request Forgery) 취약점 수정, Data Masking 구현, 입력 검증 강화, 보안 헤더 설정(CSP, HSTS, X-Frame-Options)</li>
-      <li><strong>테크 블로그 보안 개선</strong>: Jekyll 블로그 보안 강화, CodeQL 기반 취약점 진단 및 수정, UI 개선 및 보안 패치, 실무 적용 케이스 스터디</li>
-      <li><strong>Amazon Q Developer 활용</strong>: AI 기반 코드 보안 검토, 취약점 제안 및 수정 가이드, 개발 생산성 향상</li>'
-  audience='보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자'
--%}
+{% include ai-summary-card.html %}
 
 ### 실습 체크리스트
 

@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
+summary_card:
+  title: "Cisco FMC CVE-2025-55182 원격 침해·에이전트 AI 4대 보안 원칙: 2026-04-03 보안 위클리 다이제스트"
+  period: "2026년 04월 03일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "CVE"
+    - "Patch"
+    - "AWS"
+    - "AI"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "해커들, CVE-2025-55182 악용해 766개 Next.js 호스트 침해 및 자격 증명 탈취" }
+    - { source: "The Hacker News", title: "Cisco, 원격 시스템 침해 가능한 9.8 CVSS IMC 및 SSM 취약점 패치" }
+    - { source: "AWS Security Blog", title: "에이전트 AI 시스템을 위한 네 가지 보안 원칙" }
+    - { source: "Google Cloud Blog", title: "Honeylove, BigQuery로 제품 품질과 서비스 효율성 향상시키는 방법" }
 ---
 
-{% include ai-summary-card.html
-  title='Cisco FMC CVE-2025-55182 원격 침해·에이전트 AI 4대 보안 원칙: 2026-04-03 보안 위클리 다이제스트'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Patch</span>
-      <span class="tag">AWS</span>
-      <span class="tag">AI</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 해커들, CVE-2025-55182 악용해 766개 Next.js 호스트 침해 및 자격 증명 탈취</li>
-      <li><strong>The Hacker News</strong>: Cisco, 원격 시스템 침해 가능한 9.8 CVSS IMC 및 SSM 취약점 패치</li>
-      <li><strong>AWS Security Blog</strong>: 에이전트 AI 시스템을 위한 네 가지 보안 원칙</li>
-      <li><strong>Google Cloud Blog</strong>: Honeylove, BigQuery로 제품 품질과 서비스 효율성 향상시키는 방법</li>'
-  period='2026년 04월 03일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

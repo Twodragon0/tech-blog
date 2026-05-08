@@ -16,24 +16,28 @@ image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go Bitcoin"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
+summary_card:
+  title: "AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
+  period: "2026년 03월 09일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Security"
+    - "Go"
+    - "Bitcoin"
+    - "2026"
+  highlights:
+    - { source: "AI 에이전트 보안", title: "Krebs on Security — 프롬프트 인젝션·과도한 권한·공급망 공격 등 새로운 공격 표면 심층 분석" }
+    - { source: "암호화폐 규제", title: "CLARITY Act 통과 여부에 따른 SEC/CFTC 역할 분담과 은행권 컴플라이언스 영향" }
+    - { source: "Strategy 비트코인 매수", title: "BTC $66K 근처에서 Saylor 추가 매수 신호, NAV 할인 거래 분석" }
+    - { source: "Agent Safehouse", title: "macOS 네이티브 샌드박스 기반 AI 에이전트 격리 도구 — AI 보안 위협 대응 실용 솔루션" }
+    - { source: "엔터프라이즈 LLM", title: "LINE Engineering의 260개 도구 환경 에이전트 엔지니어링 사례" }
 ---
-{% include ai-summary-card.html
-  title='AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Security</span>
-      <span class="tag">Go</span>
-      <span class="tag">Bitcoin</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AI 에이전트 보안</strong>: Krebs on Security — 프롬프트 인젝션·과도한 권한·공급망 공격 등 새로운 공격 표면 심층 분석</li>
-      <li><strong>암호화폐 규제</strong>: CLARITY Act 통과 여부에 따른 SEC/CFTC 역할 분담과 은행권 컴플라이언스 영향</li>
-      <li><strong>Strategy 비트코인 매수</strong>: BTC $66K 근처에서 Saylor 추가 매수 신호, NAV 할인 거래 분석</li>
-      <li><strong>Agent Safehouse</strong>: macOS 네이티브 샌드박스 기반 AI 에이전트 격리 도구 — AI 보안 위협 대응 실용 솔루션</li>
-      <li><strong>엔터프라이즈 LLM</strong>: LINE Engineering의 260개 도구 환경 에이전트 엔지니어링 사례</li>'
-  period='2026년 03월 09일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

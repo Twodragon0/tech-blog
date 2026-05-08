@@ -31,24 +31,28 @@ redirect_from:
   - /posts/2026/02/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
   - /posts/2026/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
   - /posts/2026/02/Weekly_Tech_AI_Blockchain_Digest/
+summary_card:
+  title: "Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Apple"
+    - "Bitcoin-Crash"
+    - "AI-Creativity"
+    - "DeFi-Security"
+    - "Claude-Code"
+    - "Google-Research"
+    - "CrossCurve-Exploit"
+    - "Ethereum-Quantum"
+    - "2026"
+  highlights:
+    - { source: "Apple iPhone 16 Pro Max MLX LLM 하드웨어 버그", title: "A18 Pro Neural Engine에서 MLX LLM 추론 시 텐서 값이 한 자릿수 이상 왜곡되는 심각한 하드웨어 결함 발견 (HN 273 points)" }
+    - { source: "Bitcoin $74K 급락, $19B 청산", title: "Kevin Warsh Fed 의장 후보 지명 이후 BTC $75,892까지 급락, Binance 주도 $19B 규모 청산 이벤트, IBIT 투자자 수익률 적자 전환" }
+    - { source: "AI 창의성의 역설", title: "몬트리올대 10만 명 연구에서 GPT-4가 인간 평균 창의성을 초과했으나, 상위 10% 인간은 모든 AI를 크게 앞서는 결과 발표" }
+    - { source: "CrossCurve DeFi $3M 익스플로잇", title: "크로스체인 브릿지 프로토콜 스마트 컨트랙트 침해로 $3M 탈취, Ethereum Foundation 양자 보안 PQ 서명 우선순위 격상" }
 ---
-{%- include ai-summary-card.html
-  title='Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Apple</span>
-      <span class="tag">Bitcoin-Crash</span>
-      <span class="tag">AI-Creativity</span>
-      <span class="tag">DeFi-Security</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">Google-Research</span>
-      <span class="tag">CrossCurve-Exploit</span>
-      <span class="tag">Ethereum-Quantum</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Apple iPhone 16 Pro Max MLX LLM 하드웨어 버그</strong>: A18 Pro Neural Engine에서 MLX LLM 추론 시 텐서 값이 한 자릿수 이상 왜곡되는 심각한 하드웨어 결함 발견 (HN 273 points)</li>
-      <li><strong>Bitcoin $74K 급락, $19B 청산</strong>: Kevin Warsh Fed 의장 후보 지명 이후 BTC $75,892까지 급락, Binance 주도 $19B 규모 청산 이벤트, IBIT 투자자 수익률 적자 전환</li>
-      <li><strong>AI 창의성의 역설</strong>: 몬트리올대 10만 명 연구에서 GPT-4가 인간 평균 창의성을 초과했으나, 상위 10% 인간은 모든 AI를 크게 앞서는 결과 발표</li>
-      <li><strong>CrossCurve DeFi $3M 익스플로잇</strong>: 크로스체인 브릿지 프로토콜 스마트 컨트랙트 침해로 $3M 탈취, Ethereum Foundation 양자 보안 PQ 서명 우선순위 격상</li>'
--%}
+{% include ai-summary-card.html %}
 
 ## 📊 빠른 참조
 

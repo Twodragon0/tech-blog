@@ -32,28 +32,32 @@ title: "Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 23일)"
+  period: "2026년 1월 22일 ~ 23일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AitM-Phishing"
+    - "Zero-Trust"
+    - "Agentic-AI"
+    - "PostgreSQL"
+    - "OpenAI"
+    - "HashiCorp"
+    - "vLLM"
+    - "DevSecOps"
+    - "2026"
+  highlights:
+    - { source: "Microsoft", title: "에너지 기업 대상 다단계 AitM 피싱 & BEC 공격 경고 - SharePoint 악용" }
+    - { source: "HashiCorp", title: "Agentic AI 시스템의 Zero Trust NHI(비인간 ID) 관리 가이드 발표" }
+    - { source: "OpenAI", title: "PostgreSQL로 8억 ChatGPT 사용자 지원 - 스케일링 아키텍처 공개" }
+    - { source: "Inferact", title: "vLLM 제작자 설립, a16z/Lightspeed 주도 $150M 시드 투자 유치" }
+    - { source: "Google SRE", title: "Gemini CLI 활용 실제 장애 대응 사례 공개" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 23일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AitM-Phishing</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Agentic-AI</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">OpenAI</span>
-      <span class="tag">HashiCorp</span>
-      <span class="tag">vLLM</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Microsoft</strong>: 에너지 기업 대상 다단계 AitM 피싱 & BEC 공격 경고 - SharePoint 악용</li>
-      <li><strong>HashiCorp</strong>: Agentic AI 시스템의 Zero Trust NHI(비인간 ID) 관리 가이드 발표</li>
-      <li><strong>OpenAI</strong>: PostgreSQL로 8억 ChatGPT 사용자 지원 - 스케일링 아키텍처 공개</li>
-      <li><strong>Inferact</strong>: vLLM 제작자 설립, a16z/Lightspeed 주도 $150M 시드 투자 유치</li>
-      <li><strong>Google SRE</strong>: Gemini CLI 활용 실제 장애 대응 사례 공개</li>'
-  period='2026년 1월 22일 ~ 23일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## 경영진 요약
 

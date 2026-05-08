@@ -26,23 +26,27 @@ title: 'OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 
 toc: true
 redirect_from:
   - /posts/2026/01/OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security/
+summary_card:
+  title: "OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안"
+  audience: "보안 엔지니어, DevSecOps 엔지니어, 개발자, 보안 아키텍트"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "OWASP"
+    - "Security"
+    - "Top10"
+    - "AI"
+    - "DevSecOps"
+    - "Application Security"
+  highlights:
+    - { source: "OWASP Top 10 2025 주요 변화", title: "A03 Software Supply Chain Failures, A04 Cryptographic Failures 신규 추가, Broken Access Control 1위 유지, 실제 보안 사고 데이터 기반 순위 조정" }
+    - { source: "에이전틱 AI 보안 위협", title: "Prompt Injection, Insecure Output Handling, Training Data Poisoning 등 10대 위협 가이드 발표, AI 시스템 특화 보안 취약점 및 실무 대응 방안 제시" }
+    - { source: "SecureCode v2.0", title: "1,215개 보안 중심 코딩 예제, CVE 연계 실제 취약점 기반, Python/JavaScript/Java/Go 다국어 지원, 취약/안전 코드 비교 제공" }
+    - { source: "실무 적용 가이드", title: "Dependabot 설정, SBOM 자동 생성, Post-Quantum 암호화 전환 계획, AI 보안 거버넌스 체계, DevSecOps 파이프라인 통합 예시" }
+    - { source: "즉시 적용 가능한 조치", title: "의존성 관리 자동화, 암호화 강화(TLS 1.3+), 접근 제어 검증, 보안 로깅 정책 수립" }
 ---
-{%- include ai-summary-card.html
-  title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">OWASP</span>
-      <span class="tag">Security</span>
-      <span class="tag">Top10</span>
-      <span class="tag">AI</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Application Security</span>'
-  highlights_html='<li><strong>OWASP Top 10 2025 주요 변화</strong>: A03 Software Supply Chain Failures, A04 Cryptographic Failures 신규 추가, Broken Access Control 1위 유지, 실제 보안 사고 데이터 기반 순위 조정</li>
-      <li><strong>에이전틱 AI 보안 위협</strong>: Prompt Injection, Insecure Output Handling, Training Data Poisoning 등 10대 위협 가이드 발표, AI 시스템 특화 보안 취약점 및 실무 대응 방안 제시</li>
-      <li><strong>SecureCode v2.0</strong>: 1,215개 보안 중심 코딩 예제, CVE 연계 실제 취약점 기반, Python/JavaScript/Java/Go 다국어 지원, 취약/안전 코드 비교 제공</li>
-      <li><strong>실무 적용 가이드</strong>: Dependabot 설정, SBOM 자동 생성, Post-Quantum 암호화 전환 계획, AI 보안 거버넌스 체계, DevSecOps 파이프라인 통합 예시</li>
-      <li><strong>즉시 적용 가능한 조치</strong>: 의존성 관리 자동화, 암호화 강화(TLS 1.3+), 접근 제어 검증, 보안 로깅 정책 수립</li>'
-  audience='보안 엔지니어, DevSecOps 엔지니어, 개발자, 보안 아키텍트'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

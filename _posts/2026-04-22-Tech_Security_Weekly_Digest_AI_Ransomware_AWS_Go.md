@@ -14,24 +14,28 @@ image: /assets/images/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_G
 image_alt: "Winter 2025 SOC 1, SystemBC C2, 22 BRIDGE - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE"
+  period: "2026년 04월 22일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Ransomware"
+    - "AWS"
+    - "Go"
+    - "2026"
+  highlights:
+    - { source: "AWS Security Blog", title: "Winter 2025 SOC 1 보고서 발표, 적용 범위 내 서비스 184개로 확대" }
+    - { source: "The Hacker News", title: "SystemBC C2 서버, The Gentlemen 랜섬웨어 작전에서 1,570명 이상의 피해자 드러내" }
+    - { source: "The Hacker News", title: "22 BRIDGE:BREAK 취약점으로 수천 대의 Lantronix 및 Silex 직렬-IP 컨버터 노출" }
+    - { source: "Google Cloud Blog", title: "공공 부문 전반에 걸친 AI 기반을 파트너 생태계로 구축" }
 ---
 
-{% include ai-summary-card.html
-  title="Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Go</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AWS Security Blog</strong>: Winter 2025 SOC 1 보고서 발표, 적용 범위 내 서비스 184개로 확대</li>
-      <li><strong>The Hacker News</strong>: SystemBC C2 서버, The Gentlemen 랜섬웨어 작전에서 1,570명 이상의 피해자 드러내</li>
-      <li><strong>The Hacker News</strong>: 22 BRIDGE:BREAK 취약점으로 수천 대의 Lantronix 및 Silex 직렬-IP 컨버터 노출</li>
-      <li><strong>Google Cloud Blog</strong>: 공공 부문 전반에 걸친 AI 기반을 파트너 생태계로 구축</li>'
-  period='2026년 04월 22일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

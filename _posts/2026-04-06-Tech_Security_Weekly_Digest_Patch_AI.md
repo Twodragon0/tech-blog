@@ -16,21 +16,25 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Patch_AI/
+summary_card:
+  title: "2억 8500만 달러 규모 Drift 해킹, 신종 피싱 문자에 QR 코드를 활용한 교통위반, New FortiClient EMS 취약점"
+  period: "2026년 04월 06일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Patch"
+    - "AI"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "2억 8500만 달러 규모 Drift 해킹, 6개월간 북한 사회공학 작전으로 밝혀져" }
+    - { source: "BleepingComputer", title: "신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장" }
+    - { source: "BleepingComputer", title: "New FortiClient EMS 취약점 공격에 악용, 긴급 패치 배포" }
 ---
 
-{% include ai-summary-card.html
-  title='2억 8500만 달러 규모 Drift 해킹, 신종 피싱 문자에 QR 코드를 활용한 교통위반, New FortiClient EMS 취약점'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Patch</span>
-      <span class="tag">AI</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 2억 8500만 달러 규모 Drift 해킹, 6개월간 북한 사회공학 작전으로 밝혀져</li>
-      <li><strong>BleepingComputer</strong>: 신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장</li>
-      <li><strong>BleepingComputer</strong>: New FortiClient EMS 취약점 공격에 악용, 긴급 패치 배포</li>'
-  period='2026년 04월 06일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

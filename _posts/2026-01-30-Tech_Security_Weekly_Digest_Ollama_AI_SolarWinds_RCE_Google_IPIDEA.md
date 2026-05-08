@@ -32,27 +32,31 @@ title: "Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 30일)"
+  period: "2026년 1월 29일 ~ 30일 (48시간)"
+  audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Ollama"
+    - "LLMjacking"
+    - "SolarWinds"
+    - "CVE-2025-40551"
+    - "IPIDEA"
+    - "Microsoft-AI"
+    - "OT-Security"
+    - "ICS"
+    - "2026"
+  highlights:
+    - { source: "Ollama AI 서버 175K 노출", title: "130개국 175,000대 인증 없이 공개 노출, LLMjacking 캠페인 활발 악용 중" }
+    - { source: "SolarWinds WHD Critical RCE", title: "CVSS 9.8 4건 포함 6건 CVE - 비인증 역직렬화 RCE, 인증 우회" }
+    - { source: "Google IPIDEA 프록시 차단", title: "GTIG가 6.1M IP 레지덴셜 프록시 네트워크 해체, 550+ 위협 그룹 인프라" }
+    - { source: "Microsoft AI 위협 탐지", title: "TTP 추출에서 탐지 규칙 생성까지 AI 자동화 워크플로우 공개" }
+    - { source: "OT/에너지 보안 실태", title: "100+ 에너지 시설 조사, IDS 배포 30분 내 중요 문제 발견" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 30일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Ollama</span>
-      <span class="tag">LLMjacking</span>
-      <span class="tag">SolarWinds</span>
-      <span class="tag">CVE-2025-40551</span>
-      <span class="tag">IPIDEA</span>
-      <span class="tag">Microsoft-AI</span>
-      <span class="tag">OT-Security</span>
-      <span class="tag">ICS</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Ollama AI 서버 175K 노출</strong>: 130개국 175,000대 인증 없이 공개 노출, LLMjacking 캠페인 활발 악용 중</li>
-      <li><strong>SolarWinds WHD Critical RCE</strong>: CVSS 9.8 4건 포함 6건 CVE - 비인증 역직렬화 RCE, 인증 우회</li>
-      <li><strong>Google IPIDEA 프록시 차단</strong>: GTIG가 6.1M IP 레지덴셜 프록시 네트워크 해체, 550+ 위협 그룹 인프라</li>
-      <li><strong>Microsoft AI 위협 탐지</strong>: TTP 추출에서 탐지 규칙 생성까지 AI 자동화 워크플로우 공개</li>
-      <li><strong>OT/에너지 보안 실태</strong>: 100+ 에너지 시설 조사, IDS 배포 30분 내 중요 문제 발견</li>'
-  period='2026년 1월 29일 ~ 30일 (48시간)'
-  audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

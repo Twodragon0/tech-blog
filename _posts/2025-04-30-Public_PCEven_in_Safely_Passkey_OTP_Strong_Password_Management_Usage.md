@@ -22,21 +22,24 @@ title: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리
 toc: true
 redirect_from:
   - /posts/2025/04/Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage/
+summary_card:
+  title: "공용 PC에서도 안전하게! 패스키, OTP, 강력한 암호 관리 활용법"
+  audience: "기업 보안 담당자, 보안 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "Passkey"
+    - "OTP"
+    - "Password-Manager"
+    - "Authentication"
+  highlights:
+    - { source: "패스키(Passkey) 활용", title: "WebAuthn 기반 비밀번호 없는 인증, 피싱 방지(도메인 바인딩), 편의성(생체 인증, 빠른 로그인), 크로스 플랫폼 동기화(iOS/Android/Windows/macOS), 2025년 주요 빅테크 기본 지원(Google/Apple/Microsoft)" }
+    - { source: "OTP(One-Time Password) 2FA 강화", title: "TOTP 앱(Google Authenticator, Microsoft Authenticator), SMS OTP 취약점 및 대안, 하드웨어 보안 키(YubiKey, Google Titan), FIDO2/WebAuthn 피싱 방지 MFA 표준화" }
+    - { source: "암호 관리자(Password Manager)", title: "안전한 비밀번호 생성 및 저장, 공용 PC에서의 안전한 사용법, 클라우드 동기화 보안, 브라우저 확장 프로그램 활용" }
+    - { source: "공용 PC 보안 모범 사례", title: "로그아웃 및 브라우저 캐시 관리, 시크릿 모드 활용, 개인정보 입력 최소화, 공용 PC 전용 계정 사용, 세션 타임아웃 설정" }
+    - { source: "2025년 인증 보안 트렌드", title: "Passkey 채택 확대, Phishing-Resistant MFA 표준화(FIDO2/WebAuthn), AI 기반 피싱 공격 증가 대응(개인화된 피싱, 딥페이크, 정교한 도메인 스푸핑), 제로 트러스트 원칙 적용" }
 ---
-{%- include ai-summary-card.html
-  title='공용 PC에서도 안전하게! 패스키, OTP, 강력한 암호 관리 활용법'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">Passkey</span>
-      <span class="tag">OTP</span>
-      <span class="tag">Password-Manager</span>
-      <span class="tag">Authentication</span>'
-  highlights_html='<li><strong>패스키(Passkey) 활용</strong>: WebAuthn 기반 비밀번호 없는 인증, 피싱 방지(도메인 바인딩), 편의성(생체 인증, 빠른 로그인), 크로스 플랫폼 동기화(iOS/Android/Windows/macOS), 2025년 주요 빅테크 기본 지원(Google/Apple/Microsoft)</li>
-      <li><strong>OTP(One-Time Password) 2FA 강화</strong>: TOTP 앱(Google Authenticator, Microsoft Authenticator), SMS OTP 취약점 및 대안, 하드웨어 보안 키(YubiKey, Google Titan), FIDO2/WebAuthn 피싱 방지 MFA 표준화</li>
-      <li><strong>암호 관리자(Password Manager)</strong>: 안전한 비밀번호 생성 및 저장, 공용 PC에서의 안전한 사용법, 클라우드 동기화 보안, 브라우저 확장 프로그램 활용</li>
-      <li><strong>공용 PC 보안 모범 사례</strong>: 로그아웃 및 브라우저 캐시 관리, 시크릿 모드 활용, 개인정보 입력 최소화, 공용 PC 전용 계정 사용, 세션 타임아웃 설정</li>
-      <li><strong>2025년 인증 보안 트렌드</strong>: Passkey 채택 확대, Phishing-Resistant MFA 표준화(FIDO2/WebAuthn), AI 기반 피싱 공격 증가 대응(개인화된 피싱, 딥페이크, 정교한 도메인 스푸핑), 제로 트러스트 원칙 적용</li>'
-  audience='기업 보안 담당자, 보안 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 

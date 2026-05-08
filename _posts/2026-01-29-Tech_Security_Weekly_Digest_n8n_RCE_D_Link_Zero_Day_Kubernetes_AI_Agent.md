@@ -33,28 +33,32 @@ title: "n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 29일)"
+  period: "2026년 1월 28일 ~ 29일 (48시간)"
+  audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "n8n"
+    - "CVE-2026-1470"
+    - "RCE"
+    - "D-Link"
+    - "CVE-2026-0625"
+    - "Kubernetes"
+    - "AI-Agent"
+    - "eBPF"
+    - "NHI"
+    - "2026"
+  highlights:
+    - { source: "n8n Critical RCE (CVE-2026-1470)", title: "CVSS 9.9 - JavaScript AST sandbox escape, Function constructor bypass로 원격 코드 실행" }
+    - { source: "D-Link Zero-Day (CVE-2026-0625)", title: "CVSS 9.3 - 단종 장비 DNS 커맨드 인젝션, 패치 불가, 즉시 교체 필요" }
+    - { source: "Kubernetes AI 에이전트 보안", title: "비결정적 AI 에이전트 운영 시 eBPF 기반 보안, API 거버넌스, 런타임 모니터링 필수" }
+    - { source: "Infomaniak Swiss Sovereign Cloud", title: "GDPR 준수, OpenAI 호환 API, 100% 재생 에너지 유럽 클라우드" }
+    - { source: "NHI 클라우드 침해 벡터", title: "비인간 ID가 2026년 클라우드 침해 주요 경로로 부상, 자동 remediation 필요" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 29일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">n8n</span>
-      <span class="tag">CVE-2026-1470</span>
-      <span class="tag">RCE</span>
-      <span class="tag">D-Link</span>
-      <span class="tag">CVE-2026-0625</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">AI-Agent</span>
-      <span class="tag">eBPF</span>
-      <span class="tag">NHI</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>n8n Critical RCE (CVE-2026-1470)</strong>: CVSS 9.9 - JavaScript AST sandbox escape, Function constructor bypass로 원격 코드 실행</li>
-      <li><strong>D-Link Zero-Day (CVE-2026-0625)</strong>: CVSS 9.3 - 단종 장비 DNS 커맨드 인젝션, 패치 불가, 즉시 교체 필요</li>
-      <li><strong>Kubernetes AI 에이전트 보안</strong>: 비결정적 AI 에이전트 운영 시 eBPF 기반 보안, API 거버넌스, 런타임 모니터링 필수</li>
-      <li><strong>Infomaniak Swiss Sovereign Cloud</strong>: GDPR 준수, OpenAI 호환 API, 100% 재생 에너지 유럽 클라우드</li>
-      <li><strong>NHI 클라우드 침해 벡터</strong>: 비인간 ID가 2026년 클라우드 침해 주요 경로로 부상, 자동 remediation 필요</li>'
-  period='2026년 1월 28일 ~ 29일 (48시간)'
-  audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

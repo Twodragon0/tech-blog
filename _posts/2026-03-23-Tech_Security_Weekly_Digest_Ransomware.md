@@ -15,20 +15,24 @@ image_alt: "Gentlemen ransomware, zero trust visibility, and EQST threat insight
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware/
+summary_card:
+  title: "Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트"
+  period: "2026년 03월 23일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Ransomware"
+    - "2026"
+  highlights:
+    - { source: "SK쉴더스 보안 리포트", title: "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협" }
+    - { source: "SK쉴더스 보안 리포트", title: "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석" }
+    - { source: "SK쉴더스 보안 리포트", title: "SK쉴더스 EQST insight 통합 12월호" }
 ---
 
-{% include ai-summary-card.html
-  title='Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>SK쉴더스 보안 리포트</strong>: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: SK쉴더스 EQST insight 통합 12월호</li>'
-  period='2026년 03월 23일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -29,21 +29,24 @@ series_order: 4
 series_total: 9
 redirect_from:
   - /posts/2025/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/
+summary_card:
+  title: "클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!"
+  audience: "FinOps 전문가, 클라우드 관리자, 재무 담당자"
+  categories:
+    - { class: "cloud", label: "FinOps" }
+  tags:
+    - "AWS"
+    - "FinOps"
+    - "ISMS-P"
+    - "Audit"
+    - "Cost-Optimization"
+  highlights:
+    - { source: "", title: "2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화" }
+    - { source: "", title: "AWS 비용 관리 도구: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler" }
+    - { source: "", title: "ISMS-P 보안 감사 대응: AWS 기반 컴플라이언스 전략 및 주요 점검 항목" }
+    - { source: "", title: "FinOps 모범 사례: 태깅 전략, 예산 알림, 정기 리뷰" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
-  categories_html='<span class="category-tag cloud">FinOps</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">ISMS-P</span>
-      <span class="tag">Audit</span>
-      <span class="tag">Cost-Optimization</span>'
-  highlights_html='<li>2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화</li>
-      <li>AWS 비용 관리 도구: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler</li>
-      <li>ISMS-P 보안 감사 대응: AWS 기반 컴플라이언스 전략 및 주요 점검 항목</li>
-      <li>FinOps 모범 사례: 태깅 전략, 예산 알림, 정기 리뷰</li>'
-  audience='FinOps 전문가, 클라우드 관리자, 재무 담당자'
--%}
+{% include ai-summary-card.html %}
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

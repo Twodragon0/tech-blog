@@ -14,24 +14,28 @@ image: /assets/images/2026-04-29-Tech_Security_Weekly_Digest_CVE_AI_Ransomware_U
 image_alt: "Git Push, LofyGang, 3, VECT 2.0 - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어"
+  period: "2026년 04월 29일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "CVE"
+    - "AI"
+    - "Ransomware"
+    - "Update"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "연구진, 단일 Git Push로 악용 가능한 GitHub CVE-2026-3854 원격 코드 실행 취약점" }
+    - { source: "The Hacker News", title: "브라질의 LofyGang, 3년 만에 Minecraft LofyStealer 캠페인으로 재등장" }
+    - { source: "The Hacker News", title: "VECT 2.0 랜섬웨어, Windows·Linux·ESXi에서 131KB 초과 파일을 복구 불가능하게 파괴" }
+    - { source: "Google Cloud Blog", title: "에이전틱 시대에 오신 것을 환영합니다: Next &#x27;26에서 본 공공 부문의 주요 내용과 성찰" }
 ---
 
-{% include ai-summary-card.html
-  title="연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">CVE</span>
-      <span class="tag">AI</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Update</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 연구진, 단일 Git Push로 악용 가능한 GitHub CVE-2026-3854 원격 코드 실행 취약점</li>
-      <li><strong>The Hacker News</strong>: 브라질의 LofyGang, 3년 만에 Minecraft LofyStealer 캠페인으로 재등장</li>
-      <li><strong>The Hacker News</strong>: VECT 2.0 랜섬웨어, Windows·Linux·ESXi에서 131KB 초과 파일을 복구 불가능하게 파괴</li>
-      <li><strong>Google Cloud Blog</strong>: 에이전틱 시대에 오신 것을 환영합니다: Next &#x27;26에서 본 공공 부문의 주요 내용과 성찰</li>'
-  period='2026년 04월 29일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

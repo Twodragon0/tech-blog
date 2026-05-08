@@ -24,18 +24,21 @@ series_order: 2
 series_total: 9
 redirect_from:
   - /posts/2025/11/Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo/
+summary_card:
+  title: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "Infrastructure"
+    - "Cloud-Security"
+    - "AWS"
+  highlights:
+    - { source: "", title: "클라우드 인프라의 본질: 네트워크, 컴퓨팅, 스토리지의 보안 관점" }
+    - { source: "", title: "2025년 클라우드 보안 트렌드: AI 보안, Zero Trust, 클라우드 네이티브 보안" }
+    - { source: "", title: "실무 인프라 보안 이슈 및 대응 방안" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">Infrastructure</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AWS</span>'
-  highlights_html='<li>클라우드 인프라의 본질: 네트워크, 컴퓨팅, 스토리지의 보안 관점</li>
-      <li>2025년 클라우드 보안 트렌드: AI 보안, Zero Trust, 클라우드 네이티브 보안</li>
-      <li>실무 인프라 보안 이슈 및 대응 방안</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

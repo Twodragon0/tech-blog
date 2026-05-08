@@ -31,26 +31,30 @@ title: "MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Ki
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 27일)"
+  period: "2026년 1월 26일 ~ 27일 (48시간)"
+  audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Zero-Day"
+    - "Microsoft-Office"
+    - "Kimi-K2.5"
+    - "AI-Agents"
+    - "Kimwolf"
+    - "AWS-G7e"
+    - "NVIDIA-Blackwell"
+    - "2026"
+  highlights:
+    - { source: "MS Office Zero-Day (CVE-2026-21509)", title: "CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중" }
+    - { source: "Kimi K2.5 오픈소스", title: "비주얼 에이전트 AI - HLE 벤치마크 50.2% SOTA, 100개 하위 에이전트 1,500회 도구 호출" }
+    - { source: "Kimwolf/Badbox 2.0 봇넷", title: "200만+ IoT 기기 감염 - 기업/정부 네트워크 침투, DDoS 공격 활용" }
+    - { source: "AWS EC2 G7e", title: "NVIDIA RTX PRO 6000 Blackwell GPU - 추론 성능 2.3배 향상" }
+    - { source: "ChatGPT 컨테이너", title: "bash 실행, pip/npm 설치, 파일 다운로드 지원" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 27일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Zero-Day</span>
-      <span class="tag">Microsoft-Office</span>
-      <span class="tag">Kimi-K2.5</span>
-      <span class="tag">AI-Agents</span>
-      <span class="tag">Kimwolf</span>
-      <span class="tag">AWS-G7e</span>
-      <span class="tag">NVIDIA-Blackwell</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>MS Office Zero-Day (CVE-2026-21509)</strong>: CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중</li>
-      <li><strong>Kimi K2.5 오픈소스</strong>: 비주얼 에이전트 AI - HLE 벤치마크 50.2% SOTA, 100개 하위 에이전트 1,500회 도구 호출</li>
-      <li><strong>Kimwolf/Badbox 2.0 봇넷</strong>: 200만+ IoT 기기 감염 - 기업/정부 네트워크 침투, DDoS 공격 활용</li>
-      <li><strong>AWS EC2 G7e</strong>: NVIDIA RTX PRO 6000 Blackwell GPU - 추론 성능 2.3배 향상</li>
-      <li><strong>ChatGPT 컨테이너</strong>: bash 실행, pip/npm 설치, 파일 다운로드 지원</li>'
-  period='2026년 1월 26일 ~ 27일 (48시간)'
-  audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

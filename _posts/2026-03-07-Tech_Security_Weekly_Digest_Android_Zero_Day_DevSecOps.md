@@ -16,23 +16,27 @@ image_alt: "Tech Security Weekly Digest March 07 2026 Android Zero Day DevSecOps
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
+summary_card:
+  title: "Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증"
+  period: "2026년 03월 07일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Android-Zero-Day"
+    - "DevSecOps-Report"
+    - "Kubernetes"
+    - "Supply-Chain"
+    - "2026"
+  highlights:
+    - { source: "Android 129개 취약점 패치", title: "Qualcomm 제로데이 CVE-2026-21385 활성 공격 확인, 234개 칩셋 영향" }
+    - { source: "VMware Aria Operations 활성 공격", title: "CVE-2026-22719 CISA KEV 등재, 인증 없이 임의 명령 실행" }
+    - { source: "Datadog DevSecOps 보고서", title: "87% 조직이 운영 환경에 공격 가능한 취약점 보유, 의존성 평균 278일 지연" }
+    - { source: "VoidLink K8s 악성코드", title: "AI로 제작된 클라우드 네이티브 컨테이너 인식형 악성코드 프레임워크 확산" }
 ---
-{% include ai-summary-card.html
-  title='Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Android-Zero-Day</span>
-      <span class="tag">DevSecOps-Report</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Android 129개 취약점 패치</strong>: Qualcomm 제로데이 CVE-2026-21385 활성 공격 확인, 234개 칩셋 영향</li>
-      <li><strong>VMware Aria Operations 활성 공격</strong>: CVE-2026-22719 CISA KEV 등재, 인증 없이 임의 명령 실행</li>
-      <li><strong>Datadog DevSecOps 보고서</strong>: 87% 조직이 운영 환경에 공격 가능한 취약점 보유, 의존성 평균 278일 지연</li>
-      <li><strong>VoidLink K8s 악성코드</strong>: AI로 제작된 클라우드 네이티브 컨테이너 인식형 악성코드 프레임워크 확산</li>'
-  period='2026년 03월 07일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -29,28 +29,32 @@ title: '2026년 1월 클라우드 보안: Kubernetes 프로덕션 채택률 82% 
 toc: true
 redirect_from:
   - /posts/2026/01/Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey/
+summary_card:
+  title: "2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가"
+  audience: "DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "kubernetes", label: "Kubernetes" }
+  tags:
+    - "Kubernetes"
+    - "Cloud-Security"
+    - "CNCF"
+    - "VS-Code-Security"
+    - "Platform-Engineering"
+    - "GPU-Scheduling"
+    - "CRI-O-Audit"
+    - "Net-NTLMv1"
+    - "DevSecOps"
+    - "2026"
+  highlights:
+    - { source: "CNCF 연례 조사", title: "Kubernetes 프로덕션 사용률 82% 달성, AI 워크로드의 66%가 K8s에서 추론 실행" }
+    - { source: "VS Code 보안 위협", title: "악성 확장 프로그램과 터널링 기능 악용 사례 증가" }
+    - { source: "CRI-O 보안 감사", title: "OSTIF 두 번째 감사 완료, 컨테이너 런타임 보안 강화" }
+    - { source: "Net-NTLMv1 폐기 촉구", title: "Mandiant 레인보우 테이블 공개, 레거시 프로토콜 위험성 경고" }
+    - { source: "GPU 스케줄링 최적화", title: "유휴 GPU 재활용을 위한 K8s 스케줄러 플러그인 가이드" }
+    - { source: "플랫폼 엔지니어링", title: "유지보수 함정과 전략적 대응 방안" }
 ---
-{%- include ai-summary-card.html
-  title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag kubernetes">Kubernetes</span>'
-  tags_html='<span class="tag">Kubernetes</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">CNCF</span>
-      <span class="tag">VS-Code-Security</span>
-      <span class="tag">Platform-Engineering</span>
-      <span class="tag">GPU-Scheduling</span>
-      <span class="tag">CRI-O-Audit</span>
-      <span class="tag">Net-NTLMv1</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>CNCF 연례 조사</strong>: Kubernetes 프로덕션 사용률 82% 달성, AI 워크로드의 66%가 K8s에서 추론 실행</li>
-      <li><strong>VS Code 보안 위협</strong>: 악성 확장 프로그램과 터널링 기능 악용 사례 증가</li>
-      <li><strong>CRI-O 보안 감사</strong>: OSTIF 두 번째 감사 완료, 컨테이너 런타임 보안 강화</li>
-      <li><strong>Net-NTLMv1 폐기 촉구</strong>: Mandiant 레인보우 테이블 공개, 레거시 프로토콜 위험성 경고</li>
-      <li><strong>GPU 스케줄링 최적화</strong>: 유휴 GPU 재활용을 위한 K8s 스케줄러 플러그인 가이드</li>
-      <li><strong>플랫폼 엔지니어링</strong>: 유지보수 함정과 전략적 대응 방안</li>'
-  audience='DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

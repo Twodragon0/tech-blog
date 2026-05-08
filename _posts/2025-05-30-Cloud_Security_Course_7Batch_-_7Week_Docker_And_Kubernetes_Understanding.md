@@ -27,22 +27,25 @@ original_url: https://twodragon.tistory.com/686
 series: "Cloud Security Course 7기"
 series_order: 5
 series_total: 7
+summary_card:
+  title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해"
+  audience: "클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자"
+  categories:
+    - { class: "devops", label: "Kubernetes" }
+  tags:
+    - "Docker"
+    - "Kubernetes"
+    - "Container"
+    - "K8s"
+    - "Cloud-Security"
+    - "DevSecOps"
+  highlights:
+    - { source: "Docker 기초", title: "이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경" }
+    - { source: "Kubernetes 아키텍처", title: "Control Plane(API Server, etcd, Scheduler, Controller Manager), Node(kubelet, Pods), 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret, Namespace)" }
+    - { source: "컨테이너 보안 Best Practices", title: "최소 권한 원칙, 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템" }
+    - { source: "런타임 보안", title: "Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
-  categories_html='<span class="category-tag devops">Kubernetes</span>'
-  tags_html='<span class="tag">Docker</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Container</span>
-      <span class="tag">K8s</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>Docker 기초</strong>: 이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경</li>
-      <li><strong>Kubernetes 아키텍처</strong>: Control Plane(API Server, etcd, Scheduler, Controller Manager), Node(kubelet, Pods), 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret, Namespace)</li>
-      <li><strong>컨테이너 보안 Best Practices</strong>: 최소 권한 원칙, 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템</li>
-      <li><strong>런타임 보안</strong>: Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드</li>'
-  audience='클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자'
--%}
+{% include ai-summary-card.html %}
 
 <img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding" loading="lazy" class="post-image">
 

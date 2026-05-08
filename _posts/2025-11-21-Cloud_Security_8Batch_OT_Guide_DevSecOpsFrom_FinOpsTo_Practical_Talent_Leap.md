@@ -25,21 +25,24 @@ series_order: 1
 series_total: 9
 redirect_from:
   - /posts/2025/11/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/
+summary_card:
+  title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
+  audience: "DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "devops", label: "DevSecOps" }
+  tags:
+    - "Cloud-Security"
+    - "DevSecOps"
+    - "FinOps"
+    - "Course"
+  highlights:
+    - { source: "9주 커리큘럼 상세", title: "1주차(인프라 본질, 2025 보안 트렌드), 2주차(AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty), 3주차(AWS FinOps, ISMS-P), 4주차(통합 보안 취약점 점검), 5주차(AWS Control Tower, Datadog SIEM, Cloudflare), 6주차 이후(DevSecOps 심화, CI/CD/Kubernetes 보안)" }
+    - { source: "2025년 보안 트렌드 반영", title: "AI 보안 양면성(93% 리더 일일 AI 공격 예상), Shadow AI 위협, Supply Chain 공격 급증, Zero Trust 표준화, Post-quantum 암호화(Cloudflare 52% 적용), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot)" }
+    - { source: "학습 방식", title: "효율적 학습 루틴(20분 강의 + 5분 휴식, 뇌과학 기반 최적화), 실무 중심 교육, 상호작용형 학습 환경, 실무 고민 공유 및 Q&A" }
+    - { source: "기대 효과", title: "DevSecOps/FinOps 실무 역량 강화, 대체 불가능한 클라우드 보안 전문가로 성장, 실무 문제 해결 능력 향상, 클라우드 보안 아키텍처 설계 능력, 비용 최적화 역량 확보" }
+    - { source: "주요 학습 영역", title: "DevSecOps 영역(보안 통합 개발, 컨테이너 보안, 코드 보안, 인프라 보안), FinOps 영역(비용 최적화, 리소스 태깅, 거버넌스, 예산 관리), 클라우드 보안 영역(네트워크 보안, 접근 제어, 위협 탐지, 데이터 보호)" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
-  categories_html='<span class="category-tag devops">DevSecOps</span>'
-  tags_html='<span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">Course</span>'
-  highlights_html='<li><strong>9주 커리큘럼 상세</strong>: 1주차(인프라 본질, 2025 보안 트렌드), 2주차(AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty), 3주차(AWS FinOps, ISMS-P), 4주차(통합 보안 취약점 점검), 5주차(AWS Control Tower, Datadog SIEM, Cloudflare), 6주차 이후(DevSecOps 심화, CI/CD/Kubernetes 보안)</li>
-      <li><strong>2025년 보안 트렌드 반영</strong>: AI 보안 양면성(93% 리더 일일 AI 공격 예상), Shadow AI 위협, Supply Chain 공격 급증, Zero Trust 표준화, Post-quantum 암호화(Cloudflare 52% 적용), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot)</li>
-      <li><strong>학습 방식</strong>: 효율적 학습 루틴(20분 강의 + 5분 휴식, 뇌과학 기반 최적화), 실무 중심 교육, 상호작용형 학습 환경, 실무 고민 공유 및 Q&A</li>
-      <li><strong>기대 효과</strong>: DevSecOps/FinOps 실무 역량 강화, 대체 불가능한 클라우드 보안 전문가로 성장, 실무 문제 해결 능력 향상, 클라우드 보안 아키텍처 설계 능력, 비용 최적화 역량 확보</li>
-      <li><strong>주요 학습 영역</strong>: DevSecOps 영역(보안 통합 개발, 컨테이너 보안, 코드 보안, 인프라 보안), FinOps 영역(비용 최적화, 리소스 태깅, 거버넌스, 예산 관리), 클라우드 보안 영역(네트워크 보안, 접근 제어, 위협 탐지, 데이터 보호)</li>'
-  audience='DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

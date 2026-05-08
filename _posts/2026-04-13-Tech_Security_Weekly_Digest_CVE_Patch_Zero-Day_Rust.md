@@ -16,23 +16,27 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/
+summary_card:
+  title: "CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe, 악용 중인 Acrobat"
+  period: "2026년 04월 13일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "CVE"
+    - "Patch"
+    - "Zero-Day"
+    - "Rust"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "CPUID 침해로 인해 변조된 CPU-Z 및 HWMonitor 다운로드를 통해 STX RAT 유포" }
+    - { source: "BleepingComputer", title: "Marimo의 치명적인 사전 인증 RCE 취약점, 현재 적극적으로 악용 중" }
+    - { source: "The Hacker News", title: "Adobe, 악용 중인 Acrobat Reader 취약점 CVE-2026-34621 패치 배포" }
 ---
 
-{% include ai-summary-card.html
-  title='CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe, 악용 중인 Acrobat'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Patch</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Rust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: CPUID 침해로 인해 변조된 CPU-Z 및 HWMonitor 다운로드를 통해 STX RAT 유포</li>
-      <li><strong>BleepingComputer</strong>: Marimo의 치명적인 사전 인증 RCE 취약점, 현재 적극적으로 악용 중</li>
-      <li><strong>The Hacker News</strong>: Adobe, 악용 중인 Acrobat Reader 취약점 CVE-2026-34621 패치 배포</li>'
-  period='2026년 04월 13일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

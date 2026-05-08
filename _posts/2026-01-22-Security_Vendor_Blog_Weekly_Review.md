@@ -28,28 +28,32 @@ title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
 toc: true
 redirect_from:
   - /posts/2026/01/Security_Vendor_Blog_Weekly_Review/
+summary_card:
+  title: "보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)"
+  period: "2026년 1월 15일 ~ 22일 (7일간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Vendor-News"
+    - "DevSecOps"
+    - "Cloud-Security"
+    - "Hashicorp"
+    - "Cloudflare"
+    - "Snyk"
+    - "Jamf"
+    - "Zero-Trust"
+    - "AI-Security"
+    - "2026"
+  highlights:
+    - { source: "Jamf", title: "VS Code 악용 위협 확대 - Contagious Interview 캠페인 진화" }
+    - { source: "Cloudflare", title: "ACME 인증서 검증 취약점 공개 및 완화 조치" }
+    - { source: "Snyk", title: "AI 에이전트 시대의 기계 속도 보안 필요성 강조" }
+    - { source: "HashiCorp", title: "Agentic AI를 위한 Zero Trust NHI 관리, Kiro IDE 파트너십" }
+    - { source: "주요 테마", title: "AI 보안, Zero Trust, 인증서 자동화, Infrastructure as Code" }
 ---
-{%- include ai-summary-card.html
-  title='보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Vendor-News</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">Hashicorp</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">Snyk</span>
-      <span class="tag">Jamf</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Jamf</strong>: VS Code 악용 위협 확대 - Contagious Interview 캠페인 진화</li>
-      <li><strong>Cloudflare</strong>: ACME 인증서 검증 취약점 공개 및 완화 조치</li>
-      <li><strong>Snyk</strong>: AI 에이전트 시대의 기계 속도 보안 필요성 강조</li>
-      <li><strong>HashiCorp</strong>: Agentic AI를 위한 Zero Trust NHI 관리, Kiro IDE 파트너십</li>
-      <li><strong>주요 테마</strong>: AI 보안, Zero Trust, 인증서 자동화, Infrastructure as Code</li>'
-  period='2026년 1월 15일 ~ 22일 (7일간)'
-  audience='보안 담당자, DevSecOps 엔지니어, 클라우드 아키텍트, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

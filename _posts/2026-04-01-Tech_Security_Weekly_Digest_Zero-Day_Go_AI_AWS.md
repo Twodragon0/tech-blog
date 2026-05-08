@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/
+summary_card:
+  title: "Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드"
+  period: "2026년 04월 01일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Zero-Day"
+    - "Go"
+    - "AI"
+    - "AWS"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "Android Developer Verification, 9월 시행 앞두고 단계적 도입 시작" }
+    - { source: "The Hacker News", title: "TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용" }
+    - { source: "AWS Security Blog", title: "AWS에서 제공하는 새로운 규정 준수 가이드: ISO/IEC 27001:2022" }
+    - { source: "Google Cloud Blog", title: "Spanner의 완전한 상호운용성 멀티모델 데이터베이스로 실현한 현실 세계의 성공" }
 ---
 
-{% include ai-summary-card.html
-  title='Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Go</span>
-      <span class="tag">AI</span>
-      <span class="tag">AWS</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Android Developer Verification, 9월 시행 앞두고 단계적 도입 시작</li>
-      <li><strong>The Hacker News</strong>: TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용</li>
-      <li><strong>AWS Security Blog</strong>: AWS에서 제공하는 새로운 규정 준수 가이드: ISO/IEC 27001:2022</li>
-      <li><strong>Google Cloud Blog</strong>: Spanner의 완전한 상호운용성 멀티모델 데이터베이스로 실현한 현실 세계의 성공</li>'
-  period='2026년 04월 01일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

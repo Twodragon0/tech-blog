@@ -14,23 +14,27 @@ image: /assets/images/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.
 image_alt: "Grinex, Mirai Nexcorium - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium"
+  period: "2026년 04월 19일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Data"
+    - "CVE"
+    - "Botnet"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "정보 기관 주장 이후 제재 대상 Grinex 거래소가 1,374만 달러 해킹으로 폐쇄" }
+    - { source: "Microsoft Security Blog", title: "크로스 테넌트 헬프데스크 사칭에서 데이터 유출까지: 인간 운영 침입 플레이북" }
+    - { source: "The Hacker News", title: "Mirai 변종 Nexcorium, CVE-2024-3721 취약점으로 TBK DVR 장악해 DDoS 봇넷" }
 ---
 
-{% include ai-summary-card.html
-  title='정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Data</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Botnet</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 정보 기관 주장 이후 제재 대상 Grinex 거래소가 1,374만 달러 해킹으로 폐쇄</li>
-      <li><strong>Microsoft Security Blog</strong>: 크로스 테넌트 헬프데스크 사칭에서 데이터 유출까지: 인간 운영 침입 플레이북</li>
-      <li><strong>The Hacker News</strong>: Mirai 변종 Nexcorium, CVE-2024-3721 취약점으로 TBK DVR 장악해 DDoS 봇넷</li>'
-  period='2026년 04월 19일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

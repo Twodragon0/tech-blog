@@ -25,20 +25,23 @@ original_url: https://twodragon.tistory.com/683
 series: "Cloud Security Course 7기"
 series_order: 3
 series_total: 7
+summary_card:
+  title: "클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AWS"
+    - "Control-Tower"
+    - "ZTNA"
+    - "Zero-Trust"
+  highlights:
+    - { source: "AWS Control Tower 멀티 계정 관리", title: "Landing Zone 자동 설정, Guardrails 정책 적용(필수/권장/선택), 계정 팩토리(자동 계정 생성), Organizations 및 SCP 활용, 2025년 업데이트(계정 마이그레이션 개선, standalone 분리 불필요)" }
+    - { source: "ZTNA(Zero Trust Network Access)", title: "Zero Trust 개념(\"절대 신뢰하지 말고, 항상 검증하라\"), AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용" }
+    - { source: "2025년 AWS 거버넌스 업데이트", title: "Organizations 계정 마이그레이션 개선(조직 간 직접 이동, 다운타임 최소화), Control Tower Guardrails 확장, SCP 정책 자동화" }
+    - { source: "실무 적용", title: "멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성, 보안 및 컴플라이언스 통합 관리" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">Control-Tower</span>
-      <span class="tag">ZTNA</span>
-      <span class="tag">Zero-Trust</span>'
-  highlights_html='<li><strong>AWS Control Tower 멀티 계정 관리</strong>: Landing Zone 자동 설정, Guardrails 정책 적용(필수/권장/선택), 계정 팩토리(자동 계정 생성), Organizations 및 SCP 활용, 2025년 업데이트(계정 마이그레이션 개선, standalone 분리 불필요)</li>
-      <li><strong>ZTNA(Zero Trust Network Access)</strong>: Zero Trust 개념("절대 신뢰하지 말고, 항상 검증하라"), AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용</li>
-      <li><strong>2025년 AWS 거버넌스 업데이트</strong>: Organizations 계정 마이그레이션 개선(조직 간 직접 이동, 다운타임 최소화), Control Tower Guardrails 확장, SCP 정책 자동화</li>
-      <li><strong>실무 적용</strong>: 멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성, 보안 및 컴플라이언스 통합 관리</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 ### 실습 체크리스트
 

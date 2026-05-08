@@ -15,22 +15,26 @@ image_alt: "AI red team tooling, Bedrock multi-agent workflows, and Aave Shield 
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/
+summary_card:
+  title: "AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시"
+  period: "2026년 03월 16일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Agent"
+    - "Open-Source"
+    - "Update"
+    - "2026"
+  highlights:
+    - { source: "Hacker News", title: "Show HN: 악용 코드가 공개된 AI 에이전트를 레드팀할 수 있는 오픈소스 플레이그라운드" }
+    - { source: "AWS Korea Blog", title: "Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기" }
 ---
 
-{% include ai-summary-card.html
-  title='AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Agent</span>
-      <span class="tag">Open-Source</span>
-      <span class="tag">Update</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Hacker News</strong>: Show HN: 악용 코드가 공개된 AI 에이전트를 레드팀할 수 있는 오픈소스 플레이그라운드</li>
-      <li><strong>AWS Korea Blog</strong>: Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기</li>'
-  period='2026년 03월 16일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 보안 다이제스트 [아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향](/2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin)에서 Libra 토큰 온체인 포렌식, 스테이블코인 규제 동향, 암호화폐 시장 보안 이슈를 심층 분석합니다.
 

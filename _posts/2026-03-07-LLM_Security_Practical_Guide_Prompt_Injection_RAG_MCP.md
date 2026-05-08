@@ -16,22 +16,26 @@ image_alt: "LLM Security Practical Guide 2026 Prompt Injection RAG MCP"
 toc: true
 redirect_from:
   - /posts/2026/03/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/
+summary_card:
+  title: "LLM 보안 실무 가이드 2026"
+  period: "2026년 3월"
+  audience: "보안 담당자, AI/ML 엔지니어, DevSecOps 엔지니어, 플랫폼 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "LLM-Security"
+    - "Prompt-Injection"
+    - "RAG-Security"
+    - "MCP-Security"
+    - "AI-Security"
+  highlights:
+    - { source: "프롬프트 인젝션 방어", title: "Direct/Indirect 인젝션 탐지와 다계층 방어 패턴" }
+    - { source: "RAG 파이프라인 보안", title: "문서 오염 방지, 검색 결과 검증, 컨텍스트 격리" }
+    - { source: "MCP 프로토콜 위협", title: "Tool Use 권한 제어, 서버 인증, 데이터 유출 방지" }
+    - { source: "모델 공급망 보안", title: "모델 서명 검증, 가중치 무결성, 레지스트리 보안" }
 ---
-{% include ai-summary-card.html
-  title='LLM 보안 실무 가이드 2026'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">LLM-Security</span>
-      <span class="tag">Prompt-Injection</span>
-      <span class="tag">RAG-Security</span>
-      <span class="tag">MCP-Security</span>
-      <span class="tag">AI-Security</span>'
-  highlights_html='<li><strong>프롬프트 인젝션 방어</strong>: Direct/Indirect 인젝션 탐지와 다계층 방어 패턴</li>
-      <li><strong>RAG 파이프라인 보안</strong>: 문서 오염 방지, 검색 결과 검증, 컨텍스트 격리</li>
-      <li><strong>MCP 프로토콜 위협</strong>: Tool Use 권한 제어, 서버 인증, 데이터 유출 방지</li>
-      <li><strong>모델 공급망 보안</strong>: 모델 서명 검증, 가중치 무결성, 레지스트리 보안</li>'
-  period='2026년 3월'
-  audience='보안 담당자, AI/ML 엔지니어, DevSecOps 엔지니어, 플랫폼 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

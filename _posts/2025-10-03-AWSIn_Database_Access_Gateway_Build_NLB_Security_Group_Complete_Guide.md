@@ -23,20 +23,23 @@ tags:
 keywords: [AWS, NLB, Security-Group, Database, Network]
 title: 'AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
 toc: true
+summary_card:
+  title: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AWS"
+    - "NLB"
+    - "Security-Group"
+    - "Database"
+    - "Network"
+  highlights:
+    - { source: "", title: "Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처 구축" }
+    - { source: "", title: "Terraform을 통한 인프라 자동화 및 보안 설정" }
+    - { source: "", title: "데이터베이스 접근 관리 솔루션 AWS 배포 경험 공유" }
 ---
-{%- include ai-summary-card.html
-  title='AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">NLB</span>
-      <span class="tag">Security-Group</span>
-      <span class="tag">Database</span>
-      <span class="tag">Network</span>'
-  highlights_html='<li>Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처 구축</li>
-      <li>Terraform을 통한 인프라 자동화 및 보안 설정</li>
-      <li>데이터베이스 접근 관리 솔루션 AWS 배포 경험 공유</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

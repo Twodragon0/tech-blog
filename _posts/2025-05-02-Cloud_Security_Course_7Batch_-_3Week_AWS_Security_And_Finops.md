@@ -27,22 +27,25 @@ original_url: https://twodragon.tistory.com/679
 series: "Cloud Security Course 7기"
 series_order: 1
 series_total: 7
+summary_card:
+  title: "클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AWS"
+    - "FinOps"
+    - "Cloud-Security"
+    - "Cost-Optimization"
+    - "Well-Architected"
+  highlights:
+    - { source: "AWS 보안 서비스 구조", title: "IAM(Identity Center), Organizations(SCP), CloudTrail(감사), Config(규칙), Security Hub(중앙 집중 보안), GuardDuty(위협 탐지), Inspector(취약점), Macie(데이터), Detective(포렌식), WAF, Shield, Firewall Manager, KMS, Secrets Manager" }
+    - { source: "IAM 보안 모범 사례", title: "최소 권한 원칙, IP 기반 접근 제어, MFA 필수, 조건부 정책, VPC 보안 구성(Security Group, NACL, Flow Logs), GuardDuty 자동 대응(Lambda 기반 격리, SNS 알림)" }
+    - { source: "FinOps 프레임워크", title: "Inform(가시성 확보), Optimize(비용 최적화), Operate(운영 관리), Capabilities(비용 할당/태깅, 예산/예측, 이상 탐지, Reserved Instance/Savings Plans, Right Sizing)" }
+    - { source: "비용 최적화 전략", title: "일관된 리소스 태깅 전략(Environment, Project, Owner, CostCenter), AWS Cost Explorer API 활용, 월간 비용 분석 및 이상 탐지, Reserved Instance/Savings Plans 최적화" }
+    - { source: "AWS Well-Architected Framework", title: "보안 및 비용 최적화 관점에서의 아키텍처 설계, 보안과 비용의 균형, 실무 적용 가능한 FinOps 전략" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">Cost-Optimization</span>
-      <span class="tag">Well-Architected</span>'
-  highlights_html='<li><strong>AWS 보안 서비스 구조</strong>: IAM(Identity Center), Organizations(SCP), CloudTrail(감사), Config(규칙), Security Hub(중앙 집중 보안), GuardDuty(위협 탐지), Inspector(취약점), Macie(데이터), Detective(포렌식), WAF, Shield, Firewall Manager, KMS, Secrets Manager</li>
-      <li><strong>IAM 보안 모범 사례</strong>: 최소 권한 원칙, IP 기반 접근 제어, MFA 필수, 조건부 정책, VPC 보안 구성(Security Group, NACL, Flow Logs), GuardDuty 자동 대응(Lambda 기반 격리, SNS 알림)</li>
-      <li><strong>FinOps 프레임워크</strong>: Inform(가시성 확보), Optimize(비용 최적화), Operate(운영 관리), Capabilities(비용 할당/태깅, 예산/예측, 이상 탐지, Reserved Instance/Savings Plans, Right Sizing)</li>
-      <li><strong>비용 최적화 전략</strong>: 일관된 리소스 태깅 전략(Environment, Project, Owner, CostCenter), AWS Cost Explorer API 활용, 월간 비용 분석 및 이상 탐지, Reserved Instance/Savings Plans 최적화</li>
-      <li><strong>AWS Well-Architected Framework</strong>: 보안 및 비용 최적화 관점에서의 아키텍처 설계, 보안과 비용의 균형, 실무 적용 가능한 FinOps 전략</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 <img src="{% raw %}{{ '/assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 3Week: AWS Security and FinOps" loading="lazy" class="post-image">
 

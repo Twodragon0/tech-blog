@@ -28,25 +28,29 @@ title: '2026년 2월 보안 다이제스트: Docker AI 취약점, CVE-2025-11953
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Docker_Data_Go/
+summary_card:
+  title: "주간 기술 보안 다이제스트 (2026년 02월 04일)"
+  period: "2026년 02월 03일 ~ 04일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Docker"
+    - "DockerDash"
+    - "CVE-2025-11953"
+    - "Metro4Shell"
+    - "AI-Agent-Security"
+    - "AWS-IAM"
+    - "3Cs-Framework"
+    - "2026"
+  highlights:
+    - { source: "Docker DockerDash", title: "Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 및 데이터 유출 취약점 패치" }
+    - { source: "CVE-2025-11953", title: "React Native CLI Metro4Shell RCE - CVSS 9.8, 원격 비인증 공격자의 임의 코드 실행" }
+    - { source: "AWS IAM Identity Center", title: "멀티리전 복제 지원으로 보안 아키텍처 및 데이터 주권 영향" }
+    - { source: "3Cs 프레임워크", title: "Docker 발표 AI 에이전트 보안 프레임워크 - Container, Credential, Code" }
 ---
-{%- include ai-summary-card.html
-  title='주간 기술 보안 다이제스트 (2026년 02월 04일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Docker</span>
-      <span class="tag">DockerDash</span>
-      <span class="tag">CVE-2025-11953</span>
-      <span class="tag">Metro4Shell</span>
-      <span class="tag">AI-Agent-Security</span>
-      <span class="tag">AWS-IAM</span>
-      <span class="tag">3Cs-Framework</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Docker DockerDash</strong>: Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 및 데이터 유출 취약점 패치</li>
-      <li><strong>CVE-2025-11953</strong>: React Native CLI Metro4Shell RCE - CVSS 9.8, 원격 비인증 공격자의 임의 코드 실행</li>
-      <li><strong>AWS IAM Identity Center</strong>: 멀티리전 복제 지원으로 보안 아키텍처 및 데이터 주권 영향</li>
-      <li><strong>3Cs 프레임워크</strong>: Docker 발표 AI 에이전트 보안 프레임워크 - Container, Credential, Code</li>'
-  period='2026년 02월 03일 ~ 04일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

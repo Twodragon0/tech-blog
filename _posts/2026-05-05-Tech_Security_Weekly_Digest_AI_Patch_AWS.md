@@ -13,23 +13,27 @@ comments: true
 image: /assets/images/2026-05-05-Tech_Security_Weekly_Digest_AI_Patch_AWS.svg
 image_alt: "SimpleHelp, Progress, : AI - security digest overview"
 toc: true
+summary_card:
+  title: "피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱"
+  period: "2026년 05월 05일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Patch"
+    - "AWS"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "피싱 캠페인, SimpleHelp 및 ScreenConnect RMM 도구 사용해 80여 개 조직 공격" }
+    - { source: "The Hacker News", title: "Progress, 인증 우회 가능한 치명적 MOVEit Automation 버그 패치" }
+    - { source: "The Hacker News", title: "주간 요약: AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE 등" }
+    - { source: "Google Cloud Blog", title: "Apache Airflow용 Managed Service로 데이터와 AI 확장하기" }
 ---
 
-{% include ai-summary-card.html
-  title="피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Patch</span>
-      <span class="tag">AWS</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 피싱 캠페인, SimpleHelp 및 ScreenConnect RMM 도구 사용해 80여 개 조직 공격</li>
-      <li><strong>The Hacker News</strong>: Progress, 인증 우회 가능한 치명적 MOVEit Automation 버그 패치</li>
-      <li><strong>The Hacker News</strong>: 주간 요약: AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE 등</li>
-      <li><strong>Google Cloud Blog</strong>: Apache Airflow용 Managed Service로 데이터와 AI 확장하기</li>'
-  period='2026년 05월 05일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

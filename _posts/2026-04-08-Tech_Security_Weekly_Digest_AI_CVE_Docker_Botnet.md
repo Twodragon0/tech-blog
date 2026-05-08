@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/
+summary_card:
+  title: "러시아 국가 연계 APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 기업 보안"
+  period: "2026년 04월 08일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "CVE"
+    - "Docker"
+    - "Botnet"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "러시아 국가 연계 APT28, 글로벌 DNS 하이재킹 캠페인에서 SOHO 라우터 악용" }
+    - { source: "The Hacker News", title: "[웨비나] AI가 기업 리스크를 악용하기 전에 2026년까지 아이덴티티 격차를 해소하는 방법" }
+    - { source: "The Hacker News", title: "Docker CVE-2026-34040으로 공격자 인증 우회 및 호스트 접근 권한 획득 가능" }
+    - { source: "Google Cloud Blog", title: "Claude Mythos 프리뷰: Vertex AI에서 프라이빗 프리뷰로 이용 가능" }
 ---
 
-{% include ai-summary-card.html
-  title='러시아 국가 연계 APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 기업 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Botnet</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 러시아 국가 연계 APT28, 글로벌 DNS 하이재킹 캠페인에서 SOHO 라우터 악용</li>
-      <li><strong>The Hacker News</strong>: [웨비나] AI가 기업 리스크를 악용하기 전에 2026년까지 아이덴티티 격차를 해소하는 방법</li>
-      <li><strong>The Hacker News</strong>: Docker CVE-2026-34040으로 공격자 인증 우회 및 호스트 접근 권한 획득 가능</li>
-      <li><strong>Google Cloud Blog</strong>: Claude Mythos 프리뷰: Vertex AI에서 프라이빗 프리뷰로 이용 가능</li>'
-  period='2026년 04월 08일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

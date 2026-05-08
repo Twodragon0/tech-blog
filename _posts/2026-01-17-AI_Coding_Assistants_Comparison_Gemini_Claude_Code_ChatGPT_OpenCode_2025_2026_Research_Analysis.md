@@ -35,32 +35,36 @@ toc: true
 redirect_from:
   - /posts/2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/
   - /posts/2026/01/AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/
+summary_card:
+  title: "AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가"
+  audience: "소프트웨어 엔지니어, DevSecOps 엔지니어, AI 연구자, 개발자"
+  categories:
+    - { class: "ai", label: "AI" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "AI"
+    - "Coding-Assistants"
+    - "Gemini"
+    - "Claude-Code"
+    - "ChatGPT"
+    - "OpenCode"
+    - "DeepSeek"
+    - "SWE-Bench"
+    - "HumanEval"
+    - "Reproducibility"
+    - "Benchmark"
+    - "Research"
+    - "2025"
+    - "2026"
+  highlights:
+    - { source: "2025-2026년 최신 벤치마크 결과", title: "SWE-Bench, HumanEval, Multi-SWE-Bench 성능 비교 분석" }
+    - { source: "재현성 문제 분석", title: "AI 생성 코드의 의존성 추적 및 실행 가능성 문제 (68.3% 재현성)" }
+    - { source: "멀티링구얼 지원", title: "Python, Java, TypeScript, JavaScript, Go, Rust, C, C#, C++ 지원 현황" }
+    - { source: "DeepSeek Coder 분석", title: "HumanEval 최고 성능 (90.2%), 비용 효율적, 알고리즘 문제 해결 강점" }
+    - { source: "실무 활용 가이드", title: "각 어시스턴트의 강점과 약점, 사용 사례별 추천" }
+    - { source: "보안 고려사항", title: "AI 생성 코드의 보안 취약점 및 검증 방법" }
 ---
-{%- include ai-summary-card.html
-  title='AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가'
-  categories_html='<span class="category-tag ai">AI</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AI</span>
-      <span class="tag">Coding-Assistants</span>
-      <span class="tag">Gemini</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">ChatGPT</span>
-      <span class="tag">OpenCode</span>
-      <span class="tag">DeepSeek</span>
-      <span class="tag">SWE-Bench</span>
-      <span class="tag">HumanEval</span>
-      <span class="tag">Reproducibility</span>
-      <span class="tag">Benchmark</span>
-      <span class="tag">Research</span>
-      <span class="tag">2025</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>2025-2026년 최신 벤치마크 결과</strong>: SWE-Bench, HumanEval, Multi-SWE-Bench 성능 비교 분석</li>
-      <li><strong>재현성 문제 분석</strong>: AI 생성 코드의 의존성 추적 및 실행 가능성 문제 (68.3% 재현성)</li>
-      <li><strong>멀티링구얼 지원</strong>: Python, Java, TypeScript, JavaScript, Go, Rust, C, C#, C++ 지원 현황</li>
-      <li><strong>DeepSeek Coder 분석</strong>: HumanEval 최고 성능 (90.2%), 비용 효율적, 알고리즘 문제 해결 강점</li>
-      <li><strong>실무 활용 가이드</strong>: 각 어시스턴트의 강점과 약점, 사용 사례별 추천</li>
-      <li><strong>보안 고려사항</strong>: AI 생성 코드의 보안 취약점 및 검증 방법</li>'
-  audience='소프트웨어 엔지니어, DevSecOps 엔지니어, AI 연구자, 개발자'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

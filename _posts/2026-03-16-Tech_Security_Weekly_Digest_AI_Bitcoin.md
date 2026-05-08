@@ -15,21 +15,25 @@ image_alt: "Libra token forensics, stablecoin regulation, and crypto market dige
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Bitcoin/
+summary_card:
+  title: "아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향"
+  period: "2026년 03월 16일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Bitcoin"
+    - "2026"
+  highlights:
+    - { source: "Cointelegraph", title: "아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석 결과 공개" }
+    - { source: "Cointelegraph", title: "스테이블코인 규제 불확실성, 크립토보다 은행에 더 큰 타격 전망" }
+    - { source: "GeekNews", title: "MCP 기술의 재평가 - CLI 유행 속 조직 AI 엔지니어링에서의 역할" }
 ---
 
-{% include ai-summary-card.html
-  title='아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Bitcoin</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Cointelegraph</strong>: 아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석 결과 공개</li>
-      <li><strong>Cointelegraph</strong>: 스테이블코인 규제 불확실성, 크립토보다 은행에 더 큰 타격 전망</li>
-      <li><strong>GeekNews</strong>: MCP 기술의 재평가 - CLI 유행 속 조직 AI 엔지니어링에서의 역할</li>'
-  period='2026년 03월 16일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 보안 다이제스트 [AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시](/2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update)에서 AI 에이전트 레드팀 도구, AWS Bedrock 멀티에이전트 보안 아키텍처, DeFi 보안 이슈를 심층 분석합니다.
 

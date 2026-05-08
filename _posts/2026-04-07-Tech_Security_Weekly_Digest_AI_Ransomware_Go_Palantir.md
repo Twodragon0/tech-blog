@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
+summary_card:
+  title: "이란 연계 패스워드 스프레이링 공격, 이스라엘, 북한 연계 해커들, 한국 표적 다단계, 독일 당국, REvil 및 GangCrab"
+  period: "2026년 04월 07일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Ransomware"
+    - "Go"
+    - "Palantir"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "이란 연계 패스워드 스프레이링 공격, 이스라엘 Microsoft 365 기관 300곳 이상 표적" }
+    - { source: "The Hacker News", title: "북한 연계 해커들, 한국 표적 다단계 공격에서 GitHub를 C2로 활용" }
+    - { source: "BleepingComputer", title: "독일 당국, REvil 및 GangCrab 랜섬웨어 조직 보스 신원 확인" }
+    - { source: "Google Cloud Blog", title: "AI 인프라 효율성: Ironwood TPU, 3.7배 탄소 효율성 향상 제공" }
 ---
 
-{% include ai-summary-card.html
-  title='이란 연계 패스워드 스프레이링 공격, 이스라엘, 북한 연계 해커들, 한국 표적 다단계, 독일 당국, REvil 및 GangCrab'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Go</span>
-      <span class="tag">Palantir</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 이란 연계 패스워드 스프레이링 공격, 이스라엘 Microsoft 365 기관 300곳 이상 표적</li>
-      <li><strong>The Hacker News</strong>: 북한 연계 해커들, 한국 표적 다단계 공격에서 GitHub를 C2로 활용</li>
-      <li><strong>BleepingComputer</strong>: 독일 당국, REvil 및 GangCrab 랜섬웨어 조직 보스 신원 확인</li>
-      <li><strong>Google Cloud Blog</strong>: AI 인프라 효율성: Ironwood TPU, 3.7배 탄소 효율성 향상 제공</li>'
-  period='2026년 04월 07일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

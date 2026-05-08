@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/
+summary_card:
+  title: "중국 연계 TA416 PlugX 캠페인·Microsoft·Linux·LinkedIn 6,000+ 계정 표적: 2026-04-04 보안 위클리 다이제스트"
+  period: "2026년 04월 04일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Go"
+    - "AI"
+    - "Data"
+    - "Security"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "중국 연계 TA416, PlugX 및 OAuth 기반 피싱으로 유럽 정부 표적" }
+    - { source: "The Hacker News", title: "Microsoft, Linux 서버에서 Cron을 통해 지속되는 쿠키 제어 PHP 웹 셸 상세 공개" }
+    - { source: "BleepingComputer", title: "LinkedIn, 6,000개 이상 Chrome 확장 프로그램 은밀히 스캔해 데이터 수집" }
+    - { source: "Google Cloud Blog", title: "Envoy: 에이전트 AI 네트워킹을 위한 미래 대비 기반" }
 ---
 
-{% include ai-summary-card.html
-  title='중국 연계 TA416 PlugX 캠페인·Microsoft·Linux·LinkedIn 6,000+ 계정 표적: 2026-04-04 보안 위클리 다이제스트'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Go</span>
-      <span class="tag">AI</span>
-      <span class="tag">Data</span>
-      <span class="tag">Security</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 중국 연계 TA416, PlugX 및 OAuth 기반 피싱으로 유럽 정부 표적</li>
-      <li><strong>The Hacker News</strong>: Microsoft, Linux 서버에서 Cron을 통해 지속되는 쿠키 제어 PHP 웹 셸 상세 공개</li>
-      <li><strong>BleepingComputer</strong>: LinkedIn, 6,000개 이상 Chrome 확장 프로그램 은밀히 스캔해 데이터 수집</li>
-      <li><strong>Google Cloud Blog</strong>: Envoy: 에이전트 AI 네트워킹을 위한 미래 대비 기반</li>'
-  period='2026년 04월 04일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

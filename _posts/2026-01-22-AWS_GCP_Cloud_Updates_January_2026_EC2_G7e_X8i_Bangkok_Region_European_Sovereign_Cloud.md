@@ -31,30 +31,34 @@ title: 'AWS/GCP 2026년 1월: EC2 G7e/X8i, Bangkok 리전, Sovereign Cloud'
 toc: true
 redirect_from:
   - /posts/2026/01/AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud/
+summary_card:
+  title: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+    - { class: "devops", label: "DevOps" }
+  tags:
+    - "AWS"
+    - "GCP"
+    - "EC2-G7e"
+    - "EC2-X8i"
+    - "NVIDIA-Blackwell"
+    - "Bangkok-Region"
+    - "European-Sovereign-Cloud"
+    - "Gemini-3"
+    - "BigQuery"
+    - "Cloud-Migration"
+    - "FinOps"
+    - "2026"
+  highlights:
+    - { source: "AWS EC2 G7e", title: "NVIDIA RTX PRO 6000 Blackwell GPU, AI 추론 성능 2.3배 향상" }
+    - { source: "AWS EC2 X8i", title: "커스텀 Intel Xeon 6 프로세서, 메모리 집약적 워크로드 최적화" }
+    - { source: "AWS European Sovereign Cloud", title: "EU 데이터 주권 요구사항 충족, 규제 산업용" }
+    - { source: "GCP Bangkok Region", title: "태국 시장 진출, USD 10억 투자, 저지연 서비스" }
+    - { source: "Gemini 3 Flash", title: "최신 추론 모델, 에이전트 워크플로우 최적화" }
+    - { source: "BigQuery 고급 쿼리 엔진", title: "100개 이상의 새로운 쿼리 기능, Hugging Face 모델 통합" }
 ---
-{%- include ai-summary-card.html
-  title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud'
-  categories_html='<span class="category-tag cloud">Cloud</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">GCP</span>
-      <span class="tag">EC2-G7e</span>
-      <span class="tag">EC2-X8i</span>
-      <span class="tag">NVIDIA-Blackwell</span>
-      <span class="tag">Bangkok-Region</span>
-      <span class="tag">European-Sovereign-Cloud</span>
-      <span class="tag">Gemini-3</span>
-      <span class="tag">BigQuery</span>
-      <span class="tag">Cloud-Migration</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AWS EC2 G7e</strong>: NVIDIA RTX PRO 6000 Blackwell GPU, AI 추론 성능 2.3배 향상</li>
-      <li><strong>AWS EC2 X8i</strong>: 커스텀 Intel Xeon 6 프로세서, 메모리 집약적 워크로드 최적화</li>
-      <li><strong>AWS European Sovereign Cloud</strong>: EU 데이터 주권 요구사항 충족, 규제 산업용</li>
-      <li><strong>GCP Bangkok Region</strong>: 태국 시장 진출, USD 10억 투자, 저지연 서비스</li>
-      <li><strong>Gemini 3 Flash</strong>: 최신 추론 모델, 에이전트 워크플로우 최적화</li>
-      <li><strong>BigQuery 고급 쿼리 엔진</strong>: 100개 이상의 새로운 쿼리 기능, Hugging Face 모델 통합</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

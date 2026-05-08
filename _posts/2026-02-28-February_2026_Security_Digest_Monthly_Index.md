@@ -13,21 +13,25 @@ comments: true
 image: /assets/images/2026-02-28-February_2026_Security_Digest_Monthly_Index.svg
 image_alt: "February 2026 Security Digest Monthly Index"
 toc: true
+summary_card:
+  title: "2026년 2월 보안 다이제스트 월간 인덱스"
+  period: "2026년 2월 월간 인덱스"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "monthly-index"
+    - "security-news"
+    - "weekly-digest"
+    - "2026"
+  highlights:
+    - { source: "월간 종합", title: "2026년 2월 발행 보안 다이제스트 핵심 이슈 인덱싱" }
+    - { source: "위협 동향", title: "AI 기반 취약점 탐지, 공급망 공격 고도화, 랜섬웨어 진화, APT 캠페인 집중 정리" }
+    - { source: "운영 포인트", title: "OWASP Agentic AI 프레임워크, Kubernetes 보안, LLM 운영 리스크 대응 확인" }
 ---
 
-{% include ai-summary-card.html
-  title='2026년 2월 보안 다이제스트 월간 인덱스'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">monthly-index</span>
-      <span class="tag">security-news</span>
-      <span class="tag">weekly-digest</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>월간 종합</strong>: 2026년 2월 발행 보안 다이제스트 핵심 이슈 인덱싱</li>
-      <li><strong>위협 동향</strong>: AI 기반 취약점 탐지, 공급망 공격 고도화, 랜섬웨어 진화, APT 캠페인 집중 정리</li>
-      <li><strong>운영 포인트</strong>: OWASP Agentic AI 프레임워크, Kubernetes 보안, LLM 운영 리스크 대응 확인</li>'
-  period='2026년 2월 월간 인덱스'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

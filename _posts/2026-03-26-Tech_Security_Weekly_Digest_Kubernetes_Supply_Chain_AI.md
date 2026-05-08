@@ -15,23 +15,27 @@ image_alt: "Kubernetes RBAC bypass, SLSA supply chain security, AI agent prompt 
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
+summary_card:
+  title: "Kubernetes RBAC 우회 취약점, SLSA 공급망 보안, AI 에이전트 프롬프트 인젝션 방어"
+  period: "2026년 03월 26일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Kubernetes"
+    - "Supply-Chain"
+    - "AI-Agent"
+    - "2026"
+  highlights:
+    - { source: "Kubernetes Security", title: "RBAC 우회 취약점(CVE-2026-0421)과 Cilium/eBPF 기반 네트워크 정책 강화" }
+    - { source: "Supply Chain", title: "SLSA v1.1/SBOM 기반 공급망 보안 프레임워크 실무 적용 가이드" }
+    - { source: "AI Security", title: "AI 에이전트 프롬프트 인젝션 공격의 새로운 기법과 방어 전략" }
+    - { source: "DevSecOps", title: "Dependabot/Renovate 기반 CVE 패치 자동화와 운영 모범 사례" }
 ---
 
-{% include ai-summary-card.html
-  title='Kubernetes RBAC 우회 취약점, SLSA 공급망 보안, AI 에이전트 프롬프트 인젝션 방어'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">AI-Agent</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Kubernetes Security</strong>: RBAC 우회 취약점(CVE-2026-0421)과 Cilium/eBPF 기반 네트워크 정책 강화</li>
-      <li><strong>Supply Chain</strong>: SLSA v1.1/SBOM 기반 공급망 보안 프레임워크 실무 적용 가이드</li>
-      <li><strong>AI Security</strong>: AI 에이전트 프롬프트 인젝션 공격의 새로운 기법과 방어 전략</li>
-      <li><strong>DevSecOps</strong>: Dependabot/Renovate 기반 CVE 패치 자동화와 운영 모범 사례</li>'
-  period='2026년 03월 26일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -13,23 +13,27 @@ comments: true
 image: /assets/images/2026-05-02-Tech_Security_Weekly_Digest_AI_Go_Security_AWS.svg
 image_alt: "3 Facebook, AI, Microsoft, Windows - security digest overview"
 toc: true
+summary_card:
+  title: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows"
+  period: "2026년 05월 02일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Go"
+    - "Security"
+    - "AWS"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "3만 개의 Facebook 계정, Google AppSheet 피싱 캠페인으로 해킹당해" }
+    - { source: "AWS Security Blog", title: "AI 시대의 보안 태세 개선" }
+    - { source: "BleepingComputer", title: "Microsoft, 현대화된 Windows Run 테스트 중, 기존 대화상자보다 빠르다고 밝혀" }
 ---
 
-{% include ai-summary-card.html
-  title="3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Go</span>
-      <span class="tag">Security</span>
-      <span class="tag">AWS</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 3만 개의 Facebook 계정, Google AppSheet 피싱 캠페인으로 해킹당해</li>
-      <li><strong>AWS Security Blog</strong>: AI 시대의 보안 태세 개선</li>
-      <li><strong>BleepingComputer</strong>: Microsoft, 현대화된 Windows Run 테스트 중, 기존 대화상자보다 빠르다고 밝혀</li>'
-  period='2026년 05월 02일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

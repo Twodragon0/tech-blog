@@ -23,19 +23,22 @@ toc: true
 redirect_from:
   - /posts/2025/09/17/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/
   - /posts/2025/09/NPM_ampquotShai-Huludampquot_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/
+summary_card:
+  title: "NPM &quot;Shai-Hulud&quot; 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석"
+  audience: "SRE, 인시던트 대응 담당자, 운영 엔지니어"
+  categories:
+    - { class: "security", label: "Incident" }
+  tags:
+    - "npm"
+    - "Supply-Chain-Attack"
+    - "Worm"
+    - "Security-Incident"
+  highlights:
+    - { source: "", title: "NPM 생태계 최초 자가 복제 웜 형태 공급망 공격 분석" }
+    - { source: "", title: "Shai-Hulud 공격으로 180개 이상 패키지 감염" }
+    - { source: "", title: "개발자 인증 정보 탈취 및 자동 전파 메커니즘 분석" }
 ---
-{%- include ai-summary-card.html
-  title="NPM &quot;Shai-Hulud&quot; 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석"
-  categories_html='<span class="category-tag security">Incident</span>'
-  tags_html='<span class="tag">npm</span>
-      <span class="tag">Supply-Chain-Attack</span>
-      <span class="tag">Worm</span>
-      <span class="tag">Security-Incident</span>'
-  highlights_html='<li>NPM 생태계 최초 자가 복제 웜 형태 공급망 공격 분석</li>
-      <li>Shai-Hulud 공격으로 180개 이상 패키지 감염</li>
-      <li>개발자 인증 정보 탈취 및 자동 전파 메커니즘 분석</li>'
-  audience='SRE, 인시던트 대응 담당자, 운영 엔지니어'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

@@ -21,22 +21,26 @@ redirect_from:
   - /posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/
   - /posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
   - /posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
+summary_card:
+  title: "2026년 4월 2주차 보안 다이제스트 주간 롤업"
+  period: "2026년 4월 2주차 (4/6 ~ 4/12)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "weekly-rollup"
+    - "security-news"
+    - "weekly-digest"
+    - "2026"
+    - "April"
+  highlights:
+    - { source: "APT 집중", title: "이란·북한 연계 한국 표적 다단계 공격, APT28 DNS 하이재킹·PRISMEX 캠페인 동시 확인" }
+    - { source: "봇넷·클라우드 위협", title: "Masjesu IoT DDoS 봇넷, Chaos 클라우드 변종, Docker CVE-2026-34040 인증 우회" }
+    - { source: "공급망·멀웨어", title: "GlassWorm Zig 드로퍼 IDE 감염, EngageLab SDK 결함으로 5천만 Android 사용자 노출" }
 ---
 
-{% include ai-summary-card.html
-  title='2026년 4월 2주차 보안 다이제스트 주간 롤업'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">weekly-rollup</span>
-      <span class="tag">security-news</span>
-      <span class="tag">weekly-digest</span>
-      <span class="tag">2026</span>
-      <span class="tag">April</span>'
-  highlights_html='<li><strong>APT 집중</strong>: 이란·북한 연계 한국 표적 다단계 공격, APT28 DNS 하이재킹·PRISMEX 캠페인 동시 확인</li>
-      <li><strong>봇넷·클라우드 위협</strong>: Masjesu IoT DDoS 봇넷, Chaos 클라우드 변종, Docker CVE-2026-34040 인증 우회</li>
-      <li><strong>공급망·멀웨어</strong>: GlassWorm Zig 드로퍼 IDE 감염, EngageLab SDK 결함으로 5천만 Android 사용자 노출</li>'
-  period='2026년 4월 2주차 (4/6 ~ 4/12)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

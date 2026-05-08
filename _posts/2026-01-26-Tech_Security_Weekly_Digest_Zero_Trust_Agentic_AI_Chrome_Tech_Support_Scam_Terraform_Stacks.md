@@ -31,26 +31,30 @@ title: "AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 26일)"
+  period: "2026년 1월 24일 ~ 26일 (48시간)"
+  audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, 플랫폼 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Zero-Trust"
+    - "AI-Agents"
+    - "Chrome-Security"
+    - "Terraform"
+    - "HashiCorp"
+    - "Prompt-Injection"
+    - "NHI"
+    - "2026"
+  highlights:
+    - { source: "Zero Trust for Agentic AI", title: "HashiCorp의 비인간 ID(NHI) 대규모 관리 전략 - Vault 기반 동적 자격증명" }
+    - { source: "Chrome AI 사기 탐지", title: "Gemini Nano 온디바이스 LLM으로 기술지원 사기 실시간 차단" }
+    - { source: "Terraform Stacks GA", title: "네이티브 모노레포 지원으로 인프라 의존성 자동 관리" }
+    - { source: "Prompt Injection 방어", title: "Google의 4계층 방어 전략 (입력/프롬프트/출력/런타임)" }
+    - { source: "2026 클라우드 전략", title: "AI 인프라, FinOps, 보안 도구 통합, 플랫폼 엔지니어링" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 26일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Zero-Trust</span>
-      <span class="tag">AI-Agents</span>
-      <span class="tag">Chrome-Security</span>
-      <span class="tag">Terraform</span>
-      <span class="tag">HashiCorp</span>
-      <span class="tag">Prompt-Injection</span>
-      <span class="tag">NHI</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Zero Trust for Agentic AI</strong>: HashiCorp의 비인간 ID(NHI) 대규모 관리 전략 - Vault 기반 동적 자격증명</li>
-      <li><strong>Chrome AI 사기 탐지</strong>: Gemini Nano 온디바이스 LLM으로 기술지원 사기 실시간 차단</li>
-      <li><strong>Terraform Stacks GA</strong>: 네이티브 모노레포 지원으로 인프라 의존성 자동 관리</li>
-      <li><strong>Prompt Injection 방어</strong>: Google의 4계층 방어 전략 (입력/프롬프트/출력/런타임)</li>
-      <li><strong>2026 클라우드 전략</strong>: AI 인프라, FinOps, 보안 도구 통합, 플랫폼 엔지니어링</li>'
-  period='2026년 1월 24일 ~ 26일 (48시간)'
-  audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, 플랫폼 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

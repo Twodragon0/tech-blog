@@ -19,22 +19,26 @@ redirect_from:
   - /posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
   - /posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/
   - /posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/
+summary_card:
+  title: "2026년 4월 1주차 보안 다이제스트 주간 롤업"
+  period: "2026년 4월 1주차 (4/1 ~ 4/5)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "weekly-rollup"
+    - "security-news"
+    - "weekly-digest"
+    - "2026"
+    - "April"
+  highlights:
+    - { source: "공급망 위협", title: "Axios npm 해킹(북한 연계 추정)·디바이스 코드 피싱 37배 급증으로 오픈소스 생태계 위협 심화" }
+    - { source: "제로데이", title: "TrueConf CVE-2026-3502 동남아시아 정부기관 표적 APT 캠페인 확인" }
+    - { source: "클라우드 컴플라이언스", title: "AWS LZA Universal Configuration 및 ISO/IEC 27001:2022 가이드 발표" }
 ---
 
-{% include ai-summary-card.html
-  title='2026년 4월 1주차 보안 다이제스트 주간 롤업'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">weekly-rollup</span>
-      <span class="tag">security-news</span>
-      <span class="tag">weekly-digest</span>
-      <span class="tag">2026</span>
-      <span class="tag">April</span>'
-  highlights_html='<li><strong>공급망 위협</strong>: Axios npm 해킹(북한 연계 추정)·디바이스 코드 피싱 37배 급증으로 오픈소스 생태계 위협 심화</li>
-      <li><strong>제로데이</strong>: TrueConf CVE-2026-3502 동남아시아 정부기관 표적 APT 캠페인 확인</li>
-      <li><strong>클라우드 컴플라이언스</strong>: AWS LZA Universal Configuration 및 ISO/IEC 27001:2022 가이드 발표</li>'
-  period='2026년 4월 1주차 (4/1 ~ 4/5)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -15,23 +15,27 @@ image_alt: "Signal phishing, Oracle identity RCE, and Trivy supply chain worm di
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/
+summary_card:
+  title: "Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격"
+  period: "2026년 03월 22일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "CVE"
+    - "Patch"
+    - "AI"
+    - "Apple"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격 경고" }
+    - { source: "The Hacker News", title: "Oracle Identity Manager 인증되지 않은 RCE 치명적 CVE-2026-21992 패치" }
+    - { source: "The Hacker News", title: "Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파" }
 ---
 
-{% include ai-summary-card.html
-  title='Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Patch</span>
-      <span class="tag">AI</span>
-      <span class="tag">Apple</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 피싱 공격 경고</li>
-      <li><strong>The Hacker News</strong>: Oracle Identity Manager 인증되지 않은 RCE 치명적 CVE-2026-21992 패치</li>
-      <li><strong>The Hacker News</strong>: Trivy 공급망 공격으로 47개 npm 패키지에 자가 확산 CanisterWorm 전파</li>'
-  period='2026년 03월 22일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

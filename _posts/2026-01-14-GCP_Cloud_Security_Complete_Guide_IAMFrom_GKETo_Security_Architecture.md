@@ -28,27 +28,31 @@ title: 'GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중
 toc: true
 redirect_from:
   - /posts/2026/01/GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture/
+summary_card:
+  title: "GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처"
+  audience: "GCP 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "GCP"
+    - "Security"
+    - "IAM"
+    - "Cloud-SQL"
+    - "Cloud-Storage"
+    - "GKE"
+    - "Cloud-Monitoring"
+    - "Cloud-Logging"
+  highlights:
+    - { source: "GCP 보안 아키텍처 개요", title: "Defense in Depth 전략, 다층 보안 방어, GCP 서비스별 보안 레이어, 방화벽 규칙, IAM 통합" }
+    - { source: "IAM 보안", title: "IAM 정책 작성, 서비스 계정 관리, Identity Platform, 최소 권한 원칙, MFA 설정" }
+    - { source: "VPC Network 보안", title: "VPC 아키텍처 설계, Subnet 구성, Cloud NAT 설정, 방화벽 규칙, 네트워크 분리" }
+    - { source: "Cloud Storage 보안", title: "버킷 정책, 암호화 설정 (CMEK, 기본 암호화), 접근 제어, 버전 관리" }
+    - { source: "Cloud SQL 보안", title: "데이터베이스 암호화, 연결 암호화 (SSL/TLS), 백업, 보안 그룹 구성" }
+    - { source: "GKE 보안", title: "Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리" }
+    - { source: "모니터링 및 감사", title: "Cloud Monitoring 설정, Cloud Logging 로그 수집 및 분석, Security Command Center 통합" }
 ---
-{%- include ai-summary-card.html
-  title='GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">GCP</span>
-      <span class="tag">Security</span>
-      <span class="tag">IAM</span>
-      <span class="tag">Cloud-SQL</span>
-      <span class="tag">Cloud-Storage</span>
-      <span class="tag">GKE</span>
-      <span class="tag">Cloud-Monitoring</span>
-      <span class="tag">Cloud-Logging</span>'
-  highlights_html='<li><strong>GCP 보안 아키텍처 개요</strong>: Defense in Depth 전략, 다층 보안 방어, GCP 서비스별 보안 레이어, 방화벽 규칙, IAM 통합</li>
-      <li><strong>IAM 보안</strong>: IAM 정책 작성, 서비스 계정 관리, Identity Platform, 최소 권한 원칙, MFA 설정</li>
-      <li><strong>VPC Network 보안</strong>: VPC 아키텍처 설계, Subnet 구성, Cloud NAT 설정, 방화벽 규칙, 네트워크 분리</li>
-      <li><strong>Cloud Storage 보안</strong>: 버킷 정책, 암호화 설정 (CMEK, 기본 암호화), 접근 제어, 버전 관리</li>
-      <li><strong>Cloud SQL 보안</strong>: 데이터베이스 암호화, 연결 암호화 (SSL/TLS), 백업, 보안 그룹 구성</li>
-      <li><strong>GKE 보안</strong>: Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리</li>
-      <li><strong>모니터링 및 감사</strong>: Cloud Monitoring 설정, Cloud Logging 로그 수집 및 분석, Security Command Center 통합</li>'
-  audience='GCP 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

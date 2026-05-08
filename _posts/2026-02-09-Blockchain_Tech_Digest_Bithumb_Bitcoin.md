@@ -28,22 +28,25 @@ title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고,
 toc: true
 redirect_from:
   - /posts/2026/02/Blockchain_Tech_Digest_Bithumb_Bitcoin/
+summary_card:
+  title: "블록체인 & 테크 다이제스트 (2026년 02월 09일)"
+  period: "2026년 02월 09일"
+  audience: "DevOps/DevSecOps/Cloud 보안 담당자"
+  categories:
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Blockchain-Digest"
+    - "Tech-Digest"
+    - "Bithumb"
+    - "Bitcoin"
+    - "2026"
+  highlights:
+    - { source: "Bithumb $44B 오송금", title: "내부 운영 프로세스 실패로 $44B 상당 비트코인 오송금 — 다중 승인 체계와 자동 한도 검증의 부재가 원인" }
+    - { source: "Bitcoin $71K 회복", title: "기관 투자자 저점 매수와 소매 투자자 관심 급증으로 $71,000 회복" }
+    - { source: "게임보이 3D 셰이더", title: "4MHz CPU, 8KB RAM 극한 환경에서 실시간 3D 렌더링 — 임베디드 최적화 사례" }
 ---
 
-{% include ai-summary-card.html
-  title='블록체인 & 테크 다이제스트 (2026년 02월 09일)'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Blockchain-Digest</span>
-      <span class="tag">Tech-Digest</span>
-      <span class="tag">Bithumb</span>
-      <span class="tag">Bitcoin</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Bithumb $44B 오송금</strong>: 내부 운영 프로세스 실패로 $44B 상당 비트코인 오송금 — 다중 승인 체계와 자동 한도 검증의 부재가 원인</li>
-      <li><strong>Bitcoin $71K 회복</strong>: 기관 투자자 저점 매수와 소매 투자자 관심 급증으로 $71,000 회복</li>
-      <li><strong>게임보이 3D 셰이더</strong>: 4MHz CPU, 8KB RAM 극한 환경에서 실시간 3D 렌더링 — 임베디드 최적화 사례</li>'
-  period='2026년 02월 09일'
-  audience='DevOps/DevSecOps/Cloud 보안 담당자'
-%}
+{% include ai-summary-card.html %}
 
 > 함께 읽기: 같은 날짜의 [보안 & 클라우드] 다이제스트 [2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI](/2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic)에서 AI VirusTotal 통합, AWS Agentic AI, 랜섬웨어 동향을 심층 분석합니다.
 

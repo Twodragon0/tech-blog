@@ -15,23 +15,27 @@ image_alt: "AWS IAM Zero Trust, GCP Workload Identity security, FinOps cost opti
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
+summary_card:
+  title: "AWS IAM Zero Trust 구현, GCP Workload Identity 보안, FinOps 비용 최적화"
+  period: "2026년 03월 27일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Zero-Trust"
+    - "Cloud"
+    - "FinOps"
+    - "2026"
+  highlights:
+    - { source: "AWS Security", title: "IAM Identity Center + SCP 기반 Zero Trust 아키텍처 구현 가이드" }
+    - { source: "GCP Security", title: "Workload Identity Federation 보안 베스트 프랙티스와 키 없는 인증" }
+    - { source: "FinOps", title: "Spot/Graviton 인스턴스 비용 최적화 전략과 실무 사례" }
+    - { source: "IaC Security", title: "Terraform Stacks와 tfsec/checkov 기반 보안 스캔 자동화" }
 ---
 
-{% include ai-summary-card.html
-  title='AWS IAM Zero Trust 구현, GCP Workload Identity 보안, FinOps 비용 최적화'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Cloud</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AWS Security</strong>: IAM Identity Center + SCP 기반 Zero Trust 아키텍처 구현 가이드</li>
-      <li><strong>GCP Security</strong>: Workload Identity Federation 보안 베스트 프랙티스와 키 없는 인증</li>
-      <li><strong>FinOps</strong>: Spot/Graviton 인스턴스 비용 최적화 전략과 실무 사례</li>
-      <li><strong>IaC Security</strong>: Terraform Stacks와 tfsec/checkov 기반 보안 스캔 자동화</li>'
-  period='2026년 03월 27일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

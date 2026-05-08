@@ -30,28 +30,32 @@ title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리
 toc: true
 redirect_from:
   - /posts/2026/01/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/
+summary_card:
+  title: "2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략"
+  audience: "보안 담당자, CISO, DevSecOps 엔지니어, SOC 분석가, 침해사고대응팀(CERT)"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "incident", label: "Incident" }
+  tags:
+    - "Ransomware"
+    - "KARA"
+    - "SK-Shieldus"
+    - "LockBit"
+    - "Akira"
+    - "INC-Ransomware"
+    - "Threat-Intelligence"
+    - "Zero-Trust"
+    - "DevSecOps"
+    - "2025"
+  highlights:
+    - { source: "공격 규모", title: "2025년 3분기 전 세계 1,517~1,733건 랜섬웨어 공격 발생 (전년 대비 36% 증가)" }
+    - { source: "생태계 분절화", title: "77개 활동 그룹 (역대 최다), 상위 10개 그룹이 56%만 차지" }
+    - { source: "주요 그룹", title: "Qilin (+318%), Akira, INC Ransomware, LockBit 5.0 (9월 재등장)" }
+    - { source: "타겟 산업", title: "제조업 1위 (+56%), 헬스케어, 금융권 지속적 표적" }
+    - { source: "새로운 전술", title: "4중 협박(Quadruple Extortion), 규제 무기화, AI 기반 공격" }
+    - { source: "대응 전략", title: "제로 트러스트, 3-2-1-1-0 백업, CISA KEV 패치, YARA/Sigma 탐지 룰" }
 ---
-{%- include ai-summary-card.html
-  title='2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag incident">Incident</span>'
-  tags_html='<span class="tag">Ransomware</span>
-      <span class="tag">KARA</span>
-      <span class="tag">SK-Shieldus</span>
-      <span class="tag">LockBit</span>
-      <span class="tag">Akira</span>
-      <span class="tag">INC-Ransomware</span>
-      <span class="tag">Threat-Intelligence</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2025</span>'
-  highlights_html='<li><strong>공격 규모</strong>: 2025년 3분기 전 세계 1,517~1,733건 랜섬웨어 공격 발생 (전년 대비 36% 증가)</li>
-      <li><strong>생태계 분절화</strong>: 77개 활동 그룹 (역대 최다), 상위 10개 그룹이 56%만 차지</li>
-      <li><strong>주요 그룹</strong>: Qilin (+318%), Akira, INC Ransomware, LockBit 5.0 (9월 재등장)</li>
-      <li><strong>타겟 산업</strong>: 제조업 1위 (+56%), 헬스케어, 금융권 지속적 표적</li>
-      <li><strong>새로운 전술</strong>: 4중 협박(Quadruple Extortion), 규제 무기화, AI 기반 공격</li>
-      <li><strong>대응 전략</strong>: 제로 트러스트, 3-2-1-1-0 백업, CISA KEV 패치, YARA/Sigma 탐지 룰</li>'
-  audience='보안 담당자, CISO, DevSecOps 엔지니어, SOC 분석가, 침해사고대응팀(CERT)'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

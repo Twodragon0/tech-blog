@@ -30,25 +30,29 @@ title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 31일)"
+  period: "2026년 1월 30일 ~ 31일"
+  audience: "보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "ShinyHunters"
+    - "Vishing"
+    - "MFA-Bypass"
+    - "Chrome-Extension"
+    - "ChatGPT"
+    - "OT-Security"
+    - "ICS"
+    - "2026"
+  highlights:
+    - { source: "ShinyHunters Vishing", title: "Mandiant 발표 - SaaS 플랫폼 대상 비싱 공격으로 MFA 우회, 자격증명 탈취 확산" }
+    - { source: "Chrome 확장 프로그램", title: "악성 확장이 어필리에이트 링크 하이재킹 및 ChatGPT 인증 토큰 수집" }
+    - { source: "폴란드 에너지 OT 공격", title: "CERT Polska 보고 - 30+ 풍력/태양광 발전소 대상 협조적 사이버 공격" }
+    - { source: "CISO 2026 우선순위", title: "Google Cloud CISO 관점 - AI 보안, 클라우드 거버넌스, 규제 대응" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 31일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">ShinyHunters</span>
-      <span class="tag">Vishing</span>
-      <span class="tag">MFA-Bypass</span>
-      <span class="tag">Chrome-Extension</span>
-      <span class="tag">ChatGPT</span>
-      <span class="tag">OT-Security</span>
-      <span class="tag">ICS</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>ShinyHunters Vishing</strong>: Mandiant 발표 - SaaS 플랫폼 대상 비싱 공격으로 MFA 우회, 자격증명 탈취 확산</li>
-      <li><strong>Chrome 확장 프로그램</strong>: 악성 확장이 어필리에이트 링크 하이재킹 및 ChatGPT 인증 토큰 수집</li>
-      <li><strong>폴란드 에너지 OT 공격</strong>: CERT Polska 보고 - 30+ 풍력/태양광 발전소 대상 협조적 사이버 공격</li>
-      <li><strong>CISO 2026 우선순위</strong>: Google Cloud CISO 관점 - AI 보안, 클라우드 거버넌스, 규제 대응</li>'
-  period='2026년 1월 30일 ~ 31일'
-  audience='보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## 경영진 요약
 

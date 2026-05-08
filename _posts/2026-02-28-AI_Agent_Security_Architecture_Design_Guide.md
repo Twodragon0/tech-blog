@@ -31,24 +31,28 @@ title: 'AI Agent 보안 아키텍처: Stateful Runtime & Continuous Evaluation'
 toc: true
 redirect_from:
   - /posts/2026/02/AI_Agent_Security_Architecture_Design_Guide/
+summary_card:
+  title: "AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation"
+  audience: "보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "AI-Agent"
+    - "AI-Security"
+    - "Stateful-Runtime"
+    - "Continuous-Evaluation"
+    - "OWASP"
+    - "Zero-Trust"
+    - "2026"
+  highlights:
+    - { source: "OWASP Agentic Top 10", title: "AI 에이전트 고유 위협 10가지와 실제 공격 사례 분석" }
+    - { source: "OpenAI Stateful Runtime", title: "상태 유지형 런타임 환경의 보안 아키텍처와 세션 격리" }
+    - { source: "Bedrock AgentCore", title: "Firecracker microVM 기반 9개 컴포넌트 보안 분석" }
+    - { source: "Continuous Evaluation", title: "Google Cloud의 지속적 평가 프레임워크와 CI/CD 통합" }
+    - { source: "방어 패턴 코드", title: "프롬프트 인젝션 방어, 도구 검증, Circuit Breaker, 감사 로깅 구현" }
 ---
-{%- include ai-summary-card.html
-  title='AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AI-Agent</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Stateful-Runtime</span>
-      <span class="tag">Continuous-Evaluation</span>
-      <span class="tag">OWASP</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>OWASP Agentic Top 10</strong>: AI 에이전트 고유 위협 10가지와 실제 공격 사례 분석</li>
-      <li><strong>OpenAI Stateful Runtime</strong>: 상태 유지형 런타임 환경의 보안 아키텍처와 세션 격리</li>
-      <li><strong>Bedrock AgentCore</strong>: Firecracker microVM 기반 9개 컴포넌트 보안 분석</li>
-      <li><strong>Continuous Evaluation</strong>: Google Cloud의 지속적 평가 프레임워크와 CI/CD 통합</li>
-      <li><strong>방어 패턴 코드</strong>: 프롬프트 인젝션 방어, 도구 검증, Circuit Breaker, 감사 로깅 구현</li>'
-  audience='보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

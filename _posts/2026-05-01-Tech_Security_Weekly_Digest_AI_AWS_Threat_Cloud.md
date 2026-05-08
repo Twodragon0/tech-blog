@@ -13,24 +13,28 @@ comments: true
 image: /assets/images/2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.svg
 image_alt: "PyTorch Lightning, ThreatsDay, Python - security digest overview"
 toc: true
+summary_card:
+  title: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어"
+  period: "2026년 05월 01일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "AWS"
+    - "Threat"
+    - "Cloud"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "PyTorch Lightning 및 Intercom-client, 공급망 공격으로 자격 증명 탈취 당해" }
+    - { source: "The Hacker News", title: "ThreatsDay 게시판: SMS 블래스터 적발, OpenEMR 취약점, 60만 건의 Roblox 해킹" }
+    - { source: "The Hacker News", title: "새로운 Python 백도어, 터널링 서비스 이용해 브라우저 및 클라우드 자격증명 탈취" }
+    - { source: "Google Cloud Blog", title: "Cloud CISO Perspectives: Next &#x27;26에서 멀티클라우드와 멀티AI를 선택한 이유" }
 ---
 
-{% include ai-summary-card.html
-  title="PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Threat</span>
-      <span class="tag">Cloud</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: PyTorch Lightning 및 Intercom-client, 공급망 공격으로 자격 증명 탈취 당해</li>
-      <li><strong>The Hacker News</strong>: ThreatsDay 게시판: SMS 블래스터 적발, OpenEMR 취약점, 60만 건의 Roblox 해킹</li>
-      <li><strong>The Hacker News</strong>: 새로운 Python 백도어, 터널링 서비스 이용해 브라우저 및 클라우드 자격증명 탈취</li>
-      <li><strong>Google Cloud Blog</strong>: Cloud CISO Perspectives: Next &#x27;26에서 멀티클라우드와 멀티AI를 선택한 이유</li>'
-  period='2026년 05월 01일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

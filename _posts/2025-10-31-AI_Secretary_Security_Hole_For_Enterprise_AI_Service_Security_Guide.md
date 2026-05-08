@@ -23,20 +23,23 @@ toc: true
 redirect_from:
   - /posts/2025/10/31/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/
   - /posts/2025/10/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/
+summary_card:
+  title: "AI 시대, 당신의 &#39;비서&#39;가 &#39;보안 구멍&#39;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드"
+  audience: "기업 보안 담당자, 보안 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "AI"
+    - "Enterprise-Security"
+    - "AI-Security"
+    - "Governance"
+  highlights:
+    - { source: "", title: "2025년 AI 보안 위협 현황: Shadow AI, 딥페이크, 데이터 포이즈닝, MCP 서버 취약점 등" }
+    - { source: "", title: "AI 브라우저 에이전트의 보안 위험 및 데이터 유출 위협" }
+    - { source: "", title: "기업을 위한 AI 서비스 보안 정책 및 기술적 통제 방안" }
+    - { source: "", title: "2025년 최신 모범 사례: Zero Trust, Least Privilege, Security-by-Design" }
 ---
-{%- include ai-summary-card.html
-  title='AI 시대, 당신의 &#39;비서&#39;가 &#39;보안 구멍&#39;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">AI</span>
-      <span class="tag">Enterprise-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Governance</span>'
-  highlights_html='<li>2025년 AI 보안 위협 현황: Shadow AI, 딥페이크, 데이터 포이즈닝, MCP 서버 취약점 등</li>
-      <li>AI 브라우저 에이전트의 보안 위험 및 데이터 유출 위협</li>
-      <li>기업을 위한 AI 서비스 보안 정책 및 기술적 통제 방안</li>
-      <li>2025년 최신 모범 사례: Zero Trust, Least Privilege, Security-by-Design</li>'
-  audience='기업 보안 담당자, 보안 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

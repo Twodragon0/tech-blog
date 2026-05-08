@@ -15,24 +15,28 @@ image_alt: "Zero day firewall breach and patch response overview"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/
+summary_card:
+  title: "북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE"
+  period: "2026년 03월 19일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Zero-Day"
+    - "CVE"
+    - "Ransomware"
+    - "Patch"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "OFAC, 가상 원격 일자리로 대량살상무기 프로그램 자금 조달하는 북한 IT 노동자 네트워크 제재" }
+    - { source: "The Hacker News", title: "Interlock 랜섬웨어, Cisco FMC 제로데이 CVE-2026-20131 악용해 루트 접근 획득" }
+    - { source: "The Hacker News", title: "치명적인 패치되지 않은 Telnetd 취약점(CVE-2026-32746)으로 인증되지 않은 루트 RCE 가능" }
+    - { source: "Google Cloud Blog", title: "분산 AI 에이전트 구축" }
 ---
 
-{% include ai-summary-card.html
-  title='북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Patch</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: OFAC, 가상 원격 일자리로 대량살상무기 프로그램 자금 조달하는 북한 IT 노동자 네트워크 제재</li>
-      <li><strong>The Hacker News</strong>: Interlock 랜섬웨어, Cisco FMC 제로데이 CVE-2026-20131 악용해 루트 접근 획득</li>
-      <li><strong>The Hacker News</strong>: 치명적인 패치되지 않은 Telnetd 취약점(CVE-2026-32746)으로 인증되지 않은 루트 RCE 가능</li>
-      <li><strong>Google Cloud Blog</strong>: 분산 AI 에이전트 구축</li>'
-  period='2026년 03월 19일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -24,21 +24,24 @@ certifications:
 - ckad
 - cka
 original_url: https://twodragon.tistory.com/687
+summary_card:
+  title: "Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지"
+  audience: "클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자"
+  categories:
+    - { class: "devops", label: "Kubernetes" }
+  tags:
+    - "Kubernetes"
+    - "Minikube"
+    - "K9s"
+    - "K8s"
+    - "Troubleshooting"
+  highlights:
+    - { source: "Minikube 설치 및 설정", title: "최신 버전(1.37.0+) 설치, containerd 기본 런타임, AI 워크로드 지원(krunkit 드라이버), AMD GPU 지원, 리소스 부족/하이퍼바이저 충돌/네트워크 문제 해결" }
+    - { source: "K9s 터미널 UI 활용", title: "실시간 모니터링, 네임스페이스 기반 리소스 관리, 성능 최적화(대규모 클러스터), 보안 고려사항(읽기 전용 모드, RBAC), 커스텀 뷰 설정" }
+    - { source: "Kubernetes 2024-2025 보안 강화", title: "User Namespaces(1.33+), Bound Service Account Tokens(1.32+), mTLS Pod Certificates(1.35 Beta), Dynamic Resource Allocation(1.34 Stable)" }
+    - { source: "실전 테스트 시나리오", title: "Pod/Deployment/Service 배포, ConfigMap/Secret 관리, 문제 해결(로그 분석, 리소스 모니터링, 네트워크 디버깅), HPA 및 Network Policy 적용" }
 ---
-{%- include ai-summary-card.html
-  title='Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
-  categories_html='<span class="category-tag devops">Kubernetes</span>'
-  tags_html='<span class="tag">Kubernetes</span>
-      <span class="tag">Minikube</span>
-      <span class="tag">K9s</span>
-      <span class="tag">K8s</span>
-      <span class="tag">Troubleshooting</span>'
-  highlights_html='<li><strong>Minikube 설치 및 설정</strong>: 최신 버전(1.37.0+) 설치, containerd 기본 런타임, AI 워크로드 지원(krunkit 드라이버), AMD GPU 지원, 리소스 부족/하이퍼바이저 충돌/네트워크 문제 해결</li>
-      <li><strong>K9s 터미널 UI 활용</strong>: 실시간 모니터링, 네임스페이스 기반 리소스 관리, 성능 최적화(대규모 클러스터), 보안 고려사항(읽기 전용 모드, RBAC), 커스텀 뷰 설정</li>
-      <li><strong>Kubernetes 2024-2025 보안 강화</strong>: User Namespaces(1.33+), Bound Service Account Tokens(1.32+), mTLS Pod Certificates(1.35 Beta), Dynamic Resource Allocation(1.34 Stable)</li>
-      <li><strong>실전 테스트 시나리오</strong>: Pod/Deployment/Service 배포, ConfigMap/Secret 관리, 문제 해결(로그 분석, 리소스 모니터링, 네트워크 디버깅), HPA 및 Network Policy 적용</li>'
-  audience='클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자'
--%}
+{% include ai-summary-card.html %}
 
 ### 보안 강화 체크리스트
 

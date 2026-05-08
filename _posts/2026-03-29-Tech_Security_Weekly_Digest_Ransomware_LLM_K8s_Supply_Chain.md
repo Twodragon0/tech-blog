@@ -15,24 +15,28 @@ image_alt: "Ransomware evolution, LLM jailbreak attacks, Kubernetes supply chain
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/
+summary_card:
+  title: "랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석"
+  period: "2026년 03월 29일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Ransomware"
+    - "LLM"
+    - "Kubernetes"
+    - "Supply-Chain"
+    - "2026"
+  highlights:
+    - { source: "CISA", title: "랜섬웨어 그룹이 AI 기반 공격 자동화 도구를 활용한 표적형 공격 급증" }
+    - { source: "NIST", title: "LLM 탈옥 취약점 CVE-2026-3291로 주요 모델 안전장치 우회 가능" }
+    - { source: "The Hacker News", title: "Kubernetes Helm 차트 레포지토리 위변조를 통한 공급망 공격 캠페인 발견" }
+    - { source: "Google Cloud Blog", title: "GKE Autopilot 강제 보안 정책 우회 취약점 패치 배포" }
 ---
 
-{% include ai-summary-card.html
-  title='랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">LLM</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>CISA</strong>: 랜섬웨어 그룹이 AI 기반 공격 자동화 도구를 활용한 표적형 공격 급증</li>
-      <li><strong>NIST</strong>: LLM 탈옥 취약점 CVE-2026-3291로 주요 모델 안전장치 우회 가능</li>
-      <li><strong>The Hacker News</strong>: Kubernetes Helm 차트 레포지토리 위변조를 통한 공급망 공격 캠페인 발견</li>
-      <li><strong>Google Cloud Blog</strong>: GKE Autopilot 강제 보안 정책 우회 취약점 패치 배포</li>'
-  period='2026년 03월 29일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

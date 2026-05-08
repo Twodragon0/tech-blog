@@ -35,26 +35,30 @@ title: "VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 25일)"
+  period: "2026년 1월 23일 ~ 25일 (48시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "VMware"
+    - "CISA-KEV"
+    - "Fortinet"
+    - "Sandworm"
+    - "AI-Agents"
+    - "Zero-Trust"
+    - "2026"
+  highlights:
+    - { source: "CISA KEV 긴급", title: "VMware vCenter CVE-2024-37079 활성 익스플로잇 확인 - 즉시 패치 필요" }
+    - { source: "Fortinet 제로데이", title: "FortiGate 완전 패치 환경에서도 FortiCloud SSO 우회 공격 발생" }
+    - { source: "Sandworm APT", title: "폴란드 전력망 대상 DynoWiper 와이퍼 악성코드 공격" }
+    - { source: "AI 에이전트 보안", title: "비인간 신원(NHI) 관리와 제로트러스트 적용 방안" }
+    - { source: "클라우드 오케스트레이션", title: "Apache Airflow 3.1과 Google ADK + Datadog 통합" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 25일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">VMware</span>
-      <span class="tag">CISA-KEV</span>
-      <span class="tag">Fortinet</span>
-      <span class="tag">Sandworm</span>
-      <span class="tag">AI-Agents</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>CISA KEV 긴급</strong>: VMware vCenter CVE-2024-37079 활성 익스플로잇 확인 - 즉시 패치 필요</li>
-      <li><strong>Fortinet 제로데이</strong>: FortiGate 완전 패치 환경에서도 FortiCloud SSO 우회 공격 발생</li>
-      <li><strong>Sandworm APT</strong>: 폴란드 전력망 대상 DynoWiper 와이퍼 악성코드 공격</li>
-      <li><strong>AI 에이전트 보안</strong>: 비인간 신원(NHI) 관리와 제로트러스트 적용 방안</li>
-      <li><strong>클라우드 오케스트레이션</strong>: Apache Airflow 3.1과 Google ADK + Datadog 통합</li>'
-  period='2026년 1월 23일 ~ 25일 (48시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## 경영진 요약
 

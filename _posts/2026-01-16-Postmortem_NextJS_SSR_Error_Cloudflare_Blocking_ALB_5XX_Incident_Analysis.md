@@ -25,27 +25,30 @@ title: '[Post-Mortem] Next.js SSR/Cloudflare 차단으로 인한 ALB 5XX 분석'
 toc: true
 redirect_from:
   - /posts/2026/01/Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis/
+summary_card:
+  title: "[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석"
+  audience: "SRE, 인시던트 대응 담당자, 프론트엔드 개발자, 운영 엔지니어"
+  categories:
+    - { class: "security", label: "Incident" }
+  tags:
+    - "Post-Mortem"
+    - "Next.js"
+    - "SSR"
+    - "Cloudflare"
+    - "ALB"
+    - "Kubernetes"
+    - "Incident-Response"
+    - "AWS"
+  highlights:
+    - { source: "", title: "Next.js SSR 환경에서 location 객체 접근으로 인한 ReferenceError 발생" }
+    - { source: "", title: "모바일 x.com에서의 동작 차이: 인앱 브라우저 vs 시스템 브라우저" }
+    - { source: "", title: "location 객체란 무엇인지, 왜 SSR 환경에서 문제가 되는지 상세 분석" }
+    - { source: "", title: "배포 후 갑자기 증가한 5XX 에러 및 ALB Target Group Health Check 실패" }
+    - { source: "", title: "Cloudflare WAF 차단 패턴 분석 및 의심스러운 요청 패턴 식별" }
+    - { source: "", title: "근본 원인 분석: 배포와 에러의 연관성, 애플리케이션 버그, 연쇄 반응" }
+    - { source: "", title: "재발 방지 대책: 코드 수정, 배포 프로세스 개선, 모니터링 강화" }
 ---
-{%- include ai-summary-card.html
-  title='[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
-  categories_html='<span class="category-tag security">Incident</span>'
-  tags_html='<span class="tag">Post-Mortem</span>
-      <span class="tag">Next.js</span>
-      <span class="tag">SSR</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">ALB</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Incident-Response</span>
-      <span class="tag">AWS</span>'
-  highlights_html='<li>Next.js SSR 환경에서 location 객체 접근으로 인한 ReferenceError 발생</li>
-      <li>모바일 x.com에서의 동작 차이: 인앱 브라우저 vs 시스템 브라우저</li>
-      <li>location 객체란 무엇인지, 왜 SSR 환경에서 문제가 되는지 상세 분석</li>
-      <li>배포 후 갑자기 증가한 5XX 에러 및 ALB Target Group Health Check 실패</li>
-      <li>Cloudflare WAF 차단 패턴 분석 및 의심스러운 요청 패턴 식별</li>
-      <li>근본 원인 분석: 배포와 에러의 연관성, 애플리케이션 버그, 연쇄 반응</li>
-      <li>재발 방지 대책: 코드 수정, 배포 프로세스 개선, 모니터링 강화</li>'
-  audience='SRE, 인시던트 대응 담당자, 프론트엔드 개발자, 운영 엔지니어'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

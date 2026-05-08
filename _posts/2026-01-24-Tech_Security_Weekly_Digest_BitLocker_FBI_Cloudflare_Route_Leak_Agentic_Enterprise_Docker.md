@@ -34,28 +34,32 @@ title: "BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 24일)"
+  period: "2026년 1월 23일 ~ 24일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "BitLocker"
+    - "Encryption"
+    - "BGP"
+    - "Route-Leak"
+    - "Agentic-AI"
+    - "Docker"
+    - "Codex"
+    - "CNCF"
+    - "2026"
+  highlights:
+    - { source: "Microsoft/FBI", title: "BitLocker 암호화 복구 키 법 집행 기관 제공 사례 공개 - 암호화 신뢰성 논란" }
+    - { source: "Cloudflare", title: "1월 22일 Route Leak 사건 상세 분석 - BGP 보안 중요성 재확인" }
+    - { source: "CNCF 2026", title: "자율 기업(Autonomous Enterprise)과 4가지 플랫폼 제어 기둥 전망" }
+    - { source: "Docker", title: "컨테이너 선구자의 정체성 위기와 2026년 현황 분석" }
+    - { source: "OpenAI Codex", title: "Agent Loop 아키텍처 공개 - 병렬 에이전트 실행 구조" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 24일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">BitLocker</span>
-      <span class="tag">Encryption</span>
-      <span class="tag">BGP</span>
-      <span class="tag">Route-Leak</span>
-      <span class="tag">Agentic-AI</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Codex</span>
-      <span class="tag">CNCF</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Microsoft/FBI</strong>: BitLocker 암호화 복구 키 법 집행 기관 제공 사례 공개 - 암호화 신뢰성 논란</li>
-      <li><strong>Cloudflare</strong>: 1월 22일 Route Leak 사건 상세 분석 - BGP 보안 중요성 재확인</li>
-      <li><strong>CNCF 2026</strong>: 자율 기업(Autonomous Enterprise)과 4가지 플랫폼 제어 기둥 전망</li>
-      <li><strong>Docker</strong>: 컨테이너 선구자의 정체성 위기와 2026년 현황 분석</li>
-      <li><strong>OpenAI Codex</strong>: Agent Loop 아키텍처 공개 - 병렬 에이전트 실행 구조</li>'
-  period='2026년 1월 23일 ~ 24일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ---
 

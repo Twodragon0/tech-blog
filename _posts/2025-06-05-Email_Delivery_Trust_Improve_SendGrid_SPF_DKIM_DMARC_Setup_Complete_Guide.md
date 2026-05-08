@@ -25,21 +25,24 @@ audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_D
 original_url: https://twodragon.tistory.com/688
 redirect_from:
   - /posts/2025/06/Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide/
+summary_card:
+  title: "이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드"
+  audience: "기업 보안 담당자, 보안 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "SendGrid"
+    - "SPF"
+    - "DKIM"
+    - "DMARC"
+    - "Email-Security"
+  highlights:
+    - { source: "SPF(Sender Policy Framework)", title: "DNS TXT 레코드 설정(v=spf1 include:sendgrid.net ~all), 발신 서버 인증, SPF 한정자(+/-/~/?), 여러 이메일 서비스 사용 시 설정" }
+    - { source: "DKIM(DomainKeys Identified Mail)", title: "서명 키 구성(Selector, Public Key), DNS TXT 레코드 설정(s1._domainkey), 이메일 무결성 검증, 디지털 서명 기술" }
+    - { source: "DMARC(Domain-based Message Authentication)", title: "정책 설정(v=DMARC1; p=quarantine; rua=mailto:...), 보고서 분석(집계 보고서, 실패 보고서), 정책 모드(none/quarantine/reject), 실무 DNS 설정 예시" }
+    - { source: "이메일 발송 신뢰도 향상", title: "스팸 방지 전략, 발송률 향상, 피싱 방지, SendGrid 도메인 인증 완료 프로세스, DNS 레코드 검증 방법" }
 ---
-{%- include ai-summary-card.html
-  title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">SendGrid</span>
-      <span class="tag">SPF</span>
-      <span class="tag">DKIM</span>
-      <span class="tag">DMARC</span>
-      <span class="tag">Email-Security</span>'
-  highlights_html='<li><strong>SPF(Sender Policy Framework)</strong>: DNS TXT 레코드 설정(v=spf1 include:sendgrid.net ~all), 발신 서버 인증, SPF 한정자(+/-/~/?), 여러 이메일 서비스 사용 시 설정</li>
-      <li><strong>DKIM(DomainKeys Identified Mail)</strong>: 서명 키 구성(Selector, Public Key), DNS TXT 레코드 설정(s1._domainkey), 이메일 무결성 검증, 디지털 서명 기술</li>
-      <li><strong>DMARC(Domain-based Message Authentication)</strong>: 정책 설정(v=DMARC1; p=quarantine; rua=mailto:...), 보고서 분석(집계 보고서, 실패 보고서), 정책 모드(none/quarantine/reject), 실무 DNS 설정 예시</li>
-      <li><strong>이메일 발송 신뢰도 향상</strong>: 스팸 방지 전략, 발송률 향상, 피싱 방지, SendGrid 도메인 인증 완료 프로세스, DNS 레코드 검증 방법</li>'
-  audience='기업 보안 담당자, 보안 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 

@@ -16,24 +16,28 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/
+summary_card:
+  title: "Model Context, 새로운 PHP Composer, Google, Pixel 10 모뎀 보안"
+  period: "2026년 04월 15일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "AWS"
+    - "Agent"
+    - "Patch"
+    - "2026"
+  highlights:
+    - { source: "AWS Security Blog", title: "Model Context Protocol을 활용한 AWS 리소스에 대한 안전한 AI 에이전트 접근 패턴" }
+    - { source: "The Hacker News", title: "새로운 PHP Composer 취약점으로 임의 명령어 실행 가능 — 패치 배포" }
+    - { source: "The Hacker News", title: "Google, Pixel 10 모뎀 보안 강화를 위해 Rust 기반 DNS 파서 추가" }
+    - { source: "Google Cloud Blog", title: "공공 부문 전반에 걸친 AI 시대의 보안 구축" }
 ---
 
-{% include ai-summary-card.html
-  title='Model Context, 새로운 PHP Composer, Google, Pixel 10 모뎀 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Agent</span>
-      <span class="tag">Patch</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>AWS Security Blog</strong>: Model Context Protocol을 활용한 AWS 리소스에 대한 안전한 AI 에이전트 접근 패턴</li>
-      <li><strong>The Hacker News</strong>: 새로운 PHP Composer 취약점으로 임의 명령어 실행 가능 — 패치 배포</li>
-      <li><strong>The Hacker News</strong>: Google, Pixel 10 모뎀 보안 강화를 위해 Rust 기반 DNS 파서 추가</li>
-      <li><strong>Google Cloud Blog</strong>: 공공 부문 전반에 걸친 AI 시대의 보안 구축</li>'
-  period='2026년 04월 15일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -14,24 +14,28 @@ image: /assets/images/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Secu
 image_alt: "Microsoft Defender, ETL, Google, 2025 - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고"
+  period: "2026년 04월 18일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Zero-Day"
+    - "Patch"
+    - "Security"
+    - "Go"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "Microsoft Defender 제로데이 취약점 3건 악용 중, 2건은 아직 패치되지 않음" }
+    - { source: "AWS Security Blog", title: "구성 기반 ETL 솔루션으로 보안 로그를 OCSF 형식으로 변환하기" }
+    - { source: "The Hacker News", title: "Google, 2025년 정책 위반 광고 83억 건 차단 및 Android 17 개인정보 보호 대개편 시작" }
+    - { source: "Google Cloud Blog", title: "세계에서 가장 까다로운 방송 및 스트리밍 워크로드를 위한 Evolving Media CDN" }
 ---
 
-{% include ai-summary-card.html
-  title='Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Patch</span>
-      <span class="tag">Security</span>
-      <span class="tag">Go</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Microsoft Defender 제로데이 취약점 3건 악용 중, 2건은 아직 패치되지 않음</li>
-      <li><strong>AWS Security Blog</strong>: 구성 기반 ETL 솔루션으로 보안 로그를 OCSF 형식으로 변환하기</li>
-      <li><strong>The Hacker News</strong>: Google, 2025년 정책 위반 광고 83억 건 차단 및 Android 17 개인정보 보호 대개편 시작</li>
-      <li><strong>Google Cloud Blog</strong>: 세계에서 가장 까다로운 방송 및 스트리밍 워크로드를 위한 Evolving Media CDN</li>'
-  period='2026년 04월 18일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

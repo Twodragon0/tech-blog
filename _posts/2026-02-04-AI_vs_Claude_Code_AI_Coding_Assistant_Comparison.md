@@ -28,25 +28,29 @@ title: 'AI vs Claude Code: 코딩 어시스턴트 비교 - 보안, DevSecOps, Fi
 toc: true
 redirect_from:
   - /posts/2026/02/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/
+summary_card:
+  title: "AI vs Claude Code: AI 코딩 어시스턴트 심층 비교 (2026)"
+  audience: "DevSecOps 엔지니어, 보안 담당자, FinOps 실무자, CTO/CISO, AI 도구 도입 검토 팀"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "AI-Assistant"
+    - "Claude-Code"
+    - "AI"
+    - "CVE-2026-25253"
+    - "DevSecOps"
+    - "FinOps"
+    - "2026"
+  highlights:
+    - { source: "정정", title: "AI는 코딩 어시스턴트가 아닌 메시징 봇 프레임워크 - Claude를 백엔드로 사용 가능한 도구" }
+    - { source: "보안 위기", title: "CVE-2026-25253 (CVSS 8.8) One-click RCE, 400+ 악성 스킬 캠페인, WebSocket Hijacking" }
+    - { source: "엔터프라이즈", title: "Claude Code SOC 2 Type II 인증 vs AI 엔터프라이즈 사례 ZERO" }
+    - { source: "FinOps", title: "Claude Code $20-200/월 vs AI Opus 4.5 사용 시 $300-750/월 실측" }
+    - { source: "생산성", title: "31.4% 개인 향상이지만 23.7% 보안 취약점 증가 - 품질 트레이드오프 존재" }
+    - { source: "벤치마크", title: "Claude Opus 4.5 SWE-bench Verified 80.9% (업계 최고)" }
 ---
-{%- include ai-summary-card.html
-  title='AI vs Claude Code: AI 코딩 어시스턴트 심층 비교 (2026)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AI-Assistant</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">AI</span>
-      <span class="tag">CVE-2026-25253</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>정정</strong>: AI는 코딩 어시스턴트가 아닌 메시징 봇 프레임워크 - Claude를 백엔드로 사용 가능한 도구</li>
-      <li><strong>보안 위기</strong>: CVE-2026-25253 (CVSS 8.8) One-click RCE, 400+ 악성 스킬 캠페인, WebSocket Hijacking</li>
-      <li><strong>엔터프라이즈</strong>: Claude Code SOC 2 Type II 인증 vs AI 엔터프라이즈 사례 ZERO</li>
-      <li><strong>FinOps</strong>: Claude Code $20-200/월 vs AI Opus 4.5 사용 시 $300-750/월 실측</li>
-      <li><strong>생산성</strong>: 31.4% 개인 향상이지만 23.7% 보안 취약점 증가 - 품질 트레이드오프 존재</li>
-      <li><strong>벤치마크</strong>: Claude Opus 4.5 SWE-bench Verified 80.9% (업계 최고)</li>'
-  audience='DevSecOps 엔지니어, 보안 담당자, FinOps 실무자, CTO/CISO, AI 도구 도입 검토 팀'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

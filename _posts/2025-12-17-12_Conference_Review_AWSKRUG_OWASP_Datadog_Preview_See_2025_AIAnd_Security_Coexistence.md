@@ -23,21 +23,24 @@ image_alt: 'December Conference Review: Previewing 2025 AI and Security Coexiste
 original_url: https://twodragon.tistory.com/704
 redirect_from:
   - /posts/2025/12/12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence/
+summary_card:
+  title: "[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 보안 엔지니어"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AWSKRUG"
+    - "OWASP"
+    - "Datadog"
+    - "AI"
+    - "Conference"
+  highlights:
+    - { source: "", title: "2025년 보안 트렌드: AI 공격(93% 리더 예상), Shadow AI, Supply Chain 공격 급증" }
+    - { source: "", title: "AWS re:Invent 2025: Security Agent, GuardDuty Extended, IAM Policy Autopilot 발표" }
+    - { source: "", title: "Zero Trust 표준화 및 Post-quantum 암호화(Cloudflare 52% 적용) 현실화" }
+    - { source: "", title: "AWSKRUG, OWASP, Datadog 컨퍼런스별 주요 인사이트" }
 ---
-{%- include ai-summary-card.html
-  title='[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AWSKRUG</span>
-      <span class="tag">OWASP</span>
-      <span class="tag">Datadog</span>
-      <span class="tag">AI</span>
-      <span class="tag">Conference</span>'
-  highlights_html='<li>2025년 보안 트렌드: AI 공격(93% 리더 예상), Shadow AI, Supply Chain 공격 급증</li>
-      <li>AWS re:Invent 2025: Security Agent, GuardDuty Extended, IAM Policy Autopilot 발표</li>
-      <li>Zero Trust 표준화 및 Post-quantum 암호화(Cloudflare 52% 적용) 현실화</li>
-      <li>AWSKRUG, OWASP, Datadog 컨퍼런스별 주요 인사이트</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 보안 엔지니어'
--%}
+{% include ai-summary-card.html %}
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

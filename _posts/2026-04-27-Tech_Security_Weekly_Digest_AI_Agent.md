@@ -14,20 +14,24 @@ image: /assets/images/2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.svg
 image_alt: "Weekly security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
+  period: "2026년 04월 27일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Agent"
+    - "2026"
+  highlights:
+    - { source: "BleepingComputer", title: "미국 유틸리티 기업 Itron, 내부 IT 네트워크 침해 사실 공개" }
+    - { source: "AWS Korea Blog", title: "에이전틱 AI와 Amazon Bedrock AgentCore를 활용한 전문가 팀 시뮬레이션" }
 ---
 
-{% include ai-summary-card.html
-  title="미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Agent</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>BleepingComputer</strong>: 미국 유틸리티 기업 Itron, 내부 IT 네트워크 침해 사실 공개</li>
-      <li><strong>AWS Korea Blog</strong>: 에이전틱 AI와 Amazon Bedrock AgentCore를 활용한 전문가 팀 시뮬레이션</li>'
-  period='2026년 04월 27일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

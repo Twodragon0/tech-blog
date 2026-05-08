@@ -26,21 +26,24 @@ series_order: 7
 series_total: 7
 redirect_from:
   - /posts/2025/06/Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration/
+summary_card:
+  title: "클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리"
+  audience: "DevSecOps 엔지니어, 보안 엔지니어, 개발자"
+  categories:
+    - { class: "devops", label: "DevSecOps" }
+  tags:
+    - "DevSecOps"
+    - "Integration"
+    - "Cloud-Security"
+    - "SDLC"
+    - "Security-Automation"
+  highlights:
+    - { source: "DevSecOps 파이프라인 아키텍처", title: "전체 파이프라인(Plan→Code→Build→Test→Release→Deploy→Operate→Monitor), 보안 도구 매핑(STRIDE/OWASP Threat Dragon, Semgrep/SonarQube/Gitleaks, Trivy/Snyk, OWASP ZAP/Burp Suite, Cosign/Syft, Checkov/OPA/Kyverno, Falco/Sysdig, Datadog/Splunk/ELK)" }
+    - { source: "AWS 보안 서비스 통합", title: "GuardDuty 자동 대응(Lambda 기반 격리, SNS 알림), Security Hub 통합 보안 관리, EventBridge 이벤트 기반 자동화, CloudWatch 로그 분석" }
+    - { source: "DevSecOps 성숙도 모델", title: "단계별 도입 전략(초기→성장→성숙→최적화), 보안 통합 수준 평가, 실무 적용 체크리스트, 문화 및 프로세스 변화" }
+    - { source: "완전한 CI/CD 보안 파이프라인", title: "코드 보안 분석(Secret Scanning, SAST), 빌드 보안(SCA, 이미지 스캔), 배포 보안(IaC 스캔, Policy 검증), 운영 보안(런타임 보안, 모니터링)" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'
-  categories_html='<span class="category-tag devops">DevSecOps</span>'
-  tags_html='<span class="tag">DevSecOps</span>
-      <span class="tag">Integration</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">SDLC</span>
-      <span class="tag">Security-Automation</span>'
-  highlights_html='<li><strong>DevSecOps 파이프라인 아키텍처</strong>: 전체 파이프라인(Plan→Code→Build→Test→Release→Deploy→Operate→Monitor), 보안 도구 매핑(STRIDE/OWASP Threat Dragon, Semgrep/SonarQube/Gitleaks, Trivy/Snyk, OWASP ZAP/Burp Suite, Cosign/Syft, Checkov/OPA/Kyverno, Falco/Sysdig, Datadog/Splunk/ELK)</li>
-      <li><strong>AWS 보안 서비스 통합</strong>: GuardDuty 자동 대응(Lambda 기반 격리, SNS 알림), Security Hub 통합 보안 관리, EventBridge 이벤트 기반 자동화, CloudWatch 로그 분석</li>
-      <li><strong>DevSecOps 성숙도 모델</strong>: 단계별 도입 전략(초기→성장→성숙→최적화), 보안 통합 수준 평가, 실무 적용 체크리스트, 문화 및 프로세스 변화</li>
-      <li><strong>완전한 CI/CD 보안 파이프라인</strong>: 코드 보안 분석(Secret Scanning, SAST), 빌드 보안(SCA, 이미지 스캔), 배포 보안(IaC 스캔, Policy 검증), 운영 보안(런타임 보안, 모니터링)</li>'
-  audience='DevSecOps 엔지니어, 보안 엔지니어, 개발자'
--%}
+{% include ai-summary-card.html %}
 
 ### 실습 체크리스트
 

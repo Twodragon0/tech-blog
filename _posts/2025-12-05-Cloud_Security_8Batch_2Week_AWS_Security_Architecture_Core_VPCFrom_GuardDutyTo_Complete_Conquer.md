@@ -27,19 +27,22 @@ series_order: 3
 series_total: 9
 redirect_from:
   - /posts/2025/12/Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/
+summary_card:
+  title: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!"
+  audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"
+  categories:
+    - { class: "cloud", label: "Cloud" }
+  tags:
+    - "AWS"
+    - "VPC"
+    - "GuardDuty"
+    - "Security-Architecture"
+  highlights:
+    - { source: "", title: "AWS 보안 아키텍처 핵심 구성요소: VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지" }
+    - { source: "", title: "2025년 AWS re:Invent 보안 발표: GuardDuty Extended Threat Detection, Security Hub 강화, IAM Policy Autopilot" }
+    - { source: "", title: "실무 보안 모범 사례 및 적용 전략" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
-  categories_html='<span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">VPC</span>
-      <span class="tag">GuardDuty</span>
-      <span class="tag">Security-Architecture</span>'
-  highlights_html='<li>AWS 보안 아키텍처 핵심 구성요소: VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지</li>
-      <li>2025년 AWS re:Invent 보안 발표: GuardDuty Extended Threat Detection, Security Hub 강화, IAM Policy Autopilot</li>
-      <li>실무 보안 모범 사례 및 적용 전략</li>'
-  audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
--%}
+{% include ai-summary-card.html %}
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 

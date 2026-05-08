@@ -16,23 +16,27 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
+summary_card:
+  title: "Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기"
+  period: "2026년 04월 12일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "Data"
+    - "GPT"
+    - "Cloud"
+    - "AI"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "Citizen Lab: 법 집행 기관이 광고 데이터를 통해 5억 대 기기를 Webloc으로 추적" }
+    - { source: "BleepingComputer", title: "국제 단속에서 2만 명 이상의 암호화폐 사기 피해자 확인" }
+    - { source: "BleepingComputer", title: "ChatGPT, Claude에 맞서기 위해 100달러 Pro 구독 서비스 출시" }
 ---
 
-{% include ai-summary-card.html
-  title='Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">Data</span>
-      <span class="tag">GPT</span>
-      <span class="tag">Cloud</span>
-      <span class="tag">AI</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Citizen Lab: 법 집행 기관이 광고 데이터를 통해 5억 대 기기를 Webloc으로 추적</li>
-      <li><strong>BleepingComputer</strong>: 국제 단속에서 2만 명 이상의 암호화폐 사기 피해자 확인</li>
-      <li><strong>BleepingComputer</strong>: ChatGPT, Claude에 맞서기 위해 100달러 Pro 구독 서비스 출시</li>'
-  period='2026년 04월 12일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

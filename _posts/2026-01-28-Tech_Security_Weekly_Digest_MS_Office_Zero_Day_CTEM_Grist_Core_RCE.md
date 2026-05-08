@@ -29,24 +29,28 @@ title: "Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/
+summary_card:
+  title: "Tech & Security Weekly Digest (2026년 01월 28일)"
+  period: "2026년 1월 27일 ~ 28일"
+  audience: "보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO"
+  categories:
+    - { class: "security", label: "Security" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "CVE-2026-21509"
+    - "Zero-Day"
+    - "Microsoft-Office"
+    - "CTEM"
+    - "Grist-Core"
+    - "RCE"
+    - "2026"
+  highlights:
+    - { source: "CVE-2026-21509", title: "MS Office Protected View 우회 Zero-Day - CVSS 7.8, 실제 악용 중, KB5034173 긴급 패치" }
+    - { source: "CTEM 프레임워크", title: "Gartner 제안 5단계 위협 노출 관리 - Scoping, Discovery, Prioritization, Validation, Mobilization" }
+    - { source: "Grist-Core RCE", title: "오픈소스 스프레드시트 원격 코드 실행 - v1.1.15 이상 업그레이드 필수" }
+    - { source: "탐지 룰", title: "Splunk SIEM, Sigma Rule, CrowdStrike EDR 쿼리 제공" }
 ---
-{%- include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 01월 28일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">CVE-2026-21509</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Microsoft-Office</span>
-      <span class="tag">CTEM</span>
-      <span class="tag">Grist-Core</span>
-      <span class="tag">RCE</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>CVE-2026-21509</strong>: MS Office Protected View 우회 Zero-Day - CVSS 7.8, 실제 악용 중, KB5034173 긴급 패치</li>
-      <li><strong>CTEM 프레임워크</strong>: Gartner 제안 5단계 위협 노출 관리 - Scoping, Discovery, Prioritization, Validation, Mobilization</li>
-      <li><strong>Grist-Core RCE</strong>: 오픈소스 스프레드시트 원격 코드 실행 - v1.1.15 이상 업그레이드 필수</li>
-      <li><strong>탐지 룰</strong>: Splunk SIEM, Sigma Rule, CrowdStrike EDR 쿼리 제공</li>'
-  period='2026년 1월 27일 ~ 28일'
-  audience='보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO'
--%}
+{% include ai-summary-card.html %}
 
 ## Executive Summary
 

@@ -15,24 +15,28 @@ image_alt: "AI agent security threats, cloud zero-day vulnerabilities, container
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
+summary_card:
+  title: "AI 에이전트 보안 위협, 클라우드 Zero-Day, 컨테이너 공급망 공격"
+  period: "2026년 03월 28일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Cloud"
+    - "Zero-Day"
+    - "Container"
+    - "2026"
+  highlights:
+    - { source: "Microsoft Security Blog", title: "AI 에이전트 프레임워크에서 발견된 권한 탈취 취약점 분석 및 방어 가이드" }
+    - { source: "The Hacker News", title: "AWS ECS Zero-Day 컨테이너 탈출 취약점으로 호스트 노드 전체 장악 가능" }
+    - { source: "The Hacker News", title: "Harbor 레지스트리 악성 이미지 주입을 통한 공급망 공격 캠페인 발견" }
+    - { source: "Google Cloud Blog", title: "Cloud Armor 차세대 WAF와 AI 기반 위협 탐지 엔진 공개" }
 ---
 
-{% include ai-summary-card.html
-  title='AI 에이전트 보안 위협, 클라우드 Zero-Day, 컨테이너 공급망 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Cloud</span>
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Container</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Microsoft Security Blog</strong>: AI 에이전트 프레임워크에서 발견된 권한 탈취 취약점 분석 및 방어 가이드</li>
-      <li><strong>The Hacker News</strong>: AWS ECS Zero-Day 컨테이너 탈출 취약점으로 호스트 노드 전체 장악 가능</li>
-      <li><strong>The Hacker News</strong>: Harbor 레지스트리 악성 이미지 주입을 통한 공급망 공격 캠페인 발견</li>
-      <li><strong>Google Cloud Blog</strong>: Cloud Armor 차세대 WAF와 AI 기반 위협 탐지 엔진 공개</li>'
-  period='2026년 03월 28일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -14,24 +14,28 @@ image: /assets/images/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API.sv
 image_alt: "KICS Docker VS, npm, Harvester, Microsoft Graph - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
+  period: "2026년 04월 23일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Docker"
+    - "Go"
+    - "API"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "악성 KICS Docker 이미지와 VS Code 확장이 Checkmarx 공급망을 공격하다" }
+    - { source: "The Hacker News", title: "자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다" }
+    - { source: "The Hacker News", title: "Harvester, Microsoft Graph API를 통해 남아시아에서 Linux GoGra 백도어 배포" }
+    - { source: "Google Cloud Blog", title: "에이전트를 한 단계 업그레이드하세요: Google의 공식 스킬 리포지토리 발표" }
 ---
 
-{% include ai-summary-card.html
-  title="악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Go</span>
-      <span class="tag">API</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 악성 KICS Docker 이미지와 VS Code 확장이 Checkmarx 공급망을 공격하다</li>
-      <li><strong>The Hacker News</strong>: 자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다</li>
-      <li><strong>The Hacker News</strong>: Harvester, Microsoft Graph API를 통해 남아시아에서 Linux GoGra 백도어 배포</li>
-      <li><strong>Google Cloud Blog</strong>: 에이전트를 한 단계 업그레이드하세요: Google의 공식 스킬 리포지토리 발표</li>'
-  period='2026년 04월 23일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -24,22 +24,25 @@ title: '[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일
 toc: true
 redirect_from:
   - /posts/2025/11/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/
+summary_card:
+  title: "[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지"
+  audience: "SRE, 인시던트 대응 담당자, 운영 엔지니어"
+  categories:
+    - { class: "security", label: "Incident" }
+  tags:
+    - "Cloudflare"
+    - "Post-Mortem"
+    - "Incident-Response"
+    - "CDN"
+    - "Network"
+    - "SRE"
+  highlights:
+    - { source: "", title: "Cloudflare 글로벌 네트워크 장애 대응 및 분석" }
+    - { source: "", title: "모바일과 PC 환경에서 나타난 상이한 증상 분석" }
+    - { source: "", title: "Multi-CDN 전략 및 자동 Failover 구현 방안" }
+    - { source: "", title: "2025년 Cloudflare 보안 업데이트: Post-Quantum Encryption, DDoS 위협 동향" }
 ---
-{%- include ai-summary-card.html
-  title='[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
-  categories_html='<span class="category-tag security">Incident</span>'
-  tags_html='<span class="tag">Cloudflare</span>
-      <span class="tag">Post-Mortem</span>
-      <span class="tag">Incident-Response</span>
-      <span class="tag">CDN</span>
-      <span class="tag">Network</span>
-      <span class="tag">SRE</span>'
-  highlights_html='<li>Cloudflare 글로벌 네트워크 장애 대응 및 분석</li>
-      <li>모바일과 PC 환경에서 나타난 상이한 증상 분석</li>
-      <li>Multi-CDN 전략 및 자동 Failover 구현 방안</li>
-      <li>2025년 Cloudflare 보안 업데이트: Post-Quantum Encryption, DDoS 위협 동향</li>'
-  audience='SRE, 인시던트 대응 담당자, 운영 엔지니어'
--%}
+{% include ai-summary-card.html %}
 
 ### 사고 대응 체크리스트
 

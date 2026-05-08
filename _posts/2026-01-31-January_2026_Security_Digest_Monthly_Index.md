@@ -13,21 +13,25 @@ comments: true
 image: /assets/images/2026-01-31-January_2026_Security_Digest_Monthly_Index.svg
 image_alt: "January 2026 Security Digest Monthly Index"
 toc: true
+summary_card:
+  title: "2026년 1월 보안 다이제스트 월간 인덱스"
+  period: "2026년 1월 월간 인덱스"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "monthly-index"
+    - "security-news"
+    - "weekly-digest"
+    - "2026"
+  highlights:
+    - { source: "월간 종합", title: "2026년 1월 발행 보안 다이제스트 핵심 이슈 인덱싱" }
+    - { source: "위협 동향", title: "AitM 피싱, VMware KEV, IoT 봇넷, OT 시스템 공격 집중 정리" }
+    - { source: "운영 포인트", title: "Zero-Day 긴급 패치, AI 에이전트 NHI 관리, Kubernetes 보안 대응 확인" }
 ---
 
-{% include ai-summary-card.html
-  title='2026년 1월 보안 다이제스트 월간 인덱스'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">monthly-index</span>
-      <span class="tag">security-news</span>
-      <span class="tag">weekly-digest</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>월간 종합</strong>: 2026년 1월 발행 보안 다이제스트 핵심 이슈 인덱싱</li>
-      <li><strong>위협 동향</strong>: AitM 피싱, VMware KEV, IoT 봇넷, OT 시스템 공격 집중 정리</li>
-      <li><strong>운영 포인트</strong>: Zero-Day 긴급 패치, AI 에이전트 NHI 관리, Kubernetes 보안 대응 확인</li>'
-  period='2026년 1월 월간 인덱스'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -25,22 +25,26 @@ redirect_from:
   - /posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/
   - /posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
   - /posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/
+summary_card:
+  title: "2026년 4월 4주차 보안 다이제스트 주간 롤업"
+  period: "2026년 4월 4주차 (4/20 ~ 4/30)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "weekly-rollup"
+    - "security-news"
+    - "weekly-digest"
+    - "2026"
+    - "April"
+  highlights:
+    - { source: "npm 공급망 위기", title: "자체 전파 npm 웜·악성 KICS Docker 이미지·SAP npm 패키지·LofyGang 등 npm 생태계 집중 공격" }
+    - { source: "APT 및 랜섬웨어", title: "FIRESTARTER 백도어(미 국방 표적), VECT 2.0 랜섬웨어, 라자루스 KelpDAO, 북한 새 공격 물결" }
+    - { source: "인프라 위협", title: "스턱스넷 변종(엔지니어링 소프트웨어), SGLang CVE-2026-5760 SSRF, SystemBC C2 서버 분석" }
 ---
 
-{% include ai-summary-card.html
-  title='2026년 4월 4주차 보안 다이제스트 주간 롤업'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">weekly-rollup</span>
-      <span class="tag">security-news</span>
-      <span class="tag">weekly-digest</span>
-      <span class="tag">2026</span>
-      <span class="tag">April</span>'
-  highlights_html='<li><strong>npm 공급망 위기</strong>: 자체 전파 npm 웜·악성 KICS Docker 이미지·SAP npm 패키지·LofyGang 등 npm 생태계 집중 공격</li>
-      <li><strong>APT 및 랜섬웨어</strong>: FIRESTARTER 백도어(미 국방 표적), VECT 2.0 랜섬웨어, 라자루스 KelpDAO, 북한 새 공격 물결</li>
-      <li><strong>인프라 위협</strong>: 스턱스넷 변종(엔지니어링 소프트웨어), SGLang CVE-2026-5760 SSRF, SystemBC C2 서버 분석</li>'
-  period='2026년 4월 4주차 (4/20 ~ 4/30)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

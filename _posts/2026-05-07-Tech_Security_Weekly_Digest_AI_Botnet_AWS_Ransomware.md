@@ -12,24 +12,28 @@ comments: true
 image: /assets/images/2026-05-07-Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware.svg
 image_alt: "Mirai xlabs_v1, AWS ISO/IEC 42001, MuddyWater - security digest overview"
 toc: true
+summary_card:
+  title: "Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어"
+  period: "2026년 05월 07일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Botnet"
+    - "AWS"
+    - "Ransomware"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "Mirai 기반 xlabs_v1 봇넷, ADB 취약점 악용해 IoT 기기 장악 후 DDoS 공격 수행" }
+    - { source: "AWS Security Blog", title: "AWS에서 ISO/IEC 42001:2023 준수 가이드 제공" }
+    - { source: "The Hacker News", title: "MuddyWater, 가짜 랜섬웨어 공격에서 Microsoft Teams를 이용해 자격 증명 탈취" }
+    - { source: "Google Cloud Blog", title: "미래를 맞추다: Breuninger가 &#x27;be your own model&#x27; AI로 매출을 높인 방법" }
 ---
 
-{% include ai-summary-card.html
-  title="Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Botnet</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Mirai 기반 xlabs_v1 봇넷, ADB 취약점 악용해 IoT 기기 장악 후 DDoS 공격 수행</li>
-      <li><strong>AWS Security Blog</strong>: AWS에서 ISO/IEC 42001:2023 준수 가이드 제공</li>
-      <li><strong>The Hacker News</strong>: MuddyWater, 가짜 랜섬웨어 공격에서 Microsoft Teams를 이용해 자격 증명 탈취</li>
-      <li><strong>Google Cloud Blog</strong>: 미래를 맞추다: Breuninger가 &#x27;be your own model&#x27; AI로 매출을 높인 방법</li>'
-  period='2026년 05월 07일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -15,24 +15,28 @@ image_alt: "AI sandbox DNS exfiltration and multi cluster security overview"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
+summary_card:
+  title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안"
+  period: "2026년 03월 18일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "AWS"
+    - "Data"
+    - "Ransomware"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "Amazon Bedrock, LangSmith, SGLang의 AI 결함으로 데이터 유출 및 RCE 가능성" }
+    - { source: "AWS Security Blog", title: "AWS, 독일 참여 보험사와 두 번째 GDV 커뮤니티 감사 완료" }
+    - { source: "The Hacker News", title: "LeakNet 랜섬웨어, 해킹된 사이트를 통해 ClickFix 사용 및 Deno 인메모리 로더 배포" }
+    - { source: "Google Cloud Blog", title: "다중 클러스터 GKE Inference Gateway 소개: 전 세계 AI 워크로드 확장" }
 ---
 
-{% include ai-summary-card.html
-  title='AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Data</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Amazon Bedrock, LangSmith, SGLang의 AI 결함으로 데이터 유출 및 RCE 가능성</li>
-      <li><strong>AWS Security Blog</strong>: AWS, 독일 참여 보험사와 두 번째 GDV 커뮤니티 감사 완료</li>
-      <li><strong>The Hacker News</strong>: LeakNet 랜섬웨어, 해킹된 사이트를 통해 ClickFix 사용 및 Deno 인메모리 로더 배포</li>
-      <li><strong>Google Cloud Blog</strong>: 다중 클러스터 GKE Inference Gateway 소개: 전 세계 AI 워크로드 확장</li>'
-  period='2026년 03월 18일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

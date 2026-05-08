@@ -14,23 +14,27 @@ image: /assets/images/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palant
 image_alt: "Apple, NIST, Palantir, '' - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 &#x27;퇴행적&#x27;"
+  period: "2026년 04월 20일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "AI"
+    - "Apple"
+    - "AWS"
+    - "Palantir"
+    - "2026"
+  highlights:
+    - { source: "BleepingComputer", title: "Apple 계정 변경 알림을 악용한 피싱 이메일 발송" }
+    - { source: "BleepingComputer", title: "NIST, 증가하는 취약점 수로 인해 비우선순위 결함 평가 중단" }
+    - { source: "TechCrunch Security", title: "Palantir, 포용성과 &#x27;퇴행적&#x27; 문화를 비난하는 소형 선언문 게시" }
 ---
 
-{% include ai-summary-card.html
-  title="Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 &#x27;퇴행적&#x27;"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Apple</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Palantir</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>BleepingComputer</strong>: Apple 계정 변경 알림을 악용한 피싱 이메일 발송</li>
-      <li><strong>BleepingComputer</strong>: NIST, 증가하는 취약점 수로 인해 비우선순위 결함 평가 중단</li>
-      <li><strong>TechCrunch Security</strong>: Palantir, 포용성과 &#x27;퇴행적&#x27; 문화를 비난하는 소형 선언문 게시</li>'
-  period='2026년 04월 20일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 

@@ -18,27 +18,30 @@ original_url: https://twodragon.tistory.com/684
 series: "Cloud Security Course 7기"
 series_order: 4
 series_total: 7
+summary_card:
+  title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
+  audience: "보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자"
+  categories:
+    - { class: "security", label: "Security" }
+  tags:
+    - "AWS"
+    - "CDN"
+    - "Cloudflare"
+    - "GitHub"
+    - "SAST"
+    - "WAF"
+    - "보안"
+    - "보안-아키텍처"
+    - "애플리케이션-보안"
+    - "코드-보안"
+  highlights:
+    - { source: "AWS WAF 보안 강화", title: "웹 ACL 규칙 설정(SQL Injection, XSS, Rate Limiting), IP 기반 접근 제어, Geo-blocking, 커스텀 규칙 로직, CloudWatch 연동 모니터링" }
+    - { source: "Cloudflare 종합 보안", title: "DDoS 보호(자동 완화, Rate Limiting), WAF 규칙 관리(OWASP Core Rule Set), SSL/TLS 설정(TLS 1.3, HSTS), CDN 최적화, Bot Management, Page Rules" }
+    - { source: "GitHub 보안 자동화", title: "Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Code Scanning(CodeQL) 정적 분석, Secret Scanning 민감 정보 탐지, Security Advisories 관리" }
+    - { source: "실무 보안 실습", title: "DVWA(Damn Vulnerable Web Application)를 활용한 취약점 실습, AWS WAF 규칙 테스트, Cloudflare 보안 설정 실습, GitHub 보안 기능 통합" }
+    - { source: "보안 모범 사례", title: "Defense in Depth 전략, 다층 보안 방어, 자동화된 보안 검사, 실시간 모니터링 및 알림" }
 ---
-{%- include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">AWS</span>
-      <span class="tag">CDN</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">GitHub</span>
-      <span class="tag">SAST</span>
-      <span class="tag">WAF</span>
-      <span class="tag">보안</span>
-      <span class="tag">보안-아키텍처</span>
-      <span class="tag">애플리케이션-보안</span>
-      <span class="tag">코드-보안</span>'
-  highlights_html='<li><strong>AWS WAF 보안 강화</strong>: 웹 ACL 규칙 설정(SQL Injection, XSS, Rate Limiting), IP 기반 접근 제어, Geo-blocking, 커스텀 규칙 로직, CloudWatch 연동 모니터링</li>
-      <li><strong>Cloudflare 종합 보안</strong>: DDoS 보호(자동 완화, Rate Limiting), WAF 규칙 관리(OWASP Core Rule Set), SSL/TLS 설정(TLS 1.3, HSTS), CDN 최적화, Bot Management, Page Rules</li>
-      <li><strong>GitHub 보안 자동화</strong>: Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Code Scanning(CodeQL) 정적 분석, Secret Scanning 민감 정보 탐지, Security Advisories 관리</li>
-      <li><strong>실무 보안 실습</strong>: DVWA(Damn Vulnerable Web Application)를 활용한 취약점 실습, AWS WAF 규칙 테스트, Cloudflare 보안 설정 실습, GitHub 보안 기능 통합</li>
-      <li><strong>보안 모범 사례</strong>: Defense in Depth 전략, 다층 보안 방어, 자동화된 보안 검사, 실시간 모니터링 및 알림</li>'
-  audience='보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자'
--%}
+{% include ai-summary-card.html %}
 
 <img src="{% raw %}{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 

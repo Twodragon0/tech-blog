@@ -14,24 +14,28 @@ image: /assets/images/2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.
 image_alt: "SGLang CVE-2026-5760(CVSS, KelpDAO - security digest overview"
 toc: true
 sitemap: false
+summary_card:
+  title: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
+  period: "2026년 04월 21일 (24시간)"
+  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  categories:
+    - { class: "security", label: "보안" }
+    - { class: "devsecops", label: "DevSecOps" }
+  tags:
+    - "Security-Weekly"
+    - "CVE"
+    - "Apple"
+    - "AI"
+    - "Agent"
+    - "2026"
+  highlights:
+    - { source: "The Hacker News", title: "SGLang CVE-2026-5760(CVSS 9.8) 악성 GGUF 모델 파일을 통한 원격 코드 실행 가능" }
+    - { source: "The Hacker News", title: "주간 보안 뉴스 요약: Vercel 해킹, Push 사기, QEMU 악용, 신종 Android RAT 등장" }
+    - { source: "BleepingComputer", title: "KelpDAO, 라자루스 해커와 연관된 2억 9천만 달러 해킹 피해" }
+    - { source: "AWS Blog", title: "AWS 위클리 라운드업: Amazon Bedrock의 Claude Opus 4.7, AWS" }
 ---
 
-{% include ai-summary-card.html
-  title="SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">CVE</span>
-      <span class="tag">Apple</span>
-      <span class="tag">AI</span>
-      <span class="tag">Agent</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: SGLang CVE-2026-5760(CVSS 9.8) 악성 GGUF 모델 파일을 통한 원격 코드 실행 가능</li>
-      <li><strong>The Hacker News</strong>: 주간 보안 뉴스 요약: Vercel 해킹, Push 사기, QEMU 악용, 신종 Android RAT 등장</li>
-      <li><strong>BleepingComputer</strong>: KelpDAO, 라자루스 해커와 연관된 2억 9천만 달러 해킹 피해</li>
-      <li><strong>AWS Blog</strong>: AWS 위클리 라운드업: Amazon Bedrock의 Claude Opus 4.7, AWS</li>'
-  period='2026년 04월 21일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+{% include ai-summary-card.html %}
 
 ---
 
