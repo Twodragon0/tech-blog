@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-07T02:05:58.222446+00:00",
+  "updated_at": "2026-05-08T02:12:14.543163+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/unc6692-impersonates-it-helpdesk-via.html",
-      "title": "UNC6692 Impersonates IT Helpdesk via Microsoft Teams to Deploy SNOW Malware",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/bitwarden-cli-compromised-in-ongoing.html",
-      "title": "Bitwarden CLI Compromised in Ongoing Checkmarx Supply Chain Campaign",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-290m-defi-hack.html",
-      "title": "ThreatsDay Bulletin: $290M DeFi Hack, macOS LotL Abuse, ProxySmart SIM Farms +25",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-file-upload-bug-in-breeze-cache-wordpress-plugin/",
-      "title": "Hackers exploit file upload bug in Breeze Cache WordPress plugin",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/webinar-mythos-reality-check-beating.html",
-      "title": "[Webinar] Mythos Reality Check: Beating Automated Exploitation at AI Speed",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/",
-      "title": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Alrea",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-in-app-labels/",
-      "title": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubi",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-gpu-early-universe-astronomy/",
-      "title": "Making Sense of the Early Universe",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/what-is-a-tpu/",
-      "title": "Here’s how our TPUs power increasingly demanding AI workloads.",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-gpt-5-5",
-      "title": "Introducing GPT-5.5",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6692-social-engineering-custom-malware/",
-      "title": "Snow Flurries: How UNC6692 Employed Social Engineering to Deploy a Custom Malwar",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-23-copilot-chat-improvements-for-pull-requests",
-      "title": "Copilot Chat improvements for pull requests",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-23-global-pull-requests-dashboard-moves-to-opt-out-public-preview",
-      "title": "Global pull requests dashboard moves to opt-out public preview",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-23-copilot-cloud-agent-fields-added-to-usage-metrics",
-      "title": "Copilot cloud agent fields added to usage metrics",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-23-dependabot-graphs-for-python",
-      "title": "Dependabot-based dependency graphs for Python",
-      "published_date": "2026-04-24",
-      "expires_at": "2026-05-01T01:53:42.795175+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/firestarter-backdoor-hit-federal-cisco.html",
       "title": "FIRESTARTER Backdoor Hit Federal Cisco Firepower Device, Survives Security Patch",
@@ -1254,6 +1164,96 @@
       "title": "Google named a Leader in the 2026 Gartner® Magic Quadrant™ for Cyberthreat Intel",
       "published_date": "2026-05-07",
       "expires_at": "2026-05-14T02:05:58.222334+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
+      "title": "Ivanti EPMM CVE-2026-6973 RCE Under Active Exploitation Grants Admin-Level Acces",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/pcpjack-credential-stealer-exploits-5.html",
+      "title": "PCPJack Credential Stealer Exploits 5 CVEs to Spread Worm-Like Across Cloud Syst",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/",
+      "title": "When prompts become shells: RCE vulnerabilities in AI agent frameworks",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
+      "title": "One Click, Total Shutdown: The \"Patient Zero\" Webinar on Killing Stealth Breache",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/pan-os-rce-exploit-under-active-use.html",
+      "title": "PAN-OS RCE Exploit Under Active Use Enabling Root Access and Espionage",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
+      "title": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
+      "title": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+      "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://openai.com/index/parloa",
+      "title": "Parloa builds service agents customers want to talk to",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+      "title": "Advancing voice intelligence with new models in the API",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-lite-is-now-generally-available/",
+      "title": "Gemini 3.1 Flash-Lite is now generally available on Gemini Enterprise Agent Plat",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/scaling-real-time-performance-with-bigtable-in-memory-tier/",
+      "title": "New Bigtable in-memory tier for sub-millisecond read latency",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-basf-manages-thousands-of-supply-chain-decisions-with-alphaevolve/",
+      "title": "How BASF manages thousands of supply chain decisions with AlphaEvolve’s agentic ",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/ec2-grafana-k6/",
+      "title": "Grafana k6로 Amazon EC2 비용 최적화 하기",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-07-upcoming-deprecation-of-gpt-4-1",
+      "title": "Upcoming deprecation of GPT-4.1",
+      "published_date": "2026-05-08",
+      "expires_at": "2026-05-15T02:12:14.543071+00:00"
     }
   ]
 }
