@@ -208,6 +208,55 @@ _TITLE_PREFIX_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Hangul syllable + jamo block detector. Triggers the English-fallback path
+# in extract_three_stories so SVG <text> elements stay ASCII-only (the
+# check-svg quality gate forbids Hangul in <text>).
+_HANGUL_RE = re.compile(r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]")
+
+# Strip the date prefix (YYYY-MM-DD-) and the digest stem from a post
+# filename so the trailing ``slug_part_with_topics`` can be split into
+# English keywords.
+_FILENAME_DATE_PREFIX_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-")
+_FILENAME_DIGEST_STEM_RE = re.compile(
+    r"^(?:Tech_Security_Weekly_Digest|Tech_Blog_Weekly_Digest|"
+    r"Weekly[_-]Security_Digest|Weekly_Tech_AI_Blockchain_Digest|"
+    r"Weekly_Security_DevOps_Digest|Daily_Tech_Digest|"
+    r"Security_Cloud_Digest|AI_Cloud_Digest|DevOps_Blockchain_Digest|"
+    r"Security_Digest|Blockchain_Tech_Digest)_+",
+    re.IGNORECASE,
+)
+
+
+def _english_topics_from_filename(filename: str) -> List[str]:
+    """Extract English topic keywords from a digest filename's slug.
+
+    Example::
+
+        2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.md
+        → ["AI", "AWS", "Threat", "Cloud"]
+
+    Returns an empty list when no slug-style keywords can be derived.
+    """
+    if not filename:
+        return []
+    name = Path(filename).stem
+    name = _FILENAME_DATE_PREFIX_RE.sub("", name)
+    name = _FILENAME_DIGEST_STEM_RE.sub("", name)
+    parts = [p for p in re.split(r"[_-]+", name) if p]
+    # Filter out anything containing non-ASCII or pure digits.
+    keywords: List[str] = []
+    for p in parts:
+        if any(ord(ch) > 127 for ch in p):
+            continue
+        if p.isdigit():
+            continue
+        keywords.append(p)
+    return keywords
+
+
+def _has_hangul(text: str) -> bool:
+    return bool(_HANGUL_RE.search(text or ""))
+
 
 def _clean_segment(seg: str) -> str:
     """Trim and collapse whitespace in a single split segment."""
@@ -234,12 +283,23 @@ def _pad_subheadline(seg: str, excerpt: str) -> str:
     return _shorten(candidate, _SUB_MAX_CHARS) or base
 
 
-def extract_three_stories(post_title: str, excerpt: str) -> Tuple[Dict, Dict, Dict]:
+def extract_three_stories(
+    post_title: str,
+    excerpt: str,
+    filename: str = "",
+) -> Tuple[Dict, Dict, Dict]:
     """Split title + excerpt into 3 succinct English story dicts.
 
     Returned dicts contain ``headline`` (<= 30 chars) and ``subheadline``
     (40-60 chars when material is available). They are intended to be
     merged with routing/KPI keys before being handed to ``render_l20_hero``.
+
+    English-only guarantee: when any candidate segment contains Hangul,
+    that slot is replaced with a keyword derived from ``filename``'s
+    English topic slug (e.g., ``..._AI_AWS_Threat_Cloud.md`` →
+    ``["AI", "AWS", "Threat", "Cloud"]``). The check-svg quality gate
+    forbids non-ASCII text inside SVG ``<text>`` elements, so this is a
+    hard correctness requirement, not a cosmetic concern.
     """
     title = (post_title or "").strip()
     title = _TITLE_PREFIX_RE.sub("", title)
@@ -258,17 +318,37 @@ def extract_three_stories(post_title: str, excerpt: str) -> Tuple[Dict, Dict, Di
                 break
             raw_segments.append(seg)
 
-    # Final padding: stable placeholders that still render legibly.
+    # Replace any Hangul-containing segment with an English keyword pulled
+    # from the filename slug. We pad the keyword pool with neutral fallbacks
+    # so a Korean-only post still produces 3 deterministic English stories.
+    en_keywords = _english_topics_from_filename(filename)
+    en_pool = list(en_keywords) + ["Security Update", "Threat Analysis", "Patch Advisory"]
+    en_iter = iter(en_pool)
+    cleaned: List[str] = []
+    for seg in raw_segments:
+        if _has_hangul(seg):
+            cleaned.append(next(en_iter, "Security Update"))
+        else:
+            cleaned.append(seg)
+    raw_segments = cleaned
+
+    # Final padding: stable placeholders that still render legibly. Prefer
+    # remaining filename keywords before falling back to a generic phrase.
     while len(raw_segments) < 3:
-        raw_segments.append("Security Update")
+        raw_segments.append(next(en_iter, "Security Update"))
 
     segments = [_clean_segment(s) for s in raw_segments[:3]]
     stories: List[Dict] = []
+    # Subheadline padding context: also stripped of Hangul to avoid leaking
+    # Korean into the secondary text element.
+    safe_excerpt = excerpt or ""
+    if _has_hangul(safe_excerpt):
+        safe_excerpt = " ".join(en_keywords) if en_keywords else ""
     for seg in segments:
         stories.append(
             {
                 "headline": _shorten(seg, _HEADLINE_MAX_CHARS),
-                "subheadline": _pad_subheadline(seg, excerpt or ""),
+                "subheadline": _pad_subheadline(seg, safe_excerpt),
             }
         )
     return stories[0], stories[1], stories[2]
@@ -412,7 +492,7 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
         excerpt = str(post_info.get("excerpt", "") or "")
         filename = str(post_info.get("filename", "") or output_path.name)
 
-        hero_dict, tr_dict, br_dict = extract_three_stories(title, excerpt)
+        hero_dict, tr_dict, br_dict = extract_three_stories(title, excerpt, filename)
 
         hero_story = _build_story(
             headline=hero_dict["headline"],

@@ -21,9 +21,74 @@ import pytest
 
 from scripts.news import l20_dispatch
 from scripts.news.l20_dispatch import (
+    _english_topics_from_filename,
+    _has_hangul,
     _infer_kpi,
+    extract_three_stories,
     generate_l20_digest_svg,
 )
+
+
+# =====================================================================
+# English fallback for Korean titles (regression: 2026-05-08 check-svg)
+# =====================================================================
+
+
+class TestEnglishFallbackForKoreanTitle:
+    """check-svg blocked when SVG <text> contained Hangul. extract_three_stories
+    must pull English keywords from the filename slug whenever a candidate
+    segment contains Hangul."""
+
+    def test_filename_keyword_extraction(self):
+        kws = _english_topics_from_filename(
+            "2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.md"
+        )
+        assert kws == ["AI", "AWS", "Threat", "Cloud"]
+
+    def test_filename_keyword_extraction_alt_stem(self):
+        kws = _english_topics_from_filename(
+            "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.md"
+        )
+        assert kws == ["Bithumb", "Bitcoin"]
+
+    def test_korean_title_replaced_by_filename_keywords(self):
+        """A purely-Korean title yields three ASCII-only headlines."""
+        title = "Apache HTTP/2의 치명적, DAEMON Tools 공급망 공격으로 공식, 중국과 연계된 UAT-8302"
+        excerpt = "Apache HTTP/2의 치명적 취약점을 발표했습니다."
+        filename = "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md"
+        h, tr, br = extract_three_stories(title, excerpt, filename)
+        for story in (h, tr, br):
+            assert not _has_hangul(story["headline"]), (
+                f"Hangul leaked into headline: {story['headline']!r}"
+            )
+            assert not _has_hangul(story["subheadline"]), (
+                f"Hangul leaked into subheadline: {story['subheadline']!r}"
+            )
+
+    def test_mixed_title_keeps_english_segments(self):
+        """Mixed Korean+English title preserves English segments verbatim."""
+        title = "AWS Re:Invent 2026, 한국어 세그먼트, Kubernetes Update"
+        h, tr, br = extract_three_stories(
+            title, "", "2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.md"
+        )
+        # First and third segments are pure-English so they survive.
+        assert "AWS" in h["headline"] or "Re:Invent" in h["headline"]
+        # Middle segment should be replaced with a filename keyword.
+        assert not _has_hangul(tr["headline"])
+        assert "Kubernetes" in br["headline"] or "Update" in br["headline"]
+
+    def test_empty_filename_falls_back_to_generic(self):
+        """No filename → generic English placeholders, never Korean."""
+        title = "한국어 제목입니다"
+        h, tr, br = extract_three_stories(title, "", "")
+        for story in (h, tr, br):
+            assert not _has_hangul(story["headline"])
+
+    def test_has_hangul_detection(self):
+        assert _has_hangul("Apache HTTP/2의")
+        assert _has_hangul("ㄱ")
+        assert not _has_hangul("Apache HTTP/2 critical")
+        assert not _has_hangul("")
 
 
 # =====================================================================
