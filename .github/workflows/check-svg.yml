@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -qq && sudo apt-get install -y libxml2-utils
-          pip install -q pyyaml frontmatter 2>/dev/null || true
+          pip install -q pyyaml frontmatter qrcode 2>/dev/null || true
 
       - name: Validate SVG XML well-formedness
         run: |
@@ -48,6 +48,12 @@ jobs:
           echo "Auto-fixing missing width/height and checking SVG quality..."
           python3 scripts/check_svg_quality.py --fix --ci assets/images/
           echo "SVG quality check passed"
+
+      - name: Check cover QR URLs match canonical post permalink
+        run: |
+          echo "Verifying QR codes encode the canonical Jekyll permalink..."
+          python3 scripts/check_cover_qr_urls.py
+          echo "Cover QR URL check passed"
 
       - name: Check posts quality (zero SVG warnings)
         run: |

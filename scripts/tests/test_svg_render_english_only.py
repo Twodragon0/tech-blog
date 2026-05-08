@@ -218,3 +218,73 @@ class TestEndToEndKoreanInputProducesAsciiSvg:
         # Sanity: content is meaningful (not empty / not just envelope).
         assert "<text" in svg_text
         assert "WEEKLY DIGEST" in svg_text
+
+
+# ---------------------------------------------------------------------------
+# QR path-data round-trip
+# ---------------------------------------------------------------------------
+
+
+class TestQrPathDataRoundTrip:
+    """The QR ``<path d="...">`` emitted into a cover must be byte-identical
+    to a fresh ``gen_qr(canonical_url)`` call. If they diverge, either the
+    URL passed to render_l20_hero was wrong (regression: the slug-hyphen
+    bug), or the qr_block template was mutated.
+
+    Without a stdlib QR *decoder* this is the strongest equality check we
+    can run in pure Python — and it transitively proves the encoded payload
+    because ``gen_qr`` is deterministic for a given URL.
+    """
+
+    def _extract_qr_path_d(self, svg_text: str) -> str:
+        # qr_block emits exactly one ``<g transform="translate(1080,504)" ...>``
+        # block, with a single ``<path fill="#0A1020" d="...">`` inside it.
+        m = re.search(
+            r'<g transform="translate\(1080,504\)"[^>]*>\s*'
+            r'<rect[^/]*/>\s*'
+            r'<path fill="#0A1020" d="([^"]*)"',
+            svg_text,
+            re.DOTALL,
+        )
+        assert m, "QR <g> block not found in rendered SVG"
+        return m.group(1)
+
+    def test_qr_path_matches_canonical_url(self, tmp_path):
+        from scripts.lib.svg_l22_generator import gen_qr
+
+        post_info = {
+            "title": "Test post",
+            "excerpt": "...",
+            "filename": "2026-05-08-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md",
+            "date": "2026-05-08",
+        }
+        out_path = tmp_path / "cover"
+        assert generate_l20_digest_svg(post_info, out_path)
+        svg_text = (tmp_path / "cover.svg").read_text(encoding="utf-8")
+
+        rendered_qr_d = self._extract_qr_path_d(svg_text)
+        canonical_url = (
+            "https://tech.2twodragon.com/posts/2026/05/08/"
+            "Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/"
+        )
+        expected_qr_d = gen_qr(canonical_url)
+        assert rendered_qr_d == expected_qr_d, (
+            "QR matrix does not match canonical underscore URL. "
+            "If this fails, _post_url_from_filename probably regressed "
+            "(e.g., slug.replace('_', '-') was reintroduced)."
+        )
+
+    def test_qr_path_differs_for_hyphen_url(self, tmp_path):
+        """Sanity: prove the path-data check actually distinguishes URLs.
+
+        The hyphen URL is the buggy one. Its QR matrix MUST differ from the
+        underscore URL's matrix — otherwise our equality check is vacuous.
+        """
+        from scripts.lib.svg_l22_generator import gen_qr
+
+        good = "https://tech.2twodragon.com/posts/2026/05/08/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/"
+        bad = "https://tech.2twodragon.com/posts/2026/05/08/Tech-Security-Weekly-Digest-CVE-AI-Malware-Go/"
+        assert gen_qr(good) != gen_qr(bad), (
+            "gen_qr returned identical matrices for different URLs — "
+            "the encoder is broken"
+        )
