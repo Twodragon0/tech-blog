@@ -32,16 +32,36 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout (for fallback classifier script)
+        uses: actions/checkout@v4
+
       - name: Get Dependabot metadata
         id: meta
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7  # v2.4.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      # Fallback when fetch-metadata returns update-type=null. Happens for
+      # Python deps that use range requirements (>=X.Y) instead of pinned
+      # versions, so dependabot can't classify on its own. We parse the PR
+      # title's "from <prev> to <new>" clause and classify locally. See
+      # scripts/dependabot_classify_pr.py for the parsing rules + tests.
+      - name: Classify from PR title (fallback)
+        id: title_class
+        if: steps.meta.outputs.update-type == ''
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          classification="$(python3 scripts/dependabot_classify_pr.py "$PR_TITLE")"
+          echo "classification=$classification" >> "$GITHUB_OUTPUT"
+          echo "Title-based classification: '$classification'"
+
       - name: Approve PR (patch + minor only)
         if: |
           steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor'
+          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
+          steps.title_class.outputs.classification == 'version-update:semver-patch' ||
+          steps.title_class.outputs.classification == 'version-update:semver-minor'
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -50,14 +70,18 @@ jobs:
       - name: Enable auto-merge (patch + minor only)
         if: |
           steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor'
+          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
+          steps.title_class.outputs.classification == 'version-update:semver-patch' ||
+          steps.title_class.outputs.classification == 'version-update:semver-minor'
         run: gh pr merge --auto --squash --delete-branch "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on major bumps (manual review needed)
-        if: steps.meta.outputs.update-type == 'version-update:semver-major'
+        if: |
+          steps.meta.outputs.update-type == 'version-update:semver-major' ||
+          steps.title_class.outputs.classification == 'version-update:semver-major'
         run: |
           gh pr comment "$PR_URL" --body "**Major version bump detected** ($DEP_NAME $PREV → $NEW). Auto-merge is disabled for major versions — please review breaking changes manually before merging."
         env:
