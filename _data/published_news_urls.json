@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-08T02:12:14.543163+00:00",
+  "updated_at": "2026-05-09T02:06:06.177268+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/firestarter-backdoor-hit-federal-cisco.html",
-      "title": "FIRESTARTER Backdoor Hit Federal Cisco Firepower Device, Survives Security Patch",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/nasa-employees-duped-in-chinese.html",
-      "title": "NASA Employees Duped in Chinese Phishing Scheme Targeting U.S. Defense Software",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/protecting-your-secrets-from-tomorrows-quantum-risks/",
-      "title": "Protecting your secrets from tomorrow’s quantum risks",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/adt-confirms-data-breach-after-shinyhunters-leak-threat/",
-      "title": "ADT confirms data breach after ShinyHunters leak threat",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/bridging-ai-agent-authority-gap.html",
-      "title": "Bridging the AI Agent Authority Gap: Continuous Observability as the Decision En",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
-      "title": "8 Gemini tips for organizing your space (and life)",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-workforce-ai-agents-with-visier-and-amazon-quick/",
-      "title": "Building Workforce AI Agents with Visier and Amazon Quick",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up/",
-      "title": "260 things we announced at Google Cloud Next '26 – a recap",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-24-notice-about-upcoming-new-format-for-github-app-installation-tokens",
-      "title": "Notice about upcoming new format for GitHub App installation tokens",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-24-changes-to-notification-retention-and-archived-repository-watches",
-      "title": "Changes to notification retention and archived repository watches",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-24-gpt-5-5-is-generally-available-for-github-copilot",
-      "title": "GPT-5.5 is generally available for GitHub Copilot",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-24-inline-agent-mode-in-preview-and-more-in-github-copilot-for-jetbrains-ides",
-      "title": "Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/04/24/kubernetes-v1-36-fine-grained-kubelet-authorization-ga/",
-      "title": "Kubernetes v1.36: Fine-Grained Kubelet API Authorization Graduates to GA",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/vaneck-flags-dual-bullish-for-bitcoin",
-      "title": "VanEck Flags Dual Bullish Signals for Bitcoin as Funding Turns Negative, Hash Ra",
-      "published_date": "2026-04-25",
-      "expires_at": "2026-05-02T01:31:53.991072+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/researchers-uncover-pre-stuxnet-fast16.html",
       "title": "Researchers Uncover Pre-Stuxnet ‘fast16’ Malware Targeting Engineering Software",
@@ -1254,6 +1164,96 @@
       "title": "Upcoming deprecation of GPT-4.1",
       "published_date": "2026-05-08",
       "expires_at": "2026-05-15T02:12:14.543071+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/tclbanker-banking-trojan-targets.html",
+      "title": "TCLBANKER Banking Trojan Targets Financial Platforms via WhatsApp and Outlook Wo",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/fake-call-history-apps-stole-payments.html",
+      "title": "Fake Call History Apps Stole Payments From Users After 7.3 Million Play Store Do",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/08/active-attack-dirty-frag-linux-vulnerability-expands-post-compromise-risk/",
+      "title": "Active attack: Dirty Frag Linux vulnerability expands post-compromise risk",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/quasar-linux-rat-steals-developer.html",
+      "title": "Quasar Linux RAT Steals Developer Credentials for Software Supply Chain Compromi",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/one-missed-threat-per-week-what-25m.html",
+      "title": "One Missed Threat Per Week: What 25M Alerts Reveal About Low-Severity Risk",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
+      "title": "See what happens when creative legends use AI to make ads for small businesses.",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://openai.com/index/running-codex-safely",
+      "title": "Running Codex safely at OpenAI",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/halliburton-enhances-seismic-workflow-creation-with-amazon-bedrock-and-generative-ai/",
+      "title": "Halliburton enhances seismic workflow creation with Amazon Bedrock and Generativ",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/lablab-ai-amd-developer-hackathon/cybersecqwen-4b",
+      "title": "CyberSecQwen-4B: Why Defensive Cyber Needs Small, Specialized, Locally-Runnable ",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/allenai/emo",
+      "title": "EMO: Pretraining mixture of experts for emergent modularity",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/ship-code-within-minutes-with-the-gemini-cli-devops-extension/",
+      "title": "Ship code within minutes with the Gemini CLI DevOps Extension",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-node-startup-gets-faster/",
+      "title": "With faster node startup for GKE, say goodbye to cold-start latency",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-upcoming-deprecation-of-grok-code-fast-1",
+      "title": "Upcoming deprecation of Grok Code Fast 1",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
+      "title": "Copilot code review comment types now in usage metrics API",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-disable-commit-comments-on-the-user-level",
+      "title": "Disable commit comments on the user level",
+      "published_date": "2026-05-09",
+      "expires_at": "2026-05-16T02:06:06.177171+00:00"
     }
   ]
 }
