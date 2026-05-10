@@ -2662,10 +2662,20 @@ def generate_news_section(
     # fmt: on
 
     def _sanitize_liquid_param(text: str) -> str:
-        """Liquid include 파라미터용 문자열 정리 - curly quotes, 이중 따옴표 이스케이프"""
+        """Liquid include 파라미터용 문자열 정리.
+
+        Liquid include attributes use ASCII " as the outer delimiter and do
+        NOT honor backslash escapes — ``\\"`` is two literal characters, not an
+        escaped quote, so the attribute terminates at the first inner ASCII ".
+        Mirror ``scripts/fix_malformed_liquid_includes.py``: normalize any
+        curly quotes the LLM emitted to ASCII first, then map inner ASCII " to
+        U+201D RIGHT DOUBLE QUOTATION MARK so the value never breaks the
+        outer delimiter. Inner ASCII ' is already safe (different character)
+        so it is left as-is.
+        """
         for curly, straight in _CURLY_QUOTES.items():
             text = text.replace(curly, straight)
-        return text.replace('"', '\\"')
+        return text.replace('"', "\u201d")
 
     title = _korean_display_title(item)
     url = item.get("url", "")
