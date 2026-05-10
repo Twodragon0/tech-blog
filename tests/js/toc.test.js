@@ -208,4 +208,63 @@ describe('toc.js#highlightCurrentSection', () => {
     expect(() => window.dispatchEvent(new Event('scroll'))).not.toThrow();
     await new Promise((r) => setTimeout(r, 0));
   });
+
+  it('TOC link click triggers smooth scrollTo + history.pushState on target heading', () => {
+    buildTocFixture([
+      { id: 's1', title: 'One', top: 100, height: 200 },
+      { id: 's2', title: 'Two', top: 400, height: 200 },
+    ]);
+    runScript();
+
+    const scrollToSpy = vi.fn();
+    const pushStateSpy = vi.spyOn(history, 'pushState');
+    const origScrollTo = window.scrollTo;
+    window.scrollTo = scrollToSpy;
+
+    try {
+      const link = document.querySelector('.toc-card-item[href="#s2"]');
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      link.dispatchEvent(click);
+
+      expect(click.defaultPrevented).toBe(true);
+      expect(scrollToSpy).toHaveBeenCalledTimes(1);
+      const arg = scrollToSpy.mock.calls[0][0];
+      expect(arg.behavior).toBe('smooth');
+      expect(typeof arg.top).toBe('number');
+      // pushState updates the URL hash to the target id.
+      expect(pushStateSpy).toHaveBeenCalledTimes(1);
+      expect(pushStateSpy.mock.calls[0][2]).toBe('#s2');
+    } finally {
+      window.scrollTo = origScrollTo;
+      pushStateSpy.mockRestore();
+    }
+  });
+
+  it('TOC link click on href="#" early-returns without preventDefault', () => {
+    document.body.innerHTML = `
+      <button id="toc-toggle"><span class="btn-text">Toggle</span></button>
+      <div id="toc-content">
+        <span id="toc-count"></span>
+        <a class="toc-card-item" href="#">Top</a>
+      </div>
+      <article class="post-content"></article>
+    `;
+    runScript();
+
+    const scrollToSpy = vi.fn();
+    const origScrollTo = window.scrollTo;
+    window.scrollTo = scrollToSpy;
+
+    try {
+      const link = document.querySelector('.toc-card-item');
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      link.dispatchEvent(click);
+
+      // href="#" is an early-return guard — no scroll, default not prevented.
+      expect(scrollToSpy).not.toHaveBeenCalled();
+      expect(click.defaultPrevented).toBe(false);
+    } finally {
+      window.scrollTo = origScrollTo;
+    }
+  });
 });
