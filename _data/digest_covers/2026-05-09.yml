@@ -1,0 +1,81 @@
+date: '2026-05-09'
+slug: Tech_Security_Weekly_Digest_Vulnerability_AI_Threat
+sfx: MY09
+title: '2026-05-09: TCLBANKER worm, 7.3M fake-call app, Dirty Frag Linux'
+aria: TCLBANKER banking trojan worms via WhatsApp and Outlook to target financial
+  platforms, fake call-history Android app racks 7.3M Play Store downloads exfiltrating
+  payment data, Dirty Frag Linux flaw actively exploited for post-compromise privilege
+  expansion
+bands:
+- theme: red
+  label: BANKING TROJAN
+  headline: TCLBANKER WhatsApp Worm
+  metric: Banking + worm via chat
+  detail: TCLBANKER banking trojan self-propagates through WhatsApp and Outlook to
+    hit financial-platform credentials
+  badge:
+    value: BANK
+    label: TARGET
+    sub: financial
+  visual:
+    kind: lock_cve
+    cvss: HIGH
+  metric_b: Block Outlook + WhatsApp executable attachments
+  detail_b: 'EDR rule for clipboard-injection patterns : user-training drill on chat-borne
+    malware lures'
+  mini:
+    value: WORM
+    label: MODE
+    sub: self-spread
+  mini2:
+    value: CHAT
+    label: VECTOR
+    sub: WhatsApp
+- theme: amber
+  label: MOBILE SUPPLY
+  headline: 7.3M Fake Call-History App
+  metric: Play Store data theft
+  detail: Android fake call-history app reaches 7.3M Play Store installs while exfiltrating
+    user payment information
+  badge:
+    value: 7.3M
+    label: INSTALLS
+    sub: Play Store
+  visual:
+    kind: network_nodes
+    label: INSTALL
+  metric_b: MDM allowlist + Play Protect re-scan policy
+  detail_b: 'Audit installed apps against Play Store reputation : block sideload +
+    restrict accessibility-service grants'
+  mini:
+    value: AND
+    label: OS
+    sub: Android
+  mini2:
+    value: PAY
+    label: EXFIL
+    sub: payment
+- theme: green
+  label: LINUX KERNEL
+  headline: Dirty Frag Active Exploit
+  metric: Post-compromise privesc
+  detail: Dirty Frag Linux flaw actively exploited to expand post-compromise foothold
+    into root-tier access
+  badge:
+    value: ROOT
+    label: IMPACT
+    sub: privesc
+  visual:
+    kind: shield
+    label: KERNEL
+  metric_b: Apply kernel patch + restrict containers caps
+  detail_b: 'Drop SYS_PTRACE / SYS_ADMIN where unneeded : audit unprivileged user
+    namespace + sysctl hardening'
+  mini:
+    value: LIN
+    label: OS
+    sub: kernel
+  mini2:
+    value: ACT
+    label: STATE
+    sub: active

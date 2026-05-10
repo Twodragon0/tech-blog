@@ -1,0 +1,80 @@
+date: '2026-05-10'
+slug: Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent
+sfx: MY10
+title: '2026-05-10: JDownloader RAT, cPanel triple patch, HF fake OpenAI'
+aria: JDownloader official site compromise replaces installer with a Python RAT, cPanel
+  and WHM ship three new vulnerability patches that operators must apply now, Hugging
+  Face fake OpenAI repository distributes information-stealing malware to ML developers
+bands:
+- theme: red
+  label: SUPPLY CHAIN
+  headline: JDownloader Site Hijack
+  metric: Installer to Python RAT
+  detail: 'JDownloader official download site compromised : installer swapped for
+    a Python RAT seeded across users'
+  badge:
+    value: RAT
+    label: PAYLOAD
+    sub: Python
+  visual:
+    kind: lock_cve
+    cvss: HIGH
+  metric_b: SBOM + checksum gate for any third-party installer
+  detail_b: 'Block JDownloader install + force fresh re-download : EDR sweep for python.exe
+    spawning suspicious child shells'
+  mini:
+    value: DL
+    label: VECTOR
+    sub: installer
+  mini2:
+    value: JD
+    label: VENDOR
+    sub: JDownloader
+- theme: amber
+  label: HOSTING PANEL
+  headline: cPanel + WHM Triple CVE
+  metric: '3 fixes : patch now'
+  detail: 'cPanel and WHM publish three new CVE patches affecting shared hosting control
+    planes : exploit pressure imminent'
+  badge:
+    value: '3'
+    label: CVES
+    sub: cPanel/WHM
+  visual:
+    kind: shield
+    label: cPanel
+  metric_b: Stage cPanel update on canary host then fleet-wide
+  detail_b: 'Audit reseller + admin sessions for anomalies : rotate API tokens : restrict
+    WHM admin port to bastion'
+  mini:
+    value: HOST
+    label: SCOPE
+    sub: shared
+  mini2:
+    value: PATCH
+    label: STATE
+    sub: now
+- theme: green
+  label: ML SUPPLY CHAIN
+  headline: Hugging Face Fake OpenAI
+  metric: Stealer in ML registry
+  detail: Hugging Face fake OpenAI repository distributes information-stealing malware
+    aimed at ML developers
+  badge:
+    value: HF
+    label: REGISTRY
+    sub: model hub
+  visual:
+    kind: code_bars
+    caption: MODEL
+  metric_b: Pin model repos by org + signed-release verification
+  detail_b: 'Add HF org allowlist to ML CI : pip + transformers SBOM : EDR rule for
+    pickle deserialization spawning new processes'
+  mini:
+    value: ML
+    label: TARGET
+    sub: developers
+  mini2:
+    value: FAKE
+    label: ACTOR
+    sub: impersonate

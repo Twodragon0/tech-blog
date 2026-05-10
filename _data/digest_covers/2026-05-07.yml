@@ -1,0 +1,79 @@
+date: '2026-05-07'
+slug: Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware
+sfx: MY07
+title: '2026-05-07: Mirai xlabs_v1, AWS ISO 42001, MuddyWater Teams'
+aria: Mirai-based xlabs_v1 botnet exploits ADB to commandeer IoT for DDoS, AWS publishes
+  ISO/IEC 42001:2023 AI compliance guidance, MuddyWater fake ransomware campaign abuses
+  Microsoft Teams
+bands:
+- theme: red
+  label: IOT BOTNET
+  headline: Mirai xlabs_v1 via ADB
+  metric: Android Debug Bridge abuse
+  detail: Mirai-based xlabs_v1 exploits exposed ADB to enslave IoT and Android devices
+    for DDoS-as-a-service
+  badge:
+    value: IoT
+    label: VECTOR
+    sub: ADB exposed
+  visual:
+    kind: router_mesh
+  metric_b: Block ADB ports + audit IoT firmware update channels
+  detail_b: 'Egress filter UDP/SSDP amplification ports : DDoS playbook drill : provider
+    scrubbing service tested'
+  mini:
+    value: DDoS
+    label: USE
+    sub: rented
+  mini2:
+    value: AND
+    label: OS
+    sub: Android
+- theme: amber
+  label: AI COMPLIANCE
+  headline: AWS ISO/IEC 42001
+  metric: Cloud AI governance
+  detail: 'AWS publishes ISO/IEC 42001:2023 compliance guidance : AI management system
+    controls for cloud workloads'
+  badge:
+    value: '42001'
+    label: ISO
+    sub: AI MS
+  visual:
+    kind: shield
+    label: ISO
+  metric_b: Map controls to NIST AI RMF + EU AI Act tiers
+  detail_b: 'Inventory AI workloads + risk classify : model card lifecycle : bias
+    + safety eval cadence'
+  mini:
+    value: AWS
+    label: HOST
+    sub: cloud
+  mini2:
+    value: GOV
+    label: FRAME
+    sub: AI
+- theme: green
+  label: APT TEAMS ABUSE
+  headline: MuddyWater Fake Ransomware
+  metric: Teams + cred theft
+  detail: MuddyWater fake ransomware leverages Microsoft Teams external chat for credential
+    theft and lateral movement
+  badge:
+    value: MW
+    label: ACTOR
+    sub: MuddyWater
+  visual:
+    kind: network_nodes
+    label: MUDDY
+  metric_b: Block external Teams chat by default + admin allowlist
+  detail_b: 'Defender for Office 365 anti-phishing tuning : Teams audit log + SIEM
+    rule for atypical external invites'
+  mini:
+    value: MS
+    label: VECTOR
+    sub: Teams
+  mini2:
+    value: CRED
+    label: GOAL
+    sub: theft

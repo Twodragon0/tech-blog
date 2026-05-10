@@ -1,0 +1,78 @@
+date: '2026-04-26'
+slug: Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go
+sfx: AP26
+title: '2026-04-26: fast16 Lua malware, Teams Snow, Anthropic Mythos'
+aria: fast16 pre-Stuxnet Lua malware on engineering software, Snow malware via Microsoft
+  Teams, Anthropic Mythos AI forcing crypto security rethink
+bands:
+- theme: red
+  label: OT SABOTAGE FRAMEWORK
+  headline: fast16 Pre-Stuxnet Lua
+  metric: '2005 origin : engineering CAE/CAD'
+  detail: 'Lua plugin tampering : numeric calc poisoning : OT logic-bomb : SentinelOne
+    attribution'
+  badge:
+    value: '2005'
+    label: ORIGIN
+    sub: pre-Stuxnet
+  visual:
+    kind: code_bars
+    caption: LUA TAMPER
+  metric_b: 'DevSecOps risk : Lua scripts in CI/CD + Nginx + Redis automation'
+  detail_b: 'Sign + hash all build scripts : SBOM Lua deps : runtime calc range checks
+    for OT'
+  mini:
+    value: Lua
+    label: VECTOR
+    sub: plugin
+  mini2:
+    value: OT
+    label: TARGET
+    sub: engineering
+- theme: amber
+  label: COLLAB PLATFORM ABUSE
+  headline: Teams Snow Malware
+  metric: 'Microsoft Teams : delivery vector'
+  detail: 'Threat actor abuses Teams chat : Snow loader drop : EDR-blind collab channel'
+  badge:
+    value: Teams
+    label: VECTOR
+    sub: collab
+  visual:
+    kind: browser_cve
+    label: TEAMS
+  metric_b: 'OWASP A06 : risky 3rd-party trust : Teams external federation'
+  detail_b: 'Disable external Teams chat by default : EDR Teams cache rules : message-link
+    sandbox'
+  mini:
+    value: Snow
+    label: LOADER
+    sub: stage1
+  mini2:
+    value: EDR
+    label: GAP
+    sub: collab blind
+- theme: green
+  label: AI x CRYPTO SECURITY
+  headline: Anthropic Mythos Pivot
+  metric: 'Crypto industry : security rethink'
+  detail: 'Mythos model challenges Web3 trust assumptions : AI-aided audit + adversarial
+    prompt safety'
+  badge:
+    value: MTH
+    label: MODEL
+    sub: Mythos
+  visual:
+    kind: shield
+    label: AI SEC
+  metric_b: 'Prompt-injection defense + signed model artefacts : SLSA-style provenance'
+  detail_b: 'AI-assisted Solidity SAST : pre-commit secret scan : LLM red-team gate
+    before deploy'
+  mini:
+    value: Web3
+    label: SCOPE
+    sub: audit AI
+  mini2:
+    value: ANT
+    label: VENDOR
+    sub: Anthropic

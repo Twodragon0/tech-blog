@@ -1,0 +1,79 @@
+date: '2026-02-25'
+slug: Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM
+sfx: FE25
+title: '2026-02-25: Codespaces RoguePilot, UAC-0050 RMS, Next.js C2 chain'
+aria: GitHub Codespaces RoguePilot Copilot token leak, UAC-0050 RMS malware against
+  EU financial legal counsel, malicious Next.js repository C2 supply chain attack
+bands:
+- theme: red
+  label: COPILOT TOKEN LEAK
+  headline: Codespaces RoguePilot
+  metric: 'GITHUB_TOKEN exfil : prompt-injection'
+  detail: 'Hidden instruction in repo : Copilot resolves and leaks env GITHUB_TOKEN
+    : full repo read-write'
+  badge:
+    value: RCE
+    label: IMPACT
+    sub: token exfil
+  visual:
+    kind: browser_cve
+    label: COPILOT
+  metric_b: 'OWASP A06 LLM injection : least-privilege scope on Copilot'
+  detail_b: 'Disable shared instructions : token rotation : CSP egress allowlist for
+    Codespaces sessions'
+  mini:
+    value: GH
+    label: VENDOR
+    sub: Codespaces
+  mini2:
+    value: LLM
+    label: VECTOR
+    sub: prompt inj
+- theme: amber
+  label: FIN SECTOR PHISHING
+  headline: UAC-0050 RMS Malware
+  metric: 'EU legal counsel : RMS RAT drop'
+  detail: 'Spear-phish to financial-sector lawyers : RMS remote-management trojan
+    : credential + session theft'
+  badge:
+    value: UAC
+    label: ACTOR
+    sub: 0050 group
+  visual:
+    kind: network_nodes
+    label: PHISH
+  metric_b: MITRE T1566.001 spear-phishing attachment + T1219 remote access tool
+  detail_b: 'Block RMS hashes : EDR rule for RemoteUtilities CLI : MFA on legal mailbox
+    enforce'
+  mini:
+    value: RMS
+    label: MALWARE
+    sub: RAT
+  mini2:
+    value: EU
+    label: REGION
+    sub: finance
+- theme: green
+  label: DEV SUPPLY CHAIN
+  headline: Next.js Repo C2
+  metric: 'Malicious Next.js repo : devs targeted'
+  detail: 'Microsoft Security flags fake Next.js GitHub repo : install-time script
+    reaches C2 : workstation foothold'
+  badge:
+    value: C2
+    label: STAGE
+    sub: post-clone
+  visual:
+    kind: code_bars
+    caption: DEV CHAIN
+  metric_b: 'Pre-clone scan : npm audit signature : SBOM provenance verify'
+  detail_b: 'Block install scripts in npm config : repo allowlist : pin commit SHA
+    in CI/CD : SLSA L3 target'
+  mini:
+    value: NX
+    label: LURE
+    sub: Next.js
+  mini2:
+    value: MSF
+    label: REPORT
+    sub: Microsoft

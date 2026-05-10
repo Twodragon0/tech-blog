@@ -1,0 +1,79 @@
+date: '2026-04-29'
+slug: Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update
+sfx: AP29
+title: '2026-04-29: GitHub RCE CVE-2026-3854, LofyGang, VECT 2.0 wiper'
+aria: GitHub CVE-2026-3854 single git push RCE, LofyGang LofyStealer Minecraft return,
+  VECT 2.0 wiper ransomware
+bands:
+- theme: red
+  label: CRITICAL CVE
+  headline: GitHub RCE CVE-2026-3854
+  metric: 'CVE-2026-3854 : CVSS 8.7'
+  detail: 'Single git push RCE : command injection : push-access required : GHES on-prem
+    critical'
+  badge:
+    value: '8.7'
+    label: CVSS
+    sub: git push RCE
+  visual:
+    kind: lock_cve
+    cvss: '8.7'
+  metric_b: 'GitHub Actions token rotation : push ACL lockdown'
+  detail_b: 'Audit git push events for shell metachar in branch names : network egress
+    monitor'
+  mini:
+    value: RCE
+    label: IMPACT
+    sub: unauth cmd
+  mini2:
+    value: GH
+    label: GITHUB
+    sub: + GHES
+- theme: amber
+  label: STEALER RETURN
+  headline: LofyGang LofyStealer
+  metric: '3-year gap : Minecraft lure'
+  detail: 'Brazilian LofyGang resurfaces : GrabBot stealer : fake Slinky hack tool
+    : cred + wallet theft'
+  badge:
+    value: 3yr
+    label: DORMANT
+    sub: resurfaced
+  visual:
+    kind: network_nodes
+    label: STEALER
+  metric_b: 'Dev workstation risk : CI/CD contamination via infected dev machine'
+  detail_b: 'Game binary EDR block : IoC pre-load : secret rotation 90-day enforce
+    : UEBA deploy'
+  mini:
+    value: BRA
+    label: ORIGIN
+    sub: LofyGang
+  mini2:
+    value: MC
+    label: LURE
+    sub: Minecraft
+- theme: green
+  label: WIPER RANSOMWARE
+  headline: VECT 2.0 Destroys >131KB
+  metric: 'Win + Linux + ESXi : wiper'
+  detail: 'VECT 2.0 : 131KB+ files irreversibly destroyed : crypto flaw : ransom payment
+    useless'
+  badge:
+    value: 131K
+    label: THRESHOLD
+    sub: bytes
+  visual:
+    kind: shield
+    label: WIPER
+  metric_b: 'Air-gap + WORM backup urgent : FIM on large artefacts'
+  detail_b: 'ESXi SSH lockdown + MFA : Falco/osquery FIM rules : immutable backup
+    rehearsal now'
+  mini:
+    value: ESXi
+    label: SCOPE
+    sub: Win/Linux
+  mini2:
+    value: WIPE
+    label: ACTION
+    sub: no recovery

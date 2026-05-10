@@ -123,6 +123,11 @@ class Spec:
     aria: str
     bands_cfg: List[dict]      # ready for l22.render_bands_svg
     tier: str = "ultra"
+    # Optional explicit URL override. When unset, the URL is derived
+    # from (date, slug) via the canonical Jekyll permalink format.
+    # Used to preserve historical (non-canonical) URLs during extraction
+    # of old cfg_*() functions that pre-date the current permalink scheme.
+    url_override: Optional[str] = None
 
     @property
     def filename(self) -> str:
@@ -131,6 +136,10 @@ class Spec:
     @property
     def output_path(self) -> Path:
         return ASSETS / self.filename
+
+    @property
+    def url(self) -> str:
+        return self.url_override or _post_url(self.date, self.slug)
 
 
 def _post_url(date: str, slug: str) -> str:
@@ -246,6 +255,7 @@ def load_spec(path: Path) -> Spec:
         aria=raw["aria"].strip(),
         bands_cfg=bands_cfg,
         tier=tier,
+        url_override=raw.get("url"),
     )
 
 
@@ -260,7 +270,7 @@ def render(spec: Spec) -> str:
         sfx=spec.sfx,
         aria=spec.aria,
         title=spec.title,
-        url=_post_url(spec.date, spec.slug),
+        url=spec.url,
         bands_cfg=spec.bands_cfg,
         tier=spec.tier,
     )

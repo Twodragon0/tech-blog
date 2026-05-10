@@ -165,4 +165,59 @@ describe('error-handler.js', () => {
     });
     expect(captureException).not.toHaveBeenCalled();
   });
+
+  // =========================================================================
+  // Round 3 step 1: resource-error edge cases (per
+  // .omc/plans/tests-js-coverage-round3.md)
+  // =========================================================================
+  //
+  // The script registers TWO 'error' listeners on window: the first
+  // covers runtime errors (event.error), the second covers resource-load
+  // errors (event.target.tagName). The resource listener filters out
+  // <img>, og.* URLs, giscus.app, and Korean filenames as "expected
+  // 404s"; only <script> and <link> failures with non-filtered URLs are
+  // forwarded.
+
+  it('resource error: <script> 404 with normal URL reports to Sentry', () => {
+    const captureException = vi.fn();
+    const { fake, listeners } = buildFakeWindow({ sentry: { captureException } });
+    runScript(fake);
+    // The second 'error' listener is the resource-error one.
+    const resourceListener = listeners.filter((l) => l.evt === 'error')[1].handler;
+
+    const fakeScript = { tagName: 'SCRIPT', src: 'https://tech.2twodragon.com/assets/js/missing.js' };
+    resourceListener({ target: fakeScript });
+
+    expect(captureException).toHaveBeenCalledTimes(1);
+    expect(captureException.mock.calls[0][0].message).toMatch(/Failed to load script/);
+  });
+
+  it('resource error: <img> 404 is silently ignored (expected 404 path)', () => {
+    const captureException = vi.fn();
+    const { fake, listeners } = buildFakeWindow({ sentry: { captureException } });
+    runScript(fake);
+    const resourceListener = listeners.filter((l) => l.evt === 'error')[1].handler;
+
+    const fakeImg = { tagName: 'IMG', src: 'https://tech.2twodragon.com/assets/images/missing.svg' };
+    resourceListener({ target: fakeImg });
+
+    expect(captureException).not.toHaveBeenCalled();
+  });
+
+  it('resource error: Korean filename URL is silently ignored (encoding edge case)', () => {
+    const captureException = vi.fn();
+    const { fake, listeners } = buildFakeWindow({ sentry: { captureException } });
+    runScript(fake);
+    const resourceListener = listeners.filter((l) => l.evt === 'error')[1].handler;
+
+    // Even <script> failures with Korean URLs are skipped — the URL
+    // encoding mismatch is a known false-positive source.
+    const fakeScript = {
+      tagName: 'SCRIPT',
+      src: 'https://tech.2twodragon.com/assets/js/한글-스크립트.js',
+    };
+    resourceListener({ target: fakeScript });
+
+    expect(captureException).not.toHaveBeenCalled();
+  });
 });

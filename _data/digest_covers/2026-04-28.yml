@@ -1,0 +1,78 @@
+date: '2026-04-28'
+slug: Tech_Security_Weekly_Digest_Data_AI_Malware_AWS
+sfx: AP28
+title: '2026-04-28: Checkmarx leak, Robinhood phish, Fast16 malware'
+aria: Checkmarx GitHub repo data on dark web, Robinhood account flaw phishing, Fast16
+  malware BigQuery Earth AI
+bands:
+- theme: red
+  label: SUPPLY CHAIN LEAK
+  headline: Checkmarx Dark Web
+  metric: 'GitHub repo data : dark web post'
+  detail: 'Mar 23 supply-chain attack : SAST vendor breached : customer CI/CD tokens
+    at risk'
+  badge:
+    value: SAST
+    label: VENDOR
+    sub: breached
+  visual:
+    kind: router_mesh
+  metric_b: 'PAT + API key rotation : SBOM re-validation required'
+  detail_b: 'Custom SAST rules exposed : bypass path risk : pipeline integrity re-verify
+    urgently'
+  mini:
+    value: PAT
+    label: ROTATE
+    sub: tokens
+  mini2:
+    value: DW
+    label: DARK WEB
+    sub: posted
+- theme: amber
+  label: PHISHING EXPLOIT
+  headline: Robinhood Email Abuse
+  metric: 'Account creation flaw : trusted domain'
+  detail: 'Input injection into legit Robinhood email : SPF/DKIM/DMARC bypass : OWASP
+    A03 Injection'
+  badge:
+    value: A03
+    label: OWASP
+    sub: injection
+  visual:
+    kind: browser_cve
+    label: PHISH
+  metric_b: 'Allowlist input validation : context-aware output encoding'
+  detail_b: 'Business logic fuzz testing in CI/CD : real-time account-creation anomaly
+    detection'
+  mini:
+    value: SPF
+    label: BYPASS
+    sub: trusted
+  mini2:
+    value: RH
+    label: BROKER
+    sub: abused
+- theme: green
+  label: MALWARE + DATA AI
+  headline: Fast16 + BigQuery AI
+  metric: 'Malvertising : signed installer'
+  detail: 'Fast16 malware via Google Ads : DanaBot successor : Stealer + RAT chain
+    : 120K samples'
+  badge:
+    value: F16
+    label: MALWARE
+    sub: Fast16
+  visual:
+    kind: code_bars
+    caption: THREAT DATA
+  metric_b: 'BigQuery + Google Earth AI : geospatial analytics launch'
+  detail_b: 'authorized view access control : data lake path injection prevention
+    : SBOM for deps'
+  mini:
+    value: BQ
+    label: BIGQUERY
+    sub: Earth AI
+  mini2:
+    value: RAT
+    label: STAGE2
+    sub: payload

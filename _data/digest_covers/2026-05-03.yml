@@ -1,0 +1,79 @@
+date: '2026-05-03'
+slug: Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability
+sfx: MY03
+title: '2026-05-03: cPanel Sorry ransomware, Trellix leak, ConsentFix'
+aria: cPanel critical vulnerability mass-exploited by Sorry ransomware, Trellix unauthorized
+  repo access source code leak, ConsentFix v3 attack automated OAuth abuse against
+  Azure
+bands:
+- theme: red
+  label: MASS EXPLOIT
+  headline: cPanel + Sorry Ransomware
+  metric: 'Critical CVE : web hosting'
+  detail: 'cPanel vulnerability mass-exploited by Sorry ransomware : shared-hosting
+    blast radius : tenant isolation broken'
+  badge:
+    value: MASS
+    label: EXPLOIT
+    sub: hosting
+  visual:
+    kind: lock_cve
+    cvss: '9.1'
+  metric_b: 'Patch cPanel WHM : audit running cron + perl tasks'
+  detail_b: 'Tenant snapshot restore plan : WAF rule for cPanel admin URLs : full
+    forensic image'
+  mini:
+    value: WHM
+    label: ADMIN
+    sub: path
+  mini2:
+    value: LE
+    label: LET'S
+    sub: shared host
+- theme: amber
+  label: SOURCE CODE LEAK
+  headline: Trellix Repo Breach
+  metric: Unauthorized SCM access
+  detail: 'Trellix confirms unauthorized repo access : source code exposure : security
+    vendor brand impact'
+  badge:
+    value: SCM
+    label: LEAK
+    sub: vendor src
+  visual:
+    kind: network_nodes
+    label: LEAK
+  metric_b: Token rotation + commit signing across all repos
+  detail_b: 'Audit OAuth app permissions : branch protection + required reviewers
+    : SBOM regeneration'
+  mini:
+    value: OAUTH
+    label: VECTOR
+    sub: app token
+  mini2:
+    value: GH
+    label: HOST
+    sub: GitHub
+- theme: green
+  label: OAUTH ABUSE
+  headline: ConsentFix v3 vs Azure
+  metric: Automated consent phishing
+  detail: 'ConsentFix v3 automates OAuth consent abuse against Azure AD : low-friction
+    tenant takeover via legit app trust'
+  badge:
+    value: V3
+    label: VARIANT
+    sub: auto OAuth
+  visual:
+    kind: cloud_k8s
+  metric_b: Restrict user app consent + enable admin review
+  detail_b: 'Conditional Access for risky apps : Entra ID app governance + token revocation
+    runbook'
+  mini:
+    value: AZ
+    label: TARGET
+    sub: Entra ID
+  mini2:
+    value: MS
+    label: ALERT
+    sub: Microsoft

@@ -1,0 +1,80 @@
+date: '2026-05-05'
+slug: Tech_Security_Weekly_Digest_AI_Patch_AWS
+sfx: MY05
+title: '2026-05-05: SimpleHelp RMM phish, MOVEit auth bypass, AI weekly'
+aria: SimpleHelp ScreenConnect RMM phishing campaign hits 80 organizations, Progress
+  patches critical MOVEit Automation auth bypass, weekly AI threat summary with Android
+  spy tooling
+bands:
+- theme: red
+  label: RMM ABUSE
+  headline: SimpleHelp + ScreenConnect
+  metric: '80+ orgs : phishing-led RMM'
+  detail: Phishing campaign delivers SimpleHelp and ScreenConnect RMM agents to 80+
+    organizations for hands-on intrusion
+  badge:
+    value: 80+
+    label: ORGS
+    sub: targeted
+  visual:
+    kind: browser_cve
+    label: RMM
+  metric_b: Block unsolicited RMM installers at MAR + EDR
+  detail_b: 'AppLocker rule for known-good RMM only : DNS sinkhole RMM C2 domains
+    : tabletop incident drill'
+  mini:
+    value: RMM
+    label: VECTOR
+    sub: installer
+  mini2:
+    value: ML
+    label: LANG
+    sub: multi-locale
+- theme: amber
+  label: CRITICAL PATCH
+  headline: MOVEit Auth Bypass
+  metric: 'Progress critical : patch now'
+  detail: 'Progress patches MOVEit Automation auth bypass : unauthenticated RCE risk
+    on file-transfer servers'
+  badge:
+    value: '9.8'
+    label: CVSS
+    sub: auth bypass
+  visual:
+    kind: lock_cve
+    cvss: '9.8'
+  metric_b: 'Network ACL : restrict MOVEit admin to bastion'
+  detail_b: 'Apply patch within 24h : audit transfer logs : rotate API + service-account
+    credentials'
+  mini:
+    value: MFT
+    label: CLASS
+    sub: file xfer
+  mini2:
+    value: PROG
+    label: VENDOR
+    sub: Progress
+- theme: green
+  label: AI THREAT WEEKLY
+  headline: AI Phishing + Android Spy
+  metric: Cross-platform threat roundup
+  detail: 'Weekly summary : AI-generated phishing, Android spy tools, Linux exploits,
+    GitHub-hosted RCE chains'
+  badge:
+    value: WK
+    label: DIGEST
+    sub: weekly AI
+  visual:
+    kind: bar_graph
+    caption: THREATS
+  metric_b: Mobile EDR + GitHub Advanced Security gates
+  detail_b: 'Block known-bad GH actions + scripts in CI : Android MDM compliance :
+    prompt injection eval'
+  mini:
+    value: AND
+    label: MOBILE
+    sub: spy
+  mini2:
+    value: GH
+    label: HOST
+    sub: GitHub

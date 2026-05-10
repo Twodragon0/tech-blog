@@ -1,0 +1,80 @@
+date: '2026-05-08'
+slug: Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent
+sfx: MY08
+title: '2026-05-08: Ivanti EPMM RCE, PCPJack 5-CVE worm, prompt RCE'
+aria: Ivanti EPMM CVE-2026-6973 actively exploited admin RCE, PCPJack credential stealer
+  worm chains 5 CVEs across cloud, Microsoft warns AI agent framework prompts can
+  become shells
+bands:
+- theme: red
+  label: ADMIN RCE
+  headline: Ivanti EPMM CVE-2026-6973
+  metric: 'Active exploit : admin access'
+  detail: 'Ivanti EPMM CVE-2026-6973 RCE exploited in the wild : yields admin-tier
+    mobile management access'
+  badge:
+    value: '9.8'
+    label: CVSS
+    sub: admin RCE
+  visual:
+    kind: lock_cve
+    cvss: '9.8'
+  metric_b: Patch immediately + isolate EPMM admin plane
+  detail_b: 'Restrict EPMM admin URL to bastion subnet : rotate API keys : audit MDM
+    enrollment for foreign devices'
+  mini:
+    value: MDM
+    label: CLASS
+    sub: mobile
+  mini2:
+    value: IVT
+    label: VENDOR
+    sub: Ivanti
+- theme: amber
+  label: WORM CHAIN
+  headline: PCPJack 5 CVE Spread
+  metric: 'Cred-stealer : worm-like'
+  detail: PCPJack worm chains five CVEs across cloud workloads for credential theft
+    and self-propagation
+  badge:
+    value: '5'
+    label: CVES
+    sub: chained
+  visual:
+    kind: network_nodes
+    label: WORM
+  metric_b: VPC segmentation + east-west network policy
+  detail_b: 'Block lateral SSH + Kubernetes internal API : rotate IAM/service-account
+    creds : runtime EDR sensors'
+  mini:
+    value: WORM
+    label: MODE
+    sub: self-spread
+  mini2:
+    value: CLD
+    label: SCOPE
+    sub: multi-cloud
+- theme: green
+  label: AI AGENT RCE
+  headline: When Prompts Become Shells
+  metric: Agent framework RCE class
+  detail: 'Microsoft details RCE in AI agent frameworks : untrusted prompts route
+    to tool-call shell execution'
+  badge:
+    value: RCE
+    label: CLASS
+    sub: prompt-led
+  visual:
+    kind: code_bars
+    caption: AGENT
+  metric_b: Whitelist agent tool calls + human-in-the-loop gate
+  detail_b: 'Sandbox tool execution : prompt-injection eval CI : audit agent transcripts
+    for prompt-derived shell exits'
+  mini:
+    value: AI
+    label: AGENT
+    sub: framework
+  mini2:
+    value: MS
+    label: ALERT
+    sub: Microsoft

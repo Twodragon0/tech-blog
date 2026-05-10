@@ -1,0 +1,80 @@
+date: '2026-05-06'
+slug: Tech_Security_Weekly_Digest_CVE_AI_Malware_Go
+sfx: MY06
+title: '2026-05-06: Apache HTTP/2 CVE, DAEMON supply chain, UAT-8302'
+aria: Apache HTTP/2 critical CVE-2026-23918 DoS and potential RCE, DAEMON Tools supply
+  chain official installer malware, China-linked UAT-8302 APT cross-region malware
+  government targeting
+bands:
+- theme: red
+  label: CRITICAL CVE
+  headline: Apache HTTP/2 CVE-2026-23918
+  metric: DoS + potential RCE
+  detail: 'Apache HTTP/2 critical : malformed frame triggers DoS with potential RCE
+    via memory corruption pathway'
+  badge:
+    value: '9.4'
+    label: CVSS
+    sub: DoS+RCE
+  visual:
+    kind: lock_cve
+    cvss: '9.4'
+  metric_b: 'Patch httpd : fall back to HTTP/1.1 if patch deferred'
+  detail_b: 'WAF anti-DoS rule : monitor connection-reset spikes : container image
+    rebuild + redeploy in waves'
+  mini:
+    value: H2
+    label: PROTO
+    sub: HTTP/2
+  mini2:
+    value: APA
+    label: VENDOR
+    sub: Apache
+- theme: amber
+  label: SUPPLY CHAIN
+  headline: DAEMON Tools Installer
+  metric: 'Official site : trojanized'
+  detail: 'DAEMON Tools official installer trojanized : millions of users at risk
+    via legitimate download path'
+  badge:
+    value: OFC
+    label: VENDOR
+    sub: official
+  visual:
+    kind: network_nodes
+    label: TROJAN
+  metric_b: Hash + signature verify on third-party installers
+  detail_b: 'EDR block + revoke trust on compromised certificate : user notification
+    + clean reinstall guidance'
+  mini:
+    value: WIN
+    label: OS
+    sub: Windows
+  mini2:
+    value: ISO
+    label: USECASE
+    sub: virtual
+- theme: green
+  label: APT CAMPAIGN
+  headline: UAT-8302 vs Government
+  metric: 'China-linked : cross-region'
+  detail: 'UAT-8302 APT : cross-region shared malware family targeting government
+    agencies across multiple geographies'
+  badge:
+    value: APT
+    label: ACTOR
+    sub: UAT-8302
+  visual:
+    kind: shield
+    label: APT
+  metric_b: MITRE ATT and CK mapping + threat-hunt queries
+  detail_b: 'IOC ingest into SIEM + EDR : geo-baseline anomaly detection : threat-intel
+    sharing partner'
+  mini:
+    value: GOV
+    label: TARGET
+    sub: agencies
+  mini2:
+    value: CN
+    label: ORIGIN
+    sub: linked

@@ -1,0 +1,77 @@
+date: '2026-04-27'
+slug: Tech_Security_Weekly_Digest_AI_Agent
+sfx: AP27
+title: '2026-04-27: Itron breach, AWS AgentCore, DeepMind Korea'
+aria: Itron utility internal-IT breach, AWS Bedrock AgentCore agentic AI, Google DeepMind
+  Korea partnership
+bands:
+- theme: red
+  label: UTILITY BREACH
+  headline: Itron IT Network Hit
+  metric: 'SEC 8-K : OT-adjacent risk'
+  detail: 'Smart meter vendor : internal IT compromised : lateral OT risk : credential
+    rotation required'
+  badge:
+    value: 8-K
+    label: SEC FILING
+    sub: disclosed
+  visual:
+    kind: network_nodes
+    label: BREACH
+  metric_b: 'Supply chain : firmware pipeline integrity check'
+  detail_b: 'CI/CD artefact re-sign : API key rotation : NERC CIP audit trail update'
+  mini:
+    value: OT
+    label: RISK
+    sub: adjacent
+  mini2:
+    value: ITR
+    label: VENDOR
+    sub: utility
+- theme: amber
+  label: CLOUD AI LAUNCH
+  headline: AWS Bedrock AgentCore
+  metric: 'Agentic AI : expert team sim'
+  detail: 'Multi-agent orchestration : RAG access control : FedRAMP readiness : tool-use
+    whitelist'
+  badge:
+    value: AWS
+    label: BEDROCK
+    sub: AgentCore
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Human-in-the-loop gate : least privilege agent scope'
+  detail_b: 'Bedrock AgentCore CLI : Anthropic + Meta partnership : Lambda S3 Files
+    integration'
+  mini:
+    value: MAS
+    label: MULTI
+    sub: agent
+  mini2:
+    value: IAM
+    label: ACCESS
+    sub: control
+- theme: green
+  label: AI ECOSYSTEM
+  headline: DeepMind + OpenAI
+  metric: Korea AI partnership
+  detail: 'Google DeepMind x Korea scientific AI acceleration : OpenAI AGI principles
+    : 5-pillar safety'
+  badge:
+    value: AGI
+    label: POLICY
+    sub: principles
+  visual:
+    kind: bar_graph
+    caption: AI GROWTH
+  metric_b: 'AGI benefit : safety-first governance : prompt injection defense'
+  detail_b: 'SAST gate for AI-generated code : pre-commit secret scan : bias + safety
+    eval metrics'
+  mini:
+    value: '5'
+    label: PILLARS
+    sub: OpenAI
+  mini2:
+    value: KOR
+    label: PARTNER
+    sub: DeepMind

@@ -1,0 +1,78 @@
+date: '2026-05-02'
+slug: Tech_Security_Weekly_Digest_AI_Go_Security_AWS
+sfx: MY02
+title: '2026-05-02: 30K Facebook phish, AWS AI posture, Win Run'
+aria: 30000 Facebook accounts phished via Google AppSheet, AWS posture management
+  for AI workloads, Microsoft Windows Run dialog redesign
+bands:
+- theme: red
+  label: MASS PHISHING
+  headline: 30K Facebook Accounts
+  metric: Google AppSheet abuse
+  detail: Phishing campaign abuses Google AppSheet to bulk-send credential-harvesting
+    emails impersonating Meta security
+  badge:
+    value: 30K
+    label: ACCOUNTS
+    sub: harvested
+  visual:
+    kind: browser_cve
+    label: PHISH
+  metric_b: Block AppSheet outbound when impersonation detected
+  detail_b: 'Mail gateway DKIM/DMARC enforcement : user training + simulated phishing
+    baseline'
+  mini:
+    value: GAS
+    label: ABUSE
+    sub: AppSheet
+  mini2:
+    value: FB
+    label: LURE
+    sub: Meta
+- theme: amber
+  label: CLOUD AI POSTURE
+  headline: AWS AI Security Guide
+  metric: 'Posture management : AI era'
+  detail: 'AWS publishes AI posture management guidance : model registry, prompt injection
+    defense, agent scope'
+  badge:
+    value: AWS
+    label: POSTURE
+    sub: AI guide
+  visual:
+    kind: shield
+    label: POSTURE
+  metric_b: GuardDuty + Inspector for AI workloads
+  detail_b: 'Enable Bedrock guardrails : tag inference workloads for cost + risk attribution'
+  mini:
+    value: GD
+    label: GUARD
+    sub: duty
+  mini2:
+    value: IAM
+    label: SCOPE
+    sub: agent
+- theme: green
+  label: WINDOWS PRODUCTIVITY
+  headline: Modernized Run Dialog
+  metric: Faster than legacy Win Run
+  detail: 'Microsoft tests redesigned Run with command palette UX : history search
+    + alias + quick actions'
+  badge:
+    value: WIN
+    label: REFRESH
+    sub: Run UX
+  visual:
+    kind: code_bars
+    caption: RUN
+  metric_b: 'Enterprise rollout : Group Policy controllable'
+  detail_b: 'AppLocker + WDAC compatibility check : audit shell history exposure for
+    sensitive commands'
+  mini:
+    value: CMD
+    label: PALETTE
+    sub: modern
+  mini2:
+    value: GPO
+    label: CONTROL
+    sub: enterprise

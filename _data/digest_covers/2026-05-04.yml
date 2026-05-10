@@ -1,0 +1,79 @@
+date: '2026-05-04'
+slug: Tech_Security_Weekly_Digest_AI_Data_CVE_Malware
+sfx: MY04
+title: '2026-05-04: Instructure breach, Defender DigiCert, KEV CVE'
+aria: Instructure data breach confirmed ShinyHunters claim, Microsoft Defender flags
+  DigiCert certificates, CISA adds Linux root CVE-2026-31431 to KEV
+bands:
+- theme: red
+  label: EDU DATA BREACH
+  headline: Instructure Hit by ShinyHunters
+  metric: 'Edu PII : confirmed exposure'
+  detail: 'Instructure (Canvas LMS) confirms data breach : ShinyHunters claim student
+    + faculty PII for sale'
+  badge:
+    value: EDU
+    label: SECTOR
+    sub: K-12 + HE
+  visual:
+    kind: network_nodes
+    label: LEAK
+  metric_b: FERPA notification + credential reset waves
+  detail_b: 'Audit OAuth grants on Canvas : MFA enforcement for institutional accounts
+    : DLP review'
+  mini:
+    value: SH
+    label: ACTOR
+    sub: ShinyHunters
+  mini2:
+    value: LMS
+    label: SCOPE
+    sub: Canvas
+- theme: amber
+  label: CERT TRUST CHAIN
+  headline: Defender vs DigiCert
+  metric: False-positive cascade
+  detail: 'Microsoft Defender flags DigiCert-signed binaries : patch tooling + EDR
+    + auto-update chains affected'
+  badge:
+    value: CA
+    label: TRUST
+    sub: DigiCert
+  visual:
+    kind: shield
+    label: TRUST
+  metric_b: Allowlist DigiCert intermediate CA in Defender ASR
+  detail_b: 'Validate code-signing pipeline : stage rollback : runbook for Defender
+    flag escalation'
+  mini:
+    value: MD
+    label: DEFEND
+    sub: alert
+  mini2:
+    value: ASR
+    label: RULE
+    sub: cert
+- theme: green
+  label: KEV ADDITION
+  headline: Linux Root CVE-2026-31431
+  metric: 'CISA KEV : actively exploited'
+  detail: 'CISA adds Linux root-access CVE-2026-31431 to KEV : FCEB 21-day patch deadline
+    triggered'
+  badge:
+    value: KEV
+    label: CISA
+    sub: 21-day SLA
+  visual:
+    kind: lock_cve
+    cvss: '7.8'
+  metric_b: 'Inventory affected kernel + glibc range : SLA tracker'
+  detail_b: 'Auto-patch pipeline + reboot orchestration : compensating control if
+    patch deferred : audit log retention'
+  mini:
+    value: ROOT
+    label: IMPACT
+    sub: privilege
+  mini2:
+    value: LX
+    label: OS
+    sub: Linux

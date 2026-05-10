@@ -1,0 +1,78 @@
+date: '2026-05-01'
+slug: Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud
+sfx: MY01
+title: '2026-05-01: PyTorch supply chain, Python backdoor, multi-AI'
+aria: PyTorch Lightning supply chain credential theft, Python tunneling backdoor browser
+  and cloud credential exfiltration, multicloud multi-AI strategy
+bands:
+- theme: red
+  label: SUPPLY CHAIN ATTACK
+  headline: PyTorch Lightning Hijack
+  metric: 'ML pipeline : credential theft'
+  detail: 'PyTorch Lightning + Intercom-client compromised : developer tokens exfiltrated
+    : ML CI/CD pipeline at risk'
+  badge:
+    value: ML
+    label: ECOSYSTEM
+    sub: poisoned
+  visual:
+    kind: network_nodes
+    label: HIJACK
+  metric_b: Pin lockfiles + signature verify on ML deps
+  detail_b: 'Re-issue tokens : audit pip install logs : block uncommon registries
+    : run npm audit and pip-audit'
+  mini:
+    value: PIP
+    label: VECTOR
+    sub: package
+  mini2:
+    value: DEV
+    label: EXPOSED
+    sub: creds
+- theme: amber
+  label: PYTHON BACKDOOR
+  headline: Tunneling Steals Cloud Creds
+  metric: Browser + cloud credential drain
+  detail: Python backdoor uses tunneling services to exfiltrate browser auth tokens,
+    AWS keys, Azure session cookies
+  badge:
+    value: 3K
+    label: VICTIMS
+    sub: reported
+  visual:
+    kind: browser_cve
+    label: STEAL
+  metric_b: 'EDR rule : detect outbound ngrok-style tunnels'
+  detail_b: 'Tunnel egress block + DNS sinkhole : rotate cloud keys : enforce hardware-bound
+    MFA'
+  mini:
+    value: AWS
+    label: TARGET
+    sub: keys
+  mini2:
+    value: AZ
+    label: ALSO
+    sub: cookies
+- theme: green
+  label: MULTI CLOUD STRATEGY
+  headline: CISO Picks Multi AI
+  metric: Google Cloud Next 26 keynote
+  detail: 'Cloud CISO playbook : multi-cloud + multi-model AI to avoid lock-in and
+    concentrate risk per workload'
+  badge:
+    value: 3+
+    label: CLOUDS
+    sub: federated
+  visual:
+    kind: cloud_k8s
+  metric_b: Vendor portability + AI provider diversification
+  detail_b: 'IAM federation across providers : data residency mapping : cost + safety
+    tier per model'
+  mini:
+    value: AI
+    label: MULTI
+    sub: model
+  mini2:
+    value: GCP
+    label: HOST
+    sub: primary
