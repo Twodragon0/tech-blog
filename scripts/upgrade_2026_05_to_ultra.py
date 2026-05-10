@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Upgrade 8 weekly-digest SVGs (2026-05-01 ~ 2026-05-08) to L22 ultra tier.
+"""Upgrade 10 weekly-digest SVGs (2026-05-01 ~ 2026-05-10) to L22 ultra tier.
 
 Mirrors the structure of upgrade_2026_04_27_29_to_ultra.py — each post
 gets three themed bands (red / amber / green) with English-only,
@@ -659,6 +659,164 @@ def cfg_2026_05_08() -> dict:
     )
 
 
+# ---------------------------------------------------------------------------
+# 2026-05-09  TCLBANKER worm + 7.3M Play Store fake call app + Dirty Frag Linux
+# ---------------------------------------------------------------------------
+def cfg_2026_05_09() -> dict:
+    red = l22.THEMES["red"]
+    amber = l22.THEMES["amber"]
+    green = l22.THEMES["green"]
+    return dict(
+        sfx="MY09",
+        aria=(
+            "TCLBANKER banking trojan worms via WhatsApp and Outlook to target "
+            "financial platforms, fake call-history Android app racks 7.3M Play "
+            "Store downloads exfiltrating payment data, Dirty Frag Linux flaw "
+            "actively exploited for post-compromise privilege expansion"
+        ),
+        title="2026-05-09: TCLBANKER worm, 7.3M fake-call app, Dirty Frag Linux",
+        url=_url("2026-05-09", "Tech_Security_Weekly_Digest_Vulnerability_AI_Threat"),
+        bands=[
+            dict(
+                theme="red",
+                label="BANKING TROJAN",
+                headline="TCLBANKER WhatsApp Worm",
+                metric="Banking + worm via chat",
+                detail=(
+                    "TCLBANKER banking trojan self-propagates through "
+                    "WhatsApp and Outlook to hit financial-platform credentials"
+                ),
+                metric_b="Block Outlook + WhatsApp executable attachments",
+                detail_b=(
+                    "EDR rule for clipboard-injection patterns : "
+                    "user-training drill on chat-borne malware lures"
+                ),
+                badge_value="BANK", badge_label="TARGET", badge_sub="financial",
+                mini_value="WORM", mini_label="MODE", mini_sub="self-spread",
+                mini2_value="CHAT", mini2_label="VECTOR", mini2_sub="WhatsApp",
+                visual=l22.v_lock_cve(500, 105, red["accent"], red["soft"], cvss="HIGH"),
+            ),
+            dict(
+                theme="amber",
+                label="MOBILE SUPPLY",
+                headline="7.3M Fake Call-History App",
+                metric="Play Store data theft",
+                detail=(
+                    "Android fake call-history app reaches 7.3M Play Store "
+                    "installs while exfiltrating user payment information"
+                ),
+                metric_b="MDM allowlist + Play Protect re-scan policy",
+                detail_b=(
+                    "Audit installed apps against Play Store reputation : "
+                    "block sideload + restrict accessibility-service grants"
+                ),
+                badge_value="7.3M", badge_label="INSTALLS", badge_sub="Play Store",
+                mini_value="AND", mini_label="OS", mini_sub="Android",
+                mini2_value="PAY", mini2_label="EXFIL", mini2_sub="payment",
+                visual=l22.v_network_nodes(500, 315, amber["accent"], amber["soft"], label="INSTALL"),
+            ),
+            dict(
+                theme="green",
+                label="LINUX KERNEL",
+                headline="Dirty Frag Active Exploit",
+                metric="Post-compromise privesc",
+                detail=(
+                    "Dirty Frag Linux flaw actively exploited to expand "
+                    "post-compromise foothold into root-tier access"
+                ),
+                metric_b="Apply kernel patch + restrict containers caps",
+                detail_b=(
+                    "Drop SYS_PTRACE / SYS_ADMIN where unneeded : "
+                    "audit unprivileged user namespace + sysctl hardening"
+                ),
+                badge_value="ROOT", badge_label="IMPACT", badge_sub="privesc",
+                mini_value="LIN", mini_label="OS", mini_sub="kernel",
+                mini2_value="ACT", mini2_label="STATE", mini2_sub="active",
+                visual=l22.v_shield(500, 525, green["accent"], green["soft"], label="KERNEL"),
+            ),
+        ],
+    )
+
+
+# ---------------------------------------------------------------------------
+# 2026-05-10  JDownloader RAT + cPanel/WHM 3 patches + HuggingFace fake OpenAI
+# ---------------------------------------------------------------------------
+def cfg_2026_05_10() -> dict:
+    red = l22.THEMES["red"]
+    amber = l22.THEMES["amber"]
+    green = l22.THEMES["green"]
+    return dict(
+        sfx="MY10",
+        aria=(
+            "JDownloader official site compromise replaces installer with a "
+            "Python RAT, cPanel and WHM ship three new vulnerability patches "
+            "that operators must apply now, Hugging Face fake OpenAI repository "
+            "distributes information-stealing malware to ML developers"
+        ),
+        title="2026-05-10: JDownloader RAT, cPanel triple patch, HF fake OpenAI",
+        url=_url("2026-05-10", "Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent"),
+        bands=[
+            dict(
+                theme="red",
+                label="SUPPLY CHAIN",
+                headline="JDownloader Site Hijack",
+                metric="Installer to Python RAT",
+                detail=(
+                    "JDownloader official download site compromised : "
+                    "installer swapped for a Python RAT seeded across users"
+                ),
+                metric_b="SBOM + checksum gate for any third-party installer",
+                detail_b=(
+                    "Block JDownloader install + force fresh re-download : "
+                    "EDR sweep for python.exe spawning suspicious child shells"
+                ),
+                badge_value="RAT", badge_label="PAYLOAD", badge_sub="Python",
+                mini_value="DL", mini_label="VECTOR", mini_sub="installer",
+                mini2_value="JD", mini2_label="VENDOR", mini2_sub="JDownloader",
+                visual=l22.v_lock_cve(500, 105, red["accent"], red["soft"], cvss="HIGH"),
+            ),
+            dict(
+                theme="amber",
+                label="HOSTING PANEL",
+                headline="cPanel + WHM Triple CVE",
+                metric="3 fixes : patch now",
+                detail=(
+                    "cPanel and WHM publish three new CVE patches affecting "
+                    "shared hosting control planes : exploit pressure imminent"
+                ),
+                metric_b="Stage cPanel update on canary host then fleet-wide",
+                detail_b=(
+                    "Audit reseller + admin sessions for anomalies : "
+                    "rotate API tokens : restrict WHM admin port to bastion"
+                ),
+                badge_value="3", badge_label="CVES", badge_sub="cPanel/WHM",
+                mini_value="HOST", mini_label="SCOPE", mini_sub="shared",
+                mini2_value="PATCH", mini2_label="STATE", mini2_sub="now",
+                visual=l22.v_shield(500, 315, amber["accent"], amber["soft"], label="cPanel"),
+            ),
+            dict(
+                theme="green",
+                label="ML SUPPLY CHAIN",
+                headline="Hugging Face Fake OpenAI",
+                metric="Stealer in ML registry",
+                detail=(
+                    "Hugging Face fake OpenAI repository distributes "
+                    "information-stealing malware aimed at ML developers"
+                ),
+                metric_b="Pin model repos by org + signed-release verification",
+                detail_b=(
+                    "Add HF org allowlist to ML CI : pip + transformers SBOM : "
+                    "EDR rule for pickle deserialization spawning new processes"
+                ),
+                badge_value="HF", badge_label="REGISTRY", badge_sub="model hub",
+                mini_value="ML", mini_label="TARGET", mini_sub="developers",
+                mini2_value="FAKE", mini2_label="ACTOR", mini2_sub="impersonate",
+                visual=l22.v_code_bars(500, 525, green["accent"], green["soft"], caption="MODEL"),
+            ),
+        ],
+    )
+
+
 SPECS = [
     ("2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.svg", cfg_2026_05_01),
     ("2026-05-02-Tech_Security_Weekly_Digest_AI_Go_Security_AWS.svg", cfg_2026_05_02),
@@ -668,6 +826,8 @@ SPECS = [
     ("2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.svg", cfg_2026_05_06),
     ("2026-05-07-Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware.svg", cfg_2026_05_07),
     ("2026-05-08-Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent.svg", cfg_2026_05_08),
+    ("2026-05-09-Tech_Security_Weekly_Digest_Vulnerability_AI_Threat.svg", cfg_2026_05_09),
+    ("2026-05-10-Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent.svg", cfg_2026_05_10),
 ]
 
 
