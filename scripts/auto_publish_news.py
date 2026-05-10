@@ -184,6 +184,19 @@ L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
     "",
 }
 
+# Feature flag: upgrade to the L22 ultra three-band cover (~67-70 KB)
+# instead of the L20 hero default (~19 KB). When enabled, takes
+# precedence over USE_L20_HERO.  Defaults to OFF (opt-in) until the
+# auto-derived band metadata is validated against more dates.
+# Set USE_L22_ULTRA=1 to enable; the cover quality matches the
+# hand-curated scripts/upgrade_2026_05_to_ultra.py output.
+L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "0").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+
 
 def _render_l20_svg_string(post_info: Dict) -> str:
     """Render an L20 Hero+2-Card SVG and return its string contents.
@@ -242,6 +255,23 @@ def _render_l20_svg_string(post_info: Dict) -> str:
     except Exception as _exc:
         logging.warning(f"L20 SVG render failed, falling back: {_exc}")
         return ""
+
+
+def _render_l22_svg_string(post_info: Dict) -> str:
+    """Render an L22 ultra three-band SVG string.
+
+    Auto-derives 3 themed bands (red/amber/green) from the post's top
+    headlines via :mod:`scripts.news.l22_dispatch`. Returns ``""`` on
+    any failure so the publisher can fall back to L20 / legacy paths
+    without crashing.
+    """
+    try:
+        from scripts.news.l22_dispatch import render_l22_svg_string
+        return render_l22_svg_string(post_info)
+    except Exception as exc:
+        logging.debug(f"L22 dispatch import failed: {exc}")
+        return ""
+
 
 # ---------------------------------------------------------------------------
 # Module-level __setattr__ / __getattr__ to proxy mutable config state.
@@ -612,11 +642,14 @@ def main():
     for cat, items in categorized.items():
         print(f"   - {cat}: {len(items)} items")
 
-    # Generate SVG. The L20 Hero+2-Card cover is the new default for
-    # weekly-digest posts (mode == "security"); the existing
-    # generate_svg_image path remains for tech-blog mode and as the
-    # fallback when USE_L20_HERO=0/false/"" disables the new style.
-    if L20_HERO_ENABLED and args.mode == "security":
+    # Generate SVG. Dispatch order for weekly-digest posts (mode == "security"):
+    #   1. USE_L22_ULTRA=1 (opt-in)  → 67-70 KB three-band L22 ultra cover
+    #   2. USE_L20_HERO=1 (default)  → 19 KB L20 hero+2-card cover
+    #   3. fallback                  → legacy generate_svg_image
+    # L22 takes precedence when both flags are set; on render failure each
+    # tier degrades to the next so publishing is never blocked on cover
+    # generation.
+    if (L20_HERO_ENABLED or L22_ULTRA_ENABLED) and args.mode == "security":
         post_info_for_l20 = {
             "title": post_content.split("\n", 1)[0]
             if post_content.startswith("title:") else "",
@@ -633,7 +666,12 @@ def main():
             post_info_for_l20["title"] = m_title.group(1).strip()
         if m_excerpt:
             post_info_for_l20["excerpt"] = m_excerpt.group(1).strip()
-        svg_content = _render_l20_svg_string(post_info_for_l20)
+
+        svg_content = ""
+        if L22_ULTRA_ENABLED:
+            svg_content = _render_l22_svg_string(post_info_for_l20)
+        if not svg_content and L20_HERO_ENABLED:
+            svg_content = _render_l20_svg_string(post_info_for_l20)
         if not svg_content:
             # Hard fallback: never block publishing on cover failure.
             svg_content = generate_svg_image(now, categorized, selected)
