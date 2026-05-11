@@ -1,69 +1,76 @@
 date: '2026-01-26'
 slug: Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks
 sfx: JN26
-title: AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks
-aria: AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks
+title: '2026-01-26: Agentic AI Zero Trust, Chrome Tech Support Scam, Terraform Stacks'
+aria: HashiCorp Zero Trust for Agentic AI NHI management, Chrome Gemini Nano on-device
+  scam detection, Terraform Stacks native monorepo GA
 bands:
 - theme: red
-  label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  label: AGENTIC AI
+  headline: Zero Trust for NHI at Scale
+  metric: 'Vault dynamic creds : TTL 5 min'
+  detail: 'HashiCorp Zero Trust for agentic systems : NHI inventory + short-lived tokens
+    : T1078 Valid Accounts mitigated'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: NHI
+    label: IDENTITY
+    sub: agentic
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'NHI inventory + Vault dynamic cred rollout : SPIFFE workload identity'
+  detail_b: 'Audit static API keys : rotate to Vault : enforce 5-min TTL : SPIRE for
+    K8s workload attestation'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: NHI
+    label: SCOPE
+    sub: AI agents
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: VLT
+    label: VAULT
+    sub: dynamic
 - theme: amber
-  label: VULNERABILITY
-  headline: MITRE ATT&CK Mapping
-  metric: MITRE ATT&CK Mapping
-  detail: MITRE ATT&CK Mapping
+  label: SCAM DETECTION
+  headline: Chrome Gemini Nano Shield
+  metric: 'On-device LLM : real-time block'
+  detail: 'Google Chrome uses Gemini Nano on-device to detect tech support scam pages
+    : privacy-preserving : no cloud round-trip'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: AI
+    label: DETECT
+    sub: on-device
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Deploy latest Chrome : enable Enhanced Protection mode'
+  detail_b: 'Force Chrome update in enterprise MDM : enable Safe Browsing Enhanced
+    mode : alert on version drift'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: LLM
+    label: ENGINE
+    sub: Nano
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: CHR
+    label: CHROME
+    sub: scam
 - theme: green
-  label: DEFENSE
-  headline: 한국 영향 분석
-  metric: 한국 영향 분석
-  detail: 한국 영향 분석
+  label: IaC MONOREPO
+  headline: Terraform Stacks GA
+  metric: 'Native monorepo : dep graph'
+  detail: 'Terraform Stacks GA : automatic dependency ordering for multi-stack monorepos
+    : reduces manual target chaining'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: GA
+    label: RELEASE
+    sub: stacks
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Migrate stacks config : remove manual target dependencies'
+  detail_b: 'Upgrade to Terraform 1.10+ : adopt stacks layout : run tfsec on new stack
+    config : validate plan before apply'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: TF
+    label: TOOL
+    sub: stacks
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: IaC
+    label: SCOPE
+    sub: monorepo
