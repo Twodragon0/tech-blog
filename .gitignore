@@ -140,3 +140,6 @@ scripts/upgrade_2025_svgs_l25_single.failures
 _site_baseline/
 _site_migrated/
 _site_test/
+
+# Build/lint report artifacts
+reports/

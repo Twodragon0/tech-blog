@@ -5,10 +5,16 @@ on:
     paths:
       - 'assets/images/**.svg'
       - 'scripts/lint_svg_compliance.py'
+      - 'scripts/upgrade_digest_cover.py'
+      - 'scripts/lib/svg_l22_generator.py'
+      - '_data/digest_covers/**.yml'
   pull_request:
     paths:
       - 'assets/images/**.svg'
       - 'scripts/lint_svg_compliance.py'
+      - 'scripts/upgrade_digest_cover.py'
+      - 'scripts/lib/svg_l22_generator.py'
+      - '_data/digest_covers/**.yml'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -28,9 +34,16 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install PyYAML for digest-cover spec loader
+        run: python3 -m pip install --upgrade pip PyYAML
+
       - name: Run SVG compliance linter
         id: lint
         run: python3 scripts/lint_svg_compliance.py --report
+
+      - name: Digest cover drift check (YAML spec vs on-disk SVG)
+        id: digest_drift
+        run: python3 scripts/upgrade_digest_cover.py --all --check
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
