@@ -1,0 +1,55 @@
+# April Week 4 2026 Security Digest extended rollup — cover spec.
+# Source: _posts/2026-04-30-Week4_April_2026_Security_Digest.md
+#
+# Audit:
+#   - redirect_from has 11 entries (4/20..4/30). daily_count = 11.
+#   - daily_count_source: redirect_from.
+#   - weekly_rollup caps at 7 days; this post spans 11 days so kind = monthly_index.
+#   - Previously force-fit into digest_covers/ L22 3-band format — now corrected.
+date: '2026-04-30'
+slug: Week4_April_2026_Security_Digest
+kind: monthly_index
+period_label: 'April 20-30, 2026'
+period_short: W4 APR
+daily_count: 11
+daily_count_source: redirect_from
+sfx: W4AP
+title: '2026-04 Week 4 rollup: npm worm, DPRK supply chain, VECT 2.0 wiper'
+aria: |
+  April week 4 2026 extended rollup covering 11 daily security digests :
+  self-propagating npm worm, SAP npm credential theft and DPRK AI-injected
+  RAT supply chain wave, LofyGang 3-year npm campaign, VECT 2.0 wiper
+  ransomware ESXi Windows Linux cross-platform, FIRESTARTER backdoor US
+  defense software targets, SGLang CVE-2026-5760 critical SSRF LLM infra,
+  Stuxnet variant engineering software, SystemBC C2 analysis.
+top_highlights:
+  - severity: HIGH
+    label: NPM SUPPLY CHAIN
+    headline: 'SAP npm + DPRK AI Wave + Self-Prop Worm'
+    detail: 'SAP npm credential theft + DPRK AI-injected RAT + self-propagating npm worm + LofyGang : npm ecosystem siege'
+    source: npm Security / CheckPoint
+  - severity: HIGH
+    label: WIPER RANSOMWARE
+    headline: 'VECT 2.0 Destroys Files Above 131 KB'
+    detail: 'Cross-platform wiper ransomware : ESXi + Windows + Linux : crypto flaw : ransom recovery impossible'
+    source: ESET / Mandiant
+  - severity: HIGH
+    label: CRITICAL CVE
+    headline: 'SGLang SSRF CVE-2026-5760 LLM Infra'
+    detail: 'CVSS critical SSRF : attacker reaches internal network + cloud metadata : IMDSv2 bypass risk'
+    source: NVD / SGLang Security
+days:
+  - { date: '4/20', severity: MEDIUM, tag: 'Apple phishing + NIST policy' }
+  - { date: '4/21', severity: HIGH,   tag: 'SGLang SSRF + Lazarus KelpDAO' }
+  - { date: '4/22', severity: HIGH,   tag: 'SystemBC C2 + 22BRIDGE' }
+  - { date: '4/23', severity: HIGH,   tag: 'npm worm + KICS Docker' }
+  - { date: '4/24', severity: HIGH,   tag: 'UNC6692 + Bitwarden CVE' }
+  - { date: '4/25', severity: HIGH,   tag: 'FIRESTARTER + NASA attack' }
+  - { date: '4/26', severity: HIGH,   tag: 'Stuxnet variant + MS tools' }
+  - { date: '4/27', severity: MEDIUM, tag: 'AI agent + utility ICS' }
+  - { date: '4/28', severity: HIGH,   tag: 'Checkmarx + Robinhood phish' }
+  - { date: '4/29', severity: HIGH,   tag: 'LofyGang 3yr + VECT 2.0' }
+  - { date: '4/30', severity: HIGH,   tag: 'SAP npm + DPRK wave' }
+footer:
+  daily_digests: 11
+  categories: [security, devsecops]
