@@ -653,7 +653,7 @@ Stuxnet variant engineering software, SystemBC C2 analysis.">
   </g>
   <text x="50" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">SAP npm + DPRK AI Wave +</text>
   <text x="50" y="210" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Self-Prop Worm</text>
-  <text x="50" y="276" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">SAP npm credential theft + DPRK AI-injected RAT + self-propa</text>
+  <text x="50" y="262" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">SAP npm credential theft + DPRK AI-injected RAT + self-propa</text>
   <g transform="translate(50,278)">
     <circle cx="4" cy="-4" r="3" fill="#FCA5A5"/>
     <text x="14" y="0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FBB6BD" letter-spacing="0.6">npm Security / CheckPoint</text>
@@ -670,7 +670,7 @@ Stuxnet variant engineering software, SystemBC C2 analysis.">
   </g>
   <text x="438" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">VECT 2.0 Destroys Files</text>
   <text x="438" y="210" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">Above 131 KB</text>
-  <text x="438" y="276" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">Cross-platform wiper ransomware : ESXi + Windows + Linux : c</text>
+  <text x="438" y="262" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">Cross-platform wiper ransomware : ESXi + Windows + Linux : c</text>
   <g transform="translate(438,278)">
     <circle cx="4" cy="-4" r="3" fill="#FCA5A5"/>
     <text x="14" y="0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FBB6BD" letter-spacing="0.6">ESET / Mandiant</text>
@@ -687,7 +687,7 @@ Stuxnet variant engineering software, SystemBC C2 analysis.">
   </g>
   <text x="826" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">SGLang SSRF CVE-2026-5760</text>
   <text x="826" y="210" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">LLM Infra</text>
-  <text x="826" y="276" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">CVSS critical SSRF : attacker reaches internal network + clo</text>
+  <text x="826" y="262" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#D9C9CE">CVSS critical SSRF : attacker reaches internal network + clo</text>
   <g transform="translate(826,278)">
     <circle cx="4" cy="-4" r="3" fill="#FCA5A5"/>
     <text x="14" y="0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FBB6BD" letter-spacing="0.6">NVD / SGLang Security</text>
@@ -826,7 +826,7 @@ Stuxnet variant engineering software, SystemBC C2 analysis.">
   <rect x="524" y="490" width="232" height="96" rx="12" fill="none" stroke="#A78BFA" stroke-width="1" opacity="0.55"/>
   <rect x="538" y="506" width="32" height="3" rx="1.5" fill="#A78BFA"/>
   <text x="538" y="526" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#9DB4D6" letter-spacing="1.3">CATEGORIES</text>
-  <text x="538" y="562" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">SECURITY, DEVSECOPS</text>
+  <text x="538" y="558" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#F5F7FA">SECURITY, DEVSECOPS</text>
 </g>
 <g>
   <rect x="772" y="490" width="232" height="96" rx="12" fill="#0A1628" opacity="0.94"/>

@@ -144,6 +144,10 @@ def _highlight_card(idx: int, item: dict, sfx: str) -> str:
         line1 = headline[:26]
     headline_y2 = 162 if line2 else 156
 
+    # Clamp detail so it stays >= 16px above the source line (avoids overlap).
+    detail_y_offset = min(headline_y2 + 14, h - 22 - 16)
+    source_y_offset = h - 22
+
     # Sidebar severity strip on the left edge.
     return f'''<g>
   <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="url(#cardGrad{idx}{sfx})" opacity="0.96"/>
@@ -156,8 +160,8 @@ def _highlight_card(idx: int, item: dict, sfx: str) -> str:
   </g>
   <text x="{x + 22}" y="{y + 80}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(line1)}</text>
   {f'<text x="{x + 22}" y="{y + 110}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(line2)}</text>' if line2 else ''}
-  <text x="{x + 22}" y="{y + headline_y2 + 14}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="{detail_color}">{_esc(detail[:60])}</text>
-  <g transform="translate({x + 22},{y + h - 22})">
+  <text x="{x + 22}" y="{y + detail_y_offset}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="{detail_color}">{_esc(detail[:60])}</text>
+  <g transform="translate({x + 22},{y + source_y_offset})">
     <circle cx="4" cy="-4" r="3" fill="{soft}"/>
     <text x="14" y="0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{metric_color}" letter-spacing="0.6">{_esc(source)}</text>
   </g>
@@ -225,6 +229,21 @@ def _day_strip(days: List[dict], kind: str, sfx: str) -> str:
 </g>'''
 
 
+def _truncate_word_boundary(text: str, max_chars: int) -> str:
+    """Truncate comma-joined *text* at token boundary; append '...' if cut."""
+    if len(text) <= max_chars:
+        return text
+    parts = text.split(", ")
+    while parts:
+        candidate = ", ".join(parts)
+        if len(candidate) <= max_chars - 3:
+            return candidate + "..."
+        parts.pop()
+    token = text[:max_chars - 3]
+    sp = token.rfind(" ")
+    return (token[:sp] if sp > 0 else token) + "..."
+
+
 # ---------------------------------------------------------------------------
 # Primitive: footer stats (y=490..600)
 # ---------------------------------------------------------------------------
@@ -249,13 +268,14 @@ def _footer_stats(
         top_sev, top_sev_n = "MEDIUM", 0
     top_sev_theme = THEMES[SEVERITY_THEME.get(top_sev, "amber")]
 
-    cats = ", ".join((c or "").upper() for c in categories[:3]) if categories else "SECURITY"
+    all_cats = [(c or "").upper() for c in categories] if categories else ["SECURITY"]
+    cats = _truncate_word_boundary(", ".join(all_cats), max_chars=24)
 
     cards = [
-        ("DAILY DIGESTS", str(daily_count), "#60A5FA"),
-        ("PEAK SEVERITY", f"{top_sev} x{top_sev_n}", top_sev_theme["accent"]),
-        ("CATEGORIES",    cats[:22],                  "#A78BFA"),
-        ("PERIOD",        period_label[:22],          "#4ADE80"),
+        ("DAILY DIGESTS", str(daily_count),          "#60A5FA", 22),
+        ("PEAK SEVERITY", f"{top_sev} x{top_sev_n}", top_sev_theme["accent"], 22),
+        ("CATEGORIES",    cats,                       "#A78BFA", 14),
+        ("PERIOD",        period_label[:22],          "#4ADE80", 22),
     ]
 
     footer_x, footer_y = 28, 490
@@ -263,14 +283,15 @@ def _footer_stats(
     gap = 16
 
     parts: List[str] = []
-    for i, (label, value, accent) in enumerate(cards):
+    for i, (label, value, accent, val_size) in enumerate(cards):
         x = footer_x + i * (card_w + gap)
+        val_y = footer_y + 68 if val_size < 20 else footer_y + 72
         parts.append(f'''<g>
   <rect x="{x}" y="{footer_y}" width="{card_w}" height="{card_h}" rx="12" fill="#0A1628" opacity="0.94"/>
   <rect x="{x}" y="{footer_y}" width="{card_w}" height="{card_h}" rx="12" fill="none" stroke="{accent}" stroke-width="1" opacity="0.55"/>
   <rect x="{x + 14}" y="{footer_y + 16}" width="32" height="3" rx="1.5" fill="{accent}"/>
   <text x="{x + 14}" y="{footer_y + 36}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#9DB4D6" letter-spacing="1.3">{_esc(label)}</text>
-  <text x="{x + 14}" y="{footer_y + 72}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(value)}</text>
+  <text x="{x + 14}" y="{val_y}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{val_size}" font-weight="800" fill="#F5F7FA">{_esc(value)}</text>
 </g>''')
     return "\n".join(parts)
 

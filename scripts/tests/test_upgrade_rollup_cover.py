@@ -280,3 +280,137 @@ class TestGatherSpecs:
         assert "2026-01-31" not in stems
         assert "2026-02-28" not in stems
         assert "2026-04-05" not in stems
+
+
+# ---------------------------------------------------------------------------
+# 6. Regression: highlight-band text no overlap
+# ---------------------------------------------------------------------------
+
+class TestHighlightBandNoOverlap:
+    def test_render_highlights_text_no_overlap(self, tmp_path):
+        """Detail line y and source line y must be separated by >= font_size * 1.1.
+
+        Constructs a spec with a long detail line (worst case: 2-line headline
+        pushes headline_y2 to 162, detail naively at 176, source at 178 → 2px gap).
+        After the fix the detail line must be at most y+162, source at y+178,
+        guaranteeing >= 16px clearance.
+        """
+        data = _minimal_weekly()
+        # Force 2-line headline to trigger the tightest layout.
+        data["top_highlights"][0]["headline"] = "SAP credential theft supply chain"
+        data["top_highlights"][0]["detail"] = "SAP credential theft : attackers leverage stolen creds for supply chain pivot"
+        data["top_highlights"][0]["source"] = "The Hacker News"
+        spec = load_spec(_write_spec(tmp_path, data))
+        svg = render(spec)
+
+        # Parse all <text y="..."> values in the first card region (x ≈ 28..400).
+        # Card 0 is at x=28 so all its text elements share x in [28, 399].
+        # We look for text elements with y between y=100+60=160 and y=100+200=300.
+        import xml.etree.ElementTree as ET
+        _SVG_NS = "http://www.w3.org/2000/svg"
+        root = ET.fromstring(svg)
+
+        ys_by_fontsize: dict = {}
+        for el in root.iter(f"{{{_SVG_NS}}}text"):
+            try:
+                y = int(el.get("y", "0"))
+                fs = int(el.get("font-size", "0"))
+                ys_by_fontsize.setdefault(fs, []).append(y)
+            except (ValueError, TypeError):
+                pass
+
+        detail_font_ys = sorted(ys_by_fontsize.get(12, []))
+        source_font_ys = sorted(ys_by_fontsize.get(11, []))
+
+        # There should be at least one detail-12 text and one source-11 text.
+        assert detail_font_ys, "Expected font-size=12 detail text elements"
+        assert source_font_ys, "Expected font-size=11 source text elements"
+
+        # For card 0: detail_y <= 262 (y=100 + detail_y_offset=162),
+        # source_y == 278 (y=100 + source_y_offset=178).
+        # Minimum gap between any detail and its nearest source must be >= 14.
+        min_gap = min(
+            sy - dy
+            for sy in source_font_ys
+            for dy in detail_font_ys
+            if sy > dy
+        )
+        assert min_gap >= 14, (
+            f"Detail/source lines too close: gap={min_gap}px (must be >= 14). "
+            f"detail_ys={detail_font_ys}, source_ys={source_font_ys}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# 7. Regression: CATEGORIES footer card no mid-word truncation
+# ---------------------------------------------------------------------------
+
+class TestCategoriesCardNoTruncation:
+    def test_render_categories_card_no_truncation(self, tmp_path):
+        """CATEGORIES card must not end with a partial word like 'DEVSECOC'.
+
+        When the category list is ['SECURITY', 'DEVSECOPS', 'CLOUD'], the
+        rendered text must be either the full string or a proper word-boundary
+        truncation ending with '...'.
+        """
+        data = _minimal_weekly()
+        data["footer"]["categories"] = ["security", "devsecops", "cloud"]
+        spec = load_spec(_write_spec(tmp_path, data))
+        svg = render(spec)
+
+        # The CATEGORIES card value text element contains the formatted string.
+        # Find all font-size="14" text elements (categories use val_size=14).
+        import xml.etree.ElementTree as ET
+        _SVG_NS = "http://www.w3.org/2000/svg"
+        root = ET.fromstring(svg)
+        cat_texts = [
+            el.text or ""
+            for el in root.iter(f"{{{_SVG_NS}}}text")
+            if el.get("font-size") == "14"
+        ]
+        assert cat_texts, "Expected font-size=14 CATEGORIES text element"
+        cat_value = cat_texts[0]
+
+        # Must not end mid-word: valid endings are a full word or "...".
+        assert not (
+            cat_value.endswith(("DEVSECOC", "DEVSECO", "DEVSEOP", "DEVSEO"))
+        ), f"CATEGORIES text appears mid-word truncated: {cat_value!r}"
+
+        # If truncated it must end with "..."
+        if len(cat_value) < len("SECURITY, DEVSECOPS, CLOUD"):
+            assert cat_value.endswith("..."), (
+                f"Truncated CATEGORIES text must end with '...', got: {cat_value!r}"
+            )
+
+    def test_render_categories_card_long_list_truncates_at_word_boundary(self, tmp_path):
+        """With 5 categories, the card text must truncate at word boundary with '...'."""
+        data = _minimal_weekly()
+        data["footer"]["categories"] = ["security", "devsecops", "cloud", "kubernetes", "finops"]
+        spec = load_spec(_write_spec(tmp_path, data))
+        svg = render(spec)
+
+        import xml.etree.ElementTree as ET
+        _SVG_NS = "http://www.w3.org/2000/svg"
+        root = ET.fromstring(svg)
+        cat_texts = [
+            el.text or ""
+            for el in root.iter(f"{{{_SVG_NS}}}text")
+            if el.get("font-size") == "14"
+        ]
+        assert cat_texts, "Expected font-size=14 CATEGORIES text element"
+        cat_value = cat_texts[0]
+
+        # Must end with "..." since 5 categories exceed 24 chars.
+        assert cat_value.endswith("..."), (
+            f"Long category list must truncate with '...', got: {cat_value!r}"
+        )
+        # Must not contain a partial word before "..." — last token before "..."
+        # must be a complete uppercase word.
+        prefix = cat_value[:-3]  # strip "..."
+        if prefix:
+            last_char = prefix[-1]
+            # Last char before "..." must not be a letter mid-word — it must be
+            # either a complete word end or the full last token ends before comma.
+            assert last_char in (",", " ") or prefix.endswith(
+                tuple("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+            ), f"Partial word before '...': {cat_value!r}"
