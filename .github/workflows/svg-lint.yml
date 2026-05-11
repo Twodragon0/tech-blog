@@ -40,8 +40,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install PyYAML for digest-cover spec loader
-        run: python3 -m pip install --upgrade pip PyYAML
+      - name: Install PyYAML + qrcode for digest-cover spec loader
+        # qrcode is REQUIRED for byte-stable rendering: svg_l22_generator.gen_qr()
+        # silently returns "" when qrcode is missing, causing ~15 KB drift vs on-disk.
+        # See PR with this commit for the root-cause investigation.
+        run: python3 -m pip install --upgrade pip PyYAML "qrcode[pil]"
 
       - name: Run SVG compliance linter
         id: lint
